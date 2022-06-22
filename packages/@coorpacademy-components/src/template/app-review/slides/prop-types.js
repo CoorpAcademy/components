@@ -7,8 +7,8 @@ import ReviewBackground from '../../../atom/review-background';
 import ReviewHeader from '../../../organism/review-header';
 import Answer from '../../../molecule/answer';
 
-export default {
-  headerProps: PropTypes.shape(omit(['steps', ''], ReviewHeader.propTypes)),
+export const SlidesReviewPropTypes = {
+  headerProps: PropTypes.shape(omit('steps', ReviewHeader.propTypes)),
   reviewBackgroundAriaLabel: ReviewBackground.propTypes['aria-label'],
   validate: PropTypes.shape({
     label: PropTypes.string
@@ -17,10 +17,6 @@ export default {
   finishedSlides: PropTypes.instanceOf(Map),
   stepItems: PropTypes.instanceOf(Map),
   reviewStatus: PropTypes.oneOfType(['finished', 'ongoing']),
-  // .shape({
-  //   questionText: PropTypes.string,
-  //   answerUI: PropTypes.shape(Answer.propTypes)
-  // }),
   correctionPopinProps: PropTypes.shape({
     // ---------------
     klf: ReviewCorrectionPopin.propTypes.klf,
@@ -52,3 +48,23 @@ export default {
     })
   })
 };
+
+export const SlidePropTypes = {
+  slideNumber: PropTypes.number,
+  slides: SlidesReviewPropTypes.slides,
+  validate: SlidesReviewPropTypes.validate,
+  finishedSlides: SlidesReviewPropTypes.finishedSlides,
+  correctionPopinProps: SlidesReviewPropTypes.correctionPopinProps,
+  // ---------------
+  // Dispatchers
+  validateSlide: SlidesReviewPropTypes.validateSlide,
+  updateSlidesOnValidation: SlidesReviewPropTypes.updateSlidesOnValidation,
+  updateSlidesOnNext: SlidesReviewPropTypes.updateSlidesOnNext,
+  updateReviewStatus: SlidesReviewPropTypes.updateReviewStatus,
+  updateStepItemsOnValidation: SlidesReviewPropTypes.updateStepItemsOnValidation,
+  updateStepItemsOnNext: SlidesReviewPropTypes.updateStepItemsOnNext,
+  updateFinishedSlides: SlidesReviewPropTypes.updateFinishedSlides,
+  slideValidationResult: SlidesReviewPropTypes.slideValidationResult
+};
+
+export const StackedSlidesPropTypes = omit('slideNumber', SlidePropTypes);

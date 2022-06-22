@@ -15,9 +15,12 @@ const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> =
   next =>
   (action: Action) => {
     if (action.type === START_APP) {
-      const {token, slide} = action.payload;
-      dispatch(storeToken(token));
-      dispatch(storeFirstSlide(slide));
+      const {slide} = action.payload;
+      if (slide) {
+        const {token} = action.payload;
+        dispatch(storeToken(token));
+        dispatch(storeFirstSlide(slide));
+      }
 
       const initialView: ViewPath = slide ? VIEWS.slides : VIEWS.onboarding;
 

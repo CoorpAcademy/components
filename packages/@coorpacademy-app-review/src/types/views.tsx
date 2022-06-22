@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import {State as ReviewStatus} from '../reducers/review-status';
 import {ApiState} from './api';
 import {Dispatchers} from './dispatchers';
 import {FinishedSlides} from './finished-slides';
-import {ReviewStatus} from './review-status';
 import {Slides} from './slides';
 import {StepItems} from './step-items';
 

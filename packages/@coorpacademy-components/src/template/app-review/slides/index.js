@@ -11,7 +11,7 @@ import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
 import Answer from '../../../molecule/answer';
 import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
-import propTypes from './prop-types';
+import {SlidesReviewPropTypes, SlidePropTypes, StackedSlidesPropTypes} from './prop-types';
 
 const stylesByPosition = {
   0: style.position0,
@@ -35,7 +35,7 @@ const getSlideAnimation = (action, position, hidden) => {
   }
 };
 
-const buildSlide = (
+const Slide = ({
   slideNumber,
   slidesState,
   primarySkinColor,
@@ -50,13 +50,12 @@ const buildSlide = (
   updateFinishedSlides,
   slideValidationResult,
   correctionPopinProps = {}
-) => {
-  const {
-    /* slideNumber: validatedSlideNumber,*/
-    result,
-    exitNode,
-    nextSlide
-  } = slideValidationResult;
+}) => {
+  const result = get('result', slideValidationResult);
+  const exitNode = get('exitNode', slideValidationResult);
+  const nextSlide = get('nextSlide', slideValidationResult);
+  // const validatedSlideNumber = get('slideNumber', slideValidationResult);
+
   const {
     hidden,
     endReview,
@@ -218,6 +217,55 @@ const buildSlide = (
   );
 };
 
+Slide.propTypes = SlidePropTypes;
+
+const StackedSlides = ({
+  slides,
+  primarySkinColor,
+  validate,
+  validateSlide,
+  finishedSlides,
+  updateSlidesOnValidation,
+  updateSlidesOnNext,
+  updateReviewStatus,
+  updateStepItemsOnValidation,
+  updateStepItemsOnNext,
+  updateFinishedSlides,
+  slideValidationResult,
+  correctionPopinProps
+}) => {
+  const stackedSlides = [];
+  // eslint-disable-next-line fp/no-loops
+  for (let slideNumber = 0; slideNumber < TOTAL_SLIDES_STACK; slideNumber++) {
+    const slide = (
+      <Slide
+        {...{
+          slideNumber,
+          slides,
+          primarySkinColor,
+          validate,
+          validateSlide,
+          finishedSlides,
+          updateSlidesOnValidation,
+          updateSlidesOnNext,
+          updateReviewStatus,
+          updateStepItemsOnValidation,
+          updateStepItemsOnNext,
+          updateFinishedSlides,
+          slideValidationResult,
+          correctionPopinProps
+        }}
+        key={slideNumber}
+      />
+    );
+    stackedSlides.push(slide);
+  }
+
+  return stackedSlides;
+};
+
+StackedSlides.propTypes = StackedSlidesPropTypes;
+
 const SlidesReview = (
   {
     headerProps,
@@ -236,7 +284,7 @@ const SlidesReview = (
     updateStepItemsOnValidation,
     updateStepItemsOnNext,
     updateFinishedSlides,
-    slideValidationResult
+    slideValidationResult = {}
   },
   context
 ) => {
@@ -256,47 +304,6 @@ const SlidesReview = (
       setTimeout(() => updateShouldMountSlides(false), 2000);
     }
   }, [finishedSlides.size, reviewStatus, updateReviewStatus]);
-
-  // ||-------> build each slide, passing down the reducers that will act on validation & next clicks
-  const builtStackedSlides = useMemo(() => {
-    const StackedSlides = [];
-    // eslint-disable-next-line fp/no-loops
-    for (let slideNumber = 0; slideNumber < TOTAL_SLIDES_STACK; slideNumber++) {
-      StackedSlides.push(
-        buildSlide(
-          slideNumber,
-          slides,
-          primarySkinColor,
-          validate,
-          validateSlide,
-          finishedSlides,
-          updateSlidesOnValidation,
-          updateSlidesOnNext,
-          updateReviewStatus,
-          updateStepItemsOnValidation,
-          updateStepItemsOnNext,
-          updateFinishedSlides,
-          slideValidationResult,
-          correctionPopinProps
-        )
-      );
-    }
-
-    return StackedSlides;
-  }, [
-    slides,
-    primarySkinColor,
-    validate,
-    validateSlide,
-    finishedSlides,
-    updateSlidesOnValidation,
-    updateSlidesOnNext,
-    updateReviewStatus,
-    updateStepItemsOnValidation,
-    updateStepItemsOnNext,
-    updateFinishedSlides,
-    correctionPopinProps
-  ]);
 
   // ||-------> transform the step items state (Map structure) to an Array
   const stepItemsArray = useMemo(() => {
@@ -335,7 +342,23 @@ const SlidesReview = (
             data-name="stacked-slides-container"
             className={style.stackedSlidesContainer}
           >
-            {builtStackedSlides}
+            <StackedSlides
+              {...{
+                slides,
+                primarySkinColor,
+                validate,
+                validateSlide,
+                finishedSlides,
+                updateSlidesOnValidation,
+                updateSlidesOnNext,
+                updateReviewStatus,
+                updateStepItemsOnValidation,
+                updateStepItemsOnNext,
+                updateFinishedSlides,
+                slideValidationResult,
+                correctionPopinProps
+              }}
+            />
           </div>
         </div>
       ) : null}
@@ -349,6 +372,6 @@ const SlidesReview = (
   );
 };
 
-SlidesReview.propTypes = propTypes;
+SlidesReview.propTypes = SlidesReviewPropTypes;
 
 export default SlidesReview;

@@ -1,10 +1,9 @@
 import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../actions/review-status';
-import {ReviewStatus} from '../types/review-status';
 
 // -----------------------------------------------------------------------------
 
-export type State = ReviewStatus;
-export const initialState: ReviewStatus = 'ongoing';
+export type State = 'finished' | 'ongoing';
+export const initialState: State = 'ongoing';
 
 // -----------------------------------------------------------------------------
 
