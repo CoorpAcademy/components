@@ -1,7 +1,6 @@
 // @flow
 import test from 'ava';
 import {omit, pick, get} from 'lodash/fp';
-
 import updateState from '../update-state';
 import {getConfig} from '../config';
 import type {
@@ -14,14 +13,14 @@ import type {
   ExtraLifeRefusedAction
 } from '../types';
 import {
+  firstStateReview,
+  wrongAnswersAfterLastStepStateReview
+} from '../compute-next-step/test/fixtures/states';
+import {
   stateForFirstSlide,
   stateForSecondSlide,
   extraLifeProgressionState
 } from './fixtures/states';
-import {
-  firstStateReview,
-  wrongAnswersAfterLastStepStateReview
-} from '../compute-next-step/test/fixtures/states';
 
 const engine = {
   ref: 'microlearning',
