@@ -78,7 +78,7 @@ export const computeInitialStepForReview = (
   };
 
   if (isEmpty(availableContent)) return defaultSuccess;
-  const initialStep = computeNextStepForReview(config, null, availableContent);
+  const initialStep = computeNextStepForReview(config, null, availableContent, null);
   if (!initialStep) return defaultSuccess;
   const {instructions, nextContent} = initialStep;
 
@@ -114,6 +114,58 @@ export const computeNextStepAfterAnswer = (
   const stepResult = computeNextStep(config, state, availableContent, actionWithIsCorrect);
   if (!stepResult) {
     return null;
+  }
+
+  const {nextContent, instructions, isCorrect} = stepResult;
+  return {
+    type: 'answer',
+    payload: {
+      answer: action.payload.answer,
+      content: action.payload.content,
+      godMode: action.payload.godMode,
+      nextContent,
+      isCorrect,
+      instructions
+    }
+  };
+};
+
+export const computeNextStepAfterAnswerForReview = (
+  config: Config,
+  state: State,
+  availableContent: AvailableContent,
+  currentSlide: Slide,
+  action: PartialAnswerAction
+): AnswerAction | null => {
+  const answerIsCorrect =
+    action.payload.godMode || checkAnswer(config, currentSlide.question, action.payload.answer);
+
+  const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
+    type: 'answer',
+    payload: {
+      answer: action.payload.answer,
+      content: action.payload.content,
+      godMode: action.payload.godMode,
+      isCorrect: answerIsCorrect
+    }
+  };
+
+  const stepResult = computeNextStepForReview(config, state, availableContent, actionWithIsCorrect);
+  if (!stepResult) {
+    return {
+      type: 'answer',
+      payload: {
+        answer: action.payload.answer,
+        content: action.payload.content,
+        godMode: action.payload.godMode,
+        nextContent: {
+          type: 'success',
+          ref: 'successExitNode'
+        },
+        isCorrect: answerIsCorrect,
+        instructions: null
+      }
+    };
   }
 
   const {nextContent, instructions, isCorrect} = stepResult;

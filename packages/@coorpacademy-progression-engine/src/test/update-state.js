@@ -1,7 +1,6 @@
 // @flow
 import test from 'ava';
 import {omit, pick, get} from 'lodash/fp';
-
 import updateState from '../update-state';
 import {getConfig} from '../config';
 import type {
@@ -13,6 +12,10 @@ import type {
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction
 } from '../types';
+import {
+  firstStateReview,
+  wrongAnswersAfterLastStepStateReview
+} from '../compute-next-step/test/fixtures/states';
 import {
   stateForFirstSlide,
   stateForSecondSlide,
@@ -522,4 +525,145 @@ test('should update step when answering a question', t => {
   const newState = updateState(config, state, [action]);
   t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
   t.is(newState.hasViewedAResourceAtThisStep, false);
+});
+
+test('should update pendingSlides when answer is wrong', t => {
+  const configReview = getConfig({
+    ref: 'review',
+    version: '1'
+  });
+
+  const action: AnswerAction = Object.freeze({
+    type: 'answer',
+    payload: {
+      answer: ['foo'],
+      content: {
+        ref: '1.A1.1',
+        type: 'slide'
+      },
+      nextContent: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      isCorrect: false,
+      godMode: false,
+      instructions: null
+    }
+  });
+
+  const newState = updateState(configReview, firstStateReview, [action]);
+  t.deepEqual(newState, {
+    content: {
+      ref: '1.A1.1',
+      type: 'slide'
+    },
+    nextContent: {
+      ref: '1.A1.2',
+      type: 'slide'
+    },
+    lives: 0,
+    livesDisabled: true,
+    stars: 0,
+    slides: ['1.A1.1'],
+    requestedClues: [],
+    viewedResources: [],
+    step: {
+      current: 2
+    },
+    isCorrect: false,
+    remainingLifeRequests: 0,
+    hasViewedAResourceAtThisStep: false,
+    allAnswers: [
+      {
+        slideRef: '1.A1.1',
+        isCorrect: false,
+        answer: ['foo']
+      }
+    ],
+    variables: {},
+    pendingSlides: ['1.A1.1']
+  });
+});
+
+test('should update pendingSlides when a pending slide if finally correctly answeres', t => {
+  const configReview = getConfig({
+    ref: 'review',
+    version: '1'
+  });
+
+  const action: AnswerAction = Object.freeze({
+    type: 'answer',
+    payload: {
+      answer: ['foo'],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      nextContent: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      isCorrect: true,
+      godMode: false,
+      instructions: null
+    }
+  });
+
+  const newState = updateState(configReview, wrongAnswersAfterLastStepStateReview, [action]);
+  t.deepEqual(newState, {
+    content: {
+      ref: '1.A1.2',
+      type: 'slide'
+    },
+    nextContent: {
+      ref: '1.A1.4',
+      type: 'slide'
+    },
+    lives: 0,
+    livesDisabled: true,
+    stars: 24,
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '1.A1.5', '1.A1.2'],
+    requestedClues: [],
+    viewedResources: [],
+    step: {
+      current: 7
+    },
+    isCorrect: true,
+    remainingLifeRequests: 0,
+    hasViewedAResourceAtThisStep: false,
+    allAnswers: [
+      {
+        slideRef: '1.A1.1',
+        isCorrect: true,
+        answer: ['foo', 'bar']
+      },
+      {
+        slideRef: '1.A1.2',
+        isCorrect: false,
+        answer: ['foo']
+      },
+      {
+        slideRef: '1.A1.3',
+        isCorrect: true,
+        answer: ['foo']
+      },
+      {
+        slideRef: '1.A1.4',
+        isCorrect: false,
+        answer: ['foo']
+      },
+      {
+        slideRef: '1.A1.5',
+        isCorrect: true,
+        answer: ['foo']
+      },
+      {
+        slideRef: '1.A1.2',
+        isCorrect: true,
+        answer: ['foo']
+      }
+    ],
+    variables: {},
+    pendingSlides: ['1.A1.4']
+  });
 });

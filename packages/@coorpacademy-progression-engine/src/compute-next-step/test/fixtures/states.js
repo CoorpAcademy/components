@@ -23,7 +23,8 @@ export const stateBeforeGettingNextContent: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [{slideRef: '1.A1.1', isCorrect: true, answer: []}],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 export const stateBeforeAcceptExtraLife: State = {
   content: {
@@ -47,7 +48,8 @@ export const stateBeforeAcceptExtraLife: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [{slideRef: '1.A1.1', isCorrect: true, answer: []}],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const firstState: State = {
@@ -68,7 +70,8 @@ export const firstState: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const failProgressionState: State = {
@@ -93,7 +96,8 @@ export const failProgressionState: State = {
   remainingLifeRequests: 0,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const oneLifeLeftState: State = {
@@ -118,7 +122,8 @@ export const oneLifeLeftState: State = {
   remainingLifeRequests: 0,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const extraLifeProgressionState: State = {
@@ -144,7 +149,8 @@ export const extraLifeProgressionState: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: true,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const extraLifeState: State = {
@@ -170,7 +176,8 @@ export const extraLifeState: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: true,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const extraLifeAlreadyRefusedProgressionState: State = {
@@ -196,7 +203,8 @@ export const extraLifeAlreadyRefusedProgressionState: State = {
   remainingLifeRequests: 4,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const successProgressionState: State = {
@@ -221,7 +229,8 @@ export const successProgressionState: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 export const lastStepProgressionState: State = {
@@ -249,5 +258,215 @@ export const lastStepProgressionState: State = {
     {slideRef: '1.A1.1', isCorrect: true, answer: []},
     {slideRef: '1.A1.2', isCorrect: true, answer: []}
   ],
-  variables: {}
+  variables: {},
+  pendingSlides: []
+};
+
+export const firstStateReview: State = {
+  nextContent: {
+    ref: '1.A1.1',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 0,
+  slides: [],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 0
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [],
+  variables: {},
+  pendingSlides: []
+};
+
+export const allRightAnswersBeforeLastStepStateReview: State = {
+  nextContent: {
+    ref: '1.A1.5',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 32,
+  slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 5
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: true,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.3',
+      isCorrect: true,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.4',
+      isCorrect: true,
+      answer: ['foo']
+    }
+  ],
+  variables: {},
+  pendingSlides: []
+};
+
+export const wrongAnswersBeforeLastStepStateReview: State = {
+  nextContent: {
+    ref: '1.A1.5',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 16,
+  slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 5
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: false,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.3',
+      isCorrect: true,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.4',
+      isCorrect: false,
+      answer: ['foo']
+    }
+  ],
+  variables: {},
+  pendingSlides: ['1.A1.2', '1.A1.4']
+};
+
+export const wrongAnswersAfterLastStepStateReview: State = {
+  nextContent: {
+    ref: '1.A1.2',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 16,
+  slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '1.A1.5'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 5
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: false,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.3',
+      isCorrect: true,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.4',
+      isCorrect: false,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.5',
+      isCorrect: true,
+      answer: ['foo']
+    }
+  ],
+  variables: {},
+  pendingSlides: ['1.A1.2', '1.A1.4']
+};
+
+export const stillOneWrongAnswersAfterLastStepStateReview: State = {
+  nextContent: {
+    ref: '1.A1.4',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 32,
+  slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4', '1.A1.5', '1.A1.2'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 5
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: false,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.3',
+      isCorrect: true,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.4',
+      isCorrect: false,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.5',
+      isCorrect: true,
+      answer: ['foo']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: true,
+      answer: ['foo']
+    }
+  ],
+  variables: {},
+  pendingSlides: ['1.A1.4']
 };

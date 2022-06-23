@@ -4,6 +4,7 @@ import {update, map, pipe, reduce, isEmpty} from 'lodash/fp';
 
 import allAnswers from './reducers/all-answers';
 import content from './reducers/content';
+import pendingSlides from './reducers/pending-slides';
 import hasViewedAResourceAtThisStep from './reducers/has-viewed-a-resource-at-this-step';
 import isCorrect from './reducers/is-correct';
 import lives from './reducers/lives';
@@ -53,6 +54,7 @@ const reduceAction = combineReducers([
   {key: 'content', fn: content},
   {key: 'nextContent', fn: nextContent},
   {key: 'allAnswers', fn: allAnswers},
+  {key: 'pendingSlides', fn: pendingSlides},
   {fn: variables}
 ]);
 

@@ -12,6 +12,7 @@ import {
   sortBy,
   isEqual,
   isEmpty,
+  sample,
   shuffle,
   includes,
   findIndex,
@@ -360,11 +361,48 @@ export const computeNextStep = (
 export const computeNextStepForReview = (
   config: Config,
   _state: State | null,
-  availableContent: AvailableContent
+  availableContent: AvailableContent,
+  partialAction: PartialAction
 ): Result => {
+  const action = extendPartialAction(partialAction, _state);
+  const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
+  const state = !_state || !action ? _state : updateState(config, _state, [action]);
+
+  const correctAnswers = state ? filter(a => a.isCorrect, state.allAnswers) : [];
+  if (correctAnswers.length === config.slidesToComplete) {
+    return {
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      instructions: null,
+      isCorrect
+    };
+  }
+
   const nextSlide = get(['0', 'slides', '0'], availableContent);
-  if (!nextSlide) {
+  // state is null during creation, and we can have the extreme case of creation without slide
+  if (!state && !nextSlide) {
     return null;
+  }
+
+  // if there is no more slides, two scenarios are possible
+  if (state && !nextSlide) {
+    const pendingSlide = sample(state.pendingSlides);
+    // all other questions have been already right answered, so we close the progression
+    if (!pendingSlide) {
+      return null;
+    }
+
+    // or there are wrong question that should be reviewed again
+    return {
+      nextContent: {
+        type: 'slide',
+        ref: pendingSlide
+      },
+      instructions: null,
+      isCorrect
+    };
   }
 
   return {
@@ -373,6 +411,6 @@ export const computeNextStepForReview = (
       ref: nextSlide._id
     },
     instructions: null,
-    isCorrect: false
+    isCorrect
   };
 };

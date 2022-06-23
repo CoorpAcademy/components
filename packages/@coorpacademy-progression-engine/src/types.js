@@ -121,7 +121,8 @@ export type GenericState = {|
   remainingLifeRequests: number,
   hasViewedAResourceAtThisStep: boolean,
   allAnswers: Array<AnswerRecord>,
-  variables: Variables
+  variables: Variables,
+  pendingSlides: Array<string>
 |};
 
 export type State = {
