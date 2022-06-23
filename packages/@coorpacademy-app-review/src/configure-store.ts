@@ -16,8 +16,8 @@ export default async function configureStore(): Promise<
     dispatch: {};
   }
 > {
-  const isExtensionEnabled = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__;
-  const isProd = process.env.NODE_ENV !== 'production';
+  const isExtensionEnabled = typeof window !== 'undefined' && !!window.__REDUX_DEVTOOLS_EXTENSION__;
+  const isProd = process.env.NODE_ENV === 'production';
 
   const {composeWithDevTools} = isProd
     ? {composeWithDevTools: null}
