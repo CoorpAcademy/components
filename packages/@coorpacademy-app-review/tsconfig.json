@@ -20,5 +20,5 @@
     "allowSyntheticDefaultImports": true,
     "downlevelIteration": true,
     "target": "es2020"
-  },
+  }
 }

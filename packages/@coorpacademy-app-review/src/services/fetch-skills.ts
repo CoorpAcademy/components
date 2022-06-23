@@ -1,13 +1,17 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
-import {Fetch, toJSON} from './tools/fetch-responses';
 
 import {JWT} from '../types/common';
 import {Skills} from '../types/skills';
+import {toJSON} from './tools/fetch-responses';
 
 // -----------------------------------------------------------------------------
 
-const fetchSkills = (fetch: Fetch) => async (token, userId): Promise<Skills> => {
+export type FetchSkills = (
+  fetch: typeof crossFetch
+) => (token: string, userId: string) => Promise<Skills>;
+
+const fetchSkills: FetchSkills = fetch => async (token, userId) => {
   const jwt: JWT = decode(token);
   const response = await fetch(`${jwt.host}/api/v2/skills/review/user/${userId}`, {
     headers: {authorization: token}
