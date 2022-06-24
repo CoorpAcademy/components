@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Text} from 'react-native';
 
 export type Props = {plop: string};
 
-const DemoTs = ({plop}: Props) => <View> demo mobile: {plop}</View>;
+const DemoTs = ({plop}: Props) => <Text> demo mobile: {plop}</Text>;
 
 export default DemoTs;
