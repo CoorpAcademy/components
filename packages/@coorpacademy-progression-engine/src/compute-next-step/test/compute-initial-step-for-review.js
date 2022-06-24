@@ -29,10 +29,10 @@ test('should return successExitNode if availableContent is empty', t => {
   });
 });
 
-
-test.only('should throw error if there are no slides in availableContent', t => {
+test('should throw error if there are no slides in availableContent', t => {
   t.throws(() => computeInitialStepForReview(config, [{ref: '1.A1', slides: [], rules: null}]), {
-    message: 'no slide in availableContent'})
+    message: 'no slide in availableContent'
+  });
 });
 
 test('should create an initial action from the availableContent', t => {
