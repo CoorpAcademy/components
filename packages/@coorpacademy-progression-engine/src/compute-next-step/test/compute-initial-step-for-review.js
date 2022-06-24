@@ -29,20 +29,9 @@ test('should return successExitNode if availableContent is empty', t => {
   });
 });
 
-test('should return a success exitNode if there are no slides in all chapters', t => {
-  const action = computeInitialStepForReview(config, [{ref: '1.A1', slides: [], rules: null}]);
-  if (!action) {
-    throw new Error('action should not be falsy');
-  }
-  t.deepEqual(action, {
-    type: 'move',
-    payload: {
-      instructions: null,
-      nextContent: {
-        type: 'success',
-        ref: 'successExitNode'
-      }
-    }
+test('should throw error if there are no slides in availableContent', t => {
+  t.throws(() => computeInitialStepForReview(config, [{ref: '1.A1', slides: [], rules: null}]), {
+    message: 'no slide in availableContent'
   });
 });
 

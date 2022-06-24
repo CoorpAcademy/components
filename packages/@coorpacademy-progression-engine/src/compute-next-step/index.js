@@ -79,7 +79,7 @@ export const computeInitialStepForReview = (
 
   if (isEmpty(availableContent)) return defaultSuccess;
   const initialStep = computeNextStepForReview(config, null, availableContent, null);
-  if (!initialStep) return defaultSuccess;
+  if (!initialStep) throw new Error('no slide in availableContent');
   const {instructions, nextContent} = initialStep;
 
   return {
