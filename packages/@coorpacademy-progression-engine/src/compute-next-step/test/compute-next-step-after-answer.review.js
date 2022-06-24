@@ -165,7 +165,7 @@ test('should return the first pending slide when user has finished the 5 slides,
         type: 'slide'
       },
       answer: ['foo', 'bar'],
-      godMode: false
+      godMode: true
     }
   };
 
@@ -193,12 +193,12 @@ test('should return the first pending slide when user has finished the 5 slides,
         ref: '1.A1.5',
         type: 'slide'
       },
-      godMode: false,
+      godMode: true,
       nextContent: {
         type: 'slide',
         ref: '1.A1.2'
       },
-      isCorrect: false,
+      isCorrect: true,
       instructions: null
     }
   });

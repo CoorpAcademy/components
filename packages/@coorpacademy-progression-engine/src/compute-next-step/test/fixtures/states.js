@@ -362,12 +362,12 @@ export const wrongAnswersBeforeLastStepStateReview: State = {
     },
     {
       slideRef: '1.A1.4',
-      isCorrect: false,
+      isCorrect: true,
       answer: ['foo']
     }
   ],
   variables: {},
-  pendingSlides: ['1.A1.2', '1.A1.4']
+  pendingSlides: ['1.A1.2']
 };
 
 export const wrongAnswersAfterLastStepStateReview: State = {
