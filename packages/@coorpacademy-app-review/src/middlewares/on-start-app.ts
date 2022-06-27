@@ -15,6 +15,8 @@ const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> =
   next =>
   (action: Action) => {
     if (action.type === START_APP) {
+      // eslint-disable-next-line no-warning-comments
+      // TODO: fetchProgression + fetchSlide à partir de la progression passée dans les options de l'app
       const {slide} = action.payload;
       if (slide) {
         const {token} = action.payload;
