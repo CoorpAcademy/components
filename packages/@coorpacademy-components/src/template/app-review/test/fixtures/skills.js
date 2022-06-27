@@ -3,7 +3,7 @@ import {ViewNames} from '../../prop-types';
 
 export default {
   props: {
-    onboarding: skills.props,
+    skills: skills.props,
     viewName: ViewNames.skills
   }
 };
