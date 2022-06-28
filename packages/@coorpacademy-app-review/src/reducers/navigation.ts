@@ -29,7 +29,7 @@ const reducer = (state: State = initialState, action: NavigateTo | NavigateBack)
 // -----------------------------------------------------------------------------
 
 export const getCurrentViewName = (appState: StoreState): ViewPath =>
-  appState.navigation[appState.navigation.length - 1];
+  appState.ui.navigation[appState.ui.navigation.length - 1];
 
 // -----------------------------------------------------------------------------
 

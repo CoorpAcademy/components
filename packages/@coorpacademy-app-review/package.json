@@ -17,6 +17,7 @@
     "clean:commonjs": "rm -rf lib",
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
+    "typecheck": "tsc --noEmit",
     "test:unit": "ava",
     "lint": "eslint '**/*' --cache --ext .js --ext .jsx --ext .ts --ext .tsx --ext .json",
     "lint:fix": "npm run lint -- --fix",

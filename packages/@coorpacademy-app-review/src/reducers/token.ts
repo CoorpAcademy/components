@@ -22,7 +22,7 @@ const reducer = (state: State = initialState, action: StoreToken): State => {
 
 // -----------------------------------------------------------------------------
 
-export const getToken = (appState: StoreState): StoreState['token'] => appState.token;
+export const getToken = (appState: StoreState): StoreState['data']['token'] => appState.data.token;
 
 // -----------------------------------------------------------------------------
 

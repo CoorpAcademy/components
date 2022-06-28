@@ -9,13 +9,21 @@ import slides from './slides';
 import stepItems from './step-items';
 import token from './token';
 
-export default combineReducers({
-  api,
+const ui = combineReducers({
   courses,
   finishedSlides,
   navigation,
   reviewStatus,
   slides,
-  stepItems,
+  stepItems
+});
+
+const data = combineReducers({
+  api,
   token
+});
+
+export default combineReducers({
+  ui,
+  data
 });

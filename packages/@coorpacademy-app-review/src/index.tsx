@@ -51,16 +51,16 @@ const mapStateToProps = (state: StoreState): StaticProps => {
         'aria-label': 'aria-header-wrapper',
         closeButtonAriaLabel: 'aria-close-button'
       },
-      slides: state.slides,
+      slides: state.ui.slides,
       validate: {
         label: '__validate'
       },
-      finishedSlides: state.finishedSlides,
-      stepItems: state.stepItems,
-      reviewStatus: state.reviewStatus,
+      finishedSlides: state.ui.finishedSlides,
+      stepItems: state.ui.stepItems,
+      reviewStatus: state.ui.reviewStatus,
       correctionPopinProps,
       congratsProps,
-      slideValidationResult: state.api.entities.slideValidationResult
+      slideValidationResult: state.data.api.entities.slideValidationResult
     }
   };
 };

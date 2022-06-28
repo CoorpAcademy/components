@@ -9,12 +9,16 @@ import {
 } from './states';
 
 export type StoreState = {
-  courses: unknown;
-  navigation: NavigationState;
-  slides: SlidesState;
-  stepItems: StepItemsState;
-  finishedSlides: FinishedSlidesState;
-  reviewStatus: ReviewStatusState;
-  token: TokenState;
-  api: ApiState;
+  ui: {
+    courses: unknown;
+    navigation: NavigationState;
+    slides: SlidesState;
+    stepItems: StepItemsState;
+    finishedSlides: FinishedSlidesState;
+    reviewStatus: ReviewStatusState;
+  };
+  data: {
+    token: TokenState;
+    api: ApiState;
+  };
 };
