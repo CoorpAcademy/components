@@ -1,7 +1,7 @@
 import forEach from 'lodash/fp/forEach';
-import {UpdateFinishedSlides, UPDATE_FINISHED_SLIDES} from '../actions/finished-slides';
-import {slideNumbers} from '../common';
-import {FinishedSlides} from '../types/finished-slides';
+import {UpdateFinishedSlides, UPDATE_FINISHED_SLIDES} from '../../actions/ui/finished-slides';
+import {slideNumbers} from '../../common';
+import {FinishedSlides} from '../../types/finished-slides';
 
 const _forEach: <T>(
   iteratee: (value: T[keyof T], index: number) => void,

@@ -1,17 +1,17 @@
-import {ReceivedCourse, RECEIVED_COURSE} from '../actions/courses';
+import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../../actions/ui/review-status';
 
 // -----------------------------------------------------------------------------
 
-export type State = Array<unknown>;
-export const initialState: State = [];
+export type State = 'finished' | 'ongoing';
+export const initialState: State = 'ongoing';
 
 // -----------------------------------------------------------------------------
 
 // eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: ReceivedCourse): State => {
+const reducer = (state: State = initialState, action: UpdateReviewStatus): State => {
   switch (action.type) {
-    case RECEIVED_COURSE: {
-      return [...state, action.payload];
+    case UPDATE_REVIEW_STATUS: {
+      return action.payload;
     }
     default:
       return state;

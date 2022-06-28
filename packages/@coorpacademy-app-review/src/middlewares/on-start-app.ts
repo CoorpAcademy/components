@@ -6,10 +6,10 @@ import decode from 'jwt-decode';
 import {VIEWS} from '../common';
 
 import {Action} from '../actions';
-import {navigateTo, START_APP, ViewPath} from '../actions/navigation';
-import {storeToken} from '../actions/token';
-import {receivedSkills} from '../actions/skills';
-import {storeFirstSlide} from '../actions/slides';
+import {storeToken} from '../actions/data/token';
+import {receivedSkills} from '../actions/data/skills';
+import {storeFirstSlide} from '../actions/data/slides';
+import {navigateTo, START_APP, ViewPath} from '../actions/ui/navigation';
 import fetchSkills from '../services/fetch-skills';
 
 import {JWT} from '../types/common';

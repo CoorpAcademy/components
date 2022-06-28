@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {State as ReviewStatus} from '../reducers/review-status';
+import {State as ReviewStatus} from '../reducers/ui/review-status';
 import {DataState} from './data';
 import {Dispatchers} from './dispatchers';
 import {FinishedSlides} from './finished-slides';

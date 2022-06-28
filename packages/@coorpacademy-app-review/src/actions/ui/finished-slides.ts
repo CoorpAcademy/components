@@ -1,4 +1,4 @@
-import {UpdateFinishedSlidesPayload} from '../types/finished-slides';
+import {UpdateFinishedSlidesPayload} from '../../types/finished-slides';
 
 // -----------------------------------------------------------------------------
 

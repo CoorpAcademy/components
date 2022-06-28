@@ -1,8 +1,8 @@
 import {validateSlide} from '../actions/data/validate-slide';
-import {updateFinishedSlides} from '../actions/finished-slides';
+import {updateFinishedSlides} from '../actions/ui/finished-slides';
 import {navigateBack, navigateTo} from '../actions/navigation';
 import {updateReviewStatus} from '../actions/review-status';
-import {updateSlidesOnValidation, updateSlidesOnNext} from '../actions/slides';
+import {updateSlidesOnValidation, updateSlidesOnNext} from '../actions/data/slides';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from '../actions/step-items';
 
 export type Dispatchers = {

@@ -6,11 +6,11 @@ import {
   StepItemsAction,
   UPDATE_STEP_ITEMS_ON_NEXT,
   UPDATE_STEP_ITEMS_ON_VALIDATION
-} from '../actions/step-items';
-import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../common';
-import {SlideNumber} from '../types/slides';
-import {FinishedSlides} from '../types/finished-slides';
-import {StepItem, StepItems} from '../types/step-items';
+} from '../../actions/ui/step-items';
+import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
+import {SlideNumber} from '../../types/slides';
+import {FinishedSlides} from '../../types/finished-slides';
+import {StepItem, StepItems} from '../../types/step-items';
 
 // -----------------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ type StepItemToUpdateProps =
 
 const recalculateStepItemsState = (
   state: State,
-  stepNumber,
+  stepNumber: number,
   stepItemToUpdateProps: StepItemToUpdateProps
 ): State => {
   const nextIndex: number | null = get('nextIndex', stepItemToUpdateProps);

@@ -1,18 +1,19 @@
-import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../actions/review-status';
+import {StoreToken, STORE_TOKEN} from '../../actions/data/token';
 
 // -----------------------------------------------------------------------------
 
-export type State = 'finished' | 'ongoing';
-export const initialState: State = 'ongoing';
+export type State = string | null;
 
 // -----------------------------------------------------------------------------
 
-// eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: UpdateReviewStatus): State => {
+export const initialState: State = null;
+
+// -----------------------------------------------------------------------------
+
+const reducer = (state: State = initialState, action: StoreToken): State => {
   switch (action.type) {
-    case UPDATE_REVIEW_STATUS: {
+    case STORE_TOKEN:
       return action.payload;
-    }
     default:
       return state;
   }

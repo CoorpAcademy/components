@@ -1,4 +1,4 @@
-import {Skills} from '../types/skills';
+import {Skills} from '../../types/skills';
 
 export const RECEIVED_SKILLS = '@@api/RECEIVED_SKILLS';
 

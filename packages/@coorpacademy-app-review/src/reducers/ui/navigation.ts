@@ -1,7 +1,13 @@
-import {NAVIGATE_BACK, NAVIGATE_TO, ViewPath} from '../actions/navigation';
-import type {NavigateTo, NavigateBack} from '../actions/navigation';
-import {StoreState} from '../types/store-state';
-import {NavigationState as State} from '../types/states';
+import {
+  type NavigateTo,
+  type NavigateBack,
+  NAVIGATE_BACK,
+  NAVIGATE_TO,
+  ViewPath
+} from '../../actions/ui/navigation';
+
+import {StoreState} from '../../types/store-state';
+import {NavigationState as State} from '../../types/states';
 
 // -----------------------------------------------------------------------------
 

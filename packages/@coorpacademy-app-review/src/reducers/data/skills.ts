@@ -1,5 +1,5 @@
-import {ReceivedSkills, RECEIVED_SKILLS} from '../actions/skills';
-import {Skills} from '../types/skills';
+import {ReceivedSkills, RECEIVED_SKILLS} from '../../actions/data/skills';
+import {Skills} from '../../types/skills';
 
 export type State = Skills;
 export const initialState: State = [];

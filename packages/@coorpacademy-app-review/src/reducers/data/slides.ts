@@ -1,17 +1,19 @@
+import {getOr, noop, set} from 'lodash/fp';
 import map from 'lodash/fp/map';
 import {
   SlidesAction,
   STORE_FIRST_SLIDE,
   UPDATE_SLIDES_ON_NEXT,
-  UPDATE_SLIDES_ON_VALIDATION
-} from '../actions/slides';
-import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../common';
+  UPDATE_SLIDES_ON_VALIDATION,
+  VALIDATE_SLIDE
+} from '../../actions/data/slides';
+import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 import {
   Slide,
   Slides,
   UpdateSlidesOnNextPayload,
   UpdateSlidesOnValidationPayload
-} from '../types/slides';
+} from '../../types/slides';
 
 // -----------------------------------------------------------------------------
 
@@ -32,7 +34,7 @@ export const initialState: State = getInitialState();
 
 // -----------------------------------------------------------------------------
 
-const setFirstSlide = (state, slide: Slide): State => {
+const setFirstSlide = (state: State, slide: Slide): State => {
   const _state: State = {
     slideNumbers
   };
@@ -125,6 +127,57 @@ const reducer = (state: State = initialState, action: SlidesAction): State => {
     }
     case UPDATE_SLIDES_ON_NEXT: {
       return stateUpdateOnNext(state, action.payload);
+    }
+    case VALIDATE_SLIDE: {
+      const previousSlideNumber: number = getOr(-1, 'slideValidationResult.slideNumber', state);
+      // hard coded for now
+      return set(
+        'slideValidationResult',
+        {
+          slideNumber: previousSlideNumber + 1,
+          result: 'success',
+          // exitNode
+          nextSlide: {
+            questionText: 'Test',
+            answerUI: {
+              model: {
+                answers: [
+                  {
+                    title: 'There is no need for a password',
+                    onClick: noop,
+                    selected: false
+                  },
+                  {
+                    title: 'Lorem ipsum',
+                    onClick: noop,
+                    selected: false
+                  },
+                  {
+                    title: 'Lorem',
+                    onClick: noop,
+                    selected: true,
+                    order: 1
+                  },
+                  {
+                    title: 'You need to have a password',
+                    onClick: noop,
+                    selected: false
+                  },
+                  {
+                    title: 'Pouet',
+                    onClick: noop,
+                    selected: true,
+                    order: 0
+                  }
+                ],
+                type: 'qcmDrag'
+              },
+              help: 'Help text will appear here'
+            }
+          }
+        },
+        state
+      );
     }
     default:
       return state;

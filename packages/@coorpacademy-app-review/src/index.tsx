@@ -3,19 +3,21 @@ import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
 import configureStore from './configure-store';
-import {navigateTo, navigateBack, startApp} from './actions/navigation';
-import {updateSlidesOnNext, updateSlidesOnValidation} from './actions/slides';
-import {getCurrentViewName} from './reducers/navigation';
-import type {SlidesViewStaticProps} from './types/views';
-import type {AppOptions} from './types/common';
-import type {StoreState} from './types/store-state';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
-import {updateFinishedSlides} from './actions/finished-slides';
-import {updateReviewStatus} from './actions/review-status';
-import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/step-items';
+
+import type {AppOptions} from './types/common';
 import type {Dispatchers} from './types/dispatchers';
-import {validateSlide} from './actions/data/validate-slide';
 import {SkillsProps} from './types/views/skills';
+import type {StoreState} from './types/store-state';
+import type {SlidesViewStaticProps} from './types/views';
+
+import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
+import {navigateTo, navigateBack, startApp} from './actions/ui/navigation';
+import {updateFinishedSlides} from './actions/ui/finished-slides';
+import {updateReviewStatus} from './actions/ui/review-status';
+import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
+
+import {getCurrentViewName} from './reducers/ui/navigation';
 
 // -----------------------------------------------------------------------------
 

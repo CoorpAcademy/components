@@ -1,10 +1,15 @@
-import {Slide, UpdateSlidesOnNextPayload, UpdateSlidesOnValidationPayload} from '../types/slides';
+import {
+  Slide,
+  UpdateSlidesOnNextPayload,
+  UpdateSlidesOnValidationPayload
+} from '../../types/slides';
 
 // -----------------------------------------------------------------------------
 
 export const STORE_FIRST_SLIDE = '@@slide/STORE_FIRST_SLIDE';
 export const UPDATE_SLIDES_ON_VALIDATION = '@@slide/UPDATE_SLIDES_ON_VALIDATION';
 export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
+export const VALIDATE_SLIDE = '@@slide/VALIDATE';
 
 // -----------------------------------------------------------------------------
 
@@ -23,7 +28,15 @@ export type UpdateSlidesOnNext = {
   payload: UpdateSlidesOnNextPayload;
 };
 
-export type SlidesAction = StoreFirstSlide | UpdateSlidesOnValidation | UpdateSlidesOnNext;
+export type ValidateSlide = {
+  type: typeof VALIDATE_SLIDE;
+};
+
+export type SlidesAction =
+  | StoreFirstSlide
+  | UpdateSlidesOnValidation
+  | UpdateSlidesOnNext
+  | ValidateSlide;
 
 // -----------------------------------------------------------------------------
 
@@ -42,4 +55,8 @@ export const updateSlidesOnValidation = (
 export const updateSlidesOnNext = (payload: UpdateSlidesOnNextPayload): UpdateSlidesOnNext => ({
   type: UPDATE_SLIDES_ON_NEXT,
   payload
+});
+
+export const validateSlide = (): ValidateSlide => ({
+  type: VALIDATE_SLIDE
 });
