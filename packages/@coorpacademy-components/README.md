@@ -160,6 +160,11 @@ Build modifications:
 [@coorpacademy-components] > npm run build:es
 ```
 
+
+## Use in mobile app
+Run `npm run build:watch``
+For more info see the mobile documentaion (`docs/local-sync.md`)
+
 ## Troubleshooting
 
 Error when trying to launch the storybook:
