@@ -6,6 +6,7 @@ import {computeNextStepAfterAnswerForReview} from '..';
 import allSlides from './fixtures/slides';
 import {
   firstStateReview,
+  secondStateReview,
   allRightAnswersBeforeLastStepStateReview,
   wrongAnswersBeforeLastStepStateReview,
   wrongAnswersAfterLastStepStateReview,
@@ -30,7 +31,7 @@ test('should return the next slide when user has answered the first slide and th
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: [allSlides[1]],
+      slides: allSlides,
       rules: null
     }
   ];
@@ -53,6 +54,53 @@ test('should return the next slide when user has answered the first slide and th
       godMode: false,
       nextContent: {
         ref: '1.A1.2',
+        type: 'slide'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});
+
+test('should return the next slide when user has answered the second slide and there is an available slide', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: true
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: allSlides,
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    secondStateReview,
+    availableContent,
+    allSlides[1],
+    partialAction
+  );
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: true,
+      nextContent: {
+        ref: '1.A1.3',
         type: 'slide'
       },
       isCorrect: true,
@@ -172,7 +220,7 @@ test('should return the first pending slide when user has finished the 5 slides,
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: [],
+      slides: allSlides,
       rules: null
     }
   ];
@@ -316,7 +364,7 @@ test('should return the successExitNode when user has finished the 5 slides afte
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: [],
+      slides: allSlides,
       rules: null
     }
   ];

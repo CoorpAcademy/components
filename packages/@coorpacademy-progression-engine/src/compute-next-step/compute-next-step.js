@@ -16,7 +16,8 @@ import {
   shuffle,
   includes,
   findIndex,
-  intersection
+  intersection,
+  toString as _toString
 } from 'lodash/fp';
 
 import type {
@@ -358,6 +359,21 @@ export const computeNextStep = (
   return null;
 };
 
+const getNextSlide = (
+  config: Config,
+  state: State | null,
+  availableContent: AvailableContent
+): Slide | null => {
+  if (!state) return get(['0', 'slides', '0'], availableContent);
+
+  const current = get('step.current', state) - 1;
+  if (current < config.slidesToComplete) {
+    return get(['0', 'slides', `${current}`], availableContent);
+  }
+
+  return null;
+};
+
 export const computeNextStepForReview = (
   config: Config,
   _state: State | null,
@@ -380,29 +396,29 @@ export const computeNextStepForReview = (
     };
   }
 
-  const nextSlide = get(['0', 'slides', '0'], availableContent);
-  // state is null during creation, and we can have the extreme case of creation without slide
-  if (!state && !nextSlide) {
-    return null;
-  }
-
-  // if there is no more slides, two scenarios are possible
-  if (state && !nextSlide) {
-    const pendingSlide = sample(state.pendingSlides);
-    // all other questions have been already right answered, so we close the progression
-    if (!pendingSlide) {
+  const nextSlide = getNextSlide(config, state, availableContent);
+  if (!nextSlide) {
+    // state is null during creation, and we can have the extreme case of creation without slide
+    if (!state) {
       return null;
-    }
+    } else {
+      // if there is no more slides, two scenarios are possible
+      const pendingSlide = sample(state.pendingSlides);
+      // all other questions have been already right answered, so we close the progression
+      if (!pendingSlide) {
+        return null;
+      }
 
-    // or there are wrong question that should be reviewed again
-    return {
-      nextContent: {
-        type: 'slide',
-        ref: pendingSlide
-      },
-      instructions: null,
-      isCorrect
-    };
+      // or there are wrong question that should be reviewed again
+      return {
+        nextContent: {
+          type: 'slide',
+          ref: pendingSlide
+        },
+        instructions: null,
+        isCorrect
+      };
+    }
   }
 
   return {

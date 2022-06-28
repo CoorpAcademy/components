@@ -284,6 +284,34 @@ export const firstStateReview: State = {
   pendingSlides: []
 };
 
+export const secondStateReview: State = {
+  nextContent: {
+    ref: '1.A1.2',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 8,
+  slides: ['1.A1.1'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 2
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    }
+  ],
+  variables: {},
+  pendingSlides: []
+};
+
 export const allRightAnswersBeforeLastStepStateReview: State = {
   nextContent: {
     ref: '1.A1.5',
