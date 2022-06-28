@@ -57,6 +57,7 @@ const mapStateToSkillsProps = (state: StoreState): SkillsProps => ({
     buttonAriaLabel: '@todo button aria label',
     reviseLabel: '@todo revise',
     reviseAriaLabel: '@todo revise aria label',
+    // eslint-disable-next-line no-console
     onClick: () => console.log('@todo plug dispatcher select skill')
   }))
 });

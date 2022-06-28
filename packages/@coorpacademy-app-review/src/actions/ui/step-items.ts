@@ -1,7 +1,7 @@
 import {
   UpdateStepItemsOnNextClickPayload,
   UpdateStepItemsOnValidationClickPayload
-} from '../types/step-items';
+} from '../../types/step-items';
 
 // -----------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-import {AnyAction, applyMiddleware, compose, createStore, EmptyObject, Store} from 'redux';
+import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
@@ -8,7 +8,7 @@ import {StoreState} from './types/store-state';
 
 // -----------------------------------------------------------------------------
 
-export default function configureStore(): Store<EmptyObject & StoreState, AnyAction> & {
+export default function configureStore(): Store<StoreState, AnyAction> & {
   dispatch: {};
 } {
   const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

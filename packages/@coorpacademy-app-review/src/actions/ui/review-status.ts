@@ -1,4 +1,4 @@
-import {UpdateReviewStatusPayload} from '../types/review-status';
+import {UpdateReviewStatusPayload} from '../../types/review-status';
 
 // -----------------------------------------------------------------------------
 

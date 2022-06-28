@@ -6,6 +6,7 @@ export const initialState: State = [];
 
 // -----------------------------------------------------------------------------
 
+// eslint-disable-next-line default-param-last
 const reducer = (state: State = initialState, action: ReceivedSkills): State => {
   switch (action.type) {
     case RECEIVED_SKILLS:
