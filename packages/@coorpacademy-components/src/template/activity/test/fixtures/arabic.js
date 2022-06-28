@@ -47,7 +47,7 @@ export default {
       },
       {
         type: 'video',
-        title: 'Video',
+        title: 'Videos',
         stars: 50
       },
       {
