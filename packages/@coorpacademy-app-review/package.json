@@ -72,7 +72,6 @@
     "live-server": "^1.2.2",
     "postcss-modules-values-replace": "^3.4.0",
     "react-dom": "^17.0.2",
-    "redux-devtools-extension": "^2.13.9",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.4"
   }
