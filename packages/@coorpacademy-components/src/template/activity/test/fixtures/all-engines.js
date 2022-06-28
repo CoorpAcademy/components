@@ -62,7 +62,7 @@ export default {
       },
       {
         type: 'scorm',
-        title: 'Interactive slides',
+        title: 'Animated resources',
         stars: 70,
         onClick: () => console.log('scorm')
       },

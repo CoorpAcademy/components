@@ -42,17 +42,17 @@ export default {
       },
       {
         type: 'scorm',
-        title: 'Interactive slides',
+        title: 'Animated resources',
         stars: 70
       },
       {
         type: 'video',
-        title: 'Video',
+        title: 'Videos',
         stars: 50
       },
       {
         type: 'article',
-        title: 'Article',
+        title: 'Documents',
         stars: 50
       }
     ],

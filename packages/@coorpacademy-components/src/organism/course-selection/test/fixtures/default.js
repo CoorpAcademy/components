@@ -34,7 +34,7 @@ export default {
           selected: false
         },
         {
-          name: 'Interactive slides',
+          name: 'Animated resources',
           value: 'scorm',
           selected: true
         },
