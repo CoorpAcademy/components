@@ -16,8 +16,7 @@ import {
   shuffle,
   includes,
   findIndex,
-  intersection,
-  toString as _toString
+  intersection
 } from 'lodash/fp';
 
 import type {
