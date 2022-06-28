@@ -106,9 +106,9 @@ export default {
           {
             type: 'content',
             title: 'Suspects - épisode 1',
-            badgeList: [{category: 'scorm', label: 'Interactive slides'}],
+            badgeList: [{category: 'scorm', label: 'Animated resources'}],
             category: 'scorm',
-            label: 'Interactive slides',
+            label: 'Animated resources',
             author: 'Coorpacademy'
           },
           {
@@ -130,7 +130,7 @@ export default {
           {
             type: 'content',
             title: 'Suspects - épisode 1',
-            badgeList: [{category: 'scorm', label: 'Interactive slides'}],
+            badgeList: [{category: 'scorm', label: 'Animated resources'}],
             author: 'Coorpacademy'
           },
           {

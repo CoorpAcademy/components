@@ -42,7 +42,7 @@ export default {
       },
       {
         type: 'scorm',
-        title: 'Interactive slides',
+        title: 'Animated resources',
         stars: 70
       },
       {
@@ -52,7 +52,7 @@ export default {
       },
       {
         type: 'article',
-        title: 'Article',
+        title: 'Documents',
         stars: 50
       }
     ],
