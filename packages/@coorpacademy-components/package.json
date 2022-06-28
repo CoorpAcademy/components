@@ -15,6 +15,7 @@
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
+    "build:watch": "npm run build:es -- -w --verbose",
     "clean:commonjs": "rm -rf lib",
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
