@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {State as ReviewStatus} from '../reducers/review-status';
-import {ApiState} from './api';
+import {DataState} from './data';
 import {Dispatchers} from './dispatchers';
 import {FinishedSlides} from './finished-slides';
 import {Slides} from './slides';
@@ -59,7 +59,7 @@ type SlidesViewStaticProps = {
     failureLabel: string;
   };
   reviewBackgroundAriaLabel?: string;
-  slideValidationResult: ApiState['entities']['slideValidationResult'];
+  slideValidationResult: DataState['slideValidationResult'];
 };
 
 type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'>;

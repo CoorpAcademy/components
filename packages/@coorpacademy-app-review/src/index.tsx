@@ -14,7 +14,7 @@ import {updateFinishedSlides} from './actions/finished-slides';
 import {updateReviewStatus} from './actions/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/step-items';
 import type {Dispatchers} from './types/dispatchers';
-import {validateSlide} from './actions/api/validate-slide';
+import {validateSlide} from './actions/data/validate-slide';
 
 // -----------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ const mapStateToProps = (state: StoreState): StaticProps => {
       reviewStatus: state.ui.reviewStatus,
       correctionPopinProps,
       congratsProps,
-      slideValidationResult: state.data.api.entities.slideValidationResult
+      slideValidationResult: state.data.slideValidationResult
     }
   };
 };

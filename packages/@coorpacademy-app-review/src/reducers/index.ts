@@ -1,13 +1,12 @@
 import {combineReducers} from 'redux';
 
-import api from './api';
+import data from './data';
 import courses from './courses';
 import finishedSlides from './finished-slides';
 import navigation from './navigation';
 import reviewStatus from './review-status';
 import slides from './slides';
 import stepItems from './step-items';
-import token from './token';
 
 const ui = combineReducers({
   courses,
@@ -16,11 +15,6 @@ const ui = combineReducers({
   reviewStatus,
   slides,
   stepItems
-});
-
-const data = combineReducers({
-  api,
-  token
 });
 
 export default combineReducers({

@@ -1,29 +1,17 @@
-import {StoreToken, STORE_TOKEN} from '../actions/token';
+import set from 'lodash/fp/set';
 import {StoreState} from '../types/store-state';
-import {TokenState as State} from '../types/states';
+import {DataState} from '../types/data';
 
 // -----------------------------------------------------------------------------
 
-// export type State = string;
-export const initialState: State = null;
+export const initialState: DataState['token'] = null;
 
 // -----------------------------------------------------------------------------
 
-// eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: StoreToken): State => {
-  switch (action.type) {
-    case STORE_TOKEN: {
-      return action.payload;
-    }
-    default:
-      return state;
-  }
-};
+export const setToken = (token: string, state: DataState): DataState => set('token', token, state);
 
 // -----------------------------------------------------------------------------
 
 export const getToken = (appState: StoreState): StoreState['data']['token'] => appState.data.token;
 
 // -----------------------------------------------------------------------------
-
-export default reducer;

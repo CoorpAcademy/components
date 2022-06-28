@@ -1,11 +1,10 @@
 import {
-  ApiState,
+  DataState,
   FinishedSlidesState,
   NavigationState,
   ReviewStatusState,
   SlidesState,
-  StepItemsState,
-  TokenState
+  StepItemsState
 } from './states';
 
 export type StoreState = {
@@ -17,8 +16,5 @@ export type StoreState = {
     finishedSlides: FinishedSlidesState;
     reviewStatus: ReviewStatusState;
   };
-  data: {
-    token: TokenState;
-    api: ApiState;
-  };
+  data: DataState;
 };

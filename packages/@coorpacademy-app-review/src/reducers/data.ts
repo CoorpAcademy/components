@@ -1,28 +1,31 @@
 import getOr from 'lodash/fp/getOr';
 import noop from 'lodash/fp/noop';
 import set from 'lodash/fp/set';
-import {IsFetching, IS_FETCHING_TRUE} from '../actions/api/is-fetching';
-import {ValidateSlide, VALIDATE_SLIDE} from '../actions/api/validate-slide';
-import {ApiState} from '../types/api';
+import {StoreToken, STORE_TOKEN} from '../actions/token';
+import {IsFetching, IS_FETCHING_TRUE} from '../actions/data/is-fetching';
+import {ValidateSlide, VALIDATE_SLIDE} from '../actions/data/validate-slide';
+import {DataState} from '../types/data';
+import {setToken} from './token';
 
 const defaultState = {
-  entities: {isFetching: true, slideValidationResult: null}
+  isFetching: true,
+  slideValidationResult: null,
+  token: null
 };
 
-type ApiActions = IsFetching | ValidateSlide;
+type ApiActions = IsFetching | ValidateSlide | StoreToken;
 
 // eslint-disable-next-line default-param-last
-const api = (state = defaultState, action: ApiActions): ApiState => {
+const data = (state: DataState = defaultState, action: ApiActions): DataState => {
   switch (action.type) {
+    case STORE_TOKEN: {
+      return setToken(action.payload, state);
+    }
     case VALIDATE_SLIDE: {
-      const previousSlideNumber: number = getOr(
-        -1,
-        'entities.slideValidationResult.slideNumber',
-        state
-      );
+      const previousSlideNumber: number = getOr(-1, 'slideValidationResult.slideNumber', state);
       // hard coded for now
       return set(
-        ['entities', 'slideValidationResult'],
+        'slideValidationResult',
         {
           slideNumber: previousSlideNumber + 1,
           result: 'success',
@@ -70,7 +73,7 @@ const api = (state = defaultState, action: ApiActions): ApiState => {
       );
     }
     case IS_FETCHING_TRUE: {
-      return set('entities.isFetching', true, state);
+      return set('isFetching', true, state);
     }
 
     // case VALIDATE_SLIDE_FAILURE: {
@@ -82,4 +85,4 @@ const api = (state = defaultState, action: ApiActions): ApiState => {
   }
 };
 
-export default api;
+export default data;
