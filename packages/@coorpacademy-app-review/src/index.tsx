@@ -73,18 +73,22 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
   const [store, setStore] = useState(null);
+  const [appStarted, setAppStarted] = useState(false);
 
   useEffect(() => {
-    const _configure = async (): Promise<void> => {
-      const _store = await configureStore();
-      _store.dispatch(startApp(options));
-      setStore(_store);
-    };
+    if (store) {
+      store.dispatch(startApp(options));
+      setAppStarted(true);
+    } else {
+      const _configure = async (): Promise<void> => {
+        const _store = await configureStore();
+        setStore(_store);
+      };
+      _configure();
+    }
+  }, [options, store]);
 
-    _configure();
-  }, [options]);
-
-  if (!store) return null;
+  if (!store || !appStarted) return null;
 
   return (
     <Provider store={store}>

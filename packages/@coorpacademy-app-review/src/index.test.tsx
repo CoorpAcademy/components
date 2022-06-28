@@ -17,9 +17,9 @@ const sleep = (msToSleep: number): Promise<void> =>
     setTimeout(resolve, msToSleep);
   });
 
-const waitForRevisionEndChanges = async (): Promise<void> => {
+const waitForChanges = async (msToWait = 3000): Promise<void> => {
   await act(async () => {
-    await sleep(2500); // wait *just* a little longer than the timeout in the component
+    await sleep(msToWait); // wait *just* a little longer than the timeout in the component
   });
 };
 
@@ -35,7 +35,7 @@ const clickAllSlides = async (
   // last one needs to wait for more calculations && components updates
   if (accumulator === 4)
     await act(async () => {
-      await sleep(2000);
+      await sleep(1000);
     });
 
   const validateButton = container.querySelectorAll(
@@ -60,30 +60,23 @@ const clickAllSlides = async (
 };
 
 const appOptions: AppOptions = {
-  token:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+  token: process.env.API_TEST_TOKEN || '',
   slide
 };
 
-const props = {
-  options: appOptions
-};
+test('should validate all the slides (all correct scenario)', async t => {
+  t.plan(13);
+  const {container} = render(<AppReview options={appOptions} key={0} />);
+  await waitForChanges(1000);
 
-test.serial('should validate all the slides && unmount the stacked slides after', async t => {
-  const {container} = render(<AppReview {...props} key={0} />);
-
-  const wrapper = container.querySelectorAll('[data-name="slides-revision-container"]');
+  const wrapper = container.querySelector('[data-name="slides-revision-container"]');
   t.truthy(wrapper);
 
-  let stackedSlidesContainer = container.querySelectorAll('[data-name="stacked-slides-container"]');
-  t.truthy(elementExists(stackedSlidesContainer));
+  const stackedSlidesContainer = wrapper.querySelector('[data-name="stacked-slides-container"]');
+
+  t.truthy(stackedSlidesContainer);
 
   await clickAllSlides(t, container);
-
-  await waitForRevisionEndChanges();
-
-  stackedSlidesContainer = container.querySelectorAll('[data-name="stacked-slides-container"]');
-  t.falsy(elementExists(stackedSlidesContainer));
 
   t.pass();
 });

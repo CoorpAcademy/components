@@ -59,7 +59,7 @@ const Slide = ({
   const endReview = getOr(false, `${slideNumber}.endReview`, slides);
   const position = get(`${slideNumber}.position`, slides);
   const animationType = getOr(false, `${slideNumber}.animationType`, slides);
-  const validationResult = getOr(false, `${slideNumber}.validationResult`, slides);
+  const validationResult = getOr(null, `${slideNumber}.validationResult`, slides);
   const questionText = get(`${slideNumber}.questionText`, slides);
   const answerUI = get(`${slideNumber}.answerUI`, slides);
 
@@ -386,7 +386,7 @@ const SlidesReview = (
       ) : /* istanbul ignore next */ null}
 
       {reviewStatus === 'finished' ? (
-        <div className={style.congrats}>
+        <div className={style.congrats} data-name="congrats-container">
           <ReviewCongrats {...congratsProps} />
         </div>
       ) : null}
