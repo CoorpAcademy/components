@@ -311,7 +311,7 @@ test('should return one pending slide when user has answered the 5th slide', t =
         type: 'slide'
       },
       answer: ['foo', 'bar'],
-      godMode: true
+      godMode: false
     }
   };
 
@@ -339,26 +339,26 @@ test('should return one pending slide when user has answered the 5th slide', t =
         ref: '1.A1.5',
         type: 'slide'
       },
-      godMode: true,
+      godMode: false,
       nextContent: {
         type: 'slide',
         ref: '1.A1.2'
       },
-      isCorrect: true,
+      isCorrect: false,
       instructions: null
     }
   });
 });
 
 test('should return the next wrong slide when user has finished the 5 slides and has still remaining questions to validate', t => {
-  const partialAction = {
+  const answerForSlide2 = {
     type: 'answer',
     payload: {
       content: {
         ref: '1.A1.2',
         type: 'slide'
       },
-      answer: ['foo', 'bar'],
+      answer: ['foo'],
       godMode: false
     }
   };
@@ -371,31 +371,82 @@ test('should return the next wrong slide when user has finished the 5 slides and
     }
   ];
 
-  const nextStep = computeNextStepAfterAnswerForReview(
+  const nextStepWithSlide4 = computeNextStepAfterAnswerForReview(
     config,
     wrongAnswersAfterLastStepStateReview,
     availableContent,
     secondSlide,
-    partialAction
+    answerForSlide2
   );
 
-  if (!nextStep) {
+  if (!nextStepWithSlide4) {
     t.fail();
     return;
   }
-  t.is(nextStep.type, 'answer');
-  t.deepEqual(nextStep.payload.answer, ['foo', 'bar']);
-  t.deepEqual(nextStep.payload.content, {
-    ref: '1.A1.2',
-    type: 'slide'
+  t.deepEqual(nextStepWithSlide4, {
+    type: 'answer',
+    payload: {
+      answer: ['foo'],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: false,
+      nextContent: {
+        type: 'slide',
+        ref: '1.A1.4'
+      },
+      isCorrect: false,
+      instructions: null
+    }
   });
-  t.false(nextStep.payload.godMode);
-  t.true(nextStep.payload.isCorrect);
-  t.is(nextStep.payload.instructions, null);
-  t.is(nextStep.payload.nextContent.type, 'slide');
-  t.true(
-    wrongAnswersAfterLastStepStateReview.pendingSlides.includes(nextStep.payload.nextContent.ref)
+
+  const answerForSlide4 = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      answer: ['foo'],
+      godMode: false
+    }
+  };
+
+  const nextStepWithSlide5 = computeNextStepAfterAnswerForReview(
+    config,
+    {
+      ...wrongAnswersAfterLastStepStateReview,
+      nextContent: {
+        ref: '1.A1.4',
+        type: 'slide'
+      }
+    },
+    availableContent,
+    fourthSlide,
+    answerForSlide4
   );
+  if (!nextStepWithSlide5) {
+    t.fail();
+    return;
+  }
+  t.deepEqual(nextStepWithSlide5, {
+    type: 'answer',
+    payload: {
+      answer: ['foo'],
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      godMode: false,
+      nextContent: {
+        type: 'slide',
+        ref: '1.A1.5'
+      },
+      isCorrect: false,
+      instructions: null
+    }
+  });
 });
 
 test('should return the same slide when user has answered wrong, has finished the 5 slides and has still remaining one questions to validate', t => {

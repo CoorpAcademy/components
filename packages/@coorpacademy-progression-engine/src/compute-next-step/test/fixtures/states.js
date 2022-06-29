@@ -456,7 +456,7 @@ export const wrongAnswersBeforeLastStepStateReview: State = {
     },
     {
       slideRef: '1.A1.3',
-      isCorrect: true,
+      isCorrect: false,
       answer: ['foo']
     },
     {
@@ -466,7 +466,7 @@ export const wrongAnswersBeforeLastStepStateReview: State = {
     }
   ],
   variables: {},
-  pendingSlides: ['1.A1.2']
+  pendingSlides: ['1.A1.2', '1.A1.3']
 };
 
 export const wrongAnswersAfterLastStepStateReview: State = {
@@ -509,12 +509,12 @@ export const wrongAnswersAfterLastStepStateReview: State = {
     },
     {
       slideRef: '1.A1.5',
-      isCorrect: true,
+      isCorrect: false,
       answer: ['foo']
     }
   ],
   variables: {},
-  pendingSlides: ['1.A1.2', '1.A1.4']
+  pendingSlides: ['1.A1.2', '1.A1.4', '1.A1.5']
 };
 
 export const stillOneWrongAnswersAfterLastStepStateReview: State = {
