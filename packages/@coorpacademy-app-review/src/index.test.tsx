@@ -72,7 +72,7 @@ test('should validate all the slides (all correct scenario)', async t => {
   const wrapper = container.querySelector('[data-name="slides-revision-container"]');
   t.truthy(wrapper);
 
-  const stackedSlidesContainer = wrapper.querySelector('[data-name="stacked-slides-container"]');
+  const stackedSlidesContainer = wrapper?.querySelector('[data-name="stacked-slides-container"]');
 
   t.truthy(stackedSlidesContainer);
 

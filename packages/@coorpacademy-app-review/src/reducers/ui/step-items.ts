@@ -1,20 +1,33 @@
-import isNil from 'lodash/fp/isNil';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import map from 'lodash/fp/map';
 import {
+  IconValue,
   StepItemsAction,
   UPDATE_STEP_ITEMS_ON_NEXT,
   UPDATE_STEP_ITEMS_ON_VALIDATION
 } from '../../actions/ui/step-items';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
-import {SlideNumber} from '../../types/slides';
-import {FinishedSlides} from '../../types/finished-slides';
-import {StepItem, StepItems} from '../../types/step-items';
+import {FinishedSlides} from './finished-slides';
+
+// -----------------------------------------------------------------------------
+
+type StepItem = {
+  current: boolean;
+  icon: IconValue;
+  value: string;
+};
+
+export type StepItems = {
+  slideNumbers: number[];
+  [key: number]: StepItem;
+};
 
 // -----------------------------------------------------------------------------
 
 export type State = StepItems;
+
+// -----------------------------------------------------------------------------
 
 const getInitialState = (): State => {
   const state: StepItems = {
@@ -24,7 +37,7 @@ const getInitialState = (): State => {
   // eslint-disable-next-line fp/no-loops
   for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
     const current = index === 0;
-    state[index] = {current, value: `${index + 1}`, icon: null};
+    state[index] = {current, value: `${index + 1}`, icon: 'no-answer'};
   }
   return state;
 };
@@ -43,14 +56,14 @@ const getNextIndex = (currentIndex: number): number =>
 const calculateNextStepIndex = (
   currentStepNumber: number,
   finishedSlides: FinishedSlides,
-  lastVisitedIndex: number | null = null
+  lastVisitedIndex = -1
 ): number => {
   // only one slide remaining, the step should stay on the same number
   if (lastVisitedIndex === currentStepNumber) {
     return currentStepNumber;
   }
 
-  const indexToVisit = getNextIndex(isNil(lastVisitedIndex) ? currentStepNumber : lastVisitedIndex);
+  const indexToVisit = getNextIndex(lastVisitedIndex === -1 ? currentStepNumber : lastVisitedIndex);
 
   // if the index is already included in the correctly answered (finished) slides, then we proceed to check for the next one
   return has(indexToVisit, finishedSlides)
@@ -60,14 +73,14 @@ const calculateNextStepIndex = (
 
 type StepItemToUpdateProps =
   | Pick<StepItem, 'icon'>
-  | (Pick<StepItem, 'current'> & {nextIndex: SlideNumber});
+  | (Pick<StepItem, 'current'> & {nextIndex: number});
 
 const recalculateStepItemsState = (
   state: State,
   stepNumber: number,
   stepItemToUpdateProps: StepItemToUpdateProps
 ): State => {
-  const nextIndex: number | null = get('nextIndex', stepItemToUpdateProps);
+  const nextIndex: number = get('nextIndex', stepItemToUpdateProps);
   const _state: State = {
     slideNumbers
   };
@@ -99,7 +112,7 @@ const reducer = (state: State = initialState, action: StepItemsAction): State =>
     }
     case UPDATE_STEP_ITEMS_ON_NEXT: {
       const {stepNumber, finishedSlides, current} = action.payload;
-      const nextIndex = !current ? calculateNextStepIndex(stepNumber, finishedSlides) : null;
+      const nextIndex = !current ? calculateNextStepIndex(stepNumber, finishedSlides) : -1;
       return recalculateStepItemsState(state, stepNumber, {current, nextIndex});
     }
     default:

@@ -1,23 +1,28 @@
 import {getOr, noop, set} from 'lodash/fp';
 import map from 'lodash/fp/map';
 import {
+  NextPayload,
+  Slide,
   SlidesAction,
   STORE_FIRST_SLIDE,
   UPDATE_SLIDES_ON_NEXT,
   UPDATE_SLIDES_ON_VALIDATION,
-  VALIDATE_SLIDE
+  VALIDATE_SLIDE,
+  ValidationPayload
 } from '../../actions/data/slides';
+import {Slide as SlideFromAPI} from '../../types/slides';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
-import {
-  Slide,
-  Slides,
-  UpdateSlidesOnNextPayload,
-  UpdateSlidesOnValidationPayload
-} from '../../types/slides';
 
 // -----------------------------------------------------------------------------
 
+type Slides = {
+  slideNumbers: number[];
+  [key: number]: Slide;
+};
+
 export type State = Slides;
+
+// -----------------------------------------------------------------------------
 
 const getInitialState = (): State => {
   const state: State = {
@@ -34,7 +39,7 @@ export const initialState: State = getInitialState();
 
 // -----------------------------------------------------------------------------
 
-const setFirstSlide = (state: State, slide: Slide): State => {
+const setFirstSlide = (state: State, slide: SlideFromAPI): State => {
   const _state: State = {
     slideNumbers
   };
@@ -51,7 +56,7 @@ const setFirstSlide = (state: State, slide: Slide): State => {
 
 // ||-------> Handles the updates of a given slide on validation,
 // & then updates de remaining slides if this given change should impact their content
-const stateUpdateOnValidation = (state: State, payload: UpdateSlidesOnValidationPayload): State => {
+const stateUpdateOnValidation = (state: State, payload: ValidationPayload): State => {
   const {slideNumber, newSlideContent, numberOfFinishedSlides, nextSlide} = payload;
   const _state: State = {
     slideNumbers
@@ -83,7 +88,7 @@ const stateUpdateOnValidation = (state: State, payload: UpdateSlidesOnValidation
 
 // ||-------> Handles the updates of a given slide on correction popin's next click,
 // & then updates de remaining slides (updates position to trigger animations)
-const stateUpdateOnNext = (state: State, payload: UpdateSlidesOnNextPayload): State => {
+const stateUpdateOnNext = (state: State, payload: NextPayload): State => {
   const {slideNumber, newSlideContent, numberOfFinishedSlides} = payload;
   const _state: State = {
     slideNumbers
@@ -129,12 +134,12 @@ const reducer = (state: State = initialState, action: SlidesAction): State => {
       return stateUpdateOnNext(state, action.payload);
     }
     case VALIDATE_SLIDE: {
-      const previousSlideNumber: number = getOr(-1, 'slideValidationResult.slideNumber', state);
+      const previousnumber: number = getOr(-1, 'slideValidationResult.slideNumber', state);
       // hard coded for now
       return set(
         'slideValidationResult',
         {
-          slideNumber: previousSlideNumber + 1,
+          slideNumber: previousnumber + 1,
           result: 'success',
           // exitNode
           nextSlide: {

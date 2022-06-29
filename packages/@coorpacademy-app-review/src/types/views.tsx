@@ -1,13 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {State as ReviewStatus} from '../reducers/ui/review-status';
-import {DataState} from './data';
 import {Dispatchers} from './dispatchers';
-import {FinishedSlides} from './finished-slides';
-import {Slides} from './slides';
-import {StepItems} from './step-items';
+import {StoreState} from './store-state';
 
 type SlidesViewStaticProps = {
-  slides: Slides;
+  slides: StoreState['data']['slides'];
   headerProps: {
     mode: string;
     skillName: string;
@@ -15,9 +11,9 @@ type SlidesViewStaticProps = {
     'aria-label'?: string;
     closeButtonAriaLabel: string;
   };
-  finishedSlides: FinishedSlides;
-  stepItems: StepItems;
-  reviewStatus: ReviewStatus;
+  finishedSlides: StoreState['ui']['finishedSlides'];
+  stepItems: StoreState['ui']['stepItems'];
+  reviewStatus: StoreState['ui']['reviewStatus'];
   validate: {
     label: string;
   };
@@ -59,7 +55,7 @@ type SlidesViewStaticProps = {
     failureLabel: string;
   };
   reviewBackgroundAriaLabel?: string;
-  slideValidationResult: DataState['slideValidationResult'];
+  slideValidationResult: StoreState['data']['slideValidationResult'];
 };
 
 type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'>;

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {AnyAction, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
@@ -12,12 +13,10 @@ import type {StoreState} from './types/store-state';
 import type {SlidesViewStaticProps} from './types/views';
 
 import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
-import {navigateTo, navigateBack, startApp} from './actions/ui/navigation';
+import {navigateTo, navigateBack, startApp, ViewPath} from './actions/ui/navigation';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
-
-import {getCurrentViewName} from './reducers/ui/navigation';
 
 // -----------------------------------------------------------------------------
 
@@ -40,6 +39,9 @@ const mapDispatchToProps: Dispatchers = {
   updateStepItemsOnNext,
   updateFinishedSlides
 };
+
+const getCurrentViewName = (storeState: StoreState): ViewPath =>
+  storeState.ui.navigation[storeState.ui.navigation.length - 1];
 
 const mapStateToSkillsProps = (state: StoreState): SkillsProps => ({
   title: '@todo title',
@@ -75,7 +77,7 @@ const mapStateToProps = (state: StoreState): StaticProps => ({
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button'
     },
-    slides: state.ui.slides,
+    slides: state.data.slides,
     validate: {
       label: '__validate'
     },
@@ -96,8 +98,8 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 // -----------------------------------------------------------------------------
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
-  const [store, setStore] = useState(null);
-  const [appStarted, setAppStarted] = useState(false);
+  const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
+  const [appStarted, setAppStarted] = useState<boolean>(false);
 
   useEffect(() => {
     if (store) {
@@ -105,14 +107,14 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
       setAppStarted(true);
     } else {
       const _configure = async (): Promise<void> => {
-        const _store = await configureStore();
-        setStore(_store);
+        const newStore = await configureStore();
+        setStore(newStore);
       };
       _configure();
     }
   }, [options, store]);
 
-  if (!store || !appStarted) return null;
+  if (!store || !appStarted) return <div />;
 
   return (
     <Provider store={store}>

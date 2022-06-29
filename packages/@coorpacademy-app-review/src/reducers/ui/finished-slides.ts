@@ -1,7 +1,22 @@
 import forEach from 'lodash/fp/forEach';
 import {UpdateFinishedSlides, UPDATE_FINISHED_SLIDES} from '../../actions/ui/finished-slides';
 import {slideNumbers} from '../../common';
-import {FinishedSlides} from '../../types/finished-slides';
+
+// -----------------------------------------------------------------------------
+// Stores only successful slides
+export type FinishedSlides = {
+  slideNumbers: number[];
+  [key: number]: true;
+};
+
+// -----------------------------------------------------------------------------
+
+export type State = FinishedSlides;
+export const initialState: State = {
+  slideNumbers
+};
+
+// -----------------------------------------------------------------------------
 
 const _forEach: <T>(
   iteratee: (value: T[keyof T], index: number) => void,
@@ -10,13 +25,6 @@ const _forEach: <T>(
 ) => void = forEach.convert({
   cap: false
 });
-
-// -----------------------------------------------------------------------------
-
-export type State = FinishedSlides;
-export const initialState: State = {
-  slideNumbers
-};
 
 // -----------------------------------------------------------------------------
 

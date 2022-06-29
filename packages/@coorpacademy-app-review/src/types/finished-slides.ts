@@ -1,9 +1,1 @@
-import {SlideNumber} from './slides';
-
-// Stores only successful slides
-export type FinishedSlides = {
-  slideNumbers: SlideNumber[];
-  [key: SlideNumber]: true;
-};
-
-export type UpdateFinishedSlidesPayload = {slideNumber: SlideNumber; value: true};
+export type UpdateFinishedSlidesPayload = {slideNumber: number; value: true};

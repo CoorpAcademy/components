@@ -2,16 +2,12 @@ import {
   type NavigateTo,
   type NavigateBack,
   NAVIGATE_BACK,
-  NAVIGATE_TO,
-  ViewPath
+  NAVIGATE_TO
 } from '../../actions/ui/navigation';
-
-import {StoreState} from '../../types/store-state';
-import {NavigationState as State} from '../../types/states';
 
 // -----------------------------------------------------------------------------
 
-// export type State = Array<string>;
+export type State = Array<'skills' | 'onboarding' | 'slides'>;
 export const initialState: State = [];
 
 // -----------------------------------------------------------------------------
@@ -31,11 +27,6 @@ const reducer = (state: State = initialState, action: NavigateTo | NavigateBack)
       return state;
   }
 };
-
-// -----------------------------------------------------------------------------
-
-export const getCurrentViewName = (appState: StoreState): ViewPath =>
-  appState.ui.navigation[appState.ui.navigation.length - 1];
 
 // -----------------------------------------------------------------------------
 
