@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/redux-router",
-  "version": "7.1.4",
+  "version": "7.1.5",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -31,7 +31,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/redux-history": "6.1.4",
+    "@coorpacademy/redux-history": "6.1.5",
     "lodash": "^4.17.21",
     "path-match": "^1.2.4"
   },

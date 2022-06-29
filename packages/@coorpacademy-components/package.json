@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "10.20.0",
+  "version": "10.21.0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -51,7 +51,7 @@
     "Soualmi Djamel <djamel.soualmi@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "3.11.6",
+    "@coorpacademy/nova-icons": "3.11.7",
     "@types/react": "^17.0.47",
     "@types/react-dom": "^17.0.17",
     "autoprefixer": "^9.8.0",
@@ -93,10 +93,10 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.17.12",
-    "@coorpacademy/css-modules-require-hook": "2.1.4",
+    "@coorpacademy/css-modules-require-hook": "2.1.5",
     "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
-    "@coorpacademy/translate": "6.1.4",
-    "@coorpacademy/webpack-config": "10.0.3",
+    "@coorpacademy/translate": "6.1.5",
+    "@coorpacademy/webpack-config": "10.0.4",
     "@storybook/addon-knobs": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
