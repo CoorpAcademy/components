@@ -109,6 +109,54 @@ test('should return the next slide when user has answered the second slide and t
   });
 });
 
+test('should return the next slide when user has answered the third slide and there is an available slide', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.3',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: true
+    }
+  };
+
+  const [, ...slides] = allSlides;
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides,
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    secondStateReview,
+    availableContent,
+    allSlides[1],
+    partialAction
+  );
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: true,
+      nextContent: {
+        ref: '1.A1.3',
+        type: 'slide'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});
+
 test('should return the exitNode when user has only one question correct and there is no available slide', t => {
   const partialAction = {
     type: 'answer',
@@ -217,10 +265,11 @@ test('should return the first pending slide when user has finished the 5 slides,
     }
   };
 
+  const [, , , , , ...slides] = allSlides;
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: allSlides,
+      slides,
       rules: null
     }
   ];

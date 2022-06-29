@@ -365,9 +365,9 @@ const getNextSlide = (
 ): Slide | null => {
   if (!state) return get(['0', 'slides', '0'], availableContent);
 
-  const current = get('step.current', state) - 1;
-  if (current < config.slidesToComplete) {
-    return get(['0', 'slides', `${current}`], availableContent);
+  const current = get('step.current', state);
+  if (current <= config.slidesToComplete) {
+    return get(['0', 'slides', '1'], availableContent);
   }
 
   return null;
