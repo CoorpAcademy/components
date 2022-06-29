@@ -17,7 +17,11 @@
     "clean:commonjs": "rm -rf lib",
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
-    "test:unit": "ava"
+    "typecheck": "tsc --noEmit",
+    "test:unit": "ava",
+    "lint": "eslint '**/*' --cache --ext .js --ext .jsx --ext .ts --ext .tsx --ext .json",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "npm run lint && npm run typecheck && npm run test:unit"
   },
   "author": "CoorpAcademy",
   "files": [
@@ -41,14 +45,22 @@
     "jwt-decode": "^3.1.2",
     "react-redux": "^8.0.1",
     "redux": "^4.2.0",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-thunk": "^2.4.1"
   },
   "peerDependencies": {
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-native": "0.68.1"
   },
   "devDependencies": {
+    "@coorpacademy/css-modules-require-hook": "^2.1.3",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^11.0.0",
+    "@testing-library/react": "^12.1.5",
+    "@types/lodash": "^4.14.182",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
     "ava": "^4.3.0",
+    "browser-env": "^3.3.0",
     "chalk": "^4.1.2",
     "concurrently": "^5.2.0",
     "connect-history-api-fallback": "^1.6.0",
@@ -56,10 +68,12 @@
     "esbuild": "^0.14.39",
     "esbuild-css-modules-plugin": "https://github.com/chrisdugne/esbuild-css-modules-plugin#main",
     "esbuild-plugin-svgr": "^1.0.1",
+    "eslint": "^8.18.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "live-server": "^1.2.2",
     "postcss-modules-values-replace": "^3.4.0",
     "react-dom": "^17.0.2",
     "ts-node": "^10.8.1",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.4"
   }
 }

@@ -93,4 +93,7 @@ ReviewSkills.propTypes = {
   ...ReviewNoSkills.propTypes
 };
 
+export const ListSkillsPropTypes = ReviewListSkills.propTypes;
+export const NoSkillsPropTypes = ReviewNoSkills.propTypes;
+
 export default ReviewSkills;

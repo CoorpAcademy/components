@@ -1,4 +1,4 @@
-export type Response = {
+export type _Response = {
   ok: boolean;
   status: number;
   statusText: string;
@@ -9,19 +9,19 @@ export type Response = {
 export type Fetch = (
   url?: string,
   options?: {headers: {authorization: string}}
-) => Promise<Response>;
+) => Promise<_Response>;
 
 export class ResponseError extends Error {
   public statusCode: number;
 
-  public constructor(status: number, statusText: string, body = '') {
+  public constructor(statusCode: number, statusText: string, body = '') {
     super(`${statusText} ${body}`.trim());
     this.name = 'ResponseError';
-    this.statusCode = status;
+    this.statusCode = statusCode;
   }
 }
 
-export const toJSON = async (response: Response): Promise<unknown> => {
+export const toJSON = async (response: _Response): Promise<unknown> => {
   if (!response.ok) {
     const body = await response.text();
     throw new ResponseError(response.status, response.statusText, body);
@@ -34,7 +34,7 @@ export const toJSON = async (response: Response): Promise<unknown> => {
   }
 };
 
-export const toText = async (response: Response): Promise<string> => {
+export const toText = async (response: _Response): Promise<string> => {
   const body = await response.text();
 
   if (!response.ok) {
@@ -44,7 +44,7 @@ export const toText = async (response: Response): Promise<string> => {
   return body;
 };
 
-export const toVoid = async (response: Response): Promise<void> => {
+export const toVoid = async (response: _Response): Promise<void> => {
   if (!response.ok) {
     const body = await response.text();
     throw new ResponseError(response.status, response.statusText, body);

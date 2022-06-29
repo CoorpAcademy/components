@@ -45,13 +45,13 @@ const build = () => {
 
 const isRunner = () => {
   const splitters = process.argv[1].split('/');
-  return splitters[splitters.length - 1].indexOf('build') !== -1;
+  return splitters[splitters.length - 1].includes('build');
 };
 
 if (isRunner()) {
-  build().then(() => {
+  return build().then(() => {
     console.log('✅ success');
-    process.exit(0);
+    return process.exit(0);
   });
 }
 

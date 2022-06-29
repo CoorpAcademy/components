@@ -1,18 +1,24 @@
 {
   "include": [
-    "src/**/*",
-    "globals.d.ts"
+    "src/types/globals.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/*.js"
   ],
   "compilerOptions": {
-    "rootDir": "src",
+    // "strict": true,
+    "baseUrl": ".",
+    // "module": "ES2020",
+    "module": "CommonJS",
     "declaration": true,
-    "declarationMap": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "jsx": "react",
-    "allowSyntheticDefaultImports": true
+    "target": "ES2020",
+    "allowJs": true
   }
 }

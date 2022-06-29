@@ -1,13 +1,23 @@
 import {combineReducers} from 'redux';
 
+import data from './data';
 import courses from './courses';
+import finishedSlides from './finished-slides';
 import navigation from './navigation';
-import token from './token';
+import reviewStatus from './review-status';
+import slides from './slides';
+import stepItems from './step-items';
 
-const rootReducer = combineReducers({
+const ui = combineReducers({
   courses,
+  finishedSlides,
   navigation,
-  token
+  reviewStatus,
+  slides,
+  stepItems
 });
 
-export default rootReducer;
+export default combineReducers({
+  ui,
+  data
+});
