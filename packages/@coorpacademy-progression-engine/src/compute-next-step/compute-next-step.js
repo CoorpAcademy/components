@@ -12,7 +12,6 @@ import {
   sortBy,
   isEqual,
   isEmpty,
-  sample,
   shuffle,
   includes,
   findIndex,
@@ -376,20 +375,12 @@ const getNextSlide = (
 const getNextPendingSlide = (
   currentSlide: string,
   oldPendingSlides: Array<string>,
-  newPendingSlide: []
+  newPendingSlide: Array<string>
 ): string | null => {
   if (isEmpty(newPendingSlide)) return null;
 
   const indexPendingSlide = findIndex(s => s === currentSlide, oldPendingSlides) + 1;
-  console.log('indexPendingSlide', indexPendingSlide);
-  const index = indexPendingSlide === oldPendingSlides.length
-      ? 0
-      : indexPendingSlide;
-  console.log(`
-  
-  index ${index} 
-  
-  `);
+  const index = indexPendingSlide === oldPendingSlides.length ? 0 : indexPendingSlide;
 
   return oldPendingSlides[index];
 };
@@ -403,15 +394,6 @@ export const computeNextStepForReview = (
   const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const state = !_state || !action ? _state : updateState(config, _state, [action]);
-  console.log(`
-  
-  
-  _state: ${JSON.stringify(_state)}
-  
-  state: ${JSON.stringify(state)}
-  
-  
-  `);
 
   const correctAnswers = state ? filter(a => a.isCorrect, state.allAnswers) : [];
   if (correctAnswers.length === config.slidesToComplete) {
@@ -432,17 +414,13 @@ export const computeNextStepForReview = (
       return null;
     } else {
       // if there is no more slides, two scenarios are possible
-      const pendingSlides = get('pendingSlides', _state);
+
+      const pendingSlides = !_state ? [] : _state.pendingSlides;
       const pendingSlide = getNextPendingSlide(
         state.nextContent.ref,
         pendingSlides,
         state.pendingSlides
       );
-      console.log(`
-      
-      pendingSlide ${pendingSlide}
-      
-      `);
 
       // all other questions have been already right answered, so we close the progression
       if (!pendingSlide) {
