@@ -19,7 +19,7 @@ const [firstSlide, secondSlide, thirdSlide, fifthSlide, fourthSlide] = allSlides
 
 const config: Config = getConfig({ref: 'review', version: '1'});
 
-test('should return the next slide when user has answered the first slide and there is an available slide', t => {
+test('should return the next slide when user has answered the 1st slide and there are available slides', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -66,7 +66,7 @@ test('should return the next slide when user has answered the first slide and th
   });
 });
 
-test('should return the next slide when user has answered the second slide and there is an available slide', t => {
+test('should return the next slide when user has answered the 2nd slide and there are available slides', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -113,7 +113,7 @@ test('should return the next slide when user has answered the second slide and t
   });
 });
 
-test('should return the next slide when user has answered the third slide and there is an available slide', t => {
+test('should return the next slide when user has answered the 3rd slide and there are available slides', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -160,7 +160,7 @@ test('should return the next slide when user has answered the third slide and th
   });
 });
 
-test('should return the next slide when user has answered the fourth slide and there is an available slide', t => {
+test('should return the next slide when user has answered the 4th slide and there are available slides', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -207,7 +207,7 @@ test('should return the next slide when user has answered the fourth slide and t
   });
 });
 
-test('should return the exitNode when user is finishing the 5th slide correctly, all other are also true and there is no more available slide', t => {
+test('should return the exitNode when user has answered the 5th slide correctly, all other are also true', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -280,7 +280,7 @@ test('should return the exitNode when user has only one question correct and the
     config,
     firstStateReview,
     availableContent,
-    allSlides[0],
+    firstSlide,
     partialAction
   );
   t.deepEqual(nextStep, {
@@ -302,7 +302,7 @@ test('should return the exitNode when user has only one question correct and the
   });
 });
 
-test('should return the first pending slide when user has finished the 5 slides, all are true and there is no available slide', t => {
+test('should return one pending slide when user has answered the 5th slide', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -366,7 +366,7 @@ test('should return the next wrong slide when user has finished the 5 slides and
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: [],
+      slides: allSlides,
       rules: null
     }
   ];
@@ -375,7 +375,7 @@ test('should return the next wrong slide when user has finished the 5 slides and
     config,
     wrongAnswersAfterLastStepStateReview,
     availableContent,
-    allSlides[1],
+    secondSlide,
     partialAction
   );
 
@@ -414,7 +414,7 @@ test('should return the same slide when user has answered wrong, has finished th
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: [],
+      slides: allSlides,
       rules: null
     }
   ];
@@ -423,7 +423,7 @@ test('should return the same slide when user has answered wrong, has finished th
     config,
     stillOneWrongAnswersAfterLastStepStateReview,
     availableContent,
-    allSlides[4],
+    fourthSlide,
     partialAction
   );
 
@@ -471,7 +471,7 @@ test('should return the successExitNode when user has finished the 5 slides afte
     config,
     stillOneWrongAnswersAfterLastStepStateReview,
     availableContent,
-    allSlides[4],
+    fourthSlide,
     partialAction
   );
 
