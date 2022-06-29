@@ -312,6 +312,77 @@ export const secondStateReview: State = {
   pendingSlides: []
 };
 
+export const thirdStateReview: State = {
+  nextContent: {
+    ref: '1.A1.3',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 16,
+  slides: ['1.A1.1', '1.A1.2'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 2
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    }
+  ],
+  variables: {},
+  pendingSlides: []
+};
+
+export const fourthStateReview: State = {
+  nextContent: {
+    ref: '1.A1.4',
+    type: 'slide'
+  },
+  lives: 0,
+  livesDisabled: true,
+  stars: 32,
+  slides: ['1.A1.1', '1.A1.2', '1.A1.3'],
+  requestedClues: [],
+  viewedResources: [],
+  step: {
+    current: 2
+  },
+  isCorrect: null,
+  remainingLifeRequests: 0,
+  hasViewedAResourceAtThisStep: false,
+  allAnswers: [
+    {
+      slideRef: '1.A1.1',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.2',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    },
+    {
+      slideRef: '1.A1.3',
+      isCorrect: true,
+      answer: ['foo', 'bar']
+    }
+  ],
+  variables: {},
+  pendingSlides: []
+};
+
 export const allRightAnswersBeforeLastStepStateReview: State = {
   nextContent: {
     ref: '1.A1.5',

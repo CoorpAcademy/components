@@ -7,11 +7,15 @@ import allSlides from './fixtures/slides';
 import {
   firstStateReview,
   secondStateReview,
+  thirdStateReview,
+  fourthStateReview,
   allRightAnswersBeforeLastStepStateReview,
   wrongAnswersBeforeLastStepStateReview,
   wrongAnswersAfterLastStepStateReview,
   stillOneWrongAnswersAfterLastStepStateReview
 } from './fixtures/states';
+// on fixtures the order is 1, 2, 3, 5, 4
+const [firstSlide, secondSlide, thirdSlide, fifthSlide, fourthSlide] = allSlides;
 
 const config: Config = getConfig({ref: 'review', version: '1'});
 
@@ -31,7 +35,7 @@ test('should return the next slide when user has answered the first slide and th
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: allSlides,
+      slides: [firstSlide, secondSlide, thirdSlide, fourthSlide, fifthSlide],
       rules: null
     }
   ];
@@ -40,7 +44,7 @@ test('should return the next slide when user has answered the first slide and th
     config,
     firstStateReview,
     availableContent,
-    allSlides[0],
+    firstSlide,
     partialAction
   );
   t.deepEqual(nextStep, {
@@ -78,7 +82,7 @@ test('should return the next slide when user has answered the second slide and t
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides: allSlides,
+      slides: [secondSlide, thirdSlide, fourthSlide, fifthSlide],
       rules: null
     }
   ];
@@ -87,7 +91,7 @@ test('should return the next slide when user has answered the second slide and t
     config,
     secondStateReview,
     availableContent,
-    allSlides[1],
+    secondSlide,
     partialAction
   );
   t.deepEqual(nextStep, {
@@ -122,20 +126,19 @@ test('should return the next slide when user has answered the third slide and th
     }
   };
 
-  const [, ...slides] = allSlides;
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides,
+      slides: [thirdSlide, fourthSlide, fifthSlide],
       rules: null
     }
   ];
 
   const nextStep = computeNextStepAfterAnswerForReview(
     config,
-    secondStateReview,
+    thirdStateReview,
     availableContent,
-    allSlides[1],
+    thirdSlide,
     partialAction
   );
   t.deepEqual(nextStep, {
@@ -143,13 +146,108 @@ test('should return the next slide when user has answered the third slide and th
     payload: {
       answer: ['foo', 'bar'],
       content: {
-        ref: '1.A1.2',
+        ref: '1.A1.3',
         type: 'slide'
       },
       godMode: true,
       nextContent: {
-        ref: '1.A1.3',
+        ref: '1.A1.4',
         type: 'slide'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});
+
+test('should return the next slide when user has answered the fourth slide and there is an available slide', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: true
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [fourthSlide, fifthSlide],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    fourthStateReview,
+    availableContent,
+    fourthSlide,
+    partialAction
+  );
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      godMode: true,
+      nextContent: {
+        ref: '1.A1.5',
+        type: 'slide'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});
+
+test('should return the exitNode when user is finishing the 5th slide correctly, all other are also true and there is no more available slide', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.5',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: true
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [fifthSlide],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    allRightAnswersBeforeLastStepStateReview,
+    availableContent,
+    fifthSlide,
+    partialAction
+  );
+
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.5',
+        type: 'slide'
+      },
+      godMode: true,
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
       },
       isCorrect: true,
       instructions: null
@@ -204,54 +302,6 @@ test('should return the exitNode when user has only one question correct and the
   });
 });
 
-test('should return the exitNode when user is finishing the 5th slide correctly, all other are also true and there is no more available slide', t => {
-  const partialAction = {
-    type: 'answer',
-    payload: {
-      content: {
-        ref: '1.A1.5',
-        type: 'slide'
-      },
-      answer: ['foo', 'bar'],
-      godMode: true
-    }
-  };
-
-  const availableContent: AvailableContent = [
-    {
-      ref: 'skill_41BBqFKoS',
-      slides: [],
-      rules: null
-    }
-  ];
-
-  const nextStep = computeNextStepAfterAnswerForReview(
-    config,
-    allRightAnswersBeforeLastStepStateReview,
-    availableContent,
-    allSlides[4],
-    partialAction
-  );
-
-  t.deepEqual(nextStep, {
-    type: 'answer',
-    payload: {
-      answer: ['foo', 'bar'],
-      content: {
-        ref: '1.A1.5',
-        type: 'slide'
-      },
-      godMode: true,
-      nextContent: {
-        type: 'success',
-        ref: 'successExitNode'
-      },
-      isCorrect: true,
-      instructions: null
-    }
-  });
-});
-
 test('should return the first pending slide when user has finished the 5 slides, all are true and there is no available slide', t => {
   const partialAction = {
     type: 'answer',
@@ -265,11 +315,10 @@ test('should return the first pending slide when user has finished the 5 slides,
     }
   };
 
-  const [, , , , , ...slides] = allSlides;
   const availableContent: AvailableContent = [
     {
       ref: 'skill_41BBqFKoS',
-      slides,
+      slides: [fifthSlide],
       rules: null
     }
   ];
@@ -278,7 +327,7 @@ test('should return the first pending slide when user has finished the 5 slides,
     config,
     wrongAnswersBeforeLastStepStateReview,
     availableContent,
-    allSlides[4],
+    fifthSlide,
     partialAction
   );
 
