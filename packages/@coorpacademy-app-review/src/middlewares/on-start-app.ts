@@ -1,4 +1,4 @@
-import type {Middleware} from 'redux';
+import type {Middleware, Store} from 'redux';
 import {Dispatch} from 'redux';
 
 import {VIEWS} from '../common';
@@ -11,9 +11,7 @@ import {navigateTo, START_APP, ViewPath} from '../actions/ui/navigation';
 // eslint-disable-next-line import/no-named-as-default
 import fetchSkills from '../services/fetch-skills';
 
-import {StoreState} from '../types/store-state';
-
-const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> =
+const onStartApp: Middleware<{}, Store, Dispatch<Action>> =
   ({dispatch}) =>
   next =>
   (action: Action) => {

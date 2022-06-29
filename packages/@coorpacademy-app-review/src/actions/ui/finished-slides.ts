@@ -1,4 +1,6 @@
-import {UpdateFinishedSlidesPayload} from '../../types/finished-slides';
+// Stores only successful slides
+
+export type FinishedSlide = {slideNumber: number; value: true};
 
 // -----------------------------------------------------------------------------
 
@@ -8,14 +10,12 @@ export const UPDATE_FINISHED_SLIDES = '@@finished-slides/UPDATE_FINISHED_SLIDES'
 
 export type UpdateFinishedSlides = {
   type: typeof UPDATE_FINISHED_SLIDES;
-  payload: UpdateFinishedSlidesPayload;
+  payload: FinishedSlide;
 };
 
 // -----------------------------------------------------------------------------
 
-export const updateFinishedSlides = (
-  payload: UpdateFinishedSlidesPayload
-): UpdateFinishedSlides => ({
+export const updateFinishedSlides = (payload: FinishedSlide): UpdateFinishedSlides => ({
   type: UPDATE_FINISHED_SLIDES,
   payload
 });

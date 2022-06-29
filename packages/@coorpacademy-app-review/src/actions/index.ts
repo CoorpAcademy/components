@@ -1,7 +1,16 @@
-import {NavigateBack, NavigateTo, StartApp} from './ui/navigation';
+import {
+  StoreFirstSlide,
+  updateSlidesOnValidation,
+  updateSlidesOnNext,
+  validateSlide
+} from './data/slides';
 import {ErrorFetchingSkills, ReceivedSkills} from './data/skills';
-import {StoreFirstSlide} from './data/slides';
 import {StoreToken} from './data/token';
+
+import {updateFinishedSlides} from './ui/finished-slides';
+import {navigateBack, navigateTo, NavigateBack, NavigateTo, StartApp} from './ui/navigation';
+import {updateReviewStatus} from './ui/review-status';
+import {updateStepItemsOnValidation, updateStepItemsOnNext} from './ui/step-items';
 
 export type Action =
   | NavigateBack
@@ -11,3 +20,15 @@ export type Action =
   | StartApp
   | StoreFirstSlide
   | StoreToken;
+
+export type Dispatchers = {
+  navigateTo: typeof navigateTo;
+  navigateBack: typeof navigateBack;
+  validateSlide: typeof validateSlide;
+  updateSlidesOnValidation: typeof updateSlidesOnValidation;
+  updateSlidesOnNext: typeof updateSlidesOnNext;
+  updateReviewStatus: typeof updateReviewStatus;
+  updateStepItemsOnValidation: typeof updateStepItemsOnValidation;
+  updateStepItemsOnNext: typeof updateStepItemsOnNext;
+  updateFinishedSlides: typeof updateFinishedSlides;
+};

@@ -3,15 +3,14 @@ import {AnyAction, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
-import configureStore from './configure-store';
+import configureStore, {StoreState} from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
 import type {AppOptions} from './types/common';
-import type {Dispatchers} from './types/dispatchers';
 import {SkillsProps} from './types/views/skills';
-import type {StoreState} from './types/store-state';
-import type {SlidesViewStaticProps} from './types/views';
+import type {SlidesViewStaticProps} from './types/views/slides';
 
+import {Dispatchers} from './actions';
 import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
 import {navigateTo, navigateBack, startApp, ViewPath} from './actions/ui/navigation';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
