@@ -22,8 +22,8 @@
   "Draft": "Brouillon",
   "Edit": "Modifier",
   "external_content_article": "DOCUMENTS",
-  "external_content_scorm": "ANIMATED RESOURCES",
-  "external_content_video": "VIDEOS",
+  "external_content_scorm": "RESSOURCES ANIMÉES",
+  "external_content_video": "VIDÉOS",
   "external_content_podcast": "PODCASTS",
   "keep_subscription": "Garder mon abonnement",
   "media_stars_to_win_plural": "Gagnez {{count}} étoiles supplémentaires par chapitre en consultant la leçon !",
@@ -77,4 +77,4 @@
   "zuora_discount_code": "Code promo",
   "mandatory_fields": "* Champs obligatoires",
   "something_went_wrong": "Oh Snap! Quelque chose a mal tourné."
- }
+}
