@@ -9,11 +9,12 @@ import style from './style.css';
 
 export const ICON_VALUES = {
   right: 'right',
-  wrong: 'wrong'
+  wrong: 'wrong',
+  'no-answer': 'no-answer'
 };
 
 const Content = ({icon, current, value}) => {
-  if (!icon) {
+  if (icon === ICON_VALUES['no-answer']) {
     return (
       <span className={style.value} aria-label={`step ${value}`}>
         {value}
