@@ -1,3 +1,8 @@
+const dotenv = require('dotenv');
+dotenv.config({
+  path: '.env.sample'
+});
+
 module.exports = {
   files: ['src/**/*.test.*', 'test/**/*.test.*'],
   extensions: ['ts', 'tsx'],
