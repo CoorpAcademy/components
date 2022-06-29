@@ -5,6 +5,7 @@ export default {
   props: {
     ...props.props,
     mandatoryCoursesInput: mandatoryCoursesInput.props,
-    inputTitle: 'Minimun courses completion'
+    inputTitle: 'Minimun courses completion',
+    totalCourses: '14 modules among 6 courses'
   }
 };

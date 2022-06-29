@@ -20,7 +20,8 @@ const CourseSections = ({
   isLoading,
   title,
   mandatoryCoursesInput,
-  inputTitle
+  inputTitle,
+  totalCourses
 }) => {
   if (isLoading) return <Loading />;
 
@@ -34,6 +35,13 @@ const CourseSections = ({
       {title ? (
         <div className={style.title}>
           <Title title={title} type={'form-group'} data-name={'course-sections-title'} />
+          {totalCourses ? (
+            <Title
+              title={totalCourses}
+              type={'form-group'}
+              data-name={'course-sections-total-courses'}
+            />
+          ) : null}
         </div>
       ) : null}
       <DraggableList itemType="course-section" items={sections} onDrop={onDrop} />
@@ -44,6 +52,7 @@ const CourseSections = ({
 CourseSections.propTypes = {
   inputTitle: PropTypes.string,
   title: PropTypes.string,
+  totalCourses: PropTypes.string,
   sections: PropTypes.arrayOf(PropTypes.shape(CourseSection.propTypes)),
   onDrop: PropTypes.func,
   isLoading: PropTypes.bool,
