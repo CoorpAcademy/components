@@ -578,14 +578,14 @@
     height: auto;
     background-color: white;
     left: 0;
-    top: -100%;
+    top: -100vh;
     width: 100%;
     transition: top 0.8s ease-out;
     max-height: 100vh;
   }
 
   .menuWrapper:last-child  {
-    padding-bottom: 40px;  
+    padding-bottom: 60px;  
   }
 
   .hiddenSearchBar {
