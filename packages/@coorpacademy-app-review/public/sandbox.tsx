@@ -46,7 +46,10 @@ const createSandbox = (options: SandboxOptions): void => {
     // userId + skill --> create progression --> 1st slide
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
-      slide: selectedSlide
+      slide: selectedSlide,
+      templateContext: {
+        plop: 'plip'
+      }
     };
 
     render(<AppReview options={appOptions} />, container);

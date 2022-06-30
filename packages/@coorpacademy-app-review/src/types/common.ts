@@ -5,6 +5,7 @@ export type AppOptions = {
   theme?: unknown;
   translations?: unknown;
   slide?: Slide;
+  templateContext: unknown;
 };
 
 export type JWT = {

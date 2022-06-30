@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {AnyAction, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
+import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
 
 import configureStore, {StoreState} from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
@@ -115,9 +116,13 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
 
   if (!store || !appStarted) return <div />;
 
+  const {templateContext: values} = options;
+
   return (
     <Provider store={store}>
-      <App />
+      <TemplateContext values={values}>
+        <App />
+      </TemplateContext>
     </Provider>
   );
 };
