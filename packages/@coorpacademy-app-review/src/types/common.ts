@@ -1,11 +1,16 @@
 import {Slide} from './slides';
 
+// TODO use type from /components
+type TemplateContext = {
+  plop: string;
+};
+
 export type AppOptions = {
   token: string;
   theme?: unknown;
   translations?: unknown;
   slide?: Slide;
-  templateContext: unknown;
+  templateContext: TemplateContext;
 };
 
 export type JWT = {

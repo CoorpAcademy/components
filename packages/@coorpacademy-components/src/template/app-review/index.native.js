@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, StyleSheet, Pressable, View, BackHandler} from 'react-native';
 import propTypes, {ViewNames} from './prop-types';
+import Slides from './slides';
 
 // -----------------------------------------------------------------------------
 
@@ -14,7 +15,8 @@ const styles = StyleSheet.create({
 
 // -----------------------------------------------------------------------------
 
-const NavText = ({viewName, navigateTo}) => {
+const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
+  const {navigateTo} = dispachers;
   const handlePress = v => () => navigateTo(v);
 
   switch (viewName) {
@@ -31,11 +33,7 @@ const NavText = ({viewName, navigateTo}) => {
         </Pressable>
       );
     case ViewNames.slides:
-      return (
-        <Pressable onPress={handlePress('home')}>
-          <Text>view quizzer</Text>
-        </Pressable>
-      );
+      return <Slides {...slides} {...dispachers} />;
     default:
       return <Text>view (none selected)</Text>;
   }
@@ -43,7 +41,9 @@ const NavText = ({viewName, navigateTo}) => {
 
 // -----------------------------------------------------------------------------
 
-const RootView = ({viewName, navigateBack, navigateTo}) => {
+const AppReview = props => {
+  const {navigateBack} = props;
+
   useEffect(() => {
     const backAction = () => {
       navigateBack();
@@ -58,16 +58,16 @@ const RootView = ({viewName, navigateBack, navigateTo}) => {
 
   return (
     <View style={styles.rootView}>
-      <NavText viewName={viewName} navigateTo={navigateTo} />
+      <Switch {...props} />
     </View>
   );
 };
 
 // -----------------------------------------------------------------------------
 
-RootView.propTypes = propTypes;
-NavText.propTypes = RootView.propTypes;
+AppReview.propTypes = propTypes;
+Switch.propTypes = AppReview.propTypes;
 
 // -----------------------------------------------------------------------------
 
-export default RootView;
+export default AppReview;

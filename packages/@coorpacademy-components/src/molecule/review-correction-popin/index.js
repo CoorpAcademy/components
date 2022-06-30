@@ -1,12 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
+import propTypes from './prop-types';
 
 const buildKlfButton = klf => {
   const klfButtonProps = {
@@ -80,24 +80,6 @@ const ReviewCorrectionPopin = props => {
   );
 };
 
-ReviewCorrectionPopin.propTypes = {
-  type: PropTypes.oneOf(['right', 'wrong']),
-  resultLabel: PropTypes.string,
-  information: PropTypes.shape({
-    label: PropTypes.string,
-    message: PropTypes.string
-  }),
-  next: PropTypes.shape({
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    'data-name': PropTypes.string,
-    'aria-label': PropTypes.string
-  }),
-  klf: PropTypes.shape({
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    tooltip: PropTypes.string
-  })
-};
+ReviewCorrectionPopin.propTypes = propTypes;
 
 export default ReviewCorrectionPopin;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import {
@@ -9,6 +8,7 @@ import {
 import Loader from '../../atom/loader';
 import SkillCard from '../../molecule/skill-card';
 import style from './style.css';
+import propTypes, {ListSkillsPropTypes, NoSkillsPropTypes} from './prop-types';
 
 const ReviewListSkills = ({listSkills}) => {
   return (
@@ -74,26 +74,8 @@ const ReviewSkills = props => {
   );
 };
 
-ReviewListSkills.propTypes = {
-  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes))
-};
-
-ReviewNoSkills.propTypes = {
-  titleNoSkills: PropTypes.string,
-  textNoSkills: PropTypes.string,
-  iconSkillAriaLabel: PropTypes.string
-};
-
-ReviewSkills.propTypes = {
-  'aria-label': PropTypes.string,
-  title: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool,
-  isLoadingAriaLabel: PropTypes.string,
-  ...ReviewListSkills.propTypes,
-  ...ReviewNoSkills.propTypes
-};
-
-export const ListSkillsPropTypes = ReviewListSkills.propTypes;
-export const NoSkillsPropTypes = ReviewNoSkills.propTypes;
+ReviewListSkills.propTypes = ListSkillsPropTypes;
+ReviewNoSkills.propTypes = NoSkillsPropTypes;
+ReviewSkills.propTypes = propTypes;
 
 export default ReviewSkills;

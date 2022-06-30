@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import ReviewHeaderStepItem from '../../atom/review-header-step-item';
 import style from './style.css';
+import propTypes from './prop-types';
 
 const ReviewHeaderSteps = props => {
   const {steps} = props;
@@ -19,8 +19,6 @@ const ReviewHeaderSteps = props => {
   );
 };
 
-ReviewHeaderSteps.propTypes = {
-  steps: PropTypes.arrayOf(PropTypes.shape(ReviewHeaderStepItem.props))
-};
+ReviewHeaderSteps.propTypes = propTypes;
 
 export default ReviewHeaderSteps;

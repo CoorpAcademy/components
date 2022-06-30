@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import style from './style.css';
+import propTypes from './prop-types';
 
 const ReviewBackground = props => {
   const {'aria-label': ariaLabel} = props;
@@ -19,6 +19,6 @@ const ReviewBackground = props => {
   );
 };
 
-ReviewBackground.propTypes = {'aria-label': PropTypes.string};
+ReviewBackground.propTypes = propTypes;
 
 export default ReviewBackground;

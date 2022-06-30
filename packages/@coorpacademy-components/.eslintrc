@@ -66,6 +66,7 @@
       {
         ".js": "never",
         ".ts": "never",
+        ".tsx": "never",
         ".json": "never"
       }
     ]
@@ -74,8 +75,31 @@
     "react": {
       "version": "detect"
     },
-    "import/core-modules": ["ava"],
-    "node": {"allowModules": ["ava"]}
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    },
+    "import/core-modules": [
+      "ava"
+    ],
+    "node": {
+      "allowModules": [
+        "ava"
+      ],
+      "tryExtensions": [
+        ".js",
+        ".json",
+        ".ts",
+        ".tsx",
+        ".d.ts"
+      ]
+    }
   },
   "overrides": [
     {

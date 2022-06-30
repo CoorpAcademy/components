@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import OnboardingWeb from '../../../atom/review-presentation';
+import propTypes from '../../../atom/review-presentation/prop-types';
 
 // import {NovaLineSelectionCursorsCursorArrowTarget as TargetIcon} from '@coorpacademy/nova-icons';
 
@@ -84,6 +84,6 @@ const Onboarding = ({reviewTitle}) => (
   </View>
 );
 
-Onboarding.propTypes = OnboardingWeb.propTypes;
+Onboarding.propTypes = propTypes;
 
 export default Onboarding;

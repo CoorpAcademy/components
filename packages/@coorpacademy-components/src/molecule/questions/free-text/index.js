@@ -32,6 +32,7 @@ const FreeText = (props, context) => {
         })
       }}
     >
+      <p>TEST INPUT</p>
       <input
         data-name="free-text-input"
         type="text"

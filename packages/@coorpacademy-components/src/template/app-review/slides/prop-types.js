@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
 
-import ReviewCongrats from '../../../organism/review-congrats';
-import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
-import ReviewBackground from '../../../atom/review-background';
-import ReviewHeader from '../../../organism/review-header';
-import Answer from '../../../molecule/answer';
+import ReviewCongratsPropTypes from '../../../organism/review-congrats/prop-types';
+import ReviewCorrectionPopinPropTypes from '../../../molecule/review-correction-popin/prop-types';
+import ReviewBackgroundPropTypes from '../../../atom/review-background/prop-types';
+import ReviewHeader from '../../../organism/review-header/prop-types';
+import AnswerPropTypes from '../../../molecule/answer/prop-types';
 
 const NextSlideProp = PropTypes.shape({
   hidden: PropTypes.bool,
@@ -16,7 +16,7 @@ const NextSlideProp = PropTypes.shape({
   isCorrect: PropTypes.string,
   endReview: PropTypes.bool,
   questionText: PropTypes.string,
-  answerUI: Answer
+  answerUI: AnswerPropTypes
 });
 
 const SlideProp = PropTypes.shape({
@@ -32,7 +32,7 @@ const StepItemProp = PropTypes.shape({
 
 export const SlidesReviewPropTypes = {
   headerProps: PropTypes.shape(omit('steps', ReviewHeader.propTypes)),
-  reviewBackgroundAriaLabel: ReviewBackground.propTypes['aria-label'],
+  reviewBackgroundAriaLabel: ReviewBackgroundPropTypes['aria-label'],
   validate: PropTypes.shape({
     label: PropTypes.string
   }),
@@ -64,16 +64,16 @@ export const SlidesReviewPropTypes = {
   reviewStatus: PropTypes.string,
   correctionPopinProps: PropTypes.shape({
     // ---------------
-    klf: ReviewCorrectionPopin.propTypes.klf,
-    information: ReviewCorrectionPopin.propTypes.information,
+    klf: ReviewCorrectionPopinPropTypes.klf,
+    information: ReviewCorrectionPopinPropTypes.information,
     next: PropTypes.shape({
       label: PropTypes.string,
       'aria-label': PropTypes.string
     }),
-    successLabel: ReviewCorrectionPopin.propTypes.resultLabel,
-    failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
+    successLabel: ReviewCorrectionPopinPropTypes.resultLabel,
+    failureLabel: ReviewCorrectionPopinPropTypes.resultLabel
   }),
-  congratsProps: PropTypes.shape(ReviewCongrats.propTypes),
+  congratsProps: PropTypes.shape(ReviewCongratsPropTypes),
   progression: PropTypes.shape({
     slideNumber: PropTypes.number,
     // 'success' | 'failure'
@@ -82,7 +82,7 @@ export const SlidesReviewPropTypes = {
     exitNode: PropTypes.string,
     nextSlide: PropTypes.shape({
       questionText: PropTypes.string,
-      answerUI: PropTypes.shape(Answer.propTypes)
+      answerUI: PropTypes.shape(AnswerPropTypes)
     })
   }),
   // ---------------------------------------------------------------------------

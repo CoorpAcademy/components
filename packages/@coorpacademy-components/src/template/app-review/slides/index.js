@@ -14,7 +14,6 @@ import ReviewHeader from '../../../organism/review-header';
 import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
 import Answer from '../../../molecule/answer';
 import ButtonLink from '../../../atom/button-link';
-import {useTemplateContext} from '../template-context';
 import style from './style.css';
 import {SlidesReviewPropTypes, SlidePropTypes, StackedSlidesPropTypes} from './prop-types';
 
@@ -341,9 +340,6 @@ const SlidesReview = (
     hiddenSteps: reviewStatus !== 'ongoing'
   };
 
-  const templateContext = useTemplateContext();
-  const {plop} = templateContext;
-
   return (
     <div
       key="slides-revision-container"
@@ -368,7 +364,6 @@ const SlidesReview = (
             data-name="stacked-slides-container"
             className={style.stackedSlidesContainer}
           >
-            <p>{plop}</p>
             <StackedSlides
               {...{
                 slides,

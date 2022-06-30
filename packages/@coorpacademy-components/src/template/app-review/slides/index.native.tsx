@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {View, StyleSheet, Text, useWindowDimensions, Button} from 'react-native';
 
+import {useTemplateContext} from '../template-context';
 import {SlidesReviewPropTypes} from './prop-types';
 
 // import theme from '../../../modules/theme';
@@ -36,6 +37,9 @@ const quizzerStyle = StyleSheet.create({
     // backgroundColor: theme.colors.white, @todo with props
     justifyContent: 'space-between',
     alignItems: 'center'
+  },
+  testPlop: {
+    marginTop: 300
   }
 });
 
@@ -165,9 +169,7 @@ const Slide = ({validateSlide, slide, num}) => {
   // TODO replace choices with <Answer>; move mobile answers in the package..
   return (
     <View style={slideStyle.slide}>
-      <Text style={slideStyle.category}>
-        {slide.category} {num}
-      </Text>
+      <Text style={slideStyle.category}>{num}</Text>
       <Text style={slideStyle.question}>{slide.question}</Text>
       <Text style={slideStyle.instruction}>{slide.instruction}</Text>
 
@@ -191,16 +193,23 @@ Slide.propTypes = {
 // const Slides = ({slide}: Props) => {
 const Slides = ({slide, validateSlide}) => {
   const slides = [slide, slide, slide, slide, slide];
+
+  const templateContext = useTemplateContext();
+  const {plop} = templateContext;
+
+  console.log({plop});
+
   return (
     <View style={quizzerStyle.container}>
-      {slides.reverse().map((_slide, index) => (
+      <Text style={quizzerStyle.testPlop}>{plop}</Text>
+      {/* {slides.reverse().map((_slide, index) => (
         <Slide
           validateSlide={validateSlide}
           slide={_slide}
           num={slides.length - index}
           key={`slide-${index}`}
         />
-      ))}
+      ))} */}
     </View>
   );
 };
