@@ -1,14 +1,11 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render, fireEvent} from '@testing-library/react';
 import {once} from 'lodash/fp';
 import ImageUpload from '..';
-import DragAndDrop from '../../drag-and-drop';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should reset Component content', t => {
   t.plan(3);
@@ -27,10 +24,10 @@ test('should reset Component content', t => {
       t.pass();
     })
   };
-  const wrapper = mount(<ImageUpload {...props} />);
-  const dragAndDrop = wrapper.find(DragAndDrop);
+  const {container} = render(<ImageUpload {...props} />);
+  const dragAndDrop = container.querySelector(`[data-name="drag-and-drop-wrapper"]`);
   t.truthy(dragAndDrop);
-  const resetIconSearchRes = dragAndDrop.find('[data-name="reset-content-icon"]');
-  t.truthy(resetIconSearchRes.at(0));
-  resetIconSearchRes.at(0).simulate('click');
+  const resetIconSearchRes = dragAndDrop.querySelector('[data-name="reset-content-icon"]');
+  t.truthy(resetIconSearchRes);
+  fireEvent.click(resetIconSearchRes);
 });

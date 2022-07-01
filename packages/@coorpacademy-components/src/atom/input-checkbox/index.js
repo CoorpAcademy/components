@@ -46,7 +46,7 @@ const InputCheckbox = props => {
   );
 
   return (
-    <label className={className} htmlFor={idCheckbox}>
+    <label className={className} htmlFor={idCheckbox} data-name="checkbox-input-label">
       <input
         type="checkbox"
         className={style.checkbox}
@@ -55,6 +55,7 @@ const InputCheckbox = props => {
         checked={checked}
         onChange={handleChange}
         disabled={disabled}
+        data-name="checkbox-input"
       />
       <div className={classnames(style.label, noLabelMargins ? style.noLabelMargins : undefined)}>
         <CheckIcon className={style.icon} />
