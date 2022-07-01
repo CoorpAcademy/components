@@ -74,10 +74,10 @@ export const SlidesReviewPropTypes = {
     failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
   }),
   congratsProps: PropTypes.shape(ReviewCongrats.propTypes),
-  slideValidationResult: PropTypes.shape({
+  progression: PropTypes.shape({
     slideNumber: PropTypes.number,
     // 'success' | 'failure'
-    result: PropTypes.string,
+    isCorrect: PropTypes.bool,
     // 'successExitNode' | 'failExitNode'
     exitNode: PropTypes.string,
     nextSlide: PropTypes.shape({
@@ -110,7 +110,7 @@ export const SlidePropTypes = {
   updateSlidesOnNext: SlidesReviewPropTypes.updateSlidesOnNext,
   updateReviewStatus: SlidesReviewPropTypes.updateReviewStatus,
   updateStepItemsOnNext: SlidesReviewPropTypes.updateStepItemsOnNext,
-  slideValidationResult: SlidesReviewPropTypes.slideValidationResult
+  progression: SlidesReviewPropTypes.progression
 };
 
 export const StackedSlidesPropTypes = omit('slideNumber', SlidePropTypes);

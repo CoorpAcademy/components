@@ -3,12 +3,13 @@ export type Choice = {
   selected: boolean;
   title: string;
   help: string;
+  onClick: Function;
 };
 
 export type QcmDrag = {
   type: 'qcmDrag';
-  choices: Choice[];
-  help: string;
+  answers: Choice[];
+  help?: string;
 };
 
 export type Qcm = {

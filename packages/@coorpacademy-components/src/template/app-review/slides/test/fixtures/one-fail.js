@@ -10,13 +10,13 @@ export default {
       ...initialStateProps.slides,
       0: {
         ...initialStateProps.slides[0],
-        validationResult: 'failure',
+        validationResult: false,
         endReview: false
       }
     },
     slideValidationResult: {
       slideNumber: 0,
-      result: 'failure',
+      isCorrect: false,
       nextSlide: {
         questionText: initialStateProps.slides[0].questionText,
         answerUI: initialStateProps.slides[0].answerUI

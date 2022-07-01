@@ -33,9 +33,9 @@ export default {
         position: 0
       }
     },
-    slideValidationResult: {
+    progression: {
       slideNumber: 4,
-      result: 'success',
+      isCorrect: true,
       exitNode: 'successExitNode'
     },
     finishedSlides: {

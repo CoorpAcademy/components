@@ -28,13 +28,13 @@ export default {
         ...initialStateProps.slides[0],
         hidden: false,
         position: 0,
-        validationResult: 'success',
+        validationResult: true,
         endReview: false
       }
     },
     slideValidationResult: {
       slideNumber: 4,
-      result: 'success',
+      isCorrect: true,
       exitNode: 'successExitNode'
     },
     finishedSlides: {

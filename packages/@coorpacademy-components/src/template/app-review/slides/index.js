@@ -52,7 +52,7 @@ const Slide = ({
   updateSlidesOnNext,
   updateReviewStatus,
   updateStepItemsOnNext,
-  slideValidationResult,
+  progression,
   correctionPopinProps
 }) => {
   const hidden = getOr(false, `${slideNumber}.hidden`, slides);
@@ -79,7 +79,6 @@ const Slide = ({
       be handled on the next slide logic but the content will be carried from here.
     */
     onClick: async () => {
-      // result: 'success' | 'failure'
       // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
       await validateSlide();
     },
@@ -105,14 +104,14 @@ const Slide = ({
         from the content carried from the validate action.
       */
       onClick: () => {
-        const exitNode = get('exitNode', slideValidationResult);
+        const exitNode = get('exitNode', progression);
 
         updateSlidesOnNext({
           slideNumber,
           newSlideContent: {
-            hidden: validationResult === 'success',
+            hidden: !!validationResult,
             position: HIGHEST_INDEX - finishedSlidesSize, // to restack the slide
-            animationType: validationResult === 'success' ? 'unstack' : 'restack',
+            animationType: validationResult ? 'unstack' : 'restack',
             validationResult,
             endReview: !!exitNode,
             answerUI,
@@ -124,8 +123,7 @@ const Slide = ({
           stepNumber: slideNumber,
           finishedSlides,
           current:
-            finishedSlidesSize === HIGHEST_INDEX &&
-            /* istanbul ignore next */ validationResult !== 'success'
+            finishedSlidesSize === HIGHEST_INDEX && /* istanbul ignore next */ !validationResult
         });
 
         if (finishedSlidesSize === TOTAL_SLIDES_STACK) updateReviewStatus('finished');
@@ -136,8 +134,8 @@ const Slide = ({
     },
     klf,
     information,
-    type: validationResult === 'success' ? 'right' : 'wrong',
-    resultLabel: validationResult === 'success' ? successLabel : failureLabel
+    type: validationResult ? 'right' : 'wrong',
+    resultLabel: validationResult ? successLabel : failureLabel
   };
 
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
@@ -210,7 +208,7 @@ const StackedSlides = ({
   updateSlidesOnNext,
   updateReviewStatus,
   updateStepItemsOnNext,
-  slideValidationResult,
+  progression,
   correctionPopinProps
 }) => {
   const stackedSlides = [];
@@ -229,7 +227,7 @@ const StackedSlides = ({
           updateSlidesOnNext,
           updateReviewStatus,
           updateStepItemsOnNext,
-          slideValidationResult,
+          progression,
           correctionPopinProps
         }}
         key={slideNumber}
@@ -261,7 +259,7 @@ const SlidesReview = (
     updateStepItemsOnValidation,
     updateStepItemsOnNext,
     updateFinishedSlides,
-    slideValidationResult
+    progression
   },
   context
 ) => {
@@ -283,20 +281,20 @@ const SlidesReview = (
 
   useEffect(
     /* istanbul ignore next */ () => {
-      const slideNumber = get('slideNumber', slideValidationResult);
-      if (slideValidationResult) {
+      const slideNumber = get('slideNumber', progression);
+      if (progression) {
         const hidden = getOr(false, `${slideNumber}.hidden`, slides);
         const endReview = getOr(false, `${slideNumber}.endReview`, slides);
         const position = get(`${slideNumber}.position`, slides);
-        const result = get('result', slideValidationResult);
-        const exitNode = get('exitNode', slideValidationResult);
-        const nextSlide = get('nextSlide', slideValidationResult);
+        const isCorrect = get('isCorrect', progression);
+        const exitNode = get('exitNode', progression);
+        const nextSlide = get('nextSlide', progression);
         updateSlidesOnValidation({
           slideNumber,
           newSlideContent: {
             hidden,
             position,
-            validationResult: result,
+            validationResult: isCorrect,
             endReview: !!exitNode
           },
           numberOfFinishedSlides: finishedSlidesSize,
@@ -304,16 +302,16 @@ const SlidesReview = (
         });
         updateStepItemsOnValidation({
           stepNumber: slideNumber,
-          icon: result === 'success' ? ICON_VALUES.right : ICON_VALUES.wrong
+          icon: isCorrect ? ICON_VALUES.right : ICON_VALUES.wrong
         });
-        if (result === 'success') updateFinishedSlides({slideNumber, value: true});
+        if (isCorrect) updateFinishedSlides({slideNumber, value: true});
         if (endReview) {
           updateReviewStatus('finished');
         }
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [slideValidationResult]
+    [progression]
   );
 
   useEffect(
@@ -377,7 +375,7 @@ const SlidesReview = (
                 updateSlidesOnNext,
                 updateReviewStatus,
                 updateStepItemsOnNext,
-                slideValidationResult,
+                progression,
                 correctionPopinProps
               }}
             />

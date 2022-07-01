@@ -6,6 +6,7 @@ export const STORE_FIRST_SLIDE = '@@slide/STORE_FIRST_SLIDE';
 export const UPDATE_SLIDES_ON_VALIDATION = '@@slide/UPDATE_SLIDES_ON_VALIDATION';
 export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
 export const VALIDATE_SLIDE = '@@slide/VALIDATE';
+export const FETCH_NEXT_CONTENT = '@@slide/FETCH_NEXT_CONTENT';
 
 // -----------------------------------------------------------------------------
 
@@ -15,7 +16,7 @@ export type Slide = SlideFromAPI & {
   hidden?: boolean;
   position: number;
   animationType?: SlideUIAnimations;
-  validationResult?: 'success' | 'failure';
+  validationResult?: boolean;
   endReview?: boolean;
   nextSlide?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextSlide'>;
 };
@@ -27,7 +28,15 @@ export type ValidationPayload = {
   nextSlide: Slide;
 };
 
-export type NextPayload = Omit<ValidationPayload, 'nextSlide'>;
+export type OnNextPayload = Omit<ValidationPayload, 'nextSlide'>;
+
+export type FetchNextPayload = {
+  answer: string[];
+  content: {
+    ref: string;
+    type: string;
+  };
+};
 
 // -----------------------------------------------------------------------------
 
@@ -43,18 +52,20 @@ export type UpdateSlidesOnValidation = {
 
 export type UpdateSlidesOnNext = {
   type: typeof UPDATE_SLIDES_ON_NEXT;
-  payload: NextPayload;
+  payload: OnNextPayload;
 };
 
 export type ValidateSlide = {
   type: typeof VALIDATE_SLIDE;
 };
 
-export type SlidesAction =
-  | StoreFirstSlide
-  | UpdateSlidesOnValidation
-  | UpdateSlidesOnNext
-  | ValidateSlide;
+// TODO
+export type FetchNextContent = {
+  type: typeof FETCH_NEXT_CONTENT;
+  payload: FetchNextPayload;
+};
+
+export type SlidesAction = StoreFirstSlide | UpdateSlidesOnValidation | UpdateSlidesOnNext;
 
 // -----------------------------------------------------------------------------
 
@@ -68,7 +79,7 @@ export const updateSlidesOnValidation = (payload: ValidationPayload): UpdateSlid
   payload
 });
 
-export const updateSlidesOnNext = (payload: NextPayload): UpdateSlidesOnNext => ({
+export const updateSlidesOnNext = (payload: OnNextPayload): UpdateSlidesOnNext => ({
   type: UPDATE_SLIDES_ON_NEXT,
   payload
 });

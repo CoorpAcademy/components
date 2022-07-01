@@ -18,16 +18,16 @@ import {AnswerUI} from './types/slides';
 
 type DataState = {
   isFetching?: boolean;
-  slideValidationResult?: {
+  progression?: {
     slideNumber: number;
-    result: 'success' | 'failure';
+    isCorrect?: boolean;
     // pass down the successExitNode if all slides are finished, not before
     exitNode?: 'successExitNode' | 'failExitNode';
-    nextSlide: {
+    nextSlide?: {
       questionText?: string;
       answerUI?: AnswerUI;
     };
-  };
+  } | null;
   skills: SkillsState;
   slides: SlidesState;
   token?: TokenState;
