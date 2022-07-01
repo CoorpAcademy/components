@@ -1,4 +1,4 @@
-import {FinishedSlides} from '../../reducers/ui/finished-slides';
+import {FinishedSlidesState} from '../../reducers/ui/finished-slides';
 
 // -----------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ type UpdateStepItemsOnValidationClickPayload = {
 
 type UpdateStepItemsOnNextClickPayload = {
   stepNumber: number;
-  finishedSlides: FinishedSlides;
+  finishedSlides: FinishedSlidesState;
   current: boolean;
 };
 

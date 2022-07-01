@@ -1,7 +1,7 @@
 export type Skill = {
-  _id: string;
+  skillRef: string;
+  slidesToReview: number;
   custom: boolean;
-  ref: string;
   name: string;
 };
 

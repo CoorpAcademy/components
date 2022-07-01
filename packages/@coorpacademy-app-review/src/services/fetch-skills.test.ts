@@ -6,10 +6,10 @@ import {okJSONResponse, token} from './tools/fetch.mocks';
 test('should fetch skills with success', async t => {
   const result: Skills = [
     {
-      _id: '12341234',
+      slidesToReview: 1,
       name: 'skill-test',
       custom: false,
-      ref: '_skill-ref'
+      skillRef: '_skill-ref'
     }
   ];
 

@@ -4,16 +4,16 @@ import {okJSONResponse} from './tools/fetch.mocks';
 
 const result: Skills = [
   {
-    _id: '12341234',
+    skillRef: '_skill-ref',
+    slidesToReview: 2,
     name: 'skill-test',
-    custom: false,
-    ref: '_skill-ref'
+    custom: false
   },
   {
-    _id: '12341234',
+    skillRef: '_skill-ref-2',
+    slidesToReview: 2,
     name: 'skill-test-2',
-    custom: true,
-    ref: '_skill-ref-2'
+    custom: true
   }
 ];
 
