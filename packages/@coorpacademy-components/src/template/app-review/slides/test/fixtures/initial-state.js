@@ -92,7 +92,7 @@ export default {
     reviewStatus: 'ongoing',
     correctionPopinProps,
     congratsProps: congratsProps.props,
-    slideValidationResult: null,
+    progression: null,
     // ---------------
     // Dispatchers
     validateSlide: () => console.log('onValidateClick'),

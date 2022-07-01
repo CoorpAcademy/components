@@ -55,7 +55,7 @@ type SlidesViewStaticProps = {
     failureLabel: string;
   };
   reviewBackgroundAriaLabel?: string;
-  slideValidationResult: StoreState['data']['slideValidationResult'];
+  progression: StoreState['data']['progression'];
 };
 
 type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'>;

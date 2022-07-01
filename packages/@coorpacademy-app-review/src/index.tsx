@@ -85,7 +85,7 @@ const mapStateToProps = (state: StoreState): StaticProps => ({
     reviewStatus: state.ui.reviewStatus,
     correctionPopinProps,
     congratsProps,
-    slideValidationResult: state.data.slideValidationResult
+    progression: state.data.progression
   },
   skills: mapStateToSkillsProps(state)
 });

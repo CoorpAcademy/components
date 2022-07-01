@@ -1,13 +1,11 @@
-import {getOr, noop, set} from 'lodash/fp';
 import map from 'lodash/fp/map';
 import {
-  NextPayload,
+  OnNextPayload,
   Slide,
   SlidesAction,
   STORE_FIRST_SLIDE,
   UPDATE_SLIDES_ON_NEXT,
   UPDATE_SLIDES_ON_VALIDATION,
-  VALIDATE_SLIDE,
   ValidationPayload
 } from '../../actions/data/slides';
 import {Slide as SlideFromAPI} from '../../types/slides';
@@ -88,7 +86,7 @@ const stateUpdateOnValidation = (state: SlidesState, payload: ValidationPayload)
 
 // ||-------> Handles the updates of a given slide on correction popin's next click,
 // & then updates de remaining slides (updates position to trigger animations)
-const stateUpdateOnNext = (state: SlidesState, payload: NextPayload): SlidesState => {
+const stateUpdateOnNext = (state: SlidesState, payload: OnNextPayload): SlidesState => {
   const {slideNumber, newSlideContent, numberOfFinishedSlides} = payload;
   const _state: SlidesState = {
     slideNumbers
@@ -132,57 +130,6 @@ const reducer = (state: SlidesState = initialState, action: SlidesAction): Slide
     }
     case UPDATE_SLIDES_ON_NEXT: {
       return stateUpdateOnNext(state, action.payload);
-    }
-    case VALIDATE_SLIDE: {
-      const previousnumber: number = getOr(-1, 'slideValidationResult.slideNumber', state);
-      // hard coded for now
-      return set(
-        'slideValidationResult',
-        {
-          slideNumber: previousnumber + 1,
-          result: 'success',
-          // exitNode
-          nextSlide: {
-            questionText: 'Test',
-            answerUI: {
-              model: {
-                answers: [
-                  {
-                    title: 'There is no need for a password',
-                    onClick: noop,
-                    selected: false
-                  },
-                  {
-                    title: 'Lorem ipsum',
-                    onClick: noop,
-                    selected: false
-                  },
-                  {
-                    title: 'Lorem',
-                    onClick: noop,
-                    selected: true,
-                    order: 1
-                  },
-                  {
-                    title: 'You need to have a password',
-                    onClick: noop,
-                    selected: false
-                  },
-                  {
-                    title: 'Pouet',
-                    onClick: noop,
-                    selected: true,
-                    order: 0
-                  }
-                ],
-                type: 'qcmDrag'
-              },
-              help: 'Help text will appear here'
-            }
-          }
-        },
-        state
-      );
     }
     default:
       return state;
