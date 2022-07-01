@@ -7,13 +7,16 @@ import {
 
 // -----------------------------------------------------------------------------
 
-export type State = Array<'skills' | 'onboarding' | 'slides'>;
-export const initialState: State = [];
+export type NavigationState = Array<'skills' | 'onboarding' | 'slides'>;
+export const initialState: NavigationState = [];
 
 // -----------------------------------------------------------------------------
 
-// eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: NavigateTo | NavigateBack): State => {
+const reducer = (
+  // eslint-disable-next-line default-param-last
+  state: NavigationState = initialState,
+  action: NavigateTo | NavigateBack
+): NavigationState => {
   switch (action.type) {
     case NAVIGATE_TO: {
       return [...state, action.payload];

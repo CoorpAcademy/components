@@ -8,7 +8,7 @@ import {
   UPDATE_STEP_ITEMS_ON_VALIDATION
 } from '../../actions/ui/step-items';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
-import {FinishedSlides} from './finished-slides';
+import {FinishedSlidesState} from './finished-slides';
 
 // -----------------------------------------------------------------------------
 
@@ -25,11 +25,11 @@ export type StepItems = {
 
 // -----------------------------------------------------------------------------
 
-export type State = StepItems;
+export type StepItemsState = StepItems;
 
 // -----------------------------------------------------------------------------
 
-const getInitialState = (): State => {
+const getInitialState = (): StepItemsState => {
   const state: StepItems = {
     slideNumbers
   };
@@ -42,7 +42,7 @@ const getInitialState = (): State => {
   return state;
 };
 
-export const initialState: State = getInitialState();
+export const initialState: StepItemsState = getInitialState();
 
 // -----------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ const getNextIndex = (currentIndex: number): number =>
 // they have to be skipped)
 const calculateNextStepIndex = (
   currentStepNumber: number,
-  finishedSlides: FinishedSlides,
+  finishedSlides: FinishedSlidesState,
   lastVisitedIndex = -1
 ): number => {
   // only one slide remaining, the step should stay on the same number
@@ -76,12 +76,12 @@ type StepItemToUpdateProps =
   | (Pick<StepItem, 'current'> & {nextIndex: number});
 
 const recalculateStepItemsState = (
-  state: State,
+  state: StepItemsState,
   stepNumber: number,
   stepItemToUpdateProps: StepItemToUpdateProps
-): State => {
+): StepItemsState => {
   const nextIndex: number = get('nextIndex', stepItemToUpdateProps);
-  const _state: State = {
+  const _state: StepItemsState = {
     slideNumbers
   };
 
@@ -104,7 +104,7 @@ const recalculateStepItemsState = (
 // -----------------------------------------------------------------------------
 
 // eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: StepItemsAction): State => {
+const reducer = (state: StepItemsState = initialState, action: StepItemsAction): StepItemsState => {
   switch (action.type) {
     case UPDATE_STEP_ITEMS_ON_VALIDATION: {
       const {stepNumber, icon} = action.payload;

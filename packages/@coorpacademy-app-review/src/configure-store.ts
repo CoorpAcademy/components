@@ -4,13 +4,13 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import onStartApp from './middlewares/on-start-app';
 
-import {State as SkillsState} from './reducers/data/skills';
-import {State as SlidesState} from './reducers/data/slides';
-import {State as TokenState} from './reducers/data/token';
-import {State as NavigationState} from './reducers/ui/navigation';
-import {State as ReviewStatusState} from './reducers/ui/review-status';
-import {StepItems as StepItemsState} from './reducers/ui/step-items';
-import {FinishedSlides as FinishedSlidesState} from './reducers/ui/finished-slides';
+import {SkillsState} from './reducers/data/skills';
+import {SlidesState} from './reducers/data/slides';
+import {TokenState} from './reducers/data/token';
+import {NavigationState} from './reducers/ui/navigation';
+import {ReviewStatusState} from './reducers/ui/review-status';
+import {StepItemsState} from './reducers/ui/step-items';
+import {FinishedSlidesState} from './reducers/ui/finished-slides';
 
 import {AnswerUI} from './types/slides';
 

@@ -4,15 +4,14 @@ import {slideNumbers} from '../../common';
 
 // -----------------------------------------------------------------------------
 // Stores only successful slides
-export type FinishedSlides = {
+export type FinishedSlidesState = {
   slideNumbers: number[];
   [key: number]: true;
 };
 
 // -----------------------------------------------------------------------------
 
-export type State = FinishedSlides;
-export const initialState: State = {
+export const initialState: FinishedSlidesState = {
   slideNumbers
 };
 
@@ -28,17 +27,20 @@ const _forEach: <T>(
 
 // -----------------------------------------------------------------------------
 
-// eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: UpdateFinishedSlides): State => {
+const reducer = (
+  // eslint-disable-next-line default-param-last
+  state: FinishedSlidesState = initialState,
+  action: UpdateFinishedSlides
+): FinishedSlidesState => {
   switch (action.type) {
     case UPDATE_FINISHED_SLIDES: {
       const {slideNumbers: _slideNumbers, ...rest} = state;
       const {slideNumber, value} = action.payload;
-      const _state: State = {
+      const _state: FinishedSlidesState = {
         slideNumbers: _slideNumbers
       };
 
-      _forEach<Omit<State, 'slideNumbers'>>((finishedSlide, index) => {
+      _forEach<Omit<FinishedSlidesState, 'slideNumbers'>>((finishedSlide, index) => {
         const previousValue = finishedSlide;
         _state[index] = previousValue;
       }, rest);

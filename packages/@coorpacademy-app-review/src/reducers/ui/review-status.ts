@@ -2,13 +2,16 @@ import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../../actions/ui/review-
 
 // -----------------------------------------------------------------------------
 
-export type State = 'finished' | 'ongoing';
-export const initialState: State = 'ongoing';
+export type ReviewStatusState = 'finished' | 'ongoing';
+export const initialState: ReviewStatusState = 'ongoing';
 
 // -----------------------------------------------------------------------------
 
-// eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: UpdateReviewStatus): State => {
+const reducer = (
+  // eslint-disable-next-line default-param-last
+  state: ReviewStatusState = initialState,
+  action: UpdateReviewStatus
+): ReviewStatusState => {
   switch (action.type) {
     case UPDATE_REVIEW_STATUS: {
       return action.payload;
