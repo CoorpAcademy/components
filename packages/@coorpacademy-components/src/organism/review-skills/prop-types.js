@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import SkillCardPropTypes from '../../molecule/skill-card/prop-types';
 
 export const ListSkillsPropTypes = {
-  listSkills: PropTypes.arrayOf(SkillCardPropTypes)
+  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCardPropTypes))
 };
 
 export const NoSkillsPropTypes = {
