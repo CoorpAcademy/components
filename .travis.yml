@@ -3,7 +3,7 @@ vm:
   size: x-large
 sudo: false
 node_js:
-  - 16.15.0
+  - 8.17.0
 cache: npm
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
