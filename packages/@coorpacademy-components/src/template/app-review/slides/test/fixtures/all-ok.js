@@ -32,7 +32,7 @@ export default {
         endReview: false
       }
     },
-    slideValidationResult: {
+    progression: {
       slideNumber: 4,
       isCorrect: true,
       exitNode: 'successExitNode'
