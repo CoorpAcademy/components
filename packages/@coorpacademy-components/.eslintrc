@@ -79,6 +79,7 @@
       "node": {
         "extensions": [
           ".js",
+          ".json",
           ".jsx",
           ".ts",
           ".tsx"

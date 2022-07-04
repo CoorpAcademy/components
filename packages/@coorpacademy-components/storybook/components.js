@@ -717,7 +717,6 @@ import MoleculeQuestionsFreeTextFixtureWithValueOnChange from '../src/molecule/q
 import MoleculeQuestionsFreeTextFixtureWithValue from '../src/molecule/questions/free-text/test/fixtures/with-value';
 import MoleculeQuestionsQcmFixtureArabic from '../src/molecule/questions/qcm/test/fixtures/arabic';
 import MoleculeQuestionsQcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
-import MoleculeQuestionsQcmFixtureDefaultTs from '../src/molecule/questions/qcm/test/fixtures/default.ts';
 import MoleculeQuestionsQcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 import MoleculeQuestionsQcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
 import MoleculeQuestionsQcmDragFixtureDefault from '../src/molecule/questions/qcm-drag/test/fixtures/default';
@@ -2446,7 +2445,6 @@ export const fixtures = {
     MoleculeQuestionsQcm: {
       Arabic: MoleculeQuestionsQcmFixtureArabic,
       Default: MoleculeQuestionsQcmFixtureDefault,
-      DefaultTs: MoleculeQuestionsQcmFixtureDefaultTs,
       NoSelected: MoleculeQuestionsQcmFixtureNoSelected,
       ShortAnswers: MoleculeQuestionsQcmFixtureShortAnswers
     },
