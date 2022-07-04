@@ -71,7 +71,7 @@ const stateUpdateOnValidation = (state: SlidesState, payload: ValidationPayload)
           ...previousValue,
           nextSlide,
           position: newSlideContent.position,
-          validationResult: newSlideContent.validationResult
+          isCorrect: newSlideContent.isCorrect
         };
       } else _state[slideNumber] = {...previousValue, ...newSlideContent};
     } else {
