@@ -17,12 +17,12 @@ export default {
         value: '3'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: false,
         value: '4'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: false,
         value: '5'
       }

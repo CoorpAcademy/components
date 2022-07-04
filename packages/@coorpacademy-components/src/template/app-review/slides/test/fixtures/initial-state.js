@@ -66,27 +66,27 @@ export default {
       0: {
         current: true,
         value: '1',
-        icon: null
+        icon: 'no-answer'
       },
       1: {
         current: false,
         value: '2',
-        icon: null
+        icon: 'no-answer'
       },
       2: {
         current: false,
         value: '3',
-        icon: null
+        icon: 'no-answer'
       },
       3: {
         current: false,
         value: '4',
-        icon: null
+        icon: 'no-answer'
       },
       4: {
         current: false,
         value: '5',
-        icon: null
+        icon: 'no-answer'
       }
     },
     reviewStatus: 'ongoing',

@@ -2,27 +2,27 @@ export default {
   props: {
     steps: [
       {
-        icon: null,
+        icon: 'no-answer',
         current: true,
         value: '1'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: false,
         value: '2'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: false,
         value: '3'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: false,
         value: '4'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: false,
         value: '5'
       }
