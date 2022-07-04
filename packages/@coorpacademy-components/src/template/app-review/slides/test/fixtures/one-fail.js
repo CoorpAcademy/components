@@ -5,12 +5,12 @@ const initialStateProps = initialState.props;
 
 export default {
   props: {
-    ...omit(['stepItems', 'finishedSlides', 'slides', 'slideValidationResult'], initialStateProps),
+    ...omit(['stepItems', 'finishedSlides', 'slides', 'progression'], initialStateProps),
     slides: {
       ...initialStateProps.slides,
       0: {
         ...initialStateProps.slides[0],
-        validationResult: false,
+        isCorrect: false,
         endReview: false
       }
     },

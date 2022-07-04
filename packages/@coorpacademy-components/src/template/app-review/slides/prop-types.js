@@ -13,7 +13,7 @@ const NextSlideProp = PropTypes.shape({
   // 'unstack' | 'restack'
   animationType: PropTypes.string,
   // 'success' | 'failure'
-  validationResult: PropTypes.string,
+  isCorrect: PropTypes.string,
   endReview: PropTypes.bool,
   questionText: PropTypes.string,
   answerUI: Answer

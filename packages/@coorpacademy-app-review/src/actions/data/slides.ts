@@ -16,7 +16,7 @@ export type Slide = SlideFromAPI & {
   hidden?: boolean;
   position: number;
   animationType?: SlideUIAnimations;
-  validationResult?: boolean;
+  isCorrect?: boolean;
   endReview?: boolean;
   nextSlide?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextSlide'>;
 };

@@ -59,7 +59,7 @@ const Slide = ({
   const endReview = getOr(false, `${slideNumber}.endReview`, slides);
   const position = get(`${slideNumber}.position`, slides);
   const animationType = getOr(false, `${slideNumber}.animationType`, slides);
-  const validationResult = getOr(null, `${slideNumber}.validationResult`, slides);
+  const isSlideCorrect = getOr(null, `${slideNumber}.isCorrect`, slides);
   const questionText = get(`${slideNumber}.questionText`, slides);
   const answerUI = get(`${slideNumber}.answerUI`, slides);
 
@@ -86,7 +86,7 @@ const Slide = ({
     label: validateLabel,
     'data-name': `slide-validate-button-${slideNumber}`,
     className: style.validateButton,
-    disabled: !isNil(validationResult)
+    disabled: !isNil(isSlideCorrect)
   };
 
   const klf = getOr({}, 'klf', correctionPopinProps);
@@ -109,10 +109,10 @@ const Slide = ({
         updateSlidesOnNext({
           slideNumber,
           newSlideContent: {
-            hidden: !!validationResult,
+            hidden: !!isSlideCorrect,
             position: HIGHEST_INDEX - finishedSlidesSize, // to restack the slide
-            animationType: validationResult ? 'unstack' : 'restack',
-            validationResult,
+            animationType: isSlideCorrect ? 'unstack' : 'restack',
+            isCorrect: isSlideCorrect,
             endReview: !!exitNode,
             answerUI,
             questionText
@@ -123,7 +123,7 @@ const Slide = ({
           stepNumber: slideNumber,
           finishedSlides,
           current:
-            finishedSlidesSize === HIGHEST_INDEX && /* istanbul ignore next */ !validationResult
+            finishedSlidesSize === HIGHEST_INDEX && /* istanbul ignore next */ !isSlideCorrect
         });
 
         if (finishedSlidesSize === TOTAL_SLIDES_STACK) updateReviewStatus('finished');
@@ -134,8 +134,8 @@ const Slide = ({
     },
     klf,
     information,
-    type: validationResult ? 'right' : 'wrong',
-    resultLabel: validationResult ? successLabel : failureLabel
+    type: isSlideCorrect ? 'right' : 'wrong',
+    resultLabel: isSlideCorrect ? successLabel : failureLabel
   };
 
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
@@ -181,11 +181,11 @@ const Slide = ({
       </div>
       <div
         className={
-          validationResult ? style.correctionPopinWrapper : style.hiddenCorrectionPopinWrapper
+          isSlideCorrect ? style.correctionPopinWrapper : style.hiddenCorrectionPopinWrapper
         }
         style={{
           ...(finishedSlidesSize !== HIGHEST_INDEX &&
-            !validationResult && {
+            !isSlideCorrect && {
               display: 'none'
             })
         }}
@@ -294,7 +294,7 @@ const SlidesReview = (
           newSlideContent: {
             hidden,
             position,
-            validationResult: isCorrect,
+            isCorrect,
             endReview: !!exitNode
           },
           numberOfFinishedSlides: finishedSlidesSize,
