@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "3.18.19",
+  "version": "3.18.20",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -61,9 +61,9 @@
   },
   "dependencies": {
     "@coorpacademy/components": "10.21.2",
-    "@coorpacademy/player-services": "5.2.14",
-    "@coorpacademy/player-store": "4.2.16",
-    "@coorpacademy/progression-engine": "11.3.3",
+    "@coorpacademy/player-services": "5.2.15",
+    "@coorpacademy/player-store": "4.2.17",
+    "@coorpacademy/progression-engine": "11.4.0",
     "@coorpacademy/redux-task": "1.1.5",
     "@coorpacademy/translate": "6.1.5",
     "@coorpacademy/webpack-config": "10.0.4",
