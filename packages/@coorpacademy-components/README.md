@@ -162,7 +162,7 @@ Build modifications:
 
 
 ## Use in mobile app
-Run `npm run build:watch``
+Run `npm run build:watch`
 For more info see the mobile documentaion (`docs/local-sync.md`)
 
 ## Troubleshooting
