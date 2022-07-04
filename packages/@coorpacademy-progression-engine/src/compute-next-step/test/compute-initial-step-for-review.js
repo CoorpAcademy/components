@@ -1,6 +1,5 @@
 // @flow
 import test from 'ava';
-import {head} from 'lodash/fp';
 import {getConfig} from '../../config';
 import type {AvailableContent, Config} from '../../types';
 import {computeInitialStepForReview} from '..';
@@ -11,7 +10,7 @@ const config: Config = getConfig({ref: 'review', version: '1'});
 const availableContent: AvailableContent = [
   {
     ref: 'skill_41BBqFKoS',
-    slides: [head(allSlides)],
+    slides: allSlides,
     rules: null
   }
 ];

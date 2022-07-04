@@ -12,7 +12,6 @@ import {
   sortBy,
   isEqual,
   isEmpty,
-  sample,
   shuffle,
   includes,
   findIndex,
@@ -358,6 +357,34 @@ export const computeNextStep = (
   return null;
 };
 
+const getNextSlide = (
+  config: Config,
+  state: State | null,
+  availableContent: AvailableContent
+): Slide | null => {
+  if (!state) return get(['0', 'slides', '0'], availableContent);
+
+  const current = get('step.current', state);
+  if (current <= config.slidesToComplete) {
+    return get(['0', 'slides', '1'], availableContent);
+  }
+
+  return null;
+};
+
+const getNextPendingSlide = (
+  currentSlide: string,
+  oldPendingSlides: Array<string>,
+  newPendingSlide: Array<string>
+): string | null => {
+  if (isEmpty(newPendingSlide)) return null;
+
+  const indexPendingSlide = findIndex(s => s === currentSlide, oldPendingSlides) + 1;
+  const index = indexPendingSlide === oldPendingSlides.length ? 0 : indexPendingSlide;
+
+  return oldPendingSlides[index];
+};
+
 export const computeNextStepForReview = (
   config: Config,
   _state: State | null,
@@ -380,29 +407,36 @@ export const computeNextStepForReview = (
     };
   }
 
-  const nextSlide = get(['0', 'slides', '0'], availableContent);
-  // state is null during creation, and we can have the extreme case of creation without slide
-  if (!state && !nextSlide) {
-    return null;
-  }
-
-  // if there is no more slides, two scenarios are possible
-  if (state && !nextSlide) {
-    const pendingSlide = sample(state.pendingSlides);
-    // all other questions have been already right answered, so we close the progression
-    if (!pendingSlide) {
+  const nextSlide = getNextSlide(config, state, availableContent);
+  if (!nextSlide) {
+    // state is null during creation, and we can have the extreme case of creation without slide
+    if (!state) {
       return null;
-    }
+    } else {
+      // if there is no more slides, two scenarios are possible
 
-    // or there are wrong question that should be reviewed again
-    return {
-      nextContent: {
-        type: 'slide',
-        ref: pendingSlide
-      },
-      instructions: null,
-      isCorrect
-    };
+      const pendingSlides = !_state ? [] : _state.pendingSlides;
+      const pendingSlide = getNextPendingSlide(
+        state.nextContent.ref,
+        pendingSlides,
+        state.pendingSlides
+      );
+
+      // all other questions have been already right answered, so we close the progression
+      if (!pendingSlide) {
+        return null;
+      }
+
+      // or there are wrong question that should be reviewed again
+      return {
+        nextContent: {
+          type: 'slide',
+          ref: pendingSlide
+        },
+        instructions: null,
+        isCorrect
+      };
+    }
   }
 
   return {

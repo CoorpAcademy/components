@@ -585,7 +585,7 @@ test('should update pendingSlides when answer is wrong', t => {
   });
 });
 
-test('should update pendingSlides when a pending slide if finally correctly answeres', t => {
+test('should update pendingSlides when a pending slide if finally correctly answered', t => {
   const configReview = getConfig({
     ref: 'review',
     version: '1'
@@ -654,7 +654,7 @@ test('should update pendingSlides when a pending slide if finally correctly answ
       },
       {
         slideRef: '1.A1.5',
-        isCorrect: true,
+        isCorrect: false,
         answer: ['foo']
       },
       {
@@ -664,6 +664,6 @@ test('should update pendingSlides when a pending slide if finally correctly answ
       }
     ],
     variables: {},
-    pendingSlides: ['1.A1.4']
+    pendingSlides: ['1.A1.4', '1.A1.5']
   });
 });
