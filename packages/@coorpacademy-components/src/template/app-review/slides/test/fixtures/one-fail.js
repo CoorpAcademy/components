@@ -14,7 +14,7 @@ export default {
         endReview: false
       }
     },
-    slideValidationResult: {
+    progression: {
       slideNumber: 0,
       isCorrect: false,
       nextSlide: {
