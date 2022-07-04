@@ -13,12 +13,10 @@ import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 
 // -----------------------------------------------------------------------------
 
-type Slides = {
+export type SlidesState = {
   slideNumbers: number[];
   [key: number]: Slide;
 };
-
-export type SlidesState = Slides;
 
 // -----------------------------------------------------------------------------
 
