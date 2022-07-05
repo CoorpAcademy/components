@@ -34,7 +34,8 @@ const build = () => {
     ],
     define: {
       'process.env.API_TEST_TOKEN': `'${process.env.API_TEST_TOKEN}'`,
-      'process.env.NODE_ENV': '"development"',
+      'process.env.NODE_ENV': `'${process.env.NODE_ENV}'`,
+      'process.env.SERVICES': `'${process.env.SERVICES}'`,
       global: 'globalThis'
     }
   });

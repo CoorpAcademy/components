@@ -12,7 +12,7 @@ export default {
         value: '2'
       },
       {
-        icon: null,
+        icon: 'no-answer',
         current: true,
         value: '3'
       },

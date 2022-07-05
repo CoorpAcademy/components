@@ -6,7 +6,7 @@ const initialStateProps = initialState.props;
 export default {
   props: {
     ...omit(
-      ['stepItems', 'finishedSlides', 'slides', 'slideValidationResult', 'reviewStatus'],
+      ['stepItems', 'finishedSlides', 'slides', 'progression', 'reviewStatus'],
       initialStateProps
     ),
     reviewStatus: 'finished',
@@ -33,9 +33,9 @@ export default {
         position: 0
       }
     },
-    slideValidationResult: {
+    progression: {
       slideNumber: 4,
-      result: 'success',
+      isCorrect: true,
       exitNode: 'successExitNode'
     },
     finishedSlides: {

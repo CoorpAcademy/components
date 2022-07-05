@@ -9,14 +9,13 @@ import pipe from 'lodash/fp/pipe';
 import AppReview from '../src';
 import type {AppOptions} from '../src/types/common';
 import {Slide} from '../src/types/slides';
-import {WithRequired} from '../src/types/utils';
-// import freeText from './slides/free-text';
-import qcm from './slides/qcm';
+import freeText from './slides/free-text';
+// import qcm from './slides/qcm';
 
 // -----------------------------------------------------------------------------
 
 type SandboxOptions = {
-  container?: string;
+  container: string;
 };
 
 declare global {
@@ -28,16 +27,15 @@ declare global {
 
 // -----------------------------------------------------------------------------
 
-// const selectedSlide: Slide = freeText;
-const selectedSlide: Slide = qcm;
+const selectedSlide: Slide = freeText;
+// const selectedSlide: Slide = qcm;
 
 // -----------------------------------------------------------------------------
 
-const isContainerAvailable = (
-  options: SandboxOptions
-): options is WithRequired<SandboxOptions, 'container'> => !pipe(get('container'), isNil)(options);
+const isContainerAvailable = (options: SandboxOptions): boolean =>
+  !pipe(get('container'), isNil)(options);
 
-const createSandbox = (options: SandboxOptions = {}): void => {
+const createSandbox = (options: SandboxOptions): void => {
   if (!isContainerAvailable(options)) {
     // eslint-disable-next-line no-console
     console.error('[AppReview sandbox] Requires a container.');

@@ -1,24 +1,27 @@
 import map from 'lodash/fp/map';
 import {
+  OnNextPayload,
+  Slide,
   SlidesAction,
   STORE_FIRST_SLIDE,
   UPDATE_SLIDES_ON_NEXT,
-  UPDATE_SLIDES_ON_VALIDATION
-} from '../actions/slides';
-import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../common';
-import {
-  Slide,
-  Slides,
-  UpdateSlidesOnNextPayload,
-  UpdateSlidesOnValidationPayload
-} from '../types/slides';
+  UPDATE_SLIDES_ON_VALIDATION,
+  ValidationPayload
+} from '../../actions/data/slides';
+import {Slide as SlideFromAPI} from '../../types/slides';
+import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 
 // -----------------------------------------------------------------------------
 
-export type State = Slides;
+export type SlidesState = {
+  slideNumbers: number[];
+  [key: number]: Slide;
+};
 
-const getInitialState = (): State => {
-  const state: State = {
+// -----------------------------------------------------------------------------
+
+const getInitialState = (): SlidesState => {
+  const state: SlidesState = {
     slideNumbers
   };
   // eslint-disable-next-line fp/no-loops
@@ -28,12 +31,12 @@ const getInitialState = (): State => {
   return state;
 };
 
-export const initialState: State = getInitialState();
+export const initialState: SlidesState = getInitialState();
 
 // -----------------------------------------------------------------------------
 
-const setFirstSlide = (state, slide: Slide): State => {
-  const _state: State = {
+const setFirstSlide = (state: SlidesState, slide: SlideFromAPI): SlidesState => {
+  const _state: SlidesState = {
     slideNumbers
   };
   // eslint-disable-next-line lodash-fp/no-unused-result
@@ -49,9 +52,9 @@ const setFirstSlide = (state, slide: Slide): State => {
 
 // ||-------> Handles the updates of a given slide on validation,
 // & then updates de remaining slides if this given change should impact their content
-const stateUpdateOnValidation = (state: State, payload: UpdateSlidesOnValidationPayload): State => {
+const stateUpdateOnValidation = (state: SlidesState, payload: ValidationPayload): SlidesState => {
   const {slideNumber, newSlideContent, numberOfFinishedSlides, nextSlide} = payload;
-  const _state: State = {
+  const _state: SlidesState = {
     slideNumbers
   };
 
@@ -66,7 +69,7 @@ const stateUpdateOnValidation = (state: State, payload: UpdateSlidesOnValidation
           ...previousValue,
           nextSlide,
           position: newSlideContent.position,
-          validationResult: newSlideContent.validationResult
+          isCorrect: newSlideContent.isCorrect
         };
       } else _state[slideNumber] = {...previousValue, ...newSlideContent};
     } else {
@@ -81,9 +84,9 @@ const stateUpdateOnValidation = (state: State, payload: UpdateSlidesOnValidation
 
 // ||-------> Handles the updates of a given slide on correction popin's next click,
 // & then updates de remaining slides (updates position to trigger animations)
-const stateUpdateOnNext = (state: State, payload: UpdateSlidesOnNextPayload): State => {
+const stateUpdateOnNext = (state: SlidesState, payload: OnNextPayload): SlidesState => {
   const {slideNumber, newSlideContent, numberOfFinishedSlides} = payload;
-  const _state: State = {
+  const _state: SlidesState = {
     slideNumbers
   };
 
@@ -115,7 +118,7 @@ const stateUpdateOnNext = (state: State, payload: UpdateSlidesOnNextPayload): St
 // -----------------------------------------------------------------------------
 
 // eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: SlidesAction): State => {
+const reducer = (state: SlidesState = initialState, action: SlidesAction): SlidesState => {
   switch (action.type) {
     case STORE_FIRST_SLIDE: {
       return setFirstSlide(state, action.payload);

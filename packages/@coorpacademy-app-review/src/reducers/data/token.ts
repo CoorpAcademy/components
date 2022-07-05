@@ -1,18 +1,20 @@
-import {ReceivedCourse, RECEIVED_COURSE} from '../actions/courses';
+import {StoreToken, STORE_TOKEN} from '../../actions/data/token';
 
 // -----------------------------------------------------------------------------
 
-export type State = Array<unknown>;
-export const initialState: State = [];
+export type TokenState = string | null;
+
+// -----------------------------------------------------------------------------
+
+export const initialState: TokenState = null;
 
 // -----------------------------------------------------------------------------
 
 // eslint-disable-next-line default-param-last
-const reducer = (state: State = initialState, action: ReceivedCourse): State => {
+const reducer = (state: TokenState = initialState, action: StoreToken): TokenState => {
   switch (action.type) {
-    case RECEIVED_COURSE: {
-      return [...state, action.payload];
-    }
+    case STORE_TOKEN:
+      return action.payload;
     default:
       return state;
   }

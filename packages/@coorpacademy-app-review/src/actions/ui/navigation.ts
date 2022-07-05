@@ -1,10 +1,10 @@
-import {AppOptions} from '../types/common';
+import {AppOptions} from '../../types/common';
 
 export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
 export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
 export const START_APP = '@@navigation/START_APP';
 
-export type ViewPath = 'home' | 'onboarding' | 'slides';
+export type ViewPath = 'skills' | 'onboarding' | 'slides';
 
 export type NavigateTo = {
   type: '@@navigation/NAVIGATE_TO';

@@ -1,16 +1,15 @@
-import {WithRequired} from './utils';
-
 export type Choice = {
   order?: number;
   selected: boolean;
   title: string;
   help: string;
+  onClick: Function;
 };
 
 export type QcmDrag = {
   type: 'qcmDrag';
-  choices: Choice[];
-  help: string;
+  answers: Choice[];
+  help?: string;
 };
 
 export type Qcm = {
@@ -77,31 +76,9 @@ export type AnswerUI = {
   help: string;
 };
 
-export type SlideNumber = number;
-
 export type SlideUIAnimations = 'unstack' | 'restack';
 
 export type Slide = {
-  hidden?: boolean;
-  position?: number;
-  animationType?: SlideUIAnimations;
-  validationResult?: 'success' | 'failure';
-  endReview?: boolean;
   questionText?: string;
   answerUI?: AnswerUI;
-  nextSlide?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextSlide'>;
 };
-
-export type Slides = {
-  slideNumbers: SlideNumber[];
-  [key: SlideNumber]: Slide;
-};
-
-export type UpdateSlidesOnValidationPayload = {
-  slideNumber: SlideNumber;
-  newSlideContent: Slide;
-  numberOfFinishedSlides: number;
-  nextSlide: WithRequired<Slide['nextSlide'], 'answerUI' | 'questionText'>;
-};
-
-export type UpdateSlidesOnNextPayload = Omit<UpdateSlidesOnValidationPayload, 'nextSlide'>;

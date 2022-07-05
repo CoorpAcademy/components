@@ -13,7 +13,7 @@ export default {
       ...props.slides,
       0: {
         ...props.slides[0],
-        validationResult: 'success',
+        isCorrect: true,
         endReview: true,
         questionText: 'Hey there, .....suspense.... ready to select some answers?',
         answerUI: qcmDrag

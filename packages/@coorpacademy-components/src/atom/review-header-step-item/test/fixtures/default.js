@@ -1,6 +1,6 @@
 export default {
   props: {
-    icon: null,
+    icon: 'no-answer',
     current: false,
     value: '2'
   }
