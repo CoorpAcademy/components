@@ -22,8 +22,8 @@ import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/s
 
 type StaticProps = {
   viewName: 'skills' | 'onboarding' | 'slides';
-  slides: SlidesViewStaticProps;
-  skills: SkillsProps;
+  slides: SlidesViewStaticProps | null;
+  skills: SkillsProps | null;
 };
 
 // -----------------------------------------------------------------------------
@@ -43,30 +43,43 @@ const mapDispatchToProps: Dispatchers = {
 const getCurrentViewName = (storeState: StoreState): ViewPath =>
   storeState.ui.navigation[storeState.ui.navigation.length - 1];
 
-const mapStateToSkillsProps = (state: StoreState): SkillsProps => ({
-  title: '@todo title',
-  titleNoSkills: '@todo titleNoSkills',
-  textNoSkills: '@todo textNoSkills',
-  iconSkillAriaLabel: '@todo iconSkillAriaLabel',
-  isLoading: false,
-  isLoadingAriaLabel: '@todo loading',
-  listSkills: state.data.skills.map(skill => ({
-    'aria-label': '',
-    isCustom: skill.custom,
-    skillTitle: skill.name,
-    skillAriaLabel: '@todo skill aria label',
-    buttonLabel: '@todo button',
-    buttonAriaLabel: '@todo button aria label',
-    reviseLabel: '@todo revise',
-    reviseAriaLabel: '@todo revise aria label',
-    // eslint-disable-next-line no-console
-    onClick: () => console.log('@todo plug dispatcher select skill')
-  }))
-});
+// -----------------------------------------------------------------------------
 
-const mapStateToProps = (state: StoreState): StaticProps => ({
-  viewName: getCurrentViewName(state),
-  slides: {
+const mapStateToSkillsProps = (state: StoreState): SkillsProps | null => {
+  if (!state.data.skills) {
+    return null;
+  }
+
+  return {
+    title: '@todo title',
+    titleNoSkills: '@todo titleNoSkills',
+    textNoSkills: '@todo textNoSkills',
+    iconSkillAriaLabel: '@todo iconSkillAriaLabel',
+    isLoading: false,
+    isLoadingAriaLabel: '@todo loading',
+    listSkills: state.data.skills.map(skill => ({
+      'aria-label': '',
+      isCustom: skill.custom,
+      skillTitle: skill.name,
+      skillAriaLabel: '@todo skill aria label',
+      buttonLabel: '@todo button',
+      buttonAriaLabel: '@todo button aria label',
+      reviseLabel: '@todo revise',
+      reviseAriaLabel: '@todo revise aria label',
+      // eslint-disable-next-line no-console
+      onClick: () => console.log('@todo plug dispatcher select skill')
+    }))
+  };
+};
+
+// -----------------------------------------------------------------------------
+
+const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null => {
+  if (!state.data.slides) {
+    return null;
+  }
+
+  return {
     headerProps: {
       mode: '__revision_mode',
       skillName: '__agility',
@@ -87,7 +100,14 @@ const mapStateToProps = (state: StoreState): StaticProps => ({
     correctionPopinProps,
     congratsProps,
     progression: state.data.progression
-  },
+  };
+};
+
+// -----------------------------------------------------------------------------
+
+const mapStateToProps = (state: StoreState): StaticProps => ({
+  viewName: getCurrentViewName(state),
+  slides: mapStateToSlidesProps(state),
   skills: mapStateToSkillsProps(state)
 });
 
@@ -97,7 +117,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 // -----------------------------------------------------------------------------
 
-const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
+const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
   const [appStarted, setAppStarted] = useState<boolean>(false);
 
@@ -114,7 +134,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
     }
   }, [options, store]);
 
-  if (!store || !appStarted) return <div />;
+  if (!store || !appStarted) return null;
 
   const {templateContext: values} = options;
 

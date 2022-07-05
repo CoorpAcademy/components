@@ -1,4 +1,4 @@
-import {View, StyleSheet, ViewStyle, TextInput} from 'react-native';
+import {View, StyleSheet, TextInput} from 'react-native';
 import React, {useState, useEffect, useMemo} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 
@@ -12,7 +12,6 @@ type QuestionType = 'basic' | 'template';
 
 interface Props {
   children: string;
-  style?: ViewStyle;
   fullWitdh: boolean;
   testID: string;
   questionType: QuestionType;
