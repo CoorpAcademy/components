@@ -1,6 +1,7 @@
 // @flow
 import {
   computeNextStepAfterAnswer,
+  computeNextStepAfterAnswerForReview,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife
 } from './compute-next-step';
@@ -124,6 +125,7 @@ export {
   checkAnswer,
   checkAnswerCorrectness,
   computeNextStepAfterAnswer,
+  computeNextStepAfterAnswerForReview,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
   getFastSlideExitNode,
