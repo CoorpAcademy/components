@@ -9,7 +9,7 @@ import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import style from './style.css';
 
 const CMPopin = props => {
-  const {content, message, firstButton, secondButton, onClose, header, icon} = props;
+  const {content, mode = 'alert', firstButton, secondButton, onClose, header, icon} = props;
 
   const logo = {
     AlertDiamond,
@@ -36,18 +36,10 @@ const CMPopin = props => {
           {LogoComponent ? <LogoComponent className={style.icon} /> : null}
           {content ? (
             <p
-              className={style.content}
+              className={mode === 'alert' ? style.content : style.message}
               data-name={`cm-popin-content`}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: content}}
-            />
-          ) : null}
-          {message ? (
-            <p
-              className={style.message}
-              data-name={`cm-popin-message`}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: message}}
             />
           ) : null}
         </div>
@@ -83,7 +75,7 @@ const CMPopin = props => {
 
 CMPopin.propTypes = {
   content: PropTypes.string,
-  message: PropTypes.string,
+  mode: PropTypes.oneOf(['alert', 'information']),
   header: PropTypes.string,
   firstButton: PropTypes.shape({
     label: PropTypes.string,
