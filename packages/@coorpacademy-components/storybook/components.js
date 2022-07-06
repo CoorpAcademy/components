@@ -101,6 +101,7 @@ import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
+import MoleculeGo1Banner from './../src/molecule/go1-banner';
 import MoleculeHero from './../src/molecule/hero';
 import MoleculeInputTextWithTitledCheckbox from './../src/molecule/input-text-with-titled-checkbox';
 import MoleculeListBadges from './../src/molecule/list-badges';
@@ -561,6 +562,7 @@ import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-b
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
+import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
@@ -669,6 +671,7 @@ import MoleculeForumForumPostFixtureTextareasLocked from '../src/molecule/forum/
 import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import MoleculeGo1BannerFixtureDefault from '../src/molecule/go1-banner/test/fixtures/default';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
 import MoleculeInputTextWithTitledCheckboxFixtureChecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/checked';
@@ -1342,6 +1345,7 @@ export const components = {
     MoleculeExternalContentViewer,
     MoleculeFeedback,
     MoleculeFilters,
+    MoleculeGo1Banner,
     MoleculeHero,
     MoleculeInputTextWithTitledCheckbox,
     MoleculeListBadges,
@@ -2002,6 +2006,7 @@ export const fixtures = {
     MoleculeCmPopin: {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
+      Go1Popin: MoleculeCmPopinFixtureGo1Popin,
       WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
     },
     MoleculeCookieBanner: {
@@ -2112,6 +2117,9 @@ export const fixtures = {
       TwoOpened: MoleculeFiltersFixtureTwoOpened,
       Two: MoleculeFiltersFixtureTwo,
       Zero: MoleculeFiltersFixtureZero
+    },
+    MoleculeGo1Banner: {
+      Default: MoleculeGo1BannerFixtureDefault
     },
     MoleculeHero: {
       Arabic: MoleculeHeroFixtureArabic,

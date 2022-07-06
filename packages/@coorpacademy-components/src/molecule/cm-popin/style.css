@@ -6,6 +6,7 @@
 @value cm_grey_800 from colors;
 @value negative from colors;
 @value lightGreen from colors;
+@value xtraLightGrey from colors;
 @value cm_grey_50 from colors;
 @value cm_negative_100 from colors;
 @value cm_negative_200 from colors;
@@ -29,6 +30,12 @@
   position:fixed;
 }
 
+.headerBackground {
+  width: calc(100% + 32px);
+  height: auto;
+  margin: -16px -16px 0px -16px;
+}
+
 .popin {
   position: absolute;
   overflow: auto;
@@ -46,6 +53,23 @@
   animation: popup 0.7s;
 }
 
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 40px 0px;
+  position: absolute;
+  background: xtraLightGrey;
+  font-family: 'Gilroy';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+.message p {
+  margin: 10px 0px;
+}
 @keyframes popup {
   0%{
     transform: scale(0);
@@ -98,4 +122,8 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+.popinHeader button {
+  position: absolute;
 }
