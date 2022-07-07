@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
 const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
   const {navigateTo} = dispachers;
   const handlePress = v => () => navigateTo(v);
-  console.log({viewName});
 
   switch (viewName) {
     case ViewNames.home:

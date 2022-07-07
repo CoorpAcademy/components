@@ -119,10 +119,8 @@ const stateUpdateOnNext = (state: SlidesState, payload: OnNextPayload): SlidesSt
 
 // eslint-disable-next-line default-param-last
 const reducer = (state: SlidesState = initialState, action: SlidesAction): SlidesState => {
-  console.log({action});
   switch (action.type) {
     case STORE_FIRST_SLIDE: {
-      console.log('STORE_FIRST_SLIDE', {payload: action.payload});
       return setFirstSlide(state, action.payload);
     }
     case UPDATE_SLIDES_ON_VALIDATION: {
