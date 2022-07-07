@@ -1,4 +1,5 @@
 import QuickAccessCardGroup from '../../../../molecule/quick-access-cards-group/test/fixtures/default';
+import Go1Banner from '../../../../molecule/go1-banner/test/fixtures/default';
 
 export default {
   props: {
@@ -9,6 +10,7 @@ export default {
     quickAccessCards: {
       title: 'Quick Access',
       cards: QuickAccessCardGroup.props
-    }
+    },
+    banner: Go1Banner.props
   }
 };

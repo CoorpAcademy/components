@@ -1,0 +1,90 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value go1_primary_hover from colors;
+@value go1_primary from colors;
+@value go1_backgound from colors;
+@value white from colors;
+
+.background {
+  background: go1_backgound;
+  border-radius: 8px;
+  width: 100%;
+  min-height: 246px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+  height: 44px;
+  background: go1_primary;
+  border-radius: 7px;
+  overflow: hidden;
+  order: 2;
+  margin: 36px 10px 10px 52px;
+}
+.buttonWrapper:hover {
+  background: go1_primary_hover;
+}
+.textSection {
+  display: flex;
+    flex-direction: column;
+}
+
+.ctaButton a {
+ color: go1_backgound;
+}
+
+.title {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  display: block;
+  color: white;
+  order: 0;
+  margin: 34px 10px 8px 76px;
+  background: color(white a(13%));
+  width: fit-content;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.subTitle {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  color: white;
+  order: 1;
+  background: color(white a(13%));
+  width: fit-content;
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin-left: 50px;
+}
+.image {
+    width: auto;
+    height: 206px;
+    padding: 20px 30px;
+}
+@media tablet {
+  .image {
+    display: none;
+  }
+}
+@media mobile {
+  .image {
+    display: none;
+  }
+}

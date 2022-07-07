@@ -9,7 +9,7 @@ import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import style from './style.css';
 
 const CMPopin = props => {
-  const {content, firstButton, secondButton, onClose, icon} = props;
+  const {content, mode = 'alert', firstButton, secondButton, onClose, header, icon} = props;
 
   const logo = {
     AlertDiamond,
@@ -21,6 +21,7 @@ const CMPopin = props => {
     <div className={style.background}>
       <div className={style.popin}>
         <header className={style.popinHeader}>
+          {header ? <img className={style.headerBackground} src={header} /> : null}
           {onClose ? (
             <ButtonLinkIconOnly
               onClick={onClose}
@@ -33,12 +34,14 @@ const CMPopin = props => {
         </header>
         <div className={style.contentSection}>
           {LogoComponent ? <LogoComponent className={style.icon} /> : null}
-          <p
-            className={style.content}
-            data-name={`cm-popin-content`}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: content}}
-          />
+          {content ? (
+            <p
+              className={mode === 'alert' ? style.content : style.message}
+              data-name={`cm-popin-content`}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: content}}
+            />
+          ) : null}
         </div>
 
         <div className={style.buttonContainer}>
@@ -66,13 +69,14 @@ const CMPopin = props => {
           ) : null}
         </div>
       </div>
-      )
     </div>
   );
 };
 
 CMPopin.propTypes = {
   content: PropTypes.string,
+  mode: PropTypes.oneOf(['alert', 'information']),
+  header: PropTypes.string,
   firstButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,

@@ -2,6 +2,7 @@ export default {
   props: {
     content: 'Do you want to save changes before quiting?',
     icon: 'AlertDiamond',
+    mode: 'alert',
     firstButton: {
       label: 'Quit without saving',
       type: 'secondary',
