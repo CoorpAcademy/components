@@ -1,5 +1,6 @@
 import UnSelectedCard from '../../../../molecule/card/test/fixtures/selectable-false';
 import SelectedCard from '../../../../molecule/card/test/fixtures/selectable-true';
+import SelectedHiddenCard from '../../../../molecule/card/test/fixtures/selectable-true-hidden-true';
 import Article from '../../../../molecule/card/test/fixtures/article';
 import Scorm from '../../../../molecule/card/test/fixtures/scorm';
 import ExternalContent from '../../../../molecule/card/test/fixtures/external-content';
@@ -49,6 +50,7 @@ export default {
     'courses-selection-aria-label': 'Courses results',
     courses: [
       {...SelectedCard.props, theme: 'coorpmanager', progress: undefined},
+      {...SelectedHiddenCard.props, theme: 'coorpmanager', progress: undefined},
       {...UnSelectedCard.props, theme: 'coorpmanager', progress: undefined},
       {...Article.props, isSelected: false, theme: 'coorpmanager', progress: undefined},
       {

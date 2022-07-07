@@ -36,16 +36,19 @@
     gap: 8px; 
     padding: 16px 24px; 
     border-radius: 5px;
-    background-color: cm_warning_50;
-    color: cm_yellow_200;
-    border-radius: 5px;
 }
 
-.errorBanner {
+.banner.warning {
+    background-color: cm_warning_50;
+    color: cm_yellow_200;
+}
+
+.banner.error {
     background-color: cm_negative_50;
     color: cm_negative_200;
 }
-.successBanner {
+
+.banner.success {
     background-color: color(cm_positive_100 a(15%));
     color: cm_positive_100;
 }
@@ -71,21 +74,53 @@
 
 .button{
     background-color: transparent;
-    color: cm_yellow_200;
     white-space: nowrap;
 }
 
-.button :hover{
-    color: cm_yellow_400;
+.button.warning {
+    color: cm_yellow_200;
 }
+
+.button.warning:hover {
+    color: color(cm_yellow_200 blackness(+12%));
+}
+
+.button.error {
+    color: cm_negative_200;
+}
+
+.button.error:hover {
+    color: color(cm_negative_200 blackness(+12%));
+}
+
+.button.success {
+    color: cm_positive_100;
+}
+
+.button.success:hover {
+    color: color(cm_positive_100 blackness(+12%));
+}
+
 
 .buttonsBar {
     width: 2px;
     align-self: stretch;
     flex-grow: 0;
     opacity: 0.3;
+}
+
+.buttonsBar.warning {
     background-color: cm_yellow_200;
 }
+
+.buttonsBar.error {
+    background-color: cm_negative_200;
+}
+
+.buttonsBar.success {
+    background-color: cm_positive_100;
+}
+
 
 .icon {
     height: 22px;

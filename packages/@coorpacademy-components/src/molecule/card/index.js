@@ -121,7 +121,7 @@ const Card = memo(function Card(props, context) {
     image,
     badge,
     adaptiv,
-    disabled = false,
+    disabled: hidden = false,
     type = 'course',
     title,
     author,
@@ -157,6 +157,7 @@ const Card = memo(function Card(props, context) {
     style.grid,
     empty ? style.empty : null
   );
+  const disabled = hidden && (!isSelected || isUndefined(isSelected));
   const handleClick = useMemo(() => e => !disabled && onClick(e), [disabled, onClick]);
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
@@ -195,7 +196,7 @@ const Card = memo(function Card(props, context) {
           aria-label={favoriteAriaLabel}
         />
       ) : null}
-      <Selectable isSelected={isSelected} aria-label={selectableAriaLabel} />
+      <Selectable isSelected={isSelected} hidden={hidden} aria-label={selectableAriaLabel} />
       {notification ? <Notification {...notification} /> : null}
       {customer ? (
         <Customer

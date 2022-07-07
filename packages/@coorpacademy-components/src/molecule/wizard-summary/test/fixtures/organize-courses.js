@@ -63,7 +63,10 @@ export default {
             type: 'content',
             title: 'Other title',
             author: 'Author 2',
-            badgeList: [{category: 'course', label: 'Course'}]
+            badgeList: [
+              {category: 'course', label: 'Course'},
+              {category: 'hidden', label: 'Hidden'}
+            ]
           },
           {
             type: 'content',

@@ -9,6 +9,7 @@
 @value cm_red_200 from colors;
 @value cm_red_video from colors;
 @value cm_violet_podcast from colors;
+@value cm_negative_200 from colors;
 
 .level {
   font-family: Gilroy;
@@ -22,6 +23,11 @@
 .course {
   composes: level;
   background-color: cm_red_200;
+}
+
+.hidden {
+  composes: level;
+  background-color: cm_negative_200;
 }
 
 .base {

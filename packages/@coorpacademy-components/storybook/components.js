@@ -275,6 +275,7 @@ import AtomContentBadgeFixtureChapter from '../src/atom/content-badge/test/fixtu
 import AtomContentBadgeFixtureCoach from '../src/atom/content-badge/test/fixtures/coach';
 import AtomContentBadgeFixtureCourse from '../src/atom/content-badge/test/fixtures/course';
 import AtomContentBadgeFixtureDefault from '../src/atom/content-badge/test/fixtures/default';
+import AtomContentBadgeFixtureHidden from '../src/atom/content-badge/test/fixtures/hidden';
 import AtomContentBadgeFixturePodcast from '../src/atom/content-badge/test/fixtures/podcast';
 import AtomContentBadgeFixtureScorm from '../src/atom/content-badge/test/fixtures/scorm';
 import AtomContentBadgeFixtureVideo from '../src/atom/content-badge/test/fixtures/video';
@@ -489,6 +490,7 @@ import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/
 import MoleculeBannerFixtureDefault from '../src/molecule/banner/test/fixtures/default';
 import MoleculeBannerFixtureErrorBanner from '../src/molecule/banner/test/fixtures/error-banner';
 import MoleculeBannerFixtureErrorTemporaryBanner from '../src/molecule/banner/test/fixtures/error-temporary-banner';
+import MoleculeBannerFixtureHiddenErrorBanner from '../src/molecule/banner/test/fixtures/hidden-error-banner';
 import MoleculeBannerFixtureSuccessBanner from '../src/molecule/banner/test/fixtures/success-banner';
 import MoleculeBannerFixtureSuccessTemporaryBanner from '../src/molecule/banner/test/fixtures/success-temporary-banner';
 import MoleculeBannerFixtureWarningTemporaryBanner from '../src/molecule/banner/test/fixtures/warning-temporary-banner';
@@ -546,7 +548,9 @@ import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fix
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCardFixturePodcast from '../src/molecule/card/test/fixtures/podcast';
 import MoleculeCardFixtureScorm from '../src/molecule/card/test/fixtures/scorm';
+import MoleculeCardFixtureSelectableFalseHiddenTrue from '../src/molecule/card/test/fixtures/selectable-false-hidden-true';
 import MoleculeCardFixtureSelectableFalse from '../src/molecule/card/test/fixtures/selectable-false';
+import MoleculeCardFixtureSelectableTrueHiddenTrue from '../src/molecule/card/test/fixtures/selectable-true-hidden-true';
 import MoleculeCardFixtureSelectableTrue from '../src/molecule/card/test/fixtures/selectable-true';
 import MoleculeCardFixtureVideo from '../src/molecule/card/test/fixtures/video';
 import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
@@ -1589,6 +1593,7 @@ export const fixtures = {
       Coach: AtomContentBadgeFixtureCoach,
       Course: AtomContentBadgeFixtureCourse,
       Default: AtomContentBadgeFixtureDefault,
+      Hidden: AtomContentBadgeFixtureHidden,
       Podcast: AtomContentBadgeFixturePodcast,
       Scorm: AtomContentBadgeFixtureScorm,
       Video: AtomContentBadgeFixtureVideo
@@ -1905,6 +1910,7 @@ export const fixtures = {
       Default: MoleculeBannerFixtureDefault,
       ErrorBanner: MoleculeBannerFixtureErrorBanner,
       ErrorTemporaryBanner: MoleculeBannerFixtureErrorTemporaryBanner,
+      HiddenErrorBanner: MoleculeBannerFixtureHiddenErrorBanner,
       SuccessBanner: MoleculeBannerFixtureSuccessBanner,
       SuccessTemporaryBanner: MoleculeBannerFixtureSuccessTemporaryBanner,
       WarningTemporaryBanner: MoleculeBannerFixtureWarningTemporaryBanner
@@ -1984,7 +1990,9 @@ export const fixtures = {
       Freerun: MoleculeCardFixtureFreerun,
       Podcast: MoleculeCardFixturePodcast,
       Scorm: MoleculeCardFixtureScorm,
+      SelectableFalseHiddenTrue: MoleculeCardFixtureSelectableFalseHiddenTrue,
       SelectableFalse: MoleculeCardFixtureSelectableFalse,
+      SelectableTrueHiddenTrue: MoleculeCardFixtureSelectableTrueHiddenTrue,
       SelectableTrue: MoleculeCardFixtureSelectableTrue,
       Video: MoleculeCardFixtureVideo
     },
