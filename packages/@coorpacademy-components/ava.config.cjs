@@ -8,5 +8,6 @@ module.exports = Object.assign({}, config, {
     'ts-node/register/transpile-only'
   ],
   timeout: '45s',
-  concurrency: 8
+  concurrency: 8,
+  workerThreads: false
 });

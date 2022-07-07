@@ -38,9 +38,6 @@ const quizzerStyle = StyleSheet.create({
     // backgroundColor: theme.colors.white, @todo with props
     justifyContent: 'space-between',
     alignItems: 'center'
-  },
-  testPlop: {
-    marginTop: 300
   }
 });
 
@@ -51,9 +48,10 @@ const creatSlideStyle = (num, width, height) =>
   StyleSheet.create({
     slide: {
       position: 'absolute',
-      // backgroundColor: theme.colors.white, @todo with props
       top: height / 2 - SLIDE_HEIGHT() / 2 - num * 4,
       flex: 1,
+      backgroundColor: '#fff',
+      // backgroundColor: theme.colors.white, @todo with props and useEffect
       height: SLIDE_HEIGHT(),
       width: width - 40 - num * 8,
       justifyContent: 'space-between',
@@ -161,44 +159,40 @@ Choices.propTypes = {
 
 // -----------------------------------------------------------------------------
 
-// const Slide = ({slide, num}: Props) => {
 const Slide = ({validateSlide, slide, num}) => {
   const {width, height} = useWindowDimensions();
   const slideStyle = creatSlideStyle(num, width, height);
   const validateLabel = '__validate'; // translations.validate
 
   const templateContext = useTemplateContext();
-  console.log({templateContext});
-  console.log({slide});
-
   const {analytics} = templateContext;
 
   const {
     answerUI: {
       isDisabled = false,
-      type,
       value,
-      model: {onChange}
+      model: {type, onChange}
     }
   } = slide;
 
   switch (type) {
     case 'freeText': {
       return (
-        <FreeText
-          isDisabled={isDisabled}
-          onChange={onChange}
-          value={value}
-          testID="free-text"
-          questionType="basic"
-          analytics={analytics}
-        />
+        <View style={slideStyle.slide}>
+          <FreeText
+            isDisabled={isDisabled}
+            onChange={onChange}
+            value={value}
+            testID="free-text"
+            questionType="basic"
+            analytics={analytics}
+          />
+        </View>
       );
     }
     default:
   }
 
-  // TODO replace choices with <Answer>; move mobile answers in the package..
   return (
     <View style={slideStyle.slide}>
       <Text style={slideStyle.category}>{num}</Text>
