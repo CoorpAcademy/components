@@ -21,8 +21,13 @@ const useTemplateContext = () => {
 };
 
 // -----------------------------------------------------------------------------
+type TemplateContextValues = {
+  brandTheme: any;
+  theme: any; // TODO type Theme
+  translations: any; // TODO type Translations
+};
 
-type Props = {values: any; children: any};
+type Props = {values: TemplateContextValues; children: any};
 
 const TemplateContext = ({values, children}: Props) => {
   return <Context.Provider value={{...values}}>{children}</Context.Provider>;

@@ -1,12 +1,7 @@
 import {View, StyleSheet, TextInput} from 'react-native';
 import React, {useState, useEffect, useMemo} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
-
-type Analytics = {
-  logEvent: Function;
-  onFocus: string; // ANALYTICS_EVENT_TYPE.INPUT_FOCUS
-  onBlur: string; // ANALYTICS_EVENT_TYPE.INPUT_BLUR
-};
+import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
 
 type QuestionType = 'basic' | 'template';
 
@@ -90,12 +85,12 @@ const FreeText = (props: Props) => {
   // ------------------------------------
 
   const handleFocus = useMemo(
-    () => analytics && logEvent(analytics.onFocus, analytics, questionType),
+    () => analytics && logEvent(ANALYTICS_EVENT_TYPE.INPUT_FOCUS, analytics, questionType),
     [analytics, questionType]
   );
 
   const handleBlur = useMemo(
-    () => analytics && logEvent(analytics.onBlur, analytics, questionType),
+    () => analytics && logEvent(ANALYTICS_EVENT_TYPE.INPUT_BLUR, analytics, questionType),
     [analytics, questionType]
   );
 
