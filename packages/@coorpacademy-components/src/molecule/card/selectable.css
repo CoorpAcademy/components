@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value positive from colors;
 @value cm_grey_400 from colors;
+@value cm_negative_200 from colors;
 
 .selectable {
   width: 100%;
@@ -34,6 +35,15 @@
   display: none;
 }
 
+.eyeIcons {
+  color: white;
+  width: 30px;
+  height: 30px;
+  padding: 4px 4px;
+  border-radius: 50%;
+  display: none;
+}
+
 .checkIcon {
   color: positive;
   composes: icons;
@@ -44,14 +54,43 @@
   composes: icons;
 }
 
+.showIcon {
+  background: cm_grey_400;
+  composes: eyeIcons;
+}
+
+.hideIcon {
+  background: cm_negative_200;
+  composes: eyeIcons;
+}
+
+
+.selectable.selected.hidden .showIcon,
+.selectable.selected.hidden .addIcon,
+.selectable.hidden .addIcon,
+.selectable.hidden .checkIcon,
+.selectable.hidden:hover .checkIcon  {
+  display: none;
+}
+.hidden.selectable .hideIcon {
+  display: block;
+}
+.hidden.selectable:hover .hideIcon {
+  display: none;
+}
+.hidden.selectable:hover .showIcon {
+  display: block;
+}
+
+
 .selectable:hover .addIcon,
 .selectable:hover .circle {
   display: block;
 }
 
-.selectable.selected .checkIcon,
+.selectable.selected:not(.hidden) .checkIcon,
 .selectable.selected .circle,
-.selectable.selected:hover .checkIcon {
+.selectable.selected:not(.hidden):hover .checkIcon {
   display: block;
 }
 
@@ -60,5 +99,13 @@
 }
 
 .selectable.selected:hover .addIcon {
+  display: none;
+}
+
+.selectable.selected.hidden:hover .circle {
+  display: block;
+}
+
+.selectable.selected.hidden:hover .addIcon {
   display: none;
 }

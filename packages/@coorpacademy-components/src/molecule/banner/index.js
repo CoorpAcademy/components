@@ -15,6 +15,12 @@ const ICONS = {
   warning: QuestionIcon
 };
 
+const STYLES = {
+  success: style.success,
+  error: style.error,
+  warning: style.warning
+};
+
 const Banner = props => {
   const {
     type,
@@ -31,12 +37,7 @@ const Banner = props => {
   return (
     <div
       key={bannerKey}
-      className={classnames(
-        style.banner,
-        type === 'error' && style.errorBanner,
-        type === 'success' && style.successBanner,
-        temporary && style.temporaryBanner
-      )}
+      className={classnames(style.banner, STYLES[type], temporary && style.temporaryBanner)}
       onAnimationEnd={onEnd}
       title={message}
     >
@@ -45,7 +46,7 @@ const Banner = props => {
         {message}
       </div>
       {firstCTALabel ? (
-        <div className={style.button}>
+        <div className={classnames(style.button, STYLES[type])}>
           <Link
             data-name="first-banner-cta"
             aria-label={firstCTALabel}
@@ -55,9 +56,11 @@ const Banner = props => {
           />
         </div>
       ) : null}
-      {firstCTALabel && secondCTALabel ? <div className={style.buttonsBar} /> : null}
+      {firstCTALabel && secondCTALabel ? (
+        <div className={classnames(style.buttonsBar, STYLES[type])} />
+      ) : null}
       {secondCTALabel ? (
-        <div className={style.button}>
+        <div className={classnames(style.button, STYLES[type])}>
           <Link
             data-name="second-banner-cta"
             onClick={secondCTA}

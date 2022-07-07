@@ -1,4 +1,4 @@
-import wizardSummary from '../../../../molecule/wizard-summary/test/fixtures/three-sections';
+import wizardSummary from '../../../../molecule/wizard-summary/test/fixtures/organize-courses';
 import addCoursesForm from '../../../course-selection/test/fixtures/default';
 
 export default {

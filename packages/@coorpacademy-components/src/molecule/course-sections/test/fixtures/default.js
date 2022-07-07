@@ -51,6 +51,10 @@ export default {
           {
             label: 'course',
             category: 'course'
+          },
+          {
+            label: 'Hidden',
+            category: 'hidden'
           }
         ],
         position: 3,
