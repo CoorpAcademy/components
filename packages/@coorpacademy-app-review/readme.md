@@ -1,7 +1,9 @@
 # App Review
 
-📚 [Static Demo](http://coorpacademy.github.io/components/app-review)
-🏹 Architecture illustrated with [Excalidraw](../../../documentation/documentation/review-mode/frontend-app-review.excalidraw). This package is the `@app-review` section.
+- 📚 [Static Demo](http://coorpacademy.github.io/components/app-review)
+- 🏹 Architecture illustrated with Excalidraw ([local](../../../documentation/documentation/review-mode/frontend-app-review.excalidraw) and [github](https://github.com/coorpacademy/documentation/blob/master/documentation/review-mode/frontend-app-review.excalidraw)).
+
+This package is the `@app-review` section.
 
 ## start local sandbox
 

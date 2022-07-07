@@ -62,7 +62,7 @@ const clickAllSlides = async (
 const appOptions: AppOptions = {
   token: process.env.API_TEST_TOKEN || '',
   templateContext: {
-    plop: 'plip'
+    theme: {color: {primary: '#123'}}
   },
   slide
 };

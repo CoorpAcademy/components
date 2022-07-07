@@ -1,8 +1,10 @@
 import {Slide} from './slides';
 
-// TODO use type from /components
-type TemplateContext = {
-  plop: string;
+// TODO use type from components
+type TemplateContextValues = {
+  brandTheme?: unknown;
+  theme?: unknown; // TODO type Theme
+  translations?: unknown; // TODO type Translations
 };
 
 export type AppOptions = {
@@ -10,7 +12,7 @@ export type AppOptions = {
   theme?: unknown;
   translations?: unknown;
   slide?: Slide;
-  templateContext: TemplateContext;
+  templateContext: TemplateContextValues;
 };
 
 export type JWT = {
