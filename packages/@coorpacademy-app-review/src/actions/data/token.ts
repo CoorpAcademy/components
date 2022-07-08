@@ -1,7 +1,7 @@
-export const STORE_TOKEN = '@@token/STORE_TOKEN';
+export const STORE_TOKEN = '@@data/token/STORE_TOKEN';
 
 export type StoreToken = {
-  type: '@@token/STORE_TOKEN';
+  type: typeof STORE_TOKEN;
   payload: string;
 };
 

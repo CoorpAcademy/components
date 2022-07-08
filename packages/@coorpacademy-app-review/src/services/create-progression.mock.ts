@@ -1,8 +1,8 @@
 import crossFetch from 'cross-fetch';
-import {ProgressionState} from '../reducers/data/progression';
+import {ProgressionFromAPI} from '../actions/data/progression';
 import {okJSONResponse} from './tools/fetch.mocks';
 
-const result: ProgressionState = {
+export const mockedProgression: ProgressionFromAPI = {
   _id: '62b1d1087aa12f00253f40ee',
   state: {
     // ------------------------------------------------------
@@ -31,5 +31,5 @@ const result: ProgressionState = {
   }
 };
 
-const mockCreateProgression: typeof crossFetch = okJSONResponse(result);
+const mockCreateProgression: typeof crossFetch = okJSONResponse(mockedProgression);
 export default mockCreateProgression;

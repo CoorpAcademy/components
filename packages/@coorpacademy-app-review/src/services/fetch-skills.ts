@@ -20,8 +20,7 @@ const fetchSkills: CreateFetchSkills = fetch => async token => {
     headers: {authorization: token}
   });
 
-  const skills = (await toJSON(response)) as Skills;
-  return skills;
+  return toJSON<Skills>(response);
 };
 
 // -----------------------------------------------------------------------------

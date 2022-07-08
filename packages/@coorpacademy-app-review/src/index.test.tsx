@@ -4,17 +4,13 @@ import type {ExecutionContext} from 'ava';
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react';
 import type {AppOptions} from './types/common';
+import {sleep} from './services/tools/sleep';
 import AppReview from '.';
 
 browserEnv({pretendToBeVisual: true});
 
 const elementExists = (foundElements: NodeListOf<Element>): Element =>
   foundElements && foundElements[0];
-
-const sleep = (msToSleep: number): Promise<void> =>
-  new Promise(resolve => {
-    setTimeout(resolve, msToSleep);
-  });
 
 const waitForChanges = async (msToWait = 3000): Promise<void> => {
   await act(async () => {
