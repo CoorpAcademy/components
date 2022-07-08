@@ -1,17 +1,19 @@
 {
   "include": [
-    "src"
+    "src",
+    "globals.d.ts"
   ],
   "exclude": [
     "node_modules"
   ],
   "compilerOptions": {
     "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "allowJs": true,
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     // Don't emit; only do type-checking, leave trasformation to Babel.
