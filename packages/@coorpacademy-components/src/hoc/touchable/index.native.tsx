@@ -35,8 +35,6 @@ interface Props {
   // Analytics
   analyticsID: string;
   analyticsParams?: AnalyticsEventParams;
-  analytics: Analytics;
-  vibration: any;
 }
 
 const logEvent = (
@@ -54,13 +52,11 @@ const logEvent = (
 
 const Touchable = (props: Props) => {
   const templateContext = useTemplateContext();
-  const {theme} = templateContext;
+  const {theme, vibration, analytics} = templateContext;
 
   const {
     /* only used by this component */
     /* eslint-disable no-unused-vars */
-    vibration,
-    analytics,
     analyticsID,
     analyticsParams,
     onPress,
