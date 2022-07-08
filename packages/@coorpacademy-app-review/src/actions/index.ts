@@ -11,6 +11,7 @@ import {updateFinishedSlides} from './ui/finished-slides';
 import {navigateBack, navigateTo, NavigateBack, NavigateTo, StartApp} from './ui/navigation';
 import {updateReviewStatus} from './ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './ui/step-items';
+import {ErrorCreatingProgression, ReceiveProgression} from './data/progression';
 
 export type Action =
   | NavigateBack
@@ -19,7 +20,9 @@ export type Action =
   | ErrorFetchingSkills
   | StartApp
   | StoreFirstSlide
-  | StoreToken;
+  | StoreToken
+  | ErrorCreatingProgression
+  | ReceiveProgression;
 
 export type Dispatchers = {
   navigateTo: typeof navigateTo;

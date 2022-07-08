@@ -8,8 +8,9 @@ import {
   UPDATE_SLIDES_ON_VALIDATION,
   ValidationPayload
 } from '../../actions/data/slides';
-import {Slide as SlideFromAPI} from '../../types/slides';
+import {Slide as UISlide} from '../../types/slides';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
+import {slide as qcmSlide} from '../../fixtures/qcm-slide';
 
 // -----------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ export const initialState: SlidesState = getInitialState();
 
 // -----------------------------------------------------------------------------
 
-const setFirstSlide = (state: SlidesState, slide: SlideFromAPI): SlidesState => {
+const setFirstSlide = (state: SlidesState, slide: UISlide): SlidesState => {
   const _state: SlidesState = {
     slideNumbers
   };
@@ -53,7 +54,7 @@ const setFirstSlide = (state: SlidesState, slide: SlideFromAPI): SlidesState => 
 // ||-------> Handles the updates of a given slide on validation,
 // & then updates de remaining slides if this given change should impact their content
 const stateUpdateOnValidation = (state: SlidesState, payload: ValidationPayload): SlidesState => {
-  const {slideNumber, newSlideContent, numberOfFinishedSlides, nextSlide} = payload;
+  const {slideNumber, newSlideContent, numberOfFinishedSlides, nextContent} = payload;
   const _state: SlidesState = {
     slideNumbers
   };
@@ -67,7 +68,7 @@ const stateUpdateOnValidation = (state: SlidesState, payload: ValidationPayload)
       if (numberOfFinishedSlides === HIGHEST_INDEX) {
         _state[index] = {
           ...previousValue,
-          nextSlide,
+          nextContent,
           position: newSlideContent.position,
           isCorrect: newSlideContent.isCorrect
         };
@@ -75,7 +76,7 @@ const stateUpdateOnValidation = (state: SlidesState, payload: ValidationPayload)
     } else {
       // updates the rest of the slides here
       const {hidden, position} = previousValue;
-      _state[index] = {...nextSlide, endReview: newSlideContent.endReview, hidden, position};
+      _state[index] = {...nextContent, endReview: newSlideContent.endReview, hidden, position};
     }
   }, state.slideNumbers);
 
@@ -96,8 +97,8 @@ const stateUpdateOnNext = (state: SlidesState, payload: OnNextPayload): SlidesSt
     // the current slide
     if (index === slideNumber) {
       // when there is only one slide remaining, updates the slide value
-      if (numberOfFinishedSlides === HIGHEST_INDEX && previousValue.nextSlide) {
-        _state[index] = {...previousValue.nextSlide, position: previousValue.position};
+      if (numberOfFinishedSlides === HIGHEST_INDEX && previousValue.nextContent) {
+        _state[index] = {...previousValue.nextContent, position: previousValue.position};
       } else _state[slideNumber] = newSlideContent;
     } else {
       // updates the rest of the slides here
@@ -121,7 +122,11 @@ const stateUpdateOnNext = (state: SlidesState, payload: OnNextPayload): SlidesSt
 const reducer = (state: SlidesState = initialState, action: SlidesAction): SlidesState => {
   switch (action.type) {
     case STORE_FIRST_SLIDE: {
-      return setFirstSlide(state, action.payload);
+      // TODO: An intermediate slide transform is needed here (or in fetchSlide)
+      // const apiSlide = action.payload;
+      // apiSlide adapt to uiSlide
+      const uiSlide = qcmSlide;
+      return setFirstSlide(state, uiSlide);
     }
     case UPDATE_SLIDES_ON_VALIDATION: {
       return stateUpdateOnValidation(state, action.payload);

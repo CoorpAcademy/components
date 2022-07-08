@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 import onStartApp from './middlewares/on-start-app';
+import onReceiveProgression from './middlewares/on-receive-progression';
 
 import {SkillsState} from './reducers/data/skills';
 import {SlidesState} from './reducers/data/slides';
@@ -11,23 +12,13 @@ import {NavigationState} from './reducers/ui/navigation';
 import {ReviewStatusState} from './reducers/ui/review-status';
 import {StepItemsState} from './reducers/ui/step-items';
 import {FinishedSlidesState} from './reducers/ui/finished-slides';
-
-import {AnswerUI} from './types/slides';
+import {ProgressionState} from './reducers/data/progression';
 
 // -----------------------------------------------------------------------------
 
 type DataState = {
   isFetching?: boolean;
-  progression?: {
-    slideNumber: number;
-    isCorrect?: boolean;
-    // pass down the successExitNode if all slides are finished, not before
-    exitNode?: 'successExitNode' | 'failExitNode';
-    nextSlide?: {
-      questionText?: string;
-      answerUI?: AnswerUI;
-    };
-  } | null;
+  progression?: ProgressionState;
   skills: SkillsState;
   slides: SlidesState;
   token?: TokenState;
@@ -39,6 +30,7 @@ export type StoreState = {
     stepItems: StepItemsState;
     finishedSlides: FinishedSlidesState;
     reviewStatus: ReviewStatusState;
+    // progression: UiProgression;
   };
   data: DataState;
 };
@@ -54,7 +46,7 @@ export default function configureStore(): Store<StoreState, AnyAction> {
       })
     : compose;
 
-  const enhancer = _compose(applyMiddleware(thunk, onStartApp));
+  const enhancer = _compose(applyMiddleware(thunk, onStartApp, onReceiveProgression));
   const store = createStore(rootReducer, undefined, enhancer);
 
   return store;

@@ -21,7 +21,7 @@ const NextSlideProp = PropTypes.shape({
 
 const SlideProp = PropTypes.shape({
   ...NextSlideProp.props,
-  nextSlide: NextSlideProp
+  nextContent: NextSlideProp
 });
 
 const StepItemProp = PropTypes.shape({
@@ -80,7 +80,7 @@ export const SlidesReviewPropTypes = {
     isCorrect: PropTypes.bool,
     // 'successExitNode' | 'failExitNode'
     exitNode: PropTypes.string,
-    nextSlide: PropTypes.shape({
+    nextContent: PropTypes.shape({
       questionText: PropTypes.string,
       answerUI: PropTypes.shape(AnswerPropTypes)
     })

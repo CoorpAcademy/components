@@ -1,4 +1,4 @@
-import {Slide as SlideFromAPI} from '../../types/slides';
+import {Slide as UISlide} from '../../types/slides';
 
 // -----------------------------------------------------------------------------
 
@@ -7,36 +7,40 @@ export const UPDATE_SLIDES_ON_VALIDATION = '@@slide/UPDATE_SLIDES_ON_VALIDATION'
 export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
 export const VALIDATE_SLIDE = '@@slide/VALIDATE';
 export const FETCH_NEXT_CONTENT = '@@slide/FETCH_NEXT_CONTENT';
+export const ERROR_FETCHING_SLIDE = '@@data/slide/ERROR_FETCHING_SLIDE';
 
 // -----------------------------------------------------------------------------
 
 type SlideUIAnimations = 'unstack' | 'restack';
 
-export type Slide = SlideFromAPI & {
+export type Slide = UISlide & {
   hidden?: boolean;
   position: number;
   animationType?: SlideUIAnimations;
   isCorrect?: boolean;
   endReview?: boolean;
-  nextSlide?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextSlide'>;
+  nextContent?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextContent'>;
+};
+
+// TODO: complete or modify typing as needed on Fetch Slide ticket
+export type SlideFromAPI = {
+  question: {
+    content: {
+      choices: Record<string, unknown>[];
+    };
+  };
+  klf: string;
+  universalRef: string;
 };
 
 export type ValidationPayload = {
   slideNumber: number;
   newSlideContent: Slide;
   numberOfFinishedSlides: number;
-  nextSlide: Slide;
+  nextContent: Slide;
 };
 
-export type OnNextPayload = Omit<ValidationPayload, 'nextSlide'>;
-
-export type FetchNextPayload = {
-  answer: string[];
-  content: {
-    ref: string;
-    type: string;
-  };
-};
+export type OnNextPayload = Omit<ValidationPayload, 'nextContent'>;
 
 // -----------------------------------------------------------------------------
 
@@ -59,10 +63,9 @@ export type ValidateSlide = {
   type: typeof VALIDATE_SLIDE;
 };
 
-// TODO
-export type FetchNextContent = {
-  type: typeof FETCH_NEXT_CONTENT;
-  payload: FetchNextPayload;
+export type ErrorFetchingSlide = {
+  type: typeof ERROR_FETCHING_SLIDE;
+  payload: Error;
 };
 
 export type SlidesAction = StoreFirstSlide | UpdateSlidesOnValidation | UpdateSlidesOnNext;
@@ -86,4 +89,9 @@ export const updateSlidesOnNext = (payload: OnNextPayload): UpdateSlidesOnNext =
 
 export const validateSlide = (): ValidateSlide => ({
   type: VALIDATE_SLIDE
+});
+
+export const errorFetchingSlide = (error: Error): ErrorFetchingSlide => ({
+  type: ERROR_FETCHING_SLIDE,
+  payload: error
 });
