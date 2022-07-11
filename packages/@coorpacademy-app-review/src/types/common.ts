@@ -9,7 +9,7 @@ export type AppOptions = {
   token: string;
   theme?: unknown;
   translations?: unknown;
-  templateContext: TemplateContextValues;
+  templateContext?: TemplateContextValues;
   skillRef?: string;
 };
 
