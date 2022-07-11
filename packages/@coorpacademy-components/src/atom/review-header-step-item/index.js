@@ -1,11 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
+import propTypes from './prop-types';
 
 export const ICON_VALUES = {
   right: 'right',
@@ -56,10 +56,6 @@ const ReviewHeaderStepItem = props => {
   );
 };
 
-ReviewHeaderStepItem.propTypes = {
-  icon: PropTypes.string,
-  current: PropTypes.bool,
-  value: PropTypes.string
-};
+ReviewHeaderStepItem.propTypes = propTypes;
 
 export default ReviewHeaderStepItem;

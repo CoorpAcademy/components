@@ -1,7 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {View, StyleSheet, Text, useWindowDimensions, Button} from 'react-native';
 
+import FreeText from '../../../molecule/questions/free-text';
+import {useTemplateContext} from '../template-context';
 import {SlidesReviewPropTypes} from './prop-types';
 
 // import theme from '../../../modules/theme';
@@ -46,9 +48,10 @@ const creatSlideStyle = (num, width, height) =>
   StyleSheet.create({
     slide: {
       position: 'absolute',
-      // backgroundColor: theme.colors.white, @todo with props
       top: height / 2 - SLIDE_HEIGHT() / 2 - num * 4,
       flex: 1,
+      backgroundColor: '#fff',
+      // backgroundColor: theme.colors.white, @todo with props and useEffect
       height: SLIDE_HEIGHT(),
       width: width - 40 - num * 8,
       justifyContent: 'space-between',
@@ -156,18 +159,43 @@ Choices.propTypes = {
 
 // -----------------------------------------------------------------------------
 
-// const Slide = ({slide, num}: Props) => {
 const Slide = ({validateSlide, slide, num}) => {
   const {width, height} = useWindowDimensions();
   const slideStyle = creatSlideStyle(num, width, height);
   const validateLabel = '__validate'; // translations.validate
 
-  // TODO replace choices with <Answer>; move mobile answers in the package..
+  const templateContext = useTemplateContext();
+  const {analytics} = templateContext;
+
+  const {
+    answerUI: {
+      isDisabled = false,
+      value,
+      model: {type, onChange}
+    }
+  } = slide;
+
+  switch (type) {
+    case 'freeText': {
+      return (
+        <View style={slideStyle.slide}>
+          <FreeText
+            isDisabled={isDisabled}
+            onChange={onChange}
+            value={value}
+            testID="free-text"
+            questionType="basic"
+            analytics={analytics}
+          />
+        </View>
+      );
+    }
+    default:
+  }
+
   return (
     <View style={slideStyle.slide}>
-      <Text style={slideStyle.category}>
-        {slide.category} {num}
-      </Text>
+      <Text style={slideStyle.category}>{num}</Text>
       <Text style={slideStyle.question}>{slide.question}</Text>
       <Text style={slideStyle.instruction}>{slide.instruction}</Text>
 
@@ -189,18 +217,22 @@ Slide.propTypes = {
 // -----------------------------------------------------------------------------
 
 // const Slides = ({slide}: Props) => {
-const Slides = ({slide, validateSlide}) => {
-  const slides = [slide, slide, slide, slide, slide];
+const Slides = ({slides, validateSlide}) => {
+  if (!slides) {
+    return null;
+  }
+
   return (
     <View style={quizzerStyle.container}>
-      {slides.reverse().map((_slide, index) => (
-        <Slide
-          validateSlide={validateSlide}
-          slide={_slide}
-          num={slides.length - index}
-          key={`slide-${index}`}
-        />
-      ))}
+      <Slide validateSlide={validateSlide} slide={slides[0]} num={0} key={`slide-${0}`} />
+      {/* {slides.reverse().map((_slide, index) => (
+      <Slide
+        validateSlide={validateSlide}
+        slide={_slide}
+        num={slides.length - index}
+        key={`slide-${index}`}
+      />
+    ))} */}
     </View>
   );
 };

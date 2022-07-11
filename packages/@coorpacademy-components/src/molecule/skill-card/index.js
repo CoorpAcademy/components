@@ -1,10 +1,10 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import {convert} from 'css-color-function';
-import PropTypes from 'prop-types';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import getOr from 'lodash/fp/getOr';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
+import propTypes from './prop-types';
 
 const getGradientBackground = baseColor => {
   const gradients = [
@@ -97,16 +97,6 @@ const SkillCard = (props, context) => {
   );
 };
 
-SkillCard.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  skillTitle: PropTypes.string,
-  skillAriaLabel: PropTypes.string,
-  buttonLabel: PropTypes.string,
-  buttonAriaLabel: PropTypes.string,
-  reviseLabel: PropTypes.string,
-  reviseAriaLabel: PropTypes.string,
-  isCustom: PropTypes.bool,
-  onClick: PropTypes.func
-};
+SkillCard.propTypes = propTypes;
 
 export default SkillCard;

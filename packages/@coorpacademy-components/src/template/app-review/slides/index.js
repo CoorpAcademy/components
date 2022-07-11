@@ -74,7 +74,7 @@ const Slide = ({
       (with the useEffect that fires the dispatchers, if there is a nextSlide content,
       it will be loaded here) but will not trigger any animations unless the endReview
       signal is received (all slides will disappear, also fired in a useEffect),
-      
+
       if it is the last slide and the content needs to be different, then that update will
       be handled on the next slide logic but the content will be carried from here.
     */

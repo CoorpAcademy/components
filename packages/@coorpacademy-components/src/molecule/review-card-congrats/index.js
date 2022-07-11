@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {pipe, round, parseInt as _parseInt, multiply} from 'lodash/fp';
 import {
@@ -10,6 +9,7 @@ import AtomLottieWrapper from '../../atom/lottie-wrapper';
 import Animation, {EASE_OUT_CUBIC} from '../../hoc/animation';
 import AnimationScheduler from '../../hoc/animation-scheduler';
 import style from './style.css';
+import propTypes from './prop-types';
 
 export const setAnimations = (setIsAnimationVisible, setIsAnimated) => () => {
   setIsAnimationVisible('play');
@@ -85,17 +85,6 @@ const ReviewCardCongrats = props => {
   );
 };
 
-ReviewCardCongrats.propTypes = {
-  'aria-label': PropTypes.string,
-  'data-name': PropTypes.string,
-  animationLottie: PropTypes.shape(AtomLottieWrapper.propTypes),
-  cardType: PropTypes.string,
-  iconAriaLabel: PropTypes.string,
-  className: PropTypes.string,
-  reviewCardTitle: PropTypes.string,
-  reviewCardValue: PropTypes.string,
-  rankSuffix: PropTypes.string,
-  timerAnimation: PropTypes.number
-};
+ReviewCardCongrats.propTypes = propTypes;
 
 export default ReviewCardCongrats;

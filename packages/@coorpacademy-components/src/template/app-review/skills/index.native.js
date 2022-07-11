@@ -2,7 +2,10 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {View, FlatList, Pressable, StyleSheet, Text} from 'react-native';
 import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
-import SkillsWeb, {ListSkillsPropTypes, NoSkillsPropTypes} from '../../../organism/review-skills';
+import propTypes, {
+  ListSkillsPropTypes,
+  NoSkillsPropTypes
+} from '../../../organism/review-skills/prop-types';
 
 // import theme from '../../../modules/theme';
 // import translations from '../../../translations';
@@ -157,7 +160,7 @@ const Skills = props => {
   );
 };
 
-Skills.propTypes = SkillsWeb.propTypes;
+Skills.propTypes = propTypes;
 
 // -----------------------------------------------------------------------------
 

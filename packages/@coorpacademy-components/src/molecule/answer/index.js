@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {omit} from 'lodash/fp';
 import VideoPlayer from '../video-player';
 import DropDown from '../questions/drop-down';
@@ -11,10 +10,7 @@ import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
 import Audio from '../audio';
 import style from './style.css';
-
-export const TYPE_IMAGE = 'img';
-export const TYPE_VIDEO = 'video';
-export const TYPE_AUDIO = 'audio';
+import propTypes, {MediaViewPropTypes, TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from './prop-types';
 
 const MediaView = ({media}) => {
   const {videoId, type, ...childProps} = media;
@@ -45,30 +41,13 @@ const MediaView = ({media}) => {
   }
 };
 
-const isType = name => PropTypes.oneOf([name]);
-
-const videoPropType = PropTypes.shape({
-  ...VideoPlayer.propTypes,
-  type: isType(TYPE_VIDEO).isRequired
-});
-
-const imgPropType = PropTypes.shape({
-  type: isType(TYPE_IMAGE).isRequired,
-  url: PropTypes.string.isRequired
-});
-
-const audioPropType = PropTypes.shape({
-  type: isType(TYPE_AUDIO).isRequired,
-  mediaUrl: PropTypes.string.isRequired
-});
-
-MediaView.propTypes = {
-  media: PropTypes.oneOfType([videoPropType, imgPropType, audioPropType])
-};
+MediaView.propTypes = MediaViewPropTypes;
 
 const Answer = props => {
   const {model, media, help} = props;
   const buildAnswer = () => {
+    // (propTypes model.type is properly defined)
+    // eslint-disable-next-line react/prop-types
     const {type} = model;
 
     switch (type) {
@@ -98,20 +77,6 @@ const Answer = props => {
   );
 };
 
-Answer.propTypes = {
-  model: PropTypes.shape({
-    type: PropTypes.oneOf([
-      'qcmDrag',
-      'qcm',
-      'qcmGraphic',
-      'freeText',
-      'dropDown',
-      'slider',
-      'template'
-    ]).isRequired
-  }),
-  help: PropTypes.string,
-  media: MediaView.propTypes.media
-};
+Answer.propTypes = propTypes;
 
 export default Answer;

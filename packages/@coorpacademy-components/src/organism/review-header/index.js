@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ReviewHeaderSteps from '../../molecule/review-header-steps';
 import style from './style.css';
+import propTypes from './prop-types';
 
 const ReviewHeader = (props, context) => {
   const {
@@ -63,14 +63,6 @@ const ReviewHeader = (props, context) => {
   );
 };
 
-ReviewHeader.propTypes = {
-  steps: ReviewHeaderSteps.propTypes.steps,
-  mode: PropTypes.string.isRequired,
-  skillName: PropTypes.string.isRequired,
-  'aria-label': PropTypes.string,
-  closeButtonAriaLabel: PropTypes.string,
-  onQuitClick: PropTypes.func,
-  hiddenSteps: PropTypes.bool
-};
+ReviewHeader.propTypes = propTypes;
 
 export default ReviewHeader;

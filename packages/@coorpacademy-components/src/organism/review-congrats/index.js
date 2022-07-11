@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from 'react';
-import PropTypes from 'prop-types';
 import AtomLottieWrapper from '../../atom/lottie-wrapper';
 import ButtonLink from '../../atom/button-link';
 import MoleculeReviewCardCongrats from '../../molecule/review-card-congrats';
 import style from './style.css';
+import propTypes from './prop-types';
 
 export const setScroll = container => () => {
   container.current?.scrollTo &&
@@ -66,23 +66,6 @@ const ReviewCongrats = props => {
   );
 };
 
-ReviewCongrats.propTypes = {
-  'aria-label': PropTypes.string,
-  'data-name': PropTypes.string,
-  animationLottie: PropTypes.shape(AtomLottieWrapper.propTypes),
-  title: PropTypes.string,
-  cardCongratsStar: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
-  cardCongratsRank: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
-  buttonRevising: PropTypes.shape({
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    type: PropTypes.string
-  }),
-  buttonRevisingSkill: PropTypes.shape({
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    type: PropTypes.string
-  })
-};
+ReviewCongrats.propTypes = propTypes;
 
 export default ReviewCongrats;

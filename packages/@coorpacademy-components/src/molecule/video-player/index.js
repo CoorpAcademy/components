@@ -1,36 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {SrcPropType} from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
 import Vimeo from './vimeo';
 import style from './style.css';
+import propTypes from './prop-types';
 
 class VideoPlayer extends React.Component {
-  static propTypes = {
-    id: PropTypes.string,
-    width: PropTypes.string,
-    height: PropTypes.string,
-    url: SrcPropType,
-    onPlay: PropTypes.func,
-    onResume: PropTypes.func,
-    onPause: PropTypes.func,
-    onEnded: PropTypes.func,
-    onError: PropTypes.func,
-    autoplay: PropTypes.bool,
-    disableAutostart: PropTypes.bool,
-    jwpOptions: JWPlayer.propTypes.jwpOptions,
-    mimeType: PropTypes.oneOf([
-      'application/kontiki',
-      'application/uptale',
-      'application/vimeo',
-      'application/youtube',
-      'application/jwplayer',
-      'application/omniPlayer',
-      'application/h5p',
-      'video/mp4'
-    ]).isRequired
-  };
+  static propTypes = propTypes;
 
   static getDerivedStateFromProps(props, state) {
     if (props.id === state.id) return null;
