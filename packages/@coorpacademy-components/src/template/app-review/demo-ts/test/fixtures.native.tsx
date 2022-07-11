@@ -2,7 +2,7 @@ import test from 'ava';
 import React from 'react';
 import {render} from '@testing-library/react-native';
 // import TemplateAppReviewDemoTs from '../index';
-import TemplateAppReviewDemoTs from '../index.native.tsx';
+import TemplateAppReviewDemoTs from '../index.native';
 import fixtureDefaultTs from './fixtures/default.ts';
 
 test('should test .native', t => {
@@ -14,5 +14,5 @@ test('should test .native', t => {
   // const p = render(React.createElement(TemplateAppReviewDemoTs, props));
   const p = React.createElement(TemplateAppReviewDemoTs, props);
   // const p = <TemplateAppReviewDemoTs />;
-  console.log({p});
+  // console.log({p});
 });

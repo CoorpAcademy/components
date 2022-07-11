@@ -1,6 +1,7 @@
-console.log('------>>> babel.config.js ');
+console.log('using babel config', process.env.BABEL_ENV);
 module.exports = function (api) {
   api.cache(true);
+
   return {
     plugins: [
       '@babel/plugin-proposal-export-default-from',
@@ -16,12 +17,6 @@ module.exports = function (api) {
     ],
     presets: [
       '@babel/preset-react',
-      [
-        'module:metro-react-native-babel-preset',
-        {
-          disableImportExportTransform: true
-        }
-      ],
       [
         '@babel/preset-typescript',
         {
@@ -48,6 +43,16 @@ module.exports = function (api) {
             'transform-react-remove-prop-types',
             {
               mode: 'wrap'
+            }
+          ]
+        ]
+      },
+      'react-native': {
+        presets: [
+          [
+            'module:metro-react-native-babel-preset',
+            {
+              disableImportExportTransform: true
             }
           ]
         ]
