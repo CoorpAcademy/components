@@ -18,7 +18,6 @@ const onStartApp: Middleware<{}, Store, Dispatch<Action>> =
   next =>
   (action: Action) => {
     if (action.type === START_APP) {
-      // change slide to skillRef
       const {skillRef, token} = action.payload;
 
       dispatch(storeToken(token));
