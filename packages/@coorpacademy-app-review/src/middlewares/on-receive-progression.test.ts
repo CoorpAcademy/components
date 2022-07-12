@@ -3,7 +3,7 @@ import {AnyAction, Dispatch, MiddlewareAPI} from 'redux';
 import {receiveProgression} from '../actions/data/progression';
 import {Action} from '../actions';
 import {AppOptions} from '../types/common';
-import {mockedProgression} from '../services/create-progression.mock';
+import {mockedProgression} from '../services/post-progression.mock';
 import {sleep} from '../services/tools/sleep';
 import {STORE_FIRST_SLIDE} from '../actions/data/slides';
 import onReceiveProgression from './on-receive-progression';

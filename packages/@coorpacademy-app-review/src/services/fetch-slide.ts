@@ -4,7 +4,7 @@ import crossFetch from 'cross-fetch';
 import {SlideFromAPI} from '../actions/data/slides';
 // import {JWT} from '../types/common';
 // import {toJSON} from './tools/fetch-responses';
-import mockCreateProgression from './create-progression.mock';
+import {okJSONResponse} from './tools/fetch.mocks';
 
 // -----------------------------------------------------------------------------
 
@@ -28,15 +28,16 @@ const fetchSlide: FetchSlideBuilder = fetch => async (slideRef: string, token: s
 
 // -----------------------------------------------------------------------------
 
-const buildFetchSlide: DefaultFetchSlideBuilder = () => {
+const createFetchSlide: DefaultFetchSlideBuilder = () => {
   if (process.env.SERVICES !== 'mocks') {
     return fetchSlide(crossFetch);
   }
 
-  return fetchSlide(mockCreateProgression);
+  // TODO: use an appropriate mock
+  return fetchSlide(okJSONResponse({}));
 };
 
 // -----------------------------------------------------------------------------
 
 export {fetchSlide};
-export default buildFetchSlide();
+export default createFetchSlide();

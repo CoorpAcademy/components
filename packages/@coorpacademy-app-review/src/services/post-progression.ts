@@ -4,19 +4,20 @@ import decode from 'jwt-decode';
 import {ProgressionFromAPI} from '../actions/data/progression';
 import {JWT} from '../types/common';
 import {toJSON} from './tools/fetch-responses';
-import mockCreateProgression from './create-progression.mock';
+import mockPostProgression from './post-progression.mock';
 
 // -----------------------------------------------------------------------------
 
-type CreateProgression = (skillRef: string, token: string) => Promise<ProgressionFromAPI>;
-type CreateProgressionFnBuilder = (fetch: typeof crossFetch) => CreateProgression;
-type DefaultCreateProgressionBuilder = () => CreateProgression;
+type PostProgression = (skillRef: string, token: string) => Promise<ProgressionFromAPI>;
+type CreatePostProgression = (fetch: typeof crossFetch) => PostProgression;
+type DefaultCreatePostProgression = () => PostProgression;
 
 // -----------------------------------------------------------------------------
 
-const createProgression: CreateProgressionFnBuilder = fetch => async (skillRef, token) => {
+const postProgression: CreatePostProgression = fetch => async (skillRef, token) => {
   const {host}: JWT = decode(token);
   const response = await fetch(`${host}/api/v2/progressions`, {
+    method: 'post',
     headers: {authorization: token},
     body: JSON.stringify({
       content: {
@@ -35,15 +36,15 @@ const createProgression: CreateProgressionFnBuilder = fetch => async (skillRef, 
 
 // -----------------------------------------------------------------------------
 
-const buildCreateProgressionFn: DefaultCreateProgressionBuilder = () => {
+const createPostProgression: DefaultCreatePostProgression = () => {
   if (process.env.SERVICES !== 'mocks') {
-    return createProgression(crossFetch);
+    return postProgression(crossFetch);
   }
 
-  return createProgression(mockCreateProgression);
+  return postProgression(mockPostProgression);
 };
 
 // -----------------------------------------------------------------------------
 
-export {createProgression};
-export default buildCreateProgressionFn();
+export {postProgression};
+export default createPostProgression();

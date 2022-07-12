@@ -5,7 +5,7 @@ import {RECEIVE_PROGRESSION} from '../actions/data/progression';
 import {Action} from '../actions';
 import {AppOptions} from '../types/common';
 import {NAVIGATE_TO, startApp} from '../actions/ui/navigation';
-import {mockedProgression} from '../services/create-progression.mock';
+import {mockedProgression} from '../services/post-progression.mock';
 import {VIEWS} from '../common';
 import {sleep} from '../services/tools/sleep';
 import onStartApp from './on-start-app';

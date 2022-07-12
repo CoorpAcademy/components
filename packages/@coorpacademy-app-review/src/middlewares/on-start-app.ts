@@ -10,7 +10,7 @@ import {navigateTo, START_APP, ViewPath} from '../actions/ui/navigation';
 // eslint-disable-next-line import/no-named-as-default
 import fetchSkills from '../services/fetch-skills';
 // eslint-disable-next-line import/no-named-as-default
-import createProgression from '../services/create-progression';
+import postProgression from '../services/post-progression';
 import {errorCreatingProgression, receiveProgression} from '../actions/data/progression';
 
 const onStartApp: Middleware<{}, Store, Dispatch<Action>> =
@@ -23,7 +23,7 @@ const onStartApp: Middleware<{}, Store, Dispatch<Action>> =
       dispatch(storeToken(token));
 
       if (skillRef) {
-        createProgression(skillRef, token)
+        postProgression(skillRef, token)
           .then(progression => {
             return dispatch(receiveProgression({progression, token}));
           })
