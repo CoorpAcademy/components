@@ -48,14 +48,7 @@ module.exports = function (api) {
         ]
       },
       'react-native': {
-        presets: [
-          [
-            'module:metro-react-native-babel-preset',
-            {
-              disableImportExportTransform: true
-            }
-          ]
-        ]
+        presets: [['module:metro-react-native-babel-preset']]
       },
       test: {
         presets: [

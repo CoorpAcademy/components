@@ -14,7 +14,7 @@
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     // Don't emit; only do type-checking, leave trasformation to Babel.
     "noEmit": true,
