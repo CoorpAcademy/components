@@ -1,27 +1,34 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render} from '@testing-library/react';
 import {noop} from 'lodash/fp';
 import Provider from '..';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should re-render element when updating props', t => {
+  t.plan(2);
   const history = {
     createHref: noop,
     push: noop
   };
-  const wrapper = shallow(
+  const {container, rerender} = render(
     <Provider {...defaultFixture.props}>
-      <span>Foo</span>
+      <span data-name="foo">Foo</span>
     </Provider>
   );
 
-  t.is(wrapper.state.history, undefined);
-  wrapper.setProps({...defaultFixture.props, history});
-  t.is(wrapper.state().history, history);
+  const foo = container.querySelector('[data-name="foo"]');
+  t.truthy(foo);
+
+  rerender(
+    <Provider {...defaultFixture.props} history={history}>
+      <div data-name="bar">Bar</div>
+    </Provider>
+  );
+
+  const bar = container.querySelector('[data-name="bar"]');
+  t.truthy(bar);
 });

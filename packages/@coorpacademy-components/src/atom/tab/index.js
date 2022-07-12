@@ -7,7 +7,7 @@ const Tab = ({onClick, links, title, targetContent}) => {
   const handleTabClick = useMemo(() => () => onClick(targetContent), [onClick, targetContent]);
 
   return (
-    <div className={style.tab} onClick={handleTabClick}>
+    <div data-name="tab" className={style.tab} onClick={handleTabClick}>
       <div className={style.title}>{title}</div>
       <div className={style.link}>
         {map(

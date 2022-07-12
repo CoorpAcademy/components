@@ -1,23 +1,23 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+import {render, fireEvent} from '@testing-library/react';
 import Tab from '..';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should call onClick with the targetContent value', t => {
-  t.plan(1);
+  t.plan(3);
   const onClick = value => {
     t.is(value, 'foobar');
   };
-  const wrapper = shallow(
+  const {container} = render(
     <Tab {...defaultFixture.props} onClick={onClick} targetContent="foobar" />
   );
 
-  wrapper.find(`div.${style.tab}`).simulate('click');
+  const tab = container.querySelector('[data-name="tab"]');
+  t.truthy(tab);
+  fireEvent.click(tab);
+  t.pass();
 });
