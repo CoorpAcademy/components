@@ -14,12 +14,6 @@
   "presets": [
     "@babel/preset-react",
     [
-      "module:metro-react-native-babel-preset",
-      {
-        "disableImportExportTransform": true
-      }
-    ],
-    [
       "@babel/preset-typescript",
       {
         "allExtensions": true,
