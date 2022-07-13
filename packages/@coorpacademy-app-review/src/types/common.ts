@@ -1,5 +1,3 @@
-import {Slide} from './slides';
-
 // TODO use type from components
 type TemplateContextValues = {
   brandTheme?: unknown;
@@ -11,8 +9,8 @@ export type AppOptions = {
   token: string;
   theme?: unknown;
   translations?: unknown;
-  slide?: Slide;
-  templateContext: TemplateContextValues;
+  templateContext?: TemplateContextValues;
+  skillRef?: string;
 };
 
 export type JWT = {

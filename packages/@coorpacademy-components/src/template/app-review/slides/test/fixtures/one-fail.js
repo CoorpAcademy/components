@@ -17,7 +17,7 @@ export default {
     progression: {
       slideNumber: 0,
       isCorrect: false,
-      nextSlide: {
+      nextContent: {
         questionText: initialStateProps.slides[0].questionText,
         answerUI: initialStateProps.slides[0].answerUI
       }

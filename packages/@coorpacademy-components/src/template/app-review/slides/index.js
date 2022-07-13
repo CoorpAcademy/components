@@ -71,7 +71,7 @@ const Slide = ({
     },
     /*
       slide validation action, this will trigger the correction popin
-      (with the useEffect that fires the dispatchers, if there is a nextSlide content,
+      (with the useEffect that fires the dispatchers, if there is a nextContent content,
       it will be loaded here) but will not trigger any animations unless the endReview
       signal is received (all slides will disappear, also fired in a useEffect),
 
@@ -288,7 +288,7 @@ const SlidesReview = (
         const position = get(`${slideNumber}.position`, slides);
         const isCorrect = get('isCorrect', progression);
         const exitNode = get('exitNode', progression);
-        const nextSlide = get('nextSlide', progression);
+        const nextContent = get('nextContent', progression);
         updateSlidesOnValidation({
           slideNumber,
           newSlideContent: {
@@ -298,7 +298,7 @@ const SlidesReview = (
             endReview: !!exitNode
           },
           numberOfFinishedSlides: finishedSlidesSize,
-          nextSlide
+          nextContent
         });
         updateStepItemsOnValidation({
           stepNumber: slideNumber,

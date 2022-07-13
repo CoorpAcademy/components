@@ -8,7 +8,7 @@ export class ResponseError extends Error {
   }
 }
 
-export const toJSON = async (response: Response): Promise<unknown> => {
+export const toJSON = async <T = unknown>(response: Response): Promise<T> => {
   if (!response.ok) {
     const body = await response.text();
     throw new ResponseError(response.status, response.statusText, body);
