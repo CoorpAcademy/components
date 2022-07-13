@@ -13,7 +13,8 @@ import type {SlidesViewStaticProps} from './types/views/slides';
 
 import {Dispatchers} from './actions';
 import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
-import {navigateTo, navigateBack, startApp, ViewPath} from './actions/ui/navigation';
+import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
+import {startApp} from './actions/ui/start-app';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
@@ -127,7 +128,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
       setAppStarted(true);
     } else {
       const _configure = async (): Promise<void> => {
-        const newStore = await configureStore();
+        const newStore = await configureStore(options);
         setStore(newStore);
       };
       _configure();

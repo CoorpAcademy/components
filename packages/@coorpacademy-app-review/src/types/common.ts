@@ -1,3 +1,5 @@
+import type crossFetch from 'cross-fetch';
+
 // TODO use type from components
 type TemplateContextValues = {
   brandTheme?: unknown;
@@ -11,6 +13,7 @@ export type AppOptions = {
   translations?: unknown;
   templateContext?: TemplateContextValues;
   skillRef?: string;
+  fetch?: typeof crossFetch;
 };
 
 export type JWT = {

@@ -1,9 +1,8 @@
 import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
 
+import crossFetch from 'cross-fetch';
 import rootReducer from './reducers';
-import onStartApp from './middlewares/on-start-app';
-import onReceiveProgression from './middlewares/on-receive-progression';
 
 import {SkillsState} from './reducers/data/skills';
 import {SlidesState} from './reducers/data/slides';
@@ -13,6 +12,8 @@ import {ReviewStatusState} from './reducers/ui/review-status';
 import {StepItemsState} from './reducers/ui/step-items';
 import {FinishedSlidesState} from './reducers/ui/finished-slides';
 import {ProgressionState} from './reducers/data/progression';
+import createServices from './services';
+import {AppOptions} from './types/common';
 
 // -----------------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ export type StoreState = {
 
 // -----------------------------------------------------------------------------
 
-export default function configureStore(): Store<StoreState, AnyAction> {
+export default function configureStore(options: AppOptions): Store<StoreState, AnyAction> {
   const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         name: 'app-review',
@@ -46,7 +47,10 @@ export default function configureStore(): Store<StoreState, AnyAction> {
       })
     : compose;
 
-  const enhancer = _compose(applyMiddleware(thunk, onStartApp, onReceiveProgression));
+  const services = createServices(options.fetch || crossFetch);
+  const thunkMiddleware = thunk.withExtraArgument({services});
+
+  const enhancer = _compose(applyMiddleware(thunkMiddleware));
   const store = createStore(rootReducer, undefined, enhancer);
 
   return store;
