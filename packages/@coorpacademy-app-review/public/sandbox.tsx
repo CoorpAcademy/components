@@ -9,6 +9,8 @@ import pipe from 'lodash/fp/pipe';
 import AppReview from '../src';
 import type {AppOptions} from '../src/types/common';
 import {Slide} from '../src/types/slides';
+
+import mockedFetch from './mocked-fetch';
 import freeText from './slides/free-text';
 // import qcm from './slides/qcm';
 
@@ -49,7 +51,8 @@ const createSandbox = (options: SandboxOptions): void => {
       slide: selectedSlide,
       templateContext: {
         plop: 'plip'
-      }
+      },
+      fetch: mockedFetch
     };
 
     render(<AppReview options={appOptions} />, container);
