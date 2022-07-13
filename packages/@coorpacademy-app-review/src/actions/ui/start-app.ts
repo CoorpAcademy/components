@@ -1,6 +1,6 @@
-import {AppOptions} from 'src/types/common';
-import {errorFetchingSkills, receivedSkills} from '../data/skills';
+import {fetchSkills} from '../api/skills';
 import {storeToken} from '../data/token';
+import {AppOptions} from '../../types/common';
 
 export const START_APP = '@@navigation/START_APP';
 
@@ -17,7 +17,6 @@ export const startApp =
     });
 
     const {skillRef, token} = options;
-    console.log('start app', {options, services});
 
     dispatch(storeToken(token));
 
@@ -30,15 +29,7 @@ export const startApp =
       //       return dispatch(errorCreatingProgression(err));
       //     });
     } else {
-      const {fetchSkills} = services;
-
-      fetchSkills(token)
-        .then(skills => {
-          return dispatch(receivedSkills(skills));
-        })
-        .catch(err => {
-          return dispatch(errorFetchingSkills(err));
-        });
+      dispatch(fetchSkills(token));
     }
 
     // const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;

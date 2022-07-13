@@ -43,16 +43,17 @@ const createSandbox = (options: SandboxOptions): void => {
     console.error('[AppReview sandbox] Requires a container.');
   } else {
     const container = document.getElementById(options.container);
+    const token = process.env.API_TEST_TOKEN || '';
 
     // mode mobile/web
     // userId + skill --> create progression --> 1st slide
     const appOptions: AppOptions = {
-      token: process.env.API_TEST_TOKEN || '',
+      token,
       slide: selectedSlide,
       templateContext: {
         plop: 'plip'
       },
-      fetch: mockedFetch
+      fetch: mockedFetch(token)
     };
 
     render(<AppReview options={appOptions} />, container);
