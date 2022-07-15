@@ -1,10 +1,13 @@
 // -----------------------------------------------------------------------------
 
 import React, {createContext, useContext} from 'react';
+import defaultTheme from '../../variables/theme.native';
 
 // -----------------------------------------------------------------------------
 
-const Context = createContext({});
+const Context = createContext({
+  theme: defaultTheme
+});
 
 // -----------------------------------------------------------------------------
 
@@ -21,6 +24,7 @@ const useTemplateContext = () => {
 };
 
 // -----------------------------------------------------------------------------
+
 type TemplateContextValues = {
   brandTheme: any;
   theme: any; // TODO type Theme
