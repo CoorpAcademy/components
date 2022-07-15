@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies, no-undef */
+
 require('react-native-mock-render/mock');
 
 require('@babel/register')({
