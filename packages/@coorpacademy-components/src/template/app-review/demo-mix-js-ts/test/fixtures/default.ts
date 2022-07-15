@@ -4,9 +4,7 @@ type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
-    plop: 'plop!',
-    plip: 1,
-    onClick: () => null
+    plop: 'plip'
   }
 };
 

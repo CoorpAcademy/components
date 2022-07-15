@@ -1,8 +1,7 @@
 // import React, {FunctionComponent} from 'react';
 import React from 'react';
 import {View, Text} from 'react-native';
-
-export type Props = {plop: string};
+import {Props} from './typings';
 
 const DemoTs = ({plop}: Props) => (
   <View>
