@@ -1,7 +1,4 @@
-import {IconValue} from '../../types/common';
-import {FinishedSlidesState} from '../../reducers/ui/finished-slides';
-
-// -----------------------------------------------------------------------------
+import {FinishedSlidesState, IconValue} from '../../types/common';
 
 export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@step-items/UPDATE_STEP_ITEMS_ON_VALIDATION';
 export const UPDATE_STEP_ITEMS_ON_NEXT = '@@step-items/UPDATE_STEP_ITEMS_ON_NEXT';
