@@ -49,7 +49,8 @@ const createSandbox = (options: SandboxOptions): void => {
       slide: selectedSlide,
       templateContext: {
         plop: 'plip'
-      }
+      },
+      services: {}
     };
 
     render(<AppReview options={appOptions} />, container);

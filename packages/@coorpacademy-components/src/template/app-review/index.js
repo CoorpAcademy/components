@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from '../../atom/loader';
 import Onboarding from './onboarding';
 import Skills from './skills';
 import Slides from './slides';
@@ -14,6 +15,8 @@ const AppReview = ({viewName, onboarding, skills, slides, ...dispachers}) => {
       return <Onboarding {...onboarding} {...dispachers} />;
     case ViewNames.slides:
       return <Slides {...slides} {...dispachers} />;
+    default:
+      return <Loader />;
   }
 };
 

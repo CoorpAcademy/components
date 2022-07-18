@@ -11,6 +11,7 @@ export type AppOptions = {
   translations?: unknown;
   templateContext?: TemplateContextValues;
   skillRef?: string;
+  services: unknown;
 };
 
 export type JWT = {

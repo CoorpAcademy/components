@@ -13,6 +13,7 @@ import {ReviewStatusState} from './reducers/ui/review-status';
 import {StepItemsState} from './reducers/ui/step-items';
 import {FinishedSlidesState} from './reducers/ui/finished-slides';
 import {ProgressionState} from './reducers/data/progression';
+import {AppOptions} from './types/common';
 
 // -----------------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ export type StoreState = {
 
 // -----------------------------------------------------------------------------
 
-export default function configureStore(): Store<StoreState, AnyAction> {
+export default function configureStore(options: AppOptions): Store<StoreState, AnyAction> {
   const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         name: 'app-review',
@@ -46,7 +47,8 @@ export default function configureStore(): Store<StoreState, AnyAction> {
       })
     : compose;
 
-  const enhancer = _compose(applyMiddleware(thunk, onStartApp, onReceiveProgression));
+  const thunkMiddleware = thunk.withExtraArgument({services: options.services});
+  const enhancer = _compose(applyMiddleware(thunkMiddleware));
   const store = createStore(rootReducer, undefined, enhancer);
 
   return store;
