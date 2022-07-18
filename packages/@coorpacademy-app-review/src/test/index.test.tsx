@@ -3,9 +3,10 @@ import test from 'ava';
 import type {ExecutionContext} from 'ava';
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react';
-import type {AppOptions} from './types/common';
-import {sleep} from './services/tools/sleep';
-import AppReview from '.';
+import type {AppOptions} from '../types/common';
+import {sleep} from '../services/tools/sleep';
+import AppReview from '..';
+import {services} from './util/services.mock';
 
 browserEnv({pretendToBeVisual: true});
 
@@ -59,7 +60,8 @@ const appOptions: AppOptions = {
   templateContext: {
     theme: {color: {primary: '#123'}}
   },
-  skillRef: 'skill_NJC0jFKoH'
+  skillRef: 'skill_NJC0jFKoH',
+  services
 };
 
 test('should validate all the slides (all correct scenario)', async t => {
