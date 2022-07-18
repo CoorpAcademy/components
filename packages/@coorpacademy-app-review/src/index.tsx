@@ -18,6 +18,7 @@ import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
 import {fetchSkills} from './actions/api/fetch-skills';
+import {postProgression} from './actions/api/create-progression';
 import {VIEWS} from './common';
 
 // -----------------------------------------------------------------------------
@@ -113,7 +114,7 @@ const mapStateToProps = (state: StoreState): StaticProps => {
     slides: mapStateToSlidesProps(state),
     skills: mapStateToSkillsProps(state)
   };
-}
+};
 
 // Props = StaticProps && Dispatchers
 
@@ -134,7 +135,6 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     if (store === null) return;
 
     const {skillRef} = options;
-
     const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
     store.dispatch(navigateTo(initialView));
   }, [options, store]);
@@ -142,8 +142,11 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   useEffect(() => {
     if (store === null) return;
 
-    store.dispatch(fetchSkills());
-  }, [store]);
+    const {skillRef, token} = options;
+    skillRef
+      ? store.dispatch(postProgression(skillRef, token))
+      : store.dispatch(fetchSkills(token));
+  }, [options, store]);
 
   if (!store) return null;
 
