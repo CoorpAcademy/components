@@ -1,5 +1,5 @@
+import {Skill} from '../../types/common';
 import {SKILLS_FETCH_SUCCESS, ReceivedSkills} from '../../actions/api/fetch-skills';
-import {Skill} from '../../types/skills';
 
 export type SkillsState = Skill[];
 export const initialState: SkillsState = [];

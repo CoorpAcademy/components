@@ -13,12 +13,13 @@ import type {SlidesViewStaticProps} from './types/views/slides';
 
 import {Dispatchers} from './actions';
 import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
-import {navigateTo, navigateBack, startApp, ViewPath} from './actions/ui/navigation';
+import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
+import {storeToken} from './actions/data/token';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
 import {fetchSkills} from './actions/api/fetch-skills';
-import {postProgression} from './actions/api/create-progression';
+import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
 
 // -----------------------------------------------------------------------------
@@ -124,6 +125,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
+  
   useEffect(() => {
     if (store) return;
 
@@ -138,6 +140,14 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
     store.dispatch(navigateTo(initialView));
   }, [options, store]);
+
+  useEffect(() => {
+    if (store === null) return;
+
+    const {token} = options;
+    store.dispatch(storeToken(token));
+  }, [store]);
+
 
   useEffect(() => {
     if (store === null) return;

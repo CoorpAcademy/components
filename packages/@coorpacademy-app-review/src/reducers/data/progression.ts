@@ -1,5 +1,5 @@
 import {getOr} from 'lodash/fp';
-import {ReceiveProgression, RECEIVE_PROGRESSION} from '../../actions/data/progression';
+import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
 import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/data/slides';
 
 // -----------------------------------------------------------------------------
@@ -57,7 +57,7 @@ const reducer = (
         }
       };
     }
-    case RECEIVE_PROGRESSION: {
+    case POST_PROGRESSION_SUCCESS: {
       const {progression} = action.payload;
       return progression;
     }
