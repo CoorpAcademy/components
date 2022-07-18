@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {Dispatchers} from '../../actions';
-import {StoreState} from '../../configure-store';
+import {StoreState} from '../common';
 
 type SlidesViewStaticProps = {
   slides: StoreState['data']['slides'];
