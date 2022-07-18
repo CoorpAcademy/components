@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import isNil from 'lodash/fp/isNil';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
+import qcm from './slides/qcm';
 
 import AppReview from '../src';
 import type {AppOptions, Services} from '../src/types/common';
@@ -36,6 +37,40 @@ const services: Services = {
         custom: true
       }
     ]);
+  },
+  fetchSlide: (ref) => {
+    // return Promise.resolve(qcm); // why acm does not look like a slide returned from mooc ?
+    return Promise.resolve({
+      question: {
+        content: {
+          choices: [
+            {
+              selected: false,
+              title: 'choix1',
+              help: '(help choix1)',
+              ariaLabel: '__ariaLabel1',
+              onClick: () => {}
+            },
+            {
+              selected: false,
+              title: 'choix2',
+              help: '(help choix2)',
+              ariaLabel: '__ariaLabel2',
+              onClick: () => {}
+            },
+            {
+              selected: false,
+              title: 'choix3',
+              help: '(help choix3)',
+              ariaLabel: '__ariaLabel3',
+              onClick: () => {}
+            }
+          ]
+        }
+      },
+      klf: '___klf',
+      universalRef: ref
+    });
   },
   postProgression: () => {
     return Promise.resolve({

@@ -5,6 +5,16 @@ type TemplateContextValues = {
   translations?: unknown; // TODO type Translations
 };
 
+export type SlideFromAPI = {
+  question: {
+    content: {
+      choices: Record<string, unknown>[];
+    };
+  };
+  klf: string;
+  universalRef: string;
+};
+
 export type ProgressionFromAPI = {
   _id: string;
   state: {
@@ -29,7 +39,12 @@ export type Skill = {
 
 export type Services = {
   fetchSkills(token: string): Promise<Skill[]>;
+  fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
+};
+
+export type Options = {
+  services: Services;
 };
 
 export type AppOptions = {

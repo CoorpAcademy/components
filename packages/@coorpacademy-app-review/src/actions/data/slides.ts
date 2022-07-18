@@ -1,8 +1,8 @@
 import {Slide as UISlide} from '../../types/slides';
+import {ReceivedSlide} from '../api/fetch-slide';
 
 // -----------------------------------------------------------------------------
 
-export const STORE_FIRST_SLIDE = '@@slide/STORE_FIRST_SLIDE';
 export const UPDATE_SLIDES_ON_VALIDATION = '@@slide/UPDATE_SLIDES_ON_VALIDATION';
 export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
 export const VALIDATE_SLIDE = '@@slide/VALIDATE';
@@ -23,16 +23,6 @@ export type Slide = UISlide & {
 };
 
 // TODO: complete or modify typing as needed on Fetch Slide ticket
-export type SlideFromAPI = {
-  question: {
-    content: {
-      choices: Record<string, unknown>[];
-    };
-  };
-  klf: string;
-  universalRef: string;
-};
-
 export type ValidationPayload = {
   slideNumber: number;
   newSlideContent: Slide;
@@ -43,11 +33,6 @@ export type ValidationPayload = {
 export type OnNextPayload = Omit<ValidationPayload, 'nextContent'>;
 
 // -----------------------------------------------------------------------------
-
-export type StoreFirstSlide = {
-  type: typeof STORE_FIRST_SLIDE;
-  payload: SlideFromAPI;
-};
 
 export type UpdateSlidesOnValidation = {
   type: typeof UPDATE_SLIDES_ON_VALIDATION;
@@ -68,14 +53,9 @@ export type ErrorFetchingSlide = {
   payload: Error;
 };
 
-export type SlidesAction = StoreFirstSlide | UpdateSlidesOnValidation | UpdateSlidesOnNext;
+export type SlidesAction = ReceivedSlide | UpdateSlidesOnValidation | UpdateSlidesOnNext;
 
 // -----------------------------------------------------------------------------
-
-export const storeFirstSlide = (slide: SlideFromAPI): StoreFirstSlide => ({
-  type: STORE_FIRST_SLIDE,
-  payload: slide
-});
 
 export const updateSlidesOnValidation = (payload: ValidationPayload): UpdateSlidesOnValidation => ({
   type: UPDATE_SLIDES_ON_VALIDATION,
