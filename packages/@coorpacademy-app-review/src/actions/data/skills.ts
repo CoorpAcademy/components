@@ -3,10 +3,7 @@ import {Skills} from '../../types/skills';
 export const RECEIVED_SKILLS = '@@data/skills/RECEIVED_SKILLS';
 export const ERROR_FETCHING_SKILLS = '@@data/skills/ERROR_FETCHING_SKILLS';
 
-export type ReceivedSkills = {
-  type: '@@data/skills/RECEIVED_SKILLS';
-  payload: Skills;
-};
+
 
 export type ErrorFetchingSkills = {
   type: '@@data/skills/ERROR_FETCHING_SKILLS';

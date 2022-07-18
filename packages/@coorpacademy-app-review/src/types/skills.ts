@@ -4,5 +4,3 @@ export type Skill = {
   custom: boolean;
   name: string;
 };
-
-export type Skills = Skill[];
