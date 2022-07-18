@@ -1,9 +1,7 @@
-const config = require('../../ava.config');
-
-// https://github.com/avajs/ava/blob/main/docs/recipes/typescript.md#for-packages-without-type-module
-module.exports = Object.assign({}, config, {
+module.exports = {
+  files: ['src/**/test/**/*.*s', '!**/test/**/helpers/**/*', '!**/test/fixtures/**/*'],
   require: [`${__dirname}/ava.requirements.js`, '../../test/helpers/throw-warning'],
-  extensions: ['js', 'ts', 'tsx'],
+  extensions: ['js', 'ts'],
   timeout: '45s',
   workerThreads: false
-});
+};
