@@ -125,7 +125,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
-  
+
   useEffect(() => {
     if (store) return;
 
@@ -146,8 +146,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
     const {token} = options;
     store.dispatch(storeToken(token));
-  }, [store]);
-
+  }, [options, store]);
 
   useEffect(() => {
     if (store === null) return;
