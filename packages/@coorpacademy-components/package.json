@@ -52,6 +52,7 @@
   ],
   "dependencies": {
     "@coorpacademy/nova-icons": "3.11.7",
+    "@coorpacademy/react-native-mock-render": "^0.1.12",
     "@types/react": "^17.0.47",
     "@types/react-dom": "^17.0.17",
     "autoprefixer": "^9.8.0",
@@ -104,7 +105,6 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "^10.1.1",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
-    "art": "^0.10.3",
     "ava": "^4.3.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-istanbul": "^6.0.0",
@@ -125,7 +125,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-native": "^0.68.2",
-    "react-native-mock-render": "^0.1.9",
     "rxjs": "^6.5.5",
     "style-loader": "^1.2.1",
     "stylelint-config-standard": "^20.0.0",
