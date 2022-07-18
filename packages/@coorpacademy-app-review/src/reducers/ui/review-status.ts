@@ -1,15 +1,9 @@
+import {ReviewStatusState} from '../../types/common';
 import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../../actions/ui/review-status';
-
-// -----------------------------------------------------------------------------
-
-export type ReviewStatusState = 'finished' | 'ongoing';
-export const initialState: ReviewStatusState = 'ongoing';
-
-// -----------------------------------------------------------------------------
 
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: ReviewStatusState = initialState,
+  state: ReviewStatusState = 'ongoing',
   action: UpdateReviewStatus
 ): ReviewStatusState => {
   switch (action.type) {
@@ -20,7 +14,5 @@ const reducer = (
       return state;
   }
 };
-
-// -----------------------------------------------------------------------------
 
 export default reducer;

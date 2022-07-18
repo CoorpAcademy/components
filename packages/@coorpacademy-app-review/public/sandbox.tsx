@@ -3,7 +3,6 @@ import {render} from 'react-dom';
 import isNil from 'lodash/fp/isNil';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
-import qcm from './slides/qcm';
 
 import AppReview from '../src';
 import type {AppOptions, Services} from '../src/types/common';
@@ -105,6 +104,7 @@ const createSandbox = (options: SandboxOptions): void => {
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
       templateContext: {},
+      skillRef: '123',
       services
     };
 

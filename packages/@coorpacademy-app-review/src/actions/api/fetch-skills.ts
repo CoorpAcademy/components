@@ -1,5 +1,6 @@
+import type {Action, Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
-import {Options, Skill} from '../../types/common';
+import {Options, Skill, StoreState} from '../../types/common';
 
 export const SKILLS_FETCH_REQUEST = '@@skills/FETCH_REQUEST' as const;
 export const SKILLS_FETCH_SUCCESS = '@@skills/FETCH_SUCCESS' as const;
@@ -10,8 +11,9 @@ export type ReceivedSkills = {
   payload: Skill[];
 };
 
-export const fetchSkills = (token: string) =>
+export const fetchSkills = (token: string): Action =>
   buildTask({
     types: [SKILLS_FETCH_REQUEST, SKILLS_FETCH_SUCCESS, SKILLS_FETCH_FAILURE],
-    task: (dispatch, getState, {services}: Options) => services.fetchSkills(token)
+    task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) =>
+      services.fetchSkills(token)
   });

@@ -1,3 +1,4 @@
+import {NavigationState} from '../../types/common';
 import {
   type NavigateTo,
   type NavigateBack,
@@ -5,16 +6,9 @@ import {
   NAVIGATE_TO
 } from '../../actions/ui/navigation';
 
-// -----------------------------------------------------------------------------
-
-export type NavigationState = Array<'skills' | 'onboarding' | 'slides'>;
-export const initialState: NavigationState = [];
-
-// -----------------------------------------------------------------------------
-
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: NavigationState = initialState,
+  state: NavigationState = [],
   action: NavigateTo | NavigateBack
 ): NavigationState => {
   switch (action.type) {

@@ -4,10 +4,10 @@ import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
 
-import configureStore, {StoreState} from './configure-store';
+import configureStore from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
-import type {AppOptions} from './types/common';
+import type {AppOptions, StoreState} from './types/common';
 import {SkillsProps} from './types/views/skills';
 import type {SlidesViewStaticProps} from './types/views/slides';
 

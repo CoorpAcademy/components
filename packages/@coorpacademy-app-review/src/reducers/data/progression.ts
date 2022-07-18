@@ -1,38 +1,11 @@
 import {getOr} from 'lodash/fp';
+import {ProgressionState} from '../../types/common';
 import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
 import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/data/slides';
 
-// -----------------------------------------------------------------------------
-
-// TODO: transform this into UI data / fix on components' repo when
-// fetch slide is addressed
-export type ProgressionState = {
-  _id?: string;
-  state: {
-    isCorrect: boolean;
-    nextContent: {
-      ref: 'successExitNode' | string;
-      type: 'success' | 'slide';
-    };
-    pendingSlides: string[];
-    step: {
-      current: number;
-    };
-  };
-  // TO refactor: (slideNumber)
-  // virtual field
-  slideNumber?: number;
-} | null;
-
-// -----------------------------------------------------------------------------
-
-export const initialState: ProgressionState = null;
-
-// -----------------------------------------------------------------------------
-
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: ProgressionState = initialState,
+  state: ProgressionState = null,
   action: ValidateSlide | ReceiveProgression
 ): ProgressionState => {
   switch (action.type) {

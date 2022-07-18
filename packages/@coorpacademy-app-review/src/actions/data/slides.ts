@@ -1,4 +1,4 @@
-import {Slide as UISlide} from '../../types/slides';
+import {UISlide} from '../../types/slides';
 import {ReceivedSlide} from '../api/fetch-slide';
 
 // -----------------------------------------------------------------------------
@@ -6,8 +6,6 @@ import {ReceivedSlide} from '../api/fetch-slide';
 export const UPDATE_SLIDES_ON_VALIDATION = '@@slide/UPDATE_SLIDES_ON_VALIDATION';
 export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
 export const VALIDATE_SLIDE = '@@slide/VALIDATE';
-export const FETCH_NEXT_CONTENT = '@@slide/FETCH_NEXT_CONTENT';
-export const ERROR_FETCHING_SLIDE = '@@data/slide/ERROR_FETCHING_SLIDE';
 
 // -----------------------------------------------------------------------------
 
@@ -48,11 +46,6 @@ export type ValidateSlide = {
   type: typeof VALIDATE_SLIDE;
 };
 
-export type ErrorFetchingSlide = {
-  type: typeof ERROR_FETCHING_SLIDE;
-  payload: Error;
-};
-
 export type SlidesAction = ReceivedSlide | UpdateSlidesOnValidation | UpdateSlidesOnNext;
 
 // -----------------------------------------------------------------------------
@@ -69,9 +62,4 @@ export const updateSlidesOnNext = (payload: OnNextPayload): UpdateSlidesOnNext =
 
 export const validateSlide = (): ValidateSlide => ({
   type: VALIDATE_SLIDE
-});
-
-export const errorFetchingSlide = (error: Error): ErrorFetchingSlide => ({
-  type: ERROR_FETCHING_SLIDE,
-  payload: error
 });

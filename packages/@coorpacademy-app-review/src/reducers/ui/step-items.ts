@@ -1,36 +1,20 @@
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import map from 'lodash/fp/map';
+import {FinishedSlidesState, StepItem, StepItemsState} from '../../types/common';
 import {
-  IconValue,
   StepItemsAction,
   UPDATE_STEP_ITEMS_ON_NEXT,
   UPDATE_STEP_ITEMS_ON_VALIDATION
 } from '../../actions/ui/step-items';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
-import {FinishedSlidesState} from './finished-slides';
 
 // -----------------------------------------------------------------------------
-
-type StepItem = {
-  current: boolean;
-  icon: IconValue;
-  value: string;
-};
-
-export type StepItems = {
-  slideNumbers: number[];
-  [key: number]: StepItem;
-};
-
-// -----------------------------------------------------------------------------
-
-export type StepItemsState = StepItems;
 
 // -----------------------------------------------------------------------------
 
 const getInitialState = (): StepItemsState => {
-  const state: StepItems = {
+  const state: StepItemsState = {
     slideNumbers
   };
 

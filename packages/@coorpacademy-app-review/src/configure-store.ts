@@ -1,41 +1,9 @@
 import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
-
 import rootReducer from './reducers';
 import {getServices} from './services';
 
-import {SkillsState} from './reducers/data/skills';
-import {SlidesState} from './reducers/data/slides';
-import {TokenState} from './reducers/data/token';
-import {NavigationState} from './reducers/ui/navigation';
-import {ReviewStatusState} from './reducers/ui/review-status';
-import {StepItemsState} from './reducers/ui/step-items';
-import {FinishedSlidesState} from './reducers/ui/finished-slides';
-import {ProgressionState} from './reducers/data/progression';
-import {AppOptions} from './types/common';
-
-// -----------------------------------------------------------------------------
-
-type DataState = {
-  isFetching?: boolean;
-  progression?: ProgressionState;
-  skills: SkillsState;
-  slides: SlidesState;
-  token?: TokenState;
-};
-
-export type StoreState = {
-  ui: {
-    navigation: NavigationState;
-    stepItems: StepItemsState;
-    finishedSlides: FinishedSlidesState;
-    reviewStatus: ReviewStatusState;
-    // progression: UiProgression;
-  };
-  data: DataState;
-};
-
-// -----------------------------------------------------------------------------
+import {AppOptions, StoreState} from './types/common';
 
 export default function configureStore(options: AppOptions): Store<StoreState, AnyAction> {
   const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

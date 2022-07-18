@@ -1,25 +1,16 @@
 import map from 'lodash/fp/map';
 import {
   OnNextPayload,
-  Slide,
   SlidesAction,
   UPDATE_SLIDES_ON_NEXT,
   UPDATE_SLIDES_ON_VALIDATION,
   ValidationPayload
 } from '../../actions/data/slides';
-import {Slide as UISlide} from '../../types/slides';
+import {UISlide} from '../../types/slides';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 import {slide as qcmSlide} from '../../fixtures/qcm-slide';
 import {SLIDE_FETCH_SUCCESS} from '../../actions/api/fetch-slide';
-
-// -----------------------------------------------------------------------------
-
-export type SlidesState = {
-  slideNumbers: number[];
-  [key: number]: Slide;
-};
-
-// -----------------------------------------------------------------------------
+import {SlidesState} from '../../types/common';
 
 const getInitialState = (): SlidesState => {
   const state: SlidesState = {
