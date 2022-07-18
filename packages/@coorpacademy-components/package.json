@@ -97,6 +97,7 @@
     "@babel/types": "^7.9.6",
     "@coorpacademy/css-modules-require-hook": "2.1.5",
     "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
+    "@coorpacademy/react-native-mock-render": "^0.1.17",
     "@coorpacademy/translate": "6.1.5",
     "@coorpacademy/webpack-config": "10.0.4",
     "@storybook/addon-knobs": "^5.3.18",

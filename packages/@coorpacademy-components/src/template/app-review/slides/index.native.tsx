@@ -135,7 +135,7 @@ const choicesStyle = StyleSheet.create({
 // -----------------------------------------------------------------------------
 
 /* {choices.map(({text, selected = false}: _Choice_) => { */
-const Choices = ({choices}) => (
+const Choices = ({choices = []}) => (
   <View style={choicesStyle.container}>
     {choices.map(({text, selected = false}, index) => {
       const optionStyle = createOptionStyle(selected);
@@ -159,21 +159,22 @@ Choices.propTypes = {
 
 // -----------------------------------------------------------------------------
 
-const Slide = ({validateSlide, slide, num}) => {
+const Slide = props => {
+  const {validateSlide, slide, num} = props;
   const {width, height} = useWindowDimensions();
+
   const slideStyle = creatSlideStyle(num, width, height);
   const validateLabel = '__validate'; // translations.validate
 
   const templateContext = useTemplateContext();
   const {analytics} = templateContext;
 
-  const {
-    answerUI: {
-      isDisabled = false,
-      value,
-      model: {type, onChange}
-    }
-  } = slide;
+  const tmpAnswerUI = {
+    isDisabled: false,
+    value: '',
+    model: {type: 'freeText', onChange: () => null}
+  };
+  const {answerUI: {isDisabled = false, value, model: {type, onChange}} = tmpAnswerUI} = slide;
 
   switch (type) {
     case 'freeText': {
@@ -206,12 +207,6 @@ const Slide = ({validateSlide, slide, num}) => {
       </Button>
     </View>
   );
-};
-
-Slide.propTypes = {
-  slide: SlidesReviewPropTypes.slide,
-  validateSlide: SlidesReviewPropTypes.validateSlide,
-  num: PropTypes.number
 };
 
 // -----------------------------------------------------------------------------
