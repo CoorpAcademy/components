@@ -25,6 +25,41 @@ declare global {
   }
 }
 
+const services = {
+  fetchSkills: () => {
+    return Promise.resolve([
+      {
+        skillRef: '_skill-ref',
+        slidesToReview: 2,
+        name: 'skill-test',
+        custom: false
+      },
+      {
+        skillRef: '_skill-ref-2',
+        slidesToReview: 2,
+        name: 'skill-test-2',
+        custom: true
+      }
+    ]);
+  },
+  postProgression: () => {
+    return Promise.resolve({
+      _id: '62b1d1087aa12f00253f40ee',
+      state: {
+        pendingSlides: [],
+        step: {
+          current: 1
+        },
+        isCorrect: true,
+        nextContent: {
+          ref: 'sli_N1XACJobn',
+          type: 'slide'
+        }
+      }
+    });
+  }
+};
+
 // -----------------------------------------------------------------------------
 
 const selectedSlide: Slide = freeText;
@@ -50,7 +85,7 @@ const createSandbox = (options: SandboxOptions): void => {
       templateContext: {
         plop: 'plip'
       },
-      services: {}
+      services
     };
 
     render(<AppReview options={appOptions} />, container);

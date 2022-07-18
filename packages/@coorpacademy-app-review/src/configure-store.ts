@@ -2,8 +2,7 @@ import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
-import onStartApp from './middlewares/on-start-app';
-import onReceiveProgression from './middlewares/on-receive-progression';
+import {getServices} from './services';
 
 import {SkillsState} from './reducers/data/skills';
 import {SlidesState} from './reducers/data/slides';
@@ -47,7 +46,7 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
       })
     : compose;
 
-  const thunkMiddleware = thunk.withExtraArgument({services: options.services});
+  const thunkMiddleware = thunk.withExtraArgument({services: options.services || getServices()});
   const enhancer = _compose(applyMiddleware(thunkMiddleware));
   const store = createStore(rootReducer, undefined, enhancer);
 
