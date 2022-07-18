@@ -5,13 +5,40 @@ type TemplateContextValues = {
   translations?: unknown; // TODO type Translations
 };
 
+export type ProgressionFromAPI = {
+  _id: string;
+  state: {
+    isCorrect: boolean;
+    step: {
+      current: number;
+    };
+    nextContent: {
+      type: 'success' | 'slide';
+      ref: 'successExitNode' | string;
+    };
+    pendingSlides: [];
+  };
+};
+
+export type Skill = {
+  skillRef: string;
+  slidesToReview: number;
+  custom: boolean;
+  name: string;
+};
+
+export type Services = {
+  fetchSkills(token: string): Promise<Skill[]>;
+  postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
+};
+
 export type AppOptions = {
   token: string;
   theme?: unknown;
   translations?: unknown;
   templateContext?: TemplateContextValues;
   skillRef?: string;
-  services: unknown;
+  services: Services;
 };
 
 export type JWT = {

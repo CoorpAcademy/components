@@ -1,19 +1,4 @@
-export type ProgressionFromAPI = {
-  _id: string;
-  state: {
-    isCorrect: boolean;
-    step: {
-      current: number;
-    };
-    nextContent: {
-      type: 'success' | 'slide';
-      ref: 'successExitNode' | string;
-    };
-    pendingSlides: [];
-  };
-};
-
-// -----------------------------------------------------------------------------
+import {ProgressionFromAPI} from '../../types/common';
 
 export const RECEIVE_PROGRESSION = '@@data/progression/RECEIVE_PROGRESSION';
 export const ERROR_CREATING_PROGRESSION = '@@data/progression/ERROR_CREATING_PROGRESSION';

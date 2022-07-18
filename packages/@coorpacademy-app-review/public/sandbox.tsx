@@ -1,5 +1,3 @@
-// -----------------------------------------------------------------------------
-
 import React from 'react';
 import {render} from 'react-dom';
 import isNil from 'lodash/fp/isNil';
@@ -7,10 +5,7 @@ import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 
 import AppReview from '../src';
-import type {AppOptions} from '../src/types/common';
-import {Slide} from '../src/types/slides';
-import freeText from './slides/free-text';
-// import qcm from './slides/qcm';
+import type {AppOptions, Services} from '../src/types/common';
 
 // -----------------------------------------------------------------------------
 
@@ -25,7 +20,7 @@ declare global {
   }
 }
 
-const services = {
+const services: Services = {
   fetchSkills: () => {
     return Promise.resolve([
       {
@@ -60,13 +55,6 @@ const services = {
   }
 };
 
-// -----------------------------------------------------------------------------
-
-const selectedSlide: Slide = freeText;
-// const selectedSlide: Slide = qcm;
-
-// -----------------------------------------------------------------------------
-
 const isContainerAvailable = (options: SandboxOptions): boolean =>
   !pipe(get('container'), isNil)(options);
 
@@ -81,10 +69,7 @@ const createSandbox = (options: SandboxOptions): void => {
     // userId + skill --> create progression --> 1st slide
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
-      slide: selectedSlide,
-      templateContext: {
-        plop: 'plip'
-      },
+      templateContext: {},
       services
     };
 

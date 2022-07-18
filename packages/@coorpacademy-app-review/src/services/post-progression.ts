@@ -1,20 +1,15 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {ProgressionFromAPI} from '../actions/data/progression';
-import {JWT} from '../types/common';
+import {JWT, ProgressionFromAPI} from '../types/common';
 import {toJSON} from './tools/fetch-responses';
 
-// -----------------------------------------------------------------------------
-
-type PostProgression = (skillRef: string, token: string) => Promise<ProgressionFromAPI>;
-type CreatePostProgression = (fetch: typeof crossFetch) => PostProgression;
-
-// -----------------------------------------------------------------------------
-
-export const postProgression: CreatePostProgression = fetch => async (skillRef, token) => {
+export const postProgression = async (
+  skillRef: string,
+  token: string
+): Promise<ProgressionFromAPI> => {
   const {host}: JWT = decode(token);
-  const response = await fetch(`${host}/api/v2/progressions`, {
+  const response = await crossFetch(`${host}/api/v2/progressions`, {
     method: 'post',
     headers: {authorization: token},
     body: JSON.stringify({
