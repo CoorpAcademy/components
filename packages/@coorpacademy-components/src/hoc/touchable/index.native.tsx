@@ -8,9 +8,8 @@ import type {
 
 import React, {useMemo} from 'react';
 import {useTemplateContext} from '../../template/app-review/template-context';
-import { ANALYTICS_EVENT_TYPE, Analytics, AnalyticsEventParams } from '../../variables/analytics';
-import {VibrationType, VIBRATION_TYPE, Vibration} from '../../variables/vibration';
-
+import {ANALYTICS_EVENT_TYPE, Analytics, AnalyticsEventParams} from '../../variables/analytics';
+import {Vibration} from '../../variables/vibration';
 
 interface Props {
   accessible?: boolean;
@@ -35,8 +34,10 @@ interface Props {
   activeOpacity?: number;
   style?: ViewStyle;
   // Analytics
+  analytics?: Analytics;
   analyticsID: string;
   analyticsParams?: AnalyticsEventParams;
+  vibration?: Vibration;
 }
 
 const logEvent = (
@@ -58,18 +59,14 @@ const Touchable = (props: Props) => {
   const {theme, vibration, analytics} = templateContext;
 
   const {
-    /* only used by this component */
-    /* eslint-disable no-unused-vars */
     analyticsID,
     analyticsParams,
     onPress,
     onLongPress,
-    /* eslint-enable no-unused-vars */
     isWithoutFeedback,
     isHighlight,
     activeOpacity,
-    disabled,
-    ...props
+    disabled
   } = props;
 
   const handlePress = useMemo(
