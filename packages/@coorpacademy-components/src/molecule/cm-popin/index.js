@@ -9,7 +9,17 @@ import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import style from './style.css';
 
 const CMPopin = props => {
-  const { content, mode = 'alert', firstButton, secondButton, onClose, header, icon, backgroundImageUrl, descriptionText } = props;
+  const {
+    content,
+    mode = 'alert',
+    firstButton,
+    secondButton,
+    onClose,
+    header,
+    icon,
+    backgroundImageUrl,
+    descriptionText
+  } = props;
 
   const logo = {
     AlertDiamond,
@@ -17,13 +27,15 @@ const CMPopin = props => {
   };
   const LogoComponent = logo[icon];
 
-  const backgroundImageStyle = backgroundImageUrl ? {
-    backgroundImage: `url(${backgroundImageUrl})`,
-    backgroundSize: 'cover'
-  } : null
+  const backgroundImageStyle = backgroundImageUrl
+    ? {
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: 'cover'
+      }
+    : null;
 
   return (
-    <div className={style.background} style={backgroundImageStyle} >
+    <div className={style.background} style={backgroundImageStyle}>
       <div className={style.popin}>
         <header className={style.popinHeader}>
           {header ? <img className={style.headerBackground} src={header} /> : null}
@@ -37,7 +49,7 @@ const CMPopin = props => {
             />
           ) : null}
         </header>
-        <div className={style.titleContainer} >
+        <div className={style.titleContainer}>
           <div className={style.contentSection}>
             {LogoComponent ? <LogoComponent className={style.icon} /> : null}
             {content ? (
@@ -45,11 +57,11 @@ const CMPopin = props => {
                 className={mode === 'alert' ? style.content : style.message}
                 data-name={`cm-popin-content`}
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: content }}
+                dangerouslySetInnerHTML={{__html: content}}
               />
             ) : null}
           </div>
-          {descriptionText && <p className={style.descriptionText} >{descriptionText}</p>}
+          {descriptionText ? <p className={style.descriptionText}>{descriptionText}</p> : null}
         </div>
         <div className={style.buttonContainer}>
           {firstButton ? (
@@ -97,7 +109,9 @@ CMPopin.propTypes = {
     'aria-label': PropTypes.string
   }),
   onClose: PropTypes.func,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  backgroundImageUrl: PropTypes.string,
+  descriptionText: PropTypes.string
 };
 
 export default CMPopin;

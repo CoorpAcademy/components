@@ -567,7 +567,7 @@ import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-b
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
-import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/noAccess';
+import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/no-access';
 import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
