@@ -8,7 +8,9 @@ import type {
 
 import React, {useMemo} from 'react';
 import {useTemplateContext} from '../../template/app-review/template-context';
-import {ANALYTICS_EVENT_TYPE, Analytics, AnalyticsEventParams} from '../../variables/analytics';
+import { ANALYTICS_EVENT_TYPE, Analytics, AnalyticsEventParams } from '../../variables/analytics';
+import {VibrationType, VIBRATION_TYPE, Vibration} from '../../variables/vibration';
+
 
 interface Props {
   accessible?: boolean;
@@ -52,6 +54,7 @@ const logEvent = (
 
 const Touchable = (props: Props) => {
   const templateContext = useTemplateContext();
+
   const {theme, vibration, analytics} = templateContext;
 
   const {
