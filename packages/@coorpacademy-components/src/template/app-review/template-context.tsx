@@ -2,12 +2,9 @@
 
 import React, {createContext, useContext} from 'react';
 import defaultTheme from '../../variables/theme.native';
-
 // -----------------------------------------------------------------------------
 
-const Context = createContext({
-  theme: defaultTheme
-});
+const Context = createContext({theme: defaultTheme, analytics: {}, vibration: {}});
 
 // -----------------------------------------------------------------------------
 
