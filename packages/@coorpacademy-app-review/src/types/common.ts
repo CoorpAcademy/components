@@ -129,7 +129,7 @@ export type ProgressionState = {
   // TO refactor: (slideNumber)
   // virtual field
   slideNumber?: number;
-} | null;
+} | null; // TODO: ça ressemble beaucoup à ProgressionFromAPI et ça devrait l'être
 
 export type DataState = {
   isFetching?: boolean;

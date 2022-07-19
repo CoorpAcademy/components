@@ -1,7 +1,7 @@
 import {getOr} from 'lodash/fp';
 import {ProgressionState} from '../../types/common';
-import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
 import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/data/slides';
+import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
 
 const reducer = (
   // eslint-disable-next-line default-param-last
@@ -31,7 +31,7 @@ const reducer = (
       };
     }
     case POST_PROGRESSION_SUCCESS: {
-      const {progression} = action.payload;
+      const progression = action.payload;
       return progression;
     }
     default:

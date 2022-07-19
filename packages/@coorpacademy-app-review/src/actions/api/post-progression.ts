@@ -9,10 +9,7 @@ export const POST_PROGRESSION_FAILURE = '@@progression/POST_FAILURE' as const;
 
 export type ReceiveProgression = {
   type: typeof POST_PROGRESSION_SUCCESS;
-  payload: {
-    progression: ProgressionFromAPI;
-    token: string;
-  };
+  payload: ProgressionFromAPI;
 };
 
 export const postProgression = (skillRef: string, token: string): Action =>
@@ -21,7 +18,8 @@ export const postProgression = (skillRef: string, token: string): Action =>
     task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) => {
       return services.postProgression(skillRef, token).then((progression: ProgressionFromAPI) => {
         const {ref} = progression.state.nextContent;
-        return dispatch(fetchSlide(ref, token));
+        dispatch(fetchSlide(ref, token));
+        return progression;
       });
     }
   });
