@@ -34,6 +34,7 @@ const generateWebFixtures$ = (cwd, macro) =>
             ``,
             `test('${type} › ${title} > should have valid propTypes', t => {`,
             `  t.pass();`,
+            `  t.truthy(${title}.propTypes);`,
             `  forEach(${title}.propTypes, (value, key) => {`,
             `    t.not(value, undefined, \`PropType for "${type}.${title}.propTypes.$\{key}" may not be undefined. Did you mistype the propTypes definition?\`);`,
             `  });`,

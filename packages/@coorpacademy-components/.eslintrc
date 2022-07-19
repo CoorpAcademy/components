@@ -122,14 +122,6 @@
         "no-console": "off",
         "react/jsx-no-bind": "off"
       }
-    },
-    {
-      "files": [
-        "**/*.tsx"
-      ],
-      "rules": {
-        "react/prop-types": "off"
-      }
     }
   ]
 }

@@ -169,12 +169,13 @@ const Slide = props => {
   const templateContext = useTemplateContext();
   const {analytics} = templateContext;
 
-  const tmpAnswerUI = {
-    isDisabled: false,
-    value: '',
-    model: {type: 'freeText', onChange: () => null}
-  };
-  const {answerUI: {isDisabled = false, value, model: {type, onChange}} = tmpAnswerUI} = slide;
+  const {
+    answerUI: {isDisabled = false, value = '', model: {type, onChange}} = {
+      isDisabled: false,
+      value: '',
+      model: {type: 'freeText', onChange: () => null}
+    }
+  } = slide;
 
   switch (type) {
     case 'freeText': {
