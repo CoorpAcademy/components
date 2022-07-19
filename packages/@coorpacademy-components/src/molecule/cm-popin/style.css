@@ -14,6 +14,7 @@
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_blue_600 from colors;
+@value cm_grey_500 from colors;
 
 .background {
   top: 0px;
@@ -126,4 +127,22 @@
 
 .popinHeader button {
   position: absolute;
+}
+.descriptionText {
+  text-align: center;
+  font-family: Gilroy;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: cm_grey_500;
+  font-style: normal;
+  white-space: pre-line;
+  margin-block-start: 0px;
+}
+.titleContainer {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

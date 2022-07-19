@@ -194,6 +194,7 @@ import OrganismSlider from './../src/organism/slider';
 import OrganismUserPreferences from './../src/organism/user-preferences';
 import OrganismWizardContents from './../src/organism/wizard-contents';
 import TemplateActivity from './../src/template/activity';
+import TemplateAppPlayerNoAccess from './../src/template/app-player/popin-no-access'
 import TemplateAppPlayerLoading from './../src/template/app-player/loading';
 import TemplateAppPlayerPlayerSlidesFooter from './../src/template/app-player/player/slides/footer';
 import TemplateAppPlayerPlayerSlidesHeader from './../src/template/app-player/player/slides/header';
@@ -566,6 +567,7 @@ import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-b
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
+import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/noAccess';
 import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
@@ -1018,6 +1020,7 @@ import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtur
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
 import TemplateActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
 import TemplateAppPlayerLoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
+import TemplateAppPlayerNoAccessFixtureDefault from '../src/template/app-player/popin-no-access/test/fixtures/default'
 import TemplateAppPlayerPlayerSlidesFooterFixtureClueSelected from '../src/template/app-player/player/slides/footer/test/fixtures/clue-selected';
 import TemplateAppPlayerPlayerSlidesFooterFixtureDefault from '../src/template/app-player/player/slides/footer/test/fixtures/default';
 import TemplateAppPlayerPlayerSlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/footer/test/fixtures/disabled';
@@ -1477,7 +1480,8 @@ export const components = {
     TemplateAppPlayerPlayer,
     TemplateAppPlayerPopinCorrection,
     TemplateAppPlayerPopinEnd,
-    TemplateAppPlayerPopinHeader
+    TemplateAppPlayerPopinHeader,
+    TemplateAppPlayerNoAccess
   },
   TemplateAppPlayerPlayerSlides: {
     TemplateAppPlayerPlayerSlidesFooter,
@@ -2015,7 +2019,8 @@ export const fixtures = {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
       Go1Popin: MoleculeCmPopinFixtureGo1Popin,
-      WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
+      WarningWithClose: MoleculeCmPopinFixtureWarningWithClose,
+      NoAccess: MoleculeCmPopinFixtureNoAccess
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
@@ -2752,6 +2757,9 @@ export const fixtures = {
   TemplateAppPlayer: {
     TemplateAppPlayerLoading: {
       Default: TemplateAppPlayerLoadingFixtureDefault
+    },
+    TemplateAppPlayerNoAccess: {
+        Default: TemplateAppPlayerNoAccessFixtureDefault
     },
     TemplateAppPlayerPlayer: {
       ArabicQcm: TemplateAppPlayerPlayerFixtureArabicQcm,
