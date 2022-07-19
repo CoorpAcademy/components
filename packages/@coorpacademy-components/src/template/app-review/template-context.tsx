@@ -16,9 +16,7 @@ type Props = {values: TemplateContextValues; children: any};
 
 // -----------------------------------------------------------------------------
 
-const Context = createContext({
-  theme: defaultTheme
-});
+const Context = createContext({theme: defaultTheme, analytics: {}, vibration: {}});
 
 // -----------------------------------------------------------------------------
 
