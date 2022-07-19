@@ -4,7 +4,7 @@ import News from '../../news';
 import Loader from '../../../atom/loader';
 import style from './style.css';
 
-const NewsList = (props, context) => {
+const NewsList = React.memo(function NewsList(props) {
   const {title, news, more, loading = false} = props;
 
   const loadingView = (
@@ -37,7 +37,7 @@ const NewsList = (props, context) => {
       </div>
     </div>
   );
-};
+});
 
 NewsList.propTypes = {
   title: PropTypes.string,
@@ -49,4 +49,4 @@ NewsList.propTypes = {
   loading: PropTypes.bool
 };
 
-export default React.memo(NewsList);
+export default NewsList;

@@ -10,4 +10,6 @@ const Spinner = () => {
   );
 };
 
+Spinner.propTypes = {};
+
 export default Spinner;

@@ -36,7 +36,7 @@ const generateNativeFixtures$ = (cwd, macro) =>
               ({fixture}) =>
                 `test('${type} › ${title} › ${pascalCase(
                   fixture
-                )} › should be rendered', renderReactNativeComponentMacro, ${title}, fixture${pascalCase(
+                )} (Native) › should be rendered', renderReactNativeComponentMacro, ${title}, fixture${pascalCase(
                   fixture
                 )});`
             )

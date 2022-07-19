@@ -8,7 +8,7 @@ import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
 import style from './style.css';
 
-const StartBattle = (props, context) => {
+const StartBattle = React.memo(function StartBattle(props) {
   const {startBattleText, becomeAChampionText, challengeText, onClick, href} = props;
 
   return (
@@ -40,7 +40,7 @@ const StartBattle = (props, context) => {
       </div>
     </div>
   );
-};
+});
 
 StartBattle.contextTypes = {
   skin: Provider.childContextTypes.skin
@@ -54,4 +54,4 @@ StartBattle.propTypes = {
   href: PropTypes.string
 };
 
-export default React.memo(StartBattle);
+export default StartBattle;

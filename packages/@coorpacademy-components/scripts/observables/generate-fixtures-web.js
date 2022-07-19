@@ -32,7 +32,7 @@ const generateWebFixtures$ = (cwd, macro) =>
           ),
           of(
             ``,
-            `test('${type} › ${title} > should have valid propTypes', t => {`,
+            `test('${type} › ${title} › should have valid propTypes', t => {`,
             `  t.pass();`,
             `  t.truthy(${title}.propTypes);`,
             `  forEach(${title}.propTypes, (value, key) => {`,
