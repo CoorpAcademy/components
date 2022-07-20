@@ -28,14 +28,3 @@ export const navigateTo = (newPath: ViewPath): NavigateTo => ({
 export const navigateBack = (): NavigateBack => ({
   type: NAVIGATE_BACK
 });
-
-// export const startApp = () => (dispatch, getState, options) => {
-//   const {token} = options;
-//   fetchSkills(token)
-//     .then(skills => {
-//       return dispatch(receivedSkills(skills));
-//     })
-//     .catch(err => {
-//       return dispatch(errorFetchingSkills(err));
-//   });
-// };
