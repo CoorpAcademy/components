@@ -14,9 +14,8 @@ const result: Skill[] = [
 ];
 
 test.before(() => {
-  const moocApi = nock('http://localhost:3000');
-  moocApi
-    .get(() => true) // .get('/v2/skills/review/user/592d830b240b923f00bffba6')
+  nock('http://localhost:3000')
+    .get('/api/v2/skills/review/user/592d830b240b923f00bffba6')
     .reply(200, result);
 });
 

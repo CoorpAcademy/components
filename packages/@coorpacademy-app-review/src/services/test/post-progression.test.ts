@@ -8,7 +8,6 @@ const skillRef = '_skill-ref';
 const result: ProgressionFromAPI = {
   _id: '123456123456',
   state: {
-    // is "isCorrect" always true for a 1st progression?
     isCorrect: true,
     step: {
       current: 1
@@ -23,9 +22,7 @@ const result: ProgressionFromAPI = {
 
 test.before(() => {
   const moocApi = nock('http://localhost:3000');
-  moocApi
-    .post(() => true) // .post('/v2/progression')
-    .reply(200, result);
+  moocApi.post('/api/v2/progressions').reply(200, result);
 });
 
 test.after(() => {
