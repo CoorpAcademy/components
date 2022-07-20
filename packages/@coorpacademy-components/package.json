@@ -104,6 +104,7 @@
     "@storybook/react": "^5.3.18",
     "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "^10.1.1",
+    "@types/react-native": "^0.69.3",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "ava": "^4.3.0",
     "babel-loader": "^8.1.0",

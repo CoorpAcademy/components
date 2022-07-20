@@ -11,7 +11,7 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics, AnalyticsEventParams} from '../../variables/analytics';
 import {Vibration} from '../../variables/vibration';
 
-interface Props {
+export type Props = {
   accessible?: boolean;
   children?: React.ReactNode;
   delayLongPress?: number;
@@ -38,7 +38,7 @@ interface Props {
   analyticsID: string;
   analyticsParams?: AnalyticsEventParams;
   vibration?: Vibration;
-}
+};
 
 const logEvent = (
   eventName: string,
@@ -73,7 +73,7 @@ const Touchable = (props: Props) => {
     () => (event: PressEvent) => {
       if (!onPress) return;
 
-      vibration.vibrate();
+      vibration?.vibrate();
 
       analytics && logEvent(ANALYTICS_EVENT_TYPE.PRESS, analyticsID, analytics, analyticsParams);
       onPress(event);
@@ -85,7 +85,7 @@ const Touchable = (props: Props) => {
     () => (event: PressEvent) => {
       if (!onLongPress) return;
 
-      vibration.vibrate();
+      vibration?.vibrate();
 
       analytics &&
         logEvent(ANALYTICS_EVENT_TYPE.INPUT_FOCUS, analyticsID, analytics, analyticsParams);
