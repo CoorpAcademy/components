@@ -6,7 +6,8 @@ type Fixture = {children: ReactNode; props: Props};
 
 const fixture: Fixture = {
   props: {
-    analyticsID: 'fake-touchable'
+    analyticsID: 'fake-touchable',
+    isWithoutFeedback: true
   },
   children: <Text>Foo</Text>
 };

@@ -88,7 +88,7 @@ const Touchable = (props: Props) => {
       vibration?.vibrate();
 
       analytics &&
-        logEvent(ANALYTICS_EVENT_TYPE.INPUT_FOCUS, analyticsID, analytics, analyticsParams);
+        logEvent(ANALYTICS_EVENT_TYPE.LONG_PRESS, analyticsID, analytics, analyticsParams);
       onLongPress(event);
     },
     [analytics, analyticsID, analyticsParams, onLongPress, vibration]
