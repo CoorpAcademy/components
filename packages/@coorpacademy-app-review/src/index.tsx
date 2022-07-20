@@ -140,9 +140,10 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   useEffect(() => {
     if (!store || isSlideFetched) return;
 
-    return store.subscribe(() =>
-      setIsSlideFetched(!isEmpty(store.getState().data.slides[0].questionText))
-    ); // using the first slide questionText for now, should only check for a slide's presence
+    return store.subscribe(() => {
+      const isSlidePresent = !isEmpty(store.getState().data.slides[0].questionText);
+      return isSlidePresent && setIsSlideFetched(isSlidePresent);
+    }); // using the first slide questionText for now, should only check for a slide's presence
     // when the refactor is done (slides will be feed one by one on api's side)
   }, [isSlideFetched, options, store]);
 
