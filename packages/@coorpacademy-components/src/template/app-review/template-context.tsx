@@ -16,7 +16,21 @@ type Props = {values: TemplateContextValues; children: any};
 
 // -----------------------------------------------------------------------------
 
-const Context = createContext({theme: defaultTheme, analytics: {}, vibration: {}});
+type TemplateContextValues = {
+  analytics?: Analytics;
+  brandTheme?: any;
+  theme: Theme;
+  translations?: any; // TODO type Translations
+  vibration?: Vibration;
+};
+
+type Props = {values: TemplateContextValues; children: any};
+
+// -----------------------------------------------------------------------------
+
+const Context = createContext({
+  theme: defaultTheme
+});
 
 // -----------------------------------------------------------------------------
 
