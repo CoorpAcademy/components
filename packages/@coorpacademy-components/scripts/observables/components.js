@@ -26,7 +26,7 @@ const parse = cwd =>
     }
   );
 
-const readComponents$ = cwd => readComponentFiles$(cwd).pipe(map(parse(cwd)));
+const readComponents$ = (cwd, options) => readComponentFiles$(cwd, options).pipe(map(parse(cwd)));
 
 module.exports.readComponents$ = readComponents$;
 

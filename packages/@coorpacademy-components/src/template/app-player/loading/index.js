@@ -10,4 +10,6 @@ const PlayerLoading = () => {
   );
 };
 
+PlayerLoading.propTypes = {};
+
 export default PlayerLoading;

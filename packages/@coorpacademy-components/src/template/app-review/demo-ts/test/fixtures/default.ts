@@ -1,10 +1,12 @@
-import type {Props} from '../..';
+import {Props} from '../../typings';
 
 type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
-    plop: 'plip'
+    plop: 'plop!',
+    plip: 1,
+    onClick: () => null
   }
 };
 

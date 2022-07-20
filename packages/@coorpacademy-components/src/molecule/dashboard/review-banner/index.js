@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
 
-const ReviewBanner = props => {
+const ReviewBanner = React.memo(function ReviewBanner(props) {
   const {title, subtitle, cta} = props;
 
   const buttonProps = {
@@ -46,7 +46,7 @@ const ReviewBanner = props => {
       </div>
     </div>
   );
-};
+});
 
 ReviewBanner.propTypes = {
   title: PropTypes.string,
@@ -57,4 +57,4 @@ ReviewBanner.propTypes = {
   })
 };
 
-export default React.memo(ReviewBanner);
+export default ReviewBanner;

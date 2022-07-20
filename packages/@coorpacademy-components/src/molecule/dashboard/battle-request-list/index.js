@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import BattleRequest from '../../battle-request';
 import style from './style.css';
 
-const BattleRequestList = (props, context) => {
+const BattleRequestList = React.memo(function BattleRequestList(props) {
   const {requests} = props;
 
   const cards = requests.map((request, key) => {
@@ -19,10 +19,10 @@ const BattleRequestList = (props, context) => {
       {cards}
     </div>
   );
-};
+});
 
 BattleRequestList.propTypes = {
   requests: PropTypes.arrayOf(PropTypes.shape(BattleRequest.propTypes))
 };
 
-export default React.memo(BattleRequestList);
+export default BattleRequestList;

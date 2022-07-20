@@ -15,6 +15,7 @@ coverage.lcov
 .idea
 package-lock.json
 packages/@coorpacademy-components/src/**/test/fixtures.js
+packages/@coorpacademy-components/src/**/test/fixtures.native.ts
 .prettierrc
 yarn-error.log
 .flowconfig

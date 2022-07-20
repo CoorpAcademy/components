@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, StyleSheet, Pressable, View, BackHandler} from 'react-native';
+import {Text, StyleSheet, View, BackHandler} from 'react-native';
 import propTypes, {ViewNames} from './prop-types';
 import Slides from './slides';
 
@@ -16,22 +16,11 @@ const styles = StyleSheet.create({
 // -----------------------------------------------------------------------------
 
 const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
-  const {navigateTo} = dispachers;
-  const handlePress = v => () => navigateTo(v);
-
   switch (viewName) {
     case ViewNames.home:
-      return (
-        <Pressable onPress={handlePress('onboarding')}>
-          <Text>view home</Text>
-        </Pressable>
-      );
+      return <Text>view home</Text>;
     case ViewNames.onboarding:
-      return (
-        <Pressable onPress={handlePress('quizzer')}>
-          <Text>view onboarding</Text>
-        </Pressable>
-      );
+      return <Text>view onboarding</Text>;
     case ViewNames.slides:
       return <Slides {...slides} {...dispachers} />;
     default:
