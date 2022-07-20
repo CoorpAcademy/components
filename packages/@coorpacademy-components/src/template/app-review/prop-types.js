@@ -8,7 +8,7 @@ export const ViewNames = {
   skills: 'skills',
   onboarding: 'onboarding',
   slides: 'slides',
-  default: undefined
+  default: 'loader'
 };
 
 export default {

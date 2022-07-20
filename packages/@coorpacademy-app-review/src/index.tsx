@@ -28,7 +28,7 @@ import {VIEWS} from './common';
 // -----------------------------------------------------------------------------
 
 type StaticProps = {
-  viewName: 'skills' | 'onboarding' | 'slides' | undefined;
+  viewName: 'skills' | 'onboarding' | 'slides' | 'loader';
   slides: SlidesViewStaticProps | null;
   skills: SkillsProps | null;
 };
@@ -169,7 +169,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     const {skillRef} = options;
 
     if (skillRef && !isSlideFetched) {
-      store.dispatch(navigateTo(undefined)); // use loader while posting progression
+      store.dispatch(navigateTo('loader')); // use loader while posting progression
       return;
     }
 
