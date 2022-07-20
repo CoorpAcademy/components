@@ -14,7 +14,7 @@ import {Slide} from '../../types/common';
 
 export type SlidesState = {
   slideNumbers: number[];
-  [key: number]: Slide; // TODO: renommer
+  [key: number]: Slide;
 };
 
 const getInitialState = (): SlidesState => {
