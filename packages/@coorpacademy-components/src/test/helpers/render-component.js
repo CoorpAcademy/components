@@ -2,7 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PropTypes from 'prop-types';
 import {mockTranslate} from '@coorpacademy/translate';
+import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
+
+// -----------------------------------------------------------------------------
 
 export const context = {
   skin: {
@@ -26,10 +29,22 @@ const renderComponent = (t, Component, fixture) => {
   return ReactDOM.renderToStaticMarkup(wrappedVTree);
 };
 
-export const wrappingComponent = ({children}) => <Provider {...context}>{children}</Provider>;
+// -----------------------------------------------------------------------------
+
+const renderNativeComponent = (t, Component, fixture) => {
+  const {toJSON} = render(<Component {...fixture.props} />);
+  const json = toJSON();
+  t.is(json.type, 'react-native-mock');
+};
+
+// -----------------------------------------------------------------------------
+
+const wrappingComponent = ({children}) => <Provider {...context}>{children}</Provider>;
 
 wrappingComponent.propTypes = {
   children: PropTypes.node
 };
 
-export default renderComponent;
+// -----------------------------------------------------------------------------
+
+export {renderComponent, renderNativeComponent, wrappingComponent};

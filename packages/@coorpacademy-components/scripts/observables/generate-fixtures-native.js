@@ -16,7 +16,7 @@ const generateNativeFixtures$ = (cwd, macro) =>
           of(
             `/* eslint-disable prettier/prettier */`,
             `import test from 'ava';`,
-            `import renderReactNativeComponentMacro from '${join(
+            `import {renderNativeComponent} from '${join(
               relative(testPath, dirname(macro)),
               basename(macro, '.js')
             )}';`,
@@ -36,7 +36,7 @@ const generateNativeFixtures$ = (cwd, macro) =>
               ({fixture}) =>
                 `test('${type} › ${title} › ${pascalCase(
                   fixture
-                )} (Native) › should be rendered', renderReactNativeComponentMacro, ${title}, fixture${pascalCase(
+                )} (Native) › should be rendered', renderNativeComponent, ${title}, fixture${pascalCase(
                   fixture
                 )});`
             )
