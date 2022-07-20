@@ -66,23 +66,29 @@ const appOptions: AppOptions = {
 };
 
 test('should validate all the slides (all correct scenario)', async t => {
-  // t.plan(13);
   t.plan(2);
   const {container} = render(<AppReview options={appOptions} key={0} />);
+
   await waitForChanges(1000);
 
-  const wrapper = container.querySelector('[data-name="loader"]');
-  t.truthy(wrapper);
-  /*
-  const wrapper = container.querySelector('[data-name="slides-revision-container"]');
-  t.truthy(wrapper);
+  const loader = container.querySelector('[data-name="loader"]');
+  t.truthy(loader);
 
-  const stackedSlidesContainer = wrapper?.querySelector('[data-name="stacked-slides-container"]');
+  // await waitForChanges(1000);
 
-  t.truthy(stackedSlidesContainer);
+  // const slidesContainer = container.querySelector('[data-name="slides-revision-container"]');
 
-  await clickAllSlides(t, container);
-  */
+  // await waitForChanges(1000);
+
+  // t.truthy(slidesContainer);
+
+  // const stackedSlidesContainer = slidesContainer?.querySelector(
+  //   '[data-name="stacked-slides-container"]'
+  // );
+
+  // t.truthy(stackedSlidesContainer);
+
+  // await clickAllSlides(t, container);
 
   t.pass();
 });

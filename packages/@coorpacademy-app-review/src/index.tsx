@@ -4,6 +4,8 @@ import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
 
+import isEmpty from 'lodash/fp/isEmpty';
+import get from 'lodash/fp/get';
 import configureStore from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
@@ -26,7 +28,7 @@ import {VIEWS} from './common';
 // -----------------------------------------------------------------------------
 
 type StaticProps = {
-  viewName: 'skills' | 'onboarding' | 'slides';
+  viewName: 'skills' | 'onboarding' | 'slides' | undefined;
   slides: SlidesViewStaticProps | null;
   skills: SkillsProps | null;
 };
@@ -135,27 +137,38 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   }, [options, store]);
 
   useEffect(() => {
-    if (store === null) return;
-
-    const {skillRef} = options;
-    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
-    store.dispatch(navigateTo(initialView));
-  }, [options, store]);
-
-  useEffect(() => {
-    if (store === null) return;
-
-    const {token} = options;
+    const token = get('token', options);
+    if (store === null || isEmpty(token)) return;
     store.dispatch(storeToken(token));
   }, [options, store]);
 
   useEffect(() => {
     if (store === null) return;
 
-    const {skillRef, token} = options;
+    const token = get('token', options);
+    const skillRef = get('skillRef', options);
+
     skillRef
       ? store.dispatch(postProgression(skillRef, token))
       : store.dispatch(fetchSkills(token));
+  }, [options, store]);
+
+  useEffect(() => {
+    if (store === null) return;
+
+    const {skillRef} = options;
+
+    if (skillRef && isEmpty(store.getState().data.progression)) {
+      store.dispatch(navigateTo(undefined)); // use loader while posting progression
+      return;
+    }
+
+    // TODO: when slides state is refactored (data + mapping),
+    // use loader in case a skillRef is found && no slides from the API
+    // are found
+
+    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
+    store.dispatch(navigateTo(initialView));
   }, [options, store]);
 
   if (!store) return null;
