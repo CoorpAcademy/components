@@ -5,7 +5,7 @@ import {Analytics} from '../../variables/analytics';
 import defaultTheme, {Theme} from '../../variables/theme.native';
 import {Vibration} from '../../variables/vibration';
 
-export type TemplateContextValues = {
+type TemplateContextValues = {
   analytics?: Analytics;
   brandTheme?: any;
   theme: Theme;
@@ -22,6 +22,8 @@ type TemplateContextValues = {
   theme: Theme;
   translations?: any; // TODO type Translations
   vibration?: Vibration;
+  getHitSlop?: Function;
+  getStatusBarHeight?: Function;
 };
 
 type Props = {values: TemplateContextValues; children: any};
