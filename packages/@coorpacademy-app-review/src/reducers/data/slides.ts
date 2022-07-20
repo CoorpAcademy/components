@@ -10,7 +10,12 @@ import {UISlide} from '../../types/slides';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 import {slide as qcmSlide} from '../../fixtures/qcm-slide';
 import {SLIDE_FETCH_SUCCESS} from '../../actions/api/fetch-slide';
-import {SlidesState} from '../../types/common';
+import {Slide} from '../../types/common';
+
+export type SlidesState = {
+  slideNumbers: number[];
+  [key: number]: Slide; // TODO: renommer
+};
 
 const getInitialState = (): SlidesState => {
   const state: SlidesState = {

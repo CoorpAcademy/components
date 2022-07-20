@@ -1,10 +1,11 @@
-import {NavigationState} from '../../types/common';
 import {
   type NavigateTo,
   type NavigateBack,
   NAVIGATE_BACK,
   NAVIGATE_TO
 } from '../../actions/ui/navigation';
+
+export type NavigationState = Array<'skills' | 'onboarding' | 'slides'>;
 
 const reducer = (
   // eslint-disable-next-line default-param-last

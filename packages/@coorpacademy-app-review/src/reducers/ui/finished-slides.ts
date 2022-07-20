@@ -1,7 +1,11 @@
 import forEach from 'lodash/fp/forEach';
-import {FinishedSlidesState} from '../../types/common';
 import {UpdateFinishedSlides, UPDATE_FINISHED_SLIDES} from '../../actions/ui/finished-slides';
 import {slideNumbers} from '../../common';
+
+export type FinishedSlidesState = {
+  slideNumbers: number[];
+  [key: number]: true;
+};
 
 const initialState: FinishedSlidesState = {
   slideNumbers

@@ -1,4 +1,4 @@
-import {FinishedSlidesState, IconValue} from '../../types/common';
+import {FinishedSlides, IconValue} from '../../types/common';
 
 export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@step-items/UPDATE_STEP_ITEMS_ON_VALIDATION';
 export const UPDATE_STEP_ITEMS_ON_NEXT = '@@step-items/UPDATE_STEP_ITEMS_ON_NEXT';
@@ -10,7 +10,7 @@ type UpdateStepItemsOnValidationClickPayload = {
 
 type UpdateStepItemsOnNextClickPayload = {
   stepNumber: number;
-  finishedSlides: FinishedSlidesState;
+  finishedSlides: FinishedSlides;
   current: boolean;
 };
 

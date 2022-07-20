@@ -1,5 +1,6 @@
-import {ReviewStatusState} from '../../types/common';
 import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../../actions/ui/review-status';
+
+export type ReviewStatusState = 'finished' | 'ongoing';
 
 const reducer = (
   // eslint-disable-next-line default-param-last

@@ -79,16 +79,6 @@ export type Slide = UISlide & {
   nextContent?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextContent'>;
 };
 
-export type SkillsState = Skill[];
-export type SlidesState = {
-  slideNumbers: number[];
-  [key: number]: Slide; // TODO: renommer
-};
-
-export type TokenState = string | null;
-export type NavigationState = Array<'skills' | 'onboarding' | 'slides'>;
-export type ReviewStatusState = 'finished' | 'ongoing';
-
 const ICON_VALUES = {
   right: 'right',
   wrong: 'wrong',
@@ -96,59 +86,11 @@ const ICON_VALUES = {
 } as const;
 
 export type IconValue = keyof typeof ICON_VALUES;
-
-export type StepItem = {
-  current: boolean;
-  icon: IconValue;
-  value: string;
-};
-
-export type StepItemsState = {
-  slideNumbers: number[];
-  [key: number]: StepItem;
-};
-
-export type FinishedSlidesState = {
+export type FinishedSlides = {
   slideNumbers: number[];
   [key: number]: true;
 };
 
-export type ProgressionState = {
-  _id?: string;
-  state: {
-    isCorrect: boolean;
-    nextContent: {
-      ref: 'successExitNode' | string;
-      type: 'success' | 'slide';
-    };
-    pendingSlides: string[];
-    step: {
-      current: number;
-    };
-  };
-  // TO refactor: (slideNumber)
-  // virtual field
-  slideNumber?: number;
-} | null; // TODO: ça ressemble beaucoup à ProgressionFromAPI et ça devrait l'être
-
-export type DataState = {
-  isFetching?: boolean;
-  progression?: ProgressionState;
-  skills: SkillsState;
-  slides: SlidesState;
-  token?: TokenState;
-};
-
-export type StoreState = {
-  ui: {
-    navigation: NavigationState;
-    stepItems: StepItemsState;
-    finishedSlides: FinishedSlidesState;
-    reviewStatus: ReviewStatusState;
-    // progression: UiProgression;
-  };
-  data: DataState;
-};
 // -----------------------------------------------------------------------------
 
 export type WithRequired<T, K extends keyof T> = T & {

@@ -1,5 +1,7 @@
-import {SkillsState} from '../../types/common';
-import {SKILLS_FETCH_SUCCESS, ReceivedSkills} from '../../actions/api/fetch-skills';
+import {Skill} from '../../types/common';
+import {ReceivedSkills, SKILLS_FETCH_SUCCESS} from '../../actions/api/fetch-skills';
+
+export type SkillsState = Skill[];
 
 // eslint-disable-next-line default-param-last
 const reducer = (state: SkillsState = [], action: ReceivedSkills): SkillsState => {

@@ -1,7 +1,24 @@
 import {getOr} from 'lodash/fp';
-import {ProgressionState} from '../../types/common';
 import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/data/slides';
 import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
+
+export type ProgressionState = {
+  _id?: string;
+  state: {
+    isCorrect: boolean;
+    nextContent: {
+      ref: 'successExitNode' | string;
+      type: 'success' | 'slide';
+    };
+    pendingSlides: string[];
+    step: {
+      current: number;
+    };
+  };
+  // TO refactor: (slideNumber)
+  // virtual field
+  slideNumber?: number;
+} | null; // TODO: ça ressemble beaucoup à ProgressionFromAPI et ça devrait l'être
 
 const reducer = (
   // eslint-disable-next-line default-param-last

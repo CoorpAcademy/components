@@ -1,6 +1,7 @@
 import type {Action, Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
-import {Options, SlideFromAPI, StoreState} from '../../types/common';
+import type {StoreState} from '../../reducers';
+import {Options, SlideFromAPI} from '../../types/common';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;

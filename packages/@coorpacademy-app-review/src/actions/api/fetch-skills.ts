@@ -1,6 +1,7 @@
-import type {Action, Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
-import {Options, Skill, StoreState} from '../../types/common';
+import {Action, Dispatch} from 'redux';
+import type {StoreState} from '../../reducers';
+import {Options, Skill} from '../../types/common';
 
 export const SKILLS_FETCH_REQUEST = '@@skills/FETCH_REQUEST' as const;
 export const SKILLS_FETCH_SUCCESS = '@@skills/FETCH_SUCCESS' as const;

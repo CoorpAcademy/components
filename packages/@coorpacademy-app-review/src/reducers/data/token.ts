@@ -1,5 +1,6 @@
-import {TokenState} from '../../types/common';
 import {StoreToken, STORE_TOKEN} from '../../actions/data/token';
+
+export type TokenState = string | null;
 
 // eslint-disable-next-line default-param-last
 const reducer = (state: TokenState = null, action: StoreToken): TokenState => {

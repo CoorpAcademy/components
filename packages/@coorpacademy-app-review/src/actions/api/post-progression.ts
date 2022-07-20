@@ -1,6 +1,7 @@
 import type {Action, Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
-import {Options, ProgressionFromAPI, StoreState} from '../../types/common';
+import {Options, ProgressionFromAPI} from '../../types/common';
+import type {StoreState} from '../../reducers';
 import {fetchSlide} from './fetch-slide';
 
 export const POST_PROGRESSION_REQUEST = '@@progression/POST_REQUEST' as const;

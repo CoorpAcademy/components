@@ -7,7 +7,8 @@ import {TemplateContext} from '@coorpacademy/components/es/template/app-review/t
 import configureStore from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
-import type {AppOptions, StoreState} from './types/common';
+import type {AppOptions} from './types/common';
+import type {StoreState} from './reducers';
 import {SkillsProps} from './types/views/skills';
 import type {SlidesViewStaticProps} from './types/views/slides';
 

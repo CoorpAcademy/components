@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import map from 'lodash/fp/map';
-import {FinishedSlidesState, StepItem, StepItemsState} from '../../types/common';
+import {IconValue, FinishedSlides} from '../../types/common';
 import {
   StepItemsAction,
   UPDATE_STEP_ITEMS_ON_NEXT,
@@ -9,9 +9,16 @@ import {
 } from '../../actions/ui/step-items';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 
-// -----------------------------------------------------------------------------
+export type StepItem = {
+  current: boolean;
+  icon: IconValue;
+  value: string;
+};
 
-// -----------------------------------------------------------------------------
+export type StepItemsState = {
+  slideNumbers: number[];
+  [key: number]: StepItem;
+};
 
 const getInitialState = (): StepItemsState => {
   const state: StepItemsState = {
@@ -39,7 +46,7 @@ const getNextIndex = (currentIndex: number): number =>
 // they have to be skipped)
 const calculateNextStepIndex = (
   currentStepNumber: number,
-  finishedSlides: FinishedSlidesState,
+  finishedSlides: FinishedSlides,
   lastVisitedIndex = -1
 ): number => {
   // only one slide remaining, the step should stay on the same number
