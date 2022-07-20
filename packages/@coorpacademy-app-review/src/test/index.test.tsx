@@ -65,26 +65,31 @@ const appOptions: AppOptions = {
   services
 };
 
-test('should validate all the slides (all correct scenario)', async t => {
+test('should show the loader while the app is fetching the data', async t => {
   t.plan(2);
-  const {container} = render(<AppReview options={appOptions} key={0} />);
+  const {container} = render(<AppReview options={appOptions} />);
 
   await waitForChanges(1000);
 
   const loader = container.querySelector('[data-name="loader"]');
   t.truthy(loader);
 
-  // await waitForChanges(1000);
+  // await waitFor(async () => {
+  //   // await sleep(500);
+  //   const result = await t.try(tt => {
+  //     // rerender(<AppReview options={appOptions} />);
 
-  // const slidesContainer = container.querySelector('[data-name="slides-revision-container"]');
+  //     const slidesContainer = container.querySelector('[data-name="slides-revision-container"]');
 
-  // await waitForChanges(1000);
+  //     tt.truthy(slidesContainer);
+  //   });
 
-  // t.truthy(slidesContainer);
+  //   if (result.passed) return result.commit();
+  //   result.discard();
+  //   throw result.errors;
+  // });
 
-  // const stackedSlidesContainer = slidesContainer?.querySelector(
-  //   '[data-name="stacked-slides-container"]'
-  // );
+  // const stackedSlidesContainer = container.querySelector('[data-name="stacked-slides-container"]');
 
   // t.truthy(stackedSlidesContainer);
 

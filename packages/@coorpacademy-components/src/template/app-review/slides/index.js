@@ -282,7 +282,8 @@ const SlidesReview = (
   useEffect(
     /* istanbul ignore next */ () => {
       const slideNumber = get('slideNumber', progression);
-      if (progression) {
+      // temporal fix, should check for new slides in the state && then update
+      if (progression && slideNumber !== 0) {
         const hidden = getOr(false, `${slideNumber}.hidden`, slides);
         const endReview = getOr(false, `${slideNumber}.endReview`, slides);
         const position = get(`${slideNumber}.position`, slides);

@@ -128,6 +128,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
+  const [isSlideFetched, setIsSlideFetched] = useState(false);
 
   useEffect(() => {
     if (store) return;
@@ -137,15 +138,24 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   }, [options, store]);
 
   useEffect(() => {
+    if (!store || isSlideFetched) return;
+
+    return store.subscribe(() =>
+      setIsSlideFetched(!isEmpty(store.getState().data.slides[0].questionText))
+    ); // using the first slide questionText for now, should only check for a slide's presence
+    // when the refactor is done (slides will be feed one by one on api's side)
+  }, [isSlideFetched, options, store]);
+
+  useEffect(() => {
     const token = get('token', options);
     if (store === null || isEmpty(token)) return;
     store.dispatch(storeToken(token));
   }, [options, store]);
 
   useEffect(() => {
-    if (store === null) return;
-
     const token = get('token', options);
+    if (store === null || isEmpty(token)) return;
+
     const skillRef = get('skillRef', options);
 
     skillRef
@@ -158,7 +168,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
     const {skillRef} = options;
 
-    if (skillRef && isEmpty(store.getState().data.progression)) {
+    if (skillRef && !isSlideFetched) {
       store.dispatch(navigateTo(undefined)); // use loader while posting progression
       return;
     }
@@ -169,7 +179,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
     const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
     store.dispatch(navigateTo(initialView));
-  }, [options, store]);
+  }, [isSlideFetched, options, store]);
 
   if (!store) return null;
 
