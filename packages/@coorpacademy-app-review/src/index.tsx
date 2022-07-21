@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/redux-thunk/issues/333
 import {AnyAction, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
@@ -20,9 +21,8 @@ import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
 import {fetchSkills} from './actions/api/fetch-skills';
-import {postProgression, PostProgressionAction} from './actions/api/post-progression';
+import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
-import {FetchSlideAction} from './actions/api/fetch-slide';
 
 // -----------------------------------------------------------------------------
 
@@ -154,6 +154,8 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     if (store === null) return;
 
     const {skillRef, token} = options;
+    // ThunkAction is not assignable to parameter of type 'AnyAction'
+    // ts problem describre here = https://github.com/reduxjs/redux-thunk/issues/333
     skillRef
       ? store.dispatch(postProgression(skillRef, token))
       : store.dispatch(fetchSkills(token));
