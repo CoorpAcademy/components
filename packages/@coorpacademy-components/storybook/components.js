@@ -636,6 +636,8 @@ import MoleculeExternalContentViewerFixtureArticle from '../src/molecule/externa
 import MoleculeExternalContentViewerFixtureDefault from '../src/molecule/external-content-viewer/test/fixtures/default';
 import MoleculeExternalContentViewerFixtureH5P from '../src/molecule/external-content-viewer/test/fixtures/h5p';
 import MoleculeExternalContentViewerFixturePodcastCockpitMode from '../src/molecule/external-content-viewer/test/fixtures/podcast-cockpit-mode';
+import MoleculeExternalContentViewerFixturePodcastDefault from '../src/molecule/external-content-viewer/test/fixtures/podcast-default';
+import MoleculeExternalContentViewerFixturePodcastMobile from '../src/molecule/external-content-viewer/test/fixtures/podcast-mobile';
 import MoleculeExternalContentViewerFixturePodcastNoBackground from '../src/molecule/external-content-viewer/test/fixtures/podcast-no-background';
 import MoleculeExternalContentViewerFixturePodcast from '../src/molecule/external-content-viewer/test/fixtures/podcast';
 import MoleculeExternalContentViewerFixtureVideo from '../src/molecule/external-content-viewer/test/fixtures/video';
@@ -2098,6 +2100,8 @@ export const fixtures = {
       Default: MoleculeExternalContentViewerFixtureDefault,
       H5P: MoleculeExternalContentViewerFixtureH5P,
       PodcastCockpitMode: MoleculeExternalContentViewerFixturePodcastCockpitMode,
+      PodcastDefault: MoleculeExternalContentViewerFixturePodcastDefault,
+      PodcastMobile: MoleculeExternalContentViewerFixturePodcastMobile,
       PodcastNoBackground: MoleculeExternalContentViewerFixturePodcastNoBackground,
       Podcast: MoleculeExternalContentViewerFixturePodcast,
       Video: MoleculeExternalContentViewerFixtureVideo,

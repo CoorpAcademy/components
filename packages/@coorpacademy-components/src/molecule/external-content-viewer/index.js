@@ -6,7 +6,8 @@ import style from './style.css';
 
 const podcastWrapperStyle = {
   default: style.podcastWrapper,
-  cockpit: style.podcastWrapperCockpit
+  cockpit: style.podcastWrapperCockpit,
+  mobile: style.podcastWrapper
 };
 
 const iframeStyle = {
