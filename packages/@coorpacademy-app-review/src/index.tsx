@@ -22,6 +22,7 @@ import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/s
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression, PostProgressionAction} from './actions/api/post-progression';
 import {VIEWS} from './common';
+import {FetchSlideAction} from './actions/api/fetch-slide';
 
 // -----------------------------------------------------------------------------
 
@@ -30,8 +31,6 @@ type StaticProps = {
   slides: SlidesViewStaticProps | null;
   skills: SkillsProps | null;
 };
-
-type ThunkActions = PostProgressionAction;
 
 // -----------------------------------------------------------------------------
 
@@ -127,7 +126,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 // -----------------------------------------------------------------------------
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
-  const [store, setStore] = useState<Store<StoreState, AnyAction | ReceiveProgression> | null>(null);
+  const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
 
   useEffect(() => {
     if (store) return;
