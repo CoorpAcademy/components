@@ -5,6 +5,7 @@ import {Analytics} from '../../variables/analytics';
 import defaultTheme, {Theme} from '../../variables/theme.native';
 import {Vibration} from '../../variables/vibration';
 
+<<<<<<< HEAD
 type TemplateContextValues = {
   analytics?: Analytics;
   brandTheme?: any;
@@ -24,6 +25,13 @@ type TemplateContextValues = {
   vibration?: Vibration;
   getHitSlop?: Function;
   getStatusBarHeight?: Function;
+=======
+export type TemplateContextValues = {
+  analytics?: Analytics;
+  brandTheme?: any;
+  theme: Theme;
+  vibration?: Vibration;
+>>>>>>> cbcb316c0 (Mobile touchable (#2270))
 };
 
 type Props = {values: TemplateContextValues; children: any};
