@@ -2,7 +2,6 @@ import test from 'ava';
 import nock from 'nock';
 import type {ProgressionFromAPI} from '../../types/common';
 import {postProgression} from '../post-progression';
-import {token} from '../tools/fetch.mocks';
 
 const skillRef = '_skill-ref';
 const result: ProgressionFromAPI = {
@@ -30,6 +29,7 @@ test.after(() => {
 });
 
 test('should create progression with success', async t => {
+  const token = process.env.API_TEST_TOKEN || '';
   const progression = await postProgression(skillRef, token);
   t.deepEqual(result, progression);
 });

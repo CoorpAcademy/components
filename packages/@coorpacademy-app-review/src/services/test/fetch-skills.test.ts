@@ -2,7 +2,6 @@ import test from 'ava';
 import nock from 'nock';
 import {Skill} from '../../types/common';
 import {fetchSkills} from '../fetch-skills';
-import {token} from '../tools/fetch.mocks';
 
 const result: Skill[] = [
   {
@@ -24,6 +23,7 @@ test.after(() => {
 });
 
 test('should fetch skills with success', async t => {
+  const token = process.env.API_TEST_TOKEN || '';
   const skills = await fetchSkills(token);
   t.deepEqual(result, skills);
 });
