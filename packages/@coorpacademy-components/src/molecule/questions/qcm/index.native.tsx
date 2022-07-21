@@ -1,5 +1,6 @@
 import {View, StyleSheet, ViewStyle} from 'react-native';
 import React, {useState, useEffect} from 'react';
+import {useTemplateContext} from '../../../template/app-review/template-context';
 
 interface Props {
   isSelected?: boolean;
@@ -52,16 +53,13 @@ const createStyleSheet = (theme: any) =>
     }
   });
 
-const QuestionChoiceComponent = ({
-  children,
-  isSelected = false,
-  testID: prefixTestID,
-  style,
-  theme
-}: Props) => {
+const QuestionChoiceComponent = ({children, isSelected = false, testID: prefixTestID}: Props) => {
   const selectedSuffix = prefixTestID && isSelected ? '-selected' : '';
 
   const [styleSheet, setStylesheet] = useState<StyleType | null>(null);
+
+  const templateContext = useTemplateContext();
+  const {theme} = templateContext;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
