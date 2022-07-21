@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "",
   "engines": {
     "node": ">=16.15.0"
@@ -40,7 +40,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@coorpacademy/components": "10.22.1",
+    "@coorpacademy/components": "10.22.2",
     "@coorpacademy/redux-task": "^1.1.5",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
