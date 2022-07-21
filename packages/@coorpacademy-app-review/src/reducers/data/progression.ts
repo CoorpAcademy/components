@@ -1,11 +1,7 @@
 import {getOr} from 'lodash/fp';
-import {ReceiveProgression, RECEIVE_PROGRESSION} from '../../actions/data/progression';
 import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/data/slides';
+import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
 
-// -----------------------------------------------------------------------------
-
-// TODO: transform this into UI data / fix on components' repo when
-// fetch slide is addressed
 export type ProgressionState = {
   _id?: string;
   state: {
@@ -22,17 +18,11 @@ export type ProgressionState = {
   // TO refactor: (slideNumber)
   // virtual field
   slideNumber?: number;
-} | null;
-
-// -----------------------------------------------------------------------------
-
-export const initialState: ProgressionState = null;
-
-// -----------------------------------------------------------------------------
+} | null; // TODO: ça ressemble beaucoup à ProgressionFromAPI et ça devrait l'être
 
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: ProgressionState = initialState,
+  state: ProgressionState = null,
   action: ValidateSlide | ReceiveProgression
 ): ProgressionState => {
   switch (action.type) {
@@ -57,8 +47,8 @@ const reducer = (
         }
       };
     }
-    case RECEIVE_PROGRESSION: {
-      const {progression} = action.payload;
+    case POST_PROGRESSION_SUCCESS: {
+      const progression = action.payload;
       return progression;
     }
     default:

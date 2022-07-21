@@ -1,43 +1,15 @@
 import crossFetch from 'cross-fetch';
-// import decode from 'jwt-decode';
+import decode from 'jwt-decode';
 
-import {SlideFromAPI} from '../actions/data/slides';
-// import {JWT} from '../types/common';
-// import {toJSON} from './tools/fetch-responses';
-import {okJSONResponse} from './tools/fetch.mocks';
+import {JWT, SlideFromAPI} from '../types/common';
+import {toJSON} from './tools/fetch-responses';
 
-// -----------------------------------------------------------------------------
+export const fetchSlide = async (slideRef: string, token: string): Promise<SlideFromAPI | void> => {
+  const {host}: JWT = decode(token);
+  const response = await crossFetch(`${host}/api/v2/slide/${slideRef}`, {
+    headers: {authorization: token}
+  });
 
-type FetchSlide = (slideRef: string, token: string) => Promise<SlideFromAPI>;
-type FetchSlideBuilder = (fetch: typeof crossFetch) => FetchSlide;
-type DefaultFetchSlideBuilder = () => FetchSlide;
-
-// -----------------------------------------------------------------------------
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, unicorn/consistent-function-scoping, require-await
-const fetchSlide: FetchSlideBuilder = fetch => async (slideRef: string, token: string) => {
-  // const {host}: JWT = decode(token);
-  // const response = await fetch(`${host}/api/v2/slide/${slideRef}`, {
-  //   headers: {authorization: token}
-  // });
-
-  // const slide = (await toJSON(response)) as SlideFromAPI;
-  // return slide;
-  return {} as SlideFromAPI;
+  const slide = (await toJSON(response)) as SlideFromAPI;
+  return slide;
 };
-
-// -----------------------------------------------------------------------------
-
-const createFetchSlide: DefaultFetchSlideBuilder = () => {
-  if (process.env.SERVICES !== 'mocks') {
-    return fetchSlide(crossFetch);
-  }
-
-  // TODO: use an appropriate mock
-  return fetchSlide(okJSONResponse({}));
-};
-
-// -----------------------------------------------------------------------------
-
-export {fetchSlide};
-export default createFetchSlide();

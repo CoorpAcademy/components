@@ -4,19 +4,24 @@ import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
 
-import configureStore, {StoreState} from './configure-store';
+import configureStore from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
 import type {AppOptions} from './types/common';
+import type {StoreState} from './reducers';
 import {SkillsProps} from './types/views/skills';
 import type {SlidesViewStaticProps} from './types/views/slides';
 
 import {Dispatchers} from './actions';
 import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
-import {navigateTo, navigateBack, startApp, ViewPath} from './actions/ui/navigation';
+import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
+import {storeToken} from './actions/data/token';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
 import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
+import {fetchSkills} from './actions/api/fetch-skills';
+import {postProgression} from './actions/api/post-progression';
+import {VIEWS} from './common';
 
 // -----------------------------------------------------------------------------
 
@@ -105,11 +110,13 @@ const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null 
 
 // -----------------------------------------------------------------------------
 
-const mapStateToProps = (state: StoreState): StaticProps => ({
-  viewName: getCurrentViewName(state),
-  slides: mapStateToSlidesProps(state),
-  skills: mapStateToSkillsProps(state)
-});
+const mapStateToProps = (state: StoreState): StaticProps => {
+  return {
+    viewName: getCurrentViewName(state),
+    slides: mapStateToSlidesProps(state),
+    skills: mapStateToSkillsProps(state)
+  };
+};
 
 // Props = StaticProps && Dispatchers
 
@@ -119,22 +126,39 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
-  const [appStarted, setAppStarted] = useState<boolean>(false);
 
   useEffect(() => {
-    if (store) {
-      store.dispatch(startApp(options));
-      setAppStarted(true);
-    } else {
-      const _configure = async (): Promise<void> => {
-        const newStore = await configureStore();
-        setStore(newStore);
-      };
-      _configure();
-    }
+    if (store) return;
+
+    const newStore = configureStore(options);
+    setStore(newStore);
   }, [options, store]);
 
-  if (!store || !appStarted) return null;
+  useEffect(() => {
+    if (store === null) return;
+
+    const {skillRef} = options;
+    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
+    store.dispatch(navigateTo(initialView));
+  }, [options, store]);
+
+  useEffect(() => {
+    if (store === null) return;
+
+    const {token} = options;
+    store.dispatch(storeToken(token));
+  }, [options, store]);
+
+  useEffect(() => {
+    if (store === null) return;
+
+    const {skillRef, token} = options;
+    skillRef
+      ? store.dispatch(postProgression(skillRef, token))
+      : store.dispatch(fetchSkills(token));
+  }, [options, store]);
+
+  if (!store) return null;
 
   const {templateContext: values} = options;
 

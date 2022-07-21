@@ -1,25 +1,21 @@
 import map from 'lodash/fp/map';
 import {
   OnNextPayload,
-  Slide,
   SlidesAction,
-  STORE_FIRST_SLIDE,
   UPDATE_SLIDES_ON_NEXT,
   UPDATE_SLIDES_ON_VALIDATION,
   ValidationPayload
 } from '../../actions/data/slides';
-import {Slide as UISlide} from '../../types/slides';
+import {UISlide} from '../../types/slides';
 import {HIGHEST_INDEX, slideNumbers, TOTAL_SLIDES_STACK} from '../../common';
 import {slide as qcmSlide} from '../../fixtures/qcm-slide';
-
-// -----------------------------------------------------------------------------
+import {SLIDE_FETCH_SUCCESS} from '../../actions/api/fetch-slide';
+import {Slide} from '../../types/common';
 
 export type SlidesState = {
   slideNumbers: number[];
   [key: number]: Slide;
 };
-
-// -----------------------------------------------------------------------------
 
 const getInitialState = (): SlidesState => {
   const state: SlidesState = {
@@ -121,7 +117,7 @@ const stateUpdateOnNext = (state: SlidesState, payload: OnNextPayload): SlidesSt
 // eslint-disable-next-line default-param-last
 const reducer = (state: SlidesState = initialState, action: SlidesAction): SlidesState => {
   switch (action.type) {
-    case STORE_FIRST_SLIDE: {
+    case SLIDE_FETCH_SUCCESS: {
       // TODO: An intermediate slide transform is needed here (or in fetchSlide)
       // const apiSlide = action.payload;
       // apiSlide adapt to uiSlide

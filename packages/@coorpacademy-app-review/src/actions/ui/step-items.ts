@@ -1,19 +1,7 @@
-import {FinishedSlidesState} from '../../reducers/ui/finished-slides';
-
-// -----------------------------------------------------------------------------
+import {FinishedSlides, IconValue} from '../../types/common';
 
 export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@step-items/UPDATE_STEP_ITEMS_ON_VALIDATION';
 export const UPDATE_STEP_ITEMS_ON_NEXT = '@@step-items/UPDATE_STEP_ITEMS_ON_NEXT';
-
-const ICON_VALUES = {
-  right: 'right',
-  wrong: 'wrong',
-  'no-answer': 'no-answer'
-} as const;
-
-// -----------------------------------------------------------------------------
-
-export type IconValue = keyof typeof ICON_VALUES;
 
 type UpdateStepItemsOnValidationClickPayload = {
   stepNumber: number;
@@ -22,7 +10,7 @@ type UpdateStepItemsOnValidationClickPayload = {
 
 type UpdateStepItemsOnNextClickPayload = {
   stepNumber: number;
-  finishedSlides: FinishedSlidesState;
+  finishedSlides: FinishedSlides;
   current: boolean;
 };
 

@@ -1,39 +1,14 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {JWT} from '../types/common';
-import {Skills} from '../types/skills';
+import {JWT, Skill} from '../types/common';
 import {toJSON} from './tools/fetch-responses';
-import mockFetchSkills from './fetch-skills.mock';
 
-// -----------------------------------------------------------------------------
-
-type FetchSkills = (token: string) => Promise<Skills>;
-type CreateFetchSkills = (fetch: typeof crossFetch) => FetchSkills;
-type CreateDefaultFetchSkills = () => FetchSkills;
-
-// -----------------------------------------------------------------------------
-
-const fetchSkills: CreateFetchSkills = fetch => async token => {
+export const fetchSkills = async (token: string): Promise<Skill[]> => {
   const {user: userId, host}: JWT = decode(token);
-  const response = await fetch(`${host}/api/v2/skills/review/user/${userId}`, {
+  const response = await crossFetch(`${host}/api/v2/skills/review/user/${userId}`, {
     headers: {authorization: token}
   });
 
-  return toJSON<Skills>(response);
+  return toJSON<Skill[]>(response);
 };
-
-// -----------------------------------------------------------------------------
-
-const createFetchSkills: CreateDefaultFetchSkills = () => {
-  if (process.env.SERVICES !== 'mocks') {
-    return fetchSkills(crossFetch);
-  }
-
-  return fetchSkills(mockFetchSkills);
-};
-
-// -----------------------------------------------------------------------------
-
-export {fetchSkills};
-export default createFetchSkills();

@@ -28,8 +28,3 @@ export const navigateTo = (newPath: ViewPath): NavigateTo => ({
 export const navigateBack = (): NavigateBack => ({
   type: NAVIGATE_BACK
 });
-
-export const startApp = (options: AppOptions): StartApp => ({
-  type: START_APP,
-  payload: options
-});
