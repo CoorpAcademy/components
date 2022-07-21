@@ -1,4 +1,5 @@
-import type {Action, Dispatch} from 'redux';
+import type {AnyAction, Dispatch} from 'redux';
+import type {ThunkAction} from 'redux-thunk';
 import buildTask from '@coorpacademy/redux-task';
 import {Options, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
@@ -13,8 +14,15 @@ export type ReceiveProgression = {
   payload: ProgressionFromAPI;
 };
 
-export const postProgression = (skillRef: string, token: string): Action =>
-  buildTask({
+export type PostProgressionAction = ThunkAction<
+  Promise<ProgressionFromAPI>,
+  StoreState,
+  Options,
+  AnyAction
+>;
+
+export const postProgression = (skillRef: string, token: string): PostProgressionAction => 
+buildTask({
     types: [POST_PROGRESSION_REQUEST, POST_PROGRESSION_SUCCESS, POST_PROGRESSION_FAILURE],
     task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) => {
       return services.postProgression(skillRef, token).then((progression: ProgressionFromAPI) => {
