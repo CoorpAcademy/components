@@ -18,7 +18,7 @@ const generateWebFixtures$ = (cwd, macro) =>
 `,
             `import test from 'ava';`,
             `import forEach from 'lodash/forEach';`,
-            `import renderComponentMacro from '${join(
+            `import {renderComponent} from '${join(
               relative(testPath, dirname(macro)),
               basename(macro, '.js')
             )}';`,
@@ -46,7 +46,7 @@ const generateWebFixtures$ = (cwd, macro) =>
               ({fixture}) =>
                 `test('${type} › ${title} › ${pascalCase(
                   fixture
-                )} › should be rendered', renderComponentMacro, ${title}, fixture${pascalCase(
+                )} › should be rendered', renderComponent, ${title}, fixture${pascalCase(
                   fixture
                 )});`
             )

@@ -23,3 +23,7 @@ export const ANALYTICS_EVENT_TYPE = {
 export type Analytics = {
   logEvent: Function;
 };
+
+export type AnalyticsEventParams = {
+  [key: string]: string | number;
+};

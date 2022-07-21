@@ -1,7 +1,13 @@
 module.exports = {
-  files: ['src/**/test/**/*.*s', '!**/test/**/helpers/**/*', '!**/test/fixtures/**/*'],
+  files: [
+    'src/**/test/**/*.js',
+    'src/**/test/**/*.*ts',
+    'src/**/test/**/*.tsx',
+    '!**/test/**/helpers/**/*',
+    '!**/test/fixtures/**/*'
+  ],
   require: [`${__dirname}/ava.requirements.js`, '../../test/helpers/throw-warning'],
-  extensions: ['js', 'ts'],
+  extensions: ['js', 'ts', 'tsx'],
   timeout: '45s',
   workerThreads: false
 };

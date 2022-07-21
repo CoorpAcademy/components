@@ -14,6 +14,7 @@ interface Props {
   onChange: Function;
   isDisabled: boolean;
   value: string;
+  placeholder: string;
 }
 
 type StyleSheetType = {
@@ -75,12 +76,21 @@ const logEvent = (eventName: string, analytics: Analytics, questionType: Questio
 const FreeText = (props: Props) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {brandTheme, theme, translations} = templateContext;
+  const {brandTheme, theme} = templateContext;
   const PLACEHOLDER_COLOR = theme.colors.gray.medium;
 
   // ------------------------------------
 
-  const {analytics, questionType, fullWitdh, testID, onChange, isDisabled, value} = props;
+  const {
+    analytics,
+    questionType,
+    fullWitdh,
+    testID,
+    onChange,
+    isDisabled,
+    value,
+    placeholder
+  } = props;
 
   // ------------------------------------
 
@@ -114,7 +124,7 @@ const FreeText = (props: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChangeText={onChange}
-        placeholder={translations.typeHere}
+        placeholder={placeholder}
         placeholderTextColor={PLACEHOLDER_COLOR}
         value={value}
         testID={testID}
