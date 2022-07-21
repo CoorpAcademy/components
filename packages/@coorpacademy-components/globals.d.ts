@@ -1,1 +1,1 @@
-declare module 'react-native';
+declare module '@coorpacademy/nova-icons';
