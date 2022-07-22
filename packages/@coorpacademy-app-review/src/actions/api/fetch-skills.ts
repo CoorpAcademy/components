@@ -13,10 +13,10 @@ export interface ReceivedSkills extends AnyAction {
   payload: Skill[];
 }
 
-export type FetchSKillsAction = ThunkAction<Promise<void>, StoreState, Options, AnyAction>;
+export type FetchSkillsAction = ThunkAction<Promise<void>, StoreState, Options, AnyAction>;
 type Dispatch = ThunkDispatch<StoreState, Options, AnyAction>;
 
-export const fetchSkills = (token: string): FetchSKillsAction =>
+export const fetchSkills = (token: string): FetchSkillsAction =>
   buildTask({
     types: [SKILLS_FETCH_REQUEST, SKILLS_FETCH_SUCCESS, SKILLS_FETCH_FAILURE],
     task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) =>
