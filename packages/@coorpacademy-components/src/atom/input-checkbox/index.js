@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
@@ -30,7 +30,7 @@ const InputCheckbox = props => {
   const titleStyleClassName = titleStylesClassNames[titleStyle];
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${propsTitle}${required ? '*' : ''}`;
-  const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
+  const handleChange = useCallback(e => onChange(e.target.checked), [onChange]);
 
   const modifiedClassName =
     theme === 'coorpmanager' ? style.coorpManagerModified : style.defaultModified;
@@ -57,7 +57,10 @@ const InputCheckbox = props => {
         disabled={disabled}
         data-name="checkbox-input"
       />
-      <div className={classnames(style.label, noLabelMargins ? style.noLabelMargins : undefined)}>
+      <div
+        data-name="checkbox-label"
+        className={classnames(style.label, noLabelMargins ? style.noLabelMargins : undefined)}
+      >
         <CheckIcon className={style.icon} />
       </div>
       <span className={titleStyleClassName} title={title}>
