@@ -7,11 +7,14 @@ type TemplateContextValues = {
   translations?: unknown; // TODO type Translations
 };
 
+export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
+
 export type SlideFromAPI = {
   question: {
     content: {
       choices: Record<string, unknown>[];
     };
+    type: QuestionType;
   };
   klf: string;
   universalRef: string;
