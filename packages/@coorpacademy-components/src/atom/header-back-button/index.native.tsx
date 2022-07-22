@@ -5,21 +5,21 @@ import {
   NovaSolidStatusClose as CloseIcon
 } from '@coorpacademy/nova-icons';
 import {useTemplateContext} from '../../template/app-review/template-context';
-import Touchable from '../../hoc/touchable';
-import HeaderBackIcon from '../header-back-icon';
+import Touchable from '../../hoc/touchable/index.native';
+import HeaderBackIcon from '../header-back-icon/index.native';
 
 export const HOME_ICON_HEIGHT = 20;
 export const CLOSE_ICON_HEIGHT = 16;
 export const BACK_ICON_HEIGHT = 20;
 
-interface Props {
+export type Props = {
   type: 'close' | 'back' | 'home';
   color?: string;
   onPress: () => void;
   isFloating?: boolean;
   noSafeArea?: boolean;
   testID: string;
-}
+};
 
 type StyleSheetType = {
   container: {
@@ -102,4 +102,3 @@ const HeaderBackButton = (props: Props) => {
 };
 
 export default HeaderBackButton;
-

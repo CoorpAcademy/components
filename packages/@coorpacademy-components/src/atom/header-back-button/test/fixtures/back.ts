@@ -4,7 +4,7 @@ type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
-    type: 'back',
+    type: 'back'
   }
 };
 

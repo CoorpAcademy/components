@@ -4,7 +4,7 @@ type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
-    type: 'close',
+    type: 'close'
   }
 };
 

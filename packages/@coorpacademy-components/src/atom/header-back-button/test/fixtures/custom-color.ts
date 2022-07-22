@@ -5,7 +5,7 @@ type Fixture = {props: Props};
 const fixture: Fixture = {
   props: {
     type: 'close',
-    color:'#000'
+    color: '#000'
   }
 };
 
