@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/redux-thunk/issues/333
 import {AnyAction, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
@@ -23,15 +24,11 @@ import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
 
-// -----------------------------------------------------------------------------
-
 type StaticProps = {
   viewName: 'skills' | 'onboarding' | 'slides';
   slides: SlidesViewStaticProps | null;
   skills: SkillsProps | null;
 };
-
-// -----------------------------------------------------------------------------
 
 const mapDispatchToProps: Dispatchers = {
   navigateTo,
@@ -47,8 +44,6 @@ const mapDispatchToProps: Dispatchers = {
 
 const getCurrentViewName = (storeState: StoreState): ViewPath =>
   storeState.ui.navigation[storeState.ui.navigation.length - 1];
-
-// -----------------------------------------------------------------------------
 
 const mapStateToSkillsProps = (state: StoreState): SkillsProps | null => {
   if (!state.data.skills) {
@@ -76,8 +71,6 @@ const mapStateToSkillsProps = (state: StoreState): SkillsProps | null => {
     }))
   };
 };
-
-// -----------------------------------------------------------------------------
 
 const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null => {
   if (!state.data.slides) {
@@ -108,8 +101,6 @@ const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null 
   };
 };
 
-// -----------------------------------------------------------------------------
-
 const mapStateToProps = (state: StoreState): StaticProps => {
   return {
     viewName: getCurrentViewName(state),
@@ -118,11 +109,7 @@ const mapStateToProps = (state: StoreState): StaticProps => {
   };
 };
 
-// Props = StaticProps && Dispatchers
-
 const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
-
-// -----------------------------------------------------------------------------
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
@@ -153,6 +140,8 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     if (store === null) return;
 
     const {skillRef, token} = options;
+    // ThunkAction is not assignable to parameter of type 'AnyAction'
+    // ts problem describre here = https://github.com/reduxjs/redux-thunk/issues/333
     skillRef
       ? store.dispatch(postProgression(skillRef, token))
       : store.dispatch(fetchSkills(token));
@@ -171,15 +160,11 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   );
 };
 
-// -----------------------------------------------------------------------------
-
 declare global {
   // eslint-disable-next-line no-shadow
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION__?: boolean;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: Function;
   }
 }
-
-// -----------------------------------------------------------------------------
 
 export default AppReview;
