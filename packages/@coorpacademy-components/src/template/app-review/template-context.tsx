@@ -5,18 +5,7 @@ import {Analytics} from '../../variables/analytics';
 import defaultTheme, {Theme} from '../../variables/theme.native';
 import {Vibration} from '../../variables/vibration';
 
-type TemplateContextValues = {
-  analytics?: Analytics;
-  brandTheme?: any;
-  theme: Theme;
-  vibration?: Vibration;
-};
-
-type Props = {values: TemplateContextValues; children: any};
-
-// -----------------------------------------------------------------------------
-
-type TemplateContextValues = {
+export type TemplateContextValues = {
   analytics?: Analytics;
   brandTheme?: any;
   theme: Theme;
