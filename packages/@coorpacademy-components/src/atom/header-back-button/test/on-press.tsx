@@ -18,7 +18,7 @@ test('should react on Press', t => {
   );
 
   const {getByTestId} = render(component);
-  const cpt = getByTestId('touchable-fake');
+  const cpt = getByTestId('header-close-button');
 
   fireEvent.press(cpt);
 
