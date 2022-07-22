@@ -11,6 +11,13 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics, AnalyticsEventParams} from '../../variables/analytics';
 import {Vibration} from '../../variables/vibration';
 
+const hitSlop = {
+  left: 12,
+  right: 12,
+  bottom: 12,
+  top: 12
+};
+
 export type Props = {
   accessible?: boolean;
   children?: React.ReactNode;
@@ -19,7 +26,6 @@ export type Props = {
   delayPressOut?: number;
   disabled?: boolean;
   focusable?: boolean;
-  hitSlop?: number /* TODO: fix type EdgeInsetsProp,*/;
   onBlur?: (event: BlurEvent) => any;
   onFocus?: (event: FocusEvent) => any;
   onLayout?: (event: LayoutEvent) => any;
@@ -98,6 +104,7 @@ const Touchable = (props: Props) => {
     return (
       <TouchableHighlight
         {...props}
+        hitSlop={hitSlop}
         underlayColor={theme.colors.gray.light}
         onPress={handlePress}
         onLongPress={handleLongPress}
@@ -109,6 +116,7 @@ const Touchable = (props: Props) => {
   return (
     <TouchableOpacity
       {...props}
+      hitSlop={hitSlop}
       onPress={handlePress}
       onLongPress={handleLongPress}
       activeOpacity={(isWithoutFeedback && 1) || activeOpacity || (disabled ? 1 : 0.2)}

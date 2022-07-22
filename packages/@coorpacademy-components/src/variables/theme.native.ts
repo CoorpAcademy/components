@@ -37,7 +37,7 @@ export type FontSizeType =
 
 export type Theme = {
   colors: Colors;
-  spacing: {[key in SpaceType]: string};
+  spacing: {[key in SpaceType]: number};
   radius: {
     common: number;
     card: number;

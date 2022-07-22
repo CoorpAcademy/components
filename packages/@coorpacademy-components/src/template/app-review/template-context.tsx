@@ -11,8 +11,9 @@ export type TemplateContextValues = {
   theme: Theme;
   translations?: any; // TODO type Translations
   vibration?: Vibration;
-  getHitSlop?: Function;
-  getStatusBarHeight?: Function;
+  display: {
+    statusBarHeight: number;
+  };
 };
 
 type Props = {values: TemplateContextValues; children: any};
@@ -20,7 +21,10 @@ type Props = {values: TemplateContextValues; children: any};
 // -----------------------------------------------------------------------------
 
 const Context = createContext({
-  theme: defaultTheme
+  theme: defaultTheme,
+  display: {
+    statusBarHeight: 42
+  }
 });
 
 // -----------------------------------------------------------------------------
