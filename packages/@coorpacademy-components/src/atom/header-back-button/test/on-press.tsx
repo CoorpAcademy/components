@@ -10,10 +10,11 @@ test('should react on Press', t => {
     logEvent: () => t.pass(),
     vibrate: () => t.pass()
   });
+  const handlePress = () => t.pass();
 
   const component = (
     <TemplateContext values={context}>
-      <HeaderBackButton testID="header-close-button" />;
+      <HeaderBackButton onPress={handlePress} testID="header-close-button" />;
     </TemplateContext>
   );
 
@@ -22,5 +23,5 @@ test('should react on Press', t => {
 
   fireEvent.press(cpt);
 
-  t.plan(0);
+  t.plan(3);
 });
