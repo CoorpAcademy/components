@@ -9,7 +9,6 @@ export type TemplateContextValues = {
   analytics?: Analytics;
   brandTheme?: any;
   theme: Theme;
-  translations?: any; // TODO type Translations
   vibration?: Vibration;
   display: {
     statusBarHeight: number;
