@@ -61,7 +61,7 @@ const CMPopin = props => {
               />
             ) : null}
           </div>
-          {descriptionText ? <p className={style.descriptionText}>{descriptionText}</p> : null}
+          {descriptionText ? <p className={style.descriptionText} dangerouslySetInnerHTML={{__html: descriptionText}} /> : null}
         </div>
         <div className={style.buttonContainer}>
           {firstButton ? (
