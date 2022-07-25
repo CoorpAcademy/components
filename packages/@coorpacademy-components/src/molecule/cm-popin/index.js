@@ -61,7 +61,13 @@ const CMPopin = props => {
               />
             ) : null}
           </div>
-          {descriptionText ? <p className={style.descriptionText} dangerouslySetInnerHTML={{__html: descriptionText}} /> : null}
+          {descriptionText ? (
+            <p
+              className={style.descriptionText}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: descriptionText}}
+            />
+          ) : null}
         </div>
         <div className={style.buttonContainer}>
           {firstButton ? (
