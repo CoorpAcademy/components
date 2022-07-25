@@ -10,6 +10,9 @@ export type TemplateContextValues = {
   brandTheme?: any;
   theme: Theme;
   vibration?: Vibration;
+  display: {
+    statusBarHeight: number;
+  };
 };
 
 type Props = {values: TemplateContextValues; children: any};
@@ -17,7 +20,10 @@ type Props = {values: TemplateContextValues; children: any};
 // -----------------------------------------------------------------------------
 
 const Context = createContext({
-  theme: defaultTheme
+  theme: defaultTheme,
+  display: {
+    statusBarHeight: 42
+  }
 });
 
 // -----------------------------------------------------------------------------
