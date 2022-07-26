@@ -2,6 +2,19 @@ import test from 'ava';
 import {identity, map, omit, isFunction} from 'lodash/fp';
 
 import {mockTranslate} from '@coorpacademy/translate';
+import {
+  Analytics as AnalyticsService,
+  Answers as AnswersService,
+  Clues as CluesService,
+  Coach as CoachService,
+  Comments as CommentsService,
+  Content as ContentService,
+  ExitNodes as ExitNodesService,
+  LeaderBoard as LeaderBoardService,
+  Location as LocationService,
+  Progressions as ProgressionsService,
+  Recommendations as RecommendationsService
+} from '@coorpacademy/player-services';
 import microlearningHeader from '../../map-state-to-props/test/fixtures/progression-state';
 import learnerHeader from '../../map-state-to-props/test/fixtures/progression-learner';
 import stateSlide from '../../map-state-to-props/test/fixtures/player/slide';
@@ -9,10 +22,26 @@ import stateSlideNoLessons from '../../map-state-to-props/test/fixtures/player/s
 import stateNoClue from '../../map-state-to-props/test/fixtures/player/no-clue';
 import stateClue from '../../map-state-to-props/test/fixtures/player/clue';
 import stateLoadingClue from '../../map-state-to-props/test/fixtures/player/loading-clue';
+import * as fixtures from '../../../sandbox/fixtures';
 import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 
-const options = {translate: mockTranslate};
+const services = {
+  Analytics: AnalyticsService,
+  Answers: AnswersService(fixtures),
+  Clues: CluesService(fixtures),
+  Coach: CoachService,
+  Comments: CommentsService,
+  Content: ContentService(fixtures),
+  ExitNodes: ExitNodesService(fixtures),
+  LeaderBoard: LeaderBoardService,
+  Location: LocationService,
+  Logger: console,
+  Progressions: ProgressionsService(fixtures),
+  Recommendations: RecommendationsService(fixtures)
+};
+
+const options = {translate: mockTranslate, services};
 const store = {dispatch: identity};
 const mapStateToVNode = stateToVNode(options, store);
 
