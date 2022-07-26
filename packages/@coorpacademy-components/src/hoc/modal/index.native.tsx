@@ -7,7 +7,7 @@ export type Props = {
   children: React.ReactNode;
   headerBackgroundColor?: string;
   iconBackgroundColor?: string;
-  renderIcon?: () => React.ReactNode;
+  renderIcon?: React.ReactNode;
   contentStyle?: ViewStyle;
   onClose: () => void;
   testID?: string;
@@ -134,7 +134,7 @@ const Modal = (props: Props) => {
       {renderIcon ? (
         <View style={styleSheet.icon}>
           <View style={[styleSheet.iconContent, {backgroundColor: iconBackgroundColor}]}>
-            {renderIcon()}
+            {renderIcon}
           </View>
         </View>
       ) : null}
