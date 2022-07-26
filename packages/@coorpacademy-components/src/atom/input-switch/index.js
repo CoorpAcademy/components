@@ -44,7 +44,7 @@ const InputSwitch = props => {
         disabled={isDisabled}
         className={style.checkbox}
       />
-      <label htmlFor={idSwitch} />
+      <label htmlFor={idSwitch} data-name="input-switch-label" />
       {titlePosition === 'right' ? titleView : null}
       {descriptionView}
     </div>

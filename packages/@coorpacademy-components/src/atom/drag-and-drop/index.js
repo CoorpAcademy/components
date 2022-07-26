@@ -181,6 +181,7 @@ class DragAndDrop extends React.Component {
               disabled && style.disabled
             )}
             id={idBox}
+            data-name="drag-and-drop-box"
           >
             <div className={style.infosContainer}>
               {error ? (
