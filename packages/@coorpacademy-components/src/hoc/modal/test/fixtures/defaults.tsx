@@ -5,9 +5,7 @@ import {Props} from '../../index.native';
 type Fixture = {children: ReactNode; props: Props};
 
 const fixture: Fixture = {
-  props: {
-    // analyticsID: 'fake-touchable',
-  },
+  props: {},
   children: <Text>Some content</Text>
 };
 

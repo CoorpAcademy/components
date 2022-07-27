@@ -7,7 +7,6 @@ type Fixture = {children: ReactNode; props: Props};
 
 const fixture: Fixture = {
   props: {
-    // analyticsID: 'fake-touchable',
     renderIcon: <RingPlanet color="#f00" height={60} width={60} />,
     headerBackgroundColor: 'rgba(0, 128, 0, 0.2)',
     iconBackgroundColor: 'rgba(0, 128, 0, 0.2)'
