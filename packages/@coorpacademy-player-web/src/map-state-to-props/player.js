@@ -34,7 +34,7 @@ const playerProps = (options, store) => {
   const createHeaderStateToProps_ = createHeaderStateToProps(options, store);
 
   return state => {
-    const {translate} = options;
+    const {translate, services} = options;
     const {dispatch} = store;
 
     const engineConfig = getEngineConfig(state);
@@ -95,14 +95,15 @@ const playerProps = (options, store) => {
         selected: route === 'clue',
         disabled: !hasClue,
         onClick: clickClueHandler
-      },
-      {
+      }
+    ];
+    services?.Coach &&
+      buttons.push({
         title: translate('Coach'),
         type: 'coach',
         disabled: availableCoaches === 0,
         onClick: () => dispatch(startChat())
-      }
-    ];
+      });
     const headerProps = createHeaderStateToProps_(state);
 
     if (!includes(route, ROUTES)) {

@@ -2,9 +2,23 @@ import test from 'ava';
 import {map, get, isEmpty, set, pipe, fromPairs, isFunction, identity, omit} from 'lodash/fp';
 
 import {mockTranslate} from '@coorpacademy/translate';
+import {
+  Analytics as AnalyticsService,
+  Answers as AnswersService,
+  Clues as CluesService,
+  Coach as CoachService,
+  Comments as CommentsService,
+  Content as ContentService,
+  ExitNodes as ExitNodesService,
+  LeaderBoard as LeaderBoardService,
+  Location as LocationService,
+  Progressions as ProgressionsService,
+  Recommendations as RecommendationsService
+} from '@coorpacademy/player-services';
 import {UI_SELECT_ROUTE} from '@coorpacademy/player-store';
 import createPlayer from '../player';
 import createHeader from '../header';
+import * as fixtures from '../../../sandbox/fixtures';
 import learnerProgressionStateFixture from './fixtures/progression-learner';
 import plopSlide from './fixtures/slides/plop';
 import basicSlide from './fixtures/slides/basic';
@@ -14,7 +28,22 @@ import qcmSlide from './fixtures/slides/qcm';
 import qcmDragSlide from './fixtures/slides/qcm-drag';
 import qcmGraphicSlide from './fixtures/slides/qcm-graphic';
 
-export const options = {translate: mockTranslate};
+const services = {
+  Analytics: AnalyticsService,
+  Answers: AnswersService(fixtures),
+  Clues: CluesService(fixtures),
+  Coach: CoachService,
+  Comments: CommentsService,
+  Content: ContentService(fixtures),
+  ExitNodes: ExitNodesService(fixtures),
+  LeaderBoard: LeaderBoardService,
+  Location: LocationService,
+  Logger: console,
+  Progressions: ProgressionsService(fixtures),
+  Recommendations: RecommendationsService(fixtures)
+};
+
+export const options = {translate: mockTranslate, services};
 export const store = {dispatch: identity};
 const createPlayerProps = createPlayer(options, store);
 const createHeaderProps = createHeader(options, store);
