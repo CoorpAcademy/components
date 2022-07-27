@@ -18,6 +18,7 @@ import {
 import {UI_SELECT_ROUTE} from '@coorpacademy/player-store';
 import createPlayer from '../player';
 import createHeader from '../header';
+import * as fixtures from '../../../sandbox/fixtures';
 import learnerProgressionStateFixture from './fixtures/progression-learner';
 import plopSlide from './fixtures/slides/plop';
 import basicSlide from './fixtures/slides/basic';
@@ -26,7 +27,6 @@ import templateSlide from './fixtures/slides/template';
 import qcmSlide from './fixtures/slides/qcm';
 import qcmDragSlide from './fixtures/slides/qcm-drag';
 import qcmGraphicSlide from './fixtures/slides/qcm-graphic';
-import * as fixtures from '../../../sandbox/fixtures';
 
 const services = {
   Analytics: AnalyticsService,
@@ -43,7 +43,7 @@ const services = {
   Recommendations: RecommendationsService(fixtures)
 };
 
-export const options = {translate: mockTranslate, services: services};
+export const options = {translate: mockTranslate, services};
 export const store = {dispatch: identity};
 const createPlayerProps = createPlayer(options, store);
 const createHeaderProps = createHeader(options, store);
