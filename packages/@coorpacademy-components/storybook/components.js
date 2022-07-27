@@ -202,6 +202,7 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppPlayerPopinNoAccess from './../src/template/app-player/popin-no-access';
 import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
 import TemplateAppReviewOnboarding from './../src/template/app-review/onboarding';
 import TemplateAppReviewSkills from './../src/template/app-review/skills';
@@ -567,6 +568,7 @@ import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
+import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/no-access';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
@@ -1138,6 +1140,7 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppPlayerPopinNoAccessFixtureDefault from '../src/template/app-player/popin-no-access/test/fixtures/default';
 import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
@@ -1479,7 +1482,8 @@ export const components = {
     TemplateAppPlayerPlayer,
     TemplateAppPlayerPopinCorrection,
     TemplateAppPlayerPopinEnd,
-    TemplateAppPlayerPopinHeader
+    TemplateAppPlayerPopinHeader,
+    TemplateAppPlayerPopinNoAccess
   },
   TemplateAppPlayerPlayerSlides: {
     TemplateAppPlayerPlayerSlidesFooter,
@@ -2017,6 +2021,7 @@ export const fixtures = {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
       Go1Popin: MoleculeCmPopinFixtureGo1Popin,
+      NoAccess: MoleculeCmPopinFixtureNoAccess,
       WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
     },
     MoleculeCookieBanner: {
@@ -2833,6 +2838,9 @@ export const fixtures = {
       NextChapter: TemplateAppPlayerPopinHeaderFixtureNextChapter,
       StarsRank: TemplateAppPlayerPopinHeaderFixtureStarsRank,
       Success: TemplateAppPlayerPopinHeaderFixtureSuccess
+    },
+    TemplateAppPlayerPopinNoAccess: {
+      Default: TemplateAppPlayerPopinNoAccessFixtureDefault
     }
   },
   TemplateAppPlayerPlayerSlides: {
