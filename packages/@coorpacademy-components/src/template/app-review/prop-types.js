@@ -7,7 +7,8 @@ import Slides from './slides';
 export const ViewNames = {
   skills: 'skills',
   onboarding: 'onboarding',
-  slides: 'slides'
+  slides: 'slides',
+  default: 'loader'
 };
 
 export default {

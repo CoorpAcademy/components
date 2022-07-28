@@ -7,7 +7,7 @@ export const slide: UISlide = {
     help: '__help',
     model: {
       type: 'qcm',
-      choices: [
+      answers: [
         {
           selected: false,
           title: 'choix1',

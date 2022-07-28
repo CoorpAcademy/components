@@ -5,6 +5,8 @@ import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
 
+import isEmpty from 'lodash/fp/isEmpty';
+import get from 'lodash/fp/get';
 import configureStore from './configure-store';
 import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
@@ -25,7 +27,7 @@ import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
 
 type StaticProps = {
-  viewName: 'skills' | 'onboarding' | 'slides';
+  viewName: 'skills' | 'onboarding' | 'slides' | 'loader';
   slides: SlidesViewStaticProps | null;
   skills: SkillsProps | null;
 };
@@ -113,6 +115,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
+  const [isSlideFetched, setIsSlideFetched] = useState(false);
 
   useEffect(() => {
     if (store) return;
@@ -122,30 +125,51 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   }, [options, store]);
 
   useEffect(() => {
-    if (store === null) return;
+    if (!store || isSlideFetched) return;
 
-    const {skillRef} = options;
-    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
-    store.dispatch(navigateTo(initialView));
-  }, [options, store]);
+    return store.subscribe(() => {
+      const isSlidePresent = !isEmpty(store.getState().data.slides[0].questionText);
+      return isSlidePresent && setIsSlideFetched(isSlidePresent);
+    }); // using the first slide questionText for now, should only check for a slide's presence
+    // when the refactor is done (slides will be feed one by one on api's side)
+  }, [isSlideFetched, options, store]);
 
   useEffect(() => {
-    if (store === null) return;
-
-    const {token} = options;
+    const token = get('token', options);
+    if (store === null || isEmpty(token)) return;
     store.dispatch(storeToken(token));
   }, [options, store]);
 
   useEffect(() => {
-    if (store === null) return;
+    const token = get('token', options);
+    if (store === null || isEmpty(token)) return;
 
-    const {skillRef, token} = options;
+    const skillRef = get('skillRef', options);
+
     // ThunkAction is not assignable to parameter of type 'AnyAction'
     // ts problem describre here = https://github.com/reduxjs/redux-thunk/issues/333
     skillRef
       ? store.dispatch(postProgression(skillRef, token))
       : store.dispatch(fetchSkills(token));
   }, [options, store]);
+
+  useEffect(() => {
+    if (store === null) return;
+
+    const {skillRef} = options;
+
+    if (skillRef && !isSlideFetched) {
+      store.dispatch(navigateTo('loader')); // use loader while posting progression
+      return;
+    }
+
+    // TODO: when slides state is refactored (data + mapping),
+    // use loader in case a skillRef is found && no slides from the API
+    // are found
+
+    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
+    store.dispatch(navigateTo(initialView));
+  }, [isSlideFetched, options, store]);
 
   if (!store) return null;
 
