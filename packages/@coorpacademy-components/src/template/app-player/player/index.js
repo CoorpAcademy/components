@@ -8,16 +8,13 @@ const SlidePlayer = props => {
   const {player, popinError} = props;
   const backgroundImage = player.backgroundUrl ? `url(${player.backgroundUrl})` : null;
   return (
-    <>
-      {popinError ? <CMPopin {...popinError} /> : null}
       <div data-name="slidePlayer" className={style.wrapper}>
         <div className={style.playerWrapper}>
           <div className={style.playerBackground} style={{backgroundImage}} />
           <SlidesPlayer {...player} />
-          <CMPopin {...popinError} />
+          {popinError ? <CMPopin {...popinError} /> : null}
         </div>
       </div>
-    </>
   );
 };
 
