@@ -5,14 +5,14 @@ import SlidesPlayer from './slides';
 import style from './style.css';
 
 const SlidePlayer = props => {
-  const {player, popinError} = props;
+  const {player, popin} = props;
   const backgroundImage = player.backgroundUrl ? `url(${player.backgroundUrl})` : null;
   return (
     <div data-name="slidePlayer" className={style.wrapper}>
       <div className={style.playerWrapper}>
         <div className={style.playerBackground} style={{backgroundImage}} />
         <SlidesPlayer {...player} />
-        {popinError ? <CMPopin {...popinError} /> : null}
+        {popin ? <CMPopin {...popin} /> : null}
       </div>
     </div>
   );
@@ -20,7 +20,7 @@ const SlidePlayer = props => {
 
 SlidePlayer.propTypes = {
   player: PropTypes.shape(SlidesPlayer.propTypes),
-  popinError: PropTypes.shape(CMPopin.propTypes)
+  popin: PropTypes.shape(CMPopin.propTypes)
 };
 
 export default SlidePlayer;

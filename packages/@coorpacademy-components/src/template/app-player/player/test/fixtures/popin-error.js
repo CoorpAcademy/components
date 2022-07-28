@@ -1,12 +1,12 @@
 import defaultSlide from '../../slides/test/fixtures/default';
-import popin from '../../../../../molecule/cm-popin/test/fixtures/error-with-close';
+import popinError from '../../../../../molecule/cm-popin/test/fixtures/error-with-close';
 
 const playerProps = defaultSlide.props;
-const popinError = popin.props;
+const popin = popinError.props;
 
 export default {
   props: {
     player: playerProps,
-    popinError
+    popin
   }
 };
