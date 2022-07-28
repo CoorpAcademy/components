@@ -567,10 +567,10 @@ import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-b
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
+import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
 import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
 import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/no-access';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
-import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
 import MoleculeCourseSectionFixtureAdvancedLevel from '../src/molecule/course-section/test/fixtures/advanced-level';
@@ -2021,10 +2021,10 @@ export const fixtures = {
     MoleculeCmPopin: {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
+      ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose,
       Go1Popin: MoleculeCmPopinFixtureGo1Popin,
       NoAccess: MoleculeCmPopinFixtureNoAccess,
-      WarningWithClose: MoleculeCmPopinFixtureWarningWithClose,
-      ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose
+      WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
