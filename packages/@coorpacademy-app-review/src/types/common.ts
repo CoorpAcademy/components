@@ -7,17 +7,81 @@ type TemplateContextValues = {
   translations?: unknown; // TODO type Translations
 };
 
-export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
+// TODO: EDIT_CHOICES -> specify typing
+export type ChoiceFromAPI = {
+  _id: string;
+  id?: string;
+  value?: string;
+  name?: string;
+  type?: 'text' | 'select';
+  label?: string;
+  items: {text: string; value: string; _id: string}[];
+  media?: unknown;
+};
+
+type BaseContent = {
+  media?: unknown;
+  choices: ChoiceFromAPI[];
+};
+
+type Question = {
+  header?: string;
+  content: BaseContent;
+  explanation?: string;
+};
+
+export type QcmQuestion = Question & {
+  type: 'qcm';
+};
+
+export type QcmGraphicQuestion = Question & {
+  type: 'qcmGraphic';
+};
+
+export type QcmDragQuestion = Question & {
+  type: 'qcmDrag';
+};
+
+export type BasicQuestion = Omit<Question, 'content'> & {
+  type: 'basic';
+  content: Omit<BaseContent, 'choices'> & {
+    label?: string;
+    placeholder?: string;
+    id: string;
+  };
+};
+
+export type SliderQuestion = Omit<Question, 'content'> & {
+  content: Omit<BaseContent, 'choices'> & {
+    unitLabel: string;
+    min: number;
+    max: number;
+    step?: number;
+  };
+  type: 'slider';
+};
+
+export type TemplateQuestion = Omit<Question, 'content'> & {
+  content: BaseContent & {
+    template: string;
+  };
+  type: 'template';
+};
 
 export type SlideFromAPI = {
-  question: {
-    content: {
-      choices: Record<string, unknown>[];
-    };
-    type: QuestionType;
-  };
+  question:
+    | QcmQuestion
+    | QcmGraphicQuestion
+    | QcmDragQuestion
+    | BasicQuestion
+    | SliderQuestion
+    | TemplateQuestion;
   klf: string;
   universalRef: string;
+  tips?: string;
+  clue?: string;
+  hasClue?: boolean;
+  id?: string;
 };
 
 export type ProgressionFromAPI = {

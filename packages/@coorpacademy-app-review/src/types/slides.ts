@@ -1,9 +1,10 @@
 export type Choice = {
   order?: number;
   selected: boolean;
-  title: string;
-  help: string;
+  title?: string;
+  help?: string;
   onClick: Function;
+  ariaLabel?: string;
 };
 
 export type QcmDrag = {
@@ -14,20 +15,20 @@ export type QcmDrag = {
 
 export type Qcm = {
   type: 'qcm';
-  choices: (Choice & {ariaLabel: string})[];
+  answers: Choice[];
 };
 
 export type QcmGraphic = {
   type: 'qcmGraphic';
-  choices: (Choice & {image: string})[];
+  answers: (Choice & {image: string})[];
 };
 
 export type FreeText = {
   type: 'freeText';
   placeholder: string;
-  value: string;
+  value?: string;
   onChange: Function;
-  ariaLabel: string;
+  ariaLabel?: string;
 };
 
 export type DropDownOption = {
@@ -39,9 +40,9 @@ export type DropDownOption = {
 
 export type DropDown = {
   type: 'dropDown';
-  onChange: Function;
+  onChange?: Function;
   options: DropDownOption[];
-  theme:
+  theme?:
     | 'filter'
     | 'invalid'
     | 'header'
@@ -56,19 +57,35 @@ export type DropDown = {
 
 export type QuestionRange = {
   type: 'slider';
-  onChange: Function;
-  onChangeEnd: Function;
-  multi: boolean;
+  placeholder?: string;
+  onChange?: Function;
+  onChangeEnd?: Function;
+  multi?: boolean;
   value: number | number[];
   title: string;
   minLabel: string;
   maxLabel: string;
 };
 
+export type TextTemplate = {
+  type: 'text';
+  name: string;
+  placeholder: string;
+  value?: string;
+  onChange: Function;
+};
+
+export type SelectionTemplate = {
+  type: 'select';
+  name: string;
+  onChange?: Function;
+  options?: DropDownOption[];
+};
+
 export type Template = {
   type: 'template';
   template: string;
-  choices: (DropDown & {type?: string})[];
+  answers: (TextTemplate | SelectionTemplate)[];
 };
 
 export type AnswerUI = {

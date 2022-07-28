@@ -13,7 +13,6 @@
 *.sh
 tmp
 **/zip
-**/test/**/fixtures/**
 tsconfig*.json
 **/commands/**
 ava.config.js
