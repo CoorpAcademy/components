@@ -55,7 +55,7 @@ const CMPopin = props => {
             {content ? (
               <p
                 className={mode === 'alert' ? style.content : style.message}
-                data-name={`cm-popin-content`}
+                data-name={'cm-popin-content'}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{__html: content}}
               />
@@ -75,7 +75,7 @@ const CMPopin = props => {
               <Cta
                 label={firstButton.label}
                 onClick={firstButton.handleOnclick}
-                data-name={`cm-popin-cta`}
+                data-name={'cm-popin-cta'}
                 aria-label={firstButton['aria-label']}
                 type={firstButton.type}
               />
