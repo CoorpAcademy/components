@@ -44,7 +44,8 @@ export type QcmDragQuestion = Question & {
 
 export type BasicQuestion = Omit<Question, 'content'> & {
   type: 'basic';
-  content: Omit<BaseContent, 'choices'> & {
+  content: {
+    media?: unknown;
     label?: string;
     placeholder?: string;
     id: string;
@@ -52,7 +53,8 @@ export type BasicQuestion = Omit<Question, 'content'> & {
 };
 
 export type SliderQuestion = Omit<Question, 'content'> & {
-  content: Omit<BaseContent, 'choices'> & {
+  content: {
+    media?: unknown;
     unitLabel: string;
     min: number;
     max: number;
