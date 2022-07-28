@@ -8,7 +8,7 @@ export default {
       largeButton: true,
       label: 'Reload',
       type: 'primary',
-      'aria-label': 'Save and quit',
+      'aria-label': 'Reload',
       handleOnClick: () => {}
     },
     onClose: () => console.log('onClose')
