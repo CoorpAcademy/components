@@ -1089,6 +1089,7 @@ import TemplateAppPlayerPlayerFixtureMediaOmniPlayer from '../src/template/app-p
 import TemplateAppPlayerPlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
 import TemplateAppPlayerPlayerFixtureNoClue from '../src/template/app-player/player/test/fixtures/no-clue';
 import TemplateAppPlayerPlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
+import TemplateAppPlayerPlayerFixturePopinError from '../src/template/app-player/player/test/fixtures/popin-error';
 import TemplateAppPlayerPlayerFixtureQcmDrag from '../src/template/app-player/player/test/fixtures/qcm-drag';
 import TemplateAppPlayerPlayerFixtureQcmGraphic from '../src/template/app-player/player/test/fixtures/qcm-graphic';
 import TemplateAppPlayerPlayerFixtureQcmShort from '../src/template/app-player/player/test/fixtures/qcm-short';
@@ -2782,6 +2783,7 @@ export const fixtures = {
       Media: TemplateAppPlayerPlayerFixtureMedia,
       NoClue: TemplateAppPlayerPlayerFixtureNoClue,
       OnlyClue: TemplateAppPlayerPlayerFixtureOnlyClue,
+      PopinError: TemplateAppPlayerPlayerFixturePopinError,
       QcmDrag: TemplateAppPlayerPlayerFixtureQcmDrag,
       QcmGraphic: TemplateAppPlayerPlayerFixtureQcmGraphic,
       QcmShort: TemplateAppPlayerPlayerFixtureQcmShort,
