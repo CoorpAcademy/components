@@ -82,12 +82,12 @@ const CMPopin = props => {
             </div>
           ) : null}
           {secondButton ? (
-            <div className={style.button}>
+            <div className={secondButton.largeButton ? style.largeButton : style.button}>
               <Cta
                 label={secondButton.label}
                 onClick={secondButton.handleOnclick}
                 data-name={`cm-popin-cta-${secondButton.type}`}
-                aria-label={firstButton['aria-label']}
+                aria-label={secondButton['aria-label']}
                 type={secondButton.type}
               />
             </div>
@@ -112,7 +112,8 @@ CMPopin.propTypes = {
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary']),
-    'aria-label': PropTypes.string
+    'aria-label': PropTypes.string,
+    largeButton: PropTypes.boolean
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,

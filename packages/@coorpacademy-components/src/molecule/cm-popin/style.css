@@ -112,6 +112,11 @@
   padding: 8px;
 }
 
+.largeButton {
+  width: 338px;
+  padding: 8px;
+}
+
 .icon {
   width: 60px;
   height: 60px;
