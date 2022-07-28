@@ -38,10 +38,8 @@ import {
 type UiUtils = {translate: (text: string) => string};
 
 const qcmProps = (question: QcmQuestion): Qcm => {
-  // mock the answers
   // TODO: EDIT_CHOICES -> getAnswerValues
   const answers: string[] = [];
-  // const answers =  getOr({}, ['ui', 'answers'])(state);
 
   return {
     type: 'qcm',
@@ -49,7 +47,6 @@ const qcmProps = (question: QcmQuestion): Qcm => {
       choice => ({
         title: choice.label,
         selected: includes(choice.label, answers),
-        // help: choice.help,
         // TODO: EDIT_CHOICES
         onClick: noop,
         ariaLabel: choice.label
