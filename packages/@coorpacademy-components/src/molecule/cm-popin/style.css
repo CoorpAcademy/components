@@ -29,6 +29,7 @@
   overflow: hidden;
   display: flex;
   position:fixed;
+  z-index: 3;
 }
 
 .headerBackground {
@@ -109,6 +110,11 @@
 
 .button {
   width: 160px;
+  padding: 8px;
+}
+
+.largeButton {
+  width: 338px;
   padding: 8px;
 }
 

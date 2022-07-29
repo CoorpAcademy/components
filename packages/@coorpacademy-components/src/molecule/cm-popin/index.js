@@ -35,7 +35,7 @@ const CMPopin = props => {
     : null;
 
   return (
-    <div className={style.background} style={backgroundImageStyle}>
+    <div className={style.background} style={backgroundImageStyle} data-name={'cm-popin-container'}>
       <div className={style.popin}>
         <header className={style.popinHeader}>
           {header ? <img className={style.headerBackground} src={header} /> : null}
@@ -55,7 +55,7 @@ const CMPopin = props => {
             {content ? (
               <p
                 className={mode === 'alert' ? style.content : style.message}
-                data-name={`cm-popin-content`}
+                data-name={'cm-popin-content'}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{__html: content}}
               />
@@ -75,19 +75,19 @@ const CMPopin = props => {
               <Cta
                 label={firstButton.label}
                 onClick={firstButton.handleOnclick}
-                data-name={`cm-popin-cta`}
+                data-name={'cm-popin-cta'}
                 aria-label={firstButton['aria-label']}
                 type={firstButton.type}
               />
             </div>
           ) : null}
           {secondButton ? (
-            <div className={style.button}>
+            <div className={secondButton.largeButton ? style.largeButton : style.button}>
               <Cta
                 label={secondButton.label}
                 onClick={secondButton.handleOnclick}
                 data-name={`cm-popin-cta-${secondButton.type}`}
-                aria-label={firstButton['aria-label']}
+                aria-label={secondButton['aria-label']}
                 type={secondButton.type}
               />
             </div>
@@ -112,7 +112,8 @@ CMPopin.propTypes = {
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary']),
-    'aria-label': PropTypes.string
+    'aria-label': PropTypes.string,
+    largeButton: PropTypes.boolean
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,

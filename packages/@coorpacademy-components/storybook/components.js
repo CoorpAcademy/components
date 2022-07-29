@@ -567,6 +567,7 @@ import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-b
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
+import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
 import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
 import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/no-access';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
@@ -1088,6 +1089,7 @@ import TemplateAppPlayerPlayerFixtureMediaOmniPlayer from '../src/template/app-p
 import TemplateAppPlayerPlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
 import TemplateAppPlayerPlayerFixtureNoClue from '../src/template/app-player/player/test/fixtures/no-clue';
 import TemplateAppPlayerPlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
+import TemplateAppPlayerPlayerFixturePopinError from '../src/template/app-player/player/test/fixtures/popin-error';
 import TemplateAppPlayerPlayerFixtureQcmDrag from '../src/template/app-player/player/test/fixtures/qcm-drag';
 import TemplateAppPlayerPlayerFixtureQcmGraphic from '../src/template/app-player/player/test/fixtures/qcm-graphic';
 import TemplateAppPlayerPlayerFixtureQcmShort from '../src/template/app-player/player/test/fixtures/qcm-short';
@@ -2020,6 +2022,7 @@ export const fixtures = {
     MoleculeCmPopin: {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
+      ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose,
       Go1Popin: MoleculeCmPopinFixtureGo1Popin,
       NoAccess: MoleculeCmPopinFixtureNoAccess,
       WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
@@ -2780,6 +2783,7 @@ export const fixtures = {
       Media: TemplateAppPlayerPlayerFixtureMedia,
       NoClue: TemplateAppPlayerPlayerFixtureNoClue,
       OnlyClue: TemplateAppPlayerPlayerFixtureOnlyClue,
+      PopinError: TemplateAppPlayerPlayerFixturePopinError,
       QcmDrag: TemplateAppPlayerPlayerFixtureQcmDrag,
       QcmGraphic: TemplateAppPlayerPlayerFixtureQcmGraphic,
       QcmShort: TemplateAppPlayerPlayerFixtureQcmShort,
