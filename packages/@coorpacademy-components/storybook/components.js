@@ -180,6 +180,7 @@ import OrganismListItems from './../src/organism/list-items';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
+import OrganismPlayerResult from './../src/organism/player-scorm-result';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismReviewCongrats from './../src/organism/review-congrats';
@@ -959,6 +960,8 @@ import OrganismMoocHeaderFixtureOnHeaderActionHandlers from '../src/organism/moo
 import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
+import OrganismPlayerResultFixtureFail from '../src/organism/player-scorm-result/test/fixtures/fail';
+import OrganismPlayerResultFixtureSuccess from '../src/organism/player-scorm-result/test/fixtures/success';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
 import OrganismResourceBrowserFixtureAudio from '../src/organism/resource-browser/test/fixtures/audio';
@@ -1454,6 +1457,7 @@ export const components = {
     OrganismListItems,
     OrganismMoocFooter,
     OrganismMoocHeader,
+    OrganismPlayerResult,
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismReviewCongrats,
@@ -2628,6 +2632,10 @@ export const fixtures = {
       TeamsFrench: OrganismMoocHeaderFixtureTeamsFrench,
       Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
+    },
+    OrganismPlayerResult: {
+      Fail: OrganismPlayerResultFixtureFail,
+      Success: OrganismPlayerResultFixtureSuccess
     },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault
