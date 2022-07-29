@@ -35,7 +35,7 @@ const CMPopin = props => {
     : null;
 
   return (
-    <div className={style.background} style={backgroundImageStyle}>
+    <div className={style.background} style={backgroundImageStyle} data-name={'cm-popin-container'}>
       <div className={style.popin}>
         <header className={style.popinHeader}>
           {header ? <img className={style.headerBackground} src={header} /> : null}
