@@ -2,7 +2,7 @@ import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
-import ModalSelectItem from '../../../../atom/text/index.native';
+import ModalSelectItem from '../index.native';
 
 test('should handle press', t => {
   const handlePress = (event: PressEvent) => {
