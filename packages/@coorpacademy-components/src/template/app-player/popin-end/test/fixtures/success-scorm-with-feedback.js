@@ -1,11 +1,10 @@
 import {defaultsDeep} from 'lodash/fp';
-import Card from '../../../../../molecule/card/test/fixtures/default';
-import correct from './with-recommendations';
+import correct from './scorm-correct';
 
 export default defaultsDeep(correct, {
   props: {
+    mode: 'scorm',
     summary: {
-      Mode: 'scorm',
       feedback: {
         type: 'success',
         title: 'VOTRE ATOUT SÉDUCTION: LA VIVACITÉ D’ESPRIT (MAJORITÉ DE C).',
@@ -19,20 +18,6 @@ export default defaultsDeep(correct, {
                 'http://www.sommeildavantage.com/img/fauteuil-massage/bienfaits/fauteuil-massage-bienfaits-esprit-vivacite-esprit.jpg'
             }
           ]
-        }
-      },
-      action: {
-        type: 'nextCourse',
-        prefix: 'Next chapter:',
-        title: 'Le prochain chapitre qui a un titre vraiment trop long',
-        card: Card.props
-      },
-      header: {
-        type: 'popinEnd',
-        cta: {
-          title: 'Home',
-          type: 'home',
-          href: '#'
         }
       }
     }

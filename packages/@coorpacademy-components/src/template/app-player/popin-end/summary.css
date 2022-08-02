@@ -253,6 +253,64 @@
   margin: 0;
 }
 
+.smallCricle {
+  height: calc(100vh + 136px);
+  width: calc(100vh + 136px);
+  border-radius: 50%;
+  border: 1px solid light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mediumCricle {
+  height: calc(100vh + 386px);
+  width: calc(100vh + 386px);
+  border-radius: 50%;
+  border: 1px solid light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.largeCricle {
+  height: calc(100vh + 636px);
+  width: calc(100vh + 636px);
+  border-radius: 50%;
+  border: 1px solid light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.organismPlayerResultContainerScorm {
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.lottie {
+  display: flex;
+  height: 135%;
+  width: 135%;
+  transform: translate(-13%, -13%);
+}
+.animationContainer {
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+.ie11Backup {
+  position: relative;
+  transform: translate(0%, 10%);
+  height: 80%;
+  width: 80%;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+
 @media mobile {
   .commentSection {
     flex-direction: column;
@@ -263,6 +321,17 @@
   .commentSectionTexts {
     text-align: center;
     width: 100%;
+  }
+}
+@media tablet {
+  .organismPlayerResultContainerScorm {
+    height: 100%;
+  }
+  .largeCricle , .mediumCricle, .smallCricle {
+    border: 0px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
   }
 }
 

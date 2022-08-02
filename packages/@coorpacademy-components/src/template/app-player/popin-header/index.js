@@ -16,7 +16,9 @@ import {
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
-  NovaCompositionCoorpacademyStar as StarIcon
+  NovaCompositionCoorpacademyStar as StarIcon,
+  NovaCompositionCoorpacademyCheck as CheckIcon,
+  NovaSolidStatusClose as Close
 } from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
 import Loader from '../../../atom/loader';
@@ -184,8 +186,9 @@ IconsPart.propTypes = {
   revival: PropTypes.bool
 };
 
-const buildClass = (value, success, failed, loading) => {
+const buildClass = (value, success, failed, loading, mode, scormStyle) => {
   if (loading && isNil(value)) return loading;
+  if (mode === 'scorm') return scormStyle;
   return value ? failed : success;
 };
 
@@ -198,28 +201,63 @@ const getLinkStyle = ({gameOver, extraLifeGranted}) => {
     return null;
   }
 };
-
+const renderIconStatusScorm = failed => {
+  return (
+    <div className={failed ? style.iconCloseContainer : style.iconSuccessContainer}>
+      {failed ? <Close className={style.failIcon} /> : <CheckIcon className={style.checkIcon} />}
+    </div>
+  );
+};
+const buildDefaultOrScormStyle = (defaultStyle, mode, styleScorm, failed, failedStyle = null) => {
+  if (mode === 'scorm' && failed && failedStyle) return failedStyle;
+  if (mode === 'scorm') return styleScorm;
+  return defaultStyle;
+};
 const CorrectionPart = props => {
-  const {failed, corrections, title, subtitle, stars, rank, gameOver} = props;
+  const {failed, corrections, title, subtitle, stars, rank, gameOver, mode} = props;
   const isLoading = isNil(failed);
   const className = buildClass(
     failed,
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
     gameOver ? style.correctionSectionFailGameOver : style.correctionSectionFail,
-    style.correctionSectionLoading
+    style.correctionSectionLoading,
+    mode,
+    style.resultContenantContainerScorm
   );
-
   return (
     <div data-name="correctionSection" className={className}>
-      <div className={style.titlesWrapper}>
+      {mode === 'scorm' && renderIconStatusScorm(failed)}
+      <div
+        className={buildDefaultOrScormStyle(
+          style.titlesWrapper,
+          mode,
+          style.titlesWrapperScorm,
+          failed
+        )}
+      >
         {isLoading ? <Loader /> : null}
         <h1
           data-name="title"
-          className={classnames(style.title, innerHTML)}
+          className={buildDefaultOrScormStyle(
+            classnames(style.title, innerHTML),
+            mode,
+            style.resultTitleScorm,
+            failed
+          )}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
         />
-        <h2 className={style.subtitle}>{subtitle}</h2>
+        <h2
+          className={buildDefaultOrScormStyle(
+            style.subtitle,
+            mode,
+            style.resultSubtitleScorm,
+            failed,
+            style.statusPlayerResultFailScorm
+          )}
+        >
+          {subtitle}
+        </h2>
         {failed && !isEmpty(corrections) ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
       <IconsPart {...props} />
@@ -324,7 +362,8 @@ const PopinHeader = (props, context) => {
     cta,
     extraLifeGranted,
     gameOver = false,
-    type
+    type,
+    mode
   } = props;
 
   const state = buildClass(failed, 'success', 'failed', null);
@@ -346,7 +385,7 @@ const PopinHeader = (props, context) => {
       data-name="popinHeader"
       data-state={state}
     >
-      <div className={style.headerTitle}>
+      <div className={!(mode === 'scorm') && style.headerTitle}>
         <CorrectionPart
           title={title}
           subtitle={subtitle}
@@ -358,6 +397,7 @@ const PopinHeader = (props, context) => {
           gameOver={gameOver}
           revival={extraLifeGranted}
           corrections={corrections}
+          mode={mode}
         />
         {nextLink}
       </div>
@@ -381,7 +421,8 @@ PopinHeader.propTypes = {
   animated: CorrectionPart.propTypes.animated,
   stars: CorrectionPart.propTypes.stars,
   rank: CorrectionPart.propTypes.rank,
-  corrections: CorrectionPart.propTypes.corrections
+  corrections: CorrectionPart.propTypes.corrections,
+  mode: PropTypes.string
 };
 
 export default PopinHeader;

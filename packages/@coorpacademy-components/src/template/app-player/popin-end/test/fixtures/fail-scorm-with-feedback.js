@@ -3,20 +3,13 @@ import loading from './loading';
 
 export default defaultsDeep(loading, {
   props: {
+    mode: 'scorm',
     summary: {
-      mode: 'scorm',
       header: {
         type: 'popinEnd',
         title: 'Ooops...',
         subtitle: 'Almost, try again !',
-        failed: true,
-        cta: {title: 'Retry level'}
-      },
-      action: {
-        type: 'simple',
-        prefix: 'Retry level:',
-        title: 'Boussole managériale - Basic',
-        button: {title: 'Retry level'}
+        failed: true
       },
       feedback: {
         title: 'Encore un effort !',
@@ -31,9 +24,6 @@ export default defaultsDeep(loading, {
             '//static.coorpacademy.com/content/CoorpAcademy/content-iquera/cockpit-iqera/raw/iqera_feedback_boussole-manageriale_v2-1624461751676.pdf',
           src: []
         }
-      },
-      footer: {
-        title: 'Back to home'
       }
     }
   }

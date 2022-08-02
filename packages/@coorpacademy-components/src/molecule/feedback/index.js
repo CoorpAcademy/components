@@ -6,7 +6,7 @@ import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF, TYPE_AUDIO} from '../r
 import style from './style.css';
 
 const Feedback = (props, context) => {
-  const {media, mediaDescription, title, description} = props;
+  const {media, mediaDescription, title, description, mode} = props;
   const resource = media &&
     media.type && {
       ...media,
@@ -15,31 +15,33 @@ const Feedback = (props, context) => {
 
   return (
     (resource || title || description ? (
-      <div className={style.feedback} data-name="feedback">
-        <div
-          className={classnames(style.title, style.innerHTML)}
-          data-name="title"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: title}}
-        />
-        <div className={style.descWrapper}>
+      <div className={mode === 'scorm' && style.feedbackContainerScorm}>
+        <div className={style.feedback} data-name="feedback" id="feedback">
           <div
-            className={classnames(style.description, style.innerHTML)}
-            data-name="description"
+            className={classnames(style.title, style.innerHTML)}
+            data-name="title"
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: description}}
+            dangerouslySetInnerHTML={{__html: title}}
           />
-          {resource ? (
-            <div>
-              <ResourcePlayer className={style.resourcePlayer} resource={resource} />
-              <div
-                data-name="mediaDescription"
-                className={classnames(style.mediaDescription, style.innerHTML)}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{__html: mediaDescription}}
-              />
-            </div>
-          ) : null}
+          <div className={style.descWrapper}>
+            <div
+              className={classnames(style.description, style.innerHTML)}
+              data-name="description"
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: description}}
+            />
+            {resource ? (
+              <div>
+                <ResourcePlayer className={style.resourcePlayer} resource={resource} />
+                <div
+                  data-name="mediaDescription"
+                  className={classnames(style.mediaDescription, style.innerHTML)}
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{__html: mediaDescription}}
+                />
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
     ) : null) || ''

@@ -13,6 +13,8 @@ import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import {innerHTML} from '../../../atom/label/style.css';
 import PopinHeader from '../popin-header';
+import AtomLottieWrapper from '../../../atom/lottie-wrapper';
+import animationLottie from '../../../atom/lottie-wrapper/test/fixtures/confetti';
 import style from './summary.css';
 
 const Header = props => <PopinHeader {...props} />;
@@ -217,7 +219,7 @@ Footer.propTypes = {
 };
 
 const Summary = (props, context) => {
-  const {header, recommendation, comment, footer, action, feedback} = props;
+  const {header, recommendation, comment, footer, action, feedback, mode} = props;
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
   const commentView =
@@ -227,18 +229,54 @@ const Summary = (props, context) => {
       </div>
     ) : null;
   const footerView = footer && header ? <Footer {...footer} color={primary} /> : null;
-  const feedbackView = feedback ? <Feedback {...feedback} /> : null;
+  const feedbackView = feedback ? <Feedback {...feedback} mode={mode} /> : null;
 
   return (
-    <div className={style.summaryWrapper}>
-      <Header {...header} />
-      {feedbackView}
-      <Action {...action} color={primary} />
-      <Cards {...recommendation} />
-      {commentView}
-      {footerView}
-    </div>
+    <BackGroundScorm mode={mode} failed={header.failed}>
+      <div className={!(mode === 'scorm') && style.summaryWrapper}>
+        <Header {...header} mode={mode} />
+        {feedbackView}
+        <Action {...action} color={primary} />
+        <Cards {...recommendation} />
+        {commentView}
+        {footerView}
+      </div>
+    </BackGroundScorm>
   );
+};
+
+const BackGroundScorm = props => {
+  const {mode, children, failed} = props;
+  if (mode === 'scorm')
+    return (
+      <div className={style.organismPlayerResultContainerScorm}>
+        <div className={style.animationContainer}>
+          {!failed ? (
+            <AtomLottieWrapper
+              {...{
+                ...animationLottie.props,
+                width: undefined,
+                height: undefined
+              }}
+              loop={false}
+              animationControl={'play'}
+              autoplay
+              data-name="lottie-wrapper"
+              className={style.lottie}
+              backupImageClassName={style.ie11Backup}
+            />
+          ) : null}
+        </div>
+        <div>
+          <div className={style.largeCricle}>
+            <div className={style.mediumCricle}>
+              <div className={style.smallCricle}>{children}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  else return children;
 };
 
 Summary.contextTypes = {
@@ -257,7 +295,8 @@ Summary.propTypes = {
     type: PropTypes.oneOf(keys(actions)).isRequired
   }),
   recommendation: PropTypes.shape(CardsList.propTypes),
-  feedback: PropTypes.shape(Feedback.propTypes)
+  feedback: PropTypes.shape(Feedback.propTypes),
+  mode: PropTypes.string
 };
 
 export default Summary;
