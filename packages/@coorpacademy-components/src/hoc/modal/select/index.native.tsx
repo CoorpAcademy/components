@@ -46,8 +46,8 @@ const createStyleSheet = (theme: Theme) =>
     }
   });
 
-const keyExtractor = (item: ChoiceItem, index: number) => {
-  `modal-select-item-${index + 1}`;
+const keyExtractor = (item: ChoiceItem, index: number): string => {
+  return `modal-select-item-${index + 1}`;
 };
 
 const createRenderItem = (value: ChoiceValue, testID: String, onChange: Function) => ({
@@ -86,12 +86,16 @@ const ModalSelect = (props: Props) => {
     setStylesheet(_stylesheet);
   }, [theme]);
 
+  const renderItem = useMemo(() => createRenderItem(value, testID, onChange), [
+    value,
+    testID,
+    onChange
+  ]);
+  const renderSeparator = useMemo(() => createSeparator(styleSheet), [styleSheet]);
+
   if (!styleSheet) {
     return null;
   }
-
-  const renderItem = useMemo(createRenderItem(value, testID, onChange), [value, testID, onChange]);
-  const renderSeparator = useMemo(createSeparator(styleSheet), [styleSheet]);
 
   return (
     <Modal onClose={onClose} contentStyle={styleSheet?.content} testID={testID}>
