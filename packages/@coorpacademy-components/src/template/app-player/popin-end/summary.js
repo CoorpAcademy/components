@@ -14,7 +14,6 @@ import CardsList from '../../../molecule/dashboard/cards-list';
 import {innerHTML} from '../../../atom/label/style.css';
 import PopinHeader from '../popin-header';
 import AtomLottieWrapper from '../../../atom/lottie-wrapper';
-import animationLottie from '../../../atom/lottie-wrapper/test/fixtures/confetti';
 import style from './summary.css';
 
 const Header = props => <PopinHeader {...props} />;
@@ -253,11 +252,23 @@ const BackGroundScorm = props => {
         <div className={style.animationContainer}>
           {!failed ? (
             <AtomLottieWrapper
-              {...{
-                ...animationLottie.props,
-                width: undefined,
-                height: undefined
-              }}
+              {
+                ...{
+                  'aria-label': 'aria lottie',
+                  'data-name': 'default-lottie',
+                  className: undefined,
+                  animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
+                  loop: undefined,
+                  autoplay: true,
+                  rendererSettings: {
+                    hideOnTransparent: false,
+                    animationClassName: ''
+                  },
+                  ie11ImageBackup:
+                    'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
+                  animationControl: undefined
+                }
+              }
               loop={false}
               animationControl={'play'}
               autoplay
