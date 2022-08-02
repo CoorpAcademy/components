@@ -385,7 +385,7 @@ const PopinHeader = (props, context) => {
       data-name="popinHeader"
       data-state={state}
     >
-      <div className={!(mode === 'scorm') && style.headerTitle}>
+      <div className={mode !== 'scorm' ? style.headerTitle : null}>
         <CorrectionPart
           title={title}
           subtitle={subtitle}
@@ -422,7 +422,7 @@ PopinHeader.propTypes = {
   stars: CorrectionPart.propTypes.stars,
   rank: CorrectionPart.propTypes.rank,
   corrections: CorrectionPart.propTypes.corrections,
-  mode: PropTypes.string
+  mode: PropTypes.oneOf(['scorm'])
 };
 
 export default PopinHeader;

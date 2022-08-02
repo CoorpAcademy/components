@@ -15,7 +15,7 @@ const Feedback = (props, context) => {
 
   return (
     (resource || title || description ? (
-      <div className={mode === 'scorm' && style.feedbackContainerScorm}>
+      <div className={mode === 'scorm' ? style.feedbackContainerScorm : null}>
         <div className={style.feedback} data-name="feedback" id="feedback">
           <div
             className={classnames(style.title, style.innerHTML)}

@@ -232,7 +232,7 @@ const Summary = (props, context) => {
 
   return (
     <BackGroundScorm mode={mode} failed={header.failed}>
-      <div className={!(mode === 'scorm') && style.summaryWrapper}>
+      <div className={mode !== 'scorm' ? style.summaryWrapper : null}>
         <Header {...header} mode={mode} />
         {feedbackView}
         <Action {...action} color={primary} />
@@ -306,7 +306,7 @@ Summary.propTypes = {
   }),
   recommendation: PropTypes.shape(CardsList.propTypes),
   feedback: PropTypes.shape(Feedback.propTypes),
-  mode: PropTypes.string
+  mode: PropTypes.oneOf(['scorm'])
 };
 
 export default Summary;

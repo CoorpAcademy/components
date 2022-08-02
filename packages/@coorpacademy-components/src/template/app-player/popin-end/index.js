@@ -7,13 +7,13 @@ import style from './style.css';
 const Content = props => {
   const {mode} = props;
   return (
-    <div className={!(mode === 'scorm') && style.popinWrapper}>
+    <div className={mode !== 'scorm' ? style.popinWrapper : null}>
       <Summary {...props} />
     </div>
   );
 };
 Content.propTypes = {
-  mode: PropTypes.string
+  mode: PropTypes.oneOf(['scorm'])
 };
 
 const PopinEnd = props => {
@@ -31,7 +31,7 @@ const PopinEnd = props => {
 PopinEnd.propTypes = {
   header: PropTypes.shape(Header.propTypes),
   summary: PropTypes.shape(Summary.propTypes),
-  mode: PropTypes.string
+  mode: PropTypes.oneOf(['scorm'])
 };
 
 export default PopinEnd;
