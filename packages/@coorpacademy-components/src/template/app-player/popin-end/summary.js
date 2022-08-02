@@ -286,7 +286,7 @@ const BackgroundScorm = props => {
         </div>
       </div>
     );
-   return children;
+  return children;
 };
 
 Summary.contextTypes = {
