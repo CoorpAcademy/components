@@ -26,6 +26,7 @@ const build = () => {
     plugins: [
       svgrPlugin(),
       cssModulesPlugin({
+        filter: /(\.modules?)?\.css$/,
         postcssPlugins: [postcssValuesReplace()],
         cssModulesOption: {
           generateScopedName: '[name]__[local]___[hash:base64:8]'

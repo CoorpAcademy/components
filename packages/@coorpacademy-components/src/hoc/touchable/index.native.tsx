@@ -41,7 +41,7 @@ export type Props = {
   style?: ViewStyle;
   // Analytics
   analytics?: Analytics;
-  analyticsID: string;
+  analyticsID?: string;
   analyticsParams?: AnalyticsEventParams;
   vibration?: Vibration;
 };

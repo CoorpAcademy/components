@@ -38,7 +38,7 @@ type StyleSheetType = {
   };
 };
 
-const createStyleSheet = (brandTheme, theme: Theme, statusBarHeight: number) =>
+const createStyleSheet = (theme: Theme, statusBarHeight: number) =>
   StyleSheet.create({
     container: {
       paddingLeft: theme.spacing.base
@@ -57,7 +57,6 @@ const HeaderBackButton = (props: Props) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {
-    brandTheme,
     theme,
     display: {statusBarHeight}
   } = templateContext;
@@ -72,9 +71,9 @@ const HeaderBackButton = (props: Props) => {
   } = props;
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(brandTheme, theme, statusBarHeight);
+    const _stylesheet = createStyleSheet(theme, statusBarHeight);
     setStylesheet(_stylesheet);
-  }, [brandTheme, theme, statusBarHeight]);
+  }, [theme, statusBarHeight]);
 
   if (!styleSheet) {
     return null;
