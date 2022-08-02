@@ -252,23 +252,22 @@ const BackGroundScorm = props => {
         <div className={style.animationContainer}>
           {!failed ? (
             <AtomLottieWrapper
-              {
-                ...{
-                  'aria-label': 'aria lottie',
-                  'data-name': 'default-lottie',
-                  className: undefined,
-                  animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
-                  loop: undefined,
-                  autoplay: true,
-                  rendererSettings: {
-                    hideOnTransparent: false,
-                    animationClassName: ''
-                  },
-                  ie11ImageBackup:
-                    'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
-                  animationControl: undefined
-                }
-              }
+              {...{
+                'aria-label': 'aria lottie',
+                'data-name': 'default-lottie',
+                className: undefined,
+                animationSrc:
+                  'https://static-staging.coorpacademy.com/animations/review/confetti.json',
+                loop: undefined,
+                autoplay: true,
+                rendererSettings: {
+                  hideOnTransparent: false,
+                  animationClassName: ''
+                },
+                ie11ImageBackup:
+                  'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
+                animationControl: undefined
+              }}
               loop={false}
               animationControl={'play'}
               autoplay
