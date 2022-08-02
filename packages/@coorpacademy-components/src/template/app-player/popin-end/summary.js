@@ -231,7 +231,7 @@ const Summary = (props, context) => {
   const feedbackView = feedback ? <Feedback {...feedback} mode={mode} /> : null;
 
   return (
-    <BackGroundScorm mode={mode} failed={header.failed}>
+    <BackgroundScorm mode={mode} failed={header.failed}>
       <div className={mode !== 'scorm' ? style.summaryWrapper : null}>
         <Header {...header} mode={mode} />
         {feedbackView}
@@ -240,11 +240,11 @@ const Summary = (props, context) => {
         {commentView}
         {footerView}
       </div>
-    </BackGroundScorm>
+    </BackgroundScorm>
   );
 };
 
-const BackGroundScorm = props => {
+const BackgroundScorm = props => {
   const {mode, children, failed} = props;
   if (mode === 'scorm')
     return (
@@ -286,7 +286,7 @@ const BackGroundScorm = props => {
         </div>
       </div>
     );
-  else return children;
+   return children;
 };
 
 Summary.contextTypes = {
