@@ -15,7 +15,7 @@ export type Props = {
   value?: ChoiceValue;
   values: Array<ChoiceItem>;
   onChange: (value: ChoiceValue) => void;
-  onClose: () => void;
+  onClose?: () => void;
   testID?: string;
 };
 
