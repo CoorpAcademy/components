@@ -186,7 +186,7 @@ IconsPart.propTypes = {
   revival: PropTypes.bool
 };
 
-const buildClass = (value, success, failed, loading, mode, scormStyle) => {
+const buildClass = (value, success, failed, loading, mode = 'default', scormStyle) => {
   if (loading && isNil(value)) return loading;
   if (mode === 'scorm') return scormStyle;
   return value ? failed : success;
@@ -208,13 +208,19 @@ const renderIconStatusScorm = failed => {
     </div>
   );
 };
-const buildDefaultOrScormStyle = (defaultStyle, mode, styleScorm, failed, failedStyle = null) => {
+const buildDefaultOrScormStyle = (
+  defaultStyle,
+  mode = 'default',
+  styleScorm,
+  failed,
+  failedStyle = null
+) => {
   if (mode === 'scorm' && failed && failedStyle) return failedStyle;
   if (mode === 'scorm') return styleScorm;
   return defaultStyle;
 };
 const CorrectionPart = props => {
-  const {failed, corrections, title, subtitle, stars, rank, gameOver, mode} = props;
+  const {failed, corrections, title, subtitle, stars, rank, gameOver, mode = 'default'} = props;
   const isLoading = isNil(failed);
   const className = buildClass(
     failed,
@@ -363,7 +369,7 @@ const PopinHeader = (props, context) => {
     extraLifeGranted,
     gameOver = false,
     type,
-    mode
+    mode = 'default'
   } = props;
 
   const state = buildClass(failed, 'success', 'failed', null);
@@ -422,7 +428,7 @@ PopinHeader.propTypes = {
   stars: CorrectionPart.propTypes.stars,
   rank: CorrectionPart.propTypes.rank,
   corrections: CorrectionPart.propTypes.corrections,
-  mode: PropTypes.oneOf(['scorm'])
+  mode: PropTypes.oneOf(['scorm', 'default'])
 };
 
 export default PopinHeader;

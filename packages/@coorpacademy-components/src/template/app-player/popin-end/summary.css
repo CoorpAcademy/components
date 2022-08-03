@@ -253,7 +253,7 @@
   margin: 0;
 }
 
-.smallCricle {
+.smallCircle {
   height: calc(100vh + 136px);
   width: calc(100vh + 136px);
   border-radius: 50%;
@@ -262,7 +262,7 @@
   justify-content: center;
   align-items: center;
 }
-.mediumCricle {
+.mediumCircle {
   height: calc(100vh + 386px);
   width: calc(100vh + 386px);
   border-radius: 50%;
@@ -271,7 +271,7 @@
   justify-content: center;
   align-items: center;
 }
-.largeCricle {
+.largeCircle {
   height: calc(100vh + 636px);
   width: calc(100vh + 636px);
   border-radius: 50%;
@@ -327,7 +327,7 @@
   .organismPlayerResultContainerScorm {
     height: 100%;
   }
-  .largeCricle , .mediumCricle, .smallCricle {
+  .largeCircle , .mediumCircle, .smallCircle {
     border: 0px;
     height: 100%;
     width: 100%;

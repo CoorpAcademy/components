@@ -245,7 +245,7 @@ const Summary = (props, context) => {
 };
 
 const BackgroundScorm = props => {
-  const {mode, children, failed} = props;
+  const {mode = 'default', children, failed} = props;
   if (mode === 'scorm')
     return (
       <div className={style.organismPlayerResultContainerScorm}>
@@ -278,9 +278,9 @@ const BackgroundScorm = props => {
           ) : null}
         </div>
         <div>
-          <div className={style.largeCricle}>
-            <div className={style.mediumCricle}>
-              <div className={style.smallCricle}>{children}</div>
+          <div className={style.largeCircle}>
+            <div className={style.mediumCircle}>
+              <div className={style.smallCircle}>{children}</div>
             </div>
           </div>
         </div>
@@ -306,7 +306,7 @@ Summary.propTypes = {
   }),
   recommendation: PropTypes.shape(CardsList.propTypes),
   feedback: PropTypes.shape(Feedback.propTypes),
-  mode: PropTypes.oneOf(['scorm'])
+  mode: PropTypes.oneOf(['scorm', 'default'])
 };
 
 export default Summary;

@@ -6,7 +6,7 @@ import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF, TYPE_AUDIO} from '../r
 import style from './style.css';
 
 const Feedback = (props, context) => {
-  const {media, mediaDescription, title, description, mode} = props;
+  const {media, mediaDescription, title, description, mode = 'default'} = props;
   const resource = media &&
     media.type && {
       ...media,

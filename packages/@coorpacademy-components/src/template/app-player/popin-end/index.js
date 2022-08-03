@@ -5,7 +5,7 @@ import Summary from './summary';
 import style from './style.css';
 
 const Content = props => {
-  const {mode} = props;
+  const {mode = 'default'} = props;
   return (
     <div className={mode !== 'scorm' ? style.popinWrapper : null}>
       <Summary {...props} />
@@ -13,11 +13,11 @@ const Content = props => {
   );
 };
 Content.propTypes = {
-  mode: PropTypes.oneOf(['scorm'])
+  mode: PropTypes.oneOf(['scorm', 'default'])
 };
 
 const PopinEnd = props => {
-  const {header, summary, mode} = props;
+  const {header, summary, mode = 'default'} = props;
   return (
     <div data-name="popinEnd" className={style.wrapper}>
       <div className={style.slidesHeader}>
@@ -31,7 +31,7 @@ const PopinEnd = props => {
 PopinEnd.propTypes = {
   header: PropTypes.shape(Header.propTypes),
   summary: PropTypes.shape(Summary.propTypes),
-  mode: PropTypes.oneOf(['scorm'])
+  mode: PropTypes.oneOf(['scorm', 'default'])
 };
 
 export default PopinEnd;
