@@ -253,32 +253,28 @@
   margin: 0;
 }
 
-.smallCircle {
-  height: calc(100vh + 136px);
-  width: calc(100vh + 136px);
+.circle {
   border-radius: 50%;
   border: 1px solid light;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.smallCircle {
+  height: calc(100vh + 136px);
+  width: calc(100vh + 136px);
+  composes: circle;
 }
 .mediumCircle {
   height: calc(100vh + 386px);
   width: calc(100vh + 386px);
-  border-radius: 50%;
-  border: 1px solid light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  composes: circle;
 }
 .largeCircle {
   height: calc(100vh + 636px);
   width: calc(100vh + 636px);
-  border-radius: 50%;
-  border: 1px solid light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  composes: circle;
 }
 .organismPlayerResultContainerScorm {
   height: calc(100vh - 60px);
