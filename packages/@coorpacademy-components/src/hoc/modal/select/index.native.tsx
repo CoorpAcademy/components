@@ -10,11 +10,12 @@ import ModalSelectItem from '../select-item/index.native';
 
 type ChoiceValue = Pick<Choice, 'value'>;
 type ChoiceItem = Pick<Choice, 'items'>;
+export type OnChangeFunction = (value: ChoiceValue) => void;
 
 export type Props = {
   value?: ChoiceValue;
   values: Array<ChoiceItem>;
-  onChange: (value: ChoiceValue) => void;
+  onChange: OnChangeFunction;
   onClose?: () => void;
   testID?: string;
 };
@@ -50,7 +51,7 @@ const keyExtractor = (item: ChoiceItem, index: number): string => {
   return `modal-select-item-${index + 1}`;
 };
 
-const createRenderItem = (value: ChoiceValue, testID: String, onChange: Function) => ({
+const createRenderItem = (value: ChoiceValue, testID: String, onChange: OnChangeFunction) => ({
   item,
   index
 }: {
@@ -58,11 +59,11 @@ const createRenderItem = (value: ChoiceValue, testID: String, onChange: Function
   index: number;
 }) => {
   // eslint-disable-next-line unicorn/consistent-function-scoping
-  const handleChange = (_value: ChoiceValue | void) => () => onChange(value);
+  const handleChange = (_value: ChoiceValue | void) => () => onChange(_value);
 
   return (
     <ModalSelectItem
-      onPress={handleChange(item?.text)}
+      onPress={handleChange(item.text)}
       isSelected={value === item.text}
       testID={`${testID}-item-${index + 1}`}
     >
