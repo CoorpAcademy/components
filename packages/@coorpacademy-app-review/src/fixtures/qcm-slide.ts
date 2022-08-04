@@ -1,7 +1,7 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../types/slides';
+import {UISlide} from '../types/common';
 
-export const slide: UISlide = {
+export const slide: Pick<UISlide, 'questionText' | 'answerUI'> = {
   questionText: 'QCM',
   answerUI: {
     help: '__help',

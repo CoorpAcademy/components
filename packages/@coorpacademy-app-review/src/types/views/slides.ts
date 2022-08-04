@@ -3,7 +3,8 @@ import type {StoreState} from '../../reducers';
 import {Dispatchers} from '../../actions';
 
 type SlidesViewStaticProps = {
-  slides: StoreState['data']['slides'];
+  apiSlides: StoreState['data']['slides'];
+  uiSlides: StoreState['ui']['slides'];
   headerProps: {
     mode: string;
     skillName: string;

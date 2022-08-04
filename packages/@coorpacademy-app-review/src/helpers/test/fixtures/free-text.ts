@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {FreeText} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const freeTextSlide: SlideFromAPI = {
   id: 'sli_E1Pcl-XAYbi',
@@ -20,9 +19,15 @@ export const freeTextSlide: SlideFromAPI = {
   tips: 'sli_E1Pcl-XAYbi.tips'
 };
 
-export const freeTextUISlide: FreeText = {
-  type: 'freeText',
-  placeholder: 'Type here',
-  value: undefined,
-  onChange: noop
+export const freeTextUISlide: Partial<UISlide> = {
+  answerUI: {
+    help: 'sli_E1Pcl-XAYbi.explanation',
+    model: {
+      type: 'freeText',
+      placeholder: 'Type here',
+      value: undefined,
+      onChange: noop
+    }
+  },
+  questionText: 'sli_E1Pcl-XAYbi.header'
 };

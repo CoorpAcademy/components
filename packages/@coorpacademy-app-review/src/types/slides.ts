@@ -94,8 +94,3 @@ export type AnswerUI = {
 };
 
 export type SlideUIAnimations = 'unstack' | 'restack';
-
-export type UISlide = {
-  questionText?: string;
-  answerUI?: AnswerUI;
-};

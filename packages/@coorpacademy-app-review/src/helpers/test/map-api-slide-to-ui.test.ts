@@ -1,15 +1,6 @@
 import test from 'ava';
-import {SlideFromAPI} from '../../types/common';
+import {SlideFromAPI, UISlide} from '../../types/common';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
-import {
-  QcmDrag,
-  Qcm,
-  QcmGraphic,
-  FreeText,
-  DropDown,
-  QuestionRange,
-  Template
-} from '../../types/slides';
 import {qcmUISlide, qcmSlide} from './fixtures/qcm';
 import {qcmDragUISlide, qcmDragSlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
@@ -28,7 +19,7 @@ const macro = test.macro({
     t,
     arg: {
       slide: SlideFromAPI;
-      expectedUiSlide: QcmDrag | Qcm | QcmGraphic | FreeText | DropDown | QuestionRange | Template;
+      expectedUiSlide: Partial<UISlide>;
     }
   ) {
     t.deepEqual(

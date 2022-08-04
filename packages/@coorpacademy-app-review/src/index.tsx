@@ -16,7 +16,9 @@ import {SkillsProps} from './types/views/skills';
 import type {SlidesViewStaticProps} from './types/views/slides';
 
 import {Dispatchers} from './actions';
-import {updateSlidesOnNext, updateSlidesOnValidation, validateSlide} from './actions/data/slides';
+import {validateSlide} from './actions/data/slides';
+import {updateSlidesOnNext} from './actions/ui/slides';
+
 import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
@@ -36,7 +38,6 @@ const mapDispatchToProps: Dispatchers = {
   navigateTo,
   navigateBack,
   validateSlide,
-  updateSlidesOnValidation,
   updateSlidesOnNext,
   updateReviewStatus,
   updateStepItemsOnValidation,
@@ -90,7 +91,8 @@ const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null 
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button'
     },
-    slides: state.data.slides,
+    apiSlides: state.data.slides,
+    uiSlides: state.ui.slides,
     validate: {
       label: '__validate'
     },
@@ -128,9 +130,10 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     if (!store || isSlideFetched) return;
 
     return store.subscribe(() => {
-      const isSlidePresent = !isEmpty(store.getState().data.slides[0].questionText);
+      const isSlidePresent = !isEmpty(store.getState().data.slides.slideRefs);
       return isSlidePresent && setIsSlideFetched(isSlidePresent);
-    }); // using the first slide questionText for now, should only check for a slide's presence
+    });
+    // using the first slide questionText for now, should only check for a slide's presence
     // when the refactor is done (slides will be feed one by one on api's side)
   }, [isSlideFetched, options, store]);
 
@@ -147,7 +150,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     const skillRef = get('skillRef', options);
 
     // ThunkAction is not assignable to parameter of type 'AnyAction'
-    // ts problem describre here = https://github.com/reduxjs/redux-thunk/issues/333
+    // ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333
     skillRef
       ? store.dispatch(postProgression(skillRef, token))
       : store.dispatch(fetchSkills(token));
@@ -162,10 +165,6 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
       store.dispatch(navigateTo('loader')); // use loader while posting progression
       return;
     }
-
-    // TODO: when slides state is refactored (data + mapping),
-    // use loader in case a skillRef is found && no slides from the API
-    // are found
 
     const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
     store.dispatch(navigateTo(initialView));

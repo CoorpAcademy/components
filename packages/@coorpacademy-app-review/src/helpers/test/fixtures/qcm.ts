@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {Qcm} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const qcmSlide: SlideFromAPI = {
   question: {
@@ -74,35 +73,42 @@ export const qcmSlide: SlideFromAPI = {
   id: 'sli_N1XACJobn'
 };
 
-export const qcmUISlide: Qcm = {
-  type: 'qcm',
-  answers: [
-    {
-      title: 'Le créateur peut fixer un pourcentage pour chaque transaction future',
-      selected: false,
-      onClick: noop,
-      ariaLabel: 'Le créateur peut fixer un pourcentage pour chaque transaction future'
-    },
-    {
-      title:
-        "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente",
-      selected: false,
-      onClick: noop,
-      ariaLabel:
-        "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente"
-    },
-    {
-      title: "Seule la galerie ou la plateforme peut toucher une commission sur la vente d'un NFT",
-      selected: false,
-      onClick: noop,
-      ariaLabel:
-        "Seule la galerie ou la plateforme peut toucher une commission sur la vente d'un NFT"
-    },
-    {
-      title: "Les NFT payés en ETH ne peuvent pas être soumis au paiement d'une commission",
-      selected: false,
-      onClick: noop,
-      ariaLabel: "Les NFT payés en ETH ne peuvent pas être soumis au paiement d'une commission"
+export const qcmUISlide: Partial<UISlide> = {
+  questionText: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?",
+  answerUI: {
+    help: 'Sélectionnez la bonne réponse.',
+    model: {
+      type: 'qcm',
+      answers: [
+        {
+          title: 'Le créateur peut fixer un pourcentage pour chaque transaction future',
+          selected: false,
+          onClick: noop,
+          ariaLabel: 'Le créateur peut fixer un pourcentage pour chaque transaction future'
+        },
+        {
+          title:
+            "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente",
+          selected: false,
+          onClick: noop,
+          ariaLabel:
+            "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente"
+        },
+        {
+          title:
+            "Seule la galerie ou la plateforme peut toucher une commission sur la vente d'un NFT",
+          selected: false,
+          onClick: noop,
+          ariaLabel:
+            "Seule la galerie ou la plateforme peut toucher une commission sur la vente d'un NFT"
+        },
+        {
+          title: "Les NFT payés en ETH ne peuvent pas être soumis au paiement d'une commission",
+          selected: false,
+          onClick: noop,
+          ariaLabel: "Les NFT payés en ETH ne peuvent pas être soumis au paiement d'une commission"
+        }
+      ]
     }
-  ]
+  }
 };

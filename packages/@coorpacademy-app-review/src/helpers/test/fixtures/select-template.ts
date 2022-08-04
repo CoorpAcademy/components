@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {Template} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const selectTemplateSlide: SlideFromAPI = {
   id: 'sli_410xZQxrZ',
@@ -52,41 +51,47 @@ export const selectTemplateSlide: SlideFromAPI = {
   tips: 'sli_410xZQxrZ.tips'
 };
 
-export const selectTemplateUISlide: Template = {
-  type: 'template',
-  template: 'sli_410xZQxrZ.template',
-  answers: [
-    {
-      type: 'select',
-      name: 'sel36665',
-      onChange: noop,
-      options: [
-        {name: 'Select an answer', value: '', validOption: false, selected: true},
+export const selectTemplateUISlide: Partial<UISlide> = {
+  questionText: 'sli_410xZQxrZ.header',
+  answerUI: {
+    help: 'sli_410xZQxrZ.explanation',
+    model: {
+      type: 'template',
+      template: 'sli_410xZQxrZ.template',
+      answers: [
         {
-          name: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
-          value: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
-          validOption: true,
-          selected: false
-        },
-        {
-          name: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
-          value: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
-          validOption: true,
-          selected: false
-        },
-        {
-          name: 'sli_410xZQxrZ.choice_VkaH~XgBb',
-          value: 'sli_410xZQxrZ.choice_VkaH~XgBb',
-          validOption: true,
-          selected: false
-        },
-        {
-          name: 'sli_410xZQxrZ.choice_E1uUWXeBb',
-          value: 'sli_410xZQxrZ.choice_E1uUWXeBb',
-          validOption: true,
-          selected: false
+          type: 'select',
+          name: 'sel36665',
+          onChange: noop,
+          options: [
+            {name: 'Select an answer', value: '', validOption: false, selected: true},
+            {
+              name: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
+              value: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
+              validOption: true,
+              selected: false
+            },
+            {
+              name: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
+              value: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
+              validOption: true,
+              selected: false
+            },
+            {
+              name: 'sli_410xZQxrZ.choice_VkaH~XgBb',
+              value: 'sli_410xZQxrZ.choice_VkaH~XgBb',
+              validOption: true,
+              selected: false
+            },
+            {
+              name: 'sli_410xZQxrZ.choice_E1uUWXeBb',
+              value: 'sli_410xZQxrZ.choice_E1uUWXeBb',
+              validOption: true,
+              selected: false
+            }
+          ]
         }
       ]
     }
-  ]
+  }
 };

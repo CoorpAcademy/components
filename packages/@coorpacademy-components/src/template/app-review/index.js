@@ -7,14 +7,14 @@ import propTypes, {ViewNames} from './prop-types';
 
 // -----------------------------------------------------------------------------
 
-const AppReview = ({viewName, onboarding, skills, slides, ...dispachers}) => {
+const AppReview = ({viewName, onboarding, skills, slides, ...dispatchers}) => {
   switch (viewName) {
     case ViewNames.skills:
-      return <Skills {...skills} {...dispachers} />;
+      return <Skills {...skills} {...dispatchers} />;
     case ViewNames.onboarding:
-      return <Onboarding {...onboarding} {...dispachers} />;
+      return <Onboarding {...onboarding} {...dispatchers} />;
     case ViewNames.slides:
-      return <Slides {...slides} {...dispachers} />;
+      return <Slides {...slides} {...dispatchers} />;
     default:
       return <Loader />;
   }

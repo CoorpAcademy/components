@@ -1,15 +1,12 @@
 import forEach from 'lodash/fp/forEach';
 import {UpdateFinishedSlides, UPDATE_FINISHED_SLIDES} from '../../actions/ui/finished-slides';
-import {slideNumbers} from '../../common';
+import {indexToString, SlideNumbers} from '../../common';
 
 export type FinishedSlidesState = {
-  slideNumbers: number[];
-  [key: number]: true;
+  [key in SlideNumbers]?: true;
 };
 
-const initialState: FinishedSlidesState = {
-  slideNumbers
-};
+const initialState: FinishedSlidesState = {};
 
 const _forEach: <T>(
   iteratee: (value: T[keyof T], index: number) => void,
@@ -28,15 +25,13 @@ const reducer = (
 ): FinishedSlidesState => {
   switch (action.type) {
     case UPDATE_FINISHED_SLIDES: {
-      const {slideNumbers: _slideNumbers, ...rest} = state;
+      const {...rest} = state;
       const {slideNumber, value} = action.payload;
-      const _state: FinishedSlidesState = {
-        slideNumbers: _slideNumbers
-      };
+      const _state: FinishedSlidesState = {};
 
-      _forEach<Omit<FinishedSlidesState, 'slideNumbers'>>((finishedSlide, index) => {
+      _forEach<FinishedSlidesState>((finishedSlide, index) => {
         const previousValue = finishedSlide;
-        _state[index] = previousValue;
+        _state[indexToString(index)] = previousValue;
       }, rest);
 
       _state[slideNumber] = value;
