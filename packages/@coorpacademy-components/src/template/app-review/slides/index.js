@@ -2,11 +2,12 @@ import React, {useState, useMemo, useEffect} from 'react';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import indexOf from 'lodash/fp/indexOf';
 import isNil from 'lodash/fp/isNil';
 import map from 'lodash/fp/map';
-import omit from 'lodash/fp/omit';
 import pipe from 'lodash/fp/pipe';
 import size from 'lodash/fp/size';
+import _toString from 'lodash/fp/toString';
 import {ICON_VALUES} from '../../../atom/review-header-step-item';
 import ReviewBackground from '../../../atom/review-background';
 import ReviewCongrats from '../../../organism/review-congrats';
@@ -43,7 +44,7 @@ const getSlideAnimation = (action, position, hidden) => {
 
 const Slide = ({
   slideNumber,
-  slides,
+  uiSlides,
   primarySkinColor,
   validate,
   validateSlide,
@@ -55,13 +56,13 @@ const Slide = ({
   progression,
   correctionPopinProps
 }) => {
-  const hidden = getOr(false, `${slideNumber}.hidden`, slides);
-  const endReview = getOr(false, `${slideNumber}.endReview`, slides);
-  const position = get(`${slideNumber}.position`, slides);
-  const animationType = getOr(false, `${slideNumber}.animationType`, slides);
-  const isSlideCorrect = getOr(null, `${slideNumber}.isCorrect`, slides);
-  const questionText = get(`${slideNumber}.questionText`, slides);
-  const answerUI = get(`${slideNumber}.answerUI`, slides);
+  const hidden = getOr(false, `${slideNumber}.hidden`, uiSlides);
+  const endReview = getOr(false, `${slideNumber}.endReview`, uiSlides);
+  const position = get(`${slideNumber}.position`, uiSlides);
+  const animationType = getOr(false, `${slideNumber}.animationType`, uiSlides);
+  const isSlideCorrect = getOr(null, `${slideNumber}.isCorrect`, uiSlides);
+  const questionText = get(`${slideNumber}.questionText`, uiSlides);
+  const answerUI = get(`${slideNumber}.answerUI`, uiSlides);
 
   const validateLabel = getOr('', 'label', validate);
 
@@ -73,7 +74,7 @@ const Slide = ({
       slide validation action, this will trigger the correction popin
       (with the useEffect that fires the dispatchers, if there is a nextContent content,
       it will be loaded here) but will not trigger any animations unless the endReview
-      signal is received (all slides will disappear, also fired in a useEffect),
+      signal is received (all uiSlides will disappear, also fired in a useEffect),
 
       if it is the last slide and the content needs to be different, then that update will
       be handled on the next slide logic but the content will be carried from here.
@@ -98,13 +99,13 @@ const Slide = ({
   const _correctionPopinProps = {
     next: {
       /*
-        next slide action, this will trigger the slides animations
+        next slide action, this will trigger the uiSlides animations
         if it is the last slide AND the content needs to be different, then that update
         of the content will be handled here (and in the validate as it happens normally )
         from the content carried from the validate action.
       */
       onClick: () => {
-        const exitNode = get('exitNode', progression);
+        const isExitNodePresent = get('state.nextContent.ref', progression) === 'successExitNode';
 
         updateSlidesOnNext({
           slideNumber,
@@ -113,7 +114,7 @@ const Slide = ({
             position: HIGHEST_INDEX - finishedSlidesSize, // to restack the slide
             animationType: isSlideCorrect ? 'unstack' : 'restack',
             isCorrect: isSlideCorrect,
-            endReview: !!exitNode,
+            endReview: isExitNodePresent,
             answerUI,
             questionText
           },
@@ -168,7 +169,7 @@ const Slide = ({
             {questionText}
           </div>
           <div key="help" className={style.help}>
-            {answerUI.help}
+            {get('help', answerUI)}
           </div>
           <div key="answer-container" className={style.answerContainer}>
             <Answer {...answerProps} key="answer" />
@@ -199,7 +200,7 @@ const Slide = ({
 Slide.propTypes = SlidePropTypes;
 
 const StackedSlides = ({
-  slides,
+  uiSlides,
   primarySkinColor,
   validate,
   validateSlide,
@@ -217,8 +218,8 @@ const StackedSlides = ({
     const slide = (
       <Slide
         {...{
-          slideNumber,
-          slides,
+          slideNumber: _toString(slideNumber),
+          uiSlides,
           primarySkinColor,
           validate,
           validateSlide,
@@ -247,13 +248,13 @@ const SlidesReview = (
     reviewBackgroundAriaLabel,
     validate,
     correctionPopinProps,
-    slides,
+    uiSlides,
+    apiSlides,
     finishedSlides,
     stepItems,
     reviewStatus,
     congratsProps,
     validateSlide,
-    updateSlidesOnValidation,
     updateSlidesOnNext,
     updateReviewStatus,
     updateStepItemsOnValidation,
@@ -266,14 +267,19 @@ const SlidesReview = (
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
-  const finishedSlidesSize = useMemo(() => pipe(omit('slideNumbers'), size)(finishedSlides), [
-    finishedSlides
-  ]);
+  const finishedSlidesSize = useMemo(() => size(finishedSlides), [finishedSlides]);
+
+  const currentSlideRef = useMemo(() => get('state.content.ref', progression), [progression]);
+
+  const currentSlideIndex = useMemo(
+    () => pipe(get('slideRefs'), indexOf(currentSlideRef), _toString)(apiSlides),
+    [apiSlides, currentSlideRef]
+  );
 
   /*
-    ||-------> the slides have an slightly longer lifespan than the "ongoing" review State,
-    after reviewState changes to "finished" the slides don't have to unmount until the last
-    slide-out animation is finished, the slides have to be unmounted to be RGAA complaint.
+    ||-------> the uiSlides have an slightly longer lifespan than the "ongoing" review State,
+    after reviewState changes to "finished" the uiSlides don't have to unmount until the last
+    slide-out animation is finished, the uiSlides have to be unmounted to be RGAA complaint.
     (if they are only invisible -but- still mounted, then they will be found by the assisting
     tools & clutter them)
   */
@@ -281,31 +287,15 @@ const SlidesReview = (
 
   useEffect(
     /* istanbul ignore next */ () => {
-      const slideNumber = get('slideNumber', progression);
-      // temporal fix, should check for new slides in the state && then update
-      if (progression && slideNumber !== 0) {
-        const hidden = getOr(false, `${slideNumber}.hidden`, slides);
-        const endReview = getOr(false, `${slideNumber}.endReview`, slides);
-        const position = get(`${slideNumber}.position`, slides);
-        const isCorrect = get('isCorrect', progression);
-        const exitNode = get('exitNode', progression);
-        const nextContent = get('nextContent', progression);
-        updateSlidesOnValidation({
-          slideNumber,
-          newSlideContent: {
-            hidden,
-            position,
-            isCorrect,
-            endReview: !!exitNode
-          },
-          numberOfFinishedSlides: finishedSlidesSize,
-          nextContent
-        });
+      // temporal fix, should check for new uiSlides in the state && then update
+      if (progression && size(apiSlides.slidesRefs) > 1) {
+        const endReview = getOr(false, `${currentSlideIndex}.endReview`, uiSlides);
+        const isCorrect = get('state.isCorrect', progression);
         updateStepItemsOnValidation({
-          stepNumber: slideNumber,
+          stepNumber: currentSlideIndex,
           icon: isCorrect ? ICON_VALUES.right : ICON_VALUES.wrong
         });
-        if (isCorrect) updateFinishedSlides({slideNumber, value: true});
+        if (isCorrect) updateFinishedSlides({currentSlideIndex, value: true});
         if (endReview) {
           updateReviewStatus('finished');
         }
@@ -325,14 +315,7 @@ const SlidesReview = (
   );
 
   // ||-------> transform the step items state to Array
-  const stepItemsArray = useMemo(
-    () =>
-      pipe(
-        omit('slideNumbers'),
-        map(stepItem => stepItem)
-      )(stepItems),
-    [stepItems]
-  );
+  const stepItemsArray = useMemo(() => map(stepItem => stepItem, stepItems), [stepItems]);
 
   const _headerProps = {
     ...headerProps,
@@ -367,7 +350,7 @@ const SlidesReview = (
           >
             <StackedSlides
               {...{
-                slides,
+                uiSlides,
                 primarySkinColor,
                 validate,
                 validateSlide,

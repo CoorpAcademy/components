@@ -1,4 +1,4 @@
-import {UISlide} from './slides';
+import {AnswerUI} from './slides';
 
 // TODO use type from components
 type TemplateContextValues = {
@@ -139,13 +139,26 @@ export type JWT = {
 
 // -----------------------------------------------------------------------------
 type SlideUIAnimations = 'unstack' | 'restack';
-export type Slide = UISlide & {
+
+export type NextUISlide = {
+  questionText?: string;
+  answerUI?: AnswerUI;
+  hidden?: boolean;
+  position?: number;
+  animationType?: SlideUIAnimations;
+  isCorrect?: boolean;
+  endReview?: boolean;
+};
+
+export type UISlide = {
+  questionText?: string;
+  answerUI?: AnswerUI;
   hidden?: boolean;
   position: number;
   animationType?: SlideUIAnimations;
   isCorrect?: boolean;
   endReview?: boolean;
-  nextContent?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextContent'>;
+  nextContent?: NextUISlide;
 };
 
 const ICON_VALUES = {

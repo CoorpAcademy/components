@@ -1,4 +1,4 @@
-import {updateSlidesOnValidation, updateSlidesOnNext, validateSlide} from './data/slides';
+import {validateSlide} from './data/slides';
 import {StoreToken} from './data/token';
 
 import {updateFinishedSlides} from './ui/finished-slides';
@@ -8,6 +8,7 @@ import {updateStepItemsOnValidation, updateStepItemsOnNext} from './ui/step-item
 import {ReceivedSlide} from './api/fetch-slide';
 import {ReceiveProgression} from './api/post-progression';
 import {ReceivedSkills} from './api/fetch-skills';
+import {updateSlidesOnNext} from './ui/slides';
 
 export type Action =
   | NavigateBack
@@ -22,7 +23,6 @@ export type Dispatchers = {
   navigateTo: typeof navigateTo;
   navigateBack: typeof navigateBack;
   validateSlide: typeof validateSlide;
-  updateSlidesOnValidation: typeof updateSlidesOnValidation;
   updateSlidesOnNext: typeof updateSlidesOnNext;
   updateReviewStatus: typeof updateReviewStatus;
   updateStepItemsOnValidation: typeof updateStepItemsOnValidation;

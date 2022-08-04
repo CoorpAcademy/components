@@ -8,7 +8,6 @@ import {
   indexOf,
   isEmpty,
   map,
-  noop,
   pipe,
   rangeStep,
   size,
@@ -48,7 +47,8 @@ const qcmProps = (question: QcmQuestion): Qcm => {
         title: choice.label,
         selected: includes(choice.label, answers),
         // TODO: EDIT_CHOICES
-        onClick: noop,
+        // eslint-disable-next-line no-console
+        onClick: () => console.log('TODO: on choice click'),
         ariaLabel: choice.label
       }),
       // TODO: EDIT_CHOICES -> getChoices
@@ -58,7 +58,6 @@ const qcmProps = (question: QcmQuestion): Qcm => {
 };
 
 const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
-  // mock the answers
   // TODO: EDIT_CHOICES -> getAnswerValues
   const answers: string[] = [];
   return {
@@ -70,7 +69,8 @@ const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
         selected: indexInAnswer !== -1,
         order: indexInAnswer,
         // TODO: EDIT_CHOICES
-        onClick: noop
+        // eslint-disable-next-line no-console
+        onClick: () => console.log('TODO: on choice click')
       };
       // TODO: EDIT_CHOICES -> getChoices
     }, question.content.choices)
@@ -89,7 +89,8 @@ const qcmGraphicProps = (question: QcmGraphicQuestion): QcmGraphic => {
         image: get('media.src.0.url', choice),
         selected: includes(choice.label, answers),
         // TODO: EDIT_CHOICES
-        onClick: noop
+        // eslint-disable-next-line no-console
+        onClick: () => console.log('TODO: on choice click')
       }),
       // TODO: EDIT_CHOICES -> getChoices
       question.content.choices
@@ -109,7 +110,8 @@ const templateTextProps =
       placeholder: translate('Type here'),
       value: get(index, answers),
       // TODO: EDIT_CHOICES
-      onChange: noop
+      // eslint-disable-next-line no-console
+      onChange: () => console.log('TODO: on choice change')
     };
   };
 
@@ -141,7 +143,8 @@ const templateSelectProps = (uiUtils: UiUtils) => {
       type: 'select',
       name: getOr('', 'name', choice),
       // TODO: EDIT_CHOICES
-      onChange: noop,
+      // eslint-disable-next-line no-console
+      onChange: () => console.log('TODO: on choice change'),
       options: isEmpty(answer) ? concat([temporaryOption], selectOptions) : selectOptions
     };
   };
@@ -177,7 +180,8 @@ const basicProps = (uiUtils: UiUtils): (() => FreeText) => {
       placeholder: translate('Type here'),
       value: head(answers),
       // TODO: EDIT_CHOICES
-      onChange: noop
+      // eslint-disable-next-line no-console
+      onChange: () => console.log('TODO: on choice change')
     };
   };
 };
@@ -187,7 +191,7 @@ const sliderProps = (question: SliderQuestion): QuestionRange => {
     getOr(1, 'content.step', question),
     getOr(Number.NaN, 'content.min', question),
     getOr(Number.NaN, 'content.max', question) + 1
-    // Lodash doesn't infere the type very well here
+    // Lodash doesn't infer the type very well here
   ) as unknown as number[];
 
   // TODO: EDIT_CHOICES -> getAnswerValues
@@ -209,23 +213,26 @@ const sliderProps = (question: SliderQuestion): QuestionRange => {
     title: `${currentValue} ${question.content.unitLabel}`,
     value: sliderPosition,
     // TODO: EDIT_CHOICES
-    onChange: noop
+    // eslint-disable-next-line no-console
+    onChange: () => console.log('TODO: on choice change')
   };
 };
 
 export const getQuestionType = (slide: SlideFromAPI): SlideFromAPI['question']['type'] =>
   slide.question.type;
 
-export const mapApiSlideToUi = (
-  uiUtils: UiUtils
-): ((slide: SlideFromAPI) => AnswerUI['model'] | void) => {
+const getHelp =
+  (uiUtils: UiUtils) =>
+  (slide: SlideFromAPI): string => {
+    const {translate} = uiUtils;
+    return get('question.explanation', slide) || translate('Select something below');
+  };
+
+const getAnswerUIModel = (uiUtils: UiUtils): ((slide: SlideFromAPI) => AnswerUI['model']) => {
   const basicProps_ = basicProps(uiUtils);
   const templateProps_ = templateProps(uiUtils);
 
-  return (slide: SlideFromAPI): AnswerUI['model'] | void => {
-    if (!slide) {
-      return;
-    }
+  return slide => {
     const type = getQuestionType(slide);
     switch (type) {
       case 'qcm':
@@ -249,5 +256,24 @@ export const mapApiSlideToUi = (
       default:
         throw new Error(`${type} is not an handled question.type`);
     }
+  };
+};
+
+export const mapApiSlideToUi = (
+  uiUtils: UiUtils
+): ((slide: SlideFromAPI) => {questionText: string; answerUI: AnswerUI}) => {
+  const getAnswerUIModel_ = getAnswerUIModel(uiUtils);
+  const getHelp_ = getHelp(uiUtils);
+
+  return slide => {
+    if (!slide) {
+      throw new Error('no slide was found');
+    }
+    const questionText = pipe<[SlideFromAPI], string, string>(
+      getOr('', 'question.header') as unknown as (_slide: SlideFromAPI) => string,
+      uiUtils.translate
+    )(slide);
+
+    return {questionText, answerUI: {model: getAnswerUIModel_(slide), help: getHelp_(slide)}};
   };
 };

@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {QcmDrag} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const qcmDragSlide: SlideFromAPI = {
   id: 'sli_419IlQQnf',
@@ -73,38 +72,44 @@ export const qcmDragSlide: SlideFromAPI = {
   tips: 'sli_419IlQQnf.tips'
 };
 
-export const qcmDragUISlide: QcmDrag = {
-  type: 'qcmDrag',
-  answers: [
-    {
-      title: 'sli_419IlQQnf.choice_4kWwlQXhG',
-      selected: false,
-      order: -1,
-      onClick: noop
-    },
-    {
-      title: 'sli_419IlQQnf.choice_NJxbwgXm2G',
-      selected: false,
-      order: -1,
-      onClick: noop
-    },
-    {
-      title: 'sli_419IlQQnf.choice_41fwgQXnf',
-      selected: false,
-      order: -1,
-      onClick: noop
-    },
-    {
-      title: 'sli_419IlQQnf.choice_VJmweQ7nz',
-      selected: false,
-      order: -1,
-      onClick: noop
-    },
-    {
-      title: 'sli_419IlQQnf.choice_4kDDgXQhz',
-      selected: false,
-      order: -1,
-      onClick: noop
+export const qcmDragUISlide: Partial<UISlide> = {
+  questionText: 'sli_419IlQQnf.header',
+  answerUI: {
+    help: 'sli_419IlQQnf.explanation',
+    model: {
+      type: 'qcmDrag',
+      answers: [
+        {
+          title: 'sli_419IlQQnf.choice_4kWwlQXhG',
+          selected: false,
+          order: -1,
+          onClick: noop
+        },
+        {
+          title: 'sli_419IlQQnf.choice_NJxbwgXm2G',
+          selected: false,
+          order: -1,
+          onClick: noop
+        },
+        {
+          title: 'sli_419IlQQnf.choice_41fwgQXnf',
+          selected: false,
+          order: -1,
+          onClick: noop
+        },
+        {
+          title: 'sli_419IlQQnf.choice_VJmweQ7nz',
+          selected: false,
+          order: -1,
+          onClick: noop
+        },
+        {
+          title: 'sli_419IlQQnf.choice_4kDDgXQhz',
+          selected: false,
+          order: -1,
+          onClick: noop
+        }
+      ]
     }
-  ]
+  }
 };

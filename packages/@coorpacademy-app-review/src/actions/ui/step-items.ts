@@ -1,15 +1,16 @@
+import {SlideNumbers} from '../../common';
 import {FinishedSlides, IconValue} from '../../types/common';
 
 export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@step-items/UPDATE_STEP_ITEMS_ON_VALIDATION';
 export const UPDATE_STEP_ITEMS_ON_NEXT = '@@step-items/UPDATE_STEP_ITEMS_ON_NEXT';
 
 type UpdateStepItemsOnValidationClickPayload = {
-  stepNumber: number;
+  stepNumber: SlideNumbers;
   icon: IconValue;
 };
 
 type UpdateStepItemsOnNextClickPayload = {
-  stepNumber: number;
+  stepNumber: SlideNumbers;
   finishedSlides: FinishedSlides;
   current: boolean;
 };

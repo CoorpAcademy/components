@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {QcmGraphic} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const qcmGraphicSlide: SlideFromAPI = {
   id: 'sli_41~RSVclH',
@@ -55,20 +54,26 @@ export const qcmGraphicSlide: SlideFromAPI = {
   tips: 'sli_41~RSVclH.tips'
 };
 
-export const qcmGraphicUISlide: QcmGraphic = {
-  type: 'qcmGraphic',
-  answers: [
-    {
-      title: 'sli_41~RSVclH.choice_V1gN0r4qgS',
-      image: 'med_4JVRrE5gH.mediaUrl_VkBtUV9gB',
-      selected: false,
-      onClick: noop
-    },
-    {
-      title: 'sli_41~RSVclH.choice_4JlLeLE5lS',
-      image: 'med_Ek8gIEqxB.mediaUrl_EkcFUEclH',
-      selected: false,
-      onClick: noop
+export const qcmGraphicUISlide: Partial<UISlide> = {
+  questionText: 'sli_41~RSVclH.header',
+  answerUI: {
+    help: 'sli_41~RSVclH.explanation',
+    model: {
+      type: 'qcmGraphic',
+      answers: [
+        {
+          title: 'sli_41~RSVclH.choice_V1gN0r4qgS',
+          image: 'med_4JVRrE5gH.mediaUrl_VkBtUV9gB',
+          selected: false,
+          onClick: noop
+        },
+        {
+          title: 'sli_41~RSVclH.choice_4JlLeLE5lS',
+          image: 'med_Ek8gIEqxB.mediaUrl_EkcFUEclH',
+          selected: false,
+          onClick: noop
+        }
+      ]
     }
-  ]
+  }
 };

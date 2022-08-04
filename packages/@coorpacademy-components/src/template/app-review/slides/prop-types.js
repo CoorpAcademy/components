@@ -12,8 +12,7 @@ const NextSlideProp = PropTypes.shape({
   position: PropTypes.number,
   // 'unstack' | 'restack'
   animationType: PropTypes.string,
-  // 'success' | 'failure'
-  isCorrect: PropTypes.string,
+  isCorrect: PropTypes.boolean,
   endReview: PropTypes.bool,
   questionText: PropTypes.string,
   answerUI: AnswerPropTypes
@@ -36,29 +35,30 @@ export const SlidesReviewPropTypes = {
   validate: PropTypes.shape({
     label: PropTypes.string
   }),
-  slides: PropTypes.shape({
-    slideNumbers: PropTypes.arrayOf(PropTypes.number),
-    0: SlideProp,
-    1: SlideProp,
-    2: SlideProp,
-    3: SlideProp,
-    4: SlideProp
+  uiSlides: PropTypes.shape({
+    '0': SlideProp,
+    '1': SlideProp,
+    '2': SlideProp,
+    '3': SlideProp,
+    '4': SlideProp
+  }),
+  apiSlides: PropTypes.shape({
+    slideRefs: PropTypes.arrayOf(PropTypes.string),
+    values: PropTypes.object // specify typing if time is available
   }),
   finishedSlides: PropTypes.shape({
-    slideNumbers: PropTypes.arrayOf(PropTypes.number),
-    0: PropTypes.bool,
-    1: PropTypes.bool,
-    2: PropTypes.bool,
-    3: PropTypes.bool,
-    4: PropTypes.bool
+    '0': PropTypes.bool,
+    '1': PropTypes.bool,
+    '2': PropTypes.bool,
+    '3': PropTypes.bool,
+    '4': PropTypes.bool
   }),
   stepItems: PropTypes.shape({
-    slideNumbers: PropTypes.arrayOf(PropTypes.number),
-    0: StepItemProp,
-    1: StepItemProp,
-    2: StepItemProp,
-    3: StepItemProp,
-    4: StepItemProp
+    '0': StepItemProp,
+    '1': StepItemProp,
+    '2': StepItemProp,
+    '3': StepItemProp,
+    '4': StepItemProp
   }),
   // 'finished' | 'ongoing'
   reviewStatus: PropTypes.string,
@@ -75,20 +75,24 @@ export const SlidesReviewPropTypes = {
   }),
   congratsProps: PropTypes.shape(ReviewCongratsPropTypes),
   progression: PropTypes.shape({
-    slideNumber: PropTypes.number,
-    // 'success' | 'failure'
-    isCorrect: PropTypes.bool,
-    // 'successExitNode' | 'failExitNode'
-    exitNode: PropTypes.string,
-    nextContent: PropTypes.shape({
-      questionText: PropTypes.string,
-      answerUI: PropTypes.shape(AnswerPropTypes)
+    _id: PropTypes.string,
+    state: PropTypes.shape({
+      isCorrect: PropTypes.bool,
+      step: PropTypes.shape({
+        current: PropTypes.number
+      }),
+      // 'successExitNode'
+      nextContent: PropTypes.shape({
+        // 'success' | 'slide'
+        type: PropTypes.string,
+        // 'successExitNode' | string
+        ref: PropTypes.string
+      })
     })
   }),
   // ---------------------------------------------------------------------------
   // Dispatchers
   validateSlide: PropTypes.func.isRequired,
-  updateSlidesOnValidation: PropTypes.func.isRequired,
   updateSlidesOnNext: PropTypes.func.isRequired,
   updateReviewStatus: PropTypes.func.isRequired,
   updateStepItemsOnValidation: PropTypes.func.isRequired,
@@ -97,8 +101,8 @@ export const SlidesReviewPropTypes = {
 };
 
 export const SlidePropTypes = {
-  slideNumber: PropTypes.number,
-  slides: SlidesReviewPropTypes.slides,
+  slideNumber: PropTypes.string,
+  slides: SlidesReviewPropTypes.apiSlides,
   primarySkinColor: PropTypes.string,
   validate: SlidesReviewPropTypes.validate,
   finishedSlides: SlidesReviewPropTypes.finishedSlides,

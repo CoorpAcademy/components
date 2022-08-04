@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {QuestionRange} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const sliderSlide: SlideFromAPI = {
   id: 'sli_41D5AovN~',
@@ -20,12 +19,18 @@ export const sliderSlide: SlideFromAPI = {
   tips: 'sli_41D5AovN~.tips'
 };
 
-export const sliderUISlide: QuestionRange = {
-  type: 'slider',
-  placeholder: 'sli_41D5AovN~.explanation',
-  minLabel: '1 undefined',
-  maxLabel: '10 undefined',
-  title: '0 sli_41D5AovN~.unitLabel',
-  value: -0.1111111111111111,
-  onChange: noop
+export const sliderUISlide: Partial<UISlide> = {
+  questionText: 'sli_41D5AovN~.header',
+  answerUI: {
+    help: 'sli_41D5AovN~.explanation',
+    model: {
+      type: 'slider',
+      placeholder: 'sli_41D5AovN~.explanation',
+      minLabel: '1 undefined',
+      maxLabel: '10 undefined',
+      title: '0 sli_41D5AovN~.unitLabel',
+      value: -0.1111111111111111,
+      onChange: noop
+    }
+  }
 };
