@@ -1122,14 +1122,19 @@ import TemplateAppPlayerPopinEndFixtureCommentSent from '../src/template/app-pla
 import TemplateAppPlayerPopinEndFixtureComment from '../src/template/app-player/popin-end/test/fixtures/comment';
 import TemplateAppPlayerPopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
 import TemplateAppPlayerPopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
+import TemplateAppPlayerPopinEndFixtureFailScormWithFeedback from '../src/template/app-player/popin-end/test/fixtures/fail-scorm-with-feedback';
+import TemplateAppPlayerPopinEndFixtureFailScorm from '../src/template/app-player/popin-end/test/fixtures/fail-scorm';
 import TemplateAppPlayerPopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
 import TemplateAppPlayerPopinEndFixtureInfiniteLives from '../src/template/app-player/popin-end/test/fixtures/infinite-lives';
 import TemplateAppPlayerPopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
 import TemplateAppPlayerPopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import TemplateAppPlayerPopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-img';
+import TemplateAppPlayerPopinEndFixtureScormCorrect from '../src/template/app-player/popin-end/test/fixtures/scorm-correct';
 import TemplateAppPlayerPopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import TemplateAppPlayerPopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
+import TemplateAppPlayerPopinEndFixtureSuccessScormWithFeedback from '../src/template/app-player/popin-end/test/fixtures/success-scorm-with-feedback';
+import TemplateAppPlayerPopinEndFixtureSuccessScorm from '../src/template/app-player/popin-end/test/fixtures/success-scorm';
 import TemplateAppPlayerPopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
 import TemplateAppPlayerPopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
 import TemplateAppPlayerPopinEndFixtureWithoutRecommendation from '../src/template/app-player/popin-end/test/fixtures/without-recommendation';
@@ -2820,14 +2825,19 @@ export const fixtures = {
       Comment: TemplateAppPlayerPopinEndFixtureComment,
       Correct: TemplateAppPlayerPopinEndFixtureCorrect,
       Default: TemplateAppPlayerPopinEndFixtureDefault,
+      FailScormWithFeedback: TemplateAppPlayerPopinEndFixtureFailScormWithFeedback,
+      FailScorm: TemplateAppPlayerPopinEndFixtureFailScorm,
       Fail: TemplateAppPlayerPopinEndFixtureFail,
       InfiniteLives: TemplateAppPlayerPopinEndFixtureInfiniteLives,
       Loading: TemplateAppPlayerPopinEndFixtureLoading,
       NegativeRank: TemplateAppPlayerPopinEndFixtureNegativeRank,
       NextCourse: TemplateAppPlayerPopinEndFixtureNextCourse,
       NextLevelAdaptiveImg: TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg,
+      ScormCorrect: TemplateAppPlayerPopinEndFixtureScormCorrect,
       SimpleAction: TemplateAppPlayerPopinEndFixtureSimpleAction,
       Subscribe: TemplateAppPlayerPopinEndFixtureSubscribe,
+      SuccessScormWithFeedback: TemplateAppPlayerPopinEndFixtureSuccessScormWithFeedback,
+      SuccessScorm: TemplateAppPlayerPopinEndFixtureSuccessScorm,
       WithLoadingRecommendations: TemplateAppPlayerPopinEndFixtureWithLoadingRecommendations,
       WithRecommendations: TemplateAppPlayerPopinEndFixtureWithRecommendations,
       WithoutRecommendation: TemplateAppPlayerPopinEndFixtureWithoutRecommendation

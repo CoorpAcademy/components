@@ -10,6 +10,12 @@
 @value dark from colors;
 @value black from colors;
 @value transparent from colors;
+@value cm_grey_75 from colors;
+@value lightGreen from colors;
+@value cm_green_50 from colors;
+@value cm_negative_100 from colors;
+@value cm_negative_50 from colors;
+@value white from colors;
 
 .header {
   display: flex;
@@ -84,6 +90,14 @@
   justify-content: center;
   flex-direction: column;
   color: white;
+}
+
+.titlesWrapperScorm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  color: white;
+  height: 20px;
 }
 
 .titleElement {
@@ -183,6 +197,78 @@
   font-weight: 600;
   font-size: 22px;
   padding: 0 20px 0 10px;
+}
+
+.resultContenantContainerScorm {
+  width: 884px;
+  height: 158px;
+  border: 1px solid cm_grey_75;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+.resultSubtitleScorm {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 52px;
+  color: lightGreen;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.resultTitleScorm {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: dark;
+  margin-top: 4px;
+}
+.statusPlayerResultFailScorm {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 52px;
+  color: cm_negative_100;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.iconCloseContainer {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: cm_negative_50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 24px 0 40px
+}
+.iconSuccessContainer {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: cm_green_50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 24px 0 40px
+}
+.failIcon {
+  color: cm_negative_100;
+  height: 22px;
+  width: 22px;
+}
+.checkIcon {
+  color: lightGreen;
+  height: 22px;
+  width: 22px;
 }
 
 /*
@@ -351,6 +437,9 @@
   .correctionSectionEndSuccess .titleElement {
     padding-right: 130px;
   }
+  .resultContenantContainerScorm {
+    width: 100vw
+  }
 }
 
 @media mobile {
@@ -399,5 +488,9 @@
   .gameOverSubtitle,
   .nextStepTitle {
     width: 177px;
+  }
+  .iconCloseContainer,
+  .iconSuccessContainer {
+    margin: auto;
   }
 }

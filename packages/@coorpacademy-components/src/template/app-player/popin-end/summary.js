@@ -13,6 +13,7 @@ import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import {innerHTML} from '../../../atom/label/style.css';
 import PopinHeader from '../popin-header';
+import AtomLottieWrapper from '../../../atom/lottie-wrapper';
 import style from './summary.css';
 
 const Header = props => <PopinHeader {...props} />;
@@ -217,7 +218,7 @@ Footer.propTypes = {
 };
 
 const Summary = (props, context) => {
-  const {header, recommendation, comment, footer, action, feedback} = props;
+  const {header, recommendation, comment, footer, action, feedback, mode} = props;
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
   const commentView =
@@ -227,18 +228,65 @@ const Summary = (props, context) => {
       </div>
     ) : null;
   const footerView = footer && header ? <Footer {...footer} color={primary} /> : null;
-  const feedbackView = feedback ? <Feedback {...feedback} /> : null;
+  const feedbackView = feedback ? <Feedback {...feedback} mode={mode} /> : null;
 
   return (
-    <div className={style.summaryWrapper}>
-      <Header {...header} />
-      {feedbackView}
-      <Action {...action} color={primary} />
-      <Cards {...recommendation} />
-      {commentView}
-      {footerView}
-    </div>
+    <BackgroundScorm mode={mode} failed={header.failed}>
+      <div className={mode !== 'scorm' ? style.summaryWrapper : null}>
+        <Header {...header} mode={mode} />
+        {feedbackView}
+        <Action {...action} color={primary} />
+        <Cards {...recommendation} />
+        {commentView}
+        {footerView}
+      </div>
+    </BackgroundScorm>
   );
+};
+
+const BackgroundScorm = props => {
+  const {mode = 'default', children, failed} = props;
+  if (mode === 'scorm')
+    return (
+      <div className={style.organismPlayerResultContainerScorm}>
+        <div className={style.animationContainer}>
+          {!failed ? (
+            <AtomLottieWrapper
+              {...{
+                'aria-label': 'aria lottie',
+                'data-name': 'default-lottie',
+                className: undefined,
+                animationSrc:
+                  'https://static-staging.coorpacademy.com/animations/review/confetti.json',
+                loop: undefined,
+                autoplay: true,
+                rendererSettings: {
+                  hideOnTransparent: false,
+                  animationClassName: ''
+                },
+                ie11ImageBackup:
+                  'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
+                animationControl: undefined
+              }}
+              loop={false}
+              animationControl={'play'}
+              autoplay
+              data-name="lottie-wrapper"
+              className={style.lottie}
+              backupImageClassName={style.ie11Backup}
+            />
+          ) : null}
+        </div>
+        <div>
+          <div className={style.largeCircle}>
+            <div className={style.mediumCircle}>
+              <div className={style.smallCircle}>{children}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  return children;
 };
 
 Summary.contextTypes = {
@@ -257,7 +305,8 @@ Summary.propTypes = {
     type: PropTypes.oneOf(keys(actions)).isRequired
   }),
   recommendation: PropTypes.shape(CardsList.propTypes),
-  feedback: PropTypes.shape(Feedback.propTypes)
+  feedback: PropTypes.shape(Feedback.propTypes),
+  mode: PropTypes.oneOf(['scorm', 'default'])
 };
 
 export default Summary;

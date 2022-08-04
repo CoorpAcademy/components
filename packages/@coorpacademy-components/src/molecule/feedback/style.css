@@ -9,6 +9,8 @@
 @value medium from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
+@value cm_grey_75 from colors;
+
 
 .feedback {
   width: 100%;
@@ -17,6 +19,24 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+
+.feedbackContainerScorm {
+  background-color: white;
+  max-width: 884px;
+  height: 386px;
+  padding-bottom: 10px;
+  overflow-x: auto;
+  border: 1px solid cm_grey_75;
+  border-top: 0px;
+  z-index: 2;
+  margin-top: 60px;
+  position: relative;
+}
+
+.feedbackContainerScorm > .feedback {
+  border-bottom: 0px;
+  height: 100%;
 }
 
 .title {
@@ -89,6 +109,10 @@
   .mediaDescription {
     width: 100%;
     margin-bottom: 8px;
+  }
+  .feedbackContainerScorm {
+    width: 100%;
+    height: 100%;
   }
 }
 
