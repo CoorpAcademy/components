@@ -7,21 +7,35 @@ import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
 
-test('should handle on blur', t => {
+test('should handle focus', t => {
   const analyticsID = 'fake-analytics-id';
+  const questionType = 'template';
+
   const context = mockMobileContext({
     logEvent: (eventName: string, options: {id: string}) => {
-      t.is(eventName, ANALYTICS_EVENT_TYPE.OPEN_SELECT);
-      t.deepEqual(options, {id: analyticsID});
+      if (eventName === ANALYTICS_EVENT_TYPE.PRESS) {
+        t.deepEqual(options, {id: analyticsID});
+      }
+
+      if (eventName === ANALYTICS_EVENT_TYPE.OPEN_SELECT) {
+        t.deepEqual(options, {id: analyticsID, questionType});
+      }
     }
   });
 
   const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
 
-  const questionType = 'template';
-  const handleBlur = value => {
-    t.is(value, 'App Store');
+  const handleFocus = () => {
+    t.pass();
+  };
+
+  const handleBlur = () => {
+    t.fail();
+  };
+
+  const handleChange = () => {
+    t.fail();
   };
 
   const component = (
@@ -30,6 +44,8 @@ test('should handle on blur', t => {
         values={items}
         value={items[1].text}
         onBlur={handleBlur}
+        onChange={handleChange}
+        onFocus={handleFocus}
         questionType={questionType}
         analyticsID={analyticsID}
         placeholder="Foo bar baz"
@@ -41,10 +57,9 @@ test('should handle on blur', t => {
   );
 
   const {getByTestId} = render(component);
+  const touchable = getByTestId('select-input');
 
-  const cpt = getByTestId('change-modal-select-item-2');
+  fireEvent(touchable, 'press');
 
-  fireEvent(cpt, 'press', 'change-modal-select-item-2');
-
-  t.plan(1);
+  t.plan(3);
 });

@@ -9,7 +9,7 @@ import {Theme} from '../../variables/theme.native';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
 import Space from '../space/index.native';
 import Text from '../text/index.native';
-import ModalSelect from '../../hoc/modal/select/index.native';
+import ModalSelect, {OnChangeFunction} from '../../hoc/modal/select/index.native';
 import type {Props as ModalSelectProps} from '../../hoc/modal/select/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 
@@ -22,7 +22,7 @@ export type Props = {
   value?: Pick<ModalSelectProps, 'value'>;
   placeholder?: string;
   color?: string;
-  onChange: Pick<ModalSelectProps, 'onChange'>;
+  onChange: OnChangeFunction;
   onFocus: () => void;
   onBlur: () => void;
   style?: ViewStyle;
@@ -135,7 +135,12 @@ const Select = (props: Props) => {
 
   return (
     <>
-      <Touchable disabled={isDisabled} onPress={handleFocus} testID={`${testID}-input`}>
+      <Touchable
+        disabled={isDisabled}
+        onPress={handleFocus}
+        analyticsID={analyticsID}
+        testID={`${testID}-input`}
+      >
         <View style={[styleSheet.container, style]}>
           <Text style={[styleSheet.text, textStyle, color && {color}]}>{text}</Text>
           <Space type="tiny" />

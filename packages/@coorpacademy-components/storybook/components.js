@@ -420,15 +420,11 @@ import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-st
 import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
 import AtomReviewHeaderStepItemFixtureWrong from '../src/atom/review-header-step-item/test/fixtures/wrong';
 import AtomReviewPresentationFixtureDefault from '../src/atom/review-presentation/test/fixtures/default';
-import AtomSelectFixtureColoredTsx from '../src/atom/select/test/fixtures/colored.tsx';
 import AtomSelectFixtureCoorpmanager from '../src/atom/select/test/fixtures/coorpmanager';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
-import AtomSelectFixtureDefaultTsx from '../src/atom/select/test/fixtures/default.tsx';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
-import AtomSelectFixtureDisabledTsx from '../src/atom/select/test/fixtures/disabled.tsx';
 import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
 import AtomSelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
-import AtomSelectFixtureFocusedTsx from '../src/atom/select/test/fixtures/focused.tsx';
 import AtomSelectFixtureInvalid from '../src/atom/select/test/fixtures/invalid';
 import AtomSelectFixtureModified from '../src/atom/select/test/fixtures/modified';
 import AtomSelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
@@ -442,8 +438,6 @@ import AtomSelectFixtureSort from '../src/atom/select/test/fixtures/sort';
 import AtomSelectFixtureTemplate from '../src/atom/select/test/fixtures/template';
 import AtomSelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
 import AtomSelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiques';
-import AtomSelectFixtureWithPlaceHolderTsx from '../src/atom/select/test/fixtures/with-place-holder.tsx';
-import AtomSelectFixtureWithValueTsx from '../src/atom/select/test/fixtures/with-value.tsx';
 import AtomSlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import AtomSlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import AtomSlideFixtureLight from '../src/atom/slide/test/fixtures/light';
@@ -1820,15 +1814,11 @@ export const fixtures = {
       Default: AtomReviewPresentationFixtureDefault
     },
     AtomSelect: {
-      ColoredTsx: AtomSelectFixtureColoredTsx,
       Coorpmanager: AtomSelectFixtureCoorpmanager,
       Default: AtomSelectFixtureDefault,
-      DefaultTsx: AtomSelectFixtureDefaultTsx,
       Disabled: AtomSelectFixtureDisabled,
-      DisabledTsx: AtomSelectFixtureDisabledTsx,
       Error: AtomSelectFixtureError,
       Filter: AtomSelectFixtureFilter,
-      FocusedTsx: AtomSelectFixtureFocusedTsx,
       Invalid: AtomSelectFixtureInvalid,
       Modified: AtomSelectFixtureModified,
       Mooc: AtomSelectFixtureMooc,
@@ -1841,9 +1831,7 @@ export const fixtures = {
       Sort: AtomSelectFixtureSort,
       Template: AtomSelectFixtureTemplate,
       ThematiquesLong: AtomSelectFixtureThematiquesLong,
-      Thematiques: AtomSelectFixtureThematiques,
-      WithPlaceHolderTsx: AtomSelectFixtureWithPlaceHolderTsx,
-      WithValueTsx: AtomSelectFixtureWithValueTsx
+      Thematiques: AtomSelectFixtureThematiques
     },
     AtomSlide: {
       Default: AtomSlideFixtureDefault,

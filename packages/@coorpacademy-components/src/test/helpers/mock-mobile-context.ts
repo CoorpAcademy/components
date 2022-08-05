@@ -19,7 +19,8 @@ const mockMobileContext = ({
   vibration: {
     VIBRATION_TYPE,
     vibrate
-  }
+  },
+  display: {statusBarHeight: 80}
 });
 
 export default mockMobileContext;

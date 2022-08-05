@@ -1,27 +1,28 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import Select from '../../select-modal/index.native';
 import {createSelectChoice} from '../../../hoc/modal/select/test/fixtures/default';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
+import Select from '../index.native';
 
-test('should handle on blur', t => {
+test('should handle blur', t => {
   const analyticsID = 'fake-analytics-id';
+  const questionType = 'template';
+
   const context = mockMobileContext({
     logEvent: (eventName: string, options: {id: string}) => {
       t.is(eventName, ANALYTICS_EVENT_TYPE.CLOSE_SELECT);
-      t.deepEqual(options, {id: analyticsID});
+      t.deepEqual(options, {id: analyticsID, questionType});
     }
   });
 
   const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
 
-  const questionType = 'template';
-  const handleBlur = value => {
-    t.is(value, 'App Store');
+  const handleBlur = () => {
+    t.pass();
   };
 
   const component = (
@@ -41,10 +42,9 @@ test('should handle on blur', t => {
   );
 
   const {getByTestId} = render(component);
+  const modalSelect = getByTestId('select-modal');
 
-  const cpt = getByTestId('change-modal-select-item-2');
+  fireEvent(modalSelect, 'close');
 
-  fireEvent(cpt, 'press', 'change-modal-select-item-2');
-
-  t.plan(1);
+  t.plan(3);
 });
