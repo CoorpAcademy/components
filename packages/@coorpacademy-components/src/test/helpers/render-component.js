@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import get from 'lodash/fp/get';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import {mockTranslate} from '@coorpacademy/translate';

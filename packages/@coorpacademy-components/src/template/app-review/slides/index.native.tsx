@@ -215,7 +215,7 @@ const Slide = props => {
 // const Slides = ({slide}: Props) => {
 const Slides = ({slides, validateSlide}) => {
   if (!slides) {
-    return null;
+    return <View />;
   }
 
   return (
