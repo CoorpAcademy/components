@@ -354,6 +354,9 @@ import AtomInputSwitchFixtureCmRight from '../src/atom/input-switch/test/fixture
 import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import AtomInputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
+import AtomInputSwitchFixturePartielUncheckRightChecked from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right-checked';
+import AtomInputSwitchFixturePartielUncheckRightDisabled from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right-disabled';
+import AtomInputSwitchFixturePartielUncheckRight from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right';
 import AtomInputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
 import AtomInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import AtomInputTextFixtureCmDefault from '../src/atom/input-text/test/fixtures/cm-default';
@@ -565,6 +568,8 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
+import MoleculeCmPopinFixtureCookie from '../src/molecule/cm-popin/test/fixtures/cookie';
+import MoleculeCmPopinFixtureCookieSettings from '../src/molecule/cm-popin/test/fixtures/cookieSettings';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
@@ -1256,6 +1261,9 @@ import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
+import TemplateCommonDashboardFixtureWithCookie from '../src/template/common/dashboard/test/fixtures/cookie-dashboard';
+import TemplateCommonDashboardFixtureWithCookieSettings from '../src/template/common/dashboard/test/fixtures/cookie-settings-dashboard';
+
 
 export const components = {
   Atom: {
@@ -1703,6 +1711,9 @@ export const fixtures = {
       Disabled: AtomInputSwitchFixtureDisabled,
       Modified: AtomInputSwitchFixtureModified,
       NoTitle: AtomInputSwitchFixtureNoTitle,
+      PartielUncheckRightChecked: AtomInputSwitchFixturePartielUncheckRightChecked,
+      PartielUncheckRightDisabled: AtomInputSwitchFixturePartielUncheckRightDisabled,
+      PartielUncheckRight: AtomInputSwitchFixturePartielUncheckRight,
       Sso: AtomInputSwitchFixtureSso,
       Unchecked: AtomInputSwitchFixtureUnchecked
     },
@@ -2020,6 +2031,8 @@ export const fixtures = {
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
     MoleculeCmPopin: {
+      Cookie: MoleculeCmPopinFixtureCookie,
+      CookieSettings: MoleculeCmPopinFixtureCookieSettings,
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
       ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose,
@@ -3005,7 +3018,9 @@ export const fixtures = {
     TemplateCommonDashboard: {
       Default: TemplateCommonDashboardFixtureDefault,
       EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests,
-      WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard
+      WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard,
+      Cookie: TemplateCommonDashboardFixtureWithCookie,
+      CookieSettings: TemplateCommonDashboardFixtureWithCookieSettings
     },
     TemplateCommonDiscipline: {
       AddToMyList: TemplateCommonDisciplineFixtureAddToMyList,
