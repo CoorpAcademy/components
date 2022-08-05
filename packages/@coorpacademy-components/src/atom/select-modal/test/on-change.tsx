@@ -1,26 +1,22 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import Select from '../index.native';
+import Select from '../../select-modal/index.native';
 import {createSelectChoice} from '../../../hoc/modal/select/test/fixtures/default';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
-import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
 
-test('should handle on blur', t => {
-  const analyticsID = 'fake-analytics-id';
+test('should handle on change', t => {
   const context = mockMobileContext({
-    logEvent: (eventName: string, options: {id: string}) => {
-      t.is(eventName, ANALYTICS_EVENT_TYPE.CLOSE_SELECT);
-      t.deepEqual(options, {id: analyticsID});
-    }
+    logEvent: () => t.pass()
   });
 
   const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
 
+  const analyticsID = 'foo';
   const questionType = 'template';
-  const handleBlur = value => {
+  const handleChange = value => {
     t.is(value, 'App Store');
   };
 
@@ -29,7 +25,7 @@ test('should handle on blur', t => {
       <Select
         values={items}
         value={items[1].text}
-        onBlur={handleBlur}
+        onChange={handleChange}
         questionType={questionType}
         analyticsID={analyticsID}
         placeholder="Foo bar baz"

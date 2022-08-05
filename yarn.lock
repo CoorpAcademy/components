@@ -3341,10 +3341,10 @@
     lodash "^4.17.21"
     prettier "2.5.1"
 
-"@coorpacademy/react-native-mock-render@^0.1.20":
-  version "0.1.20"
-  resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-mock-render/-/react-native-mock-render-0.1.20.tgz#92690bfbaf2232a8a20f8f792a00e0b0a95413e7"
-  integrity sha512-OETy53EPLOr3TtPhsGd3DjhOxSzaMbTx616L7dPpW44BQPgUlBQQM8p2e393T0IeG6Ba78mKD4WByJ8DSL2eRw==
+"@coorpacademy/react-native-mock-render@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-mock-render/-/react-native-mock-render-0.2.3.tgz#af1bb856a114762042331af89e873317d6ba70b3"
+  integrity sha512-W8fvYulBlSv/DEu1oPoYD6LMCH7HjCt/NkhfkBHe8CPCounBTfG8SZesgi0E1OStZM5oAqFYoGUFdQjL1TlRxQ==
   dependencies:
     art "^0.10.3"
     create-react-class "^15.7.0"
@@ -19477,6 +19477,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-animatable@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
+  integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-codegen@^0.0.17:
   version "0.0.17"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.17.tgz#83fb814d94061cbd46667f510d2ddba35ffb50ac"
@@ -19491,6 +19498,14 @@ react-native-gradle-plugin@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
+
+react-native-modal@11.5.6:
+  version "11.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-11.5.6.tgz#bb25a78c35a5e24f45de060e5f64284397d38a87"
+  integrity sha512-APGNfbvgC4hXbJqcSADu79GLoMKIHUmgR3fDQ7rCGZNBypkStSP8imZ4PKK/OzIZZfjGU9aP49jhMgGbhY9KHA==
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-animatable "1.3.3"
 
 react-native-svg@^9.13.6:
   version "9.13.6"

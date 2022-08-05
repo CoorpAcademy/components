@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useMemo} from 'react';
-import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {View, StyleSheet, ViewStyle, TextStyle, FlexAlignType, FlexStyle} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
-import type {QuestionType} from '../../types/progression-engine.d';
+import type {QuestionType} from '../../types/progression-engine';
 import {Theme} from '../../variables/theme.native';
 
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
@@ -26,14 +26,14 @@ export type Props = {
   onFocus: () => void;
   onBlur: () => void;
   style?: ViewStyle;
-  textStyle?: TextStyle;
+  textStyle?: ViewStyle;
   testID?: string;
 };
 
 type StyleSheetType = {
   container: {
-    alignItems: string;
-    flexDirection: string;
+    alignItems: FlexAlignType;
+    flexDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse' | undefined;
   };
   text: {
     flex: number;
@@ -134,7 +134,7 @@ const Select = (props: Props) => {
   const text = (selectedItem && selectedItem.text) || placeholder || null;
 
   return (
-    <React.Fragment>
+    <>
       <Touchable disabled={isDisabled} onPress={handleFocus} testID={`${testID}-input`}>
         <View style={[styleSheet.container, style]}>
           <Text style={[styleSheet.text, textStyle, color && {color}]}>{text}</Text>
@@ -160,7 +160,7 @@ const Select = (props: Props) => {
           testID={`${testID}-modal`}
         />
       </Modal>
-    </React.Fragment>
+    </>
   );
 };
 

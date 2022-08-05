@@ -1,4 +1,4 @@
-import {Props} from '../../index.native';
+import {Props} from '../../../select-modal/index.native';
 import {createSelectChoice} from '../../../../hoc/modal/select/test/fixtures/default';
 
 type Fixture = {props: Props};
