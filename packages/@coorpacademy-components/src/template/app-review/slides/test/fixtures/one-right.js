@@ -1,34 +1,43 @@
 import omit from 'lodash/fp/omit';
-import initialState, {slideNumbers} from './initial-state';
+import initialState, {apiQCMSlide0} from './initial-state';
+import {apiQCMSlide1} from './one-fail';
 
 const initialStateProps = initialState.props;
 
 export default {
   props: {
-    ...omit(['stepItems', 'finishedSlides', 'slides', 'progression'], initialStateProps),
-    slides: {
-      ...initialStateProps.slides,
-      0: {
-        ...initialStateProps.slides[0],
+    ...omit(['stepItems', 'finishedSlides', 'uiSlides', 'progression'], initialStateProps),
+    uiSlides: {
+      ...initialStateProps.uiSlides,
+      '0': {
+        ...initialStateProps.uiSlides['0'],
         isCorrect: true,
         endReview: false
       }
     },
+    apiSlides: {
+      slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
+      values: {
+        sli_N1XACJobn: apiQCMSlide0,
+        'sli_41~RSVclH': apiQCMSlide1
+      }
+    },
     progression: {
-      slideNumber: 0,
-      isCorrect: true,
-      nextContent: {
-        questionText: initialStateProps.slides[0].questionText,
-        answerUI: initialStateProps.slides[0].answerUI
+      _id: '62b1d1087aa12f00253f40e2',
+      state: {
+        isCorrect: true,
+        nextContent: {
+          type: 'slide',
+          ref: 'sli_41~RSVclH'
+        }
       }
     },
     finishedSlides: {
-      slideNumbers,
-      0: true
+      '0': true
     },
     stepItems: {
       ...initialStateProps.stepItems,
-      0: {
+      '0': {
         current: true,
         value: '1',
         icon: 'right'

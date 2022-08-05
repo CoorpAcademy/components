@@ -13,8 +13,8 @@ export const VIEWS: {
   slides: 'slides'
 };
 
-export const slideNumbers = ['0', '1', '2', '3', '4'] as const;
+export const slideIndexes = ['0', '1', '2', '3', '4'] as const;
 
-export type SlideNumbers = typeof slideNumbers[number];
+export type SlideIndexes = typeof slideIndexes[number];
 
-export const indexToString = (index: number): SlideNumbers => _toString(index) as SlideNumbers;
+export const indexToString = (index: number): SlideIndexes => _toString(index) as SlideIndexes;
