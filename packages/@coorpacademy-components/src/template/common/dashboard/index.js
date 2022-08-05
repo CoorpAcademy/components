@@ -6,8 +6,8 @@ import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import NewsList from '../../../molecule/dashboard/news-list';
 import StartBattle from '../../../molecule/dashboard/start-battle';
-import style from './style.css';
 import CMPopin from '../../../molecule/cm-popin';
+import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
   return <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>;

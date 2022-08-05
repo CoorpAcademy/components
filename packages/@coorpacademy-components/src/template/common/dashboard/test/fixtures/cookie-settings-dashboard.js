@@ -4,6 +4,7 @@ import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixture
 import ManyCardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/many';
 import NewsList from '../../../../../molecule/dashboard/news-list/test/fixtures/default';
 import StartBattle from '../../../../../molecule/dashboard/start-battle/test/fixtures/default';
+import cookieSettings from '../../../../../molecule/cm-popin/test/fixtures/cookie-settings';
 import Default from './default';
 
 const requestsProps = BattleRequestList.props;
@@ -11,7 +12,6 @@ const cardsProps = CardsList.props;
 const manyCardsProps = ManyCardsList.props;
 const newsProps = NewsList.props;
 const battleProps = StartBattle.props;
-import cookieSettings from '../../../../../molecule/cm-popin/test/fixtures/cookieSettings'
 
 const {props} = Default;
 

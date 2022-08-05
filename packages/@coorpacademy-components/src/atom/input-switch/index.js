@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
-import PropTypes from "prop-types";
-import { noop, uniqueId } from "lodash/fp";
-import getClassState from "../../util/get-class-state";
-import style from "./style.css";
+import React, {useMemo} from 'react';
+import PropTypes from 'prop-types';
+import {noop, uniqueId} from 'lodash/fp';
+import getClassState from '../../util/get-class-state';
+import style from './style.css';
 
-const InputSwitch = (props) => {
+const InputSwitch = props => {
   const {
     title,
     name,
@@ -14,38 +14,32 @@ const InputSwitch = (props) => {
     onChange = noop,
     description,
     modified = false,
-    theme = "default",
-    titlePosition = "left",
+    theme = 'default',
+    titlePosition = 'left',
     details,
-    requiredSelection,
+    requiredSelection
   } = props;
 
-  const idSwitch = id || uniqueId("input-switch-");
-  const isDisabled = disabled ? "disabled" : "";
-  const handleChange = useMemo(() => (e) => onChange(e.target.checked), [
-    onChange,
-  ]);
+  const idSwitch = id || uniqueId('input-switch-');
+  const isDisabled = disabled ? 'disabled' : '';
+  const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
-  const titleView = title ? (
-    <span className={style.title}>{`${title} `}</span>
-  ) : null;
+  const titleView = title ? <span className={style.title}>{`${title} `}</span> : null;
 
   const descriptionView = description ? (
     <div className={style.description}>{description}</div>
   ) : null;
 
-  const detailsText = details ? (
-    <div className={style.detailsTxt}>{details}</div>
-  ) : null;
+  const detailsText = details ? <div className={style.detailsTxt}>{details}</div> : null;
 
   let defaultClass = null;
   let modifiedClass = null;
   switch (theme) {
-    case "coorpmanager":
+    case 'coorpmanager':
       defaultClass = style.coorpmanager;
       modifiedClass = style.coorpmanagerModified;
       break;
-    case "partielUncheck":
+    case 'partielUncheck':
       defaultClass = style.partielUncheck;
       modifiedClass = style.coorpmanagerModified;
       break;
@@ -59,7 +53,7 @@ const InputSwitch = (props) => {
 
   return (
     <div className={className} data-name={`switch-input-${theme}`}>
-      {titlePosition === "left" ? titleView : null}
+      {titlePosition === 'left' ? titleView : null}
       <div className={requiredSelection ? style.requiredSelection : null}>
         <div className={style.btnSwicthContainer}>
           <input
@@ -75,7 +69,7 @@ const InputSwitch = (props) => {
         </div>
       </div>
       <div className={!details ? style.alignedTxtContainer : null}>
-        {titlePosition === "right" ? titleView : null}
+        {titlePosition === 'right' ? titleView : null}
         {descriptionView}
         {detailsText}
       </div>
@@ -92,9 +86,9 @@ InputSwitch.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
-  titlePosition: PropTypes.oneOf(["right", "left"]),
-  theme: PropTypes.oneOf(["default", "coorpmanager", "partielUncheck"]),
+  titlePosition: PropTypes.oneOf(['right', 'left']),
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'partielUncheck']),
   details: PropTypes.string,
-  requiredSelection: PropTypes.bool,
+  requiredSelection: PropTypes.bool
 };
 export default InputSwitch;

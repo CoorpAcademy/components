@@ -569,7 +569,7 @@ import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-butt
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCmPopinFixtureCookie from '../src/molecule/cm-popin/test/fixtures/cookie';
-import MoleculeCmPopinFixtureCookieSettings from '../src/molecule/cm-popin/test/fixtures/cookieSettings';
+import MoleculeCmPopinFixtureCookieSettings from '../src/molecule/cm-popin/test/fixtures/cookie-settings';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
@@ -1219,6 +1219,8 @@ import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import TemplateCommonCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import TemplateCommonCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
+import TemplateCommonDashboardFixtureCookieDashboard from '../src/template/common/dashboard/test/fixtures/cookie-dashboard';
+import TemplateCommonDashboardFixtureCookieSettingsDashboard from '../src/template/common/dashboard/test/fixtures/cookie-settings-dashboard';
 import TemplateCommonDashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import TemplateCommonDashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
 import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/dashboard/test/fixtures/with-hero-card';
@@ -1261,9 +1263,6 @@ import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
-import TemplateCommonDashboardFixtureWithCookie from '../src/template/common/dashboard/test/fixtures/cookie-dashboard';
-import TemplateCommonDashboardFixtureWithCookieSettings from '../src/template/common/dashboard/test/fixtures/cookie-settings-dashboard';
-
 
 export const components = {
   Atom: {
@@ -3016,11 +3015,11 @@ export const fixtures = {
       Staging: TemplateCommonCoorpHeaderFixtureStaging
     },
     TemplateCommonDashboard: {
+      CookieDashboard: TemplateCommonDashboardFixtureCookieDashboard,
+      CookieSettingsDashboard: TemplateCommonDashboardFixtureCookieSettingsDashboard,
       Default: TemplateCommonDashboardFixtureDefault,
       EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests,
-      WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard,
-      Cookie: TemplateCommonDashboardFixtureWithCookie,
-      CookieSettings: TemplateCommonDashboardFixtureWithCookieSettings
+      WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard
     },
     TemplateCommonDiscipline: {
       AddToMyList: TemplateCommonDisciplineFixtureAddToMyList,
