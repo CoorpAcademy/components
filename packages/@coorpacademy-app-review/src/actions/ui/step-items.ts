@@ -1,16 +1,16 @@
-import {SlideNumbers} from '../../common';
+import {SlideIndexes} from '../../common';
 import {FinishedSlides, IconValue} from '../../types/common';
 
 export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@step-items/UPDATE_STEP_ITEMS_ON_VALIDATION';
 export const UPDATE_STEP_ITEMS_ON_NEXT = '@@step-items/UPDATE_STEP_ITEMS_ON_NEXT';
 
 type UpdateStepItemsOnValidationClickPayload = {
-  stepNumber: SlideNumbers;
+  stepIndex: SlideIndexes;
   icon: IconValue;
 };
 
 type UpdateStepItemsOnNextClickPayload = {
-  stepNumber: SlideNumbers;
+  stepIndex: SlideIndexes;
   finishedSlides: FinishedSlides;
   current: boolean;
 };

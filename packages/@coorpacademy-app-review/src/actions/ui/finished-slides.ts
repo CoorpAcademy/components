@@ -1,8 +1,8 @@
 // Stores only successful slides
 
-import {SlideNumbers} from '../../common';
+import {SlideIndexes} from '../../common';
 
-export type FinishedSlide = {slideNumber: SlideNumbers; value: true};
+export type FinishedSlide = {slideIndex: SlideIndexes; value: true};
 
 // -----------------------------------------------------------------------------
 

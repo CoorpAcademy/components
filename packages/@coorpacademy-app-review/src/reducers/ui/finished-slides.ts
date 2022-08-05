@@ -1,9 +1,9 @@
 import forEach from 'lodash/fp/forEach';
 import {UpdateFinishedSlides, UPDATE_FINISHED_SLIDES} from '../../actions/ui/finished-slides';
-import {indexToString, SlideNumbers} from '../../common';
+import {indexToString, SlideIndexes} from '../../common';
 
 export type FinishedSlidesState = {
-  [key in SlideNumbers]?: true;
+  [key in SlideIndexes]?: true;
 };
 
 const initialState: FinishedSlidesState = {};
@@ -26,7 +26,7 @@ const reducer = (
   switch (action.type) {
     case UPDATE_FINISHED_SLIDES: {
       const {...rest} = state;
-      const {slideNumber, value} = action.payload;
+      const {slideIndex, value} = action.payload;
       const _state: FinishedSlidesState = {};
 
       _forEach<FinishedSlidesState>((finishedSlide, index) => {
@@ -34,7 +34,7 @@ const reducer = (
         _state[indexToString(index)] = previousValue;
       }, rest);
 
-      _state[slideNumber] = value;
+      _state[slideIndex] = value;
       return _state;
     }
     default:

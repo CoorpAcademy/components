@@ -44,7 +44,7 @@ export const SlidesReviewPropTypes = {
   }),
   apiSlides: PropTypes.shape({
     slideRefs: PropTypes.arrayOf(PropTypes.string),
-    values: PropTypes.object // specify typing if time is available
+    values: PropTypes.objectOf(PropTypes.object) // specify typing if time is available
   }),
   finishedSlides: PropTypes.shape({
     '0': PropTypes.bool,
@@ -78,10 +78,10 @@ export const SlidesReviewPropTypes = {
     _id: PropTypes.string,
     state: PropTypes.shape({
       isCorrect: PropTypes.bool,
-      step: PropTypes.shape({
-        current: PropTypes.number
-      }),
-      // 'successExitNode'
+      // unused for now
+      // step: PropTypes.shape({
+      //   current: PropTypes.number
+      // }),
       nextContent: PropTypes.shape({
         // 'success' | 'slide'
         type: PropTypes.string,
@@ -89,7 +89,7 @@ export const SlidesReviewPropTypes = {
         ref: PropTypes.string
       })
     })
-  }),
+  }).isRequired,
   // ---------------------------------------------------------------------------
   // Dispatchers
   validateSlide: PropTypes.func.isRequired,
@@ -101,7 +101,7 @@ export const SlidesReviewPropTypes = {
 };
 
 export const SlidePropTypes = {
-  slideNumber: PropTypes.string,
+  slideIndex: PropTypes.string,
   slides: SlidesReviewPropTypes.apiSlides,
   primarySkinColor: PropTypes.string,
   validate: SlidesReviewPropTypes.validate,
@@ -117,4 +117,4 @@ export const SlidePropTypes = {
   progression: SlidesReviewPropTypes.progression
 };
 
-export const StackedSlidesPropTypes = omit('slideNumber', SlidePropTypes);
+export const StackedSlidesPropTypes = omit('slideIndex', SlidePropTypes);

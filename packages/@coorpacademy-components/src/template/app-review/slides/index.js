@@ -43,7 +43,7 @@ const getSlideAnimation = (action, position, hidden) => {
 };
 
 const Slide = ({
-  slideNumber,
+  slideIndex,
   uiSlides,
   primarySkinColor,
   validate,
@@ -56,13 +56,13 @@ const Slide = ({
   progression,
   correctionPopinProps
 }) => {
-  const hidden = getOr(false, `${slideNumber}.hidden`, uiSlides);
-  const endReview = getOr(false, `${slideNumber}.endReview`, uiSlides);
-  const position = get(`${slideNumber}.position`, uiSlides);
-  const animationType = getOr(false, `${slideNumber}.animationType`, uiSlides);
-  const isSlideCorrect = getOr(null, `${slideNumber}.isCorrect`, uiSlides);
-  const questionText = get(`${slideNumber}.questionText`, uiSlides);
-  const answerUI = get(`${slideNumber}.answerUI`, uiSlides);
+  const hidden = getOr(false, `${slideIndex}.hidden`, uiSlides);
+  const endReview = getOr(false, `${slideIndex}.endReview`, uiSlides);
+  const position = get(`${slideIndex}.position`, uiSlides);
+  const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
+  const isSlideCorrect = getOr(null, `${slideIndex}.isCorrect`, uiSlides);
+  const questionText = get(`${slideIndex}.questionText`, uiSlides);
+  const answerUI = get(`${slideIndex}.answerUI`, uiSlides);
 
   const validateLabel = getOr('', 'label', validate);
 
@@ -85,7 +85,7 @@ const Slide = ({
     },
     'aria-label': validateLabel,
     label: validateLabel,
-    'data-name': `slide-validate-button-${slideNumber}`,
+    'data-name': `slide-validate-button-${slideIndex}`,
     className: style.validateButton,
     disabled: !isNil(isSlideCorrect)
   };
@@ -108,7 +108,7 @@ const Slide = ({
         const isExitNodePresent = get('state.nextContent.ref', progression) === 'successExitNode';
 
         updateSlidesOnNext({
-          slideNumber,
+          slideIndex,
           newSlideContent: {
             hidden: !!isSlideCorrect,
             position: HIGHEST_INDEX - finishedSlidesSize, // to restack the slide
@@ -121,7 +121,7 @@ const Slide = ({
           numberOfFinishedSlides: finishedSlidesSize
         });
         updateStepItemsOnNext({
-          stepNumber: slideNumber,
+          stepIndex: slideIndex,
           finishedSlides,
           current:
             finishedSlidesSize === HIGHEST_INDEX && /* istanbul ignore next */ !isSlideCorrect
@@ -130,7 +130,7 @@ const Slide = ({
         if (finishedSlidesSize === TOTAL_SLIDES_STACK) updateReviewStatus('finished');
       },
       label: next && next.label,
-      'data-name': `next-question-button-${slideNumber}`,
+      'data-name': `next-question-button-${slideIndex}`,
       'aria-label': next && next['aria-label']
     },
     klf,
@@ -152,8 +152,8 @@ const Slide = ({
 
   return (
     <div
-      key={`slide-${slideNumber}`}
-      data-name={`slide-${slideNumber}`}
+      key={`slide-${slideIndex}`}
+      data-name={`slide-${slideIndex}`}
       className={classnames(
         style.slideBase,
         getSlideAnimation(animationType, position, hidden),
@@ -214,11 +214,11 @@ const StackedSlides = ({
 }) => {
   const stackedSlides = [];
   // eslint-disable-next-line fp/no-loops
-  for (let slideNumber = 0; slideNumber < TOTAL_SLIDES_STACK; slideNumber++) {
+  for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
     const slide = (
       <Slide
         {...{
-          slideNumber: _toString(slideNumber),
+          slideIndex: _toString(slideIndex),
           uiSlides,
           primarySkinColor,
           validate,
@@ -231,7 +231,7 @@ const StackedSlides = ({
           progression,
           correctionPopinProps
         }}
-        key={slideNumber}
+        key={slideIndex}
       />
     );
     stackedSlides.push(slide);
@@ -292,7 +292,7 @@ const SlidesReview = (
         const endReview = getOr(false, `${currentSlideIndex}.endReview`, uiSlides);
         const isCorrect = get('state.isCorrect', progression);
         updateStepItemsOnValidation({
-          stepNumber: currentSlideIndex,
+          stepIndex: currentSlideIndex,
           icon: isCorrect ? ICON_VALUES.right : ICON_VALUES.wrong
         });
         if (isCorrect) updateFinishedSlides({currentSlideIndex, value: true});
@@ -308,8 +308,10 @@ const SlidesReview = (
   useEffect(
     /* istanbul ignore next */ () => {
       if (reviewStatus === 'finished') {
-        setTimeout(() => updateShouldMountSlides(false), 2000);
+        const timeoutId = setTimeout(() => updateShouldMountSlides(false), 2000);
+        return () => clearTimeout(timeoutId);
       }
+      return;
     },
     [finishedSlidesSize, reviewStatus, updateReviewStatus]
   );

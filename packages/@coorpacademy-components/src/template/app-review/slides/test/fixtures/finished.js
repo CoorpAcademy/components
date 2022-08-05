@@ -1,73 +1,76 @@
 import omit from 'lodash/fp/omit';
-import initialState, {slideNumbers} from './initial-state';
+import initialState from './initial-state';
 
 const initialStateProps = initialState.props;
 
 export default {
   props: {
     ...omit(
-      ['stepItems', 'finishedSlides', 'slides', 'progression', 'reviewStatus'],
+      ['stepItems', 'finishedSlides', 'uiSlides', 'progression', 'reviewStatus'],
       initialStateProps
     ),
     reviewStatus: 'finished',
-    slides: {
-      slideNumbers,
-      0: {
+    uiSlides: {
+      '0': {
         hidden: true,
         position: 0
       },
-      1: {
+      '1': {
         hidden: true,
         position: 0
       },
-      2: {
+      '2': {
         hidden: true,
         position: 0
       },
-      3: {
+      '3': {
         hidden: true,
         position: 0
       },
-      4: {
+      '4': {
         hidden: true,
         position: 0
       }
     },
     progression: {
-      slideNumber: 4,
-      isCorrect: true,
-      exitNode: 'successExitNode'
+      _id: '62b1d1087aa12f00253f40e3',
+      state: {
+        isCorrect: true,
+        nextContent: {
+          type: 'success',
+          ref: 'successExitNode'
+        }
+      }
     },
     finishedSlides: {
-      slideNumbers,
-      0: true,
-      1: true,
-      2: true,
-      3: true,
-      4: true
+      '0': true,
+      '1': true,
+      '2': true,
+      '3': true,
+      '4': true
     },
     stepItems: {
-      0: {
+      '0': {
         current: false,
         value: '1',
         icon: 'right'
       },
-      1: {
+      '1': {
         current: false,
         value: '2',
         icon: 'right'
       },
-      2: {
+      '2': {
         current: false,
         value: '3',
         icon: 'right'
       },
-      3: {
+      '3': {
         current: false,
         value: '4',
         icon: 'right'
       },
-      4: {
+      '4': {
         current: false,
         value: '5',
         icon: 'right'

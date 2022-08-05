@@ -11,8 +11,8 @@ import {
 import {
   HIGHEST_INDEX,
   indexToString,
-  SlideNumbers,
-  slideNumbers,
+  SlideIndexes,
+  slideIndexes,
   TOTAL_SLIDES_STACK
 } from '../../common';
 
@@ -23,11 +23,11 @@ export type StepItem = {
 };
 
 export type StepItemsState = {
-  [key in SlideNumbers]: StepItem;
+  [key in SlideIndexes]: StepItem;
 };
 
 const getInitialState = (): StepItemsState => {
-  // Use reducer?
+  // Use reducer? // TODO
   const state: Partial<StepItemsState> = {};
 
   // eslint-disable-next-line fp/no-loops
@@ -44,55 +44,55 @@ export const initialState: StepItemsState = getInitialState();
 
 // ||-------> aux function, finds the next consecutive index
 // to loop from 0 to HIGHEST_INDEX (4) & again to 0
-const getNextIndex = (currentIndex: number): SlideNumbers =>
+const getNextIndex = (currentIndex: number): SlideIndexes =>
   indexToString(currentIndex === HIGHEST_INDEX ? 0 : currentIndex + 1);
 
 // ||-------> calculates which should be the next step to visit (as there can be already answered slides &&
 // they have to be skipped)
 const calculateNextStepIndex = (
-  currentStepNumber: SlideNumbers,
+  currentStepIndex: SlideIndexes,
   finishedSlides: FinishedSlides,
-  lastVisitedIndex: SlideNumbers | '-1' = '-1'
-): SlideNumbers => {
+  lastVisitedIndex: SlideIndexes | '-1' = '-1'
+): SlideIndexes => {
   // only one slide remaining, the step should stay on the same number
-  if (lastVisitedIndex === currentStepNumber) {
-    return currentStepNumber;
+  if (lastVisitedIndex === currentStepIndex) {
+    return currentStepIndex;
   }
 
   const indexToVisit = getNextIndex(
-    toNumber(lastVisitedIndex === '-1' ? currentStepNumber : lastVisitedIndex)
+    toNumber(lastVisitedIndex === '-1' ? currentStepIndex : lastVisitedIndex)
   );
 
   // if the index is already included in the correctly answered (finished) slides, then we proceed to check for the next one
   return has(indexToVisit, finishedSlides)
-    ? calculateNextStepIndex(currentStepNumber, finishedSlides, indexToVisit)
+    ? calculateNextStepIndex(currentStepIndex, finishedSlides, indexToVisit)
     : indexToVisit;
 };
 
 type StepItemToUpdateProps =
   | {icon: StepItem['icon']}
-  | ({current: StepItem['current']} & {nextIndex: SlideNumbers | '-1'});
+  | ({current: StepItem['current']} & {nextIndex: SlideIndexes | '-1'});
 
 const recalculateStepItemsState = (
   state: StepItemsState,
-  stepNumber: SlideNumbers,
+  stepIndex: SlideIndexes,
   stepItemToUpdateProps: StepItemToUpdateProps
 ): StepItemsState => {
-  const nextIndex: SlideNumbers | '-1' = get('nextIndex', stepItemToUpdateProps);
+  const nextIndex: SlideIndexes | '-1' = get('nextIndex', stepItemToUpdateProps);
   const _state: Partial<StepItemsState> = {};
 
   // eslint-disable-next-line lodash-fp/no-unused-result
   map(index => {
     const previousValue = state[index];
-    if (stepNumber === index)
-      _state[stepNumber] = {
+    if (stepIndex === index)
+      _state[stepIndex] = {
         ...previousValue,
         ...stepItemToUpdateProps
       };
     /* only for UPDATE_STEP_ITEMS_ON_NEXT -> */ else if (nextIndex === index) {
       _state[index] = {...previousValue, current: true};
     } else _state[index] = previousValue;
-  }, slideNumbers);
+  }, slideIndexes);
 
   return <StepItemsState>_state;
 };
@@ -103,15 +103,15 @@ const recalculateStepItemsState = (
 const reducer = (state: StepItemsState = initialState, action: StepItemsAction): StepItemsState => {
   switch (action.type) {
     case UPDATE_STEP_ITEMS_ON_VALIDATION: {
-      const {stepNumber, icon} = action.payload;
-      return recalculateStepItemsState(state, stepNumber, {icon});
+      const {stepIndex, icon} = action.payload;
+      return recalculateStepItemsState(state, stepIndex, {icon});
     }
     case UPDATE_STEP_ITEMS_ON_NEXT: {
-      const {stepNumber, finishedSlides, current} = action.payload;
-      const nextIndex: SlideNumbers | '-1' = !current
-        ? calculateNextStepIndex(stepNumber, finishedSlides)
+      const {stepIndex, finishedSlides, current} = action.payload;
+      const nextIndex: SlideIndexes | '-1' = !current
+        ? calculateNextStepIndex(stepIndex, finishedSlides)
         : '-1';
-      return recalculateStepItemsState(state, stepNumber, {
+      return recalculateStepItemsState(state, stepIndex, {
         current,
         nextIndex
       });

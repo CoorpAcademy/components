@@ -1,4 +1,4 @@
-import {SlideNumbers} from '../../common';
+import {SlideIndexes} from '../../common';
 import {ProgressionFromAPI, SlideFromAPI} from '../../types/common';
 import {AnswerUI} from '../../types/slides';
 
@@ -24,7 +24,7 @@ export type Slide = {
 };
 
 export type OnNextPayload = {
-  slideNumber: SlideNumbers;
+  slideIndex: SlideIndexes;
   newSlideContent: Slide;
   numberOfFinishedSlides: number;
 };

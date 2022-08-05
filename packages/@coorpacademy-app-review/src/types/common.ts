@@ -1,3 +1,4 @@
+import {SlideIndexes} from '../common';
 import {AnswerUI} from './slides';
 
 // TODO use type from components
@@ -169,8 +170,7 @@ const ICON_VALUES = {
 
 export type IconValue = keyof typeof ICON_VALUES;
 export type FinishedSlides = {
-  slideNumbers: number[];
-  [key: number]: true;
+  [key in SlideIndexes]?: true;
 };
 
 // -----------------------------------------------------------------------------

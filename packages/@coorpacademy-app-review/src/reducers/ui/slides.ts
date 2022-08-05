@@ -8,8 +8,8 @@ import type {SlideFromAPI, UISlide} from '../../types/common';
 import {
   HIGHEST_INDEX,
   indexToString,
-  SlideNumbers,
-  slideNumbers,
+  SlideIndexes,
+  slideIndexes,
   TOTAL_SLIDES_STACK
 } from '../../common';
 import {mapApiSlideToUi} from '../../helpers/map-api-slide-to-ui';
@@ -25,7 +25,7 @@ import {
 const emptyState: UISlidesState = {} as UISlidesState;
 
 export type UISlidesState = {
-  [key in SlideNumbers]: UISlide;
+  [key in SlideIndexes]: UISlide;
 };
 
 const getInitialState = (): UISlidesState => {
@@ -51,7 +51,7 @@ const setFirstSlide = (state: UISlidesState, slideFromAPI: SlideFromAPI): UISlid
     // Only update the 1st one
     const content = index === '0' ? {...previousValue, ...mappedSlide} : {...previousValue};
     _state[index] = {...content};
-  }, slideNumbers);
+  }, slideIndexes);
 
   return _state;
 };
@@ -71,12 +71,12 @@ const stateUpdateOnValidation = (
   // TODO: implement Translate function
   const nextContent = mapApiSlideToUi({translate: (text: string) => text})(slideFromAPI);
 
-  const slideNumber = pipe(indexOf(slideRef), indexToString)(fetchedSlidesRefs);
+  const slideIndex = pipe(indexOf(slideRef), indexToString)(fetchedSlidesRefs);
 
   const newSlideContent: UISlide['nextContent'] = {
-    hidden: getOr(false, `${slideNumber}.hidden`, state),
+    hidden: getOr(false, `${slideIndex}.hidden`, state),
     endReview: get('state.nextContent.ref', progressionFromAPI) === 'successExitNode',
-    position: get(`${slideNumber}.position`, state),
+    position: get(`${slideIndex}.position`, state),
     isCorrect: get('state.isCorrect', progressionFromAPI)
   };
 
@@ -86,7 +86,7 @@ const stateUpdateOnValidation = (
   map(index => {
     const previousValue = state[index];
     // the current slide
-    if (index === slideNumber) {
+    if (index === slideIndex) {
       // only one slide remaining, presets the next value
       if (numberOfFinishedSlides === HIGHEST_INDEX) {
         _state[index] = {
@@ -95,7 +95,7 @@ const stateUpdateOnValidation = (
           position: getOr(Number.NaN, 'position', newSlideContent),
           isCorrect: get('isCorrect', newSlideContent)
         };
-      } else _state[slideNumber] = {...previousValue, ...newSlideContent};
+      } else _state[slideIndex] = {...previousValue, ...newSlideContent};
     } else {
       // updates the rest of the slides here
       const {hidden: _hidden, position: _position} = previousValue;
@@ -106,7 +106,7 @@ const stateUpdateOnValidation = (
         position: _position
       };
     }
-  }, slideNumbers);
+  }, slideIndexes);
 
   return _state;
 };
@@ -114,18 +114,18 @@ const stateUpdateOnValidation = (
 // ||-------> Handles the updates of a given slide on correction popin's next click,
 // & then updates de remaining slides (updates position to trigger animations)
 const stateUpdateOnNext = (state: UISlidesState, payload: OnNextPayload): UISlidesState => {
-  const {slideNumber, newSlideContent, numberOfFinishedSlides} = payload;
+  const {slideIndex, newSlideContent, numberOfFinishedSlides} = payload;
   const _state: UISlidesState = emptyState;
 
   // eslint-disable-next-line lodash-fp/no-unused-result
   map(index => {
     const previousValue = state[index];
     // the current slide
-    if (index === slideNumber) {
+    if (index === slideIndex) {
       // when there is only one slide remaining, updates the slide value
       if (numberOfFinishedSlides === HIGHEST_INDEX && previousValue.nextContent) {
         _state[index] = {...previousValue.nextContent, position: previousValue.position};
-      } else _state[slideNumber] = newSlideContent;
+      } else _state[slideIndex] = newSlideContent;
     } else {
       // updates the rest of the slides here
       const {hidden, position, answerUI, questionText} = previousValue;
@@ -137,7 +137,7 @@ const stateUpdateOnNext = (state: UISlidesState, payload: OnNextPayload): UISlid
         endReview: newSlideContent.endReview
       };
     }
-  }, slideNumbers);
+  }, slideIndexes);
 
   return _state;
 };
