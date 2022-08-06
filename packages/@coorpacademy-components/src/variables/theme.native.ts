@@ -1,5 +1,7 @@
 export type SpaceType = 'micro' | 'tiny' | 'small' | 'base' | 'medium' | 'large' | 'xlarge';
 
+export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
+
 export type Colors = {
   border: string;
   gray: {
