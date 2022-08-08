@@ -1,8 +1,31 @@
 import PropTypes from 'prop-types';
 import ReviewCorrectionPopinPropTypes from '../../molecule/review-correction-popin/prop-types';
+import AnswerPropTypes from '../../molecule/answer/prop-types';
+
+const NextSlideProp = PropTypes.shape({
+  hidden: PropTypes.bool,
+  position: PropTypes.number,
+  animationType: PropTypes.string, // 'unstack' | 'restack'
+  isCorrect: PropTypes.boolean,
+  endReview: PropTypes.bool,
+  questionText: PropTypes.string,
+  answerUI: AnswerPropTypes
+});
+
+const SlideProp = PropTypes.shape({
+  ...NextSlideProp.props,
+  nextContent: NextSlideProp
+});
 
 export default {
   slideIndex: PropTypes.string,
+  uiSlides: PropTypes.shape({
+    '0': SlideProp,
+    '1': SlideProp,
+    '2': SlideProp,
+    '3': SlideProp,
+    '4': SlideProp
+  }),
   slides: PropTypes.shape({
     slideRefs: PropTypes.arrayOf(PropTypes.string),
     values: PropTypes.objectOf(PropTypes.object) // specify typing if time is available
