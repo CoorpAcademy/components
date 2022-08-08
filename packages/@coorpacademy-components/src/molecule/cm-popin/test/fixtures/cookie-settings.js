@@ -49,7 +49,7 @@ export default {
     fourthBtnSwitch: {
       type: 'switch',
       title: 'Web performance and analytics',
-      value: true,
+      value: false,
       onChange: value => console.log(value),
       titlePosition: 'right',
       theme: 'coorpmanager',
