@@ -1,0 +1,41 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.stackedSlidesYAxisOverflowContainer {
+  width: 100%;
+  padding-top: 20px;
+  height: 100%;
+  min-height: 870px;
+  /* --- ie11 fallback --- */
+  overflow-y: hidden;
+  /* --------------------- */
+  overflow-y: clip;
+  overflow-x: visible;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.stackedSlidesContainer {
+  position: relative;
+  padding-top: 20px;
+  height: 788px;
+  max-width: 1240px;
+  width: 85%;
+  align-self: center;
+}
+
+@media tablet {
+  .stackedSlidesContainer {
+    height: 638px;
+    max-width: 960px;
+  }
+}
+
+@media mobile {
+  .stackedSlidesContainer {
+    height: 670px;
+    max-width: 335px;
+  }
+}

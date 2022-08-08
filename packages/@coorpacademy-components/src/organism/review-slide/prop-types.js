@@ -43,10 +43,9 @@ export default {
     information: ReviewCorrectionPopinPropTypes.information,
     next: PropTypes.shape({
       label: PropTypes.string,
-      'aria-label': PropTypes.string
+      'aria-label': PropTypes.string // Pourquoi le onClick du next n'est pas ici !
     }),
-    successLabel: ReviewCorrectionPopinPropTypes.resultLabel,
-    failureLabel: ReviewCorrectionPopinPropTypes.resultLabel
+    resultLabel: ReviewCorrectionPopinPropTypes.resultLabel
   }),
   validateSlide: PropTypes.func.isRequired,
   updateSlidesOnNext: PropTypes.func.isRequired,

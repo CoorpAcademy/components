@@ -39,8 +39,8 @@ const Slide = ({
   primarySkinColor,
   validate,
   validateSlide,
-  finishedSlides,
-  finishedSlidesSize,
+  finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
+  finishedSlidesSize, // je ne vois pas ce props dans les fixtures
   updateSlidesOnNext,
   updateReviewStatus,
   updateStepItemsOnNext,
@@ -96,6 +96,7 @@ const Slide = ({
         from the content carried from the validate action.
       */
       onClick: () => {
+        // Ce block onClick ne doit pas être côté Redux et juste faire un next.onClick() ?
         const isExitNodePresent = get('state.nextContent.ref', progression) === 'successExitNode';
 
         updateSlidesOnNext({
