@@ -10,8 +10,7 @@ import AnswerPropTypes from '../../../molecule/answer/prop-types';
 const NextSlideProp = PropTypes.shape({
   hidden: PropTypes.bool,
   position: PropTypes.number,
-  // 'unstack' | 'restack'
-  animationType: PropTypes.string,
+  animationType: PropTypes.string, // 'unstack' | 'restack'
   isCorrect: PropTypes.boolean,
   endReview: PropTypes.bool,
   questionText: PropTypes.string,
@@ -60,10 +59,8 @@ export const SlidesReviewPropTypes = {
     '3': StepItemProp,
     '4': StepItemProp
   }),
-  // 'finished' | 'ongoing'
-  reviewStatus: PropTypes.string,
+  reviewStatus: PropTypes.string, // 'finished' | 'ongoing'
   correctionPopinProps: PropTypes.shape({
-    // ---------------
     klf: ReviewCorrectionPopinPropTypes.klf,
     information: ReviewCorrectionPopinPropTypes.information,
     next: PropTypes.shape({
@@ -78,20 +75,12 @@ export const SlidesReviewPropTypes = {
     _id: PropTypes.string,
     state: PropTypes.shape({
       isCorrect: PropTypes.bool,
-      // unused for now
-      // step: PropTypes.shape({
-      //   current: PropTypes.number
-      // }),
       nextContent: PropTypes.shape({
-        // 'success' | 'slide'
-        type: PropTypes.string,
-        // 'successExitNode' | string
-        ref: PropTypes.string
+        type: PropTypes.string, // 'success' | 'slide'
+        ref: PropTypes.string // 'successExitNode' | string
       })
     })
   }).isRequired,
-  // ---------------------------------------------------------------------------
-  // Dispatchers
   validateSlide: PropTypes.func.isRequired,
   updateSlidesOnNext: PropTypes.func.isRequired,
   updateReviewStatus: PropTypes.func.isRequired,
@@ -108,8 +97,6 @@ export const SlidePropTypes = {
   finishedSlides: SlidesReviewPropTypes.finishedSlides,
   finishedSlidesSize: PropTypes.number,
   correctionPopinProps: SlidesReviewPropTypes.correctionPopinProps,
-  // ---------------
-  // Dispatchers
   validateSlide: SlidesReviewPropTypes.validateSlide,
   updateSlidesOnNext: SlidesReviewPropTypes.updateSlidesOnNext,
   updateReviewStatus: SlidesReviewPropTypes.updateReviewStatus,
