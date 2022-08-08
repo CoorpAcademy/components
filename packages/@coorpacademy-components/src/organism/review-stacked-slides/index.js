@@ -1,6 +1,6 @@
 import React from 'react';
 import _toString from 'lodash/fp/toString';
-import Slide from '../review-slide/slide';
+import Slide from '../review-slide';
 import propTypes from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
