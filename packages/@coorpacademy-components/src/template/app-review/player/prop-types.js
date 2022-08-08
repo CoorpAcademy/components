@@ -17,7 +17,10 @@ export const SlidesReviewPropTypes = {
   reviewBackgroundAriaLabel: ReviewBackgroundPropTypes['aria-label'],
   validate: SlidePropTypes.validate,
   uiSlides: SlidePropTypes.uiSlides,
-  apiSlides: SlidePropTypes.slides,
+  apiSlides: PropTypes.shape({
+    slideRefs: PropTypes.arrayOf(PropTypes.string),
+    values: PropTypes.objectOf(PropTypes.object) // specify typing if time is available
+  }),
   finishedSlides: SlidePropTypes.finishedSlides,
   stepItems: PropTypes.shape({
     '0': StepItemProp,
