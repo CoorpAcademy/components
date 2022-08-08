@@ -10,54 +10,9 @@ import {ICON_VALUES} from '../../../atom/review-header-step-item';
 import ReviewBackground from '../../../atom/review-background';
 import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
-import Slide from './slide';
+import StackedSlides from './stacked-slides';
 import style from './style.css';
-import {SlidesReviewPropTypes, StackedSlidesPropTypes} from './prop-types';
-
-export const TOTAL_SLIDES_STACK = 5;
-
-const StackedSlides = ({
-  uiSlides,
-  primarySkinColor,
-  validate,
-  validateSlide,
-  finishedSlides,
-  finishedSlidesSize,
-  updateSlidesOnNext,
-  updateReviewStatus,
-  updateStepItemsOnNext,
-  progression,
-  correctionPopinProps
-}) => {
-  const stackedSlides = [];
-  // eslint-disable-next-line fp/no-loops
-  for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
-    const slide = (
-      <Slide
-        {...{
-          slideIndex: _toString(slideIndex),
-          uiSlides,
-          primarySkinColor,
-          validate,
-          validateSlide,
-          finishedSlides,
-          finishedSlidesSize,
-          updateSlidesOnNext,
-          updateReviewStatus,
-          updateStepItemsOnNext,
-          progression,
-          correctionPopinProps
-        }}
-        key={slideIndex}
-      />
-    );
-    stackedSlides.push(slide);
-  }
-
-  return stackedSlides;
-};
-
-StackedSlides.propTypes = StackedSlidesPropTypes;
+import {SlidesReviewPropTypes} from './prop-types';
 
 const SlidesReview = (
   {
