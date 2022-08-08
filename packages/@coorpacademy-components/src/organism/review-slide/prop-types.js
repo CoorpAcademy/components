@@ -26,10 +26,6 @@ export default {
     '3': SlideProp,
     '4': SlideProp
   }),
-  slides: PropTypes.shape({
-    slideRefs: PropTypes.arrayOf(PropTypes.string),
-    values: PropTypes.objectOf(PropTypes.object) // specify typing if time is available
-  }),
   primarySkinColor: PropTypes.string,
   validate: PropTypes.shape({
     label: PropTypes.string
