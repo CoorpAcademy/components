@@ -568,8 +568,8 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
-import MoleculeCmPopinFixtureCookie from '../src/molecule/cm-popin/test/fixtures/cookie';
 import MoleculeCmPopinFixtureCookieSettings from '../src/molecule/cm-popin/test/fixtures/cookie-settings';
+import MoleculeCmPopinFixtureCookie from '../src/molecule/cm-popin/test/fixtures/cookie';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
@@ -2030,8 +2030,8 @@ export const fixtures = {
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
     MoleculeCmPopin: {
-      Cookie: MoleculeCmPopinFixtureCookie,
       CookieSettings: MoleculeCmPopinFixtureCookieSettings,
+      Cookie: MoleculeCmPopinFixtureCookie,
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
       ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose,

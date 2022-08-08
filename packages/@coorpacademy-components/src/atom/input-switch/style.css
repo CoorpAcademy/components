@@ -8,6 +8,7 @@
 @value cm_grey_200 from colors;
 @value black from colors;
 @value cm_primary_blue from colors;
+@value light_blue from colors;
 
 .default {
   display: flex;
@@ -161,7 +162,7 @@
 .partielUncheck label {
   width: 50px;
   height: 26px;
-  background: cm_grey_200;
+  background: light_blue;
   border: 0px;
 }
 .partielUncheck .checkbox:checked ~ label {
