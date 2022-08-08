@@ -65,7 +65,12 @@ export type VideoMimeType =
   | 'application/omniPlayer'
   | 'application/vimeo';
 
-export type ResourceMimeType = 'video/mp4' | 'image/jpeg' | 'image/png' | 'application/pdf' | VideoMimeType;
+export type ResourceMimeType =
+  | 'video/mp4'
+  | 'image/jpeg'
+  | 'image/png'
+  | 'application/pdf'
+  | VideoMimeType;
 
 export type Answer = Array<string>;
 

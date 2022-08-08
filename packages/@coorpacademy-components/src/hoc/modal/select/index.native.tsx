@@ -10,7 +10,7 @@ import ModalSelectItem from '../select-item/index.native';
 
 type ChoiceValue = Pick<Choice, 'value'>;
 type ChoiceItem = Pick<Choice, 'items'>;
-export type OnChangeFunction = (value: ChoiceValue) => void;
+export type OnChangeFunction = (value: string) => void;
 
 export type Props = {
   value?: ChoiceValue;

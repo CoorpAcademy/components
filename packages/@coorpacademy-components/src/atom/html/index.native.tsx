@@ -13,7 +13,7 @@ type State = {
 
 export type Props = {
   children: string;
-  fontSize: number;
+  fontSize: string;
   numberOfLines?: number;
   onLinkPress?: (url: string) => void;
   containerStyle?: ViewStyle;
