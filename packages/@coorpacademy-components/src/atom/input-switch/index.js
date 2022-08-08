@@ -70,9 +70,9 @@ const InputSwitch = props => {
       </div>
       <div className={!details ? style.alignedTxtContainer : null}>
         {titlePosition === 'right' ? titleView : null}
-        {descriptionView}
         {detailsText}
       </div>
+        {descriptionView}
     </div>
   );
 };

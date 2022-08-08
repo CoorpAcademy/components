@@ -100,12 +100,11 @@
   font-size: 15px;
   text-transform: none;
   color: dark;
-  width: 180px;
   margin-right: 20px;
-  min-height: 50px;
   display: flex;
   align-items: center;
   align-content: center;
+  min-height: 24px;
 }
 
 .description {
@@ -121,7 +120,7 @@
   width: 48px;
   height: 24px;
   border: solid 2px cm_grey_200;
-  margin-right: 8px;
+  margin-right: 16px;
   background: cm_grey_200;
 }
 
@@ -154,8 +153,8 @@
 }
 
 .partielUncheck label::after {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
   border: 3px solid cm_primary_blue;
   margin-left: 8px;
 }
@@ -178,7 +177,6 @@
 
 .btnSwicthContainer {
   display: flex;
-  height: 50px;
   align-items: center;
 }
 .alignedTxtContainer {
@@ -194,6 +192,7 @@
   color: black;
   font-style: normal;
   white-space: pre-line;
+  margin-right: 24px;
 }
 .requiredSelection label, .requiredSelection .checkbox:disabled ~ label {
   background-color: cm_primary_blue;

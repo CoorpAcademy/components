@@ -106,11 +106,12 @@
 }
 
 .buttonContainer {
-  width: calc(100% - 32px);
+  width: calc(100% - 48px);
   min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0px auto 0px auto
 }
 
 .button {
@@ -167,15 +168,10 @@
 
 .popinCookie {
   max-width: 593px;
-  min-height: 310px;
   flex-grow: 0;
   margin: 16px;
   border-radius: 10px;
   background-color: cm_grey_50;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   animation: popup 0.7s;
   position: fixed;
   bottom: 32px;
@@ -212,14 +208,25 @@
     left: unset;
     align-self: center;
     max-height: calc(100vh - 50px);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 16px;
   }
   .popinCookie .button {
     width: 100%;
+    padding: 0px 0px 8px 0px
   }
   .buttonContainer {
     flex-wrap: wrap;
+    margin-top: 40px;
   }
+  .largeButton {
+    padding-top: 0px;
+  }
+ 
+}
+.popinCookie .message {
+  padding: 24px 24px 0px 24px 
 }
 
 .descriptionBtn {
@@ -236,26 +243,27 @@
   margin-bottom: 24px;
 }
 
-.singleSwitchContainer span{
-  width: 100%;
-}
-
-.singleSwitchContainer {
-  min-height: 98px;
-  width: 100%;
-}
 
 .firstBtnSwitchContainer {
   height: 56px;
   background-color: cm_grey_75;
-  margin-bottom: 10px;
-  width: calc(100% - 24px);
-  padding-left: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.firstBtnSwitchContainer div:first-child {
+  margin-left: 12px;
+}
+.singleSwitchContainer div:first-child {
+ margin-left: 12px;
 }
 
 .singleSwitchContainer {
-  padding-left: 24px;
-  width: calc(100% - 24px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 24px;
 }
 a {
   color: cm_primary_blue;
