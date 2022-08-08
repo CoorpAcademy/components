@@ -2,6 +2,7 @@ import React from 'react';
 import _toString from 'lodash/fp/toString';
 import Slide from '../review-slide';
 import propTypes from './prop-types';
+import style from './style.css';
 
 export const TOTAL_SLIDES_STACK = 5;
 
@@ -43,7 +44,20 @@ const StackedSlides = ({
     stackedSlides.push(slide);
   }
 
-  return stackedSlides;
+  return (
+    <div
+      key="stacked-slides-container-y-overflow"
+      className={style.stackedSlidesYAxisOverflowContainer}
+    >
+      <div
+        key="stacked-slides-container"
+        data-name="stacked-slides-container"
+        className={style.stackedSlidesContainer}
+      >
+        {stackedSlides}
+      </div>
+    </div>
+  );
 };
 
 StackedSlides.propTypes = propTypes;

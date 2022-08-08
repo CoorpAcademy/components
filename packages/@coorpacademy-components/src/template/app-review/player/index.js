@@ -112,32 +112,21 @@ const SlidesReview = (
       </div>
 
       {shouldMountSlides ? (
-        <div
-          key="stacked-slides-container-y-overflow"
-          className={style.stackedSlidesYAxisOverflowContainer}
-        >
-          <div
-            key="stacked-slides-container"
-            data-name="stacked-slides-container"
-            className={style.stackedSlidesContainer}
-          >
-            <StackedSlides
-              {...{
-                uiSlides,
-                primarySkinColor,
-                validate,
-                validateSlide,
-                finishedSlides,
-                finishedSlidesSize,
-                updateSlidesOnNext,
-                updateReviewStatus,
-                updateStepItemsOnNext,
-                progression,
-                correctionPopinProps
-              }}
-            />
-          </div>
-        </div>
+        <StackedSlides
+          {...{
+            uiSlides,
+            primarySkinColor,
+            validate,
+            validateSlide,
+            finishedSlides,
+            finishedSlidesSize,
+            updateSlidesOnNext,
+            updateReviewStatus,
+            updateStepItemsOnNext,
+            progression,
+            correctionPopinProps
+          }}
+        />
       ) : /* istanbul ignore next */ null}
 
       {reviewStatus === 'finished' ? (
