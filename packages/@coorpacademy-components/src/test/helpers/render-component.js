@@ -34,7 +34,12 @@ const renderComponent = (t, Component, fixture) => {
 const renderNativeComponent = (t, Component, fixture) => {
   const {toJSON} = render(<Component {...fixture.props} />);
   const json = toJSON();
-  t.is(json.type, 'react-native-mock');
+
+  if (Array.isArray(json)) {
+    json.forEach(el => t.is(el.type, 'react-native-mock'));
+  } else {
+    t.is(json.type, 'react-native-mock');
+  }
 };
 
 // -----------------------------------------------------------------------------
