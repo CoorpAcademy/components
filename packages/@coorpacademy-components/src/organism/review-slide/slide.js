@@ -3,11 +3,11 @@ import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
-import Answer from '../../../molecule/answer';
-import ButtonLink from '../../../atom/button-link';
-import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
-import style from './slides.css';
-import {SlidePropTypes} from './prop-types';
+import Answer from '../../molecule/answer';
+import ButtonLink from '../../atom/button-link';
+import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
+import propTypes from './prop-types';
+import style from './style.css';
 
 export const TOTAL_SLIDES_STACK = 5;
 export const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
@@ -188,6 +188,6 @@ const Slide = ({
   );
 };
 
-Slide.propTypes = SlidePropTypes;
+Slide.propTypes = propTypes;
 
 export default Slide;

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
 
 import ReviewCongratsPropTypes from '../../../organism/review-congrats/prop-types';
-import ReviewCorrectionPopinPropTypes from '../../../molecule/review-correction-popin/prop-types';
 import ReviewBackgroundPropTypes from '../../../atom/review-background/prop-types';
 import ReviewHeader from '../../../organism/review-header/prop-types';
+import SlidePropTypes from '../../../organism/review-slide/prop-types';
 import AnswerPropTypes from '../../../molecule/answer/prop-types';
 
 const NextSlideProp = PropTypes.shape({
@@ -31,9 +31,7 @@ const StepItemProp = PropTypes.shape({
 export const SlidesReviewPropTypes = {
   headerProps: PropTypes.shape(omit('steps', ReviewHeader.propTypes)),
   reviewBackgroundAriaLabel: ReviewBackgroundPropTypes['aria-label'],
-  validate: PropTypes.shape({
-    label: PropTypes.string
-  }),
+  validate: SlidePropTypes.validate,
   uiSlides: PropTypes.shape({
     '0': SlideProp,
     '1': SlideProp,
@@ -41,17 +39,8 @@ export const SlidesReviewPropTypes = {
     '3': SlideProp,
     '4': SlideProp
   }),
-  apiSlides: PropTypes.shape({
-    slideRefs: PropTypes.arrayOf(PropTypes.string),
-    values: PropTypes.objectOf(PropTypes.object) // specify typing if time is available
-  }),
-  finishedSlides: PropTypes.shape({
-    '0': PropTypes.bool,
-    '1': PropTypes.bool,
-    '2': PropTypes.bool,
-    '3': PropTypes.bool,
-    '4': PropTypes.bool
-  }),
+  apiSlides: SlidePropTypes.slides,
+  finishedSlides: SlidePropTypes.finishedSlides,
   stepItems: PropTypes.shape({
     '0': StepItemProp,
     '1': StepItemProp,
@@ -60,48 +49,15 @@ export const SlidesReviewPropTypes = {
     '4': StepItemProp
   }),
   reviewStatus: PropTypes.string, // 'finished' | 'ongoing'
-  correctionPopinProps: PropTypes.shape({
-    klf: ReviewCorrectionPopinPropTypes.klf,
-    information: ReviewCorrectionPopinPropTypes.information,
-    next: PropTypes.shape({
-      label: PropTypes.string,
-      'aria-label': PropTypes.string
-    }),
-    successLabel: ReviewCorrectionPopinPropTypes.resultLabel,
-    failureLabel: ReviewCorrectionPopinPropTypes.resultLabel
-  }),
+  correctionPopinProps: SlidePropTypes.correctionPopinProps,
   congratsProps: PropTypes.shape(ReviewCongratsPropTypes),
-  progression: PropTypes.shape({
-    _id: PropTypes.string,
-    state: PropTypes.shape({
-      isCorrect: PropTypes.bool,
-      nextContent: PropTypes.shape({
-        type: PropTypes.string, // 'success' | 'slide'
-        ref: PropTypes.string // 'successExitNode' | string
-      })
-    })
-  }).isRequired,
-  validateSlide: PropTypes.func.isRequired,
+  progression: SlidePropTypes.progression,
+  validateSlide: SlidePropTypes.validateSlide,
   updateSlidesOnNext: PropTypes.func.isRequired,
   updateReviewStatus: PropTypes.func.isRequired,
   updateStepItemsOnValidation: PropTypes.func.isRequired,
   updateStepItemsOnNext: PropTypes.func.isRequired,
   updateFinishedSlides: PropTypes.func.isRequired
-};
-
-export const SlidePropTypes = {
-  slideIndex: PropTypes.string,
-  slides: SlidesReviewPropTypes.apiSlides,
-  primarySkinColor: PropTypes.string,
-  validate: SlidesReviewPropTypes.validate,
-  finishedSlides: SlidesReviewPropTypes.finishedSlides,
-  finishedSlidesSize: PropTypes.number,
-  correctionPopinProps: SlidesReviewPropTypes.correctionPopinProps,
-  validateSlide: SlidesReviewPropTypes.validateSlide,
-  updateSlidesOnNext: SlidesReviewPropTypes.updateSlidesOnNext,
-  updateReviewStatus: SlidesReviewPropTypes.updateReviewStatus,
-  updateStepItemsOnNext: SlidesReviewPropTypes.updateStepItemsOnNext,
-  progression: SlidesReviewPropTypes.progression
 };
 
 export const StackedSlidesPropTypes = omit('slideIndex', SlidePropTypes);

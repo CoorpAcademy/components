@@ -1,6 +1,6 @@
 import React from 'react';
 import _toString from 'lodash/fp/toString';
-import Slide from './slide';
+import Slide from '../../../organism/review-slide/slide';
 import {StackedSlidesPropTypes} from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
