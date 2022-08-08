@@ -160,7 +160,12 @@ const Slide = ({
             {questionText}
           </div>
           <div key="help" className={style.help}>
-            {get('help', answerUI)}
+            {
+              /* the property with this data from slide is question.explanation ! */ get(
+                'help',
+                answerUI
+              )
+            }
           </div>
           <div key="answer-container" className={style.answerContainer}>
             <Answer {...answerProps} key="answer" />
