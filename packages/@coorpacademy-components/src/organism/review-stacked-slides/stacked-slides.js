@@ -1,7 +1,7 @@
 import React from 'react';
 import _toString from 'lodash/fp/toString';
-import Slide from '../../../organism/review-slide/slide';
-import {StackedSlidesPropTypes} from './prop-types';
+import Slide from '../review-slide/slide';
+import propTypes from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
 
@@ -46,6 +46,6 @@ const StackedSlides = ({
   return stackedSlides;
 };
 
-StackedSlides.propTypes = StackedSlidesPropTypes;
+StackedSlides.propTypes = propTypes;
 
 export default StackedSlides;

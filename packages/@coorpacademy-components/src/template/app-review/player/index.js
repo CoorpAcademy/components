@@ -10,7 +10,7 @@ import {ICON_VALUES} from '../../../atom/review-header-step-item';
 import ReviewBackground from '../../../atom/review-background';
 import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
-import StackedSlides from './stacked-slides';
+import StackedSlides from '../../../organism/review-stacked-slides/stacked-slides';
 import style from './style.css';
 import {SlidesReviewPropTypes} from './prop-types';
 

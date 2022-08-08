@@ -59,5 +59,3 @@ export const SlidesReviewPropTypes = {
   updateStepItemsOnNext: PropTypes.func.isRequired,
   updateFinishedSlides: PropTypes.func.isRequired
 };
-
-export const StackedSlidesPropTypes = omit('slideIndex', SlidePropTypes);
