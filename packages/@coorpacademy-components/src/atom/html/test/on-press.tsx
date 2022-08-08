@@ -7,25 +7,23 @@ import {TemplateContext} from '../../../template/app-review/template-context';
 
 test('should handle onLinkPress', t => {
   const context = mockMobileContext({
-    logEvent: () => t.pass(),
     vibrate: () => t.pass()
   });
 
-  const handleLinkPress = () => t.pass();
+  const onLinkPress = () => t.pass();
 
   const component = (
     <TemplateContext values={context}>
-      <Html fontSize={20} onLinkPress={handleLinkPress}>
+      <Html fontSize={20} onLinkPress={onLinkPress}>
         {`<a href="https://domain.tld"></a>`}
       </Html>
-      ;
     </TemplateContext>
   );
 
   const {getByTestId} = render(component);
   const htmlBase = getByTestId('html-base');
 
-  fireEvent.press(htmlBase);
+  fireEvent(htmlBase, 'onLinkPress');
 
   t.plan(2);
 });

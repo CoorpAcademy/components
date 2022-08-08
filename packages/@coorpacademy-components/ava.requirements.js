@@ -3,8 +3,10 @@
 require('@coorpacademy/react-native-mock-render/mock')({
   externalLibs: [
     {
-      name: 'react-native-modal',
-      exports: 'Modal'
+      name: 'react-native-modal'
+    },
+    {
+      name: 'react-native-render-html'
     }
   ]
 });
