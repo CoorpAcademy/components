@@ -7,14 +7,16 @@ import size from 'lodash/fp/size';
 import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
 import type {Options, ProgressionFromAPI, SlideFromAPI} from '../../types/common';
-// SLIDE_FETCH_SUCCESS is @ data/slides because of a cyclic import error
-import {SLIDE_FETCH_SUCCESS} from '../data/slides';
 import {setFirstSlide, updateSlidesOnValidation} from '../ui/slides';
 
-export {ReceivedSlide, SLIDE_FETCH_SUCCESS} from '../data/slides';
-
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
+export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;
 export const SLIDE_FETCH_FAILURE = '@@slides/FETCH_FAILURE' as const;
+
+export interface ReceivedSlide extends AnyAction {
+  type: typeof SLIDE_FETCH_SUCCESS;
+  payload: SlideFromAPI;
+}
 
 export type FetchSlideAction = ThunkAction<Promise<SlideFromAPI>, StoreState, Options, AnyAction>;
 type Dispatch = ThunkDispatch<StoreState, Options, AnyAction>;
