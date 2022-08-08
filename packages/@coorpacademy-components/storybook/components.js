@@ -185,6 +185,8 @@ import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismReviewCongrats from './../src/organism/review-congrats';
 import OrganismReviewHeader from './../src/organism/review-header';
 import OrganismReviewSkills from './../src/organism/review-skills';
+import OrganismReviewSlide from './../src/organism/review-slide';
+import OrganismReviewStackedSlides from './../src/organism/review-stacked-slides';
 import OrganismRewardsForm from './../src/organism/rewards-form';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
@@ -1464,6 +1466,8 @@ export const components = {
     OrganismReviewCongrats,
     OrganismReviewHeader,
     OrganismReviewSkills,
+    OrganismReviewSlide,
+    OrganismReviewStackedSlides,
     OrganismRewardsForm,
     OrganismSearchAndChipsResults,
     OrganismSettings,
