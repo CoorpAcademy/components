@@ -15,7 +15,6 @@ export default {
   }),
   klf: PropTypes.shape({
     label: PropTypes.string,
-    onClick: PropTypes.func,
     tooltip: PropTypes.string
   })
 };
