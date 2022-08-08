@@ -287,7 +287,6 @@ const SlidesReview = (
 
   useEffect(
     /* istanbul ignore next */ () => {
-      // temporal fix, should check for new uiSlides in the state && then update
       if (progression && size(apiSlides.slidesRefs) > 1) {
         const endReview = getOr(false, `${currentSlideIndex}.endReview`, uiSlides);
         const isCorrect = get('state.isCorrect', progression);
