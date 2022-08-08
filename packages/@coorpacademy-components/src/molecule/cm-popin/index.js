@@ -206,19 +206,20 @@ CMPopin.propTypes = {
     handleOnclick: PropTypes.func,
     'aria-label': PropTypes.string,
     type: PropTypes.string,
-    largeButton: PropTypes.bool
+    largeButton: PropTypes.bool,
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['dangerous', 'primary']),
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.boolean
   }),
   thirdButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['dangerous', 'primary']),
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.boolean
   }),
