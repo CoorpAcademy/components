@@ -67,6 +67,6 @@ Dashboard.propTypes = {
       PropTypes.shape(StartBattle.propTypes)
     ])
   ),
-  cookie: CMPopin.PropTypes
+  cookie: PropTypes.shape(CMPopin.propTypes)
 };
 export default Dashboard;
