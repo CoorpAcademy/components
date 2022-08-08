@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, StyleSheet, View, BackHandler} from 'react-native';
 import propTypes, {ViewNames} from './prop-types';
-import Slides from './slides';
+import Slides from './player';
 
 // -----------------------------------------------------------------------------
 

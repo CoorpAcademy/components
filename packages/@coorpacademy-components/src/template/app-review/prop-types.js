@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
 import Onboarding from './onboarding';
 import Skills from './skills';
-import Slides from './slides';
+import Slides from './player';
 
 export const ViewNames = {
   skills: 'skills',
