@@ -1,4 +1,4 @@
-import slides from '../../slides/test/fixtures/initial-state';
+import slides from '../../player/test/fixtures/initial-state';
 import {ViewNames} from '../../prop-types';
 
 export default {

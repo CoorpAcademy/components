@@ -205,8 +205,8 @@ import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-hea
 import TemplateAppPlayerPopinNoAccess from './../src/template/app-player/popin-no-access';
 import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
 import TemplateAppReviewOnboarding from './../src/template/app-review/onboarding';
+import TemplateAppReviewPlayer from './../src/template/app-review/player';
 import TemplateAppReviewSkills from './../src/template/app-review/skills';
-import TemplateAppReviewSlides from './../src/template/app-review/slides';
 import TemplateAppReview from './../src/template/app-review';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
@@ -1150,14 +1150,14 @@ import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-play
 import TemplateAppPlayerPopinNoAccessFixtureDefault from '../src/template/app-player/popin-no-access/test/fixtures/default';
 import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
+import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/player/test/fixtures/all-ok';
+import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
+import TemplateAppReviewPlayerFixtureFinished from '../src/template/app-review/player/test/fixtures/finished';
+import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
+import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
+import TemplateAppReviewPlayerFixtureOneRight from '../src/template/app-review/player/test/fixtures/one-right';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
-import TemplateAppReviewSlidesFixtureAllOk from '../src/template/app-review/slides/test/fixtures/all-ok';
-import TemplateAppReviewSlidesFixtureEndReview from '../src/template/app-review/slides/test/fixtures/end-review';
-import TemplateAppReviewSlidesFixtureFinished from '../src/template/app-review/slides/test/fixtures/finished';
-import TemplateAppReviewSlidesFixtureInitialState from '../src/template/app-review/slides/test/fixtures/initial-state';
-import TemplateAppReviewSlidesFixtureOneFail from '../src/template/app-review/slides/test/fixtures/one-fail';
-import TemplateAppReviewSlidesFixtureOneRight from '../src/template/app-review/slides/test/fixtures/one-right';
 import TemplateAppReviewFixtureOnboarding from '../src/template/app-review/test/fixtures/onboarding';
 import TemplateAppReviewFixtureSkills from '../src/template/app-review/test/fixtures/skills';
 import TemplateAppReviewFixtureSlides from '../src/template/app-review/test/fixtures/slides';
@@ -1502,8 +1502,8 @@ export const components = {
   TemplateAppReview: {
     TemplateAppReviewDemoTs,
     TemplateAppReviewOnboarding,
-    TemplateAppReviewSkills,
-    TemplateAppReviewSlides
+    TemplateAppReviewPlayer,
+    TemplateAppReviewSkills
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -2923,17 +2923,17 @@ export const fixtures = {
     TemplateAppReviewOnboarding: {
       Default: TemplateAppReviewOnboardingFixtureDefault
     },
+    TemplateAppReviewPlayer: {
+      AllOk: TemplateAppReviewPlayerFixtureAllOk,
+      EndReview: TemplateAppReviewPlayerFixtureEndReview,
+      Finished: TemplateAppReviewPlayerFixtureFinished,
+      InitialState: TemplateAppReviewPlayerFixtureInitialState,
+      OneFail: TemplateAppReviewPlayerFixtureOneFail,
+      OneRight: TemplateAppReviewPlayerFixtureOneRight
+    },
     TemplateAppReviewSkills: {
       ManySkills: TemplateAppReviewSkillsFixtureManySkills,
       NoSkills: TemplateAppReviewSkillsFixtureNoSkills
-    },
-    TemplateAppReviewSlides: {
-      AllOk: TemplateAppReviewSlidesFixtureAllOk,
-      EndReview: TemplateAppReviewSlidesFixtureEndReview,
-      Finished: TemplateAppReviewSlidesFixtureFinished,
-      InitialState: TemplateAppReviewSlidesFixtureInitialState,
-      OneFail: TemplateAppReviewSlidesFixtureOneFail,
-      OneRight: TemplateAppReviewSlidesFixtureOneRight
     }
   },
   TemplateBackOffice: {
