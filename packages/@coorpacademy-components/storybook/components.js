@@ -995,6 +995,7 @@ import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills
 import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
 import OrganismReviewStackedSlidesFixtureCorrect from '../src/organism/review-stacked-slides/test/fixtures/correct';
 import OrganismReviewStackedSlidesFixtureDefault from '../src/organism/review-stacked-slides/test/fixtures/default';
+import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
 import OrganismReviewStackedSlidesFixtureWrong from '../src/organism/review-stacked-slides/test/fixtures/wrong';
 import OrganismRewardsFormFixtureDefault from '../src/organism/rewards-form/test/fixtures/default';
 import OrganismRewardsFormFixtureNoRewards from '../src/organism/rewards-form/test/fixtures/no-rewards';
@@ -2695,6 +2696,7 @@ export const fixtures = {
     OrganismReviewStackedSlides: {
       Correct: OrganismReviewStackedSlidesFixtureCorrect,
       Default: OrganismReviewStackedSlidesFixtureDefault,
+      EndReview: OrganismReviewStackedSlidesFixtureEndReview,
       Wrong: OrganismReviewStackedSlidesFixtureWrong
     },
     OrganismRewardsForm: {
