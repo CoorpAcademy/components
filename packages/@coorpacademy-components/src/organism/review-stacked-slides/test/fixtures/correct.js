@@ -30,7 +30,8 @@ export default {
         questionText: 'Hey there, .....suspense.... ready to select some answers?',
         answerUI: qcmDrag,
         isCorrect: true,
-        endReview: false
+        endReview: false,
+        showCorrectionPopin: true
       },
       '1': {
         hidden: false,

@@ -119,6 +119,7 @@ const Slide = ({
   const position = get(`${slideIndex}.position`, uiSlides);
   const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
   const isSlideCorrect = getOr(null, `${slideIndex}.isCorrect`, uiSlides);
+  const showCorrectionPopin = getOr(false, `${slideIndex}.showCorrectionPopin`, uiSlides);
   const questionText = get(`${slideIndex}.questionText`, uiSlides);
   const answerUI = get(`${slideIndex}.answerUI`, uiSlides);
 
@@ -196,14 +197,16 @@ const Slide = ({
       </div>
       <div
         className={
-          isSlideCorrect ? style.correctionPopinWrapper : style.hiddenCorrectionPopinWrapper
+          showCorrectionPopin ? style.correctionPopinWrapper : style.hiddenCorrectionPopinWrapper
+          // pourquoi on a un style.hiddenCorrectionPopinWrapper ? Lorsqu'on click sur Next, il y a un unstack des slides
+          // et pas besoin de cacher la correction popin, elle bouge avec le slide dans le unstack
         }
-        style={{
+        /* style={{
           ...(finishedSlidesSize !== HIGHEST_INDEX &&
             !isSlideCorrect && {
               display: 'none'
             })
-        }}
+        }} */
       >
         {buildCorrectionPopin(
           isSlideCorrect,
