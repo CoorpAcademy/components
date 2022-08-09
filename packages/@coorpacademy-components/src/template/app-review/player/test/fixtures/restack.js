@@ -4,7 +4,7 @@ import {apiQCMSlide0} from './initial-state';
 
 export default {
   props: {
-    ...RestackedSlides.props,
+    slides: RestackedSlides.props,
     header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn'],

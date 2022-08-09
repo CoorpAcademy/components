@@ -25,13 +25,15 @@ export const apiQCMSlide4 = {
 
 export default {
   props: {
-    ...pipe(
-      set('uiSlides.1.hidden', true),
-      set('uiSlides.2.hidden', true),
-      set('uiSlides.3.hidden', true),
-      set('uiSlides.4.hidden', true)
-    )(CorrectStackedSlides.props),
     header: Header.props,
+    slides: {
+      ...pipe(
+        set('uiSlides.1.hidden', true),
+        set('uiSlides.2.hidden', true),
+        set('uiSlides.3.hidden', true),
+        set('uiSlides.4.hidden', true)
+      )(CorrectStackedSlides.props)
+    },
     apiSlides: {
       slideRefs: [
         'sli_N1XACJobn',

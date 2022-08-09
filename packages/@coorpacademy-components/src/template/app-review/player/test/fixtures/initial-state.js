@@ -1,8 +1,6 @@
 import headerProps from '../../../../../organism/review-header/test/fixtures/no-answered-question';
 import DefaultStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/default';
 
-const stackedSlidesProps = DefaultStackedSlides.props;
-
 export const apiQCMSlide0 = {
   question: {
     content: {
@@ -54,7 +52,7 @@ export const apiQCMSlide0 = {
 
 export default {
   props: {
-    ...stackedSlidesProps,
+    slides: DefaultStackedSlides.props,
     header: headerProps.props,
     reviewBackgroundAriaLabel: 'review BG Aria',
     // On devrait pas avoir besoin de apiSlides
