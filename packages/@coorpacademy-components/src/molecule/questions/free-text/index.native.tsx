@@ -119,7 +119,7 @@ const FreeText = (props: Props) => {
   }
 
   return (
-    <View style={[styleSheet.input, styleSheet.spaced, fullWitdh && styleSheet.fullWitdh]}>
+    <View style={[styleSheet.spaced, fullWitdh && styleSheet.fullWitdh]}>
       <TextInput
         style={[styleSheet.input, styleSheet.text]}
         onFocus={handleFocus}

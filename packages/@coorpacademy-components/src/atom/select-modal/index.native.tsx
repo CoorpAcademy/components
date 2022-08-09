@@ -1,9 +1,9 @@
-import React, {useState, useEffect, useMemo} from 'react';
-import {View, StyleSheet, ViewStyle, TextStyle, FlexAlignType, FlexStyle} from 'react-native';
+import React, {useState, useEffect, useCallback} from 'react';
+import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
-import type {QuestionType} from '../../types/progression-engine';
+import type {QuestionType} from '../../types/progression-engine.d';
 import {Theme} from '../../variables/theme.native';
 
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
@@ -97,33 +97,26 @@ const Select = (props: Props) => {
     testID = 'select'
   } = props;
 
-  const handleFocus = useMemo(
-    () => () => {
-      if (!onFocus) return;
+  const handleFocus = useCallback(() => {
+    if (!onFocus) return;
 
-      analytics && logEvent(ANALYTICS_EVENT_TYPE.OPEN_SELECT, analyticsID, analytics, questionType);
-      onFocus();
-    },
-    [analytics, analyticsID, onFocus, questionType]
-  );
+    analytics && logEvent(ANALYTICS_EVENT_TYPE.OPEN_SELECT, analyticsID, analytics, questionType);
+    onFocus();
+  }, [analytics, analyticsID, onFocus, questionType]);
 
-  const handleBlur = useMemo(
-    () => () => {
-      if (!onBlur) return;
+  const handleBlur = useCallback(() => {
+    if (!onBlur) return;
 
-      analytics &&
-        logEvent(ANALYTICS_EVENT_TYPE.CLOSE_SELECT, analyticsID, analytics, questionType);
-      onBlur();
-    },
-    [analytics, analyticsID, onBlur, questionType]
-  );
+    analytics && logEvent(ANALYTICS_EVENT_TYPE.CLOSE_SELECT, analyticsID, analytics, questionType);
+    onBlur();
+  }, [analytics, analyticsID, onBlur, questionType]);
 
-  const handleChange = useMemo(
-    () => () => {
-      onChange(value);
+  const handleChange = useCallback(
+    _value => {
+      onChange(_value);
       handleBlur();
     },
-    [value, onChange, handleBlur]
+    [onChange, handleBlur]
   );
 
   if (!styleSheet) {

@@ -238,7 +238,7 @@ const QuestionTemplate = (props: Props) => {
     setStylesheet(_stylesheet);
   }, [theme]);
 
-  if (!template) {
+  if (!template || !styleSheet) {
     return null;
   }
 
