@@ -993,6 +993,7 @@ import OrganismReviewHeaderFixtureStepsAnimation from '../src/organism/review-he
 import OrganismReviewSkillsFixtureLoading from '../src/organism/review-skills/test/fixtures/loading';
 import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills/test/fixtures/many-skills';
 import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
+import OrganismReviewSlideFixtureDefault from '../src/organism/review-slide/test/fixtures/default';
 import OrganismReviewStackedSlidesFixtureCorrect from '../src/organism/review-stacked-slides/test/fixtures/correct';
 import OrganismReviewStackedSlidesFixtureDefault from '../src/organism/review-stacked-slides/test/fixtures/default';
 import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
@@ -2694,6 +2695,9 @@ export const fixtures = {
       Loading: OrganismReviewSkillsFixtureLoading,
       ManySkills: OrganismReviewSkillsFixtureManySkills,
       NoSkills: OrganismReviewSkillsFixtureNoSkills
+    },
+    OrganismReviewSlide: {
+      Default: OrganismReviewSlideFixtureDefault
     },
     OrganismReviewStackedSlides: {
       Correct: OrganismReviewStackedSlidesFixtureCorrect,
