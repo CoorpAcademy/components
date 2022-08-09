@@ -3,7 +3,6 @@ import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
 import HtmlBase from 'react-native-render-html';
 
 import {HTML_ANCHOR_TEXT_COLOR} from '../../variables/theme.native';
-import {Vibration} from '../../variables/vibration';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import Text, {DEFAULT_STYLE as DEFAULT_TEXT_STYLE} from '../text/index.native';
 
@@ -18,7 +17,6 @@ export type Props = {
   style?: TextStyle;
   testID?: string;
   isTextCentered?: boolean;
-  vibration?: Vibration;
 };
 
 const Html = (props: Props) => {
@@ -100,7 +98,7 @@ const Html = (props: Props) => {
 
   const renderers = {
     // eslint-disable-next-line react/display-name
-    font: (htmlAttribs, children) => {
+    font: (htmlAttribs, _children) => {
       if (htmlAttribs.color) {
         setDisableBaseFontStyleColor(true);
       }
@@ -112,11 +110,16 @@ const Html = (props: Props) => {
             color: htmlAttribs.color
           }}
         >
-          {children}
+          {_children}
         </Text>
       );
     },
-    span: (_: any, children: any, convertedCSSStyles: any, {allowFontScaling, key}: any) => {
+    span: function Span(
+      _: any,
+      _children: any,
+      convertedCSSStyles: any,
+      {allowFontScaling, key}: any
+    ) {
       return (
         <Text
           numberOfLines={numberOfLines}
@@ -124,7 +127,7 @@ const Html = (props: Props) => {
           key={key}
           style={convertedCSSStyles}
         >
-          {children}
+          {_children}
         </Text>
       );
     }

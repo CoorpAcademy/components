@@ -7,6 +7,7 @@ export type Props = {
   style?: ViewStyle | ViewStyle[];
   testID?: string;
   numberOfLines?: number;
+  allowFontScaling?: boolean;
 };
 
 export const DEFAULT_STYLE = {
@@ -24,10 +25,15 @@ const styles = StyleSheet.create({
 });
 
 const Text = (props: Props) => {
-  const {children, style, testID, numberOfLines} = props;
+  const {children, style, testID, numberOfLines, allowFontScaling = true} = props;
 
   return (
-    <TextBase style={[styles.text, style]} testID={testID} numberOfLines={numberOfLines}>
+    <TextBase
+      allowFontScaling={allowFontScaling}
+      style={[styles.text, style]}
+      testID={testID}
+      numberOfLines={numberOfLines}
+    >
       {children}
     </TextBase>
   );
