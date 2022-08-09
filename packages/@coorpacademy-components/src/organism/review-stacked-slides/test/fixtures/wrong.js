@@ -31,7 +31,8 @@ export default {
         answerUI: qcmDrag,
         isCorrect: false,
         endReview: false,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        animateCorrectionPopin: true
       },
       '1': {
         hidden: false,

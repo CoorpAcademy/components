@@ -45,9 +45,11 @@ const buildCorrectionPopin = (
   answerUI,
   questionText,
   finishedSlides,
-  finishedSlidesSize
+  finishedSlidesSize,
+  showCorrectionPopin,
+  animateCorrectionPopin
 ) => {
-  if (isSlideCorrect === null && endReview === false) return null;
+  if (!showCorrectionPopin) return null;
 
   const klf = getOr({}, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
@@ -97,7 +99,16 @@ const buildCorrectionPopin = (
     resultLabel: correctionPopinProps.resultLabel
   };
 
-  return <ReviewCorrectionPopin {..._correctionPopinProps} />;
+  return (
+    <div
+      className={classnames(
+        style.correctionPopinWrapper,
+        animateCorrectionPopin ? style.popinAnimation : null
+      )}
+    >
+      <ReviewCorrectionPopin {..._correctionPopinProps} />
+    </div>
+  );
 };
 
 const Slide = ({
@@ -118,6 +129,7 @@ const Slide = ({
   const endReview = getOr(false, `${slideIndex}.endReview`, uiSlides);
   const position = get(`${slideIndex}.position`, uiSlides);
   const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
+  const animateCorrectionPopin = getOr(false, `${slideIndex}.animateCorrectionPopin`, uiSlides);
   const isSlideCorrect = getOr(null, `${slideIndex}.isCorrect`, uiSlides);
   const showCorrectionPopin = getOr(false, `${slideIndex}.showCorrectionPopin`, uiSlides);
   const questionText = get(`${slideIndex}.questionText`, uiSlides);
@@ -195,34 +207,22 @@ const Slide = ({
       <div key="button-wrapper" className={style.validateButtonWrapper}>
         <ButtonLink {...validateButtonProps} />
       </div>
-      <div
-        className={
-          showCorrectionPopin ? style.correctionPopinWrapper : style.hiddenCorrectionPopinWrapper
-          // pourquoi on a un style.hiddenCorrectionPopinWrapper ? Lorsqu'on click sur Next, il y a un unstack des slides
-          // et pas besoin de cacher la correction popin, elle bouge avec le slide dans le unstack
-        }
-        /* style={{
-          ...(finishedSlidesSize !== HIGHEST_INDEX &&
-            !isSlideCorrect && {
-              display: 'none'
-            })
-        }} */
-      >
-        {buildCorrectionPopin(
-          isSlideCorrect,
-          endReview,
-          correctionPopinProps,
-          progression,
-          updateSlidesOnNext,
-          updateStepItemsOnNext,
-          updateReviewStatus,
-          slideIndex,
-          answerUI,
-          questionText,
-          finishedSlides,
-          finishedSlidesSize
-        )}
-      </div>
+      {buildCorrectionPopin(
+        isSlideCorrect,
+        endReview,
+        correctionPopinProps,
+        progression,
+        updateSlidesOnNext,
+        updateStepItemsOnNext,
+        updateReviewStatus,
+        slideIndex,
+        answerUI,
+        questionText,
+        finishedSlides,
+        finishedSlidesSize,
+        showCorrectionPopin,
+        animateCorrectionPopin
+      )}
     </div>
   );
 };
