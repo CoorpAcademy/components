@@ -62,6 +62,29 @@ const CMPopin = props => {
         return style.singleSwitchContainer;
     }
   };
+  const renderBtnSwitch = () => {
+    const res = [];
+    listBtnSwicth?.forEach((el, index) => {
+      res.push(
+        <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
+          <InputSwitch
+            {...{
+              type: el.type,
+              title: el.title,
+              value: el.value,
+              onChange: el.onChange,
+              titlePosition: el.titlePosition,
+              theme: el.theme,
+              details: el.details,
+              requiredSelection: el.requiredSelection,
+              disabled: el.disabled
+            }}
+          />
+        </div>
+      );
+    });
+    return res;
+  };
   return (
     <div
       className={mode !== 'cookie' ? style.background : null}
@@ -102,25 +125,7 @@ const CMPopin = props => {
           ) : null}
         </div>
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
-        {listBtnSwicth?.map((el, index) => {
-          return (
-            <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
-              <InputSwitch
-                {...{
-                  type: el.type,
-                  title: el.title,
-                  value: el.value,
-                  onChange: el.onChange,
-                  titlePosition: el.titlePosition,
-                  theme: el.theme,
-                  details: el.details,
-                  requiredSelection: el.requiredSelection,
-                  disabled: el.disabled
-                }}
-              />
-            </div>
-          );
-        })}
+        {renderBtnSwitch()}
         <div className={style.buttonContainer}>
           {firstButton ? (
             <div className={firstButton.largeButton ? style.largeButton : style.button}>
