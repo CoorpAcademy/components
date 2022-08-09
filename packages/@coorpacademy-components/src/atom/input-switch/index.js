@@ -72,7 +72,7 @@ const InputSwitch = props => {
         {titlePosition === 'right' ? titleView : null}
         {detailsText}
       </div>
-        {descriptionView}
+      {descriptionView}
     </div>
   );
 };

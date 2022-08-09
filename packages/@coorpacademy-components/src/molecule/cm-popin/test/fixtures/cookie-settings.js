@@ -18,40 +18,44 @@ export default {
     },
     descriptionBtnTxt:
       'Use this page to accept or block tracking tags and analytics tools on our website.',
-    listBtnSwicth:[{
-      type: 'switch',
-      title: 'Accept All',
-      value: false,
-      onChange: value => console.log(value),
-      titlePosition: 'right',
-      theme: 'partielUncheck'
-    },{
-      type: 'switch',
-      title: 'Essential cookies',
-      value: true,
-      onChange: value => console.log(value),
-      titlePosition: 'right',
-      theme: 'coorpmanager',
-      details: 'Essential cookies help our website to function adequately.',
-      requiredSelection: true,
-      disabled: true
-    }, {
-      type: 'switch',
-      title: 'Functionnal Cookies',
-      value: true,
-      onChange: value => console.log(value),
-      titlePosition: 'right',
-      theme: 'coorpmanager',
-      details: 'Functional cookies help our website to function adequately.'
-    },
-    {
-      type: 'switch',
-      title: 'Web performance and analytics',
-      value: false,
-      onChange: value => console.log(value),
-      titlePosition: 'right',
-      theme: 'coorpmanager',
-      details: 'We use this data to improve the performance of our websites and services'
-    }] 
+    listBtnSwicth: [
+      {
+        type: 'switch',
+        title: 'Accept All',
+        value: false,
+        onChange: value => console.log(value),
+        titlePosition: 'right',
+        theme: 'partielUncheck'
+      },
+      {
+        type: 'switch',
+        title: 'Essential cookies',
+        value: true,
+        onChange: value => console.log(value),
+        titlePosition: 'right',
+        theme: 'coorpmanager',
+        details: 'Essential cookies help our website to function adequately.',
+        requiredSelection: true,
+        disabled: true
+      },
+      {
+        type: 'switch',
+        title: 'Functionnal Cookies',
+        value: true,
+        onChange: value => console.log(value),
+        titlePosition: 'right',
+        theme: 'coorpmanager',
+        details: 'Functional cookies help our website to function adequately.'
+      },
+      {
+        type: 'switch',
+        title: 'Web performance and analytics',
+        value: false,
+        onChange: value => console.log(value),
+        titlePosition: 'right',
+        theme: 'coorpmanager',
+        details: 'We use this data to improve the performance of our websites and services'
+      }
+    ]
   }
 };

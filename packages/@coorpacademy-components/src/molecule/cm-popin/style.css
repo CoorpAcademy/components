@@ -235,10 +235,10 @@
   align-items: center;
 }
 .firstBtnSwitchContainer div:first-child {
-  margin-left: 12px;
+  margin-left: 9px;
 }
 .singleSwitchContainer div:first-child {
- margin-left: 12px;
+ margin-left: 9px;
 }
 
 .lastBtnSwitchContainer {
@@ -265,7 +265,9 @@ a {
   padding-left: 24px;
   padding-right: 16px;
 }
-
+.popinCookie .largeButton {
+  padding: 0px 8px 0px 0px
+}
 @media tablet {
   .popinCookie {
     position: fixed;
@@ -276,7 +278,7 @@ a {
     overflow-x: hidden;
     overflow-y: auto;
   }
-  .popinCookie .button {
+  .popinCookie .button{
     width: 100%;
     padding: 0px 0px 8px 0px
   }
@@ -284,8 +286,8 @@ a {
     flex-wrap: wrap;
     margin-top: 40px;
   }
-  .largeButton {
-    padding-top: 0px;
+  .popinCookie .largeButton {
+    padding: 8px 0px 0px 0px
   }
   .popinCookie .message {
     padding: 24px 24px 0px 24px

@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
-  NovaLineSettingsCookie as Cookie,
-} from "@coorpacademy/nova-icons";
-import Cta from "../../atom/button-link";
-import ButtonLinkIconOnly from "../../atom/button-link-icon-only";
-import InputSwitch from "../../atom/input-switch";
-import style from "./style.css";
+  NovaLineSettingsCookie as Cookie
+} from '@coorpacademy/nova-icons';
+import Cta from '../../atom/button-link';
+import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
+import InputSwitch from '../../atom/input-switch';
+import style from './style.css';
 
-const CMPopin = (props) => {
+const CMPopin = props => {
   const {
     content,
-    mode = "alert",
+    mode = 'alert',
     firstButton,
     secondButton,
     onClose,
@@ -24,24 +24,24 @@ const CMPopin = (props) => {
     thirdButton,
     cookieTitle,
     descriptionBtnTxt,
-    listBtnSwicth,
+    listBtnSwicth
   } = props;
 
   const logo = {
     AlertDiamond,
-    WindowUpload,
+    WindowUpload
   };
   const LogoComponent = logo[icon];
 
   const backgroundImageStyle = backgroundImageUrl
     ? {
         backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: "cover",
+        backgroundSize: 'cover'
       }
     : null;
   const renderHeader = () => {
     if (header) return <img className={style.headerBackground} src={header} />;
-    if (mode === "cookie")
+    if (mode === 'cookie')
       return (
         <div className={style.cookieHeader}>
           <div className={style.cookieIconContainer}>
@@ -55,30 +55,27 @@ const CMPopin = (props) => {
   const getClassBtnSwitch = (index, btnList) => {
     switch (index) {
       case 0:
-        return style.firstBtnSwitchContainer
-        break;
+        return style.firstBtnSwitchContainer;
       case btnList.length - 1:
-        return style.lastBtnSwitchContainer
-      break;
+        return style.lastBtnSwitchContainer;
       default:
-        return style.singleSwitchContainer
-        break;
+        return style.singleSwitchContainer;
     }
-  }
+  };
   return (
     <div
-      className={mode !== "cookie" ? style.background : null}
+      className={mode !== 'cookie' ? style.background : null}
       style={backgroundImageStyle}
-      data-name={"cm-popin-container"}
+      data-name={'cm-popin-container'}
     >
-      <div className={mode === "cookie" ? style.popinCookie : style.popin}>
+      <div className={mode === 'cookie' ? style.popinCookie : style.popin}>
         <header className={style.popinHeader}>
           {renderHeader()}
           {onClose ? (
             <ButtonLinkIconOnly
               onClick={onClose}
-              data-name={"close-icon"}
-              aria-label={"close-icon"}
+              data-name={'close-icon'}
+              aria-label={'close-icon'}
               size="small"
               icon="close"
             />
@@ -89,10 +86,10 @@ const CMPopin = (props) => {
             {LogoComponent ? <LogoComponent className={style.icon} /> : null}
             {content ? (
               <p
-                className={mode === "alert" ? style.content : style.message}
-                data-name={"cm-popin-content"}
+                className={mode === 'alert' ? style.content : style.message}
+                data-name={'cm-popin-content'}
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: content }}
+                dangerouslySetInnerHTML={{__html: content}}
               />
             ) : null}
           </div>
@@ -100,20 +97,14 @@ const CMPopin = (props) => {
             <p
               className={style.descriptionText}
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{ __html: descriptionText }}
+              dangerouslySetInnerHTML={{__html: descriptionText}}
             />
           ) : null}
         </div>
-        {descriptionBtnTxt ? (
-          <div className={style.descriptionBtn}>{descriptionBtnTxt}</div>
-        ) : null}
+        {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
         {listBtnSwicth?.map((el, index) => {
           return (
-            <div
-              className={
-                getClassBtnSwitch(index, listBtnSwicth)
-              }
-            >
+            <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
               <InputSwitch
                 {...{
                   type: el.type,
@@ -124,7 +115,7 @@ const CMPopin = (props) => {
                   theme: el.theme,
                   details: el.details,
                   requiredSelection: el.requiredSelection,
-                  disabled: el.disabled,
+                  disabled: el.disabled
                 }}
               />
             </div>
@@ -132,46 +123,34 @@ const CMPopin = (props) => {
         })}
         <div className={style.buttonContainer}>
           {firstButton ? (
-            <div
-              className={
-                firstButton.largeButton ? style.largeButton : style.button
-              }
-            >
+            <div className={firstButton.largeButton ? style.largeButton : style.button}>
               <Cta
                 label={firstButton.label}
                 onClick={firstButton.handleOnclick}
-                data-name={"cm-popin-cta"}
-                aria-label={firstButton["aria-label"]}
+                data-name={'cm-popin-cta'}
+                aria-label={firstButton['aria-label']}
                 type={firstButton.type}
               />
             </div>
           ) : null}
           {secondButton ? (
-            <div
-              className={
-                secondButton.largeButton ? style.largeButton : style.button
-              }
-            >
+            <div className={secondButton.largeButton ? style.largeButton : style.button}>
               <Cta
                 label={secondButton.label}
                 onClick={secondButton.handleOnclick}
                 data-name={`cm-popin-cta-${secondButton.type}`}
-                aria-label={secondButton["aria-label"]}
+                aria-label={secondButton['aria-label']}
                 type={secondButton.type}
               />
             </div>
           ) : null}
           {thirdButton ? (
-            <div
-              className={
-                thirdButton.largeButton ? style.largeButton : style.button
-              }
-            >
+            <div className={thirdButton.largeButton ? style.largeButton : style.button}>
               <Cta
                 label={thirdButton.label}
                 onClick={thirdButton.handleOnclick}
                 data-name={`cm-popin-cta-${thirdButton.type}`}
-                aria-label={thirdButton["aria-label"]}
+                aria-label={thirdButton['aria-label']}
                 type={thirdButton.type}
               />
             </div>
@@ -184,28 +163,28 @@ const CMPopin = (props) => {
 
 CMPopin.propTypes = {
   content: PropTypes.string,
-  mode: PropTypes.oneOf(["alert", "information", "cookie"]),
+  mode: PropTypes.oneOf(['alert', 'information', 'cookie']),
   header: PropTypes.string,
   firstButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    "aria-label": PropTypes.string,
+    'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    type: PropTypes.oneOf(["dangerous", "primary", "secondary"]),
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary'])
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(["dangerous", "primary", "secondary"]),
-    "aria-label": PropTypes.string,
-    largeButton: PropTypes.boolean,
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
+    'aria-label': PropTypes.string,
+    largeButton: PropTypes.boolean
   }),
   thirdButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(["dangerous", "primary", "secondary"]),
-    "aria-label": PropTypes.string,
-    largeButton: PropTypes.boolean,
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
+    'aria-label': PropTypes.string,
+    largeButton: PropTypes.boolean
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,
@@ -214,7 +193,7 @@ CMPopin.propTypes = {
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
 
-  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.PropTypes)),
+  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
 export default CMPopin;
