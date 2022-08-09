@@ -5,7 +5,7 @@ import {apiQCMSlide1} from './one-fail';
 
 export default {
   props: {
-    ...CorrectStackedSlides.props,
+    slides: CorrectStackedSlides.props,
     header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],

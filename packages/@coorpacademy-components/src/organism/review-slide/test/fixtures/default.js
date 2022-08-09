@@ -37,7 +37,6 @@ export default {
         position: 4
       }
     },
-    primarySkinColor: '#00B0FF',
     validate: {
       label: 'Validate'
     },
