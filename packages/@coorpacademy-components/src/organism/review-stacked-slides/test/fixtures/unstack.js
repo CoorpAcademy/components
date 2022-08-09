@@ -31,12 +31,15 @@ export default {
         answerUI: qcmDrag,
         isCorrect: true,
         endReview: false,
-        animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        animateCorrectionPopin: false,
+        animationType: 'unstack'
       },
       '1': {
         hidden: false,
-        position: 1
+        position: 1,
+        questionText: 'Question 2',
+        answerUI: qcmDrag
       },
       '2': {
         hidden: false,
