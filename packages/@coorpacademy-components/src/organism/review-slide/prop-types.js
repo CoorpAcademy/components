@@ -6,8 +6,9 @@ const NextSlideProp = PropTypes.shape({
   hidden: PropTypes.bool,
   position: PropTypes.number,
   animationType: PropTypes.string, // 'unstack' | 'restack'
-  isCorrect: PropTypes.boolean,
+  isCorrect: PropTypes.bool,
   endReview: PropTypes.bool,
+  showCorrectionPopin: PropTypes.bool,
   questionText: PropTypes.string,
   answerUI: AnswerPropTypes
 });
