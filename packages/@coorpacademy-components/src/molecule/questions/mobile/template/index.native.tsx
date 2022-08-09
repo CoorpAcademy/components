@@ -141,7 +141,7 @@ const Item = (props: ItemProps) => {
   const id = `${prefix}-part-${index + 1}`;
   const isFocused = focusedSelectId === id;
 
-  const selectedStyle = {
+  const selectedStyle = brandTheme && {
     borderColor: brandTheme.colors.primary,
     color: brandTheme.colors.primary
   };
@@ -204,7 +204,7 @@ const Item = (props: ItemProps) => {
   );
 };
 
-interface Props {
+export type Props = {
   isDisabled?: boolean;
   template: string;
   items: Array<Choice>;
@@ -213,8 +213,7 @@ interface Props {
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
   handleFocus: HandleFocus;
-  freeTextPlaceholder: string; // translations.typeHere
-}
+};
 
 const QuestionTemplate = (props: Props) => {
   const {

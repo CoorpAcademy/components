@@ -1,14 +1,15 @@
 import {Props} from '../../index.native';
-import {createSelectChoice} from './default';
+import {select} from '../../../../../atom/select-modal/test/fixtures/default';
 
 type Fixture = {props: Props};
 
-const select = createSelectChoice({name: 'sel456'});
+const values = select.items || [];
 
 const fixture: Fixture = {
   props: {
-    value: select.items && select.items[1] && select.items[1].text,
-    values: select.items || []
+    values,
+    value: values[1].text,
+    onChange: () => null
   }
 };
 

@@ -1,12 +1,12 @@
-import {select} from '../../../../../atom/select-modal/test/fixtures/default';
 import {Props} from '../../index.native';
+import defaultFixture from './default';
 
 type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
-    values: select.items || [],
-    onChange: () => null
+    ...defaultFixture.props,
+    isDisabled: true
   }
 };
 

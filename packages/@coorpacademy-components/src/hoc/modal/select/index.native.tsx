@@ -1,22 +1,22 @@
 import React, {useState, useEffect, useMemo} from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
-import type {Choice} from '../../../types/progression-engine.d';
+import {noop} from 'lodash/fp';
+import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
 
+import type {ChoiceItem} from '../../../types/progression-engine.d';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 
 import Modal from '../index.native';
 import ModalSelectItem from '../select-item/index.native';
 
-type ChoiceValue = Pick<Choice, 'value'>;
-type ChoiceItem = Pick<Choice, 'items'>;
 export type OnChangeFunction = (value: string) => void;
 
 export type Props = {
-  value?: ChoiceValue;
+  value?: string;
   values: Array<ChoiceItem>;
   onChange: OnChangeFunction;
-  onClose?: () => void;
+  onClose?: (event: PressEvent) => void;
   testID?: string;
 };
 
@@ -51,7 +51,7 @@ const keyExtractor = (item: ChoiceItem, index: number): string => {
   return `modal-select-item-${index + 1}`;
 };
 
-const createRenderItem = (value: ChoiceValue, testID: String, onChange: OnChangeFunction) => ({
+const createRenderItem = (value: string, testID: String, onChange: OnChangeFunction) => ({
   item,
   index
 }: {
@@ -59,7 +59,7 @@ const createRenderItem = (value: ChoiceValue, testID: String, onChange: OnChange
   index: number;
 }) => {
   // eslint-disable-next-line unicorn/consistent-function-scoping
-  const handleChange = (_value: ChoiceValue | void) => () => onChange(_value);
+  const handleChange = (_value: string) => () => onChange(_value);
 
   return (
     <ModalSelectItem
@@ -80,7 +80,7 @@ const ModalSelect = (props: Props) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
-  const {value, values, onChange, onClose, testID = 'modal-select'} = props;
+  const {value = '', values, onChange, onClose = noop, testID = 'modal-select'} = props;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -92,7 +92,10 @@ const ModalSelect = (props: Props) => {
     testID,
     onChange
   ]);
-  const renderSeparator = useMemo(() => createSeparator(styleSheet), [styleSheet]);
+
+  const renderSeparator = useMemo(() => (styleSheet ? createSeparator(styleSheet) : null), [
+    styleSheet
+  ]);
 
   if (!styleSheet) {
     return null;

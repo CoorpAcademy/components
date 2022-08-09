@@ -319,17 +319,19 @@ export type Media = {
 
 export type AcceptedAnswers = Array<Answer>;
 
+export type ChoiceItem = {
+  text: string;
+  value: string;
+  _id: string;
+};
+
 export type Choice = {
   _id: string;
   value?: string;
   name?: string;
   type?: 'text' | 'select';
   label: string;
-  items?: Array<{
-    text: string;
-    value: string;
-    _id: string;
-  }>;
+  items?: Array<ChoiceItem>;
   media?: Media;
 };
 

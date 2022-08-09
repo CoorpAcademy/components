@@ -3,14 +3,13 @@ import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
-import type {QuestionType} from '../../types/progression-engine.d';
+import type {ChoiceItem, QuestionType} from '../../types/progression-engine.d';
 import {Theme} from '../../variables/theme.native';
 
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
 import Space from '../space/index.native';
 import Text from '../text/index.native';
 import ModalSelect, {OnChangeFunction} from '../../hoc/modal/select/index.native';
-import type {Props as ModalSelectProps} from '../../hoc/modal/select/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 
 export type Props = {
@@ -18,8 +17,8 @@ export type Props = {
   questionType: QuestionType;
   isDisabled?: boolean;
   isFocused?: boolean;
-  values: Pick<ModalSelectProps, 'values'>;
-  value?: Pick<ModalSelectProps, 'value'>;
+  values: Array<ChoiceItem>;
+  value?: string;
   placeholder?: string;
   color?: string;
   onChange: OnChangeFunction;
