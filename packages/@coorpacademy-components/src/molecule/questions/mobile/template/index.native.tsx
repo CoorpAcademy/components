@@ -4,15 +4,15 @@ import {View} from 'react-native';
 import trim from 'lodash/fp/trim';
 import last from 'lodash/fp/last';
 
-import Html from '../../../atom/html/index.native';
-import Select from '../../../atom/select-modal/index.native';
-import Space from '../../../atom/space/index.native';
-import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../types/app-review.d';
-import type {Choice} from '../../../types/progression-engine.d';
-import FreeText from '../free-text/index.native';
-import {useTemplateContext} from '../../../template/app-review/template-context';
-import {Theme} from '../../../variables/theme.native';
-import parseTemplateString from '../../../util/parse-template-string';
+import Html from '../../../../atom/html/index.native';
+import Select from '../../../../atom/select-modal/index.native';
+import Space from '../../../../atom/space/index.native';
+import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../../types/app-review.d';
+import type {Choice} from '../../../../types/progression-engine.d';
+import FreeText from '../../free-text/index.native';
+import {useTemplateContext} from '../../../../template/app-review/template-context';
+import {Theme} from '../../../../variables/theme.native';
+import parseTemplateString from '../../../../util/parse-template-string';
 
 const createStyleSheet = (theme: Theme) => ({
   section: {

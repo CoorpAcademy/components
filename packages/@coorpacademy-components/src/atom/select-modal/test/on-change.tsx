@@ -21,13 +21,14 @@ test('should handle change', t => {
 
   const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
+  const NEW_VALUE = items[2].text;
 
   const handleBlur = () => {
     t.pass();
   };
 
   const handleChange: OnChangeFunction = _value => {
-    t.is(_value, items[1].text);
+    t.is(_value, NEW_VALUE);
   };
 
   const component = (
@@ -50,7 +51,7 @@ test('should handle change', t => {
   const {getByTestId} = render(component);
   const modalSelect = getByTestId('select-modal');
 
-  fireEvent(modalSelect, 'change');
+  fireEvent(modalSelect, 'change', NEW_VALUE);
 
   t.plan(4);
 });
