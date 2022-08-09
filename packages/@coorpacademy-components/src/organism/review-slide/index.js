@@ -33,59 +33,25 @@ const getSlideAnimation = (action, position, hidden) => {
   }
 };
 
-const Slide = ({
-  slideIndex,
-  uiSlides,
-  primarySkinColor,
-  validate,
-  validateSlide,
-  finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
-  finishedSlidesSize, // je ne vois pas ce props dans les fixtures
-  updateSlidesOnNext,
-  updateReviewStatus,
-  updateStepItemsOnNext,
+const buildCorrectionPopin = (
+  isSlideCorrect,
+  endReview,
+  correctionPopinProps,
   progression,
-  correctionPopinProps
-}) => {
-  const hidden = getOr(false, `${slideIndex}.hidden`, uiSlides);
-  const endReview = getOr(false, `${slideIndex}.endReview`, uiSlides);
-  const position = get(`${slideIndex}.position`, uiSlides);
-  const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
-  const isSlideCorrect = getOr(null, `${slideIndex}.isCorrect`, uiSlides);
-  const questionText = get(`${slideIndex}.questionText`, uiSlides);
-  const answerUI = get(`${slideIndex}.answerUI`, uiSlides);
-
-  const validateLabel = getOr('', 'label', validate);
-
-  const validateButtonProps = {
-    customStyle: {
-      backgroundColor: primarySkinColor
-    },
-    /*
-      slide validation action, this will trigger the correction popin
-      (with the useEffect that fires the dispatchers, if there is a nextContent content,
-      it will be loaded here) but will not trigger any animations unless the endReview
-      signal is received (all uiSlides will disappear, also fired in a useEffect),
-
-      if it is the last slide and the content needs to be different, then that update will
-      be handled on the next slide logic but the content will be carried from here.
-    */
-    onClick: async () => {
-      // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
-      await validateSlide();
-    },
-    'aria-label': validateLabel,
-    label: validateLabel,
-    'data-name': `slide-validate-button-${slideIndex}`,
-    className: style.validateButton,
-    disabled: !isNil(isSlideCorrect)
-  };
+  updateSlidesOnNext,
+  updateStepItemsOnNext,
+  updateReviewStatus,
+  slideIndex,
+  answerUI,
+  questionText,
+  finishedSlides,
+  finishedSlidesSize
+) => {
+  if (isSlideCorrect === null && endReview === false) return null;
 
   const klf = getOr({}, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
-  const successLabel = getOr('', 'successLabel', correctionPopinProps);
-  const failureLabel = getOr('', 'failureLabel', correctionPopinProps);
 
   const _correctionPopinProps = {
     next: {
@@ -127,8 +93,59 @@ const Slide = ({
     },
     klf,
     information,
-    type: isSlideCorrect ? 'right' : 'wrong',
-    resultLabel: isSlideCorrect ? successLabel : failureLabel
+    type: correctionPopinProps.type,
+    resultLabel: correctionPopinProps.resultLabel
+  };
+
+  return <ReviewCorrectionPopin {..._correctionPopinProps} />;
+};
+
+const Slide = ({
+  slideIndex,
+  uiSlides,
+  primarySkinColor,
+  validate,
+  validateSlide,
+  finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
+  finishedSlidesSize, // je ne vois pas ce props dans les fixtures
+  updateSlidesOnNext,
+  updateReviewStatus,
+  updateStepItemsOnNext,
+  progression,
+  correctionPopinProps
+}) => {
+  const hidden = getOr(false, `${slideIndex}.hidden`, uiSlides);
+  const endReview = getOr(false, `${slideIndex}.endReview`, uiSlides);
+  const position = get(`${slideIndex}.position`, uiSlides);
+  const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
+  const isSlideCorrect = getOr(null, `${slideIndex}.isCorrect`, uiSlides);
+  const questionText = get(`${slideIndex}.questionText`, uiSlides);
+  const answerUI = get(`${slideIndex}.answerUI`, uiSlides);
+
+  const validateLabel = getOr('', 'label', validate);
+  // debugger;
+  const validateButtonProps = {
+    customStyle: {
+      backgroundColor: primarySkinColor
+    },
+    /*
+      slide validation action, this will trigger the correction popin
+      (with the useEffect that fires the dispatchers, if there is a nextContent content,
+      it will be loaded here) but will not trigger any animations unless the endReview
+      signal is received (all uiSlides will disappear, also fired in a useEffect),
+
+      if it is the last slide and the content needs to be different, then that update will
+      be handled on the next slide logic but the content will be carried from here.
+    */
+    onClick: async () => {
+      // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
+      await validateSlide();
+    },
+    'aria-label': validateLabel,
+    label: validateLabel,
+    'data-name': `slide-validate-button-${slideIndex}`,
+    className: style.validateButton,
+    disabled: !isNil(isSlideCorrect)
   };
 
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
@@ -188,7 +205,20 @@ const Slide = ({
             })
         }}
       >
-        <ReviewCorrectionPopin {..._correctionPopinProps} />
+        {buildCorrectionPopin(
+          isSlideCorrect,
+          endReview,
+          correctionPopinProps,
+          progression,
+          updateSlidesOnNext,
+          updateStepItemsOnNext,
+          updateReviewStatus,
+          slideIndex,
+          answerUI,
+          questionText,
+          finishedSlides,
+          finishedSlidesSize
+        )}
       </div>
     </div>
   );
