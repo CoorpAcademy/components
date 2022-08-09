@@ -2,7 +2,6 @@ import React, {useState, useMemo, useEffect} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import indexOf from 'lodash/fp/indexOf';
-import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import size from 'lodash/fp/size';
 import _toString from 'lodash/fp/toString';
@@ -16,7 +15,7 @@ import {SlidesReviewPropTypes} from './prop-types';
 
 const SlidesReview = (
   {
-    headerProps,
+    header,
     reviewBackgroundAriaLabel,
     validate,
     correctionPopinProps,
@@ -57,6 +56,7 @@ const SlidesReview = (
   */
   const [shouldMountSlides, updateShouldMountSlides] = useState(true);
 
+  // quel est le but de ce useEffect ?
   useEffect(
     /* istanbul ignore next */ () => {
       if (progression && size(apiSlides.slidesRefs) > 1) {
@@ -88,14 +88,7 @@ const SlidesReview = (
   );
 
   // ||-------> transform the step items state to Array
-  const stepItemsArray = useMemo(() => map(stepItem => stepItem, stepItems), [stepItems]);
-
-  const _headerProps = {
-    ...headerProps,
-    steps: stepItemsArray,
-    key: 'review-header',
-    hiddenSteps: reviewStatus !== 'ongoing'
-  };
+  // const stepItemsArray = useMemo(() => map(stepItem => stepItem, stepItems), [stepItems]);
 
   return (
     <div
@@ -108,7 +101,7 @@ const SlidesReview = (
       </div>
 
       <div key="review-header-wrapper" className={style.reviewHeaderContainer}>
-        <ReviewHeader {..._headerProps} />
+        <ReviewHeader {...header} />
       </div>
 
       {shouldMountSlides ? (

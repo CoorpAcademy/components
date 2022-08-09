@@ -1,6 +1,4 @@
-import omit from 'lodash/fp/omit';
 import headerProps from '../../../../../organism/review-header/test/fixtures/no-answered-question';
-import congratsProps from '../../../../../organism/review-congrats/test/fixtures/default';
 import DefaultStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/default';
 
 const stackedSlidesProps = DefaultStackedSlides.props;
@@ -57,7 +55,7 @@ export const apiQCMSlide0 = {
 export default {
   props: {
     ...stackedSlidesProps,
-    headerProps: omit('steps', headerProps.props),
+    header: headerProps.props,
     reviewBackgroundAriaLabel: 'review BG Aria',
     // On devrait pas avoir besoin de apiSlides
     apiSlides: {
@@ -66,35 +64,7 @@ export default {
         sli_N1XACJobn: apiQCMSlide0
       }
     },
-    stepItems: {
-      '0': {
-        current: true,
-        value: '1',
-        icon: 'no-answer'
-      },
-      '1': {
-        current: false,
-        value: '2',
-        icon: 'no-answer'
-      },
-      '2': {
-        current: false,
-        value: '3',
-        icon: 'no-answer'
-      },
-      '3': {
-        current: false,
-        value: '4',
-        icon: 'no-answer'
-      },
-      '4': {
-        current: false,
-        value: '5',
-        icon: 'no-answer'
-      }
-    },
     reviewStatus: 'ongoing',
-    congratsProps: congratsProps.props,
     progression: {
       _id: '62b1d1087aa12f00253f40ee',
       state: {

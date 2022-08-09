@@ -1,8 +1,9 @@
-import omit from 'lodash/fp/omit';
-import initialState, {apiQCMSlide0} from './initial-state';
+import pipe from 'lodash/fp/pipe';
+import set from 'lodash/fp/set';
+import Header from '../../../../../organism/review-header/test/fixtures/all-questions-ok';
+import CorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/correct';
+import {apiQCMSlide0} from './initial-state';
 import {apiQCMSlide1} from './one-fail';
-
-const initialStateProps = initialState.props;
 
 export const apiQCMSlide2 = {
   ...apiQCMSlide0,
@@ -24,10 +25,13 @@ export const apiQCMSlide4 = {
 
 export default {
   props: {
-    ...omit(
-      ['stepItems', 'finishedSlides', 'uiSlides', 'progression', 'apiSlides'],
-      initialStateProps
-    ),
+    ...pipe(
+      set('uiSlides.1.hidden', true),
+      set('uiSlides.2.hidden', true),
+      set('uiSlides.3.hidden', true),
+      set('uiSlides.4.hidden', true)
+    )(CorrectStackedSlides.props),
+    header: Header.props,
     apiSlides: {
       slideRefs: [
         'sli_N1XACJobn',
@@ -42,31 +46,6 @@ export default {
         'sli_41~RSVcl7': apiQCMSlide2,
         'sli_41~RSVcl8': apiQCMSlide3,
         'sli_41~RSVcl9': apiQCMSlide4
-      }
-    },
-    uiSlides: {
-      '0': {
-        hidden: true,
-        position: 0
-      },
-      '1': {
-        hidden: true,
-        position: 0
-      },
-      '2': {
-        hidden: true,
-        position: 0
-      },
-      '3': {
-        hidden: true,
-        position: 0
-      },
-      '4': {
-        ...initialStateProps.uiSlides['0'],
-        hidden: false,
-        position: 0,
-        isCorrect: true,
-        endReview: false
       }
     },
     progression: {
@@ -85,33 +64,6 @@ export default {
       '2': true,
       '3': true,
       '4': true
-    },
-    stepItems: {
-      '0': {
-        current: false,
-        value: '1',
-        icon: 'right'
-      },
-      '1': {
-        current: false,
-        value: '2',
-        icon: 'right'
-      },
-      '2': {
-        current: false,
-        value: '3',
-        icon: 'right'
-      },
-      '3': {
-        current: false,
-        value: '4',
-        icon: 'right'
-      },
-      '4': {
-        current: true,
-        value: '5',
-        icon: 'right'
-      }
     }
   }
 };

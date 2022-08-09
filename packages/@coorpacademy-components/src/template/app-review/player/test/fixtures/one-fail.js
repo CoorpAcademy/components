@@ -1,7 +1,6 @@
-import omit from 'lodash/fp/omit';
-import initialState, {apiQCMSlide0} from './initial-state';
-
-const initialStateProps = initialState.props;
+import Header from '../../../../../organism/review-header/test/fixtures/current-question-wrong';
+import WrongStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/wrong';
+import {apiQCMSlide0} from './initial-state';
 
 export const apiQCMSlide1 = {
   ...apiQCMSlide0,
@@ -11,18 +10,8 @@ export const apiQCMSlide1 = {
 
 export default {
   props: {
-    ...omit(
-      ['stepItems', 'finishedSlides', 'uiSlides', 'progression', 'apiSlides'],
-      initialStateProps
-    ),
-    uiSlides: {
-      ...initialStateProps.uiSlides,
-      '0': {
-        ...initialStateProps.uiSlides['0'],
-        isCorrect: false,
-        endReview: false
-      }
-    },
+    ...WrongStackedSlides.props,
+    header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
       values: {
@@ -38,15 +27,6 @@ export default {
           type: 'slide',
           ref: 'sli_41~RSVclH'
         }
-      }
-    },
-    finishedSlides: {},
-    stepItems: {
-      ...initialStateProps.stepItems,
-      '0': {
-        current: true,
-        value: '1',
-        icon: 'wrong'
       }
     }
   }

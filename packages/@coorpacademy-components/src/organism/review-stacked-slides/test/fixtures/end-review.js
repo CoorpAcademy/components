@@ -34,26 +34,26 @@ export default {
         showCorrectionPopin: true
       },
       '1': {
-        hidden: false,
+        hidden: true,
         questionText: 'Question 2',
         position: 1,
         endReview: true
       },
       '2': {
-        hidden: false,
+        hidden: true,
         questionText: 'Question 3',
         position: 2,
         endReview: true
       },
       '3': {
-        hidden: false,
+        hidden: true,
         questionText: 'Question 4',
         position: 3,
         endReview: true
       },
       '4': {
         questionText: 'Question 5',
-        hidden: false,
+        hidden: true,
         position: 4,
         endReview: true
       }

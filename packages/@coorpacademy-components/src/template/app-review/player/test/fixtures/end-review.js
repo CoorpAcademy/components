@@ -1,14 +1,19 @@
-import omit from 'lodash/fp/omit';
-import AnswerQCMDrag from '../../../../../molecule/answer/test/fixtures/qcm-drag';
-import oneRightState from './one-right';
-
-const qcmDrag = AnswerQCMDrag.props;
-const props = oneRightState.props;
+import congratsProps from '../../../../../organism/review-congrats/test/fixtures/default';
+import Header from '../../../../../organism/review-header/test/fixtures/steps-animation';
+import EndReviewStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/end-review';
 
 export default {
   props: {
-    ...omit(['uiSlides', 'progression'], props),
+    ...EndReviewStackedSlides.props,
+    header: Header.props,
     reviewStatus: 'finished',
+    apiSlides: {
+      slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
+      values: {
+        sli_N1XACJobn: {},
+        'sli_41~RSVclH': {}
+      }
+    },
     progression: {
       _id: '62b1d1087aa12f00253f40e2',
       state: {
@@ -19,36 +24,6 @@ export default {
         }
       }
     },
-    uiSlides: {
-      '0': {
-        ...props.uiSlides['0'],
-        isCorrect: true,
-        endReview: true,
-        questionText: 'Hey there, .....suspense.... ready to select some answers?',
-        answerUI: qcmDrag
-      },
-      '1': {
-        hidden: false,
-        position: 1,
-        questionText: 'Hey there, .....suspense.... ready to select some answers?',
-        answerUI: qcmDrag,
-        endReview: true
-      },
-      '2': {
-        hidden: false,
-        position: 2,
-        endReview: true
-      },
-      '3': {
-        hidden: false,
-        position: 3,
-        endReview: true
-      },
-      '4': {
-        hidden: false,
-        position: 4,
-        endReview: true
-      }
-    }
+    congratsProps: congratsProps.props
   }
 };
