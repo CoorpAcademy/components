@@ -1,6 +1,8 @@
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
+import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 
-const qcmDrag = AnswerQCMGraphic.props;
+const qcmDrag = AnswerQCMDrag.props;
+const qcmGraphic = AnswerQCMGraphic.props;
 
 export default {
   props: {
@@ -10,7 +12,7 @@ export default {
         hidden: false,
         position: 0,
         questionText: 'Question 1',
-        answerUI: qcmDrag,
+        answerUI: qcmGraphic,
         showCorrectionPopin: false
       },
       '1': {
