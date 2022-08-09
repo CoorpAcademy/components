@@ -4,7 +4,7 @@ import EndReviewStackedSlides from '../../../../../organism/review-stacked-slide
 
 export default {
   props: {
-    ...EndReviewStackedSlides.props,
+    slides: EndReviewStackedSlides.props,
     header: Header.props,
     reviewStatus: 'finished',
     apiSlides: {

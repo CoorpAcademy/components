@@ -16,27 +16,15 @@ import {SlidesReviewPropTypes} from './prop-types';
 const SlidesReview = (
   {
     header,
+    slides,
     reviewBackgroundAriaLabel,
-    validate,
-    correctionPopinProps,
-    uiSlides,
     apiSlides,
-    finishedSlides,
-    stepItems,
     reviewStatus,
     congratsProps,
-    validateSlide,
-    updateSlidesOnNext,
-    updateReviewStatus,
-    updateStepItemsOnValidation,
-    updateStepItemsOnNext,
-    updateFinishedSlides,
     progression
-  },
-  context
+  }
 ) => {
-  const {skin} = context;
-  const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+  const {uiSlides, finishedSlides, updateReviewStatus} = slides;
 
   const finishedSlidesSize = useMemo(() => size(finishedSlides), [finishedSlides]);
 
@@ -105,21 +93,7 @@ const SlidesReview = (
       </div>
 
       {shouldMountSlides ? (
-        <StackedSlides
-          {...{
-            uiSlides,
-            primarySkinColor,
-            validate,
-            validateSlide,
-            finishedSlides,
-            finishedSlidesSize,
-            updateSlidesOnNext,
-            updateReviewStatus,
-            updateStepItemsOnNext,
-            progression,
-            correctionPopinProps
-          }}
-        />
+        <StackedSlides {...slides} />
       ) : /* istanbul ignore next */ null}
 
       {reviewStatus === 'finished' ? (

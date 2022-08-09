@@ -10,7 +10,7 @@ export const apiQCMSlide1 = {
 
 export default {
   props: {
-    ...WrongStackedSlides.props,
+    slides: WrongStackedSlides.props,
     header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],

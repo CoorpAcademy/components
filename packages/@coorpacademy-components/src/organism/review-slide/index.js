@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
 import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
+import Provider from '../../atom/provider';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
 import propTypes from './prop-types';
 import style from './style.css';
@@ -114,7 +115,6 @@ const buildCorrectionPopin = (
 const Slide = ({
   slideIndex,
   uiSlides,
-  primarySkinColor,
   validate,
   validateSlide,
   finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
@@ -124,7 +124,10 @@ const Slide = ({
   updateStepItemsOnNext,
   progression,
   correctionPopinProps
-}) => {
+}, context) => {
+  const {skin} = context;
+  const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+
   const hidden = getOr(false, `${slideIndex}.hidden`, uiSlides);
   const endReview = getOr(false, `${slideIndex}.endReview`, uiSlides);
   const position = get(`${slideIndex}.position`, uiSlides);
@@ -228,5 +231,9 @@ const Slide = ({
 };
 
 Slide.propTypes = propTypes;
+
+Slide.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 export default Slide;

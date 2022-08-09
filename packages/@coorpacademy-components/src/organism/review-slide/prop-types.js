@@ -27,7 +27,6 @@ export default {
     '3': SlideProp,
     '4': SlideProp
   }),
-  primarySkinColor: PropTypes.string,
   validate: PropTypes.shape({
     label: PropTypes.string
   }),
@@ -53,14 +52,4 @@ export default {
   updateSlidesOnNext: PropTypes.func.isRequired,
   updateReviewStatus: PropTypes.func.isRequired,
   updateStepItemsOnNext: PropTypes.func.isRequired
-  /* progression: PropTypes.shape({
-    _id: PropTypes.string,
-    state: PropTypes.shape({
-      isCorrect: PropTypes.bool,
-      nextContent: PropTypes.shape({
-        type: PropTypes.string, // 'success' | 'slide'
-        ref: PropTypes.string // 'successExitNode' | string
-      })
-    })
-  }).isRequired */
 };
