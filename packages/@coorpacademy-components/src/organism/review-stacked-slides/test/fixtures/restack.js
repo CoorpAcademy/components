@@ -1,6 +1,8 @@
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
+import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 
 const qcmDrag = AnswerQCMDrag.props;
+const qcmGraphic = AnswerQCMGraphic.props;
 
 export const correctionPopinProps = {
   klf: {
@@ -27,7 +29,7 @@ export default {
       '0': {
         hidden: false,
         position: 0,
-        questionText: 'Hey there, .....suspense.... ready to select some answers?',
+        questionText: 'Question 1',
         answerUI: qcmDrag,
         isCorrect: false,
         endReview: false,
@@ -39,7 +41,7 @@ export default {
         hidden: false,
         position: 1,
         questionText: 'Question 2',
-        answerUI: qcmDrag
+        answerUI: qcmGraphic
       },
       '2': {
         hidden: false,
