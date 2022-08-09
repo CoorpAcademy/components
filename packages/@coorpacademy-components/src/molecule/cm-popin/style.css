@@ -106,12 +106,11 @@
 }
 
 .buttonContainer {
-  width: calc(100% - 48px);
   min-height: 80px;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
-  margin: 0px auto 0px auto
 }
 
 .button {
@@ -167,7 +166,7 @@
 }
 
 .popinCookie {
-  max-width: 593px;
+  max-width: 550px;
   flex-grow: 0;
   margin: 16px;
   border-radius: 10px;
@@ -201,32 +200,16 @@
   justify-content: center;
   align-items: center;
 }
-@media tablet {
-  .popinCookie {
-    position: fixed;
-    bottom: 10px;
-    left: unset;
-    align-self: center;
-    max-height: calc(100vh - 50px);
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-bottom: 16px;
-  }
-  .popinCookie .button {
-    width: 100%;
-    padding: 0px 0px 8px 0px
-  }
-  .buttonContainer {
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-  .largeButton {
-    padding-top: 0px;
-  }
- 
+.popinCookie .button  {
+  width: 100%;
+  padding: 0px 8px 0px 0px
 }
+.popinCookie .button span {
+  margin: 0
+}
+
 .popinCookie .message {
-  padding: 24px 24px 0px 24px 
+  padding: 24px 24px 40px 24px 
 }
 
 .descriptionBtn {
@@ -258,6 +241,11 @@
  margin-left: 12px;
 }
 
+.lastBtnSwitchContainer {
+  composes: singleSwitchContainer;
+  margin-bottom: 28px;
+ }
+
 .singleSwitchContainer {
   width: 100%;
   display: flex;
@@ -268,4 +256,39 @@
 a {
   color: cm_primary_blue;
   text-decoration: none;
+}
+
+.popinCookie .buttonContainer  {
+  min-height: 44px;
+  padding-bottom: 16px;
+  width: auto;
+  padding-left: 24px;
+  padding-right: 16px;
+}
+
+@media tablet {
+  .popinCookie {
+    position: fixed;
+    bottom: 10px;
+    left: unset;
+    align-self: center;
+    max-height: calc(100vh - 50px);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .popinCookie .button {
+    width: 100%;
+    padding: 0px 0px 8px 0px
+  }
+  .buttonContainer {
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .largeButton {
+    padding-top: 0px;
+  }
+  .popinCookie .message {
+    padding: 24px 24px 0px 24px
+  }
+ 
 }

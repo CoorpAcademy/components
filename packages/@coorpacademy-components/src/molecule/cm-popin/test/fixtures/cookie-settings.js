@@ -18,15 +18,14 @@ export default {
     },
     descriptionBtnTxt:
       'Use this page to accept or block tracking tags and analytics tools on our website.',
-    firstBtnSwitch: {
+    listBtnSwicth:[{
       type: 'switch',
       title: 'Accept All',
       value: false,
       onChange: value => console.log(value),
       titlePosition: 'right',
       theme: 'partielUncheck'
-    },
-    secondBtnSwitch: {
+    },{
       type: 'switch',
       title: 'Essential cookies',
       value: true,
@@ -36,8 +35,7 @@ export default {
       details: 'Essential cookies help our website to function adequately.',
       requiredSelection: true,
       disabled: true
-    },
-    thirdBtnSwitch: {
+    }, {
       type: 'switch',
       title: 'Functionnal Cookies',
       value: true,
@@ -46,7 +44,7 @@ export default {
       theme: 'coorpmanager',
       details: 'Functional cookies help our website to function adequately.'
     },
-    fourthBtnSwitch: {
+    {
       type: 'switch',
       title: 'Web performance and analytics',
       value: false,
@@ -54,6 +52,6 @@ export default {
       titlePosition: 'right',
       theme: 'coorpmanager',
       details: 'We use this data to improve the performance of our websites and services'
-    }
+    }] 
   }
 };
