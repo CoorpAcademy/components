@@ -2,6 +2,25 @@ import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 
 const qcmDrag = AnswerQCMDrag.props;
 
+export const correctionPopinProps = {
+  klf: {
+    label: 'Key learning factor',
+    tooltip: 'Some tooltip info.'
+  },
+  information: {
+    label: 'Key learning factor',
+    message: 'info msg'
+  },
+  next: {
+    label: 'Next',
+    onClick: () => {
+      console.log('Load next slide');
+    }
+  },
+  type: 'right',
+  resultLabel: 'CORRECT ANSWER'
+};
+
 export default {
   props: {
     uiSlides: {
@@ -9,7 +28,9 @@ export default {
         hidden: false,
         position: 0,
         questionText: 'Hey there, .....suspense.... ready to select some answers?',
-        answerUI: qcmDrag
+        answerUI: qcmDrag,
+        isCorrect: true,
+        endReview: false
       },
       '1': {
         hidden: false,
@@ -31,9 +52,11 @@ export default {
     validate: {
       label: 'Validate'
     },
-    finishedSlides: {},
-    finishedSlidesSize: 0,
-    correctionPopinProps: {},
+    finishedSlides: {
+      '0': true
+    },
+    finishedSlidesSize: 1,
+    correctionPopinProps,
     validateSlide: () => console.log('onValidateClick'),
     updateSlidesOnNext: () => console.log('updateSlidesOnNext'), // à revoir
     updateStepItemsOnNext: () => console.log('updateStepItemsOnNext'), // à revoir, on devrait avoir un seul onClick dans le next

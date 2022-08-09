@@ -45,13 +45,14 @@ export default {
       label: PropTypes.string,
       'aria-label': PropTypes.string // Pourquoi le onClick du next n'est pas ici !
     }),
-    resultLabel: ReviewCorrectionPopinPropTypes.resultLabel
+    resultLabel: ReviewCorrectionPopinPropTypes.resultLabel,
+    type: ReviewCorrectionPopinPropTypes.type
   }),
   validateSlide: PropTypes.func.isRequired,
   updateSlidesOnNext: PropTypes.func.isRequired,
   updateReviewStatus: PropTypes.func.isRequired,
-  updateStepItemsOnNext: PropTypes.func.isRequired,
-  progression: PropTypes.shape({
+  updateStepItemsOnNext: PropTypes.func.isRequired
+  /* progression: PropTypes.shape({
     _id: PropTypes.string,
     state: PropTypes.shape({
       isCorrect: PropTypes.bool,
@@ -60,5 +61,5 @@ export default {
         ref: PropTypes.string // 'successExitNode' | string
       })
     })
-  }).isRequired
+  }).isRequired */
 };
