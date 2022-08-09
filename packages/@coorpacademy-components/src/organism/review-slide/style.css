@@ -114,7 +114,7 @@
 
 .slideOutHideAndIn {
   pointer-events: none;
-  animation: slideOutHideAndSlideIn 3s ease forwards;
+  animation: slideOutHideAndSlideIn 5s ease forwards;
 }
 
 .slideOutAndIn {
@@ -226,26 +226,15 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   border-radius: 7px;
   margin: 0 15px;
   width: 95%;
+}
+
+.popinAnimation {
   animation: popInAnimation 0.5s ease-out forwards;
 }
 
 /* ie fallback */
 _:-ms-fullscreen, :root .correctionPopinWrapper {
   left: 15px;
-}
-
-@keyframes popOutAnimation {
-  from {
-    transform: translate3d(0, -40px, 0);
-  }
-  to {
-    transform: translate3d(0, 200px, 0);
-  }
-}
-
-.hiddenCorrectionPopinWrapper {
-  composes: correctionPopinWrapper;
-  animation: popOutAnimation 0.5s ease-out forwards;
 }
 
 .validateButton {
@@ -290,15 +279,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
       transform: translate3d(0, -40px, 0);
     }
   }
-
-  @keyframes popOutAnimation {
-    from {
-      transform: translate3d(0, -40px, 0);
-    }
-    to {
-      transform: translate3d(0, 400px, 0);
-    }
-  }
 }
 
 @media mobile {
@@ -317,15 +297,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
     }
     to {
       transform: translate3d(0, -40px, 0);
-    }
-  }
-
-  @keyframes popOutAnimation {
-    from {
-      transform: translate3d(0, -40px, 0);
-    }
-    to {
-      transform: translate3d(0, 500px, 0);
     }
   }
 }

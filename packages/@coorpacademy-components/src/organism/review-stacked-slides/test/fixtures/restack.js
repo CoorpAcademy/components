@@ -17,8 +17,8 @@ export const correctionPopinProps = {
       console.log('Load next slide');
     }
   },
-  type: 'right',
-  resultLabel: 'CORRECT ANSWER'
+  type: 'wrong',
+  resultLabel: 'WRONG ANSWER'
 };
 
 export default {
@@ -29,14 +29,17 @@ export default {
         position: 0,
         questionText: 'Hey there, .....suspense.... ready to select some answers?',
         answerUI: qcmDrag,
-        isCorrect: true,
+        isCorrect: false,
         endReview: false,
-        animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        animateCorrectionPopin: false,
+        animationType: 'restack'
       },
       '1': {
         hidden: false,
-        position: 1
+        position: 1,
+        questionText: 'Question 2',
+        answerUI: qcmDrag
       },
       '2': {
         hidden: false,
