@@ -1,9 +1,9 @@
 import omit from 'lodash/fp/omit';
 import headerProps from '../../../../../organism/review-header/test/fixtures/no-answered-question';
 import congratsProps from '../../../../../organism/review-congrats/test/fixtures/default';
-import AnswerQCMDrag from '../../../../../molecule/answer/test/fixtures/qcm-drag';
+import DefaultStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/default';
 
-const qcmDrag = AnswerQCMDrag.props;
+const stackedSlidesProps = DefaultStackedSlides.props;
 
 export const apiQCMSlide0 = {
   question: {
@@ -54,63 +54,18 @@ export const apiQCMSlide0 = {
   id: 'sli_N1XACJobn'
 };
 
-export const correctionPopinProps = {
-  klf: {
-    label: 'Key learning factor',
-    tooltip: 'Some tooltip info.',
-    onClick: () => {
-      console.log('klf onClick');
-    }
-  },
-  information: {
-    label: 'Key learning factor',
-    message: 'info msg'
-  },
-  next: {
-    label: 'Next'
-  },
-  successLabel: 'CORRECT ANSWER',
-  failureLabel: 'WRONG ANSWER'
-};
-
 export default {
   props: {
+    ...stackedSlidesProps,
     headerProps: omit('steps', headerProps.props),
     reviewBackgroundAriaLabel: 'review BG Aria',
-    validate: {
-      label: 'Validate'
-    },
+    // On devrait pas avoir besoin de apiSlides
     apiSlides: {
       slideRefs: ['sli_N1XACJobn'],
       values: {
         sli_N1XACJobn: apiQCMSlide0
       }
     },
-    uiSlides: {
-      '0': {
-        hidden: false,
-        position: 0,
-        questionText: 'Hey there, .....suspense.... ready to select some answers?',
-        answerUI: qcmDrag
-      },
-      '1': {
-        hidden: false,
-        position: 1
-      },
-      '2': {
-        hidden: false,
-        position: 2
-      },
-      '3': {
-        hidden: false,
-        position: 3
-      },
-      '4': {
-        hidden: false,
-        position: 4
-      }
-    },
-    finishedSlides: {},
     stepItems: {
       '0': {
         current: true,
@@ -139,7 +94,6 @@ export default {
       }
     },
     reviewStatus: 'ongoing',
-    correctionPopinProps,
     congratsProps: congratsProps.props,
     progression: {
       _id: '62b1d1087aa12f00253f40ee',
@@ -150,14 +104,6 @@ export default {
           ref: 'sli_N1XACJobn'
         }
       }
-    },
-    // ---------------
-    // Dispatchers
-    validateSlide: () => console.log('onValidateClick'),
-    updateSlidesOnNext: () => console.log('updateSlidesOnNext'),
-    updateReviewStatus: () => console.log('updateReviewStatus'),
-    updateStepItemsOnValidation: () => console.log('updateStepItemsOnValidation'),
-    updateStepItemsOnNext: () => console.log('updateStepItemsOnNext'),
-    updateFinishedSlides: () => console.log('updateFinishedSlides')
+    }
   }
 };
