@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
 import HtmlBase from 'react-native-render-html';
 
@@ -7,13 +7,9 @@ import {Vibration} from '../../variables/vibration';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import Text, {DEFAULT_STYLE as DEFAULT_TEXT_STYLE} from '../text/index.native';
 
-type State = {
-  disableBaseFontStyleColor: boolean;
-};
-
 export type Props = {
   children: string;
-  fontSize: string;
+  fontSize: number;
   numberOfLines?: number;
   onLinkPress?: (url: string) => void;
   containerStyle?: ViewStyle;
@@ -26,6 +22,7 @@ export type Props = {
 };
 
 const Html = (props: Props) => {
+  const [disableBaseFontStyleColor, setDisableBaseFontStyleColor] = useState<boolean>(false);
   const templateContext = useTemplateContext();
   const {theme, vibration} = templateContext;
   const {
@@ -49,12 +46,6 @@ const Html = (props: Props) => {
     },
     [onLinkPress, vibration]
   );
-
-  const state: State = {
-    disableBaseFontStyleColor: false
-  };
-
-  const {disableBaseFontStyleColor} = state;
 
   // Don't use StyleSheet there, it's not a react style
   const styles = {
@@ -111,7 +102,7 @@ const Html = (props: Props) => {
     // eslint-disable-next-line react/display-name
     font: (htmlAttribs, children) => {
       if (htmlAttribs.color) {
-        this.setState({disableBaseFontStyleColor: true});
+        setDisableBaseFontStyleColor(true);
       }
       return (
         <Text
