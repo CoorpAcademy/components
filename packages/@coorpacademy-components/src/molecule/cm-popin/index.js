@@ -5,6 +5,7 @@ import {
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
   NovaLineSettingsCookie as Cookie
 } from '@coorpacademy/nova-icons';
+import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
@@ -63,27 +64,24 @@ const CMPopin = props => {
     }
   };
   const renderBtnSwitch = () => {
-    const res = [];
-    listBtnSwicth?.forEach((el, index) => {
-      res.push(
-        <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
-          <InputSwitch
-            {...{
-              type: el.type,
-              title: el.title,
-              value: el.value,
-              onChange: el.onChange,
-              titlePosition: el.titlePosition,
-              theme: el.theme,
-              details: el.details,
-              requiredSelection: el.requiredSelection,
-              disabled: el.disabled
-            }}
-          />
-        </div>
-      );
-    });
-    return res;
+    const mapFunction = map.convert({cap: false});
+    return mapFunction((el, index) => (
+      <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
+        <InputSwitch
+          {...{
+            type: el.type,
+            title: el.title,
+            value: el.value,
+            onChange: el.onChange,
+            titlePosition: el.titlePosition,
+            theme: el.theme,
+            details: el.details,
+            requiredSelection: el.requiredSelection,
+            disabled: el.disabled
+          }}
+        />
+      </div>
+    ))(listBtnSwicth);
   };
   return (
     <div
