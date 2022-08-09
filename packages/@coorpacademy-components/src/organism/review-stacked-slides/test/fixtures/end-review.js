@@ -2,45 +2,71 @@ import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 
 const qcmDrag = AnswerQCMDrag.props;
 
+export const correctionPopinProps = {
+  klf: {
+    label: 'Key learning factor',
+    tooltip: 'Some tooltip info.'
+  },
+  information: {
+    label: 'Key learning factor',
+    message: 'info msg'
+  },
+  next: {
+    label: 'Next',
+    onClick: () => {
+      console.log('Load next slide');
+    }
+  },
+  type: 'right',
+  resultLabel: 'CORRECT ANSWER'
+};
+
 export default {
   props: {
     uiSlides: {
       '0': {
         hidden: false,
         position: 0,
-        questionText: 'Question 1',
+        questionText: 'Hey there, .....suspense.... ready to select some answers?',
         answerUI: qcmDrag,
-        showCorrectionPopin: false
+        isCorrect: true,
+        endReview: true,
+        showCorrectionPopin: true
       },
       '1': {
         hidden: false,
+        questionText: 'Question 2',
         position: 1,
-        questionText: 'Question 2', // c'est pas censé d'afficher ça dans la slide derrière ?
-        answerUI: qcmDrag
+        endReview: true
       },
       '2': {
         hidden: false,
         questionText: 'Question 3',
-        position: 2
+        position: 2,
+        endReview: true
       },
       '3': {
         hidden: false,
         questionText: 'Question 4',
-        position: 3
+        position: 3,
+        endReview: true
       },
       '4': {
-        hidden: false,
         questionText: 'Question 5',
-        position: 4
+        hidden: false,
+        position: 4,
+        endReview: true
       }
     },
-    primarySkinColor: '#00B0FF',
     validate: {
       label: 'Validate'
     },
-    finishedSlides: {},
-    finishedSlidesSize: 0,
-    correctionPopinProps: {},
+    finishedSlides: {
+      // Incohérent pour la fixture qui fait la fin de toutes les slides
+      '0': true
+    },
+    finishedSlidesSize: 1, // Incohérent
+    correctionPopinProps,
     validateSlide: () => console.log('onValidateClick'),
     updateSlidesOnNext: () => console.log('updateSlidesOnNext'), // à revoir
     updateStepItemsOnNext: () => console.log('updateStepItemsOnNext'), // à revoir, on devrait avoir un seul onClick dans le next
