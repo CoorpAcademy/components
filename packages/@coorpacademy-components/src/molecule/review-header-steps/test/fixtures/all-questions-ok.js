@@ -13,7 +13,7 @@ export default {
       },
       {
         icon: 'right',
-        current: true,
+        current: false,
         value: '3'
       },
       {
@@ -23,7 +23,7 @@ export default {
       },
       {
         icon: 'right',
-        current: false,
+        current: true,
         value: '5'
       }
     ]

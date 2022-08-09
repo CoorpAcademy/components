@@ -1,17 +1,15 @@
-import CorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/correct';
+import UnstackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/unstack';
 import Header from '../../../../../organism/review-header/test/fixtures/first-question-current-right';
 import {apiQCMSlide0} from './initial-state';
-import {apiQCMSlide1} from './one-fail';
 
 export default {
   props: {
-    ...CorrectStackedSlides.props,
+    ...UnstackedSlides.props,
     header: Header.props,
     apiSlides: {
-      slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
+      slideRefs: ['sli_N1XACJobn'],
       values: {
-        sli_N1XACJobn: apiQCMSlide0,
-        'sli_41~RSVclH': apiQCMSlide1
+        sli_N1XACJobn: apiQCMSlide0
       }
     },
     progression: {

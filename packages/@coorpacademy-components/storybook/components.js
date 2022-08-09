@@ -1168,10 +1168,11 @@ import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
 import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/player/test/fixtures/all-ok';
 import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
-import TemplateAppReviewPlayerFixtureFinished from '../src/template/app-review/player/test/fixtures/finished';
 import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
 import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
 import TemplateAppReviewPlayerFixtureOneRight from '../src/template/app-review/player/test/fixtures/one-right';
+import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
+import TemplateAppReviewPlayerFixtureUnstack from '../src/template/app-review/player/test/fixtures/unstack';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
 import TemplateAppReviewFixtureOnboarding from '../src/template/app-review/test/fixtures/onboarding';
@@ -2964,10 +2965,11 @@ export const fixtures = {
     TemplateAppReviewPlayer: {
       AllOk: TemplateAppReviewPlayerFixtureAllOk,
       EndReview: TemplateAppReviewPlayerFixtureEndReview,
-      Finished: TemplateAppReviewPlayerFixtureFinished,
       InitialState: TemplateAppReviewPlayerFixtureInitialState,
       OneFail: TemplateAppReviewPlayerFixtureOneFail,
-      OneRight: TemplateAppReviewPlayerFixtureOneRight
+      OneRight: TemplateAppReviewPlayerFixtureOneRight,
+      Restack: TemplateAppReviewPlayerFixtureRestack,
+      Unstack: TemplateAppReviewPlayerFixtureUnstack
     },
     TemplateAppReviewSkills: {
       ManySkills: TemplateAppReviewSkillsFixtureManySkills,
