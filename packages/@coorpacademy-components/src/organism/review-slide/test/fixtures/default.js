@@ -6,7 +6,7 @@ const qcmGraphic = AnswerQCMGraphic.props;
 
 export default {
   props: {
-    slideIndex: 0,
+    slideIndex: '0',
     uiSlides: {
       '0': {
         hidden: false,
