@@ -62,7 +62,6 @@ export default {
         sli_N1XACJobn: apiQCMSlide0
       }
     },
-    reviewStatus: 'ongoing',
     progression: {
       _id: '62b1d1087aa12f00253f40ee',
       state: {
