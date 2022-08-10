@@ -986,10 +986,11 @@ import OrganismReviewHeaderFixtureStepsAnimation from '../src/organism/review-he
 import OrganismReviewSkillsFixtureLoading from '../src/organism/review-skills/test/fixtures/loading';
 import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills/test/fixtures/many-skills';
 import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
-import OrganismReviewSlideFixtureDefault from '../src/organism/review-slide/test/fixtures/default';
-import OrganismReviewStackedSlidesFixtureCorrect from '../src/organism/review-stacked-slides/test/fixtures/correct';
-import OrganismReviewStackedSlidesFixtureDefault from '../src/organism/review-stacked-slides/test/fixtures/default';
+import OrganismReviewSlideFixtureInitialState from '../src/organism/review-slide/test/fixtures/initial-state';
+import OrganismReviewStackedSlidesFixtureAllOk from '../src/organism/review-stacked-slides/test/fixtures/all-ok';
 import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
+import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/review-stacked-slides/test/fixtures/first-correct';
+import OrganismReviewStackedSlidesFixtureInitialState from '../src/organism/review-stacked-slides/test/fixtures/initial-state';
 import OrganismReviewStackedSlidesFixtureRestack from '../src/organism/review-stacked-slides/test/fixtures/restack';
 import OrganismReviewStackedSlidesFixtureUnstack from '../src/organism/review-stacked-slides/test/fixtures/unstack';
 import OrganismReviewStackedSlidesFixtureWrong from '../src/organism/review-stacked-slides/test/fixtures/wrong';
@@ -1161,9 +1162,9 @@ import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
 import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/player/test/fixtures/all-ok';
 import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
+import TemplateAppReviewPlayerFixtureFirstRight from '../src/template/app-review/player/test/fixtures/first-right';
 import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
 import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
-import TemplateAppReviewPlayerFixtureOneRight from '../src/template/app-review/player/test/fixtures/one-right';
 import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
 import TemplateAppReviewPlayerFixtureUnstack from '../src/template/app-review/player/test/fixtures/unstack';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
@@ -2682,12 +2683,13 @@ export const fixtures = {
       NoSkills: OrganismReviewSkillsFixtureNoSkills
     },
     OrganismReviewSlide: {
-      Default: OrganismReviewSlideFixtureDefault
+      InitialState: OrganismReviewSlideFixtureInitialState
     },
     OrganismReviewStackedSlides: {
-      Correct: OrganismReviewStackedSlidesFixtureCorrect,
-      Default: OrganismReviewStackedSlidesFixtureDefault,
+      AllOk: OrganismReviewStackedSlidesFixtureAllOk,
       EndReview: OrganismReviewStackedSlidesFixtureEndReview,
+      FirstCorrect: OrganismReviewStackedSlidesFixtureFirstCorrect,
+      InitialState: OrganismReviewStackedSlidesFixtureInitialState,
       Restack: OrganismReviewStackedSlidesFixtureRestack,
       Unstack: OrganismReviewStackedSlidesFixtureUnstack,
       Wrong: OrganismReviewStackedSlidesFixtureWrong
@@ -2949,9 +2951,9 @@ export const fixtures = {
     TemplateAppReviewPlayer: {
       AllOk: TemplateAppReviewPlayerFixtureAllOk,
       EndReview: TemplateAppReviewPlayerFixtureEndReview,
+      FirstRight: TemplateAppReviewPlayerFixtureFirstRight,
       InitialState: TemplateAppReviewPlayerFixtureInitialState,
       OneFail: TemplateAppReviewPlayerFixtureOneFail,
-      OneRight: TemplateAppReviewPlayerFixtureOneRight,
       Restack: TemplateAppReviewPlayerFixtureRestack,
       Unstack: TemplateAppReviewPlayerFixtureUnstack
     },

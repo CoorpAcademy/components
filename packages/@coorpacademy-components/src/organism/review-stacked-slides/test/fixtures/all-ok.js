@@ -17,8 +17,8 @@ export const correctionPopinProps = {
       console.log('Load next slide');
     }
   },
-  type: 'wrong',
-  resultLabel: 'WRONG ANSWER'
+  type: 'right',
+  resultLabel: 'CORRECT ANSWER'
 };
 
 export default {
@@ -32,36 +32,41 @@ export default {
         isCorrect: true
       },
       '1': {
-        hidden: false,
-        questionText: 'Question 2',
+        hidden: true,
         position: 1,
+        questionText: 'Question 2',
         answerUI: qcmDrag,
-        isCorrect: false // ici la question 2 devrait pas être affichée en première
+        isCorrect: true
       },
       '2': {
-        hidden: false,
-        questionText: 'Question 3',
+        hidden: true,
         position: 2,
+        questionText: 'Question 3',
         answerUI: qcmDrag,
-        isCorrect: false,
-        showCorrectionPopin: true,
-        animateCorrectionPopin: true
+        isCorrect: true
       },
       '3': {
-        hidden: false,
+        hidden: true,
+        position: 3,
         questionText: 'Question 4',
-        position: 3
+        answerUI: qcmDrag,
+        isCorrect: true
       },
       '4': {
         hidden: false,
-        questionText: 'Question 5',
-        position: 4
+        position: 4,
+        questionText: 'Question',
+        answerUI: qcmDrag,
+        isCorrect: true,
+        animateCorrectionPopin: true,
+        showCorrectionPopin: true
       }
     },
+    endReview: false,
     validateButton: {
       label: 'Validate',
-      disabled: true,
-      onClick: () => console.log('onValidateClick')
+      onClick: () => console.log('onValidateClick'),
+      disabled: true
     },
     finishedSlides: {
       '0': true

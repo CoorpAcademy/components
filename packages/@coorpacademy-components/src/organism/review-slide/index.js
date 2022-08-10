@@ -150,6 +150,7 @@ const Slide = (
   {
     slideIndex,
     uiSlides,
+    endReview,
     validateButton,
     finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
     finishedSlidesSize, // je ne vois pas ce props dans les fixtures
@@ -165,7 +166,6 @@ const Slide = (
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
   const hidden = getOr(false, `${slideIndex}.hidden`, uiSlides);
-  const endReview = getOr(false, `${slideIndex}.endReview`, uiSlides);
   const position = get(`${slideIndex}.position`, uiSlides);
   const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
   const animateCorrectionPopin = getOr(false, `${slideIndex}.animateCorrectionPopin`, uiSlides);
