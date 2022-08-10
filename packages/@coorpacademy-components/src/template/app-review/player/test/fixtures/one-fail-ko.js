@@ -1,5 +1,5 @@
 import Header from '../../../../../organism/review-header/test/fixtures/current-question-wrong';
-import WrongStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/wrong';
+import WrongStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/wrong-ko';
 import {apiQCMSlide0} from './initial-state';
 
 export const apiQCMSlide1 = {
@@ -11,36 +11,7 @@ export const apiQCMSlide1 = {
 export default {
   props: {
     slides: WrongStackedSlides.props,
-    header: {
-      ...Header.props,
-      steps: [
-        {
-          icon: 'right',
-          current: false,
-          value: '1'
-        },
-        {
-          icon: 'right',
-          current: false,
-          value: '2'
-        },
-        {
-          icon: 'wrong',
-          current: true,
-          value: '3'
-        },
-        {
-          icon: 'no-answer',
-          current: false,
-          value: '4'
-        },
-        {
-          icon: 'no-answer',
-          current: false,
-          value: '5'
-        }
-      ]
-    },
+    header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
       values: {
