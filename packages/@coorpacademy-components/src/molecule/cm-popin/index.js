@@ -195,7 +195,6 @@ CMPopin.propTypes = {
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
-
   listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
