@@ -8,8 +8,7 @@ export const TOTAL_SLIDES_STACK = 5;
 
 const StackedSlides = ({
   uiSlides,
-  validate,
-  validateSlide,
+  validateButton,
   finishedSlides,
   finishedSlidesSize,
   updateSlidesOnNext,
@@ -26,8 +25,7 @@ const StackedSlides = ({
         {...{
           slideIndex: _toString(slideIndex),
           uiSlides,
-          validate,
-          validateSlide,
+          validateButton,
           finishedSlides,
           finishedSlidesSize,
           updateSlidesOnNext,
