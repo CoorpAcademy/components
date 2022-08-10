@@ -112,19 +112,22 @@ const buildCorrectionPopin = (
   );
 };
 
-const Slide = ({
-  slideIndex,
-  uiSlides,
-  validate,
-  validateSlide,
-  finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
-  finishedSlidesSize, // je ne vois pas ce props dans les fixtures
-  updateSlidesOnNext,
-  updateReviewStatus,
-  updateStepItemsOnNext,
-  progression,
-  correctionPopinProps
-}, context) => {
+const Slide = (
+  {
+    slideIndex,
+    uiSlides,
+    validate,
+    validateSlide,
+    finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
+    finishedSlidesSize, // je ne vois pas ce props dans les fixtures
+    updateSlidesOnNext,
+    updateReviewStatus,
+    updateStepItemsOnNext,
+    progression,
+    correctionPopinProps
+  },
+  context
+) => {
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
