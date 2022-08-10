@@ -27,8 +27,10 @@ export default {
     '3': SlideProp,
     '4': SlideProp
   }),
-  validate: PropTypes.shape({
-    label: PropTypes.string
+  validateButton: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
   }),
   finishedSlides: PropTypes.shape({
     '0': PropTypes.bool,
@@ -48,7 +50,6 @@ export default {
     resultLabel: ReviewCorrectionPopinPropTypes.resultLabel,
     type: ReviewCorrectionPopinPropTypes.type
   }),
-  validateSlide: PropTypes.func.isRequired,
   updateSlidesOnNext: PropTypes.func.isRequired,
   updateReviewStatus: PropTypes.func.isRequired,
   updateStepItemsOnNext: PropTypes.func.isRequired

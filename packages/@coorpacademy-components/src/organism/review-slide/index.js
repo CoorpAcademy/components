@@ -2,7 +2,6 @@ import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import isNil from 'lodash/fp/isNil';
 import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
 import Provider from '../../atom/provider';
@@ -112,12 +111,46 @@ const buildCorrectionPopin = (
   );
 };
 
+const buildValidateButton = (slideIndex, validateButton, primarySkinColor) => {
+  const {label, onClick, disabled} = validateButton;
+  const validateButtonProps = {
+    type: 'primary',
+    label,
+    'aria-label': label,
+    'data-name': `slide-validate-button-${slideIndex}`,
+    onClick,
+    disabled,
+    className: style.validateButton,
+    customStyle: {
+      backgroundColor: primarySkinColor
+    }
+    /*
+      slide validation action, this will trigger the correction popin
+      (with the useEffect that fires the dispatchers, if there is a nextContent content,
+      it will be loaded here) but will not trigger any animations unless the endReview
+      signal is received (all uiSlides will disappear, also fired in a useEffect),
+
+      if it is the last slide and the content needs to be different, then that update will
+      be handled on the next slide logic but the content will be carried from here.
+    onClick: async () => {
+      // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
+      await validateSlide();
+    },
+    */
+  };
+
+  return (
+    <div key="button-wrapper" className={style.validateButtonWrapper}>
+      <ButtonLink {...validateButtonProps} />
+    </div>
+  );
+};
+
 const Slide = (
   {
     slideIndex,
     uiSlides,
-    validate,
-    validateSlide,
+    validateButton,
     finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
     finishedSlidesSize, // je ne vois pas ce props dans les fixtures
     updateSlidesOnNext,
@@ -140,32 +173,6 @@ const Slide = (
   const showCorrectionPopin = getOr(false, `${slideIndex}.showCorrectionPopin`, uiSlides);
   const questionText = get(`${slideIndex}.questionText`, uiSlides);
   const answerUI = get(`${slideIndex}.answerUI`, uiSlides);
-
-  const validateLabel = getOr('', 'label', validate);
-  // debugger;
-  const validateButtonProps = {
-    customStyle: {
-      backgroundColor: primarySkinColor
-    },
-    /*
-      slide validation action, this will trigger the correction popin
-      (with the useEffect that fires the dispatchers, if there is a nextContent content,
-      it will be loaded here) but will not trigger any animations unless the endReview
-      signal is received (all uiSlides will disappear, also fired in a useEffect),
-
-      if it is the last slide and the content needs to be different, then that update will
-      be handled on the next slide logic but the content will be carried from here.
-    */
-    onClick: async () => {
-      // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
-      await validateSlide();
-    },
-    'aria-label': validateLabel,
-    label: validateLabel,
-    'data-name': `slide-validate-button-${slideIndex}`,
-    className: style.validateButton,
-    disabled: !isNil(isSlideCorrect)
-  };
 
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
   const answerProps = get(['model', 'choices'], answerUI)
@@ -210,9 +217,7 @@ const Slide = (
         </div>
       ) : null}
 
-      <div key="button-wrapper" className={style.validateButtonWrapper}>
-        <ButtonLink {...validateButtonProps} />
-      </div>
+      {buildValidateButton(slideIndex, validateButton, primarySkinColor)}
       {buildCorrectionPopin(
         isSlideCorrect,
         endReview,
