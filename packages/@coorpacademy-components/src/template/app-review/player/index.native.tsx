@@ -213,7 +213,8 @@ const Slide = props => {
 // -----------------------------------------------------------------------------
 
 // const Slides = ({slide}: Props) => {
-const Slides = ({slides, validateSlide}) => {
+const Slides = props => {
+  const {uiSlides: slides, validateSlide} = props.slides;
   if (!slides) {
     return <View />;
   }
