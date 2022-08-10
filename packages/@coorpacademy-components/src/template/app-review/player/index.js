@@ -24,7 +24,7 @@ const showCongrats = congratsProps => {
   );
 };
 
-const SlidesReview = ({
+const PlayerReview = ({
   header,
   slides,
   reviewBackgroundAriaLabel,
@@ -113,6 +113,6 @@ const SlidesReview = ({
   );
 };
 
-SlidesReview.propTypes = SlidesReviewPropTypes;
+PlayerReview.propTypes = SlidesReviewPropTypes;
 
-export default SlidesReview;
+export default PlayerReview;

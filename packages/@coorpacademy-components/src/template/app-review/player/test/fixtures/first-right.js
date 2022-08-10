@@ -1,11 +1,11 @@
-import CorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/correct';
+import FirstCorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/first-correct';
 import Header from '../../../../../organism/review-header/test/fixtures/first-question-current-right';
 import {apiQCMSlide0} from './initial-state';
 import {apiQCMSlide1} from './one-fail';
 
 export default {
   props: {
-    slides: CorrectStackedSlides.props,
+    slides: FirstCorrectStackedSlides.props,
     header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],

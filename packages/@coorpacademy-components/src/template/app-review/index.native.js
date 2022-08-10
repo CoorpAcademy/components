@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, StyleSheet, View, BackHandler} from 'react-native';
 import propTypes, {ViewNames} from './prop-types';
-import Slides from './player';
+import Player from './player';
 
 // -----------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
     case ViewNames.onboarding:
       return <Text>view onboarding</Text>;
     case ViewNames.slides:
-      return <Slides {...slides} {...dispachers} />;
+      return <Player {...slides} {...dispachers} />;
     default:
       return <Text>view (none selected)</Text>;
   }

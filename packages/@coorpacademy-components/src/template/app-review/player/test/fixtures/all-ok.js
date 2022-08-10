@@ -1,7 +1,5 @@
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
 import Header from '../../../../../organism/review-header/test/fixtures/all-questions-ok';
-import CorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/correct';
+import AllCorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/all-ok';
 import {apiQCMSlide0} from './initial-state';
 import {apiQCMSlide1} from './one-fail';
 
@@ -26,14 +24,7 @@ export const apiQCMSlide4 = {
 export default {
   props: {
     header: Header.props,
-    slides: {
-      ...pipe(
-        set('uiSlides.1.hidden', true),
-        set('uiSlides.2.hidden', true),
-        set('uiSlides.3.hidden', true),
-        set('uiSlides.4.hidden', true)
-      )(CorrectStackedSlides.props)
-    },
+    slides: AllCorrectStackedSlides.props,
     apiSlides: {
       slideRefs: [
         'sli_N1XACJobn',
