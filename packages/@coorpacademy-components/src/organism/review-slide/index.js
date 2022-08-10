@@ -1,4 +1,5 @@
 import React, {useMemo} from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
@@ -9,46 +10,12 @@ import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
 import propTypes from './prop-types';
 import style from './style.css';
 
-export const TOTAL_SLIDES_STACK = 5;
-export const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
-
-const stylesByPosition = {
-  0: style.position0,
-  1: style.position1,
-  2: style.position2,
-  3: style.position3,
-  4: style.position4
-};
-
-const getSlideAnimation = (action, position, hidden) => {
-  switch (action) {
-    /* istanbul ignore next */
-    case 'unstack':
-      return style.slideOutHideAndIn;
-    /* istanbul ignore next */
-    case 'restack':
-      return style.slideOutAndIn;
-    default:
-      return hidden ? style.hiddenSlide : stylesByPosition[position];
-  }
-};
-
-const buildCorrectionPopin = (
-  isSlideCorrect,
-  endReview,
+const CorrectionPopin = ({
   correctionPopinProps,
-  progression,
-  updateSlidesOnNext,
-  updateStepItemsOnNext,
-  updateReviewStatus,
   slideIndex,
-  answerUI,
-  questionText,
-  finishedSlides,
-  finishedSlidesSize,
   showCorrectionPopin,
   animateCorrectionPopin
-) => {
+}) => {
   if (!showCorrectionPopin) return null;
 
   const klf = getOr({}, 'klf', correctionPopinProps);
@@ -57,37 +24,9 @@ const buildCorrectionPopin = (
 
   const _correctionPopinProps = {
     next: {
-      /*
-        next slide action, this will trigger the uiSlides animations
-        if it is the last slide AND the content needs to be different, then that update
-        of the content will be handled here (and in the validate as it happens normally )
-        from the content carried from the validate action.
-      */
       onClick: () => {
-        // Ce block onClick ne doit pas être côté Redux et juste faire un next.onClick() ?
-        const isExitNodePresent = get('state.nextContent.ref', progression) === 'successExitNode';
-
-        updateSlidesOnNext({
-          slideIndex,
-          newSlideContent: {
-            hidden: !!isSlideCorrect,
-            position: HIGHEST_INDEX - finishedSlidesSize, // to restack the slide
-            animationType: isSlideCorrect ? 'unstack' : 'restack',
-            isCorrect: isSlideCorrect,
-            endReview: isExitNodePresent,
-            answerUI,
-            questionText
-          },
-          numberOfFinishedSlides: finishedSlidesSize
-        });
-        updateStepItemsOnNext({
-          stepIndex: slideIndex,
-          finishedSlides,
-          current:
-            finishedSlidesSize === HIGHEST_INDEX && /* istanbul ignore next */ !isSlideCorrect
-        });
-
-        if (finishedSlidesSize === TOTAL_SLIDES_STACK) updateReviewStatus('finished');
+        // eslint-disable-next-line no-console
+        console.log('Next Slide');
       },
       label: next && next.label,
       'data-name': `next-question-button-${slideIndex}`,
@@ -111,7 +50,14 @@ const buildCorrectionPopin = (
   );
 };
 
-const buildValidateButton = (slideIndex, validateButton, primarySkinColor) => {
+CorrectionPopin.propTypes = {
+  slideIndex: PropTypes.string,
+  showCorrectionPopin: PropTypes.bool,
+  animateCorrectionPopin: PropTypes.bool,
+  correctionPopinProps: PropTypes.shape(propTypes.correctionPopinProps)
+};
+
+const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
   const {label, onClick, disabled} = validateButton;
   const validateButtonProps = {
     type: 'primary',
@@ -128,7 +74,7 @@ const buildValidateButton = (slideIndex, validateButton, primarySkinColor) => {
       slide validation action, this will trigger the correction popin
       (with the useEffect that fires the dispatchers, if there is a nextContent content,
       it will be loaded here) but will not trigger any animations unless the endReview
-      signal is received (all uiSlides will disappear, also fired in a useEffect),
+      signal is received (all slide will disappear, also fired in a useEffect),
 
       if it is the last slide and the content needs to be different, then that update will
       be handled on the next slide logic but the content will be carried from here.
@@ -146,35 +92,16 @@ const buildValidateButton = (slideIndex, validateButton, primarySkinColor) => {
   );
 };
 
-const Slide = (
-  {
-    slideIndex,
-    uiSlides,
-    endReview,
-    validateButton,
-    finishedSlides, // TODO: pourquoi ce component qui doit afficher la question, doit avir acccès à ça
-    finishedSlidesSize, // je ne vois pas ce props dans les fixtures
-    updateSlidesOnNext,
-    updateReviewStatus,
-    updateStepItemsOnNext,
-    progression,
-    correctionPopinProps
-  },
-  context
-) => {
-  const {skin} = context;
-  const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+ValidateButton.propTypes = {
+  slideIndex: PropTypes.string,
+  validateButton: PropTypes.shape(propTypes.validateButton),
+  primarySkinColor: PropTypes.string
+};
 
-  const hidden = getOr(false, `${slideIndex}.hidden`, uiSlides);
-  const position = get(`${slideIndex}.position`, uiSlides);
-  const animationType = getOr(false, `${slideIndex}.animationType`, uiSlides);
-  const animateCorrectionPopin = getOr(false, `${slideIndex}.animateCorrectionPopin`, uiSlides);
-  const isSlideCorrect = getOr(null, `${slideIndex}.isCorrect`, uiSlides);
-  const showCorrectionPopin = getOr(false, `${slideIndex}.showCorrectionPopin`, uiSlides);
-  const questionText = get(`${slideIndex}.questionText`, uiSlides);
-  const answerUI = get(`${slideIndex}.answerUI`, uiSlides);
+const QuestionContainer = props => {
+  const {answerUI, questionText, questionOrigin} = props;
+  if (!answerUI || !questionText) return null;
 
-  const questionOrigin = 'From "Master Design Thinking to become more agile" course';
   const answerProps = get(['model', 'choices'], answerUI)
     ? /* istanbul ignore next */ {
         ...answerUI,
@@ -186,54 +113,55 @@ const Slide = (
     : answerUI;
 
   return (
-    <div
-      key={`slide-${slideIndex}`}
-      data-name={`slide-${slideIndex}`}
-      className={classnames(
-        style.slideBase,
-        getSlideAnimation(animationType, position, hidden),
-        endReview ? style.endReview : null
-      )}
-    >
-      {answerUI && questionText ? (
-        <div key="content-container" className={style.slideContentContainer}>
-          <div key="from-course" className={style.questionOrigin}>
-            {questionOrigin}
-          </div>
-          <div key="title" className={style.question}>
-            {questionText}
-          </div>
-          <div key="help" className={style.help}>
-            {
-              /* the property with this data from slide is question.explanation ! */ get(
-                'help',
-                answerUI
-              )
-            }
-          </div>
-          <div key="answer-container" className={style.answerContainer}>
-            <Answer {...answerProps} key="answer" />
-          </div>
-        </div>
-      ) : null}
+    <div key="content-container" className={style.slideContentContainer}>
+      <div key="from-course" className={style.questionOrigin}>
+        {questionOrigin}
+      </div>
+      <div key="title" className={style.question}>
+        {questionText}
+      </div>
+      <div key="help" className={style.help}>
+        {get('help', answerUI)}
+      </div>
+      <div key="answer-container" className={style.answerContainer}>
+        <Answer {...answerProps} key="answer" />
+      </div>
+    </div>
+  );
+};
 
-      {buildValidateButton(slideIndex, validateButton, primarySkinColor)}
-      {buildCorrectionPopin(
-        isSlideCorrect,
-        endReview,
-        correctionPopinProps,
-        progression,
-        updateSlidesOnNext,
-        updateStepItemsOnNext,
-        updateReviewStatus,
-        slideIndex,
-        answerUI,
-        questionText,
-        finishedSlides,
-        finishedSlidesSize,
-        showCorrectionPopin,
-        animateCorrectionPopin
-      )}
+QuestionContainer.propTypes = {
+  answerUI: PropTypes.shape(propTypes.slide.answerUI),
+  questionText: PropTypes.string,
+  questionOrigin: PropTypes.string
+};
+
+const Slide = ({slide, validateButton, correctionPopinProps, slideIndex = 0}, context) => {
+  const {skin} = context;
+  const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+
+  const {questionText, answerUI, showCorrectionPopin, animateCorrectionPopin} = slide;
+
+  const questionOrigin = 'From "Master Design Thinking to become more agile" course';
+
+  return (
+    <div data-name={`slide-container`} className={style.slide}>
+      <QuestionContainer
+        questionOrigin={questionOrigin}
+        questionText={questionText}
+        answerUI={answerUI}
+      />
+      <ValidateButton
+        slideIndex={slideIndex}
+        validateButton={validateButton}
+        primarySkinColor={primarySkinColor}
+      />
+      <CorrectionPopin
+        correctionPopinProps={correctionPopinProps}
+        slideIndex={slideIndex}
+        showCorrectionPopin={showCorrectionPopin}
+        animateCorrectionPopin={animateCorrectionPopin}
+      />
     </div>
   );
 };

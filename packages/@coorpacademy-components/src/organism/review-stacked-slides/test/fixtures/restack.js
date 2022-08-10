@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash/fp/cloneDeep';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
@@ -6,7 +7,7 @@ import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-grap
 const markAnswersAsUnselected = answer => set('selected', false, answer);
 
 const qcmDrag = AnswerQCMDrag.props;
-const qcmGraphic = AnswerQCMGraphic.props;
+const qcmGraphic = cloneDeep(AnswerQCMGraphic.props);
 qcmGraphic.model.answers = map(markAnswersAsUnselected, AnswerQCMGraphic.props.model.answers);
 
 export const correctionPopinProps = {
