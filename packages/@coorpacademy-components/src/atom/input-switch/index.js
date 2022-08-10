@@ -30,7 +30,7 @@ const InputSwitch = props => {
     <div className={style.description}>{description}</div>
   ) : null;
 
-  const detailsText = details ? <div className={style.detailsTxt}>{details}</div> : null;
+ 
 
   let defaultClass = null;
   let modifiedClass = null;
