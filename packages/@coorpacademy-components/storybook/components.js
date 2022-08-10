@@ -986,6 +986,11 @@ import OrganismReviewHeaderFixtureStepsAnimation from '../src/organism/review-he
 import OrganismReviewSkillsFixtureLoading from '../src/organism/review-skills/test/fixtures/loading';
 import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills/test/fixtures/many-skills';
 import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
+import OrganismReviewSlideFixtureChoicesSelected from '../src/organism/review-slide/test/fixtures/choices-selected';
+import OrganismReviewSlideFixtureCorrectionOkAnimated from '../src/organism/review-slide/test/fixtures/correction-ok-animated';
+import OrganismReviewSlideFixtureCorrectionOk from '../src/organism/review-slide/test/fixtures/correction-ok';
+import OrganismReviewSlideFixtureCorrectionWrongAnimated from '../src/organism/review-slide/test/fixtures/correction-wrong-animated';
+import OrganismReviewSlideFixtureCorrectionWrong from '../src/organism/review-slide/test/fixtures/correction-wrong';
 import OrganismReviewSlideFixtureInitialState from '../src/organism/review-slide/test/fixtures/initial-state';
 import OrganismReviewStackedSlidesFixtureAllOk from '../src/organism/review-stacked-slides/test/fixtures/all-ok';
 import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
@@ -2685,6 +2690,11 @@ export const fixtures = {
       NoSkills: OrganismReviewSkillsFixtureNoSkills
     },
     OrganismReviewSlide: {
+      ChoicesSelected: OrganismReviewSlideFixtureChoicesSelected,
+      CorrectionOkAnimated: OrganismReviewSlideFixtureCorrectionOkAnimated,
+      CorrectionOk: OrganismReviewSlideFixtureCorrectionOk,
+      CorrectionWrongAnimated: OrganismReviewSlideFixtureCorrectionWrongAnimated,
+      CorrectionWrong: OrganismReviewSlideFixtureCorrectionWrong,
       InitialState: OrganismReviewSlideFixtureInitialState
     },
     OrganismReviewStackedSlides: {

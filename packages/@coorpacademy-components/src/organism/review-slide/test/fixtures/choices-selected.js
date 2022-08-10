@@ -1,11 +1,6 @@
-import cloneDeep from 'lodash/fp/cloneDeep';
-import map from 'lodash/fp/map';
-import set from 'lodash/fp/set';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 
-const markAnswersAsUnselected = answer => set('selected', false, answer);
-const qcmGraphic = cloneDeep(AnswerQCMGraphic.props);
-qcmGraphic.model.answers = map(markAnswersAsUnselected, AnswerQCMGraphic.props.model.answers);
+const qcmGraphic = AnswerQCMGraphic.props;
 
 export default {
   props: {
@@ -19,7 +14,7 @@ export default {
     validateButton: {
       label: 'Validate',
       onClick: () => console.log('onValidateClick'),
-      disabled: true
+      disabled: false
     },
     correctionPopinProps: {}
   }
