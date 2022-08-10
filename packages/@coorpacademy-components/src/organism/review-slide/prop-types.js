@@ -7,7 +7,6 @@ const NextSlideProp = PropTypes.shape({
   position: PropTypes.number,
   animationType: PropTypes.string, // 'unstack' | 'restack'
   isCorrect: PropTypes.bool,
-  endReview: PropTypes.bool,
   showCorrectionPopin: PropTypes.bool,
   questionText: PropTypes.string,
   answerUI: AnswerPropTypes
@@ -27,6 +26,7 @@ export default {
     '3': SlideProp,
     '4': SlideProp
   }),
+  endReview: PropTypes.bool,
   validateButton: PropTypes.shape({
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,

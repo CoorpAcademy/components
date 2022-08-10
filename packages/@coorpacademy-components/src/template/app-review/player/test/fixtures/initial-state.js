@@ -1,5 +1,5 @@
 import headerProps from '../../../../../organism/review-header/test/fixtures/no-answered-question';
-import DefaultStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/default';
+import DefaultStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/initial-state';
 
 export const apiQCMSlide0 = {
   question: {
