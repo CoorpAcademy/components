@@ -65,7 +65,7 @@ const CMPopin = props => {
   };
   const renderBtnSwitch = () => {
     const mapFunction = map.convert({cap: false});
-    return mapFunction((el, index) => (
+    return map.convert({cap: false})((el, index) => (
       <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
         <InputSwitch
           {...{
