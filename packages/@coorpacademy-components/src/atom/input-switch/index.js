@@ -16,8 +16,8 @@ const InputSwitch = props => {
     modified = false,
     theme = 'default',
     titlePosition = 'left',
-    details,
-    requiredSelection
+    details = '',
+    requiredSelection = false
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
@@ -29,8 +29,6 @@ const InputSwitch = props => {
   const descriptionView = description ? (
     <div className={style.description}>{description}</div>
   ) : null;
-
- 
 
   let defaultClass = null;
   let modifiedClass = null;
