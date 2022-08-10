@@ -993,6 +993,7 @@ import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/revi
 import OrganismReviewStackedSlidesFixtureInitialState from '../src/organism/review-stacked-slides/test/fixtures/initial-state';
 import OrganismReviewStackedSlidesFixtureRestack from '../src/organism/review-stacked-slides/test/fixtures/restack';
 import OrganismReviewStackedSlidesFixtureUnstack from '../src/organism/review-stacked-slides/test/fixtures/unstack';
+import OrganismReviewStackedSlidesFixtureWrongKo from '../src/organism/review-stacked-slides/test/fixtures/wrong-ko';
 import OrganismReviewStackedSlidesFixtureWrong from '../src/organism/review-stacked-slides/test/fixtures/wrong';
 import OrganismRewardsFormFixtureDefault from '../src/organism/rewards-form/test/fixtures/default';
 import OrganismRewardsFormFixtureNoRewards from '../src/organism/rewards-form/test/fixtures/no-rewards';
@@ -1164,6 +1165,7 @@ import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/play
 import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
 import TemplateAppReviewPlayerFixtureFirstRight from '../src/template/app-review/player/test/fixtures/first-right';
 import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
+import TemplateAppReviewPlayerFixtureOneFailKo from '../src/template/app-review/player/test/fixtures/one-fail-ko';
 import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
 import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
 import TemplateAppReviewPlayerFixtureUnstack from '../src/template/app-review/player/test/fixtures/unstack';
@@ -2692,6 +2694,7 @@ export const fixtures = {
       InitialState: OrganismReviewStackedSlidesFixtureInitialState,
       Restack: OrganismReviewStackedSlidesFixtureRestack,
       Unstack: OrganismReviewStackedSlidesFixtureUnstack,
+      WrongKo: OrganismReviewStackedSlidesFixtureWrongKo,
       Wrong: OrganismReviewStackedSlidesFixtureWrong
     },
     OrganismRewardsForm: {
@@ -2953,6 +2956,7 @@ export const fixtures = {
       EndReview: TemplateAppReviewPlayerFixtureEndReview,
       FirstRight: TemplateAppReviewPlayerFixtureFirstRight,
       InitialState: TemplateAppReviewPlayerFixtureInitialState,
+      OneFailKo: TemplateAppReviewPlayerFixtureOneFailKo,
       OneFail: TemplateAppReviewPlayerFixtureOneFail,
       Restack: TemplateAppReviewPlayerFixtureRestack,
       Unstack: TemplateAppReviewPlayerFixtureUnstack

@@ -32,11 +32,11 @@ export default {
         isCorrect: true
       },
       '1': {
-        hidden: true,
+        hidden: false,
         questionText: 'Question 2',
         position: 1,
         answerUI: qcmDrag,
-        isCorrect: true
+        isCorrect: false // ici la question 2 devrait pas être affichée en première
       },
       '2': {
         hidden: false,
