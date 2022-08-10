@@ -13,18 +13,22 @@ import StackedSlides from '../../../organism/review-stacked-slides';
 import style from './style.css';
 import {SlidesReviewPropTypes} from './prop-types';
 
-const SlidesReview = (
-  {
-    header,
-    slides,
-    reviewBackgroundAriaLabel,
-    apiSlides,
-    reviewStatus,
-    congratsProps,
-    progression
-  }
-) => {
-  const {uiSlides, finishedSlides, updateReviewStatus} = slides;
+const SlidesReview = ({
+  header,
+  slides,
+  reviewBackgroundAriaLabel,
+  apiSlides,
+  reviewStatus,
+  congratsProps,
+  progression
+}) => {
+  const {
+    uiSlides,
+    finishedSlides,
+    updateReviewStatus,
+    updateStepItemsOnValidation,
+    updateFinishedSlides
+  } = slides;
 
   const finishedSlidesSize = useMemo(() => size(finishedSlides), [finishedSlides]);
 
@@ -92,9 +96,7 @@ const SlidesReview = (
         <ReviewHeader {...header} />
       </div>
 
-      {shouldMountSlides ? (
-        <StackedSlides {...slides} />
-      ) : /* istanbul ignore next */ null}
+      {shouldMountSlides ? <StackedSlides {...slides} /> : /* istanbul ignore next */ null}
 
       {reviewStatus === 'finished' ? (
         <div className={style.congrats} data-name="congrats-container">
