@@ -13,6 +13,5 @@ export const SlidesReviewPropTypes = {
     slideRefs: PropTypes.arrayOf(PropTypes.string),
     values: PropTypes.objectOf(PropTypes.object) // specify typing if time is available
   }),
-  reviewStatus: PropTypes.string, // 'finished' | 'ongoing'
   congratsProps: PropTypes.shape(ReviewCongratsPropTypes)
 };

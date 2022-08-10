@@ -2,6 +2,7 @@ import React, {useState, useMemo, useEffect} from 'react';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import indexOf from 'lodash/fp/indexOf';
+import isNil from 'lodash/fp/isNil';
 import pipe from 'lodash/fp/pipe';
 import size from 'lodash/fp/size';
 import _toString from 'lodash/fp/toString';
@@ -12,6 +13,16 @@ import ReviewHeader from '../../../organism/review-header';
 import StackedSlides from '../../../organism/review-stacked-slides';
 import style from './style.css';
 import {SlidesReviewPropTypes} from './prop-types';
+
+const showCongrats = congratsProps => {
+  if (isNil(congratsProps)) return null;
+
+  return (
+    <div className={style.congrats} data-name="congrats-container">
+      <ReviewCongrats {...congratsProps} />
+    </div>
+  );
+};
 
 const SlidesReview = ({
   header,
@@ -60,7 +71,7 @@ const SlidesReview = ({
         });
         if (isCorrect) updateFinishedSlides({currentSlideIndex, value: true});
         if (endReview) {
-          updateReviewStatus('finished');
+          updateReviewStatus('finished'); // ça sert à quoi si on elimine la prop reviewStatus
         }
       }
     },
@@ -70,13 +81,14 @@ const SlidesReview = ({
 
   useEffect(
     /* istanbul ignore next */ () => {
-      if (reviewStatus === 'finished') {
+      // we rely on congratsProps to know if we've finish and we should 'unmount' the slides
+      if (!isNil(congratsProps)) {
         const timeoutId = setTimeout(() => updateShouldMountSlides(false), 2000);
         return () => clearTimeout(timeoutId);
       }
       return;
     },
-    [finishedSlidesSize, reviewStatus, updateReviewStatus]
+    [finishedSlidesSize, congratsProps, updateReviewStatus]
   );
 
   // ||-------> transform the step items state to Array
@@ -97,12 +109,7 @@ const SlidesReview = ({
       </div>
 
       {shouldMountSlides ? <StackedSlides {...slides} /> : /* istanbul ignore next */ null}
-
-      {reviewStatus === 'finished' ? (
-        <div className={style.congrats} data-name="congrats-container">
-          <ReviewCongrats {...congratsProps} />
-        </div>
-      ) : null}
+      {showCongrats(congratsProps)}
     </div>
   );
 };
