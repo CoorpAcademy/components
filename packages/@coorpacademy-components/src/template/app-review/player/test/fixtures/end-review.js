@@ -6,7 +6,6 @@ export default {
   props: {
     slides: EndReviewStackedSlides.props,
     header: Header.props,
-    reviewStatus: 'finished',
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
       values: {
