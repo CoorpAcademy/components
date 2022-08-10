@@ -43,36 +43,39 @@ const MediaView = ({media}) => {
 
 MediaView.propTypes = MediaViewPropTypes;
 
+const Switch = ({model, help}) => {
+  const {type} = model;
+
+  switch (type) {
+    case 'qcmDrag':
+      return <QcmDrag {...model} help={help} />;
+    case 'qcm':
+      return <Qcm {...model} />;
+    case 'qcmGraphic':
+      return <QcmGraphic {...model} />;
+    case 'freeText':
+      return <FreeText {...model} />;
+    case 'dropDown':
+      return <DropDown {...model} />;
+    case 'slider':
+      return <QuestionRange {...model} />;
+    case 'template':
+      return <Template {...model} />;
+  }
+};
+
+Switch.propTypes = {
+  model: propTypes.model,
+  help: propTypes.help
+};
+
 const Answer = props => {
   const {model, media, help} = props;
-  const buildAnswer = () => {
-    // (propTypes model.type is properly defined)
-    // eslint-disable-next-line react/prop-types
-    const {type} = model;
-
-    switch (type) {
-      case 'qcmDrag':
-        return <QcmDrag {...model} help={help} />;
-      case 'qcm':
-        return <Qcm {...model} />;
-      case 'qcmGraphic':
-        return <QcmGraphic {...model} />;
-      case 'freeText':
-        return <FreeText {...model} />;
-      case 'dropDown':
-        return <DropDown {...model} />;
-      case 'slider':
-        return <QuestionRange {...model} />;
-      case 'template':
-        return <Template {...model} />;
-    }
-  };
-  const answerView = buildAnswer(model);
 
   return (
     <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
-      {answerView}
+      <Switch model={model} help={help} />
     </div>
   );
 };
