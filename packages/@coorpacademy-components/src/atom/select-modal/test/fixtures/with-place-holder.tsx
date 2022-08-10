@@ -1,9 +1,9 @@
-import {Props} from '../../../select-modal/index.native';
-import {createSelectChoice} from '../../../../hoc/modal/select/test/fixtures/default';
+import noop from 'lodash/fp/noop';
+import {Props} from '../../index.native';
+import {select} from './default';
 
 type Fixture = {props: Props};
 
-const select = createSelectChoice({name: 'sel456'});
 const items = select.items || [];
 
 const fixture: Fixture = {
@@ -11,7 +11,10 @@ const fixture: Fixture = {
     questionType: 'template',
     placeholder: 'Feel free to edit',
     analyticsID: 'foo',
-    values: items
+    values: items,
+    onChange: noop,
+    onBlur: noop,
+    onFocus: noop
   }
 };
 

@@ -2,10 +2,11 @@ import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import Select from '../index.native';
-import {createSelectChoice} from '../../../hoc/modal/select/test/fixtures/default';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
+
+import {select} from './fixtures/default';
 
 test('should handle focus', t => {
   const analyticsID = 'fake-analytics-id';
@@ -23,7 +24,6 @@ test('should handle focus', t => {
     }
   });
 
-  const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
 
   const handleFocus = () => {

@@ -1,20 +1,18 @@
 import {View, StyleSheet, TextInput} from 'react-native';
-import React, {useState, useEffect, useMemo} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
 
 type QuestionType = 'basic' | 'template';
 
 interface Props {
-  children: string;
-  fullWitdh: boolean;
+  fullWitdh?: boolean;
   testID: string;
   questionType: QuestionType;
   analytics?: Analytics;
-  onChange: Function;
+  onChange: (text: string) => void;
   isDisabled: boolean;
   value: string;
-  placeholder: string;
 }
 
 type StyleSheetType = {
@@ -28,9 +26,21 @@ type StyleSheetType = {
   };
   text: {
     color: string;
-    fontWeight: number;
+    fontWeight:
+      | 'normal'
+      | 'bold'
+      | '100'
+      | '200'
+      | '300'
+      | '400'
+      | '500'
+      | '600'
+      | '700'
+      | '800'
+      | '900'
+      | undefined;
     fontSize: number;
-    textAlign: string;
+    textAlign: 'auto' | 'left' | 'right' | 'center' | 'justify' | undefined;
   };
   spaced: {
     paddingVertical: number;
@@ -76,30 +86,21 @@ const logEvent = (eventName: string, analytics: Analytics, questionType: Questio
 const FreeText = (props: Props) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {brandTheme, theme} = templateContext;
+  const {brandTheme, theme, translations} = templateContext;
   const PLACEHOLDER_COLOR = theme.colors.gray.medium;
 
   // ------------------------------------
 
-  const {
-    analytics,
-    questionType,
-    fullWitdh,
-    testID,
-    onChange,
-    isDisabled,
-    value,
-    placeholder
-  } = props;
+  const {analytics, questionType, fullWitdh = false, testID, onChange, isDisabled, value} = props;
 
   // ------------------------------------
 
-  const handleFocus = useMemo(
+  const handleFocus = useCallback(
     () => analytics && logEvent(ANALYTICS_EVENT_TYPE.INPUT_FOCUS, analytics, questionType),
     [analytics, questionType]
   );
 
-  const handleBlur = useMemo(
+  const handleBlur = useCallback(
     () => analytics && logEvent(ANALYTICS_EVENT_TYPE.INPUT_BLUR, analytics, questionType),
     [analytics, questionType]
   );
@@ -124,7 +125,7 @@ const FreeText = (props: Props) => {
         onFocus={handleFocus}
         onBlur={handleBlur}
         onChangeText={onChange}
-        placeholder={placeholder}
+        placeholder={translations.typeHere}
         placeholderTextColor={PLACEHOLDER_COLOR}
         value={value}
         testID={testID}

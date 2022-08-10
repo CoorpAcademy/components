@@ -1,11 +1,12 @@
 import test from 'ava';
 import React from 'react';
+import noop from 'lodash/fp/noop';
 import {render, fireEvent} from '@testing-library/react-native';
-import {createSelectChoice} from '../../../hoc/modal/select/test/fixtures/default';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
 import Select from '../index.native';
+import {select} from './fixtures/default';
 
 test('should handle blur', t => {
   const analyticsID = 'fake-analytics-id';
@@ -18,7 +19,6 @@ test('should handle blur', t => {
     }
   });
 
-  const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
 
   const handleBlur = () => {
@@ -31,6 +31,8 @@ test('should handle blur', t => {
         values={items}
         value={items[1].text}
         onBlur={handleBlur}
+        onChange={noop}
+        onFocus={noop}
         questionType={questionType}
         analyticsID={analyticsID}
         placeholder="Foo bar baz"

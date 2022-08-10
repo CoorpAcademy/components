@@ -2,11 +2,11 @@ import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import Select from '../index.native';
-import {createSelectChoice} from '../../../hoc/modal/select/test/fixtures/default';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
 import {OnChangeFunction} from '../../../hoc/modal/select/index.native';
+import {select} from './fixtures/default';
 
 test('should handle change', t => {
   const analyticsID = 'fake-analytics-id';
@@ -19,15 +19,19 @@ test('should handle change', t => {
     }
   });
 
-  const select = createSelectChoice({name: 'sel456'});
   const items = select.items || [];
+  const NEW_VALUE = items[2].text;
 
   const handleBlur = () => {
     t.pass();
   };
 
+  const handleFocus = () => {
+    t.fail();
+  };
+
   const handleChange: OnChangeFunction = _value => {
-    t.is(_value, items[1].text);
+    t.is(_value, NEW_VALUE);
   };
 
   const component = (
@@ -37,6 +41,7 @@ test('should handle change', t => {
         value={items[1].text}
         onBlur={handleBlur}
         onChange={handleChange}
+        onFocus={handleFocus}
         questionType={questionType}
         analyticsID={analyticsID}
         placeholder="Foo bar baz"
@@ -50,7 +55,7 @@ test('should handle change', t => {
   const {getByTestId} = render(component);
   const modalSelect = getByTestId('select-modal');
 
-  fireEvent(modalSelect, 'change');
+  fireEvent(modalSelect, 'change', NEW_VALUE);
 
   t.plan(4);
 });
