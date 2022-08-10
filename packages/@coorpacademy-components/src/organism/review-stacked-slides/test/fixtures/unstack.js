@@ -56,15 +56,16 @@ export default {
         position: 4
       }
     },
-    validate: {
-      label: 'Validate'
+    validateButton: {
+      label: 'Validate',
+      disabled: true,
+      onClick: () => console.log('onValidateClick')
     },
     finishedSlides: {
       '0': true
     },
     finishedSlidesSize: 1,
     correctionPopinProps,
-    validateSlide: () => console.log('onValidateClick'),
     updateSlidesOnNext: () => console.log('updateSlidesOnNext'), // à revoir
     updateStepItemsOnNext: () => console.log('updateStepItemsOnNext'), // à revoir, on devrait avoir un seul onClick dans le next
     updateReviewStatus: () => console.log('updateReviewStatus'),

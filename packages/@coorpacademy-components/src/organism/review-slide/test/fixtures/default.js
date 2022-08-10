@@ -1,8 +1,13 @@
+import map from 'lodash/fp/map';
+import set from 'lodash/fp/set';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 
+const markAnswersAsUnselected = answer => set('selected', false, answer);
+
 const qcmDrag = AnswerQCMDrag.props;
 const qcmGraphic = AnswerQCMGraphic.props;
+qcmGraphic.model.answers = map(markAnswersAsUnselected, AnswerQCMGraphic.props.model.answers);
 
 export default {
   props: {
@@ -37,13 +42,14 @@ export default {
         position: 4
       }
     },
-    validate: {
-      label: 'Validate'
+    validateButton: {
+      label: 'Validate',
+      onClick: () => console.log('onValidateClick'),
+      disabled: true
     },
     finishedSlides: {},
     finishedSlidesSize: 0,
     correctionPopinProps: {},
-    validateSlide: () => console.log('onValidateClick'),
     updateSlidesOnNext: () => console.log('updateSlidesOnNext'), // à revoir
     updateStepItemsOnNext: () => console.log('updateStepItemsOnNext'), // à revoir, on devrait avoir un seul onClick dans le next
     updateReviewStatus: () => console.log('updateReviewStatus'),

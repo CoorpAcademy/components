@@ -29,7 +29,6 @@ const SlidesReview = ({
   slides,
   reviewBackgroundAriaLabel,
   apiSlides,
-  reviewStatus,
   congratsProps,
   progression
 }) => {
