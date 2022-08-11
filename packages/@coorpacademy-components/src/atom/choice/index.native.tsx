@@ -3,8 +3,8 @@ import {View, StyleSheet, ViewStyle} from 'react-native';
 import type {Media, QuestionType} from '../../types/progression-engine';
 
 import Html from '../html/index.native';
-import {getCleanUri} from '../../util/get-clean-uri';
-import ImageBackground from '../../app-shared/components/image-background';
+import ImageBackground from '../image-backgound/index.native';
+import getCleanUri from '../../util/get-clean-uri';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
@@ -124,8 +124,14 @@ const Choice = ({
     media.src.length > 0 &&
     getCleanUri(media.src[0].url);
 
-  const source = {uri: url && getCleanUri(url)};
+  const source = {uri: url ? getCleanUri(url) : undefined};
   const mediaSuffix = prefixTestID && mediaType ? `-${mediaType}` : '';
+
+  const htmlStyle: ViewStyle[] = [styleSheet.text];
+
+  if (isSelected) {
+    htmlStyle.push(styleSheet.textSelected);
+  }
 
   return (
     <Touchable
@@ -156,7 +162,7 @@ const Choice = ({
         >
           <Html
             fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
-            style={[styleSheet.text, isSelected && styleSheet.textSelected]}
+            style={htmlStyle}
           >
             {children}
           </Html>

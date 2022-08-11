@@ -3,6 +3,7 @@ import {TextStyle} from 'react-native';
 export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
 
 export type Colors = {
+  background?: any;
   border: string;
   gray: {
     extra: string;
@@ -16,6 +17,7 @@ export type Colors = {
   text: {
     primary: '#06265B';
   };
+  cta: string;
   negative: string;
   positive: string;
   white: string;
@@ -45,7 +47,6 @@ export type Theme = {
     search: number;
     thumbnail: number;
   };
-  background?: number;
   fontWeight: {
     regular: TextStyle['fontWeight'];
     semiBold: TextStyle['fontWeight'];

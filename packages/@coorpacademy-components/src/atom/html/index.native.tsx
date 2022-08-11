@@ -14,7 +14,7 @@ export type Props = {
   containerStyle?: ViewStyle;
   anchorTextColor?: string;
   imageStyle?: ImageStyle;
-  style?: TextStyle;
+  style?: ViewStyle | ViewStyle[];
   testID?: string;
   isTextCentered?: boolean;
 };

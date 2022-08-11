@@ -99,7 +99,7 @@ Among the Lottie Atom's props, there are two *important* props: animationSrc & i
 that need an additional step, the ie11ImageBackup is needed as it's name implies because ie11 doesn't
 support Lottie (more specifically Web Components due to the Shadow DOM).
 
-First, you must upload to AWS S3 any new animation, in one of the static buckets (depending on the desired env), ex: 
+First, you must upload to AWS S3 any new animation, in one of the static buckets (depending on the desired env), ex:
 `https://static-staging.coorpacademy.com/animations/review/`.
 
 This animation must be paired with a backup image (svg) that'll be used for the ie11 scenario.
@@ -144,7 +144,6 @@ const props = {
 
 The props include classNames && size control to handle additional styling.
 
-
 ## Locally use in an external project
 
 Link your dependencies:
@@ -160,13 +159,20 @@ Build modifications:
 [@coorpacademy-components] > npm run build:es
 ```
 
-
 ## Use in mobile app
+
 Run `npm run build:watch`
-For more info see the mobile documentaion (`docs/local-sync.md`)
+For more info see the [mobile documentation](https://github.com/CoorpAcademy/mobile/blob/master/docs/local-sync.md)
+
+You may need to install these optional libs depending on which native components you use:
+
+- `color`
+- `react-native-modal`
+- `react-native-render-html`
+- `react-native-linear-gradient`
 
 ## Troubleshooting
 
 Error when trying to launch the storybook:
 
-Try to delete your ```node_modules```, go to the project's root and launch: ```yarn && yarn bootstrap``` 
+Try to delete your ```node_modules```, go to the project's root and launch: ```yarn && yarn bootstrap```
