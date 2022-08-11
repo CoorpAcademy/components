@@ -5,6 +5,6 @@ export default {
     value: true,
     onChange: value => console.log(value),
     titlePosition: 'right',
-    theme: 'partielUncheck'
+    theme: 'mooc'
   }
 };
