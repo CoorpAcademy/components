@@ -8,7 +8,6 @@ import {TemplateContext} from '@coorpacademy/components/es/template/app-review/t
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import configureStore from './configure-store';
-import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
 
 import type {AppOptions} from './types/common';
 import type {StoreState} from './reducers';
@@ -81,7 +80,7 @@ const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null 
   }
 
   return {
-    headerProps: {
+    header: {
       mode: '__revision_mode',
       skillName: '__agility',
       onQuitClick: (): void => {
@@ -89,18 +88,52 @@ const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null 
         console.log('onQuitClick');
       },
       'aria-label': 'aria-header-wrapper',
-      closeButtonAriaLabel: 'aria-close-button'
+      closeButtonAriaLabel: 'aria-close-button',
+      steps: [
+        {
+          icon: 'no-answer',
+          current: true,
+          value: '1'
+        },
+        {
+          icon: 'no-answer',
+          current: false,
+          value: '2'
+        },
+        {
+          icon: 'no-answer',
+          current: false,
+          value: '3'
+        },
+        {
+          icon: 'no-answer',
+          current: false,
+          value: '4'
+        },
+        {
+          icon: 'no-answer',
+          current: false,
+          value: '5'
+        }
+      ]
     },
+    stack: {
+      slides: state.ui.slides,
+      validateButton: {
+        label: '__validate',
+        disabled: true,
+        onClick: (): void => {
+          // eslint-disable-next-line no-console
+          console.log('TODO: validate question');
+        }
+      },
+      correctionPopinProps: undefined,
+      endReview: false,
+      finishedSlides: state.ui.finishedSlides
+    },
+    congratsProps: undefined,
+    // props dont on connait pas l'utilisation
     apiSlides: state.data.slides,
-    uiSlides: state.ui.slides,
-    validate: {
-      label: '__validate'
-    },
-    finishedSlides: state.ui.finishedSlides,
-    stepItems: state.ui.stepItems,
-    reviewStatus: state.ui.reviewStatus,
-    correctionPopinProps,
-    congratsProps,
     progression: state.data.progression
   };
 };
