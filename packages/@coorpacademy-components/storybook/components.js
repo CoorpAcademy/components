@@ -1184,8 +1184,8 @@ import TemplateAppReviewPlayerFixtureUnstack from '../src/template/app-review/pl
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
 import TemplateAppReviewFixtureOnboarding from '../src/template/app-review/test/fixtures/onboarding';
+import TemplateAppReviewFixturePlayer from '../src/template/app-review/test/fixtures/player';
 import TemplateAppReviewFixtureSkills from '../src/template/app-review/test/fixtures/skills';
-import TemplateAppReviewFixtureSlides from '../src/template/app-review/test/fixtures/slides';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -2789,8 +2789,8 @@ export const fixtures = {
     },
     TemplateAppReview: {
       Onboarding: TemplateAppReviewFixtureOnboarding,
-      Skills: TemplateAppReviewFixtureSkills,
-      Slides: TemplateAppReviewFixtureSlides
+      Player: TemplateAppReviewFixturePlayer,
+      Skills: TemplateAppReviewFixtureSkills
     },
     TemplateBattleRequests: {
       Default: TemplateBattleRequestsFixtureDefault
