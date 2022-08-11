@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import ReviewSlideProps, {SlideProp} from '../review-slide/prop-types';
 
 export default {
-  validateButton: PropTypes.shape(ReviewSlideProps.validateButton),
-  correctionPopinProps: PropTypes.shape(ReviewSlideProps.correctionPopinProps),
-  uiSlides: PropTypes.shape({
+  validateButton: ReviewSlideProps.validateButton,
+  correctionPopinProps: ReviewSlideProps.correctionPopinProps,
+  slides: PropTypes.shape({
     '0': SlideProp,
     '1': SlideProp,
     '2': SlideProp,

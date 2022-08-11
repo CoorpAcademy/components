@@ -4,7 +4,6 @@ import {apiQCMSlide0} from './initial-state';
 
 export default {
   props: {
-    slides: RestackedSlides.props,
     header: Header.props,
     apiSlides: {
       slideRefs: ['sli_N1XACJobn'],
@@ -12,6 +11,9 @@ export default {
         sli_N1XACJobn: apiQCMSlide0
       }
     },
+    reviewBackgroundAriaLabel: 'image background',
+    stack: RestackedSlides.props,
+
     progression: {
       _id: '62b1d1087aa12f00253f40e2',
       state: {

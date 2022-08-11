@@ -14,31 +14,21 @@ import StackedSlides from '../../../organism/review-stacked-slides';
 import style from './style.css';
 import {SlidesReviewPropTypes} from './prop-types';
 
-const showCongrats = congratsProps => {
-  if (isNil(congratsProps)) return null;
-
-  return (
-    <div className={style.congrats} data-name="congrats-container">
-      <ReviewCongrats {...congratsProps} />
-    </div>
-  );
-};
-
 const PlayerReview = ({
   header,
-  slides,
+  stack,
   reviewBackgroundAriaLabel,
   apiSlides,
   congratsProps,
   progression
 }) => {
   const {
-    uiSlides,
+    slides,
     finishedSlides,
     updateReviewStatus,
     updateStepItemsOnValidation,
     updateFinishedSlides
-  } = slides;
+  } = stack;
 
   const finishedSlidesSize = useMemo(() => size(finishedSlides), [finishedSlides]);
 
@@ -62,7 +52,7 @@ const PlayerReview = ({
   useEffect(
     /* istanbul ignore next */ () => {
       if (progression && size(apiSlides.slidesRefs) > 1) {
-        const endReview = getOr(false, `${currentSlideIndex}.endReview`, uiSlides);
+        const endReview = getOr(false, `${currentSlideIndex}.endReview`, slides);
         const isCorrect = get('state.isCorrect', progression);
         updateStepItemsOnValidation({
           stepIndex: currentSlideIndex,
@@ -107,8 +97,12 @@ const PlayerReview = ({
         <ReviewHeader {...header} />
       </div>
 
-      {shouldMountSlides ? <StackedSlides {...slides} /> : /* istanbul ignore next */ null}
-      {showCongrats(congratsProps)}
+      {shouldMountSlides ? <StackedSlides {...stack} /> : /* istanbul ignore next */ null}
+      {isNil(congratsProps) ? null : (
+        <div className={style.congrats} data-name="congrats-container">
+          <ReviewCongrats {...congratsProps} />
+        </div>
+      )}
     </div>
   );
 };

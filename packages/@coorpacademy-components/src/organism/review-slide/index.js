@@ -54,7 +54,7 @@ CorrectionPopin.propTypes = {
   slideIndex: PropTypes.string,
   showCorrectionPopin: PropTypes.bool,
   animateCorrectionPopin: PropTypes.bool,
-  correctionPopinProps: PropTypes.shape(propTypes.correctionPopinProps)
+  correctionPopinProps: propTypes.correctionPopinProps
 };
 
 const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
@@ -94,7 +94,7 @@ const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
 
 ValidateButton.propTypes = {
   slideIndex: PropTypes.string,
-  validateButton: PropTypes.shape(propTypes.validateButton),
+  validateButton: propTypes.validateButton,
   primarySkinColor: PropTypes.string
 };
 
@@ -136,12 +136,12 @@ QuestionContainer.propTypes = {
   questionOrigin: PropTypes.string
 };
 
-const Slide = ({slide, validateButton, correctionPopinProps, slideIndex = 0}, context) => {
+const Slide = (props, context) => {
+  const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
+
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
-
   const {questionText, answerUI, showCorrectionPopin, animateCorrectionPopin} = slide;
-
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
 
   return (

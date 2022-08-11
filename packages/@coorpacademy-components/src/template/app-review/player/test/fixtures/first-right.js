@@ -5,8 +5,10 @@ import {apiQCMSlide1} from './one-fail';
 
 export default {
   props: {
-    slides: FirstCorrectStackedSlides.props,
     header: Header.props,
+    stack: FirstCorrectStackedSlides.props,
+    reviewBackgroundAriaLabel: 'image background',
+
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
       values: {

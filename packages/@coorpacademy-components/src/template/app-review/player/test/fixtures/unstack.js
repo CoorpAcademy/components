@@ -4,8 +4,10 @@ import {apiQCMSlide0} from './initial-state';
 
 export default {
   props: {
-    slides: UnstackedSlides.props,
     header: Header.props,
+    stack: UnstackedSlides.props,
+    reviewBackgroundAriaLabel: 'image background',
+
     apiSlides: {
       slideRefs: ['sli_N1XACJobn'],
       values: {

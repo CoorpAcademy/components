@@ -24,7 +24,9 @@ export const apiQCMSlide4 = {
 export default {
   props: {
     header: Header.props,
-    slides: AllCorrectStackedSlides.props,
+    stack: AllCorrectStackedSlides.props,
+    reviewBackgroundAriaLabel: 'image background',
+
     apiSlides: {
       slideRefs: [
         'sli_N1XACJobn',
@@ -50,13 +52,6 @@ export default {
           ref: 'sli_41~RSVcl9'
         }
       }
-    },
-    finishedSlides: {
-      '0': true,
-      '1': true,
-      '2': true,
-      '3': true,
-      '4': true
     }
   }
 };
