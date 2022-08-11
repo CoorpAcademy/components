@@ -52,9 +52,10 @@ export const apiQCMSlide0 = {
 
 export default {
   props: {
-    slides: DefaultStackedSlides.props,
     header: headerProps.props,
+    stack: DefaultStackedSlides.props,
     reviewBackgroundAriaLabel: 'review BG Aria',
+
     // On devrait pas avoir besoin de apiSlides
     apiSlides: {
       slideRefs: ['sli_N1XACJobn'],

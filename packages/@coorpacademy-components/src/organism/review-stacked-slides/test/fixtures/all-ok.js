@@ -23,7 +23,7 @@ export const correctionPopinProps = {
 
 export default {
   props: {
-    uiSlides: {
+    slides: {
       '0': {
         hidden: true,
         position: 0,
@@ -72,11 +72,6 @@ export default {
       '0': true
     },
     finishedSlidesSize: 1,
-    correctionPopinProps,
-    updateSlidesOnNext: () => console.log('updateSlidesOnNext'), // à revoir
-    updateStepItemsOnNext: () => console.log('updateStepItemsOnNext'), // à revoir, on devrait avoir un seul onClick dans le next
-    updateReviewStatus: () => console.log('updateReviewStatus'),
-    updateStepItemsOnValidation: () => console.log('updateStepItemsOnValidation'),
-    updateFinishedSlides: () => console.log('updateFinishedSlides')
+    correctionPopinProps
   }
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import _toString from 'lodash/fp/toString';
-import Slide from '../review-slide';
+import ReviewSlide from '../review-slide';
 import propTypes from './prop-types';
 import style from './style.css';
 
@@ -26,11 +26,11 @@ const getSlideAnimation = (action, position, hidden) => {
   }
 };
 
-const StackedSlides = ({uiSlides, endReview, validateButton, correctionPopinProps}) => {
+const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}) => {
   const stackedSlides = [];
   // eslint-disable-next-line fp/no-loops
   for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
-    const slide = uiSlides[_toString(slideIndex)];
+    const slide = slides[_toString(slideIndex)];
     const {animationType, hidden, position} = slide;
 
     const slideView = (
@@ -43,7 +43,7 @@ const StackedSlides = ({uiSlides, endReview, validateButton, correctionPopinProp
           endReview ? style.endReview : null
         )}
       >
-        <Slide
+        <ReviewSlide
           {...{
             slideIndex: _toString(slideIndex),
             slide,

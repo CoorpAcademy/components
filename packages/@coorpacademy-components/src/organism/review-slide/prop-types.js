@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ReviewCorrectionPopinPropTypes from '../../molecule/review-correction-popin/prop-types';
 import AnswerPropTypes from '../../molecule/answer/prop-types';
 
-const NextSlideProp = PropTypes.shape({
+export const SlideProp = PropTypes.shape({
   hidden: PropTypes.bool,
   position: PropTypes.number,
   animationType: PropTypes.string, // 'unstack' | 'restack'
@@ -10,17 +10,12 @@ const NextSlideProp = PropTypes.shape({
   animateCorrectionPopin: PropTypes.bool,
   showCorrectionPopin: PropTypes.bool,
   questionText: PropTypes.string,
-  answerUI: AnswerPropTypes
-});
-
-export const SlideProp = PropTypes.shape({
-  ...NextSlideProp.props,
-  nextContent: NextSlideProp
+  answerUI: PropTypes.shape(AnswerPropTypes)
 });
 
 export default {
   slideIndex: PropTypes.string,
-  slide: PropTypes.shape(SlideProp),
+  slide: SlideProp,
   validateButton: PropTypes.shape({
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
