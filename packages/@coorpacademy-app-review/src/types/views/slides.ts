@@ -1,23 +1,47 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type {StoreState} from '../../reducers';
 import {Dispatchers} from '../../actions';
+import {StepItem} from '../../reducers/ui/step-items';
+
+type CorrectionPopinProps = {
+  klf: {
+    label: string;
+    onClick: Function;
+    tooltip: string;
+  };
+  information: {
+    label: string;
+    message: string;
+  };
+  next: {
+    label: string;
+    ariaLabel: string;
+  };
+  successLabel: string;
+  failureLabel: string;
+};
 
 type SlidesViewStaticProps = {
-  apiSlides: StoreState['data']['slides'];
-  uiSlides: StoreState['ui']['slides'];
-  headerProps: {
+  header: {
     mode: string;
     skillName: string;
     onQuitClick: Function;
     'aria-label'?: string;
     closeButtonAriaLabel: string;
+    steps: StepItem[];
   };
-  finishedSlides: StoreState['ui']['finishedSlides'];
-  stepItems: StoreState['ui']['stepItems'];
-  reviewStatus: StoreState['ui']['reviewStatus'];
-  validate: {
-    label: string;
+  stack: {
+    slides: StoreState['ui']['slides'];
+    validateButton: {
+      label: string;
+      disabled: boolean;
+      onClick: Function;
+    };
+    correctionPopinProps?: CorrectionPopinProps;
+    endReview: boolean;
+    finishedSlides: StoreState['ui']['finishedSlides'];
   };
+  reviewBackgroundAriaLabel?: string;
   congratsProps?: {
     'aria-label'?: string;
     'data-name'?: string;
@@ -38,24 +62,8 @@ type SlidesViewStaticProps = {
       type: string;
     };
   };
-  correctionPopinProps?: {
-    klf: {
-      label: string;
-      onClick: Function;
-      tooltip: string;
-    };
-    information: {
-      label: string;
-      message: string;
-    };
-    next: {
-      label: string;
-      ariaLabel: string;
-    };
-    successLabel: string;
-    failureLabel: string;
-  };
-  reviewBackgroundAriaLabel?: string;
+  // props dont on connait pas l'utilisation
+  apiSlides: StoreState['data']['slides'];
   progression: StoreState['data']['progression'];
 };
 
@@ -63,4 +71,4 @@ type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'
 
 type SlidesViewProps = SlidesViewStaticProps & SlidesViewDispatcherProps;
 
-export {SlidesViewStaticProps, SlidesViewDispatcherProps, SlidesViewProps};
+export {CorrectionPopinProps, SlidesViewStaticProps, SlidesViewDispatcherProps, SlidesViewProps};

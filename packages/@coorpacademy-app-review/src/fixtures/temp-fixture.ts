@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import {SlidesViewProps} from '../types/views/slides';
+import {SlidesViewProps, CorrectionPopinProps} from '../types/views/slides';
 
-export const correctionPopinProps: SlidesViewProps['correctionPopinProps'] = {
+export const correctionPopinProps: CorrectionPopinProps = {
   klf: {
     label: 'Key learning factor',
     tooltip: 'Some tooltip info.',
