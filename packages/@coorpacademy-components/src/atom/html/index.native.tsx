@@ -8,7 +8,7 @@ import Text, {DEFAULT_STYLE as DEFAULT_TEXT_STYLE} from '../text/index.native';
 
 export type Props = {
   children: string;
-  fontSize: number;
+  fontSize: TextStyle['fontSize'];
   numberOfLines?: number;
   onLinkPress?: (url: string) => void;
   containerStyle?: ViewStyle;
