@@ -2,10 +2,10 @@ export default {
   props: {
     type: 'switch',
     title: 'Name',
-    value: false,
-    disabled: true,
+    value: true,
     onChange: value => console.log(value),
     titlePosition: 'right',
-    theme: 'mooc'
+    theme: 'mooc',
+    details: 'details'
   }
 };

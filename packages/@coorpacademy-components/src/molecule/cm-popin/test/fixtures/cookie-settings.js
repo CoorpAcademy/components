@@ -25,7 +25,7 @@ export default {
         value: false,
         onChange: value => console.log(value),
         titlePosition: 'right',
-        theme: 'partielUncheck'
+        theme: 'mooc'
       },
       {
         type: 'switch',

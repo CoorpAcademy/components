@@ -175,11 +175,11 @@
   margin-left: 0px;
 }
 
-.btnSwicthContainer {
+.btnSwitchContainer {
   display: flex;
   align-items: center;
 }
-.alignedTxtContainer {
+.alignedTextContainer {
   display: flex;
   align-items: center;
   align-content: center;

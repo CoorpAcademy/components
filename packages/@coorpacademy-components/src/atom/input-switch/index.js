@@ -30,30 +30,30 @@ const InputSwitch = props => {
     <div className={style.description}>{description}</div>
   ) : null;
 
-  let defaultClass = null;
-  let modifiedClass = null;
-  switch (theme) {
-    case 'coorpmanager':
-      defaultClass = style.coorpmanager;
-      modifiedClass = style.coorpmanagerModified;
-      break;
-    case 'partielUncheck':
-      defaultClass = style.partielUncheck;
-      modifiedClass = style.coorpmanagerModified;
-      break;
-    default:
-      defaultClass = style.default;
-      modifiedClass = style.modified;
-      break;
-  }
-
+  const getClass = () => {
+    switch (theme) {
+      case 'coorpmanager':
+        return {
+          defaultClass: style.coorpmanager,
+          modifiedClass: style.coorpmanagerModified
+        };
+      case 'mooc':
+        return {
+          defaultClass: style.partielUncheck,
+          modifiedClass: style.coorpmanagerModified
+        };
+      default:
+        return {defaultClass: style.default, modifiedClass: style.modified};
+    }
+  };
+  const {defaultClass, modifiedClass} = getClass();
   const className = getClassState(defaultClass, modifiedClass, null, modified);
 
   return (
     <div className={className} data-name={`switch-input-${theme}`}>
       {titlePosition === 'left' ? titleView : null}
       <div className={requiredSelection ? style.requiredSelection : null}>
-        <div className={style.btnSwicthContainer}>
+        <div className={style.btnSwitchContainer}>
           <input
             type="checkbox"
             id={idSwitch}
@@ -66,7 +66,7 @@ const InputSwitch = props => {
           <label htmlFor={idSwitch} data-name="input-switch-label" />
         </div>
       </div>
-      <div className={!details ? style.alignedTxtContainer : null}>
+      <div className={!details ? style.alignedTextContainer : null}>
         {titlePosition === 'right' ? titleView : null}
         {details ? <div className={style.detailsTxt}>{details}</div> : null}
       </div>
@@ -85,7 +85,7 @@ InputSwitch.propTypes = {
   description: PropTypes.string,
   modified: PropTypes.bool,
   titlePosition: PropTypes.oneOf(['right', 'left']),
-  theme: PropTypes.oneOf(['default', 'coorpmanager', 'partielUncheck']),
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
   details: PropTypes.string,
   requiredSelection: PropTypes.bool
 };

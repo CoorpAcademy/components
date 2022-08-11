@@ -351,12 +351,14 @@ import AtomInputSwitchFixtureCmRightChecked from '../src/atom/input-switch/test/
 import AtomInputSwitchFixtureCmRightDisabled from '../src/atom/input-switch/test/fixtures/cm-right-disabled';
 import AtomInputSwitchFixtureCmRightModified from '../src/atom/input-switch/test/fixtures/cm-right-modified';
 import AtomInputSwitchFixtureCmRight from '../src/atom/input-switch/test/fixtures/cm-right';
+import AtomInputSwitchFixtureDetails from '../src/atom/input-switch/test/fixtures/details';
 import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import AtomInputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import AtomInputSwitchFixturePartielUncheckRightChecked from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right-checked';
 import AtomInputSwitchFixturePartielUncheckRightDisabled from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right-disabled';
 import AtomInputSwitchFixturePartielUncheckRight from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right';
+import AtomInputSwitchFixtureRequiredSelection from '../src/atom/input-switch/test/fixtures/required-selection';
 import AtomInputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
 import AtomInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import AtomInputTextFixtureCmDefault from '../src/atom/input-text/test/fixtures/cm-default';
@@ -1707,12 +1709,14 @@ export const fixtures = {
       CmRightDisabled: AtomInputSwitchFixtureCmRightDisabled,
       CmRightModified: AtomInputSwitchFixtureCmRightModified,
       CmRight: AtomInputSwitchFixtureCmRight,
+      Details: AtomInputSwitchFixtureDetails,
       Disabled: AtomInputSwitchFixtureDisabled,
       Modified: AtomInputSwitchFixtureModified,
       NoTitle: AtomInputSwitchFixtureNoTitle,
       PartielUncheckRightChecked: AtomInputSwitchFixturePartielUncheckRightChecked,
       PartielUncheckRightDisabled: AtomInputSwitchFixturePartielUncheckRightDisabled,
       PartielUncheckRight: AtomInputSwitchFixturePartielUncheckRight,
+      RequiredSelection: AtomInputSwitchFixtureRequiredSelection,
       Sso: AtomInputSwitchFixtureSso,
       Unchecked: AtomInputSwitchFixtureUnchecked
     },
