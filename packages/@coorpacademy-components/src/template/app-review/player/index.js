@@ -12,7 +12,7 @@ import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
 import StackedSlides from '../../../organism/review-stacked-slides';
 import style from './style.css';
-import {SlidesReviewPropTypes} from './prop-types';
+import {PlayerReviewPropTypes} from './prop-types';
 
 const PlayerReview = ({
   header,
@@ -107,6 +107,6 @@ const PlayerReview = ({
   );
 };
 
-PlayerReview.propTypes = SlidesReviewPropTypes;
+PlayerReview.propTypes = PlayerReviewPropTypes;
 
 export default PlayerReview;

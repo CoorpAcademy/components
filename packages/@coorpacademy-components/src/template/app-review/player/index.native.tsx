@@ -4,7 +4,7 @@ import {View, StyleSheet, Text, useWindowDimensions, Button} from 'react-native'
 
 import FreeText from '../../../molecule/questions/free-text';
 import {useTemplateContext} from '../template-context';
-import {SlidesReviewPropTypes} from './prop-types';
+import {PlayerReviewPropTypes} from './prop-types';
 
 // import theme from '../../../modules/theme';
 // import translations from '../../../translations';
@@ -214,7 +214,8 @@ const Slide = props => {
 
 // const Slides = ({slide}: Props) => {
 const Slides = props => {
-  const {uiSlides: slides, validateSlide} = props.slides;
+  const {stack} = props;
+  const {slides, validateButton: validateSlide} = stack;
   if (!slides) {
     return <View />;
   }
@@ -234,7 +235,7 @@ const Slides = props => {
   );
 };
 
-Slides.propTypes = SlidesReviewPropTypes;
+Slides.propTypes = PlayerReviewPropTypes;
 
 // -----------------------------------------------------------------------------
 
