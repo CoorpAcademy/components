@@ -4,8 +4,11 @@ import EndReviewStackedSlides from '../../../../../organism/review-stacked-slide
 
 export default {
   props: {
-    slides: EndReviewStackedSlides.props,
     header: Header.props,
+    stack: EndReviewStackedSlides.props,
+    reviewBackgroundAriaLabel: 'image background',
+    congratsProps: congratsProps.props,
+
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
       values: {
@@ -22,7 +25,6 @@ export default {
           ref: 'successExitNode'
         }
       }
-    },
-    congratsProps: congratsProps.props
+    }
   }
 };

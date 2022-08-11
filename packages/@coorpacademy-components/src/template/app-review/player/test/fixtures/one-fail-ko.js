@@ -10,8 +10,10 @@ export const apiQCMSlide1 = {
 
 export default {
   props: {
-    slides: WrongStackedSlides.props,
     header: Header.props,
+    stack: WrongStackedSlides.props,
+    reviewBackgroundAriaLabel: 'image background',
+
     apiSlides: {
       slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
       values: {
