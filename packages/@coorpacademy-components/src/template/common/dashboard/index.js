@@ -6,6 +6,7 @@ import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import NewsList from '../../../molecule/dashboard/news-list';
 import StartBattle from '../../../molecule/dashboard/start-battle';
+import CMPopin from '../../../molecule/cm-popin';
 import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
@@ -18,7 +19,7 @@ Hero.propTypes = {
 };
 
 const Dashboard = props => {
-  const {sections = [], hero, welcome} = props;
+  const {sections = [], hero, welcome, cookie} = props;
 
   const buildSectionComponent = section => {
     const {type} = section;
@@ -50,6 +51,7 @@ const Dashboard = props => {
   return (
     <div className={style.wrapper} data-name="dashboard">
       {sectionsList}
+      {cookie ? <CMPopin {...cookie} /> : null}
     </div>
   );
 };
@@ -64,6 +66,7 @@ Dashboard.propTypes = {
       PropTypes.shape(NewsList.propTypes),
       PropTypes.shape(StartBattle.propTypes)
     ])
-  )
+  ),
+  cookie: PropTypes.shape(CMPopin.propTypes)
 };
 export default Dashboard;

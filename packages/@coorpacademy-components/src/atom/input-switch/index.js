@@ -15,7 +15,9 @@ const InputSwitch = props => {
     description,
     modified = false,
     theme = 'default',
-    titlePosition = 'left'
+    titlePosition = 'left',
+    details = '',
+    requiredSelection = false
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
@@ -28,24 +30,46 @@ const InputSwitch = props => {
     <div className={style.description}>{description}</div>
   ) : null;
 
-  const defaultClass = theme === 'coorpmanager' ? style.coorpmanager : style.default;
-  const modifiedClass = theme === 'coorpmanager' ? style.coorpmanagerModified : style.modified;
+  const getClass = () => {
+    switch (theme) {
+      case 'coorpmanager':
+        return {
+          defaultClass: style.coorpmanager,
+          modifiedClass: style.coorpmanagerModified
+        };
+      case 'mooc':
+        return {
+          defaultClass: style.partielUncheck,
+          modifiedClass: style.coorpmanagerModified
+        };
+      default:
+        return {defaultClass: style.default, modifiedClass: style.modified};
+    }
+  };
+  const {defaultClass, modifiedClass} = getClass();
   const className = getClassState(defaultClass, modifiedClass, null, modified);
 
   return (
     <div className={className} data-name={`switch-input-${theme}`}>
       {titlePosition === 'left' ? titleView : null}
-      <input
-        type="checkbox"
-        id={idSwitch}
-        name={name}
-        onChange={handleChange}
-        checked={value}
-        disabled={isDisabled}
-        className={style.checkbox}
-      />
-      <label htmlFor={idSwitch} data-name="input-switch-label" />
-      {titlePosition === 'right' ? titleView : null}
+      <div className={requiredSelection ? style.requiredSelection : null}>
+        <div className={style.btnSwitchContainer}>
+          <input
+            type="checkbox"
+            id={idSwitch}
+            name={name}
+            onChange={handleChange}
+            checked={value}
+            disabled={isDisabled}
+            className={style.checkbox}
+          />
+          <label htmlFor={idSwitch} data-name="input-switch-label" />
+        </div>
+      </div>
+      <div className={!details ? style.alignedTextContainer : null}>
+        {titlePosition === 'right' ? titleView : null}
+        {details ? <div className={style.detailsTxt}>{details}</div> : null}
+      </div>
       {descriptionView}
     </div>
   );
@@ -61,6 +85,8 @@ InputSwitch.propTypes = {
   description: PropTypes.string,
   modified: PropTypes.bool,
   titlePosition: PropTypes.oneOf(['right', 'left']),
-  theme: PropTypes.oneOf(['default', 'coorpmanager'])
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
+  details: PropTypes.string,
+  requiredSelection: PropTypes.bool
 };
 export default InputSwitch;

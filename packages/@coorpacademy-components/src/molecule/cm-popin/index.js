@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
-  NovaSolidApplicationsWindowUpload3 as WindowUpload
+  NovaSolidApplicationsWindowUpload3 as WindowUpload,
+  NovaLineSettingsCookie as Cookie
 } from '@coorpacademy/nova-icons';
+import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
+import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
 const CMPopin = props => {
@@ -18,7 +21,11 @@ const CMPopin = props => {
     header,
     icon,
     backgroundImageUrl,
-    descriptionText
+    descriptionText,
+    thirdButton,
+    cookieTitle,
+    descriptionBtnTxt,
+    listBtnSwicth
   } = props;
 
   const logo = {
@@ -33,12 +40,70 @@ const CMPopin = props => {
         backgroundSize: 'cover'
       }
     : null;
-
+  const renderHeader = () => {
+    if (header) return <img className={style.headerBackground} src={header} />;
+    if (mode === 'cookie')
+      return (
+        <div className={style.cookieHeader}>
+          <div className={style.cookieIconContainer}>
+            <Cookie className={style.cookieIcon} />
+          </div>
+          <div className={style.cookieTitle}>{cookieTitle}</div>
+        </div>
+      );
+    return null;
+  };
+  const getClassBtnSwitch = (index, btnList) => {
+    switch (index) {
+      case 0:
+        return style.firstBtnSwitchContainer;
+      case btnList.length - 1:
+        return style.lastBtnSwitchContainer;
+      default:
+        return style.singleSwitchContainer;
+    }
+  };
+  const renderBtnSwitch = () => {
+    return map.convert({cap: false})((el, index) => {
+      const {
+        type,
+        title,
+        value,
+        onChange,
+        titlePosition,
+        theme,
+        details,
+        requiredSelection,
+        disabled
+      } = el;
+      return (
+        <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
+          <InputSwitch
+            {...{
+              type,
+              title,
+              value,
+              onChange,
+              titlePosition,
+              theme,
+              details,
+              requiredSelection,
+              disabled
+            }}
+          />
+        </div>
+      );
+    })(listBtnSwicth);
+  };
   return (
-    <div className={style.background} style={backgroundImageStyle} data-name={'cm-popin-container'}>
-      <div className={style.popin}>
+    <div
+      className={mode !== 'cookie' ? style.background : null}
+      style={backgroundImageStyle}
+      data-name={'cm-popin-container'}
+    >
+      <div className={mode === 'cookie' ? style.popinCookie : style.popin}>
         <header className={style.popinHeader}>
-          {header ? <img className={style.headerBackground} src={header} /> : null}
+          {renderHeader()}
           {onClose ? (
             <ButtonLinkIconOnly
               onClick={onClose}
@@ -69,9 +134,11 @@ const CMPopin = props => {
             />
           ) : null}
         </div>
+        {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
+        {renderBtnSwitch()}
         <div className={style.buttonContainer}>
           {firstButton ? (
-            <div className={style.button}>
+            <div className={firstButton.largeButton ? style.largeButton : style.button}>
               <Cta
                 label={firstButton.label}
                 onClick={firstButton.handleOnclick}
@@ -92,6 +159,17 @@ const CMPopin = props => {
               />
             </div>
           ) : null}
+          {thirdButton ? (
+            <div className={thirdButton.largeButton ? style.largeButton : style.button}>
+              <Cta
+                label={thirdButton.label}
+                onClick={thirdButton.handleOnclick}
+                data-name={`cm-popin-cta-${thirdButton.type}`}
+                aria-label={thirdButton['aria-label']}
+                type={thirdButton.type}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
@@ -100,25 +178,36 @@ const CMPopin = props => {
 
 CMPopin.propTypes = {
   content: PropTypes.string,
-  mode: PropTypes.oneOf(['alert', 'information']),
+  mode: PropTypes.oneOf(['alert', 'information', 'cookie']),
   header: PropTypes.string,
   firstButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     'aria-label': PropTypes.string,
-    type: PropTypes.string
+    largeButton: PropTypes.bool,
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary'])
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['dangerous', 'primary']),
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
+    'aria-label': PropTypes.string,
+    largeButton: PropTypes.boolean
+  }),
+  thirdButton: PropTypes.shape({
+    label: PropTypes.string,
+    handleOnclick: PropTypes.func,
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.boolean
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,
   backgroundImageUrl: PropTypes.string,
-  descriptionText: PropTypes.string
+  descriptionText: PropTypes.string,
+  cookieTitle: PropTypes.string,
+  descriptionBtnTxt: PropTypes.string,
+  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
 export default CMPopin;

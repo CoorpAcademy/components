@@ -351,9 +351,14 @@ import AtomInputSwitchFixtureCmRightChecked from '../src/atom/input-switch/test/
 import AtomInputSwitchFixtureCmRightDisabled from '../src/atom/input-switch/test/fixtures/cm-right-disabled';
 import AtomInputSwitchFixtureCmRightModified from '../src/atom/input-switch/test/fixtures/cm-right-modified';
 import AtomInputSwitchFixtureCmRight from '../src/atom/input-switch/test/fixtures/cm-right';
+import AtomInputSwitchFixtureDetails from '../src/atom/input-switch/test/fixtures/details';
 import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import AtomInputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
+import AtomInputSwitchFixturePartielUncheckRightChecked from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right-checked';
+import AtomInputSwitchFixturePartielUncheckRightDisabled from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right-disabled';
+import AtomInputSwitchFixturePartielUncheckRight from '../src/atom/input-switch/test/fixtures/partiel-uncheck-right';
+import AtomInputSwitchFixtureRequiredSelection from '../src/atom/input-switch/test/fixtures/required-selection';
 import AtomInputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
 import AtomInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import AtomInputTextFixtureCmDefault from '../src/atom/input-text/test/fixtures/cm-default';
@@ -565,6 +570,8 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
+import MoleculeCmPopinFixtureCookieSettings from '../src/molecule/cm-popin/test/fixtures/cookie-settings';
+import MoleculeCmPopinFixtureCookie from '../src/molecule/cm-popin/test/fixtures/cookie';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
@@ -1219,6 +1226,8 @@ import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
 import TemplateCommonCoorpHeaderFixtureProduction from '../src/template/common/coorp-header/test/fixtures/production';
 import TemplateCommonCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
+import TemplateCommonDashboardFixtureCookieDashboard from '../src/template/common/dashboard/test/fixtures/cookie-dashboard';
+import TemplateCommonDashboardFixtureCookieSettingsDashboard from '../src/template/common/dashboard/test/fixtures/cookie-settings-dashboard';
 import TemplateCommonDashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import TemplateCommonDashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
 import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/dashboard/test/fixtures/with-hero-card';
@@ -1705,9 +1714,14 @@ export const fixtures = {
       CmRightDisabled: AtomInputSwitchFixtureCmRightDisabled,
       CmRightModified: AtomInputSwitchFixtureCmRightModified,
       CmRight: AtomInputSwitchFixtureCmRight,
+      Details: AtomInputSwitchFixtureDetails,
       Disabled: AtomInputSwitchFixtureDisabled,
       Modified: AtomInputSwitchFixtureModified,
       NoTitle: AtomInputSwitchFixtureNoTitle,
+      PartielUncheckRightChecked: AtomInputSwitchFixturePartielUncheckRightChecked,
+      PartielUncheckRightDisabled: AtomInputSwitchFixturePartielUncheckRightDisabled,
+      PartielUncheckRight: AtomInputSwitchFixturePartielUncheckRight,
+      RequiredSelection: AtomInputSwitchFixtureRequiredSelection,
       Sso: AtomInputSwitchFixtureSso,
       Unchecked: AtomInputSwitchFixtureUnchecked
     },
@@ -2025,6 +2039,8 @@ export const fixtures = {
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
     MoleculeCmPopin: {
+      CookieSettings: MoleculeCmPopinFixtureCookieSettings,
+      Cookie: MoleculeCmPopinFixtureCookie,
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
       ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose,
@@ -3013,6 +3029,8 @@ export const fixtures = {
       Staging: TemplateCommonCoorpHeaderFixtureStaging
     },
     TemplateCommonDashboard: {
+      CookieDashboard: TemplateCommonDashboardFixtureCookieDashboard,
+      CookieSettingsDashboard: TemplateCommonDashboardFixtureCookieSettingsDashboard,
       Default: TemplateCommonDashboardFixtureDefault,
       EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests,
       WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard

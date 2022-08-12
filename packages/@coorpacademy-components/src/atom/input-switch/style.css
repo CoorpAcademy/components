@@ -8,11 +8,10 @@
 @value cm_grey_200 from colors;
 @value black from colors;
 @value cm_primary_blue from colors;
+@value light_blue from colors;
 
 .default {
   display: flex;
-  align-items: center;
-  align-content: center;
 }
 
 .modified {
@@ -25,6 +24,10 @@
 
 .coorpmanagerModified {
   composes: modified;
+}
+
+.partielUncheck {
+  composes: coorpmanager;
 }
 
 .default label {
@@ -97,12 +100,11 @@
   font-size: 15px;
   text-transform: none;
   color: dark;
-  width: 180px;
   margin-right: 20px;
-  min-height: 50px;
   display: flex;
   align-items: center;
   align-content: center;
+  min-height: 24px;
 }
 
 .description {
@@ -118,7 +120,7 @@
   width: 48px;
   height: 24px;
   border: solid 2px cm_grey_200;
-  margin-right: 8px;
+  margin-right: 16px;
   background: cm_grey_200;
 }
 
@@ -148,4 +150,52 @@
 
 .coorpmanager .checkbox:disabled ~ label::after {
   background: white;
+}
+
+.partielUncheck label::after {
+  width: 19px;
+  height: 19px;
+  border: 3px solid cm_primary_blue;
+  margin-left: 8px;
+}
+.partielUncheck label {
+  width: 50px;
+  height: 26px;
+  background: light_blue;
+  border: 0px;
+}
+.partielUncheck .checkbox:checked ~ label {
+  background-color: cm_primary_blue;
+  border: 0px;
+  width: 50px;
+  height: 26px;
+}
+
+.partielUncheck .checkbox:checked ~ label::after {
+  margin-left: 0px;
+}
+
+.btnSwitchContainer {
+  display: flex;
+  align-items: center;
+}
+.alignedTextContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.detailsTxt {
+  font-family: Gilroy;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: black;
+  font-style: normal;
+  white-space: pre-line;
+  margin-right: 24px;
+}
+.requiredSelection label, .requiredSelection .checkbox:disabled ~ label {
+  background-color: cm_primary_blue;
+  border-color: cm_primary_blue;
+  opacity: 0.4;
 }
