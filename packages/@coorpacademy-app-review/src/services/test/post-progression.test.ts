@@ -7,15 +7,17 @@ const skillRef = '_skill-ref';
 const result: ProgressionFromAPI = {
   _id: '123456123456',
   state: {
+    allAnswers: [],
     isCorrect: true,
-    step: {
-      current: 1
-    },
     nextContent: {
       type: 'slide',
       ref: 'sli_NJ3m5KtWh'
     },
-    pendingSlides: []
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    }
   }
 };
 

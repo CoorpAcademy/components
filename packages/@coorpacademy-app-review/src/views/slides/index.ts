@@ -1,10 +1,11 @@
 import isEmpty from 'lodash/fp/isEmpty';
-import {StepItem} from '../../reducers/ui/step-items';
 import {StoreState} from '../../reducers';
-import {SlidesViewStaticProps} from '../../types/views/slides';
+import {SlidesViewStaticProps, StepItem} from '../../types/views/slides';
 
-const buildStepItemps = (_state: StoreState): StepItem[] => {
-  const {progression} = _state.data;
+const buildStepItemps = (state: StoreState): StepItem[] => {
+  const {progression} = state.data;
+  // const {currentSlide} = state.ui;
+  const currentSlide = '';
   if (!progression) return [];
 
   const defaultProps: StepItem[] = [
@@ -36,8 +37,25 @@ const buildStepItemps = (_state: StoreState): StepItem[] => {
   ];
 
   const allAnswers = progression.state.allAnswers;
+  const step = progression.state.step;
   if (isEmpty(allAnswers)) return defaultProps;
-  return [];
+
+  const steps = defaultProps.map((stepItem, index): StepItem => {
+    const givenAnswer = allAnswers[index];
+    if (!givenAnswer) {
+      return {
+        ...stepItem,
+        current: step.current === index + 1
+      };
+    }
+
+    return {
+      ...stepItem,
+      icon: givenAnswer.isCorrect ? 'right' : 'wrong',
+      current: givenAnswer.slideRef === currentSlide
+    };
+  });
+  return steps;
 };
 
 export const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null => {

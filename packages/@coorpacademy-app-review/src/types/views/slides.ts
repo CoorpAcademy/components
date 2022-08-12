@@ -1,7 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type {StoreState} from '../../reducers';
 import {Dispatchers} from '../../actions';
-import {StepItem} from '../../reducers/ui/step-items';
+
+const ICON_VALUES = {
+  right: 'right',
+  wrong: 'wrong',
+  'no-answer': 'no-answer'
+} as const;
+
+type IconValue = keyof typeof ICON_VALUES;
+
+type StepItem = {
+  current: boolean;
+  icon: IconValue;
+  value: string;
+};
 
 type CorrectionPopinProps = {
   klf: {
@@ -67,4 +80,11 @@ type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'
 
 type SlidesViewProps = SlidesViewStaticProps & SlidesViewDispatcherProps;
 
-export {CorrectionPopinProps, SlidesViewStaticProps, SlidesViewDispatcherProps, SlidesViewProps};
+export {
+  CorrectionPopinProps,
+  IconValue,
+  SlidesViewStaticProps,
+  SlidesViewDispatcherProps,
+  SlidesViewProps,
+  StepItem
+};
