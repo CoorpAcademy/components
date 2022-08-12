@@ -1,7 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
-@value mobile from breakpoints;
 @value white from colors;
 @value cm_positive_100 from colors;
 @value cm_negative_100 from colors;
@@ -225,28 +224,6 @@
 }
 
 @media tablet {
-  .resultLabel {
-    display: none;
-  }
-
-  .feedbackSection {
-    margin: 0 20px 0 20px;
-  }
-
-  .correctionSection {
-    min-width: 60px;
-  }  
-
-  .actions {
-    width: 25%;
-  }
-
-  .actionsWrong {
-    width: 47%;
-  }
-}
-
-@media mobile {
   .popin {
     width: 100%;
     min-height: 100px;
