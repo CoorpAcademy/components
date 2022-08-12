@@ -1,5 +1,5 @@
 import {qcmSlide} from '../../helpers/test/fixtures/qcm';
-import {Services} from '../../types/common';
+import {ProgressionState, Services} from '../../types/common';
 
 export const services: Services = {
   fetchSkills: () => {
@@ -22,16 +22,8 @@ export const services: Services = {
     return Promise.resolve({...qcmSlide, universalRef: ref, id: ref});
   },
   postProgression: () => {
-    return Promise.resolve({
-      _id: '62b1d1087aa12f00253f40ee',
-      content: {
-        ref: '_skill-ref',
-        type: 'skill'
-      },
-      engine: {
-        ref: 'review'
-      },
-      state: {
+    const progressionStates: ProgressionState[] = [
+      {
         allAnswers: [],
         isCorrect: true,
         nextContent: {
@@ -43,7 +35,42 @@ export const services: Services = {
         step: {
           current: 1
         }
+      },
+      {
+        allAnswers: [
+          {
+            isCorrect: true,
+            slideRef: 'sli_N1XACJobn',
+            answer: []
+          }
+        ],
+        isCorrect: true,
+        content: {
+          ref: 'sli_N1XACJobn',
+          type: 'slide'
+        },
+        nextContent: {
+          ref: 'sli_N1XACJobn2',
+          type: 'slide'
+        },
+        pendingSlides: [],
+        slides: ['sli_N1XACJobn'],
+        step: {
+          current: 2
+        }
       }
+    ];
+
+    return Promise.resolve({
+      _id: '62b1d1087aa12f00253f40ee',
+      content: {
+        ref: '_skill-ref',
+        type: 'skill'
+      },
+      engine: {
+        ref: 'review'
+      },
+      state: progressionStates[0]
     });
   }
 };

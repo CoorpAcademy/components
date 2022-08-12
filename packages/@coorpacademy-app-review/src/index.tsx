@@ -22,7 +22,6 @@ import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {updateFinishedSlides} from './actions/ui/finished-slides';
 import {updateReviewStatus} from './actions/ui/review-status';
-import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/ui/step-items';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
@@ -40,8 +39,6 @@ const mapDispatchToProps: Dispatchers = {
   validateSlide,
   updateSlidesOnNext,
   updateReviewStatus,
-  updateStepItemsOnValidation,
-  updateStepItemsOnNext,
   updateFinishedSlides
 };
 

@@ -93,25 +93,27 @@ type ProgressionAnswerItem = {
   answer: string[];
 };
 
+export type ProgressionState = {
+  allAnswers: ProgressionAnswerItem[];
+  content?: {
+    ref: string;
+    type: string;
+  };
+  isCorrect: boolean;
+  nextContent: {
+    type: 'success' | 'slide';
+    ref: 'successExitNode' | string;
+  };
+  pendingSlides: string[];
+  slides: string[];
+  step: {
+    current: number;
+  };
+};
+
 export type ProgressionFromAPI = {
   _id: string;
-  state: {
-    allAnswers: ProgressionAnswerItem[];
-    content?: {
-      ref: string;
-      type: string;
-    };
-    isCorrect: boolean;
-    nextContent: {
-      type: 'success' | 'slide';
-      ref: 'successExitNode' | string;
-    };
-    pendingSlides: string[];
-    slides: string[];
-    step: {
-      current: number;
-    };
-  };
+  state: ProgressionState;
 };
 
 export type Skill = {
@@ -150,7 +152,6 @@ export type JWT = {
   host: string;
 };
 
-// -----------------------------------------------------------------------------
 type SlideUIAnimations = 'unstack' | 'restack';
 
 export type NextUISlide = {
@@ -174,18 +175,9 @@ export type UISlide = {
   nextContent?: NextUISlide;
 };
 
-const ICON_VALUES = {
-  right: 'right',
-  wrong: 'wrong',
-  'no-answer': 'no-answer'
-} as const;
-
-export type IconValue = keyof typeof ICON_VALUES;
 export type FinishedSlides = {
   [key in SlideIndexes]?: true;
 };
-
-// -----------------------------------------------------------------------------
 
 export type WithRequired<T, K extends keyof T> = T & {
   // the "-" is a Mapping Modifier, removes optionality from a prop
