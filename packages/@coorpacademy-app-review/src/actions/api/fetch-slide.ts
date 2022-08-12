@@ -1,13 +1,10 @@
 import type {AnyAction} from 'redux';
 import type {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import buildTask from '@coorpacademy/redux-task';
-import includes from 'lodash/fp/includes';
 import get from 'lodash/fp/get';
-import size from 'lodash/fp/size';
-import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
 import type {Options, ProgressionFromAPI, SlideFromAPI} from '../../types/common';
-import {setFirstSlide, updateSlidesOnValidation} from '../ui/slides';
+import {setFirstSlide} from '../ui/slides';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;
