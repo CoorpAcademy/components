@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
 import {mockTranslate} from '@coorpacademy/translate';
 import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
@@ -36,9 +37,9 @@ const renderNativeComponent = (t, Component, fixture) => {
   const json = toJSON();
 
   if (Array.isArray(json)) {
-    json.forEach(el => t.is(el.type, 'react-native-mock'));
+    json.forEach(el => t.is(get('type', el), 'react-native-mock'));
   } else {
-    t.is(json.type, 'react-native-mock');
+    t.is(get('type', json), 'react-native-mock');
   }
 };
 

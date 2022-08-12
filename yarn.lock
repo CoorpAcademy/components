@@ -3341,10 +3341,10 @@
     lodash "^4.17.21"
     prettier "2.5.1"
 
-"@coorpacademy/react-native-mock-render@^0.2.3":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-mock-render/-/react-native-mock-render-0.2.3.tgz#af1bb856a114762042331af89e873317d6ba70b3"
-  integrity sha512-W8fvYulBlSv/DEu1oPoYD6LMCH7HjCt/NkhfkBHe8CPCounBTfG8SZesgi0E1OStZM5oAqFYoGUFdQjL1TlRxQ==
+"@coorpacademy/react-native-mock-render@^0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-mock-render/-/react-native-mock-render-0.2.4.tgz#651df1d7145d56bde2256be556d5df898662b269"
+  integrity sha512-SCN2aNu+24bd3//y7klV9cNm3CIFtl0tg/BZlBiv1pi7VZtOnIe9QcNX2Y73GN67fl43D0Z//kC3nOLPFvrP8w==
   dependencies:
     art "^0.10.3"
     create-react-class "^15.7.0"

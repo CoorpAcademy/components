@@ -3,7 +3,7 @@ import {ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Color from 'color';
 
-interface Props {
+export type Props = {
   children?: ReactNode;
   colors: Array<string>;
   transparencyPosition?: 'top' | 'bottom';
@@ -11,7 +11,7 @@ interface Props {
   style?: ViewStyle | ViewStyle[] | undefined;
   testID?: string;
   pointerEvents?: 'auto' | 'none' | 'box-none' | 'box-only' | undefined;
-}
+};
 
 const Gradient = ({
   children,

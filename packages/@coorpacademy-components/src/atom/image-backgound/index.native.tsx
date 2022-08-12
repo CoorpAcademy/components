@@ -6,7 +6,6 @@ import {
   ImageStyle
 } from 'react-native';
 
-import flattenStyle from 'react-native/Libraries/StyleSheet/flattenStyle';
 import getCleanUri from '../../util/get-clean-uri';
 
 import getResizedImage from '../../util/get-resized-image';
@@ -22,14 +21,14 @@ const styles = StyleSheet.create({
   }
 });
 
-interface Props extends ImageStyle {
+export type Props = ImageStyle & {
   children?: ReactNode;
   gradient?: Array<string>;
   gradientStyle?: ViewStyle;
   testID?: string;
   source: {uri: string | undefined};
   style?: ViewStyle;
-}
+};
 
 const ImageBackground = ({
   source,
@@ -44,8 +43,7 @@ const ImageBackground = ({
 
   if (uri) {
     const {width: _width, height: _height, resizeMode} = props;
-    // @ts-ignore flattenStyle returns object everytime
-    const {width, height} = flattenStyle([{width: _width, height: _height}, style]);
+    const {width, height} = StyleSheet.flatten([{width: _width, height: _height}, style]);
     const maxHeight: number | undefined = typeof height === 'number' ? height : undefined;
     const maxWidth: number | undefined = typeof width === 'number' ? width : undefined;
 
