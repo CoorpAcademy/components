@@ -4,8 +4,7 @@ import {SlidesViewStaticProps, StepItem} from '../../types/views/slides';
 
 const buildStepItemps = (state: StoreState): StepItem[] => {
   const {progression} = state.data;
-  // const {currentSlide} = state.ui;
-  const currentSlide = '';
+  const {currentSlideRef} = state.ui;
   if (!progression) return [];
 
   const defaultProps: StepItem[] = [
@@ -52,7 +51,7 @@ const buildStepItemps = (state: StoreState): StepItem[] => {
     return {
       ...stepItem,
       icon: givenAnswer.isCorrect ? 'right' : 'wrong',
-      current: givenAnswer.slideRef === currentSlide
+      current: givenAnswer.slideRef === currentSlideRef
     };
   });
   return steps;

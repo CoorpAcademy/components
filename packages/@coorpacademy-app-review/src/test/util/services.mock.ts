@@ -58,6 +58,34 @@ export const services: Services = {
         step: {
           current: 2
         }
+      },
+      {
+        allAnswers: [
+          {
+            isCorrect: true,
+            slideRef: 'sli_N1XACJobn',
+            answer: []
+          },
+          {
+            isCorrect: false,
+            slideRef: 'sli_N1XACJobn2',
+            answer: []
+          }
+        ],
+        isCorrect: true,
+        content: {
+          ref: 'sli_N1XACJobn2',
+          type: 'slide'
+        },
+        nextContent: {
+          ref: 'sli_N1XACJobn3',
+          type: 'slide'
+        },
+        pendingSlides: [],
+        slides: ['sli_N1XACJobn', 'sli_N1XACJobn2'],
+        step: {
+          current: 3
+        }
       }
     ];
 
