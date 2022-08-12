@@ -82,6 +82,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   color: cm_blue_900;
   margin-top: 49px;
   text-align: center;
+  width: 95%;
 }
 
 .questionOrigin:empty:after {
@@ -109,7 +110,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
     transform: translate3d(0, 200px, 0);
   }
   to {
-    transform: translate3d(0, -40px, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -117,7 +118,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   position: absolute;
   bottom: 0px;
   border-radius: 7px;
-  margin: 0 15px;
+  margin: 0 15px 40px;
   width: 95%;
 }
 
@@ -149,7 +150,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
       transform: translate3d(0, 400px, 0);
     }
     to {
-      transform: translate3d(0, -40px, 0);
+      transform: translate3d(0, 0, 0);
     }
   }
 }
@@ -164,7 +165,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
       transform: translate3d(0, 500px, 0);
     }
     to {
-      transform: translate3d(0, -40px, 0);
+      transform: translate3d(0, 0, 0);
     }
   }
 }
