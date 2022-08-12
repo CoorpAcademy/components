@@ -129,7 +129,6 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
 /* ie fallback */
 _:-ms-fullscreen, :root .correctionPopinWrapper {
   left: 15px;
-  right: 15%;
 }
 
 .validateButton {
