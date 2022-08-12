@@ -87,18 +87,30 @@ export type SlideFromAPI = {
   id: string;
 };
 
+type ProgressionAnswerItem = {
+  isCorrect: boolean;
+  slideRef: string;
+  answer: string[];
+};
+
 export type ProgressionFromAPI = {
   _id: string;
   state: {
-    isCorrect: boolean;
-    step: {
-      current: number;
+    allAnswers: ProgressionAnswerItem[];
+    content?: {
+      ref: string;
+      type: string;
     };
+    isCorrect: boolean;
     nextContent: {
       type: 'success' | 'slide';
       ref: 'successExitNode' | string;
     };
-    pendingSlides: [];
+    pendingSlides: string[];
+    slides: string[];
+    step: {
+      current: number;
+    };
   };
 };
 
