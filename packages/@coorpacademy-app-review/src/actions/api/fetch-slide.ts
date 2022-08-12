@@ -31,6 +31,8 @@ export const fetchSlide = (
       const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
       return services.fetchSlide(slideRef, token).then((slideFromAPI: SlideFromAPI | void) => {
         if (!slideFromAPI) throw new Error('Slide not found');
+        dispatch(setFirstSlide(slideFromAPI));
+        /*
         const fetchedSlidesRefs = getState().data.slides.slideRefs;
         const numberOfFinishedSlides = size(getState().ui.finishedSlides);
         const isFirstSlide = isEmpty(getState().ui.finishedSlides);
@@ -45,6 +47,7 @@ export const fetchSlide = (
                 numberOfFinishedSlides
               })
             );
+        */
         return slideFromAPI;
       });
     }

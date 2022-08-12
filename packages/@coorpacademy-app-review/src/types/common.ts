@@ -84,7 +84,7 @@ export type SlideFromAPI = {
   tips?: string;
   clue?: string;
   hasClue?: boolean;
-  id?: string;
+  id: string;
 };
 
 export type ProgressionFromAPI = {
