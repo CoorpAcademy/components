@@ -82,7 +82,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   color: cm_blue_900;
   margin-top: 49px;
   text-align: center;
-  width: 95%;
+  width: 85%;
 }
 
 .questionOrigin:empty:after {
