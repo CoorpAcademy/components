@@ -4,14 +4,9 @@ import getOr from 'lodash/fp/getOr';
 import indexOf from 'lodash/fp/indexOf';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
+import set from 'lodash/fp/set';
 import type {SlideFromAPI, UISlide} from '../../types/common';
-import {
-  HIGHEST_INDEX,
-  indexToString,
-  SlideIndexes,
-  slideIndexes,
-  TOTAL_SLIDES_STACK
-} from '../../common';
+import {HIGHEST_INDEX, indexToString, SlideIndexes, slideIndexes} from '../../common';
 import {mapApiSlideToUi} from '../../helpers/map-api-slide-to-ui';
 import {
   OnNextPayload,
@@ -22,38 +17,41 @@ import {
   UPDATE_SLIDES_ON_VALIDATION
 } from '../../actions/ui/slides';
 
-const emptyState: UISlidesState = {} as UISlidesState;
-
 export type UISlidesState = {
   [key in SlideIndexes]: UISlide;
 };
 
-const getInitialState = (): UISlidesState => {
-  const state: UISlidesState = emptyState;
-  // eslint-disable-next-line fp/no-loops
-  for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
-    state[indexToString(index)] = {hidden: false, position: index};
+const emptyState: UISlidesState = {} as UISlidesState; // Je comprend pas sa fonction ?
+
+export const initialState: UISlidesState = {
+  '0': {
+    hidden: false,
+    position: 0
+  },
+  '1': {
+    hidden: false,
+    position: 1
+  },
+  '2': {
+    hidden: false,
+    position: 2
+  },
+  '3': {
+    hidden: false,
+    position: 3
+  },
+  '4': {
+    hidden: false,
+    position: 4
   }
-  return state;
 };
 
-export const initialState: UISlidesState = getInitialState();
-
 const setFirstSlide = (state: UISlidesState, slideFromAPI: SlideFromAPI): UISlidesState => {
-  const _state: UISlidesState = emptyState;
-  const mappedSlide: Partial<UISlide> = mapApiSlideToUi({translate: (text: string) => text})(
+  const {questionText, answerUI} = mapApiSlideToUi({translate: (text: string) => text})(
     slideFromAPI
   );
 
-  // eslint-disable-next-line lodash-fp/no-unused-result
-  map(index => {
-    const previousValue = state[index];
-    // Only update the 1st one
-    const content = index === '0' ? {...previousValue, ...mappedSlide} : {...previousValue};
-    _state[index] = {...content};
-  }, slideIndexes);
-
-  return _state;
+  return pipe(set(['0', 'questionText'], questionText), set(['0', 'answerUI'], answerUI))(state);
 };
 
 // ||-------> Handles the updates of a given slide on validation,
