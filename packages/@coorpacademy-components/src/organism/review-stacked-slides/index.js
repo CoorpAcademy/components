@@ -53,13 +53,7 @@ const StackedSlides = ({
         )}
       >
         {isNil(slide.answerUI && slide.position === 0) ? (
-          <div
-            key={`slide-${slideIndex}`}
-            data-name={`slide-${slideIndex}`}
-            className={classnames(style.slideBase, stylesByPosition[slideIndex])}
-          >
-            <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
-          </div>
+          <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
         ) : (
           <ReviewSlide
             {...{
