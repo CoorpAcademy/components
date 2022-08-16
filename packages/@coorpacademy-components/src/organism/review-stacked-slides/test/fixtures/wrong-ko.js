@@ -26,7 +26,7 @@ export default {
     slides: {
       '0': {
         hidden: true,
-        position: 0,
+        position: 4,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
         answerUI: qcmDrag,
@@ -36,7 +36,7 @@ export default {
         hidden: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
-        position: 1,
+        position: 3,
         answerUI: qcmDrag,
         isCorrect: false // ici la question 2 devrait pas être affichée en première
       },
@@ -44,7 +44,7 @@ export default {
         hidden: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 3',
-        position: 2,
+        position: 0,
         answerUI: qcmDrag,
         isCorrect: false,
         showCorrectionPopin: true,
@@ -54,13 +54,14 @@ export default {
         hidden: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 4',
-        position: 3
+        answerUI: qcmDrag,
+        position: 1
       },
       '4': {
         hidden: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 5',
-        position: 4
+        position: 2
       }
     },
     validateButton: {
