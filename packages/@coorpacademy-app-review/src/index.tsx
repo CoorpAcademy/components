@@ -11,7 +11,6 @@ import configureStore from './configure-store';
 
 import type {AppOptions} from './types/common';
 import type {StoreState} from './reducers';
-import {SkillsProps} from './types/views/skills';
 import type {SlidesViewStaticProps} from './types/views/slides';
 
 import {Dispatchers} from './actions';
@@ -26,6 +25,7 @@ import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
 import {mapStateToSlidesProps} from './views/slides';
+import {mapStateToSkillsProps, SkillsProps} from './views/skills';
 
 type StaticProps = {
   viewName: 'skills' | 'onboarding' | 'slides' | 'loader';
@@ -44,33 +44,6 @@ const mapDispatchToProps: Dispatchers = {
 
 const getCurrentViewName = (storeState: StoreState): ViewPath =>
   storeState.ui.navigation[storeState.ui.navigation.length - 1];
-
-const mapStateToSkillsProps = (state: StoreState): SkillsProps | null => {
-  if (!state.data.skills) {
-    return null;
-  }
-
-  return {
-    title: '@todo title',
-    titleNoSkills: '@todo titleNoSkills',
-    textNoSkills: '@todo textNoSkills',
-    iconSkillAriaLabel: '@todo iconSkillAriaLabel',
-    isLoading: false,
-    isLoadingAriaLabel: '@todo loading',
-    listSkills: state.data.skills.map(skill => ({
-      'aria-label': '',
-      isCustom: skill.custom,
-      skillTitle: skill.name,
-      skillAriaLabel: '@todo skill aria label',
-      buttonLabel: '@todo button',
-      buttonAriaLabel: '@todo button aria label',
-      reviseLabel: '@todo revise',
-      reviseAriaLabel: '@todo revise aria label',
-      // eslint-disable-next-line no-console
-      onClick: () => console.log('@todo plug dispatcher select skill')
-    }))
-  };
-};
 
 const mapStateToProps = (state: StoreState): StaticProps => {
   return {
