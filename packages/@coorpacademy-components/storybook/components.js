@@ -996,6 +996,7 @@ import OrganismReviewStackedSlidesFixtureAllOk from '../src/organism/review-stac
 import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
 import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/review-stacked-slides/test/fixtures/first-correct';
 import OrganismReviewStackedSlidesFixtureInitialState from '../src/organism/review-stacked-slides/test/fixtures/initial-state';
+import OrganismReviewStackedSlidesFixtureLoading from '../src/organism/review-stacked-slides/test/fixtures/loading';
 import OrganismReviewStackedSlidesFixtureRestack from '../src/organism/review-stacked-slides/test/fixtures/restack';
 import OrganismReviewStackedSlidesFixtureSecondWrong from '../src/organism/review-stacked-slides/test/fixtures/second-wrong';
 import OrganismReviewStackedSlidesFixtureUnstack from '../src/organism/review-stacked-slides/test/fixtures/unstack';
@@ -2702,6 +2703,7 @@ export const fixtures = {
       EndReview: OrganismReviewStackedSlidesFixtureEndReview,
       FirstCorrect: OrganismReviewStackedSlidesFixtureFirstCorrect,
       InitialState: OrganismReviewStackedSlidesFixtureInitialState,
+      Loading: OrganismReviewStackedSlidesFixtureLoading,
       Restack: OrganismReviewStackedSlidesFixtureRestack,
       SecondWrong: OrganismReviewStackedSlidesFixtureSecondWrong,
       Unstack: OrganismReviewStackedSlidesFixtureUnstack,

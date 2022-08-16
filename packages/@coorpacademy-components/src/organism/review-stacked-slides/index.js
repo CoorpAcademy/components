@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import _toString from 'lodash/fp/toString';
+import isNil from 'lodash/fp/isNil';
+import Loader from '../../atom/loader';
 import ReviewSlide from '../review-slide';
 import propTypes from './prop-types';
 import style from './style.css';
@@ -26,35 +28,51 @@ const getSlideAnimation = (action, position, hidden) => {
   }
 };
 
-const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}) => {
+const StackedSlides = ({
+  slides,
+  endReview,
+  validateButton,
+  correctionPopinProps,
+  loadingAriaLabel
+}) => {
   const stackedSlides = [];
-  // eslint-disable-next-line fp/no-loops
-  for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
-    const slide = slides[_toString(slideIndex)];
-    const {animationType, hidden, position} = slide;
 
+  if (isNil(slides)) {
     const slideView = (
-      <div
-        key={`slide-${slideIndex}`}
-        data-name={`slide-${slideIndex}`}
-        className={classnames(
-          style.slideBase,
-          getSlideAnimation(animationType, position, hidden),
-          endReview ? style.endReview : null
-        )}
-      >
-        <ReviewSlide
-          {...{
-            slideIndex: _toString(slideIndex),
-            slide,
-            validateButton,
-            correctionPopinProps
-          }}
-          key={slideIndex}
-        />
+      <div className={classnames(style.slideBase, stylesByPosition[0])}>
+        <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
       </div>
     );
     stackedSlides.push(slideView);
+  } else {
+    // eslint-disable-next-line fp/no-loops
+    for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
+      const slide = slides[_toString(slideIndex)];
+      const {animationType, hidden, position} = slide;
+
+      const slideView = (
+        <div
+          key={`slide-${slideIndex}`}
+          data-name={`slide-${slideIndex}`}
+          className={classnames(
+            style.slideBase,
+            getSlideAnimation(animationType, position, hidden),
+            endReview ? style.endReview : null
+          )}
+        >
+          <ReviewSlide
+            {...{
+              slideIndex: _toString(slideIndex),
+              slide,
+              validateButton,
+              correctionPopinProps
+            }}
+            key={slideIndex}
+          />
+        </div>
+      );
+      stackedSlides.push(slideView);
+    }
   }
 
   return (
