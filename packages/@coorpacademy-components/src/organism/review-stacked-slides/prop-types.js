@@ -19,5 +19,6 @@ export default {
     '3': PropTypes.bool,
     '4': PropTypes.bool
   }),
-  finishedSlidesSize: PropTypes.number
+  finishedSlidesSize: PropTypes.number,
+  loadingAriaLabel: PropTypes.string
 };
