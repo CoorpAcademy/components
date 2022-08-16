@@ -8,8 +8,6 @@ import AppReview from '../src';
 import {services} from '../src/test/util/services.mock';
 import type {AppOptions} from '../src/types/common';
 
-// -----------------------------------------------------------------------------
-
 type SandboxOptions = {
   container: string;
 };

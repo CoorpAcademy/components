@@ -37,7 +37,11 @@ const setFirstSlide = (state: UISlidesState, slideFromAPI: SlideFromAPI): UISlid
     slideFromAPI
   );
 
-  return pipe(set(['0', 'questionText'], questionText), set(['0', 'answerUI'], answerUI))(state);
+  return pipe(
+    set(['0', 'questionText'], questionText),
+    set(['0', 'answerUI'], answerUI),
+    set(['0', 'parentContentTitle'], 'Parent Title') // TODO parentContentTitle + translate
+  )(state);
 };
 
 // eslint-disable-next-line default-param-last
