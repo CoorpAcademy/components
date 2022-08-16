@@ -1,8 +1,9 @@
-export type SpaceType = 'micro' | 'tiny' | 'small' | 'base' | 'medium' | 'large' | 'xlarge';
+import {TextStyle} from 'react-native';
 
 export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
 
 export type Colors = {
+  background?: any;
   border: string;
   gray: {
     extra: string;
@@ -16,6 +17,7 @@ export type Colors = {
   text: {
     primary: '#06265B';
   };
+  cta: string;
   negative: string;
   positive: string;
   white: string;
@@ -25,31 +27,42 @@ export type Colors = {
   salmon: string;
 };
 
-export type FontWeightType = 'extraBold' | 'bold' | 'semiBold' | 'regular';
-
-export type FontSizeType =
-  | 'extraSmall'
-  | 'small'
-  | 'medium'
-  | 'regular'
-  | 'large'
-  | 'xlarge'
-  | 'xxlarge'
-  | 'xxxlarge';
-
 export type Theme = {
   colors: Colors;
-  spacing: {[key in SpaceType]: number};
+  spacing: {
+    micro: number;
+    tiny: number;
+    small: number;
+    base: number;
+    medium: number;
+    large: number;
+    xlarge: number;
+  };
   radius: {
+    button: number;
     common: number;
     card: number;
     medium: number;
+    regular: number;
     search: number;
-    button: number;
     thumbnail: number;
   };
-  fontWeight: {[key in FontWeightType]: string};
-  fontSize: {[key in FontSizeType]: string};
+  fontWeight: {
+    regular: TextStyle['fontWeight'];
+    semiBold: TextStyle['fontWeight'];
+    bold: TextStyle['fontWeight'];
+    extraBold: TextStyle['fontWeight'];
+  };
+  fontSize: {
+    extraSmall: TextStyle['fontSize'];
+    small: TextStyle['fontSize'];
+    medium: TextStyle['fontSize'];
+    regular: TextStyle['fontSize'];
+    large: TextStyle['fontSize'];
+    xlarge: TextStyle['fontSize'];
+    xxlarge: TextStyle['fontSize'];
+    xxxlarge: TextStyle['fontSize'];
+  };
   letterSpacing: {
     header: number;
   };
