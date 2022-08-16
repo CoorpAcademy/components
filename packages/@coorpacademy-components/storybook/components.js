@@ -1004,8 +1004,8 @@ import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-
 import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/review-stacked-slides/test/fixtures/first-correct';
 import OrganismReviewStackedSlidesFixtureInitialState from '../src/organism/review-stacked-slides/test/fixtures/initial-state';
 import OrganismReviewStackedSlidesFixtureRestack from '../src/organism/review-stacked-slides/test/fixtures/restack';
+import OrganismReviewStackedSlidesFixtureSecondWrong from '../src/organism/review-stacked-slides/test/fixtures/second-wrong';
 import OrganismReviewStackedSlidesFixtureUnstack from '../src/organism/review-stacked-slides/test/fixtures/unstack';
-import OrganismReviewStackedSlidesFixtureWrongKo from '../src/organism/review-stacked-slides/test/fixtures/wrong-ko';
 import OrganismReviewStackedSlidesFixtureWrong from '../src/organism/review-stacked-slides/test/fixtures/wrong';
 import OrganismRewardsFormFixtureDefault from '../src/organism/rewards-form/test/fixtures/default';
 import OrganismRewardsFormFixtureNoRewards from '../src/organism/rewards-form/test/fixtures/no-rewards';
@@ -1177,9 +1177,9 @@ import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/play
 import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
 import TemplateAppReviewPlayerFixtureFirstRight from '../src/template/app-review/player/test/fixtures/first-right';
 import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
-import TemplateAppReviewPlayerFixtureOneFailKo from '../src/template/app-review/player/test/fixtures/one-fail-ko';
 import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
 import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
+import TemplateAppReviewPlayerFixtureSecondFailedQuestion from '../src/template/app-review/player/test/fixtures/second-failed-question';
 import TemplateAppReviewPlayerFixtureUnstack from '../src/template/app-review/player/test/fixtures/unstack';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
@@ -2719,8 +2719,8 @@ export const fixtures = {
       FirstCorrect: OrganismReviewStackedSlidesFixtureFirstCorrect,
       InitialState: OrganismReviewStackedSlidesFixtureInitialState,
       Restack: OrganismReviewStackedSlidesFixtureRestack,
+      SecondWrong: OrganismReviewStackedSlidesFixtureSecondWrong,
       Unstack: OrganismReviewStackedSlidesFixtureUnstack,
-      WrongKo: OrganismReviewStackedSlidesFixtureWrongKo,
       Wrong: OrganismReviewStackedSlidesFixtureWrong
     },
     OrganismRewardsForm: {
@@ -2982,9 +2982,9 @@ export const fixtures = {
       EndReview: TemplateAppReviewPlayerFixtureEndReview,
       FirstRight: TemplateAppReviewPlayerFixtureFirstRight,
       InitialState: TemplateAppReviewPlayerFixtureInitialState,
-      OneFailKo: TemplateAppReviewPlayerFixtureOneFailKo,
       OneFail: TemplateAppReviewPlayerFixtureOneFail,
       Restack: TemplateAppReviewPlayerFixtureRestack,
+      SecondFailedQuestion: TemplateAppReviewPlayerFixtureSecondFailedQuestion,
       Unstack: TemplateAppReviewPlayerFixtureUnstack
     },
     TemplateAppReviewSkills: {
