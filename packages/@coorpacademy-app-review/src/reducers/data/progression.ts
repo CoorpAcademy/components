@@ -1,4 +1,4 @@
-import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/data/slides';
+import {ValidateSlide, VALIDATE_SLIDE} from '../../actions/ui/slides';
 import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../actions/api/post-progression';
 import {ProgressionFromAPI} from '../../types/common';
 
