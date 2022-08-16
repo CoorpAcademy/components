@@ -37,29 +37,30 @@ const StackedSlides = ({
 }) => {
   const stackedSlides = [];
 
-  if (isNil(slides)) {
-    const slideView = (
-      <div className={classnames(style.slideBase, stylesByPosition[0])}>
-        <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
-      </div>
-    );
-    stackedSlides.push(slideView);
-  } else {
-    // eslint-disable-next-line fp/no-loops
-    for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
-      const slide = slides[_toString(slideIndex)];
-      const {animationType, hidden, position} = slide;
+  // eslint-disable-next-line fp/no-loops
+  for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
+    const slide = slides[_toString(slideIndex)];
+    const {animationType, hidden, position} = slide;
 
-      const slideView = (
-        <div
-          key={`slide-${slideIndex}`}
-          data-name={`slide-${slideIndex}`}
-          className={classnames(
-            style.slideBase,
-            getSlideAnimation(animationType, position, hidden),
-            endReview ? style.endReview : null
-          )}
-        >
+    const slideView = (
+      <div
+        key={`slide-${slideIndex}`}
+        data-name={`slide-${slideIndex}`}
+        className={classnames(
+          style.slideBase,
+          getSlideAnimation(animationType, position, hidden),
+          endReview ? style.endReview : null
+        )}
+      >
+        {isNil(slide.answerUI && slide.position === 0) ? (
+          <div
+            key={`slide-${slideIndex}`}
+            data-name={`slide-${slideIndex}`}
+            className={classnames(style.slideBase, stylesByPosition[slideIndex])}
+          >
+            <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
+          </div>
+        ) : (
           <ReviewSlide
             {...{
               slideIndex: _toString(slideIndex),
@@ -69,10 +70,10 @@ const StackedSlides = ({
             }}
             key={slideIndex}
           />
-        </div>
-      );
-      stackedSlides.push(slideView);
-    }
+        )}
+      </div>
+    );
+    stackedSlides.push(slideView);
   }
 
   return (
