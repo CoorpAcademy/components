@@ -9,12 +9,15 @@ export const services: Services = {
         slidesToReview: 2,
         name: 'skill-test',
         custom: false
+        // TODO parentContentTitle
       },
       {
         skillRef: '_skill-ref-2',
         slidesToReview: 2,
         name: 'skill-test-2',
-        custom: true
+        custom: true,
+        parentContentTitle: 'parentContentTitle 2'
+        // TODO parentContentTitle
       }
     ]);
   },
