@@ -141,13 +141,18 @@ const Slide = (props, context) => {
 
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
-  const {questionText, answerUI, showCorrectionPopin, animateCorrectionPopin} = slide;
-  const questionOrigin = 'From "Master Design Thinking to become more agile" course';
+  const {
+    parentContentTitle,
+    questionText,
+    answerUI,
+    showCorrectionPopin,
+    animateCorrectionPopin
+  } = slide;
 
   return (
     <div data-name={`slide-container`} className={style.slide}>
       <QuestionContainer
-        questionOrigin={questionOrigin}
+        questionOrigin={parentContentTitle}
         questionText={questionText}
         answerUI={answerUI}
       />

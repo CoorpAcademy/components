@@ -27,12 +27,14 @@ export default {
       '0': {
         hidden: true,
         position: 0,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
         answerUI: qcmDrag,
         isCorrect: true
       },
       '1': {
         hidden: true,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
         position: 1,
         answerUI: qcmDrag,
@@ -40,6 +42,7 @@ export default {
       },
       '2': {
         hidden: false,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 3',
         position: 2,
         answerUI: qcmDrag,
@@ -49,11 +52,13 @@ export default {
       },
       '3': {
         hidden: false,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 4',
         position: 3
       },
       '4': {
         hidden: false,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 5',
         position: 4
       }

@@ -35,6 +35,7 @@ export default {
       '0': {
         hidden: false,
         position: 0,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
         answerUI: qcmDrag,
         isCorrect: false,
@@ -46,6 +47,7 @@ export default {
       '1': {
         hidden: false,
         position: 1,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
         answerUI: qcmGraphic
       },
