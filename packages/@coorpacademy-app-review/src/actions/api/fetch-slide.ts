@@ -2,6 +2,7 @@ import type {AnyAction} from 'redux';
 import type {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
+import has from 'lodash/fp/has';
 import type {StoreState} from '../../reducers';
 import type {Options, ProgressionFromAPI, SlideFromAPI} from '../../types/common';
 import {setFirstSlide} from '../ui/slides';
@@ -24,6 +25,10 @@ export const fetchSlide = (
 ): FetchSlideAction =>
   buildTask({
     types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
+    bailout: (state: StoreState): boolean => {
+      const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
+      return has(`data.slide.${slideRef}`, state);
+    },
     task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) => {
       const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
       return services.fetchSlide(slideRef, token).then((slideFromAPI: SlideFromAPI | void) => {
