@@ -1,8 +1,10 @@
 import has from 'lodash/fp/has';
 import set from 'lodash/fp/set';
-import {SlidesAction} from '../../actions/data/slides';
-import {SLIDE_FETCH_SUCCESS} from '../../actions/api/fetch-slide';
+import {ValidateSlide} from '../../actions/ui/slides';
+import {ReceivedSlide, SLIDE_FETCH_SUCCESS} from '../../actions/api/fetch-slide';
 import {SlideFromAPI} from '../../types/common';
+
+export type SlidesAction = ReceivedSlide | ValidateSlide;
 
 export type SlidesState = Record<string, SlideFromAPI>;
 export const initialState: SlidesState = {};

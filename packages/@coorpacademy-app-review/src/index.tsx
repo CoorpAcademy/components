@@ -14,13 +14,10 @@ import type {StoreState} from './reducers';
 import type {SlidesViewStaticProps} from './types/views/slides';
 
 import {Dispatchers} from './actions';
-import {validateSlide} from './actions/data/slides';
-import {updateSlidesOnNext} from './actions/ui/slides';
+import {validateSlide} from './actions/ui/slides';
 
 import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
-import {updateFinishedSlides} from './actions/ui/finished-slides';
-import {updateReviewStatus} from './actions/ui/review-status';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
@@ -36,10 +33,7 @@ type StaticProps = {
 const mapDispatchToProps: Dispatchers = {
   navigateTo,
   navigateBack,
-  validateSlide,
-  updateSlidesOnNext,
-  updateReviewStatus,
-  updateFinishedSlides
+  validateSlide
 };
 
 const getCurrentViewName = (storeState: StoreState): ViewPath =>
