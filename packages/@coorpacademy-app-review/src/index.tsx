@@ -84,7 +84,7 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
-  const [isProgressionCreated, setIsSlideFetched] = useState(false);
+  const [isProgressionCreated, setIsProgressionCreated] = useState(false);
 
   useEffect(() => {
     if (store) return;
@@ -98,10 +98,8 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
     return store.subscribe(() => {
       const isProgressionPresent = !isEmpty(store.getState().data.progression);
-      return isProgressionPresent && setIsSlideFetched(isProgressionPresent);
+      return isProgressionPresent && setIsProgressionCreated(isProgressionPresent);
     });
-    // using the first slide questionText for now, should only check for a slide's presence
-    // when the refactor is done (slides will be feed one by one on api's side)
   }, [isProgressionCreated, options, store]);
 
   useEffect(() => {
@@ -116,8 +114,8 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
     const skillRef = get('skillRef', options);
 
-    // ThunkAction is not assignable to parameter of type 'AnyAction'
-    // ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333
+    /* ThunkAction is not assignable to parameter of type 'AnyAction'
+      ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333 */
     skillRef
       ? store.dispatch(postProgression(skillRef, token))
       : store.dispatch(fetchSkills(token));
