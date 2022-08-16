@@ -85,9 +85,9 @@ const PlayerReview = ({
 
   return (
     <div
-      key="slides-revision-container"
-      data-name="slides-revision-container"
-      className={style.slidesRevisionContainer}
+      key="review-player-container"
+      data-name="review-player-container"
+      className={style.playerReviewContainer}
     >
       <div key="player-background-container" className={style.playerBackground}>
         <ReviewBackground aria-label={reviewBackgroundAriaLabel} />
