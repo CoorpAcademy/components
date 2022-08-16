@@ -1,4 +1,4 @@
-.slidesRevisionContainer {
+.playerReviewContainer {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
   flex child height differently than chromium browsers
 */
 @supports (-moz-appearance:none) {
-  div.slidesRevisionContainer {
+  div.playerReviewContainer {
     height: 100%;
   } 
 }
