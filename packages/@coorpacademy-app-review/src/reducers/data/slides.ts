@@ -1,4 +1,3 @@
-import has from 'lodash/fp/has';
 import set from 'lodash/fp/set';
 import {ValidateSlide} from '../../actions/ui/slides';
 import {ReceivedSlide, SLIDE_FETCH_SUCCESS} from '../../actions/api/fetch-slide';
@@ -14,7 +13,6 @@ const reducer = (state: SlidesState = initialState, action: SlidesAction): Slide
   switch (action.type) {
     case SLIDE_FETCH_SUCCESS: {
       const slide = action.payload;
-      if (has(slide.id, state)) return state;
       return set(slide.id, slide, state);
     }
     default:
