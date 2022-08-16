@@ -9,6 +9,7 @@ export const SlideProp = PropTypes.shape({
   isCorrect: PropTypes.bool,
   animateCorrectionPopin: PropTypes.bool,
   showCorrectionPopin: PropTypes.bool,
+  parentContentTitle: PropTypes.string,
   questionText: PropTypes.string,
   answerUI: PropTypes.shape(AnswerPropTypes)
 });
