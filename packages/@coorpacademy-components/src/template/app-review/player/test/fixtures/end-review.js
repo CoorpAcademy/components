@@ -7,24 +7,6 @@ export default {
     header: Header.props,
     stack: EndReviewStackedSlides.props,
     reviewBackgroundAriaLabel: 'image background',
-    congratsProps: congratsProps.props,
-
-    apiSlides: {
-      slideRefs: ['sli_N1XACJobn', 'sli_41~RSVclH'],
-      values: {
-        sli_N1XACJobn: {},
-        'sli_41~RSVclH': {}
-      }
-    },
-    progression: {
-      _id: '62b1d1087aa12f00253f40e2',
-      state: {
-        isCorrect: true,
-        nextContent: {
-          type: 'success',
-          ref: 'successExitNode'
-        }
-      }
-    }
+    congratsProps: congratsProps.props
   }
 };
