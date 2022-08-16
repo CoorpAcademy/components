@@ -36,7 +36,6 @@ const StackedSlides = ({
   loadingAriaLabel
 }) => {
   const stackedSlides = [];
-
   // eslint-disable-next-line fp/no-loops
   for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
     const slide = slides[_toString(slideIndex)];
