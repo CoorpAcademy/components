@@ -128,13 +128,9 @@ const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null 
         }
       },
       correctionPopinProps: undefined,
-      endReview: false,
-      finishedSlides: state.ui.finishedSlides
+      endReview: false
     },
-    congratsProps: undefined,
-    // props dont on connait pas l'utilisation
-    apiSlides: state.data.slides,
-    progression: state.data.progression
+    congratsProps: undefined
   };
 };
 

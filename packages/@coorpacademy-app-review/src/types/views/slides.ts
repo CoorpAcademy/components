@@ -39,7 +39,6 @@ type SlidesViewStaticProps = {
     };
     correctionPopinProps?: CorrectionPopinProps;
     endReview: boolean;
-    finishedSlides: StoreState['ui']['finishedSlides'];
   };
   reviewBackgroundAriaLabel?: string;
   congratsProps?: {
@@ -62,9 +61,6 @@ type SlidesViewStaticProps = {
       type: string;
     };
   };
-  // props dont on connait pas l'utilisation
-  apiSlides: StoreState['data']['slides'];
-  progression: StoreState['data']['progression'];
 };
 
 type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'>;
