@@ -22,7 +22,7 @@ test.serial('validate click test', async t => {
   );
   t.truthy(elementExists(stackedSlidesContainer));
 
-  const validateButton = container.querySelectorAll('[data-name="slide-validate-button-4"]');
+  const validateButton = container.querySelectorAll('[data-name="slide-validate-button-0"]');
   t.truthy(elementExists(validateButton));
 
   await act(async () => {
