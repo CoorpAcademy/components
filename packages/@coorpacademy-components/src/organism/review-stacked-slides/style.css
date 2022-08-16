@@ -124,12 +124,12 @@
 
 .slideOutHideAndIn {
   pointer-events: none;
-  animation: slideOutHideAndSlideIn 5s ease forwards;
+  animation: slideOutHideAndSlideIn 3s ease forwards;
 }
 
 .slideOutAndIn {
   pointer-events: none;
-  animation: slideOutAndIn 5s ease forwards;
+  animation: slideOutAndIn 3s ease forwards;
 }
 
 .hiddenSlide {

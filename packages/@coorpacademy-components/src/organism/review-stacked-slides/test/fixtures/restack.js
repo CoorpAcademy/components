@@ -34,7 +34,7 @@ export default {
     slides: {
       '0': {
         hidden: false,
-        position: 0,
+        position: 4,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
         answerUI: qcmDrag,
@@ -46,22 +46,22 @@ export default {
       },
       '1': {
         hidden: false,
-        position: 1,
+        position: 0,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
         answerUI: qcmGraphic
       },
       '2': {
         hidden: false,
-        position: 2
+        position: 1
       },
       '3': {
         hidden: false,
-        position: 3
+        position: 2
       },
       '4': {
         hidden: false,
-        position: 4
+        position: 3
       }
     },
     validateButton: {
