@@ -1,4 +1,4 @@
-import {SET_FIRST_SLIDE, UISlidesAction} from '../../actions/ui/slides';
+import {SET_CURRENT_SLIDE, UISlidesAction} from '../../actions/ui/slides';
 
 export type CurrentSlideRefState = string;
 
@@ -8,7 +8,7 @@ const reducer = (
   action: UISlidesAction
 ): CurrentSlideRefState => {
   switch (action.type) {
-    case SET_FIRST_SLIDE: {
+    case SET_CURRENT_SLIDE: {
       return action.payload.id;
     }
     default:

@@ -3,7 +3,7 @@ import set from 'lodash/fp/set';
 import type {SlideFromAPI, UISlide} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {mapApiSlideToUi} from '../../helpers/map-api-slide-to-ui';
-import {SET_FIRST_SLIDE, UISlidesAction} from '../../actions/ui/slides';
+import {SET_CURRENT_SLIDE, UISlidesAction} from '../../actions/ui/slides';
 
 export type UISlidesState = {
   [key in SlideIndexes]: UISlide;
@@ -47,7 +47,7 @@ const setFirstSlide = (state: UISlidesState, slideFromAPI: SlideFromAPI): UISlid
 // eslint-disable-next-line default-param-last
 const reducer = (state: UISlidesState = initialState, action: UISlidesAction): UISlidesState => {
   switch (action.type) {
-    case SET_FIRST_SLIDE: {
+    case SET_CURRENT_SLIDE: {
       return setFirstSlide(state, action.payload);
     }
     default:
