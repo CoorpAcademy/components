@@ -69,10 +69,6 @@ export default {
       onClick: () => console.log('onValidateClick'),
       disabled: true
     },
-    finishedSlides: {
-      '0': true
-    },
-    finishedSlidesSize: 1,
     correctionPopinProps
   }
 };

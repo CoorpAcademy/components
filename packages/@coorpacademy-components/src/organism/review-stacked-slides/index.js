@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 import _toString from 'lodash/fp/toString';
+import isNil from 'lodash/fp/isNil';
+import Loader from '../../atom/loader';
 import ReviewSlide from '../review-slide';
 import propTypes from './prop-types';
 import style from './style.css';
@@ -26,7 +28,13 @@ const getSlideAnimation = (action, position, hidden) => {
   }
 };
 
-const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}) => {
+const StackedSlides = ({
+  slides,
+  endReview,
+  validateButton,
+  correctionPopinProps,
+  loadingAriaLabel
+}) => {
   const stackedSlides = [];
   // eslint-disable-next-line fp/no-loops
   for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
@@ -43,15 +51,19 @@ const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}
           endReview ? style.endReview : null
         )}
       >
-        <ReviewSlide
-          {...{
-            slideIndex: _toString(slideIndex),
-            slide,
-            validateButton,
-            correctionPopinProps
-          }}
-          key={slideIndex}
-        />
+        {isNil(slide.answerUI) && slide.position === 0 ? (
+          <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
+        ) : (
+          <ReviewSlide
+            {...{
+              slideIndex: _toString(slideIndex),
+              slide,
+              validateButton,
+              correctionPopinProps
+            }}
+            key={slideIndex}
+          />
+        )}
       </div>
     );
     stackedSlides.push(slideView);

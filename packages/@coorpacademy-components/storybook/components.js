@@ -1003,6 +1003,7 @@ import OrganismReviewStackedSlidesFixtureAllOk from '../src/organism/review-stac
 import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
 import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/review-stacked-slides/test/fixtures/first-correct';
 import OrganismReviewStackedSlidesFixtureInitialState from '../src/organism/review-stacked-slides/test/fixtures/initial-state';
+import OrganismReviewStackedSlidesFixtureLoading from '../src/organism/review-stacked-slides/test/fixtures/loading';
 import OrganismReviewStackedSlidesFixtureRestack from '../src/organism/review-stacked-slides/test/fixtures/restack';
 import OrganismReviewStackedSlidesFixtureSecondWrong from '../src/organism/review-stacked-slides/test/fixtures/second-wrong';
 import OrganismReviewStackedSlidesFixtureUnstack from '../src/organism/review-stacked-slides/test/fixtures/unstack';
@@ -1177,6 +1178,7 @@ import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/play
 import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
 import TemplateAppReviewPlayerFixtureFirstRight from '../src/template/app-review/player/test/fixtures/first-right';
 import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
+import TemplateAppReviewPlayerFixtureLoading from '../src/template/app-review/player/test/fixtures/loading';
 import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
 import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
 import TemplateAppReviewPlayerFixtureSecondFailedQuestion from '../src/template/app-review/player/test/fixtures/second-failed-question';
@@ -2718,6 +2720,7 @@ export const fixtures = {
       EndReview: OrganismReviewStackedSlidesFixtureEndReview,
       FirstCorrect: OrganismReviewStackedSlidesFixtureFirstCorrect,
       InitialState: OrganismReviewStackedSlidesFixtureInitialState,
+      Loading: OrganismReviewStackedSlidesFixtureLoading,
       Restack: OrganismReviewStackedSlidesFixtureRestack,
       SecondWrong: OrganismReviewStackedSlidesFixtureSecondWrong,
       Unstack: OrganismReviewStackedSlidesFixtureUnstack,
@@ -2982,6 +2985,7 @@ export const fixtures = {
       EndReview: TemplateAppReviewPlayerFixtureEndReview,
       FirstRight: TemplateAppReviewPlayerFixtureFirstRight,
       InitialState: TemplateAppReviewPlayerFixtureInitialState,
+      Loading: TemplateAppReviewPlayerFixtureLoading,
       OneFail: TemplateAppReviewPlayerFixtureOneFail,
       Restack: TemplateAppReviewPlayerFixtureRestack,
       SecondFailedQuestion: TemplateAppReviewPlayerFixtureSecondFailedQuestion,
