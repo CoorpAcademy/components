@@ -170,21 +170,21 @@ const basicProps = (question: BasicQuestion): FreeText => {
 const sliderProps = (question: SliderQuestion): QuestionRange => {
   const values: number[] = rangeStep(
     getOr(1, 'content.step', question),
-    getOr(Number.NaN, 'content.min', question),
-    getOr(Number.NaN, 'content.max', question) + 1
+    get('content.min', question),
+    get('content.max', question) + 1
     // Lodash doesn't infer the type very well here
   ) as unknown as number[];
 
   // TODO: EDIT_CHOICES -> getAnswerValues
   const answers: string[] = [];
 
-  const stateValue = head(answers);
+  const stateValue = head(answers) || question.content.min;
   const currentValue = toInteger(stateValue);
 
   const indexValue = indexOf(currentValue, values);
   const sliderPosition = divide(indexValue, size(values) - 1);
 
-  const unitLabel = get('question.content.unitLabel', question);
+  const unitLabel = get('content.unitLabel', question);
 
   return {
     type: 'slider',

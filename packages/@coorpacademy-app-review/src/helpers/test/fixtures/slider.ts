@@ -2,34 +2,35 @@ import noop from 'lodash/fp/noop';
 import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const sliderSlide: SlideFromAPI = {
-  id: 'sli_41D5AovN~',
-  universalRef: 'sli_41D5AovN~',
   question: {
-    type: 'slider',
-    header: 'sli_41D5AovN~.header',
-    explanation: 'sli_41D5AovN~.explanation',
     content: {
       min: 1,
-      max: 10,
-      unitLabel: 'sli_41D5AovN~.unitLabel'
-    }
+      max: 15,
+      unitLabel: 'an(s)'
+    },
+    type: 'slider',
+    header:
+      'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?',
+    explanation: 'Déplacez le curseur.'
   },
-  clue: 'sli_41D5AovN~.clue',
-  klf: 'sli_41D5AovN~.klf',
-  tips: 'sli_41D5AovN~.tips'
+  klf: 'Dans le cadre d’un projet local, la communauté de communes du Thouarsais, dans le Poitou (ouest de la France), a développé un parc diversifié d’énergies renouvelables : éolien, biomasse, solaire… En sept ans seulement, entre 2007 et 2014, la part d’énergies renouvelables est passée de zéro à un tiers !',
+  tips: 'En 2014, le Thouarsais a reçu la médaille de bronze du championnat européen des énergies renouvelables.',
+  universalRef: 'sli_VkAzsCLKb',
+  id: 'sli_VkAzsCLKb'
 };
 
 export const sliderUISlide: Partial<UISlide> = {
-  questionText: 'sli_41D5AovN~.header',
+  questionText:
+    'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?',
   answerUI: {
-    help: 'sli_41D5AovN~.explanation',
+    help: 'Déplacez le curseur.',
     model: {
       type: 'slider',
-      placeholder: 'sli_41D5AovN~.explanation',
-      minLabel: '1 undefined',
-      maxLabel: '10 undefined',
-      title: '0 sli_41D5AovN~.unitLabel',
-      value: -0.1111111111111111,
+      placeholder: 'Déplacez le curseur.',
+      minLabel: '1 an(s)',
+      maxLabel: '15 an(s)',
+      title: '1 an(s)',
+      value: 0,
       onChange: noop
     }
   }
