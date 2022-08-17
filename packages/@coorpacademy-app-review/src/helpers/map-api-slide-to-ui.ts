@@ -65,7 +65,7 @@ const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
       const indexInAnswer = indexOf(choice.label, answers);
       return {
         title: choice.label,
-        selected: indexInAnswer !== -1,
+        selected: includes(choice.label, answers),
         order: indexInAnswer,
         // TODO: EDIT_CHOICES
         // eslint-disable-next-line no-console
