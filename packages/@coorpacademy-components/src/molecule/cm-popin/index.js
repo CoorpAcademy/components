@@ -25,7 +25,7 @@ const CMPopin = props => {
     thirdButton,
     cookieTitle,
     descriptionBtnTxt,
-    listBtnSwicth
+      
   } = props;
 
   const logo = {
@@ -74,10 +74,11 @@ const CMPopin = props => {
         theme,
         details,
         requiredSelection,
-        disabled
+        disabled,
+        id
       } = el;
       return (
-        <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
+        <div key={index} className={getClassBtnSwitch(index,  )}>
           <InputSwitch
             {...{
               type,
@@ -88,7 +89,8 @@ const CMPopin = props => {
               theme,
               details,
               requiredSelection,
-              disabled
+              disabled,
+              id
             }}
           />
         </div>
@@ -207,7 +209,7 @@ CMPopin.propTypes = {
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
-  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
+    : PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
 export default CMPopin;
