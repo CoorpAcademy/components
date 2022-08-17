@@ -51,7 +51,7 @@ const StackedSlides = ({
           endReview ? style.endReview : null
         )}
       >
-        {isNil(slide.answerUI && slide.position === 0) ? (
+        {isNil(slide.answerUI) && slide.position === 0 ? (
           <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
         ) : (
           <ReviewSlide
