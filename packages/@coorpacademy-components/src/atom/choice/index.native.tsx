@@ -3,7 +3,7 @@ import {View, StyleSheet, ViewStyle} from 'react-native';
 import type {Media, QuestionType} from '../../types/progression-engine';
 
 import Html from '../html/index.native';
-import ImageBackground from '../image-backgound/index.native';
+import ImageBackground from '../image-background/index.native';
 import getCleanUri from '../../util/get-clean-uri';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
