@@ -37,6 +37,10 @@
   max-width: 100%;
 }
 
+.innerHTML {
+  composes: innerHTML from '../../../../../atom/label/style.css';
+}
+
 @media mobile {
   .content {
     max-width: none;

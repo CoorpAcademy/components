@@ -137,6 +137,10 @@
   display: none;
 }
 
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css';
+}
+
 @media desktop {
   .wrapper {
     max-width: 1080px;

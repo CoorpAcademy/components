@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import {NovaCompositionNavigationArrowLeft as BackIcon} from '@coorpacademy/nova-icons';
 import Link from '../../../../../atom/link';
 import Provider from '../../../../../atom/provider';
-import {innerHTML} from '../../../../../atom/label/style.css';
 import style from './learner.css';
 
 const Content = ({onClick, title, details}, context) => {
@@ -27,7 +26,7 @@ const Content = ({onClick, title, details}, context) => {
 
         <span
           data-name="contentTitle"
-          className={classnames(style.contentTitle, innerHTML)}
+          className={classnames(style.contentTitle, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
         />
@@ -50,7 +49,7 @@ const Subcontent = ({title, details}, context) => (
   <div className={style.subcontent}>
     <div className={style.subcontentDetails}>{details}</div>
     <div
-      className={classnames(style.subcontentTitle, innerHTML)}
+      className={classnames(style.subcontentTitle, style.innerHTML)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: title}}
     />

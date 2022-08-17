@@ -271,6 +271,11 @@
   justify-content: center;
 }
 
+.innerHTML {
+  composes: innerHTML from '../../../../atom/label/style.css';
+}
+
+
 @media tablet {
   .wrapper {
     box-shadow: none;

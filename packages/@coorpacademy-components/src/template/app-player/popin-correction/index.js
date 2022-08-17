@@ -11,7 +11,6 @@ import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
 import ResourceBrowser from '../../../organism/resource-browser';
 import Accordion from '../../../organism/accordion/container';
-import {innerHTML} from '../../../atom/label/style.css';
 import Header from '../popin-header';
 import style from './style.css';
 
@@ -37,7 +36,7 @@ Resources.propTypes = {
 const SimpleText = ({text}) => (
   <div data-name="simpleText" className={style.simpleTextWrapper}>
     <p
-      className={classnames(style.simpleText, innerHTML)}
+      className={classnames(style.simpleText, style.innerHTML)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: text}}
     />
@@ -74,7 +73,7 @@ AssistanceLink.propTypes = {
 const Question = ({header, answer, answerPrefix}) => (
   <div className={style.question}>
     <p
-      className={classnames(style.questionHeader, innerHTML)}
+      className={classnames(style.questionHeader, style.innerHTML)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: header}}
     />
@@ -82,7 +81,7 @@ const Question = ({header, answer, answerPrefix}) => (
       <CheckIcon className={style.checkIcon} color="inherit" />
       {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
       <span
-        className={classnames(style.answer, innerHTML)}
+        className={classnames(style.answer, style.innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: answer}}
       />
