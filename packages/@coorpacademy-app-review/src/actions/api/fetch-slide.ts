@@ -1,8 +1,12 @@
 import type {AnyAction} from 'redux';
 import type {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import buildTask from '@coorpacademy/redux-task';
+import get from 'lodash/fp/get';
+import has from 'lodash/fp/has';
+import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
-import {Options, SlideFromAPI} from '../../types/common';
+import type {Options, ProgressionFromAPI, SlideFromAPI} from '../../types/common';
+import {setCurrentSlide} from '../ui/slides';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;
@@ -13,12 +17,29 @@ export interface ReceivedSlide extends AnyAction {
   payload: SlideFromAPI;
 }
 
-export type FetchSlideAction = ThunkAction<Promise<void>, StoreState, Options, AnyAction>;
+export type FetchSlideAction = ThunkAction<Promise<SlideFromAPI>, StoreState, Options, AnyAction>;
 type Dispatch = ThunkDispatch<StoreState, Options, AnyAction>;
 
-export const fetchSlide = (slideRef: string, token: string): FetchSlideAction =>
+export const fetchSlide = (
+  progressionFromAPI: ProgressionFromAPI,
+  token: string
+): FetchSlideAction =>
   buildTask({
     types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
-    task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) =>
-      services.fetchSlide(slideRef, token)
+    bailout: (state: StoreState): boolean => {
+      const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
+      return has(`data.slide.${slideRef}`, state);
+    },
+    task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) => {
+      const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
+      return services.fetchSlide(slideRef, token).then((slideFromAPI: SlideFromAPI | void) => {
+        if (!slideFromAPI) throw new Error('Slide not found');
+        const state = getState();
+        const slides = get('data.progression.state.slides', state);
+        if (isEmpty(slides)) {
+          dispatch(setCurrentSlide(slideFromAPI));
+        }
+        return slideFromAPI;
+      });
+    }
   });

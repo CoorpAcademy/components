@@ -1,6 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {Template} from '../../../types/slides';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const textTemplateSlide: SlideFromAPI = {
   question: {
@@ -37,16 +36,22 @@ export const textTemplateSlide: SlideFromAPI = {
   id: 'sli_VJKQonm2g'
 };
 
-export const textTemplateUISlide: Template = {
-  type: 'template',
-  template: 'Un   {{inp58402}}   model.',
-  answers: [
-    {
-      type: 'text',
-      name: 'inp58402',
-      placeholder: 'Type here',
-      value: undefined,
-      onChange: noop
+export const textTemplateUISlide: Partial<UISlide> = {
+  questionText: 'Comment le protégé doit-il percevoir son mentor ?',
+  answerUI: {
+    help: 'Saisissez votre réponse (en anglais).',
+    model: {
+      type: 'template',
+      template: 'Un   {{inp58402}}   model.',
+      answers: [
+        {
+          type: 'text',
+          name: 'inp58402',
+          placeholder: 'Type here',
+          value: undefined,
+          onChange: noop
+        }
+      ]
     }
-  ]
+  }
 };

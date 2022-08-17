@@ -1,0 +1,179 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.stackedSlidesYAxisOverflowContainer {
+  width: 100%;
+  padding-top: 20px;
+  height: 100%;
+  min-height: 870px;
+  /* --- ie11 fallback --- */
+  overflow-y: hidden;
+  /* --------------------- */
+  overflow-y: clip;
+  overflow-x: visible;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.stackedSlidesContainer {
+  position: relative;
+  padding-top: 20px;
+  height: 788px;
+  max-width: 1240px;
+  width: 85%;
+  align-self: center;
+}
+
+.slideBase {
+  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.05);
+  background: white;
+  height: 706px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: absolute;
+
+  transition: transform 0.5s ease-in;
+  pointer-events: none;
+}
+
+.slideBase.position0 {
+  pointer-events: auto;
+}
+
+.position0 {
+  z-index: 50;
+  width: 100%;
+  transform: translate(0, 0);
+  transition: transform 0.5s ease-in;
+}
+
+.position1 {
+  z-index: 45;
+  width: 98%;
+  transform: translate(0.8%, -8px);
+  transition: transform 0.5s ease-in;
+}
+
+.position2 {
+  z-index: 40;
+  width: 96%;
+  transform: translate(1.6%, -16px);
+  transition: transform 0.5s ease-in;
+}
+
+.position3 {
+  z-index: 35;
+  width: 94%;
+  transform: translate(2.4%, -24px);
+  transition: transform 0.5 ease-in;
+}
+
+.position4 {
+  z-index: 30;
+  width: 92%;
+  transform: translate(3.2%, -32px);
+  transition: transform 0.5 ease-in;
+}
+
+@keyframes slideOutHideAndSlideIn {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 100%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+    opacity: 1;
+  }
+  51% {
+    z-index: 30;
+    opacity: 0;
+  }
+  100% {
+    z-index: 30;
+    transform: translate(3.2%, -32px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutAndIn {
+  0% {
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 100%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    width: 92%;
+    z-index: 30;
+    transform: translate(3.2%, 900px);
+  }
+  100% {
+    z-index: 30;
+    width: 92%;
+    transform: translate(3.2%, -32px);
+  }
+}
+
+.slideOutHideAndIn {
+  pointer-events: none;
+  animation: slideOutHideAndSlideIn 3s ease forwards;
+}
+
+.slideOutAndIn {
+  pointer-events: none;
+  animation: slideOutAndIn 3s ease forwards;
+}
+
+.hiddenSlide {
+  display: none;
+}
+
+@keyframes slideOut {
+  0% {}
+  90% {
+    transform: translate(0, 1000px);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.endReview {
+  pointer-events: none;
+  animation: slideOut 2.5s ease forwards;
+}
+
+.loader {
+  height: 60px;
+  width: 60px;
+}
+
+@media tablet {
+  .stackedSlidesContainer {
+    height: 638px;
+    max-width: 960px;
+  }
+
+  .slideBase {
+    height: 606px;
+  }
+}
+
+@media mobile {
+  .stackedSlidesContainer {
+    height: 670px;
+    max-width: 335px;
+  }
+
+  .slideBase {
+    height: 654px;
+  }
+}

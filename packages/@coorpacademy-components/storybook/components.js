@@ -185,6 +185,8 @@ import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismReviewCongrats from './../src/organism/review-congrats';
 import OrganismReviewHeader from './../src/organism/review-header';
 import OrganismReviewSkills from './../src/organism/review-skills';
+import OrganismReviewSlide from './../src/organism/review-slide';
+import OrganismReviewStackedSlides from './../src/organism/review-stacked-slides';
 import OrganismRewardsForm from './../src/organism/rewards-form';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
@@ -205,8 +207,8 @@ import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-hea
 import TemplateAppPlayerPopinNoAccess from './../src/template/app-player/popin-no-access';
 import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
 import TemplateAppReviewOnboarding from './../src/template/app-review/onboarding';
+import TemplateAppReviewPlayer from './../src/template/app-review/player';
 import TemplateAppReviewSkills from './../src/template/app-review/skills';
-import TemplateAppReviewSlides from './../src/template/app-review/slides';
 import TemplateAppReview from './../src/template/app-review';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
@@ -991,6 +993,21 @@ import OrganismReviewHeaderFixtureStepsAnimation from '../src/organism/review-he
 import OrganismReviewSkillsFixtureLoading from '../src/organism/review-skills/test/fixtures/loading';
 import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills/test/fixtures/many-skills';
 import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
+import OrganismReviewSlideFixtureChoicesSelected from '../src/organism/review-slide/test/fixtures/choices-selected';
+import OrganismReviewSlideFixtureCorrectionOkAnimated from '../src/organism/review-slide/test/fixtures/correction-ok-animated';
+import OrganismReviewSlideFixtureCorrectionOk from '../src/organism/review-slide/test/fixtures/correction-ok';
+import OrganismReviewSlideFixtureCorrectionWrongAnimated from '../src/organism/review-slide/test/fixtures/correction-wrong-animated';
+import OrganismReviewSlideFixtureCorrectionWrong from '../src/organism/review-slide/test/fixtures/correction-wrong';
+import OrganismReviewSlideFixtureInitialState from '../src/organism/review-slide/test/fixtures/initial-state';
+import OrganismReviewStackedSlidesFixtureAllOk from '../src/organism/review-stacked-slides/test/fixtures/all-ok';
+import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
+import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/review-stacked-slides/test/fixtures/first-correct';
+import OrganismReviewStackedSlidesFixtureInitialState from '../src/organism/review-stacked-slides/test/fixtures/initial-state';
+import OrganismReviewStackedSlidesFixtureLoading from '../src/organism/review-stacked-slides/test/fixtures/loading';
+import OrganismReviewStackedSlidesFixtureRestack from '../src/organism/review-stacked-slides/test/fixtures/restack';
+import OrganismReviewStackedSlidesFixtureSecondWrong from '../src/organism/review-stacked-slides/test/fixtures/second-wrong';
+import OrganismReviewStackedSlidesFixtureUnstack from '../src/organism/review-stacked-slides/test/fixtures/unstack';
+import OrganismReviewStackedSlidesFixtureWrong from '../src/organism/review-stacked-slides/test/fixtures/wrong';
 import OrganismRewardsFormFixtureDefault from '../src/organism/rewards-form/test/fixtures/default';
 import OrganismRewardsFormFixtureNoRewards from '../src/organism/rewards-form/test/fixtures/no-rewards';
 import OrganismRewardsFormFixtureOneReward from '../src/organism/rewards-form/test/fixtures/one-reward';
@@ -1157,17 +1174,20 @@ import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-play
 import TemplateAppPlayerPopinNoAccessFixtureDefault from '../src/template/app-player/popin-no-access/test/fixtures/default';
 import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
+import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/player/test/fixtures/all-ok';
+import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
+import TemplateAppReviewPlayerFixtureFirstRight from '../src/template/app-review/player/test/fixtures/first-right';
+import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
+import TemplateAppReviewPlayerFixtureLoading from '../src/template/app-review/player/test/fixtures/loading';
+import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
+import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
+import TemplateAppReviewPlayerFixtureSecondFailedQuestion from '../src/template/app-review/player/test/fixtures/second-failed-question';
+import TemplateAppReviewPlayerFixtureUnstack from '../src/template/app-review/player/test/fixtures/unstack';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
-import TemplateAppReviewSlidesFixtureAllOk from '../src/template/app-review/slides/test/fixtures/all-ok';
-import TemplateAppReviewSlidesFixtureEndReview from '../src/template/app-review/slides/test/fixtures/end-review';
-import TemplateAppReviewSlidesFixtureFinished from '../src/template/app-review/slides/test/fixtures/finished';
-import TemplateAppReviewSlidesFixtureInitialState from '../src/template/app-review/slides/test/fixtures/initial-state';
-import TemplateAppReviewSlidesFixtureOneFail from '../src/template/app-review/slides/test/fixtures/one-fail';
-import TemplateAppReviewSlidesFixtureOneRight from '../src/template/app-review/slides/test/fixtures/one-right';
 import TemplateAppReviewFixtureOnboarding from '../src/template/app-review/test/fixtures/onboarding';
+import TemplateAppReviewFixturePlayer from '../src/template/app-review/test/fixtures/player';
 import TemplateAppReviewFixtureSkills from '../src/template/app-review/test/fixtures/skills';
-import TemplateAppReviewFixtureSlides from '../src/template/app-review/test/fixtures/slides';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1473,6 +1493,8 @@ export const components = {
     OrganismReviewCongrats,
     OrganismReviewHeader,
     OrganismReviewSkills,
+    OrganismReviewSlide,
+    OrganismReviewStackedSlides,
     OrganismRewardsForm,
     OrganismSearchAndChipsResults,
     OrganismSettings,
@@ -1511,8 +1533,8 @@ export const components = {
   TemplateAppReview: {
     TemplateAppReviewDemoTs,
     TemplateAppReviewOnboarding,
-    TemplateAppReviewSkills,
-    TemplateAppReviewSlides
+    TemplateAppReviewPlayer,
+    TemplateAppReviewSkills
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -2685,6 +2707,25 @@ export const fixtures = {
       ManySkills: OrganismReviewSkillsFixtureManySkills,
       NoSkills: OrganismReviewSkillsFixtureNoSkills
     },
+    OrganismReviewSlide: {
+      ChoicesSelected: OrganismReviewSlideFixtureChoicesSelected,
+      CorrectionOkAnimated: OrganismReviewSlideFixtureCorrectionOkAnimated,
+      CorrectionOk: OrganismReviewSlideFixtureCorrectionOk,
+      CorrectionWrongAnimated: OrganismReviewSlideFixtureCorrectionWrongAnimated,
+      CorrectionWrong: OrganismReviewSlideFixtureCorrectionWrong,
+      InitialState: OrganismReviewSlideFixtureInitialState
+    },
+    OrganismReviewStackedSlides: {
+      AllOk: OrganismReviewStackedSlidesFixtureAllOk,
+      EndReview: OrganismReviewStackedSlidesFixtureEndReview,
+      FirstCorrect: OrganismReviewStackedSlidesFixtureFirstCorrect,
+      InitialState: OrganismReviewStackedSlidesFixtureInitialState,
+      Loading: OrganismReviewStackedSlidesFixtureLoading,
+      Restack: OrganismReviewStackedSlidesFixtureRestack,
+      SecondWrong: OrganismReviewStackedSlidesFixtureSecondWrong,
+      Unstack: OrganismReviewStackedSlidesFixtureUnstack,
+      Wrong: OrganismReviewStackedSlidesFixtureWrong
+    },
     OrganismRewardsForm: {
       Default: OrganismRewardsFormFixtureDefault,
       NoRewards: OrganismRewardsFormFixtureNoRewards,
@@ -2751,8 +2792,8 @@ export const fixtures = {
     },
     TemplateAppReview: {
       Onboarding: TemplateAppReviewFixtureOnboarding,
-      Skills: TemplateAppReviewFixtureSkills,
-      Slides: TemplateAppReviewFixtureSlides
+      Player: TemplateAppReviewFixturePlayer,
+      Skills: TemplateAppReviewFixtureSkills
     },
     TemplateBattleRequests: {
       Default: TemplateBattleRequestsFixtureDefault
@@ -2939,17 +2980,20 @@ export const fixtures = {
     TemplateAppReviewOnboarding: {
       Default: TemplateAppReviewOnboardingFixtureDefault
     },
+    TemplateAppReviewPlayer: {
+      AllOk: TemplateAppReviewPlayerFixtureAllOk,
+      EndReview: TemplateAppReviewPlayerFixtureEndReview,
+      FirstRight: TemplateAppReviewPlayerFixtureFirstRight,
+      InitialState: TemplateAppReviewPlayerFixtureInitialState,
+      Loading: TemplateAppReviewPlayerFixtureLoading,
+      OneFail: TemplateAppReviewPlayerFixtureOneFail,
+      Restack: TemplateAppReviewPlayerFixtureRestack,
+      SecondFailedQuestion: TemplateAppReviewPlayerFixtureSecondFailedQuestion,
+      Unstack: TemplateAppReviewPlayerFixtureUnstack
+    },
     TemplateAppReviewSkills: {
       ManySkills: TemplateAppReviewSkillsFixtureManySkills,
       NoSkills: TemplateAppReviewSkillsFixtureNoSkills
-    },
-    TemplateAppReviewSlides: {
-      AllOk: TemplateAppReviewSlidesFixtureAllOk,
-      EndReview: TemplateAppReviewSlidesFixtureEndReview,
-      Finished: TemplateAppReviewSlidesFixtureFinished,
-      InitialState: TemplateAppReviewSlidesFixtureInitialState,
-      OneFail: TemplateAppReviewSlidesFixtureOneFail,
-      OneRight: TemplateAppReviewSlidesFixtureOneRight
     }
   },
   TemplateBackOffice: {

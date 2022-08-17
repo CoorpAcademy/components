@@ -28,8 +28,7 @@ export const postProgression = (skillRef: string, token: string): PostProgressio
     types: [POST_PROGRESSION_REQUEST, POST_PROGRESSION_SUCCESS, POST_PROGRESSION_FAILURE],
     task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) => {
       return services.postProgression(skillRef, token).then((progression: ProgressionFromAPI) => {
-        const {ref} = progression.state.nextContent;
-        dispatch(fetchSlide(ref, token));
+        dispatch(fetchSlide(progression, token));
         return progression;
       });
     }

@@ -1,20 +1,17 @@
 import {combineReducers} from 'redux';
 
-import finishedSlides, {FinishedSlidesState} from './finished-slides';
+import currentSlideRef, {CurrentSlideRefState} from './current-slide-ref';
 import navigation, {NavigationState} from './navigation';
-import reviewStatus, {ReviewStatusState} from './review-status';
-import stepItems, {StepItemsState} from './step-items';
+import slides, {UISlidesState} from './slides';
 
 export type UIState = {
+  currentSlideRef: CurrentSlideRefState;
   navigation: NavigationState;
-  stepItems: StepItemsState;
-  finishedSlides: FinishedSlidesState;
-  reviewStatus: ReviewStatusState;
+  slides: UISlidesState;
 };
 
 export default combineReducers({
-  finishedSlides,
+  currentSlideRef,
   navigation,
-  reviewStatus,
-  stepItems
+  slides
 });

@@ -1,4 +1,5 @@
-import {UISlide} from './slides';
+import {SlideIndexes} from '../common';
+import {AnswerUI} from './slides';
 
 // TODO use type from components
 type TemplateContextValues = {
@@ -83,22 +84,36 @@ export type SlideFromAPI = {
   tips?: string;
   clue?: string;
   hasClue?: boolean;
-  id?: string;
+  id: string;
+};
+
+type ProgressionAnswerItem = {
+  isCorrect: boolean;
+  slideRef: string;
+  answer: string[];
+};
+
+export type ProgressionState = {
+  allAnswers: ProgressionAnswerItem[];
+  content?: {
+    ref: string;
+    type: string;
+  };
+  isCorrect: boolean;
+  nextContent: {
+    type: 'success' | 'slide';
+    ref: 'successExitNode' | string;
+  };
+  pendingSlides: string[];
+  slides: string[];
+  step: {
+    current: number;
+  };
 };
 
 export type ProgressionFromAPI = {
   _id: string;
-  state: {
-    isCorrect: boolean;
-    step: {
-      current: number;
-    };
-    nextContent: {
-      type: 'success' | 'slide';
-      ref: 'successExitNode' | string;
-    };
-    pendingSlides: [];
-  };
+  state: ProgressionState;
 };
 
 export type Skill = {
@@ -137,30 +152,32 @@ export type JWT = {
   host: string;
 };
 
-// -----------------------------------------------------------------------------
 type SlideUIAnimations = 'unstack' | 'restack';
-export type Slide = UISlide & {
+
+export type NextUISlide = {
+  questionText?: string;
+  answerUI?: AnswerUI;
+  hidden?: boolean;
+  position?: number;
+  animationType?: SlideUIAnimations;
+  isCorrect?: boolean;
+  endReview?: boolean;
+};
+
+export type UISlide = {
+  questionText?: string;
+  answerUI?: AnswerUI;
   hidden?: boolean;
   position: number;
   animationType?: SlideUIAnimations;
   isCorrect?: boolean;
   endReview?: boolean;
-  nextContent?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextContent'>;
+  nextContent?: NextUISlide;
 };
 
-const ICON_VALUES = {
-  right: 'right',
-  wrong: 'wrong',
-  'no-answer': 'no-answer'
-} as const;
-
-export type IconValue = keyof typeof ICON_VALUES;
 export type FinishedSlides = {
-  slideNumbers: number[];
-  [key: number]: true;
+  [key in SlideIndexes]?: true;
 };
-
-// -----------------------------------------------------------------------------
 
 export type WithRequired<T, K extends keyof T> = T & {
   // the "-" is a Mapping Modifier, removes optionality from a prop

@@ -2,26 +2,22 @@ import React from 'react';
 import Loader from '../../atom/loader';
 import Onboarding from './onboarding';
 import Skills from './skills';
-import Slides from './slides';
+import Player from './player';
 import propTypes, {ViewNames} from './prop-types';
 
-// -----------------------------------------------------------------------------
-
-const AppReview = ({viewName, onboarding, skills, slides, ...dispachers}) => {
+const AppReview = ({viewName, onboarding, skills, slides, ...dispatchers}) => {
   switch (viewName) {
     case ViewNames.skills:
-      return <Skills {...skills} {...dispachers} />;
+      return <Skills {...skills} {...dispatchers} />;
     case ViewNames.onboarding:
-      return <Onboarding {...onboarding} {...dispachers} />;
+      return <Onboarding {...onboarding} {...dispatchers} />;
     case ViewNames.slides:
-      return <Slides {...slides} {...dispachers} />;
+      return <Player {...slides} {...dispatchers} />;
     default:
       return <Loader />;
   }
 };
 
 AppReview.propTypes = propTypes;
-
-// -----------------------------------------------------------------------------
 
 export default AppReview;
