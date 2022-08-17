@@ -315,7 +315,10 @@ const NextQuestionPart = (props, context) => {
 
   const nextStep = nextStepTitle ? (
     <div
-      className={classnames(gameOver ? style.gameOverSubtitle : style.nextStepTitle, style.innerHTML)}
+      className={classnames(
+        gameOver ? style.gameOverSubtitle : style.nextStepTitle,
+        style.innerHTML
+      )}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: nextStepTitle}}
     />
