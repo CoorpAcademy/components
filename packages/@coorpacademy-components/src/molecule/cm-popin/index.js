@@ -25,7 +25,7 @@ const CMPopin = props => {
     thirdButton,
     cookieTitle,
     descriptionBtnTxt,
-      
+    listBtnSwicth
   } = props;
 
   const logo = {
@@ -78,7 +78,7 @@ const CMPopin = props => {
         id
       } = el;
       return (
-        <div key={index} className={getClassBtnSwitch(index,  )}>
+        <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
           <InputSwitch
             {...{
               type,
@@ -209,7 +209,7 @@ CMPopin.propTypes = {
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
-    : PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
+  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
 export default CMPopin;
