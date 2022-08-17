@@ -3,8 +3,6 @@ import {Text, StyleSheet, View, BackHandler} from 'react-native';
 import propTypes, {ViewNames} from './prop-types';
 import Player from './player';
 
-// -----------------------------------------------------------------------------
-
 const styles = StyleSheet.create({
   rootView: {
     flex: 1,
@@ -12,8 +10,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
-
-// -----------------------------------------------------------------------------
 
 const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
   switch (viewName) {
@@ -27,8 +23,6 @@ const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
       return <Text>view (none selected)</Text>;
   }
 };
-
-// -----------------------------------------------------------------------------
 
 const AppReview = props => {
   const {navigateBack} = props;
@@ -52,11 +46,7 @@ const AppReview = props => {
   );
 };
 
-// -----------------------------------------------------------------------------
-
 AppReview.propTypes = propTypes;
 Switch.propTypes = AppReview.propTypes;
-
-// -----------------------------------------------------------------------------
 
 export default AppReview;

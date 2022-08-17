@@ -5,8 +5,6 @@ import Skills from './skills';
 import Player from './player';
 import propTypes, {ViewNames} from './prop-types';
 
-// -----------------------------------------------------------------------------
-
 const AppReview = ({viewName, onboarding, skills, slides, ...dispatchers}) => {
   switch (viewName) {
     case ViewNames.skills:
@@ -21,7 +19,5 @@ const AppReview = ({viewName, onboarding, skills, slides, ...dispatchers}) => {
 };
 
 AppReview.propTypes = propTypes;
-
-// -----------------------------------------------------------------------------
 
 export default AppReview;

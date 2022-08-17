@@ -132,8 +132,6 @@ const choicesStyle = StyleSheet.create({
   }
 });
 
-// -----------------------------------------------------------------------------
-
 /* {choices.map(({text, selected = false}: _Choice_) => { */
 const Choices = ({choices = []}) => (
   <View style={choicesStyle.container}>
@@ -156,8 +154,6 @@ Choices.propTypes = {
     selected: PropTypes.bool
   })
 };
-
-// -----------------------------------------------------------------------------
 
 const Slide = props => {
   const {validateSlide, slide, num} = props;
@@ -210,8 +206,6 @@ const Slide = props => {
   );
 };
 
-// -----------------------------------------------------------------------------
-
 // const Slides = ({slide}: Props) => {
 const Slides = props => {
   const {stack} = props;
@@ -236,7 +230,5 @@ const Slides = props => {
 };
 
 Slides.propTypes = PlayerReviewPropTypes;
-
-// -----------------------------------------------------------------------------
 
 export default Slides;

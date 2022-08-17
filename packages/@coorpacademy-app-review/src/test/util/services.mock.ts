@@ -25,8 +25,16 @@ export const services: Services = {
     return Promise.resolve({...qcmSlide, universalRef: ref, id: ref});
   },
   postProgression: () => {
-    const progressionStates: ProgressionState[] = [
-      {
+    return Promise.resolve({
+      _id: '62b1d1087aa12f00253f40ee',
+      content: {
+        ref: '_skill-ref',
+        type: 'skill'
+      },
+      engine: {
+        ref: 'review'
+      },
+      state: {
         allAnswers: [],
         isCorrect: true,
         nextContent: {
@@ -38,70 +46,7 @@ export const services: Services = {
         step: {
           current: 1
         }
-      },
-      {
-        allAnswers: [
-          {
-            isCorrect: true,
-            slideRef: 'sli_N1XACJobn',
-            answer: []
-          }
-        ],
-        isCorrect: true,
-        content: {
-          ref: 'sli_N1XACJobn',
-          type: 'slide'
-        },
-        nextContent: {
-          ref: 'sli_N1XACJobn2',
-          type: 'slide'
-        },
-        pendingSlides: [],
-        slides: ['sli_N1XACJobn'],
-        step: {
-          current: 2
-        }
-      },
-      {
-        allAnswers: [
-          {
-            isCorrect: true,
-            slideRef: 'sli_N1XACJobn',
-            answer: []
-          },
-          {
-            isCorrect: false,
-            slideRef: 'sli_N1XACJobn2',
-            answer: []
-          }
-        ],
-        isCorrect: true,
-        content: {
-          ref: 'sli_N1XACJobn2',
-          type: 'slide'
-        },
-        nextContent: {
-          ref: 'sli_N1XACJobn3',
-          type: 'slide'
-        },
-        pendingSlides: [],
-        slides: ['sli_N1XACJobn', 'sli_N1XACJobn2'],
-        step: {
-          current: 3
-        }
       }
-    ];
-
-    return Promise.resolve({
-      _id: '62b1d1087aa12f00253f40ee',
-      content: {
-        ref: '_skill-ref',
-        type: 'skill'
-      },
-      engine: {
-        ref: 'review'
-      },
-      state: progressionStates[0]
     });
   }
 };
