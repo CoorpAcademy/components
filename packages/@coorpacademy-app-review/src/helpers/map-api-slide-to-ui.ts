@@ -159,7 +159,7 @@ const basicProps = (question: BasicQuestion): FreeText => {
 
   return {
     type: 'freeText',
-    placeholder: question.explanation || '',
+    placeholder: question.content.placeholder || '',
     value: head(answers),
     // TODO: EDIT_CHOICES
     // eslint-disable-next-line no-console
