@@ -14,13 +14,13 @@ export type Slide = {
   nextContent?: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextContent'>;
 };
 
-export const SET_FIRST_SLIDE = '@@slide/SET_FIRST_SLIDE' as const;
-export type SetFirstSlide = {
-  type: typeof SET_FIRST_SLIDE;
+export const SET_CURRENT_SLIDE = '@@slide/SET_CURRENT_SLIDE' as const;
+export type SetCurrentSlide = {
+  type: typeof SET_CURRENT_SLIDE;
   payload: SlideFromAPI;
 };
-export const setFirstSlide = (payload: SlideFromAPI): SetFirstSlide => ({
-  type: SET_FIRST_SLIDE,
+export const setCurrentSlide = (payload: SlideFromAPI): SetCurrentSlide => ({
+  type: SET_CURRENT_SLIDE,
   payload
 });
 
@@ -32,4 +32,4 @@ export const validateSlide = (): ValidateSlide => ({
   type: VALIDATE_SLIDE
 });
 
-export type UISlidesAction = SetFirstSlide;
+export type UISlidesAction = SetCurrentSlide;

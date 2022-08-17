@@ -3,9 +3,10 @@ import type {ThunkAction, ThunkDispatch} from 'redux-thunk';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
+import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
 import type {Options, ProgressionFromAPI, SlideFromAPI} from '../../types/common';
-import {setFirstSlide} from '../ui/slides';
+import {setCurrentSlide} from '../ui/slides';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;
@@ -33,23 +34,11 @@ export const fetchSlide = (
       const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
       return services.fetchSlide(slideRef, token).then((slideFromAPI: SlideFromAPI | void) => {
         if (!slideFromAPI) throw new Error('Slide not found');
-        dispatch(setFirstSlide(slideFromAPI));
-        /*
-        const fetchedSlidesRefs = getState().data.slides.slideRefs;
-        const numberOfFinishedSlides = size(getState().ui.finishedSlides);
-        const isFirstSlide = isEmpty(getState().ui.finishedSlides);
-        if (!includes(slideRef, fetchedSlidesRefs)) fetchedSlidesRefs.push(slideRef);
-        isFirstSlide
-          ? dispatch(setFirstSlide(slideFromAPI))
-          : dispatch(
-              updateSlidesOnValidation({
-                slideFromAPI,
-                progressionFromAPI,
-                fetchedSlidesRefs,
-                numberOfFinishedSlides
-              })
-            );
-        */
+        const state = getState();
+        const slides = get('data.progression.state.slides', state);
+        if (isEmpty(slides)) {
+          dispatch(setCurrentSlide(slideFromAPI));
+        }
         return slideFromAPI;
       });
     }
