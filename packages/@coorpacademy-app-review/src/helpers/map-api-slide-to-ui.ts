@@ -116,7 +116,7 @@ const templateSelectProps = (choice: ChoiceFromAPI, index: number): SelectionTem
   const answers: string[] = [];
   const answer = get(index, answers);
   const temporaryOption = {
-    name: 'Select an answer', // TODO prendre valeur depuis les données de l'api
+    name: 'Select an answer', // TODO translate
     value: '',
     validOption: false,
     selected: true
