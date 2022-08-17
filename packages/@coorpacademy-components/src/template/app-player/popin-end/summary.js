@@ -11,7 +11,6 @@ import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
 import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
-import {innerHTML} from '../../../atom/label/style.css';
 import PopinHeader from '../popin-header';
 import AtomLottieWrapper from '../../../atom/lottie-wrapper';
 import style from './summary.css';
@@ -28,7 +27,7 @@ const SimpleAction = ({color, prefix, title, button}) => {
         </span>
         <span
           data-name="simpleTitle"
-          className={classnames(style.simpleTitle, innerHTML)}
+          className={classnames(style.simpleTitle, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
         />
@@ -57,7 +56,7 @@ const NextCourse = ({title, prefix, card}) => (
     <div className={style.nextCourseTexts}>
       <div className={style.nextCoursePrefix}>{prefix}</div>
       <div
-        className={classnames(style.nextCourseTitle, innerHTML)}
+        className={classnames(style.nextCourseTitle, style.innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: title}}
       />
@@ -80,7 +79,7 @@ const Subscribe = ({title, description, button, card}) => {
       <div className={style.subscribeTexts}>
         <div className={style.subscribeDescription}>{description}</div>
         <div
-          className={classnames(style.subscribeTitle, innerHTML)}
+          className={classnames(style.subscribeTitle, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
         />

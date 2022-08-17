@@ -169,6 +169,10 @@
   color: dark;
 }
 
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css';
+}
+
 @media mobile {
   .wrapperAssistance {
     margin-bottom: 8px;

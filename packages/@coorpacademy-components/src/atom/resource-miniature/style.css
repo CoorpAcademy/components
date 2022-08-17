@@ -75,3 +75,7 @@
     flex: 1 0 52px;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../label/style.css';
+}

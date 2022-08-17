@@ -88,6 +88,10 @@
   margin-right: 10px;
 }
 
+.innerHTML {
+  composes: innerHTML from '../../../../../atom/label/style.css';
+}
+
 @media mobile {
   .contentWrapper {
     max-width: 90%;

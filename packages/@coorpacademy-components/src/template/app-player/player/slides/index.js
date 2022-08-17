@@ -14,7 +14,6 @@ import VideoPlayer from '../../../../molecule/video-player';
 import PDF from '../../../../molecule/pdf';
 import Audio from '../../../../molecule/audio';
 import ResourceBrowser from '../../../../organism/resource-browser';
-import {innerHTML} from '../../../../atom/label/style.css';
 import Footer from './footer';
 import Header from './header';
 import style from './style.css';
@@ -254,7 +253,7 @@ const ContextContent = ({slideContext}) => {
     <p
       key={index}
       data-name="contextDescription"
-      className={classnames(style.contextDescription, innerHTML)}
+      className={classnames(style.contextDescription, style.innerHTML)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: paragraph}}
     />
@@ -284,7 +283,7 @@ const CONTENT_TYPE = {
 
 const Help = ({help}) => (
   <div
-    className={classnames(style.helpView, innerHTML)}
+    className={classnames(style.helpView, style.innerHTML)}
     // eslint-disable-next-line react/no-danger
     dangerouslySetInnerHTML={{__html: help}}
   />
@@ -328,7 +327,7 @@ const ContentLayout = (props, context) => {
         data-name="question"
         className={classnames(
           selectedTab === 'context' ? style.contextTitle : style.question,
-          innerHTML
+          style.innerHTML
         )}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{

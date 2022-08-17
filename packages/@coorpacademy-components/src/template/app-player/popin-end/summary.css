@@ -342,3 +342,7 @@
 .commentSectionLink:hover {
   color: medium;
 }
+
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css';
+}

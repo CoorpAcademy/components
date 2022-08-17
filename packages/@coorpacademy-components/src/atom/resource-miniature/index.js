@@ -8,7 +8,6 @@ import {
 } from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
 import Provider from '../provider';
-import {innerHTML} from '../label/style.css';
 import style from './style.css';
 
 const TYPES = {
@@ -32,7 +31,7 @@ const ResourceMiniature = (props, context) => {
         {!selected ? <Icon color={white} className={style.icon} /> : null}
       </div>
       <div
-        className={classnames(descriptionClassName, innerHTML)}
+        className={classnames(descriptionClassName, style.innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: description}}
       />

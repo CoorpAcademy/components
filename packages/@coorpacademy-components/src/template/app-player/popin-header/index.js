@@ -28,7 +28,6 @@ import Animation, {EASE_OUT_CUBIC} from '../../../hoc/animation';
 import Transition from '../../../hoc/transition';
 import AnimationScheduler, {AnimationAdapter} from '../../../hoc/animation-scheduler';
 import Provider from '../../../atom/provider';
-import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const separator = index => (
@@ -52,7 +51,7 @@ const AnswersCorrection = ({corrections}) => {
         data-correct={correction.isCorrect}
         className={classnames(
           correction.isCorrect ? style.correctAnswer : style.wrongAnswer,
-          innerHTML
+          style.innerHTML
         )}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: correction.answer}}
@@ -245,7 +244,7 @@ const CorrectionPart = props => {
         <h1
           data-name="title"
           className={buildDefaultOrScormStyle(
-            classnames(style.title, innerHTML),
+            classnames(style.title, style.innerHTML),
             mode,
             style.resultTitleScorm,
             failed
@@ -316,7 +315,7 @@ const NextQuestionPart = (props, context) => {
 
   const nextStep = nextStepTitle ? (
     <div
-      className={classnames(gameOver ? style.gameOverSubtitle : style.nextStepTitle, innerHTML)}
+      className={classnames(gameOver ? style.gameOverSubtitle : style.nextStepTitle, style.innerHTML)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: nextStepTitle}}
     />
