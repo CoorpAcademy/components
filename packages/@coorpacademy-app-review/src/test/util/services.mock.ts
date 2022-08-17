@@ -1,5 +1,5 @@
 import {qcmSlide} from '../../helpers/test/fixtures/qcm';
-import {ProgressionState, Services} from '../../types/common';
+import {Services} from '../../types/common';
 
 export const services: Services = {
   fetchSkills: () => {
