@@ -74,7 +74,8 @@ const CMPopin = props => {
         theme,
         details,
         requiredSelection,
-        disabled
+        disabled,
+        id
       } = el;
       return (
         <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
@@ -88,7 +89,8 @@ const CMPopin = props => {
               theme,
               details,
               requiredSelection,
-              disabled
+              disabled,
+              id
             }}
           />
         </div>
