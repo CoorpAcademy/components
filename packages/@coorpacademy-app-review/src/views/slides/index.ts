@@ -4,7 +4,7 @@ import concat from 'lodash/fp/concat';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import pipe from 'lodash/fp/pipe';
-import {reduce} from 'lodash';
+import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
@@ -27,7 +27,7 @@ type StepItem = {
   value: string;
 };
 
-type UISlidesState = {
+type SlidesStack = {
   [key in SlideIndexes]: UISlide;
 };
 
@@ -59,7 +59,7 @@ export type SlidesViewProps = {
     steps: StepItem[];
   };
   stack: {
-    slides: UISlidesState;
+    slides: SlidesStack;
     validateButton: {
       label: string;
       disabled: boolean;
@@ -91,7 +91,7 @@ export type SlidesViewProps = {
   };
 };
 
-export const initialState: UISlidesState = {
+export const initialState: SlidesStack = {
   '0': {
     hidden: false,
     position: 0
@@ -122,18 +122,18 @@ const getProgressionSlidesRef = (progression: ProgressionFromAPI): string[] => {
   return slice(0, 5, progression.state.slides);
 };
 
-const buildStackSlides = (state: StoreState): UISlidesState => {
+const buildStackSlides = (state: StoreState): SlidesStack => {
   const currentSlideRef = state.ui.currentSlideRef;
   const progression = state.data.progression;
 
   if (!currentSlideRef || !progression) return initialState;
   const slideRefs = getProgressionSlidesRef(progression);
 
-  const stack = reduce(
-    initialState,
-    (acc, uiSlide, index) => {
+  // @ts-expect-error typescript does not support capped versions of lodash functions
+  const stack = reduce.convert({cap: false})(
+    (acc: SlidesStack, uiSlide: UISlide, index: string) => {
       const slideRef = slideRefs[toInteger(index)];
-      if (!slideRef) return set(`${index}`, uiSlide, acc);
+      if (!slideRef) return set(index, uiSlide, acc);
 
       const slideFromAPI = get(slideRef, state.data.slides);
       const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI);
@@ -144,8 +144,9 @@ const buildStackSlides = (state: StoreState): UISlidesState => {
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
 
-      return set(`${index}`, updatedUiSlide, acc);
+      return set(index, updatedUiSlide, acc);
     },
+    initialState,
     initialState
   );
 
