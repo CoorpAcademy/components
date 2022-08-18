@@ -154,13 +154,10 @@ const templateProps = (question: TemplateQuestion): Template => {
 };
 
 const basicProps = (question: BasicQuestion): FreeText => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-
   return {
     type: 'freeText',
     placeholder: question.content.placeholder || '',
-    value: head(answers),
+    value: '',
     // TODO: EDIT_CHOICES
     // eslint-disable-next-line no-console
     onChange: () => console.log('TODO: on choice change')
