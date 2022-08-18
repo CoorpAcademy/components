@@ -29,6 +29,7 @@ export default {
       '0': {
         hidden: false,
         position: 4,
+        loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Hey there, .....suspense.... ready to select some answers?',
         answerUI: qcmDrag,
@@ -41,21 +42,25 @@ export default {
       '1': {
         hidden: false,
         position: 0,
+        loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
         answerUI: qcmGraphic
       },
       '2': {
         hidden: false,
-        position: 1
+        position: 1,
+        loading: false
       },
       '3': {
         hidden: false,
-        position: 2
+        position: 2,
+        loading: false
       },
       '4': {
         hidden: false,
-        position: 3
+        position: 3,
+        loading: false
       }
     },
     validateButton: {
