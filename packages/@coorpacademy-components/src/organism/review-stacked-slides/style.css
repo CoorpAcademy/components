@@ -151,11 +151,6 @@
   animation: slideOut 2.5s ease forwards;
 }
 
-.loader {
-  height: 60px;
-  width: 60px;
-}
-
 @media tablet {
   .stackedSlidesContainer {
     height: 638px;

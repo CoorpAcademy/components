@@ -11,6 +11,5 @@ export default {
     '3': SlideProp,
     '4': SlideProp
   }),
-  endReview: PropTypes.bool,
-  loadingAriaLabel: PropTypes.string
+  endReview: PropTypes.bool
 };
