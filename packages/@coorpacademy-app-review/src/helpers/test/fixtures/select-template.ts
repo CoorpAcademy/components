@@ -2,90 +2,87 @@ import noop from 'lodash/fp/noop';
 import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const selectTemplateSlide: SlideFromAPI = {
-  id: 'sli_410xZQxrZ',
-  universalRef: 'sli_410xZQxrZ',
   question: {
-    type: 'template',
-    header: 'sli_410xZQxrZ.header',
-    explanation: 'sli_410xZQxrZ.explanation',
     content: {
-      template: 'sli_410xZQxrZ.template',
+      template:
+        'La vue {{sel80495}} présente la liste des utilisateurs ayant le plus grand nombre d’étoiles cumulées.',
       choices: [
         {
-          media: {
-            src: [],
-            posters: [],
-            subtitles: []
-          },
-          _id: '5fdce726359bf4003ee66967',
-          type: 'select',
-          name: 'sel36665',
           items: [
             {
-              _id: '5fdce726359bf4003ee66968',
-              text: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
-              value: 'sli_410xZQxrZ.choice_4yeA4Z7lr~'
+              _id: '5b57464e3b594d002e8829f7',
+              value: 'sli_N13-hG3kX.choice_NJgC3aznJm',
+              text: 'Catalogue'
             },
             {
-              _id: '5fdce726359bf4003ee66969',
-              text: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
-              value: 'sli_410xZQxrZ.choice_VJWCN~mgB~'
+              _id: '5b57464e3b594d002e8829f6',
+              value: 'sli_N13-hG3kX.choice_EJZ02aMny7',
+              text: 'Leaderboard'
             },
             {
-              _id: '5fdce726359bf4003ee6696a',
-              text: 'sli_410xZQxrZ.choice_VkaH~XgBb',
-              value: 'sli_410xZQxrZ.choice_VkaH~XgBb'
+              _id: '5b57464e3b594d002e8829f5',
+              value: 'sli_N13-hG3kX.choice_4keCaf21Q',
+              text: 'Activité'
             },
             {
-              _id: '5fdce726359bf4003ee6696b',
-              text: 'sli_410xZQxrZ.choice_E1uUWXeBb',
-              value: 'sli_410xZQxrZ.choice_E1uUWXeBb'
+              _id: '5b57464e3b594d002e8829f4',
+              value: 'sli_N13-hG3kX.choice_NkbJAMn17',
+              text: 'Slides'
             }
-          ]
+          ],
+          _id: '5b57464e3b594d002e8829f3',
+          name: 'sel80495',
+          type: 'select'
         }
       ]
-    }
+    },
+    type: 'template',
+    header: 'Complétez la phrase ci-dessous.',
+    explanation:
+      'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).'
   },
-  clue: 'sli_410xZQxrZ.clue',
-  klf: 'sli_410xZQxrZ.klf',
-  tips: 'sli_410xZQxrZ.tips'
+  klf: 'L’apprenant peut aussi évaluer sa performance grâce à un classement disponible sur la vue leaderboard. Elle compare sa position par rapport à celle des autres apprenants de la plateforme.',
+  tips: "La position d'un apprenant peut être aussi consultée depuis le header ou en-tête de la page. Elle se met à jour à chaque fois qu'un apprenant obtient des étoiles.",
+  universalRef: 'sli_N13-hG3kX',
+  id: 'sli_N13-hG3kX'
 };
 
 export const selectTemplateUISlide: Partial<UISlide> = {
-  questionText: 'sli_410xZQxrZ.header',
+  questionText: 'Complétez la phrase ci-dessous.',
   answerUI: {
-    help: 'sli_410xZQxrZ.explanation',
+    help: 'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).',
     model: {
       type: 'template',
-      template: 'sli_410xZQxrZ.template',
+      template:
+        'La vue {{sel80495}} présente la liste des utilisateurs ayant le plus grand nombre d’étoiles cumulées.',
       answers: [
         {
           type: 'select',
-          name: 'sel36665',
+          name: 'sel80495',
           onChange: noop,
           options: [
             {name: 'Select an answer', value: '', validOption: false, selected: true},
             {
-              name: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
-              value: 'sli_410xZQxrZ.choice_4yeA4Z7lr~',
+              name: 'Catalogue',
+              value: 'Catalogue',
               validOption: true,
               selected: false
             },
             {
-              name: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
-              value: 'sli_410xZQxrZ.choice_VJWCN~mgB~',
+              name: 'Leaderboard',
+              value: 'Leaderboard',
               validOption: true,
               selected: false
             },
             {
-              name: 'sli_410xZQxrZ.choice_VkaH~XgBb',
-              value: 'sli_410xZQxrZ.choice_VkaH~XgBb',
+              name: 'Activité',
+              value: 'Activité',
               validOption: true,
               selected: false
             },
             {
-              name: 'sli_410xZQxrZ.choice_E1uUWXeBb',
-              value: 'sli_410xZQxrZ.choice_E1uUWXeBb',
+              name: 'Slides',
+              value: 'Slides',
               validOption: true,
               selected: false
             }

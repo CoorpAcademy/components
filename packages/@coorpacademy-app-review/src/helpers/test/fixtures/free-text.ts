@@ -2,26 +2,31 @@ import noop from 'lodash/fp/noop';
 import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const freeTextSlide: SlideFromAPI = {
-  id: 'sli_E1Pcl-XAYbi',
-  universalRef: 'sli_E1Pcl-XAYbi',
   question: {
-    type: 'basic',
-    header: 'sli_E1Pcl-XAYbi.header',
-    explanation: 'sli_E1Pcl-XAYbi.explanation',
     content: {
-      label: 'sli_E1Pcl-XAYbi.label',
-      placeholder: 'sli_E1Pcl-XAYbi.placeholder',
-      id: 'sli_E1Pcl-XAYbi.choice_1'
-    }
+      media: {
+        src: [],
+        posters: [],
+        subtitles: []
+      },
+      label: '',
+      placeholder: 'Type here',
+      id: 'sli_VJYjJnJhg.choice_1'
+    },
+    type: 'basic',
+    header:
+      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?',
+    explanation: 'Type your answer.'
   },
-  clue: 'sli_E1Pcl-XAYbi.clue',
-  klf: 'sli_E1Pcl-XAYbi.klf',
-  tips: 'sli_E1Pcl-XAYbi.tips'
+  klf: 'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.',
+  tips: 'According to Insee, Paris salaries are 20-25% higher compared with those of the provinces in 2015.',
+  universalRef: 'sli_VJYjJnJhg',
+  id: 'sli_VJYjJnJhg'
 };
 
 export const freeTextUISlide: Partial<UISlide> = {
   answerUI: {
-    help: 'sli_E1Pcl-XAYbi.explanation',
+    help: 'Type your answer.',
     model: {
       type: 'freeText',
       placeholder: 'Type here',
@@ -29,5 +34,6 @@ export const freeTextUISlide: Partial<UISlide> = {
       onChange: noop
     }
   },
-  questionText: 'sli_E1Pcl-XAYbi.header'
+  questionText:
+    'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
 };

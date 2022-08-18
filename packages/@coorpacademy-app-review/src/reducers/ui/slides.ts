@@ -33,9 +33,7 @@ export const initialState: UISlidesState = {
 };
 
 const setFirstSlide = (state: UISlidesState, slideFromAPI: SlideFromAPI): UISlidesState => {
-  const {questionText, answerUI} = mapApiSlideToUi({translate: (text: string) => text})(
-    slideFromAPI
-  );
+  const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI);
 
   return pipe(
     set(['0', 'questionText'], questionText),

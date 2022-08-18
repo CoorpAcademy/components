@@ -2,13 +2,13 @@ import noop from 'lodash/fp/noop';
 import {SlideFromAPI, UISlide} from '../../../types/common';
 
 export const qcmDragSlide: SlideFromAPI = {
-  id: 'sli_419IlQQnf',
-  universalRef: 'sli_419IlQQnf',
   question: {
-    type: 'qcmDrag',
-    header: 'sli_419IlQQnf.header',
-    explanation: 'sli_419IlQQnf.explanation',
     content: {
+      media: {
+        src: [],
+        posters: [],
+        subtitles: []
+      },
       choices: [
         {
           media: {
@@ -16,10 +16,11 @@ export const qcmDragSlide: SlideFromAPI = {
             posters: [],
             subtitles: []
           },
-          _id: '62b1ba3ec4f4015504212571',
-          label: 'sli_419IlQQnf.choice_4kWwlQXhG',
-          value: 'sli_419IlQQnf.choice_4kWwlQXhG',
-          items: []
+          items: [],
+          _id: '624f01970a234b0333bc7ce8',
+          label: 'La démoralisation',
+          value: 'sli_4yGBq-mCg.choice_4kRL5uQCg',
+          id: '624f01970a234b0333bc7ce8'
         },
         {
           media: {
@@ -27,10 +28,11 @@ export const qcmDragSlide: SlideFromAPI = {
             posters: [],
             subtitles: []
           },
-          _id: '62b1ba3ec4f4015504212572',
-          label: 'sli_419IlQQnf.choice_NJxbwgXm2G',
-          value: 'sli_419IlQQnf.choice_NJxbwgXm2G',
-          items: []
+          items: [],
+          _id: '624f01970a234b0333bc7ce9',
+          label: 'La stagnation',
+          value: 'sli_4yGBq-mCg.choice_E11v9OXAx',
+          id: '624f01970a234b0333bc7ce9'
         },
         {
           media: {
@@ -38,10 +40,11 @@ export const qcmDragSlide: SlideFromAPI = {
             posters: [],
             subtitles: []
           },
-          _id: '62b1ba3ec4f4015504212573',
-          label: 'sli_419IlQQnf.choice_41fwgQXnf',
-          value: 'sli_419IlQQnf.choice_41fwgQXnf',
-          items: []
+          items: [],
+          _id: '624f01970a234b0333bc7cea',
+          label: 'La frustration',
+          value: 'sli_4yGBq-mCg.choice_N1lP9dmRg',
+          id: '624f01970a234b0333bc7cea'
         },
         {
           media: {
@@ -49,62 +52,51 @@ export const qcmDragSlide: SlideFromAPI = {
             posters: [],
             subtitles: []
           },
-          _id: '62b1ba3ec4f4015504212574',
-          label: 'sli_419IlQQnf.choice_VJmweQ7nz',
-          value: 'sli_419IlQQnf.choice_VJmweQ7nz',
-          items: []
-        },
-        {
-          media: {
-            src: [],
-            posters: [],
-            subtitles: []
-          },
-          _id: '62b1ba3ec4f4015504212575',
-          label: 'sli_419IlQQnf.choice_4kDDgXQhz',
-          value: 'sli_419IlQQnf.choice_4kDDgXQhz',
-          items: []
+          items: [],
+          _id: '624f01970a234b0333bc7ceb',
+          label: "L'implication",
+          value: 'sli_4yGBq-mCg.choice_Eybw5dQCx',
+          id: '624f01970a234b0333bc7ceb'
         }
       ]
-    }
+    },
+    type: 'qcmDrag',
+    header: "Remettez dans l'ordre les quatre étapes du burn out.",
+    explanation: 'Sélectionnez les réponses ci-dessous dans le bon ordre.'
   },
-  klf: 'sli_419IlQQnf.klf',
-  tips: 'sli_419IlQQnf.tips'
+  klf: "Le burn out s'installe en quatre étapes : tout d'abord, l'implication (investissement émotionnel et/ou affectif, sacrifice de sa vie privée) ; en second, la stagnation (premières déceptions, signes de fatigue) ; ensuite, la frustration (efforts non reconnus) ; et enfin, la démoralisation (problèmes de concentration, sentiment d'inutilité, désespoir).",
+  tips: "Encadré par la loi, l'entretien professionnel a pour but d'aider le collaborateur à verbaliser ses difficultés et à construire son projet professionnel.",
+  universalRef: 'sli_4yGBq-mCg',
+  id: 'sli_4yGBq-mCg'
 };
 
 export const qcmDragUISlide: Partial<UISlide> = {
-  questionText: 'sli_419IlQQnf.header',
+  questionText: "Remettez dans l'ordre les quatre étapes du burn out.",
   answerUI: {
-    help: 'sli_419IlQQnf.explanation',
+    help: 'Sélectionnez les réponses ci-dessous dans le bon ordre.',
     model: {
       type: 'qcmDrag',
       answers: [
         {
-          title: 'sli_419IlQQnf.choice_4kWwlQXhG',
+          title: 'La démoralisation',
           selected: false,
           order: -1,
           onClick: noop
         },
         {
-          title: 'sli_419IlQQnf.choice_NJxbwgXm2G',
+          title: 'La stagnation',
           selected: false,
           order: -1,
           onClick: noop
         },
         {
-          title: 'sli_419IlQQnf.choice_41fwgQXnf',
+          title: 'La frustration',
           selected: false,
           order: -1,
           onClick: noop
         },
         {
-          title: 'sli_419IlQQnf.choice_VJmweQ7nz',
-          selected: false,
-          order: -1,
-          onClick: noop
-        },
-        {
-          title: 'sli_419IlQQnf.choice_4kDDgXQhz',
+          title: "L'implication",
           selected: false,
           order: -1,
           onClick: noop
