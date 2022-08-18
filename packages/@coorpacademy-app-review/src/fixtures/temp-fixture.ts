@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import {SlidesViewProps, CorrectionPopinProps} from '../types/views/slides';
+import {SlidesViewProps, CorrectionPopinProps} from '../views/slides';
 
 export const correctionPopinProps: CorrectionPopinProps = {
   klf: {

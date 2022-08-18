@@ -23,7 +23,7 @@ import {
   SelectionTemplate,
   Template,
   TextTemplate
-} from '../types/slides';
+} from '../../types/slides';
 import {
   BasicQuestion,
   ChoiceFromAPI,
@@ -33,7 +33,7 @@ import {
   SlideFromAPI,
   SliderQuestion,
   TemplateQuestion
-} from '../types/common';
+} from '../../types/common';
 
 const qcmProps = (question: QcmQuestion): Qcm => {
   // TODO: EDIT_CHOICES -> getAnswerValues
