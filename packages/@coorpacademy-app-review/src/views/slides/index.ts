@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import concat from 'lodash/fp/concat';
-import findIndex from 'lodash/fp/findIndex';
+
 import get from 'lodash/fp/get';
-import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
 import pipe from 'lodash/fp/pipe';
 import {reduce} from 'lodash';
@@ -11,11 +11,84 @@ import toInteger from 'lodash/fp/toInteger';
 import {ProgressionFromAPI, UISlide} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
-import {SlidesViewStaticProps, StepItem} from '../../types/views/slides';
 import {mapApiSlideToUi} from '../../helpers/map-api-slide-to-ui';
+
+const ICON_VALUES = {
+  right: 'right',
+  wrong: 'wrong',
+  'no-answer': 'no-answer'
+} as const;
+
+type IconValue = keyof typeof ICON_VALUES;
+
+type StepItem = {
+  current: boolean;
+  icon: IconValue;
+  value: string;
+};
 
 type UISlidesState = {
   [key in SlideIndexes]: UISlide;
+};
+
+export type CorrectionPopinProps = {
+  klf: {
+    label: string;
+    onClick: Function;
+    tooltip: string;
+  };
+  information: {
+    label: string;
+    message: string;
+  };
+  next: {
+    label: string;
+    ariaLabel: string;
+  };
+  successLabel: string;
+  failureLabel: string;
+};
+
+export type SlidesViewProps = {
+  header: {
+    mode: string;
+    skillName: string;
+    onQuitClick: Function;
+    'aria-label'?: string;
+    closeButtonAriaLabel: string;
+    steps: StepItem[];
+  };
+  stack: {
+    slides: UISlidesState;
+    validateButton: {
+      label: string;
+      disabled: boolean;
+      onClick: Function;
+    };
+    correctionPopinProps?: CorrectionPopinProps;
+    endReview: boolean;
+  };
+  reviewBackgroundAriaLabel?: string;
+  congratsProps?: {
+    'aria-label'?: string;
+    'data-name'?: string;
+    animationLottie: any;
+    title: string;
+    cardCongratsStar: any;
+    cardCongratsRank: any;
+    buttonRevising: {
+      'aria-label'?: string;
+      label: string;
+      onClick: Function;
+      type: string;
+    };
+    buttonRevisingSkill: {
+      'aria-label'?: string;
+      label: string;
+      onClick: Function;
+      type: string;
+    };
+  };
 };
 
 export const initialState: UISlidesState = {
@@ -134,7 +207,7 @@ const buildStepItemps = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-export const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps | null => {
+export const mapStateToSlidesProps = (state: StoreState): SlidesViewProps | null => {
   if (!state.data.slides) {
     return null;
   }

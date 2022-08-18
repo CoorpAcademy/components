@@ -11,7 +11,7 @@ import configureStore from './configure-store';
 
 import type {AppOptions} from './types/common';
 import type {StoreState} from './reducers';
-import type {SlidesViewStaticProps} from './types/views/slides';
+import type {SlidesViewProps} from './views/slides';
 
 import {Dispatchers} from './actions';
 import {validateSlide} from './actions/ui/slides';
@@ -26,7 +26,7 @@ import {mapStateToSkillsProps, SkillsProps} from './views/skills';
 
 type StaticProps = {
   viewName: 'skills' | 'onboarding' | 'slides' | 'loader';
-  slides: SlidesViewStaticProps | null;
+  slides: SlidesViewProps | null;
   skills: SkillsProps | null;
 };
 
