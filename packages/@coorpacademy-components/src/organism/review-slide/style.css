@@ -140,6 +140,11 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
   opacity: 0.8;
 }
 
+.loader {
+  height: 60px;
+  width: 60px;
+}
+
 @media tablet {
   .slideContentContainer {
     height: 473px;
