@@ -48,7 +48,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
 }
 
 .answerContainer {
-  width: 85%;
+  max-width: 95%;
   display: flex;
   justify-content: center;
   height: 100%;
@@ -66,8 +66,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   color: cm_blue_900;
   text-align: center;
   margin: 24px 0 4px;
-  max-width: 85%;
-  width: 100%;
+  max-width: 95%;
   box-sizing: border-box;
 }
 
@@ -77,7 +76,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   color: cm_blue_900;
   margin-top: 49px;
   text-align: center;
-  width: 85%;
+  max-width: 95%;
 }
 
 .questionOrigin:empty:after {
@@ -91,8 +90,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   flex-grow: 0.1;
   margin: 4px 0 10px;
   text-align: center;
-  max-width: 70%;
-  width: 100%;
+  max-width: 95%;
 }
 
 /* to keep the content space even if the help label is empty */
@@ -158,6 +156,10 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 @media mobile {
   .slideContentContainer {
     height: 511px;
+  }
+
+  .questionOrigin, .question, .help, .answerContainer {
+    max-width: 90%;
   }
   
   @keyframes popInAnimation {
