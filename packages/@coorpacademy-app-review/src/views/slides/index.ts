@@ -1,6 +1,61 @@
+import findIndex from 'lodash/fp/findIndex';
+import get from 'lodash/fp/get';
+import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
+import {ProgressionFromAPI, UISlide} from '../../types/common';
+import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
 import {SlidesViewStaticProps, StepItem} from '../../types/views/slides';
+
+type UISlidesState = {
+  [key in SlideIndexes]: UISlide;
+};
+
+export const initialState: UISlidesState = {
+  '0': {
+    hidden: false,
+    position: 0
+  },
+  '1': {
+    hidden: false,
+    position: 1
+  },
+  '2': {
+    hidden: false,
+    position: 2
+  },
+  '3': {
+    hidden: false,
+    position: 3
+  },
+  '4': {
+    hidden: false,
+    position: 4
+  }
+};
+
+const getSlideOrder = (slideRef: string, progression: ProgressionFromAPI): number => {
+  const nextContentRef = progression.state.nextContent.ref;
+  const answeredSlides = progression.state.slides;
+  if (slideRef === nextContentRef && !includes(slideRef, answeredSlides)) {
+    return progression.state.step.current - 1;
+  }
+  return findIndex(slideRef, answeredSlides);
+};
+
+const buildStackSlides = (state: StoreState): UISlidesState => {
+  const currentSlideRef = state.ui.currentSlideRef;
+  const progression = state.data.progression;
+
+  if (!currentSlideRef || !progression) return initialState;
+  const slide = get(currentSlideRef, state.data.slides);
+
+  const slideOrder = getSlideOrder(currentSlideRef, progression);
+  // eslint-disable-next-line no-console
+  console.log(slide, progression, slideOrder);
+
+  return initialState;
+};
 
 const buildStepItemps = (state: StoreState): StepItem[] => {
   const {progression} = state.data;
@@ -75,7 +130,7 @@ export const mapStateToSlidesProps = (state: StoreState): SlidesViewStaticProps 
       steps: buildStepItemps(state)
     },
     stack: {
-      slides: state.ui.slides,
+      slides: buildStackSlides(state),
       validateButton: {
         label: '__validate',
         disabled: true,

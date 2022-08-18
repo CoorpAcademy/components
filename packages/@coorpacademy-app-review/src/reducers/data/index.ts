@@ -7,7 +7,7 @@ import token, {TokenState} from './token';
 
 export type DataState = {
   isFetching?: boolean;
-  progression?: ProgressionState;
+  progression: ProgressionState;
   skills: SkillsState;
   slides: SlidesState;
   token?: TokenState;
