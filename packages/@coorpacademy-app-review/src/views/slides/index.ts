@@ -1,11 +1,18 @@
+import concat from 'lodash/fp/concat';
 import findIndex from 'lodash/fp/findIndex';
 import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
+import pipe from 'lodash/fp/pipe';
+import {reduce} from 'lodash';
+import set from 'lodash/fp/set';
+import slice from 'lodash/fp/slice';
+import toInteger from 'lodash/fp/toInteger';
 import {ProgressionFromAPI, UISlide} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
 import {SlidesViewStaticProps, StepItem} from '../../types/views/slides';
+import {mapApiSlideToUi} from '../../helpers/map-api-slide-to-ui';
 
 type UISlidesState = {
   [key in SlideIndexes]: UISlide;
@@ -34,13 +41,12 @@ export const initialState: UISlidesState = {
   }
 };
 
-const getSlideOrder = (slideRef: string, progression: ProgressionFromAPI): number => {
-  const nextContentRef = progression.state.nextContent.ref;
-  const answeredSlides = progression.state.slides;
-  if (slideRef === nextContentRef && !includes(slideRef, answeredSlides)) {
-    return progression.state.step.current - 1;
+const getProgressionSlidesRef = (progression: ProgressionFromAPI): string[] => {
+  if (progression.state.step.current < 5) {
+    const slideRef = progression.state.nextContent.ref;
+    return concat([slideRef], progression.state.slides);
   }
-  return findIndex(slideRef, answeredSlides);
+  return slice(0, 5, progression.state.slides);
 };
 
 const buildStackSlides = (state: StoreState): UISlidesState => {
@@ -48,13 +54,29 @@ const buildStackSlides = (state: StoreState): UISlidesState => {
   const progression = state.data.progression;
 
   if (!currentSlideRef || !progression) return initialState;
-  const slide = get(currentSlideRef, state.data.slides);
+  const slideRefs = getProgressionSlidesRef(progression);
 
-  const slideOrder = getSlideOrder(currentSlideRef, progression);
-  // eslint-disable-next-line no-console
-  console.log(slide, progression, slideOrder);
+  const stack = reduce(
+    initialState,
+    (acc, uiSlide, index) => {
+      const slideRef = slideRefs[toInteger(index)];
+      if (!slideRef) return set(`${index}`, uiSlide, acc);
 
-  return initialState;
+      const slideFromAPI = get(slideRef, state.data.slides);
+      const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI);
+      const updatedUiSlide = pipe(
+        set(['questionText'], questionText),
+        set(['answerUI'], answerUI),
+        set(['parentContentTitle'], 'Parent Title') // TODO parentContentTitle + translate
+        // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
+      )(uiSlide);
+
+      return set(`${index}`, updatedUiSlide, acc);
+    },
+    initialState
+  );
+
+  return stack;
 };
 
 const buildStepItemps = (state: StoreState): StepItem[] => {
