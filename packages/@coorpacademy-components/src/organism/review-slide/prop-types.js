@@ -5,6 +5,7 @@ import AnswerPropTypes from '../../molecule/answer/prop-types';
 export const SlideProp = PropTypes.shape({
   hidden: PropTypes.bool,
   position: PropTypes.number,
+  loading: PropTypes.bool,
   animationType: PropTypes.string, // 'unstack' | 'restack'
   isCorrect: PropTypes.bool,
   animateCorrectionPopin: PropTypes.bool,
