@@ -11,7 +11,7 @@ import toInteger from 'lodash/fp/toInteger';
 import {ProgressionFromAPI, UISlide} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
-import {mapApiSlideToUi} from '../../helpers/map-api-slide-to-ui';
+import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
   right: 'right',

@@ -1,5 +1,5 @@
 import test from 'ava';
-import {SlideFromAPI, UISlide} from '../../types/common';
+import {SlideFromAPI, UISlide} from '../../../types/common';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {qcmUISlide, qcmSlide} from './fixtures/qcm';
 import {qcmDragUISlide, qcmDragSlide} from './fixtures/qcm-drag';

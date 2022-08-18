@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {SlideFromAPI, UISlide} from '../../../types/common';
+import {SlideFromAPI, UISlide} from '../../../../types/common';
 
 export const qcmSlide: SlideFromAPI = {
   question: {

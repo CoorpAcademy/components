@@ -1,4 +1,4 @@
-import {qcmSlide} from '../../helpers/test/fixtures/qcm';
+import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {Services} from '../../types/common';
 
 export const services: Services = {
