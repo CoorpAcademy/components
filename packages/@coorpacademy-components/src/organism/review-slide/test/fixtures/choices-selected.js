@@ -7,6 +7,7 @@ export default {
     slide: {
       hidden: false,
       position: 0,
+      loading: false,
       parentContentTitle: 'From "Master Design Thinking to become more agile" course',
       questionText: 'Question 1',
       answerUI: qcmGraphic,
