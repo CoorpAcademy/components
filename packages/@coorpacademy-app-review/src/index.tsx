@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/redux-thunk/issues/333
-import {AnyAction, Dispatch, Store} from 'redux';
+import {AnyAction, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
@@ -13,37 +13,20 @@ import type {AppOptions} from './types/common';
 import type {StoreState} from './reducers';
 import type {SlidesViewProps} from './views/slides';
 
-import {Dispatchers} from './actions';
-import {validateSlide} from './actions/ui/slides';
-
-import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
+import {navigateTo, ViewPath} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
 import {mapStateToSlidesProps} from './views/slides';
 import {mapStateToSkillsProps, SkillsProps} from './views/skills';
+import {fetchSlide} from './actions/api/fetch-slide';
+import {setCurrentSlide} from './actions/ui/slides';
 
 type StaticProps = {
   viewName: 'skills' | 'onboarding' | 'slides' | 'loader';
   slides: SlidesViewProps | null;
   skills: SkillsProps | null;
-};
-
-const mapDispatchToProps: Dispatchers = {
-  // slides: {
-  //  stack: {
-  //     slides: []: {
-  //       answerUI: {
-  //         model:
-  //           onchange
-  //       }
-  //     }
-  //   }
-  // },
-  navigateTo,
-  navigateBack,
-  validateSlide
 };
 
 const getCurrentViewName = (storeState: StoreState): ViewPath =>
@@ -89,13 +72,30 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     const token = get('token', options);
     if (store === null || isEmpty(token)) return;
 
-    const skillRef = get('skillRef', options);
+    const start = async () => {
+      const skillRef = get('skillRef', options);
 
-    /* ThunkAction is not assignable to parameter of type 'AnyAction'
-      ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333 */
-    skillRef
-      ? store.dispatch(postProgression(skillRef, token))
-      : store.dispatch(fetchSkills(token));
+      if (skillRef) {
+        const responseProgression = await store.dispatch(postProgression(skillRef, token));
+        if (!responseProgression.error) {
+          const progression = responseProgression.payload;
+          const responseSlide = await store.dispatch(fetchSlide(progression, token));
+
+          const slideFromAPI = responseSlide.payload;
+
+          if (!slideFromAPI) throw new Error('Slide not found');
+          const state = store.getState();
+          const slides = get('data.progression.state.slides', state);
+          if (isEmpty(slides)) {
+            store.dispatch(setCurrentSlide(slideFromAPI));
+          }
+        }
+      } else {
+        store.dispatch(fetchSkills(token));
+      }
+    };
+
+    start();
   }, [options, store]);
 
   useEffect(() => {

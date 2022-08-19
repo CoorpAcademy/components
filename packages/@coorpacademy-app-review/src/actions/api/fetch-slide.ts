@@ -34,11 +34,11 @@ export const fetchSlide = (
       const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
       return services.fetchSlide(slideRef, token).then((slideFromAPI: SlideFromAPI | void) => {
         if (!slideFromAPI) throw new Error('Slide not found');
-        const state = getState();
-        const slides = get('data.progression.state.slides', state);
-        if (isEmpty(slides)) {
-          dispatch(setCurrentSlide(slideFromAPI));
-        }
+        // const state = getState();
+        // const slides = get('data.progression.state.slides', state);
+        // if (isEmpty(slides)) {
+        //   dispatch(setCurrentSlide(slideFromAPI));
+        // }
         return slideFromAPI;
       });
     }
