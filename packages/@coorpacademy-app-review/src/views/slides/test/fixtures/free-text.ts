@@ -34,7 +34,7 @@ export const freeTextUISlide: Partial<UISlide> = {
     model: {
       type: 'freeText',
       placeholder: 'Type here',
-      value: undefined,
+      value: '',
       onChange: noop
     }
   },
