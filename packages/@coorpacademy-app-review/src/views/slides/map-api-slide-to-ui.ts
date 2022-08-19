@@ -156,12 +156,12 @@ const templateProps = (question: TemplateQuestion): Template => {
 };
 
 const basicProps =
-  (dispatch: Dispatch) =>
+  (dispatch: Dispatch, answers: string[]) =>
   (question: BasicQuestion): FreeText => {
     return {
       type: 'freeText',
       placeholder: question.content.placeholder || '',
-      value: '',
+      value: answers[0] || '',
       onChange: (text: string): void => {
         // eslint-disable-next-line no-console
         console.log(text);
@@ -207,7 +207,11 @@ export const getQuestionType = (slide: SlideFromAPI): SlideFromAPI['question']['
 
 const getHelp = (slide: SlideFromAPI): string => get('question.explanation', slide);
 
-const getAnswerUIModel = (slide: SlideFromAPI, dispatch: Dispatch): AnswerUI['model'] => {
+const getAnswerUIModel = (
+  slide: SlideFromAPI,
+  answers: string[],
+  dispatch: Dispatch
+): AnswerUI['model'] => {
   const type = getQuestionType(slide);
   switch (type) {
     case 'qcm':
@@ -220,7 +224,7 @@ const getAnswerUIModel = (slide: SlideFromAPI, dispatch: Dispatch): AnswerUI['mo
       return pipe(get('question'), qcmDragProps)(slide);
 
     case 'basic':
-      return pipe(get('question'), basicProps(dispatch))(slide);
+      return pipe(get('question'), basicProps(dispatch, answers))(slide);
 
     case 'template':
       return pipe(get('question'), templateProps)(slide);
@@ -235,6 +239,7 @@ const getAnswerUIModel = (slide: SlideFromAPI, dispatch: Dispatch): AnswerUI['mo
 
 export const mapApiSlideToUi = (
   slide: SlideFromAPI,
+  answers: string[],
   dispatch: Dispatch
 ): {questionText: string; answerUI: AnswerUI} => {
   if (!slide) {
@@ -242,5 +247,8 @@ export const mapApiSlideToUi = (
   }
   const questionText = getOr('', 'question.header', slide);
 
-  return {questionText, answerUI: {model: getAnswerUIModel(slide, dispatch), help: getHelp(slide)}};
+  return {
+    questionText,
+    answerUI: {model: getAnswerUIModel(slide, answers, dispatch), help: getHelp(slide)}
+  };
 };
