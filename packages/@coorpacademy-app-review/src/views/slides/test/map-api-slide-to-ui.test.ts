@@ -10,6 +10,8 @@ import {textTemplateSlide, textTemplateUISlide} from './fixtures/text-template';
 import {selectTemplateSlide, selectTemplateUISlide} from './fixtures/select-template';
 import {sliderSlide, sliderUISlide} from './fixtures/slider';
 
+const _mapApiSlideToUi = mapApiSlideToUi(identity);
+
 const macro = test.macro({
   title(providedTitle) {
     return `should handle ${providedTitle} conversion`.trim();
@@ -23,7 +25,7 @@ const macro = test.macro({
     }
   ) {
     t.deepEqual(
-      JSON.parse(JSON.stringify(mapApiSlideToUi(arg.slide, arg.answers, identity))),
+      JSON.parse(JSON.stringify(_mapApiSlideToUi(arg.slide, arg.answers))),
       JSON.parse(JSON.stringify(arg.expectedUiSlide))
     );
   }
@@ -51,5 +53,5 @@ test('slider', macro, {slide: sliderSlide, answers: [], expectedUiSlide: sliderU
 
 test('should throw an error if the question type can not be handled', t => {
   const faultySlide = {...qcmSlide, question: {type: 'lol'}};
-  t.throws(() => mapApiSlideToUi(faultySlide as SlideFromAPI, [], identity));
+  t.throws(() => _mapApiSlideToUi(faultySlide as SlideFromAPI, []));
 });

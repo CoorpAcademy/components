@@ -236,18 +236,16 @@ const getAnswerUIModel = (
   }
 };
 
-export const mapApiSlideToUi = (
-  slide: SlideFromAPI,
-  answers: string[],
-  dispatch: Dispatch
-): {questionText: string; answerUI: AnswerUI} => {
-  if (!slide) {
-    throw new Error('no slide was found');
-  }
-  const questionText = getOr('', 'question.header', slide);
+export const mapApiSlideToUi =
+  (dispatch: Dispatch) =>
+  (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
+    if (!slide) {
+      throw new Error('no slide was found');
+    }
+    const questionText = getOr('', 'question.header', slide);
 
-  return {
-    questionText,
-    answerUI: {model: getAnswerUIModel(slide.question, answers, dispatch), help: getHelp(slide)}
+    return {
+      questionText,
+      answerUI: {model: getAnswerUIModel(slide.question, answers, dispatch), help: getHelp(slide)}
+    };
   };
-};
