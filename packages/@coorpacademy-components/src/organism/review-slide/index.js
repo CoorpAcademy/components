@@ -157,24 +157,27 @@ const Slide = (props, context) => {
       {loading ? (
         <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
       ) : (
-        <>
+        [
           <QuestionContainer
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
-          />
+            key="question-container"
+          />,
           <ValidateButton
             slideIndex={slideIndex}
             validateButton={validateButton}
             primarySkinColor={primarySkinColor}
-          />
+            key="validate-button"
+          />,
           <CorrectionPopin
             correctionPopinProps={correctionPopinProps}
             slideIndex={slideIndex}
             showCorrectionPopin={showCorrectionPopin}
             animateCorrectionPopin={animateCorrectionPopin}
+            key="correction-popin"
           />
-        </>
+        ]
       )}
     </div>
   );
