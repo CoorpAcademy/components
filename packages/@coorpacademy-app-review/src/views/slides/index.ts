@@ -8,6 +8,7 @@ import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
+import {Dispatch} from 'redux';
 import {ProgressionFromAPI, UISlide} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
@@ -122,7 +123,7 @@ const getProgressionSlidesRef = (progression: ProgressionFromAPI): string[] => {
   return slice(0, 5, progression.state.slides);
 };
 
-const buildStackSlides = (state: StoreState): SlidesStack => {
+const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack => {
   const currentSlideRef = state.ui.currentSlideRef;
   const progression = state.data.progression;
 
@@ -136,7 +137,7 @@ const buildStackSlides = (state: StoreState): SlidesStack => {
       if (!slideRef) return set(index, uiSlide, acc);
 
       const slideFromAPI = get(slideRef, state.data.slides);
-      const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI);
+      const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI, dispatch);
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
@@ -211,7 +212,10 @@ const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-export const mapStateToSlidesProps = (state: StoreState): SlidesViewProps | null => {
+export const mapStateToSlidesProps = (
+  state: StoreState,
+  dispatch: Dispatch
+): SlidesViewProps | null => {
   if (!state.data.slides) {
     return null;
   }
@@ -229,7 +233,7 @@ export const mapStateToSlidesProps = (state: StoreState): SlidesViewProps | null
       steps: buildStepItems(state)
     },
     stack: {
-      slides: buildStackSlides(state),
+      slides: buildStackSlides(state, dispatch),
       validateButton: {
         label: '__validate',
         disabled: true,

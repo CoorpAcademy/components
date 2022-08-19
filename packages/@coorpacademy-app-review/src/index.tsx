@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/redux-thunk/issues/333
-import {AnyAction, Store} from 'redux';
+import {AnyAction, Dispatch, Store} from 'redux';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
