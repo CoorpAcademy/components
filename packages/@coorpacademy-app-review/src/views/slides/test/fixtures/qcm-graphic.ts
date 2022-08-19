@@ -61,7 +61,7 @@ export const qcmGraphicSlide: SlideFromAPI = {
   universalRef: 'sli_VkSQroQnx',
   id: 'sli_VkSQroQnx',
   parentContentTitle: {
-    title: 'Some course',
+    title: 'Developing the review app',
     type: 'course'
   }
 };

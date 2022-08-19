@@ -69,7 +69,7 @@ export const qcmDragSlide: SlideFromAPI = {
   universalRef: 'sli_4yGBq-mCg',
   id: 'sli_4yGBq-mCg',
   parentContentTitle: {
-    title: 'Some chapter',
+    title: 'Using redux',
     type: 'chapter'
   }
 };

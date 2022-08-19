@@ -35,7 +35,7 @@ export const textTemplateSlide: SlideFromAPI = {
   hasClue: true,
   id: 'sli_VJKQonm2g',
   parentContentTitle: {
-    title: 'Some chapter',
+    title: 'Using redux',
     type: 'chapter'
   }
 };

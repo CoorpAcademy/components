@@ -72,7 +72,7 @@ export const qcmSlide: SlideFromAPI = {
   hasClue: true,
   id: 'sli_N1XACJobn',
   parentContentTitle: {
-    title: 'Some course',
+    title: 'Developing the review app',
     type: 'course'
   }
 };

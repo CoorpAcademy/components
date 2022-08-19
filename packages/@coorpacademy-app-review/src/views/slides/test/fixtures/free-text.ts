@@ -23,7 +23,7 @@ export const freeTextSlide: SlideFromAPI = {
   universalRef: 'sli_VJYjJnJhg',
   id: 'sli_VJYjJnJhg',
   parentContentTitle: {
-    title: 'Some course',
+    title: 'Developing the review app',
     type: 'course'
   }
 };

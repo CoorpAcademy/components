@@ -1,6 +1,7 @@
 import concat from 'lodash/fp/concat';
 
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
@@ -136,12 +137,13 @@ const buildStackSlides = (state: StoreState): SlidesStack => {
 
       const slideFromAPI = get(slideRef, state.data.slides);
       const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI);
-      const {title: parentContentTitle, type} = slideFromAPI.parentContentTitle;
+      const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
+      const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
       const updatedUiSlide = pipe(
         set(['questionText'], questionText),
         set(['answerUI'], answerUI),
-        set(['parentContentTitle'], `From ${parentContentTitle} ${type}`) // TODO translate: -From- .... -Course/chapter-
+        set(['parentContentTitle'], `From ${parentContentTitle} ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
 

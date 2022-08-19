@@ -18,7 +18,7 @@ export const sliderSlide: SlideFromAPI = {
   universalRef: 'sli_VkAzsCLKb',
   id: 'sli_VkAzsCLKb',
   parentContentTitle: {
-    title: 'Some course',
+    title: 'Developing the review app',
     type: 'course'
   }
 };

@@ -46,7 +46,7 @@ export const selectTemplateSlide: SlideFromAPI = {
   universalRef: 'sli_N13-hG3kX',
   id: 'sli_N13-hG3kX',
   parentContentTitle: {
-    title: 'Some course',
+    title: 'Developing the review app',
     type: 'course'
   }
 };
