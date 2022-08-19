@@ -13,6 +13,7 @@ import {
   size,
   toInteger
 } from 'lodash/fp';
+import {Dispatch} from 'redux';
 import {
   AnswerUI,
   FreeText,
@@ -34,6 +35,7 @@ import {
   SliderQuestion,
   TemplateQuestion
 } from '../../types/common';
+import {editAnswer} from '../../actions/ui/answers';
 
 const qcmProps = (question: QcmQuestion): Qcm => {
   // TODO: EDIT_CHOICES -> getAnswerValues
@@ -153,14 +155,16 @@ const templateProps = (question: TemplateQuestion): Template => {
   };
 };
 
-const basicProps = (question: BasicQuestion): FreeText => {
+const basicProps = (question: BasicQuestion, dispatch: Dispatch): FreeText => {
   return {
     type: 'freeText',
     placeholder: question.content.placeholder || '',
     value: '',
-    // TODO: EDIT_CHOICES
-    // eslint-disable-next-line no-console
-    onChange: () => console.log('TODO: on choice change')
+    onChange: (text: string): void => {
+      // eslint-disable-next-line no-console
+      console.log(text);
+      dispatch(editAnswer(text));
+    }
   };
 };
 
@@ -201,7 +205,7 @@ export const getQuestionType = (slide: SlideFromAPI): SlideFromAPI['question']['
 
 const getHelp = (slide: SlideFromAPI): string => get('question.explanation', slide);
 
-const getAnswerUIModel = (slide: SlideFromAPI): AnswerUI['model'] => {
+const getAnswerUIModel = (slide: SlideFromAPI, dispatch: Dispatch): AnswerUI['model'] => {
   const type = getQuestionType(slide);
   switch (type) {
     case 'qcm':
@@ -214,7 +218,7 @@ const getAnswerUIModel = (slide: SlideFromAPI): AnswerUI['model'] => {
       return pipe(get('question'), qcmDragProps)(slide);
 
     case 'basic':
-      return pipe(get('question'), basicProps)(slide);
+      return pipe(get('question'), basicProps)(slide, dispatch);
 
     case 'template':
       return pipe(get('question'), templateProps)(slide);
@@ -228,12 +232,13 @@ const getAnswerUIModel = (slide: SlideFromAPI): AnswerUI['model'] => {
 };
 
 export const mapApiSlideToUi = (
-  slide: SlideFromAPI
+  slide: SlideFromAPI,
+  dispatch: Dispatch
 ): {questionText: string; answerUI: AnswerUI} => {
   if (!slide) {
     throw new Error('no slide was found');
   }
   const questionText = getOr('', 'question.header', slide);
 
-  return {questionText, answerUI: {model: getAnswerUIModel(slide), help: getHelp(slide)}};
+  return {questionText, answerUI: {model: getAnswerUIModel(slide, dispatch), help: getHelp(slide)}};
 };

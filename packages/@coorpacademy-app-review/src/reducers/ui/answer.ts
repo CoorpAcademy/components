@@ -1,9 +1,6 @@
+import {EditBasicAction, EDIT_BASIC} from '../../actions/ui/answers';
+
 export type AnswerState = string[];
-export const EDIT_BASIC = '@@answer/EDIT_BASIC' as const;
-export type EditBasicAction = {
-  type: typeof EDIT_BASIC;
-  payload: string[];
-};
 
 const reducer = (
   // eslint-disable-next-line default-param-last
@@ -12,7 +9,7 @@ const reducer = (
 ): AnswerState => {
   switch (action.type) {
     case EDIT_BASIC: {
-      return state;
+      return action.payload;
     }
     default:
       return state;
