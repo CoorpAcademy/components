@@ -155,18 +155,20 @@ const templateProps = (question: TemplateQuestion): Template => {
   };
 };
 
-const basicProps = (question: BasicQuestion, dispatch: Dispatch): FreeText => {
-  return {
-    type: 'freeText',
-    placeholder: question.content.placeholder || '',
-    value: '',
-    onChange: (text: string): void => {
-      // eslint-disable-next-line no-console
-      console.log(text);
-      dispatch(editAnswer(text));
-    }
+const basicProps =
+  (dispatch: Dispatch) =>
+  (question: BasicQuestion): FreeText => {
+    return {
+      type: 'freeText',
+      placeholder: question.content.placeholder || '',
+      value: '',
+      onChange: (text: string): void => {
+        // eslint-disable-next-line no-console
+        console.log(text);
+        dispatch(editAnswer(text));
+      }
+    };
   };
-};
 
 const sliderProps = (question: SliderQuestion): QuestionRange => {
   const values: number[] = rangeStep(
@@ -218,7 +220,7 @@ const getAnswerUIModel = (slide: SlideFromAPI, dispatch: Dispatch): AnswerUI['mo
       return pipe(get('question'), qcmDragProps)(slide);
 
     case 'basic':
-      return pipe(get('question'), basicProps)(slide, dispatch);
+      return pipe(get('question'), basicProps(dispatch))(slide);
 
     case 'template':
       return pipe(get('question'), templateProps)(slide);

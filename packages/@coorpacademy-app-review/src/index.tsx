@@ -13,10 +13,7 @@ import type {AppOptions} from './types/common';
 import type {StoreState} from './reducers';
 import type {SlidesViewProps} from './views/slides';
 
-import {Dispatchers} from './actions';
-import {validateSlide} from './actions/ui/slides';
-
-import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
+import {navigateTo, ViewPath} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
@@ -30,24 +27,18 @@ type StaticProps = {
   skills: SkillsProps | null;
 };
 
-const mapDispatchToProps: Dispatchers = {
-  navigateTo,
-  navigateBack,
-  validateSlide
-};
-
 const getCurrentViewName = (storeState: StoreState): ViewPath =>
   storeState.ui.navigation[storeState.ui.navigation.length - 1];
 
-const mapStateToProps = (state: StoreState): StaticProps => {
-  return {
-    viewName: getCurrentViewName(state),
-    slides: mapStateToSlidesProps(state),
-    skills: mapStateToSkillsProps(state)
+const mapStateToProps =
+  (dispatch: Dispatch) =>
+  (state: StoreState): StaticProps => {
+    return {
+      viewName: getCurrentViewName(state),
+      slides: mapStateToSlidesProps(state, dispatch),
+      skills: mapStateToSkillsProps(state)
+    };
   };
-};
-
-const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
@@ -105,6 +96,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   if (!store) return null;
 
   const {templateContext: values} = options;
+  const App = connect(mapStateToProps(store.dispatch))(AppReviewTemplate);
 
   return (
     <Provider store={store}>
