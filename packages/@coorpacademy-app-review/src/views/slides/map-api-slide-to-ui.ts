@@ -8,7 +8,6 @@ import {
   indexOf,
   isEmpty,
   map,
-  pipe,
   rangeStep,
   size,
   toInteger
@@ -31,6 +30,7 @@ import {
   QcmDragQuestion,
   QcmGraphicQuestion,
   QcmQuestion,
+  Question,
   SlideFromAPI,
   SliderQuestion,
   TemplateQuestion
@@ -156,8 +156,8 @@ const templateProps = (question: TemplateQuestion): Template => {
 };
 
 const basicProps =
-  (dispatch: Dispatch, answers: string[]) =>
-  (question: BasicQuestion): FreeText => {
+  (dispatch: Dispatch) =>
+  (answers: string[], question: BasicQuestion): FreeText => {
     return {
       type: 'freeText',
       placeholder: question.content.placeholder || '',
@@ -202,35 +202,34 @@ const sliderProps = (question: SliderQuestion): QuestionRange => {
   };
 };
 
-export const getQuestionType = (slide: SlideFromAPI): SlideFromAPI['question']['type'] =>
-  slide.question.type;
+export const getQuestionType = (question: Question): Question['type'] => question.type;
 
 const getHelp = (slide: SlideFromAPI): string => get('question.explanation', slide);
 
 const getAnswerUIModel = (
-  slide: SlideFromAPI,
+  question: Question,
   answers: string[],
   dispatch: Dispatch
 ): AnswerUI['model'] => {
-  const type = getQuestionType(slide);
+  const type = getQuestionType(question);
   switch (type) {
     case 'qcm':
-      return pipe(get('question'), qcmProps)(slide);
+      return qcmProps(question as QcmQuestion);
 
     case 'qcmGraphic':
-      return pipe(get('question'), qcmGraphicProps)(slide);
+      return qcmGraphicProps(question as QcmGraphicQuestion);
 
     case 'qcmDrag':
-      return pipe(get('question'), qcmDragProps)(slide);
+      return qcmDragProps(question as QcmDragQuestion);
 
     case 'basic':
-      return pipe(get('question'), basicProps(dispatch, answers))(slide);
+      return basicProps(dispatch)(answers, question as BasicQuestion);
 
     case 'template':
-      return pipe(get('question'), templateProps)(slide);
+      return templateProps(question as TemplateQuestion);
 
     case 'slider':
-      return pipe(get('question'), sliderProps)(slide);
+      return sliderProps(question as SliderQuestion);
 
     default:
       throw new Error(`${type} is not an handled question.type`);
@@ -249,6 +248,6 @@ export const mapApiSlideToUi = (
 
   return {
     questionText,
-    answerUI: {model: getAnswerUIModel(slide, answers, dispatch), help: getHelp(slide)}
+    answerUI: {model: getAnswerUIModel(slide.question, answers, dispatch), help: getHelp(slide)}
   };
 };
