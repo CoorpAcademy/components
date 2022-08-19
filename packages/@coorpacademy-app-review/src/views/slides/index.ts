@@ -143,7 +143,7 @@ const buildStackSlides = (state: StoreState): SlidesStack => {
       const updatedUiSlide = pipe(
         set(['questionText'], questionText),
         set(['answerUI'], answerUI),
-        set(['parentContentTitle'], `From ${parentContentTitle} ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
+        set(['parentContentTitle'], `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
 
