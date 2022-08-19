@@ -57,7 +57,7 @@ const mapStateToProps = (state: StoreState): StaticProps => {
   };
 };
 
-const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
+const App = connect(mapStateToProps)(AppReviewTemplate);
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);

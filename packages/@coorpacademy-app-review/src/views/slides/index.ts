@@ -210,8 +210,8 @@ const buildStepItemps = (state: StoreState): StepItem[] => {
 };
 
 export const mapStateToSlidesProps =
-  (dispatch: Dispatch) =>
-  (state: StoreState): SlidesViewProps | null => {
+  (state: StoreState): SlidesViewProps | null =>
+  (dispatch: Dispatch) => {
     if (!state.data.slides) {
       return null;
     }
@@ -234,7 +234,7 @@ export const mapStateToSlidesProps =
           label: '__validate',
           disabled: true,
           onClick: (): void => {
-            // eslint-disable-next-line no-console
+            dispatch({type: 'TEST TODO: validate question'});
             console.log('TODO: validate question');
           }
         },
