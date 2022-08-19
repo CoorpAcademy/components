@@ -209,39 +209,38 @@ const buildStepItemps = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-export const mapStateToSlidesProps = (
-  state: StoreState,
-  dispatch: Dispatch
-): SlidesViewProps | null => {
-  if (!state.data.slides) {
-    return null;
-  }
+export const mapStateToSlidesProps =
+  (dispatch: Dispatch) =>
+  (state: StoreState): SlidesViewProps | null => {
+    if (!state.data.slides) {
+      return null;
+    }
 
-  return {
-    header: {
-      mode: '__revision_mode',
-      skillName: '__agility',
-      onQuitClick: (): void => {
-        // eslint-disable-next-line no-console
-        console.log('onQuitClick');
-      },
-      'aria-label': 'aria-header-wrapper',
-      closeButtonAriaLabel: 'aria-close-button',
-      steps: buildStepItemps(state)
-    },
-    stack: {
-      slides: buildStackSlides(state, dispatch),
-      validateButton: {
-        label: '__validate',
-        disabled: true,
-        onClick: (): void => {
+    return {
+      header: {
+        mode: '__revision_mode',
+        skillName: '__agility',
+        onQuitClick: (): void => {
           // eslint-disable-next-line no-console
-          console.log('TODO: validate question');
-        }
+          console.log('onQuitClick');
+        },
+        'aria-label': 'aria-header-wrapper',
+        closeButtonAriaLabel: 'aria-close-button',
+        steps: buildStepItemps(state)
       },
-      correctionPopinProps: undefined,
-      endReview: false
-    },
-    congratsProps: undefined
+      stack: {
+        slides: buildStackSlides(state, dispatch),
+        validateButton: {
+          label: '__validate',
+          disabled: true,
+          onClick: (): void => {
+            // eslint-disable-next-line no-console
+            console.log('TODO: validate question');
+          }
+        },
+        correctionPopinProps: undefined,
+        endReview: false
+      },
+      congratsProps: undefined
+    };
   };
-};

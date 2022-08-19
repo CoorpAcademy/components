@@ -5,14 +5,16 @@ import Skills from './skills';
 import Player from './player';
 import propTypes, {ViewNames} from './prop-types';
 
-const AppReview = ({viewName, onboarding, skills, slides, ...dispatchers}) => {
+const AppReview = ({viewName, onboarding, skills, slides: connectSlide, dispatch}) => {
+  const connectedSlides = connectSlide(dispatch);
+
   switch (viewName) {
     case ViewNames.skills:
-      return <Skills {...skills} {...dispatchers} />;
+      return <Skills {...skills} />;
     case ViewNames.onboarding:
-      return <Onboarding {...onboarding} {...dispatchers} />;
+      return <Onboarding {...onboarding} />;
     case ViewNames.slides:
-      return <Player {...slides} {...dispatchers} />;
+      return <Player {...connectedSlides} />;
     default:
       return <Loader />;
   }

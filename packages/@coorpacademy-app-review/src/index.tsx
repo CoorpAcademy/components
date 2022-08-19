@@ -31,6 +31,16 @@ type StaticProps = {
 };
 
 const mapDispatchToProps: Dispatchers = {
+  // slides: {
+  //  stack: {
+  //     slides: []: {
+  //       answerUI: {
+  //         model:
+  //           onchange
+  //       }
+  //     }
+  //   }
+  // },
   navigateTo,
   navigateBack,
   validateSlide
