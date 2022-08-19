@@ -27,10 +27,12 @@ export const fetchSlide = (
   buildTask({
     types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
     bailout: (state: StoreState): boolean => {
+      debugger;
       const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
       return has(`data.slide.${slideRef}`, state);
     },
     task: (dispatch: Dispatch, getState: () => StoreState, {services}: Options) => {
+      debugger;
       const {ref: slideRef} = get('state.nextContent', progressionFromAPI);
       return services.fetchSlide(slideRef, token).then((slideFromAPI: SlideFromAPI | void) => {
         if (!slideFromAPI) throw new Error('Slide not found');
