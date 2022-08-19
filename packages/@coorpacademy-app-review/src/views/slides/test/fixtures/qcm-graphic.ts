@@ -59,7 +59,11 @@ export const qcmGraphicSlide: SlideFromAPI = {
   klf: "Il ne faut pas prendre la négociation comme une affaire personnelle, afin de rester centré sur son sujet. Mais cela ne signifie pas être dépourvu de toute émotion, car celles-ci peuvent être de vrais atouts. À condition de réussir à les exprimer sans accuser l'autre d'en être à l'origine.",
   tips: "Pour gérer ses émotions, il faut d'abord les identifier, notamment en analysant ses ressentis physiques et en trouvant l'élément déclencheur.",
   universalRef: 'sli_VkSQroQnx',
-  id: 'sli_VkSQroQnx'
+  id: 'sli_VkSQroQnx',
+  parentContentTitle: {
+    title: 'Some course',
+    type: 'course'
+  }
 };
 
 export const qcmGraphicUISlide: Partial<UISlide> = {

@@ -67,7 +67,11 @@ export const qcmDragSlide: SlideFromAPI = {
   klf: "Le burn out s'installe en quatre étapes : tout d'abord, l'implication (investissement émotionnel et/ou affectif, sacrifice de sa vie privée) ; en second, la stagnation (premières déceptions, signes de fatigue) ; ensuite, la frustration (efforts non reconnus) ; et enfin, la démoralisation (problèmes de concentration, sentiment d'inutilité, désespoir).",
   tips: "Encadré par la loi, l'entretien professionnel a pour but d'aider le collaborateur à verbaliser ses difficultés et à construire son projet professionnel.",
   universalRef: 'sli_4yGBq-mCg',
-  id: 'sli_4yGBq-mCg'
+  id: 'sli_4yGBq-mCg',
+  parentContentTitle: {
+    title: 'Some chapter',
+    type: 'chapter'
+  }
 };
 
 export const qcmDragUISlide: Partial<UISlide> = {

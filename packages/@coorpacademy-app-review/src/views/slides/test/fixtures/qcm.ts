@@ -70,7 +70,11 @@ export const qcmSlide: SlideFromAPI = {
   tips: 'En 2021, le média en ligne Numerama a créé un NFT vendu aux enchères sur OpenSea. Sur cette plateforme, il est obligatoire de mettre un prix de réserve, autrement dit un prix minimum au-dessous duquel la vente ne sera pas automatiquement acceptée. Sur OpenSea il ne peut être inférieur à 1 ETH. Si le prix de réserve est atteint, pas de problème, les "gas fees" (les frais de gaz) sont couverts par OpenSea. Mais, si ce n’est pas le cas, c’est au vendeur de s’en acquitter. <br/>Le NFT en question est parti à 0,021 ETH, soit 40€ au cours de l\'époque, un prix inférieur au prix de réserve. Numerama a dû acquitter des frais de gaz, et payer 190 €. <br/>Avec les NFT, on ne gagne pas à tous les coups.',
   universalRef: 'sli_N1XACJobn',
   hasClue: true,
-  id: 'sli_N1XACJobn'
+  id: 'sli_N1XACJobn',
+  parentContentTitle: {
+    title: 'Some course',
+    type: 'course'
+  }
 };
 
 export const qcmUISlide: Partial<UISlide> = {
