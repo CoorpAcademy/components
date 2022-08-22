@@ -42,7 +42,8 @@ export const services: Services = {
         slides: [],
         step: {
           current: 1
-        }
+        },
+        stars: 0
       }
     });
   },
@@ -57,17 +58,24 @@ export const services: Services = {
         ref: 'review'
       },
       state: {
-        allAnswers: [],
+        allAnswers: [
+          {
+            slideRef: 'sli_N1XACJobn',
+            isCorrect: true,
+            answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
+          }
+        ],
         isCorrect: true,
         nextContent: {
-          ref: 'sli_N1XACJobn',
+          ref: 'sli_E1uPdic~2',
           type: 'slide'
         },
         pendingSlides: [],
-        slides: [],
+        slides: ['sli_N1XACJobn'],
         step: {
-          current: 1
-        }
+          current: 2
+        },
+        stars: 4
       }
     });
   }

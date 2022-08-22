@@ -115,6 +115,7 @@ export type ProgressionState = {
   step: {
     current: number;
   };
+  stars: number;
 };
 
 export type ProgressionFromAPI = {

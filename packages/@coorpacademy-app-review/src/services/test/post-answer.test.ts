@@ -26,7 +26,8 @@ const result: ProgressionFromAPI = {
     slides: ['sli_NkvrWPFF2'],
     step: {
       current: 2
-    }
+    },
+    stars: 4
   }
 };
 
