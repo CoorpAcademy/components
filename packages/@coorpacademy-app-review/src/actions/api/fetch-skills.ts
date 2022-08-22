@@ -1,6 +1,6 @@
 import buildTask from '@coorpacademy/redux-task';
-import type {ThunkAction, ThunkDispatch} from 'redux-thunk';
-import {AnyAction} from 'redux';
+import type {ThunkAction} from 'redux-thunk';
+import {AnyAction, Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
 import {Options, Skill} from '../../types/common';
 
@@ -14,7 +14,6 @@ export interface ReceivedSkills extends AnyAction {
 }
 
 export type FetchSkillsAction = ThunkAction<Promise<void>, StoreState, Options, AnyAction>;
-type Dispatch = ThunkDispatch<StoreState, Options, AnyAction>;
 
 export const fetchSkills = (token: string): FetchSkillsAction =>
   buildTask({
