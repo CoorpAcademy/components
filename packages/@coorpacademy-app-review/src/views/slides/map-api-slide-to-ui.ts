@@ -37,10 +37,6 @@ import {
 } from '../../types/common';
 import {editAnswer} from '../../actions/ui/answers';
 
-// const buildAnswerUi = (selected: boolean, choice: string, answers: string[]): string[] => {
-//   return selected ? pull(choice, answers) : flatten([choice, ...answers]);
-// };
-
 const qcmProps =
   (dispatch: Dispatch) =>
   (answers: string[], question: QcmQuestion): Qcm => {
@@ -52,7 +48,6 @@ const qcmProps =
           title: label,
           selected: includes(label, answers),
           onClick: (): void => {
-            // const answerUI = buildAnswerUi(selected, label, answers);
             dispatch(editAnswer(label));
           },
           ariaLabel: choice.label

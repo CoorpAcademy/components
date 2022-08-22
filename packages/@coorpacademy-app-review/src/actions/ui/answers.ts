@@ -16,14 +16,12 @@ export type EditAction = {
   payload: string[];
 };
 
-const buildAnswerUi = (newValue: string, answers: string[]): string[] => {
-  return includes(newValue, answers) ? pull(newValue, answers) : flatten([newValue, ...answers]);
-};
-
 const newState = (userAnswers: string[], questionType: string, newValue: string): string[] => {
   switch (questionType) {
     case 'qcm': {
-      return buildAnswerUi(newValue, userAnswers);
+      return includes(newValue, userAnswers)
+        ? pull(newValue, userAnswers)
+        : flatten([newValue, ...userAnswers]);
     }
     case 'basic':
       return [newValue];
@@ -40,7 +38,7 @@ export const editAnswer =
     const userAnswers = get(['ui', 'answers'])(state);
     const slide = get(['data', 'slides', currentSlideRef])(state);
     const questionType = get(['question', 'type'])(slide);
-    const type = ANSWER_EDIT[questionType];
+    const type = get(questionType, ANSWER_EDIT);
 
     return dispatch({
       type,
