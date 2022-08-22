@@ -119,6 +119,13 @@ export type ProgressionState = {
 
 export type ProgressionFromAPI = {
   _id: string;
+  content: {
+    type: 'skill';
+    ref: string;
+  };
+  engine: {
+    ref: 'review';
+  };
   state: ProgressionState;
 };
 

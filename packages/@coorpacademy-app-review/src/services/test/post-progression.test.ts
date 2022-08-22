@@ -6,6 +6,13 @@ import {postProgression} from '../post-progression';
 const skillRef = '_skill-ref';
 const result: ProgressionFromAPI = {
   _id: '123456123456',
+  content: {
+    ref: '_skill-ref',
+    type: 'skill'
+  },
+  engine: {
+    ref: 'review'
+  },
   state: {
     allAnswers: [],
     isCorrect: true,
