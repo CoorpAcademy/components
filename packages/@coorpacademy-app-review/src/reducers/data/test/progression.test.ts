@@ -8,7 +8,7 @@ test('should have inital value', t => {
   t.is(state, null);
 });
 
-test('should set the value of EDIT_BASIC action', t => {
+test('should set the value of POST_PROGRESSION_SUCCESS action', t => {
   const progression: ProgressionFromAPI = {
     _id: '62b1d1087aa12f00253f40ee',
     content: {
