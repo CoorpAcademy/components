@@ -29,6 +29,7 @@ export const postProgression =
 
     if (response.type === POST_PROGRESSION_SUCCESS) {
       const progression = response.payload;
-      await dispatch(fetchSlide(progression, token));
+      const slideRef = progression.state.nextContent.ref;
+      await dispatch(fetchSlide(slideRef, token));
     }
   };
