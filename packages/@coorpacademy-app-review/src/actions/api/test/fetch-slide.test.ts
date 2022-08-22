@@ -22,7 +22,7 @@ const createTestStore = (t, initialState, createServices, actions) => {
   return createStore(rootReducer, initialState, enhancer);
 };
 
-test('should fetch slide', async t => {
+test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlide return a slide', async t => {
   const initilaState = {data: {token: '1234'}, ui: {currentSlideRef: ''}};
 
   const createServices = t => {
@@ -39,6 +39,34 @@ test('should fetch slide', async t => {
     {type: '@@slides/FETCH_REQUEST', meta: {slideRef: 'slide_ref'}},
     {type: '@@slides/FETCH_SUCCESS', meta: {slideRef: 'slide_ref'}, payload: {id: 'slide_ref'}},
     {type: '@@slide/SET_CURRENT_SLIDE', payload: {id: 'slide_ref'}}
+  ];
+
+  const {dispatch} = createTestStore(t, initilaState, createServices, expectedActions);
+
+  await dispatch(fetchSlide('slide_ref', '1234'));
+});
+
+test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t => {
+  const initilaState = {data: {token: '1234'}, ui: {currentSlideRef: ''}};
+
+  const createServices = t => {
+    return {
+      fetchSlide: (slideRef: string, token: string) => {
+        t.is(token, '1234');
+        t.is(slideRef, 'slide_ref');
+        return Promise.reject(new Error('error'));
+      }
+    };
+  };
+
+  const expectedActions = [
+    {type: '@@slides/FETCH_REQUEST', meta: {slideRef: 'slide_ref'}},
+    {
+      type: '@@slides/FETCH_FAILURE',
+      meta: {slideRef: 'slide_ref'},
+      payload: new Error('error'),
+      error: true
+    }
   ];
 
   const {dispatch} = createTestStore(t, initilaState, createServices, expectedActions);
