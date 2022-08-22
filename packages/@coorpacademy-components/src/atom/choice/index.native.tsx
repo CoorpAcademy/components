@@ -47,7 +47,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       minHeight: 80,
       backgroundColor: theme.colors.white,
       borderRadius: theme.radius.regular,
-      overflow: 'hidden',
       flexDirection: 'row',
       alignItems: 'stretch'
     },
@@ -77,7 +76,10 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     },
     imageContainer: {
       height: '100%',
-      width: '25%'
+      width: '25%',
+      overflow: 'hidden',
+      borderTopLeftRadius: theme.radius.regular,
+      borderBottomLeftRadius: theme.radius.regular
     },
     image: {
       flex: 1
@@ -112,7 +114,8 @@ const Choice = ({
   const selectedStyle = brandTheme && {
     backgroundColor: brandTheme.colors.primary,
     borderColor: brandTheme.colors.primary,
-    borderRadius: theme.radius.common
+    borderTopRightRadius: theme.radius.regular,
+    borderBottomRightRadius: theme.radius.regular
   };
 
   const selectedSuffix = prefixTestID && isSelected ? '-selected' : '';
