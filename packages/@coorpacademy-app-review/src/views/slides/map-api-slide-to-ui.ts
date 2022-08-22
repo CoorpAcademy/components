@@ -8,11 +8,11 @@ import {
   indexOf,
   isEmpty,
   map,
-  pipe,
   rangeStep,
   size,
   toInteger
 } from 'lodash/fp';
+import {Dispatch} from 'redux';
 import {
   AnswerUI,
   FreeText,
@@ -30,10 +30,12 @@ import {
   QcmDragQuestion,
   QcmGraphicQuestion,
   QcmQuestion,
+  Question,
   SlideFromAPI,
   SliderQuestion,
   TemplateQuestion
 } from '../../types/common';
+import {editAnswer} from '../../actions/ui/answers';
 
 const qcmProps = (question: QcmQuestion): Qcm => {
   // TODO: EDIT_CHOICES -> getAnswerValues
@@ -153,19 +155,20 @@ const templateProps = (question: TemplateQuestion): Template => {
   };
 };
 
-const basicProps = (question: BasicQuestion): FreeText => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-
-  return {
-    type: 'freeText',
-    placeholder: question.content.placeholder || '',
-    value: head(answers),
-    // TODO: EDIT_CHOICES
-    // eslint-disable-next-line no-console
-    onChange: () => console.log('TODO: on choice change')
+const basicProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: BasicQuestion): FreeText => {
+    return {
+      type: 'freeText',
+      placeholder: question.content.placeholder || '',
+      value: answers[0] || '',
+      onChange: (text: string): void => {
+        // eslint-disable-next-line no-console
+        console.log(text);
+        dispatch(editAnswer(text));
+      }
+    };
   };
-};
 
 const sliderProps = (question: SliderQuestion): QuestionRange => {
   const values: number[] = rangeStep(
@@ -199,44 +202,50 @@ const sliderProps = (question: SliderQuestion): QuestionRange => {
   };
 };
 
-export const getQuestionType = (slide: SlideFromAPI): SlideFromAPI['question']['type'] =>
-  slide.question.type;
+export const getQuestionType = (question: Question): Question['type'] => question.type;
 
 const getHelp = (slide: SlideFromAPI): string => get('question.explanation', slide);
 
-const getAnswerUIModel = (slide: SlideFromAPI): AnswerUI['model'] => {
-  const type = getQuestionType(slide);
+const getAnswerUIModel = (
+  question: Question,
+  answers: string[],
+  dispatch: Dispatch
+): AnswerUI['model'] => {
+  const type = getQuestionType(question);
   switch (type) {
     case 'qcm':
-      return pipe(get('question'), qcmProps)(slide);
+      return qcmProps(question as QcmQuestion);
 
     case 'qcmGraphic':
-      return pipe(get('question'), qcmGraphicProps)(slide);
+      return qcmGraphicProps(question as QcmGraphicQuestion);
 
     case 'qcmDrag':
-      return pipe(get('question'), qcmDragProps)(slide);
+      return qcmDragProps(question as QcmDragQuestion);
 
     case 'basic':
-      return pipe(get('question'), basicProps)(slide);
+      return basicProps(dispatch)(answers, question as BasicQuestion);
 
     case 'template':
-      return pipe(get('question'), templateProps)(slide);
+      return templateProps(question as TemplateQuestion);
 
     case 'slider':
-      return pipe(get('question'), sliderProps)(slide);
+      return sliderProps(question as SliderQuestion);
 
     default:
       throw new Error(`${type} is not an handled question.type`);
   }
 };
 
-export const mapApiSlideToUi = (
-  slide: SlideFromAPI
-): {questionText: string; answerUI: AnswerUI} => {
-  if (!slide) {
-    throw new Error('no slide was found');
-  }
-  const questionText = getOr('', 'question.header', slide);
+export const mapApiSlideToUi =
+  (dispatch: Dispatch) =>
+  (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
+    if (!slide) {
+      throw new Error('no slide was found');
+    }
+    const questionText = getOr('', 'question.header', slide);
 
-  return {questionText, answerUI: {model: getAnswerUIModel(slide), help: getHelp(slide)}};
-};
+    return {
+      questionText,
+      answerUI: {model: getAnswerUIModel(slide.question, answers, dispatch), help: getHelp(slide)}
+    };
+  };

@@ -25,25 +25,25 @@ type BaseContent = {
   choices: ChoiceFromAPI[];
 };
 
-type Question = {
+type BaseQuestion = {
   header?: string;
   content: BaseContent;
   explanation?: string;
 };
 
-export type QcmQuestion = Question & {
+export type QcmQuestion = BaseQuestion & {
   type: 'qcm';
 };
 
-export type QcmGraphicQuestion = Question & {
+export type QcmGraphicQuestion = BaseQuestion & {
   type: 'qcmGraphic';
 };
 
-export type QcmDragQuestion = Question & {
+export type QcmDragQuestion = BaseQuestion & {
   type: 'qcmDrag';
 };
 
-export type BasicQuestion = Omit<Question, 'content'> & {
+export type BasicQuestion = Omit<BaseQuestion, 'content'> & {
   type: 'basic';
   content: {
     media?: unknown;
@@ -53,7 +53,7 @@ export type BasicQuestion = Omit<Question, 'content'> & {
   };
 };
 
-export type SliderQuestion = Omit<Question, 'content'> & {
+export type SliderQuestion = Omit<BaseQuestion, 'content'> & {
   content: {
     media?: unknown;
     unitLabel: string;
@@ -64,21 +64,23 @@ export type SliderQuestion = Omit<Question, 'content'> & {
   type: 'slider';
 };
 
-export type TemplateQuestion = Omit<Question, 'content'> & {
+export type TemplateQuestion = Omit<BaseQuestion, 'content'> & {
   content: BaseContent & {
     template: string;
   };
   type: 'template';
 };
 
+export type Question =
+  | QcmQuestion
+  | QcmGraphicQuestion
+  | QcmDragQuestion
+  | BasicQuestion
+  | SliderQuestion
+  | TemplateQuestion;
+
 export type SlideFromAPI = {
-  question:
-    | QcmQuestion
-    | QcmGraphicQuestion
-    | QcmDragQuestion
-    | BasicQuestion
-    | SliderQuestion
-    | TemplateQuestion;
+  question: Question;
   klf: string;
   universalRef: string;
   tips?: string;

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/redux-thunk/issues/333
 import {AnyAction, Store} from 'redux';
-import {connect, Provider} from 'react-redux';
+import {useSelector, useDispatch, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {TemplateContext} from '@coorpacademy/components/es/template/app-review/template-context';
 
@@ -11,43 +11,28 @@ import configureStore from './configure-store';
 
 import type {AppOptions} from './types/common';
 import type {StoreState} from './reducers';
-import type {SlidesViewProps} from './views/slides';
 
-import {Dispatchers} from './actions';
-import {validateSlide} from './actions/ui/slides';
-
-import {navigateTo, navigateBack, ViewPath} from './actions/ui/navigation';
+import {navigateTo, ViewPath} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {VIEWS} from './common';
 import {mapStateToSlidesProps} from './views/slides';
-import {mapStateToSkillsProps, SkillsProps} from './views/skills';
+import {mapStateToSkillsProps} from './views/skills';
 
-type StaticProps = {
-  viewName: 'skills' | 'onboarding' | 'slides' | 'loader';
-  slides: SlidesViewProps | null;
-  skills: SkillsProps | null;
-};
+const ConnectedApp = (): JSX.Element => {
+  const dispatch = useDispatch();
 
-const mapDispatchToProps: Dispatchers = {
-  navigateTo,
-  navigateBack,
-  validateSlide
-};
-
-const getCurrentViewName = (storeState: StoreState): ViewPath =>
-  storeState.ui.navigation[storeState.ui.navigation.length - 1];
-
-const mapStateToProps = (state: StoreState): StaticProps => {
-  return {
-    viewName: getCurrentViewName(state),
-    slides: mapStateToSlidesProps(state),
-    skills: mapStateToSkillsProps(state)
+  const props = {
+    viewName: useSelector(
+      (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
+    ),
+    slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch)),
+    skills: useSelector((state: StoreState) => mapStateToSkillsProps(state))
   };
-};
 
-const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
+  return <AppReviewTemplate {...props} />;
+};
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
@@ -109,7 +94,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   return (
     <Provider store={store}>
       <TemplateContext values={values}>
-        <App />
+        <ConnectedApp />
       </TemplateContext>
     </Provider>
   );
