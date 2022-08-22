@@ -1,7 +1,6 @@
 import {
   concat,
   divide,
-  flatten,
   get,
   getOr,
   head,
@@ -9,7 +8,6 @@ import {
   indexOf,
   isEmpty,
   map,
-  pull,
   rangeStep,
   size,
   toInteger
@@ -39,9 +37,9 @@ import {
 } from '../../types/common';
 import {editAnswer} from '../../actions/ui/answers';
 
-const buildAnswerUi = (selected: boolean, choice: string, answers: string[]): string[] => {
-  return selected ? pull(choice, answers) : flatten([choice, ...answers]);
-};
+// const buildAnswerUi = (selected: boolean, choice: string, answers: string[]): string[] => {
+//   return selected ? pull(choice, answers) : flatten([choice, ...answers]);
+// };
 
 const qcmProps =
   (dispatch: Dispatch) =>
@@ -49,14 +47,13 @@ const qcmProps =
     return {
       type: 'qcm',
       answers: map(choice => {
-        const selected = includes(choice.label, answers);
         const label = choice.label || '';
         return {
           title: label,
-          selected,
+          selected: includes(label, answers),
           onClick: (): void => {
-            const answerUI = buildAnswerUi(selected, label, answers);
-            dispatch(editAnswer(answerUI));
+            // const answerUI = buildAnswerUi(selected, label, answers);
+            dispatch(editAnswer(label));
           },
           ariaLabel: choice.label
         };

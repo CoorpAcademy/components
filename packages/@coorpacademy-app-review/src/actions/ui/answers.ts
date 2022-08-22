@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux';
-import {get} from 'lodash/fp';
+import {flatten, get, includes, pull} from 'lodash/fp';
 import type {StoreState} from '../../reducers';
 
 export const ANSWER_EDIT = {
@@ -16,18 +16,34 @@ export type EditAction = {
   payload: string[];
 };
 
+const buildAnswerUi = (newValue: string, answers: string[]): string[] => {
+  return includes(newValue, answers) ? pull(newValue, answers) : flatten([newValue, ...answers]);
+};
+
+const newState = (userAnswers: string[], questionType: string, newValue: string): string[] => {
+  switch (questionType) {
+    case 'qcm': {
+      return buildAnswerUi(newValue, userAnswers);
+    }
+    case 'basic':
+      return [newValue];
+    default:
+      return [];
+  }
+};
+
 export const editAnswer =
-  (answer: string | string[]) =>
+  (answer: string) =>
   (dispatch: Dispatch, getState: () => StoreState): EditAction => {
-    console.log('hello', answer);
     const state = getState();
-    const currentSlideRef = state.ui.currentSlideRef;
-    const slide = get(currentSlideRef, state.data.slides);
-    const type = ANSWER_EDIT[slide.question.type];
-    const payload = type === '@@answer/EDIT_BASIC' ? [answer] : answer;
+    const currentSlideRef = get(['ui', 'currentSlideRef'])(state);
+    const userAnswers = get(['ui', 'answers'])(state);
+    const slide = get(['data', 'slides', currentSlideRef])(state);
+    const questionType = get(['question', 'type'])(slide);
+    const type = ANSWER_EDIT[questionType];
 
     return dispatch({
       type,
-      payload
+      payload: newState(userAnswers, questionType, answer)
     });
   };
