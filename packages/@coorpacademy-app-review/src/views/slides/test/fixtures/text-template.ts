@@ -33,7 +33,11 @@ export const textTemplateSlide: SlideFromAPI = {
   tips: "L'origine de l'expression <i>role model</i> est attribué au sociologue Robert K. Merton.",
   universalRef: 'sli_VJKQonm2g',
   hasClue: true,
-  id: 'sli_VJKQonm2g'
+  id: 'sli_VJKQonm2g',
+  parentContentTitle: {
+    title: 'Using redux',
+    type: 'chapter'
+  }
 };
 
 export const textTemplateUISlide: Partial<UISlide> = {

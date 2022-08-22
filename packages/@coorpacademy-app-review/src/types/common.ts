@@ -85,6 +85,10 @@ export type SlideFromAPI = {
   clue?: string;
   hasClue?: boolean;
   id: string;
+  parentContentTitle: {
+    title: string;
+    type: 'chapter' | 'course';
+  };
 };
 
 type ProgressionAnswerItem = {

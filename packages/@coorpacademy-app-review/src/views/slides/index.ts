@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import concat from 'lodash/fp/concat';
 
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
@@ -72,10 +72,10 @@ export type SlidesViewProps = {
   congratsProps?: {
     'aria-label'?: string;
     'data-name'?: string;
-    animationLottie: any;
+    animationLottie: unknown;
     title: string;
-    cardCongratsStar: any;
-    cardCongratsRank: any;
+    cardCongratsStar: unknown;
+    cardCongratsRank: unknown;
     buttonRevising: {
       'aria-label'?: string;
       label: string;
@@ -137,10 +137,13 @@ const buildStackSlides = (state: StoreState): SlidesStack => {
 
       const slideFromAPI = get(slideRef, state.data.slides);
       const {questionText, answerUI} = mapApiSlideToUi(slideFromAPI);
+      const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
+      const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
+
       const updatedUiSlide = pipe(
         set(['questionText'], questionText),
         set(['answerUI'], answerUI),
-        set(['parentContentTitle'], 'Parent Title') // TODO parentContentTitle + translate
+        set(['parentContentTitle'], `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
 
@@ -153,7 +156,7 @@ const buildStackSlides = (state: StoreState): SlidesStack => {
   return stack;
 };
 
-const buildStepItemps = (state: StoreState): StepItem[] => {
+const buildStepItems = (state: StoreState): StepItem[] => {
   const {progression} = state.data;
   const {currentSlideRef} = state.ui;
   if (!progression) return [];
@@ -223,7 +226,7 @@ export const mapStateToSlidesProps = (state: StoreState): SlidesViewProps | null
       },
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
-      steps: buildStepItemps(state)
+      steps: buildStepItems(state)
     },
     stack: {
       slides: buildStackSlides(state),
