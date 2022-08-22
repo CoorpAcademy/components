@@ -23,21 +23,22 @@ const createTestStore = (t, initialState, createServices, actions) => {
 };
 
 test('should fetch slide', async t => {
-  const initilaState = {data: {token: '1234'}, ui: {}};
+  const initilaState = {data: {token: '1234'}, ui: {currentSlideRef: ''}};
 
   const createServices = t => {
     return {
       fetchSlide: (slideRef: string, token: string) => {
         t.is(token, '1234');
         t.is(slideRef, 'slide_ref');
-        return Promise.resolve({_id: 'slide_ref'});
+        return Promise.resolve({id: 'slide_ref'});
       }
     };
   };
 
   const expectedActions = [
     {type: '@@slides/FETCH_REQUEST', meta: {slideRef: 'slide_ref'}},
-    {type: '@@slides/FETCH_SUCCESS', meta: {slideRef: 'slide_ref'}, payload: {}}
+    {type: '@@slides/FETCH_SUCCESS', meta: {slideRef: 'slide_ref'}, payload: {id: 'slide_ref'}},
+    {type: '@@slide/SET_CURRENT_SLIDE', payload: {id: 'slide_ref'}}
   ];
 
   const {dispatch} = createTestStore(t, initilaState, createServices, expectedActions);

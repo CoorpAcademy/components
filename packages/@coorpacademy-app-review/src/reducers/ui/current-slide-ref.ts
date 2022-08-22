@@ -7,6 +7,7 @@ const reducer = (
   state: CurrentSlideRefState = '',
   action: UISlidesAction
 ): CurrentSlideRefState => {
+  console.log('CurrentSlideRefState--->', action, state);
   switch (action.type) {
     case SET_CURRENT_SLIDE: {
       return action.payload.id;
