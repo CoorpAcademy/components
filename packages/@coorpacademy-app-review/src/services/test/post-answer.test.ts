@@ -24,6 +24,10 @@ const result: ProgressionFromAPI = {
     },
     pendingSlides: [],
     slides: ['sli_NkvrWPFF2'],
+    content: {
+      ref: 'sli_NkvrWPFF2',
+      type: 'slide'
+    },
     step: {
       current: 2
     },
