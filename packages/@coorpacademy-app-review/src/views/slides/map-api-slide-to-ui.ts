@@ -1,6 +1,7 @@
 import {
   concat,
   divide,
+  flatten,
   get,
   getOr,
   head,
@@ -8,6 +9,7 @@ import {
   indexOf,
   isEmpty,
   map,
+  pull,
   rangeStep,
   size,
   toInteger
@@ -37,26 +39,30 @@ import {
 } from '../../types/common';
 import {editAnswer} from '../../actions/ui/answers';
 
-const qcmProps = (question: QcmQuestion): Qcm => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-
-  return {
-    type: 'qcm',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        selected: includes(choice.label, answers),
-        // TODO: EDIT_CHOICES
-        // eslint-disable-next-line no-console
-        onClick: () => console.log('TODO: on choice click'),
-        ariaLabel: choice.label
-      }),
-      // TODO: EDIT_CHOICES -> getChoices
-      question.content.choices
-    )
-  };
+const buildAnswerUi = (selected: boolean, choice: string, answers: string[]): string[] => {
+  return selected ? pull(choice, answers) : flatten([choice, ...answers]);
 };
+
+const qcmProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: QcmQuestion): Qcm => {
+    return {
+      type: 'qcm',
+      answers: map(choice => {
+        const selected = includes(choice.label, answers);
+        const label = choice.label || '';
+        return {
+          title: label,
+          selected,
+          onClick: (): void => {
+            const answerUI = buildAnswerUi(selected, label, answers);
+            dispatch(editAnswer(answerUI));
+          },
+          ariaLabel: choice.label
+        };
+      }, question.content.choices)
+    };
+  };
 
 const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
   // TODO: EDIT_CHOICES -> getAnswerValues
@@ -214,7 +220,7 @@ const getAnswerUIModel = (
   const type = getQuestionType(question);
   switch (type) {
     case 'qcm':
-      return qcmProps(question as QcmQuestion);
+      return qcmProps(dispatch)(answers, question as QcmQuestion);
 
     case 'qcmGraphic':
       return qcmGraphicProps(question as QcmGraphicQuestion);

@@ -1,4 +1,4 @@
-import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
+import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {Services} from '../../types/common';
 
 export const services: Services = {
@@ -19,7 +19,7 @@ export const services: Services = {
     ]);
   },
   fetchSlide: ref => {
-    return Promise.resolve({...freeTextSlide, universalRef: ref, id: ref});
+    return Promise.resolve({...qcmSlide, universalRef: ref, id: ref});
   },
   postProgression: () => {
     return Promise.resolve({
