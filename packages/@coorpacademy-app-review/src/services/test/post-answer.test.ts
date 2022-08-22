@@ -8,6 +8,13 @@ const skillRef = '_skill-ref';
 const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
 
 const result: ProgressionFromAPI = {
+  content: {
+    type: 'skill',
+    ref: skillRef
+  },
+  engine: {
+    ref: 'review'
+  },
   _id: '123456123456',
   state: {
     allAnswers: [
