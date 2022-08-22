@@ -45,5 +45,30 @@ export const services: Services = {
         }
       }
     });
+  },
+  postAnswer: () => {
+    return Promise.resolve({
+      _id: '62b1d1087aa12f00253f40ee',
+      content: {
+        ref: '_skill-ref',
+        type: 'skill'
+      },
+      engine: {
+        ref: 'review'
+      },
+      state: {
+        allAnswers: [],
+        isCorrect: true,
+        nextContent: {
+          ref: 'sli_N1XACJobn',
+          type: 'slide'
+        },
+        pendingSlides: [],
+        slides: [],
+        step: {
+          current: 1
+        }
+      }
+    });
   }
 };
