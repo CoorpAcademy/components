@@ -67,7 +67,7 @@ export const services: Services = {
         ],
         isCorrect: true,
         nextContent: {
-          ref: 'sli_E1uPdic~2',
+          ref: 'sli_VkSQroQnx',
           type: 'slide'
         },
         pendingSlides: [],
