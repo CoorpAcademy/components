@@ -999,6 +999,7 @@ import OrganismReviewSlideFixtureCorrectionOk from '../src/organism/review-slide
 import OrganismReviewSlideFixtureCorrectionWrongAnimated from '../src/organism/review-slide/test/fixtures/correction-wrong-animated';
 import OrganismReviewSlideFixtureCorrectionWrong from '../src/organism/review-slide/test/fixtures/correction-wrong';
 import OrganismReviewSlideFixtureInitialState from '../src/organism/review-slide/test/fixtures/initial-state';
+import OrganismReviewSlideFixtureLoading from '../src/organism/review-slide/test/fixtures/loading';
 import OrganismReviewStackedSlidesFixtureAllOk from '../src/organism/review-stacked-slides/test/fixtures/all-ok';
 import OrganismReviewStackedSlidesFixtureEndReview from '../src/organism/review-stacked-slides/test/fixtures/end-review';
 import OrganismReviewStackedSlidesFixtureFirstCorrect from '../src/organism/review-stacked-slides/test/fixtures/first-correct';
@@ -2713,7 +2714,8 @@ export const fixtures = {
       CorrectionOk: OrganismReviewSlideFixtureCorrectionOk,
       CorrectionWrongAnimated: OrganismReviewSlideFixtureCorrectionWrongAnimated,
       CorrectionWrong: OrganismReviewSlideFixtureCorrectionWrong,
-      InitialState: OrganismReviewSlideFixtureInitialState
+      InitialState: OrganismReviewSlideFixtureInitialState,
+      Loading: OrganismReviewSlideFixtureLoading
     },
     OrganismReviewStackedSlides: {
       AllOk: OrganismReviewStackedSlidesFixtureAllOk,

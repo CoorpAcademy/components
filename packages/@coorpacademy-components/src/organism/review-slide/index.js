@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
+import Loader from '../../atom/loader';
 import Provider from '../../atom/provider';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
 import propTypes from './prop-types';
@@ -142,6 +143,8 @@ const Slide = (props, context) => {
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {
+    loading,
+    loadingAriaLabel,
     parentContentTitle,
     questionText,
     answerUI,
@@ -151,22 +154,31 @@ const Slide = (props, context) => {
 
   return (
     <div data-name={`slide-container`} className={style.slide}>
-      <QuestionContainer
-        questionOrigin={parentContentTitle}
-        questionText={questionText}
-        answerUI={answerUI}
-      />
-      <ValidateButton
-        slideIndex={slideIndex}
-        validateButton={validateButton}
-        primarySkinColor={primarySkinColor}
-      />
-      <CorrectionPopin
-        correctionPopinProps={correctionPopinProps}
-        slideIndex={slideIndex}
-        showCorrectionPopin={showCorrectionPopin}
-        animateCorrectionPopin={animateCorrectionPopin}
-      />
+      {loading ? (
+        <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
+      ) : (
+        [
+          <QuestionContainer
+            questionOrigin={parentContentTitle}
+            questionText={questionText}
+            answerUI={answerUI}
+            key="question-container"
+          />,
+          <ValidateButton
+            slideIndex={slideIndex}
+            validateButton={validateButton}
+            primarySkinColor={primarySkinColor}
+            key="validate-button"
+          />,
+          <CorrectionPopin
+            correctionPopinProps={correctionPopinProps}
+            slideIndex={slideIndex}
+            showCorrectionPopin={showCorrectionPopin}
+            animateCorrectionPopin={animateCorrectionPopin}
+            key="correction-popin"
+          />
+        ]
+      )}
     </div>
   );
 };

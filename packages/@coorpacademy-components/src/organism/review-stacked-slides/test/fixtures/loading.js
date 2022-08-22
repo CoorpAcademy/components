@@ -3,23 +3,29 @@ export default {
     slides: {
       '0': {
         hidden: false,
-        position: 0
+        position: 0,
+        loading: true,
+        loadingAriaLabel: 'Review slide container is loading'
       },
       '1': {
         hidden: false,
-        position: 1
+        position: 1,
+        loading: false
       },
       '2': {
         hidden: false,
-        position: 2
+        position: 2,
+        loading: false
       },
       '3': {
         hidden: false,
-        position: 3
+        position: 3,
+        loading: false
       },
       '4': {
         hidden: false,
-        position: 4
+        position: 4,
+        loading: false
       }
     },
     endReview: false,
@@ -27,7 +33,6 @@ export default {
       label: 'Validate',
       onClick: () => console.log('onValidateClick'),
       disabled: false
-    },
-    loadingAriaLabel: 'Review slides container is loading'
+    }
   }
 };
