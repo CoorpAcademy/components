@@ -269,6 +269,7 @@ const popinEndStateToProps = (options, store) => {
 
     const props = {
       header: headerProps_(state),
+      mode: options.mode ? options.mode : 'default',
       summary: {
         header: summaryHeader_(state)(exitNode),
         action: extractAction_(state)(exitNode),
