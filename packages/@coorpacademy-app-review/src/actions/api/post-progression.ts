@@ -1,5 +1,4 @@
-import type {AnyAction} from 'redux';
-import type {ThunkDispatch} from 'redux-thunk';
+import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import {Options, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
@@ -9,12 +8,10 @@ export const POST_PROGRESSION_REQUEST = '@@progression/POST_REQUEST' as const;
 export const POST_PROGRESSION_SUCCESS = '@@progression/POST_SUCCESS' as const;
 export const POST_PROGRESSION_FAILURE = '@@progression/POST_FAILURE' as const;
 
-export interface ReceiveProgression extends AnyAction {
+export type ReceiveProgression = {
   type: typeof POST_PROGRESSION_SUCCESS;
   payload: ProgressionFromAPI;
-}
-
-type Dispatch = ThunkDispatch<StoreState, Options, AnyAction>;
+};
 
 export const postProgression =
   (skillRef: string, token: string) =>

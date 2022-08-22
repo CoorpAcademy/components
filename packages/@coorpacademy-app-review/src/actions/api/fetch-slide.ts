@@ -1,5 +1,4 @@
-import type {AnyAction} from 'redux';
-import type {ThunkDispatch} from 'redux-thunk';
+import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
@@ -22,8 +21,6 @@ export type ReceivedSlide = {
   payload: SlideFromAPI;
   meta: {slideRef: string};
 };
-
-type Dispatch = ThunkDispatch<StoreState, Options, AnyAction>;
 
 export const fetchSlide =
   (slideRef: string, token: string) =>
