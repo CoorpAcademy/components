@@ -115,6 +115,7 @@ export type ProgressionState = {
   step: {
     current: number;
   };
+  stars: number;
 };
 
 export type ProgressionFromAPI = {
@@ -140,6 +141,12 @@ export type Services = {
   fetchSkills(token: string): Promise<Skill[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
+  postAnswer(
+    skillRef: string,
+    token: string,
+    progressionId: string,
+    answer: string[]
+  ): Promise<ProgressionFromAPI>;
 };
 
 export type Options = {

@@ -42,7 +42,40 @@ export const services: Services = {
         slides: [],
         step: {
           current: 1
-        }
+        },
+        stars: 0
+      }
+    });
+  },
+  postAnswer: () => {
+    return Promise.resolve({
+      _id: '62b1d1087aa12f00253f40ee',
+      content: {
+        ref: '_skill-ref',
+        type: 'skill'
+      },
+      engine: {
+        ref: 'review'
+      },
+      state: {
+        allAnswers: [
+          {
+            slideRef: 'sli_N1XACJobn',
+            isCorrect: true,
+            answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
+          }
+        ],
+        isCorrect: true,
+        nextContent: {
+          ref: 'sli_VkSQroQnx',
+          type: 'slide'
+        },
+        pendingSlides: [],
+        slides: ['sli_N1XACJobn'],
+        step: {
+          current: 2
+        },
+        stars: 4
       }
     });
   }

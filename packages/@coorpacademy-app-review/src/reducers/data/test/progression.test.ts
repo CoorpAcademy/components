@@ -29,7 +29,8 @@ test('should set the value of POST_PROGRESSION_SUCCESS action', t => {
       slides: [],
       step: {
         current: 1
-      }
+      },
+      stars: 0
     }
   };
 
