@@ -4,8 +4,8 @@ module.exports = {
   reporter: ['html', 'text-summary'],
   lines: 92,
   statements: 90,
-  functions: 75,
-  branches: 79,
+  functions: 77,
+  branches: 80,
   all: true,
   exclude: [
     'ava.config.js',
@@ -18,7 +18,7 @@ module.exports = {
     'src/test',
     'src/actions/test',
     'src/index.tsx',
-    'src/configure-store.tsx',
+    'src/configure-store.ts',
     'src/services',
     '**/**.test.ts',
     '**/fixtures/**'
