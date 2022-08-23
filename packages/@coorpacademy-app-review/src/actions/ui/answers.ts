@@ -2,17 +2,30 @@ import {Dispatch} from 'redux';
 import {flatten, get, includes, pull} from 'lodash/fp';
 import type {StoreState} from '../../reducers';
 
+const EDIT_QCM = '@@answer/EDIT_QCM' as const;
+const EDIT_QCM_GRAPHIC = '@@answer/EDIT_QCM_GRAPHIC' as const;
+const EDIT_QCM_DRAG = '@@answer/EDIT_QCM_DRAG' as const;
+const EDIT_TEMPLATE = '@@answer/EDIT_TEMPLATE' as const;
+const EDIT_BASIC = '@@answer/EDIT_BASIC' as const;
+const EDIT_SLIDER = '@@answer/EDIT_SLIDER' as const;
+
 export const ANSWER_EDIT = {
-  qcm: '@@answer/EDIT_QCM',
-  qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',
-  qcmDrag: '@@answer/EDIT_QCM_DRAG',
-  template: '@@answer/EDIT_TEMPLATE',
-  basic: '@@answer/EDIT_BASIC',
-  slider: '@@answer/EDIT_SLIDER'
+  qcm: EDIT_QCM,
+  qcmGraphic: EDIT_QCM_GRAPHIC,
+  qcmDrag: EDIT_QCM_DRAG,
+  template: EDIT_TEMPLATE,
+  basic: EDIT_BASIC,
+  slider: EDIT_SLIDER
 } as const;
 
 export type EditAnswerAction = {
-  type: string;
+  type:
+    | typeof EDIT_QCM
+    | typeof EDIT_QCM_GRAPHIC
+    | typeof EDIT_QCM_DRAG
+    | typeof EDIT_TEMPLATE
+    | typeof EDIT_BASIC
+    | typeof EDIT_SLIDER;
   payload: string[];
 };
 
