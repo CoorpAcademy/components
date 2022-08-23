@@ -4,7 +4,7 @@ module.exports = {
   reporter: ['html', 'text-summary'],
   lines: 92,
   statements: 90,
-  functions: 76,
+  functions: 75,
   branches: 79,
   all: true,
   exclude: [
@@ -16,6 +16,7 @@ module.exports = {
     'lib',
     'public',
     'src/test',
+    'src/actions/test',
     'src/index.tsx',
     'src/configure-store.tsx',
     'src/services',
