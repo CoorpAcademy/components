@@ -134,7 +134,7 @@ export const initialState: SlidesStack = {
   }
 };
 
-const getProgressionSlidesRef = (progression: ProgressionFromAPI): string[] => {
+const getProgressionSlidesRefs = (progression: ProgressionFromAPI): string[] => {
   if (progression.state.step.current < 5) {
     const slideRef = progression.state.nextContent.ref;
     return concat([slideRef], progression.state.slides);
@@ -147,7 +147,7 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
   const progression = state.data.progression;
 
   if (!currentSlideRef || !progression) return initialState;
-  const slideRefs = getProgressionSlidesRef(progression);
+  const slideRefs = getProgressionSlidesRefs(progression);
 
   // @ts-expect-error typescript does not support capped versions of lodash functions
   const stack = reduce.convert({cap: false})(
