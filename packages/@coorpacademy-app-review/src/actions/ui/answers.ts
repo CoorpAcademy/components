@@ -18,7 +18,8 @@ export type EditAction = {
 
 const newState = (userAnswers: string[], questionType: string, newValue: string): string[] => {
   switch (questionType) {
-    case 'qcm': {
+    case 'qcm':
+    case 'qcmGraphic': {
       return includes(newValue, userAnswers)
         ? pull(newValue, userAnswers)
         : flatten([newValue, ...userAnswers]);

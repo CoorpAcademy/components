@@ -76,26 +76,24 @@ const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
   };
 };
 
-const qcmGraphicProps = (question: QcmGraphicQuestion): QcmGraphic => {
-  // mock the answers
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-  return {
-    type: 'qcmGraphic',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        image: get('media.src.0.url', choice),
-        selected: includes(choice.label, answers),
-        // TODO: EDIT_CHOICES
-        // eslint-disable-next-line no-console
-        onClick: () => console.log('TODO: on choice click')
-      }),
-      // TODO: EDIT_CHOICES -> getChoices
-      question.content.choices
-    )
+const qcmGraphicProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: QcmGraphicQuestion): QcmGraphic => {
+    return {
+      type: 'qcmGraphic',
+      answers: map(choice => {
+        const label = choice.label || '';
+        return {
+          title: label,
+          image: get('media.src.0.url', choice),
+          selected: includes(label, answers),
+          onClick: (): void => {
+            dispatch(editAnswer(label));
+          }
+        };
+      }, question.content.choices)
+    };
   };
-};
 
 const templateTextProps = (choice: ChoiceFromAPI, index: number): TextTemplate => {
   // TODO: EDIT_CHOICES -> getAnswerValues
@@ -215,7 +213,7 @@ const getAnswerUIModel = (
       return qcmProps(dispatch)(answers, question as QcmQuestion);
 
     case 'qcmGraphic':
-      return qcmGraphicProps(question as QcmGraphicQuestion);
+      return qcmGraphicProps(dispatch)(answers, question as QcmGraphicQuestion);
 
     case 'qcmDrag':
       return qcmDragProps(question as QcmDragQuestion);

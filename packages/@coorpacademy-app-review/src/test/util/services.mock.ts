@@ -1,4 +1,4 @@
-import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {Services} from '../../types/common';
 
 export const services: Services = {
@@ -19,7 +19,7 @@ export const services: Services = {
     ]);
   },
   fetchSlide: ref => {
-    return Promise.resolve({...qcmSlide, universalRef: ref, id: ref});
+    return Promise.resolve({...qcmGraphicSlide, universalRef: ref, id: ref});
   },
   postProgression: () => {
     return Promise.resolve({
