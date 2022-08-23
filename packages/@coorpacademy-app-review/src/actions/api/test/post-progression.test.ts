@@ -11,7 +11,7 @@ import {services as mockedServices} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
-import {createTestStore} from './create-test-store';
+import {createTestStore} from '../../test/create-test-store';
 
 const initialState: StoreState = {
   data: {
