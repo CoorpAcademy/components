@@ -5,7 +5,6 @@ import {ReceivedSlide} from './api/fetch-slide';
 import {ReceivedProgression} from './api/post-progression';
 import {ReceivedSkills} from './api/fetch-skills';
 import {validateSlide} from './ui/slides';
-import {ReceivedAnswer} from './api/post-answer';
 
 export type Action =
   | NavigateBack
@@ -14,8 +13,7 @@ export type Action =
   | StartApp
   | ReceivedSlide
   | StoreToken
-  | ReceivedProgression
-  | ReceivedAnswer;
+  | ReceivedProgression;
 
 export type Dispatchers = {
   navigateTo: typeof navigateTo;
