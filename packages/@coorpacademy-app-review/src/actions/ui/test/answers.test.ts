@@ -3,7 +3,7 @@ import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {StoreState} from '../../../reducers';
-import {editAnswer, EDIT_BASIC} from '../answers';
+import {editAnswer, ANSWER_EDIT} from '../answers';
 
 const initialState: StoreState = {
   data: {
@@ -45,7 +45,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
-  const expectedActions = [{type: EDIT_BASIC, payload: ['My Answer']}];
+  const expectedActions = [{type: ANSWER_EDIT.basic, payload: ['My Answer']}];
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
   await dispatch(editAnswer('My Answer'));
