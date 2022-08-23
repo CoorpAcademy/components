@@ -10,7 +10,7 @@ import {SlideFromAPI} from '../../types/common';
 
 export type SlidesAction = FetchSlide | ReceivedSlide | ValidateSlide;
 
-export type SlidesState = Record<string, SlideFromAPI>;
+export type SlidesState = Record<string, SlideFromAPI | null>;
 export const initialState: SlidesState = {};
 
 // eslint-disable-next-line default-param-last
