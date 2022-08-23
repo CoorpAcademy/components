@@ -32,10 +32,11 @@ export type EditAnswerAction = {
 const buildAnswer = (userAnswers: string[], questionType: string, newValue: string): string[] => {
   switch (questionType) {
     case 'qcm':
-    case 'qcmGraphic': {
+    case 'qcmGraphic':
+    case 'qcmDrag': {
       return includes(newValue, userAnswers)
         ? pull(newValue, userAnswers)
-        : flatten([newValue, ...userAnswers]);
+        : flatten([...userAnswers, newValue]);
     }
     case 'basic':
       return [newValue];

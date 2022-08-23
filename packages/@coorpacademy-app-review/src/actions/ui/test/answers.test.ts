@@ -5,6 +5,7 @@ import {SlideFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {StoreState} from '../../../reducers';
@@ -78,4 +79,14 @@ test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async 
   ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer('My Second Answer'));
+});
+
+test('should dispatch EDIT_QCM_DRAG action when editAnswer is called', async t => {
+  let state = buildInitialState(initialState, qcmDragSlide);
+  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
+  const expectedActions = [
+    {type: ANSWER_EDIT.qcmDrag, payload: ['My First Answer', 'My Second Answer', 'My Third Answer']}
+  ];
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  await dispatch(editAnswer('My Third Answer'));
 });

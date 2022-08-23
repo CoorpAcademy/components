@@ -56,25 +56,25 @@ const qcmProps =
     };
   };
 
-const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-  return {
-    type: 'qcmDrag',
-    answers: map(choice => {
-      const indexInAnswer = indexOf(choice.label, answers);
-      return {
-        title: choice.label,
-        selected: includes(choice.label, answers),
-        order: indexInAnswer,
-        // TODO: EDIT_CHOICES
-        // eslint-disable-next-line no-console
-        onClick: () => console.log('TODO: on choice click')
-      };
-      // TODO: EDIT_CHOICES -> getChoices
-    }, question.content.choices)
+const qcmDragProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: QcmDragQuestion): QcmDrag => {
+    return {
+      type: 'qcmDrag',
+      answers: map(choice => {
+        const label = choice.label || '';
+        const indexInAnswer = indexOf(label, answers);
+        return {
+          title: label,
+          selected: includes(label, answers),
+          order: indexInAnswer,
+          onClick: (): void => {
+            dispatch(editAnswer(label));
+          }
+        };
+      }, question.content.choices)
+    };
   };
-};
 
 const qcmGraphicProps =
   (dispatch: Dispatch) =>
@@ -216,7 +216,7 @@ const getAnswerUIModel = (
       return qcmGraphicProps(dispatch)(answers, question as QcmGraphicQuestion);
 
     case 'qcmDrag':
-      return qcmDragProps(question as QcmDragQuestion);
+      return qcmDragProps(dispatch)(answers, question as QcmDragQuestion);
 
     case 'basic':
       return basicProps(dispatch)(answers, question as BasicQuestion);
