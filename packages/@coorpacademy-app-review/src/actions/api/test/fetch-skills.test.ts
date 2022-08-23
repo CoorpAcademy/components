@@ -1,5 +1,6 @@
 import test from 'ava';
-import {Services} from '../../../types/common';
+import type {Services} from '../../../types/common';
+import type {StoreState} from '../../../reducers';
 import {
   fetchSkills,
   SKILLS_FETCH_FAILURE,
@@ -7,7 +8,6 @@ import {
   SKILLS_FETCH_SUCCESS
 } from '../fetch-skills';
 import {services as mockedServices} from '../../../test/util/services.mock';
-import {StoreState} from '../../../reducers';
 import {createTestStore} from '../../test/create-test-store';
 
 const initialState: StoreState = {
