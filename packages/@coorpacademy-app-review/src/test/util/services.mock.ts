@@ -79,6 +79,10 @@ export const postAnswerResponse: ProgressionFromAPI = {
       ref: 'sli_VkSQroQnx',
       type: 'slide'
     },
+    content: {
+      ref: 'sli_VJYjJnJhg',
+      type: 'slide'
+    },
     pendingSlides: [],
     slides: ['sli_VJYjJnJhg'],
     step: {

@@ -68,9 +68,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
     /* ThunkAction is not assignable to parameter of type 'AnyAction'
       ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333 */
-    skillRef
-      ? store.dispatch(postProgression(skillRef, token))
-      : store.dispatch(fetchSkills(token));
+    skillRef ? store.dispatch(postProgression(skillRef)) : store.dispatch(fetchSkills);
   }, [options, store]);
 
   useEffect(() => {

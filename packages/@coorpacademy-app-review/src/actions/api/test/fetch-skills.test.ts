@@ -43,7 +43,7 @@ test('should dispatch SKILLS_FETCH_SUCCESS actions when fetchSkills return a lis
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(fetchSkills('1234'));
+  await dispatch(fetchSkills);
 });
 
 test('should dispatch SKILLS_FETCH_FAILURE action when fetchSkills fails', async t => {
@@ -66,5 +66,5 @@ test('should dispatch SKILLS_FETCH_FAILURE action when fetchSkills fails', async
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(fetchSkills('1234'));
+  await dispatch(fetchSkills);
 });

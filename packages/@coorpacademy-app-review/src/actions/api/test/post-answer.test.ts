@@ -54,8 +54,6 @@ const initialState: StoreState = {
 
 const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
 
-const token = process.env.API_TEST_TOKEN || '';
-
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the updated progression is returned', async t => {
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
@@ -74,7 +72,7 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(postAnswer(skillRef, token, progressionId, answer));
+  await dispatch(postAnswer(skillRef, progressionId, answer));
 });
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', async t => {
@@ -97,5 +95,5 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', a
     expectedActions
   );
 
-  await dispatch(postAnswer(skillRef, token, progressionId, answer));
+  await dispatch(postAnswer(skillRef, progressionId, answer));
 });
