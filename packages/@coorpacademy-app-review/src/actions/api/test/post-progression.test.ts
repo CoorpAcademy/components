@@ -1,5 +1,5 @@
 import test from 'ava';
-import {ProgressionFromAPI, Services} from '../../../types/common';
+import type {ProgressionFromAPI, Services} from '../../../types/common';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
@@ -8,7 +8,7 @@ import {
 } from '../post-progression';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {services as mockedServices} from '../../../test/util/services.mock';
-import {StoreState} from '../../../reducers';
+import type {StoreState} from '../../../reducers';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';
@@ -91,7 +91,7 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(postProgression('skill_12345', '1234'));
+  await dispatch(postProgression('skill_12345'));
 });
 
 test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails', async t => {
@@ -115,5 +115,5 @@ test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(postProgression('skill_12345', '1234'));
+  await dispatch(postProgression('skill_12345'));
 });

@@ -1,10 +1,10 @@
 import test from 'ava';
 import reducer from '../progression';
-import {POST_PROGRESSION_SUCCESS, ReceiveProgression} from '../../../actions/api/post-progression';
+import {POST_PROGRESSION_SUCCESS, ReceivedProgression} from '../../../actions/api/post-progression';
 import {ProgressionFromAPI} from '../../../types/common';
 
-test('should have inital value', t => {
-  const state = reducer(undefined, {} as ReceiveProgression);
+test('should have initial value', t => {
+  const state = reducer(undefined, {} as ReceivedProgression);
   t.is(state, null);
 });
 

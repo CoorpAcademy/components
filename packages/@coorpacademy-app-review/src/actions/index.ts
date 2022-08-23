@@ -2,7 +2,7 @@ import {StoreToken} from './data/token';
 
 import {navigateBack, navigateTo, NavigateBack, NavigateTo, StartApp} from './ui/navigation';
 import {ReceivedSlide} from './api/fetch-slide';
-import {ReceiveProgression} from './api/post-progression';
+import {ReceivedProgression} from './api/post-progression';
 import {ReceivedSkills} from './api/fetch-skills';
 import {validateSlide} from './ui/slides';
 
@@ -13,7 +13,7 @@ export type Action =
   | StartApp
   | ReceivedSlide
   | StoreToken
-  | ReceiveProgression;
+  | ReceivedProgression;
 
 export type Dispatchers = {
   navigateTo: typeof navigateTo;

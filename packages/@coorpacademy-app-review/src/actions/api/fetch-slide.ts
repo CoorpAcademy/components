@@ -23,7 +23,7 @@ export type ReceivedSlide = {
 };
 
 export const fetchSlide =
-  (slideRef: string, token: string) =>
+  (slideRef: string) =>
   async (dispatch: Dispatch, getState: () => StoreState, {services}: Options): Promise<void> => {
     const action = buildTask({
       types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
@@ -31,6 +31,8 @@ export const fetchSlide =
         return has(`data.slide.${slideRef}`, state);
       },
       task: () => {
+        const state = getState();
+        const token = get('data.token', state);
         return services.fetchSlide(slideRef, token);
       },
       meta: {slideRef}

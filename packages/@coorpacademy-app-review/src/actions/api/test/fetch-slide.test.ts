@@ -1,5 +1,5 @@
 import test from 'ava';
-import {Services} from '../../../types/common';
+import type {Services} from '../../../types/common';
 import {
   fetchSlide,
   SLIDE_FETCH_FAILURE,
@@ -8,7 +8,7 @@ import {
 } from '../fetch-slide';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {services as mockedServices} from '../../../test/util/services.mock';
-import {StoreState} from '../../../reducers';
+import type {StoreState} from '../../../reducers';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';
 
@@ -48,7 +48,7 @@ test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlid
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(fetchSlide('sli_VJYjJnJhg', '1234'));
+  await dispatch(fetchSlide('sli_VJYjJnJhg'));
 });
 
 test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t => {
@@ -73,5 +73,5 @@ test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(fetchSlide('slide_ref', '1234'));
+  await dispatch(fetchSlide('slide_ref'));
 });
