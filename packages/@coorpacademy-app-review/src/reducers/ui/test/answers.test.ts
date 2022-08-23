@@ -1,9 +1,9 @@
 import test from 'ava';
 import reducer from '../answers';
-import {EditAction, ANSWER_EDIT} from '../../../actions/ui/answers';
+import {EditAnswerAction, ANSWER_EDIT} from '../../../actions/ui/answers';
 
 test('should have inital value', t => {
-  const state = reducer(undefined, {} as EditAction);
+  const state = reducer(undefined, {} as EditAnswerAction);
   t.deepEqual(state, []);
 });
 

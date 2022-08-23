@@ -9,14 +9,14 @@ export const ANSWER_EDIT = {
   template: '@@answer/EDIT_TEMPLATE',
   basic: '@@answer/EDIT_BASIC',
   slider: '@@answer/EDIT_SLIDER'
-};
+} as const;
 
-export type EditAction = {
+export type EditAnswerAction = {
   type: string;
   payload: string[];
 };
 
-const newState = (userAnswers: string[], questionType: string, newValue: string): string[] => {
+const buildAnswer = (userAnswers: string[], questionType: string, newValue: string): string[] => {
   switch (questionType) {
     case 'qcm':
     case 'qcmGraphic': {
@@ -33,7 +33,7 @@ const newState = (userAnswers: string[], questionType: string, newValue: string)
 
 export const editAnswer =
   (answer: string) =>
-  (dispatch: Dispatch, getState: () => StoreState): EditAction => {
+  (dispatch: Dispatch, getState: () => StoreState): EditAnswerAction => {
     const state = getState();
     const currentSlideRef = get(['ui', 'currentSlideRef'])(state);
     const userAnswers = get(['ui', 'answers'])(state);
@@ -43,6 +43,6 @@ export const editAnswer =
 
     return dispatch({
       type,
-      payload: newState(userAnswers, questionType, answer)
+      payload: buildAnswer(userAnswers, questionType, answer)
     });
   };

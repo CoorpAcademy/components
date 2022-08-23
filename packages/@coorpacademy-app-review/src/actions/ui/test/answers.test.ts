@@ -47,7 +47,7 @@ const initialState: StoreState = {
   }
 };
 
-const setInitialState = (state: StoreState, question: SlideFromAPI): StoreState => {
+const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreState => {
   return pipe(
     set(['data', 'progression', 'state', 'nextContent', 'ref'], question.id),
     set(['data', 'slides', question.id], question),
@@ -56,22 +56,26 @@ const setInitialState = (state: StoreState, question: SlideFromAPI): StoreState 
 };
 
 test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
-  const state = setInitialState(initialState, freeTextSlide);
+  const state = buildInitialState(initialState, freeTextSlide);
   const expectedActions = [{type: ANSWER_EDIT.basic, payload: ['My Answer']}];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer('My Answer'));
 });
 
 test('should dispatch EDIT_QCM action when editAnswer is called', async t => {
-  const state = setInitialState(initialState, qcmSlide);
-  const expectedActions = [{type: ANSWER_EDIT.qcm, payload: ['My Answer']}];
+  let state = buildInitialState(initialState, qcmSlide);
+  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
+  const expectedActions = [{type: ANSWER_EDIT.qcm, payload: ['My First Answer']}];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
-  await dispatch(editAnswer('My Answer'));
+  await dispatch(editAnswer('My Second Answer'));
 });
 
 test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async t => {
-  const state = setInitialState(initialState, qcmGraphicSlide);
-  const expectedActions = [{type: ANSWER_EDIT.qcmGraphic, payload: ['My Answer']}];
+  let state = buildInitialState(initialState, qcmGraphicSlide);
+  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer', 'My Third Answer'], state);
+  const expectedActions = [
+    {type: ANSWER_EDIT.qcmGraphic, payload: ['My First Answer', 'My Third Answer']}
+  ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
-  await dispatch(editAnswer('My Answer'));
+  await dispatch(editAnswer('My Second Answer'));
 });
