@@ -9,9 +9,10 @@ import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import {Dispatch} from 'redux';
-import {ProgressionFromAPI, UISlide} from '../../types/common';
+import {ProgressionFromAPI} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
+import {AnswerUI} from '../../types/slides';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -26,6 +27,19 @@ type StepItem = {
   current: boolean;
   icon: IconValue;
   value: string;
+};
+
+type SlideUIAnimations = 'unstack' | 'restack';
+
+export type UISlide = {
+  questionText?: string;
+  answerUI?: AnswerUI;
+  hidden?: boolean;
+  position: number;
+  animationType?: SlideUIAnimations;
+  isCorrect?: boolean;
+  endReview?: boolean;
+  loading: boolean;
 };
 
 type SlidesStack = {
@@ -95,23 +109,28 @@ export type SlidesViewProps = {
 export const initialState: SlidesStack = {
   '0': {
     hidden: false,
-    position: 0
+    position: 0,
+    loading: true
   },
   '1': {
     hidden: false,
-    position: 1
+    position: 1,
+    loading: true
   },
   '2': {
     hidden: false,
-    position: 2
+    position: 2,
+    loading: true
   },
   '3': {
     hidden: false,
-    position: 3
+    position: 3,
+    loading: true
   },
   '4': {
     hidden: false,
-    position: 4
+    position: 4,
+    loading: true
   }
 };
 
@@ -137,15 +156,18 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       if (!slideRef) return set(index, uiSlide, acc);
 
       const slideFromAPI = get(slideRef, state.data.slides);
+      if (!slideFromAPI) return set(index, uiSlide, acc);
+
       const answers = state.ui.answers;
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
       const updatedUiSlide = pipe(
-        set(['questionText'], questionText),
-        set(['answerUI'], answerUI),
-        set(['parentContentTitle'], `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
+        set('loading', false),
+        set('questionText', questionText),
+        set('answerUI', answerUI),
+        set('parentContentTitle', `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
 
@@ -213,14 +235,7 @@ const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-export const mapStateToSlidesProps = (
-  state: StoreState,
-  dispatch: Dispatch
-): SlidesViewProps | null => {
-  if (!state.data.slides) {
-    return null;
-  }
-
+export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): SlidesViewProps => {
   return {
     header: {
       mode: '__revision_mode',

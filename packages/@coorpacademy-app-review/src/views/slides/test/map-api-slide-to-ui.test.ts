@@ -1,7 +1,8 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {SlideFromAPI, UISlide} from '../../../types/common';
+import {SlideFromAPI} from '../../../types/common';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
+import {UISlide} from '..';
 import {qcmUISlide, qcmSlide} from './fixtures/qcm';
 import {qcmDragUISlide, qcmDragSlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';

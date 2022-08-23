@@ -1,6 +1,3 @@
-import {SlideIndexes} from '../common';
-import {AnswerUI} from './slides';
-
 // TODO use type from components
 type TemplateContextValues = {
   brandTheme?: unknown;
@@ -170,33 +167,6 @@ export type JWT = {
   user: string;
   usage: string;
   host: string;
-};
-
-type SlideUIAnimations = 'unstack' | 'restack';
-
-export type NextUISlide = {
-  questionText?: string;
-  answerUI?: AnswerUI;
-  hidden?: boolean;
-  position?: number;
-  animationType?: SlideUIAnimations;
-  isCorrect?: boolean;
-  endReview?: boolean;
-};
-
-export type UISlide = {
-  questionText?: string;
-  answerUI?: AnswerUI;
-  hidden?: boolean;
-  position: number;
-  animationType?: SlideUIAnimations;
-  isCorrect?: boolean;
-  endReview?: boolean;
-  nextContent?: NextUISlide;
-};
-
-export type FinishedSlides = {
-  [key in SlideIndexes]?: true;
 };
 
 export type WithRequired<T, K extends keyof T> = T & {
