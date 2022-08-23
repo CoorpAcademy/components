@@ -8,7 +8,7 @@ import {
 } from '../fetch-skills';
 import {services as mockedServices} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
-import {createTestStore} from './create-test-store';
+import {createTestStore} from '../../test/create-test-store';
 
 const initialState: StoreState = {
   data: {

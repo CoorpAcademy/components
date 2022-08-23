@@ -10,7 +10,7 @@ import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {services as mockedServices} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
-import {createTestStore} from './create-test-store';
+import {createTestStore} from '../../test/create-test-store';
 
 const initialState: StoreState = {
   data: {
