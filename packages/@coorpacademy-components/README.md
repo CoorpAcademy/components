@@ -170,6 +170,7 @@ You may need to install these optional libs depending on which native components
 - `react-native-modal`
 - `react-native-render-html`
 - `react-native-linear-gradient`
+- `@coorpacademy/react-native-slider`
 
 ## Troubleshooting
 

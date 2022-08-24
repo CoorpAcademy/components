@@ -745,6 +745,9 @@ import MoleculeQuestionsQcmDragFixtureNoSelected from '../src/molecule/questions
 import MoleculeQuestionsQcmGraphicFixtureDefault from '../src/molecule/questions/qcm-graphic/test/fixtures/default';
 import MoleculeQuestionsQcmGraphicFixtureNoSelected from '../src/molecule/questions/qcm-graphic/test/fixtures/no-selected';
 import MoleculeQuestionsQuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
+import MoleculeQuestionsQuestionRangeFixtureDefaultTs from '../src/molecule/questions/question-range/test/fixtures/default.ts';
+import MoleculeQuestionsQuestionRangeFixtureWithStepTs from '../src/molecule/questions/question-range/test/fixtures/with-step.ts';
+import MoleculeQuestionsQuestionRangeFixtureWithUnitTs from '../src/molecule/questions/question-range/test/fixtures/with-unit.ts';
 import MoleculeQuestionsTemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import MoleculeQuestionsTemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
 import MoleculeQuickAccessCardFixtureAnalytics from '../src/molecule/quick-access-card/test/fixtures/analytics';
@@ -2529,7 +2532,10 @@ export const fixtures = {
       NoSelected: MoleculeQuestionsQcmGraphicFixtureNoSelected
     },
     MoleculeQuestionsQuestionRange: {
-      Default: MoleculeQuestionsQuestionRangeFixtureDefault
+      Default: MoleculeQuestionsQuestionRangeFixtureDefault,
+      DefaultTs: MoleculeQuestionsQuestionRangeFixtureDefaultTs,
+      WithStepTs: MoleculeQuestionsQuestionRangeFixtureWithStepTs,
+      WithUnitTs: MoleculeQuestionsQuestionRangeFixtureWithUnitTs
     },
     MoleculeQuestionsTemplate: {
       Default: MoleculeQuestionsTemplateFixtureDefault,

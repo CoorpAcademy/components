@@ -2,17 +2,19 @@ import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, ViewStyle} from 'react-native';
 import Slider from '@coorpacademy/react-native-slider';
 
-import {Theme} from '../../variables/theme.native';
-import Text from '../text/index.native';
-import {useTemplateContext} from '../../template/app-review/template-context';
-import {BOX_STYLE} from '../../variables/shadow';
+import {Theme} from '../../../variables/theme.native';
+import Text from '../../../atom/text/index.native';
+import {useTemplateContext} from '../../../template/app-review/template-context';
+import {BOX_STYLE} from '../../../variables/shadow';
+
+export type OnChangeFunction = (value: number) => void;
 
 export type Props = {
   min: number;
   max: number;
   unit?: string;
   value: number;
-  onChange: (value: number) => void;
+  onChange: OnChangeFunction;
   onSlidingComplete: () => void;
   style?: ViewStyle;
   step?: number;
