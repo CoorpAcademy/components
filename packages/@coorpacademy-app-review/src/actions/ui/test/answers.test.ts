@@ -1,9 +1,15 @@
 import test from 'ava';
+import pipe from 'lodash/fp/pipe';
+import set from 'lodash/fp/set';
+import {SlideFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {StoreState} from '../../../reducers';
-import {editAnswer, EDIT_BASIC} from '../answers';
+import {editAnswer, ANSWER_EDIT} from '../answers';
 
 const initialState: StoreState = {
   data: {
@@ -20,7 +26,7 @@ const initialState: StoreState = {
         allAnswers: [],
         isCorrect: true,
         nextContent: {
-          ref: 'sli_VJYjJnJhg',
+          ref: '',
           type: 'slide'
         },
         pendingSlides: [],
@@ -31,22 +37,56 @@ const initialState: StoreState = {
         stars: 0
       }
     },
-    slides: {
-      sli_VJYjJnJhg: freeTextSlide
-    },
+    slides: {},
     skills: [],
     token: '1234'
   },
   ui: {
-    currentSlideRef: 'sli_VJYjJnJhg',
+    currentSlideRef: '',
     navigation: [],
     answers: []
   }
 };
 
-test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
-  const expectedActions = [{type: EDIT_BASIC, payload: ['My Answer']}];
+const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreState => {
+  return pipe(
+    set(['data', 'progression', 'state', 'nextContent', 'ref'], question.id),
+    set(['data', 'slides', question.id], question),
+    set(['ui', 'currentSlideRef'], question.id)
+  )(state);
+};
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
+  const state = buildInitialState(initialState, freeTextSlide);
+  const expectedActions = [{type: ANSWER_EDIT.basic, payload: ['My Answer']}];
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer('My Answer'));
+});
+
+test('should dispatch EDIT_QCM action when editAnswer is called', async t => {
+  let state = buildInitialState(initialState, qcmSlide);
+  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
+  const expectedActions = [{type: ANSWER_EDIT.qcm, payload: ['My First Answer']}];
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  await dispatch(editAnswer('My Second Answer'));
+});
+
+test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async t => {
+  let state = buildInitialState(initialState, qcmGraphicSlide);
+  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer', 'My Third Answer'], state);
+  const expectedActions = [
+    {type: ANSWER_EDIT.qcmGraphic, payload: ['My First Answer', 'My Third Answer']}
+  ];
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  await dispatch(editAnswer('My Second Answer'));
+});
+
+test('should dispatch EDIT_QCM_DRAG action when editAnswer is called', async t => {
+  let state = buildInitialState(initialState, qcmDragSlide);
+  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
+  const expectedActions = [
+    {type: ANSWER_EDIT.qcmDrag, payload: ['My First Answer', 'My Second Answer', 'My Third Answer']}
+  ];
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  await dispatch(editAnswer('My Third Answer'));
 });

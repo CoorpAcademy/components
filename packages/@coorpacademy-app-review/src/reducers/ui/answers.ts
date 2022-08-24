@@ -1,19 +1,15 @@
-import {EditBasicAction, EDIT_BASIC} from '../../actions/ui/answers';
+import {includes, values} from 'lodash/fp';
+import {EditAnswerAction, ANSWER_EDIT} from '../../actions/ui/answers';
 
 export type AnswerState = string[];
+const ANSWER_EDIT_ACTIONS = values(ANSWER_EDIT);
 
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: AnswerState = [],
-  action: EditBasicAction
+  action: EditAnswerAction
 ): AnswerState => {
-  switch (action.type) {
-    case EDIT_BASIC: {
-      return action.payload;
-    }
-    default:
-      return state;
-  }
+  return includes(action.type, ANSWER_EDIT_ACTIONS) ? action.payload : state;
 };
 
 export default reducer;

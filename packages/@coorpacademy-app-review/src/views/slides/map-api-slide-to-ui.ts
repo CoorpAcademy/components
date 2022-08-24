@@ -37,67 +37,63 @@ import {
 } from '../../types/common';
 import {editAnswer} from '../../actions/ui/answers';
 
-const qcmProps = (question: QcmQuestion): Qcm => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-
-  return {
-    type: 'qcm',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        selected: includes(choice.label, answers),
-        // TODO: EDIT_CHOICES
-        // eslint-disable-next-line no-console
-        onClick: () => console.log('TODO: on choice click'),
-        ariaLabel: choice.label
-      }),
-      // TODO: EDIT_CHOICES -> getChoices
-      question.content.choices
-    )
+const qcmProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: QcmQuestion): Qcm => {
+    return {
+      type: 'qcm',
+      answers: map(choice => {
+        const label = choice.label || '';
+        return {
+          title: label,
+          selected: includes(label, answers),
+          onClick: (): void => {
+            dispatch(editAnswer(label));
+          },
+          ariaLabel: choice.label
+        };
+      }, question.content.choices)
+    };
   };
-};
 
-const qcmDragProps = (question: QcmDragQuestion): QcmDrag => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-  return {
-    type: 'qcmDrag',
-    answers: map(choice => {
-      const indexInAnswer = indexOf(choice.label, answers);
-      return {
-        title: choice.label,
-        selected: includes(choice.label, answers),
-        order: indexInAnswer,
-        // TODO: EDIT_CHOICES
-        // eslint-disable-next-line no-console
-        onClick: () => console.log('TODO: on choice click')
-      };
-      // TODO: EDIT_CHOICES -> getChoices
-    }, question.content.choices)
+const qcmDragProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: QcmDragQuestion): QcmDrag => {
+    return {
+      type: 'qcmDrag',
+      answers: map(choice => {
+        const label = choice.label || '';
+        const indexInAnswer = indexOf(label, answers);
+        return {
+          title: label,
+          selected: includes(label, answers),
+          order: indexInAnswer,
+          onClick: (): void => {
+            dispatch(editAnswer(label));
+          }
+        };
+      }, question.content.choices)
+    };
   };
-};
 
-const qcmGraphicProps = (question: QcmGraphicQuestion): QcmGraphic => {
-  // mock the answers
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
-  return {
-    type: 'qcmGraphic',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        image: get('media.src.0.url', choice),
-        selected: includes(choice.label, answers),
-        // TODO: EDIT_CHOICES
-        // eslint-disable-next-line no-console
-        onClick: () => console.log('TODO: on choice click')
-      }),
-      // TODO: EDIT_CHOICES -> getChoices
-      question.content.choices
-    )
+const qcmGraphicProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: QcmGraphicQuestion): QcmGraphic => {
+    return {
+      type: 'qcmGraphic',
+      answers: map(choice => {
+        const label = choice.label || '';
+        return {
+          title: label,
+          image: get('media.src.0.url', choice),
+          selected: includes(label, answers),
+          onClick: (): void => {
+            dispatch(editAnswer(label));
+          }
+        };
+      }, question.content.choices)
+    };
   };
-};
 
 const templateTextProps = (choice: ChoiceFromAPI, index: number): TextTemplate => {
   // TODO: EDIT_CHOICES -> getAnswerValues
@@ -214,13 +210,13 @@ const getAnswerUIModel = (
   const type = getQuestionType(question);
   switch (type) {
     case 'qcm':
-      return qcmProps(question as QcmQuestion);
+      return qcmProps(dispatch)(answers, question as QcmQuestion);
 
     case 'qcmGraphic':
-      return qcmGraphicProps(question as QcmGraphicQuestion);
+      return qcmGraphicProps(dispatch)(answers, question as QcmGraphicQuestion);
 
     case 'qcmDrag':
-      return qcmDragProps(question as QcmDragQuestion);
+      return qcmDragProps(dispatch)(answers, question as QcmDragQuestion);
 
     case 'basic':
       return basicProps(dispatch)(answers, question as BasicQuestion);
