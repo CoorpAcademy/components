@@ -2,10 +2,10 @@ module.exports = {
   extension: ['.ts', '.tsx'],
   'check-coverage': true,
   reporter: ['html', 'text-summary'],
-  lines: 90,
-  statements: 90,
-  functions: 77,
-  branches: 75,
+  lines: 94,
+  statements: 93,
+  functions: 80,
+  branches: 80,
   all: true,
   exclude: [
     'ava.config.js',
@@ -16,11 +16,11 @@ module.exports = {
     'lib',
     'public',
     'src/test',
-    'src/actions/test',
+    '**/test/**',
     'src/index.tsx',
     'src/configure-store.ts',
     'src/services/index.ts',
-    '**/**.test.ts',
+    'src/services/tools',
     '**/fixtures/**'
   ]
 };
