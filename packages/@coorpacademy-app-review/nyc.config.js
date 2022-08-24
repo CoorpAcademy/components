@@ -2,9 +2,9 @@ module.exports = {
   extension: ['.ts', '.tsx'],
   'check-coverage': true,
   reporter: ['html', 'text-summary'],
-  lines: 92,
-  statements: 90,
-  functions: 77,
+  lines: 94,
+  statements: 93,
+  functions: 80,
   branches: 80,
   all: true,
   exclude: [
@@ -16,11 +16,11 @@ module.exports = {
     'lib',
     'public',
     'src/test',
-    'src/actions/test',
+    '**/test/**',
     'src/index.tsx',
     'src/configure-store.ts',
-    'src/services',
-    '**/**.test.ts',
+    'src/services/index.ts',
+    'src/services/tools',
     '**/fixtures/**'
   ]
 };
