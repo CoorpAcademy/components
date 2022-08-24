@@ -19,7 +19,6 @@ module.exports = {
     'src/actions/test',
     'src/index.tsx',
     'src/configure-store.ts',
-    'src/services',
     '**/**.test.ts',
     '**/fixtures/**'
   ]
