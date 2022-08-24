@@ -39,6 +39,7 @@ const buildAnswer = (userAnswers: string[], questionType: string, newValue: stri
         : flatten([...userAnswers, newValue]);
     }
     case 'basic':
+    case 'slider':
       return [newValue];
     default:
       return [];
