@@ -72,7 +72,7 @@ export const postAnswerResponse: ProgressionFromAPI = {
   state: {
     allAnswers: [
       {
-        slideRef: 'sli_VJYjJnJhg',
+        slideRef: 'sli_N1XACJobn',
         isCorrect: true,
         answer: ['Benchmark']
       }
@@ -83,11 +83,11 @@ export const postAnswerResponse: ProgressionFromAPI = {
       type: 'slide'
     },
     content: {
-      ref: 'sli_VJYjJnJhg',
+      ref: 'sli_N1XACJobn',
       type: 'slide'
     },
     pendingSlides: [],
-    slides: ['sli_VJYjJnJhg'],
+    slides: ['sli_N1XACJobn'],
     step: {
       current: 2
     },

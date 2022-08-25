@@ -1,37 +1,19 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
+import {
+  postProgressionResponse as createdProgression,
+  postAnswerResponse as firstAnsweredProgression
+} from '../../../test/util/services.mock';
 import {mapStateToSlidesProps} from '..';
 import {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-test('should create initial props when fetched slide is still not received', t => {
+test('should create initial props when fetched slide is not still received', t => {
   const state: StoreState = {
     data: {
-      progression: {
-        _id: '62b1d1087aa12f00253f40ee',
-        content: {
-          ref: '_skillref',
-          type: 'skill'
-        },
-        engine: {
-          ref: 'review'
-        },
-        state: {
-          allAnswers: [],
-          isCorrect: true,
-          nextContent: {
-            ref: 'sli_N1XACJobn',
-            type: 'slide'
-          },
-          pendingSlides: [],
-          slides: [],
-          step: {
-            current: 1
-          },
-          stars: 0
-        }
-      },
+      progression: createdProgression,
       skills: [],
       slides: {
         sli_N1XACJobn: null
@@ -41,10 +23,7 @@ test('should create initial props when fetched slide is still not received', t =
     ui: {
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
-      answers: [],
-      slide: {
-        validateButton: false
-      }
+      answers: []
     }
   };
 
@@ -112,129 +91,6 @@ test('should create initial props when fetched slide is still not received', t =
         position: 4,
         loading: true
       }
-    }
-  });
-});
-
-test('should create initial props when the slide is on the state', t => {
-  const state: StoreState = {
-    data: {
-      progression: {
-        _id: '62b1d1087aa12f00253f40ee',
-        content: {
-          ref: '_skillref',
-          type: 'skill'
-        },
-        engine: {
-          ref: 'review'
-        },
-        state: {
-          allAnswers: [],
-          isCorrect: true,
-          nextContent: {
-            ref: 'sli_N1XACJobn',
-            type: 'slide'
-          },
-          pendingSlides: [],
-          slides: [],
-          step: {
-            current: 1
-          },
-          stars: 0
-        }
-      },
-      skills: [],
-      slides: {
-        sli_N1XACJobn: freeTextSlide
-      },
-      token: '1234'
-    },
-    ui: {
-      currentSlideRef: 'sli_N1XACJobn',
-      navigation: ['loader', 'slides'],
-      answers: ['My value'],
-      slide: {
-        validateButton: true
-      }
-    }
-  };
-
-  const props = mapStateToSlidesProps(state, identity);
-  t.is(props.congratsProps, undefined);
-  t.deepEqual(omit(['onQuitClick'], props.header), {
-    'aria-label': 'aria-header-wrapper',
-    closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
-    skillName: '__agility',
-    steps: [
-      {
-        current: true,
-        icon: 'no-answer',
-        value: '1'
-      },
-      {
-        current: false,
-        icon: 'no-answer',
-        value: '2'
-      },
-      {
-        current: false,
-        icon: 'no-answer',
-        value: '3'
-      },
-      {
-        current: false,
-        icon: 'no-answer',
-        value: '4'
-      },
-      {
-        current: false,
-        icon: 'no-answer',
-        value: '5'
-      }
-    ]
-  });
-  t.deepEqual(omit(['validateButton', 'slides'], props.stack), {
-    correctionPopinProps: undefined,
-    endReview: false
-  });
-  t.false(props.stack.validateButton.disabled);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
-    hidden: false,
-    position: 0,
-    loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
-    questionText:
-      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
-  });
-  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
-    help: 'Type your answer.',
-    model: {
-      placeholder: 'Type here',
-      type: 'freeText',
-      value: 'My value'
-    }
-  });
-  t.deepEqual(omit(['0'], props.stack.slides), {
-    '1': {
-      hidden: false,
-      position: 1,
-      loading: true
-    },
-    '2': {
-      hidden: false,
-      position: 2,
-      loading: true
-    },
-    '3': {
-      hidden: false,
-      position: 3,
-      loading: true
-    },
-    '4': {
-      hidden: false,
-      position: 4,
-      loading: true
     }
   });
 });
@@ -490,4 +346,459 @@ test('should create props when the next slide is on the state', t => {
       }
     }
   );
+});
+
+test('should create props when slide is on the state', t => {
+  const state: StoreState = {
+    data: {
+      progression: createdProgression,
+      skills: [],
+      slides: {
+        sli_VJYjJnJhg: freeTextSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: 'sli_VJYjJnJhg',
+      navigation: ['loader', 'slides'],
+      answers: []
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: true,
+        icon: 'no-answer',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+  t.deepEqual(omit(['validateButton', 'slides'], props.stack), {
+    correctionPopinProps: undefined,
+    endReview: false
+  });
+  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    hidden: false,
+    position: 0,
+    loading: false,
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText:
+      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
+  });
+  t.is(props.stack.validateButton.disabled, true);
+  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+    help: 'Type your answer.',
+    model: {
+      placeholder: 'Type here',
+      type: 'freeText',
+      value: ''
+    }
+  });
+  t.deepEqual(omit(['0'], props.stack.slides), {
+    '1': {
+      hidden: false,
+      position: 1,
+      loading: true
+    },
+    '2': {
+      hidden: false,
+      position: 2,
+      loading: true
+    },
+    '3': {
+      hidden: false,
+      position: 3,
+      loading: true
+    },
+    '4': {
+      hidden: false,
+      position: 4,
+      loading: true
+    }
+  });
+});
+
+test('should create props when slide is on the state and user has selected answers', t => {
+  // This is the case after EDIT_ANSWER and before POST_ANSWER_REQUEST
+  const state: StoreState = {
+    data: {
+      progression: createdProgression,
+      skills: [],
+      slides: {
+        sli_VJYjJnJhg: freeTextSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: 'sli_VJYjJnJhg',
+      navigation: ['loader', 'slides'],
+      answers: ['My value']
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: true,
+        icon: 'no-answer',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+  t.deepEqual(omit(['validateButton', 'slides'], props.stack), {
+    correctionPopinProps: undefined,
+    endReview: false
+  });
+  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    hidden: false,
+    position: 0,
+    loading: false,
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText:
+      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
+  });
+  // TODO: once fecthed Stefano PR
+  // t.is(props.stack.validateButton.disabled, false);
+  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+    help: 'Type your answer.',
+    model: {
+      placeholder: 'Type here',
+      type: 'freeText',
+      value: 'My value'
+    }
+  });
+  t.deepEqual(omit(['0'], props.stack.slides), {
+    '1': {
+      hidden: false,
+      position: 1,
+      loading: true
+    },
+    '2': {
+      hidden: false,
+      position: 2,
+      loading: true
+    },
+    '3': {
+      hidden: false,
+      position: 3,
+      loading: true
+    },
+    '4': {
+      hidden: false,
+      position: 4,
+      loading: true
+    }
+  });
+});
+
+test('should verify props when first slide was answered and next slide is not fetched yet', t => {
+  // This is the case after POST_ANSWER_SUCCESS and during SLIDE_FETCH_REQUEST
+  const state: StoreState = {
+    data: {
+      progression: firstAnsweredProgression,
+      skills: [],
+      slides: {
+        sli_N1XACJobn: freeTextSlide,
+        sli_VkSQroQnx: null
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: 'sli_N1XACJobn',
+      navigation: ['loader', 'slides'],
+      answers: ['My value']
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: true,
+        icon: 'right',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+  t.deepEqual(omit(['validateButton', 'slides'], props.stack), {
+    correctionPopinProps: undefined,
+    endReview: false
+  });
+  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    hidden: false,
+    position: 0,
+    loading: false,
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText:
+      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
+  });
+  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+    help: 'Type your answer.',
+    model: {
+      placeholder: 'Type here',
+      type: 'freeText',
+      value: 'My value'
+    }
+  });
+  t.is(props.stack.validateButton.disabled, true);
+  t.deepEqual(omit(['0'], props.stack.slides), {
+    '1': {
+      hidden: false,
+      position: 1,
+      loading: true
+    },
+    '2': {
+      hidden: false,
+      position: 2,
+      loading: true
+    },
+    '3': {
+      hidden: false,
+      position: 3,
+      loading: true
+    },
+    '4': {
+      hidden: false,
+      position: 4,
+      loading: true
+    }
+  });
+});
+
+test('should verify props when first slide was answered and next slide is fecthed', t => {
+  // TODO ADD correction popin
+  const state: StoreState = {
+    data: {
+      progression: firstAnsweredProgression,
+      skills: [],
+      slides: {
+        sli_N1XACJobn: freeTextSlide,
+        sli_VkSQroQnx: qcmGraphicSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: 'sli_N1XACJobn',
+      navigation: ['loader', 'slides'],
+      answers: ['My value']
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: true,
+        icon: 'right',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+  t.deepEqual(omit(['validateButton', 'slides'], props.stack), {
+    correctionPopinProps: undefined,
+    endReview: false
+  });
+  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    hidden: false,
+    position: 0,
+    loading: false,
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText:
+      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
+  });
+  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+    help: 'Type your answer.',
+    model: {
+      placeholder: 'Type here',
+      type: 'freeText',
+      value: 'My value'
+    }
+  });
+  t.deepEqual(omit('answerUI', props.stack.slides['1']), {
+    hidden: false,
+    position: 1,
+    loading: false,
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText:
+      'Pour mener une bonne négociation, il ne faut ressentir aucune émotion. Vrai ou faux ?'
+  });
+  t.is(props.stack.validateButton.disabled, true);
+  t.deepEqual(omit(['0', '1'], props.stack.slides), {
+    '2': {
+      hidden: false,
+      position: 2,
+      loading: true
+    },
+    '3': {
+      hidden: false,
+      position: 3,
+      loading: true
+    },
+    '4': {
+      hidden: false,
+      position: 4,
+      loading: true
+    }
+  });
+});
+
+test('should verify props when currentSlideRef has changed to nextContent of progression after first asnwered question', t => {
+  // state after click on NEXT_SLIDE
+  const state: StoreState = {
+    data: {
+      progression: firstAnsweredProgression,
+      skills: [],
+      slides: {
+        sli_N1XACJobn: freeTextSlide,
+        sli_VkSQroQnx: qcmGraphicSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: 'sli_VkSQroQnx',
+      navigation: ['loader', 'slides'],
+      answers: []
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: false,
+        icon: 'right',
+        value: '1'
+      },
+      {
+        current: true,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+
+  // TODO update test with props.stack validations
 });
