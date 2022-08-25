@@ -139,9 +139,8 @@ export type Services = {
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
   postAnswer(
-    skillRef: string,
+    progression: ProgressionFromAPI,
     token: string,
-    progressionId: string,
     answer: string[]
   ): Promise<ProgressionFromAPI>;
 };

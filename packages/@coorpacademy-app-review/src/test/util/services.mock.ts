@@ -99,5 +99,9 @@ export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
-  postAnswer: () => Promise.resolve(postAnswerResponse)
+  postAnswer: progression => {
+    // eslint-disable-next-line no-console
+    console.log('to be used to render dynamic progressions update', progression);
+    return Promise.resolve(postAnswerResponse);
+  }
 };

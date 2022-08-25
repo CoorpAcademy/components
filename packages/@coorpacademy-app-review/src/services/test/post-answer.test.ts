@@ -3,9 +3,33 @@ import nock from 'nock';
 import type {ProgressionFromAPI} from '../../types/common';
 import {postAnswer} from '../post-answer';
 
-const progressionId = '123456789123';
 const skillRef = '_skill-ref';
 const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
+
+const initProgression: ProgressionFromAPI = {
+  content: {
+    type: 'skill',
+    ref: skillRef
+  },
+  engine: {
+    ref: 'review'
+  },
+  _id: '123456123456',
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      type: 'slide',
+      ref: 'sli_NkvrWPFF2'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+};
 
 const result: ProgressionFromAPI = {
   content: {
@@ -44,7 +68,7 @@ const result: ProgressionFromAPI = {
 
 test.before(() => {
   const moocApi = nock('http://localhost:3000');
-  moocApi.post(`/api/v2/progressions/${progressionId}/answers`).reply(200, result);
+  moocApi.post('/api/v2/progressions/123456123456/answers').reply(200, result);
 });
 
 test.after(() => {
@@ -53,13 +77,13 @@ test.after(() => {
 
 test('should post the answers successfully', async t => {
   const token = process.env.API_TEST_TOKEN || '';
-  const progression = await postAnswer(skillRef, token, progressionId, answer);
+  const progression = await postAnswer(initProgression, token, answer);
   t.deepEqual(result, progression);
 });
 
 test('should reject bad token', async t => {
   const badToken = 'token is not a jwt';
-  const error = await t.throwsAsync(() => postAnswer(skillRef, badToken, progressionId, answer));
+  const error = await t.throwsAsync(() => postAnswer(initProgression, badToken, answer));
 
   t.is(
     error?.message,
