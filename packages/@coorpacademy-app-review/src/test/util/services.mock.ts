@@ -2,8 +2,6 @@ import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
 import {sliderSlide} from '../../views/slides/test/fixtures/slider';
-import {multipleTemplateSlide} from '../../views/slides/test/fixtures/multiple-template';
-// import {multipleSelectTemplateSlide} from '../../views/slides/test/fixtures/multiple-template';
 
 import {ProgressionFromAPI, Services, SlideFromAPI} from '../../types/common';
 
@@ -97,7 +95,7 @@ export const postAnswerResponse: ProgressionFromAPI = {
 
 export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
-  fetchSlide: ref => Promise.resolve({...multipleTemplateSlide, universalRef: ref, id: ref}),
+  fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
   postAnswer: () => Promise.resolve(postAnswerResponse)
 };

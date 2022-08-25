@@ -111,7 +111,7 @@ const updateTemplateAnswer = (
   max: number
 ): string[] => {
   const answers = isEmpty(_answers) ? times(constant(undefined), max) : _answers;
-  return map(a => (isNil(a) ? '' : a), set(index, text, answers));
+  return map(a => (isNil(a) ? '' : a), set(index, text, answers)) as string[];
 };
 
 const templateTextProps = (
@@ -123,7 +123,7 @@ const templateTextProps = (
 ): TextTemplate => {
   return {
     type: 'text',
-    name: getOr('', 'name', choice), // TODO prendre valeur depuis les données de l'api
+    name: getOr('', 'name', choice),
     placeholder: 'Type here',
     value: get(index, answers),
     onChange: (text: string): void => {

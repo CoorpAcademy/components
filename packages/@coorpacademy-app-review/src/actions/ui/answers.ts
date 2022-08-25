@@ -39,14 +39,14 @@ const buildAnswer = (
     case 'qcmGraphic':
     case 'qcmDrag': {
       return includes(newValue, userAnswers)
-        ? pull(newValue, userAnswers)
-        : flatten([...userAnswers, newValue]);
+        ? (pull(newValue, userAnswers) as string[])
+        : (flatten([...userAnswers, newValue]) as string[]);
     }
     case 'basic':
     case 'slider':
-      return [newValue];
+      return [newValue] as string[];
     case 'template':
-      return newValue;
+      return newValue as string[];
     default:
       return [];
   }
