@@ -6,7 +6,7 @@ import {Theme} from '../../../../variables/theme.native';
 import Text from '../../../../atom/text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {BOX_STYLE} from '../../../../variables/shadow';
-import {FlexDirection, JustifyContent} from '../../../../types/styles';
+import {FlexDirection, JustifyContent, TextAlign, FontWeight} from '../../../../types/styles';
 
 export type OnChangeFunction = (value: number) => void;
 
@@ -31,13 +31,13 @@ type StyleSheetType = {
   };
   header: {
     fontSize: number;
-    fontWeight: string | undefined;
-    textAlign: string;
+    fontWeight: FontWeight;
+    textAlign: TextAlign;
   };
   textValue: {
     fontSize: number;
     color: string;
-    fontWeight: string | undefined;
+    fontWeight: FontWeight;
     textAlign: string;
   };
   valuesContainer: {
@@ -50,7 +50,7 @@ type StyleSheetType = {
   };
   rightValue: {
     flex: number;
-    alignItems: string;
+    alignItems: FlexAlignType | undefined;
   };
   track: {
     height: number;

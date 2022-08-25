@@ -7,3 +7,17 @@ export type JustifyContent =
   | 'space-around'
   | 'space-evenly'
   | undefined;
+export type TextAlign = 'auto' | 'left' | 'right' | 'center' | undefined;
+export type FontWeight =
+  | 'normal'
+  | 'bold'
+  | '100'
+  | '200'
+  | '300'
+  | '400'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900'
+  | undefined;
