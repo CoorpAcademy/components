@@ -154,7 +154,7 @@ test('should create initial props when the slide is on the state', t => {
       navigation: ['loader', 'slides'],
       answers: ['My value'],
       slide: {
-        validateButton: false
+        validateButton: true
       }
     }
   };
@@ -198,7 +198,7 @@ test('should create initial props when the slide is on the state', t => {
     correctionPopinProps: undefined,
     endReview: false
   });
-  t.true(props.stack.validateButton.disabled);
+  t.false(props.stack.validateButton.disabled);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     hidden: false,
     position: 0,
