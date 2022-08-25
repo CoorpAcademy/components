@@ -11,7 +11,6 @@ import {
   EDIT_TEMPLATE
 } from '../../actions/ui/answers';
 import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/post-answer';
-import {SetValidateButtonStatus, SET_VALIDATE_BUTTON_STATUS} from '../../actions/ui/slides';
 
 export type UISlideState = {
   validateButton: boolean;
@@ -22,7 +21,7 @@ export const initialState: UISlideState = {validateButton: false};
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UISlideState = initialState,
-  action: SetValidateButtonStatus | PostAnswerRequestAction | EditAnswerAction
+  action: PostAnswerRequestAction | EditAnswerAction
 ): UISlideState => {
   switch (action.type) {
     case EDIT_QCM:
@@ -35,9 +34,6 @@ const reducer = (
     }
     case POST_ANSWER_REQUEST: {
       return initialState;
-    }
-    case SET_VALIDATE_BUTTON_STATUS: {
-      return {validateButton: action.payload};
     }
     default:
       return state;

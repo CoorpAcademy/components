@@ -26,15 +26,3 @@ export const setCurrentSlide = (payload: SlideFromAPI): SetCurrentSlide => ({
 });
 
 export type UISlidesAction = SetCurrentSlide;
-
-export const SET_VALIDATE_BUTTON_STATUS = '@@slide/SET_VALIDATE_BUTTON_STATUS' as const;
-
-export type SetValidateButtonStatus = {
-  type: typeof SET_VALIDATE_BUTTON_STATUS;
-  payload: boolean;
-};
-
-export const setValidateButtonStatus = (payload: boolean): SetValidateButtonStatus => ({
-  type: SET_VALIDATE_BUTTON_STATUS,
-  payload
-});
