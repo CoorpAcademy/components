@@ -2,7 +2,6 @@ import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
 import {sliderSlide} from '../../views/slides/test/fixtures/slider';
-
 import {ProgressionFromAPI, Services, SlideFromAPI} from '../../types/common';
 
 const getSlideFixture = (ref: string): SlideFromAPI => {
