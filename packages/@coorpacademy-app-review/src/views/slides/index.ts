@@ -215,6 +215,7 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   ];
 
   const allAnswers = progression.state.allAnswers;
+  const step = progression.state.step;
   const nextContentRef = progression.state.nextContent.ref;
   if (isEmpty(allAnswers)) return defaultProps;
 
@@ -223,7 +224,7 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
     if (!givenAnswer) {
       return {
         ...stepItem,
-        current: nextContentRef === currentSlideRef
+        current: nextContentRef === currentSlideRef && step.current === index + 1
       };
     }
 
