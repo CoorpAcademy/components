@@ -1,4 +1,5 @@
 export type Translations = {
-  typeHere?: string;
   selectAnAnswer?: string;
+  selectSomethingBelow?: string;
+  typeHere?: string;
 };
