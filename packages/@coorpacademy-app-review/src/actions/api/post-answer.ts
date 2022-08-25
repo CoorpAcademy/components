@@ -9,6 +9,10 @@ export const POST_ANSWER_REQUEST = '@@answer/POST_REQUEST' as const;
 export const POST_ANSWER_SUCCESS = '@@answer/POST_SUCCESS' as const;
 export const POST_ANSWER_FAILURE = '@@answer/POST_FAILURE' as const;
 
+export type PostAnswerRequestAction = {
+  type: typeof POST_ANSWER_REQUEST;
+};
+
 export const postAnswer = async (
   dispatch: Dispatch,
   getState: () => StoreState,

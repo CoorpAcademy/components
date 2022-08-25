@@ -2,12 +2,12 @@ import {Dispatch} from 'redux';
 import {flatten, get, includes, pull} from 'lodash/fp';
 import type {StoreState} from '../../reducers';
 
-const EDIT_QCM = '@@answer/EDIT_QCM' as const;
-const EDIT_QCM_GRAPHIC = '@@answer/EDIT_QCM_GRAPHIC' as const;
-const EDIT_QCM_DRAG = '@@answer/EDIT_QCM_DRAG' as const;
-const EDIT_TEMPLATE = '@@answer/EDIT_TEMPLATE' as const;
-const EDIT_BASIC = '@@answer/EDIT_BASIC' as const;
-const EDIT_SLIDER = '@@answer/EDIT_SLIDER' as const;
+export const EDIT_QCM = '@@answer/EDIT_QCM' as const;
+export const EDIT_QCM_GRAPHIC = '@@answer/EDIT_QCM_GRAPHIC' as const;
+export const EDIT_QCM_DRAG = '@@answer/EDIT_QCM_DRAG' as const;
+export const EDIT_TEMPLATE = '@@answer/EDIT_TEMPLATE' as const;
+export const EDIT_BASIC = '@@answer/EDIT_BASIC' as const;
+export const EDIT_SLIDER = '@@answer/EDIT_SLIDER' as const;
 
 export const ANSWER_EDIT = {
   qcm: EDIT_QCM,

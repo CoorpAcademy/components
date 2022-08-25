@@ -14,7 +14,6 @@ import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
 import {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
-import {setValidateButtonStatus} from '../../actions/ui/slides';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -254,9 +253,8 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       slides: buildStackSlides(state, dispatch),
       validateButton: {
         label: '__validate',
-        disabled: !state.ui.slide.validateButton,
+        disabled: !get('ui.slide.validateButton', state),
         onClick: (): void => {
-          dispatch(setValidateButtonStatus(false));
           dispatch(postAnswer);
         }
       },
