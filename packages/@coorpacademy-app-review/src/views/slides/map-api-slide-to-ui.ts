@@ -8,9 +8,14 @@ import {
   indexOf,
   isEmpty,
   map,
+  multiply,
+  pipe,
   rangeStep,
+  round,
   size,
-  toInteger
+  toInteger,
+  toString as _toString,
+  __
 } from 'lodash/fp';
 import {Dispatch} from 'redux';
 import {
@@ -159,44 +164,43 @@ const basicProps =
       placeholder: question.content.placeholder || '',
       value: answers[0] || '',
       onChange: (text: string): void => {
-        // eslint-disable-next-line no-console
-        console.log(text);
         dispatch(editAnswer(text));
       }
     };
   };
 
-const sliderProps = (question: SliderQuestion): QuestionRange => {
-  const values: number[] = rangeStep(
-    getOr(1, 'content.step', question),
-    get('content.min', question),
-    get('content.max', question) + 1
-    // Lodash doesn't infer the type very well here
-  ) as unknown as number[];
+const sliderProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: SliderQuestion): QuestionRange => {
+    const values: number[] = rangeStep(
+      getOr(1, 'content.step', question),
+      get('content.min', question),
+      get('content.max', question) + 1
+      // Lodash doesn't infer the type very well here
+    ) as unknown as number[];
 
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
+    const stateValue = head(answers) || question.content.min;
+    const currentValue = toInteger(stateValue);
 
-  const stateValue = head(answers) || question.content.min;
-  const currentValue = toInteger(stateValue);
+    const indexValue = indexOf(currentValue, values);
+    const maxValue = size(values) - 1;
+    const sliderPosition = divide(indexValue, maxValue);
 
-  const indexValue = indexOf(currentValue, values);
-  const sliderPosition = divide(indexValue, size(values) - 1);
+    const unitLabel = get('content.unitLabel', question);
 
-  const unitLabel = get('content.unitLabel', question);
-
-  return {
-    type: 'slider',
-    placeholder: question.explanation,
-    minLabel: `${question.content.min} ${unitLabel}`,
-    maxLabel: `${question.content.max} ${unitLabel}`,
-    title: `${currentValue} ${question.content.unitLabel}`,
-    value: sliderPosition,
-    // TODO: EDIT_CHOICES
-    // eslint-disable-next-line no-console
-    onChange: () => console.log('TODO: on choice change')
+    return {
+      type: 'slider',
+      placeholder: question.explanation,
+      minLabel: `${question.content.min} ${unitLabel}`,
+      maxLabel: `${question.content.max} ${unitLabel}`,
+      title: `${currentValue} ${question.content.unitLabel}`,
+      value: sliderPosition,
+      onChange: (position: number): void => {
+        const newValue = pipe(multiply(maxValue), round, get(__, values), _toString)(position);
+        dispatch(editAnswer(newValue));
+      }
+    };
   };
-};
 
 export const getQuestionType = (question: Question): Question['type'] => question.type;
 
@@ -225,7 +229,7 @@ const getAnswerUIModel = (
       return templateProps(question as TemplateQuestion);
 
     case 'slider':
-      return sliderProps(question as SliderQuestion);
+      return sliderProps(dispatch)(answers, question as SliderQuestion);
 
     default:
       throw new Error(`${type} is not an handled question.type`);
