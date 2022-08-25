@@ -110,18 +110,26 @@ const updateTemplateAnswer = (
   index: number,
   max: number
 ): string[] => {
-  const answers = !_answers ? times(constant(undefined), max) : _answers;
+  const answers = isEmpty(_answers) ? times(constant(undefined), max) : _answers;
   return map(a => (isNil(a) ? '' : a), set(index, text, answers));
 };
 
-const templateTextProps = (choice: ChoiceFromAPI, index: number): TextTemplate => {
+const templateTextProps = (
+  dispatch: Dispatch,
+  answers: string[],
+  choice: ChoiceFromAPI,
+  index: number,
+  maxLength: number
+): TextTemplate => {
   return {
     type: 'text',
     name: getOr('', 'name', choice), // TODO prendre valeur depuis les données de l'api
     placeholder: 'Type here',
     value: get(index, answers),
-    // eslint-disable-next-line no-console
-    onChange: () => console.log('TODO: on choice change')
+    onChange: (text: string): void => {
+      const newAnswers = updateTemplateAnswer(text, answers, index, maxLength);
+      dispatch(editAnswer(newAnswers));
+    }
   };
 };
 
@@ -164,13 +172,13 @@ const templateProps =
   (dispatch: Dispatch) =>
   (answers: string[], question: TemplateQuestion): Template => {
     const choices = question.content.choices;
-    const maxLength = choices.length;
+    const maxLength = size(choices);
     return {
       type: 'template',
       template: get('content.template', question),
       answers: choices.map((choice, index) =>
         choice.type === 'text'
-          ? templateTextProps(choice, index)
+          ? templateTextProps(dispatch, answers, choice, index, maxLength)
           : templateSelectProps(dispatch, answers, choice, index, maxLength)
       )
     };
