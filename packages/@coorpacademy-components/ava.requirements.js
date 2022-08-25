@@ -4,7 +4,8 @@ require('@coorpacademy/react-native-mock-render/mock')({
   externalLibs: [
     {name: 'react-native-modal'},
     {name: 'react-native-render-html'},
-    {name: 'react-native-linear-gradient'}
+    {name: 'react-native-linear-gradient'},
+    {name: '@coorpacademy/react-native-slider'}
   ]
 });
 
