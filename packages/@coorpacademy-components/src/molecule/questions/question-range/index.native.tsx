@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, ViewStyle} from 'react-native';
+import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
 import Slider from '@coorpacademy/react-native-slider';
 
 import {Theme} from '../../../variables/theme.native';
 import Text from '../../../atom/text/index.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {BOX_STYLE} from '../../../variables/shadow';
+import {FlexDirection, JustifyContent} from '../../../types/styles';
 
 export type OnChangeFunction = (value: number) => void;
 
@@ -25,27 +26,27 @@ type StyleSheetType = {
   container: {
     flex: number;
     paddingHorizontal: number;
-    flexDirection: string;
-    justifyContent: string;
+    flexDirection: FlexDirection;
+    justifyContent: JustifyContent;
   };
   header: {
     fontSize: number;
-    fontWeight: string;
+    fontWeight: string | undefined;
     textAlign: string;
   };
   textValue: {
     fontSize: number;
     color: string;
-    fontWeight: string;
+    fontWeight: string | undefined;
     textAlign: string;
   };
   valuesContainer: {
-    flexDirection: string;
-    justifyContent: string;
+    flexDirection: FlexDirection;
+    justifyContent: JustifyContent;
   };
   leftValue: {
     flex: number;
-    alignItems: string;
+    alignItems: FlexAlignType | undefined;
   };
   rightValue: {
     flex: number;

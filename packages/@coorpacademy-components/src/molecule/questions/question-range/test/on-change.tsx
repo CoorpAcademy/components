@@ -6,8 +6,9 @@ import QuestionSlider, {OnChangeFunction} from '../index.native';
 const onSlidingComplete = () => null;
 
 test('should handle on change', t => {
+  const VALUE = 11;
   const onChange: OnChangeFunction = value => {
-    t.is(value, 5);
+    t.is(value, VALUE);
   };
 
   const component = (
@@ -23,9 +24,9 @@ test('should handle on change', t => {
 
   const {getByTestId} = render(component);
 
-  const cpt = getByTestId('question-slider');
+  const cpt = getByTestId('slider');
 
-  fireEvent(cpt, 'press', 'question-slider');
+  fireEvent(cpt, 'onValueChange', VALUE);
 
   t.plan(1);
 });

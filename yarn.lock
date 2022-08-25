@@ -3358,6 +3358,13 @@
     react-timer-mixin "^0.13.4"
     warning "^4.0.3"
 
+"@coorpacademy/react-native-slider@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-slider/-/react-native-slider-0.11.1.tgz#50567fbf94374644d3e6618bbb90fb4c634bc29c"
+  integrity sha512-cMRg2LeCMPMH2RmMsFg+3GAOInJEs1myvF/zdB9VaiswiJVLLxUc8TWSlTzrh5wwtMqIa7ycVCsa/FyiD1LJsA==
+  dependencies:
+    prop-types "^15.5.6"
+
 "@coorpacademy/update-node@^4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@coorpacademy/update-node/-/update-node-4.5.0.tgz#8e8c61374d4dda35cd1fee22b06880e6367f322c"
@@ -19114,7 +19121,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
-prop-types@*, prop-types@^15.5.7, prop-types@^15.7.0, prop-types@^15.8.1:
+prop-types@*, prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.7.0, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
