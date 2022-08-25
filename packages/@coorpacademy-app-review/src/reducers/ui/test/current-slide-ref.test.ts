@@ -3,7 +3,7 @@ import reducer from '../current-slide-ref';
 import {SetCurrentSlide, SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
-test('should have inital value', t => {
+test('should have initial value', t => {
   const state = reducer(undefined, {} as SetCurrentSlide);
   t.is(state, '');
 });

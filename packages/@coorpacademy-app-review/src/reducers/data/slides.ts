@@ -1,5 +1,4 @@
 import set from 'lodash/fp/set';
-import {ValidateSlide} from '../../actions/ui/slides';
 import {
   ReceivedSlide,
   FetchSlide,
@@ -8,7 +7,7 @@ import {
 } from '../../actions/api/fetch-slide';
 import {SlideFromAPI} from '../../types/common';
 
-export type SlidesAction = FetchSlide | ReceivedSlide | ValidateSlide;
+export type SlidesAction = FetchSlide | ReceivedSlide;
 
 export type SlidesState = Record<string, SlideFromAPI | null>;
 export const initialState: SlidesState = {};

@@ -5,7 +5,7 @@ import {mapStateToSlidesProps} from '..';
 import {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 
-test('should create initial props when fetched slide is not still received', t => {
+test('should create initial props when fetched slide is still not received', t => {
   const state: StoreState = {
     data: {
       progression: {
@@ -41,7 +41,10 @@ test('should create initial props when fetched slide is not still received', t =
     ui: {
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
-      answers: []
+      answers: [],
+      slide: {
+        validateButton: false
+      }
     }
   };
 
@@ -113,7 +116,7 @@ test('should create initial props when fetched slide is not still received', t =
   });
 });
 
-test('should create initial props when slide is on the state', t => {
+test('should create initial props when the slide is on the state', t => {
   const state: StoreState = {
     data: {
       progression: {
@@ -149,7 +152,10 @@ test('should create initial props when slide is on the state', t => {
     ui: {
       currentSlideRef: 'sli_N1XACJobn',
       navigation: ['loader', 'slides'],
-      answers: ['My value']
+      answers: ['My value'],
+      slide: {
+        validateButton: false
+      }
     }
   };
 
@@ -192,6 +198,7 @@ test('should create initial props when slide is on the state', t => {
     correctionPopinProps: undefined,
     endReview: false
   });
+  t.false(props.stack.validateButton.disabled);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     hidden: false,
     position: 0,

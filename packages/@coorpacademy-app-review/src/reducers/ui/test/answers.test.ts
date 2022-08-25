@@ -2,7 +2,7 @@ import test from 'ava';
 import reducer from '../answers';
 import {EditAnswerAction, ANSWER_EDIT} from '../../../actions/ui/answers';
 
-test('should have inital value', t => {
+test('should have initial value', t => {
   const state = reducer(undefined, {} as EditAnswerAction);
   t.deepEqual(state, []);
 });
