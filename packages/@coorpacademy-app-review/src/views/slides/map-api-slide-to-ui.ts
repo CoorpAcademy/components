@@ -57,7 +57,7 @@ const qcmProps =
           title: label,
           selected: includes(label, answers),
           onClick: (): void => {
-            dispatch(editAnswer(label));
+            dispatch(editAnswer([label]));
           },
           ariaLabel: choice.label
         };
@@ -78,7 +78,7 @@ const qcmDragProps =
           selected: includes(label, answers),
           order: indexInAnswer,
           onClick: (): void => {
-            dispatch(editAnswer(label));
+            dispatch(editAnswer([label]));
           }
         };
       }, question.content.choices)
@@ -97,7 +97,7 @@ const qcmGraphicProps =
           image: get('media.src.0.url', choice),
           selected: includes(label, answers),
           onClick: (): void => {
-            dispatch(editAnswer(label));
+            dispatch(editAnswer([label]));
           }
         };
       }, question.content.choices)
@@ -192,7 +192,7 @@ const basicProps =
       placeholder: question.content.placeholder || '',
       value: answers[0] || '',
       onChange: (text: string): void => {
-        dispatch(editAnswer(text));
+        dispatch(editAnswer([text]));
       }
     };
   };
@@ -224,8 +224,13 @@ const sliderProps =
       title: `${currentValue} ${question.content.unitLabel}`,
       value: sliderPosition,
       onChange: (position: number): void => {
-        const newValue = pipe(multiply(maxValue), round, get(__, values), _toString)(position);
-        dispatch(editAnswer(newValue));
+        const newValue: string = pipe(
+          multiply(maxValue),
+          round,
+          get(__, values),
+          _toString
+        )(position);
+        dispatch(editAnswer([newValue]));
       }
     };
   };
