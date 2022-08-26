@@ -15,7 +15,6 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
       return freeTextSlide;
     case templateSlide.universalRef:
       return templateSlide;
-    case sliderSlide.universalRef:
     default:
       return sliderSlide;
   }
