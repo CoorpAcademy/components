@@ -34,13 +34,13 @@ const buildAnswer = (userAnswers: string[], questionType: string, newValue: stri
     case 'qcm':
     case 'qcmGraphic':
     case 'qcmDrag': {
-      return includes(newValue[0], userAnswers)
-        ? pull(newValue[0], userAnswers)
-        : flatten([...userAnswers, newValue[0]]);
+      const firstValue = newValue[0];
+      return includes(firstValue, userAnswers)
+        ? pull(firstValue, userAnswers)
+        : flatten([...userAnswers, firstValue]);
     }
     case 'basic':
     case 'slider':
-      return newValue;
     case 'template':
       return newValue;
     default:
