@@ -32,7 +32,7 @@ const fetchSkillsResponse = [
   }
 ];
 
-const postProgressionResponse: ProgressionFromAPI = {
+export const postProgressionResponse: ProgressionFromAPI = {
   _id: '62b1d1087aa12f00253f40ee',
   content: {
     ref: '_skill-ref',
