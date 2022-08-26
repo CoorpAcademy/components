@@ -13,6 +13,7 @@ import {ProgressionFromAPI} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
 import {AnswerUI} from '../../types/slides';
+import {postAnswer} from '../../actions/api/post-answer';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -252,10 +253,9 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       slides: buildStackSlides(state, dispatch),
       validateButton: {
         label: '__validate',
-        disabled: true,
+        disabled: !get('ui.slide.validateButton', state),
         onClick: (): void => {
-          // eslint-disable-next-line no-console
-          console.log('TODO: validate question');
+          dispatch(postAnswer);
         }
       },
       correctionPopinProps: undefined,

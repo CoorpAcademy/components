@@ -15,6 +15,7 @@ import {SET_CURRENT_SLIDE} from '../../ui/slides';
 
 const progressionId = '123456789123';
 const skillRef = '_skill-ref';
+const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
 
 const initialState: StoreState = {
   data: {
@@ -48,11 +49,12 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: 'sli_VJYjJnJhg',
     navigation: ['skills', 'slides'],
-    answers: []
+    answers: answer,
+    slide: {
+      validateButton: false
+    }
   }
 };
-
-const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the updated progression is returned', async t => {
   const expectedActions = [
@@ -72,7 +74,7 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(postAnswer(skillRef, progressionId, answer));
+  await dispatch(postAnswer);
 });
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', async t => {
@@ -95,5 +97,5 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', a
     expectedActions
   );
 
-  await dispatch(postAnswer(skillRef, progressionId, answer));
+  await dispatch(postAnswer);
 });

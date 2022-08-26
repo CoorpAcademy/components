@@ -4,7 +4,7 @@ import omit from 'lodash/fp/omit';
 import {StoreState} from '../../../reducers';
 import {mapStateToSkillsProps} from '..';
 
-test('should create initial props when no skills on the state', t => {
+test('should create initial props when there are no skills on the state', t => {
   const state: StoreState = {
     data: {
       progression: null,
@@ -15,7 +15,10 @@ test('should create initial props when no skills on the state', t => {
     ui: {
       currentSlideRef: '',
       navigation: ['loader', 'skills'],
-      answers: []
+      answers: [],
+      slide: {
+        validateButton: false
+      }
     }
   };
 
@@ -56,7 +59,10 @@ test('should create initial props when skills on the state', t => {
     ui: {
       currentSlideRef: '',
       navigation: ['loader', 'skills'],
-      answers: []
+      answers: [],
+      slide: {
+        validateButton: false
+      }
     }
   };
 

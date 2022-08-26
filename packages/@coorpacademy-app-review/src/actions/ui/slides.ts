@@ -15,6 +15,7 @@ export type Slide = {
 };
 
 export const SET_CURRENT_SLIDE = '@@slide/SET_CURRENT_SLIDE' as const;
+
 export type SetCurrentSlide = {
   type: typeof SET_CURRENT_SLIDE;
   payload: SlideFromAPI;
@@ -22,14 +23,6 @@ export type SetCurrentSlide = {
 export const setCurrentSlide = (payload: SlideFromAPI): SetCurrentSlide => ({
   type: SET_CURRENT_SLIDE,
   payload
-});
-
-export const VALIDATE_SLIDE = '@@slide/VALIDATE';
-export type ValidateSlide = {
-  type: typeof VALIDATE_SLIDE;
-};
-export const validateSlide = (): ValidateSlide => ({
-  type: VALIDATE_SLIDE
 });
 
 export type UISlidesAction = SetCurrentSlide;
