@@ -2,8 +2,7 @@ import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
 import {sliderSlide} from '../../views/slides/test/fixtures/slider';
-import {textTemplateSlide} from '../../views/slides/test/fixtures/text-template';
-import {selectTemplateSlide} from '../../views/slides/test/fixtures/select-template';
+import {templateSlide} from '../../views/slides/test/fixtures/template';
 import {ProgressionFromAPI, Services, SlideFromAPI} from '../../types/common';
 
 const getSlideFixture = (ref: string): SlideFromAPI => {
@@ -14,10 +13,8 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
       return qcmGraphicSlide;
     case freeTextSlide.universalRef:
       return freeTextSlide;
-    case textTemplateSlide.universalRef:
-      return textTemplateSlide;
-    case selectTemplateSlide.universalRef:
-      return selectTemplateSlide;
+    case templateSlide.universalRef:
+      return templateSlide;
     case sliderSlide.universalRef:
     default:
       return sliderSlide;

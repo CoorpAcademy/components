@@ -8,8 +8,9 @@ import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
-import {selectTemplateSlide} from '../../../views/slides/test/fixtures/select-template';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
+
 import {StoreState} from '../../../reducers';
 import {editAnswer, ANSWER_EDIT} from '../answers';
 
@@ -104,8 +105,11 @@ test('should dispatch EDIT_SLIDER action when editAnswer is called', async t => 
 });
 
 test('should dispatch EDIT_TEMPLATE action when editAnswer is called', async t => {
-  const state = buildInitialState(initialState, selectTemplateSlide);
-  const expectedActions = [{type: ANSWER_EDIT.template, payload: ['My Answer']}];
+  let state = buildInitialState(initialState, templateSlide);
+  state = set(['ui', 'answers'], ['Catalogue', '', 'étoiles'], state);
+  const expectedActions = [
+    {type: ANSWER_EDIT.template, payload: ['Catalogue', 'My Answer', 'étoiles']}
+  ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
-  await dispatch(editAnswer(['My Answer']));
+  await dispatch(editAnswer(['Catalogue', 'My Answer', 'étoiles']));
 });

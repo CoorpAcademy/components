@@ -7,8 +7,8 @@ import {qcmUISlide, qcmSlide} from './fixtures/qcm';
 import {qcmDragUISlide, qcmDragSlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
 import {qcmGraphicUISlide, qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {textTemplateSlide, textTemplateUISlide} from './fixtures/text-template';
-import {selectTemplateSlide, selectTemplateUISlide} from './fixtures/select-template';
+import {templateSlide, templateUISlide} from './fixtures/template';
+
 import {sliderSlide, sliderUISlide} from './fixtures/slider';
 
 const _mapApiSlideToUi = mapApiSlideToUi(identity);
@@ -39,15 +39,10 @@ test('qcm graphic', macro, {
   answers: [],
   expectedUiSlide: qcmGraphicUISlide
 });
-test('text template', macro, {
-  slide: textTemplateSlide,
+test('template', macro, {
+  slide: templateSlide,
   answers: [],
-  expectedUiSlide: textTemplateUISlide
-});
-test('select template', macro, {
-  slide: selectTemplateSlide,
-  answers: [],
-  expectedUiSlide: selectTemplateUISlide
+  expectedUiSlide: templateUISlide
 });
 test('free text', macro, {slide: freeTextSlide, answers: [], expectedUiSlide: freeTextUISlide});
 test('slider', macro, {slide: sliderSlide, answers: [], expectedUiSlide: sliderUISlide});

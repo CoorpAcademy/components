@@ -8,54 +8,53 @@ import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_TEMPLATE} from '../../../actions/ui/answers';
 import {Template} from '../../../types/slides';
-import {textTemplateSlide} from './fixtures/text-template';
-import {selectTemplateSlide} from './fixtures/select-template';
+import {templateSlide} from './fixtures/template';
+
+const progression: ProgressionFromAPI = {
+  _id: '123456789123',
+  content: {type: 'skill', ref: '_skill-ref'},
+  engine: {
+    ref: 'review'
+  },
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      ref: templateSlide.id,
+      type: 'slide'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+};
+
+const initialState: StoreState = {
+  data: {
+    progression,
+    slides: {
+      [templateSlide.id]: templateSlide
+    },
+    skills: [],
+    token: '1234'
+  },
+  ui: {
+    currentSlideRef: templateSlide.id,
+    navigation: ['skills', 'slides'],
+    answers: [],
+    slide: {
+      validateButton: false
+    }
+  }
+};
 
 test('should dispatch EDIT_TEMPLATE action via the property onChange of a Template Text slide', t => {
   t.plan(2);
 
-  const progression: ProgressionFromAPI = {
-    _id: '123456789123',
-    content: {type: 'skill', ref: '_skill-ref'},
-    engine: {
-      ref: 'review'
-    },
-    state: {
-      allAnswers: [],
-      isCorrect: true,
-      nextContent: {
-        ref: textTemplateSlide.id,
-        type: 'slide'
-      },
-      pendingSlides: [],
-      slides: [],
-      step: {
-        current: 1
-      },
-      stars: 0
-    }
-  };
-
-  const initialState: StoreState = {
-    data: {
-      progression,
-      slides: {
-        [textTemplateSlide.id]: textTemplateSlide
-      },
-      skills: [],
-      token: '1234'
-    },
-    ui: {
-      currentSlideRef: textTemplateSlide.id,
-      navigation: ['skills', 'slides'],
-      answers: [],
-      slide: {
-        validateButton: false
-      }
-    }
-  };
-
-  const expectedActions = [{type: EDIT_TEMPLATE, payload: ['text']}];
+  const expectedActions = [{type: EDIT_TEMPLATE, payload: ['', 'test', '']}];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch);
@@ -63,60 +62,19 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     hidden: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Using redux" chapter',
-    questionText: 'Comment le protégé doit-il percevoir son mentor ?'
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText: 'Complétez la phrase ci-dessous.'
   });
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as Template;
-  const onChange = get(['0', 'onChange'], SlideProps.answers);
-  onChange('text');
+  const onChange = get(['1', 'onChange'], SlideProps.answers);
+  onChange('test');
 });
 
 test('should dispatch EDIT_TEMPLATE action via the property onChange of a Template Select slide', t => {
   t.plan(2);
 
-  const progression: ProgressionFromAPI = {
-    _id: '123456789123',
-    content: {type: 'skill', ref: '_skill-ref'},
-    engine: {
-      ref: 'review'
-    },
-    state: {
-      allAnswers: [],
-      isCorrect: true,
-      nextContent: {
-        ref: selectTemplateSlide.id,
-        type: 'slide'
-      },
-      pendingSlides: [],
-      slides: [],
-      step: {
-        current: 1
-      },
-      stars: 0
-    }
-  };
-
-  const initialState: StoreState = {
-    data: {
-      progression,
-      slides: {
-        [selectTemplateSlide.id]: selectTemplateSlide
-      },
-      skills: [],
-      token: '1234'
-    },
-    ui: {
-      currentSlideRef: selectTemplateSlide.id,
-      navigation: ['skills', 'slides'],
-      answers: [],
-      slide: {
-        validateButton: false
-      }
-    }
-  };
-
-  const expectedActions = [{type: EDIT_TEMPLATE, payload: ['text']}];
+  const expectedActions = [{type: EDIT_TEMPLATE, payload: ['Catalogue', '', '']}];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch);
@@ -130,5 +88,5 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as Template;
   const onChange = get(['0', 'onChange'], SlideProps.answers);
-  onChange('text');
+  onChange('Catalogue');
 });
