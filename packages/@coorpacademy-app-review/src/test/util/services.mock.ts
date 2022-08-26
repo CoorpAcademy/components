@@ -60,38 +60,75 @@ export const postProgressionResponse: ProgressionFromAPI = {
   }
 };
 
-export const postAnswerResponse: ProgressionFromAPI = {
-  _id: '62b1d1087aa12f00253f40ee',
-  content: {
-    ref: '_skill-ref',
-    type: 'skill'
-  },
-  engine: {
-    ref: 'review'
-  },
-  state: {
-    allAnswers: [
-      {
-        slideRef: 'sli_N1XACJobn',
-        isCorrect: true,
-        answer: ['Benchmark']
-      }
-    ],
-    isCorrect: true,
-    nextContent: {
-      ref: 'sli_VkSQroQnx',
-      type: 'slide'
-    },
+export const postAnswerResponse: Record<string, ProgressionFromAPI> = {
+  sli_N1XACJobn: {
+    _id: '62b1d1087aa12f00253f40ee',
     content: {
-      ref: 'sli_N1XACJobn',
-      type: 'slide'
+      ref: '_skill-ref',
+      type: 'skill'
     },
-    pendingSlides: [],
-    slides: ['sli_N1XACJobn'],
-    step: {
-      current: 2
+    engine: {
+      ref: 'review'
     },
-    stars: 4
+    state: {
+      allAnswers: [
+        {
+          slideRef: 'sli_N1XACJobn',
+          isCorrect: true,
+          answer: ['Benchmark']
+        }
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: 'sli_VkSQroQnx',
+        type: 'slide'
+      },
+      content: {
+        ref: 'sli_N1XACJobn',
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: ['sli_N1XACJobn'],
+      step: {
+        current: 2
+      },
+      stars: 4
+    }
+  },
+  sli_VkSQroQnx: {
+    _id: '62b1d1087aa12f00253f40ee',
+    content: {
+      ref: '_skill-ref',
+      type: 'skill'
+    },
+    engine: {
+      ref: 'review'
+    },
+    state: {
+      allAnswers: [
+        {
+          slideRef: 'sli_N1XACJobn',
+          isCorrect: true,
+          answer: ['Benchmark']
+        },
+        
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: 'sli_VkSQroQnx',
+        type: 'slide'
+      },
+      content: {
+        ref: 'sli_N1XACJobn',
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: ['sli_N1XACJobn'],
+      step: {
+        current: 3
+      },
+      stars: 8
+    }
   }
 };
 
