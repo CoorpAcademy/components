@@ -1,15 +1,21 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
-import {replace} from 'lodash/fp';
+import forEach from 'lodash/fp/forEach';
+import replace from 'lodash/fp/replace';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render, fireEvent} from '@testing-library/react';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
-import InputDoublestep from '..';
+import InputDoubleStep from '..';
 import inputConfirmFixture from './fixtures/input-confirm';
 
 browserEnv();
-configure({adapter: new Adapter()});
+
+const checkStyles = (stylesToCheck, container, t) => {
+  forEach(([styleToCheck, shouldBePresent]) => {
+    const styledElement = container.querySelector(styleToCheck);
+    shouldBePresent ? t.truthy(styledElement) : t.falsy(styledElement);
+  }, stylesToCheck);
+};
 
 test('should call the onChange function on change with inputConfirm fixture', t => {
   const deleteStyle = `.${replace(' ', '.', style.delete)}`;
@@ -18,46 +24,45 @@ test('should call the onChange function on change with inputConfirm fixture', t 
   const cancelStyle = `.${replace(' ', '.', style.cancel)}`;
   const toggleStyle = `.${replace(' ', '.', style.toggle)}`;
 
-  t.plan(22);
-  const onClick = e => {
-    t.is(e.value, 'foo');
+  t.plan(21);
+  const onClick = () => {
+    t.pass();
   };
-  const wrapper = mount(<InputDoublestep {...inputConfirmFixture.props} onClick={onClick} />);
+  const {container} = render(<InputDoubleStep {...inputConfirmFixture.props} onClick={onClick} />);
 
-  t.is(wrapper.find(deleteStyle).exists(), false);
-  t.is(wrapper.find(inputStyle).exists(), false);
-  t.is(wrapper.find(cancelStyle).exists(), false);
-  t.is(wrapper.find(sectionStyle).exists(), false);
-  t.is(wrapper.find(toggleStyle).exists(), true);
+  const stylesToCheckPreClick = [
+    [deleteStyle, false],
+    [inputStyle, false],
+    [cancelStyle, false],
+    [sectionStyle, false],
+    [toggleStyle, true]
+  ];
 
-  wrapper.find(toggleStyle).simulate('click');
+  checkStyles(stylesToCheckPreClick, container, t);
 
-  t.is(wrapper.find(sectionStyle).exists(), true);
-  t.is(wrapper.find(inputStyle).exists(), true);
-  t.is(wrapper.find(deleteStyle).exists(), true);
-  t.is(wrapper.find(cancelStyle).exists(), true);
-  t.is(wrapper.find(toggleStyle).exists(), false);
+  container.querySelector(toggleStyle);
 
-  wrapper.find(cancelStyle).simulate('click');
+  fireEvent.click(container.querySelector(toggleStyle));
 
-  t.is(wrapper.find(sectionStyle).exists(), false);
-  t.is(wrapper.find(inputStyle).exists(), false);
-  t.is(wrapper.find(deleteStyle).exists(), false);
-  t.is(wrapper.find(cancelStyle).exists(), false);
-  t.is(wrapper.find(toggleStyle).exists(), true);
+  const stylesToCheckPostClick = [
+    [sectionStyle, true],
+    [inputStyle, true],
+    [deleteStyle, true],
+    [cancelStyle, true],
+    [toggleStyle, false]
+  ];
 
-  wrapper.find(toggleStyle).simulate('click');
+  checkStyles(stylesToCheckPostClick, container, t);
 
-  t.is(wrapper.find(sectionStyle).exists(), true);
-  t.is(wrapper.find(inputStyle).exists(), true);
-  t.is(wrapper.find(deleteStyle).exists(), true);
-  t.is(wrapper.find(cancelStyle).exists(), true);
-  t.is(wrapper.find(toggleStyle).exists(), false);
+  fireEvent.click(container.querySelector(cancelStyle));
 
-  wrapper.find(deleteStyle).simulate('click', {
-    value: 'foo',
-    preventDefault: () => {
-      t.pass();
-    }
+  checkStyles(stylesToCheckPreClick, container, t);
+
+  fireEvent.click(container.querySelector(toggleStyle));
+
+  checkStyles(stylesToCheckPostClick, container, t);
+
+  fireEvent.click(container.querySelector(deleteStyle), {
+    defaultPrevented: true
   });
 });
