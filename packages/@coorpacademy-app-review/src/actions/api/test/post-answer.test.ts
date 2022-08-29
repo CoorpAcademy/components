@@ -29,7 +29,7 @@ const initialState: StoreState = {
         allAnswers: [],
         isCorrect: true,
         nextContent: {
-          ref: 'sli_VJYjJnJhg',
+          ref: freeTextSlide.id,
           type: 'slide'
         },
         pendingSlides: [],
@@ -47,7 +47,7 @@ const initialState: StoreState = {
     token: '1234'
   },
   ui: {
-    currentSlideRef: 'sli_VJYjJnJhg',
+    currentSlideRef: freeTextSlide.id,
     navigation: ['skills', 'slides'],
     answers: answer,
     slide: {
@@ -61,12 +61,12 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
     {type: POST_ANSWER_REQUEST},
     {
       type: POST_ANSWER_SUCCESS,
-      payload: postAnswerResponses.sli_VJYjJnJhg
+      payload: postAnswerResponses[freeTextSlide.id]
     },
-    {type: SLIDE_FETCH_REQUEST, meta: {slideRef: 'sli_VkSQroQnx'}},
+    {type: SLIDE_FETCH_REQUEST, meta: {slideRef: qcmGraphicSlide.id}},
     {
       type: SLIDE_FETCH_SUCCESS,
-      meta: {slideRef: 'sli_VkSQroQnx'},
+      meta: {slideRef: qcmGraphicSlide.id},
       payload: qcmGraphicSlide
     },
     {type: SET_CURRENT_SLIDE, payload: qcmGraphicSlide}
