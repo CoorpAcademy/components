@@ -29,25 +29,27 @@ export type EditAnswerAction = {
   payload: string[];
 };
 
-const buildAnswer = (userAnswers: string[], questionType: string, newValue: string): string[] => {
+const buildAnswer = (userAnswers: string[], questionType: string, newValue: string[]): string[] => {
   switch (questionType) {
     case 'qcm':
     case 'qcmGraphic':
     case 'qcmDrag': {
-      return includes(newValue, userAnswers)
-        ? pull(newValue, userAnswers)
-        : flatten([...userAnswers, newValue]);
+      const firstValue = newValue[0];
+      return includes(firstValue, userAnswers)
+        ? pull(firstValue, userAnswers)
+        : flatten([...userAnswers, firstValue]);
     }
     case 'basic':
     case 'slider':
-      return [newValue];
+    case 'template':
+      return newValue;
     default:
       return [];
   }
 };
 
 export const editAnswer =
-  (answer: string) =>
+  (answer: string[]) =>
   (dispatch: Dispatch, getState: () => StoreState): EditAnswerAction => {
     const state = getState();
     const currentSlideRef = get(['ui', 'currentSlideRef'])(state);

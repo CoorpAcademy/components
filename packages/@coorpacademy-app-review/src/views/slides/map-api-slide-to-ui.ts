@@ -1,5 +1,6 @@
 import {
   concat,
+  constant,
   divide,
   get,
   getOr,
@@ -7,12 +8,15 @@ import {
   includes,
   indexOf,
   isEmpty,
+  isNil,
   map,
   multiply,
   pipe,
   rangeStep,
   round,
+  set,
   size,
+  times,
   toInteger,
   toString as _toString,
   __
@@ -53,7 +57,7 @@ const qcmProps =
           title: label,
           selected: includes(label, answers),
           onClick: (): void => {
-            dispatch(editAnswer(label));
+            dispatch(editAnswer([label]));
           },
           ariaLabel: choice.label
         };
@@ -74,7 +78,7 @@ const qcmDragProps =
           selected: includes(label, answers),
           order: indexInAnswer,
           onClick: (): void => {
-            dispatch(editAnswer(label));
+            dispatch(editAnswer([label]));
           }
         };
       }, question.content.choices)
@@ -93,30 +97,49 @@ const qcmGraphicProps =
           image: get('media.src.0.url', choice),
           selected: includes(label, answers),
           onClick: (): void => {
-            dispatch(editAnswer(label));
+            dispatch(editAnswer([label]));
           }
         };
       }, question.content.choices)
     };
   };
 
-const templateTextProps = (choice: ChoiceFromAPI, index: number): TextTemplate => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
+const updateTemplateAnswer = (
+  text: string,
+  _answers: string[],
+  index: number,
+  max: number
+): string[] => {
+  const answers = isEmpty(_answers) ? times(constant(undefined), max) : _answers;
+  return map(a => (isNil(a) ? '' : a), set(index, text, answers)) as string[];
+};
+
+const templateTextProps = (
+  dispatch: Dispatch,
+  answers: string[],
+  choice: ChoiceFromAPI,
+  index: number,
+  maxLength: number
+): TextTemplate => {
   return {
     type: 'text',
-    name: getOr('', 'name', choice), // TODO prendre valeur depuis les données de l'api
+    name: getOr('', 'name', choice),
     placeholder: 'Type here',
     value: get(index, answers),
-    // TODO: EDIT_CHOICES
-    // eslint-disable-next-line no-console
-    onChange: () => console.log('TODO: on choice change')
+    onChange: (text: string): void => {
+      const newAnswers = updateTemplateAnswer(text, answers, index, maxLength);
+      dispatch(editAnswer(newAnswers));
+    }
   };
 };
 
-const templateSelectProps = (choice: ChoiceFromAPI, index: number): SelectionTemplate => {
-  // TODO: EDIT_CHOICES -> getAnswerValues
-  const answers: string[] = [];
+const templateSelectProps = (
+  dispatch: Dispatch,
+  answers: string[],
+  choice: ChoiceFromAPI,
+  index: number,
+  maxLength: number
+): SelectionTemplate => {
   const answer = get(index, answers);
   const temporaryOption = {
     name: 'Select an answer', // TODO translate
@@ -137,24 +160,29 @@ const templateSelectProps = (choice: ChoiceFromAPI, index: number): SelectionTem
   return {
     type: 'select',
     name: getOr('', 'name', choice),
-    // TODO: EDIT_CHOICES
-    // eslint-disable-next-line no-console
-    onChange: () => console.log('TODO: on choice change'),
+    onChange: (text: string): void => {
+      const newAnswers = updateTemplateAnswer(text, answers, index, maxLength);
+      dispatch(editAnswer(newAnswers));
+    },
     options: isEmpty(answer) ? concat([temporaryOption], selectOptions) : selectOptions
   };
 };
 
-const templateProps = (question: TemplateQuestion): Template => {
-  // TODO: EDIT_CHOICES -> getChoices
-  const choices = question.content.choices;
-  return {
-    type: 'template',
-    template: get('content.template', question),
-    answers: choices.map((choice, index) =>
-      choice.type === 'text' ? templateTextProps(choice, index) : templateSelectProps(choice, index)
-    )
+const templateProps =
+  (dispatch: Dispatch) =>
+  (answers: string[], question: TemplateQuestion): Template => {
+    const choices = question.content.choices;
+    const maxLength = size(choices);
+    return {
+      type: 'template',
+      template: get('content.template', question),
+      answers: choices.map((choice, index) =>
+        choice.type === 'text'
+          ? templateTextProps(dispatch, answers, choice, index, maxLength)
+          : templateSelectProps(dispatch, answers, choice, index, maxLength)
+      )
+    };
   };
-};
 
 const basicProps =
   (dispatch: Dispatch) =>
@@ -164,7 +192,7 @@ const basicProps =
       placeholder: question.content.placeholder || '',
       value: answers[0] || '',
       onChange: (text: string): void => {
-        dispatch(editAnswer(text));
+        dispatch(editAnswer([text]));
       }
     };
   };
@@ -196,8 +224,13 @@ const sliderProps =
       title: `${currentValue} ${question.content.unitLabel}`,
       value: sliderPosition,
       onChange: (position: number): void => {
-        const newValue = pipe(multiply(maxValue), round, get(__, values), _toString)(position);
-        dispatch(editAnswer(newValue));
+        const newValue: string = pipe(
+          multiply(maxValue),
+          round,
+          get(__, values),
+          _toString
+        )(position);
+        dispatch(editAnswer([newValue]));
       }
     };
   };
@@ -226,7 +259,7 @@ const getAnswerUIModel = (
       return basicProps(dispatch)(answers, question as BasicQuestion);
 
     case 'template':
-      return templateProps(question as TemplateQuestion);
+      return templateProps(dispatch)(answers, question as TemplateQuestion);
 
     case 'slider':
       return sliderProps(dispatch)(answers, question as SliderQuestion);

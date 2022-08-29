@@ -31,3 +31,8 @@ test('should set the value of EDIT_SLIDER action', t => {
   const state = reducer([], {type: ANSWER_EDIT.slider, payload: ['5']});
   t.deepEqual(state, ['5']);
 });
+
+test('should set the value of EDIT_TEMPLATE action', t => {
+  const state = reducer([], {type: ANSWER_EDIT.template, payload: ['value1', 'value2']});
+  t.deepEqual(state, ['value1', 'value2']);
+});
