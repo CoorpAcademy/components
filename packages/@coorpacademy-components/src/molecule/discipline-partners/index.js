@@ -86,12 +86,7 @@ const DisciplinePartners = (props, context) => {
 
     return (
       <div key={index} className={style.authorWrapper}>
-        <input
-          type="checkbox"
-          id={authorToggleId}
-          className={style.toggle}
-          defaultChecked={authors.length === 1 ? true : null}
-        />
+        <input type="checkbox" id={authorToggleId} className={style.toggle} defaultChecked />
         <label htmlFor={authorToggleId}>{logoView}</label>
         {authorContent}
       </div>
