@@ -1,3 +1,4 @@
+import get from 'lodash/fp/get';
 import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
@@ -60,8 +61,8 @@ export const postProgressionResponse: ProgressionFromAPI = {
   }
 };
 
-export const postAnswerResponse: Record<string, ProgressionFromAPI> = {
-  sli_N1XACJobn: {
+export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
+  sli_VJYjJnJhg: {
     _id: '62b1d1087aa12f00253f40ee',
     content: {
       ref: '_skill-ref',
@@ -73,7 +74,7 @@ export const postAnswerResponse: Record<string, ProgressionFromAPI> = {
     state: {
       allAnswers: [
         {
-          slideRef: 'sli_N1XACJobn',
+          slideRef: 'sli_VJYjJnJhg',
           isCorrect: true,
           answer: ['Benchmark']
         }
@@ -84,11 +85,11 @@ export const postAnswerResponse: Record<string, ProgressionFromAPI> = {
         type: 'slide'
       },
       content: {
-        ref: 'sli_N1XACJobn',
+        ref: 'sli_VJYjJnJhg',
         type: 'slide'
       },
       pendingSlides: [],
-      slides: ['sli_N1XACJobn'],
+      slides: ['sli_VJYjJnJhg'],
       step: {
         current: 2
       },
@@ -107,11 +108,15 @@ export const postAnswerResponse: Record<string, ProgressionFromAPI> = {
     state: {
       allAnswers: [
         {
-          slideRef: 'sli_N1XACJobn',
+          slideRef: 'sli_VJYjJnJhg',
           isCorrect: true,
           answer: ['Benchmark']
         },
-        
+        {
+          slideRef: 'sli_VkSQroQnx',
+          isCorrect: true,
+          answer: ['Benchmark']
+        }
       ],
       isCorrect: true,
       nextContent: {
@@ -119,11 +124,11 @@ export const postAnswerResponse: Record<string, ProgressionFromAPI> = {
         type: 'slide'
       },
       content: {
-        ref: 'sli_N1XACJobn',
+        ref: 'sli_VkSQroQnx',
         type: 'slide'
       },
       pendingSlides: [],
-      slides: ['sli_N1XACJobn'],
+      slides: ['sli_VJYjJnJhg', 'sli_VkSQroQnx'],
       step: {
         current: 3
       },
@@ -137,8 +142,7 @@ export const services: Services = {
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
   postAnswer: progression => {
-    // eslint-disable-next-line no-console
-    console.log('to be used to render dynamic progressions update', progression);
-    return Promise.resolve(postAnswerResponse);
+    const currentSlide = progression.state.nextContent.ref;
+    return Promise.resolve(get(currentSlide, postAnswerResponses));
   }
 };

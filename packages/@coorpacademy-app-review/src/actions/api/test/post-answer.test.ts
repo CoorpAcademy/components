@@ -1,6 +1,6 @@
 import test from 'ava';
 import {createTestStore} from '../../test/create-test-store';
-import {postAnswerResponse, services} from '../../../test/util/services.mock';
+import {postAnswerResponses, services} from '../../../test/util/services.mock';
 import {
   postAnswer,
   POST_ANSWER_FAILURE,
@@ -61,7 +61,7 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
     {type: POST_ANSWER_REQUEST},
     {
       type: POST_ANSWER_SUCCESS,
-      payload: postAnswerResponse
+      payload: postAnswerResponses.sli_VJYjJnJhg
     },
     {type: SLIDE_FETCH_REQUEST, meta: {slideRef: 'sli_VkSQroQnx'}},
     {
