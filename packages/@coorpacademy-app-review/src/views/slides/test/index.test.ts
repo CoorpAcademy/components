@@ -573,7 +573,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
 });
 
 test('should verify props when progression is in success', t => {
-  // state after receive last POST_ANSWER_SUCCESS
+  // state after receive last POST_ANSWER_SUCCESS and before last NEXT_SLIDE
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
