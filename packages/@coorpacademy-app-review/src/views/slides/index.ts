@@ -138,7 +138,7 @@ export const initialState: SlidesStack = {
 const getProgressionSlidesRefs = (progression: ProgressionFromAPI): string[] => {
   if (progression.state.step.current < 5) {
     const slideRef = progression.state.nextContent.ref;
-    return concat([slideRef], progression.state.slides);
+    return concat(progression.state.slides, [slideRef]);
   }
   return slice(0, 5, progression.state.slides);
 };
