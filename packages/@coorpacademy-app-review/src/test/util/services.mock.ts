@@ -248,6 +248,11 @@ export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
           slideRef: sliderSlide.universalRef,
           isCorrect: true,
           answer: ['7']
+        },
+        {
+          slideRef: templateSlide.universalRef,
+          isCorrect: true,
+          answer: ['7']
         }
       ],
       isCorrect: true,

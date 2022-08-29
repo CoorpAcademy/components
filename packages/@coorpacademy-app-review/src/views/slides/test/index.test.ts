@@ -9,6 +9,9 @@ import {mapStateToSlidesProps} from '..';
 import {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {templateSlide} from './fixtures/template';
+import {qcmSlide} from './fixtures/qcm';
+import {sliderSlide} from './fixtures/slider';
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -561,6 +564,70 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
       {
         current: false,
         icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+
+  // TODO update test with props.stack validations when NEXT_SLIDE implemented
+});
+
+test('should verify props when progression is in success', t => {
+  // state after receive last POST_ANSWER_SUCCESS
+  const state: StoreState = {
+    data: {
+      progression: postAnswerResponses[templateSlide.universalRef],
+      skills: [],
+      slides: {
+        [freeTextSlide.universalRef]: freeTextSlide,
+        [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
+        [qcmSlide.universalRef]: qcmSlide,
+        [sliderSlide.universalRef]: sliderSlide,
+        [templateSlide.universalRef]: templateSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: templateSlide.universalRef,
+      navigation: ['loader', 'slides'],
+      answers: [],
+      slide: {
+        validateButton: false
+      }
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: false,
+        icon: 'right',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '4'
+      },
+      {
+        current: true,
+        icon: 'right',
         value: '5'
       }
     ]
