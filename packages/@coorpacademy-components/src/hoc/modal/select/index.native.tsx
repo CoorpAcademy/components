@@ -14,7 +14,7 @@ export type OnChangeFunction = (value: string) => void;
 
 export type Props = {
   value?: string;
-  values: Array<ChoiceItem>;
+  values: Array<ChoiceItem> | undefined;
   onChange: OnChangeFunction;
   onClose?: (event: PressEvent) => void;
   testID?: string;

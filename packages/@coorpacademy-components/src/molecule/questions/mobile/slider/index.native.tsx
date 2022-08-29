@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
 import Slider from '@coorpacademy/react-native-slider';
 
@@ -13,10 +13,9 @@ export type OnChangeFunction = (value: number) => void;
 export type Props = {
   min: number;
   max: number;
+  value?: number;
   unit?: string;
-  value: number;
-  onChange: OnChangeFunction;
-  onSlidingComplete: () => void;
+  onSlidingComplete: OnChangeFunction;
   style?: ViewStyle;
   step?: number;
   testID?: string;
@@ -38,7 +37,7 @@ type StyleSheetType = {
     fontSize: number;
     color: string;
     fontWeight: FontWeight;
-    textAlign: string;
+    textAlign: TextAlign;
   };
   valuesContainer: {
     flexDirection: FlexDirection;
@@ -111,9 +110,24 @@ const createStyleSheet = (theme: Theme) =>
   });
 
 const QuestionSlider = (props: Props) => {
+  const {
+    step,
+    style,
+    min,
+    max,
+    unit = '',
+    value: storeValue = 0,
+    onSlidingComplete,
+    testID
+  } = props;
   const templateContext = useTemplateContext();
   const {brandTheme, theme} = templateContext;
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
+  const [value, setValue] = useState<number>(storeValue);
+
+  const handleSlidingComplete = useCallback(() => {
+    onSlidingComplete(value);
+  }, [onSlidingComplete, value]);
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -124,8 +138,6 @@ const QuestionSlider = (props: Props) => {
     return null;
   }
 
-  const {step, style, min, max, unit = '', value, onSlidingComplete, testID, onChange} = props;
-
   return (
     <View style={[styleSheet.container, style]} testID={testID}>
       <Text style={[styleSheet.header, {color: brandTheme?.colors.primary}]} testID="slider-value">
@@ -134,10 +146,10 @@ const QuestionSlider = (props: Props) => {
       <Slider
         step={step || 1}
         value={value}
-        onValueChange={onChange}
+        onValueChange={setValue}
         maximumValue={max}
         minimumValue={min}
-        onSlidingComplete={onSlidingComplete}
+        onSlidingComplete={handleSlidingComplete}
         minimumTrackTintColor={brandTheme?.colors.primary}
         trackStyle={styleSheet.track}
         thumbStyle={[styleSheet.thumb, {borderColor: brandTheme?.colors.primary}]}

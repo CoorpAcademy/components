@@ -1,19 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import QuestionChoice from '../../../../atom/choice/index.native';
 import Space from '../../../../atom/space/index.native';
 import QuestionDraggable from '../draggable/index.native';
 import QuestionTemplate from '../template/index.native';
-import FreeText from '../../free-text';
+import FreeText from '../../free-text/index.native';
 
 import type {QuestionType, Choice} from '../../../../types/progression-engine';
 
-import QuestionSlider from '../containers/question-slider';
-import type {Props as QuestionSliderProps} from '../containers/question-slider';
+import QuestionSlider from '../slider/index.native';
 
 // import useAppContext from '../../app-shared/contexts/use-app-context';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {Theme} from '../../../../variables/theme.native';
+import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
+import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../../types/app-review';
 
 export interface Props {
   type: QuestionType;
@@ -23,13 +24,16 @@ export interface Props {
   userChoices: Array<string>;
   onItemPress: (item: Choice) => void;
   onSliderChange: (value: number) => void;
-  min?: Pick<QuestionSliderProps, 'min'>;
-  max?: Pick<QuestionSliderProps, 'max'>;
-  unit?: Pick<QuestionSliderProps, 'unit'>;
-  step?: Pick<QuestionSliderProps, 'step'>;
-  value?: Pick<QuestionSliderProps, 'value'>;
+  min?: number;
+  max?: number;
+  unit?: string;
+  step?: number;
+  value?: number;
   onItemInputChange: (item: Choice, value: string) => void;
   onInputValueChange: (value: string) => void;
+  focusedSelectId: FocusedSelectId;
+  handleFocus: HandleFocus;
+  handleBlur: HandleBlur;
 }
 
 const createStyleSheet = (theme: Theme) =>
@@ -45,7 +49,7 @@ const createStyleSheet = (theme: Theme) =>
 
 const Switch = (props: Props) => {
   const templateContext = useTemplateContext();
-  const {theme, translations} = templateContext;
+  const {analytics, theme} = templateContext;
   const [styleSheet, setStylesheet] = useState<any | null>(null);
 
   useEffect(() => {
@@ -67,14 +71,33 @@ const Switch = (props: Props) => {
     onSliderChange,
     onItemPress,
     onItemInputChange,
-    onInputValueChange
+    onInputValueChange,
+    focusedSelectId,
+    handleFocus,
+    handleBlur
   } = props;
 
   const isSelected = (choice: Choice): boolean => userChoices && userChoices.includes(choice.label);
   const handleItemPress = (item: Choice) => () => onItemPress(item);
-  const handleItemInputChange = (item: Choice, _value: string) => {
-    onItemInputChange(item, _value);
-  };
+  const handleItemInputChange = useCallback(
+    (item: Choice, _value: string) => {
+      onItemInputChange(item, _value);
+    },
+    [onItemInputChange]
+  );
+
+  const handleSlidingComplete = useCallback(
+    _value => {
+      analytics &&
+        analytics.logEvent(ANALYTICS_EVENT_TYPE.SLIDE, {
+          id: 'slider',
+          questionType: 'slider'
+        });
+
+      onSliderChange(_value);
+    },
+    [analytics, onSliderChange]
+  );
 
   switch (type) {
     case 'qcm':
@@ -134,18 +157,12 @@ const Switch = (props: Props) => {
           unit={unit}
           value={value}
           step={step}
-          onChange={onSliderChange}
+          onSlidingComplete={handleSlidingComplete}
           testID="question-slider"
         />
       );
     }
     case 'template':
-      const appContext = useAppContext();
-
-      const {
-        store: {focusedSelectId, handleFocus, handleBlur}
-      } = appContext;
-
       return (
         <View testID="question-choices">
           <QuestionTemplate
@@ -169,12 +186,12 @@ const Switch = (props: Props) => {
     case 'basic':
       return (
         <FreeText
-          fullWitdh
+          fullWidth
           onChange={onInputValueChange}
-          placeholder={translations.typeHere}
           testID="question-input-text"
           questionType="basic"
           isDisabled={isDisabled}
+          value=""
         />
       );
     default:

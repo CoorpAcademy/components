@@ -8,6 +8,7 @@ export type JustifyContent =
   | 'space-evenly'
   | undefined;
 export type TextAlign = 'auto' | 'left' | 'right' | 'center' | undefined;
+export type FontSize = number | undefined;
 export type FontWeight =
   | 'normal'
   | 'bold'
