@@ -11,6 +11,7 @@ import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
 test('should create initial props when fetched slide is not still received', t => {
+  // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
   const state: StoreState = {
     data: {
       progression: createdProgression,
@@ -99,6 +100,7 @@ test('should create initial props when fetched slide is not still received', t =
 });
 
 test('should create props when first slide is on the state', t => {
+  // SCENARIO : after @@slides/FETCH_SUCCESS
   const state: StoreState = {
     data: {
       progression: createdProgression,
@@ -300,7 +302,7 @@ test('should create props when slide is on the state and user has selected answe
 });
 
 test('should verify props when first slide was answered and next slide is not fetched yet', t => {
-  // This is the case after POST_ANSWER_SUCCESS and during SLIDE_FETCH_REQUEST
+  // Scenario: after POST_ANSWER_SUCCESS and during SLIDE_FETCH_REQUEST for the nextContent.ref slide
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
@@ -402,7 +404,7 @@ test('should verify props when first slide was answered and next slide is not fe
 });
 
 test('should verify props when first slide was answered and next slide is fecthed', t => {
-  // TODO ADD correction popin
+  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
@@ -564,5 +566,5 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     ]
   });
 
-  // TODO update test with props.stack validations
+  // TODO update test with props.stack validations when NEXT_SLIDE implemented
 });
