@@ -1,6 +1,7 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
+import set from 'lodash/fp/set';
 import {
   postProgressionResponse as createdProgression,
   postAnswerResponses
@@ -304,7 +305,7 @@ test('should create props when slide is on the state and user has selected answe
   });
 });
 
-test('should verify props when first slide was answered and next slide is not fetched yet', t => {
+test('should verify props when first slide was answered correctly and next slide is not fetched yet', t => {
   // Scenario: after POST_ANSWER_SUCCESS and during SLIDE_FETCH_REQUEST for the nextContent.ref slide
   const state: StoreState = {
     data: {
@@ -403,6 +404,69 @@ test('should verify props when first slide was answered and next slide is not fe
       position: 4,
       loading: true
     }
+  });
+});
+
+test('should verify props when first slide was answered with error and next slide is not fetched yet', t => {
+  // Scenario: after POST_ANSWER_SUCCESS and during SLIDE_FETCH_REQUEST for the nextContent.ref slide
+  const state: StoreState = {
+    data: {
+      progression: set(
+        ['state', 'allAnswers', 0, 'isCorrect'],
+        false,
+        postAnswerResponses.sli_VJYjJnJhg
+      ),
+      skills: [],
+      slides: {
+        sli_VJYjJnJhg: freeTextSlide,
+        sli_VkSQroQnx: null
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: 'sli_VJYjJnJhg',
+      navigation: ['loader', 'slides'],
+      answers: ['My value'],
+      slide: {
+        validateButton: false
+      }
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.is(props.congratsProps, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: true,
+        icon: 'wrong',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
   });
 });
 

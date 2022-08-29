@@ -5,7 +5,7 @@ module.exports = {
   lines: 96,
   statements: 96,
   functions: 89,
-  branches: 88,
+  branches: 90,
   all: true,
   exclude: [
     'ava.config.js',
