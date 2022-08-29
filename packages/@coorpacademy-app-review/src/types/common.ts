@@ -115,15 +115,19 @@ export type ProgressionState = {
   stars: number;
 };
 
+export type ReviewContent = {
+  type: 'skill';
+  ref: string;
+};
+
+export type ReviewEngine = {
+  ref: 'review';
+};
+
 export type ProgressionFromAPI = {
   _id: string;
-  content: {
-    type: 'skill';
-    ref: string;
-  };
-  engine: {
-    ref: 'review';
-  };
+  content: ReviewContent;
+  engine: ReviewEngine;
   state: ProgressionState;
 };
 
