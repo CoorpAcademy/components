@@ -4,6 +4,7 @@ import isNil from 'lodash/fp/isNil';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 
+import {WebContext} from '@coorpacademy/components/es/atom/web-context';
 import AppReview from '../src';
 import {services} from '../src/test/util/services.mock';
 import type {AppOptions} from '../src/types/common';
@@ -37,8 +38,20 @@ const createSandbox = (options: SandboxOptions): void => {
       skillRef: '123',
       services
     };
+    const values = {
+      skin: {
+        common: {
+          primary: '#00FF00'
+        }
+      }
+    };
 
-    render(<AppReview options={appOptions} />, container);
+    render(
+      <WebContext values={values}>
+        <AppReview options={appOptions} />
+      </WebContext>,
+      container
+    );
   }
 };
 

@@ -6,8 +6,8 @@ import getOr from 'lodash/fp/getOr';
 import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
-import Provider from '../../atom/provider';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
+import {useWebContext} from '../../atom/web-context';
 import propTypes from './prop-types';
 import style from './style.css';
 
@@ -137,9 +137,10 @@ QuestionContainer.propTypes = {
   questionOrigin: PropTypes.string
 };
 
-const Slide = (props, context) => {
+const Slide = props => {
   const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
 
+  const context = useWebContext(); // mais comment faire pour le mobile ?
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {
@@ -184,9 +185,5 @@ const Slide = (props, context) => {
 };
 
 Slide.propTypes = propTypes;
-
-Slide.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
 
 export default Slide;
