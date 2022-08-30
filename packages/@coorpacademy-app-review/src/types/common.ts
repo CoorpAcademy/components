@@ -157,6 +157,7 @@ export type AppOptions = {
   templateContext?: TemplateContextValues;
   skillRef?: string;
   services: Services;
+  showOnboarding: boolean;
 };
 
 export type JWT = {

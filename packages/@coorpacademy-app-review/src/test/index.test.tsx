@@ -62,7 +62,8 @@ const appOptions: AppOptions = {
     theme: {color: {primary: '#123'}}
   },
   skillRef: 'skill_NJC0jFKoH',
-  services
+  services,
+  showOnboarding: false
 };
 
 test('should show the loader while the app is fetching the data', async t => {

@@ -35,7 +35,8 @@ const createSandbox = (options: SandboxOptions): void => {
       token: process.env.API_TEST_TOKEN || '',
       templateContext: {},
       skillRef: '123',
-      services
+      services,
+      showOnboarding: false
     };
 
     render(<AppReview options={appOptions} />, container);

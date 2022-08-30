@@ -21,3 +21,28 @@ export type FontWeight =
   | '800'
   | '900'
   | undefined;
+export type Overflow =
+  | 'auto'
+  | 'inherit'
+  | 'hidden'
+  | 'visible'
+  | 'scroll'
+  | '-moz-initial'
+  | 'initial'
+  | 'revert'
+  | 'unset'
+  | 'clip'
+  | undefined;
+export type AlignItem =
+  | 'stretch'
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'baseline'
+  | 'first baseline'
+  | 'last baseline'
+  | 'start'
+  | 'end'
+  | 'self-start'
+  | 'self-end'
+  | undefined;

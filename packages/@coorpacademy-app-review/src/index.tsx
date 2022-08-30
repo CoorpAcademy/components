@@ -74,15 +74,18 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   useEffect(() => {
     if (store === null) return;
 
-    const {skillRef} = options;
+    const {skillRef, showOnboarding} = options;
 
     if (skillRef && !isProgressionCreated) {
       store.dispatch(navigateTo('loader')); // use loader while posting progression
       return;
     }
-
-    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
-    store.dispatch(navigateTo(initialView));
+    if (!showOnboarding) {
+      const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
+      store.dispatch(navigateTo(initialView));
+    } else {
+      store.dispatch(navigateTo(VIEWS.onboarding));
+    }
   }, [isProgressionCreated, options, store]);
 
   if (!store) return null;
