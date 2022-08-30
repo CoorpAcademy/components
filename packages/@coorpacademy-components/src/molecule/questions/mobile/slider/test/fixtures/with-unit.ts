@@ -9,6 +9,7 @@ const fixture: Fixture = {
     unit: '°C',
     value: 10,
     step: 10,
+    onSlidingComplete: () => null,
     testID: 'question-slider'
   }
 };

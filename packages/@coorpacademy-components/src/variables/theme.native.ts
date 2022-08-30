@@ -1,4 +1,4 @@
-import {TextStyle} from 'react-native';
+import {FontSize, FontWeight} from '../types/styles';
 
 export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
 
@@ -48,20 +48,20 @@ export type Theme = {
     thumbnail: number;
   };
   fontWeight: {
-    regular: TextStyle['fontWeight'];
-    semiBold: TextStyle['fontWeight'];
-    bold: TextStyle['fontWeight'];
-    extraBold: TextStyle['fontWeight'];
+    regular: FontWeight;
+    semiBold: FontWeight;
+    bold: FontWeight;
+    extraBold: FontWeight;
   };
   fontSize: {
-    extraSmall: TextStyle['fontSize'];
-    small: TextStyle['fontSize'];
-    medium: TextStyle['fontSize'];
-    regular: TextStyle['fontSize'];
-    large: TextStyle['fontSize'];
-    xlarge: TextStyle['fontSize'];
-    xxlarge: TextStyle['fontSize'];
-    xxxlarge: TextStyle['fontSize'];
+    extraSmall: FontSize;
+    small: FontSize;
+    medium: FontSize;
+    regular: FontSize;
+    large: FontSize;
+    xlarge: FontSize;
+    xxlarge: FontSize;
+    xxxlarge: FontSize;
   };
   letterSpacing: {
     header: number;

@@ -2,22 +2,24 @@ import {View, StyleSheet, TextInput} from 'react-native';
 import React, {useState, useEffect, useCallback} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
+import {Theme} from '../../../variables/theme.native';
+import {FontSize, TextAlign} from '../../../types/styles';
 
 type QuestionType = 'basic' | 'template';
 
 interface Props {
-  fullWitdh?: boolean;
+  fullWidth?: boolean;
   testID: string;
   questionType: QuestionType;
   analytics?: Analytics;
   onChange: (text: string) => void;
-  isDisabled: boolean;
+  isDisabled?: boolean;
   value: string;
 }
 
 type StyleSheetType = {
   input: {
-    padding: string;
+    padding: number;
     borderWidth: number;
     borderColor: string;
     borderRadius: number;
@@ -39,8 +41,8 @@ type StyleSheetType = {
       | '800'
       | '900'
       | undefined;
-    fontSize: number;
-    textAlign: 'auto' | 'left' | 'right' | 'center' | 'justify' | undefined;
+    fontSize: FontSize;
+    textAlign: TextAlign;
   };
   spaced: {
     paddingVertical: number;
@@ -50,7 +52,7 @@ type StyleSheetType = {
   };
 };
 
-const createStyleSheet = (brandTheme, theme) =>
+const createStyleSheet = (brandTheme: any, theme: Theme) =>
   StyleSheet.create({
     input: {
       padding: theme.spacing.tiny,
@@ -91,7 +93,15 @@ const FreeText = (props: Props) => {
 
   // ------------------------------------
 
-  const {analytics, questionType, fullWitdh = false, testID, onChange, isDisabled, value} = props;
+  const {
+    analytics,
+    questionType,
+    fullWidth = false,
+    testID,
+    onChange,
+    isDisabled = false,
+    value
+  } = props;
 
   // ------------------------------------
 
@@ -119,7 +129,7 @@ const FreeText = (props: Props) => {
   }
 
   return (
-    <View style={[styleSheet.spaced, fullWitdh && styleSheet.fullWitdh]}>
+    <View style={[styleSheet.spaced, fullWidth && styleSheet.fullWitdh]}>
       <TextInput
         style={[styleSheet.input, styleSheet.text]}
         onFocus={handleFocus}
