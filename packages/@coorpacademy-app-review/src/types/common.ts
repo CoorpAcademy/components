@@ -127,6 +127,16 @@ export type ProgressionFromAPI = {
   state: ProgressionState;
 };
 
+export type CorrectedChoice = {
+  answer: string;
+  isCorrect: boolean;
+};
+
+export type CorrectionFromAPI = {
+  correctAnswer: string[];
+  corrections: CorrectedChoice[];
+};
+
 export type Skill = {
   skillRef: string;
   slidesToReview: number;
