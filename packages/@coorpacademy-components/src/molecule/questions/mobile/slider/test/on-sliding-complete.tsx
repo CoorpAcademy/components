@@ -1,13 +1,11 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import QuestionSlider, {OnChangeFunction} from '../index.native';
+import QuestionSlider, {OnSlidingCompleteFunction} from '../index.native';
 
-const onSlidingComplete = () => null;
-
-test('should handle on change', t => {
+test('should trigger value on sliding complete', t => {
   const VALUE = 11;
-  const onChange: OnChangeFunction = value => {
+  const onSlidingComplete: OnSlidingCompleteFunction = value => {
     t.is(value, VALUE);
   };
 
@@ -16,17 +14,16 @@ test('should handle on change', t => {
       value={0}
       min={100}
       max={10}
-      onChange={onChange}
       onSlidingComplete={onSlidingComplete}
       testID="question-slider"
     />
   );
 
   const {getByTestId} = render(component);
+  const slider = getByTestId('slider');
 
-  const cpt = getByTestId('slider');
-
-  fireEvent(cpt, 'onValueChange', VALUE);
+  fireEvent(slider, 'onValueChange', VALUE);
+  fireEvent(slider, 'onSlidingComplete');
 
   t.plan(1);
 });

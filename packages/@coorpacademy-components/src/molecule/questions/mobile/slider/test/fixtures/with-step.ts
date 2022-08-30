@@ -8,6 +8,7 @@ const fixture: Fixture = {
     max: 100,
     value: 10,
     step: 10,
+    onSlidingComplete: () => null,
     testID: 'question-slider'
   }
 };

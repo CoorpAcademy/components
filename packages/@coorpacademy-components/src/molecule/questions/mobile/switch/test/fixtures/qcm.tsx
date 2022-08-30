@@ -31,7 +31,7 @@ export const choices: Choice[] = [
   }
 ];
 
-const answers = choices.filter((choice, index) => index === 1).map(choice => choice.label);
+export const answers = choices.filter((choice, index) => index === 1).map(choice => choice.label);
 
 type Fixture = {props: Props};
 
@@ -39,14 +39,8 @@ const fixture: Fixture = {
   props: {
     type: 'qcm',
     items: choices,
-    onInputValueChange: noop,
     userChoices: answers,
-    onItemPress: noop,
-    onSliderChange: noop,
-    onItemInputChange: noop,
-    focusedSelectId: 'foo',
-    handleBlur: noop,
-    handleFocus: () => noop
+    onItemPress: noop
   }
 };
 

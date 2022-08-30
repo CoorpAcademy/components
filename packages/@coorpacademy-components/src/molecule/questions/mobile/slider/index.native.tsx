@@ -8,14 +8,14 @@ import {useTemplateContext} from '../../../../template/app-review/template-conte
 import {BOX_STYLE} from '../../../../variables/shadow';
 import {FlexDirection, JustifyContent, TextAlign, FontWeight} from '../../../../types/styles';
 
-export type OnChangeFunction = (value: number) => void;
+export type OnSlidingCompleteFunction = (value: number) => void;
 
 export type Props = {
   min: number;
   max: number;
   value?: number;
   unit?: string;
-  onSlidingComplete: OnChangeFunction;
+  onSlidingComplete: OnSlidingCompleteFunction;
   style?: ViewStyle;
   step?: number;
   testID?: string;

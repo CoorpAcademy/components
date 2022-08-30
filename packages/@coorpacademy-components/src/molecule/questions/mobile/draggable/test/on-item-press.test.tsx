@@ -4,7 +4,8 @@ import {render, fireEvent} from '@testing-library/react-native';
 import QuestionDraggable from '../index.native';
 
 import {Choice} from '../../../../../types/progression-engine';
-import {choices, userChoices} from './fixtures/default';
+import {choices} from '../../switch/test/fixtures/qcm';
+import {userChoices} from './fixtures/default';
 
 test('should handle onItemPress callback', t => {
   const handleItemPress = (choice: Choice) => {

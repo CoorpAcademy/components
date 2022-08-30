@@ -1,20 +1,18 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback} from 'react';
 import {View, StyleSheet} from 'react-native';
+
 import QuestionChoice from '../../../../atom/choice/index.native';
 import Space from '../../../../atom/space/index.native';
 import QuestionDraggable from '../draggable/index.native';
 import QuestionTemplate from '../template/index.native';
+import QuestionSlider from '../slider/index.native';
 import FreeText from '../../free-text/index.native';
 
-import type {QuestionType, Choice} from '../../../../types/progression-engine';
-
-import QuestionSlider from '../slider/index.native';
-
-// import useAppContext from '../../app-shared/contexts/use-app-context';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
-import {Theme} from '../../../../variables/theme.native';
 import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
+
 import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../../types/app-review';
+import type {QuestionType, Choice} from '../../../../types/progression-engine';
 
 export interface Props {
   type: QuestionType;
@@ -22,40 +20,33 @@ export interface Props {
   template?: string;
   items: Array<Choice>;
   userChoices: Array<string>;
-  onItemPress: (item: Choice) => void;
-  onSliderChange: (value: number) => void;
+  onItemPress?: (item: Choice) => void;
+  onSliderChange?: (value: number) => void;
   min?: number;
   max?: number;
   unit?: string;
   step?: number;
   value?: number;
-  onItemInputChange: (item: Choice, value: string) => void;
-  onInputValueChange: (value: string) => void;
-  focusedSelectId: FocusedSelectId;
-  handleFocus: HandleFocus;
-  handleBlur: HandleBlur;
+  onItemInputChange?: (item: Choice, value: string) => void;
+  onInputValueChange?: (value: string) => void;
+  focusedSelectId?: FocusedSelectId;
+  handleFocus?: HandleFocus;
+  handleBlur?: HandleBlur;
 }
 
-const createStyleSheet = (theme: Theme) =>
-  StyleSheet.create({
-    cards: {
-      flexDirection: 'row',
-      alignItems: 'stretch'
-    },
-    card: {
-      flex: 1
-    }
-  });
+const styleSheet = StyleSheet.create({
+  cards: {
+    flexDirection: 'row',
+    alignItems: 'stretch'
+  },
+  card: {
+    flex: 1
+  }
+});
 
 const Switch = (props: Props) => {
   const templateContext = useTemplateContext();
-  const {analytics, theme} = templateContext;
-  const [styleSheet, setStylesheet] = useState<any | null>(null);
-
-  useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
-    setStylesheet(_stylesheet);
-  }, [theme]);
+  const {analytics} = templateContext;
 
   const {
     type,
@@ -78,10 +69,18 @@ const Switch = (props: Props) => {
   } = props;
 
   const isSelected = (choice: Choice): boolean => userChoices && userChoices.includes(choice.label);
-  const handleItemPress = (item: Choice) => () => onItemPress(item);
+
+  const handleItemPress = (item: Choice) => () => {
+    if (onItemPress) {
+      onItemPress(item);
+    }
+  };
+
   const handleItemInputChange = useCallback(
     (item: Choice, _value: string) => {
-      onItemInputChange(item, _value);
+      if (onItemInputChange) {
+        onItemInputChange(item, _value);
+      }
     },
     [onItemInputChange]
   );
@@ -94,7 +93,9 @@ const Switch = (props: Props) => {
           questionType: 'slider'
         });
 
-      onSliderChange(_value);
+      if (onSliderChange) {
+        onSliderChange(_value);
+      }
     },
     [analytics, onSliderChange]
   );
@@ -147,7 +148,7 @@ const Switch = (props: Props) => {
       );
     case 'slider': {
       if (min === undefined || max === undefined) {
-        return null;
+        return <View />;
       }
 
       return (
@@ -163,6 +164,10 @@ const Switch = (props: Props) => {
       );
     }
     case 'template':
+      if (handleBlur === undefined || handleFocus === undefined || focusedSelectId === undefined) {
+        return <View />;
+      }
+
       return (
         <View testID="question-choices">
           <QuestionTemplate
@@ -178,12 +183,20 @@ const Switch = (props: Props) => {
         </View>
       );
     case 'qcmDrag':
+      if (!onItemPress) {
+        return <View />;
+      }
+
       return (
         <View testID="question-draggable">
           <QuestionDraggable choices={items} userChoices={userChoices} onPress={onItemPress} />
         </View>
       );
     case 'basic':
+      if (!onInputValueChange) {
+        return <View />;
+      }
+
       return (
         <FreeText
           fullWidth
@@ -195,7 +208,7 @@ const Switch = (props: Props) => {
         />
       );
     default:
-      return null;
+      return <View />;
   }
 };
 
