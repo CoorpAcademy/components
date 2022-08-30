@@ -90,7 +90,7 @@ export type SlideFromAPI = {
   };
 };
 
-type ProgressionAnswerItem = {
+export type ProgressionAnswerItem = {
   isCorrect: boolean;
   slideRef: string;
   answer: string[];

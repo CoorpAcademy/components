@@ -4,7 +4,8 @@ import omit from 'lodash/fp/omit';
 import set from 'lodash/fp/set';
 import {
   postProgressionResponse as createdProgression,
-  postAnswerResponses
+  postAnswerResponses,
+  progressionSlideWithPendingSlide
 } from '../../../test/util/services.mock';
 import {mapStateToSlidesProps} from '..';
 import {StoreState} from '../../../reducers';
@@ -698,4 +699,126 @@ test('should verify props when progression is in success', t => {
   });
 
   // TODO update test with props.stack validations when NEXT_SLIDE implemented
+});
+
+test('should verify props when progression has answered a current pendingslide', t => {
+  // Scenario, freeTextSlide and qcmSlide are pending slides, freeTextSlide was answered correctly, qcmSlide remains but not yet the currentSlideRef
+  const state: StoreState = {
+    data: {
+      progression: progressionSlideWithPendingSlide,
+      skills: [],
+      slides: {
+        [freeTextSlide.universalRef]: freeTextSlide,
+        [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
+        [qcmSlide.universalRef]: qcmSlide,
+        [sliderSlide.universalRef]: sliderSlide,
+        [templateSlide.universalRef]: templateSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: freeTextSlide.universalRef,
+      navigation: ['loader', 'slides'],
+      answers: [],
+      slide: {
+        validateButton: false
+      }
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: true,
+        icon: 'right',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'wrong',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '5'
+      }
+    ]
+  });
+});
+
+test('should verify props when progression has still pendingslide', t => {
+  // Scenario, freeTextSlide and qcmSlide are pending slides, freeTextSlide was answered correctly, qcmSlide remains and it is the currentSlideRef
+  const state: StoreState = {
+    data: {
+      progression: progressionSlideWithPendingSlide,
+      skills: [],
+      slides: {
+        [freeTextSlide.universalRef]: freeTextSlide,
+        [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
+        [qcmSlide.universalRef]: qcmSlide,
+        [sliderSlide.universalRef]: sliderSlide,
+        [templateSlide.universalRef]: templateSlide
+      },
+      token: '1234'
+    },
+    ui: {
+      currentSlideRef: qcmSlide.universalRef,
+      navigation: ['loader', 'slides'],
+      answers: [],
+      slide: {
+        validateButton: false
+      }
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    mode: '__revision_mode',
+    skillName: '__agility',
+    steps: [
+      {
+        current: false,
+        icon: 'right',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '2'
+      },
+      {
+        current: true,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'right',
+        value: '5'
+      }
+    ]
+  });
 });
