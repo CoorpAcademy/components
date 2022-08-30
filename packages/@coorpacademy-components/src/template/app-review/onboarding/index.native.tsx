@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import propTypes from '../../../atom/review-presentation/prop-types';
 import {useTemplateContext} from '../template-context';
 import {Theme} from '../../../variables/theme.native';
 import {
@@ -23,19 +22,19 @@ type StyleSheetType = {
     justifyContent: JustifyContent;
     flex: number;
     padding: number;
-    // paddingTop: number;
+    paddingTop: number;
   };
   title: {
-    height: number;
-    width: number;
-    fontSize: number;
+    height: number | undefined;
+    width: number | undefined;
+    fontSize: number | undefined;
     fontWeight: FontWeight;
-    lineHeight: number;
+    lineHeight: number | undefined;
     color: string;
     marginBottom: number;
   };
   text: {
-    fontSize: number;
+    fontSize: number | undefined;
     color: string;
     opacity: number;
     marginBottom: number;
@@ -51,7 +50,7 @@ type StyleSheetType = {
     marginBottom: number;
   };
   tipText: {
-    fontSize: number;
+    fontSize: number | undefined;
     color: string;
   };
   icon: {
@@ -70,22 +69,22 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     container: {
       justifyContent: 'space-between',
       flex: 1,
-      padding: 20
-      // paddingTop: HEADER_HEIGHT + 20
+      padding: 20,
+      paddingTop: 200 // HEADER_HEIGHT + 20
     },
     title: {
       height: 72,
       width: 268,
       fontSize: theme.fontSize.xxlarge,
       fontWeight: theme.fontWeight.bold,
-      lineHeight: 36
+      lineHeight: 36,
       color: theme.colors.text.primary,
       marginBottom: theme.spacing.small
     },
     text: {
       fontSize: theme.fontSize.large,
       color: theme.colors.text.primary,
-      opacity: 0.7
+      opacity: 0.7,
       marginBottom: theme.spacing.small
     },
     tip: {
@@ -93,7 +92,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       overflow: 'hidden',
       alignItems: 'center',
       height: 54,
-      borderRadius: 8
+      borderRadius: 8,
       backgroundColor: theme.colors.gray.extra,
       marginTop: theme.spacing.micro,
       marginBottom: theme.spacing.micro
@@ -107,7 +106,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     },
     button: {
       height: 52,
-      borderRadius: 7
+      borderRadius: 7,
       marginBottom: theme.spacing.large,
       marginTop: theme.spacing.large
     }
@@ -151,7 +150,7 @@ const Onboarding = (reviewTitle: string) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text style={styleSheet.title}>{reviewTitle}</Text>
+      <Text style={styleSheet.title}>test test</Text>
     </View>
   );
 };

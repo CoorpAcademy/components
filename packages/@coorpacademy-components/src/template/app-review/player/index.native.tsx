@@ -175,18 +175,7 @@ const Slide = props => {
 
   switch (type) {
     case 'freeText': {
-      return (
-        <View style={slideStyle.slide}>
-          <FreeText
-            isDisabled={isDisabled}
-            onChange={onChange}
-            value={value}
-            testID="free-text"
-            questionType="basic"
-            analytics={analytics}
-          />
-        </View>
-      );
+      return <View style={slideStyle.slide} />;
     }
     default:
   }
