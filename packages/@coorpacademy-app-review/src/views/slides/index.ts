@@ -9,6 +9,7 @@ import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import {Dispatch} from 'redux';
+import findLast from 'lodash/fp/findLast';
 import {ProgressionFromAPI} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
@@ -214,24 +215,30 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
     }
   ];
 
+  const slideRefs = getProgressionSlidesRefs(progression);
   const allAnswers = progression.state.allAnswers;
   const step = progression.state.step;
   const nextContentRef = progression.state.nextContent.ref;
   if (isEmpty(allAnswers)) return defaultProps;
 
   const steps = defaultProps.map((stepItem, index): StepItem => {
-    const givenAnswer = allAnswers[index];
-    if (!givenAnswer) {
+    const slideRef = slideRefs[index];
+    if (!slideRef) return stepItem; // non fecthed slide pour given index
+
+    const lastGivenAnswer = findLast(answer => answer.slideRef === slideRef, allAnswers);
+    // never answered slide
+    if (!lastGivenAnswer) {
       return {
         ...stepItem,
         current: nextContentRef === currentSlideRef && step.current === index + 1
       };
     }
 
+    // already answered slide, we computed based on the lastGivenAnswer
     return {
       ...stepItem,
-      icon: givenAnswer.isCorrect ? 'right' : 'wrong',
-      current: givenAnswer.slideRef === currentSlideRef
+      icon: lastGivenAnswer.isCorrect ? 'right' : 'wrong',
+      current: lastGivenAnswer.slideRef === currentSlideRef
     };
   });
   return steps;

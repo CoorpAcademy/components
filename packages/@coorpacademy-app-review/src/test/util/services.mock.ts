@@ -252,7 +252,7 @@ export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
         {
           slideRef: templateSlide.universalRef,
           isCorrect: true,
-          answer: ['7']
+          answer: ['Leaderboard', 'utilisateurs', 'étoiles']
         }
       ],
       isCorrect: true,
@@ -273,10 +273,72 @@ export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
         templateSlide.universalRef
       ],
       step: {
-        current: 5
+        current: 6
       },
       stars: 40
     }
+  }
+};
+
+export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
+  _id: '62b1d1087aa12f00253f40ee',
+  content,
+  engine,
+  state: {
+    allAnswers: [
+      {
+        slideRef: freeTextSlide.universalRef,
+        isCorrect: false,
+        answer: ['Wrong']
+      },
+      {
+        slideRef: qcmGraphicSlide.universalRef,
+        isCorrect: true,
+        answer: ['Faux']
+      },
+      {
+        slideRef: qcmSlide.universalRef,
+        isCorrect: false,
+        answer: ['Wrong']
+      },
+      {
+        slideRef: sliderSlide.universalRef,
+        isCorrect: true,
+        answer: ['7']
+      },
+      {
+        slideRef: templateSlide.universalRef,
+        isCorrect: true,
+        answer: ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
+      {
+        slideRef: freeTextSlide.universalRef,
+        isCorrect: true,
+        answer: ['Benchmark']
+      }
+    ],
+    isCorrect: true,
+    nextContent: {
+      ref: qcmSlide.universalRef,
+      type: 'slide'
+    },
+    content: {
+      ref: freeTextSlide.universalRef,
+      type: 'slide'
+    },
+    pendingSlides: [qcmSlide.universalRef],
+    slides: [
+      freeTextSlide.universalRef,
+      qcmGraphicSlide.universalRef,
+      qcmSlide.universalRef,
+      sliderSlide.universalRef,
+      templateSlide.universalRef,
+      freeTextSlide.universalRef
+    ],
+    step: {
+      current: 7
+    },
+    stars: 32
   }
 };
 
