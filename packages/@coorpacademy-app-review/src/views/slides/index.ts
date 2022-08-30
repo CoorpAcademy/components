@@ -2,7 +2,6 @@ import concat from 'lodash/fp/concat';
 import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import isEmpty from 'lodash/fp/isEmpty';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
@@ -231,8 +230,8 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   const allAnswers = progression.state.allAnswers;
   const step = progression.state.step;
   const nextContentRef = progression.state.nextContent.ref;
-  if (isEmpty(allAnswers)) return defaultProps;
-  const lastGivenAnswer = last(allAnswers) as ProgressionAnswerItem;
+  const lastGivenAnswer = last(allAnswers);
+  if (!lastGivenAnswer) return defaultProps;
 
   const steps = defaultProps.map((stepItem, index): StepItem => {
     const slideRef = slideRefs[index];
