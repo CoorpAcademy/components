@@ -1,9 +1,25 @@
+import get from 'lodash/fp/get';
 import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
 import {sliderSlide} from '../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../views/slides/test/fixtures/template';
-import {ProgressionFromAPI, Services, SlideFromAPI} from '../../types/common';
+import {
+  ProgressionFromAPI,
+  ReviewContent,
+  ReviewEngine,
+  Services,
+  SlideFromAPI
+} from '../../types/common';
+
+const content: ReviewContent = {
+  ref: '_skill-ref',
+  type: 'skill'
+};
+
+const engine: ReviewEngine = {
+  ref: 'review'
+};
 
 const getSlideFixture = (ref: string): SlideFromAPI => {
   switch (ref) {
@@ -37,18 +53,13 @@ const fetchSkillsResponse = [
 
 export const postProgressionResponse: ProgressionFromAPI = {
   _id: '62b1d1087aa12f00253f40ee',
-  content: {
-    ref: '_skill-ref',
-    type: 'skill'
-  },
-  engine: {
-    ref: 'review'
-  },
+  content,
+  engine,
   state: {
     allAnswers: [],
     isCorrect: true,
     nextContent: {
-      ref: 'sli_VJYjJnJhg',
+      ref: freeTextSlide.universalRef,
       type: 'slide'
     },
     pendingSlides: [],
@@ -60,38 +71,212 @@ export const postProgressionResponse: ProgressionFromAPI = {
   }
 };
 
-export const postAnswerResponse: ProgressionFromAPI = {
-  _id: '62b1d1087aa12f00253f40ee',
-  content: {
-    ref: '_skill-ref',
-    type: 'skill'
+export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
+  [freeTextSlide.universalRef]: {
+    _id: '62b1d1087aa12f00253f40ee',
+    content,
+    engine,
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        }
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: qcmGraphicSlide.universalRef,
+        type: 'slide'
+      },
+      content: {
+        ref: freeTextSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: [freeTextSlide.universalRef],
+      step: {
+        current: 2
+      },
+      stars: 8
+    }
   },
-  engine: {
-    ref: 'review'
+  [qcmGraphicSlide.universalRef]: {
+    _id: '62b1d1087aa12f00253f40ee',
+    content,
+    engine,
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        },
+        {
+          slideRef: qcmGraphicSlide.universalRef,
+          isCorrect: true,
+          answer: ['Faux']
+        }
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: qcmSlide.universalRef,
+        type: 'slide'
+      },
+      content: {
+        ref: qcmGraphicSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: [freeTextSlide.universalRef, qcmGraphicSlide.universalRef],
+      step: {
+        current: 3
+      },
+      stars: 16
+    }
   },
-  state: {
-    allAnswers: [
-      {
-        slideRef: 'sli_VJYjJnJhg',
-        isCorrect: true,
-        answer: ['Benchmark']
-      }
-    ],
-    isCorrect: true,
-    nextContent: {
-      ref: 'sli_VkSQroQnx',
-      type: 'slide'
-    },
-    content: {
-      ref: 'sli_VJYjJnJhg',
-      type: 'slide'
-    },
-    pendingSlides: [],
-    slides: ['sli_VJYjJnJhg'],
-    step: {
-      current: 2
-    },
-    stars: 4
+  [qcmSlide.universalRef]: {
+    _id: '62b1d1087aa12f00253f40ee',
+    content,
+    engine,
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        },
+        {
+          slideRef: qcmGraphicSlide.universalRef,
+          isCorrect: true,
+          answer: ['Faux']
+        },
+        {
+          slideRef: qcmSlide.universalRef,
+          isCorrect: true,
+          answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
+        }
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: sliderSlide.universalRef,
+        type: 'slide'
+      },
+      content: {
+        ref: qcmSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: [freeTextSlide.universalRef, qcmGraphicSlide.universalRef, qcmSlide.universalRef],
+      step: {
+        current: 4
+      },
+      stars: 24
+    }
+  },
+  [sliderSlide.universalRef]: {
+    _id: '62b1d1087aa12f00253f40ee',
+    content,
+    engine,
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        },
+        {
+          slideRef: qcmGraphicSlide.universalRef,
+          isCorrect: true,
+          answer: ['Faux']
+        },
+        {
+          slideRef: qcmSlide.universalRef,
+          isCorrect: true,
+          answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
+        },
+        {
+          slideRef: sliderSlide.universalRef,
+          isCorrect: true,
+          answer: ['7']
+        }
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: templateSlide.universalRef,
+        type: 'slide'
+      },
+      content: {
+        ref: sliderSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: [
+        freeTextSlide.universalRef,
+        qcmGraphicSlide.universalRef,
+        qcmSlide.universalRef,
+        sliderSlide.universalRef
+      ],
+      step: {
+        current: 5
+      },
+      stars: 32
+    }
+  },
+  [templateSlide.universalRef]: {
+    _id: '62b1d1087aa12f00253f40ee',
+    content,
+    engine,
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        },
+        {
+          slideRef: qcmGraphicSlide.universalRef,
+          isCorrect: true,
+          answer: ['Faux']
+        },
+        {
+          slideRef: qcmSlide.universalRef,
+          isCorrect: true,
+          answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
+        },
+        {
+          slideRef: sliderSlide.universalRef,
+          isCorrect: true,
+          answer: ['7']
+        },
+        {
+          slideRef: templateSlide.universalRef,
+          isCorrect: true,
+          answer: ['7']
+        }
+      ],
+      isCorrect: true,
+      nextContent: {
+        ref: 'successExitNode',
+        type: 'success'
+      },
+      content: {
+        ref: templateSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      slides: [
+        freeTextSlide.universalRef,
+        qcmGraphicSlide.universalRef,
+        qcmSlide.universalRef,
+        sliderSlide.universalRef,
+        templateSlide.universalRef
+      ],
+      step: {
+        current: 5
+      },
+      stars: 40
+    }
   }
 };
 
@@ -99,5 +284,8 @@ export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
-  postAnswer: () => Promise.resolve(postAnswerResponse)
+  postAnswer: progression => {
+    const currentSlide = progression.state.nextContent.ref;
+    return Promise.resolve(get(currentSlide, postAnswerResponses));
+  }
 };

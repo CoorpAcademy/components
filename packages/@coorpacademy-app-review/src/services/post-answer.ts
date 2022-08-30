@@ -5,11 +5,12 @@ import {JWT, ProgressionFromAPI} from '../types/common';
 import {toJSON} from './tools/fetch-responses';
 
 export const postAnswer = async (
-  skillRef: string,
+  progression: ProgressionFromAPI,
   token: string,
-  progressionId: string,
   answer: string[]
 ): Promise<ProgressionFromAPI> => {
+  const progressionId = progression._id;
+  const skillRef = progression.content.ref;
   const {host}: JWT = decode(token);
   const response = await crossFetch(`${host}/api/v2/progressions/${progressionId}/answers`, {
     method: 'post',

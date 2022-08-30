@@ -181,7 +181,7 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
   return stack;
 };
 
-const buildStepItems = (state: StoreState): StepItem[] => {
+export const buildStepItems = (state: StoreState): StepItem[] => {
   const {progression} = state.data;
   const {currentSlideRef} = state.ui;
   if (!progression) return [];
@@ -216,6 +216,7 @@ const buildStepItems = (state: StoreState): StepItem[] => {
 
   const allAnswers = progression.state.allAnswers;
   const step = progression.state.step;
+  const nextContentRef = progression.state.nextContent.ref;
   if (isEmpty(allAnswers)) return defaultProps;
 
   const steps = defaultProps.map((stepItem, index): StepItem => {
@@ -223,7 +224,7 @@ const buildStepItems = (state: StoreState): StepItem[] => {
     if (!givenAnswer) {
       return {
         ...stepItem,
-        current: step.current === index + 1
+        current: nextContentRef === currentSlideRef && step.current === index + 1
       };
     }
 
