@@ -1,16 +1,16 @@
 import concat from 'lodash/fp/concat';
-
+import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
+import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import {Dispatch} from 'redux';
-import findLast from 'lodash/fp/findLast';
-import {ProgressionFromAPI} from '../../types/common';
+import {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
 import {AnswerUI} from '../../types/slides';
@@ -182,6 +182,18 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
   return stack;
 };
 
+const getIconForCurrentStep = (
+  slideRef: string,
+  lastGivenAnswerForSlide: ProgressionAnswerItem,
+  currentSlideRef: string,
+  lastGivenAsnswer: ProgressionAnswerItem
+): IconValue => {
+  if (slideRef !== currentSlideRef) return lastGivenAnswerForSlide.isCorrect ? 'right' : 'wrong';
+
+  if (lastGivenAsnswer.slideRef !== slideRef) return 'no-answer';
+  return lastGivenAnswerForSlide.isCorrect ? 'right' : 'wrong';
+};
+
 export const buildStepItems = (state: StoreState): StepItem[] => {
   const {progression} = state.data;
   const {currentSlideRef} = state.ui;
@@ -220,14 +232,15 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   const step = progression.state.step;
   const nextContentRef = progression.state.nextContent.ref;
   if (isEmpty(allAnswers)) return defaultProps;
+  const lastGivenAnswer = last(allAnswers) as ProgressionAnswerItem;
 
   const steps = defaultProps.map((stepItem, index): StepItem => {
     const slideRef = slideRefs[index];
     if (!slideRef) return stepItem; // non fecthed slide pour given index
 
-    const lastGivenAnswer = findLast(answer => answer.slideRef === slideRef, allAnswers);
+    const lastGivenAnswerForSlide = findLast(answer => answer.slideRef === slideRef, allAnswers);
     // never answered slide
-    if (!lastGivenAnswer) {
+    if (!lastGivenAnswerForSlide) {
       return {
         ...stepItem,
         current: nextContentRef === currentSlideRef && step.current === index + 1
@@ -237,8 +250,13 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
     // already answered slide, we computed based on the lastGivenAnswer
     return {
       ...stepItem,
-      icon: lastGivenAnswer.isCorrect ? 'right' : 'wrong',
-      current: lastGivenAnswer.slideRef === currentSlideRef
+      icon: getIconForCurrentStep(
+        slideRef,
+        lastGivenAnswerForSlide,
+        currentSlideRef,
+        lastGivenAnswer
+      ),
+      current: lastGivenAnswerForSlide.slideRef === currentSlideRef
     };
   });
   return steps;
