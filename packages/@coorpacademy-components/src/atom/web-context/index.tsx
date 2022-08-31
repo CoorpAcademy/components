@@ -1,13 +1,5 @@
 import React, {createContext, useContext} from 'react';
 
-const Context = createContext({
-  skin: {
-    common: {
-      primary: '#00B0FF'
-    }
-  }
-});
-
 type Skin = {
   common: {
     primary: string;
@@ -16,7 +8,17 @@ type Skin = {
 
 type WebContextValues = {
   skin: Skin;
+  translate: (key: string) => string;
 };
+
+const Context = createContext({
+  skin: {
+    common: {
+      primary: '#00B0FF'
+    }
+  },
+  translate: (key: string) => key
+});
 
 type Props = {values: WebContextValues; children: any};
 
@@ -24,7 +26,7 @@ const WebContext = ({values, children}: Props) => {
   return <Context.Provider value={{...values}}>{children}</Context.Provider>;
 };
 
-const useWebContext = (): WebContextValues => {
+export const useWebContext = (): WebContextValues => {
   const context = useContext(Context);
 
   if (!context) {
@@ -34,4 +36,4 @@ const useWebContext = (): WebContextValues => {
   return context;
 };
 
-export {useWebContext, WebContext};
+export default WebContext;
