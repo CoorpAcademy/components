@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import maxBy from 'lodash/fp/maxBy';
 import Provider from '../../../atom/provider';
+import {useWebContext} from '../../../atom/web-context';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
-const QCM = (props, context) => {
+const QCM = (props, legacyContext) => {
   const {answers} = props;
   const longestAnswer = maxBy(({title}) => title.length, answers);
-  const {skin} = context;
+  const context = useWebContext();
+  const skin = getOr(legacyContext.skin, 'skin', context);
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   const answersViews = useMemo(

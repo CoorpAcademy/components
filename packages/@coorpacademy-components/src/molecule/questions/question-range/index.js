@@ -3,13 +3,15 @@ import {getOr} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
+import {useWebContext} from '../../../atom/web-context';
 import Range from '../../../atom/range';
 import style from './style.css';
 
-const QuestionRange = (props, context) => {
+const QuestionRange = (props, legacyContext) => {
   const {title, minLabel, maxLabel, ...rangeProps} = props;
 
-  const {skin} = context;
+  const context = useWebContext();
+  const skin = getOr(legacyContext.skin, 'skin', context);
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
   const titleStyle = {
