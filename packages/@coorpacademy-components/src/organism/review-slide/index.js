@@ -137,7 +137,7 @@ QuestionContainer.propTypes = {
   questionOrigin: PropTypes.string
 };
 
-const Slide = props => {
+const ReviewSlide = props => {
   const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
 
   const context = useWebContext(); // mais comment faire pour le mobile ?
@@ -184,6 +184,6 @@ const Slide = props => {
   );
 };
 
-Slide.propTypes = propTypes;
+ReviewSlide.propTypes = propTypes;
 
-export default Slide;
+export default ReviewSlide;
