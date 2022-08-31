@@ -5,6 +5,7 @@ import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
 import {sliderSlide} from '../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../views/slides/test/fixtures/template';
 import {
+  CorrectionFromAPI,
   ProgressionFromAPI,
   ReviewContent,
   ReviewEngine,
@@ -342,6 +343,11 @@ export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
   }
 };
 
+const correctionOnRightAnswer: CorrectionFromAPI = {
+  correctAnswer: ['Benchmark'],
+  corrections: [{answer: 'Benchmark', isCorrect: true}]
+};
+
 export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, id: ref}),
@@ -349,5 +355,6 @@ export const services: Services = {
   postAnswer: progression => {
     const currentSlide = progression.state.nextContent.ref;
     return Promise.resolve(get(currentSlide, postAnswerResponses));
-  }
+  },
+  fetchCorrection: () => Promise.resolve(correctionOnRightAnswer)
 };

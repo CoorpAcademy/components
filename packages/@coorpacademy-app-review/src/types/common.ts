@@ -157,6 +157,12 @@ export type Services = {
     token: string,
     answer: string[]
   ): Promise<ProgressionFromAPI>;
+  fetchCorrection(
+    slideRef: string,
+    token: string,
+    progressionId: string,
+    answer: string[]
+  ): Promise<CorrectionFromAPI | void>;
 };
 
 export type Options = {
