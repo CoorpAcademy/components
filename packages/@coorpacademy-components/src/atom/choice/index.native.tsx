@@ -111,13 +111,6 @@ const Choice = ({
     return null;
   }
 
-  const selectedStyle = brandTheme && {
-    backgroundColor: brandTheme.colors.primary,
-    borderColor: brandTheme.colors.primary,
-    borderTopRightRadius: theme.radius.regular,
-    borderBottomRightRadius: theme.radius.regular
-  };
-
   const selectedSuffix = prefixTestID && isSelected ? '-selected' : '';
   const mediaType = media && media.type && media.type === 'img' && media.type.toLowerCase();
   const url =
@@ -131,9 +124,28 @@ const Choice = ({
   const mediaSuffix = prefixTestID && mediaType ? `-${mediaType}` : '';
 
   const htmlStyle: ViewStyle[] = [styleSheet.text];
+  const textWrapperStyle: ViewStyle[] = [
+    styleSheet.textContainer,
+    squeezed && styleSheet.squeezedTextContainer
+  ];
 
   if (isSelected) {
     htmlStyle.push(styleSheet.textSelected);
+
+    const selectionStyle = brandTheme && {
+      backgroundColor: brandTheme.colors.primary,
+      borderColor: brandTheme.colors.primary,
+      ...(url
+        ? {
+            borderTopRightRadius: theme.radius.regular,
+            borderBottomRightRadius: theme.radius.regular
+          }
+        : {
+            borderRadius: theme.radius.regular
+          })
+    };
+
+    textWrapperStyle.push(selectionStyle);
   }
 
   return (
@@ -156,13 +168,7 @@ const Choice = ({
             />
           </View>
         ) : null}
-        <View
-          style={[
-            styleSheet.textContainer,
-            squeezed && styleSheet.squeezedTextContainer,
-            isSelected && selectedStyle
-          ]}
-        >
+        <View style={textWrapperStyle}>
           <Html
             fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
             style={htmlStyle}
