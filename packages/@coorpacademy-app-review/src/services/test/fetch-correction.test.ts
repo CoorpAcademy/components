@@ -8,7 +8,7 @@ const slideRef = 'sli_123546';
 const answer = ['Lister vos tâches pour vous libérer l’esprit', '15 jours à Bora Bora'];
 
 const correction: CorrectionFromAPI = {
-  correctAnswer: ['Faux'],
+  correctAnswer: ['15 jours à Bora Bora'],
   corrections: [
     {
       answer: answer[0],
