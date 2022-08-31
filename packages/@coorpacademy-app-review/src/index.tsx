@@ -39,13 +39,9 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [isProgressionCreated, setIsProgressionCreated] = useState(false);
 
   useEffect(() => {
-    console.log('==>>>', store);
     if (store) return;
-    console.log('|||==>>>', store);
     const newStore = configureStore(options);
-    console.log('|||==>>> newStore called', newStore);
     setStore(newStore);
-    console.log('|||==>>> setStore called', store);
   }, [options, store]);
 
   useEffect(() => {
@@ -64,10 +60,8 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   }, [options, store]);
 
   useEffect(() => {
-    console.log('useEffectoptions store:', store);
-    console.log('useEffectoptions token:', token);
-
     const token = get('token', options);
+
     if (store === null || isEmpty(token)) return;
 
     const skillRef = get('skillRef', options);
@@ -78,12 +72,9 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   }, [options, store]);
 
   useEffect(() => {
-    console.log('========>*', store);
     if (store === null) return;
 
     const {skillRef, showOnboarding} = options;
-
-    console.log('==== showOnboarding', showOnboarding);
 
     if (skillRef && !isProgressionCreated) {
       store.dispatch(navigateTo('loader')); // use loader while posting progression

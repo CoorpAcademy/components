@@ -29,7 +29,6 @@ type SkillsProps = NoSkillsProps & {
 export {SkillsProps};
 
 export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
-  console.log('==> state>', state.data);
   return {
     title: '@todo title',
     titleNoSkills: '@todo titleNoSkills',
