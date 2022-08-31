@@ -3,8 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import maxBy from 'lodash/fp/maxBy';
-import Provider from '../../../atom/provider';
-import {useWebContext} from '../../../atom/web-context';
+import Provider, {useWebContext} from '../../../atom/provider';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 

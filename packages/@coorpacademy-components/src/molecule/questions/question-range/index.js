@@ -2,8 +2,7 @@ import React from 'react';
 import {getOr} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Provider from '../../../atom/provider';
-import {useWebContext} from '../../../atom/web-context';
+import Provider, {useWebContext} from '../../../atom/provider';
 import Range from '../../../atom/range';
 import style from './style.css';
 

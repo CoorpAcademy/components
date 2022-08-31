@@ -7,7 +7,7 @@ import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
-import {useWebContext} from '../../atom/web-context';
+import {useWebContext} from '../../atom/provider';
 import propTypes from './prop-types';
 import style from './style.css';
 

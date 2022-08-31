@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {pipe, filter, orderBy, getOr} from 'lodash/fp';
 import classnames from 'classnames';
-import Provider from '../../../atom/provider';
-import {useWebContext} from '../../../atom/web-context';
+import Provider, {useWebContext} from '../../../atom/provider';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 

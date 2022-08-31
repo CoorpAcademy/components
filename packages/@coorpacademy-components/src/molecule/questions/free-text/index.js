@@ -2,8 +2,7 @@ import React, {useCallback, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import {noop, getOr} from 'lodash/fp';
 import {convert} from 'css-color-function';
-import Provider from '../../../atom/provider';
-import {useWebContext} from '../../../atom/web-context';
+import Provider, {useWebContext} from '../../../atom/provider';
 import style from './style.css';
 
 const FreeText = (props, legacyContext) => {

@@ -54,7 +54,6 @@ import AtomTabContent from './../src/atom/tab-content';
 import AtomTag from './../src/atom/tag';
 import AtomTitle from './../src/atom/title';
 import AtomVideoUpload from './../src/atom/video-upload';
-import AtomWebContext from './../src/atom/web-context';
 import AtomWizardSteps from './../src/atom/wizard-steps';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
@@ -471,7 +470,6 @@ import AtomVideoUploadFixtureLoading from '../src/atom/video-upload/test/fixture
 import AtomVideoUploadFixtureModified from '../src/atom/video-upload/test/fixtures/modified';
 import AtomVideoUploadFixtureNoPreview from '../src/atom/video-upload/test/fixtures/no-preview';
 import AtomVideoUploadFixtureWithoutVideo from '../src/atom/video-upload/test/fixtures/without-video';
-import AtomWebContextFixtureDefault from '../src/atom/web-context/test/fixtures/default';
 import AtomWizardStepsFixtureDefault from '../src/atom/wizard-steps/test/fixtures/default';
 import AtomWizardStepsFixtureFirstStep from '../src/atom/wizard-steps/test/fixtures/first-step';
 import AtomWizardStepsFixtureLastStep from '../src/atom/wizard-steps/test/fixtures/last-step';
@@ -1350,7 +1348,6 @@ export const components = {
     AtomTag,
     AtomTitle,
     AtomVideoUpload,
-    AtomWebContext,
     AtomWizardSteps
   },
   Hoc: {
@@ -1913,9 +1910,6 @@ export const fixtures = {
       Modified: AtomVideoUploadFixtureModified,
       NoPreview: AtomVideoUploadFixtureNoPreview,
       WithoutVideo: AtomVideoUploadFixtureWithoutVideo
-    },
-    AtomWebContext: {
-      Default: AtomWebContextFixtureDefault
     },
     AtomWizardSteps: {
       Default: AtomWizardStepsFixtureDefault,

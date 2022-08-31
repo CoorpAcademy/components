@@ -7,16 +7,11 @@ type Skin = {
 };
 
 type WebContextValues = {
-  skin: Skin;
+  skin?: Skin;
   translate: (key: string) => string;
 };
 
 const Context = createContext({
-  skin: {
-    common: {
-      primary: '#00B0FF'
-    }
-  },
   translate: (key: string) => key
 });
 

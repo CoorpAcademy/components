@@ -10,8 +10,7 @@ import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import size from 'lodash/fp/size';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
-import Provider from '../provider';
-import {useWebContext} from '../web-context';
+import Provider, {useWebContext} from '../provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
