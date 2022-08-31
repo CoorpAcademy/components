@@ -343,9 +343,69 @@ export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
   }
 };
 
-const correctionOnRightAnswer: CorrectionFromAPI = {
-  correctAnswer: ['Benchmark'],
-  corrections: [{answer: 'Benchmark', isCorrect: true}]
+const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
+  switch (ref) {
+    case qcmSlide.universalRef: {
+      const correctAnswer = [get('question.content.choices.0.label', qcmSlide)];
+      return {
+        correctAnswer,
+        corrections: wrongChoice
+          ? [
+              {
+                answer: get('question.content.choices.2.label', qcmSlide),
+                isCorrect: false
+              }
+            ]
+          : [{answer: correctAnswer[0], isCorrect: true}]
+      };
+    }
+    case qcmGraphicSlide.universalRef: {
+      const correctAnswer = [get('question.content.choices.1.label', qcmGraphicSlide)];
+      return {
+        correctAnswer,
+        corrections: wrongChoice
+          ? [{answer: get('question.content.choices.0.label', qcmGraphicSlide), isCorrect: false}]
+          : [{answer: correctAnswer[0], isCorrect: true}]
+      };
+    }
+    case freeTextSlide.universalRef: {
+      const correctAnswer = ['Benchmark'];
+      return {
+        correctAnswer,
+        corrections: wrongChoice
+          ? [{answer: 'Nope', isCorrect: false}]
+          : [{answer: correctAnswer[0], isCorrect: true}]
+      };
+    }
+    case templateSlide.universalRef: {
+      const correctAnswer = [get('question.content.choices.1.items.1.text', templateSlide)];
+      return {
+        correctAnswer,
+        corrections: wrongChoice
+          ? [
+              {
+                answer: get('question.content.choices.1.items.0.text', templateSlide),
+                isCorrect: false
+              }
+            ]
+          : [{answer: correctAnswer[0], isCorrect: true}]
+      };
+    }
+    default: {
+      const correctAnswer = ['7', '7 ans'];
+      return {
+        correctAnswer,
+        corrections: wrongChoice
+          ? [
+              {
+                answer: '8',
+                isCorrect: false
+              }
+            ]
+          : [{answer: '7', isCorrect: true}]
+      };
+    }
+  }
 };
 
 export const services: Services = {
@@ -356,5 +416,5 @@ export const services: Services = {
     const currentSlide = progression.state.nextContent.ref;
     return Promise.resolve(get(currentSlide, postAnswerResponses));
   },
-  fetchCorrection: () => Promise.resolve(correctionOnRightAnswer)
+  fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref))
 };
