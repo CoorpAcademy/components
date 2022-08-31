@@ -1,6 +1,5 @@
 export default {
   props: {
-    placeholder: 'Type your answer here',
-    value: undefined
+    placeholder: 'Type your answer here'
   }
 };

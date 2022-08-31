@@ -204,7 +204,6 @@ const Switch = (props: Props) => {
           testID="question-input-text"
           questionType="basic"
           isDisabled={isDisabled}
-          value=""
         />
       );
     default:

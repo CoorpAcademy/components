@@ -14,7 +14,7 @@ interface Props {
   analytics?: Analytics;
   onChange: (text: string) => void;
   isDisabled?: boolean;
-  value: string;
+  value?: string; // when value is undefined, TextInput acts as not controlled
 }
 
 type StyleSheetType = {
