@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {pipe, filter, orderBy, getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
+import {useWebContext} from '../../../atom/web-context';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
@@ -17,10 +18,6 @@ const AnswersPropTypes = PropTypes.arrayOf(
 );
 
 const EmptyView = ({help}) => <span className={style.emptySpan}>{help}</span>;
-
-EmptyView.contextTypes = {
-  translate: Provider.childContextTypes.translate
-};
 
 EmptyView.propTypes = {
   help: PropTypes.string
@@ -100,8 +97,9 @@ SelectedAnswerSections.propTypes = {
   backgroundColor: PropTypes.string
 };
 
-const QcmDrag = ({answers, help}, context) => {
-  const {skin} = context;
+const QcmDrag = ({answers, help}, legacyContext) => {
+  const context = useWebContext();
+  const skin = getOr(legacyContext.skin, 'skin', context);
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   return (

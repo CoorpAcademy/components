@@ -140,7 +140,7 @@ QuestionContainer.propTypes = {
 const ReviewSlide = props => {
   const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
 
-  const context = useWebContext(); // mais comment faire pour le mobile ?
+  const context = useWebContext();
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {
