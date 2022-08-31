@@ -10,6 +10,5 @@ export const fetchSlide = async (slideRef: string, token: string): Promise<Slide
     headers: {authorization: token}
   });
 
-  const slide = (await toJSON(response)) as SlideFromAPI;
-  return slide;
+  return toJSON<SlideFromAPI>(response);
 };
