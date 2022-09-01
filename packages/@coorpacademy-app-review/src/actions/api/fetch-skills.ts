@@ -1,5 +1,5 @@
 import buildTask from '@coorpacademy/redux-task';
-import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
 import type {Options, Skill} from '../../types/common';
@@ -22,8 +22,10 @@ export const fetchSkills = async (
     types: [SKILLS_FETCH_REQUEST, SKILLS_FETCH_SUCCESS, SKILLS_FETCH_FAILURE],
     task: () => {
       const state = getState();
-      const token = get('data.token', state);
-      return services.fetchSkills(token);
+      const token = getOr('', ['data', 'token'], state);
+      // raised issue on: https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/62072
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      return services.fetchSkills(token!);
     }
   });
 
