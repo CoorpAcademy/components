@@ -66,7 +66,7 @@ test('should dispatch CORRECTION_FETCH_SUCCESS actions when fetchCorrection retu
   await dispatch(fetchCorrection);
 });
 
-test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails',  async t => {
+test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails', async t => {
   t.plan(6);
   const services: Services = {
     ...mockedServices,

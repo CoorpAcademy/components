@@ -2,17 +2,22 @@ import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {StoreState} from '../../reducers';
-import type {Options} from '../../types/common';
+import type {CorrectionFromAPI, Options} from '../../types/common';
 
 export const CORRECTION_FETCH_REQUEST = '@@correction/FETCH_REQUEST' as const;
 export const CORRECTION_FETCH_SUCCESS = '@@correction/FETCH_SUCCESS' as const;
 export const CORRECTION_FETCH_FAILURE = '@@correction/FETCH_FAILURE' as const;
 
+export type FetchCorrection = {
+  type: typeof CORRECTION_FETCH_SUCCESS;
+  payload: CorrectionFromAPI | void;
+};
+
 export const fetchCorrection = (
   dispatch: Dispatch,
   getState: () => StoreState,
   {services}: Options
-): void => {
+): FetchCorrection => {
   const action = buildTask({
     types: [CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS, CORRECTION_FETCH_FAILURE],
     task: () => {

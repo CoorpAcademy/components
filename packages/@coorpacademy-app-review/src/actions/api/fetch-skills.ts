@@ -9,15 +9,15 @@ export const SKILLS_FETCH_SUCCESS = '@@skills/FETCH_SUCCESS' as const;
 export const SKILLS_FETCH_FAILURE = '@@skills/FETCH_FAILURE' as const;
 
 export type ReceivedSkills = {
-  type: '@@skills/FETCH_SUCCESS';
+  type: typeof SKILLS_FETCH_SUCCESS;
   payload: Skill[];
 };
 
-export const fetchSkills = async (
+export const fetchSkills = (
   dispatch: Dispatch,
   getState: () => StoreState,
   {services}: Options
-): Promise<void> => {
+): ReceivedSkills => {
   const action = buildTask({
     types: [SKILLS_FETCH_REQUEST, SKILLS_FETCH_SUCCESS, SKILLS_FETCH_FAILURE],
     task: () => {
@@ -27,5 +27,5 @@ export const fetchSkills = async (
     }
   });
 
-  await dispatch(action);
+  return dispatch(action);
 };
