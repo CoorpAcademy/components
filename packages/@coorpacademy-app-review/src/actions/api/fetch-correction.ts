@@ -1,7 +1,6 @@
 import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import type {StoreState} from '../../reducers';
 import type {Options} from '../../types/common';
 
@@ -18,14 +17,11 @@ export const fetchCorrection = async (
     types: [CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS, CORRECTION_FETCH_FAILURE],
     task: () => {
       const state = getState();
-      const token = getOr('', ['data', 'token'], state);
+      const token = get(['data', 'token'], state);
       const progressionId = get(['data', 'progression', '_id'], state);
       const answer = get(['ui', 'answers'], state);
       const slideRef = get(['ui', 'currentSlideRef'], state);
-      // token is always defined (either an empty string on an actual one)
-      // raised issue on: https://github.com/DefinitelyTyped/DefinitelyTyped/discussions/62072
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return services.fetchCorrection(slideRef, token!, progressionId, answer);
+      return services.fetchCorrection(slideRef, token, progressionId, answer);
     }
   });
   await dispatch(action);

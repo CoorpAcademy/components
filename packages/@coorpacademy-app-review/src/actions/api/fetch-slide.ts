@@ -32,7 +32,7 @@ export const fetchSlide =
       },
       task: () => {
         const state = getState();
-        const token = get('data.token', state);
+        const token = get(['data', 'token'], state);
         return services.fetchSlide(slideRef, token);
       },
       meta: {slideRef}
