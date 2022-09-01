@@ -343,7 +343,7 @@ export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
   }
 };
 
-const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
+export const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
   switch (ref) {
     case qcmSlide.universalRef: {
       const correctAnswer = [get('question.content.choices.0.label', qcmSlide)];

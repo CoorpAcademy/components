@@ -30,6 +30,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlide return a slide', async t => {
+  t.plan(5);
   const services: Services = {
     ...mockedServices,
     fetchSlide: (slideRef, token) => {
@@ -55,6 +56,7 @@ test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlid
 });
 
 test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t => {
+  t.plan(4);
   const services: Services = {
     ...mockedServices,
     fetchSlide: (slideRef, token) => {

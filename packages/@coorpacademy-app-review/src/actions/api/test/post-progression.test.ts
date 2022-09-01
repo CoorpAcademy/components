@@ -30,7 +30,8 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions when postProgression return a progression', async t => {
+test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions when postProgression returns a progression', async t => {
+  t.plan(9);
   const progression: ProgressionFromAPI = {
     _id: '62b1d1087aa12f00253f40ee',
     content: {
@@ -98,6 +99,7 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
 });
 
 test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails', async t => {
+  t.plan(4);
   const services: Services = {
     ...mockedServices,
     postProgression: (skillRef, token) => {
