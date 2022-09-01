@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {defaultsDeep} from 'lodash/fp';
+import {defaultsDeep, get, getOr} from 'lodash/fp';
 import {SrcPropType, ColorPropType, HexPropType} from '../../util/proptypes';
 import WebContext, {useWebContext} from './web-context';
 
@@ -99,5 +99,13 @@ class Provider extends React.Component {
   }
 }
 
-export {WebContext, useWebContext};
+const GetSkinFromContext = legacyContext => {
+  const context = useWebContext();
+  const legacySkin = get('skin', legacyContext);
+  const skin = getOr(legacySkin, 'skin', context);
+
+  return skin;
+};
+
+export {WebContext, useWebContext, GetSkinFromContext};
 export default Provider;

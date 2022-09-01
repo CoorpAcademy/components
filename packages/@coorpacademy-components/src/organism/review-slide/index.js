@@ -7,7 +7,7 @@ import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
-import {useWebContext} from '../../atom/provider';
+import {GetSkinFromContext} from '../../atom/provider';
 import propTypes from './prop-types';
 import style from './style.css';
 
@@ -140,8 +140,7 @@ QuestionContainer.propTypes = {
 const ReviewSlide = props => {
   const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
 
-  const context = useWebContext();
-  const {skin} = context;
+  const skin = GetSkinFromContext();
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {
     loading,

@@ -2,12 +2,11 @@ import React, {useCallback, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import {noop, getOr} from 'lodash/fp';
 import {convert} from 'css-color-function';
-import Provider, {useWebContext} from '../../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../../atom/provider';
 import style from './style.css';
 
 const FreeText = (props, legacyContext) => {
-  const context = useWebContext();
-  const skin = getOr(legacyContext.skin, 'skin', context);
+  const skin = GetSkinFromContext(legacyContext);
   const {placeholder = '', value = '', onChange = noop, 'aria-label': ariaLabel} = props;
   const [hovered, setHovered] = useState(false);
 

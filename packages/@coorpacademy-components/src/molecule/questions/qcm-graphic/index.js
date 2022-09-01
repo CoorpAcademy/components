@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
-import Provider, {useWebContext} from '../../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../../atom/provider';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
 const QCMImage = (props, legacyContext) => {
   const {answers} = props;
-  const context = useWebContext();
-  const skin = getOr(legacyContext.skin, 'skin', context);
+  const skin = GetSkinFromContext(legacyContext);
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   const answersViews = answers.map((answer, key) => {

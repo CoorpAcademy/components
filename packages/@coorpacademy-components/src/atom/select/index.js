@@ -10,7 +10,7 @@ import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import size from 'lodash/fp/size';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
-import Provider, {useWebContext} from '../provider';
+import Provider, {GetSkinFromContext} from '../provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -44,9 +44,7 @@ const Select = (props, legacyContext) => {
     title: propTitle
   } = props;
 
-  const context = useWebContext();
-  const skin = getOr(legacyContext.skin, 'skin', context);
-
+  const skin = GetSkinFromContext(legacyContext);
   const title = useMemo(() => (propTitle ? `${propTitle}${required ? '*' : ''}` : null), [
     propTitle,
     required
