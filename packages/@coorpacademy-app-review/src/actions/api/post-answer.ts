@@ -24,16 +24,14 @@ export const postAnswer = async (
   {services}: Options
 ): Promise<void> => {
   const state = getState();
-  const token = get('data.token', state);
-  const answer = get('ui.answers', state);
+  const token = get(['data', 'token'], state);
+  const answer = get(['ui', 'answers'], state);
   const progression = state.data.progression;
   if (!progression) throw new Error('cannot answer question of inexisting progression');
 
   const action = buildTask({
     types: [POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS, POST_ANSWER_FAILURE],
-    task: () => {
-      return services.postAnswer(progression, token, answer);
-    }
+    task: () => services.postAnswer(progression, token, answer)
   });
   const response = await dispatch(action);
   if (response.type === POST_ANSWER_SUCCESS) {

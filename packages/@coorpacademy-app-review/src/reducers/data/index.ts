@@ -10,7 +10,7 @@ export type DataState = {
   progression: ProgressionState;
   skills: SkillsState;
   slides: SlidesState;
-  token?: TokenState;
+  token: TokenState;
 };
 
 export default combineReducers({

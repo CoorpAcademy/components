@@ -57,6 +57,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the updated progression is returned', async t => {
+  t.plan(4);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
     {
@@ -78,6 +79,7 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
 });
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', async t => {
+  t.plan(3);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
     {
@@ -92,7 +94,10 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', a
     initialState,
     {
       ...services,
-      postAnswer: () => Promise.reject(new Error('unexpected'))
+      postAnswer: () => {
+        t.pass();
+        return Promise.reject(new Error('unexpected'));
+      }
     },
     expectedActions
   );

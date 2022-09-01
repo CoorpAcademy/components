@@ -18,12 +18,10 @@ export const postProgression =
   (skillRef: string) =>
   async (dispatch: Dispatch, getState: () => StoreState, {services}: Options): Promise<void> => {
     const state = getState();
-    const token = get('data.token', state);
+    const token = get(['data', 'token'], state);
     const action = buildTask({
       types: [POST_PROGRESSION_REQUEST, POST_PROGRESSION_SUCCESS, POST_PROGRESSION_FAILURE],
-      task: () => {
-        return services.postProgression(skillRef, token);
-      }
+      task: () => services.postProgression(skillRef, token)
     });
     const response = await dispatch(action);
 

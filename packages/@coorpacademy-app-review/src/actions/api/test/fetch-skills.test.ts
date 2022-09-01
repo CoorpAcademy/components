@@ -27,7 +27,8 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch SKILLS_FETCH_SUCCESS actions when fetchSkills return a list of skills', async t => {
+test('should dispatch SKILLS_FETCH_SUCCESS actions when fetchSkills returns a list of skills', async t => {
+  t.plan(3);
   const services: Services = {
     ...mockedServices,
     fetchSkills: token => {
@@ -50,6 +51,7 @@ test('should dispatch SKILLS_FETCH_SUCCESS actions when fetchSkills return a lis
 });
 
 test('should dispatch SKILLS_FETCH_FAILURE action when fetchSkills fails', async t => {
+  t.plan(3);
   const services: Services = {
     ...mockedServices,
     fetchSkills: token => {
