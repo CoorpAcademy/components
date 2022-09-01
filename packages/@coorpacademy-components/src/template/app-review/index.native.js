@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Text, StyleSheet, View, BackHandler} from 'react-native';
 import propTypes, {ViewNames} from './prop-types';
 import Player from './player';
+import Onboarding from './onboarding/index.native';
 
 const styles = StyleSheet.create({
   rootView: {
@@ -17,7 +18,7 @@ const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
     case ViewNames.home:
       return <Text>view home</Text>;
     case ViewNames.onboarding:
-      return <Text>view onboarding</Text>;
+      return <Onboarding />;
     case ViewNames.slides:
       return <Player {...slides} {...dispachers} />;
     default:
@@ -26,6 +27,7 @@ const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
 };
 
 const AppReview = props => {
+  console.log('====>>  AppReview component');
   const {navigateBack} = props;
 
   useEffect(() => {
