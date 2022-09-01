@@ -8,11 +8,11 @@ export const CORRECTION_FETCH_REQUEST = '@@correction/FETCH_REQUEST' as const;
 export const CORRECTION_FETCH_SUCCESS = '@@correction/FETCH_SUCCESS' as const;
 export const CORRECTION_FETCH_FAILURE = '@@correction/FETCH_FAILURE' as const;
 
-export const fetchCorrection = async (
+export const fetchCorrection = (
   dispatch: Dispatch,
   getState: () => StoreState,
   {services}: Options
-): Promise<void> => {
+): void => {
   const action = buildTask({
     types: [CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS, CORRECTION_FETCH_FAILURE],
     task: () => {
@@ -24,5 +24,5 @@ export const fetchCorrection = async (
       return services.fetchCorrection(slideRef, token, progressionId, answer);
     }
   });
-  await dispatch(action);
+  return dispatch(action);
 };
