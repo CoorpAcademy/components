@@ -13,21 +13,21 @@ test('should have an initial empty record value', t => {
 });
 
 test("should set the key (slide's id) of the correction to null when a CORRECTION_FETCH_REQUEST is received", t => {
-  const slideRef = freeTextSlide.id;
-  const state = reducer({}, {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: freeTextSlide.id}});
+  const slideRef = freeTextSlide._id;
+  const state = reducer({}, {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: freeTextSlide._id}});
   t.deepEqual(state, {
     [slideRef]: null
   });
 });
 
 test('should set the value of CORRECTION_FETCH_SUCCESS', t => {
-  const expectedCorrection = getChoicesCorrection(freeTextSlide.id);
+  const expectedCorrection = getChoicesCorrection(freeTextSlide._id);
   const state = reducer(
     {},
     {
       type: CORRECTION_FETCH_SUCCESS,
       payload: expectedCorrection,
-      meta: {slideRef: freeTextSlide.id}
+      meta: {slideRef: freeTextSlide._id}
     }
   );
   t.deepEqual(state, {
