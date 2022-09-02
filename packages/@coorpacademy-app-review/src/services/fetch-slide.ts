@@ -6,7 +6,7 @@ import {toJSON} from './tools/fetch-responses';
 
 export const fetchSlide = async (slideRef: string, token: string): Promise<SlideFromAPI | void> => {
   const {host}: JWT = decode(token);
-  const response = await crossFetch(`${host}/api/v2/slide/${slideRef}/parentContentTitle`, {
+  const response = await crossFetch(`${host}/api/v1/slides/${slideRef}/parentContentTitle`, {
     headers: {authorization: token}
   });
 
