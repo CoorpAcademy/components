@@ -1,4 +1,4 @@
-# App Review
+# TEEEEST
 
 - 📚 [Static Demo](http://coorpacademy.github.io/components/app-review)
 - 🏹 Architecture illustrated with Excalidraw ([local](../../../documentation/documentation/review-mode/frontend-app-review.excalidraw) and [github](https://github.com/coorpacademy/documentation/blob/master/documentation/review-mode/frontend-app-review.excalidraw)).
