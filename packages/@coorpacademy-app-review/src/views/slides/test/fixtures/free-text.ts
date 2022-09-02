@@ -22,7 +22,7 @@ export const freeTextSlide: SlideFromAPI = {
   klf: 'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.',
   tips: 'According to Insee, Paris salaries are 20-25% higher compared with those of the provinces in 2015.',
   universalRef: 'sli_VJYjJnJhg',
-  id: 'sli_VJYjJnJhg',
+  _id: 'sli_VJYjJnJhg',
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'

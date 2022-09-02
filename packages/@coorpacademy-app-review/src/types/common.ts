@@ -77,13 +77,13 @@ export type Question =
   | TemplateQuestion;
 
 export type SlideFromAPI = {
+  _id: string;
   question: Question;
   klf: string;
   universalRef: string;
   tips?: string;
   clue?: string;
   hasClue?: boolean;
-  id: string;
   parentContentTitle: {
     title: string;
     type: 'chapter' | 'course';
