@@ -3,15 +3,16 @@ import reducer, {type SlidesAction} from '../slides';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
-test('should have inital value', t => {
+test('should have initial value', t => {
   const state = reducer(undefined, {} as SlidesAction);
   t.deepEqual(state, {});
 });
 
 test('should set the value of SLIDE_FETCH_REQUEST action', t => {
-  const state = reducer({}, {type: SLIDE_FETCH_REQUEST, meta: {slideRef: 'slideRef'}});
+  const slideRef = 'sli_VJYjJnJhg';
+  const state = reducer({}, {type: SLIDE_FETCH_REQUEST, meta: {slideRef}});
   t.deepEqual(state, {
-    slideRef: null
+    [slideRef]: null
   });
 });
 
