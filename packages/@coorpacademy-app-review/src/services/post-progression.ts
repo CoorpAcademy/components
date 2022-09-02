@@ -15,7 +15,7 @@ export const postProgression = async (
     body: JSON.stringify({
       content: {
         ref: skillRef,
-        type: 'slide'
+        type: 'skill'
       },
       engine: {
         ref: 'review',
