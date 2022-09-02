@@ -410,7 +410,7 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
 
 export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
-  fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, id: ref}),
+  fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
   postAnswer: progression => {
     const currentSlide = progression.state.nextContent.ref;

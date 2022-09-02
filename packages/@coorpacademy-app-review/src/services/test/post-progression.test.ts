@@ -31,7 +31,18 @@ const result: ProgressionFromAPI = {
 
 test.before(() => {
   const moocApi = nock('http://localhost:3000');
-  moocApi.post('/api/v2/progressions').reply(200, result);
+  moocApi
+    .post('/api/v2/progressions', {
+      content: {
+        ref: '_skill-ref',
+        type: 'skill'
+      },
+      engine: {
+        ref: 'review',
+        version: '1'
+      }
+    })
+    .reply(200, result);
 });
 
 test.after(() => {

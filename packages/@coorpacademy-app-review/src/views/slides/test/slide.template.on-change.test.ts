@@ -20,7 +20,7 @@ const progression: ProgressionFromAPI = {
     allAnswers: [],
     isCorrect: true,
     nextContent: {
-      ref: templateSlide.id,
+      ref: templateSlide._id,
       type: 'slide'
     },
     pendingSlides: [],
@@ -36,13 +36,13 @@ const initialState: StoreState = {
   data: {
     progression,
     slides: {
-      [templateSlide.id]: templateSlide
+      [templateSlide._id]: templateSlide
     },
     skills: [],
     token: '1234'
   },
   ui: {
-    currentSlideRef: templateSlide.id,
+    currentSlideRef: templateSlide._id,
     navigation: ['skills', 'slides'],
     answers: [],
     slide: {

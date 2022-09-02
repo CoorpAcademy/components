@@ -5,7 +5,7 @@ import {fetchSlide} from '../fetch-slide';
 
 test.before(() => {
   nock('http://localhost:3000')
-    .get('/api/v2/slide/sli_123546/parentContentTitle')
+    .get('/api/v1/slides/sli_123546/parentContentTitle')
     .reply(200, qcmDragSlide);
 });
 

@@ -17,11 +17,11 @@ const reducer = (state: SlidesState = initialState, action: SlidesAction): Slide
   switch (action.type) {
     case SLIDE_FETCH_REQUEST: {
       const {meta} = action;
-      return set(meta.slideRef, null, state);
+      return set([meta.slideRef], null, state);
     }
     case SLIDE_FETCH_SUCCESS: {
       const slide = action.payload;
-      return set(slide.id, slide, state);
+      return set([slide._id], slide, state);
     }
     default:
       return state;

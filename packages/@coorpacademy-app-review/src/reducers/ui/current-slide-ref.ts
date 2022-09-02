@@ -9,7 +9,7 @@ const reducer = (
 ): CurrentSlideRefState => {
   switch (action.type) {
     case SET_CURRENT_SLIDE: {
-      return action.payload.id;
+      return action.payload._id;
     }
     default:
       return state;

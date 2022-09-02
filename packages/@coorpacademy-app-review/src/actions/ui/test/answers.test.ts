@@ -56,9 +56,9 @@ const initialState: StoreState = {
 
 const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreState => {
   return pipe(
-    set(['data', 'progression', 'state', 'nextContent', 'ref'], question.id),
-    set(['data', 'slides', question.id], question),
-    set(['ui', 'currentSlideRef'], question.id)
+    set(['data', 'progression', 'state', 'nextContent', 'ref'], question._id),
+    set(['data', 'slides', question._id], question),
+    set(['ui', 'currentSlideRef'], question._id)
   )(state);
 };
 

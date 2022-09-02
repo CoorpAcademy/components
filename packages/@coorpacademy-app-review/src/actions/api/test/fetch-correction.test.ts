@@ -31,7 +31,7 @@ const initialState: StoreState = {
     token: '1234'
   },
   ui: {
-    currentSlideRef: freeTextSlide.id,
+    currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
     answers: answer,
     slide: {
