@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {getOr, noop, set, clamp} from 'lodash/fp';
-import Provider from '../provider';
+import {noop, set, clamp} from 'lodash/fp';
 import Handle from './handle';
 import style from './style.css';
 
@@ -68,10 +67,6 @@ class Range extends React.Component {
     multi: PropTypes.bool,
     // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
-  };
-
-  static contextTypes = {
-    skin: Provider.childContextTypes.skin
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -176,9 +171,6 @@ class Range extends React.Component {
   }
 
   render() {
-    const {skin} = this.context;
-    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-
     const {
       multi = false,
       value: [left, right],
@@ -187,7 +179,7 @@ class Range extends React.Component {
     const railWidth = right - left;
     const railLeft = left;
     const railStyle = {
-      backgroundColor: defaultColor,
+      backgroundColor: '#9999A8',
       width: `${railWidth * 100}%`,
       left: `${railLeft * 100}%`
     };

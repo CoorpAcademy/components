@@ -41,7 +41,7 @@ const createSandbox = (options: SandboxOptions): void => {
     const values = {
       skin: {
         common: {
-          primary: '#00FF00'
+          primary: '#248e59'
         }
       }
     };
