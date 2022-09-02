@@ -68,7 +68,15 @@ const result: ProgressionFromAPI = {
 
 test.before(() => {
   const moocApi = nock('http://localhost:3000');
-  moocApi.post('/api/v2/progressions/123456123456/answers').reply(200, result);
+  moocApi
+    .post('/api/v2/progressions/123456123456/answers', {
+      content: {
+        ref: 'sli_NkvrWPFF2',
+        type: 'slide'
+      },
+      answer
+    })
+    .reply(200, result);
 });
 
 test.after(() => {
