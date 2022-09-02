@@ -7,17 +7,17 @@ import {
   FetchCorrection
 } from '../../actions/api/fetch-correction';
 
-export type AnswersCorrectionState = Record<string, CorrectionFromAPI>;
+export type CorrectionsState = Record<string, CorrectionFromAPI>;
 
-export type AnswersCorrectionAction = ReceivedCorrection | FetchCorrection;
+export type CorrectionsAction = ReceivedCorrection | FetchCorrection;
 
-const initialState: AnswersCorrectionState = {};
+const initialState: CorrectionsState = {};
 
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: AnswersCorrectionState = initialState,
-  action: AnswersCorrectionAction
-): AnswersCorrectionState => {
+  state: CorrectionsState = initialState,
+  action: CorrectionsAction
+): CorrectionsState => {
   switch (action.type) {
     case CORRECTION_FETCH_REQUEST: {
       const {meta} = action;

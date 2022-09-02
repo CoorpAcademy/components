@@ -1,5 +1,5 @@
 import test from 'ava';
-import reducer, {type AnswersCorrectionAction} from '../answers-correction';
+import reducer, {type CorrectionsAction} from '../corrections';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {
   CORRECTION_FETCH_REQUEST,
@@ -8,7 +8,7 @@ import {
 import {getChoicesCorrection} from '../../../test/util/services.mock';
 
 test('should have an initial empty record value', t => {
-  const state = reducer(undefined, {} as AnswersCorrectionAction);
+  const state = reducer(undefined, {} as CorrectionsAction);
   t.deepEqual(state, {});
 });
 
