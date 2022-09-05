@@ -5,6 +5,7 @@ export default {
     value: false,
     onChange: value => console.log(value),
     titlePosition: 'left',
-    theme: 'coorpmanager'
+    theme: 'coorpmanager',
+    'data-name': '-functionnal-cookies'
   }
 };
