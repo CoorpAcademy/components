@@ -25,7 +25,8 @@ export default {
         value: false,
         onChange: value => console.log(value),
         titlePosition: 'right',
-        theme: 'mooc'
+        theme: 'mooc',
+        'data-name': '-All'
       },
       {
         type: 'switch',
@@ -36,7 +37,8 @@ export default {
         theme: 'coorpmanager',
         details: 'Essential cookies help our website to function adequately.',
         requiredSelection: true,
-        disabled: true
+        disabled: true,
+        'data-name': '-essetial'
       },
       {
         type: 'switch',
@@ -45,7 +47,8 @@ export default {
         onChange: value => console.log(value),
         titlePosition: 'right',
         theme: 'coorpmanager',
-        details: 'Functional cookies help our website to function adequately.'
+        details: 'Functional cookies help our website to function adequately.',
+        'data-name': '-functionnal'
       },
       {
         type: 'switch',
@@ -54,7 +57,8 @@ export default {
         onChange: value => console.log(value),
         titlePosition: 'right',
         theme: 'coorpmanager',
-        details: 'We use this data to improve the performance of our websites and services'
+        details: 'We use this data to improve the performance of our websites and services',
+        'data-name': '-performance'
       }
     ]
   }
