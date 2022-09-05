@@ -14,7 +14,7 @@ export const postAnswer = async (
   const {host}: JWT = decode(token);
   const response = await crossFetch(`${host}/api/v2/progressions/${progressionId}/answers`, {
     method: 'post',
-    headers: {authorization: token, 'content-type': 'application/json'},
+    headers: {'content-type': 'application/json'},
     body: JSON.stringify({
       content: {
         ref: slideRef,
