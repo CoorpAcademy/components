@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
 });
 
 const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
-  console.log('viewName', viewName);
   switch (viewName) {
     case ViewNames.home:
       return <Text>view home</Text>;
@@ -27,7 +26,6 @@ const Switch = ({viewName, onboarding, skills, slides, ...dispachers}) => {
 };
 
 const AppReview = props => {
-  console.log('====>>  AppReview component');
   const {navigateBack} = props;
 
   useEffect(() => {

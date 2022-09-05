@@ -150,7 +150,7 @@ const Onboarding = (reviewTitle: string) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text style={styleSheet.title}>test test</Text>
+      <Text style={styleSheet.title}>test</Text>
     </View>
   );
 };
