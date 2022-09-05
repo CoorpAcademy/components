@@ -16,7 +16,7 @@ export const SlideProp = PropTypes.shape({
   answerUI: PropTypes.shape(AnswerPropTypes)
 });
 
-export default {
+const propTypes = {
   slideIndex: PropTypes.string,
   slide: SlideProp,
   validateButton: PropTypes.shape({
@@ -36,3 +36,7 @@ export default {
     type: ReviewCorrectionPopinPropTypes.type
   })
 };
+
+export default propTypes;
+
+export type Props = PropTypes.InferProps<typeof propTypes>;
