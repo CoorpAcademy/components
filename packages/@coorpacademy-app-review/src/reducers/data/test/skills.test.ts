@@ -2,7 +2,7 @@ import test from 'ava';
 import reducer from '../skills';
 import {ReceivedSkills, SKILLS_FETCH_SUCCESS} from '../../../actions/api/fetch-skills';
 
-test('should have inital value', t => {
+test('should have initial value', t => {
   const state = reducer(undefined, {} as ReceivedSkills);
   t.deepEqual(state, []);
 });

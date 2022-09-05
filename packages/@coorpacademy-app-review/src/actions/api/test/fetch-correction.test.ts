@@ -54,10 +54,18 @@ test('should dispatch CORRECTION_FETCH_SUCCESS actions when fetchCorrection retu
   };
 
   const expectedActions = [
-    {type: CORRECTION_FETCH_REQUEST},
+    {
+      type: CORRECTION_FETCH_REQUEST,
+      meta: {
+        slideRef: freeTextSlide.universalRef
+      }
+    },
     {
       type: CORRECTION_FETCH_SUCCESS,
-      payload: getChoicesCorrection(freeTextSlide.universalRef)
+      payload: getChoicesCorrection(freeTextSlide.universalRef),
+      meta: {
+        slideRef: freeTextSlide.universalRef
+      }
     }
   ];
 
@@ -80,9 +88,17 @@ test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails
   };
 
   const expectedActions = [
-    {type: CORRECTION_FETCH_REQUEST},
+    {
+      type: CORRECTION_FETCH_REQUEST,
+      meta: {
+        slideRef: freeTextSlide.universalRef
+      }
+    },
     {
       type: CORRECTION_FETCH_FAILURE,
+      meta: {
+        slideRef: freeTextSlide.universalRef
+      },
       payload: new Error('unexpected'),
       error: true
     }
