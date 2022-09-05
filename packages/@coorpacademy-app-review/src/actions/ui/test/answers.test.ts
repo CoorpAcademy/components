@@ -1,7 +1,7 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import {SlideFromAPI} from '../../../types/common';
+import {Question, SlideFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
@@ -42,7 +42,8 @@ const initialState: StoreState = {
     },
     slides: {},
     skills: [],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: '',
@@ -61,6 +62,16 @@ const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreStat
     set(['ui', 'currentSlideRef'], question._id)
   )(state);
 };
+
+test('should return an empty array for unsupported questions', async t => {
+  const state = buildInitialState(initialState, {
+    ...freeTextSlide,
+    question: {...freeTextSlide.question, type: 'unsupported'} as unknown as Question
+  });
+  const expectedActions = [{type: 'unsupported', payload: []}];
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  await dispatch(editAnswer(['Some kind of answer']));
+});
 
 test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
   const state = buildInitialState(initialState, freeTextSlide);

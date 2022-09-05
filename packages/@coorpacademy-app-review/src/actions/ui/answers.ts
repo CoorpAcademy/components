@@ -1,5 +1,9 @@
+import flatten from 'lodash/fp/flatten';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import includes from 'lodash/fp/includes';
+import pull from 'lodash/fp/pull';
 import {Dispatch} from 'redux';
-import {flatten, get, includes, pull} from 'lodash/fp';
 import type {StoreState} from '../../reducers';
 
 export const EDIT_QCM = '@@answer/EDIT_QCM' as const;
@@ -56,7 +60,7 @@ export const editAnswer =
     const userAnswers = get(['ui', 'answers'])(state);
     const slide = get(['data', 'slides', currentSlideRef])(state);
     const questionType = get(['question', 'type'])(slide);
-    const type = get(questionType, ANSWER_EDIT);
+    const type = getOr('unsupported', questionType, ANSWER_EDIT);
 
     return dispatch({
       type,
