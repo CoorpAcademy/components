@@ -175,7 +175,7 @@
   position: fixed;
   bottom: 32px;
   left: 32px;
-  z-index: 2;
+  z-index: 5;
 }
 .cookieTitle {
   font-family: "Gilroy";
