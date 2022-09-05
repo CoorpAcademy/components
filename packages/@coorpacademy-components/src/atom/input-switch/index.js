@@ -17,7 +17,8 @@ const InputSwitch = props => {
     theme = 'default',
     titlePosition = 'left',
     details = '',
-    requiredSelection = false
+    requiredSelection = false,
+    dataName
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
@@ -50,7 +51,7 @@ const InputSwitch = props => {
   const className = getClassState(defaultClass, modifiedClass, null, modified);
 
   return (
-    <div className={className} data-name={`switch-input-${theme}`}>
+    <div className={className} data-name={`switch-input-${theme}${dataName}`}>
       {titlePosition === 'left' ? titleView : null}
       <div className={requiredSelection ? style.requiredSelection : null}>
         <div className={style.btnSwitchContainer}>
@@ -87,6 +88,7 @@ InputSwitch.propTypes = {
   titlePosition: PropTypes.oneOf(['right', 'left']),
   theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
   details: PropTypes.string,
+  dataName: PropTypes.string,
   requiredSelection: PropTypes.bool
 };
 export default InputSwitch;
