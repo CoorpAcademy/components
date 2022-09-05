@@ -24,17 +24,16 @@ export const fetchCorrection = (
   getState: () => StoreState,
   {services}: Options
 ): ReceivedCorrection => {
+  const state = getState();
+  const slideRef = get(['ui', 'currentSlideRef'], state);
+  const token = get(['data', 'token'], state);
+  const progressionId = get(['data', 'progression', '_id'], state);
+  const answer = get(['ui', 'answers'], state);
+
   const action = buildTask({
     types: [CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS, CORRECTION_FETCH_FAILURE],
-    meta: {slideRef: get(['ui', 'currentSlideRef'], getState())},
-    task: () => {
-      const state = getState();
-      const token = get(['data', 'token'], state);
-      const progressionId = get(['data', 'progression', '_id'], state);
-      const answer = get(['ui', 'answers'], state);
-      const slideRef = get(['ui', 'currentSlideRef'], state);
-      return services.fetchCorrection(slideRef, token, progressionId, answer);
-    }
+    meta: {slideRef},
+    task: () => services.fetchCorrection(slideRef, token, progressionId, answer)
   });
   return dispatch(action);
 };
