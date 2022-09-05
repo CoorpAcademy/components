@@ -18,7 +18,7 @@ const InputSwitch = props => {
     titlePosition = 'left',
     details = '',
     requiredSelection = false,
-    dataName
+    'data-name': dataName
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
@@ -88,7 +88,7 @@ InputSwitch.propTypes = {
   titlePosition: PropTypes.oneOf(['right', 'left']),
   theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
   details: PropTypes.string,
-  dataName: PropTypes.string,
+  'data-name': PropTypes.string,
   requiredSelection: PropTypes.bool
 };
 export default InputSwitch;
