@@ -185,11 +185,11 @@ const getIconForCurrentStep = (
   slideRef: string,
   lastGivenAnswerForSlide: ProgressionAnswerItem,
   currentSlideRef: string,
-  lastGivenAsnswer: ProgressionAnswerItem
+  lastGivenAnswer: ProgressionAnswerItem
 ): IconValue => {
   if (slideRef !== currentSlideRef) return lastGivenAnswerForSlide.isCorrect ? 'right' : 'wrong';
 
-  if (lastGivenAsnswer.slideRef !== slideRef) return 'no-answer';
+  if (lastGivenAnswer.slideRef !== slideRef) return 'no-answer';
   return lastGivenAnswerForSlide.isCorrect ? 'right' : 'wrong';
 };
 
