@@ -10,7 +10,8 @@ test('should create initial props when there are no skills on the state', t => {
       progression: null,
       skills: [],
       slides: {},
-      token: '1234'
+      token: '1234',
+      corrections: {}
     },
     ui: {
       currentSlideRef: '',
@@ -54,7 +55,8 @@ test('should create initial props when skills on the state', t => {
         }
       ],
       slides: {},
-      token: '1234'
+      token: '1234',
+      corrections: {}
     },
     ui: {
       currentSlideRef: '',

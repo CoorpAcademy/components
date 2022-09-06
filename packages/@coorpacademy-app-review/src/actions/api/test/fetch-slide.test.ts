@@ -17,7 +17,8 @@ const initialState: StoreState = {
     progression: null,
     slides: {},
     skills: [],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: '',

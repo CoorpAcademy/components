@@ -3,6 +3,7 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {Options, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
+import {fetchCorrection} from './fetch-correction';
 import {fetchSlide} from './fetch-slide';
 
 export const POST_ANSWER_REQUEST = '@@answer/POST_REQUEST' as const;
@@ -26,8 +27,8 @@ export const postAnswer = async (
   const state = getState();
   const token = get(['data', 'token'], state);
   const answer = get(['ui', 'answers'], state);
-  const progression = state.data.progression;
-  if (!progression) throw new Error('cannot answer question of inexisting progression');
+  const progression = get(['data', 'progression'], state);
+  if (!progression) throw new Error('Cannot answer a question of an inexistent progression');
 
   const action = buildTask({
     types: [POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS, POST_ANSWER_FAILURE],
@@ -38,5 +39,6 @@ export const postAnswer = async (
     const updatedProgression = response.payload;
     const slideRef = updatedProgression.state.nextContent.ref;
     await dispatch(fetchSlide(slideRef));
+    await dispatch(fetchCorrection);
   }
 };

@@ -1,7 +1,8 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import {SlideFromAPI} from '../../../types/common';
+import omit from 'lodash/fp/omit';
+import {Question, SlideFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
@@ -42,7 +43,8 @@ const initialState: StoreState = {
     },
     slides: {},
     skills: [],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: '',
@@ -61,6 +63,35 @@ const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreStat
     set(['ui', 'currentSlideRef'], question._id)
   )(state);
 };
+
+test('editAnswer should throw an Error if the slide is not found', async t => {
+  const state = buildInitialState(initialState, freeTextSlide);
+  const expectedActions = [{type: undefined, payload: []}];
+  const {dispatch} = createTestStore(
+    t,
+    omit(['data', 'slides'], state) as StoreState,
+    services,
+    expectedActions
+  );
+  await t.throws(
+    () => dispatch(editAnswer(['Some kind of answer'])),
+    undefined,
+    'No slide was found or questionType was not found'
+  );
+});
+
+test('editAnswer should throw an Error for unsupported questions', async t => {
+  const state = buildInitialState(initialState, {
+    ...freeTextSlide,
+    question: {...freeTextSlide.question, type: 'unsupportedType'} as unknown as Question
+  });
+  const {dispatch} = createTestStore(t, state, services, []);
+  await t.throws(
+    () => dispatch(editAnswer(['Some kind of answer'])),
+    undefined,
+    'Question type unsupportedType is not supported'
+  );
+});
 
 test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
   const state = buildInitialState(initialState, freeTextSlide);

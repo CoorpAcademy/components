@@ -1,6 +1,11 @@
 import test from 'ava';
+import {AnyAction} from 'redux';
 import {createTestStore} from '../../test/create-test-store';
-import {postAnswerResponses, services} from '../../../test/util/services.mock';
+import {
+  getChoicesCorrection,
+  postAnswerResponses,
+  services
+} from '../../../test/util/services.mock';
 import {
   postAnswer,
   POST_ANSWER_FAILURE,
@@ -8,10 +13,10 @@ import {
   POST_ANSWER_SUCCESS
 } from '../post-answer';
 import type {StoreState} from '../../../reducers';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS} from '../fetch-correction';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {SET_CURRENT_SLIDE} from '../../ui/slides';
 
 const progressionId = '123456789123';
 const skillRef = '_skill-ref';
@@ -44,7 +49,8 @@ const initialState: StoreState = {
       [freeTextSlide._id]: freeTextSlide
     },
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: freeTextSlide._id,
@@ -57,20 +63,32 @@ const initialState: StoreState = {
 };
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the updated progression is returned', async t => {
-  t.plan(4);
+  t.plan(6);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
     {
       type: POST_ANSWER_SUCCESS,
       payload: postAnswerResponses[freeTextSlide._id]
     },
-    {type: SLIDE_FETCH_REQUEST, meta: {slideRef: qcmGraphicSlide._id}},
+    {
+      type: SLIDE_FETCH_REQUEST,
+      meta: {
+        slideRef: qcmGraphicSlide._id
+      }
+    },
     {
       type: SLIDE_FETCH_SUCCESS,
-      meta: {slideRef: qcmGraphicSlide._id},
+      meta: {
+        slideRef: qcmGraphicSlide._id
+      },
       payload: qcmGraphicSlide
     },
-    {type: SET_CURRENT_SLIDE, payload: qcmGraphicSlide}
+    {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: freeTextSlide._id}},
+    {
+      type: CORRECTION_FETCH_SUCCESS,
+      meta: {slideRef: freeTextSlide._id},
+      payload: getChoicesCorrection(freeTextSlide._id)
+    }
   ];
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
@@ -103,4 +121,22 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', a
   );
 
   await dispatch(postAnswer);
+});
+
+test('should not dispatch any action && throw an error if progression does not exist', async t => {
+  t.plan(1);
+  const expectedActions: AnyAction[] = [];
+
+  const {dispatch} = createTestStore(
+    t,
+    {...initialState, data: {...initialState.data, progression: null}},
+    services,
+    expectedActions
+  );
+
+  await t.throwsAsync(
+    () => dispatch(postAnswer),
+    undefined,
+    'Cannot answer a question of an inexistent progression'
+  );
 });

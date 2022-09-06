@@ -39,7 +39,8 @@ const initialState: StoreState = {
       [templateSlide._id]: templateSlide
     },
     skills: [],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: templateSlide._id,
