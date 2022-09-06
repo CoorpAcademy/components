@@ -7,7 +7,6 @@ import slides, {SlidesState} from './slides';
 import token, {TokenState} from './token';
 
 export type DataState = {
-  isFetching?: boolean;
   corrections: CorrectionsState;
   progression: ProgressionState;
   skills: SkillsState;

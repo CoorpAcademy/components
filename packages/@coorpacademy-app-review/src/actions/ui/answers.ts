@@ -1,6 +1,5 @@
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import includes from 'lodash/fp/includes';
 import pull from 'lodash/fp/pull';
 import {Dispatch} from 'redux';
@@ -47,7 +46,7 @@ const buildAnswer = (userAnswers: string[], questionType: string, newValue: stri
     case 'slider':
     case 'template':
       return newValue;
-    default:
+    /* istanbul ignore next */ default:
       return [];
   }
 };
@@ -56,11 +55,17 @@ export const editAnswer =
   (answer: string[]) =>
   (dispatch: Dispatch, getState: () => StoreState): EditAnswerAction => {
     const state = getState();
-    const currentSlideRef = get(['ui', 'currentSlideRef'])(state);
-    const userAnswers = get(['ui', 'answers'])(state);
-    const slide = get(['data', 'slides', currentSlideRef])(state);
-    const questionType = get(['question', 'type'])(slide);
-    const type = getOr('unsupported', questionType, ANSWER_EDIT);
+    const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+    const userAnswers = get(['ui', 'answers'], state);
+    const slide = get(['data', 'slides', currentSlideRef], state);
+    const questionType = get(['question', 'type'], slide);
+
+    if (!slide || !questionType)
+      throw new Error('No slide was found or questionType was not found');
+
+    const type = get(questionType, ANSWER_EDIT);
+
+    if (!type) throw new Error('questionType is not supported');
 
     return dispatch({
       type,

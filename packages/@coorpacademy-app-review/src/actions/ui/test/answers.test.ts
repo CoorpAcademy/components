@@ -1,6 +1,7 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
+import omit from 'lodash/fp/omit';
 import {Question, SlideFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
@@ -63,14 +64,49 @@ const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreStat
   )(state);
 };
 
-test('should return an empty array for unsupported questions', async t => {
+test('editAnswer should throw an Error if the slide is not found', async t => {
+  const state = buildInitialState(initialState, freeTextSlide);
+  const expectedActions = [{type: undefined, payload: []}];
+  const {dispatch} = createTestStore(
+    t,
+    omit(['data', 'slides'], state) as StoreState,
+    services,
+    expectedActions
+  );
+  await t.throws(
+    () => dispatch(editAnswer(['Some kind of answer'])),
+    undefined,
+    'No slide was found or questionType was not found'
+  );
+});
+
+test('editAnswer should throw an Error if the questionType is not found', async t => {
+  const state = buildInitialState(initialState, freeTextSlide);
+  const expectedActions = [{type: undefined, payload: []}];
+  const {dispatch} = createTestStore(
+    t,
+    omit(['data', 'slides', 'question', 'type'], state) as StoreState,
+    services,
+    expectedActions
+  );
+  await t.throws(
+    () => dispatch(editAnswer(['Some kind of answer'])),
+    undefined,
+    'No slide was found or questionType was not found'
+  );
+});
+
+test('editAnswer should throw an Error for unsupported questions', async t => {
   const state = buildInitialState(initialState, {
     ...freeTextSlide,
     question: {...freeTextSlide.question, type: 'unsupported'} as unknown as Question
   });
-  const expectedActions = [{type: 'unsupported', payload: []}];
-  const {dispatch} = createTestStore(t, state, services, expectedActions);
-  await dispatch(editAnswer(['Some kind of answer']));
+  const {dispatch} = createTestStore(t, state, services, []);
+  await t.throws(
+    () => dispatch(editAnswer(['Some kind of answer'])),
+    undefined,
+    'questionType is not supported'
+  );
 });
 
 test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
