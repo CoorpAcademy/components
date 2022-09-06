@@ -75,7 +75,8 @@ const CMPopin = props => {
         details,
         requiredSelection,
         disabled,
-        id
+        id,
+        'data-name': dataName
       } = el;
       return (
         <div key={index} className={getClassBtnSwitch(index, listBtnSwicth)}>
@@ -90,7 +91,8 @@ const CMPopin = props => {
               details,
               requiredSelection,
               disabled,
-              id
+              id,
+              'data-name': dataName
             }}
           />
         </div>
