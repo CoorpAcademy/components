@@ -73,5 +73,5 @@ test('should dispatch EDIT_QCM_DRAG action via the property onChange of a QCM Dr
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as QcmDrag;
   const onClick = get(['0', 'onClick'], SlideProps.answers);
-  onClick(['La démoralisation']);
+  onClick();
 });

@@ -75,7 +75,5 @@ test('should dispatch EDIT_QCM action via the property onChange of a QCM slide',
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as Qcm;
   const onClick = get(['1', 'onClick'], SlideProps.answers);
-  onClick([
-    "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente"
-  ]);
+  onClick();
 });

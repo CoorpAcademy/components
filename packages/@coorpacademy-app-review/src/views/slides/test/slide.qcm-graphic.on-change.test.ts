@@ -74,5 +74,5 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onChange of a QCM
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as QcmGraphic;
   const onClick = get(['1', 'onClick'], SlideProps.answers);
-  onClick(['Faux']);
+  onClick();
 });
