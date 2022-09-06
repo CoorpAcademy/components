@@ -714,6 +714,7 @@ import MoleculeNewsFixtureLongDescription from '../src/molecule/news/test/fixtur
 import MoleculeNewsFixtureLongTitle from '../src/molecule/news/test/fixtures/long-title';
 import MoleculeNewsFixtureSmallDesciption from '../src/molecule/news/test/fixtures/small-desciption';
 import MoleculeNewsFixtureSmallTitle from '../src/molecule/news/test/fixtures/small-title';
+import MoleculeNewsFixtureWithoutCta from '../src/molecule/news/test/fixtures/without-cta';
 import MoleculeNotificationBannerFixtureDefault from '../src/molecule/notification-banner/test/fixtures/default';
 import MoleculeNotificationBannerFixtureFeature from '../src/molecule/notification-banner/test/fixtures/feature';
 import MoleculeNotificationBannerFixtureSurvey from '../src/molecule/notification-banner/test/fixtures/survey';
@@ -2227,7 +2228,8 @@ export const fixtures = {
       LongDescription: MoleculeNewsFixtureLongDescription,
       LongTitle: MoleculeNewsFixtureLongTitle,
       SmallDesciption: MoleculeNewsFixtureSmallDesciption,
-      SmallTitle: MoleculeNewsFixtureSmallTitle
+      SmallTitle: MoleculeNewsFixtureSmallTitle,
+      WithoutCta: MoleculeNewsFixtureWithoutCta
     },
     MoleculeNotificationBanner: {
       Default: MoleculeNotificationBannerFixtureDefault,

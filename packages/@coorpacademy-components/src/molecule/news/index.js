@@ -11,21 +11,25 @@ const News = (props, context) => {
   return (
     <div className={style.news}>
       <div className={style.image}>
-        <Link
-          href={cta.href}
-          className={style.linkImage}
-          target={cta.target}
-          data-name="news-image"
-        >
+        {cta ? (
+          <Link
+            href={cta.href}
+            className={style.linkImage}
+            target={cta.target}
+            data-name="news-image"
+          >
+            <img src={image} />
+          </Link>
+        ) : (
           <img src={image} />
-        </Link>
+        )}
       </div>
       <div className={style.infos}>
         <Link
-          href={cta.href}
+          href={cta && cta.href}
           title={title}
           className={classnames(style.title, style.innerHTML)}
-          target={cta.target}
+          target={cta && cta.target}
           data-name="news-title"
           dangerouslySetInnerHTML={{__html: title}}
         />
@@ -40,10 +44,10 @@ const News = (props, context) => {
           <div className={style.author}>
             <img src={authorLogo} />
           </div>
-          <Cta {...cta} secondary name="news-cta" />
+          {cta ? <Cta {...cta} secondary name="news-cta" /> : null}
         </div>
       </div>
-      <Link className={style.link} href={cta.href} target={cta.target} />
+      {cta ? <Link className={style.link} href={cta.href} target={cta.target} /> : null}
     </div>
   );
 };
