@@ -124,6 +124,4 @@ test('should not dispatch any action && throw an error if progression does not e
     undefined,
     'Cannot answer a question of an inexistent progression'
   );
-
-  // t.is(error?.message, 'Cannot answer a question of an inexistent progression');
 });
