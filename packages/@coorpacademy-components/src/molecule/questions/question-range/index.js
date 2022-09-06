@@ -2,14 +2,14 @@ import React from 'react';
 import {getOr} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Provider from '../../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../../atom/provider';
 import Range from '../../../atom/range';
 import style from './style.css';
 
-const QuestionRange = (props, context) => {
+const QuestionRange = (props, legacyContext) => {
   const {title, minLabel, maxLabel, ...rangeProps} = props;
 
-  const {skin} = context;
+  const skin = GetSkinFromContext(legacyContext);
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
   const titleStyle = {

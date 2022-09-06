@@ -1,75 +1,82 @@
 import {noop, getOr} from 'lodash/fp';
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import Provider from '../provider';
+import Provider, {GetSkinFromContext} from '../provider';
 import {getShadowBoxColorFromPrimary} from '../../util/get-shadow-box-color-from-primary';
 import style from './handle.css';
 
-const Hammer =
-  // eslint-disable-next-line no-undef
-  typeof window !== 'undefined' ? require('hammerjs') : /* istanbul ignore next */ undefined;
+class NoopHammer {
+  constructor() {}
 
-class Handle extends React.Component {
-  static propTypes = {
-    onPan: PropTypes.func,
-    onPanStart: PropTypes.func,
-    onPanEnd: PropTypes.func
-  };
-
-  static contextTypes = {
-    skin: Provider.childContextTypes.skin
-  };
-
-  constructor(props, context) {
-    super(props, context);
-
-    this.setHandle = this.setHandle.bind(this);
+  // eslint-disable-next-line class-methods-use-this
+  on() {
+    return;
   }
 
-  componentDidMount() {
-    /* istanbul ignore else */
-    if (Hammer) {
-      const {onPanStart = noop, onPanEnd = noop, onPan = noop} = this.props;
-
-      this.hammer = new Hammer(this.handle);
-      this.hammer.on('panstart', onPanStart);
-      this.hammer.on('panend', onPanEnd);
-
-      this.hammer.on('panleft panright', onPan);
-    }
+  // eslint-disable-next-line class-methods-use-this
+  stop() {
+    return;
   }
 
-  componentWillUnmount() {
-    if (this.hammer) {
-      this.hammer.stop();
-      this.hammer.destroy();
-    }
-    this.hammer = null;
-  }
-
-  setHandle(el) {
-    this.handle = el;
-  }
-
-  render() {
-    const {skin} = this.context;
-    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
-    const backgroundColor = primaryColor;
-
-    return (
-      <div className={style.wrapper}>
-        <div
-          style={{
-            backgroundColor,
-            boxShadow: `0px 0px 20px ${getShadowBoxColorFromPrimary(primaryColor)}`
-          }}
-          className={style.default}
-          ref={this.setHandle}
-          data-name={'handle'}
-        />
-      </div>
-    );
+  // eslint-disable-next-line class-methods-use-this
+  destroy() {
+    return;
   }
 }
+
+const Hammer = // eslint-disable-next-line no-undef
+  typeof window !== 'undefined' ? /* istanbul ignore next */ require('hammerjs') : NoopHammer;
+
+const Handle = (props, legacyContext) => {
+  const skin = GetSkinFromContext(legacyContext);
+  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+  const backgroundColor = primaryColor;
+  const {onPanStart = noop, onPanEnd = noop, onPan = noop} = props;
+
+  const handle = useRef();
+  const [hammer, setHammer] = useState();
+
+  useEffect(() => {
+    setHammer(new Hammer(handle.current));
+  }, [handle]);
+
+  useEffect(() => {
+    if (!hammer) return;
+    hammer.on('panstart', onPanStart);
+    hammer.on('panend', onPanEnd);
+
+    hammer.on('panleft panright', onPan);
+
+    return () => {
+      hammer.stop();
+      hammer.destroy();
+      setHammer(null);
+    };
+  }, [hammer, onPanStart, onPanEnd, onPan]);
+
+  return (
+    <div className={style.wrapper}>
+      <div
+        style={{
+          backgroundColor,
+          boxShadow: `0px 0px 20px ${getShadowBoxColorFromPrimary(primaryColor)}`
+        }}
+        className={style.default}
+        ref={handle}
+        data-name={'handle'}
+      />
+    </div>
+  );
+};
+
+Handle.propTypes = {
+  onPan: PropTypes.func,
+  onPanStart: PropTypes.func,
+  onPanEnd: PropTypes.func
+};
+
+Handle.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 export default Handle;

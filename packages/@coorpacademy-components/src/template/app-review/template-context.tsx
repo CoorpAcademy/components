@@ -1,5 +1,3 @@
-// -----------------------------------------------------------------------------
-
 import React, {createContext, useContext} from 'react';
 import {Translations} from '../../types/translations';
 import {Analytics} from '../../variables/analytics';
@@ -19,8 +17,6 @@ export type TemplateContextValues = {
 
 type Props = {values: TemplateContextValues; children: any};
 
-// -----------------------------------------------------------------------------
-
 const Context = createContext({
   theme: defaultTheme,
   translations: {},
@@ -28,8 +24,6 @@ const Context = createContext({
     statusBarHeight: 42
   }
 });
-
-// -----------------------------------------------------------------------------
 
 const useTemplateContext = (): TemplateContextValues => {
   const context = useContext(Context);
@@ -43,12 +37,8 @@ const useTemplateContext = (): TemplateContextValues => {
   return context;
 };
 
-// -----------------------------------------------------------------------------
-
 const TemplateContext = ({values, children}: Props) => {
   return <Context.Provider value={{...values}}>{children}</Context.Provider>;
 };
-
-// -----------------------------------------------------------------------------
 
 export {TemplateContext, useTemplateContext};

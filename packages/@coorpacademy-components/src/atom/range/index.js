@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {getOr, noop, set, clamp} from 'lodash/fp';
-import Provider from '../provider';
+import {noop, set, clamp} from 'lodash/fp';
 import Handle from './handle';
 import style from './style.css';
 
@@ -18,6 +17,49 @@ const extractStateFromProps = props => {
   };
 };
 
+const RenderHandles = props => {
+  const {
+    left,
+    right,
+    multi = false,
+    pending,
+    onHandleMinChange,
+    onHandleMinChangeEnd,
+    onHandleMaxChange,
+    onHandleMaxChangeEnd
+  } = props;
+
+  return (
+    <div>
+      {multi ? (
+        <span
+          className={pending ? style.handle : style.animatedHandle}
+          style={{left: `${left * 100}%`}}
+        >
+          <Handle axis="x" onPan={onHandleMinChange} onPanEnd={onHandleMinChangeEnd} />
+        </span>
+      ) : null}
+      <span
+        className={pending ? style.handle : style.animatedHandle}
+        style={{left: `${right * 100}%`}}
+      >
+        <Handle axis="x" onPan={onHandleMaxChange} onPanEnd={onHandleMaxChangeEnd} />
+      </span>
+    </div>
+  );
+};
+
+RenderHandles.propTypes = {
+  left: PropTypes.number,
+  right: PropTypes.number,
+  multi: PropTypes.bool,
+  pending: PropTypes.bool,
+  onHandleMinChange: PropTypes.func,
+  onHandleMinChangeEnd: PropTypes.func,
+  onHandleMaxChange: PropTypes.func,
+  onHandleMaxChangeEnd: PropTypes.func
+};
+
 class Range extends React.Component {
   static propTypes = {
     onChange: PropTypes.func,
@@ -25,10 +67,6 @@ class Range extends React.Component {
     multi: PropTypes.bool,
     // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
-  };
-
-  static contextTypes = {
-    skin: Provider.childContextTypes.skin
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -132,45 +170,16 @@ class Range extends React.Component {
     return this.handleChange(newValue, closestHandle, false);
   }
 
-  renderHandles() {
-    const {
-      value: [left, right],
-      multi,
-      pending
-    } = this.state;
-
-    return (
-      <div>
-        {multi ? (
-          <span
-            className={pending ? style.handle : style.animatedHandle}
-            style={{left: `${left * 100}%`}}
-          >
-            <Handle axis="x" onPan={this.handleMinChange} onPanEnd={this.handleMinChangeEnd} />
-          </span>
-        ) : null}
-        <span
-          className={pending ? style.handle : style.animatedHandle}
-          style={{left: `${right * 100}%`}}
-        >
-          <Handle axis="x" onPan={this.handleMaxChange} onPanEnd={this.handleMaxChangeEnd} />
-        </span>
-      </div>
-    );
-  }
-
   render() {
-    const {skin} = this.context;
-    const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-
     const {
+      multi = false,
       value: [left, right],
       pending
     } = this.state;
     const railWidth = right - left;
     const railLeft = left;
     const railStyle = {
-      backgroundColor: defaultColor,
+      backgroundColor: '#9999A8',
       width: `${railWidth * 100}%`,
       left: `${railLeft * 100}%`
     };
@@ -180,7 +189,16 @@ class Range extends React.Component {
         <div className={style.container}>
           <div className={style.track} data-name="sliderTrack" ref={this.setRefTrack} />
           <div className={pending ? style.rail : style.animatedRail} style={railStyle} />
-          {this.renderHandles()}
+          <RenderHandles
+            left={left}
+            right={right}
+            pending={pending}
+            multi={multi}
+            onHandleMinChange={this.handleMinChange}
+            onHandleMinChangeEnd={this.handleMinChangeEnd}
+            onHandleMaxChange={this.handleMaxChange}
+            onHandleMaxChangeEnd={this.handleMaxChangeEnd}
+          />
         </div>
       </div>
     );
