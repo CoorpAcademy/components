@@ -1,5 +1,6 @@
-import * as React from 'react';
-import {View, StyleSheet, ImageBackground, Text} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet, Image, Text} from 'react-native';
+import {BlurView} from '@react-native-community/blur';
 
 import {
   NovaCompositionCoorpacademyClockTime as ClockIcon,
@@ -7,8 +8,6 @@ import {
   NovaCompositionCoorpacademySearch as SearchIcon
 } from '@coorpacademy/nova-icons';
 
-import translations from '../../translations';
-import blur from '../../assets/images/nav-blur.png';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {
   Position,
@@ -16,20 +15,28 @@ import {
   JustifyContent,
   AlignSelf,
   Overflow,
-  FlexAlignType
+  FlexAlignType,
+  FontSize
 } from '../../types/styles';
 import {Theme} from '../../variables/theme.native';
+import blur from './nav-blur.png';
+
+export type NavItemType = {
+  label: string;
+  icon: any;
+  onPress: () => void;
+};
 
 export interface Props {
   testID?: string;
-  selection: string;
+  items: Array<NavItemType>;
+  selectedItemIndex: number;
 }
 
-export const HOME = 'home';
-export const REVISION = 'revision';
-export const SEARCH = 'search';
-
 type StyleSheetType = {
+  main: {
+    marginHorizontal: number;
+  };
   container: {
     position: Position;
     bottom: number;
@@ -49,10 +56,11 @@ type StyleSheetType = {
     marginTop: number;
   };
   buttonText: {
-    fontSize: number;
+    fontSize: FontSize;
     lineHeight: number;
     color: string;
   };
+
   dot: {
     width: number;
     height: number;
@@ -69,6 +77,9 @@ type StyleSheetType = {
 
 const createStyleSheet = (theme: Theme) =>
   StyleSheet.create({
+    main: {
+      marginHorizontal: 20
+    },
     container: {
       position: 'absolute',
       bottom: 34,
@@ -93,37 +104,63 @@ const createStyleSheet = (theme: Theme) =>
       // height: 11,
       color: theme.colors.text.primary
     },
+
     dot: {
       width: 8,
       height: 8,
       borderRadius: 8,
       backgroundColor: theme.colors.cta,
-      marginTop: -8
+      marginTop: 3,
+      position: 'absolute',
+      alignSelf: 'center'
     },
     blur: {
-      marginTop: -20,
+      tintColor: theme.colors.cta,
+      marginTop: -22,
       width: 50,
-      height: 32
+      height: 32,
+      position: 'absolute',
+      alignSelf: 'center'
     }
   });
 
 interface ButtonProps {
+  key: string;
   title: string;
   testID: string;
   selected: boolean;
   Icon: any;
+  styles: StyleSheetType;
+  theme: Theme;
 }
 
-const Button = ({testID, title, selected, Icon}: ButtonProps) => (
-  <View testID={testID} style={styles.button}>
-    <Icon height={16} width={16} color={selected ? theme.colors.cta : theme.colors.text.primary} />
-    <Text style={styles.buttonText}>{title}</Text>
-    {selected ? <ImageBackground source={blur} style={styles.blur} /> : null}
-    {selected ? <View style={styles.dot} /> : null}
+const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps) => (
+  <View key={key} testID={testID} style={styles.button}>
+    <View style={{alignItems: 'center'}}>
+      <Icon
+        height={16}
+        width={16}
+        color={selected ? theme.colors.cta : theme.colors.text.primary}
+      />
+      <Text style={styles.buttonText}>{title}</Text>
+    </View>
+    {selected ? (
+      <View>
+        <Image source={blur} style={styles.blur} />
+        <View style={styles.dot} />
+      </View>
+    ) : null}
   </View>
 );
 
-const NavigationBar = ({selection = HOME}: Props) => {
+const NavigationBar = ({
+  items = [
+    {label: 'test 1', icon: ClockIcon, onPress: () => {}},
+    {label: 'test 2', icon: HomeIcon, onPress: () => {}},
+    {label: 'test 3', icon: SearchIcon, onPress: () => {}}
+  ],
+  selectedItemIndex = 1
+}: Props) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
@@ -136,26 +173,29 @@ const NavigationBar = ({selection = HOME}: Props) => {
   if (!styleSheet) {
     return null;
   }
+
   return (
-    <View style={styles.container}>
-      <Button
-        title={translations.navigationBar.home}
-        Icon={HomeIcon}
-        selected={selection === HOME}
-        testID="navigationHomeButton"
+    <View style={styleSheet.main}>
+      <BlurView
+        style={styleSheet.container}
+        blurAmount={32}
+        reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
       />
-      <Button
-        title={translations.navigationBar.revision}
-        Icon={ClockIcon}
-        selected={selection === REVISION}
-        testID="navigationRevisionButton"
-      />
-      <Button
-        title={translations.navigationBar.search}
-        Icon={SearchIcon}
-        selected={selection === SEARCH}
-        testID="navigationSearchButton"
-      />
+      <View style={styleSheet.container}>
+        {items.map((prop, index) => {
+          return (
+            <Button
+              key={index.toString()}
+              title={prop.label}
+              Icon={prop.icon}
+              selected={index === selectedItemIndex}
+              testID={`navigationButton_${index}`}
+              styles={styleSheet}
+              theme={theme}
+            />
+          );
+        })}
+      </View>
     </View>
   );
 };

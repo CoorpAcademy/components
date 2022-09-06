@@ -100,6 +100,7 @@
     "@coorpacademy/react-native-slider": "^0.11.1",
     "@coorpacademy/translate": "6.1.5",
     "@coorpacademy/webpack-config": "10.0.4",
+    "@react-native-community/blur": "^4.2.0",
     "@storybook/addon-knobs": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
