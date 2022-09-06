@@ -39,7 +39,8 @@ const initialState: StoreState = {
       [freeTextSlide._id]: freeTextSlide
     },
     skills: [],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: freeTextSlide._id,

@@ -39,7 +39,8 @@ const initialState: StoreState = {
       [qcmGraphicSlide._id]: qcmGraphicSlide
     },
     skills: [],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: qcmGraphicSlide._id,
