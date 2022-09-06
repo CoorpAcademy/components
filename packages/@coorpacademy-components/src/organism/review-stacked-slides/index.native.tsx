@@ -1,34 +1,41 @@
 import React from 'react';
-import {View} from 'react-native';
-import _toString from 'lodash/fp/toString';
+import {StyleSheet, View} from 'react-native';
+import keys from 'lodash/fp/keys';
 import Slide from '../review-slide/index.native';
 import {Props} from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
 
+const styleSheet = StyleSheet.create({
+  stackedSlides: {
+    flex: 1,
+    backgroundColor: '#00f'
+    // justifyContent: 'space-between',
+    // alignItems: 'center'
+  }
+});
+
 const StackedSlides = (props: Props) => {
   const {slides = {}, endReview, validateButton, correctionPopinProps} = props;
-  const stackedSlides = [];
-  // eslint-disable-next-line fp/no-loops
-  for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
-    const slide = slides[_toString(slideIndex)];
+
+  const indexes = keys(slides).reverse();
+  const stackedSlides = indexes.map(slideIndex => {
+    const slide = slides[slideIndex];
     // const {animationType, hidden, position} = slide;
 
-    const slideView = (
-      <View key={`slide-${slideIndex}`}>
-        <Slide
-          {...{
-            slideIndex: _toString(slideIndex),
-            slide,
-            validateButton,
-            correctionPopinProps
-          }}
-          key={slideIndex}
-        />
-      </View>
+    return (
+      <Slide
+        {...{
+          num: Number.parseInt(slideIndex),
+          slideIndex,
+          slide,
+          validateButton,
+          correctionPopinProps
+        }}
+        key={slideIndex}
+      />
     );
-    stackedSlides.push(slideView);
-  }
+  });
 
   return <View>{stackedSlides}</View>;
 };

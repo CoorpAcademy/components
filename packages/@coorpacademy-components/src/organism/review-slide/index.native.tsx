@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {Button, View} from 'react-native';
+import {Button, StyleSheet, useWindowDimensions, View} from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 // import Answer from '../../molecule/answer';
@@ -97,11 +97,40 @@ const QuestionContainer = props => {
   );
 };
 
+const creatSlideStyle = (num: number, screenWidth: number, screenHeight: number) => {
+  const slideWidth = screenWidth - 40 - num * 8;
+  const slideHeight = screenHeight * 0.65;
+
+  return StyleSheet.create({
+    slide: {
+      position: 'absolute',
+      top: num * -5,
+      left: -slideWidth / 2,
+      flex: 1,
+      backgroundColor: '#fff', // theme.colors.white
+      height: slideHeight,
+      width: slideWidth,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      padding: 25,
+      shadowColor: '#000',
+      shadowOffset: {width: 0, height: -1},
+      shadowOpacity: 0.05,
+      shadowRadius: 16,
+      elevation: 10 - num * 1,
+      borderRadius: 16
+    }
+  });
+};
+
 const Slide = (props: Props, context: any) => {
-  const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
+  const {slide, validateButton, correctionPopinProps, num, slideIndex = '0'} = props;
 
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+  const {width, height} = useWindowDimensions();
+  const slideStyle = creatSlideStyle(num, width, height);
+
   const {
     loading,
     loadingAriaLabel,
@@ -113,10 +142,10 @@ const Slide = (props: Props, context: any) => {
   } = slide;
 
   return (
-    <View>
+    <View style={slideStyle.slide}>
       {loading ? (
         // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
-        <Text>todo loader</Text>
+        <Text>todo loader {num}</Text>
       ) : (
         [
           <QuestionContainer

@@ -11,6 +11,7 @@ export type TemplateContextValues = {
   translations: Translations;
   vibration?: Vibration;
   display: {
+    headerHeight: number;
     statusBarHeight: number;
   };
 };
@@ -21,6 +22,7 @@ const Context = createContext({
   theme: defaultTheme,
   translations: {},
   display: {
+    headerHeight: 67,
     statusBarHeight: 42
   }
 });

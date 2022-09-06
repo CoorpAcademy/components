@@ -18,6 +18,7 @@ export const SlideProp = PropTypes.shape({
 
 const propTypes = {
   slideIndex: PropTypes.string,
+  num: PropTypes.number.isRequired,
   slide: SlideProp,
   validateButton: PropTypes.shape({
     label: PropTypes.string.isRequired,
