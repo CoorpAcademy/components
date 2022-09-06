@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import type {Options, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {fetchCorrection} from './fetch-correction';
+import {fetchSlide} from './fetch-slide';
 
 export const POST_ANSWER_REQUEST = '@@answer/POST_REQUEST' as const;
 export const POST_ANSWER_SUCCESS = '@@answer/POST_SUCCESS' as const;
@@ -35,6 +36,8 @@ export const postAnswer = async (
   });
   const response = await dispatch(action);
   if (response.type === POST_ANSWER_SUCCESS) {
+    const slideRef = progression.state.nextContent.ref;
+    await dispatch(fetchSlide(slideRef));
     await dispatch(fetchCorrection);
   }
 };
