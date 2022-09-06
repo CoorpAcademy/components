@@ -52,7 +52,7 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch EDIT_QCM_DRAG action via the property onChange of a QCM Drag slide', t => {
+test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Drag slide', t => {
   t.plan(2);
 
   const expectedActions = [
