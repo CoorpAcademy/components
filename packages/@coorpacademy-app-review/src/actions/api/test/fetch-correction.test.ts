@@ -28,7 +28,8 @@ const initialState: StoreState = {
       [qcmSlide.universalRef]: qcmSlide
     },
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
-    token: '1234'
+    token: '1234',
+    corrections: {}
   },
   ui: {
     currentSlideRef: freeTextSlide._id,
