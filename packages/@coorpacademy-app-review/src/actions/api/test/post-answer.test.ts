@@ -62,7 +62,7 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the updated progression is returned & set ui slide animateCorrectionPopin prop to true', async t => {
+test('should dispatch post-answer, fetch-slide and fetch-correction actions when the answer is submitted', async t => {
   t.plan(8);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
