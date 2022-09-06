@@ -83,13 +83,13 @@ test('editAnswer should throw an Error if the slide is not found', async t => {
 test('editAnswer should throw an Error for unsupported questions', async t => {
   const state = buildInitialState(initialState, {
     ...freeTextSlide,
-    question: {...freeTextSlide.question, type: 'unsupported'} as unknown as Question
+    question: {...freeTextSlide.question, type: 'unsupportedType'} as unknown as Question
   });
   const {dispatch} = createTestStore(t, state, services, []);
   await t.throws(
     () => dispatch(editAnswer(['Some kind of answer'])),
     undefined,
-    'questionType is not supported'
+    'Question type unsupportedType is not supported'
   );
 });
 

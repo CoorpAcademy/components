@@ -65,7 +65,7 @@ export const editAnswer =
 
     const type = get(questionType, ANSWER_EDIT);
 
-    if (!type) throw new Error('questionType is not supported');
+    if (!type) throw new Error(`Question type ${questionType} is not supported`);
 
     return dispatch({
       type,
