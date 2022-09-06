@@ -80,14 +80,16 @@ export const qcmGraphicUISlide: Partial<UISlide> = {
           image:
             '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships/cockpit-partner-au-feminin/default/true-1512554153232.jpg',
           selected: false,
-          onClick: noop
+          onClick: noop,
+          ariaLabel: 'Vrai'
         },
         {
           title: 'Faux',
           image:
             '//static.coorpacademy.com/content/CoorpAcademy/content-partnerships/cockpit-partner-au-feminin/default/false-1512554160848.jpg',
           selected: false,
-          onClick: noop
+          onClick: noop,
+          ariaLabel: 'Faux'
         }
       ]
     }
