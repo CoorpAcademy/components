@@ -80,22 +80,6 @@ test('editAnswer should throw an Error if the slide is not found', async t => {
   );
 });
 
-test('editAnswer should throw an Error if the questionType is not found', async t => {
-  const state = buildInitialState(initialState, freeTextSlide);
-  const expectedActions = [{type: undefined, payload: []}];
-  const {dispatch} = createTestStore(
-    t,
-    omit(['data', 'slides', 'question', 'type'], state) as StoreState,
-    services,
-    expectedActions
-  );
-  await t.throws(
-    () => dispatch(editAnswer(['Some kind of answer'])),
-    undefined,
-    'No slide was found or questionType was not found'
-  );
-});
-
 test('editAnswer should throw an Error for unsupported questions', async t => {
   const state = buildInitialState(initialState, {
     ...freeTextSlide,

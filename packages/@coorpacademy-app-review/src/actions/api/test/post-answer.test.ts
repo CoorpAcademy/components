@@ -16,6 +16,7 @@ import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS} from '../fetch-correction';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 
 const progressionId = '123456789123';
 const skillRef = '_skill-ref';
@@ -72,15 +73,15 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
     {
       type: SLIDE_FETCH_REQUEST,
       meta: {
-        slideRef: 'sli_VJYjJnJhg'
+        slideRef: qcmGraphicSlide._id
       }
     },
     {
       type: SLIDE_FETCH_SUCCESS,
       meta: {
-        slideRef: 'sli_VJYjJnJhg'
+        slideRef: qcmGraphicSlide._id
       },
-      payload: freeTextSlide
+      payload: qcmGraphicSlide
     },
     {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: freeTextSlide._id}},
     {

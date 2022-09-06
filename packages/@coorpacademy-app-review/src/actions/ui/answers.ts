@@ -58,10 +58,10 @@ export const editAnswer =
     const currentSlideRef = get(['ui', 'currentSlideRef'], state);
     const userAnswers = get(['ui', 'answers'], state);
     const slide = get(['data', 'slides', currentSlideRef], state);
-    const questionType = get(['question', 'type'], slide);
 
-    if (!slide || !questionType)
-      throw new Error('No slide was found or questionType was not found');
+    if (!slide) throw new Error('No slide was found');
+
+    const questionType = get(['question', 'type'], slide);
 
     const type = get(questionType, ANSWER_EDIT);
 
