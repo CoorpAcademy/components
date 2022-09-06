@@ -8,16 +8,8 @@ import Handle from '../handle';
 browserEnv();
 configure({adapter: new Adapter()});
 
-test('should instanciate Handle', t => {
+test('should instanciate Handle, mount and unmount it', t => {
   const handler = mount(<Handle />);
-  handler.unmount();
-  t.pass();
-});
-
-test('should instanciate Handle without hammmer', t => {
-  const handler = mount(<Handle />);
-  const instance = handler.instance();
-  instance.hammer = null;
   handler.unmount();
   t.pass();
 });

@@ -10,7 +10,7 @@ import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import size from 'lodash/fp/size';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
-import Provider from '../provider';
+import Provider, {GetSkinFromContext} from '../provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -27,7 +27,7 @@ const themeStyle = {
   coorpmanager: null
 };
 
-const Select = (props, context) => {
+const Select = (props, legacyContext) => {
   const {
     name,
     options = [],
@@ -44,8 +44,7 @@ const Select = (props, context) => {
     title: propTitle
   } = props;
 
-  const {skin} = context;
-
+  const skin = GetSkinFromContext(legacyContext);
   const title = useMemo(() => (propTitle ? `${propTitle}${required ? '*' : ''}` : null), [
     propTitle,
     required

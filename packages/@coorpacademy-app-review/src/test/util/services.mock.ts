@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import {qcmDragSlide} from '../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
 import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
@@ -32,6 +33,8 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
       return freeTextSlide;
     case templateSlide.universalRef:
       return templateSlide;
+    case qcmDragSlide.universalRef:
+      return qcmDragSlide;
     default:
       return sliderSlide;
   }
