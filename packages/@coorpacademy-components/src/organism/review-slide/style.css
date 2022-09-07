@@ -21,7 +21,9 @@
 
 .slideContentContainer {
   margin-top: 0px;
-  height: 430px; /* TODO: à changer !!! */
+  height: 430px; /* TODO: à changer !!!
+  height: calc(100% - 276px);
+  max-height: calc(100% - 276px); */
   display: flex;
   justify-items: center;
   align-items: center;
