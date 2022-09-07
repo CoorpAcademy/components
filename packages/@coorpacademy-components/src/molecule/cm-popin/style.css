@@ -175,7 +175,7 @@
   position: fixed;
   bottom: 32px;
   left: 32px;
-  z-index: 5;
+  z-index: 1000;
 }
 .cookieTitle {
   font-family: "Gilroy";
@@ -185,7 +185,6 @@
   line-height: 32px;
   color: white;
   padding-left: 16px;
-  width: 60%;
 }
 .cookieIcon {
   height: 20px;
