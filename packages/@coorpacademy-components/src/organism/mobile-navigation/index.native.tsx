@@ -19,7 +19,7 @@ import {
   FontSize
 } from '../../types/styles';
 import {Theme} from '../../variables/theme.native';
-import blur from './nav-blur.png';
+import Blur from './nav-blur.svg';
 
 export type NavItemType = {
   label: string;
@@ -146,7 +146,7 @@ const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps
     </View>
     {selected ? (
       <View>
-        <Image source={blur} style={styles.blur} />
+        <Blur />
         <View style={styles.dot} />
       </View>
     ) : null}
