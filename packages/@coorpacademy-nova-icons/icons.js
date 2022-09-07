@@ -45,6 +45,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/clock-time.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/clue.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/cog.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/nav-bar.svg')},
   {
     filePath: path.resolve(
       './third-party/nova-composition.iconjar/icons/empty-state-home-revision.svg'
