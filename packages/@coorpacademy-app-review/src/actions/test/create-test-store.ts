@@ -18,7 +18,7 @@ export const createTestStore = (
   initialState: StoreState,
   services: Services,
   actions: AnyAction[]
-): Store => {
+): Store<StoreState, AnyAction> => {
   const thunkMiddleware = thunk.withExtraArgument({services});
   const enhancer = compose(applyMiddleware(thunkMiddleware, assertActionsMiddleware(t, actions)));
   return createStore(rootReducer, initialState, enhancer);

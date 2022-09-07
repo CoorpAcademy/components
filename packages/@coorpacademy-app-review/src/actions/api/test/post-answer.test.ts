@@ -62,8 +62,8 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the updated progression is returned', async t => {
-  t.plan(6);
+test('should dispatch post-answer, fetch-slide and fetch-correction actions when the answer is submitted', async t => {
+  t.plan(8);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
     {
@@ -91,9 +91,14 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_SUCCESS when the upd
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(postAnswer);
+
+  const state = getState();
+
+  t.false(state.ui.slide.validateButton);
+  t.true(state.ui.slide.animateCorrectionPopin);
 });
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', async t => {
