@@ -5,6 +5,7 @@ export type Choice = {
   help?: string;
   onClick: Function;
   ariaLabel?: string;
+  'aria-label'?: string;
 };
 
 export type QcmDrag = {

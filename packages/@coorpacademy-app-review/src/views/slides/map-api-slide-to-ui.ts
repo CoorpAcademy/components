@@ -52,14 +52,14 @@ const qcmProps =
     return {
       type: 'qcm',
       answers: map(choice => {
-        const label = choice.label || '';
+        const label = getOr('', 'label', choice);
         return {
           title: label,
           selected: includes(label, answers),
           onClick: (): void => {
             dispatch(editAnswer([label]));
           },
-          ariaLabel: choice.label
+          'aria-label': label
         };
       }, question.content.choices)
     };
@@ -71,7 +71,7 @@ const qcmDragProps =
     return {
       type: 'qcmDrag',
       answers: map(choice => {
-        const label = choice.label || '';
+        const label = getOr('', 'label', choice);
         const indexInAnswer = indexOf(label, answers);
         return {
           title: label,
@@ -91,14 +91,15 @@ const qcmGraphicProps =
     return {
       type: 'qcmGraphic',
       answers: map(choice => {
-        const label = choice.label || '';
+        const label = getOr('', 'label', choice);
         return {
           title: label,
           image: get('media.src.0.url', choice),
           selected: includes(label, answers),
           onClick: (): void => {
             dispatch(editAnswer([label]));
-          }
+          },
+          ariaLabel: label
         };
       }, question.content.choices)
     };
@@ -189,8 +190,8 @@ const basicProps =
   (answers: string[], question: BasicQuestion): FreeText => {
     return {
       type: 'freeText',
-      placeholder: question.content.placeholder || '',
-      value: answers[0] || '',
+      placeholder: getOr('', 'content.placeholder', question),
+      value: getOr('', '0', answers),
       onChange: (text: string): void => {
         dispatch(editAnswer([text]));
       }
