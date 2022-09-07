@@ -20,9 +20,8 @@
 }
 
 .slideContentContainer {
-  margin-top: 15px;
-  height: calc(100% - 15px);
-  min-height: 600px;
+  margin-top: 0px;
+  height: 430px; /* TODO: à changer !!! */
   display: flex;
   justify-items: center;
   align-items: center;
