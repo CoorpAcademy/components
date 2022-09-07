@@ -1,11 +1,14 @@
-import React, {useMemo} from 'react';
-import {Button, StyleSheet, useWindowDimensions, View} from 'react-native';
+import React, {useEffect, useMemo, useState} from 'react';
+import {StyleSheet, useWindowDimensions, View} from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-// import Answer from '../../molecule/answer';
+import Text from '../../atom/text/index.native';
+import Answer from '../../molecule/answer/index.native';
 // import Loader from '../../atom/loader';
 // import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
-import Text from '../../atom/text/index.native';
+import {useTemplateContext} from '../../template/app-review/template-context';
+import {Theme} from '../../variables/theme.native';
+import Touchable from '../../hoc/touchable/index.native';
 import {Props} from './prop-types';
 
 const CorrectionPopin = ({
@@ -42,39 +45,79 @@ const CorrectionPopin = ({
   );
 };
 
-const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
-  const {label, onClick, disabled} = validateButton;
-  const validateButtonProps = {
-    type: 'primary',
-    label,
-    'aria-label': label,
-    'data-name': `slide-validate-button-${slideIndex}`,
-    onClick,
-    disabled,
-    customStyle: {
-      backgroundColor: primarySkinColor
-    }
-    /*
-      slide validation action, this will trigger the correction popin
-      (with the useEffect that fires the dispatchers, if there is a nextContent content,
-      it will be loaded here) but will not trigger any animations unless the endReview
-      signal is received (all slide will disappear, also fired in a useEffect),
+// const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
+//   const {label, onClick, disabled} = validateButton;
+//   const validateButtonProps = {
+//     type: 'primary',
+//     label,
+//     'aria-label': label,
+//     'data-name': `slide-validate-button-${slideIndex}`,
+//     onClick,
+//     disabled,
+//     customStyle: {
+//       backgroundColor: primarySkinColor
+//     }
+//   };
 
-      if it is the last slide and the content needs to be different, then that update will
-      be handled on the next slide logic but the content will be carried from here.
-    onClick: async () => {
-      // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
-      await validateSlide();
+//   return <Button title="validate todo" />;
+// };
+
+const createQuestionStyle = (theme: Theme, brandTheme: any) =>
+  StyleSheet.create({
+    questionOrigin: {
+      fontSize: 12,
+      lineHeight: 16,
+      color: theme.colors.text.primary,
+      marginBottom: theme.spacing.tiny,
+      marginTop: theme.spacing.small,
+      textAlign: 'center'
     },
-    */
-  };
-
-  return <Button title="validate todo" />;
-};
+    questionText: {
+      fontSize: 16,
+      lineHeight: 22,
+      fontWeight: '700',
+      color: theme.colors.text.primary,
+      textAlign: 'center'
+    },
+    questionHelp: {
+      fontSize: 12,
+      lineHeight: 16,
+      color: theme.colors.gray.medium,
+      marginBottom: theme.spacing.base,
+      marginTop: theme.spacing.small,
+      textAlign: 'center'
+    },
+    validateButton: {
+      backgroundColor: brandTheme?.colors.primary || theme.colors.text.primary,
+      borderRadius: 7,
+      width: '100%'
+    },
+    validateButtonText: {
+      fontSize: 14,
+      lineHeight: 20,
+      fontWeight: '700',
+      color: theme.colors.white,
+      marginBottom: 16,
+      marginTop: 16,
+      textAlign: 'center'
+    },
+    dummyAnswer: {
+      backgroundColor: '#a986bb',
+      flex: 1
+    }
+  });
 
 const QuestionContainer = props => {
   const {answerUI, questionText, questionOrigin} = props;
-  if (!answerUI || !questionText) return null;
+  const {theme, brandTheme} = useTemplateContext();
+  const [style, setStyle] = useState<any | null>(null);
+
+  useEffect(() => {
+    const questionStyle = createQuestionStyle(theme, brandTheme);
+    setStyle(questionStyle);
+  }, [theme, brandTheme]);
+
+  if (!answerUI || !questionText || !style) return null;
 
   const answerProps = get(['model', 'choices'], answerUI)
     ? /* istanbul ignore next */ {
@@ -88,11 +131,13 @@ const QuestionContainer = props => {
 
   return (
     <>
-      <Text>{questionOrigin}</Text>
-      <Text>{questionText}</Text>
-      <Text>{get('help', answerUI)}</Text>
-      {/* <Answer {...answerProps} key="answer" /> */}
-      <Text>Todo molecule answer</Text>
+      <Text style={style.questionOrigin}>{questionOrigin}</Text>
+      <Text style={style.questionText}>{questionText}</Text>
+      <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
+      <Answer {...answerProps} />
+      <Touchable style={style.validateButton}>
+        <Text style={style.validateButtonText}>validate todo</Text>
+      </Touchable>
     </>
   );
 };
@@ -153,12 +198,6 @@ const Slide = (props: Props, context: any) => {
             questionText={questionText}
             answerUI={answerUI}
             key="question-container"
-          />,
-          <ValidateButton
-            slideIndex={slideIndex}
-            validateButton={validateButton}
-            key="validate-button"
-            primarySkinColor={primarySkinColor}
           />,
           <CorrectionPopin
             correctionPopinProps={correctionPopinProps}
