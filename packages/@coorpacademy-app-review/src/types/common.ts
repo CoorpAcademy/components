@@ -90,6 +90,10 @@ export type SlideFromAPI = {
   };
 };
 
+export type Rank = {
+  rank: number;
+};
+
 export type ProgressionAnswerItem = {
   isCorrect: boolean;
   slideRef: string;
