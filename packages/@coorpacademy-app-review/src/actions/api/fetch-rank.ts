@@ -14,11 +14,11 @@ export const RANK_FETCH_END_SUCCESS = '@@rank/FETCH_END_SUCCESS';
 export const RANK_FETCH_END_FAILURE = '@@rank/FETCH_END_FAILURE';
 
 export type RankRequestAction = {
-  type: typeof RANK_FETCH_START_REQUEST | typeof RANK_FETCH_END_SUCCESS;
+  type: typeof RANK_FETCH_START_REQUEST | typeof RANK_FETCH_END_REQUEST;
 };
 
 export type RankSuccessAction = {
-  type: typeof RANK_FETCH_START_SUCCESS | typeof RANK_FETCH_END_REQUEST;
+  type: typeof RANK_FETCH_START_SUCCESS | typeof RANK_FETCH_END_SUCCESS;
   payload: Rank;
 };
 
