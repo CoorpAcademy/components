@@ -13,10 +13,20 @@ export const RANK_FETCH_END_REQUEST = '@@rank/FETCH_END_REQUEST';
 export const RANK_FETCH_END_SUCCESS = '@@rank/FETCH_END_SUCCESS';
 export const RANK_FETCH_END_FAILURE = '@@rank/FETCH_END_FAILURE';
 
-export type ReceivedRank = {
-  type: typeof RANK_FETCH_START_SUCCESS | typeof RANK_FETCH_END_SUCCESS;
+export type RankRequestAction = {
+  type: typeof RANK_FETCH_START_REQUEST | typeof RANK_FETCH_END_SUCCESS;
+};
+
+export type RankSuccessAction = {
+  type: typeof RANK_FETCH_START_SUCCESS | typeof RANK_FETCH_END_REQUEST;
   payload: Rank;
 };
+
+export type RankFailureAction = {
+  type: typeof RANK_FETCH_START_FAILURE | typeof RANK_FETCH_END_FAILURE;
+};
+
+export type RankAction = RankRequestAction | RankSuccessAction | RankFailureAction;
 
 export type Test = {
   types: string[];
@@ -28,7 +38,7 @@ export const fetchRank = (
   getState: () => StoreState,
   {services}: Options,
   {types, bailout}: Test
-): ReceivedRank => {
+): RankAction => {
   const action = buildTask({
     types,
     task: () => {
@@ -46,7 +56,7 @@ export const fetchStartRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
   {services}: Options
-): ReceivedRank => {
+): RankAction => {
   return fetchRank(
     dispatch,
     getState,
@@ -64,7 +74,7 @@ export const fetchEndRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
   {services}: Options
-): ReceivedRank => {
+): RankAction => {
   return fetchRank(
     dispatch,
     getState,
