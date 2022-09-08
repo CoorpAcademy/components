@@ -9,6 +9,7 @@ import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import {Dispatch} from 'redux';
+import isEmpty from 'lodash/fp/isEmpty';
 import {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
 import {SlideIndexes} from '../../common';
 import {StoreState} from '../../reducers';
@@ -63,6 +64,7 @@ export type CorrectionPopinProps = {
   };
   successLabel: string;
   failureLabel: string;
+  type: 'right' | 'wrong';
 };
 
 export type SlidesViewProps = {
@@ -164,7 +166,14 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
+      const currentSlide = get(['ui', 'currentSlideRef'], state);
+      const correction =
+        currentSlide === slideRef ? get(['data', 'corrections', currentSlide], state) : undefined;
+
       const updatedUiSlide = pipe(
+        set('showCorrectionPopin', !isEmpty(correction)),
+        // TODO: TOASK is animateCorrectionPopin neccesary?
+        set('animateCorrectionPopin', !isEmpty(correction)),
         set('loading', false),
         set('questionText', questionText),
         set('answerUI', answerUI),
@@ -262,11 +271,15 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
 };
 
 export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): SlidesViewProps => {
+  const currentSlide = get(['ui', 'currentSlideRef'], state);
+  const correction = get(['data', 'corrections', currentSlide], state);
+  const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
+
   return {
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick: (): void => {
+      onQuitClick: /* istanbul ignore next */ (): void => {
         // eslint-disable-next-line no-console
         console.log('onQuitClick');
       },
@@ -279,11 +292,31 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       validateButton: {
         label: '__validate',
         disabled: !get('ui.slide.validateButton', state),
-        onClick: (): void => {
+        onClick: /* istanbul ignore next */ (): void => {
           dispatch(postAnswer);
         }
       },
-      correctionPopinProps: undefined,
+      correctionPopinProps: correction
+        ? {
+            klf: {
+              label: 'TODO klf label',
+              // eslint-disable-next-line no-console
+              /* istanbul ignore next */ onClick: () => console.log('TODO KLF click'),
+              tooltip: 'TODO klf tooltip'
+            },
+            failureLabel: 'TODO failure label',
+            information: {
+              label: 'TODO info label',
+              message: 'TODO info message'
+            },
+            next: {
+              ariaLabel: 'TODO next ariaLabel',
+              label: 'TODO next label'
+            },
+            successLabel: 'TODO success label',
+            type: isCorrect ? 'right' : 'wrong'
+          }
+        : undefined,
       endReview: false
     },
     congratsProps: undefined
