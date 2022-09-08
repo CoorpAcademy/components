@@ -55,6 +55,10 @@ const fetchSkillsResponse = [
   }
 ];
 
+const fetchRankResponse = {
+  rank: 93
+};
+
 export const postProgressionResponse: ProgressionFromAPI = {
   _id: '62b1d1087aa12f00253f40ee',
   content,
@@ -419,5 +423,6 @@ export const services: Services = {
     const currentSlide = progression.state.nextContent.ref;
     return Promise.resolve(get(currentSlide, postAnswerResponses));
   },
-  fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref))
+  fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),
+  fetchRank: () => Promise.resolve(fetchRankResponse)
 };

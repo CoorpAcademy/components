@@ -167,6 +167,7 @@ export type Services = {
     progressionId: string,
     answer: string[]
   ): Promise<CorrectionFromAPI | void>;
+  fetchRank(token: string): Promise<Rank>;
 };
 
 export type Options = {
