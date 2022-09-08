@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
 import {
   NovaCompositionCoorpacademyClockTime as ClockIcon,
   NovaSolidPlacesPlacesHome2 as HomeIcon,
-  NovaCompositionCoorpacademySearch as SearchIcon
+  NovaCompositionCoorpacademySearch as SearchIcon,
+  NovaCompositionNavigationNavBar as BluredShadow
 } from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -19,7 +20,6 @@ import {
   FontSize
 } from '../../types/styles';
 import {Theme} from '../../variables/theme.native';
-import Blur from './nav-blur.svg';
 
 export type NavItemType = {
   label: string;
@@ -115,12 +115,12 @@ const createStyleSheet = (theme: Theme) =>
       alignSelf: 'center'
     },
     blur: {
-      tintColor: theme.colors.cta,
-      marginTop: -22,
-      width: 50,
-      height: 32,
+      marginTop: -87,
+      width: 200,
+      height: 100,
       position: 'absolute',
-      alignSelf: 'center'
+      alignSelf: 'center',
+      transform: [{ rotateX: '180deg' }, {scaleX: 0.7}]
     }
   });
 
@@ -136,6 +136,7 @@ interface ButtonProps {
 
 const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps) => (
   <View key={key} testID={testID} style={styles.button}>
+
     <View style={{alignItems: 'center'}}>
       <Icon
         height={16}
@@ -146,8 +147,8 @@ const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps
     </View>
     {selected ? (
       <View>
-        <Blur />
         <View style={styles.dot} />
+        <BluredShadow color={theme.colors.cta} style={styles.blur} />
       </View>
     ) : null}
   </View>
