@@ -41,11 +41,7 @@ type JSXElement = {|
   attributes?: Array<JSXAttribute>
 |};
 
-const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
-  name === 'fill' && value === '#757575';
-
-const isStrokeAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
-  name === 'stroke' && value === '#757575';
+const isCustomizableColor = ({value: {value} = {}}: JSXAttribute): boolean => value === '#757575';
 
 const isStringLiteralProp = ({expression: {type} = {}}): boolean => type === 'StringLiteral';
 
@@ -70,7 +66,7 @@ const findElementAndReplaceAttributes = (
   let newAttributes;
   if (attributes) {
     newAttributes = attributes.map((attribute: JSXAttribute): JSXAttribute => {
-      if (isFillAttribute(attribute) || isStrokeAttribute(attribute)) {
+      if (isCustomizableColor(attribute)) {
         return {
           ...attribute,
           value: native
