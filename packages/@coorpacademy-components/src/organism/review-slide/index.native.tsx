@@ -9,7 +9,7 @@ import Answer from '../../molecule/answer/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {Props} from './prop-types';
+import {Props, SlideProps} from './prop-types';
 
 const CorrectionPopin = ({
   correctionPopinProps,
@@ -100,14 +100,16 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
       marginBottom: 16,
       marginTop: 16,
       textAlign: 'center'
-    },
-    dummyAnswer: {
-      backgroundColor: '#a986bb',
-      flex: 1
     }
   });
 
-const QuestionContainer = props => {
+type QuestionProps = {
+  answerUI: SlideProps['answerUI'];
+  questionText: SlideProps['questionText'];
+  questionOrigin: SlideProps['parentContentTitle'];
+};
+
+const Question = (props: QuestionProps) => {
   const {answerUI, questionText, questionOrigin} = props;
   const {theme, brandTheme} = useTemplateContext();
   const [style, setStyle] = useState<any | null>(null);
@@ -119,24 +121,16 @@ const QuestionContainer = props => {
 
   if (!answerUI || !questionText || !style) return null;
 
-  const answerProps = get(['model', 'choices'], answerUI)
-    ? /* istanbul ignore next */ {
-        ...answerUI,
-        model: {
-          ...answerUI.model,
-          answers: answerUI.model.choices
-        }
-      }
-    : answerUI;
-
   return (
     <>
-      <Text style={style.questionOrigin}>{questionOrigin}</Text>
-      <Text style={style.questionText}>{questionText}</Text>
-      <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
-      <Answer {...answerProps} />
+      <View>
+        <Text style={style.questionOrigin}>{questionOrigin}</Text>
+        <Text style={style.questionText}>{questionText}</Text>
+        <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
+      </View>
+      <Answer {...answerUI} />
       <Touchable style={style.validateButton}>
-        <Text style={style.validateButtonText}>validate todo</Text>
+        <Text style={style.validateButtonText}>@todo validate</Text>
       </Touchable>
     </>
   );
@@ -190,10 +184,10 @@ const Slide = (props: Props, context: any) => {
     <View style={slideStyle.slide}>
       {loading ? (
         // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
-        <Text>todo loader {num}</Text>
+        <Text>@todo loader {num}</Text>
       ) : (
         [
-          <QuestionContainer
+          <Question
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}

@@ -103,16 +103,6 @@ const QuestionContainer = props => {
   const {answerUI, questionText, questionOrigin} = props;
   if (!answerUI || !questionText) return null;
 
-  const answerProps = get(['model', 'choices'], answerUI)
-    ? /* istanbul ignore next */ {
-        ...answerUI,
-        model: {
-          ...answerUI.model,
-          answers: answerUI.model.choices
-        }
-      }
-    : answerUI;
-
   return (
     <div key="content-container" className={style.slideContentContainer}>
       <div key="from-course" className={style.questionOrigin}>
@@ -128,7 +118,7 @@ const QuestionContainer = props => {
         {get('help', answerUI)}
       </div>
       <div key="answer-container" className={style.answerContainer}>
-        <Answer {...answerProps} key="answer" />
+        <Answer {...answerUI} key="answer" />
       </div>
     </div>
   );

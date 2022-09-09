@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 
 import QuestionChoice from '../../../../atom/choice/index.native';
 import Space from '../../../../atom/space/index.native';
@@ -14,7 +14,7 @@ import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
 import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../../types/app-review';
 import type {QuestionType, Choice} from '../../../../types/progression-engine';
 
-export interface Props {
+export type Props = {
   type: QuestionType;
   isDisabled?: boolean;
   template?: string;
@@ -32,7 +32,7 @@ export interface Props {
   focusedSelectId?: FocusedSelectId;
   handleFocus?: HandleFocus;
   handleBlur?: HandleBlur;
-}
+};
 
 const styleSheet = StyleSheet.create({
   cards: {
@@ -207,7 +207,11 @@ const Switch = (props: Props) => {
         />
       );
     default:
-      return <View />;
+      return (
+        <View>
+          <Text>Unhandled type: {type}</Text>
+        </View>
+      );
   }
 };
 
