@@ -2,7 +2,8 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
-import type {Options, Skill} from '../../types/common';
+import type {Skill} from '../../types/common';
+import type {Options} from '../../common';
 
 export const SKILLS_FETCH_REQUEST = '@@skills/FETCH_REQUEST' as const;
 export const SKILLS_FETCH_SUCCESS = '@@skills/FETCH_SUCCESS' as const;

@@ -3,41 +3,51 @@ import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
-import type {Options, Rank} from '../../types/common';
+import type {Rank} from '../../types/common';
+import type {Options} from '../../common';
 
-export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST';
-export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS';
-export const RANK_FETCH_START_FAILURE = '@@rank/FETCH_START_FAILURE';
+export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST' as const;
+export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS' as const;
+export const RANK_FETCH_START_FAILURE = '@@rank/FETCH_START_FAILURE' as const;
 
-export const RANK_FETCH_END_REQUEST = '@@rank/FETCH_END_REQUEST';
-export const RANK_FETCH_END_SUCCESS = '@@rank/FETCH_END_SUCCESS';
-export const RANK_FETCH_END_FAILURE = '@@rank/FETCH_END_FAILURE';
+export const RANK_FETCH_END_REQUEST = '@@rank/FETCH_END_REQUEST' as const;
+export const RANK_FETCH_END_SUCCESS = '@@rank/FETCH_END_SUCCESS' as const;
+export const RANK_FETCH_END_FAILURE = '@@rank/FETCH_END_FAILURE' as const;
+
+type RankFetchStartRequestType = typeof RANK_FETCH_START_REQUEST;
+type RankFetchStartSuccessType = typeof RANK_FETCH_START_SUCCESS;
+type RankFetchStartFailureType = typeof RANK_FETCH_START_FAILURE;
+type RankFetchEndRequestType = typeof RANK_FETCH_END_REQUEST;
+type RankFetchEndSuccessType = typeof RANK_FETCH_END_SUCCESS;
+type RankFetchEndFailureType = typeof RANK_FETCH_END_FAILURE;
 
 export type RankRequestAction = {
-  type: typeof RANK_FETCH_START_REQUEST | typeof RANK_FETCH_END_REQUEST;
+  type: RankFetchStartRequestType | typeof RANK_FETCH_END_REQUEST;
 };
 
 export type RankSuccessAction = {
-  type: typeof RANK_FETCH_START_SUCCESS | typeof RANK_FETCH_END_SUCCESS;
+  type: RankFetchStartSuccessType | typeof RANK_FETCH_END_SUCCESS;
   payload: Rank;
 };
 
 export type RankFailureAction = {
-  type: typeof RANK_FETCH_START_FAILURE | typeof RANK_FETCH_END_FAILURE;
+  type: RankFetchStartFailureType | typeof RANK_FETCH_END_FAILURE;
 };
 
 export type RankAction = RankRequestAction | RankSuccessAction | RankFailureAction;
 
+type RankStart = [RankFetchStartRequestType, RankFetchStartSuccessType, RankFetchStartFailureType];
+type RankEnd = [RankFetchEndRequestType, RankFetchEndSuccessType, RankFetchEndFailureType];
+
 export type Test = {
-  types: string[];
+  types: RankStart | RankEnd;
   bailout?: (state: StoreState) => boolean;
 };
 
 export const fetchRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
-  {services}: Options,
-  {types, bailout}: Test
+  {services, types, bailout}: Options<RankStart | RankEnd>
 ): RankAction => {
   const action = buildTask({
     types,
@@ -57,17 +67,13 @@ export const fetchStartRank = (
   getState: () => StoreState,
   {services}: Options
 ): RankAction => {
-  return fetchRank(
-    dispatch,
-    getState,
-    {services},
-    {
-      types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
-      bailout: (state: StoreState): boolean => {
-        return has('data.rank.start', state);
-      }
+  return fetchRank(dispatch, getState, {
+    services,
+    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
+    bailout: (state: StoreState): boolean => {
+      return has('data.rank.start', state);
     }
-  );
+  });
 };
 
 export const fetchEndRank = (
@@ -75,13 +81,9 @@ export const fetchEndRank = (
   getState: () => StoreState,
   {services}: Options
 ): RankAction => {
-  return fetchRank(
-    dispatch,
-    getState,
-    {services},
-    {
-      types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
-      bailout: undefined
-    }
-  );
+  return fetchRank(dispatch, getState, {
+    services,
+    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
+    bailout: undefined
+  });
 };

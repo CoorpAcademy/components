@@ -1,7 +1,8 @@
 import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
-import type {Options, ProgressionFromAPI} from '../../types/common';
+import type {ProgressionFromAPI} from '../../types/common';
+import type {Options} from '../../common';
 import type {StoreState} from '../../reducers';
 import {fetchCorrection} from './fetch-correction';
 import {fetchSlide} from './fetch-slide';
