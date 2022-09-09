@@ -2,10 +2,10 @@ module.exports = {
   extension: ['.ts', '.tsx'],
   'check-coverage': true,
   reporter: ['html', 'text-summary'],
-  statements: 99.11,
+  statements: 99.12,
   branches: 96.58,
-  functions: 97.47,
-  lines: 99.27,
+  functions: 97.5,
+  lines: 99.28,
   all: true,
   exclude: [
     'ava.config.js',
