@@ -9,7 +9,7 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse
 } from '../../../test/util/services.mock';
-import {mapStateToSlidesProps} from '..';
+import {CorrectionPopinProps, mapStateToSlidesProps} from '..';
 import {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -33,12 +33,12 @@ const popinPropsRightAnswer = {
   },
   successLabel: 'TODO success label',
   type: 'right'
-};
+} as CorrectionPopinProps;
 
 const popinPropsWrongAnswer = {
   ...popinPropsRightAnswer,
   type: 'wrong'
-};
+} as CorrectionPopinProps;
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
