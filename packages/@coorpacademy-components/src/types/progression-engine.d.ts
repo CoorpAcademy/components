@@ -333,6 +333,8 @@ export type Choice = {
   label: string;
   items?: Array<ChoiceItem>;
   media?: Media;
+  onPress?: Function;
+  selected?: boolean;
 };
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';

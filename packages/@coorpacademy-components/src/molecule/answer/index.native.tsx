@@ -15,8 +15,12 @@ const convertType = (modelType: Props['model']['type']): QuestionType => {
 };
 
 const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] => {
-  return answers.map(answer => ({
-    ...answer
+  return answers.map((answer, index) => ({
+    _id: `${index}`,
+    label: answer.title,
+    value: answer.title,
+    onPress: answer.onClick,
+    selected: answer.selected
   }));
 };
 
@@ -25,12 +29,16 @@ const Answer = (props: Props) => {
     model: {answers, onChange, type}
   } = props;
 
-  console.log({props});
+  console.log({answers});
+
   const switchProps: SwitchProps = {
     type: convertType(type),
     items: convertToChoices(answers),
     onInputValueChange: onChange
   };
+
+  console.log({items: switchProps.items});
+
   return <Switch {...switchProps} />;
 };
 

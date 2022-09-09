@@ -41,6 +41,14 @@ const styleSheet = StyleSheet.create({
   },
   card: {
     flex: 1
+  },
+  choices: {
+    flexDirection: 'column',
+    flex: 1,
+    width: '100%'
+  },
+  choice: {
+    flex: 1
   }
 });
 
@@ -68,11 +76,18 @@ const Switch = (props: Props) => {
     handleBlur
   } = props;
 
+  // for mobile learner TODO uniform redux logic
   const isSelected = (choice: Choice): boolean => userChoices && userChoices.includes(choice.label);
 
   const handleItemPress = (item: Choice) => () => {
     if (onItemPress) {
+      // e.g. mobile learner TODO uniform redux logic
       onItemPress(item);
+    }
+
+    if (item.onPress) {
+      // e.g. app-review
+      item.onPress();
     }
   };
 
@@ -103,20 +118,19 @@ const Switch = (props: Props) => {
   switch (type) {
     case 'qcm':
       return (
-        <View testID="question-choices">
+        <View testID="question-choices" style={styleSheet.choices}>
           {items.map((item, index) => (
-            <View key={`question-choice-${item._id}`}>
-              {index > 0 ? <Space /> : null}
-              <QuestionChoice
-                onPress={handleItemPress(item)}
-                isDisabled={isDisabled}
-                isSelected={isSelected(item)}
-                testID={`question-choice-${item._id}`}
-                questionType={type}
-              >
-                {item.label}
-              </QuestionChoice>
-            </View>
+            <QuestionChoice
+              key={`question-choice-${item._id}`}
+              onPress={handleItemPress(item)}
+              isDisabled={isDisabled}
+              isSelected={item.selected || isSelected(item)}
+              testID={`question-choice-${item._id}`}
+              style={styleSheet.choice}
+              questionType={type}
+            >
+              {item.label}
+            </QuestionChoice>
           ))}
         </View>
       );

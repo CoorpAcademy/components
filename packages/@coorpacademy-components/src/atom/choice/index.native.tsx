@@ -173,6 +173,7 @@ const Choice = ({
             fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
             style={htmlStyle}
           >
+            {isSelected}
             {children}
           </Html>
         </View>
