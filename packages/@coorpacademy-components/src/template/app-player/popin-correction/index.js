@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {defer, isNil, isEmpty, get, getOr, keys, omit} from 'lodash/fp';
+import {defer, isNil, isEmpty, get, getOr, keys, omit, trim} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyCheck as CheckIcon,
   NovaLineInterfaceFeedbackInterfaceAlertCircle as AlertIcon
@@ -50,6 +50,7 @@ SimpleText.propTypes = {
 const AssistanceLink = (props, context) => {
   if (isEmpty(props)) return null;
   const {title, onClick} = props;
+  if (!trim(title)) return null;
   const {skin} = context;
   const white = get('common.white', skin);
 
