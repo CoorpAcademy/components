@@ -172,7 +172,6 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
       const updatedUiSlide = pipe(
         set('showCorrectionPopin', !isEmpty(correction)),
-        // TODO: TOASK is animateCorrectionPopin neccesary?
         set('animateCorrectionPopin', !isEmpty(correction)),
         set('loading', false),
         set('questionText', questionText),
