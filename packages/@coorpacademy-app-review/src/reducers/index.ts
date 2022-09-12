@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import data, {DataState} from './data';
-import ui, {UIState} from './ui';
+import data, {type DataState} from './data';
+import ui, {type UIState} from './ui';
 
 export type StoreState = {
   ui: UIState;

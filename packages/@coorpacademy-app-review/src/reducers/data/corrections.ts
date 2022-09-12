@@ -1,5 +1,5 @@
 import set from 'lodash/fp/set';
-import {CorrectionFromAPI} from '../../types/common';
+import type {CorrectionFromAPI} from '../../types/common';
 import {
   ReceivedCorrection,
   CORRECTION_FETCH_SUCCESS,
