@@ -5,7 +5,6 @@ import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
 import type {Options, SlideFromAPI} from '../../types/common';
-
 import {setCurrentSlide} from '../ui/slides';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
