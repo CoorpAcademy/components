@@ -50,6 +50,7 @@ SimpleText.propTypes = {
 const AssistanceLink = (props, context) => {
   if (isEmpty(props)) return null;
   const {title, onClick} = props;
+  if (isEmpty(title)) return null;
   const {skin} = context;
   const white = get('common.white', skin);
 
