@@ -17,13 +17,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  height: 100%;
 }
 
 .slideContentContainer {
-  margin-top: 0px;
-  height: 430px; /* TODO: à changer !!!
-  height: calc(100% - 276px);
-  max-height: calc(100% - 276px); */
+  margin-top: 15px;
+  max-height: calc(100% - 75px);
   display: flex;
   justify-items: center;
   align-items: center;
@@ -34,12 +33,12 @@
 }
 
 .validateButtonWrapper {
-  position: absolute;
-  bottom: 64px;
   background-color: black;
   border-radius: 7px;
   min-width: 250px;
   width: min-content;
+  position: relative;
+  margin: 15px auto;
 }
 
 /* ie fallback */
@@ -76,7 +75,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   composes: fontBase;
   font-size: 15px;
   color: cm_blue_900;
-  margin-top: 49px;
+  margin-top: 34px;
   text-align: center;
   max-width: 95%;
 }
@@ -113,7 +112,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   position: absolute;
   bottom: 0px;
   border-radius: 7px;
-  margin: 0 15px 40px;
+  margin: 0 15px 15px;
   width: 95%;
 }
 
@@ -141,10 +140,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 }
 
 @media tablet {
-  .slideContentContainer {
-    height: 473px;
-  }
-  
   @keyframes popInAnimation {
     from {
       transform: translate3d(0, 400px, 0);
@@ -156,10 +151,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 }
 
 @media mobile {
-  .slideContentContainer {
-    height: 511px;
-  }
-
   .questionOrigin, .question, .help, .answerContainer {
     max-width: 90%;
   }

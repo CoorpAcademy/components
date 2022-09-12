@@ -1,11 +1,13 @@
 .playerReviewContainer {
-  position: relative;
   display: flex;
   flex-direction: column;
-  /* --- ie11 fallback --- */
-  height: 100%;
-  /* --------------------- */
   min-height: 700px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
 }
 
 /* 
