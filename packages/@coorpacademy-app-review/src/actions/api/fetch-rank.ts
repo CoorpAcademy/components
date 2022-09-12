@@ -22,27 +22,22 @@ type RankFetchEndSuccessType = typeof RANK_FETCH_END_SUCCESS;
 type RankFetchEndFailureType = typeof RANK_FETCH_END_FAILURE;
 
 export type RankRequestAction = {
-  type: RankFetchStartRequestType | typeof RANK_FETCH_END_REQUEST;
+  type: RankFetchStartRequestType | RankFetchEndRequestType;
 };
 
 export type RankSuccessAction = {
-  type: RankFetchStartSuccessType | typeof RANK_FETCH_END_SUCCESS;
+  type: RankFetchStartSuccessType | RankFetchEndSuccessType;
   payload: Rank;
 };
 
 export type RankFailureAction = {
-  type: RankFetchStartFailureType | typeof RANK_FETCH_END_FAILURE;
+  type: RankFetchStartFailureType | RankFetchEndFailureType;
 };
 
 export type RankAction = RankRequestAction | RankSuccessAction | RankFailureAction;
 
 type RankStart = [RankFetchStartRequestType, RankFetchStartSuccessType, RankFetchStartFailureType];
 type RankEnd = [RankFetchEndRequestType, RankFetchEndSuccessType, RankFetchEndFailureType];
-
-export type Test = {
-  types: RankStart | RankEnd;
-  bailout?: (state: StoreState) => boolean;
-};
 
 export const fetchRank = (
   dispatch: Dispatch,
