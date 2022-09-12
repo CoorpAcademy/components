@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
-import type {SlideFromAPI, Options} from '../../types/common';
+import type {Options, SlideFromAPI} from '../../types/common';
 
 import {setCurrentSlide} from '../ui/slides';
 
