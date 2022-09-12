@@ -120,7 +120,7 @@ const createStyleSheet = (theme: Theme) =>
       height: 100,
       position: 'absolute',
       alignSelf: 'center',
-      transform: [{ rotateX: '180deg' }, {scaleX: 0.7}]
+      transform: [{rotateX: '180deg'}, {scaleX: 0.7}]
     }
   });
 
@@ -136,7 +136,6 @@ interface ButtonProps {
 
 const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps) => (
   <View key={key} testID={testID} style={styles.button}>
-
     <View style={{alignItems: 'center'}}>
       <Icon
         height={16}
