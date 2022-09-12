@@ -8,12 +8,11 @@ import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
-import {Dispatch} from 'redux';
-import isEmpty from 'lodash/fp/isEmpty';
-import {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
-import {SlideIndexes} from '../../common';
-import {StoreState} from '../../reducers';
-import {AnswerUI} from '../../types/slides';
+import type {Dispatch} from 'redux';
+import type {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
+import type {SlideIndexes} from '../../common';
+import type {StoreState} from '../../reducers';
+import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
@@ -51,7 +50,6 @@ type SlidesStack = {
 export type CorrectionPopinProps = {
   klf: {
     label: string;
-    onClick: Function;
     tooltip: string;
   };
   information: {
@@ -62,8 +60,7 @@ export type CorrectionPopinProps = {
     label: string;
     ariaLabel: string;
   };
-  successLabel: string;
-  failureLabel: string;
+  resultLabel: string;
   type: 'right' | 'wrong';
 };
 
@@ -166,13 +163,15 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
-      const currentSlide = get(['ui', 'currentSlideRef'], state);
-      const correction =
-        currentSlide === slideRef ? get(['data', 'corrections', currentSlide], state) : undefined;
+      const isCurrentSlideRef = currentSlideRef === slideRef;
+      const animateCorrectionPopin =
+        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'animateCorrectionPopin'], state);
+      const showCorrectionPopin =
+        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'showCorrectionPopin'], state);
 
       const updatedUiSlide = pipe(
-        set('showCorrectionPopin', !isEmpty(correction)),
-        set('animateCorrectionPopin', !isEmpty(correction)),
+        set('showCorrectionPopin', showCorrectionPopin),
+        set('animateCorrectionPopin', animateCorrectionPopin),
         set('loading', false),
         set('questionText', questionText),
         set('answerUI', answerUI),
@@ -269,6 +268,23 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
+const getCorrectionPopinProps = (isCorrect: boolean): CorrectionPopinProps => ({
+  klf: {
+    label: 'TODO klf label',
+    tooltip: 'TODO klf tooltip'
+  },
+  resultLabel: 'TODO result label',
+  information: {
+    label: 'TODO info label',
+    message: 'TODO info message'
+  },
+  next: {
+    ariaLabel: 'TODO next ariaLabel',
+    label: 'TODO next label'
+  },
+  type: isCorrect ? 'right' : 'wrong'
+});
+
 export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): SlidesViewProps => {
   const currentSlide = get(['ui', 'currentSlideRef'], state);
   const correction = get(['data', 'corrections', currentSlide], state);
@@ -278,7 +294,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick: /* istanbul ignore next */ (): void => {
+      onQuitClick: (): void => {
         // eslint-disable-next-line no-console
         console.log('onQuitClick');
       },
@@ -295,27 +311,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
           dispatch(postAnswer);
         }
       },
-      correctionPopinProps: correction
-        ? {
-            klf: {
-              label: 'TODO klf label',
-              // eslint-disable-next-line no-console
-              /* istanbul ignore next */ onClick: () => console.log('TODO KLF click'),
-              tooltip: 'TODO klf tooltip'
-            },
-            failureLabel: 'TODO failure label',
-            information: {
-              label: 'TODO info label',
-              message: 'TODO info message'
-            },
-            next: {
-              ariaLabel: 'TODO next ariaLabel',
-              label: 'TODO next label'
-            },
-            successLabel: 'TODO success label',
-            type: isCorrect ? 'right' : 'wrong'
-          }
-        : undefined,
+      correctionPopinProps: correction && getCorrectionPopinProps(isCorrect),
       endReview: false
     },
     congratsProps: undefined

@@ -9,16 +9,16 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse
 } from '../../../test/util/services.mock';
-import {CorrectionPopinProps, mapStateToSlidesProps} from '..';
-import {StoreState} from '../../../reducers';
+import {type CorrectionPopinProps, mapStateToSlidesProps} from '..';
+import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
 
-const popinPropsRightAnswer = {
-  failureLabel: 'TODO failure label',
+const popinPropsRightAnswer: CorrectionPopinProps = {
+  resultLabel: 'TODO result label',
   information: {
     label: 'TODO info label',
     message: 'TODO info message'
@@ -31,14 +31,13 @@ const popinPropsRightAnswer = {
     ariaLabel: 'TODO next ariaLabel',
     label: 'TODO next label'
   },
-  successLabel: 'TODO success label',
   type: 'right'
-} as CorrectionPopinProps;
+};
 
-const popinPropsWrongAnswer = {
+const popinPropsWrongAnswer: CorrectionPopinProps = {
   ...popinPropsRightAnswer,
   type: 'wrong'
-} as CorrectionPopinProps;
+};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -507,7 +506,7 @@ test('should verify props when first slide was answered with error and next slid
   });
 });
 
-test('should verify props when first slide was answered and next slide is fetched', t => {
+test.only('should verify props when first slide was answered, next slide is fetched & correction is fetched', t => {
   // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
   const state: StoreState = {
     data: {
@@ -528,7 +527,8 @@ test('should verify props when first slide was answered and next slide is fetche
       answers: ['My value'],
       slide: {
         validateButton: false,
-        animateCorrectionPopin: true
+        animateCorrectionPopin: true,
+        showCorrectionPopin: true
       }
     }
   };
@@ -620,7 +620,7 @@ test('should verify props when first slide was answered and next slide is fetche
   });
 });
 
-test('should verify props when first slide was answered incorrectly and next slide is fetched', t => {
+test('should verify props when first slide was answered incorrectly, next slide is fetched & correction is fetched', t => {
   // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
   const state: StoreState = {
     data: {
@@ -641,7 +641,8 @@ test('should verify props when first slide was answered incorrectly and next sli
       answers: ['My value'],
       slide: {
         validateButton: false,
-        animateCorrectionPopin: true
+        animateCorrectionPopin: true,
+        showCorrectionPopin: true
       }
     }
   };
@@ -953,7 +954,6 @@ test('should verify props when progression still has a pendingSlide', t => {
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
-        // TODO: a reducer should clean outdated corrections
         [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id, true),
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)

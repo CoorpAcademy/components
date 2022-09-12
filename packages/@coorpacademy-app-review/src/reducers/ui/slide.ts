@@ -17,6 +17,7 @@ import {CORRECTION_FETCH_SUCCESS, ReceivedCorrection} from '../../actions/api/fe
 export type UISlideState = {
   validateButton: boolean;
   animateCorrectionPopin?: boolean;
+  showCorrectionPopin?: boolean;
 };
 
 export const initialState: UISlideState = {validateButton: false};
@@ -39,7 +40,7 @@ const reducer = (
       return initialState;
     }
     case CORRECTION_FETCH_SUCCESS: {
-      return set(['animateCorrectionPopin'], true, state);
+      return pipe(set(['animateCorrectionPopin'], true), set(['showCorrectionPopin'], true))(state);
     }
     default:
       return state;
