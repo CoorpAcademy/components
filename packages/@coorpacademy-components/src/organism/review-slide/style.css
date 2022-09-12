@@ -22,7 +22,8 @@
 
 .slideContentContainer {
   margin-top: 15px;
-  max-height: calc(100% - 75px);
+  min-height: calc(100% - 100px);
+  max-height: calc(100% - 100px);
   display: flex;
   justify-items: center;
   align-items: center;
