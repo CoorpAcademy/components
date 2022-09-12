@@ -3,8 +3,7 @@ import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
-import type {Rank} from '../../types/common';
-import type {Options} from '../../common';
+import type {Rank, Services, Options} from '../../types/common';
 
 export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST' as const;
 export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS' as const;
@@ -42,7 +41,9 @@ type RankEnd = [RankFetchEndRequestType, RankFetchEndSuccessType, RankFetchEndFa
 export const fetchRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
-  {services, types, bailout}: Options<RankStart | RankEnd>
+  services: Services,
+  types: RankStart | RankEnd,
+  path?: string
 ): RankAction => {
   const action = buildTask({
     types,
@@ -51,7 +52,11 @@ export const fetchRank = (
       const token = get(['data', 'token'], state);
       return services.fetchRank(token);
     },
-    bailout
+    bailout: path
+      ? (state: StoreState): boolean => {
+          return has(path, state);
+        }
+      : undefined
   });
 
   return dispatch(action);
@@ -62,13 +67,13 @@ export const fetchStartRank = (
   getState: () => StoreState,
   {services}: Options
 ): RankAction => {
-  return fetchRank(dispatch, getState, {
+  return fetchRank(
+    dispatch,
+    getState,
     services,
-    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
-    bailout: (state: StoreState): boolean => {
-      return has('data.rank.start', state);
-    }
-  });
+    [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
+    'data.rank.start'
+  );
 };
 
 export const fetchEndRank = (
@@ -76,9 +81,9 @@ export const fetchEndRank = (
   getState: () => StoreState,
   {services}: Options
 ): RankAction => {
-  return fetchRank(dispatch, getState, {
-    services,
-    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
-    bailout: undefined
-  });
+  return fetchRank(dispatch, getState, services, [
+    RANK_FETCH_END_REQUEST,
+    RANK_FETCH_END_SUCCESS,
+    RANK_FETCH_END_FAILURE
+  ]);
 };

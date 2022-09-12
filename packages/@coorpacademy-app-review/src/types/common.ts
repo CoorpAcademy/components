@@ -170,6 +170,10 @@ export type Services = {
   fetchRank(token: string): Promise<Rank>;
 };
 
+export type Options = {
+  services: Services;
+};
+
 export type AppOptions = {
   token: string;
   theme?: unknown;

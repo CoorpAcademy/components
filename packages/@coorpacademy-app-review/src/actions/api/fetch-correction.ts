@@ -2,8 +2,7 @@ import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {StoreState} from '../../reducers';
-import type {CorrectionFromAPI} from '../../types/common';
-import type {Options} from '../../common';
+import type {CorrectionFromAPI, Options} from '../../types/common';
 
 export const CORRECTION_FETCH_REQUEST = '@@correction/FETCH_REQUEST' as const;
 export const CORRECTION_FETCH_SUCCESS = '@@correction/FETCH_SUCCESS' as const;
