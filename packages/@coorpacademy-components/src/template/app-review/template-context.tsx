@@ -36,7 +36,6 @@ const useTemplateContext = (): TemplateContextValues => {
     );
   }
 
-  console.log({context});
   return context;
 };
 

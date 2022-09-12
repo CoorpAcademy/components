@@ -87,6 +87,11 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
       marginTop: theme.spacing.small,
       textAlign: 'center'
     },
+    choicesContainer: {
+      width: '100%',
+      flex: 1,
+      flexDirection: 'column'
+    },
     validateButton: {
       backgroundColor: brandTheme?.colors.primary || theme.colors.text.primary,
       borderRadius: 7,
@@ -128,7 +133,9 @@ const Question = (props: QuestionProps) => {
         <Text style={style.questionText}>{questionText}</Text>
         <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
       </View>
-      <Answer {...answerUI} />
+      <View style={style.choicesContainer}>
+        <Answer {...answerUI} />
+      </View>
       <Touchable style={style.validateButton}>
         <Text style={style.validateButtonText}>@todo validate</Text>
       </Touchable>

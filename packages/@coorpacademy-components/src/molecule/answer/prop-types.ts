@@ -47,6 +47,7 @@ type Answer = {
   'aria-label': string;
   onClick: Function;
   selected: boolean;
+  image: string;
 };
 
 export type Props = {

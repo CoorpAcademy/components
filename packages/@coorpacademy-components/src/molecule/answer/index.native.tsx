@@ -20,7 +20,11 @@ const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] => 
     label: answer.title,
     value: answer.title,
     onPress: answer.onClick,
-    selected: answer.selected
+    selected: answer.selected,
+    media: {
+      type: 'img',
+      src: [{url: answer.image}]
+    }
   }));
 };
 
@@ -28,8 +32,6 @@ const Answer = (props: Props) => {
   const {
     model: {answers, onChange, type}
   } = props;
-
-  console.log({answers});
 
   const switchProps: SwitchProps = {
     type: convertType(type),

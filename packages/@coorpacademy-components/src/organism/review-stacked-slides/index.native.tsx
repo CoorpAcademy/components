@@ -8,8 +8,8 @@ export const TOTAL_SLIDES_STACK = 5;
 
 const styleSheet = StyleSheet.create({
   stackedSlides: {
-    flex: 1,
-    backgroundColor: '#00f'
+    // flex: 1,
+    // backgroundColor: '#00f',
     // justifyContent: 'space-between',
     // alignItems: 'center'
   }

@@ -298,8 +298,8 @@ export type AnswerCorrection = {
 };
 
 export type Source = {
-  _id: string;
-  mimeType: ResourceMimeType;
+  _id?: string;
+  mimeType?: ResourceMimeType;
   url: Url;
   videoId?: string;
 };

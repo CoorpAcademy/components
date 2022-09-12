@@ -19,7 +19,7 @@ export type Props = {
   isDisabled?: boolean;
   template?: string;
   items: Array<Choice>;
-  userChoices: Array<string>;
+  userChoices?: Array<string>;
   onItemPress?: (item: Choice) => void;
   onSliderChange?: (value: number) => void;
   min?: number;
@@ -45,10 +45,10 @@ const styleSheet = StyleSheet.create({
   choices: {
     flexDirection: 'column',
     flex: 1,
-    width: '100%'
+    justifyContent: 'center'
   },
   choice: {
-    flex: 1
+    paddingVertical: 5
   }
 });
 
@@ -136,28 +136,21 @@ const Switch = (props: Props) => {
       );
     case 'qcmGraphic':
       return (
-        <View testID="question-choices">
-          {items.map((item, index) => {
-            return (
-              <View key={`question-choice-row-${item._id}`}>
-                {index > 0 ? <Space /> : null}
-                <View style={styleSheet.cards}>
-                  <QuestionChoice
-                    onPress={handleItemPress(item)}
-                    media={item.media}
-                    isDisabled={isDisabled}
-                    isSelected={isSelected(item)}
-                    testID={`question-choice-${item._id}`}
-                    style={styleSheet.card}
-                    questionType={type}
-                  >
-                    {item.label}
-                  </QuestionChoice>
-                  <Space />
-                </View>
-              </View>
-            );
-          })}
+        <View testID="question-choices" style={styleSheet.choices}>
+          {items.map((item, index) => (
+            <QuestionChoice
+              key={`question-choice-${item._id}`}
+              onPress={handleItemPress(item)}
+              media={item.media}
+              isDisabled={isDisabled}
+              isSelected={item.selected || isSelected(item)}
+              testID={`question-choice-${item._id}`}
+              style={styleSheet.choice}
+              questionType={type}
+            >
+              {item.label}
+            </QuestionChoice>
+          ))}
         </View>
       );
     case 'slider': {
