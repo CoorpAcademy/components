@@ -506,7 +506,7 @@ test('should verify props when first slide was answered with error and next slid
   });
 });
 
-test.only('should verify props when first slide was answered, next slide is fetched & correction is fetched', t => {
+test('should verify props when first slide was answered, next slide is fetched & correction is fetched', t => {
   // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
   const state: StoreState = {
     data: {
