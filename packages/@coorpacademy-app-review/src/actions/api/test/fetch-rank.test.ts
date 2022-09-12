@@ -20,7 +20,8 @@ const initialState: StoreState = {
     slides: {},
     skills: [],
     token: '1234',
-    corrections: {}
+    corrections: {},
+    rank: {}
   },
   ui: {
     currentSlideRef: '',
@@ -42,7 +43,6 @@ test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the
       return Promise.resolve({rank: 93});
     }
   };
-
   const expectedActions = [
     {type: RANK_FETCH_START_REQUEST},
     {
@@ -52,7 +52,6 @@ test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the
   ];
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
-
   await dispatch(fetchStartRank);
 });
 

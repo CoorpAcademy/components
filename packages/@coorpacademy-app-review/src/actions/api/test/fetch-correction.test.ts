@@ -29,7 +29,8 @@ const initialState: StoreState = {
     },
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
-    corrections: {}
+    corrections: {},
+    rank: {}
   },
   ui: {
     currentSlideRef: freeTextSlide._id,

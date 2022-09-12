@@ -40,7 +40,8 @@ const initialState: StoreState = {
     },
     skills: [],
     token: '1234',
-    corrections: {}
+    corrections: {},
+    rank: {}
   },
   ui: {
     currentSlideRef: qcmSlide._id,

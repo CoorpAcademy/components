@@ -1,6 +1,5 @@
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
-import has from 'lodash/fp/has';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
 import type {Rank, Services, Options} from '../../types/common';
@@ -52,11 +51,7 @@ export const fetchRank = (
       const token = get(['data', 'token'], state);
       return services.fetchRank(token);
     },
-    bailout: path
-      ? (state: StoreState): boolean => {
-          return has(path, state);
-        }
-      : undefined
+    bailout: path ? (state: StoreState): boolean => get(path, state) : undefined
   });
 
   return dispatch(action);
