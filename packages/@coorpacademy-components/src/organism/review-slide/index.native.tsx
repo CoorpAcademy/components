@@ -64,6 +64,10 @@ const CorrectionPopin = ({
 
 const createQuestionStyle = (theme: Theme, brandTheme: any) =>
   StyleSheet.create({
+    questionHeading: {
+      // backgroundColor: '#f00', // flex-debug
+      justifyContent: 'space-between'
+    },
     questionOrigin: {
       fontSize: 12,
       lineHeight: 16,
@@ -80,17 +84,18 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
       textAlign: 'center'
     },
     questionHelp: {
+      // backgroundColor: '#38295b', // flex-debug
       fontSize: 12,
       lineHeight: 16,
       color: theme.colors.gray.medium,
-      marginBottom: theme.spacing.base,
+      marginBottom: 0,
       marginTop: theme.spacing.small,
       textAlign: 'center'
     },
     choicesContainer: {
-      width: '100%',
       flex: 1,
-      flexDirection: 'column'
+      // backgroundColor: '#ff0', // flex-debug
+      justifyContent: 'center'
     },
     validateButton: {
       backgroundColor: brandTheme?.colors.primary || theme.colors.text.primary,
@@ -128,7 +133,7 @@ const Question = (props: QuestionProps) => {
 
   return (
     <>
-      <View>
+      <View style={style.questionHeading}>
         <Text style={style.questionOrigin}>{questionOrigin}</Text>
         <Text style={style.questionText}>{questionText}</Text>
         <Text style={style.questionHelp}>{get('help', answerUI)}</Text>

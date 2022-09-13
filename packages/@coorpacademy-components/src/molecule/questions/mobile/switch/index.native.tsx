@@ -10,7 +10,6 @@ import FreeText from '../../free-text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
 
-import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../../types/app-review';
 import type {QuestionType, Choice} from '../../../../types/progression-engine';
 
 export type Props = {
@@ -18,19 +17,16 @@ export type Props = {
   isDisabled?: boolean;
   template?: string;
   items: Array<Choice>;
-  userChoices?: Array<string>;
-  onItemPress?: (item: Choice) => void;
-  onSliderChange?: (value: number) => void;
   min?: number;
   max?: number;
   unit?: string;
   step?: number;
   value?: number;
-  onItemInputChange?: (item: Choice, value: string) => void;
   onInputValueChange?: (value: string) => void;
-  focusedSelectId?: FocusedSelectId;
-  handleFocus?: HandleFocus;
-  handleBlur?: HandleBlur;
+  onSliderChange?: (value: number) => void;
+  // --- mobile learner only
+  onItemInputChange?: (item: Choice, value: string) => void;
+  onItemPress?: (item: Choice) => void;
 };
 
 const styleSheet = StyleSheet.create({
@@ -53,7 +49,8 @@ const styleSheet = StyleSheet.create({
 
 const Switch = (props: Props) => {
   const templateContext = useTemplateContext();
-  const {analytics} = templateContext;
+  const {analytics, store} = templateContext;
+  const {focusedSelectId, handleBlur, handleFocus} = store;
 
   const {
     type,
@@ -68,29 +65,30 @@ const Switch = (props: Props) => {
     onSliderChange,
     onItemPress,
     onItemInputChange,
-    onInputValueChange,
-    focusedSelectId,
-    handleFocus,
-    handleBlur
+    onInputValueChange
   } = props;
 
   const handleItemPress = useCallback(
-    (item: Choice) => () => {
-      if (item.onPress) {
+    (choice: Choice) => () => {
+      if (choice.onPress) {
         // e.g. app-review
-        item.onPress();
+        choice.onPress();
       } else if (onItemPress) {
         // e.g. learner
-        onItemPress(item);
+        onItemPress(choice);
       }
     },
     [onItemPress]
   );
 
   const handleItemInputChange = useCallback(
-    (item: Choice, _value: string) => {
-      if (onItemInputChange) {
-        onItemInputChange(item, _value);
+    (choice: Choice, _value: string) => {
+      if (choice.onPress) {
+        // e.g. app-review
+        choice.onPress(_value);
+      } else if (onItemInputChange) {
+        // e.g. learner
+        onItemInputChange(choice, _value);
       }
     },
     [onItemInputChange]
@@ -168,6 +166,8 @@ const Switch = (props: Props) => {
     }
     case 'template':
       if (handleBlur === undefined || handleFocus === undefined || focusedSelectId === undefined) {
+        // eslint-disable-next-line no-console
+        console.warn('type template must implement handleFocus etc within Context.store');
         return <View />;
       }
 
@@ -176,8 +176,7 @@ const Switch = (props: Props) => {
           <QuestionTemplate
             isDisabled={isDisabled}
             template={template || ''}
-            items={items}
-            userChoices={userChoices}
+            choices={items}
             onInputChange={handleItemInputChange}
             handleBlur={handleBlur}
             handleFocus={handleFocus}

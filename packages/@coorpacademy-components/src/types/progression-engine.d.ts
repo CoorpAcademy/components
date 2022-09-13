@@ -321,7 +321,7 @@ export type AcceptedAnswers = Array<Answer>;
 
 export type ChoiceItem = {
   text: string;
-  value: string;
+  selected: boolean;
   _id: string;
 };
 

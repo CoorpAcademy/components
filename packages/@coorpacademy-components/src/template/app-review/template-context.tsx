@@ -1,4 +1,5 @@
 import React, {createContext, useContext} from 'react';
+import {FocusedSelectId, HandleBlur, HandleFocus} from '../../types/app-review';
 import {Translations} from '../../types/translations';
 import {Analytics} from '../../variables/analytics';
 import defaultTheme, {Theme} from '../../variables/theme.native';
@@ -14,6 +15,11 @@ export type TemplateContextValues = {
     headerHeight: number;
     statusBarHeight: number;
   };
+  store: {
+    focusedSelectId?: FocusedSelectId;
+    handleBlur?: HandleBlur;
+    handleFocus?: HandleFocus;
+  };
 };
 
 type Props = {values: TemplateContextValues; children: any};
@@ -24,7 +30,8 @@ const Context = createContext({
   display: {
     headerHeight: 67,
     statusBarHeight: 42
-  }
+  },
+  store: {}
 });
 
 const useTemplateContext = (): TemplateContextValues => {

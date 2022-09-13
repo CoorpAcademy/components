@@ -122,7 +122,7 @@ const Select = (props: Props) => {
     return null;
   }
 
-  const selectedItem = values.find(item => item.text === value);
+  const selectedItem = values.find(item => item.selected);
   const text = (selectedItem && selectedItem.text) || placeholder || null;
 
   return (

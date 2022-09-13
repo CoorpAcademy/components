@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, {bool} from 'prop-types';
 import VideoPlayerPropTypes from '../video-player/prop-types';
 
 export const TYPE_IMAGE = 'img';
@@ -42,18 +42,30 @@ const propTypes = {
   media: MediaViewPropTypes.media
 };
 
+type SelectOptions = {
+  name: string;
+  selected: boolean;
+  validOption: boolean;
+  value: string;
+};
+
 type Answer = {
   title: string;
   'aria-label': string;
-  onClick: Function;
+  onClick?: () => void;
+  onChange?: (value: string) => void;
   selected: boolean;
   image: string;
+  options?: SelectOptions[];
+  type?: 'text' | 'select';
+  name?: string;
 };
 
 export type Props = {
   model: {
-    answers?: Answer[];
     type: 'qcmDrag' | 'qcm' | 'qcmGraphic' | 'freeText' | 'dropDown' | 'slider' | 'template';
+    answers?: Answer[];
+    template?: string;
     onChange: (value: string) => void;
   };
   help: string;

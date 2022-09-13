@@ -19,23 +19,35 @@ const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] =>
     _id: `${index}`,
     label: answer.title,
     value: answer.title,
-    onPress: answer.onClick,
+    onPress: answer.onClick || answer.onChange,
     selected: answer.selected,
     media: {
       type: 'img',
       src: [{url: answer.image}]
-    }
+    },
+    // ---- custom properties for template choice
+    type: answer.type,
+    name: answer.name,
+    items:
+      answer.options &&
+      answer.options.map(({name, selected, value}) => ({
+        text: name,
+        selected,
+        value,
+        _id: name
+      }))
   }));
 
 const Answer = (props: Props) => {
   const {
-    model: {answers, onChange, type}
+    model: {answers, onChange, template, type}
   } = props;
 
   const switchProps: SwitchProps = {
     type: convertType(type),
     items: convertToChoices(answers),
-    onInputValueChange: onChange
+    onInputValueChange: onChange,
+    template
   };
 
   return <Switch {...switchProps} />;

@@ -90,7 +90,6 @@ export interface Props {
 
 const createStyleSheet = (theme: Theme) =>
   StyleSheet.create({
-    container: {},
     pickableChoices: {
       flexDirection: 'row',
       flexWrap: 'wrap'
@@ -134,7 +133,7 @@ const QuestionDraggable = (props: Props) => {
     ));
 
   return (
-    <View style={styleSheet.container} testID={testID}>
+    <View testID={testID}>
       <DropZone choices={selectedChoices} onPress={onPress} />
       <View style={styleSheet.pickableChoices}>{pickableChoices}</View>
     </View>

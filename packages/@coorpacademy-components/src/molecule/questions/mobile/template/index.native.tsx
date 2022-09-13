@@ -54,9 +54,8 @@ type TemplatePart = {
 
 type SectionProps = {
   isDisabled: boolean;
-  userChoices: Array<string>;
   section: Array<TemplatePart>;
-  items: Array<Choice>;
+  choices: Array<Choice>;
   index: number;
   onInputChange: (item: Choice, value: string) => void;
   focusedSelectId: FocusedSelectId;
@@ -67,11 +66,10 @@ type SectionProps = {
 
 const Section = ({
   section,
-  items,
+  choices,
   index,
   focusedSelectId,
   onInputChange,
-  userChoices,
   handleBlur,
   handleFocus,
   isDisabled,
@@ -87,11 +85,10 @@ const Section = ({
             <Item
               prefix={prefix}
               part={part}
-              items={items}
+              choices={choices}
               index={id}
               focusedSelectId={focusedSelectId}
               isDisabled={isDisabled}
-              userChoices={userChoices}
               handleBlur={handleBlur}
               handleFocus={handleFocus}
               onInputChange={onInputChange}
@@ -107,11 +104,10 @@ const Section = ({
 
 type ItemProps = {
   part: TemplatePart;
-  items: Array<Choice>;
+  choices: Array<Choice>;
   index: number;
   prefix: string;
   isDisabled?: boolean;
-  userChoices: Array<string>;
   onInputChange: (item: Choice, value: string) => void;
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
@@ -126,8 +122,7 @@ const Item = (props: ItemProps) => {
     prefix,
     isDisabled = false,
     focusedSelectId,
-    items,
-    userChoices,
+    choices,
     onInputChange,
     handleBlur,
     handleFocus,
@@ -137,7 +132,7 @@ const Item = (props: ItemProps) => {
   const templateContext = useTemplateContext();
   const {theme, brandTheme, translations} = templateContext;
 
-  const inputNames = items.map(item => item.name);
+  const inputNames = choices.map(choice => choice.name);
   const id = `${prefix}-part-${index + 1}`;
   const isFocused = focusedSelectId === id;
 
@@ -147,11 +142,11 @@ const Item = (props: ItemProps) => {
   };
 
   if (part.type === 'answerField' && inputNames.includes(part.value)) {
-    const itemIndex = items.findIndex(_item => _item.name === part.value);
-    const item = items[itemIndex];
-    const value = userChoices[itemIndex];
+    const choiceIndex = choices.findIndex(choice => choice.name === part.value);
+    const choice = choices[choiceIndex];
+    const {value} = choice;
 
-    if (!item || !item.type || !item.name) {
+    if (!choice || !choice.type || !choice.name) {
       return null;
     }
 
@@ -160,13 +155,13 @@ const Item = (props: ItemProps) => {
 
     const handleInputChange = (_item: Choice) => (_value: string) => onInputChange(_item, _value);
 
-    if (item.type === 'text') {
+    if (choice.type === 'text') {
       return (
         <View style={styles.spaced} testID={id}>
           <FreeText
             key={id}
             isDisabled={isDisabled}
-            onChange={handleInputChange(item)}
+            onChange={handleInputChange(choice)}
             value={value}
             testID={`${id}-text${selectedSuffix}${disabledSuffix}`}
             questionType="template"
@@ -175,19 +170,19 @@ const Item = (props: ItemProps) => {
       );
     }
 
-    if (item.type === 'select') {
+    if (choice.type === 'select') {
       return (
         <View style={styles.spaced} testID={id}>
           <Select
             isDisabled={isDisabled}
             questionType="template"
-            values={item.items}
+            values={choice.items}
             value={value}
             placeholder={translations.selectAnAnswer}
             isFocused={isFocused}
             onBlur={handleBlur}
             onFocus={handleFocus(id)}
-            onChange={handleInputChange(item)}
+            onChange={handleInputChange(choice)}
             textStyle={styles.text}
             style={[styles.input, value && selectedStyle]}
             testID={`${id}-select${selectedSuffix}${disabledSuffix}`}
@@ -207,8 +202,7 @@ const Item = (props: ItemProps) => {
 export type Props = {
   isDisabled?: boolean;
   template: string;
-  items: Array<Choice>;
-  userChoices: Array<string>;
+  choices: Array<Choice>;
   onInputChange: (item: Choice, value: string) => void;
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
@@ -219,8 +213,7 @@ const QuestionTemplate = (props: Props) => {
   const {
     template,
     onInputChange,
-    userChoices,
-    items,
+    choices,
     handleBlur,
     handleFocus,
     focusedSelectId,
@@ -249,18 +242,17 @@ const QuestionTemplate = (props: Props) => {
   }, []);
 
   return (
-    <View style={{flex: 1}} testID="question-template">
+    <View testID="question-template">
       {sections.map((section, index) => (
         <Section
           key={index}
           section={section}
-          items={items}
+          choices={choices}
           index={index}
           handleBlur={handleBlur}
           handleFocus={handleFocus}
           focusedSelectId={focusedSelectId}
           onInputChange={onInputChange}
-          userChoices={userChoices}
           isDisabled={isDisabled}
           styles={styleSheet}
         />
