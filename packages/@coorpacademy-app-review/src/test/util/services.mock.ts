@@ -288,6 +288,23 @@ export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
   }
 };
 
+export const incorrectFreeTextPostAnswerResponse: ProgressionFromAPI = {
+  ...postAnswerResponses[freeTextSlide.universalRef],
+  state: {
+    ...postAnswerResponses[freeTextSlide.universalRef].state,
+    isCorrect: false,
+    allAnswers: [
+      {
+        slideRef: freeTextSlide.universalRef,
+        isCorrect: false,
+        answer: ['NOPE']
+      }
+    ],
+    pendingSlides: [freeTextSlide.universalRef],
+    stars: 0
+  }
+};
+
 export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
   _id: '62b1d1087aa12f00253f40ee',
   content,

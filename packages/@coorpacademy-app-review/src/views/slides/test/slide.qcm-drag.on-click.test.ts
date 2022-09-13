@@ -65,6 +65,8 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
 
   const props = mapStateToSlidesProps(getState(), dispatch);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animateCorrectionPopin: false,
+    showCorrectionPopin: false,
     hidden: false,
     position: 0,
     loading: false,

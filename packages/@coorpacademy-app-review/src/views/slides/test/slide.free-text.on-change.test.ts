@@ -65,6 +65,8 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
 
   const props = mapStateToSlidesProps(getState(), dispatch);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animateCorrectionPopin: false,
+    showCorrectionPopin: false,
     hidden: false,
     position: 0,
     loading: false,

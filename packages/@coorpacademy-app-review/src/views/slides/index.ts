@@ -8,11 +8,12 @@ import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
-import {Dispatch} from 'redux';
-import {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
-import {SlideIndexes} from '../../common';
-import {StoreState} from '../../reducers';
-import {AnswerUI} from '../../types/slides';
+import type {Dispatch} from 'redux';
+import join from 'lodash/fp/join';
+import type {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
+import type {SlideIndexes} from '../../common';
+import type {StoreState} from '../../reducers';
+import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
@@ -47,22 +48,27 @@ type SlidesStack = {
   [key in SlideIndexes]: UISlide;
 };
 
+type CorrectionPopinInformation = {
+  label: string;
+  message: string;
+};
+
+type CorrectionPopinKlf = {
+  label: string;
+  tooltip: string;
+};
+
+type CorrectionPopinNext = {
+  label: string;
+  ariaLabel: string;
+};
+
 export type CorrectionPopinProps = {
-  klf: {
-    label: string;
-    onClick: Function;
-    tooltip: string;
-  };
-  information: {
-    label: string;
-    message: string;
-  };
-  next: {
-    label: string;
-    ariaLabel: string;
-  };
-  successLabel: string;
-  failureLabel: string;
+  klf?: CorrectionPopinKlf;
+  information: CorrectionPopinInformation;
+  next: CorrectionPopinNext;
+  resultLabel: string;
+  type: 'right' | 'wrong';
 };
 
 export type SlidesViewProps = {
@@ -164,7 +170,15 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
+      const isCurrentSlideRef = currentSlideRef === slideRef;
+      const animateCorrectionPopin =
+        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'animateCorrectionPopin'], state);
+      const showCorrectionPopin =
+        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'showCorrectionPopin'], state);
+
       const updatedUiSlide = pipe(
+        set('showCorrectionPopin', showCorrectionPopin),
+        set('animateCorrectionPopin', animateCorrectionPopin),
         set('loading', false),
         set('questionText', questionText),
         set('answerUI', answerUI),
@@ -261,7 +275,35 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
+const getCorrectionPopinProps = (
+  isCorrect: boolean,
+  correctAnswer: string[],
+  klf: string
+): CorrectionPopinProps => ({
+  klf: isCorrect
+    ? undefined
+    : {
+        label: '_klf',
+        tooltip: klf
+      },
+  resultLabel: isCorrect ? '_right' : '_wrong',
+  information: {
+    label: isCorrect ? '_klf' : '_correctAnswer',
+    message: isCorrect ? klf : join(',', correctAnswer)
+  },
+  next: {
+    ariaLabel: '_correctionNextAriaLabel',
+    label: '_correctionNextLabel'
+  },
+  type: isCorrect ? 'right' : 'wrong'
+});
+
 export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): SlidesViewProps => {
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  const correction = get(['data', 'corrections', currentSlideRef], state);
+  const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
+  const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
+
   return {
     header: {
       mode: '__revision_mode',
@@ -279,11 +321,12 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       validateButton: {
         label: '__validate',
         disabled: !get('ui.slide.validateButton', state),
-        onClick: (): void => {
+        onClick: /* istanbul ignore next */ (): void => {
           dispatch(postAnswer);
         }
       },
-      correctionPopinProps: undefined,
+      correctionPopinProps:
+        correction && getCorrectionPopinProps(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
     congratsProps: undefined
