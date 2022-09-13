@@ -118,9 +118,12 @@ const QuestionContainer = props => {
       <div key="from-course" className={style.questionOrigin}>
         {questionOrigin}
       </div>
-      <div key="title" className={style.question}
-        dangerouslySetInnerHTML={{__html: questionText}}>
-      </div>
+      <div
+        key="title"
+        className={style.question}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: questionText}}
+      />
       <div key="help" className={style.help}>
         {get('help', answerUI)}
       </div>
@@ -160,8 +163,7 @@ const ReviewSlide = props => {
         [
           <QuestionContainer
             questionOrigin={parentContentTitle}
-            // eslint-disable-next-line react/no-danger
-            questionText={ questionText } 
+            questionText={questionText}
             answerUI={answerUI}
             key="question-container"
           />,
