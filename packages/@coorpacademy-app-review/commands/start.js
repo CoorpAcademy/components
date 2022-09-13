@@ -15,13 +15,6 @@ build()
     });
     console.log('☢️  server running:');
     console.log(chalk.bold.blue(`  - http://localhost:8080`));
-
-    if (process.env.SERVICES === 'mocks') {
-      console.log('Mocks are used.');
-    } else {
-      console.log('Services will fetch data from host included in token.');
-    }
-
     console.log(' ');
     return;
   })

@@ -19,7 +19,7 @@ const build = () => {
   return esbuild.build({
     entryPoints: [entry],
     outfile: `${PUBLIC}/app.min.js`,
-    format: 'cjs',
+    format: 'iife',
     bundle: true,
     sourcemap: true,
     watch: true,
