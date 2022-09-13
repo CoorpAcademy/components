@@ -57,7 +57,8 @@ test('should create initial props when fetched slide is not still received', t =
         sli_N1XACJobn: null
       },
       token: '1234',
-      corrections: {}
+      corrections: {},
+      rank: {}
     },
     ui: {
       currentSlideRef: '',
@@ -147,7 +148,8 @@ test('should create props when first slide is on the state', t => {
         sli_VJYjJnJhg: freeTextSlide
       },
       token: '1234',
-      corrections: {}
+      corrections: {},
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -251,7 +253,8 @@ test('should create props when slide is on the state and user has selected answe
         sli_VJYjJnJhg: freeTextSlide
       },
       token: '1234',
-      corrections: {}
+      corrections: {},
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -356,7 +359,8 @@ test('should verify props when first slide was answered correctly and next slide
         sli_VkSQroQnx: null
       },
       token: '1234',
-      corrections: {}
+      corrections: {},
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -465,7 +469,8 @@ test('should verify props when first slide was answered with error and next slid
         sli_VkSQroQnx: null
       },
       token: '1234',
-      corrections: {}
+      corrections: {},
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -527,7 +532,8 @@ test('should verify props when first slide was answered, next slide is fetched &
       token: '1234',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
-      }
+      },
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -640,7 +646,8 @@ test('should verify props when first slide was answered incorrectly, next slide 
       token: '1234',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
-      }
+      },
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -718,8 +725,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     position: 1,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
-    questionText:
-      'Pour mener une bonne négociation, il ne faut ressentir aucune émotion. Vrai ou faux ?'
+    questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0', '1'], props.stack.slides), {
@@ -754,7 +760,8 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
       token: '1234',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
-      }
+      },
+      rank: {}
     },
     ui: {
       currentSlideRef: 'sli_VkSQroQnx',
@@ -825,7 +832,8 @@ test('should verify props when progression is in success', t => {
         [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id),
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
-      }
+      },
+      rank: {}
     },
     ui: {
       currentSlideRef: templateSlide.universalRef,
@@ -896,7 +904,8 @@ test('should verify props when progression has answered a current pendingSlide',
         [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id, true),
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
-      }
+      },
+      rank: {}
     },
     ui: {
       currentSlideRef: freeTextSlide.universalRef,
@@ -964,7 +973,8 @@ test('should verify props when progression still has a pendingSlide', t => {
         [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id, true),
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
-      }
+      },
+      rank: {}
     },
     ui: {
       currentSlideRef: qcmSlide.universalRef,

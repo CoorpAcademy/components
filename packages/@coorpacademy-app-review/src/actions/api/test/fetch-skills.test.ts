@@ -16,7 +16,8 @@ const initialState: StoreState = {
     slides: {},
     skills: [],
     token: '1234',
-    corrections: {}
+    corrections: {},
+    rank: {}
   },
   ui: {
     currentSlideRef: '',
