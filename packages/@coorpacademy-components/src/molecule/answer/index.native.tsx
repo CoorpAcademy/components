@@ -14,8 +14,8 @@ const convertType = (modelType: Props['model']['type']): QuestionType => {
   }
 };
 
-const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] => {
-  return answers.map((answer, index) => ({
+const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] =>
+  answers.map((answer, index) => ({
     _id: `${index}`,
     label: answer.title,
     value: answer.title,
@@ -26,7 +26,6 @@ const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] => 
       src: [{url: answer.image}]
     }
   }));
-};
 
 const Answer = (props: Props) => {
   const {
@@ -38,8 +37,6 @@ const Answer = (props: Props) => {
     items: convertToChoices(answers),
     onInputValueChange: onChange
   };
-
-  console.log({items: switchProps.items});
 
   return <Switch {...switchProps} />;
 };

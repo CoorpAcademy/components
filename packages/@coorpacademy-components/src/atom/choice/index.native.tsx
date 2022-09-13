@@ -44,7 +44,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       backgroundColor: '#0000'
     },
     container: {
-      minHeight: 80,
       backgroundColor: theme.colors.white,
       borderRadius: theme.radius.regular,
       flexDirection: 'row',
@@ -66,7 +65,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     },
     text: {
       fontWeight: theme.fontWeight.bold,
-      color: theme.colors.black
+      color: theme.colors.black,
+      textAlign: 'center'
     },
     textSelected: {
       color: theme.colors.white

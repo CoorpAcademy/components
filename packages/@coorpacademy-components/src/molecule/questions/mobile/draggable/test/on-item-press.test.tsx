@@ -5,16 +5,13 @@ import QuestionDraggable from '../index.native';
 
 import {Choice} from '../../../../../types/progression-engine';
 import {choices} from '../../switch/test/fixtures/qcm';
-import {userChoices} from './fixtures/default';
 
 test('should handle onItemPress callback', t => {
-  const handleItemPress = (choice: Choice) => {
+  const handleItemPress = (choice: Choice) => () => {
     t.is(choice, choices[3]);
   };
 
-  const component = (
-    <QuestionDraggable onPress={handleItemPress} userChoices={userChoices} choices={choices} />
-  );
+  const component = <QuestionDraggable onPress={handleItemPress} choices={choices} />;
 
   const {getByTestId} = render(component);
   const choice = getByTestId('choice-4-unselected');

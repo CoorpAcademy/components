@@ -169,17 +169,14 @@ const creatSlideStyle = (num: number, screenWidth: number, screenHeight: number)
   });
 };
 
-const Slide = (props: Props, context: any) => {
+const Slide = (props: Props) => {
   const {slide, validateButton, correctionPopinProps, num, slideIndex = '0'} = props;
 
-  const {skin} = context;
-  const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {width, height} = useWindowDimensions();
   const slideStyle = creatSlideStyle(num, width, height);
 
   const {
     loading,
-    loadingAriaLabel,
     parentContentTitle,
     questionText,
     answerUI,

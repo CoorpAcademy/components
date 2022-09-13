@@ -2,7 +2,6 @@ import React, {useCallback} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 
 import QuestionChoice from '../../../../atom/choice/index.native';
-import Space from '../../../../atom/space/index.native';
 import QuestionDraggable from '../draggable/index.native';
 import QuestionTemplate from '../template/index.native';
 import QuestionSlider from '../slider/index.native';
@@ -61,7 +60,6 @@ const Switch = (props: Props) => {
     template,
     isDisabled,
     items,
-    userChoices,
     min,
     max,
     unit,
@@ -76,20 +74,18 @@ const Switch = (props: Props) => {
     handleBlur
   } = props;
 
-  // for mobile learner TODO uniform redux logic
-  const isSelected = (choice: Choice): boolean => userChoices && userChoices.includes(choice.label);
-
-  const handleItemPress = (item: Choice) => () => {
-    if (onItemPress) {
-      // e.g. mobile learner TODO uniform redux logic
-      onItemPress(item);
-    }
-
-    if (item.onPress) {
-      // e.g. app-review
-      item.onPress();
-    }
-  };
+  const handleItemPress = useCallback(
+    (item: Choice) => () => {
+      if (item.onPress) {
+        // e.g. app-review
+        item.onPress();
+      } else if (onItemPress) {
+        // e.g. learner
+        onItemPress(item);
+      }
+    },
+    [onItemPress]
+  );
 
   const handleItemInputChange = useCallback(
     (item: Choice, _value: string) => {
@@ -124,7 +120,7 @@ const Switch = (props: Props) => {
               key={`question-choice-${item._id}`}
               onPress={handleItemPress(item)}
               isDisabled={isDisabled}
-              isSelected={item.selected || isSelected(item)}
+              isSelected={item.selected}
               testID={`question-choice-${item._id}`}
               style={styleSheet.choice}
               questionType={type}
@@ -143,7 +139,7 @@ const Switch = (props: Props) => {
               onPress={handleItemPress(item)}
               media={item.media}
               isDisabled={isDisabled}
-              isSelected={item.selected || isSelected(item)}
+              isSelected={item.selected}
               testID={`question-choice-${item._id}`}
               style={styleSheet.choice}
               questionType={type}
@@ -190,13 +186,9 @@ const Switch = (props: Props) => {
         </View>
       );
     case 'qcmDrag':
-      if (!onItemPress) {
-        return <View />;
-      }
-
       return (
         <View testID="question-draggable">
-          <QuestionDraggable choices={items} userChoices={userChoices} onPress={onItemPress} />
+          <QuestionDraggable choices={items} onPress={handleItemPress} />
         </View>
       );
     case 'basic':
