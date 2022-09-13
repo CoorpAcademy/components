@@ -5,7 +5,7 @@
 .stackedSlidesYAxisOverflowContainer {
   width: 100%;
   padding-top: 50px;
-  height: calc(100% - 50px);
+  height: calc(100vh - 155px);
   /* --- ie11 fallback --- */
   overflow-y: hidden;
   /* --------------------- */
@@ -25,7 +25,7 @@
 .slideBase {
   box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.05);
   background: white;
-  height: calc(100% - 40px);
+  height: calc(100vh - 155px);
   border-radius: 24px;
   overflow: hidden;
   position: absolute;
@@ -43,6 +43,7 @@
   width: 100%;
   transform: translate(0, 0);
   transition: transform 0.5s ease-in;
+  
 }
 
 .position1 {
@@ -149,22 +150,15 @@
 
 @media tablet {
   .stackedSlidesContainer {
-    height: 638px;
     max-width: 960px;
-  }
-
-  .slideBase {
-    height: 606px;
   }
 }
 
 @media mobile {
   .stackedSlidesContainer {
-    height: 670px;
     max-width: 335px;
   }
-
   .slideBase {
-    height: 654px;
+    height: calc(100vh - 185px);
   }
 }
