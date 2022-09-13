@@ -51,7 +51,7 @@ export const fetchRank = (
       const token = get(['data', 'token'], state);
       return services.fetchRank(token);
     },
-    bailout: path ? (state: StoreState): boolean => get(path, state) : undefined
+    bailout: path ? (state: StoreState): boolean => !!get(path, state) : undefined
   });
 
   return dispatch(action);
