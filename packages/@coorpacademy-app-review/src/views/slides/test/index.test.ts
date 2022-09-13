@@ -20,8 +20,9 @@ import {sliderSlide} from './fixtures/slider';
 const popinPropsRightAnswer: CorrectionPopinProps = {
   resultLabel: '_right',
   information: {
-    label: '_infoLabel',
-    message: '_infoMessage'
+    label: '_klf',
+    message:
+      'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
   },
   klf: undefined,
   next: {
@@ -35,7 +36,8 @@ const popinPropsWrongAnswer: CorrectionPopinProps = {
   ...popinPropsRightAnswer,
   klf: {
     label: '_klf',
-    tooltip: '_klfTooltip'
+    tooltip:
+      'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
   },
   type: 'wrong',
   resultLabel: '_wrong',

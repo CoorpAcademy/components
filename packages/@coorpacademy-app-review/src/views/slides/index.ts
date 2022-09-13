@@ -277,18 +277,19 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
 
 const getCorrectionPopinProps = (
   isCorrect: boolean,
-  correctAnswer: string[]
+  correctAnswer: string[],
+  klf: string
 ): CorrectionPopinProps => ({
   klf: isCorrect
     ? undefined
     : {
         label: '_klf',
-        tooltip: '_klfTooltip'
+        tooltip: klf
       },
   resultLabel: isCorrect ? '_right' : '_wrong',
   information: {
-    label: isCorrect ? '_infoLabel' : '_correctAnswer',
-    message: isCorrect ? '_infoMessage' : join(',', correctAnswer)
+    label: isCorrect ? '_klf' : '_correctAnswer',
+    message: isCorrect ? klf : join(',', correctAnswer)
   },
   next: {
     ariaLabel: '_correctionNextAriaLabel',
@@ -298,9 +299,10 @@ const getCorrectionPopinProps = (
 });
 
 export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): SlidesViewProps => {
-  const currentSlide = get(['ui', 'currentSlideRef'], state);
-  const correction = get(['data', 'corrections', currentSlide], state);
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
+  const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
 
   return {
     header: {
@@ -324,7 +326,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
         }
       },
       correctionPopinProps:
-        correction && getCorrectionPopinProps(isCorrect, correction.correctAnswer),
+        correction && getCorrectionPopinProps(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
     congratsProps: undefined
