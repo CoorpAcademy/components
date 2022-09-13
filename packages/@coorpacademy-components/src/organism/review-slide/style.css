@@ -34,7 +34,6 @@
 }
 
 .validateButtonWrapper {
-  background-color: black;
   border-radius: 7px;
   min-width: 250px;
   width: min-content;
@@ -44,7 +43,7 @@
 
 /* ie fallback */
 _:-ms-fullscreen, :root .validateButtonWrapper {
-  width: 300px;
+  width: 100%;
   left: 40%;
   right: 40%;
 }
@@ -128,6 +127,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 
 .validateButton {
   color: white;
+  width: 300px;
   transition: opacity 0.25s ease-in;
 }
 
