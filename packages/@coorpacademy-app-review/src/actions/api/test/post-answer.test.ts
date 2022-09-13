@@ -17,6 +17,7 @@ import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS} from '../fetch-correction';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../fetch-rank';
 
 const progressionId = '123456789123';
 const skillRef = '_skill-ref';
@@ -63,8 +64,8 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch post-answer, fetch-slide and fetch-correction actions when the answer is submitted', async t => {
-  t.plan(8);
+test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide type is "type"', async t => {
+  t.plan(10);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
     {
@@ -89,6 +90,13 @@ test('should dispatch post-answer, fetch-slide and fetch-correction actions when
       type: CORRECTION_FETCH_SUCCESS,
       meta: {slideRef: freeTextSlide._id},
       payload: getChoicesCorrection(freeTextSlide._id)
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: {rank: 93}
     }
   ];
 

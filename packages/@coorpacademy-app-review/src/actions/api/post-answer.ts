@@ -5,6 +5,7 @@ import type {Options, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {fetchCorrection} from './fetch-correction';
 import {fetchSlide} from './fetch-slide';
+import {fetchEndRank, fetchStartRank} from './fetch-rank';
 
 export const POST_ANSWER_REQUEST = '@@answer/POST_REQUEST' as const;
 export const POST_ANSWER_SUCCESS = '@@answer/POST_SUCCESS' as const;
@@ -35,10 +36,17 @@ export const postAnswer = async (
     task: () => services.postAnswer(progression, token, answer)
   });
   const response = await dispatch(action);
+
   if (response.type === POST_ANSWER_SUCCESS) {
     const updatedProgression = response.payload;
     const slideRef = updatedProgression.state.nextContent.ref;
-    await dispatch(fetchSlide(slideRef));
-    await dispatch(fetchCorrection);
+    if (slideRef !== 'successExitNode') {
+      await dispatch(fetchSlide(slideRef));
+      await dispatch(fetchCorrection);
+      await dispatch(fetchStartRank);
+    } else {
+      // await dispatch(fetchCorrection);
+      await dispatch(fetchEndRank);
+    }
   }
 };
