@@ -125,7 +125,7 @@ const createStyleSheet = (theme: Theme) =>
   });
 
 interface ButtonProps {
-  key: string;
+  key: React.Key;
   title: string;
   testID: string;
   selected: boolean;
@@ -153,14 +153,7 @@ const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps
   </View>
 );
 
-const NavigationBar = ({
-  items = [
-    {label: 'test 1', icon: ClockIcon, onPress: () => {}},
-    {label: 'test 2', icon: HomeIcon, onPress: () => {}},
-    {label: 'test 3', icon: SearchIcon, onPress: () => {}}
-  ],
-  selectedItemIndex = 1
-}: Props) => {
+const NavigationBar = ({items, selectedItemIndex}: Props) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
@@ -185,7 +178,7 @@ const NavigationBar = ({
         {items.map((prop, index) => {
           return (
             <Button
-              key={index.toString()}
+              key={'button-$index'}
               title={prop.label}
               Icon={prop.icon}
               selected={index === selectedItemIndex}
