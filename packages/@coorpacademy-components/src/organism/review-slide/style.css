@@ -43,9 +43,7 @@
 
 /* ie fallback */
 _:-ms-fullscreen, :root .validateButtonWrapper {
-  width: 100%;
-  left: 40%;
-  right: 40%;
+  width: auto;
 }
 
 .answerContainer {
