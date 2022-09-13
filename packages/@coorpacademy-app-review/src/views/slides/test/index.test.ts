@@ -18,25 +18,31 @@ import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
 
 const popinPropsRightAnswer: CorrectionPopinProps = {
-  resultLabel: 'TODO result label',
+  resultLabel: '_right',
   information: {
-    label: 'TODO info label',
-    message: 'TODO info message'
+    label: '_infoLabel',
+    message: '_infoMessage'
   },
-  klf: {
-    label: 'TODO klf label',
-    tooltip: 'TODO klf tooltip'
-  },
+  klf: undefined,
   next: {
-    ariaLabel: 'TODO next ariaLabel',
-    label: 'TODO next label'
+    ariaLabel: '_correctionNextAriaLabel',
+    label: '_correctionNextLabel'
   },
   type: 'right'
 };
 
 const popinPropsWrongAnswer: CorrectionPopinProps = {
   ...popinPropsRightAnswer,
-  type: 'wrong'
+  klf: {
+    label: '_klf',
+    tooltip: '_klfTooltip'
+  },
+  type: 'wrong',
+  resultLabel: '_wrong',
+  information: {
+    label: '_correctAnswer',
+    message: 'Benchmark'
+  }
 };
 
 test('should create initial props when fetched slide is not still received', t => {

@@ -9,6 +9,7 @@ import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
+import join from 'lodash/fp/join';
 import type {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
 import type {SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
@@ -47,19 +48,25 @@ type SlidesStack = {
   [key in SlideIndexes]: UISlide;
 };
 
+type CorrectionPopinInformation = {
+  label: string;
+  message: string;
+};
+
+type CorrectionPopinKlf = {
+  label: string;
+  tooltip: string;
+};
+
+type CorrectionPopinNext = {
+  label: string;
+  ariaLabel: string;
+};
+
 export type CorrectionPopinProps = {
-  klf: {
-    label: string;
-    tooltip: string;
-  };
-  information: {
-    label: string;
-    message: string;
-  };
-  next: {
-    label: string;
-    ariaLabel: string;
-  };
+  klf?: CorrectionPopinKlf;
+  information: CorrectionPopinInformation;
+  next: CorrectionPopinNext;
   resultLabel: string;
   type: 'right' | 'wrong';
 };
@@ -268,19 +275,24 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-const getCorrectionPopinProps = (isCorrect: boolean): CorrectionPopinProps => ({
-  klf: {
-    label: 'TODO klf label',
-    tooltip: 'TODO klf tooltip'
-  },
-  resultLabel: 'TODO result label',
+const getCorrectionPopinProps = (
+  isCorrect: boolean,
+  correctAnswer: string[]
+): CorrectionPopinProps => ({
+  klf: isCorrect
+    ? undefined
+    : {
+        label: '_klf',
+        tooltip: '_klfTooltip'
+      },
+  resultLabel: isCorrect ? '_right' : '_wrong',
   information: {
-    label: 'TODO info label',
-    message: 'TODO info message'
+    label: isCorrect ? '_infoLabel' : '_correctAnswer',
+    message: isCorrect ? '_infoMessage' : join(',', correctAnswer)
   },
   next: {
-    ariaLabel: 'TODO next ariaLabel',
-    label: 'TODO next label'
+    ariaLabel: '_correctionNextAriaLabel',
+    label: '_correctionNextLabel'
   },
   type: isCorrect ? 'right' : 'wrong'
 });
@@ -311,7 +323,8 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
           dispatch(postAnswer);
         }
       },
-      correctionPopinProps: correction && getCorrectionPopinProps(isCorrect),
+      correctionPopinProps:
+        correction && getCorrectionPopinProps(isCorrect, correction.correctAnswer),
       endReview: false
     },
     congratsProps: undefined
