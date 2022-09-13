@@ -2,12 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
-import {
-  NovaCompositionCoorpacademyClockTime as ClockIcon,
-  NovaSolidPlacesPlacesHome2 as HomeIcon,
-  NovaCompositionCoorpacademySearch as SearchIcon,
-  NovaCompositionNavigationNavBar as BluredShadow
-} from '@coorpacademy/nova-icons';
+import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {
@@ -147,7 +142,7 @@ const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps
     {selected ? (
       <View>
         <View style={styles.dot} />
-        <BluredShadow color={theme.colors.cta} style={styles.blur} />
+        <BlurredShadow color={theme.colors.cta} style={styles.blur} />
       </View>
     ) : null}
   </View>
