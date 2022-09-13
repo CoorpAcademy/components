@@ -58,7 +58,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
   const expectedActions = [
     {
       type: EDIT_QCM_GRAPHIC,
-      payload: ['Faux']
+      payload: ['Le retour d’information']
     }
   ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
@@ -71,8 +71,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
-    questionText:
-      'Pour mener une bonne négociation, il ne faut ressentir aucune émotion. Vrai ou faux ?'
+    questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as QcmGraphic;

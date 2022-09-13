@@ -605,8 +605,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     position: 1,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
-    questionText:
-      'Pour mener une bonne négociation, il ne faut ressentir aucune émotion. Vrai ou faux ?'
+    questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0', '1'], props.stack.slides), {
