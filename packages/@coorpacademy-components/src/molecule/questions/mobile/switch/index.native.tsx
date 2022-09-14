@@ -38,9 +38,7 @@ const styleSheet = StyleSheet.create({
     flex: 1
   },
   choices: {
-    flexDirection: 'column',
-    flex: 1,
-    justifyContent: 'center'
+    // backgroundColor: '#967', // flex-debug
   },
   choice: {
     paddingVertical: 5

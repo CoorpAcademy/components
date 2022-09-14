@@ -94,6 +94,7 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
     },
     choicesContainer: {
       flex: 1,
+      width: '100%',
       // backgroundColor: '#ff0', // flex-debug
       justifyContent: 'center'
     },
@@ -150,7 +151,7 @@ const Question = (props: QuestionProps) => {
 
 const creatSlideStyle = (num: number, screenWidth: number, screenHeight: number) => {
   const slideWidth = screenWidth - 40 - num * 8;
-  const slideHeight = screenHeight * 0.65;
+  const slideHeight = screenHeight * 0.75;
 
   return StyleSheet.create({
     slide: {
