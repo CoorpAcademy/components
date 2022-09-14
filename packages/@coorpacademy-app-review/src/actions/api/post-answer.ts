@@ -36,7 +36,6 @@ export const postAnswer = async (
     task: () => services.postAnswer(progression, token, answer)
   });
   const response = await dispatch(action);
-
   if (response.type === POST_ANSWER_SUCCESS) {
     const updatedProgression = response.payload;
     const slideRef = updatedProgression.state.nextContent.ref;

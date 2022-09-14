@@ -118,7 +118,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   t.true(state.ui.slide.animateCorrectionPopin);
 });
 
-test('should dispatch post-answer,fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide type is "success"', async t => {
+test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide type is "success"', async t => {
   t.plan(8);
 
   const stateBeforeExitNode: StoreState = {
