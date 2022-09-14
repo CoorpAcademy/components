@@ -46,12 +46,18 @@ const ReviewCongrats = props => {
       <div className={style.containerCongrats}>
         <div className={style.title}>{title}</div>
         <div ref={container} className={style.containerCards}>
-          <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
-          <MoleculeReviewCardCongrats
-            {...cardCongratsRank}
-            timerAnimation={1800}
-            className={style.cardRank}
-          />
+          {cardCongratsRank ? (
+            <>
+              <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
+              <MoleculeReviewCardCongrats
+                {...cardCongratsRank}
+                timerAnimation={1800}
+                className={style.cardRank}
+              />
+            </>
+          ) : (
+            <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStarNoRank} />
+          )}
         </div>
         <div className={style.buttonContainer}>
           <ButtonLink
