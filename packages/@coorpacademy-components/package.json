@@ -51,7 +51,7 @@
     "Soualmi Djamel <djamel.soualmi@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "^3.11.10",
+    "@coorpacademy/nova-icons": "3.11.10",
     "@types/react": "^17.0.47",
     "@types/react-dom": "^17.0.17",
     "autoprefixer": "^9.8.0",

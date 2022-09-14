@@ -129,8 +129,8 @@ interface ButtonProps {
   theme: Theme;
 }
 
-const Button = ({key, testID, title, selected, Icon, styles, theme}: ButtonProps) => (
-  <View key={key} testID={testID} style={styles.button}>
+const Button = ({testID, title, selected, Icon, styles, theme}: ButtonProps) => (
+  <View testID={testID} style={styles.button}>
     <View style={{alignItems: 'center'}}>
       <Icon
         height={16}
@@ -170,19 +170,17 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
         reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
       />
       <View style={styleSheet.container}>
-        {items.map((prop, index) => {
-          return (
-            <Button
-              key={'button-$index'}
-              title={prop.label}
-              Icon={prop.icon}
-              selected={index === selectedItemIndex}
-              testID={`navigationButton_${index}`}
-              styles={styleSheet}
-              theme={theme}
-            />
-          );
-        })}
+        {items.map((prop, index) => (
+          <Button
+            key={`button-${prop.label}`}
+            title={prop.label}
+            Icon={prop.icon}
+            selected={index === selectedItemIndex}
+            testID={`navigationButton_${index}`}
+            styles={styleSheet}
+            theme={theme}
+          />
+        ))}
       </View>
     </View>
   );

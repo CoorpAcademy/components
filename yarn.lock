@@ -3341,11 +3341,6 @@
     lodash "^4.17.21"
     prettier "2.5.1"
 
-"@coorpacademy/nova-icons@^3.11.10":
-  version "3.11.10"
-  resolved "https://registry.yarnpkg.com/@coorpacademy/nova-icons/-/nova-icons-3.11.10.tgz#6eae547ab7ef9df706112a83ab2f01c501b6a1b4"
-  integrity sha512-9r0Kgo5TPVERdfRqvZ2Fx25/hbOc1Cus+kGMfzPvb+zNqVu/+qTqauI45Fb/WAG25llBibG37I59VSHFvaz07g==
-
 "@coorpacademy/react-native-mock-render@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-mock-render/-/react-native-mock-render-0.2.4.tgz#651df1d7145d56bde2256be556d5df898662b269"
