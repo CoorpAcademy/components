@@ -14,7 +14,8 @@ export default {
       position: 0,
       loading: false,
       parentContentTitle: 'From "Master Design Thinking to become more agile" course',
-      questionText: 'Question 1',
+      questionText:
+        'Lorsque vous cherchez à développer une intelligence culturelle, quels sont les trois comportements <i>fondamentaux</i> que vous devrez connaître',
       answerUI: qcmGraphic,
       showCorrectionPopin: false
     },
