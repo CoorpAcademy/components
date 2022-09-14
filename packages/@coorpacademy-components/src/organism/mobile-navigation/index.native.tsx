@@ -120,7 +120,6 @@ const createStyleSheet = (theme: Theme) =>
   });
 
 interface ButtonProps {
-  key: React.Key;
   title: string;
   testID: string;
   selected: boolean;
