@@ -190,6 +190,8 @@ const Slide = (props: Props) => {
     animateCorrectionPopin
   } = slide;
 
+  console.log({slide});
+
   return (
     <View style={slideStyle.slide}>
       {loading ? (

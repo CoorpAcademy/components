@@ -1,4 +1,4 @@
-import PropTypes, {bool} from 'prop-types';
+import PropTypes, {bool, string} from 'prop-types';
 import VideoPlayerPropTypes from '../video-player/prop-types';
 
 export const TYPE_IMAGE = 'img';
@@ -66,7 +66,11 @@ export type Props = {
     type: 'qcmDrag' | 'qcm' | 'qcmGraphic' | 'freeText' | 'dropDown' | 'slider' | 'template';
     answers?: Answer[];
     template?: string;
-    onChange: (value: string) => void;
+    onChange?: (value: string | number) => void;
+    onSliderChange?: (value: number) => void;
+    minLabel?: string;
+    maxLabel?: string;
+    title?: string;
   };
   help: string;
   media: any;

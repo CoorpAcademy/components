@@ -59,8 +59,9 @@ export type DropDown = {
 export type QuestionRange = {
   type: 'slider';
   placeholder?: string;
-  onChange?: Function;
+  onChange?: (value: number) => void;
   onChangeEnd?: Function;
+  onSliderChange?: (value: number) => void;
   multi?: boolean;
   value: number | number[];
   title: string;

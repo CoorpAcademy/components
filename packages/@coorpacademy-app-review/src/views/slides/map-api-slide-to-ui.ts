@@ -225,6 +225,7 @@ const sliderProps =
       title: `${currentValue} ${question.content.unitLabel}`,
       value: sliderPosition,
       onChange: (position: number): void => {
+        // atom/range handler
         const newValue: string = pipe(
           multiply(maxValue),
           round,
@@ -232,6 +233,10 @@ const sliderProps =
           _toString
         )(position);
         dispatch(editAnswer([newValue]));
+      },
+      onSliderChange: (newValue: number): void => {
+        // mobile/slider handler
+        dispatch(editAnswer([`${newValue}`]));
       }
     };
   };

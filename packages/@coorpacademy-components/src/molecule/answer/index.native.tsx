@@ -40,15 +40,32 @@ const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] =>
 
 const Answer = (props: Props) => {
   const {
-    model: {answers, onChange, template, type}
+    model: {answers, onChange, template, type, onSliderChange, minLabel, maxLabel, title}
   } = props;
 
   const switchProps: SwitchProps = {
-    type: convertType(type),
-    items: convertToChoices(answers),
-    onInputValueChange: onChange,
-    template
+    type: convertType(type)
   };
+
+  if (type === 'freeText') {
+    switchProps.onInputValueChange = onChange;
+  }
+
+  if (type === 'qcm' || type === 'qcmDrag' || type === 'qcmGraphic' || type === 'template') {
+    switchProps.items = convertToChoices(answers);
+  }
+
+  if (type === 'template') {
+    switchProps.template = template;
+  }
+
+  if (type === 'slider') {
+    switchProps.onSliderChange = onSliderChange;
+    switchProps.min = minLabel ? Number.parseInt(minLabel.split(' ')[0]) : 0;
+    switchProps.max = maxLabel ? Number.parseInt(maxLabel.split(' ')[0]) : 1;
+    switchProps.value = title ? Number.parseInt(title.split(' ')[0]) : 0;
+    switchProps.unit = minLabel ? minLabel.split(' ')[1] : '';
+  }
 
   return <Switch {...switchProps} />;
 };

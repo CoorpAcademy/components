@@ -16,7 +16,7 @@ export type Props = {
   type: QuestionType;
   isDisabled?: boolean;
   template?: string;
-  items: Array<Choice>;
+  items?: Array<Choice>;
   min?: number;
   max?: number;
   unit?: string;
@@ -54,7 +54,7 @@ const Switch = (props: Props) => {
     type,
     template,
     isDisabled,
-    items,
+    items = [],
     min,
     max,
     unit,
