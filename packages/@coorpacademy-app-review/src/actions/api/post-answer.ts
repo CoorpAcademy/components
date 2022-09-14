@@ -45,7 +45,7 @@ export const postAnswer = async (
       await dispatch(fetchCorrection);
       await dispatch(fetchStartRank);
     } else {
-      // await dispatch(fetchCorrection);
+      await dispatch(fetchCorrection);
       await dispatch(fetchEndRank);
     }
   }
