@@ -72,7 +72,7 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide type is "slide"', async t => {
+test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide ref is not "successExitNode"', async t => {
   t.plan(10);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
@@ -118,7 +118,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   t.true(state.ui.slide.animateCorrectionPopin);
 });
 
-test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide type is "success"', async t => {
+test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
   t.plan(8);
 
   const stateBeforeExitNode: StoreState = {
