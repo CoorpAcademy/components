@@ -72,7 +72,7 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide type is "type"', async t => {
+test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide type is "slide"', async t => {
   t.plan(10);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
@@ -123,52 +123,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
 
   const stateBeforeExitNode: StoreState = {
     data: {
-      progression: {
-        _id: progressionId,
-        content: {type: 'skill', ref: skillRef},
-        engine: {
-          ref: 'review'
-        },
-        state: {
-          allAnswers: [
-            {
-              slideRef: freeTextSlide.universalRef,
-              isCorrect: true,
-              answer: ['Benchmark']
-            },
-            {
-              slideRef: qcmGraphicSlide.universalRef,
-              isCorrect: true,
-              answer: ['Faux']
-            },
-            {
-              slideRef: qcmSlide.universalRef,
-              isCorrect: true,
-              answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
-            },
-            {
-              slideRef: sliderSlide.universalRef,
-              isCorrect: true,
-              answer: ['7']
-            }
-          ],
-          isCorrect: true,
-          nextContent: {
-            ref: templateSlide.universalRef,
-            type: 'slide'
-          },
-          content: {
-            ref: sliderSlide.universalRef,
-            type: 'slide'
-          },
-          pendingSlides: [],
-          slides: [freeTextSlide.universalRef, qcmGraphicSlide.universalRef, qcmSlide.universalRef],
-          step: {
-            current: 4
-          },
-          stars: 24
-        }
-      },
+      progression: postAnswerResponses[sliderSlide.universalRef],
       slides: {
         [freeTextSlide._id]: freeTextSlide,
         [qcmGraphicSlide._id]: qcmGraphicSlide,
