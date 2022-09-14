@@ -984,6 +984,7 @@ import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/
 import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
 import OrganismReviewCongratsFixtureDefault from '../src/organism/review-congrats/test/fixtures/default';
+import OrganismReviewCongratsFixtureNoRank from '../src/organism/review-congrats/test/fixtures/no-rank';
 import OrganismReviewHeaderFixtureAllQuestionsOk from '../src/organism/review-header/test/fixtures/all-questions-ok';
 import OrganismReviewHeaderFixtureCurrentQuestionNoAnswered from '../src/organism/review-header/test/fixtures/current-question-no-answered';
 import OrganismReviewHeaderFixtureCurrentQuestionWrong from '../src/organism/review-header/test/fixtures/current-question-wrong';
@@ -2694,7 +2695,8 @@ export const fixtures = {
       Vimeo: OrganismResourceBrowserFixtureVimeo
     },
     OrganismReviewCongrats: {
-      Default: OrganismReviewCongratsFixtureDefault
+      Default: OrganismReviewCongratsFixtureDefault,
+      NoRank: OrganismReviewCongratsFixtureNoRank
     },
     OrganismReviewHeader: {
       AllQuestionsOk: OrganismReviewHeaderFixtureAllQuestionsOk,
