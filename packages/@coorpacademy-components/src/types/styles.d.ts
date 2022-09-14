@@ -22,3 +22,7 @@ export type FontWeight =
   | '800'
   | '900'
   | undefined;
+export type Position = 'absolute' | 'relative' | undefined;
+export type FlexAlignType = 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
+export type AlignSelf = 'auto' | FlexAlignType | undefined;
+export type Overflow = 'visible' | 'hidden' | 'scroll' | undefined;
