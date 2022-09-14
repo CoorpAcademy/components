@@ -118,9 +118,12 @@ const QuestionContainer = props => {
       <div key="from-course" className={style.questionOrigin}>
         {questionOrigin}
       </div>
-      <div key="title" className={style.question}>
-        {questionText}
-      </div>
+      <div
+        key="title"
+        className={style.question}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: questionText}}
+      />
       <div key="help" className={style.help}>
         {get('help', answerUI)}
       </div>
