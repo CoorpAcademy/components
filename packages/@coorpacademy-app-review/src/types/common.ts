@@ -1,10 +1,3 @@
-// TODO use type from components
-type TemplateContextValues = {
-  brandTheme?: unknown;
-  theme?: unknown; // TODO type Theme
-  translations?: unknown; // TODO type Translations
-};
-
 // TODO: EDIT_CHOICES -> specify typing
 export type ChoiceFromAPI = {
   _id: string;
@@ -176,8 +169,6 @@ export type Options = {
 
 export type AppOptions = {
   token: string;
-  theme?: unknown;
-  translations?: unknown;
   skillRef?: string;
   services: Services;
 };

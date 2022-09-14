@@ -67,12 +67,7 @@ export const postProgressionResponse: ProgressionFromAPI = {
     allAnswers: [],
     isCorrect: true,
     nextContent: {
-      // ref: qcmDragSlide.universalRef,
-      // ref: qcmGraphicSlide.universalRef,
-      // ref: qcmSlide.universalRef,
-      ref: sliderSlide.universalRef,
-      // ref: templateSlide.universalRef,
-      // ref: freeTextSlide.universalRef,
+      ref: freeTextSlide.universalRef,
       type: 'slide'
     },
     pendingSlides: [],
