@@ -5,7 +5,7 @@ import type {StoreState} from '../../reducers';
 export const NEXT_SLIDE = '@@slide/NEXT_SLIDE' as const;
 
 type NextSlidePayload = {
-  currentSlideRef: string | undefined;
+  currentSlideRef: string;
   animateCorrectionPopin: boolean;
   animationType: string;
 };
