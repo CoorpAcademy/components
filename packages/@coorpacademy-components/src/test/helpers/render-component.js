@@ -26,7 +26,13 @@ const renderComponent = (t, Component, fixture) => {
 
   const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
-  return ReactDOM.renderToStaticMarkup(wrappedVTree);
+  try {
+    return ReactDOM.renderToStaticMarkup(wrappedVTree);
+  } catch (e) {
+    console.log(`[------ ❌ [web rendering]---> error for ${Component.name}`);
+    console.log(e);
+    console.log('-------------------]');
+  }
 };
 
 const renderNativeComponent = (t, Component, fixture) => {
@@ -52,8 +58,9 @@ const renderNativeComponent = (t, Component, fixture) => {
       t.is(get('type', json), 'react-native-mock');
     }
   } catch (e) {
-    console.log('❌ ---> error rendering', Component);
+    console.log(`[------ ❌ [native rendering]---> error for ${Component.name}`);
     console.log(e);
+    console.log('-------------------]');
   }
 };
 

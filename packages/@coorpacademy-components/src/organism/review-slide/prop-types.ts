@@ -18,7 +18,6 @@ export const SlidePropsTypes = PropTypes.shape({
 
 const propTypes = {
   slideIndex: PropTypes.string,
-  num: PropTypes.number.isRequired,
   slide: SlidePropsTypes,
   validateButton: PropTypes.shape({
     label: PropTypes.string.isRequired,
@@ -40,7 +39,10 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = PropTypes.InferProps<typeof propTypes>;
+export type Props = PropTypes.InferProps<typeof propTypes> & {
+  num: number;
+};
+
 export type SlideProps = {
   hidden: boolean;
   position: number;
