@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {mockTranslate} from '@coorpacademy/translate';
 import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
+import {TemplateContext} from '../../template/app-review/template-context';
 
 export const context = {
   skin: {
@@ -29,13 +30,30 @@ const renderComponent = (t, Component, fixture) => {
 };
 
 const renderNativeComponent = (t, Component, fixture) => {
-  const {toJSON} = render(<Component {...fixture.props} />);
-  const json = toJSON();
+  let vDom;
 
-  if (Array.isArray(json)) {
-    json.forEach(el => t.is(get('type', el), 'react-native-mock'));
+  if (fixture.mobileContext) {
+    vDom = (
+      <TemplateContext values={fixture.mobileContext}>
+        <Component {...fixture.props} />
+      </TemplateContext>
+    );
   } else {
-    t.is(get('type', json), 'react-native-mock');
+    vDom = <Component {...fixture.props} />;
+  }
+
+  try {
+    const {toJSON} = render(vDom);
+    const json = toJSON();
+
+    if (Array.isArray(json)) {
+      json.forEach(el => t.is(get('type', el), 'react-native-mock'));
+    } else {
+      t.is(get('type', json), 'react-native-mock');
+    }
+  } catch (e) {
+    console.log('❌ ---> error rendering', Component);
+    console.log(e);
   }
 };
 

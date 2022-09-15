@@ -21,12 +21,12 @@ const field2: Choice = {
 
 const field3 = {...field1, name: undefined};
 
-export const items = [field1, field2, field3];
+export const choices = [field1, field2, field3];
 
 const fixture: Fixture = {
   props: {
     ...defaultFixture.props,
-    items
+    choices
   }
 };
 

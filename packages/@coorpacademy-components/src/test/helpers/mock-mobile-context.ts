@@ -11,7 +11,7 @@ type MockOptions = {
 const mockMobileContext = ({
   logEvent = noop,
   vibrate = noop
-}: MockOptions): TemplateContextValues => ({
+}: MockOptions = {}): TemplateContextValues => ({
   theme: defaultTheme,
   translations: {
     selectAnAnswer: 'Select an answer',

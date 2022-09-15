@@ -16,7 +16,7 @@ export type Props = {
   type: QuestionType;
   isDisabled?: boolean;
   template?: string;
-  items?: Array<Choice>;
+  choices?: Array<Choice>;
   min?: number;
   max?: number;
   unit?: string;
@@ -38,7 +38,7 @@ const styleSheet = StyleSheet.create({
     flex: 1
   },
   choices: {
-    // backgroundColor: '#967', // flex-debug
+    // backgroundColor: '#967' // flex-debug
   },
   choice: {
     paddingVertical: 5
@@ -54,7 +54,7 @@ const Switch = (props: Props) => {
     type,
     template,
     isDisabled,
-    items = [],
+    choices = [],
     min,
     max,
     unit,
@@ -66,7 +66,7 @@ const Switch = (props: Props) => {
     onInputValueChange
   } = props;
 
-  const handleItemPress = useCallback(
+  const handleChoicePress = useCallback(
     (choice: Choice) => () => {
       if (choice.onPress) {
         // e.g. app-review
@@ -111,17 +111,17 @@ const Switch = (props: Props) => {
     case 'qcm':
       return (
         <View testID="question-choices" style={styleSheet.choices}>
-          {items.map((item, index) => (
+          {choices.map((choice, index) => (
             <QuestionChoice
-              key={`question-choice-${item._id}`}
-              onPress={handleItemPress(item)}
+              key={`question-choice-${choice._id}`}
+              onPress={handleChoicePress(choice)}
               isDisabled={isDisabled}
-              isSelected={item.selected}
-              testID={`question-choice-${item._id}`}
+              isSelected={choice.selected}
+              testID={`question-choice-${choice._id}`}
               style={styleSheet.choice}
               questionType={type}
             >
-              {item.label}
+              {choice.label}
             </QuestionChoice>
           ))}
         </View>
@@ -129,18 +129,18 @@ const Switch = (props: Props) => {
     case 'qcmGraphic':
       return (
         <View testID="question-choices" style={styleSheet.choices}>
-          {items.map((item, index) => (
+          {choices.map((choice, index) => (
             <QuestionChoice
-              key={`question-choice-${item._id}`}
-              onPress={handleItemPress(item)}
-              media={item.media}
+              key={`question-choice-${choice._id}`}
+              onPress={handleChoicePress(choice)}
+              media={choice.media}
               isDisabled={isDisabled}
-              isSelected={item.selected}
-              testID={`question-choice-${item._id}`}
+              isSelected={choice.selected}
+              testID={`question-choice-${choice._id}`}
               style={styleSheet.choice}
               questionType={type}
             >
-              {item.label}
+              {choice.label}
             </QuestionChoice>
           ))}
         </View>
@@ -174,7 +174,7 @@ const Switch = (props: Props) => {
           <QuestionTemplate
             isDisabled={isDisabled}
             template={template || ''}
-            choices={items}
+            choices={choices}
             onInputChange={handleItemInputChange}
             handleBlur={handleBlur}
             handleFocus={handleFocus}
@@ -185,7 +185,7 @@ const Switch = (props: Props) => {
     case 'qcmDrag':
       return (
         <View testID="question-draggable">
-          <QuestionDraggable choices={items} onPress={handleItemPress} />
+          <QuestionDraggable choices={choices} onPress={handleChoicePress} />
         </View>
       );
     case 'basic':

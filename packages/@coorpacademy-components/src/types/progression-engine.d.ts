@@ -330,7 +330,7 @@ export type Choice = {
   value?: string;
   name?: string;
   type?: 'text' | 'select';
-  label: string;
+  label?: string;
   items?: Array<ChoiceItem>;
   media?: Media;
   onPress?: Function;

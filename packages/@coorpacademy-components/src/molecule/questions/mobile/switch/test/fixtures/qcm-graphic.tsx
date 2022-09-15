@@ -5,8 +5,6 @@ import {choices} from './qcm';
 
 type Fixture = {props: Props};
 
-const answers = choices.filter((choice, index) => index === 1).map(choice => choice.label);
-
 const url =
   'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-eyrolles/cockpit-eyrolles/default/shutterstock_123603871-1-1545058448041.jpg&h=500&w=500&q=90&m=contain';
 
@@ -30,8 +28,7 @@ const choicesWithImage: Array<Choice> = choices.map(choice => ({
 const fixture: Fixture = {
   props: {
     type: 'qcmGraphic',
-    items: choicesWithImage.slice(0, 3),
-    userChoices: answers,
+    choices: choicesWithImage.slice(0, 3),
     onItemPress: noop
   }
 };

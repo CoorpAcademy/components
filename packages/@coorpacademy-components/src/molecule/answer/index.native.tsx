@@ -21,10 +21,12 @@ const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] =>
     value: answer.title,
     onPress: answer.onClick || answer.onChange,
     selected: answer.selected,
-    media: {
-      type: 'img',
-      src: [{url: answer.image}]
-    },
+    media: answer.image
+      ? {
+          type: 'img',
+          src: [{url: answer.image}]
+        }
+      : undefined,
     // ---- custom properties for template choice
     type: answer.type,
     name: answer.name,
@@ -52,7 +54,7 @@ const Answer = (props: Props) => {
   }
 
   if (type === 'qcm' || type === 'qcmDrag' || type === 'qcmGraphic' || type === 'template') {
-    switchProps.items = convertToChoices(answers);
+    switchProps.choices = convertToChoices(answers);
   }
 
   if (type === 'template') {

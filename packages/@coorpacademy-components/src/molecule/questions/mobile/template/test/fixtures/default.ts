@@ -20,22 +20,22 @@ const field2: Choice = {
     {
       _id: '1',
       text: 'Play Store',
-      value: 'play_store'
+      selected: false
     },
     {
       _id: '2',
       text: 'App Store',
-      value: 'app_store'
+      selected: false
     },
     {
       _id: '3',
       text: 'Apple Store',
-      value: 'apple_store'
+      selected: false
     },
     {
       _id: '4',
       text: 'Pineapple Store',
-      value: 'pineapple_store'
+      selected: false
     }
   ]
 };
@@ -45,18 +45,13 @@ const field4 = {...field2, name: 'sel2'};
 
 export const template =
   'My app {{inp1}}<br><s> NOT on</s> {{sel1}}, <br/>but {{inp2}} <br /><i>is on</i> {{sel2}}';
-export const items = [field1, field2, field3, field4];
-export const userChoices = [
-  '',
-  '',
-  'Waze',
-  (field4.items && field4.items[1] && field4.items[1].text) || ''
-];
+
+export const choices = [field1, field2, field3, field4];
 
 const fixture: Fixture = {
   props: {
     template,
-    items,
+    choices,
     onInputChange: noop,
     handleFocus: (id: string) => noop,
     handleBlur: noop,

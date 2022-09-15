@@ -9,8 +9,7 @@ const fixture: Fixture = {
     value: 8,
     step: 2,
     isDisabled: false,
-    items: [],
-    userChoices: [],
+    choices: [],
     onSliderChange: noop
   }
 };

@@ -12,7 +12,7 @@ import {Theme} from '../../variables/theme.native';
 export type Props = {
   isSelected?: boolean;
   onPress: () => void;
-  children: string;
+  children?: string;
   isDisabled?: boolean;
   testID?: string;
   media?: Media;
@@ -168,14 +168,17 @@ const Choice = ({
             />
           </View>
         ) : null}
-        <View style={textWrapperStyle}>
-          <Html
-            fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
-            style={htmlStyle}
-          >
-            {children}
-          </Html>
-        </View>
+
+        {children ? (
+          <View style={textWrapperStyle}>
+            <Html
+              fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
+              style={htmlStyle}
+            >
+              {children}
+            </Html>
+          </View>
+        ) : null}
       </View>
     </Touchable>
   );

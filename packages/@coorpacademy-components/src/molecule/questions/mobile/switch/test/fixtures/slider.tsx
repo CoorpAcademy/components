@@ -12,9 +12,8 @@ const fixture: Fixture = {
     value: 8,
     step: 2,
     isDisabled: false,
-    items: [],
+    choices: [],
     onInputValueChange: noop,
-    userChoices: [],
     onSliderChange: noop
   }
 };

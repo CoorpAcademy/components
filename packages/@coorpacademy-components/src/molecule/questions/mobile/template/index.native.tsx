@@ -16,6 +16,7 @@ import parseTemplateString from '../../../../util/parse-template-string';
 
 const createStyleSheet = (theme: Theme) => ({
   section: {
+    // backgroundColor: '#188', // flex-debug
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',

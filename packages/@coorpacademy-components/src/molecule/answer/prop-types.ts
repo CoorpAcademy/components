@@ -1,4 +1,4 @@
-import PropTypes, {bool, string} from 'prop-types';
+import PropTypes from 'prop-types';
 import VideoPlayerPropTypes from '../video-player/prop-types';
 
 export const TYPE_IMAGE = 'img';
@@ -50,12 +50,12 @@ type SelectOptions = {
 };
 
 type Answer = {
-  title: string;
-  'aria-label': string;
+  title?: string;
+  'aria-label'?: string;
   onClick?: () => void;
   onChange?: (value: string) => void;
-  selected: boolean;
-  image: string;
+  selected?: boolean;
+  image?: string;
   options?: SelectOptions[];
   type?: 'text' | 'select';
   name?: string;
