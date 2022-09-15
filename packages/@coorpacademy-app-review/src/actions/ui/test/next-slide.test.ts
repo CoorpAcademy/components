@@ -33,7 +33,9 @@ const state: StoreState = {
     navigation: ['loader', 'slides'],
     answers: answer,
     slide: {
-      validateButton: false
+      validateButton: false,
+      animateCorrectionPopin: true,
+      showCorrectionPopin: true
     }
   }
 };
