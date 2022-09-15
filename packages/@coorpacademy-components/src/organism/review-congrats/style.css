@@ -129,6 +129,11 @@
   opacity: 0;
 }
 
+.cardStarNoRank {
+  animation: translateYCardStar 0.5s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
 .cardRank {
   animation: translateCardRank 0.2s ease-in-out 2s forwards;
   position: absolute;
