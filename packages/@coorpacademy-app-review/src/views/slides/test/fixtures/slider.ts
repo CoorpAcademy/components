@@ -36,7 +36,8 @@ export const sliderUISlide: Partial<UISlide> = {
       maxLabel: '15 an(s)',
       title: '1 an(s)',
       value: 0,
-      onChange: noop
+      onChange: noop,
+      onSliderChange: noop
     }
   }
 };
