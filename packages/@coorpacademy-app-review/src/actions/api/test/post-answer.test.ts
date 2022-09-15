@@ -16,7 +16,16 @@ import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS} from '../fetch-correction';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
+import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {
+  RANK_FETCH_START_REQUEST,
+  RANK_FETCH_START_SUCCESS,
+  RANK_FETCH_END_REQUEST,
+  RANK_FETCH_END_SUCCESS
+} from '../fetch-rank';
 
 const progressionId = '123456789123';
 const skillRef = '_skill-ref';
@@ -63,8 +72,8 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch post-answer, fetch-slide and fetch-correction actions when the answer is submitted', async t => {
-  t.plan(8);
+test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide ref is not "successExitNode"', async t => {
+  t.plan(10);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST},
     {
@@ -89,10 +98,75 @@ test('should dispatch post-answer, fetch-slide and fetch-correction actions when
       type: CORRECTION_FETCH_SUCCESS,
       meta: {slideRef: freeTextSlide._id},
       payload: getChoicesCorrection(freeTextSlide._id)
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: {rank: 93}
     }
   ];
 
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+
+  await dispatch(postAnswer);
+
+  const state = getState();
+
+  t.false(state.ui.slide.validateButton);
+  t.true(state.ui.slide.animateCorrectionPopin);
+});
+
+test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
+  t.plan(8);
+
+  const stateBeforeExitNode: StoreState = {
+    data: {
+      progression: postAnswerResponses[sliderSlide.universalRef],
+      slides: {
+        [freeTextSlide._id]: freeTextSlide,
+        [qcmGraphicSlide._id]: qcmGraphicSlide,
+        [qcmSlide._id]: qcmSlide,
+        [sliderSlide._id]: sliderSlide
+      },
+      skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
+      token: '1234',
+      corrections: {},
+      rank: {}
+    },
+    ui: {
+      currentSlideRef: templateSlide._id,
+      navigation: ['skills', 'slides'],
+      answers: ['Leaderboard', 'utilisateurs', 'étoiles'],
+      slide: {
+        validateButton: false
+      }
+    }
+  };
+
+  const expectedActions = [
+    {type: POST_ANSWER_REQUEST},
+    {
+      type: POST_ANSWER_SUCCESS,
+      payload: postAnswerResponses[templateSlide._id]
+    },
+    {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: templateSlide._id}},
+    {
+      type: CORRECTION_FETCH_SUCCESS,
+      meta: {slideRef: templateSlide._id},
+      payload: getChoicesCorrection(templateSlide._id)
+    },
+    {
+      type: RANK_FETCH_END_REQUEST
+    },
+    {
+      type: RANK_FETCH_END_SUCCESS,
+      payload: {rank: 93}
+    }
+  ];
+
+  const {dispatch, getState} = createTestStore(t, stateBeforeExitNode, services, expectedActions);
 
   await dispatch(postAnswer);
 
