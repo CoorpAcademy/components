@@ -13,11 +13,13 @@ import {
 } from '../../actions/ui/answers';
 import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/post-answer';
 import {CORRECTION_FETCH_SUCCESS, ReceivedCorrection} from '../../actions/api/fetch-correction';
+import {NEXT_SLIDE, NextSlide} from '../../actions/ui/next-slide';
 
 export type UISlideState = {
   validateButton: boolean;
   animateCorrectionPopin?: boolean;
   showCorrectionPopin?: boolean;
+  animationType?: string;
 };
 
 export const initialState: UISlideState = {validateButton: false};
@@ -25,7 +27,7 @@ export const initialState: UISlideState = {validateButton: false};
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UISlideState = initialState,
-  action: PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection
+  action: PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection | NextSlide
 ): UISlideState => {
   switch (action.type) {
     case EDIT_QCM:
@@ -41,6 +43,12 @@ const reducer = (
     }
     case CORRECTION_FETCH_SUCCESS: {
       return pipe(set(['animateCorrectionPopin'], true), set(['showCorrectionPopin'], true))(state);
+    }
+    case NEXT_SLIDE: {
+      return pipe(
+        set(['animateCorrectionPopin'], false),
+        set(['animationType'], action.payload.animationType)
+      )(state);
     }
     default:
       return state;
