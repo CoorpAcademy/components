@@ -172,9 +172,11 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const animateCorrectionPopin =
-        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'animateCorrectionPopin'], state);
+        isCurrentSlideRef &&
+        getOr(false, ['ui', 'slide', currentSlideRef, 'animateCorrectionPopin'], state);
       const showCorrectionPopin =
-        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'showCorrectionPopin'], state);
+        isCurrentSlideRef &&
+        getOr(false, ['ui', 'slide', currentSlideRef, 'showCorrectionPopin'], state);
 
       const updatedUiSlide = pipe(
         set('showCorrectionPopin', showCorrectionPopin),
@@ -320,7 +322,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       slides: buildStackSlides(state, dispatch),
       validateButton: {
         label: '__validate',
-        disabled: !get('ui.slide.validateButton', state),
+        disabled: !get(`ui.slide[${currentSlideRef}].validateButton`, state),
         onClick: /* istanbul ignore next */ (): void => {
           dispatch(postAnswer);
         }

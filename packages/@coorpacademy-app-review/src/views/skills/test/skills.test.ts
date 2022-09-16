@@ -18,9 +18,7 @@ test('should create initial props when there are no skills on the state', t => {
       currentSlideRef: '',
       navigation: ['loader', 'skills'],
       answers: [],
-      slide: {
-        validateButton: false
-      }
+      slide: {}
     }
   };
 
@@ -64,9 +62,7 @@ test('should create initial props when skills on the state', t => {
       currentSlideRef: '',
       navigation: ['loader', 'skills'],
       answers: [],
-      slide: {
-        validateButton: false
-      }
+      slide: {}
     }
   };
 

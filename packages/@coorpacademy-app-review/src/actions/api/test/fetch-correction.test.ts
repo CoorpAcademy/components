@@ -36,9 +36,7 @@ const initialState: StoreState = {
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
     answers: answer,
-    slide: {
-      validateButton: false
-    }
+    slide: {}
   }
 };
 

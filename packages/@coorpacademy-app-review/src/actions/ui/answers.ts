@@ -29,6 +29,7 @@ export type EditAnswerAction = {
     | typeof EDIT_TEMPLATE
     | typeof EDIT_BASIC
     | typeof EDIT_SLIDER;
+  meta: {slideRef: string};
   payload: string[];
 };
 
@@ -69,6 +70,7 @@ export const editAnswer =
 
     return dispatch({
       type,
+      meta: {slideRef: currentSlideRef},
       payload: buildAnswer(userAnswers, questionType, answer)
     });
   };

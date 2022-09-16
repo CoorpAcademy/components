@@ -51,9 +51,7 @@ const initialState: StoreState = {
     currentSlideRef: '',
     navigation: [],
     answers: [],
-    slide: {
-      validateButton: false
-    }
+    slide: {}
   }
 };
 
@@ -67,7 +65,7 @@ const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreStat
 
 test('editAnswer should throw an Error if the slide is not found', async t => {
   const state = buildInitialState(initialState, freeTextSlide);
-  const expectedActions = [{type: undefined, payload: []}];
+  const expectedActions = [{type: undefined, meta: {slideRef: ''}, payload: []}];
   const {dispatch} = createTestStore(
     t,
     omit(['data', 'slides'], state) as StoreState,
@@ -96,7 +94,9 @@ test('editAnswer should throw an Error for unsupported questions', async t => {
 
 test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
   const state = buildInitialState(initialState, freeTextSlide);
-  const expectedActions = [{type: ANSWER_EDIT.basic, payload: ['My Answer']}];
+  const expectedActions = [
+    {type: ANSWER_EDIT.basic, meta: {slideRef: freeTextSlide.universalRef}, payload: ['My Answer']}
+  ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer(['My Answer']));
 });
@@ -104,7 +104,9 @@ test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
 test('should dispatch EDIT_QCM action when editAnswer is called', async t => {
   let state = buildInitialState(initialState, qcmSlide);
   state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
-  const expectedActions = [{type: ANSWER_EDIT.qcm, payload: ['My First Answer']}];
+  const expectedActions = [
+    {type: ANSWER_EDIT.qcm, meta: {slideRef: qcmSlide.universalRef}, payload: ['My First Answer']}
+  ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer(['My Second Answer']));
 });
@@ -113,7 +115,11 @@ test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async 
   let state = buildInitialState(initialState, qcmGraphicSlide);
   state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer', 'My Third Answer'], state);
   const expectedActions = [
-    {type: ANSWER_EDIT.qcmGraphic, payload: ['My First Answer', 'My Third Answer']}
+    {
+      type: ANSWER_EDIT.qcmGraphic,
+      meta: {slideRef: qcmGraphicSlide.universalRef},
+      payload: ['My First Answer', 'My Third Answer']
+    }
   ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer(['My Second Answer']));
@@ -123,7 +129,11 @@ test('should dispatch EDIT_QCM_DRAG action when editAnswer is called', async t =
   let state = buildInitialState(initialState, qcmDragSlide);
   state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
   const expectedActions = [
-    {type: ANSWER_EDIT.qcmDrag, payload: ['My First Answer', 'My Second Answer', 'My Third Answer']}
+    {
+      type: ANSWER_EDIT.qcmDrag,
+      meta: {slideRef: qcmDragSlide.universalRef},
+      payload: ['My First Answer', 'My Second Answer', 'My Third Answer']
+    }
   ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer(['My Third Answer']));
@@ -131,7 +141,9 @@ test('should dispatch EDIT_QCM_DRAG action when editAnswer is called', async t =
 
 test('should dispatch EDIT_SLIDER action when editAnswer is called', async t => {
   const state = buildInitialState(initialState, sliderSlide);
-  const expectedActions = [{type: ANSWER_EDIT.slider, payload: ['5']}];
+  const expectedActions = [
+    {type: ANSWER_EDIT.slider, meta: {slideRef: sliderSlide.universalRef}, payload: ['5']}
+  ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer(['5']));
 });
@@ -140,7 +152,11 @@ test('should dispatch EDIT_TEMPLATE action when editAnswer is called', async t =
   let state = buildInitialState(initialState, templateSlide);
   state = set(['ui', 'answers'], ['Catalogue', '', 'étoiles'], state);
   const expectedActions = [
-    {type: ANSWER_EDIT.template, payload: ['Catalogue', 'My Answer', 'étoiles']}
+    {
+      type: ANSWER_EDIT.template,
+      meta: {slideRef: templateSlide.universalRef},
+      payload: ['Catalogue', 'My Answer', 'étoiles']
+    }
   ];
   const {dispatch} = createTestStore(t, state, services, expectedActions);
   await dispatch(editAnswer(['Catalogue', 'My Answer', 'étoiles']));

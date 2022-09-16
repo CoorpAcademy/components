@@ -33,9 +33,11 @@ const state: StoreState = {
     navigation: ['loader', 'slides'],
     answers: answer,
     slide: {
-      validateButton: false,
-      animateCorrectionPopin: true,
-      showCorrectionPopin: true
+      [freeTextSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: true,
+        showCorrectionPopin: true
+      }
     }
   }
 };
