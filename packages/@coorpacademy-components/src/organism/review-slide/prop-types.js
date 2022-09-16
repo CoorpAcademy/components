@@ -13,8 +13,7 @@ export const SlideProp = PropTypes.shape({
   showCorrectionPopin: PropTypes.bool,
   parentContentTitle: PropTypes.string,
   questionText: PropTypes.string,
-  answerUI: PropTypes.shape(AnswerPropTypes),
-  disabledContent: PropTypes.bool
+  answerUI: PropTypes.shape(AnswerPropTypes)
 });
 
 export default {
