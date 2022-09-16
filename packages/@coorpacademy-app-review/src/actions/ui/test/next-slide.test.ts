@@ -44,6 +44,7 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
     {
       type: NEXT_SLIDE,
       payload: {
+        currentSlide: freeTextSlide.universalRef,
         nextSlideRef: qcmGraphicSlide.universalRef,
         animationType: 'unstack'
       }
@@ -63,6 +64,7 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
     {
       type: NEXT_SLIDE,
       payload: {
+        currentSlide: freeTextSlide.universalRef,
         nextSlideRef: qcmGraphicSlide.universalRef,
         animationType: 'restack'
       }

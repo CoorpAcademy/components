@@ -5,6 +5,7 @@ import type {StoreState} from '../../reducers';
 export const NEXT_SLIDE = '@@slide/NEXT_SLIDE' as const;
 
 type NextSlidePayload = {
+  currentSlide: string;
   nextSlideRef: string;
   animationType: string;
 };
@@ -17,6 +18,7 @@ export type NextSlide = {
 export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextSlide => {
   const state = getState();
   const payload = {
+    currentSlide: get(['ui', 'currentSlideRef'], state),
     nextSlideRef: get(['data', 'progression', 'state', 'nextContent', 'ref'], state),
     animationType: state.data.progression?.state.isCorrect ? 'unstack' : 'restack'
   };
