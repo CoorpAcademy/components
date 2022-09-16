@@ -39,3 +39,10 @@
   top: 0;
   left: 0;
 }
+
+/* ie fallback */
+:-ms-fullscreen,
+:root .congrats {
+  position: relative;
+  bottom: 20%;
+}
