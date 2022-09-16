@@ -1,19 +1,10 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import keys from 'lodash/fp/keys';
 import Slide from '../review-slide/index.native';
 import {Props} from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
-
-const styleSheet = StyleSheet.create({
-  stackedSlides: {
-    // flex: 1,
-    // backgroundColor: '#00f',
-    // justifyContent: 'space-between',
-    // alignItems: 'center'
-  }
-});
 
 const StackedSlides = (props: Props) => {
   const {slides = {}, endReview, validateButton, correctionPopinProps} = props;

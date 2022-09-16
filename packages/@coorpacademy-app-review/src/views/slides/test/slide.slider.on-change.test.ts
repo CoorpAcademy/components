@@ -10,7 +10,7 @@ import {EDIT_SLIDER} from '../../../actions/ui/answers';
 import {QuestionRange} from '../../../types/slides';
 import {sliderSlide} from './fixtures/slider';
 
-export const progression: ProgressionFromAPI = {
+const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},
   engine: {
@@ -32,7 +32,7 @@ export const progression: ProgressionFromAPI = {
   }
 };
 
-export const initialState: StoreState = {
+const initialState: StoreState = {
   data: {
     progression,
     slides: {

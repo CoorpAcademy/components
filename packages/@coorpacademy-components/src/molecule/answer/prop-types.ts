@@ -26,6 +26,25 @@ export const MediaViewPropTypes = {
   media: PropTypes.oneOfType([videoPropType, imgPropType, audioPropType])
 };
 
+const SelectOptionsPropTypes = PropTypes.shape({
+  name: PropTypes.string,
+  selected: PropTypes.bool,
+  validOption: PropTypes.bool,
+  value: PropTypes.string
+});
+
+const AnswerPropTypes = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  'aria-label': PropTypes.string,
+  onClick: PropTypes.func,
+  onChange: PropTypes.func,
+  selected: PropTypes.bool,
+  image: PropTypes.string,
+  options: PropTypes.arrayOf(SelectOptionsPropTypes),
+  type: PropTypes.oneOf(['text', 'select']),
+  name: PropTypes.string
+});
+
 const propTypes = {
   model: PropTypes.shape({
     type: PropTypes.oneOf([
@@ -36,7 +55,8 @@ const propTypes = {
       'dropDown',
       'slider',
       'template'
-    ]).isRequired
+    ]).isRequired,
+    answer: PropTypes.arrayOf(AnswerPropTypes)
   }).isRequired,
   help: PropTypes.string,
   media: MediaViewPropTypes.media

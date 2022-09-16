@@ -1,12 +1,56 @@
 import test from 'ava';
 import get from 'lodash/fp/get';
+import {ProgressionFromAPI} from '../../../types/common';
+import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {services} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {EDIT_SLIDER} from '../../../actions/ui/answers';
 import {QuestionRange} from '../../../types/slides';
-// eslint-disable-next-line ava/no-import-test-files
-import {initialState} from './slide.slider.on-change.test';
+import {sliderSlide} from './fixtures/slider';
+
+const progression: ProgressionFromAPI = {
+  _id: '123456789123',
+  content: {type: 'skill', ref: '_skill-ref'},
+  engine: {
+    ref: 'review'
+  },
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      ref: sliderSlide._id,
+      type: 'slide'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+};
+
+const initialState: StoreState = {
+  data: {
+    progression,
+    slides: {
+      [sliderSlide._id]: sliderSlide
+    },
+    skills: [],
+    token: '1234',
+    corrections: {},
+    rank: {}
+  },
+  ui: {
+    currentSlideRef: sliderSlide._id,
+    navigation: ['skills', 'slides'],
+    answers: [],
+    slide: {
+      validateButton: false
+    }
+  }
+};
 
 test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Slider slide', t => {
   t.plan(1);

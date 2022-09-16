@@ -8,7 +8,7 @@ const answerProps = DropDown.props;
 
 type Fixture = {
   props: Props;
-  mobileContext: TemplateContextValues;
+  mobileContext?: TemplateContextValues;
 };
 
 const fixture: Fixture = {
