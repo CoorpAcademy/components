@@ -64,9 +64,7 @@ test('should create initial props when fetched slide is not still received', t =
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: [],
-      slide: {
-        validateButton: false
-      }
+      slide: {}
     }
   };
 
@@ -155,9 +153,7 @@ test('should create props when first slide is on the state', t => {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: [],
-      slide: {
-        validateButton: false
-      }
+      slide: {}
     }
   };
 
@@ -261,7 +257,7 @@ test('should create props when slide is on the state and user has selected answe
       navigation: ['loader', 'slides'],
       answers: ['My value'],
       slide: {
-        validateButton: true
+        sli_VJYjJnJhg: {validateButton: true}
       }
     }
   };
@@ -367,7 +363,7 @@ test('should verify props when first slide was answered correctly and next slide
       navigation: ['loader', 'slides'],
       answers: ['My value'],
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {validateButton: false}
       }
     }
   };
@@ -477,7 +473,7 @@ test('should verify props when first slide was answered with error and next slid
       navigation: ['loader', 'slides'],
       answers: ['My value'],
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {validateButton: false}
       }
     }
   };
@@ -540,9 +536,11 @@ test('should verify props when first slide was answered, next slide is fetched &
       navigation: ['loader', 'slides'],
       answers: ['My value'],
       slide: {
-        validateButton: false,
-        animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        }
       }
     }
   };
@@ -654,9 +652,11 @@ test('should verify props when first slide was answered incorrectly, next slide 
       navigation: ['loader', 'slides'],
       answers: ['My value'],
       slide: {
-        validateButton: false,
-        animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        }
       }
     }
   };
@@ -768,7 +768,16 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
       navigation: ['loader', 'slides'],
       answers: [],
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -840,7 +849,31 @@ test('should verify props when progression is in success', t => {
       navigation: ['loader', 'slides'],
       answers: [],
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        }
       }
     }
   };
@@ -912,7 +945,31 @@ test('should verify props when progression has answered a current pendingSlide',
       navigation: ['loader', 'slides'],
       answers: [],
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -981,7 +1038,31 @@ test('should verify props when progression still has a pendingSlide', t => {
       navigation: ['loader', 'slides'],
       answers: [],
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };

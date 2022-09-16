@@ -15,18 +15,20 @@ import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/po
 import {CORRECTION_FETCH_SUCCESS, ReceivedCorrection} from '../../actions/api/fetch-correction';
 
 export type UISlideState = {
-  validateButton: boolean;
+  validateButton?: boolean;
   animateCorrectionPopin?: boolean;
   showCorrectionPopin?: boolean;
 };
 
-export const initialState: UISlideState = {validateButton: false};
+export type SlideState = Record<string, UISlideState>;
+
+export const initialState: SlideState = {};
 
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: UISlideState = initialState,
+  state: SlideState = initialState,
   action: PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection
-): UISlideState => {
+): SlideState => {
   switch (action.type) {
     case EDIT_QCM:
     case EDIT_QCM_GRAPHIC:
@@ -34,13 +36,18 @@ const reducer = (
     case EDIT_TEMPLATE:
     case EDIT_BASIC:
     case EDIT_SLIDER: {
-      return pipe(compact, isEmpty)(action.payload) ? initialState : {validateButton: true};
+      return pipe(compact, isEmpty)(action.payload)
+        ? set([action.meta.slideRef, 'validateButton'], false, initialState)
+        : set([action.meta.slideRef, 'validateButton'], true, initialState);
     }
     case POST_ANSWER_REQUEST: {
-      return initialState;
+      return set([action.meta.slideRef, 'validateButton'], false, initialState);
     }
     case CORRECTION_FETCH_SUCCESS: {
-      return pipe(set(['animateCorrectionPopin'], true), set(['showCorrectionPopin'], true))(state);
+      return pipe(
+        set([action.meta.slideRef, 'animateCorrectionPopin'], true),
+        set([action.meta.slideRef, 'showCorrectionPopin'], true)
+      )(state);
     }
     default:
       return state;

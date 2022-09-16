@@ -4,5 +4,8 @@
     "outDir": "es",
     "target": "es2020",
     "module": "es2020"
-  }
+  },
+  "exclude": [
+    "**/**/*.test.ts"
+  ]
 }

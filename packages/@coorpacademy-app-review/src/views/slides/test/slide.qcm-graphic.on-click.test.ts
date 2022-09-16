@@ -47,9 +47,7 @@ const initialState: StoreState = {
     currentSlideRef: qcmGraphicSlide._id,
     navigation: ['skills', 'slides'],
     answers: [],
-    slide: {
-      validateButton: false
-    }
+    slide: {}
   }
 };
 
@@ -59,6 +57,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
   const expectedActions = [
     {
       type: EDIT_QCM_GRAPHIC,
+      meta: {slideRef: qcmGraphicSlide._id},
       payload: ['Le retour d’information']
     }
   ];

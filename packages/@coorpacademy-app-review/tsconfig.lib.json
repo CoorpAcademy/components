@@ -4,5 +4,8 @@
     "outDir": "lib",
     "target": "es5",
     "module": "esnext"
-  }
+  },
+  "exclude": [
+    "**/**/*.test.ts"
+  ]
 }
