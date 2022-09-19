@@ -322,7 +322,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       slides: buildStackSlides(state, dispatch),
       validateButton: {
         label: '__validate',
-        disabled: !get(`ui.slide[${currentSlideRef}].validateButton`, state),
+        disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
         onClick: /* istanbul ignore next */ (): void => {
           dispatch(postAnswer);
         }
