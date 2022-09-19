@@ -1,9 +1,12 @@
 import React, {createContext, useContext} from 'react';
-import {FocusedSelectId, HandleBlur, HandleFocus} from '../../types/app-review';
 import {Translations} from '../../types/translations';
 import {Analytics} from '../../variables/analytics';
 import defaultTheme, {Theme} from '../../variables/theme.native';
 import {Vibration} from '../../variables/vibration';
+
+export type HandleBlur = () => void;
+export type HandleFocus = (id: string) => () => void;
+export type FocusedSelectId = string | null;
 
 export type TemplateContextValues = {
   analytics?: Analytics;

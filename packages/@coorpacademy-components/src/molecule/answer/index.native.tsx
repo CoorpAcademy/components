@@ -1,5 +1,5 @@
 import React from 'react';
-import {Choice, QuestionType} from '../../types/progression-engine';
+import {Choice, QuestionType} from '../questions/types';
 import Switch, {Props as SwitchProps} from '../questions/mobile/switch/index.native';
 import {Props} from './prop-types';
 

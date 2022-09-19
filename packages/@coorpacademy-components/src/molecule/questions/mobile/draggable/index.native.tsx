@@ -4,7 +4,7 @@ import QuestionChoice from '../../../../atom/choice/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {Theme} from '../../../../variables/theme.native';
 
-import type {Choice} from '../../../../types/progression-engine';
+import type {Choice} from '../../types';
 
 export interface DropZoneProps {
   choices: Array<Choice>;

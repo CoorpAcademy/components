@@ -1,5 +1,5 @@
 import {Props} from '../../index.native';
-import {Choice} from '../../../../../../types/progression-engine.d';
+import {Choice} from '../../../../types';
 import defaultFixture from './default';
 
 type Fixture = {props: Props};

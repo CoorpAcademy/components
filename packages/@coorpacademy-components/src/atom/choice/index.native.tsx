@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ViewStyle} from 'react-native';
-import type {Media, QuestionType} from '../../types/progression-engine';
+import type {Media, QuestionType} from '../../molecule/questions/types';
 
 import Html from '../html/index.native';
 import ImageBackground from '../image-background/index.native';
