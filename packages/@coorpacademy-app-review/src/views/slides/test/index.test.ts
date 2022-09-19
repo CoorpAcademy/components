@@ -63,7 +63,7 @@ test('should create initial props when fetched slide is not still received', t =
     ui: {
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {},
       slide: {}
     }
   };
@@ -152,7 +152,7 @@ test('should create props when first slide is on the state', t => {
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {},
       slide: {}
     }
   };
@@ -255,7 +255,7 @@ test('should create props when slide is on the state and user has selected answe
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
         sli_VJYjJnJhg: {validateButton: true}
       }
@@ -361,7 +361,7 @@ test('should verify props when first slide was answered correctly and next slide
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
         sli_VJYjJnJhg: {validateButton: false}
       }
@@ -471,7 +471,7 @@ test('should verify props when first slide was answered with error and next slid
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
         sli_VJYjJnJhg: {validateButton: false}
       }
@@ -534,7 +534,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -650,7 +650,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -766,7 +766,9 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     ui: {
       currentSlideRef: 'sli_VkSQroQnx',
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark']
+      },
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -847,7 +849,13 @@ test('should verify props when progression is in success', t => {
     ui: {
       currentSlideRef: templateSlide.universalRef,
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Faux'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -943,7 +951,13 @@ test('should verify props when progression has answered a current pendingSlide',
     ui: {
       currentSlideRef: freeTextSlide.universalRef,
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Vrai'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -1036,7 +1050,13 @@ test('should verify props when progression still has a pendingSlide', t => {
     ui: {
       currentSlideRef: qcmSlide.universalRef,
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Vrai'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
