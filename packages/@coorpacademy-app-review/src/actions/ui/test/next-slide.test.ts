@@ -31,7 +31,9 @@ const state: StoreState = {
   ui: {
     currentSlideRef: freeTextSlide._id,
     navigation: ['loader', 'slides'],
-    answers: answer,
+    answers: {
+      [freeTextSlide._id]: answer
+    },
     slide: {
       [freeTextSlide._id]: {
         validateButton: false,
