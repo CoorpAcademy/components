@@ -4,7 +4,7 @@ module.exports = {
   reporter: ['html', 'text-summary'],
   statements: 99.23,
   branches: 97.32,
-  functions: 97.78,
+  functions: 97.80,
   lines: 99.37,
   all: true,
   exclude: [
