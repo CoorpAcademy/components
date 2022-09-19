@@ -1,4 +1,5 @@
 import test from 'ava';
+import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
@@ -50,7 +51,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: '',
     navigation: [],
-    answers: [],
+    answers: {},
     slide: {}
   }
 };
@@ -103,7 +104,8 @@ test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
 
 test('should dispatch EDIT_QCM action when editAnswer is called', async t => {
   let state = buildInitialState(initialState, qcmSlide);
-  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  state = set(['ui', 'answers', currentSlideRef], ['My First Answer', 'My Second Answer'], state);
   const expectedActions = [
     {type: ANSWER_EDIT.qcm, meta: {slideRef: qcmSlide.universalRef}, payload: ['My First Answer']}
   ];
@@ -113,7 +115,12 @@ test('should dispatch EDIT_QCM action when editAnswer is called', async t => {
 
 test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async t => {
   let state = buildInitialState(initialState, qcmGraphicSlide);
-  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer', 'My Third Answer'], state);
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  state = set(
+    ['ui', 'answers', currentSlideRef],
+    ['My First Answer', 'My Second Answer', 'My Third Answer'],
+    state
+  );
   const expectedActions = [
     {
       type: ANSWER_EDIT.qcmGraphic,
@@ -127,7 +134,8 @@ test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async 
 
 test('should dispatch EDIT_QCM_DRAG action when editAnswer is called', async t => {
   let state = buildInitialState(initialState, qcmDragSlide);
-  state = set(['ui', 'answers'], ['My First Answer', 'My Second Answer'], state);
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  state = set(['ui', 'answers', currentSlideRef], ['My First Answer', 'My Second Answer'], state);
   const expectedActions = [
     {
       type: ANSWER_EDIT.qcmDrag,
