@@ -28,7 +28,7 @@ export const fetchCorrection = (
   const slideRef = get(['ui', 'currentSlideRef'], state);
   const token = get(['data', 'token'], state);
   const progressionId = get(['data', 'progression', '_id'], state);
-  const answer = get(['ui', 'answers'], state);
+  const answer = get(['ui', 'answers', slideRef], state);
 
   const action = buildTask({
     types: [CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS, CORRECTION_FETCH_FAILURE],
