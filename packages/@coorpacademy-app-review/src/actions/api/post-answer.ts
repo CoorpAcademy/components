@@ -30,7 +30,7 @@ export const postAnswer = async (
   const state = getState();
   const currentSlideRef = get(['ui', 'currentSlideRef'], state);
   const token = get(['data', 'token'], state);
-  const answer = get(['ui', 'answers'], state);
+  const answer = get(['ui', 'answers', currentSlideRef], state);
   const progression = get(['data', 'progression'], state);
   if (!progression) throw new Error('Cannot answer a question of an inexistent progression');
 
