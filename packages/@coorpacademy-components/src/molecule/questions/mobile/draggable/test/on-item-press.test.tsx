@@ -3,7 +3,7 @@ import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
 import QuestionDraggable from '../index.native';
 
-import {Choice} from '../../../../../types/progression-engine';
+import {Choice} from '../../../types';
 import {choices} from '../../switch/test/fixtures/qcm';
 
 test('should handle onItemPress callback', t => {

@@ -3,7 +3,7 @@ import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
-import type {ChoiceItem, QuestionType} from '../../types/progression-engine.d';
+import type {ChoiceItem, QuestionType} from '../../molecule/questions/types';
 import {Theme} from '../../variables/theme.native';
 
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';

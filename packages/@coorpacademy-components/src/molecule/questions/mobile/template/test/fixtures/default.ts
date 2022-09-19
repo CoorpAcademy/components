@@ -1,6 +1,6 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {Choice} from '../../../../../../types/progression-engine.d';
+import {Choice} from '../../../../types';
 
 type Fixture = {props: Props};
 

@@ -3,7 +3,7 @@ import {View, FlatList, StyleSheet} from 'react-native';
 import {noop} from 'lodash/fp';
 import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
 
-import type {ChoiceItem} from '../../../types/progression-engine.d';
+import type {ChoiceItem} from '../../../molecule/questions/types';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 

@@ -4,7 +4,7 @@ import {render, fireEvent} from '@testing-library/react-native';
 import {noop} from 'lodash/fp';
 import Switch from '../index.native';
 import {choices, template} from '../../template/test/fixtures/default';
-import {Choice} from '../../../../../types/progression-engine';
+import {Choice} from '../../../types';
 import {TemplateContext} from '../../../../../template/app-review/template-context';
 import mockMobileContext from '../../../../../test/helpers/mock-mobile-context';
 

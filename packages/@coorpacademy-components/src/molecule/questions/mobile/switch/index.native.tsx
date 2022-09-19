@@ -10,7 +10,7 @@ import FreeText from '../../free-text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
 
-import type {QuestionType, Choice} from '../../../../types/progression-engine';
+import type {QuestionType, Choice} from '../../types';
 
 export type Props = {
   type: QuestionType;

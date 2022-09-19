@@ -1,6 +1,6 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {Choice} from '../../../../types/progression-engine.d';
+import {Choice} from '../../../../molecule/questions/types';
 
 export const select: Choice = {
   _id: '456',
@@ -11,22 +11,22 @@ export const select: Choice = {
     {
       _id: '1',
       text: 'Play Store',
-      value: 'play_store'
+      selected: false
     },
     {
       _id: '2',
       text: 'App Store',
-      value: 'app_store'
+      selected: false
     },
     {
       _id: '3',
       text: 'Apple Store',
-      value: 'apple_store'
+      selected: false
     },
     {
       _id: '4',
       text: 'Pineapple Store',
-      value: 'pineapple_store'
+      selected: false
     }
   ]
 };
