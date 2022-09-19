@@ -138,6 +138,10 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
   width: 60px;
 }
 
+.disabledSlideContent {
+  pointer-events: none;
+}
+
 @media tablet {
   @keyframes popInAnimation {
     from {
