@@ -46,7 +46,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: templateSlide._id,
     navigation: ['skills', 'slides'],
-    answers: [],
+    answers: {},
     slide: {}
   }
 };

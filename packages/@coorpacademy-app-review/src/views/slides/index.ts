@@ -165,7 +165,7 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const slideFromAPI = get(slideRef, state.data.slides);
       if (!slideFromAPI) return set(index, uiSlide, acc);
 
-      const answers = state.ui.answers;
+      const answers = getOr([], ['ui', 'answers', currentSlideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
