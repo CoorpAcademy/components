@@ -1,20 +1,29 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
 import {template} from '../../../template/test/fixtures/default';
+import mockMobileContext from '../../../../../../test/helpers/mock-mobile-context';
+import {TemplateContextValues} from '../../../../../../template/app-review/template-context';
 
-type Fixture = {props: Props};
+type Fixture = {
+  props: Props;
+  mobileContext: TemplateContextValues;
+};
 
 const fixture: Fixture = {
   props: {
     type: 'template',
-    items: [],
+    choices: [],
     template,
     onInputValueChange: noop,
-    userChoices: [],
-    onItemInputChange: noop,
-    focusedSelectId: 'foo',
-    handleBlur: noop,
-    handleFocus: () => noop
+    onItemInputChange: noop
+  },
+  mobileContext: {
+    ...mockMobileContext(),
+    store: {
+      handleFocus: () => noop,
+      handleBlur: noop,
+      focusedSelectId: ''
+    }
   }
 };
 

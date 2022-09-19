@@ -483,7 +483,7 @@ import MoleculeAddToMyListFixtureDefault from '../src/molecule/add-to-my-list/te
 import MoleculeAddToMyListFixtureFavorite from '../src/molecule/add-to-my-list/test/fixtures/favorite';
 import MoleculeAnswerFixtureAudio from '../src/molecule/answer/test/fixtures/audio';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
-import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
+import MoleculeAnswerFixtureDropDownTs from '../src/molecule/answer/test/fixtures/drop-down.ts';
 import MoleculeAnswerFixtureQcmArabic from '../src/molecule/answer/test/fixtures/qcm-arabic';
 import MoleculeAnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import MoleculeAnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
@@ -492,7 +492,7 @@ import MoleculeAnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixt
 import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
-import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
+import MoleculeAnswerFixtureTemplateTs from '../src/molecule/answer/test/fixtures/template.ts';
 import MoleculeAudioFixtureDefault from '../src/molecule/audio/test/fixtures/default';
 import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/with-poster';
 import MoleculeBannerFixtureDefault from '../src/molecule/banner/test/fixtures/default';
@@ -1943,7 +1943,7 @@ export const fixtures = {
     MoleculeAnswer: {
       Audio: MoleculeAnswerFixtureAudio,
       Default: MoleculeAnswerFixtureDefault,
-      DropDown: MoleculeAnswerFixtureDropDown,
+      DropDownTs: MoleculeAnswerFixtureDropDownTs,
       QcmArabic: MoleculeAnswerFixtureQcmArabic,
       QcmDrag: MoleculeAnswerFixtureQcmDrag,
       QcmGraphic: MoleculeAnswerFixtureQcmGraphic,
@@ -1952,7 +1952,7 @@ export const fixtures = {
       QcmShort: MoleculeAnswerFixtureQcmShort,
       Qcm: MoleculeAnswerFixtureQcm,
       Range: MoleculeAnswerFixtureRange,
-      Template: MoleculeAnswerFixtureTemplate
+      TemplateTs: MoleculeAnswerFixtureTemplateTs
     },
     MoleculeAudio: {
       Default: MoleculeAudioFixtureDefault,

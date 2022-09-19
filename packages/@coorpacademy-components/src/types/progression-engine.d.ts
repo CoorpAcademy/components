@@ -298,8 +298,8 @@ export type AnswerCorrection = {
 };
 
 export type Source = {
-  _id: string;
-  mimeType: ResourceMimeType;
+  _id?: string;
+  mimeType?: ResourceMimeType;
   url: Url;
   videoId?: string;
 };
@@ -321,7 +321,7 @@ export type AcceptedAnswers = Array<Answer>;
 
 export type ChoiceItem = {
   text: string;
-  value: string;
+  selected: boolean;
   _id: string;
 };
 
@@ -330,9 +330,11 @@ export type Choice = {
   value?: string;
   name?: string;
   type?: 'text' | 'select';
-  label: string;
+  label?: string;
   items?: Array<ChoiceItem>;
   media?: Media;
+  onPress?: Function;
+  selected?: boolean;
 };
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';

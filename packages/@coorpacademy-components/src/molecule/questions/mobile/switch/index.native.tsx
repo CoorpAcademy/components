@@ -1,8 +1,7 @@
 import React, {useCallback} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 
 import QuestionChoice from '../../../../atom/choice/index.native';
-import Space from '../../../../atom/space/index.native';
 import QuestionDraggable from '../draggable/index.native';
 import QuestionTemplate from '../template/index.native';
 import QuestionSlider from '../slider/index.native';
@@ -11,28 +10,24 @@ import FreeText from '../../free-text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
 
-import {FocusedSelectId, HandleBlur, HandleFocus} from '../../../../types/app-review';
 import type {QuestionType, Choice} from '../../../../types/progression-engine';
 
-export interface Props {
+export type Props = {
   type: QuestionType;
   isDisabled?: boolean;
   template?: string;
-  items: Array<Choice>;
-  userChoices: Array<string>;
-  onItemPress?: (item: Choice) => void;
-  onSliderChange?: (value: number) => void;
+  choices?: Array<Choice>;
   min?: number;
   max?: number;
   unit?: string;
   step?: number;
   value?: number;
-  onItemInputChange?: (item: Choice, value: string) => void;
   onInputValueChange?: (value: string) => void;
-  focusedSelectId?: FocusedSelectId;
-  handleFocus?: HandleFocus;
-  handleBlur?: HandleBlur;
-}
+  onSliderChange?: (value: number) => void;
+  // --- mobile learner only
+  onItemInputChange?: (item: Choice, value: string) => void;
+  onItemPress?: (item: Choice) => void;
+};
 
 const styleSheet = StyleSheet.create({
   cards: {
@@ -41,19 +36,25 @@ const styleSheet = StyleSheet.create({
   },
   card: {
     flex: 1
+  },
+  choices: {
+    // backgroundColor: '#967' // flex-debug
+  },
+  choice: {
+    paddingVertical: 5
   }
 });
 
 const Switch = (props: Props) => {
   const templateContext = useTemplateContext();
-  const {analytics} = templateContext;
+  const {analytics, store} = templateContext;
+  const {focusedSelectId, handleBlur, handleFocus} = store;
 
   const {
     type,
     template,
     isDisabled,
-    items,
-    userChoices,
+    choices = [],
     min,
     max,
     unit,
@@ -62,24 +63,30 @@ const Switch = (props: Props) => {
     onSliderChange,
     onItemPress,
     onItemInputChange,
-    onInputValueChange,
-    focusedSelectId,
-    handleFocus,
-    handleBlur
+    onInputValueChange
   } = props;
 
-  const isSelected = (choice: Choice): boolean => userChoices && userChoices.includes(choice.label);
-
-  const handleItemPress = (item: Choice) => () => {
-    if (onItemPress) {
-      onItemPress(item);
-    }
-  };
+  const handleChoicePress = useCallback(
+    (choice: Choice) => () => {
+      if (choice.onPress) {
+        // e.g. app-review
+        choice.onPress();
+      } else if (onItemPress) {
+        // e.g. learner
+        onItemPress(choice);
+      }
+    },
+    [onItemPress]
+  );
 
   const handleItemInputChange = useCallback(
-    (item: Choice, _value: string) => {
-      if (onItemInputChange) {
-        onItemInputChange(item, _value);
+    (choice: Choice, _value: string) => {
+      if (choice.onPress) {
+        // e.g. app-review
+        choice.onPress(_value);
+      } else if (onItemInputChange) {
+        // e.g. learner
+        onItemInputChange(choice, _value);
       }
     },
     [onItemInputChange]
@@ -103,47 +110,39 @@ const Switch = (props: Props) => {
   switch (type) {
     case 'qcm':
       return (
-        <View testID="question-choices">
-          {items.map((item, index) => (
-            <View key={`question-choice-${item._id}`}>
-              {index > 0 ? <Space /> : null}
-              <QuestionChoice
-                onPress={handleItemPress(item)}
-                isDisabled={isDisabled}
-                isSelected={isSelected(item)}
-                testID={`question-choice-${item._id}`}
-                questionType={type}
-              >
-                {item.label}
-              </QuestionChoice>
-            </View>
+        <View testID="question-choices" style={styleSheet.choices}>
+          {choices.map((choice, index) => (
+            <QuestionChoice
+              key={`question-choice-${choice._id}`}
+              onPress={handleChoicePress(choice)}
+              isDisabled={isDisabled}
+              isSelected={choice.selected}
+              testID={`question-choice-${choice._id}`}
+              style={styleSheet.choice}
+              questionType={type}
+            >
+              {choice.label}
+            </QuestionChoice>
           ))}
         </View>
       );
     case 'qcmGraphic':
       return (
-        <View testID="question-choices">
-          {items.map((item, index) => {
-            return (
-              <View key={`question-choice-row-${item._id}`}>
-                {index > 0 ? <Space /> : null}
-                <View style={styleSheet.cards}>
-                  <QuestionChoice
-                    onPress={handleItemPress(item)}
-                    media={item.media}
-                    isDisabled={isDisabled}
-                    isSelected={isSelected(item)}
-                    testID={`question-choice-${item._id}`}
-                    style={styleSheet.card}
-                    questionType={type}
-                  >
-                    {item.label}
-                  </QuestionChoice>
-                  <Space />
-                </View>
-              </View>
-            );
-          })}
+        <View testID="question-choices" style={styleSheet.choices}>
+          {choices.map((choice, index) => (
+            <QuestionChoice
+              key={`question-choice-${choice._id}`}
+              onPress={handleChoicePress(choice)}
+              media={choice.media}
+              isDisabled={isDisabled}
+              isSelected={choice.selected}
+              testID={`question-choice-${choice._id}`}
+              style={styleSheet.choice}
+              questionType={type}
+            >
+              {choice.label}
+            </QuestionChoice>
+          ))}
         </View>
       );
     case 'slider': {
@@ -165,6 +164,8 @@ const Switch = (props: Props) => {
     }
     case 'template':
       if (handleBlur === undefined || handleFocus === undefined || focusedSelectId === undefined) {
+        // eslint-disable-next-line no-console
+        console.warn('type template must implement handleFocus etc within Context.store');
         return <View />;
       }
 
@@ -173,8 +174,7 @@ const Switch = (props: Props) => {
           <QuestionTemplate
             isDisabled={isDisabled}
             template={template || ''}
-            items={items}
-            userChoices={userChoices}
+            choices={choices}
             onInputChange={handleItemInputChange}
             handleBlur={handleBlur}
             handleFocus={handleFocus}
@@ -183,13 +183,9 @@ const Switch = (props: Props) => {
         </View>
       );
     case 'qcmDrag':
-      if (!onItemPress) {
-        return <View />;
-      }
-
       return (
         <View testID="question-draggable">
-          <QuestionDraggable choices={items} userChoices={userChoices} onPress={onItemPress} />
+          <QuestionDraggable choices={choices} onPress={handleChoicePress} />
         </View>
       );
     case 'basic':
@@ -207,7 +203,11 @@ const Switch = (props: Props) => {
         />
       );
     default:
-      return <View />;
+      return (
+        <View>
+          <Text>Unhandled type: {type}</Text>
+        </View>
+      );
   }
 };
 

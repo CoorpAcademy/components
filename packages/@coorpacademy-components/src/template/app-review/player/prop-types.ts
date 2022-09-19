@@ -11,3 +11,5 @@ export const PlayerReviewPropTypes = {
   reviewBackgroundAriaLabel: ReviewBackgroundPropTypes['aria-label'],
   congratsProps: PropTypes.shape(ReviewCongratsPropTypes)
 };
+
+export type Props = PropTypes.InferProps<typeof PlayerReviewPropTypes>;

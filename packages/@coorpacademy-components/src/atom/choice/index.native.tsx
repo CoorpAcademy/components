@@ -12,7 +12,7 @@ import {Theme} from '../../variables/theme.native';
 export type Props = {
   isSelected?: boolean;
   onPress: () => void;
-  children: string;
+  children?: string;
   isDisabled?: boolean;
   testID?: string;
   media?: Media;
@@ -44,7 +44,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       backgroundColor: '#0000'
     },
     container: {
-      minHeight: 80,
       backgroundColor: theme.colors.white,
       borderRadius: theme.radius.regular,
       flexDirection: 'row',
@@ -66,7 +65,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     },
     text: {
       fontWeight: theme.fontWeight.bold,
-      color: theme.colors.black
+      color: theme.colors.black,
+      textAlign: 'center'
     },
     textSelected: {
       color: theme.colors.white
@@ -168,14 +168,17 @@ const Choice = ({
             />
           </View>
         ) : null}
-        <View style={textWrapperStyle}>
-          <Html
-            fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
-            style={htmlStyle}
-          >
-            {children}
-          </Html>
-        </View>
+
+        {children ? (
+          <View style={textWrapperStyle}>
+            <Html
+              fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
+              style={htmlStyle}
+            >
+              {children}
+            </Html>
+          </View>
+        ) : null}
       </View>
     </Touchable>
   );

@@ -11,8 +11,13 @@ type MockOptions = {
 const mockMobileContext = ({
   logEvent = noop,
   vibrate = noop
-}: MockOptions): TemplateContextValues => ({
+}: MockOptions = {}): TemplateContextValues => ({
   theme: defaultTheme,
+  translations: {
+    selectAnAnswer: 'Select an answer',
+    selectSomethingBelow: 'Select something below',
+    typeHere: 'type here'
+  },
   analytics: {
     logEvent
   },
@@ -20,7 +25,11 @@ const mockMobileContext = ({
     VIBRATION_TYPE,
     vibrate
   },
-  display: {statusBarHeight: 80}
+  display: {
+    statusBarHeight: 80,
+    headerHeight: 67
+  },
+  store: {}
 });
 
 export default mockMobileContext;

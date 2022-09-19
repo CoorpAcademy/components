@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {mockTranslate} from '@coorpacademy/translate';
 import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
+import {TemplateContext} from '../../template/app-review/template-context';
 
 export const context = {
   skin: {
@@ -25,17 +26,41 @@ const renderComponent = (t, Component, fixture) => {
 
   const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
-  return ReactDOM.renderToStaticMarkup(wrappedVTree);
+  try {
+    return ReactDOM.renderToStaticMarkup(wrappedVTree);
+  } catch (e) {
+    console.log(`[------ ❌ [web rendering]---> error for ${Component.name}`);
+    console.log(e);
+    console.log('-------------------]');
+  }
 };
 
 const renderNativeComponent = (t, Component, fixture) => {
-  const {toJSON} = render(<Component {...fixture.props} />);
-  const json = toJSON();
+  let vDom;
 
-  if (Array.isArray(json)) {
-    json.forEach(el => t.is(get('type', el), 'react-native-mock'));
+  if (fixture.mobileContext) {
+    vDom = (
+      <TemplateContext values={fixture.mobileContext}>
+        <Component {...fixture.props} />
+      </TemplateContext>
+    );
   } else {
-    t.is(get('type', json), 'react-native-mock');
+    vDom = <Component {...fixture.props} />;
+  }
+
+  try {
+    const {toJSON} = render(vDom);
+    const json = toJSON();
+
+    if (Array.isArray(json)) {
+      json.forEach(el => t.is(get('type', el), 'react-native-mock'));
+    } else {
+      t.is(get('type', json), 'react-native-mock');
+    }
+  } catch (e) {
+    console.log(`[------ ❌ [native rendering]---> error for ${Component.name}`);
+    console.log(e);
+    console.log('-------------------]');
   }
 };
 

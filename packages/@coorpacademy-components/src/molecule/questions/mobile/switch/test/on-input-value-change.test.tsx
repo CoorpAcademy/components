@@ -1,8 +1,10 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import {items, userChoices} from '../../template/test/fixtures/default';
 import Switch from '../index.native';
+import {choices} from '../../template/test/fixtures/default';
+import {TemplateContext} from '../../../../../template/app-review/template-context';
+import mockMobileContext from '../../../../../test/helpers/mock-mobile-context';
 
 test('basic question › should handle onInputValueChange', t => {
   const TEST_VALUE = 'Foobarbaz';
@@ -11,13 +13,12 @@ test('basic question › should handle onInputValueChange', t => {
     t.is(_value, TEST_VALUE);
   };
 
+  const mockedMobileContext = mockMobileContext();
+
   const component = (
-    <Switch
-      type="basic"
-      items={items}
-      userChoices={userChoices}
-      onInputValueChange={onInputValueChange}
-    />
+    <TemplateContext values={mockedMobileContext}>
+      <Switch type="basic" choices={choices} onInputValueChange={onInputValueChange} />
+    </TemplateContext>
   );
 
   const {getByTestId} = render(component);
