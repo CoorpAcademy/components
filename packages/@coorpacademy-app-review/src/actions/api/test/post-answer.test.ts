@@ -68,7 +68,9 @@ const initialState: StoreState = {
     answers: {
       [freeTextSlide._id]: answer
     },
-    slide: {}
+    slide: {
+      [freeTextSlide._id]: {validateButton: true}
+    }
   }
 };
 
@@ -149,7 +151,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
         [freeTextSlide._id]: {validateButton: false},
         [qcmGraphicSlide._id]: {validateButton: false},
         [qcmSlide._id]: {validateButton: false},
-        [sliderSlide._id]: {validateButton: false}
+        [sliderSlide._id]: {validateButton: true}
       }
     }
   };
