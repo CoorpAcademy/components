@@ -100,7 +100,7 @@ ValidateButton.propTypes = {
 };
 
 const QuestionContainer = props => {
-  const {answerUI, questionText, questionOrigin, disabledContent} = props;
+  const {answerUI, questionText, questionOrigin, disableContent} = props;
   if (!answerUI || !questionText) return null;
 
   const answerProps = get(['model', 'choices'], answerUI)
@@ -117,9 +117,9 @@ const QuestionContainer = props => {
     <div
       key="content-container"
       className={
-        disabledContent
+        disableContent
           ? style.slideContentContainer
-          : classnames(style.slideContentContainer, style.disableSlideContent)
+          : classnames(style.slideContentContainer, style.disabledSlideContent)
       }
     >
       <div key="from-course" className={style.questionOrigin}>
@@ -145,7 +145,7 @@ QuestionContainer.propTypes = {
   answerUI: PropTypes.shape(propTypes.slide.answerUI),
   questionText: PropTypes.string,
   questionOrigin: PropTypes.string,
-  disabledContent: PropTypes.bool
+  disableContent: PropTypes.bool
 };
 
 const ReviewSlide = props => {

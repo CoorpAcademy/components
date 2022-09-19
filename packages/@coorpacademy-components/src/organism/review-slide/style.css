@@ -138,7 +138,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
   width: 60px;
 }
 
-.disableSlideContent {
+.disabledSlideContent {
   pointer-events: none;
 }
 
