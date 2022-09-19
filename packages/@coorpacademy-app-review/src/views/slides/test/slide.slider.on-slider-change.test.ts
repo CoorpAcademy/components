@@ -46,9 +46,7 @@ const initialState: StoreState = {
     currentSlideRef: sliderSlide._id,
     navigation: ['skills', 'slides'],
     answers: [],
-    slide: {
-      validateButton: false
-    }
+    slide: {}
   }
 };
 
@@ -58,6 +56,7 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
   const expectedActions = [
     {
       type: EDIT_SLIDER,
+      meta: {slideRef: sliderSlide._id},
       payload: ['111']
     }
   ];
