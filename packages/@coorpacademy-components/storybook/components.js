@@ -1124,6 +1124,7 @@ import TemplateAppPlayerPlayerFixtureQcm from '../src/template/app-player/player
 import TemplateAppPlayerPlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectClosedWithoutKlfAndTips from '../src/template/app-player/popin-correction/test/fixtures/correct-closed-without-klf-and-tips';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
+import TemplateAppPlayerPopinCorrectionFixtureCorrectError from '../src/template/app-player/popin-correction/test/fixtures/correct-error';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-with-pdf';
@@ -1157,6 +1158,7 @@ import TemplateAppPlayerPopinEndFixtureLoading from '../src/template/app-player/
 import TemplateAppPlayerPopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import TemplateAppPlayerPopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-img';
+import TemplateAppPlayerPopinEndFixturePopinEndError from '../src/template/app-player/popin-end/test/fixtures/popin-end-error';
 import TemplateAppPlayerPopinEndFixtureScormCorrect from '../src/template/app-player/popin-end/test/fixtures/scorm-correct';
 import TemplateAppPlayerPopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import TemplateAppPlayerPopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
@@ -2861,6 +2863,7 @@ export const fixtures = {
     TemplateAppPlayerPopinCorrection: {
       CorrectClosedWithoutKlfAndTips: TemplateAppPlayerPopinCorrectionFixtureCorrectClosedWithoutKlfAndTips,
       CorrectClosed: TemplateAppPlayerPopinCorrectionFixtureCorrectClosed,
+      CorrectError: TemplateAppPlayerPopinCorrectionFixtureCorrectError,
       CorrectNextChapter: TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter,
       CorrectOpenKlf: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf,
       CorrectOpenResourcesWithPdf: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenResourcesWithPdf,
@@ -2896,6 +2899,7 @@ export const fixtures = {
       NegativeRank: TemplateAppPlayerPopinEndFixtureNegativeRank,
       NextCourse: TemplateAppPlayerPopinEndFixtureNextCourse,
       NextLevelAdaptiveImg: TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg,
+      PopinEndError: TemplateAppPlayerPopinEndFixturePopinEndError,
       ScormCorrect: TemplateAppPlayerPopinEndFixtureScormCorrect,
       SimpleAction: TemplateAppPlayerPopinEndFixtureSimpleAction,
       Subscribe: TemplateAppPlayerPopinEndFixtureSubscribe,

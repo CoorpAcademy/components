@@ -11,6 +11,7 @@ import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
 import ResourceBrowser from '../../../organism/resource-browser';
 import Accordion from '../../../organism/accordion/container';
+import CMPopin from '../../../molecule/cm-popin';
 import Header from '../popin-header';
 import style from './style.css';
 
@@ -114,7 +115,8 @@ class PopinCorrection extends Component {
         title: PropTypes.string
       })
     }),
-    onOpen: PropTypes.func
+    onOpen: PropTypes.func,
+    popinError: PropTypes.shape(CMPopin.propTypes)
   };
 
   static contextTypes = {
@@ -157,7 +159,8 @@ class PopinCorrection extends Component {
       tips,
       onClick,
       quit = {},
-      assistanceLink = {}
+      assistanceLink = {},
+      popinError
     } = this.props;
 
     const {open} = this.state;
@@ -188,6 +191,7 @@ class PopinCorrection extends Component {
 
     return (
       <div ref={this.initWrapper} className={className} data-name="popinCorrection">
+        {popinError ? <CMPopin {...popinError} /> : null}
         <div className={style.scrollWrapper}>
           <div className={isLoading ? style.loadingWrapper : style.wrapper}>
             <div className={isLoading ? style.loadingContent : style.content}>

@@ -26,43 +26,44 @@ const dataProgressionsReducer = (
   state: DataProgressionState = {entities: {}},
   action: Action
 ): DataProgressionState => {
+  let _state = set('isFailure', true, state);
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
       const payload: Progression = action.payload;
 
       if (!action.meta || !action.meta.id) {
-        return state;
+        return _state;
       }
 
       const id: ProgressionId = action.meta.id;
-      return set(['entities', id], payload, state);
+      return set(['entities', id], payload, _state);
     }
 
     case PROGRESSION_FETCH_REQUEST: {
       if (!action.meta || !action.meta.id) {
-        return state;
+        return _state;
       }
 
       const id: ProgressionId = action.meta.id;
       return update(
         ['entities', id],
         (progression: Progression): null | Progression => progression || null,
-        state
+        _state
       );
     }
 
     case PROGRESSION_CREATE_ANSWER_REQUEST: {
       if (!action.meta || !action.meta.progressionId) {
-        return state;
+        return _state;
       }
 
       const progressionId: ProgressionId = action.meta.progressionId;
-      return set(['entities', progressionId, 'state', 'isCorrect'], null, state);
+      return set(['entities', progressionId, '_state', 'isCorrect'], null, _state);
     }
     case PROGRESSION_CREATE_SUCCESS: {
       const progression: Progression = action.payload;
       const id: ProgressionId = progression._id || '_no-id';
-      return set(['entities', id], progression, state);
+      return set(['entities', id], progression, _state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
     case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
@@ -71,7 +72,7 @@ const dataProgressionsReducer = (
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const payload: Progression = action.payload;
       if (!action.meta || !action.meta.progressionId) {
-        return state;
+        return _state;
       }
 
       const progressionId: ProgressionId = action.meta.progressionId;
@@ -79,18 +80,19 @@ const dataProgressionsReducer = (
       return update(
         ['entities', progressionId],
         progression => assign(progression, payload),
-        state
+        _state
       );
     }
     case PROGRESSION_FETCH_FAILURE: {
       if (!action.meta || !action.meta.id) {
-        return state;
+        return _state;
       }
 
       const id: ProgressionId = action.meta.id;
 
-      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
-      return state;
+      _state = set('isFailure', true, _state);
+      if (pipe(get(['entities', id]), isNull)(_state)) return unset(['entities', id], _state);
+      return _state;
     }
     default:
       return state;
