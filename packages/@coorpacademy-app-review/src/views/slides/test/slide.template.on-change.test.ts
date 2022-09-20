@@ -47,7 +47,13 @@ const initialState: StoreState = {
     currentSlideRef: templateSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},
-    slide: {}
+    slide: {
+      [templateSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
+    }
   }
 };
 

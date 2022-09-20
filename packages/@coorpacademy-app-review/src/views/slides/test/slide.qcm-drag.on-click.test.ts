@@ -47,7 +47,13 @@ const initialState: StoreState = {
     currentSlideRef: qcmDragSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},
-    slide: {}
+    slide: {
+      [qcmDragSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
+    }
   }
 };
 
