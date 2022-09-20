@@ -162,7 +162,7 @@ const ReviewSlide = props => {
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
-            disableContent={!showCorrectionPopin}
+            disableContent={showCorrectionPopin}
             key="question-container"
           />,
           <ValidateButton
