@@ -162,16 +162,16 @@ type SlideStyle = {
 
 const createSlideStyle = (num: number, screenWidth: number, screenHeight: number): SlideStyle => {
   const slideWidth = screenWidth - 40 - num * 8;
-  const slideHeight = screenHeight * 0.75;
 
   return StyleSheet.create({
     slide: {
       position: 'absolute',
-      top: num * -5,
-      left: -slideWidth / 2,
-      flex: 1,
+      // top: 30 + num * -5,
+      left: 20 + num * 4,
+      bottom: 34 + num * 5,
+      // flex: 1,
       backgroundColor: '#fff', // theme.colors.white
-      height: slideHeight,
+      height: '90%',
       width: slideWidth,
       justifyContent: 'space-between',
       alignItems: 'center',
