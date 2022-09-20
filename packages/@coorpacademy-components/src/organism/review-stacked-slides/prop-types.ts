@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import ReviewSlideProps, {SlideProp} from '../review-slide/prop-types';
+import ReviewSlideProps, {SlidePropsTypes} from '../review-slide/prop-types';
 
 const propTypes = {
   validateButton: ReviewSlideProps.validateButton,
   correctionPopinProps: ReviewSlideProps.correctionPopinProps,
   slides: PropTypes.shape({
-    '0': SlideProp,
-    '1': SlideProp,
-    '2': SlideProp,
-    '3': SlideProp,
-    '4': SlideProp
+    '0': SlidePropsTypes,
+    '1': SlidePropsTypes,
+    '2': SlidePropsTypes,
+    '3': SlidePropsTypes,
+    '4': SlidePropsTypes
   }).isRequired,
   endReview: PropTypes.bool
 };
