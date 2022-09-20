@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {View, StyleSheet, NativeTouchEvent} from 'react-native';
 
 import {
   NovaSolidPlacesPlacesHome2 as HomeIcon,
@@ -18,7 +17,7 @@ export const BACK_ICON_HEIGHT = 20;
 export type Props = {
   type: 'close' | 'back' | 'home';
   color?: string;
-  onPress?: (event: PressEvent) => any;
+  onPress?: (event: NativeTouchEvent) => any;
   isFloating?: boolean;
   noSafeArea?: boolean;
   testID?: string;

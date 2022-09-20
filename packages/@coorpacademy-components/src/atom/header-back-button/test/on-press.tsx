@@ -1,12 +1,24 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {NativeTouchEvent} from 'react-native';
 import HeaderBackButton from '../index.native';
 
 test('should react on Press', t => {
-  const handlePress = (event: PressEvent) => {
-    t.is(event, 'fake-event');
+  const fakeEvent: NativeTouchEvent = {
+    changedTouches: [],
+    identifier: 'fake',
+    locationX: 0,
+    locationY: 0,
+    pageX: 0,
+    pageY: 0,
+    target: '',
+    timestamp: 0,
+    touches: []
+  };
+
+  const handlePress = (event: NativeTouchEvent) => {
+    t.is(event, fakeEvent);
   };
 
   const component = (
@@ -16,7 +28,7 @@ test('should react on Press', t => {
   const {getByTestId} = render(component);
   const cpt = getByTestId('header-close-button');
 
-  fireEvent(cpt, 'press', 'fake-event');
+  fireEvent(cpt, 'press', fakeEvent);
 
   t.plan(1);
 });
