@@ -171,6 +171,7 @@ export type AppOptions = {
   token: string;
   skillRef?: string;
   services: Services;
+  onQuitClick: Function;
 };
 
 export type JWT = {
