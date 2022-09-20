@@ -312,7 +312,9 @@ export const mapStateToSlidesProps = (
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick,
+      onQuitClick: (): void => {
+        onQuitClick();
+      },
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state)
