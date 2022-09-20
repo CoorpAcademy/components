@@ -64,7 +64,13 @@ test('should create initial props when fetched slide is not still received', t =
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: {},
-      slide: {}
+      slide: {
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
+      }
     }
   };
 
@@ -153,7 +159,13 @@ test('should create props when first slide is on the state', t => {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {},
-      slide: {}
+      slide: {
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
+      }
     }
   };
 
@@ -257,7 +269,11 @@ test('should create props when slide is on the state and user has selected answe
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        sli_VJYjJnJhg: {validateButton: true}
+        sli_VJYjJnJhg: {
+          validateButton: true,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -363,7 +379,11 @@ test('should verify props when first slide was answered correctly and next slide
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        sli_VJYjJnJhg: {validateButton: false}
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -473,7 +493,11 @@ test('should verify props when first slide was answered with error and next slid
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        sli_VJYjJnJhg: {validateButton: false}
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -516,7 +540,7 @@ test('should verify props when first slide was answered with error and next slid
 });
 
 test('should verify props when first slide was answered, next slide is fetched & correction is fetched', t => {
-  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
+  // Scenario: after POST_ANSWER_SUCCESS, CORRECTION_FETCH_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
@@ -632,7 +656,7 @@ test('should verify props when first slide was answered, next slide is fetched &
 });
 
 test('should verify props when first slide was answered incorrectly, next slide is fetched & correction is fetched', t => {
-  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
+  // Scenario: after POST_ANSWER_SUCCESS, CORRECTION_FETCH_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
   const state: StoreState = {
     data: {
       progression: incorrectFreeTextPostAnswerResponse,

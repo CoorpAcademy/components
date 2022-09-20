@@ -12,24 +12,36 @@ import {
   EDIT_TEMPLATE
 } from '../../actions/ui/answers';
 import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/post-answer';
-import {CORRECTION_FETCH_SUCCESS, ReceivedCorrection} from '../../actions/api/fetch-correction';
+import {ReceivedCorrection, CORRECTION_FETCH_SUCCESS} from '../../actions/api/fetch-correction';
+import {FetchSlide, SLIDE_FETCH_REQUEST} from '../../actions/api/fetch-slide';
 
-export type UISlideState = {
-  validateButton?: boolean;
-  animateCorrectionPopin?: boolean;
-  showCorrectionPopin?: boolean;
+export type UISlide = {
+  validateButton: boolean;
+  animateCorrectionPopin: boolean;
+  showCorrectionPopin: boolean;
 };
 
-export type SlideState = Record<string, UISlideState>;
+export type UISlideState = Record<string, UISlide>;
 
-export const initialState: SlideState = {};
+export const initialState: UISlideState = {};
 
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: SlideState = initialState,
-  action: PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection
-): SlideState => {
+  state: UISlideState = initialState,
+  action: FetchSlide | PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection
+): UISlideState => {
   switch (action.type) {
+    case SLIDE_FETCH_REQUEST: {
+      return set(
+        [action.meta.slideRef],
+        {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        state
+      );
+    }
     case EDIT_QCM:
     case EDIT_QCM_GRAPHIC:
     case EDIT_QCM_DRAG:
@@ -37,11 +49,11 @@ const reducer = (
     case EDIT_BASIC:
     case EDIT_SLIDER: {
       return pipe(compact, isEmpty)(action.payload)
-        ? set([action.meta.slideRef, 'validateButton'], false, initialState)
-        : set([action.meta.slideRef, 'validateButton'], true, initialState);
+        ? set([action.meta.slideRef, 'validateButton'], false, state)
+        : set([action.meta.slideRef, 'validateButton'], true, state);
     }
     case POST_ANSWER_REQUEST: {
-      return set([action.meta.slideRef, 'validateButton'], false, initialState);
+      return set([action.meta.slideRef, 'validateButton'], false, state);
     }
     case CORRECTION_FETCH_SUCCESS: {
       return pipe(

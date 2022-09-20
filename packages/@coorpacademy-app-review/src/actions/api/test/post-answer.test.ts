@@ -69,13 +69,17 @@ const initialState: StoreState = {
       [freeTextSlide._id]: answer
     },
     slide: {
-      [freeTextSlide._id]: {validateButton: true}
+      [freeTextSlide._id]: {
+        validateButton: true,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
 
 test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide ref is not "successExitNode"', async t => {
-  t.plan(10);
+  t.plan(9);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST, meta: {slideRef: freeTextSlide._id}},
     {
@@ -117,12 +121,15 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
 
   const state = getState();
 
-  t.false(state.ui.slide[freeTextSlide._id].validateButton);
-  t.true(state.ui.slide[freeTextSlide._id].animateCorrectionPopin);
+  t.deepEqual(state.ui.slide[freeTextSlide._id], {
+    validateButton: false,
+    animateCorrectionPopin: true,
+    showCorrectionPopin: true
+  });
 });
 
 test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
-  t.plan(8);
+  t.plan(7);
 
   const stateBeforeExitNode: StoreState = {
     data: {
@@ -148,10 +155,26 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
         [sliderSlide._id]: ['Leaderboard', 'utilisateurs', 'étoiles']
       },
       slide: {
-        [freeTextSlide._id]: {validateButton: false},
-        [qcmGraphicSlide._id]: {validateButton: false},
-        [qcmSlide._id]: {validateButton: false},
-        [sliderSlide._id]: {validateButton: true}
+        [freeTextSlide._id]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        [qcmGraphicSlide._id]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        [qcmSlide._id]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        [sliderSlide._id]: {
+          validateButton: true,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -184,8 +207,11 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
 
   const state = getState();
 
-  t.false(state.ui.slide[templateSlide._id].validateButton);
-  t.true(state.ui.slide[templateSlide._id].animateCorrectionPopin);
+  t.deepEqual(state.ui.slide[templateSlide._id], {
+    validateButton: false,
+    animateCorrectionPopin: true,
+    showCorrectionPopin: true
+  });
 });
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', async t => {
