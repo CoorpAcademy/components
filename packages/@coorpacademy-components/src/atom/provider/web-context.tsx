@@ -15,9 +15,12 @@ const Context = createContext({
   translate: (key: string) => key
 });
 
-type Props = {values: WebContextValues; children: any};
+type Props = WebContextValues & {
+  children: any;
+};
 
-const WebContext = ({values, children}: Props) => {
+const WebContext = ({skin, translate, children}: Props) => {
+  const values = {skin, translate};
   return <Context.Provider value={{...values}}>{children}</Context.Provider>;
 };
 
