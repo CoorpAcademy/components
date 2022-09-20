@@ -383,6 +383,11 @@ test('should verify props when first slide was answered correctly and next slide
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
         }
       }
     }
@@ -497,6 +502,11 @@ test('should verify props when first slide was answered with error and next slid
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
         }
       }
     }
@@ -540,7 +550,7 @@ test('should verify props when first slide was answered with error and next slid
 });
 
 test('should verify props when first slide was answered, next slide is fetched & correction is fetched', t => {
-  // Scenario: after POST_ANSWER_SUCCESS, CORRECTION_FETCH_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
+  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide and CORRECTION_FETCH_SUCCESS
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
@@ -564,6 +574,11 @@ test('should verify props when first slide was answered, next slide is fetched &
           validateButton: false,
           animateCorrectionPopin: true,
           showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
         }
       }
     }
@@ -656,7 +671,7 @@ test('should verify props when first slide was answered, next slide is fetched &
 });
 
 test('should verify props when first slide was answered incorrectly, next slide is fetched & correction is fetched', t => {
-  // Scenario: after POST_ANSWER_SUCCESS, CORRECTION_FETCH_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
+  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide and CORRECTION_FETCH_SUCCESS
   const state: StoreState = {
     data: {
       progression: incorrectFreeTextPostAnswerResponse,
@@ -680,6 +695,11 @@ test('should verify props when first slide was answered incorrectly, next slide 
           validateButton: false,
           animateCorrectionPopin: true,
           showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
         }
       }
     }
