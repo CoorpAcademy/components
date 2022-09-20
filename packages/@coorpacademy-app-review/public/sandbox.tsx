@@ -31,23 +31,19 @@ const createSandbox = (options: SandboxOptions): void => {
     const container = document.getElementById(options.container);
 
     // mode mobile/web
-    // userId + skill --> create progression --> 1st slide
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
-      templateContext: {},
       skillRef: '123',
       services
     };
-    const values = {
-      skin: {
-        common: {
-          primary: '#248e59'
-        }
+    const skin = {
+      common: {
+        primary: '#248e59'
       }
     };
 
     render(
-      <WebContext values={values}>
+      <WebContext skin={skin}>
         <AppReview options={appOptions} />
       </WebContext>,
       container
