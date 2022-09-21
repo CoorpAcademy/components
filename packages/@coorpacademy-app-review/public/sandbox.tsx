@@ -34,7 +34,11 @@ const createSandbox = (options: SandboxOptions): void => {
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
       skillRef: '123',
-      services
+      services,
+      onQuitClick: () => {
+        // eslint-disable-next-line no-console
+        console.log('onQuitClick');
+      }
     };
     const skin = {
       common: {

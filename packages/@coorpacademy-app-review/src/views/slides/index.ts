@@ -298,7 +298,11 @@ const getCorrectionPopinProps = (
   type: isCorrect ? 'right' : 'wrong'
 });
 
-export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): SlidesViewProps => {
+export const mapStateToSlidesProps = (
+  state: StoreState,
+  dispatch: Dispatch,
+  onQuitClick: Function
+): SlidesViewProps => {
   const currentSlideRef = get(['ui', 'currentSlideRef'], state);
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
@@ -308,10 +312,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick: (): void => {
-        // eslint-disable-next-line no-console
-        console.log('onQuitClick');
-      },
+      onQuitClick,
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state)

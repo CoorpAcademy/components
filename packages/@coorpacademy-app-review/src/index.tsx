@@ -19,23 +19,24 @@ import {VIEWS} from './common';
 import {mapStateToSlidesProps} from './views/slides';
 import {mapStateToSkillsProps} from './views/skills';
 
-const ConnectedApp = (): JSX.Element => {
+const ConnectedApp = ({onQuitClick}: {onQuitClick: Function}): JSX.Element => {
   const dispatch = useDispatch();
 
   const props = {
     viewName: useSelector(
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
     ),
-    slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch)),
+    slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, onQuitClick)),
     skills: useSelector((state: StoreState) => mapStateToSkillsProps(state))
   };
-
   return <AppReviewTemplate {...props} />;
 };
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
   const [isProgressionCreated, setIsProgressionCreated] = useState(false);
+
+  const onQuitClick = options.onQuitClick;
 
   useEffect(() => {
     if (store) return;
@@ -88,7 +89,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
   return (
     <Provider store={store}>
-      <ConnectedApp />
+      <ConnectedApp onQuitClick={onQuitClick} />
     </Provider>
   );
 };
