@@ -65,19 +65,26 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
-    answers: answer,
+    answers: {
+      [freeTextSlide._id]: answer
+    },
     slide: {
-      validateButton: false
+      [freeTextSlide._id]: {
+        validateButton: true,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
 
 test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide ref is not "successExitNode"', async t => {
-  t.plan(10);
+  t.plan(9);
   const expectedActions = [
-    {type: POST_ANSWER_REQUEST},
+    {type: POST_ANSWER_REQUEST, meta: {slideRef: freeTextSlide._id}},
     {
       type: POST_ANSWER_SUCCESS,
+      meta: {slideRef: freeTextSlide._id},
       payload: postAnswerResponses[freeTextSlide._id]
     },
     {
@@ -114,12 +121,15 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
 
   const state = getState();
 
-  t.false(state.ui.slide.validateButton);
-  t.true(state.ui.slide.animateCorrectionPopin);
+  t.deepEqual(state.ui.slide[freeTextSlide._id], {
+    validateButton: false,
+    animateCorrectionPopin: true,
+    showCorrectionPopin: true
+  });
 });
 
 test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
-  t.plan(8);
+  t.plan(7);
 
   const stateBeforeExitNode: StoreState = {
     data: {
@@ -138,17 +148,42 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
     ui: {
       currentSlideRef: templateSlide._id,
       navigation: ['skills', 'slides'],
-      answers: ['Leaderboard', 'utilisateurs', 'étoiles'],
+      answers: {
+        [freeTextSlide._id]: answer,
+        [qcmGraphicSlide._id]: ['qcm-graphic answer'],
+        [qcmSlide._id]: ['qcm-slide answer'],
+        [sliderSlide._id]: ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
-        validateButton: false
+        [freeTextSlide._id]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        [qcmGraphicSlide._id]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        [qcmSlide._id]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        [sliderSlide._id]: {
+          validateButton: true,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
 
   const expectedActions = [
-    {type: POST_ANSWER_REQUEST},
+    {type: POST_ANSWER_REQUEST, meta: {slideRef: templateSlide._id}},
     {
       type: POST_ANSWER_SUCCESS,
+      meta: {slideRef: templateSlide._id},
       payload: postAnswerResponses[templateSlide._id]
     },
     {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: templateSlide._id}},
@@ -172,16 +207,20 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
 
   const state = getState();
 
-  t.false(state.ui.slide.validateButton);
-  t.true(state.ui.slide.animateCorrectionPopin);
+  t.deepEqual(state.ui.slide[templateSlide._id], {
+    validateButton: false,
+    animateCorrectionPopin: true,
+    showCorrectionPopin: true
+  });
 });
 
 test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', async t => {
   t.plan(3);
   const expectedActions = [
-    {type: POST_ANSWER_REQUEST},
+    {type: POST_ANSWER_REQUEST, meta: {slideRef: freeTextSlide._id}},
     {
       type: POST_ANSWER_FAILURE,
+      meta: {slideRef: freeTextSlide._id},
       payload: new Error('unexpected'),
       error: true
     }

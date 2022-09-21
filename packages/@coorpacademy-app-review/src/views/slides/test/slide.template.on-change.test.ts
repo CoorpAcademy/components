@@ -46,9 +46,13 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: templateSlide._id,
     navigation: ['skills', 'slides'],
-    answers: [],
+    answers: {},
     slide: {
-      validateButton: false
+      [templateSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
@@ -56,7 +60,9 @@ const initialState: StoreState = {
 test('should dispatch EDIT_TEMPLATE action via the property onChange of a Template Text slide', t => {
   t.plan(2);
 
-  const expectedActions = [{type: EDIT_TEMPLATE, payload: ['', 'test', '']}];
+  const expectedActions = [
+    {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['', 'test', '']}
+  ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch);
@@ -78,7 +84,9 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
 test('should dispatch EDIT_TEMPLATE action via the property onChange of a Template Select slide', t => {
   t.plan(2);
 
-  const expectedActions = [{type: EDIT_TEMPLATE, payload: ['Catalogue', '', '']}];
+  const expectedActions = [
+    {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['Catalogue', '', '']}
+  ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch);

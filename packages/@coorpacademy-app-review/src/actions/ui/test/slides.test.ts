@@ -17,10 +17,8 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: '',
     navigation: [],
-    answers: [],
-    slide: {
-      validateButton: false
-    }
+    answers: {},
+    slide: {}
   }
 };
 

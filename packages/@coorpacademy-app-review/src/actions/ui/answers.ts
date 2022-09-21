@@ -1,5 +1,6 @@
 import flatten from 'lodash/fp/flatten';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import includes from 'lodash/fp/includes';
 import pull from 'lodash/fp/pull';
 import {Dispatch} from 'redux';
@@ -29,6 +30,7 @@ export type EditAnswerAction = {
     | typeof EDIT_TEMPLATE
     | typeof EDIT_BASIC
     | typeof EDIT_SLIDER;
+  meta: {slideRef: string};
   payload: string[];
 };
 
@@ -56,7 +58,7 @@ export const editAnswer =
   (dispatch: Dispatch, getState: () => StoreState): EditAnswerAction => {
     const state = getState();
     const currentSlideRef = get(['ui', 'currentSlideRef'], state);
-    const userAnswers = get(['ui', 'answers'], state);
+    const userAnswers = getOr([], ['ui', 'answers', currentSlideRef], state);
     const slide = get(['data', 'slides', currentSlideRef], state);
 
     if (!slide) throw new Error('No slide was found');
@@ -69,6 +71,7 @@ export const editAnswer =
 
     return dispatch({
       type,
+      meta: {slideRef: currentSlideRef},
       payload: buildAnswer(userAnswers, questionType, answer)
     });
   };

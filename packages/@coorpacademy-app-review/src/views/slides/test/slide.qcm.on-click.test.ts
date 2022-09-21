@@ -46,9 +46,13 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: qcmSlide._id,
     navigation: ['skills', 'slides'],
-    answers: [],
+    answers: {},
     slide: {
-      validateButton: false
+      [qcmSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
@@ -59,6 +63,7 @@ test('should dispatch EDIT_QCM action via the property onClick of a QCM slide', 
   const expectedActions = [
     {
       type: EDIT_QCM,
+      meta: {slideRef: qcmSlide._id},
       payload: [
         "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente"
       ]

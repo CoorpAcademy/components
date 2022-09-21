@@ -31,11 +31,15 @@ const state: StoreState = {
   ui: {
     currentSlideRef: freeTextSlide._id,
     navigation: ['loader', 'slides'],
-    answers: answer,
+    answers: {
+      [freeTextSlide._id]: answer
+    },
     slide: {
-      validateButton: false,
-      animateCorrectionPopin: true,
-      showCorrectionPopin: true
+      [freeTextSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: true,
+        showCorrectionPopin: true
+      }
     }
   }
 };

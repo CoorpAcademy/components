@@ -46,9 +46,13 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
-    answers: [],
+    answers: {},
     slide: {
-      validateButton: false
+      [freeTextSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
@@ -59,6 +63,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
   const expectedActions = [
     {
       type: EDIT_BASIC,
+      meta: {slideRef: freeTextSlide._id},
       payload: ['My Answer']
     }
   ];

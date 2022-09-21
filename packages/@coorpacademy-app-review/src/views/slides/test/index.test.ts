@@ -63,9 +63,13 @@ test('should create initial props when fetched slide is not still received', t =
     ui: {
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {},
       slide: {
-        validateButton: false
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -154,9 +158,13 @@ test('should create props when first slide is on the state', t => {
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {},
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -259,9 +267,13 @@ test('should create props when slide is on the state and user has selected answe
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        validateButton: true
+        sli_VJYjJnJhg: {
+          validateButton: true,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -365,9 +377,18 @@ test('should verify props when first slide was answered correctly and next slide
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -475,9 +496,18 @@ test('should verify props when first slide was answered with error and next slid
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -520,7 +550,7 @@ test('should verify props when first slide was answered with error and next slid
 });
 
 test('should verify props when first slide was answered, next slide is fetched & correction is fetched', t => {
-  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
+  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide and CORRECTION_FETCH_SUCCESS
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
@@ -538,11 +568,18 @@ test('should verify props when first slide was answered, next slide is fetched &
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        validateButton: false,
-        animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -634,7 +671,7 @@ test('should verify props when first slide was answered, next slide is fetched &
 });
 
 test('should verify props when first slide was answered incorrectly, next slide is fetched & correction is fetched', t => {
-  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide
+  // Scenario: after POST_ANSWER_SUCCESS and SLIDE_FETCH_SUCCESS for the nextContent.ref slide and CORRECTION_FETCH_SUCCESS
   const state: StoreState = {
     data: {
       progression: incorrectFreeTextPostAnswerResponse,
@@ -652,11 +689,18 @@ test('should verify props when first slide was answered incorrectly, next slide 
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
-      answers: ['My value'],
+      answers: {sli_VJYjJnJhg: ['My value']},
       slide: {
-        validateButton: false,
-        animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -766,9 +810,20 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     ui: {
       currentSlideRef: 'sli_VkSQroQnx',
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark']
+      },
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -838,9 +893,39 @@ test('should verify props when progression is in success', t => {
     ui: {
       currentSlideRef: templateSlide.universalRef,
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Faux'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        }
       }
     }
   };
@@ -910,9 +995,39 @@ test('should verify props when progression has answered a current pendingSlide',
     ui: {
       currentSlideRef: freeTextSlide.universalRef,
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Vrai'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };
@@ -979,9 +1094,39 @@ test('should verify props when progression still has a pendingSlide', t => {
     ui: {
       currentSlideRef: qcmSlide.universalRef,
       navigation: ['loader', 'slides'],
-      answers: [],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Vrai'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
       slide: {
-        validateButton: false
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
       }
     }
   };

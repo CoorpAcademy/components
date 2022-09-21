@@ -2,13 +2,13 @@ import {combineReducers} from 'redux';
 
 import currentSlideRef, {CurrentSlideRefState} from './current-slide-ref';
 import navigation, {NavigationState} from './navigation';
-import answers, {AnswerState} from './answers';
+import answers, {UIAnswerState} from './answers';
 import slide, {UISlideState} from './slide';
 
 export type UIState = {
   currentSlideRef: CurrentSlideRefState;
   navigation: NavigationState;
-  answers: AnswerState;
+  answers: UIAnswerState;
   slide: UISlideState;
 };
 

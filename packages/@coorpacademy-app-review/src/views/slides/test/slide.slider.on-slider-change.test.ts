@@ -45,9 +45,13 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: sliderSlide._id,
     navigation: ['skills', 'slides'],
-    answers: [],
+    answers: {},
     slide: {
-      validateButton: false
+      [sliderSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
@@ -58,6 +62,7 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
   const expectedActions = [
     {
       type: EDIT_SLIDER,
+      meta: {slideRef: sliderSlide._id},
       payload: ['111']
     }
   ];

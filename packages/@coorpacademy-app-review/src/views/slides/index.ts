@@ -165,16 +165,16 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const slideFromAPI = get(slideRef, state.data.slides);
       if (!slideFromAPI) return set(index, uiSlide, acc);
 
-      const answers = state.ui.answers;
+      const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
       const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
       const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
 
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const animateCorrectionPopin =
-        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'animateCorrectionPopin'], state);
+        isCurrentSlideRef && get(['ui', 'slide', slideRef, 'animateCorrectionPopin'], state);
       const showCorrectionPopin =
-        isCurrentSlideRef && getOr(false, ['ui', 'slide', 'showCorrectionPopin'], state);
+        isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
 
       const updatedUiSlide = pipe(
         set('showCorrectionPopin', showCorrectionPopin),
@@ -320,7 +320,7 @@ export const mapStateToSlidesProps = (state: StoreState, dispatch: Dispatch): Sl
       slides: buildStackSlides(state, dispatch),
       validateButton: {
         label: '__validate',
-        disabled: !get('ui.slide.validateButton', state),
+        disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
         onClick: /* istanbul ignore next */ (): void => {
           dispatch(postAnswer);
         }

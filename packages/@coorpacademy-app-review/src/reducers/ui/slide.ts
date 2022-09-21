@@ -12,35 +12,56 @@ import {
   EDIT_TEMPLATE
 } from '../../actions/ui/answers';
 import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/post-answer';
-import {CORRECTION_FETCH_SUCCESS, ReceivedCorrection} from '../../actions/api/fetch-correction';
+import {ReceivedCorrection, CORRECTION_FETCH_SUCCESS} from '../../actions/api/fetch-correction';
+import {FetchSlide, SLIDE_FETCH_REQUEST} from '../../actions/api/fetch-slide';
 
-export type UISlideState = {
+export type UISlide = {
   validateButton: boolean;
-  animateCorrectionPopin?: boolean;
-  showCorrectionPopin?: boolean;
+  animateCorrectionPopin: boolean;
+  showCorrectionPopin: boolean;
 };
 
-export const initialState: UISlideState = {validateButton: false};
+export type UISlideState = Record<string, UISlide>;
+
+export const initialState: UISlideState = {};
 
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UISlideState = initialState,
-  action: PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection
+  action: FetchSlide | PostAnswerRequestAction | EditAnswerAction | ReceivedCorrection
 ): UISlideState => {
   switch (action.type) {
+    case SLIDE_FETCH_REQUEST: {
+      return set(
+        [action.meta.slideRef],
+        {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        },
+        state
+      );
+    }
     case EDIT_QCM:
     case EDIT_QCM_GRAPHIC:
     case EDIT_QCM_DRAG:
     case EDIT_TEMPLATE:
     case EDIT_BASIC:
     case EDIT_SLIDER: {
-      return pipe(compact, isEmpty)(action.payload) ? initialState : {validateButton: true};
+      return set(
+        [action.meta.slideRef, 'validateButton'],
+        !pipe(compact, isEmpty)(action.payload),
+        state
+      );
     }
     case POST_ANSWER_REQUEST: {
-      return initialState;
+      return set([action.meta.slideRef, 'validateButton'], false, state);
     }
     case CORRECTION_FETCH_SUCCESS: {
-      return pipe(set(['animateCorrectionPopin'], true), set(['showCorrectionPopin'], true))(state);
+      return pipe(
+        set([action.meta.slideRef, 'animateCorrectionPopin'], true),
+        set([action.meta.slideRef, 'showCorrectionPopin'], true)
+      )(state);
     }
     default:
       return state;

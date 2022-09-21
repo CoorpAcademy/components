@@ -46,9 +46,13 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: qcmDragSlide._id,
     navigation: ['skills', 'slides'],
-    answers: [],
+    answers: {},
     slide: {
-      validateButton: false
+      [qcmDragSlide._id]: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false
+      }
     }
   }
 };
@@ -59,6 +63,7 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
   const expectedActions = [
     {
       type: EDIT_QCM_DRAG,
+      meta: {slideRef: qcmDragSlide._id},
       payload: ['La démoralisation']
     }
   ];

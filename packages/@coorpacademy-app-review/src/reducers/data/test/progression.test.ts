@@ -21,6 +21,7 @@ test('should set the value of POST_PROGRESSION_SUCCESS action', t => {
 test('should set the value of POST_ANSWER_SUCCESS action', t => {
   const state = reducer(null, {
     type: POST_ANSWER_SUCCESS,
+    meta: {slideRef: freeTextSlide.universalRef},
     payload: postAnswerResponses[freeTextSlide.universalRef]
   });
   t.deepEqual(state, postAnswerResponses[freeTextSlide.universalRef]);
