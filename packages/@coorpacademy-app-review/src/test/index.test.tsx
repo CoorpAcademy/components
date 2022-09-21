@@ -59,7 +59,11 @@ const clickAllSlides = async (
 const appOptions: AppOptions = {
   token: process.env.API_TEST_TOKEN || '',
   skillRef: 'skill_NJC0jFKoH',
-  services
+  services,
+  onQuitClick: (): void => {
+    // eslint-disable-next-line no-console
+    console.log('onQuitClick - options');
+  }
 };
 
 test('should show the loader while the app is fetching the data', async t => {

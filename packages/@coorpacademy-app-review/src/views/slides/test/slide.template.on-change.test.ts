@@ -1,6 +1,7 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
+import identity from 'lodash/fp/identity';
 import {mapStateToSlidesProps} from '..';
 import {ProgressionFromAPI} from '../../../types/common';
 import {services} from '../../../test/util/services.mock';
@@ -65,7 +66,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
-  const props = mapStateToSlidesProps(getState(), dispatch);
+  const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -89,7 +90,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
-  const props = mapStateToSlidesProps(getState(), dispatch);
+  const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animateCorrectionPopin: false,
     showCorrectionPopin: false,

@@ -29,7 +29,8 @@ const ConnectedApp = ({onQuitClick}: {onQuitClick: Function}): JSX.Element => {
     slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, onQuitClick)),
     skills: useSelector((state: StoreState) => mapStateToSkillsProps(state))
   };
-
+  // eslint-disable-next-line no-console
+  console.log(props);
   return <AppReviewTemplate {...props} />;
 };
 
