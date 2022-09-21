@@ -6,7 +6,7 @@ import ReviewHeader from '../../../organism/review-header';
 import StackedSlides from '../../../organism/review-stacked-slides';
 import CMPopin from '../../../molecule/cm-popin';
 import style from './style.css';
-import {PlayerReviewPropTypes} from './prop-types';
+import propTypes from './prop-types';
 
 const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitPopin}) => {
   return (
@@ -37,6 +37,6 @@ const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitP
   );
 };
 
-PlayerReview.propTypes = PlayerReviewPropTypes;
+PlayerReview.propTypes = propTypes;
 
 export default PlayerReview;

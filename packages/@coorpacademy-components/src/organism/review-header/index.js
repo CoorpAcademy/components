@@ -4,7 +4,7 @@ import getOr from 'lodash/fp/getOr';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ReviewHeaderSteps from '../../molecule/review-header-steps';
 import style from './style.css';
-import propTypes from './prop-types';
+import propTypes from './types';
 
 const ReviewHeader = (props, context) => {
   const {
