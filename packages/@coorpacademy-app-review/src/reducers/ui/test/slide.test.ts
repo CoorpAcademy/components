@@ -4,6 +4,7 @@ import {EDIT_BASIC} from '../../../actions/ui/answers';
 import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../../actions/api/post-answer';
 import {CORRECTION_FETCH_SUCCESS} from '../../../actions/api/fetch-correction';
 import {SLIDE_FETCH_REQUEST} from '../../../actions/api/fetch-slide';
+import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 
 test('should set validateButton, animateCorrectionPopin and showCorrectionPopin to false if SLIDE_FETCH_REQUEST is received', t => {
   const state = reducer(undefined, {
@@ -49,6 +50,19 @@ test('should set animateCorrectionPopin to true if CORRECTION_FETCH_SUCCESS is r
   });
   t.truthy(state);
   t.deepEqual(state, {'1234': {animateCorrectionPopin: true, showCorrectionPopin: true}});
+});
+
+test('should set animateCorrectionPopin to false and animationType to unstack or restack if NEXT_SLIDE is received', t => {
+  const state = reducer(undefined, {
+    type: NEXT_SLIDE,
+    payload: {
+      currentSlideRef: '1234',
+      nextSlideRef: '5678',
+      animationType: 'unstack'
+    }
+  });
+  t.truthy(state);
+  t.deepEqual(state, {'1234': {animateCorrectionPopin: false, animationType: 'unstack'}});
 });
 
 test('should return state directly when there is no corresponding action handler + have an initial state', t => {

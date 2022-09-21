@@ -1,8 +1,16 @@
-import {includes, set, values} from 'lodash/fp';
-import {EditAnswerAction, ANSWER_EDIT} from '../../actions/ui/answers';
+import {set} from 'lodash/fp';
+import {
+  EditAnswerAction,
+  EDIT_BASIC,
+  EDIT_QCM,
+  EDIT_QCM_DRAG,
+  EDIT_QCM_GRAPHIC,
+  EDIT_SLIDER,
+  EDIT_TEMPLATE
+} from '../../actions/ui/answers';
+import {NextSlide, NEXT_SLIDE} from '../../actions/ui/next-slide';
 
 export type UISlideAnswer = string[];
-const ANSWER_EDIT_ACTIONS = values(ANSWER_EDIT);
 
 export type UIAnswerState = Record<string, UISlideAnswer>;
 
@@ -11,11 +19,23 @@ export const initialState: UIAnswerState = {};
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UIAnswerState = initialState,
-  action: EditAnswerAction
+  action: EditAnswerAction | NextSlide
 ): UIAnswerState => {
-  return includes(action.type, ANSWER_EDIT_ACTIONS)
-    ? set([action.meta.slideRef], action.payload, initialState)
-    : state;
+  switch (action.type) {
+    case EDIT_QCM:
+    case EDIT_QCM_GRAPHIC:
+    case EDIT_QCM_DRAG:
+    case EDIT_TEMPLATE:
+    case EDIT_BASIC:
+    case EDIT_SLIDER: {
+      return set([action.meta.slideRef], action.payload, initialState);
+    }
+    case NEXT_SLIDE: {
+      return set(action.payload.nextSlideRef, [], state);
+    }
+    default:
+      return state;
+  }
 };
 
 export default reducer;

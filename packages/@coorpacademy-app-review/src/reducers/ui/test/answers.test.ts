@@ -7,6 +7,7 @@ import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
+import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as EditAnswerAction);
@@ -83,4 +84,17 @@ test('should set the value of EDIT_TEMPLATE action', t => {
     }
   );
   t.deepEqual(state, {[templateSlide.universalRef]: ['value1', 'value2']});
+});
+
+test('should set the next slide ref with an empty array if NEXT_SLIDE action is received', t => {
+  const state = reducer(undefined, {
+    type: NEXT_SLIDE,
+    payload: {
+      currentSlideRef: '1234',
+      nextSlideRef: '5678',
+      animationType: 'unstack'
+    }
+  });
+  t.truthy(state);
+  t.deepEqual(state, {'5678': []});
 });
