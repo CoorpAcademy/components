@@ -31,7 +31,7 @@ const reducer = (
       return set([action.meta.slideRef], action.payload, initialState);
     }
     case NEXT_SLIDE: {
-      return set(action.payload.nextSlideRef, [], state);
+      return set([action.payload.nextSlideRef], [], state);
     }
     default:
       return state;
