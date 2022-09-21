@@ -1,14 +1,34 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {
+  NovaCompositionCoorpacademyCheck as RightIcon,
+  NovaSolidStatusClose as WrongIcon
+} from '@coorpacademy/nova-icons';
+import {COLORS} from '../../variables/colors';
+import {Props} from './prop-types';
 
-const createStyle = (current: boolean) =>
-  StyleSheet.create({
+const createStyle = (current: boolean, icon: Props['icon']) => {
+  let backgroundColor;
+
+  switch (icon) {
+    case 'right':
+      backgroundColor = COLORS.positive;
+      break;
+    case 'wrong':
+      backgroundColor = COLORS.negative;
+      break;
+    case 'no-answer':
+    default:
+      backgroundColor = COLORS.gray;
+  }
+
+  return StyleSheet.create({
     step: {
       width: current ? 40 : 32,
       height: current ? 40 : 32,
       opacity: current ? 1 : 0.5,
       marginHorizontal: 8,
-      backgroundColor: '#EAEAEB', // flex-debug,
+      backgroundColor,
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 50
@@ -16,24 +36,41 @@ const createStyle = (current: boolean) =>
     stepText: {
       fontWeight: '600',
       fontSize: current ? 16 : 12
-      // lineHeight: current ? 16 : 12
+    },
+    icon: {
+      width: current ? 14 : 12,
+      height: current ? 14 : 12
     }
   });
-
-type StepProps = {
-  current: boolean;
-  icon: 'no-answer' | 'right' | 'wrong';
-  value: string;
 };
 
-const Step = ({value, icon, current}: StepProps) => {
-  const style = createStyle(current, icon);
+const Step = ({value, icon, current}: Props) => {
+  const [style, setStyle] = useState<any | null>(null);
 
-  return (
-    <View style={style.step}>
-      <Text style={style.stepText}>{value}</Text>
-    </View>
-  );
+  useEffect(() => {
+    const _style = createStyle(current, icon);
+    setStyle(_style);
+  }, [current, icon]);
+
+  if (!style) {
+    return null;
+  }
+
+  let child;
+
+  switch (icon) {
+    case 'right':
+      child = <RightIcon style={style.icon} color="#fff" />;
+      break;
+    case 'wrong':
+      child = <WrongIcon style={style.icon} color="#fff" />;
+      break;
+    case 'no-answer':
+    default:
+      child = <Text style={style.stepText}>{value}</Text>;
+  }
+
+  return <View style={style.step}>{child}</View>;
 };
 
 export default Step;

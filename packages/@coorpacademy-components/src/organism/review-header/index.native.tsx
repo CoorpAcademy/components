@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, ViewStyle} from 'react-native';
 import Step from '../../atom/review-header-step-item/index.native';
+import {Props as StepProps} from '../../atom/review-header-step-item/prop-types';
 
 type ReviewHeaderProps = {style: ViewStyle};
 
@@ -33,10 +34,18 @@ const ReviewHeader = (props: ReviewHeaderProps) => {
 
   console.log({steps});
 
+  const _s: StepProps[] = [
+    {current: false, icon: 'right', value: '1'},
+    {current: false, icon: 'right', value: '2'},
+    {current: false, icon: 'wrong', value: '3'},
+    {current: true, icon: 'no-answer', value: '4'},
+    {current: false, icon: 'no-answer', value: '5'}
+  ];
+
   return (
     <View style={style.header}>
-      {steps.map(step => (
-        <Step key={step.value} {...step} />
+      {_s.map(step => (
+        <Step {...step} key={step.value} />
       ))}
     </View>
   );
