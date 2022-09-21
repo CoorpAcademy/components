@@ -88,7 +88,7 @@ test('should set the value of EDIT_TEMPLATE action', t => {
 
 test('should set the next slide ref with an empty array if NEXT_SLIDE action is received', t => {
   const state = reducer(
-    {'1234': ['Answer']},
+    {'1234': ['Answer'], '5678': ['Other Answer']},
     {
       type: NEXT_SLIDE,
       payload: {
