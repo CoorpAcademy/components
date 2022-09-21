@@ -5,7 +5,7 @@ import {
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import {COLORS} from '../../variables/colors';
-import {Props} from './prop-types';
+import {Props} from './types';
 
 const createStyle = (current: boolean, icon: Props['icon']) => {
   let backgroundColor;
