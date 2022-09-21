@@ -56,6 +56,20 @@ export default {
             size: 'medium',
             value:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum sem ac fermentum luctus. Integer eu dui magna. Donec ut tristique dui. Vestibulum non accumsan tellus. Donec luctus erat vitae aliquet viverra. Mauris malesuada tortor quis viverra vestibulum. Nullam laoreet porta massa vitae porta.'
+          },
+          {
+            type: 'buttonLink',
+            label: 'Syntax guide',
+            'aria-label': 'hide-documentation',
+            'data-name': 'hide-documentation',
+            theme: 'coorpmanager',
+            onClick: () => console.log('close'),
+            buttonType: 'tertiary',
+            customStyle: {
+              width: '120px',
+              marginLeft: '325px',
+              marginTop: '-40px'
+            }
           }
         ]
       }

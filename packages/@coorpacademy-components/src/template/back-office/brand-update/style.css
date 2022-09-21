@@ -134,6 +134,38 @@
   pointer-events: fill;
 }
 
+.documentation{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  max-width: calc(100% - 750px);
+  width: 538px;
+  z-index: 1000;
+  padding: 0px 16px 16px 16px;
+  margin-right: -100%;
+  transition: margin 0.5s ease-in;
+  background: #FFFFFF;
+  box-shadow: -8px 0px 10px rgba(22, 22, 22, 0.1);
+  border-radius: 0px 4px 4px 0px;
+}
+.documentationContent {
+  overflow-y: scroll;
+  top: 0px;
+  height: 100%;
+  position: relative;
+}
+.open{
+    margin-right: 0px;
+}
+.closeButton {
+  background: #fff;
+  color: red;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 @media desktop, tablet {
   .container {
     scroll-behavior: unset;

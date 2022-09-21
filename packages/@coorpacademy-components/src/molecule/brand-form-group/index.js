@@ -22,6 +22,7 @@ import SetupSections from '../setup-sections';
 import Title from '../../atom/title';
 import Roles from '../coorp-manager-roles';
 import TitleAndCheckBoxWrapper from '../title-and-checkbox-wrapper';
+import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const inputContainerStyle = {
@@ -73,6 +74,8 @@ const buildInput = field => {
     case 'button':
     case 'link':
       return <Button {...field} />;
+    case 'buttonLink':
+      return <ButtonLink {...field} type={field.buttonType} />;
     case 'roles':
       return <Roles {...field} />;
     case 'titleAndCheckBoxWrapper':
@@ -185,6 +188,11 @@ BrandFormGroup.propTypes = {
       PropTypes.shape({
         ...Button.propTypes,
         type: PropTypes.oneOf(['button'])
+      }),
+      PropTypes.shape({
+        ...ButtonLink.propTypes,
+        buttonType: ButtonLink.propTypes.type,
+        type: PropTypes.oneOf(['buttonLink'])
       }),
       PropTypes.shape({
         ...SelectMultiple.propTypes,

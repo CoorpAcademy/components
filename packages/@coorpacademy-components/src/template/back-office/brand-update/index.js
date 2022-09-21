@@ -20,6 +20,7 @@ import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
+import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -103,6 +104,30 @@ const buildPopin = popin => {
   ) : null;
 };
 
+const buildDocumentation = documentation => {
+  if (!documentation) return null;
+  const {show = false, onClose, content = ''} = documentation;
+  return (
+    <div className={classNames(style.documentation, show && style.open)}>
+      <div
+        className={style.documentationContent}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: content}}
+      />
+      {onClose ? (
+        <ButtonLinkIconOnly
+          className={style.closeButton}
+          onClick={onClose}
+          data-name={'close-icon'}
+          aria-label={'close-icon'}
+          size="small"
+          icon="close"
+        />
+      ) : null}
+    </div>
+  );
+};
+
 const buildTabs = items => {
   const selectedTab = pipe(
     find(e => e.selected),
@@ -153,11 +178,12 @@ const buildDetailsView = details => {
 };
 
 const BrandUpdate = props => {
-  const {notifications, header, items, content, details, popin, onItemClick} = props;
+  const {notifications, header, items, content, details, popin, onItemClick, documentation} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
+  const documentationView = buildDocumentation(documentation);
   const headerView = buildHeader(header, notifications);
   const tabsView = buildTabs(items);
   const contentView = buildContentView(content);
@@ -179,6 +205,7 @@ const BrandUpdate = props => {
           {tabsView}
           {contentView}
           {detailsView}
+          {documentationView}
         </div>
       </div>
       {popinView}
@@ -259,6 +286,11 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['list-content'])
     })
   ]),
+  documentation: PropTypes.shape({
+    content: PropTypes.string,
+    show: PropTypes.bool,
+    onClose: PropTypes.func
+  }),
   popin: PropTypes.shape({...CmPopin.propTypes}),
   details: PropTypes.shape({
     ...BrandTable.propTypes,
