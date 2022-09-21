@@ -1,5 +1,6 @@
 import test from 'ava';
 import get from 'lodash/fp/get';
+import identity from 'lodash/fp/identity';
 import {ProgressionFromAPI} from '../../../types/common';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
@@ -67,7 +68,7 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
     }
   ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
-  const props = mapStateToSlidesProps(getState(), dispatch);
+  const props = mapStateToSlidesProps(getState(), dispatch, identity);
 
   const SlideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
