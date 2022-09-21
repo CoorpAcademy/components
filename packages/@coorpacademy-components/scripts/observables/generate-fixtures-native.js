@@ -22,7 +22,7 @@ const generateNativeFixtures$ = (cwd, macro) =>
             )}';`,
             `import ${title} from '../index.native';`
           ),
-          readComponentFixtures$({title, path, type}, {native: true}).pipe(
+          readComponentFixtures$({title, path, type}).pipe(
             map(
               ({fixture, fixturePath}) =>
                 `import fixture${fixture} from './${
@@ -31,7 +31,7 @@ const generateNativeFixtures$ = (cwd, macro) =>
             )
           ),
           of(``),
-          readComponentFixtures$({title, path, type}, {native: true}).pipe(
+          readComponentFixtures$({title, path, type}).pipe(
             map(
               ({fixture}) =>
                 `test('${type} › ${title} › ${pascalCase(
