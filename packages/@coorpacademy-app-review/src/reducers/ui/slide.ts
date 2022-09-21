@@ -48,9 +48,11 @@ const reducer = (
     case EDIT_TEMPLATE:
     case EDIT_BASIC:
     case EDIT_SLIDER: {
-      return pipe(compact, isEmpty)(action.payload)
-        ? set([action.meta.slideRef, 'validateButton'], false, state)
-        : set([action.meta.slideRef, 'validateButton'], true, state);
+      return set(
+        [action.meta.slideRef, 'validateButton'],
+        !pipe(compact, isEmpty)(action.payload),
+        state
+      );
     }
     case POST_ANSWER_REQUEST: {
       return set([action.meta.slideRef, 'validateButton'], false, state);

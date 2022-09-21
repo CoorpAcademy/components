@@ -1,9 +1,9 @@
 import test from 'ava';
 import reducer, {initialState} from '../slide';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
-import {POST_ANSWER_REQUEST} from '../../../actions/api/post-answer';
+import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../../actions/api/post-answer';
 import {CORRECTION_FETCH_SUCCESS} from '../../../actions/api/fetch-correction';
-import {FetchSlide, SLIDE_FETCH_REQUEST} from '../../../actions/api/fetch-slide';
+import {SLIDE_FETCH_REQUEST} from '../../../actions/api/fetch-slide';
 
 test('should set validateButton, animateCorrectionPopin and showCorrectionPopin to false if SLIDE_FETCH_REQUEST is received', t => {
   const state = reducer(undefined, {
@@ -52,6 +52,6 @@ test('should set animateCorrectionPopin to true if CORRECTION_FETCH_SUCCESS is r
 });
 
 test('should return state directly when there is no corresponding action handler + have an initial state', t => {
-  const state = reducer(undefined, {type: 'NOPE'} as unknown as FetchSlide);
+  const state = reducer(undefined, {type: 'NOPE'} as unknown as PostAnswerRequestAction);
   t.deepEqual(state, initialState);
 });
