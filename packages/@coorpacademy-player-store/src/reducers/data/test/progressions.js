@@ -10,7 +10,8 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
-  PROGRESSION_RESOURCE_VIEWED_SUCCESS
+  PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+  PROGRESSION_CLOSE_ERROR_POPIN
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -25,7 +26,7 @@ test(
     type: PROGRESSION_CREATE_SUCCESS,
     payload: {_id: 'foo', baz: 'bar'}
   },
-  {entities: {foo: {_id: 'foo', baz: 'bar'}}}
+  {entities: {foo: {_id: 'foo', baz: 'bar'}}, isFailure: false}
 );
 
 test(
@@ -37,7 +38,7 @@ test(
     type: PROGRESSION_CREATE_SUCCESS,
     payload: {_id: 'foo', baz: 'bar'}
   },
-  {entities: {foo: {_id: 'foo', baz: 'bar'}, bar: {_id: 'bar', baz: 'bar'}}}
+  {entities: {foo: {_id: 'foo', baz: 'bar'}, bar: {_id: 'bar', baz: 'bar'}}, isFailure: false}
 );
 
 test(
@@ -49,7 +50,7 @@ test(
     type: PROGRESSION_CREATE_SUCCESS,
     payload: {baz: 'bar'}
   },
-  {entities: {'_no-id': {baz: 'bar'}}}
+  {entities: {'_no-id': {baz: 'bar'}}, isFailure: false}
 );
 
 test(
@@ -61,7 +62,7 @@ test(
     type: PROGRESSION_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
-  {entities: {foo: null}}
+  {entities: {foo: null}, isFailure: false}
 );
 
 test(
@@ -73,7 +74,7 @@ test(
     type: PROGRESSION_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
-  {entities: {foo: null}}
+  {entities: {foo: null}, isFailure: false}
 );
 
 test(
@@ -85,7 +86,7 @@ test(
     type: PROGRESSION_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: 'foo'}, isFailure: false}
 );
 
 test(
@@ -98,7 +99,7 @@ test(
     meta: {id: 'foo'},
     payload: 'foo'
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: 'foo'}, isFailure: false}
 );
 
 test(
@@ -112,7 +113,7 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {}}
+  {entities: {}, isFailure: true}
 );
 
 test(
@@ -126,7 +127,18 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_CLOSE_ERROR_POPIN
+  },
+  {entities: {foo: 'foo'}, isFailure: false}
 );
 
 test(
@@ -138,7 +150,7 @@ test(
     type: PROGRESSION_CREATE_ANSWER_REQUEST,
     meta: {progressionId: 'foo'}
   },
-  {entities: {foo: {state: {isCorrect: null}}}}
+  {entities: {foo: {state: {isCorrect: null}}}, isFailure: false}
 );
 
 test(
@@ -151,7 +163,7 @@ test(
     meta: {progressionId: 'foo'},
     payload: {bar: 'bar'}
   },
-  {entities: {foo: {foo: 'foo', bar: 'bar'}}}
+  {entities: {foo: {foo: 'foo', bar: 'bar'}}, isFailure: false}
 );
 
 test(
@@ -164,7 +176,7 @@ test(
     meta: {progressionId: 'foo'},
     payload: {bar: 'bar'}
   },
-  {entities: {foo: {foo: 'foo', bar: 'bar'}}}
+  {entities: {foo: {foo: 'foo', bar: 'bar'}}, isFailure: false}
 );
 
 test(
@@ -177,7 +189,7 @@ test(
     meta: {progressionId: 'foo'},
     payload: {bar: 'bar'}
   },
-  {entities: {foo: {foo: 'foo', bar: 'bar'}}}
+  {entities: {foo: {foo: 'foo', bar: 'bar'}}, isFailure: false}
 );
 
 [
@@ -200,6 +212,6 @@ test(
       type,
       payload: {}
     },
-    {entities: {foo: {foo: 'foo'}}}
+    {entities: {foo: {foo: 'foo'}}, isFailure: false}
   )
 );

@@ -61,6 +61,8 @@ export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
 export const PROGRESSION_FETCH_FAILURE: string = '@@progression/FETCH_FAILURE';
 
+export const PROGRESSION_CLOSE_ERROR_POPIN: string = '@@progression/CLOSE_ERROR_POPIN';
+
 export const fetchProgression = (id: ProgressionId): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,

@@ -12,7 +12,8 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
-  PROGRESSION_RESOURCE_VIEWED_SUCCESS
+  PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+  PROGRESSION_CLOSE_ERROR_POPIN
 } from '../../actions/api/progressions';
 import type {Action} from '../../actions/api/progressions';
 
@@ -26,7 +27,7 @@ const dataProgressionsReducer = (
   state: DataProgressionState = {entities: {}},
   action: Action
 ): DataProgressionState => {
-  let _state = set('isFailure', true, state);
+  let _state = set('isFailure', false, state);
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
       const payload: Progression = action.payload;
@@ -58,7 +59,7 @@ const dataProgressionsReducer = (
       }
 
       const progressionId: ProgressionId = action.meta.progressionId;
-      return set(['entities', progressionId, '_state', 'isCorrect'], null, _state);
+      return set(['entities', progressionId, 'state', 'isCorrect'], null, _state);
     }
     case PROGRESSION_CREATE_SUCCESS: {
       const progression: Progression = action.payload;
@@ -93,6 +94,9 @@ const dataProgressionsReducer = (
       _state = set('isFailure', true, _state);
       if (pipe(get(['entities', id]), isNull)(_state)) return unset(['entities', id], _state);
       return _state;
+    }
+    case PROGRESSION_CLOSE_ERROR_POPIN: {
+      return set('isFailure', false, _state);
     }
     default:
       return state;

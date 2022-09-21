@@ -37,6 +37,7 @@ import {
   getRedirectURLAfterEnd
 } from '@coorpacademy/player-store';
 import headerProps from './header';
+import mapStateToErrorPopinProps from './error-popin';
 
 const extractRank = state => {
   const start = getStartRank(state);
@@ -270,6 +271,7 @@ const popinEndStateToProps = (options, store) => {
     const props = {
       header: headerProps_(state),
       mode: options.mode || 'default',
+      popinError: mapStateToErrorPopinProps(dispatch)(state),
       summary: {
         header: summaryHeader_(state)(exitNode),
         action: extractAction_(state)(exitNode),
