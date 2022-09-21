@@ -53,16 +53,32 @@ test('should set animateCorrectionPopin to true if CORRECTION_FETCH_SUCCESS is r
 });
 
 test('should set animateCorrectionPopin to false and animationType to unstack or restack if NEXT_SLIDE is received', t => {
-  const state = reducer(undefined, {
-    type: NEXT_SLIDE,
-    payload: {
-      currentSlideRef: '1234',
-      nextSlideRef: '5678',
+  const state = reducer(
+    {
+      '1234': {
+        validateButton: false,
+        animateCorrectionPopin: true,
+        showCorrectionPopin: true
+      }
+    },
+    {
+      type: NEXT_SLIDE,
+      payload: {
+        currentSlideRef: '1234',
+        nextSlideRef: '5678',
+        animationType: 'unstack'
+      }
+    }
+  );
+  t.truthy(state);
+  t.deepEqual(state, {
+    '1234': {
+      validateButton: false,
+      animateCorrectionPopin: false,
+      showCorrectionPopin: true,
       animationType: 'unstack'
     }
   });
-  t.truthy(state);
-  t.deepEqual(state, {'1234': {animateCorrectionPopin: false, animationType: 'unstack'}});
 });
 
 test('should return state directly when there is no corresponding action handler + have an initial state', t => {

@@ -2,6 +2,7 @@ import compact from 'lodash/fp/compact';
 import isEmpty from 'lodash/fp/isEmpty';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
+import unset from 'lodash/fp/unset';
 import {
   EditAnswerAction,
   EDIT_BASIC,
@@ -15,11 +16,13 @@ import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/po
 import {ReceivedCorrection, CORRECTION_FETCH_SUCCESS} from '../../actions/api/fetch-correction';
 import {FetchSlide, SLIDE_FETCH_REQUEST} from '../../actions/api/fetch-slide';
 import {NextSlide, NEXT_SLIDE} from '../../actions/ui/next-slide';
+import {SlideUIAnimations} from '../../types/slides';
 
 export type UISlide = {
   validateButton: boolean;
   animateCorrectionPopin: boolean;
   showCorrectionPopin: boolean;
+  animationType?: SlideUIAnimations;
 };
 
 export type UISlideState = Record<string, UISlide>;
@@ -33,15 +36,14 @@ const reducer = (
 ): UISlideState => {
   switch (action.type) {
     case SLIDE_FETCH_REQUEST: {
-      return set(
-        [action.meta.slideRef],
-        {
+      return pipe(
+        unset([action.meta.slideRef, 'animationType']),
+        set([action.meta.slideRef], {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false
-        },
-        state
-      );
+        })
+      )(state);
     }
     case EDIT_QCM:
     case EDIT_QCM_GRAPHIC:

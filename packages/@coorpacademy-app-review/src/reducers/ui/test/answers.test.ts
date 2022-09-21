@@ -87,14 +87,17 @@ test('should set the value of EDIT_TEMPLATE action', t => {
 });
 
 test('should set the next slide ref with an empty array if NEXT_SLIDE action is received', t => {
-  const state = reducer(undefined, {
-    type: NEXT_SLIDE,
-    payload: {
-      currentSlideRef: '1234',
-      nextSlideRef: '5678',
-      animationType: 'unstack'
+  const state = reducer(
+    {'1234': ['Answer']},
+    {
+      type: NEXT_SLIDE,
+      payload: {
+        currentSlideRef: '1234',
+        nextSlideRef: '5678',
+        animationType: 'unstack'
+      }
     }
-  });
+  );
   t.truthy(state);
-  t.deepEqual(state, {'5678': []});
+  t.deepEqual(state, {'1234': ['Answer'], '5678': []});
 });
