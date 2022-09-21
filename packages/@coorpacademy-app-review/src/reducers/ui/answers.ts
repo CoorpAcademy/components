@@ -14,7 +14,7 @@ const reducer = (
   action: EditAnswerAction
 ): UIAnswerState => {
   return includes(action.type, ANSWER_EDIT_ACTIONS)
-    ? set(action.meta.slideRef, action.payload, initialState)
+    ? set([action.meta.slideRef], action.payload, initialState)
     : state;
 };
 
