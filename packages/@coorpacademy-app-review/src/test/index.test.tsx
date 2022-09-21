@@ -62,7 +62,7 @@ const appOptions: AppOptions = {
   services,
   onQuitClick: (): void => {
     // eslint-disable-next-line no-console
-    console.log('onQuitClick - options');
+    console.log('onQuitClick');
   }
 };
 
