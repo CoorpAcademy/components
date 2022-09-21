@@ -1,4 +1,5 @@
 import browserEnv from 'browser-env';
+import identity from 'lodash/fp/identity';
 import test from 'ava';
 import type {ExecutionContext} from 'ava';
 import React from 'react';
@@ -60,10 +61,7 @@ const appOptions: AppOptions = {
   token: process.env.API_TEST_TOKEN || '',
   skillRef: 'skill_NJC0jFKoH',
   services,
-  onQuitClick: (): void => {
-    // eslint-disable-next-line no-console
-    console.log('onQuitClick');
-  }
+  onQuitClick: identity
 };
 
 test('should show the loader while the app is fetching the data', async t => {

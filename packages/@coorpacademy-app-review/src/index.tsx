@@ -36,7 +36,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
   const [isProgressionCreated, setIsProgressionCreated] = useState(false);
 
-  const onQuitClick = get('onQuitClick', options);
+  const onQuitClick = options.onQuitClick;
 
   useEffect(() => {
     if (store) return;
