@@ -5,7 +5,6 @@ import Text from '../../../atom/text/index.native';
 import Touchable from '../../touchable/index.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {Theme} from '../../../variables/theme.native';
-import {FontWeight} from '../../../types/styles';
 
 export type Props = {
   isSelected?: boolean;
@@ -20,7 +19,7 @@ type StyleSheetType = {
     padding: number;
   };
   text: {
-    fontWeight: FontWeight;
+    fontWeight: TextStyle['fontWeight'];
     color: string;
   };
   selectedTextStyle: {

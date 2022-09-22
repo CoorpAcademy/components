@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
-import HtmlBase from 'react-native-render-html';
+import HtmlBase, {CustomRendererProps, MixedStyleRecord, TBlock} from 'react-native-render-html';
 
 import {HTML_ANCHOR_TEXT_COLOR} from '../../variables/theme.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -17,6 +17,25 @@ export type Props = {
   style?: ViewStyle | ViewStyle[];
   testID?: string;
   isTextCentered?: boolean;
+};
+
+type Styles = {
+  p: {
+    marginVertical: ViewStyle['marginVertical'];
+    textAlign: TextStyle['textAlign'];
+  };
+  u: {
+    textDecorationLine: TextStyle['textDecorationLine'];
+  };
+  i: {
+    fontStyle: TextStyle['fontStyle'];
+  };
+  b: {
+    fontWeight: TextStyle['fontWeight'];
+  };
+  s: {
+    textDecorationLine: TextStyle['textDecorationLine'];
+  };
 };
 
 const Html = (props: Props) => {
@@ -46,7 +65,7 @@ const Html = (props: Props) => {
   );
 
   // Don't use StyleSheet there, it's not a react style
-  const styles = {
+  const styles: Styles = {
     p: {
       marginVertical: 0,
       textAlign: 'center'
@@ -65,7 +84,7 @@ const Html = (props: Props) => {
     }
   };
 
-  const tagsStyles = {
+  const tagsStyles: MixedStyleRecord = {
     ...styles,
     h1: {fontSize},
     h2: {fontSize},
@@ -74,7 +93,7 @@ const Html = (props: Props) => {
     h5: {fontSize},
     h6: {fontSize},
     a: {color: anchorTextColor},
-    img: imageStyle
+    img: imageStyle || {}
   };
 
   let baseFontStyle = {...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black};
@@ -97,35 +116,27 @@ const Html = (props: Props) => {
   }
 
   const renderers = {
-    // eslint-disable-next-line react/display-name
-    font: (htmlAttribs, _children) => {
-      if (htmlAttribs.color) {
-        setDisableBaseFontStyleColor(true);
-      }
-      return (
-        <Text
-          key={1}
-          style={{
-            ...baseFontStyle,
-            color: htmlAttribs.color
-          }}
-        >
-          {_children}
-        </Text>
-      );
-    },
-    span: function Span(
-      _: any,
-      _children: any,
-      convertedCSSStyles: any,
-      {allowFontScaling, key}: any
-    ) {
+    // font: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => {
+    //   if (htmlAttribs.color) {
+    //     setDisableBaseFontStyleColor(true);
+    //   }
+    //   return (
+    //     <Text
+    //       key={1}
+    //       style={{
+    //         ...baseFontStyle,
+    //         color: htmlAttribs.color
+    //       }}
+    //     >
+    //       {_children}
+    //     </Text>
+    //   );
+    // },
+    span: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => {
       return (
         <Text
           numberOfLines={numberOfLines}
-          allowFontScaling={allowFontScaling}
-          key={key}
-          style={convertedCSSStyles}
+          // style={convertedCSSStyles}
         >
           {_children}
         </Text>
@@ -149,18 +160,18 @@ const Html = (props: Props) => {
             : `${children}`
         }}
         tagsStyles={tagsStyles}
-        baseFontStyle={{
-          ...baseFontStyle,
-          color: disableBaseFontStyleColor ? null : baseFontStyle.color
-        }}
-        onLinkPress={handleLinkPress}
+        // baseFontStyle={{
+        //   ...baseFontStyle,
+        //   color: disableBaseFontStyleColor ? null : baseFontStyle.color
+        // }}
+        // onLinkPress={handleLinkPress}
         renderers={renderers}
         // this is exceptionally for the onboarding course
         // is the only course that has a gif in the context but the img tag
         // comes with width & height attr and these makes this lib do not render the gif
         // so to avoid it, we decided to ignore these attr
         ignoredStyles={['width', 'height']}
-        testID="html-base"
+        // testID="html-base"
       />
     </View>
   );

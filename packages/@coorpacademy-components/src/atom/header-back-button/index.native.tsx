@@ -33,11 +33,11 @@ type StyleSheetType = {
     top: number;
   };
   noSafeArea: {
-    top: 0;
+    top: number;
   };
 };
 
-const createStyleSheet = (theme: Theme, statusBarHeight: number) =>
+const createStyleSheet = (theme: Theme, statusBarHeight: number): StyleSheetType =>
   StyleSheet.create({
     container: {
       paddingLeft: theme.spacing.base
