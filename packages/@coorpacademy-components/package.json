@@ -33,9 +33,10 @@
     "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static",
     "preava": "npm run generate:fixtures",
     "ava": "ava",
+    "lint": "npm run eslint && npm run typecheck",
+    "test": "npm run lint && npm run test:unit",
     "test:unit": "nyc npm run ava",
-    "test": " npm run lint && npm run typecheck && npm run test:unit",
-    "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
+    "eslint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "typecheck": "tsc"
   },
   "engines": {

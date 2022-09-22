@@ -21,9 +21,10 @@
     "typecheck": "tsc --noEmit",
     "ava": "ava",
     "test:unit": "nyc npm run ava",
-    "lint": "eslint '**/*' --cache --ext .js --ext .jsx --ext .ts --ext .tsx --ext .json",
-    "lint:fix": "npm run lint -- --fix",
-    "test": "npm run lint && npm run typecheck && npm run test:unit"
+    "eslint": "eslint '**/*' --cache --ext .js --ext .jsx --ext .ts --ext .tsx --ext .json",
+    "lint": "npm run eslint && npm run typecheck",
+    "lint:fix": "npm run eslint -- --fix",
+    "test": "npm run lint && npm run test:unit"
   },
   "author": "CoorpAcademy",
   "files": [
