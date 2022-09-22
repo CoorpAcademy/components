@@ -36,7 +36,7 @@ const reducer = (
 ): UISlideState => {
   switch (action.type) {
     case SLIDE_FETCH_REQUEST: {
-      const t = pipe(
+      return pipe(
         unset([action.meta.slideRef, 'animationType']),
         set([action.meta.slideRef], {
           validateButton: false,
@@ -44,7 +44,6 @@ const reducer = (
           showCorrectionPopin: false
         })
       )(state);
-      return t;
     }
     case EDIT_QCM:
     case EDIT_QCM_GRAPHIC:
