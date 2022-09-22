@@ -7,13 +7,17 @@ import Link from '../../../../../atom/link';
 import Provider from '../../../../../atom/provider';
 import style from './learner.css';
 
-const Content = ({onClick, title, details}, context) => {
+const Content = ({onClick, title, details, mode}, context) => {
   const {skin} = context;
+  console.log("🚀 ~ file: learner.js ~ line 12 ~ Content ~ mode", mode)
   const primarySkinColor = get('common.primary', skin);
 
   return (
-    <Link onClick={onClick} className={style.contentWrapper}>
-      <BackIcon className={style.backIcon} color="inherit" />
+    <Link 
+    {...(mode !== 'scorm' && {onClick: onClick})}
+    className={mode === 'scorm' ?  style.contentWrapperScorm : style.contentWrapper }
+    >
+     {mode === 'scorm' ? <div className={style.backIcon} ></div> : <BackIcon className={style.backIcon} color="inherit"/>}
       <div className={style.content}>
         <div
           className={style.contentDetails}
@@ -62,11 +66,11 @@ Subcontent.propTypes = {
 };
 
 const LearnerHeader = (props, context) => {
-  const {content, subcontent} = props;
+  const {content, subcontent, mode} = props;
 
   return (
     <div className={style.wrapper}>
-      <Content {...content} />
+      <Content {...content} mode={mode}/>
       <Subcontent {...subcontent} />
     </div>
   );

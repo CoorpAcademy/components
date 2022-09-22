@@ -1061,6 +1061,7 @@ import TemplateAppPlayerPlayerSlidesFooterFixtureOnlyClue from '../src/template/
 import TemplateAppPlayerPlayerSlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/footer/test/fixtures/with-context';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureAdaptive from '../src/template/app-player/player/slides/header/test/fixtures/adaptive';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureArabicLearner from '../src/template/app-player/player/slides/header/test/fixtures/arabic-learner';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureLearnerModeScorm from '../src/template/app-player/player/slides/header/test/fixtures/learner-mode-scorm';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureArabicMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/arabic-microlearning';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives from '../src/template/app-player/player/slides/header/test/fixtures/infinite-lives';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureLearner from '../src/template/app-player/player/slides/header/test/fixtures/learner';
@@ -2938,7 +2939,8 @@ export const fixtures = {
       ArabicMicrolearning: TemplateAppPlayerPlayerSlidesHeaderFixtureArabicMicrolearning,
       InfiniteLives: TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives,
       Learner: TemplateAppPlayerPlayerSlidesHeaderFixtureLearner,
-      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning
+      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning,
+      LearnerModeScrom: TemplateAppPlayerPlayerSlidesHeaderFixtureLearnerModeScorm
     }
   },
   TemplateAppPlayerPlayer: {
