@@ -3,7 +3,7 @@ module.exports = {
   'check-coverage': true,
   reporter: ['html', 'text-summary'],
   statements: 99.44,
-  branches: 98.09,
+  branches: 98.06,
   functions: 98.9,
   lines: 99.59,
   all: true,

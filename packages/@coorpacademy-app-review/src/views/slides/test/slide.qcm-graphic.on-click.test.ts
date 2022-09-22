@@ -72,6 +72,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,

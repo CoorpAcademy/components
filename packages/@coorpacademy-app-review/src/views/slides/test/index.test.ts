@@ -179,6 +179,7 @@ test('should create props when first slide is on the state', t => {
     endReview: false
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
@@ -288,6 +289,7 @@ test('should create props when slide is on the state and user has selected answe
     endReview: false
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
@@ -403,6 +405,7 @@ test('should verify props when first slide was answered correctly and next slide
     endReview: false
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
@@ -605,6 +608,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     type: 'right'
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
     hidden: false,
@@ -623,6 +627,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     }
   });
   t.deepEqual(omit('answerUI', props.stack.slides['1']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
@@ -740,6 +745,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     type: 'wrong'
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
     hidden: false,
@@ -758,6 +764,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     }
   });
   t.deepEqual(omit('answerUI', props.stack.slides['1']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,

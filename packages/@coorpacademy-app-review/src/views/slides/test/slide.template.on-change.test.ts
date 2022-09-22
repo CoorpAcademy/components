@@ -68,6 +68,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
@@ -92,6 +93,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
