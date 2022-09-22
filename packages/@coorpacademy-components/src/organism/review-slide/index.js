@@ -22,13 +22,11 @@ const CorrectionPopin = ({
   const klf = getOr({}, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
+  const onClick = get(['next', 'onClick'], correctionPopinProps);
 
   const _correctionPopinProps = {
     next: {
-      onClick: () => {
-        // eslint-disable-next-line no-console
-        console.log('Next Slide');
-      },
+      onClick,
       label: next && next.label,
       'data-name': `next-question-button-${slideIndex}`,
       'aria-label': next && next['aria-label']

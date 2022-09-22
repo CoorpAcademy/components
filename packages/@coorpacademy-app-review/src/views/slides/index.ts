@@ -15,6 +15,7 @@ import type {SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
+import {nextSlide} from '../../actions/ui/next-slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -61,6 +62,7 @@ type CorrectionPopinKlf = {
 type CorrectionPopinNext = {
   label: string;
   ariaLabel: string;
+  onClick: Function;
 };
 
 export type CorrectionPopinProps = {
@@ -275,28 +277,31 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-const getCorrectionPopinProps = (
-  isCorrect: boolean,
-  correctAnswer: string[],
-  klf: string
-): CorrectionPopinProps => ({
-  klf: isCorrect
-    ? undefined
-    : {
-        label: '_klf',
-        tooltip: klf
+export const getCorrectionPopinProps =
+  (dispatch: Dispatch) =>
+  (isCorrect: boolean, correctAnswer: string[], klf: string): CorrectionPopinProps => {
+    return {
+      klf: isCorrect
+        ? undefined
+        : {
+            label: '_klf',
+            tooltip: klf
+          },
+      resultLabel: isCorrect ? '_right' : '_wrong',
+      information: {
+        label: isCorrect ? '_klf' : '_correctAnswer',
+        message: isCorrect ? klf : join(',', correctAnswer)
       },
-  resultLabel: isCorrect ? '_right' : '_wrong',
-  information: {
-    label: isCorrect ? '_klf' : '_correctAnswer',
-    message: isCorrect ? klf : join(',', correctAnswer)
-  },
-  next: {
-    ariaLabel: '_correctionNextAriaLabel',
-    label: '_correctionNextLabel'
-  },
-  type: isCorrect ? 'right' : 'wrong'
-});
+      next: {
+        ariaLabel: '_correctionNextAriaLabel',
+        label: '_correctionNextLabel',
+        onClick: (): void => {
+          dispatch(nextSlide);
+        }
+      },
+      type: isCorrect ? 'right' : 'wrong'
+    };
+  };
 
 export const mapStateToSlidesProps = (
   state: StoreState,
@@ -327,7 +332,7 @@ export const mapStateToSlidesProps = (
         }
       },
       correctionPopinProps:
-        correction && getCorrectionPopinProps(isCorrect, correction.correctAnswer, klf),
+        correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
     congratsProps: undefined
