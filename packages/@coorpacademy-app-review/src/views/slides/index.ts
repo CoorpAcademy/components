@@ -2,9 +2,7 @@ import concat from 'lodash/fp/concat';
 import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import isUndefined from 'lodash/fp/isUndefined';
 import last from 'lodash/fp/last';
-import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
@@ -36,12 +34,15 @@ type StepItem = {
 type SlideUIAnimations = 'unstack' | 'restack';
 
 export type ReviewSlide = {
+  hidden: boolean;
+  position: number;
+  loading: boolean;
+  showCorrectionPopin?: boolean;
+  animateCorrectionPopin?: boolean;
+  parentContentTitle?: string;
   questionText?: string;
   answerUI?: AnswerUI;
-  hidden?: boolean;
-  position: number;
   animationType?: SlideUIAnimations;
-  loading: boolean;
 };
 
 type SlidesStack = {
@@ -177,23 +178,18 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
         isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
       const animationType = get(['ui', 'slide', slideRef, 'animationType'], state);
 
-      const updatedUiSlide = pipe(
-        set('showCorrectionPopin', showCorrectionPopin),
-        set('animateCorrectionPopin', animateCorrectionPopin),
-        set('loading', false),
-        set('questionText', questionText),
-        set('answerUI', answerUI),
-        set('parentContentTitle', `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
-        // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
-      )(uiSlide);
-      const updatedUiSlideAfterNextSlide = {
-        ...updatedUiSlide,
+      const updatedUiSlide = {
+        ...uiSlide,
+        showCorrectionPopin,
+        animateCorrectionPopin,
+        loading: false,
+        questionText,
+        answerUI,
+        parentContentTitle: `From "${parentContentTitle}" ${parentContentType}`,
         animationType
       };
 
-      return isUndefined(animationType)
-        ? set(index, updatedUiSlide, acc)
-        : set(index, updatedUiSlideAfterNextSlide, acc);
+      return set(index, updatedUiSlide, acc);
     },
     initialState,
     initialState
