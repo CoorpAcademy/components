@@ -1,9 +1,11 @@
-import {getOr} from 'lodash/fp';
+import {some, get, getOr, pipe, values} from 'lodash/fp';
 import {PROGRESSION_CLOSE_ERROR_POPIN} from '@coorpacademy/player-store';
 
 const mapStateToErrorPopinProps = ({dispatch}) => {
   return state => {
-    if (getOr(false, 'data.progressions.isFailure', state))
+    const isFailure = pipe(get('data'), values, some('isFailure'))(state)
+    console.log({isFailure, state})
+    if (isFailure)
       return {
         content: 'An unexpected error has occurred',
         icon: 'AlertDiamond',

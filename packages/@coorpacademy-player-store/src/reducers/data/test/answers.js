@@ -66,7 +66,8 @@ test(
           corrections: [{answer: 'foo', isCorrect: false}]
         }
       }
-    }
+    },
+    isFailure: false
   }
 );
 
@@ -81,7 +82,7 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {foo: {}}}
+  {entities: {foo: {}}, isFailure: true}
 );
 
 test(
@@ -112,6 +113,7 @@ test(
           corrections: [{answer: 'foo', isCorrect: false}]
         }
       }
-    }
+    },
+    isFailure: true
   }
 );

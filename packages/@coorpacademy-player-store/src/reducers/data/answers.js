@@ -17,15 +17,17 @@ const dataAnswersReducer = (state = {entities: {}}, action) => {
       const {progressionId, slideId} = meta;
       return pipe(
         set(['entities', progressionId, slideId, 'correctAnswer'], payload.correctAnswer),
-        set(['entities', progressionId, slideId, 'corrections'], payload.corrections)
+        set(['entities', progressionId, slideId, 'corrections'], payload.corrections),
+        set('isFailure', false)
       )(state);
     }
     case ANSWER_FETCH_FAILURE: {
       const {meta} = action;
       const {progressionId, slideId} = meta;
-      if (pipe(get(['entities', progressionId, slideId]), isNull)(state))
-        return unset(['entities', progressionId, slideId], state);
-      return state;
+      const _state = set('isFailure', true, state);
+      if (pipe(get(['entities', progressionId, slideId]), isNull)(_state))
+        return unset(['entities', progressionId, slideId], _state);
+      return _state;
     }
     default:
       return state;

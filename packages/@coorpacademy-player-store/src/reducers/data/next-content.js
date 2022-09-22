@@ -17,15 +17,16 @@ const nextContentReducer = (state = {entities: {}}, action) => {
       const {id} = meta;
       const nextContent = payload;
       if (nextContent) {
-        return set(['entities', id], nextContent, state);
+        return pipe(set('isFailure', false), set(['entities', id], nextContent))(state);
       }
-      return unset(['entities', id], state);
+      return pipe(set('isFailure', false), unset(['entities', id]))(state);
     }
     case NEXT_CONTENT_FETCH_FAILURE: {
       const {meta} = action;
       const {id} = meta;
-      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
-      return state;
+      const _state = set('isFailure', true, state);
+      if (pipe(get(['entities', id]), isNull)(_state)) return unset(['entities', id], _state);
+      return _state;
     }
     default:
       return state;

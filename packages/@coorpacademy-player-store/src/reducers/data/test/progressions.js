@@ -11,7 +11,15 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-  PROGRESSION_CLOSE_ERROR_POPIN
+  PROGRESSION_CLOSE_ERROR_POPIN,
+  PROGRESSION_CREATE_ANSWER_FAILURE,
+  PROGRESSION_CREATE_FAILURE,
+  ENGINE_CONFIG_FETCH_FAILURE,
+  PROGRESSION_REQUEST_CLUE_FAILURE,
+  PROGRESSION_EXTRALIFEREFUSED_FAILURE,
+  PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
+  PROGRESSION_FETCH_BESTOF_FAILURE,
+  PROGRESSION_RESOURCE_VIEWED_FAILURE
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -62,7 +70,7 @@ test(
     type: PROGRESSION_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
-  {entities: {foo: null}, isFailure: false}
+  {entities: {foo: null}}
 );
 
 test(
@@ -74,7 +82,7 @@ test(
     type: PROGRESSION_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
-  {entities: {foo: null}, isFailure: false}
+  {entities: {foo: null}}
 );
 
 test(
@@ -86,7 +94,7 @@ test(
     type: PROGRESSION_FETCH_REQUEST,
     meta: {id: 'foo'}
   },
-  {entities: {foo: 'foo'}, isFailure: false}
+  {entities: {foo: 'foo'}}
 );
 
 test(
@@ -130,6 +138,7 @@ test(
   {entities: {foo: 'foo'}, isFailure: true}
 );
 
+
 test(
   'should make isFailure true',
   macro,
@@ -142,6 +151,94 @@ test(
 );
 
 test(
+  'should make isFailure true when PROGRESSION_CREATE_ANSWER_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_CREATE_ANSWER_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when PROGRESSION_CREATE_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_CREATE_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when ENGINE_CONFIG_FETCH_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: ENGINE_CONFIG_FETCH_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when PROGRESSION_REQUEST_CLUE_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_REQUEST_CLUE_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when PROGRESSION_EXTRALIFEREFUSED_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_EXTRALIFEREFUSED_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when PROGRESSION_EXTRALIFEACCEPTED_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_EXTRALIFEACCEPTED_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when PROGRESSION_FETCH_BESTOF_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_FETCH_BESTOF_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
+  'should make isFailure true when PROGRESSION_RESOURCE_VIEWED_FAILURE',
+  macro,
+  reducer,
+  {entities: {foo: 'foo'}},
+  {
+    type: PROGRESSION_RESOURCE_VIEWED_FAILURE
+  },
+  {entities: {foo: 'foo'}, isFailure: true}
+);
+
+test(
   'should set isCorrect null',
   macro,
   reducer,
@@ -150,7 +247,7 @@ test(
     type: PROGRESSION_CREATE_ANSWER_REQUEST,
     meta: {progressionId: 'foo'}
   },
-  {entities: {foo: {state: {isCorrect: null}}}, isFailure: false}
+  {entities: {foo: {state: {isCorrect: null}}}}
 );
 
 test(
@@ -194,14 +291,11 @@ test(
 
 [
   PROGRESSION_FETCH_SUCCESS,
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS,
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
-  PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_FETCH_FAILURE
+  PROGRESSION_CREATE_ANSWER_SUCCESS
 ].forEach(type =>
   test(
     `should return identity for type=${type}`,
@@ -213,5 +307,22 @@ test(
       payload: {}
     },
     {entities: {foo: {foo: 'foo'}}, isFailure: false}
+  )
+);
+
+[
+  PROGRESSION_FETCH_REQUEST,
+  PROGRESSION_CREATE_ANSWER_REQUEST
+].forEach(type =>
+  test(
+    `should return identity for type=${type} without isFailure`,
+    macro,
+    reducer,
+    {entities: {foo: {foo: 'foo'}}},
+    {
+      type,
+      payload: {}
+    },
+    {entities: {foo: {foo: 'foo'}}}
   )
 );
