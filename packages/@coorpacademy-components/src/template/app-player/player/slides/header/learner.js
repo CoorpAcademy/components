@@ -9,15 +9,18 @@ import style from './learner.css';
 
 const Content = ({onClick, title, details, mode}, context) => {
   const {skin} = context;
-  console.log("🚀 ~ file: learner.js ~ line 12 ~ Content ~ mode", mode)
   const primarySkinColor = get('common.primary', skin);
 
   return (
-    <Link 
-    {...(mode !== 'scorm' && {onClick: onClick})}
-    className={mode === 'scorm' ?  style.contentWrapperScorm : style.contentWrapper }
+    <Link
+      {...(mode !== 'scorm' && {onClick})}
+      className={mode === 'scorm' ? style.contentWrapperScorm : style.contentWrapper}
     >
-     {mode === 'scorm' ? <div className={style.backIcon} ></div> : <BackIcon className={style.backIcon} color="inherit"/>}
+      {mode === 'scorm' ? (
+        <div className={style.backIcon} />
+      ) : (
+        <BackIcon className={style.backIcon} color="inherit" />
+      )}
       <div className={style.content}>
         <div
           className={style.contentDetails}
@@ -46,7 +49,8 @@ Content.contextTypes = {
 Content.propTypes = {
   onClick: Link.propTypes.onClick,
   title: PropTypes.string.isRequired,
-  details: PropTypes.string
+  details: PropTypes.string,
+  mode: PropTypes.string
 };
 
 const Subcontent = ({title, details}, context) => (
@@ -70,7 +74,7 @@ const LearnerHeader = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <Content {...content} mode={mode}/>
+      <Content {...content} mode={mode} />
       <Subcontent {...subcontent} />
     </div>
   );
@@ -78,7 +82,8 @@ const LearnerHeader = (props, context) => {
 
 LearnerHeader.propTypes = {
   content: PropTypes.shape(Content.propTypes).isRequired,
-  subcontent: PropTypes.shape(Subcontent.propTypes).isRequired
+  subcontent: PropTypes.shape(Subcontent.propTypes).isRequired,
+  mode: PropTypes.string
 };
 
 export default LearnerHeader;

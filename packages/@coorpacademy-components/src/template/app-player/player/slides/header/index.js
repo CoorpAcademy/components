@@ -16,7 +16,9 @@ const SlidesHeader = (props = {}, context = undefined) => {
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
-      {type === HEADER_TYPE.LEARNER ? <Learner content={content} subcontent={subcontent} mode={mode} /> : null}
+      {type === HEADER_TYPE.LEARNER ? (
+        <Learner content={content} subcontent={subcontent} mode={mode} />
+      ) : null}
       {type === HEADER_TYPE.MICROLEARNING ? <Microlearning content={content} /> : null}
       {lives ? <Lives count={lives.count} /> : null}
     </div>
@@ -34,7 +36,8 @@ SlidesHeader.propTypes = {
     title: PropTypes.string,
     details: PropTypes.string
   }),
-  lives: PropTypes.shape(Lives.propTypes)
+  lives: PropTypes.shape(Lives.propTypes),
+  mode: PropTypes.string
 };
 
 export default SlidesHeader;

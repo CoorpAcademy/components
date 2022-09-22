@@ -41,7 +41,7 @@ test('should create initial qcm props', t => {
 test('should create edited qcm props', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['Case 1', 'Case 3']}},
+      answers: {1234: {value: ['Case 1', 'Case 3']}},
       current: {progressionId: '1234'}
     }
   };
@@ -66,7 +66,7 @@ test('should create edited template props', t => {
 
   const state = {
     ui: {
-      answers: {'1234': {value: ['foo', 'exclusive']}},
+      answers: {1234: {value: ['foo', 'exclusive']}},
       current: {progressionId: '1234'}
     }
   };
@@ -166,7 +166,7 @@ test('should create edited qcmGraphic props', t => {
       },
       progressions: {
         entities: {
-          '1234': {
+          1234: {
             engine: {
               ref: 'learner',
               version: '2'
@@ -176,7 +176,7 @@ test('should create edited qcmGraphic props', t => {
       }
     },
     ui: {
-      answers: {'1234': {value: ['Vrai']}},
+      answers: {1234: {value: ['Vrai']}},
       current: {progressionId: '1234'}
     }
   };
@@ -228,7 +228,7 @@ test('should create edited qcmDrag props', t => {
   t.plan(14);
   const state = {
     ui: {
-      answers: {'1234': {value: ['Le smartphone', "L'ordinateur"]}},
+      answers: {1234: {value: ['Le smartphone', "L'ordinateur"]}},
       current: {progressionId: '1234'}
     }
   };
@@ -311,7 +311,7 @@ test('should default slider step to 1', t => {
 test('should create edited slider props', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['300']}},
+      answers: {1234: {value: ['300']}},
       current: {progressionId: '1234'}
     }
   };
@@ -335,7 +335,7 @@ test('should create initial basic props', t => {
 test('should create edited basic props', t => {
   const state = {
     ui: {
-      answers: {'1234': {value: ['foo']}},
+      answers: {1234: {value: ['foo']}},
       current: {progressionId: '1234'}
     }
   };
