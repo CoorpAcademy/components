@@ -22,7 +22,7 @@ test('should retourn error popin props is isFailure', t => {
     }
   });
 
-  t.deepEqual(omit(['onClose', 'firstButton.handleOnClick'], props), {
+  t.deepEqual(omit(['onClose', 'firstButton.handleOnclick'], props), {
     content: 'An unexpected error has occurred',
     icon: 'AlertDiamond',
     mode: 'alert',
@@ -36,7 +36,7 @@ test('should retourn error popin props is isFailure', t => {
   });
   const dispatchedction = props.onClose();
   t.deepEqual(dispatchedction, {type: PROGRESSION_CLOSE_ERROR_POPIN});
-  props.firstButton.handleOnClick();
+  props.firstButton.handleOnclick();
 });
 
 test('should not retourn error popin props', t => {

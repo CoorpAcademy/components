@@ -11,7 +11,10 @@ const dataCluesReducer = (state = {entities: {}}, action) => {
     case CLUE_FETCH_SUCCESS: {
       const {payload, meta} = action;
       const {progressionId, slideId} = meta;
-      return pipe(set('isFailure', false), set(['entities', progressionId, slideId], payload))(state);
+      return pipe(
+        set('isFailure', false),
+        set(['entities', progressionId, slideId], payload)
+      )(state);
     }
     case CLUE_FETCH_FAILURE: {
       const {meta} = action;

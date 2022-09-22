@@ -85,11 +85,10 @@ const dataProgressionsReducer = (
 
       const progressionId: ProgressionId = action.meta.progressionId;
 
-      return pipe(set('isFailure', false), 
-      update(
-        ['entities', progressionId],
-        progression => assign(progression, payload)
-      ))(state);
+      return pipe(
+        set('isFailure', false),
+        update(['entities', progressionId], progression => assign(progression, payload))
+      )(state);
     }
     case PROGRESSION_FETCH_FAILURE: {
       const _state = set('isFailure', true, state);

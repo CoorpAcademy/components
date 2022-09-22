@@ -10,7 +10,7 @@ import {
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
-test('should have initial value', macro, reducer, undefined, {},{});
+test('should have initial value', macro, reducer, undefined, {}, {});
 
 test(
   'should set entities to null on request',
@@ -114,7 +114,6 @@ test(
   },
   {foo: {entities: {bar: {info: {foo: 'bar'}}}}, isFailure: false}
 );
-
 
 test(
   'should set content-info failure',

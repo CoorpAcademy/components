@@ -138,7 +138,6 @@ test(
   {entities: {foo: 'foo'}, isFailure: true}
 );
 
-
 test(
   'should make isFailure true',
   macro,
@@ -310,10 +309,7 @@ test(
   )
 );
 
-[
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_CREATE_ANSWER_REQUEST
-].forEach(type =>
+[PROGRESSION_FETCH_REQUEST, PROGRESSION_CREATE_ANSWER_REQUEST].forEach(type =>
   test(
     `should return identity for type=${type} without isFailure`,
     macro,
