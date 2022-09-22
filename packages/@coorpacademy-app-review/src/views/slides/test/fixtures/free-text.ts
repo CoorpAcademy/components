@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../..';
+import {ReviewSlide} from '../..';
 import {SlideFromAPI} from '../../../../types/common';
 
 export const freeTextSlide: SlideFromAPI = {
@@ -29,7 +29,7 @@ export const freeTextSlide: SlideFromAPI = {
   }
 };
 
-export const freeTextUISlide: Partial<UISlide> = {
+export const freeTextUISlide: Partial<ReviewSlide> = {
   answerUI: {
     help: 'Type your answer.',
     model: {

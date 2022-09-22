@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../..';
+import {ReviewSlide} from '../..';
 import {SlideFromAPI} from '../../../../types/common';
 
 export const qcmGraphicSlide: SlideFromAPI = {
@@ -187,7 +187,7 @@ export const qcmGraphicSlide: SlideFromAPI = {
   }
 };
 
-export const qcmGraphicUISlide: Partial<UISlide> = {
+export const qcmGraphicUISlide: Partial<ReviewSlide> = {
   questionText: 'Quels sont les 4 piliers de l’apprentissage ?',
   answerUI: {
     help: 'Sélectionnez les 4 bonnes réponses.',

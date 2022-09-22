@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../..';
+import {ReviewSlide} from '../..';
 import {SlideFromAPI} from '../../../../types/common';
 
 export const templateSlide: SlideFromAPI = {
@@ -91,7 +91,7 @@ export const templateSlide: SlideFromAPI = {
   }
 };
 
-export const templateUISlide: Partial<UISlide> = {
+export const templateUISlide: Partial<ReviewSlide> = {
   questionText: 'Complétez la phrase ci-dessous.',
   answerUI: {
     help: 'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).',

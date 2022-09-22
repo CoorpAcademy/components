@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../..';
+import {ReviewSlide} from '../..';
 import {SlideFromAPI} from '../../../../types/common';
 
 export const qcmDragSlide: SlideFromAPI = {
@@ -75,7 +75,7 @@ export const qcmDragSlide: SlideFromAPI = {
   }
 };
 
-export const qcmDragUISlide: Partial<UISlide> = {
+export const qcmDragUISlide: Partial<ReviewSlide> = {
   questionText: "Remettez dans l'ordre les quatre étapes du burn out.",
   answerUI: {
     help: 'Sélectionnez les réponses ci-dessous dans le bon ordre.',

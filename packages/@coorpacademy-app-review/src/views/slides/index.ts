@@ -35,7 +35,7 @@ type StepItem = {
 
 type SlideUIAnimations = 'unstack' | 'restack';
 
-export type UISlide = {
+export type ReviewSlide = {
   questionText?: string;
   answerUI?: AnswerUI;
   hidden?: boolean;
@@ -47,7 +47,7 @@ export type UISlide = {
 };
 
 type SlidesStack = {
-  [key in SlideIndexes]: UISlide;
+  [key in SlideIndexes]: ReviewSlide;
 };
 
 type CorrectionPopinInformation = {
@@ -161,10 +161,9 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
   // @ts-expect-error typescript does not support capped versions of lodash functions
   const stack = reduce.convert({cap: false})(
-    (acc: SlidesStack, uiSlide: UISlide, index: string) => {
+    (acc: SlidesStack, uiSlide: ReviewSlide, index: string): SlidesStack => {
       const slideRef = slideRefs[toInteger(index)];
       if (!slideRef) return set(index, uiSlide, acc);
-
       const slideFromAPI = get(slideRef, state.data.slides);
       if (!slideFromAPI) return set(index, uiSlide, acc);
 
@@ -189,15 +188,14 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
         set('parentContentTitle', `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
-
-      const updatedUiSlideWithAnimationType = {
-        updatedUiSlide,
+      const updatedUiSlideAfterNextSlide = {
+        ...updatedUiSlide,
         animationType
       };
 
       return isUndefined(animationType)
         ? set(index, updatedUiSlide, acc)
-        : set(index, updatedUiSlideWithAnimationType, acc);
+        : set(index, updatedUiSlideAfterNextSlide, acc);
     },
     initialState,
     initialState

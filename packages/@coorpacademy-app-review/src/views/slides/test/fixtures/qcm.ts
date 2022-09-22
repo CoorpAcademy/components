@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../..';
+import {ReviewSlide} from '../..';
 import {SlideFromAPI} from '../../../../types/common';
 
 export const qcmSlide: SlideFromAPI = {
@@ -78,7 +78,7 @@ export const qcmSlide: SlideFromAPI = {
   }
 };
 
-export const qcmUISlide: Partial<UISlide> = {
+export const qcmUISlide: Partial<ReviewSlide> = {
   questionText: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?",
   answerUI: {
     help: 'Sélectionnez la bonne réponse.',
