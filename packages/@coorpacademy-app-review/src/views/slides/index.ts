@@ -2,6 +2,7 @@ import concat from 'lodash/fp/concat';
 import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import isUndefined from 'lodash/fp/isUndefined';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
@@ -177,6 +178,7 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
         isCurrentSlideRef && get(['ui', 'slide', slideRef, 'animateCorrectionPopin'], state);
       const showCorrectionPopin =
         isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
+      const animationType = get(['ui', 'slide', slideRef, 'animationType'], state);
 
       const updatedUiSlide = pipe(
         set('showCorrectionPopin', showCorrectionPopin),
@@ -188,7 +190,14 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
         // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
       )(uiSlide);
 
-      return set(index, updatedUiSlide, acc);
+      const updatedUiSlideWithAnimationType = {
+        updatedUiSlide,
+        animationType
+      };
+
+      return isUndefined(animationType)
+        ? set(index, updatedUiSlide, acc)
+        : set(index, updatedUiSlideWithAnimationType, acc);
     },
     initialState,
     initialState
@@ -277,7 +286,7 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-export const getCorrectionPopinProps =
+const getCorrectionPopinProps =
   (dispatch: Dispatch) =>
   (isCorrect: boolean, correctAnswer: string[], klf: string): CorrectionPopinProps => {
     return {
@@ -295,7 +304,7 @@ export const getCorrectionPopinProps =
       next: {
         ariaLabel: '_correctionNextAriaLabel',
         label: '_correctionNextLabel',
-        onClick: (): void => {
+        onClick: /* istanbul ignore next */ (): void => {
           dispatch(nextSlide);
         }
       },
