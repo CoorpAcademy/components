@@ -12,7 +12,7 @@ import recommendations from './recommendations';
 import videos from './videos';
 
 export default combineReducers({
-    ,
+  answers,
   comments,
   configs,
   contents,
