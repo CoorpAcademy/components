@@ -2,7 +2,7 @@ module.exports = {
   extension: ['.ts', '.tsx'],
   'check-coverage': true,
   reporter: ['html', 'text-summary'],
-  statements: 99.44,
+  statements: 99.43,
   branches: 98.06,
   functions: 98.9,
   lines: 99.59,
