@@ -9,43 +9,13 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse
 } from '../../../test/util/services.mock';
-import {type CorrectionPopinProps, mapStateToSlidesProps} from '..';
+import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
-
-const popinPropsRightAnswer: CorrectionPopinProps = {
-  resultLabel: '_right',
-  information: {
-    label: '_klf',
-    message:
-      'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
-  },
-  klf: undefined,
-  next: {
-    ariaLabel: '_correctionNextAriaLabel',
-    label: '_correctionNextLabel'
-  },
-  type: 'right'
-};
-
-const popinPropsWrongAnswer: CorrectionPopinProps = {
-  ...popinPropsRightAnswer,
-  klf: {
-    label: '_klf',
-    tooltip:
-      'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
-  },
-  type: 'wrong',
-  resultLabel: '_wrong',
-  information: {
-    label: '_correctAnswer',
-    message: 'Benchmark'
-  }
-};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -619,9 +589,20 @@ test('should verify props when first slide was answered, next slide is fetched &
       }
     ]
   });
-  t.deepEqual(omit(['validateButton', 'slides', 'correctionPopinProps.klf.onClick'], props.stack), {
-    correctionPopinProps: popinPropsRightAnswer,
-    endReview: false
+  t.is(props.stack.endReview, false);
+  t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
+    resultLabel: '_right',
+    information: {
+      label: '_klf',
+      message:
+        'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
+    },
+    klf: undefined,
+    next: {
+      ariaLabel: '_correctionNextAriaLabel',
+      label: '_correctionNextLabel'
+    },
+    type: 'right'
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animateCorrectionPopin: true,
@@ -740,9 +721,23 @@ test('should verify props when first slide was answered incorrectly, next slide 
       }
     ]
   });
-  t.deepEqual(omit(['validateButton', 'slides', 'correctionPopinProps.klf.onClick'], props.stack), {
-    correctionPopinProps: popinPropsWrongAnswer,
-    endReview: false
+  t.is(props.stack.endReview, false);
+  t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
+    resultLabel: '_wrong',
+    information: {
+      label: '_correctAnswer',
+      message: 'Benchmark'
+    },
+    klf: {
+      label: '_klf',
+      tooltip:
+        'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
+    },
+    next: {
+      ariaLabel: '_correctionNextAriaLabel',
+      label: '_correctionNextLabel'
+    },
+    type: 'wrong'
   });
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animateCorrectionPopin: true,
@@ -811,13 +806,15 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
       currentSlideRef: 'sli_VkSQroQnx',
       navigation: ['loader', 'slides'],
       answers: {
-        sli_VJYjJnJhg: ['Benchmark']
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: []
       },
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: true
+          showCorrectionPopin: true,
+          animationType: 'unstack'
         },
         sli_VkSQroQnx: {
           validateButton: false,
@@ -904,22 +901,26 @@ test('should verify props when progression is in success', t => {
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         'sli_N13-hG3kX': {
           validateButton: false,
@@ -1011,22 +1012,26 @@ test('should verify props when progression has answered a current pendingSlide',
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'restack'
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         }
       }
     }
@@ -1105,12 +1110,14 @@ test('should verify props when progression still has a pendingSlide', t => {
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         sli_N1XACJobn: {
           validateButton: false,
@@ -1120,12 +1127,14 @@ test('should verify props when progression still has a pendingSlide', t => {
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          animationType: 'unstack'
         }
       }
     }
