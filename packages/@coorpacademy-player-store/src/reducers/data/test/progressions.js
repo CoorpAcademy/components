@@ -11,7 +11,6 @@ import {
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-  PROGRESSION_CLOSE_ERROR_POPIN,
   PROGRESSION_CREATE_ANSWER_FAILURE,
   PROGRESSION_CREATE_FAILURE,
   ENGINE_CONFIG_FETCH_FAILURE,
@@ -136,17 +135,6 @@ test(
     payload: {}
   },
   {entities: {foo: 'foo'}, isFailure: true}
-);
-
-test(
-  'should make isFailure true',
-  macro,
-  reducer,
-  {entities: {foo: 'foo'}},
-  {
-    type: PROGRESSION_CLOSE_ERROR_POPIN
-  },
-  {entities: {foo: 'foo'}, isFailure: false}
 );
 
 test(

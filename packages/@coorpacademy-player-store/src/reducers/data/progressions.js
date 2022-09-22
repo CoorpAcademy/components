@@ -13,7 +13,6 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-  PROGRESSION_CLOSE_ERROR_POPIN,
   PROGRESSION_CREATE_ANSWER_FAILURE,
   PROGRESSION_CREATE_FAILURE,
   ENGINE_CONFIG_FETCH_FAILURE,
@@ -110,9 +109,6 @@ const dataProgressionsReducer = (
     case PROGRESSION_FETCH_BESTOF_FAILURE:
     case PROGRESSION_RESOURCE_VIEWED_FAILURE: {
       return set('isFailure', true, state);
-    }
-    case PROGRESSION_CLOSE_ERROR_POPIN: {
-      return set('isFailure', false, state);
     }
     default:
       return state;

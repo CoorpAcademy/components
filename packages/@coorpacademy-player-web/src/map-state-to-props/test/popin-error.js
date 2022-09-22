@@ -1,12 +1,11 @@
 import test from 'ava';
 
-import {PROGRESSION_CLOSE_ERROR_POPIN} from '@coorpacademy/player-store/lib/actions/api/progressions';
 import {identity, omit} from 'lodash/fp';
 
 import mapStateToErrorPopinProps from '../error-popin';
 
 test('should retourn error popin props is isFailure', t => {
-  t.plan(3);
+  t.plan(2);
   global.window = {
     location: {
       reload: () => {
@@ -22,7 +21,7 @@ test('should retourn error popin props is isFailure', t => {
     }
   });
 
-  t.deepEqual(omit(['onClose', 'firstButton.handleOnclick'], props), {
+  t.deepEqual(omit('firstButton.handleOnclick', props), {
     content: 'An unexpected error has occurred',
     icon: 'AlertDiamond',
     mode: 'alert',
@@ -34,8 +33,6 @@ test('should retourn error popin props is isFailure', t => {
       'aria-label': 'Reload'
     }
   });
-  const dispatchedction = props.onClose();
-  t.deepEqual(dispatchedction, {type: PROGRESSION_CLOSE_ERROR_POPIN});
   props.firstButton.handleOnclick();
 });
 

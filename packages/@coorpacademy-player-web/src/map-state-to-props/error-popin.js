@@ -1,5 +1,4 @@
 import {some, get, pipe, values} from 'lodash/fp';
-import {PROGRESSION_CLOSE_ERROR_POPIN} from '@coorpacademy/player-store';
 
 const mapStateToErrorPopinProps = ({dispatch}) => {
   return state => {
@@ -16,8 +15,7 @@ const mapStateToErrorPopinProps = ({dispatch}) => {
           type: 'primary',
           'aria-label': 'Reload',
           handleOnclick: () => window.location.reload()
-        },
-        onClose: () => dispatch({type: PROGRESSION_CLOSE_ERROR_POPIN})
+        }
       };
     return;
   };
