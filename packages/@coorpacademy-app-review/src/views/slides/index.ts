@@ -41,8 +41,6 @@ export type ReviewSlide = {
   hidden?: boolean;
   position: number;
   animationType?: SlideUIAnimations;
-  isCorrect?: boolean;
-  endReview?: boolean;
   loading: boolean;
 };
 
