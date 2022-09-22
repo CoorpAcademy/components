@@ -28,7 +28,7 @@ const find = (dataLayer: DataLayer): FindContent => (
 ): Promise<ChapterAPI | LevelAPI | Slide | void> => {
   const {findContent} = dataLayer;
 
-  return Promise.reject( new Error('its error'))
+  return findContent(type, ref);
 };
 
 const getNbSlides = (dataLayer: DataLayer): GetNbSlides => async (
