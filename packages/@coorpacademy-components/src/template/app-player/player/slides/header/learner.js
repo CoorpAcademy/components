@@ -7,20 +7,38 @@ import Link from '../../../../../atom/link';
 import Provider from '../../../../../atom/provider';
 import style from './learner.css';
 
+const LearnerHeaderWarpper = props => {
+  const {children, mode, onClick} = props;
+  if (mode === 'scorm')
+    return (
+      <div className={style.contentWrapperScorm}>
+        <div className={style.backIcon} />
+        {children}
+      </div>
+    );
+  return (
+    <Link
+      onClick={onClick}
+      className={mode === 'scorm' ? style.contentWrapperScorm : style.contentWrapper}
+    >
+      <BackIcon className={style.backIcon} color="inherit" />
+      {children}
+    </Link>
+  );
+};
+
+LearnerHeaderWarpper.propTypes = {
+  onClick: Link.propTypes.onClick,
+  mode: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
+};
+
 const Content = ({onClick, title, details, mode}, context) => {
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
   return (
-    <Link
-      {...(mode !== 'scorm' && {onClick})}
-      className={mode === 'scorm' ? style.contentWrapperScorm : style.contentWrapper}
-    >
-      {mode === 'scorm' ? (
-        <div className={style.backIcon} />
-      ) : (
-        <BackIcon className={style.backIcon} color="inherit" />
-      )}
+    <LearnerHeaderWarpper mode={mode} onClick={onClick}>
       <div className={style.content}>
         <div
           className={style.contentDetails}
@@ -38,7 +56,7 @@ const Content = ({onClick, title, details, mode}, context) => {
           dangerouslySetInnerHTML={{__html: title}}
         />
       </div>
-    </Link>
+    </LearnerHeaderWarpper>
   );
 };
 

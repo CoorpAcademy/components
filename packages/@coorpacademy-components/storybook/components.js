@@ -1061,9 +1061,9 @@ import TemplateAppPlayerPlayerSlidesFooterFixtureOnlyClue from '../src/template/
 import TemplateAppPlayerPlayerSlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/footer/test/fixtures/with-context';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureAdaptive from '../src/template/app-player/player/slides/header/test/fixtures/adaptive';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureArabicLearner from '../src/template/app-player/player/slides/header/test/fixtures/arabic-learner';
-import TemplateAppPlayerPlayerSlidesHeaderFixtureLearnerModeScorm from '../src/template/app-player/player/slides/header/test/fixtures/learner-mode-scorm';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureArabicMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/arabic-microlearning';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives from '../src/template/app-player/player/slides/header/test/fixtures/infinite-lives';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureLearnerModeScorm from '../src/template/app-player/player/slides/header/test/fixtures/learner-mode-scorm';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureLearner from '../src/template/app-player/player/slides/header/test/fixtures/learner';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/microlearning';
 import TemplateAppPlayerPlayerSlidesFixtureArabicContext from '../src/template/app-player/player/slides/test/fixtures/arabic-context';
@@ -2938,9 +2938,9 @@ export const fixtures = {
       ArabicLearner: TemplateAppPlayerPlayerSlidesHeaderFixtureArabicLearner,
       ArabicMicrolearning: TemplateAppPlayerPlayerSlidesHeaderFixtureArabicMicrolearning,
       InfiniteLives: TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives,
+      LearnerModeScorm: TemplateAppPlayerPlayerSlidesHeaderFixtureLearnerModeScorm,
       Learner: TemplateAppPlayerPlayerSlidesHeaderFixtureLearner,
-      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning,
-      LearnerModeScrom: TemplateAppPlayerPlayerSlidesHeaderFixtureLearnerModeScorm
+      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning
     }
   },
   TemplateAppPlayerPlayer: {
