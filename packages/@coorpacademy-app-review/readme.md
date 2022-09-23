@@ -14,7 +14,7 @@ npm start
 requirements:
 
 - [mooc](https://github.com/CoorpAcademy/coorpacademy) installed and running to expose a local API.
-- duplicated `.env.sample` to `.env` with a local token to access the mooc API.
+- copy and rename `.env.sample` to `.env` with a local token (`API_TEST_TOKEN`) to access the mooc API.
 
 ## developing views locally
 
