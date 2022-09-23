@@ -6,7 +6,7 @@ const concat = require('lodash/fp/concat');
 const {default: generateConfig} = require('@coorpacademy/webpack-config');
 
 const entry = {
-  appReview: ['./src']
+  'app-review-sandbox': ['@babel/polyfill', './sandbox/index.tsx']
 };
 
 const output = {
@@ -17,8 +17,24 @@ const output = {
   libraryTarget: 'umd'
 };
 
+const tsRule = {
+  test: /\.ts(x?)$/,
+  exclude: /node_modules/,
+  use: [
+    {
+      loader: 'ts-loader',
+      options: {
+        transpileOnly: true
+      }
+    }
+  ]
+};
+
 module.exports = pipe(
   set('entry', entry),
   set('output', output),
-  update('resolve.modules', concat([path.join(__dirname, 'node_modules')]))
+  set('resolve.extensions', ['.tsx', '.ts', '.js']),
+  set('devServer.disableHostCheck', true),
+  update('resolve.modules', concat([path.join(__dirname, 'node_modules')])),
+  update('module.rules', concat([tsRule]))
 )(generateConfig(process.env.NODE_ENV));
