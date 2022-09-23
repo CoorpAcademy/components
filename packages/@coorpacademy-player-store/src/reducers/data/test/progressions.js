@@ -310,3 +310,15 @@ test(
     {entities: {foo: {foo: 'foo'}}}
   )
 );
+
+test(
+  `should return identity for type=${PROGRESSION_FETCH_FAILURE}`,
+  macro,
+  reducer,
+  {entities: {foo: {foo: 'foo'}}},
+  {
+    PROGRESSION_FETCH_FAILURE,
+    payload: {}
+  },
+  {entities: {foo: {foo: 'foo'}}}
+);
