@@ -16,15 +16,12 @@ import {curryN, mapValues} from 'lodash/fp';
 
 const TIMEOUT = 0;
 
-export const addTimeout = curryN(
-  2,
-  (timeout, fun) =>
-    (...args) =>
-      new Promise(resolve =>
-        setTimeout(() => {
-          resolve(fun(...args));
-        }, timeout)
-      )
+export const addTimeout = curryN(2, (timeout, fun) => (...args) =>
+  new Promise(resolve =>
+    setTimeout(() => {
+      resolve(fun(...args));
+    }, timeout)
+  )
 );
 
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
