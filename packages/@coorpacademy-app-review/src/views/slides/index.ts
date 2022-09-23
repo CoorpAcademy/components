@@ -296,7 +296,7 @@ const getCorrectionPopinProps =
       next: {
         ariaLabel: '_correctionNextAriaLabel',
         label: '_correctionNextLabel',
-        onClick: /* istanbul ignore next */ (): void => {
+        onClick: (): void => {
           dispatch(nextSlide);
         }
       },
