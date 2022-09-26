@@ -114,6 +114,7 @@
 }
 
 .button {
+  min-width: max-content;
   width: 160px;
   padding: 8px;
 }
@@ -267,6 +268,7 @@ a {
 .popinCookie .largeButton {
   padding: 0px 8px 0px 0px
 }
+
 @media tablet {
   .popin {
     position: fixed;
@@ -323,7 +325,6 @@ a {
 
     .buttonContainer {
       display: flex;
-      flex-wrap: wrap-reverse;
       margin: 48px 24px 32px 24px;
       width: 85%;
     }
@@ -336,4 +337,20 @@ a {
       width: 85%;
     }
   }
+}
+
+/* ie11 style */
+_:-ms-fullscreen,
+.popinHeader button {
+  position: relative;
+}
+
+_:-ms-fullscreen,
+.descriptionText {
+  width: 85%;
+}
+
+_:-ms-fullscreen,
+.button {
+  min-width: max-content;
 }
