@@ -221,12 +221,13 @@ const Summary = (props, context) => {
   const {skin} = context;
   const primary = getOr('#f0f', 'common.primary', skin);
   const commentView =
-    comment && header ? (
+    mode !== 'scorm' && comment && header ? (
       <div className={style.discussionWrapper}>
         <CommentSection {...comment} />
       </div>
     ) : null;
-  const footerView = footer && header ? <Footer {...footer} color={primary} /> : null;
+  const footerView =
+    mode !== 'scorm' && footer && header ? <Footer {...footer} color={primary} /> : null;
   const feedbackView = feedback ? <Feedback {...feedback} mode={mode} /> : null;
 
   return (
@@ -249,7 +250,7 @@ const BackgroundScorm = props => {
     return (
       <div className={style.organismPlayerResultContainerScorm}>
         <div className={style.animationContainer}>
-          {!failed ? (
+          {failed === false ? (
             <AtomLottieWrapper
               {...{
                 'aria-label': 'aria lottie',
@@ -276,13 +277,10 @@ const BackgroundScorm = props => {
             />
           ) : null}
         </div>
-        <div>
-          <div className={style.largeCircle}>
-            <div className={style.mediumCircle}>
-              <div className={style.smallCircle}>{children}</div>
-            </div>
-          </div>
-        </div>
+        <div className={style.largeCircle} />
+        <div className={style.mediumCircle} />
+        <div className={style.smallCircle} />
+        {children}
       </div>
     );
   return children;

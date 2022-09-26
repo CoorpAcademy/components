@@ -259,30 +259,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
 }
 
 .smallCircle {
+  top: 190px;
+  left: 250px;
   height: calc(100vh + 136px);
   width: calc(100vh + 136px);
   composes: circle;
 }
 .mediumCircle {
+  top: 65px;
+  left: 125px;
   height: calc(100vh + 386px);
   width: calc(100vh + 386px);
   composes: circle;
 }
 .largeCircle {
+  top: -60px;
+  left: 0px;
   height: calc(100vh + 636px);
   width: calc(100vh + 636px);
   composes: circle;
 }
 .organismPlayerResultContainerScorm {
-  height: calc(100vh - 60px);
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: scroll;
 }
 .lottie {
   display: flex;
@@ -296,6 +303,7 @@
   position: absolute;
   z-index: 1;
   width: 100%;
+  top: 60px;
 }
 .ie11Backup {
   position: relative;
@@ -326,6 +334,7 @@
   .largeCircle , .mediumCircle, .smallCircle {
     border: 0px;
     height: 100%;
+    min-height: calc(100vh - 60px) ;
     width: 100%;
     border-radius: 0;
   }

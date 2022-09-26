@@ -231,7 +231,7 @@ const CorrectionPart = props => {
   );
   return (
     <div data-name="correctionSection" className={className}>
-      {mode === 'scorm' && renderIconStatusScorm(failed)}
+      {mode === 'scorm' && !isLoading && renderIconStatusScorm(failed)}
       <div
         className={buildDefaultOrScormStyle(
           style.titlesWrapper,
@@ -282,7 +282,7 @@ CorrectionPart.propTypes = {
 };
 
 const NextQuestionPart = (props, context) => {
-  const {cta, type, extraLifeGranted, gameOver, failed = false, lives = 0} = props;
+  const {cta, type, extraLifeGranted, gameOver, failed = false, lives = 0, mode} = props;
   const {title, nextStepTitle, showNextLevel = false, ...linkProps} = cta || {};
   let dataNext;
 
@@ -324,7 +324,7 @@ const NextQuestionPart = (props, context) => {
     />
   ) : null;
 
-  return (
+  return mode !== 'scorm' ? (
     <Link
       {...linkProps}
       className={classnames(style.nextSection, getLinkStyle({gameOver, extraLifeGranted}))}
@@ -340,7 +340,7 @@ const NextQuestionPart = (props, context) => {
         {nextStep}
       </div>
     </Link>
-  );
+  ) : null;
 };
 
 NextQuestionPart.propTypes = {
@@ -354,7 +354,8 @@ NextQuestionPart.propTypes = {
   extraLifeGranted: PropTypes.bool,
   gameOver: PropTypes.bool,
   failed: PropTypes.bool,
-  lives: PropTypes.number
+  lives: PropTypes.number,
+  mode: PropTypes.string
 };
 
 const PopinHeader = (props, context) => {
@@ -373,7 +374,6 @@ const PopinHeader = (props, context) => {
     type,
     mode = 'default'
   } = props;
-
   const state = buildClass(failed, 'success', 'failed', null);
 
   const nextLink = cta ? (
@@ -384,16 +384,20 @@ const PopinHeader = (props, context) => {
       failed={failed}
       gameOver={gameOver}
       lives={lives}
+      mode={mode}
     />
   ) : null;
 
   return (
     <div
-      className={cta ? style.header : style.headerWithoutCTA}
+      className={classnames(
+        mode === 'scorm' && style.scorm,
+        cta ? mode !== 'scorm' && style.header : mode !== 'scorm' && style.headerWithoutCTA
+      )}
       data-name="popinHeader"
       data-state={state}
     >
-      <div className={mode !== 'scorm' ? style.headerTitle : null}>
+      <div className={mode !== 'scorm' && style.headerTitle}>
         <CorrectionPart
           title={title}
           subtitle={subtitle}

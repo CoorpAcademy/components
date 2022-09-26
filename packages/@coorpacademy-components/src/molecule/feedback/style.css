@@ -30,7 +30,7 @@
   border: 1px solid cm_grey_75;
   border-top: 0px;
   z-index: 2;
-  margin-top: 60px;
+  margin: 0px auto;
   position: relative;
 }
 

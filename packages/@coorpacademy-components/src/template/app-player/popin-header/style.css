@@ -24,7 +24,13 @@
   font-family: 'Gilroy';
   flex-wrap: wrap;
 }
-
+.scorm {
+  height: auto;
+  padding: 50px 0 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .headerTitle {
   display: flex;
   height: 100px;
