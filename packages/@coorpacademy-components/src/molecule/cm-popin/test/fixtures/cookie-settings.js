@@ -7,14 +7,16 @@ export default {
       type: 'secondary',
       'aria-label': 'Go back',
       handleOnClick: () => {},
-      largeButton: true
+      largeButton: true,
+      customStyle: {}
     },
     secondButton: {
       label: 'Save preferences',
       type: 'primary',
       'aria-label': 'Save preferences',
       handleOnClick: () => {},
-      largeButton: true
+      largeButton: true,
+      customStyle: {}
     },
     descriptionBtnTxt:
       'Use this page to accept or block tracking tags and analytics tools on our website.',

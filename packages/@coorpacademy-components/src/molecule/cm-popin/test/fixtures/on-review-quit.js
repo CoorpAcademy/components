@@ -17,7 +17,8 @@ export default {
       label: `Continuer d'apprendre`,
       type: 'primary',
       'aria-label': 'Continue review',
-      handleOnClick: () => {}
+      handleOnClick: () => {},
+      customStyle: {}
     }
   }
 };

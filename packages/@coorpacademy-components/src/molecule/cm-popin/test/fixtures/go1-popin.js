@@ -8,7 +8,8 @@ export default {
       label: 'Inquire now',
       type: 'primary',
       'aria-label': 'Inquire now',
-      handleOnClick: () => console.log('Inquire now')
+      handleOnClick: () => console.log('Inquire now'),
+      customStyle: {}
     },
     onClose: () => console.log('close')
   }

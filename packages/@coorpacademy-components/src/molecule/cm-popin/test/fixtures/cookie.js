@@ -8,19 +8,22 @@ export default {
       label: 'Cookies preferences',
       type: 'secondary',
       'aria-label': 'Cookies preferences',
-      handleOnClick: () => {}
+      handleOnClick: () => {},
+      customStyle: {}
     },
     secondButton: {
       label: 'Only essentials',
       type: 'secondary',
       'aria-label': 'Only essentials',
-      handleOnClick: () => {}
+      handleOnClick: () => {},
+      customStyle: {}
     },
     thirdButton: {
       label: 'Allow cookies',
       type: 'primary',
       'aria-label': 'Allow cookies',
-      handleOnClick: () => {}
+      handleOnClick: () => {},
+      customStyle: {}
     }
   }
 };

@@ -149,6 +149,7 @@ const CMPopin = props => {
                 data-name={'cm-popin-cta'}
                 aria-label={firstButton['aria-label']}
                 type={firstButton.type}
+                customStyle={firstButton.customStyle}
               />
             </div>
           ) : null}
@@ -160,6 +161,7 @@ const CMPopin = props => {
                 data-name={`cm-popin-cta-${secondButton.type}`}
                 aria-label={secondButton['aria-label']}
                 type={secondButton.type}
+                customStyle={secondButton.customStyle}
               />
             </div>
           ) : null}
@@ -171,6 +173,7 @@ const CMPopin = props => {
                 data-name={`cm-popin-cta-${thirdButton.type}`}
                 aria-label={thirdButton['aria-label']}
                 type={thirdButton.type}
+                customStyle={thirdButton.customStyle}
               />
             </div>
           ) : null}
@@ -189,21 +192,24 @@ CMPopin.propTypes = {
     handleOnclick: PropTypes.func,
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary', 'tertiary'])
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary', 'tertiary']),
+    customStyle: PropTypes.object
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
-    largeButton: PropTypes.boolean
+    largeButton: PropTypes.boolean,
+    customStyle: PropTypes.object
   }),
   thirdButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
-    largeButton: PropTypes.boolean
+    largeButton: PropTypes.boolean,
+    customStyle: PropTypes.object
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,
