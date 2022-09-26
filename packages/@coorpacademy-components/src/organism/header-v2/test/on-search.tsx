@@ -7,14 +7,7 @@ import Header from '../index.native';
 import {TemplateContext} from '../../../template/app-review/template-context';
 
 test('handles onSearchPress on magnifier icon', t => {
-  const context = mockMobileContext({
-    brandTheme: {
-      images: {
-        'logo-mobile':
-          'https://static.coorpacademy.com/content/mobile/raw/coorp_logo_infinite-1552063832916.png'
-      }
-    }
-  });
+  const context = mockMobileContext({});
 
   const onSearchPress = (event: PressEvent) => {
     t.is(event, 'search');
@@ -39,6 +32,6 @@ test('handles onSearchPress on magnifier icon', t => {
 
   const {getByTestId} = render(component);
   const searchIcon = getByTestId('search-icon');
-  fireEvent(searchIcon, 'press', 'search');
+  fireEvent(searchIcon, 'onPress', 'search');
   t.plan(1);
 });

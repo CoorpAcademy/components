@@ -33,7 +33,7 @@ test('it should handle onLongPress', t => {
 
   const {getByTestId} = render(component);
   const headerLogo = getByTestId('header-logo');
-  fireEvent(headerLogo, 'onLogoLongPress');
+  fireEvent(headerLogo, 'onLongPress');
 
   t.plan(1);
 });

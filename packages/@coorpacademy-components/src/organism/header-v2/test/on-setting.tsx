@@ -31,6 +31,6 @@ test('handles onSettingsPress on gear icon', t => {
 
   const {getByTestId} = render(component);
   const settingIcon = getByTestId('settings-icon');
-  fireEvent(settingIcon, 'press', 'settings');
+  fireEvent(settingIcon, 'onPress', 'settings');
   t.plan(1);
 });
