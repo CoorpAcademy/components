@@ -579,6 +579,7 @@ import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixture
 import MoleculeCmPopinFixtureErrorWithClose from '../src/molecule/cm-popin/test/fixtures/error-with-close';
 import MoleculeCmPopinFixtureGo1Popin from '../src/molecule/cm-popin/test/fixtures/go1-popin';
 import MoleculeCmPopinFixtureNoAccess from '../src/molecule/cm-popin/test/fixtures/no-access';
+import MoleculeCmPopinFixtureOnReviewQuit from '../src/molecule/cm-popin/test/fixtures/on-review-quit';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
@@ -2071,6 +2072,7 @@ export const fixtures = {
       ErrorWithClose: MoleculeCmPopinFixtureErrorWithClose,
       Go1Popin: MoleculeCmPopinFixtureGo1Popin,
       NoAccess: MoleculeCmPopinFixtureNoAccess,
+      OnReviewQuit: MoleculeCmPopinFixtureOnReviewQuit,
       WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
     },
     MoleculeCookieBanner: {
