@@ -16,7 +16,7 @@ export default {
       largeButton: true,
       label: `Continuer d'apprendre`,
       type: 'primary',
-      'aria-label': 'Reload',
+      'aria-label': 'Continue learning',
       handleOnClick: () => {
         console.log('continue learning');
       }
