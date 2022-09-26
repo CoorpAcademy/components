@@ -14,7 +14,7 @@ npm start
 requirements:
 
 - [mooc](https://github.com/CoorpAcademy/coorpacademy) installed and running to expose a local API.
-- duplicated `.env.sample` to `.env` with a local token to access the mooc API.
+- copy and rename `.env.sample` to `.env` with a local token (`API_TEST_TOKEN`) to access the mooc API.
 
 ## developing views locally
 
@@ -51,14 +51,3 @@ npx ava --watch
 
 `react` must also be the same version on this package and the rootApp
 *(possible generic error Warning: Invalid hook call. [...] 3. You might have more than one copy of React in the same app)*
-
-### tmp notes
-
-export: <https://stackoverflow.com/a/70020984/959219>
-
-css modules:
-
-- <https://github.com/evanw/esbuild/issues/20>
-- <https://github.com/indooorsman/esbuild-css-modules-plugin/issues/35>
-- <https://github.com/princed/postcss-modules-values-replace>
-- <https://github.com/CoorpAcademy/coorpacademy-lambda/blob/master/teams/postcss.config.js#L4>

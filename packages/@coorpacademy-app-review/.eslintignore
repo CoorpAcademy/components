@@ -4,7 +4,6 @@
 **/coverage
 **/scripts
 **/explorer
-**/dist
 **/es/**
 **/lib/**
 **/static
@@ -18,4 +17,5 @@ tsconfig*.json
 **/commands/**
 ava.config.js
 nyc.config.js
+webpack.config.js
 **/*.disabled
