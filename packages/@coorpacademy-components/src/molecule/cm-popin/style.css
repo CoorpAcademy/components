@@ -337,9 +337,3 @@ a {
     }
   }
 }
-
-/* ie11 */
-_:-ms-fullscreen,
-.popinHeader button  {
-  position: relative;
-}

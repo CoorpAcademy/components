@@ -7,6 +7,9 @@ export default {
     firstButton: {
       label: 'Arrêter ma session',
       type: 'secondary',
+      /* customStyle: {
+        color: '#ED3436'
+      }, */
       handleOnclick: () => {
         console.log('stop session');
       },
@@ -16,9 +19,9 @@ export default {
       largeButton: true,
       label: `Continuer d'apprendre`,
       type: 'primary',
-      'aria-label': 'Continue learning',
+      'aria-label': 'Reload',
       handleOnClick: () => {
-        console.log('continue learning');
+        console.log('continue revising');
       }
     },
     onClose: () => console.log('onClose')
