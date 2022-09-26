@@ -294,9 +294,39 @@ a {
 
   @media mobile {
     .popin {
-      width: 90%;
-      margin: 0;
+      position: fixed;
     }
 
+    .popin {
+      width: 80%;
+    }
+
+    .buttonContainer {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      margin: 48px 24px 32px 24px;
+      width: 85%;
+    }
+
+    .popin .button {
+      width: 100%;
+    }
+
+    .titleContainer {
+      width: 85%;
+    }
+
+    .content {
+      font-family: Gilroy;
+      font-size: 20px;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.4;
+      letter-spacing: normal;
+      text-align: center;
+      color: cm_grey_800;
+      background-color: antiquewhite;
+    }
   }
 }

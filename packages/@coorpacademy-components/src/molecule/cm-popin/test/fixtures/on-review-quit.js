@@ -1,27 +1,26 @@
 export default {
   props: {
     content: 'Tu nous quittes déjà ?',
-    descriptionText: 'Si tu arrêtes maintenant, tu vas perdre ta progression',
-    mode: 'onReviewQuit',
-    icon: 'WindowUpload',
-    onClose: () => {
-      console.log('close');
-    },
+    icon: 'AlertDiamond',
+    mode: 'alert',
+    descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
     firstButton: {
       label: 'Arrêter ma session',
       type: 'secondary',
       handleOnclick: () => {
         console.log('stop session');
       },
-      'aria-label': 'Stop session'
+      'aria-label': 'Stop my session'
     },
     secondButton: {
-      label: 'Continuer de réviser',
+      largeButton: true,
+      label: `Continuer d'apprendre`,
       type: 'primary',
-      handleOnclick: () => {
-        console.log('continue review');
-      },
-      'aria-label': 'Continue review'
-    }
+      'aria-label': 'Reload',
+      handleOnClick: () => {
+        console.log('continue learning');
+      }
+    },
+    onClose: () => console.log('onClose')
   }
 };
