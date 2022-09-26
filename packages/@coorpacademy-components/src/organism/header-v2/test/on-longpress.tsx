@@ -15,8 +15,9 @@ test('it should handle onLongPress', t => {
   const onSettingsPress = (event: PressEvent) => {
     t.is(event, 'settings');
   };
-  const onLogoLongPress = (event: PressEvent) => {
-    t.is(event, 'longPress');
+
+  const onLogoLongPress = () => {
+    t.pass();
   };
 
   const component = (
@@ -32,6 +33,7 @@ test('it should handle onLongPress', t => {
 
   const {getByTestId} = render(component);
   const headerLogo = getByTestId('header-logo');
-  fireEvent(headerLogo, 'press', 'longPress');
-  t.plan(0);
+  fireEvent(headerLogo, 'onLogoLongPress');
+
+  t.plan(1);
 });

@@ -22,8 +22,8 @@ test('handles onSearchPress on magnifier icon', t => {
   const onSettingsPress = (event: PressEvent) => {
     t.is(event, 'settings');
   };
-  const onLogoLongPress = (event: PressEvent) => {
-    t.is(event, 'longPress');
+  const onLogoLongPress = () => {
+    t.pass();
   };
 
   const component = (
