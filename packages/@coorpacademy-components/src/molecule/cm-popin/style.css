@@ -291,5 +291,12 @@ a {
   .popinCookie .message {
     padding: 24px 24px 0px 24px
   }
- 
+
+  @media mobile {
+    .popin {
+      width: 90%;
+      margin: 0;
+    }
+
+  }
 }

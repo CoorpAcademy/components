@@ -2,6 +2,7 @@ export default {
   props: {
     content: 'Tu nous quittes déjà ?',
     descriptionText: 'Si tu arrêtes maintenant, tu vas perdre ta progression',
+    mode: 'onReviewQuit',
     icon: 'WindowUpload',
     onClose: () => {
       console.log('close');
