@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import ImageBackground from '../../atom/image-background/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 
-interface Props {
+export interface Props {
   height: number;
 }
 

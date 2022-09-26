@@ -13,6 +13,12 @@ const mockMobileContext = ({
   vibrate = noop
 }: MockOptions = {}): TemplateContextValues => ({
   theme: defaultTheme,
+  brandTheme: {
+    images: {
+      'logo-mobile':
+        'https://static.coorpacademy.com/content/mobile/raw/coorp_logo_infinite-1552063832916.png'
+    }
+  },
   translations: {
     selectAnAnswer: 'Select an answer',
     selectSomethingBelow: 'Select something below',

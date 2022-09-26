@@ -31,7 +31,7 @@ test('handles onSettingsPress on gear icon', t => {
   );
 
   const {getByTestId} = render(component);
-  const searchIcon = getByTestId('settings-icon');
-  fireEvent(searchIcon, 'press', 'settings');
+  const settingIcon = getByTestId('settings-icon');
+  fireEvent(settingIcon, 'press', 'settings');
   t.plan(1);
 });

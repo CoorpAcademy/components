@@ -7,7 +7,7 @@ import Header from '../index.native';
 import {TemplateContext} from '../../../template/app-review/template-context';
 
 test('it should handle onLongPress', t => {
-  const context = mockMobileContext({});
+  const context = mockMobileContext();
 
   const onSearchPress = (event: PressEvent) => {
     t.is(event, 'search');
@@ -31,7 +31,7 @@ test('it should handle onLongPress', t => {
   );
 
   const {getByTestId} = render(component);
-  const searchIcon = getByTestId('header-logo');
-  fireEvent(searchIcon, 'press', 'longPress');
-  t.plan(1);
+  const headerLogo = getByTestId('header-logo');
+  fireEvent(headerLogo, 'press', 'longPress');
+  t.plan(0);
 });
