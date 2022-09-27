@@ -51,17 +51,14 @@ const Html = (props: Props) => {
     testID,
     anchorTextColor = HTML_ANCHOR_TEXT_COLOR,
     isTextCentered,
-    numberOfLines,
-    onLinkPress
+    numberOfLines
   } = props;
 
   const handleLinkPress = useMemo(
     () => (url: string) => {
       vibration?.vibrate();
-
-      onLinkPress && onLinkPress(url);
     },
-    [onLinkPress, vibration]
+    [vibration]
   );
 
   // Don't use StyleSheet there, it's not a react style
@@ -116,32 +113,9 @@ const Html = (props: Props) => {
   }
 
   const renderers = {
-    // font: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => {
-    //   if (htmlAttribs.color) {
-    //     setDisableBaseFontStyleColor(true);
-    //   }
-    //   return (
-    //     <Text
-    //       key={1}
-    //       style={{
-    //         ...baseFontStyle,
-    //         color: htmlAttribs.color
-    //       }}
-    //     >
-    //       {_children}
-    //     </Text>
-    //   );
-    // },
-    span: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => {
-      return (
-        <Text
-          numberOfLines={numberOfLines}
-          // style={convertedCSSStyles}
-        >
-          {_children}
-        </Text>
-      );
-    }
+    span: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
+      <Text numberOfLines={numberOfLines}>{_children}</Text>
+    )
   };
 
   return (
@@ -160,18 +134,18 @@ const Html = (props: Props) => {
             : `${children}`
         }}
         tagsStyles={tagsStyles}
-        // baseFontStyle={{
-        //   ...baseFontStyle,
-        //   color: disableBaseFontStyleColor ? null : baseFontStyle.color
-        // }}
-        // onLinkPress={handleLinkPress}
+        // @ts-expect-error
+        baseFontStyle={{
+          ...baseFontStyle,
+          color: disableBaseFontStyleColor ? null : baseFontStyle.color
+        }}
         renderers={renderers}
         // this is exceptionally for the onboarding course
         // is the only course that has a gif in the context but the img tag
         // comes with width & height attr and these makes this lib do not render the gif
         // so to avoid it, we decided to ignore these attr
         ignoredStyles={['width', 'height']}
-        // testID="html-base"
+        testID="html-base"
       />
     </View>
   );

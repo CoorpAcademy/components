@@ -1,10 +1,12 @@
-import {TouchableOpacity, TouchableHighlight, ViewStyle} from 'react-native';
-import type {
-  BlurEvent,
-  LayoutEvent,
-  FocusEvent,
-  PressEvent
-} from 'react-native/Libraries/Types/CoreEventTypes';
+import {
+  TouchableOpacity,
+  TouchableHighlight,
+  ViewStyle,
+  LayoutChangeEvent,
+  NativeSyntheticEvent,
+  GestureResponderEvent,
+  TargetedEvent
+} from 'react-native';
 
 import React, {useMemo} from 'react';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -26,13 +28,13 @@ export type Props = {
   delayPressOut?: number;
   disabled?: boolean;
   focusable?: boolean;
-  onBlur?: (event: BlurEvent) => any;
-  onFocus?: (event: FocusEvent) => any;
-  onLayout?: (event: LayoutEvent) => any;
-  onLongPress?: (event: PressEvent) => any;
-  onPress?: (event: PressEvent) => any;
-  onPressIn?: (event: PressEvent) => any;
-  onPressOut?: (event: PressEvent) => any;
+  onBlur?: (event: NativeSyntheticEvent<TargetedEvent>) => void;
+  onFocus?: (event: NativeSyntheticEvent<TargetedEvent>) => void;
+  onLayout?: (event: LayoutChangeEvent) => any;
+  onLongPress?: (event: GestureResponderEvent) => any;
+  onPress?: (event: GestureResponderEvent) => any;
+  onPressIn?: (event: GestureResponderEvent) => any;
+  onPressOut?: (event: GestureResponderEvent) => any;
   testID?: string;
   isHighlight?: boolean;
   isWithoutFeedback?: boolean;
@@ -50,7 +52,7 @@ const logEvent = (
   eventName: string,
   analyticsID: String,
   analytics: Analytics,
-  analyticsParams: AnalyticsEventParams | undefined
+  analyticsParams?: AnalyticsEventParams
 ) => {
   analytics &&
     analytics.logEvent(eventName, {
@@ -76,24 +78,27 @@ const Touchable = (props: Props) => {
   } = props;
 
   const handlePress = useMemo(
-    () => (event: PressEvent) => {
+    () => (event: GestureResponderEvent) => {
       if (!onPress) return;
 
       vibration?.vibrate();
 
-      analytics && logEvent(ANALYTICS_EVENT_TYPE.PRESS, analyticsID, analytics, analyticsParams);
+      analytics &&
+        analyticsID &&
+        logEvent(ANALYTICS_EVENT_TYPE.PRESS, analyticsID, analytics, analyticsParams);
       onPress(event);
     },
     [analytics, analyticsID, analyticsParams, onPress, vibration]
   );
 
   const handleLongPress = useMemo(
-    () => (event: PressEvent) => {
+    () => (event: GestureResponderEvent) => {
       if (!onLongPress) return;
 
       vibration?.vibrate();
 
       analytics &&
+        analyticsID &&
         logEvent(ANALYTICS_EVENT_TYPE.LONG_PRESS, analyticsID, analytics, analyticsParams);
       onLongPress(event);
     },

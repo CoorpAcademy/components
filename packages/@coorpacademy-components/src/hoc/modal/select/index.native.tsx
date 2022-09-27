@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useMemo} from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet, NativeTouchEvent} from 'react-native';
 import {noop} from 'lodash/fp';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
 
 import type {ChoiceItem} from '../../../molecule/questions/types';
 import {Theme} from '../../../variables/theme.native';
@@ -16,7 +15,7 @@ export type Props = {
   value?: string;
   values: Array<ChoiceItem> | undefined;
   onChange: OnChangeFunction;
-  onClose?: (event: PressEvent) => void;
+  onClose?: (event: NativeTouchEvent) => void;
   testID?: string;
 };
 

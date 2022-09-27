@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, ViewStyle} from 'react-native';
+import {View, StyleSheet, ViewStyle, Text} from 'react-native';
 import type {Media, QuestionType} from '../../molecule/questions/types';
 
-import Html from '../html/index.native';
 import ImageBackground from '../image-background/index.native';
 import getCleanUri from '../../util/get-clean-uri';
 import Touchable from '../../hoc/touchable/index.native';
@@ -33,7 +32,7 @@ type StyleSheetType = {
   image: any;
 };
 
-const createStyleSheet = (theme: Theme): StyleSheetType =>
+const createStyleSheet = (theme: Theme, squeezed: boolean): StyleSheetType =>
   StyleSheet.create({
     boxShadow: {
       shadowColor: '#000',
@@ -64,6 +63,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       flex: 0
     },
     text: {
+      fontSize: squeezed ? theme.fontSize.medium : theme.fontSize.regular,
       fontWeight: theme.fontWeight.bold,
       color: theme.colors.black,
       textAlign: 'center'
@@ -103,9 +103,9 @@ const Choice = ({
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
+    const _stylesheet = createStyleSheet(theme, squeezed);
     setStylesheet(_stylesheet);
-  }, [theme]);
+  }, [theme, squeezed]);
 
   if (!styleSheet) {
     return null;
@@ -123,14 +123,14 @@ const Choice = ({
   const source = {uri: url ? getCleanUri(url) : undefined};
   const mediaSuffix = prefixTestID && mediaType ? `-${mediaType}` : '';
 
-  const htmlStyle: ViewStyle[] = [styleSheet.text];
+  const textStyle: ViewStyle[] = [styleSheet.text];
   const textWrapperStyle: ViewStyle[] = [
     styleSheet.textContainer,
     squeezed && styleSheet.squeezedTextContainer
   ];
 
   if (isSelected) {
-    htmlStyle.push(styleSheet.textSelected);
+    textStyle.push(styleSheet.textSelected);
 
     const selectionStyle = brandTheme && {
       backgroundColor: brandTheme.colors.primary,
@@ -171,12 +171,7 @@ const Choice = ({
 
         {children ? (
           <View style={textWrapperStyle}>
-            <Html
-              fontSize={squeezed ? theme.fontSize.medium : theme.fontSize.regular}
-              style={htmlStyle}
-            >
-              {children}
-            </Html>
+            <Text style={textStyle}>{children}</Text>
           </View>
         ) : null}
       </View>

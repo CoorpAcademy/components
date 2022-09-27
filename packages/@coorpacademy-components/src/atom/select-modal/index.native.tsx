@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
+import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
@@ -30,15 +30,8 @@ export type Props = {
 };
 
 type StyleSheetType = {
-  container: {
-    alignItems: FlexAlignType;
-    flexDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse' | undefined;
-  };
-  text: {
-    flex: number;
-    color: string;
-    textAlign: string;
-  };
+  container: Pick<TextStyle, 'alignItems' | 'flexDirection'>;
+  text: Pick<TextStyle, 'flex' | 'color' | 'textAlign'>;
 };
 
 const ICON_WIDTH = 15;
@@ -124,6 +117,14 @@ const Select = (props: Props) => {
 
   const selectedItem = values.find(item => item.selected);
   const text = (selectedItem && selectedItem.text) || placeholder || null;
+  const textStyles: TextStyle[] = [styleSheet.text];
+
+  if (textStyle) {
+    textStyles.push(textStyle);
+  }
+  if (color) {
+    textStyles.push({color});
+  }
 
   return (
     <>
@@ -134,7 +135,7 @@ const Select = (props: Props) => {
         testID={`${testID}-input`}
       >
         <View style={[styleSheet.container, style]}>
-          <Text style={[styleSheet.text, textStyle, color && {color}]}>{text}</Text>
+          <Text style={textStyles}>{text}</Text>
           <Space type="tiny" />
           <ArrowDown
             color={color || theme.colors.gray.dark}

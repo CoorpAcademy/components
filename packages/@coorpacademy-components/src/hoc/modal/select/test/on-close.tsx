@@ -1,13 +1,25 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {NativeTouchEvent} from 'react-native';
 import ModalSelect, {OnChangeFunction} from '../index.native';
 import fixture from './fixtures/default';
 
 test('should handle close', t => {
-  const handlePress = (event: PressEvent) => {
-    t.is(event, 'fake-event');
+  const fakeEvent: NativeTouchEvent = {
+    changedTouches: [],
+    identifier: 'fake',
+    locationX: 0,
+    locationY: 0,
+    pageX: 0,
+    pageY: 0,
+    target: '',
+    timestamp: 0,
+    touches: []
+  };
+
+  const handlePress = (event: NativeTouchEvent) => {
+    t.is(event, fakeEvent);
   };
 
   const onChange: OnChangeFunction = () => {
@@ -21,7 +33,7 @@ test('should handle close', t => {
   const {getByTestId} = render(component);
   const cpt = getByTestId('close-modal');
 
-  fireEvent(cpt, 'press', 'fake-event');
+  fireEvent(cpt, 'press', fakeEvent);
 
   t.plan(1);
 });

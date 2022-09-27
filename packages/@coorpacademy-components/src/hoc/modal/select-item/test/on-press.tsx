@@ -1,12 +1,24 @@
 import test from 'ava';
 import React from 'react';
+import {NativeTouchEvent} from 'react-native';
 import {render, fireEvent} from '@testing-library/react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
 import ModalSelectItem from '../index.native';
 
 test('should handle press', t => {
-  const handlePress = (event: PressEvent) => {
-    t.is(event, 'fake-event');
+  const fakeEvent: NativeTouchEvent = {
+    changedTouches: [],
+    identifier: 'fake',
+    locationX: 0,
+    locationY: 0,
+    pageX: 0,
+    pageY: 0,
+    target: '',
+    timestamp: 0,
+    touches: []
+  };
+
+  const handlePress = (event: NativeTouchEvent) => {
+    t.is(event, fakeEvent);
   };
 
   const component = (
@@ -18,7 +30,7 @@ test('should handle press', t => {
   const {getByTestId} = render(component);
   const cpt = getByTestId('modal-select-item-1');
 
-  fireEvent(cpt, 'press', 'fake-event');
+  fireEvent(cpt, 'press', fakeEvent);
 
   t.plan(1);
 });
