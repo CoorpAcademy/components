@@ -7,14 +7,12 @@ export default {
       type: 'secondary',
       'aria-label': 'Cancel this operation',
       handleOnClick: () => {},
-      customStyle: {}
     },
     secondButton: {
       label: 'Undo',
       type: 'dangerous',
       'aria-label': 'Undo this operation',
       handleOnClick: () => {},
-      customStyle: {}
     }
   }
 };

@@ -12,7 +12,6 @@ export default {
         console.log('cancel');
       },
       'aria-label': 'Cancel this operation',
-      customStyle: {}
     },
     secondButton: {
       label: 'Undo',

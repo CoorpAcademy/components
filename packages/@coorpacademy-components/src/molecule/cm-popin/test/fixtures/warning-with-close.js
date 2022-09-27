@@ -7,15 +7,13 @@ export default {
       label: 'Quit without saving',
       type: 'secondary',
       'aria-label': 'Quit this operation without saving',
-      handleOnClick: () => {},
-      customStyle: {}
+      handleOnClick: () => {}
     },
     secondButton: {
       label: 'Save & Quit',
       type: 'primary',
       'aria-label': 'Save and quit',
-      handleOnClick: () => {},
-      customStyle: {}
+      handleOnClick: () => {}
     },
     onClose: () => console.log('onClose')
   }

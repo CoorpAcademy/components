@@ -9,8 +9,7 @@ export default {
       label: 'Reload',
       type: 'primary',
       'aria-label': 'Reload',
-      handleOnClick: () => {},
-      customStyle: {}
+      handleOnClick: () => {}
     },
     onClose: () => console.log('onClose')
   }
