@@ -98,4 +98,5 @@ test('should create initial props when skills on the state', t => {
       reviseAriaLabel: '@todo revise aria label'
     }
   ]);
+  t.notThrows(() => props.listSkills[0].onClick());
 });
