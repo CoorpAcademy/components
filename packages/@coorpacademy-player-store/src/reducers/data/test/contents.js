@@ -58,7 +58,7 @@ test(
     meta: {type: 'foo', ref: 'bar'},
     payload: 'baz'
   },
-  {foo: {entities: {bar: 'baz'}}, isFailure: false}
+  {foo: {entities: {bar: 'baz'}, isFailure: false}}
 );
 
 test(
@@ -72,7 +72,7 @@ test(
     error: true,
     payload: {}
   },
-  {foo: {entities: {}}, isFailure: true}
+  {foo: {entities: {}, isFailure: true}}
 );
 
 test(
@@ -86,7 +86,7 @@ test(
     error: true,
     payload: {}
   },
-  {foo: {entities: {bar: 'baz'}}, isFailure: true}
+  {foo: {entities: {bar: 'baz'}, isFailure: true}}
 );
 
 test(
@@ -99,7 +99,7 @@ test(
     meta: {type: 'foo', ref: 'bar'},
     payload: {stars: 12}
   },
-  {foo: {entities: {bar: {bestScore: 12}}}, isFailure: false}
+  {foo: {entities: {bar: {bestScore: 12}}, isFailure: false}}
 );
 
 test(
@@ -112,7 +112,7 @@ test(
     meta: {type: 'foo', ref: 'bar'},
     payload: {foo: 'bar'}
   },
-  {foo: {entities: {bar: {info: {foo: 'bar'}}}}, isFailure: false}
+  {foo: {entities: {bar: {info: {foo: 'bar'}}}, isFailure: false}}
 );
 
 test(
@@ -125,5 +125,5 @@ test(
     meta: {type: 'foo', ref: 'bar'},
     payload: {foo: 'bar'}
   },
-  {foo: {entities: {bar: {info: null}}}, isFailure: true}
+  {foo: {entities: {bar: {info: null}}, isFailure: true}}
 );

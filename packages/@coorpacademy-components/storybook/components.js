@@ -1050,6 +1050,7 @@ import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtur
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
 import TemplateActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
 import TemplateAppPlayerLoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
+import TemplateAppPlayerLoadingFixtureWithPopinError from '../src/template/app-player/loading/test/fixtures/with-popin-error';
 import TemplateAppPlayerPlayerSlidesFooterFixtureClueSelected from '../src/template/app-player/player/slides/footer/test/fixtures/clue-selected';
 import TemplateAppPlayerPlayerSlidesFooterFixtureDefault from '../src/template/app-player/player/slides/footer/test/fixtures/default';
 import TemplateAppPlayerPlayerSlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/footer/test/fixtures/disabled';
@@ -2833,7 +2834,8 @@ export const fixtures = {
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading: {
-      Default: TemplateAppPlayerLoadingFixtureDefault
+      Default: TemplateAppPlayerLoadingFixtureDefault,
+      WithPopinError: TemplateAppPlayerLoadingFixtureWithPopinError
     },
     TemplateAppPlayerPlayer: {
       ArabicQcm: TemplateAppPlayerPlayerFixtureArabicQcm,

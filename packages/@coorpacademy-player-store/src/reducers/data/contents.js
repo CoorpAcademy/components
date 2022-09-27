@@ -18,12 +18,12 @@ const dataContentReducer = (state = {}, action) => {
     case CONTENT_FETCH_SUCCESS: {
       const {payload, meta} = action;
       const {type, ref} = meta;
-      return pipe(set('isFailure', false), set([type, 'entities', ref], payload))(state);
+      return pipe(set([type, 'isFailure'], false), set([type, 'entities', ref], payload))(state);
     }
     case CONTENT_FETCH_FAILURE: {
       const {meta} = action;
       const {type, ref} = meta;
-      const _state = set('isFailure', true, state);
+      const _state = set([type, 'isFailure'], true, state);
       if (pipe(get([type, 'entities', ref]), isNull)(_state))
         return unset([type, 'entities', ref], _state);
       return _state;
@@ -31,16 +31,23 @@ const dataContentReducer = (state = {}, action) => {
     case CONTENT_INFO_FETCH_SUCCESS: {
       const {payload: info, meta} = action;
       const {type, ref} = meta;
-      return pipe(set('isFailure', false), set([type, 'entities', ref, 'info'], info))(state);
+      return pipe(
+        set([type, 'isFailure'], false),
+        set([type, 'entities', ref, 'info'], info)
+      )(state);
     }
     case CONTENT_INFO_FETCH_FAILURE: {
-      return set('isFailure', true, state);
+      const {type} = action.meta;
+      return set([type, 'isFailure'], true, state);
     }
     case PROGRESSION_FETCH_BESTOF_SUCCESS: {
       const {payload, meta} = action;
       const {type, ref} = meta;
       const {stars} = payload;
-      return pipe(set('isFailure', false), set([type, 'entities', ref, 'bestScore'], stars))(state);
+      return pipe(
+        set([type, 'isFailure'], false),
+        set([type, 'entities', ref, 'bestScore'], stars)
+      )(state);
     }
     default:
       return state;
