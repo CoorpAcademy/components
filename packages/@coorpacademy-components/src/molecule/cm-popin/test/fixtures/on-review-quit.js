@@ -1,7 +1,7 @@
 export default {
   props: {
     content: 'Tu nous quittes déjà?',
-    icon: 'AlertDiamond',
+    icon: 'MoonRocket',
     mode: 'alert',
     descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
     firstButton: {

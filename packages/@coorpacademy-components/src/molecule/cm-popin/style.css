@@ -359,9 +359,3 @@ _:-ms-fullscreen,
 .message {
   background-color: aquamarine;
 }
-
-
-_:-ms-fullscreen,
-.content {
-  width: 85%;
-}

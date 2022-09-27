@@ -199,6 +199,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/remove-circle-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/space-rocket.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/window-upload-3.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/moon-rocket.svg')},
   {
     filePath: path.resolve(
       './third-party/nova-solid.iconjar/icons/location-pin-question-mark-1.svg'
