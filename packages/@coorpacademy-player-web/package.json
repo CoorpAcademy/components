@@ -10,6 +10,7 @@
     "locales",
     "README.md"
   ],
+  
   "scripts": {
     "ava": "ava",
     "test:unit": "nyc npm run ava",
