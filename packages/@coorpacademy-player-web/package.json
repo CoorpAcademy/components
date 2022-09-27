@@ -10,7 +10,6 @@
     "locales",
     "README.md"
   ],
-  
   "scripts": {
     "ava": "ava",
     "test:unit": "nyc npm run ava",
@@ -68,6 +67,7 @@
     "@coorpacademy/redux-task": "1.1.5",
     "@coorpacademy/translate": "6.1.5",
     "@coorpacademy/webpack-config": "10.0.4",
+    "eslint": "^8.24.0",
     "lodash": "^4.17.21"
   }
 }

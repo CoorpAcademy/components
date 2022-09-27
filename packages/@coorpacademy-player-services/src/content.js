@@ -27,7 +27,6 @@ const find = (dataLayer: DataLayer): FindContent => (
   ref: string
 ): Promise<ChapterAPI | LevelAPI | Slide | void> => {
   const {findContent} = dataLayer;
-
   return findContent(type, ref);
 };
 
