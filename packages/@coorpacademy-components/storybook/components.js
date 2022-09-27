@@ -1183,6 +1183,7 @@ import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/
 import TemplateAppReviewPlayerFixtureFirstRight from '../src/template/app-review/player/test/fixtures/first-right';
 import TemplateAppReviewPlayerFixtureInitialState from '../src/template/app-review/player/test/fixtures/initial-state';
 import TemplateAppReviewPlayerFixtureLoading from '../src/template/app-review/player/test/fixtures/loading';
+import TemplateAppReviewPlayerFixtureOnQuit from '../src/template/app-review/player/test/fixtures/on-quit';
 import TemplateAppReviewPlayerFixtureOneFail from '../src/template/app-review/player/test/fixtures/one-fail';
 import TemplateAppReviewPlayerFixtureRestack from '../src/template/app-review/player/test/fixtures/restack';
 import TemplateAppReviewPlayerFixtureSecondFailedQuestion from '../src/template/app-review/player/test/fixtures/second-failed-question';
@@ -2994,6 +2995,7 @@ export const fixtures = {
       FirstRight: TemplateAppReviewPlayerFixtureFirstRight,
       InitialState: TemplateAppReviewPlayerFixtureInitialState,
       Loading: TemplateAppReviewPlayerFixtureLoading,
+      OnQuit: TemplateAppReviewPlayerFixtureOnQuit,
       OneFail: TemplateAppReviewPlayerFixtureOneFail,
       Restack: TemplateAppReviewPlayerFixtureRestack,
       SecondFailedQuestion: TemplateAppReviewPlayerFixtureSecondFailedQuestion,

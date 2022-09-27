@@ -40,6 +40,11 @@
   left: 0;
 }
 
+.onQuitPopin {
+  background-color: white;
+}
+
+
 /* ie fallback */
 :-ms-fullscreen,
 :root .congrats {
