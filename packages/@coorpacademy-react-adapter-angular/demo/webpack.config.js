@@ -26,7 +26,7 @@ const sandboxConfig = {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
-          query: {
+          options: {
             presets: ['@babel/preset-react', '@babel/preset-env']
           }
         }

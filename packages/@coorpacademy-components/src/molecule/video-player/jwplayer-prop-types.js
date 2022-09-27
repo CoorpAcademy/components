@@ -15,7 +15,7 @@ export default {
           file: SrcPropType,
           label: PropTypes.string,
           kind: PropTypes.string,
-          default: PropTypes.boolean
+          default: PropTypes.bool
         })
       ),
       autostart: PropTypes.oneOf(['true', 'viewable', 'false']),

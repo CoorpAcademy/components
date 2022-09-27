@@ -14,13 +14,17 @@ const parse = cwd =>
     split('/'),
     slice(0, -1),
     folders => {
-      const type = pipe(slice(0, -1), _join('-'), pascalCase)(folders);
-      const title = `${type}${pipe(last, pascalCase)(folders)}`;
+      const levels = slice(0, -1)(folders);
+      const type = pipe(_join('-'), pascalCase)(levels);
+      const titleRaw = pipe(last, pascalCase)(folders);
+      const title = `${type}${titleRaw}`;
       const path = join(cwd, ...folders);
 
       return {
-        title,
+        levels,
         type,
+        titleRaw,
+        title,
         path
       };
     }

@@ -21,5 +21,6 @@ test('should provide a production config', t => {
 });
 
 test('should be validate by webpack schema', t => {
-  t.deepEqual(webpack.validate(generateConfig('production')), []);
+  t.notThrows(() => webpack.validate(generateConfig('development')));
+  t.notThrows(() => webpack.validate(generateConfig('production')));
 });

@@ -26,29 +26,27 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-transform-object-assign": "^7.8.3",
-    "@babel/preset-env": "^7.9.6",
-    "babel-loader": "^8.1.0",
-    "compression-webpack-plugin": "^4.0.0",
-    "css-loader": "^3.5.3",
-    "json-loader": "^0.5.7",
-    "mini-css-extract-plugin": "^0.9.0",
-    "postcss-loader": "^3.0.0",
-    "regenerator-runtime": "^0.13.5",
-    "style-loader": "^1.2.1"
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "babel-loader": "^8.2.5",
+    "compression-webpack-plugin": "^10.0.0",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.1",
+    "regenerator-runtime": "^0.13.9",
+    "style-loader": "^3.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/register": "^7.9.0",
+    "@babel/core": "^7.19.1",
+    "@babel/register": "^7.18.9",
     "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
-    "ava": "^4.3.0",
-    "babel-plugin-istanbul": "^6.0.0",
-    "cross-env": "^7.0.2",
+    "ava": "^4.3.3",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cross-env": "^7.0.3",
     "eslint": "^7.3.1",
-    "nyc": "^15.0.1",
-    "webpack": "^4.43.0"
+    "nyc": "^15.1.0",
+    "webpack": "^5.74.0"
   },
   "author": "CoorpAcademy"
 }

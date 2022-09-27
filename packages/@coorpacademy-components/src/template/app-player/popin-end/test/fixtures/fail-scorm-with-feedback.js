@@ -10,7 +10,7 @@ export default defaultsDeep(loading, {
         title: 'Ooops...',
         subtitle: 'Almost, try again !',
         failed: true,
-        cta: {onClick: () => console.log, title: 'Retry level'}
+        cta: {onClick: () => console.log('click'), title: 'Retry level'}
       },
       feedback: {
         title: 'Encore un effort !',

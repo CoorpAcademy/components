@@ -16,6 +16,7 @@ coverage.lcov
 package-lock.json
 packages/@coorpacademy-components/src/**/test/fixtures.js
 packages/@coorpacademy-components/src/**/test/fixtures.native.ts
+packages/@coorpacademy-components/src/**/test/index.stories.tsx
 .prettierrc
 yarn-error.log
 .flowconfig

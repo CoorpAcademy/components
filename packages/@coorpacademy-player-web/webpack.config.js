@@ -20,5 +20,15 @@ const output = {
 module.exports = pipe(
   set('entry', entry),
   set('output', output),
+  set('devServer', {
+    static: {
+      directory: path.join(__dirname, 'sandbox')
+    },
+    historyApiFallback: true,
+    hot: true,
+    host: '0.0.0.0',
+    compress: true,
+    port: 8080
+  }),
   update('resolve.modules', concat([path.join(__dirname, 'node_modules')]))
 )(generateConfig(process.env.NODE_ENV));

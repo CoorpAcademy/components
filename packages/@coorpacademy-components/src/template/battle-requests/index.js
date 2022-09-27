@@ -18,8 +18,6 @@ const Battles = (props, context) => {
           courseName: `<p><strong>${battle.courseName}</strong></p>`
         });
         const battleCardProps = {
-          username: battle.username,
-          courseName: battle.courseName,
           primaryButtonLabel: trads.battleCTA,
           lightButtonLabel: trads.reviewCTA,
           tagLabel: battle.tagLabel,
@@ -55,8 +53,8 @@ Battles.contextTypes = {
 Battles.propTypes = {
   battles: PropTypes.arrayOf(
     PropTypes.shape({
-      username: CardWithButton.propTypes.username,
-      courseName: CardWithButton.propTypes.courseName,
+      username: PropTypes.string,
+      courseName: PropTypes.string,
       tagLabel: CardWithButton.propTypes.tagLabel,
       onLightButtonClick: CardWithButton.propTypes.onLightButtonClick,
       onPrimaryButtonClick: CardWithButton.propTypes.onPrimaryButtonClick,

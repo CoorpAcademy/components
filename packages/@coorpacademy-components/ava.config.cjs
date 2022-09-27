@@ -3,6 +3,7 @@ module.exports = {
     'src/**/test/**/*.js',
     'src/**/test/**/*.*ts',
     'src/**/test/**/*.tsx',
+    '!**/test/**/*.stories.tsx',
     '!**/test/**/helpers/**/*',
     '!**/test/fixtures/**/*'
   ],

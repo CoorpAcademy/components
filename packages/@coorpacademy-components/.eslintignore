@@ -5,5 +5,5 @@ lib
 es
 static
 coverage
-storybook/components.js
 src/**/test/fixtures.js
+src/**/test/*.stories.tsx
