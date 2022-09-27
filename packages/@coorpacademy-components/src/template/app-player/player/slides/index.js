@@ -358,10 +358,12 @@ ContentLayout.propTypes = {
  */
 
 const LoadingLayout = ({popinError}) => (
-  <div className={style.loading}>
-    {popinError ? <CMPopin {...popinError} /> : <Loader />}
-  </div>
+  <div className={style.loading}>{popinError ? <CMPopin {...popinError} /> : <Loader />}</div>
 );
+
+LoadingLayout.propTypes = {
+  popinError: CMPopin.propTypes
+};
 
 const LoadedLayout = ({question, step, ...props}) =>
   question ? <ContentLayout {...props} question={question} /> : <LoadingLayout {...props} />;
@@ -431,7 +433,7 @@ SlidesPlayer.propTypes = {
   showNewMedia: PropTypes.bool,
   showReviewLesson: PropTypes.bool,
   backgroundUrl: SrcPropType,
-  popinError: PropTypes.shape(CMPopin.propTypes) 
+  popinError: PropTypes.shape(CMPopin.propTypes)
 };
 
 export default SlidesPlayer;

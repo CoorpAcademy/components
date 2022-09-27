@@ -4,7 +4,7 @@ import {identity, omit} from 'lodash/fp';
 
 import mapStateToErrorPopinProps from '../error-popin';
 
-test('should retourn error popin props if any call fails', t => {
+test('should return error popin props if any call fails', t => {
   t.plan(2);
   global.window = {
     location: {
@@ -36,7 +36,7 @@ test('should retourn error popin props if any call fails', t => {
   props.firstButton.handleOnclick();
 });
 
-test('should retourn error popin props if content calls fail', t => {
+test('should return error popin props if content calls fail', t => {
   t.plan(2);
   global.window = {
     location: {
@@ -48,7 +48,9 @@ test('should retourn error popin props if content calls fail', t => {
   const props = mapStateToErrorPopinProps({dispatch: identity})({
     data: {
       contents: {
-       level: { isFailure: true}
+        level: {
+          isFailure: true
+        }
       }
     }
   });
@@ -68,8 +70,7 @@ test('should retourn error popin props if content calls fail', t => {
   props.firstButton.handleOnclick();
 });
 
-
-test('should not retourn error popin props', t => {
+test('should not return error popin props', t => {
   const props = mapStateToErrorPopinProps({dispatch: identity})({});
 
   t.is(props, undefined);

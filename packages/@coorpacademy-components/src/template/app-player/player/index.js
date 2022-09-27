@@ -11,7 +11,7 @@ const SlidePlayer = props => {
     <div data-name="slidePlayer" className={style.wrapper}>
       <div className={style.playerWrapper}>
         <div className={style.playerBackground} style={{backgroundImage}} />
-        <SlidesPlayer {...player} popinError={popin}/>
+        <SlidesPlayer {...player} popinError={popin} />
         {popin ? <CMPopin {...popin} /> : null}
       </div>
     </div>
