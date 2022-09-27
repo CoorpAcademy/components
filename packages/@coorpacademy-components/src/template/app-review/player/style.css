@@ -41,9 +41,8 @@
 }
 
 .onQuitPopin {
-  background-color: white;
+  z-index: 50;
 }
-
 
 /* ie fallback */
 :-ms-fullscreen,

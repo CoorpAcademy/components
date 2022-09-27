@@ -155,9 +155,6 @@
 }
 
 @media mobile {
-  .stackedSlidesContainer {
-    max-width: 335px;
-  }
   .slideBase {
     height: calc(100vh - 185px);
   }
