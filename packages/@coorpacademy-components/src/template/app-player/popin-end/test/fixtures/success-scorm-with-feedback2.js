@@ -14,7 +14,9 @@ export default defaultsDeep(correct, {
         title: 'IV',
         details: '4/4'
       },
-      lives: false
+      lives: {
+        count: null
+      }
     },
     mode: 'scorm',
     summary: {

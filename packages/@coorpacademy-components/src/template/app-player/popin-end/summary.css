@@ -263,33 +263,42 @@
 }
 
 .smallCircle {
-  top: 190px;
-  left: 250px;
+  top:  -68px;
+  left: calc(50vw - 50vh - 68px);
   height: calc(100vh + 136px);
   width: calc(100vh + 136px);
   composes: circle;
 }
 .mediumCircle {
-  top: 65px;
-  left: 125px;
+  top: -193px;
+  left: calc(50vw - 50vh - 193px);
   height: calc(100vh + 386px);
   width: calc(100vh + 386px);
   composes: circle;
 }
 .largeCircle {
-  top: -60px;
-  left: 0px;
+  top: -318px;
+  left: calc(50vw - 50vh - 318px);
   height: calc(100vh + 636px);
   width: calc(100vh + 636px);
   composes: circle;
 }
+.background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 .organismPlayerResultContainerScorm {
   height: 100%;
+  min-height: calc(100vh - 60px);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: scroll;
+  position: relative;
+  overflow: hidden;
 }
 .lottie {
   display: flex;
@@ -303,7 +312,7 @@
   position: absolute;
   z-index: 1;
   width: 100%;
-  top: 60px;
+  top: 0px;
 }
 .ie11Backup {
   position: relative;
@@ -328,15 +337,8 @@
   }
 }
 @media tablet {
-  .organismPlayerResultContainerScorm {
-    height: 100%;
-  }
   .largeCircle , .mediumCircle, .smallCircle {
-    border: 0px;
-    height: 100%;
-    min-height: calc(100vh - 60px) ;
-    width: 100%;
-    border-radius: 0;
+    display: none;
   }
 }
 

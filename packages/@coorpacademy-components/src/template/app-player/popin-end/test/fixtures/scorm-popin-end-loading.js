@@ -6,7 +6,6 @@ export default defaultsDeep(correct, {
     mode: 'scorm',
     summary: {
       header: {
-        type: null,
         title: null,
         subtitle: null,
         failed: null

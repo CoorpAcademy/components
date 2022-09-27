@@ -16,7 +16,9 @@ export default defaultsDeep(correct, {
         title: 'IV',
         details: '4/4'
       },
-      lives: false
+      lives: {
+        count: null
+      }
     },
     mode: 'scorm',
     summary: {
@@ -51,7 +53,7 @@ export default defaultsDeep(correct, {
         description:
           'Dommage, <b>vous n’êtes pas tout à fait prêt à animer un cours de géo sur le bassin méditerranéen…</b> Le camembert, ce n’est pas pour tout de suite. Allez, prenez un bout de brie et retentez votre chance !',
         media: {
-          src: '[]'
+          src: []
         }
       },
       recommendation: {
