@@ -50,3 +50,9 @@
   position: relative;
   bottom: 20%;
 }
+
+:-ms-fullscreen,
+.onQuitPopin {
+  position: absolute;
+  z-index: 80;
+}
