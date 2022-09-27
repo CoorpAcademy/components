@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
-  NovaLineSettingsCookie as Cookie
+  NovaLineSettingsCookie as Cookie,
+  NovaSolidSpaceMoonRocket as MoonRocket
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
@@ -30,7 +31,8 @@ const CMPopin = props => {
 
   const logo = {
     AlertDiamond,
-    WindowUpload
+    WindowUpload,
+    MoonRocket
   };
   const LogoComponent = logo[icon];
 
@@ -149,6 +151,7 @@ const CMPopin = props => {
                 data-name={'cm-popin-cta'}
                 aria-label={firstButton['aria-label']}
                 type={firstButton.type}
+                customStyle={firstButton.customStyle}
               />
             </div>
           ) : null}
@@ -171,6 +174,7 @@ const CMPopin = props => {
                 data-name={`cm-popin-cta-${thirdButton.type}`}
                 aria-label={thirdButton['aria-label']}
                 type={thirdButton.type}
+                customStyle={thirdButton.customStyle}
               />
             </div>
           ) : null}
@@ -189,21 +193,24 @@ CMPopin.propTypes = {
     handleOnclick: PropTypes.func,
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary'])
+    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary', 'tertiary']),
+    customStyle: PropTypes.object
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
-    largeButton: PropTypes.boolean
+    largeButton: PropTypes.boolean,
+    customStyle: PropTypes.object
   }),
   thirdButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
-    largeButton: PropTypes.boolean
+    largeButton: PropTypes.boolean,
+    customStyle: PropTypes.object
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,

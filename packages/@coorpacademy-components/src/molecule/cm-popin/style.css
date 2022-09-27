@@ -114,6 +114,7 @@
 }
 
 .button {
+  min-width: max-content;
   width: 160px;
   padding: 8px;
 }
@@ -267,7 +268,31 @@ a {
 .popinCookie .largeButton {
   padding: 0px 8px 0px 0px
 }
+
 @media tablet {
+  .popin {
+    position: fixed;
+  }
+
+  .popin {
+    width: 80%;
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    margin: 48px 24px 32px 24px;
+    width: 85%;
+  }
+  
+  .button {
+    width: 100%;
+  }
+
+  .titleContainer {
+    width: 85%;
+  }
+
   .popinCookie {
     position: fixed;
     bottom: 10px;
@@ -281,15 +306,52 @@ a {
     width: 100%;
     padding: 0px 0px 8px 0px
   }
-  .buttonContainer {
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
+
   .popinCookie .largeButton {
     padding: 8px 0px 0px 0px
   }
   .popinCookie .message {
     padding: 24px 24px 0px 24px
   }
- 
+
+  @media mobile {
+    .popin {
+      position: fixed;
+    }
+
+    .popin {
+      width: 80%;
+    }
+
+    .buttonContainer {
+      display: flex;
+      margin: 48px 24px 32px 24px;
+      width: 85%;
+    }
+    
+    .button {
+      width: 100%;
+    }
+
+    .titleContainer {
+      width: 85%;
+    }
+  }
+}
+
+/* ie11 style */
+_:-ms-fullscreen,
+.popinHeader
+button {
+  position: relative;
+}
+
+_:-ms-fullscreen,
+.descriptionText {
+  width: 85%;
+}
+
+_:-ms-fullscreen,
+.button {
+  width: 40%;
 }

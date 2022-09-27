@@ -184,6 +184,7 @@ import _NovaSolidRemoveAddSubtract1 from './components/nova-solid/remove-add/sub
 import _NovaSolidResizeMoveExpandDiagonal3 from './components/nova-solid/resize-move/expand-diagonal-3';
 import _NovaSolidResizeMoveShrinkDiagonal1 from './components/nova-solid/resize-move/shrink-diagonal-1';
 import _NovaSolidSchoolScienceGraduationHat from './components/nova-solid/school-science/graduation-hat';
+import _NovaSolidSpaceMoonRocket from './components/nova-solid/space/moon-rocket';
 import _NovaSolidSpaceRingPlanet from './components/nova-solid/space/ring-planet';
 import _NovaSolidSpaceSpaceRocket from './components/nova-solid/space/space-rocket';
 import _NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
@@ -390,6 +391,7 @@ export const NovaSolidRemoveAddSubtract1: Icon = _NovaSolidRemoveAddSubtract1;
 export const NovaSolidResizeMoveExpandDiagonal3: Icon = _NovaSolidResizeMoveExpandDiagonal3;
 export const NovaSolidResizeMoveShrinkDiagonal1: Icon = _NovaSolidResizeMoveShrinkDiagonal1;
 export const NovaSolidSchoolScienceGraduationHat: Icon = _NovaSolidSchoolScienceGraduationHat;
+export const NovaSolidSpaceMoonRocket: Icon = _NovaSolidSpaceMoonRocket;
 export const NovaSolidSpaceRingPlanet: Icon = _NovaSolidSpaceRingPlanet;
 export const NovaSolidSpaceSpaceRocket: Icon = _NovaSolidSpaceSpaceRocket;
 export const NovaSolidStatusCheckCircle2: Icon = _NovaSolidStatusCheckCircle2;
