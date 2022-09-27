@@ -341,7 +341,8 @@ a {
 
 /* ie11 style */
 _:-ms-fullscreen,
-.popinHeader button {
+.popinHeader
+button {
   position: relative;
 }
 

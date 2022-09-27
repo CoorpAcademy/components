@@ -11,7 +11,7 @@ export default {
       handleOnclick: () => {
         console.log('cancel');
       },
-      'aria-label': 'Cancel this operation',
+      'aria-label': 'Cancel this operation'
     },
     secondButton: {
       label: 'Undo',

@@ -14,13 +14,13 @@ export default {
       label: 'Only essentials',
       type: 'secondary',
       'aria-label': 'Only essentials',
-      handleOnClick: () => {},
+      handleOnClick: () => {}
     },
     thirdButton: {
       label: 'Allow cookies',
       type: 'primary',
       'aria-label': 'Allow cookies',
-      handleOnClick: () => {},
+      handleOnClick: () => {}
     }
   }
 };
