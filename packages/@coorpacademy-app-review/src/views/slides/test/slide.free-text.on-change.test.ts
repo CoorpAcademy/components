@@ -1,15 +1,26 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
-import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
+import {POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from '../../../actions/api/post-answer';
+import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
+import {
+  CORRECTION_FETCH_REQUEST,
+  CORRECTION_FETCH_SUCCESS
+} from '../../../actions/api/fetch-correction';
+import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../../actions/api/fetch-rank';
 import {mapStateToSlidesProps} from '..';
 import {ProgressionFromAPI} from '../../../types/common';
-import {services} from '../../../test/util/services.mock';
+import {
+  getChoicesCorrection,
+  postAnswerResponses,
+  services
+} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
 import {FreeText} from '../../../types/slides';
 import {freeTextSlide} from './fixtures/free-text';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
@@ -58,15 +69,30 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch EDIT_BASIC action via the property onChange of a Free Text slide', t => {
-  t.plan(2);
-
+test('should dispatch EDIT_BASIC action via the property onChange of a Free Text slide, and all actions after click on validate the slide', async t => {
+  t.plan(3);
   const expectedActions = [
     {
       type: EDIT_BASIC,
       meta: {slideRef: freeTextSlide._id},
       payload: ['My Answer']
-    }
+    },
+    {type: POST_ANSWER_REQUEST, meta: {slideRef: freeTextSlide._id}},
+    {
+      type: POST_ANSWER_SUCCESS,
+      meta: {slideRef: freeTextSlide._id},
+      payload: postAnswerResponses[freeTextSlide._id]
+    },
+    {type: SLIDE_FETCH_REQUEST, meta: {slideRef: qcmGraphicSlide._id}},
+    {type: SLIDE_FETCH_SUCCESS, meta: {slideRef: qcmGraphicSlide._id}, payload: qcmGraphicSlide},
+    {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: freeTextSlide._id}},
+    {
+      type: CORRECTION_FETCH_SUCCESS,
+      meta: {slideRef: freeTextSlide._id},
+      payload: getChoicesCorrection(freeTextSlide._id)
+    },
+    {type: RANK_FETCH_START_REQUEST},
+    {type: RANK_FETCH_START_SUCCESS, payload: {rank: 93}}
   ];
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
 
@@ -83,7 +109,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
 
-  const SlideProps = props.stack.slides['0'].answerUI?.model as FreeText;
-  const onChange = get('onChange', SlideProps);
-  onChange('My Answer');
+  const slideProps = props.stack.slides['0'].answerUI?.model as FreeText;
+  await slideProps.onChange('My Answer');
+  await props.stack.validateButton.onClick();
 });
