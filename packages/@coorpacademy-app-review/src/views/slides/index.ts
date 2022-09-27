@@ -3,7 +3,6 @@ import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import last from 'lodash/fp/last';
-import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import slice from 'lodash/fp/slice';
@@ -15,6 +14,7 @@ import type {SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
+import {nextSlide} from '../../actions/ui/next-slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -33,19 +33,20 @@ type StepItem = {
 
 type SlideUIAnimations = 'unstack' | 'restack';
 
-export type UISlide = {
+export type ReviewSlide = {
+  hidden: boolean;
+  position: number;
+  loading: boolean;
+  showCorrectionPopin?: boolean;
+  animateCorrectionPopin?: boolean;
+  parentContentTitle?: string;
   questionText?: string;
   answerUI?: AnswerUI;
-  hidden?: boolean;
-  position: number;
   animationType?: SlideUIAnimations;
-  isCorrect?: boolean;
-  endReview?: boolean;
-  loading: boolean;
 };
 
 type SlidesStack = {
-  [key in SlideIndexes]: UISlide;
+  [key in SlideIndexes]: ReviewSlide;
 };
 
 type CorrectionPopinInformation = {
@@ -61,6 +62,7 @@ type CorrectionPopinKlf = {
 type CorrectionPopinNext = {
   label: string;
   ariaLabel: string;
+  onClick: Function;
 };
 
 export type CorrectionPopinProps = {
@@ -158,10 +160,9 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
   // @ts-expect-error typescript does not support capped versions of lodash functions
   const stack = reduce.convert({cap: false})(
-    (acc: SlidesStack, uiSlide: UISlide, index: string) => {
+    (acc: SlidesStack, uiSlide: ReviewSlide, index: string): SlidesStack => {
       const slideRef = slideRefs[toInteger(index)];
       if (!slideRef) return set(index, uiSlide, acc);
-
       const slideFromAPI = get(slideRef, state.data.slides);
       if (!slideFromAPI) return set(index, uiSlide, acc);
 
@@ -175,16 +176,18 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
         isCurrentSlideRef && get(['ui', 'slide', slideRef, 'animateCorrectionPopin'], state);
       const showCorrectionPopin =
         isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
+      const animationType = get(['ui', 'slide', slideRef, 'animationType'], state);
 
-      const updatedUiSlide = pipe(
-        set('showCorrectionPopin', showCorrectionPopin),
-        set('animateCorrectionPopin', animateCorrectionPopin),
-        set('loading', false),
-        set('questionText', questionText),
-        set('answerUI', answerUI),
-        set('parentContentTitle', `From "${parentContentTitle}" ${parentContentType}`) // TODO translate: -From- .... -Course/chapter-
-        // TODO: Set position according to currentSlideRef et slideRefs (or maybe a value on the state ui.slidePositions !!)
-      )(uiSlide);
+      const updatedUiSlide = {
+        ...uiSlide,
+        showCorrectionPopin,
+        animateCorrectionPopin,
+        loading: false,
+        questionText,
+        answerUI,
+        parentContentTitle: `From "${parentContentTitle}" ${parentContentType}`,
+        animationType
+      };
 
       return set(index, updatedUiSlide, acc);
     },
@@ -275,28 +278,31 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
   return steps;
 };
 
-const getCorrectionPopinProps = (
-  isCorrect: boolean,
-  correctAnswer: string[],
-  klf: string
-): CorrectionPopinProps => ({
-  klf: isCorrect
-    ? undefined
-    : {
-        label: '_klf',
-        tooltip: klf
+const getCorrectionPopinProps =
+  (dispatch: Dispatch) =>
+  (isCorrect: boolean, correctAnswer: string[], klf: string): CorrectionPopinProps => {
+    return {
+      klf: isCorrect
+        ? undefined
+        : {
+            label: '_klf',
+            tooltip: klf
+          },
+      resultLabel: isCorrect ? '_right' : '_wrong',
+      information: {
+        label: isCorrect ? '_klf' : '_correctAnswer',
+        message: isCorrect ? klf : join(',', correctAnswer)
       },
-  resultLabel: isCorrect ? '_right' : '_wrong',
-  information: {
-    label: isCorrect ? '_klf' : '_correctAnswer',
-    message: isCorrect ? klf : join(',', correctAnswer)
-  },
-  next: {
-    ariaLabel: '_correctionNextAriaLabel',
-    label: '_correctionNextLabel'
-  },
-  type: isCorrect ? 'right' : 'wrong'
-});
+      next: {
+        ariaLabel: '_correctionNextAriaLabel',
+        label: '_correctionNextLabel',
+        onClick: (): void => {
+          dispatch(nextSlide);
+        }
+      },
+      type: isCorrect ? 'right' : 'wrong'
+    };
+  };
 
 export const mapStateToSlidesProps = (
   state: StoreState,
@@ -322,12 +328,12 @@ export const mapStateToSlidesProps = (
       validateButton: {
         label: '__validate',
         disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
-        onClick: /* istanbul ignore next */ (): void => {
+        onClick: (): void => {
           dispatch(postAnswer);
         }
       },
       correctionPopinProps:
-        correction && getCorrectionPopinProps(isCorrect, correction.correctAnswer, klf),
+        correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
     congratsProps: undefined

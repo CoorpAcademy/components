@@ -3,9 +3,9 @@ module.exports = {
   'check-coverage': true,
   reporter: ['html', 'text-summary'],
   statements: 99.47,
-  branches: 97.65,
-  functions: 98.96,
-  lines: 99.6,
+  branches: 99.38,
+  functions: 96.97,
+  lines: 99.4,
   all: true,
   exclude: [
     'ava.config.js',

@@ -22,13 +22,11 @@ const CorrectionPopin = ({
   const klf = getOr({}, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
+  const onClick = get(['next', 'onClick'], correctionPopinProps);
 
   const _correctionPopinProps = {
     next: {
-      onClick: () => {
-        // eslint-disable-next-line no-console
-        console.log('Next Slide');
-      },
+      onClick,
       label: next && next.label,
       'data-name': `next-question-button-${slideIndex}`,
       'aria-label': next && next['aria-label']
@@ -71,19 +69,6 @@ const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
     customStyle: {
       backgroundColor: primarySkinColor
     }
-    /*
-      slide validation action, this will trigger the correction popin
-      (with the useEffect that fires the dispatchers, if there is a nextContent content,
-      it will be loaded here) but will not trigger any animations unless the endReview
-      signal is received (all slide will disappear, also fired in a useEffect),
-
-      if it is the last slide and the content needs to be different, then that update will
-      be handled on the next slide logic but the content will be carried from here.
-    onClick: async () => {
-      // endReview based on nextContent ref exit node values: 'successExitNode' : 'failExitNode'
-      await validateSlide();
-    },
-    */
   };
 
   return (

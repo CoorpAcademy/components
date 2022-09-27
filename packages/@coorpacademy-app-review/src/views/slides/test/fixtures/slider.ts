@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import {UISlide} from '../..';
+import {ReviewSlide} from '../..';
 import {SlideFromAPI} from '../../../../types/common';
 
 export const sliderSlide: SlideFromAPI = {
@@ -24,7 +24,7 @@ export const sliderSlide: SlideFromAPI = {
   }
 };
 
-export const sliderUISlide: Partial<UISlide> = {
+export const sliderUISlide: Partial<ReviewSlide> = {
   questionText:
     'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?',
   answerUI: {

@@ -72,6 +72,7 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     hidden: false,
