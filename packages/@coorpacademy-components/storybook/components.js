@@ -1080,6 +1080,7 @@ import TemplateAppPlayerPlayerSlidesFixtureDefault from '../src/template/app-pla
 import TemplateAppPlayerPlayerSlidesFixtureDropDown from '../src/template/app-player/player/slides/test/fixtures/drop-down';
 import TemplateAppPlayerPlayerSlidesFixtureError from '../src/template/app-player/player/slides/test/fixtures/error';
 import TemplateAppPlayerPlayerSlidesFixtureFreeText from '../src/template/app-player/player/slides/test/fixtures/free-text';
+import TemplateAppPlayerPlayerSlidesFixtureLoadingWithError from '../src/template/app-player/player/slides/test/fixtures/loading-with-error';
 import TemplateAppPlayerPlayerSlidesFixtureLoading from '../src/template/app-player/player/slides/test/fixtures/loading';
 import TemplateAppPlayerPlayerSlidesFixtureMediaH5P from '../src/template/app-player/player/slides/test/fixtures/media-h5p';
 import TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer from '../src/template/app-player/player/slides/test/fixtures/media-omni-player';
@@ -2963,6 +2964,7 @@ export const fixtures = {
       DropDown: TemplateAppPlayerPlayerSlidesFixtureDropDown,
       Error: TemplateAppPlayerPlayerSlidesFixtureError,
       FreeText: TemplateAppPlayerPlayerSlidesFixtureFreeText,
+      LoadingWithError: TemplateAppPlayerPlayerSlidesFixtureLoadingWithError,
       Loading: TemplateAppPlayerPlayerSlidesFixtureLoading,
       MediaH5P: TemplateAppPlayerPlayerSlidesFixtureMediaH5P,
       MediaOmniPlayer: TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer,
