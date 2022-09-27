@@ -7,7 +7,14 @@ import Header from '../index.native';
 import {TemplateContext} from '../../../template/app-review/template-context';
 
 test('handles onSettingsPress on gear icon', t => {
-  const context = mockMobileContext({});
+  const context = mockMobileContext({
+    brandTheme: {
+      images: {
+        'logo-mobile':
+          'https://static.coorpacademy.com/content/mobile/raw/coorp_logo_infinite-1552063832916.png'
+      }
+    }
+  });
 
   const onSearchPress = (event: PressEvent) => {
     t.is(event, 'search');
