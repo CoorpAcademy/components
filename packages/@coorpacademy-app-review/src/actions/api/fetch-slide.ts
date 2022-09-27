@@ -41,7 +41,6 @@ export const fetchSlide =
 
     if (response.type === SLIDE_FETCH_SUCCESS) {
       const slideFromAPI = response.payload;
-      if (!slideFromAPI) throw new Error('Slide not found');
       const state = getState();
       const slides = get('data.progression.state.slides', state);
       if (isEmpty(slides)) {

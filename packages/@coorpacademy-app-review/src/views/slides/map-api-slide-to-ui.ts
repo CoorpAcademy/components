@@ -278,9 +278,6 @@ const getAnswerUIModel = (
 export const mapApiSlideToUi =
   (dispatch: Dispatch) =>
   (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
-    if (!slide) {
-      throw new Error('no slide was found');
-    }
     const questionText = getOr('', 'question.header', slide);
 
     return {
