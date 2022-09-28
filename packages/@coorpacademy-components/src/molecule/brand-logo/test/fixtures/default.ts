@@ -9,7 +9,14 @@ type Fixture = {
 
 const fixture: Fixture = {
   mobileContext: {
-    ...mockMobileContext()
+    ...mockMobileContext({
+      brandTheme: {
+        images: {
+          'logo-mobile':
+            'https://static.coorpacademy.com/content/mobile/raw/coorp_logo_infinite-1552063832916.png'
+        }
+      }
+    })
   },
   props: {
     height: 37
