@@ -58,7 +58,8 @@ const headerProps = (options, {dispatch}) => state => {
       onClick: () => dispatch(back)
     },
     subcontent: headerSubcontent(engineRef, state),
-    lives: hide ? false : {count}
+    lives: hide ? false : {count},
+    mode: options.mode || 'default'
   };
 };
 

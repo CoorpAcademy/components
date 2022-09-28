@@ -92,6 +92,16 @@
   composes: innerHTML from '../../../../../atom/label/style.css';
 }
 
+.contentWrapperScorm {
+  composes: contentWrapper;
+  cursor: default;
+}
+
+.contentWrapperScorm:hover {
+  color: dark;
+  stroke: dark;
+}
+
 @media mobile {
   .contentWrapper {
     max-width: 90%;

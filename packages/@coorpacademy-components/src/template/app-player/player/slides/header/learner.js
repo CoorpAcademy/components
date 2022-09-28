@@ -7,13 +7,35 @@ import Link from '../../../../../atom/link';
 import Provider from '../../../../../atom/provider';
 import style from './learner.css';
 
-const Content = ({onClick, title, details}, context) => {
+const LearnerHeaderWrapper = props => {
+  const {children, mode, onClick} = props;
+  if (mode === 'scorm')
+    return (
+      <div className={style.contentWrapperScorm}>
+        <div className={style.backIcon} />
+        {children}
+      </div>
+    );
+  return (
+    <Link onClick={onClick} className={style.contentWrapper}>
+      <BackIcon className={style.backIcon} color="inherit" />
+      {children}
+    </Link>
+  );
+};
+
+LearnerHeaderWrapper.propTypes = {
+  onClick: Link.propTypes.onClick,
+  mode: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired
+};
+
+const Content = ({onClick, title, details, mode}, context) => {
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
   return (
-    <Link onClick={onClick} className={style.contentWrapper}>
-      <BackIcon className={style.backIcon} color="inherit" />
+    <LearnerHeaderWrapper mode={mode} onClick={onClick}>
       <div className={style.content}>
         <div
           className={style.contentDetails}
@@ -31,7 +53,7 @@ const Content = ({onClick, title, details}, context) => {
           dangerouslySetInnerHTML={{__html: title}}
         />
       </div>
-    </Link>
+    </LearnerHeaderWrapper>
   );
 };
 
@@ -42,7 +64,8 @@ Content.contextTypes = {
 Content.propTypes = {
   onClick: Link.propTypes.onClick,
   title: PropTypes.string.isRequired,
-  details: PropTypes.string
+  details: PropTypes.string,
+  mode: PropTypes.string
 };
 
 const Subcontent = ({title, details}, context) => (
@@ -62,11 +85,11 @@ Subcontent.propTypes = {
 };
 
 const LearnerHeader = (props, context) => {
-  const {content, subcontent} = props;
+  const {content, subcontent, mode} = props;
 
   return (
     <div className={style.wrapper}>
-      <Content {...content} />
+      <Content {...content} mode={mode} />
       <Subcontent {...subcontent} />
     </div>
   );
@@ -74,7 +97,8 @@ const LearnerHeader = (props, context) => {
 
 LearnerHeader.propTypes = {
   content: PropTypes.shape(Content.propTypes).isRequired,
-  subcontent: PropTypes.shape(Subcontent.propTypes).isRequired
+  subcontent: PropTypes.shape(Subcontent.propTypes).isRequired,
+  mode: PropTypes.string
 };
 
 export default LearnerHeader;
