@@ -162,16 +162,14 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
       const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
-      const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
-      const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
+      const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
 
       const isCurrentSlideRef = currentSlideRef === slideRef;
-      const animateCorrectionPopin =
-        isCurrentSlideRef && get(['ui', 'slide', slideRef, 'animateCorrectionPopin'], state);
-      const showCorrectionPopin =
-        isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
-      const animationType = get(['ui', 'slide', slideRef, 'animationType'], state);
-      const position = getOr(uiSlide.position, ['ui', 'slide', slideRef, 'position'], state);
+      const slideUI = get(['ui', 'slide', slideRef], state);
+      const animateCorrectionPopin = isCurrentSlideRef && slideUI.animateCorrectionPopin;
+      const showCorrectionPopin = isCurrentSlideRef && slideUI.showCorrectionPopin;
+      const animationType = slideUI.animationType;
+      const position = slideUI.position || uiSlide.position;
 
       const updatedUiSlide = {
         ...uiSlide,
