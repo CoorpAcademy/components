@@ -15,10 +15,6 @@ const PlayerReview = ({
   congratsProps,
   onQuitPopinProps
 }) => {
-  // eslint-disable-next-line no-console
-  console.log('onQuitPopinProps');
-  // eslint-disable-next-line no-console
-  console.log(onQuitPopinProps);
   return (
     <div
       key="review-player-container"

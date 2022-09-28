@@ -353,5 +353,10 @@ _:-ms-fullscreen,
 
 _:-ms-fullscreen,
 .button {
-  width: 40%;
+  width: 100%;
+}
+
+_:-ms-fullscreen,
+.popin {
+  position: relative;
 }
