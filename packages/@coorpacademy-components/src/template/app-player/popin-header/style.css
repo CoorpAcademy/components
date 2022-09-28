@@ -26,7 +26,6 @@
 }
 .scorm {
   height: auto;
-  padding: 50px 0 0 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -449,6 +448,8 @@
   }
   .resultContenantContainerScorm {
     width: 100vw;
+    padding: 0 40px 0 0;
+    box-sizing: border-box;
   }
 }
 
@@ -499,6 +500,7 @@
   .nextStepTitle {
     width: 177px;
   }
+  
   .iconCloseContainer,
   .iconSuccessContainer {
     margin: auto;

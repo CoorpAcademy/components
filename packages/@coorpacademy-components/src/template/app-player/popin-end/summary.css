@@ -4,6 +4,7 @@
 @value colors: '../../../variables/colors.css';
 @value xtraLightGrey from colors;
 @value grey from colors;
+@value cm_grey_75 from colors;
 @value medium from colors;
 @value white from colors;
 @value light from colors;
@@ -299,6 +300,14 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+.content {
+  border: 1px solid cm_grey_75;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  max-width: 885px;
+  margin: 50px 0px;
 }
 .lottie {
   display: flex;

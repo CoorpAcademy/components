@@ -282,7 +282,7 @@ const BackgroundScorm = props => {
           <div className={style.mediumCircle} />
           <div className={style.smallCircle} />
         </div>
-        {children}
+        <div className={style.content}>{children}</div>
       </div>
     );
   return children;

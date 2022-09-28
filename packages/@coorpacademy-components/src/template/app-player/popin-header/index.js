@@ -265,7 +265,7 @@ const CorrectionPart = props => {
         </h2>
         {failed && !isEmpty(corrections) ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
-      <IconsPart {...props} />
+      {mode !== 'scorm' ? <IconsPart {...props} /> : null}
     </div>
   );
 };
