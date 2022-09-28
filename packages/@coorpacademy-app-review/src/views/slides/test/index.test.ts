@@ -1,6 +1,7 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
+import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 import {
   postProgressionResponse as createdProgression,
@@ -868,7 +869,19 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     ]
   });
 
-  // TODO update test with props.stack validations when NEXT_SLIDE implemented
+  const propsToCheck = ['animateCorrectionPopin', 'animationType', 'position', 'hidden'];
+  t.deepEqual(pick(propsToCheck, props.stack.slides[0]), {
+    animateCorrectionPopin: false,
+    animationType: 'unstack',
+    hidden: true,
+    position: 5
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[1]), {
+    animateCorrectionPopin: false,
+    animationType: undefined,
+    hidden: false,
+    position: 0
+  });
 });
 
 test('should verify props when progression is in success', t => {
