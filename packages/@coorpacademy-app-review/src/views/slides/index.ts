@@ -34,7 +34,6 @@ type StepItem = {
 type SlideUIAnimations = 'unstack' | 'restack';
 
 export type ReviewSlide = {
-  hidden: boolean;
   position: number;
   loading: boolean;
   showCorrectionPopin?: boolean;
@@ -117,27 +116,22 @@ export type SlidesViewProps = {
 
 export const initialState: SlidesStack = {
   '0': {
-    hidden: false,
     position: 0,
     loading: true
   },
   '1': {
-    hidden: false,
     position: 1,
     loading: true
   },
   '2': {
-    hidden: false,
     position: 2,
     loading: true
   },
   '3': {
-    hidden: false,
     position: 3,
     loading: true
   },
   '4': {
-    hidden: false,
     position: 4,
     loading: true
   }
@@ -177,9 +171,11 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const showCorrectionPopin =
         isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
       const animationType = get(['ui', 'slide', slideRef, 'animationType'], state);
+      const position = getOr(uiSlide.position, ['ui', 'slide', slideRef, 'position'], state);
 
       const updatedUiSlide = {
         ...uiSlide,
+        position,
         showCorrectionPopin,
         animateCorrectionPopin,
         loading: false,

@@ -85,27 +85,22 @@ test('should create initial props when fetched slide is not still received', t =
     endReview: false,
     slides: {
       '0': {
-        hidden: false,
         position: 0,
         loading: true
       },
       '1': {
-        hidden: false,
         position: 1,
         loading: true
       },
       '2': {
-        hidden: false,
         position: 2,
         loading: true
       },
       '3': {
-        hidden: false,
         position: 3,
         loading: true
       },
       '4': {
-        hidden: false,
         position: 4,
         loading: true
       }
@@ -183,7 +178,6 @@ test('should create props when first slide is on the state', t => {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -201,22 +195,18 @@ test('should create props when first slide is on the state', t => {
   });
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
-      hidden: false,
       position: 1,
       loading: true
     },
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -293,7 +283,6 @@ test('should create props when slide is on the state and user has selected answe
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -311,22 +300,18 @@ test('should create props when slide is on the state and user has selected answe
   });
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
-      hidden: false,
       position: 1,
       loading: true
     },
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -409,7 +394,6 @@ test('should verify props when first slide was answered correctly and next slide
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -427,22 +411,18 @@ test('should verify props when first slide was answered correctly and next slide
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
-      hidden: false,
       position: 1,
       loading: true
     },
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -612,7 +592,6 @@ test('should verify props when first slide was answered, next slide is fetched &
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -631,7 +610,6 @@ test('should verify props when first slide was answered, next slide is fetched &
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 1,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -640,17 +618,14 @@ test('should verify props when first slide was answered, next slide is fetched &
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0', '1'], props.stack.slides), {
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -749,7 +724,6 @@ test('should verify props when first slide was answered incorrectly, next slide 
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -768,7 +742,6 @@ test('should verify props when first slide was answered incorrectly, next slide 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 1,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -777,17 +750,14 @@ test('should verify props when first slide was answered incorrectly, next slide 
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0', '1'], props.stack.slides), {
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -822,12 +792,14 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: true,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          position: 5
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          position: 0
         }
       }
     }
@@ -869,19 +841,32 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     ]
   });
 
-  const propsToCheck = ['animateCorrectionPopin', 'animationType', 'position', 'hidden'];
+  const propsToCheck = ['animateCorrectionPopin', 'animationType', 'position'];
   t.deepEqual(pick(propsToCheck, props.stack.slides[0]), {
     animateCorrectionPopin: false,
     animationType: 'unstack',
-    hidden: true,
     position: 5
   });
   t.deepEqual(pick(propsToCheck, props.stack.slides[1]), {
     animateCorrectionPopin: false,
     animationType: undefined,
-    hidden: false,
     position: 0
   });
+  /* t.deepEqual(pick(propsToCheck, props.stack.slides[2]), {
+    animateCorrectionPopin: false,
+    animationType: undefined,
+    position: 1
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
+    animateCorrectionPopin: false,
+    animationType: undefined,
+    position: 2
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[4]), {
+    animateCorrectionPopin: false,
+    animationType: undefined,
+    position: 3
+  }); */
 });
 
 test('should verify props when progression is in success', t => {

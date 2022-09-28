@@ -23,6 +23,7 @@ export type UISlide = {
   animateCorrectionPopin: boolean;
   showCorrectionPopin: boolean;
   animationType?: SlideUIAnimations;
+  position?: number;
 };
 
 export type UISlideState = Record<string, UISlide>;
@@ -69,7 +70,9 @@ const reducer = (
     case NEXT_SLIDE: {
       return pipe(
         set([action.payload.currentSlideRef, 'animateCorrectionPopin'], false),
-        set([action.payload.currentSlideRef, 'animationType'], action.payload.animationType)
+        set([action.payload.currentSlideRef, 'animationType'], action.payload.animationType),
+        set([action.payload.currentSlideRef, 'position'], action.payload.position),
+        set([action.payload.nextSlideRef, 'position'], 0)
       )(state);
     }
     default:
