@@ -7,7 +7,7 @@ import {Props} from './prop-types';
 export const TOTAL_SLIDES_STACK = 5;
 
 const StackedSlides = (props: Props) => {
-  const {slides = {}, endReview, validateButton, correctionPopinProps} = props;
+  const {slides, validateButton, correctionPopinProps} = props;
 
   const indexes = keys(slides).reverse();
   const stackedSlides = indexes.map(slideIndex => {

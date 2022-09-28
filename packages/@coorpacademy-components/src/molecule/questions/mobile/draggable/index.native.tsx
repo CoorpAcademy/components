@@ -4,11 +4,11 @@ import QuestionChoice from '../../../../atom/choice/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {Theme} from '../../../../variables/theme.native';
 
-import type {Choice} from '../../types';
+import type {SelectableChoice} from '../../types';
 
 export interface DropZoneProps {
-  choices: Array<Choice>;
-  onPress: (item: Choice) => () => void;
+  choices: Array<SelectableChoice>;
+  onPress: (item: SelectableChoice) => () => void;
 }
 
 type DropZoneStyleSheet = {
@@ -90,9 +90,9 @@ const DropZone = (props: DropZoneProps) => {
 };
 
 export interface Props {
-  choices: Array<Choice>;
+  choices: Array<SelectableChoice>;
   testID?: string;
-  onPress: (item: Choice) => () => void;
+  onPress: (item: SelectableChoice) => () => void;
 }
 
 type QuestionDraggableStyleSheet = {
@@ -131,7 +131,7 @@ const QuestionDraggable = (props: Props) => {
 
   const pickableChoices = choices
     .filter(item => !item.selected)
-    .map((item, index) => (
+    .map((item: SelectableChoice, index) => (
       <QuestionChoice
         style={styleSheet.choice}
         key={item._id}

@@ -1,10 +1,11 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {GestureResponderEvent} from 'react-native';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import Header from '../index.native';
 import {TemplateContext} from '../../../template/app-review/template-context';
+import mockedGestureEvent from '../../../test/helpers/mocked-gesture-event';
 
 test('handles onSettingsPress on gear icon', t => {
   const context = mockMobileContext({
@@ -16,11 +17,11 @@ test('handles onSettingsPress on gear icon', t => {
     }
   });
 
-  const onSearchPress = (event: PressEvent) => {
-    t.is(event, 'search');
+  const onSearchPress = (event: GestureResponderEvent) => {
+    t.is(event, mockedGestureEvent);
   };
-  const onSettingsPress = (event: PressEvent) => {
-    t.is(event, 'settings');
+  const onSettingsPress = (event: GestureResponderEvent) => {
+    t.is(event, mockedGestureEvent);
   };
   const onLogoLongPress = () => {
     t.pass();

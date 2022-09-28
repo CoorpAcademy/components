@@ -24,7 +24,7 @@ export type Props = {
   onChange: OnChangeFunction;
   onFocus: () => void;
   onBlur: () => void;
-  style?: ViewStyle;
+  style?: ViewStyle[];
   textStyle?: ViewStyle;
   testID?: string;
 };

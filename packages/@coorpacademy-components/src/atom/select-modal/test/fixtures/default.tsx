@@ -1,17 +1,18 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {Choice} from '../../../../molecule/questions/types';
+import {TemplateListOfChoices} from '../../../../molecule/questions/types';
 
-export const select: Choice = {
+export const select: TemplateListOfChoices = {
   _id: '456',
   type: 'select',
   name: 'sel456',
+  value: 'Play Store',
   label: '',
   items: [
     {
       _id: '1',
       text: 'Play Store',
-      selected: false
+      selected: true
     },
     {
       _id: '2',

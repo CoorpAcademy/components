@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
-import ReviewSlideProps, {SlidePropsTypes} from '../review-slide/prop-types';
+import ReviewSlideProps, {
+  CorrectionPopinProps,
+  SlideProps,
+  SlidePropsTypes
+} from '../review-slide/prop-types';
 
 const propTypes = {
   validateButton: ReviewSlideProps.validateButton,
@@ -16,4 +20,15 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = PropTypes.InferProps<typeof propTypes>;
+export type Props = {
+  validateButton: {
+    label: string;
+    onClick: (args: any[]) => any;
+    disabled: boolean;
+  };
+  correctionPopinProps: CorrectionPopinProps;
+  slides: {
+    [key: string]: SlideProps;
+  };
+  endReview: boolean;
+};

@@ -43,14 +43,38 @@ export type ChoiceItem = {
   _id: string;
 };
 
-export type Choice = {
+type ChoiceBase = {
   _id: string;
   value?: string;
   name?: string;
-  type?: 'text' | 'select';
   label?: string;
-  items?: Array<ChoiceItem>;
-  media?: Media;
-  onPress?: Function;
-  selected?: boolean;
 };
+
+export type SelectableChoice = {
+  _id: string;
+  label: string;
+  selected: boolean;
+  onPress: Function;
+  media?: Media;
+};
+
+export type TemplateTextChoice = {
+  type: 'text';
+  _id: string;
+  name: string;
+  value: string;
+  label: string;
+  selected: boolean;
+  // onPress: Function;
+};
+
+export type TemplateListOfChoices = {
+  type: 'select';
+  _id: string;
+  name: string;
+  value: string;
+  label: string;
+  items: Array<ChoiceItem>;
+};
+
+export type Choice = ChoiceBase | SelectableChoice | TemplateListOfChoices | TemplateTextChoice;

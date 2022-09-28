@@ -1,21 +1,24 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {Choice} from '../../../../types';
+import {Choice, TemplateListOfChoices, TemplateTextChoice} from '../../../../types';
 
 type Fixture = {props: Props};
 
-const field1: Choice = {
+const field1: TemplateTextChoice = {
   _id: '123',
   name: 'inp1',
   label: '',
-  type: 'text'
+  type: 'text',
+  value: '',
+  selected: false
 };
 
-const field2: Choice = {
+const field2: TemplateListOfChoices = {
   _id: '456',
   type: 'select',
   name: 'sel1',
   label: '',
+  value: 'App Store',
   items: [
     {
       _id: '1',
@@ -25,7 +28,7 @@ const field2: Choice = {
     {
       _id: '2',
       text: 'App Store',
-      selected: false
+      selected: true
     },
     {
       _id: '3',

@@ -2,12 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {TextStyle, View, ViewStyle} from 'react-native';
 
 import trim from 'lodash/fp/trim';
-import last from 'lodash/fp/last';
 
 import Html from '../../../../atom/html/index.native';
 import Select from '../../../../atom/select-modal/index.native';
 import Space from '../../../../atom/space/index.native';
-import type {Choice} from '../../types';
+import type {TemplateListOfChoices, TemplateTextChoice} from '../../types';
 import FreeText from '../../free-text/index.native';
 import {
   FocusedSelectId,
@@ -68,9 +67,9 @@ type TemplatePart = {
 type SectionProps = {
   isDisabled: boolean;
   section: Array<TemplatePart>;
-  choices: Array<Choice>;
+  choices: Array<TemplateTextChoice | TemplateListOfChoices>;
   index: number;
-  onInputChange: (item: Choice, value: string) => void;
+  onInputChange: (item: TemplateTextChoice | TemplateListOfChoices, value: string) => void;
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
   handleFocus: HandleFocus;
@@ -117,11 +116,11 @@ const Section = ({
 
 type ItemProps = {
   part: TemplatePart;
-  choices: Array<Choice>;
+  choices: Array<TemplateTextChoice | TemplateListOfChoices>;
   index: number;
   prefix: string;
   isDisabled?: boolean;
-  onInputChange: (item: Choice, value: string) => void;
+  onInputChange: (item: TemplateTextChoice | TemplateListOfChoices, value: string) => void;
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
   handleFocus: HandleFocus;
@@ -166,7 +165,9 @@ const Item = (props: ItemProps) => {
     const disabledSuffix = isDisabled ? '-disabled' : '';
     const selectedSuffix = value ? '-selected' : '';
 
-    const handleInputChange = (_item: Choice) => (_value: string) => onInputChange(_item, _value);
+    const handleInputChange = (_item: TemplateTextChoice | TemplateListOfChoices) => (
+      _value: string
+    ) => onInputChange(_item, _value);
 
     if (choice.type === 'text') {
       return (
@@ -183,6 +184,11 @@ const Item = (props: ItemProps) => {
       );
     }
 
+    const selectStyle: ViewStyle[] = [styles.input];
+    if (value) {
+      selectStyle.push(selectedStyle);
+    }
+
     if (choice.type === 'select') {
       return (
         <View style={styles.spaced} testID={id}>
@@ -197,7 +203,8 @@ const Item = (props: ItemProps) => {
             onFocus={handleFocus(id)}
             onChange={handleInputChange(choice)}
             textStyle={styles.text}
-            style={[styles.input, value && selectedStyle]}
+            style={selectStyle}
+            analyticsID={`${id}-select${selectedSuffix}${disabledSuffix}`}
             testID={`${id}-select${selectedSuffix}${disabledSuffix}`}
           />
         </View>
@@ -215,8 +222,8 @@ const Item = (props: ItemProps) => {
 export type Props = {
   isDisabled?: boolean;
   template: string;
-  choices: Array<Choice>;
-  onInputChange: (item: Choice, value: string) => void;
+  choices: Array<TemplateTextChoice | TemplateListOfChoices>;
+  onInputChange: (item: TemplateTextChoice | TemplateListOfChoices, value: string) => void;
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
   handleFocus: HandleFocus;
@@ -247,12 +254,8 @@ const QuestionTemplate = (props: Props) => {
     return null;
   }
 
-  const parts = parseTemplateString(template);
-
-  const sections: Array<Array<TemplatePart>> = parts.reduce((result, item) => {
-    const section = last(result) || [];
-    return result.slice(0, -1).concat([section.concat([item])]);
-  }, []);
+  const parts: TemplatePart[] = parseTemplateString(template);
+  const sections = [parts]; // @todo remove useless sections
 
   return (
     <View testID="question-template">

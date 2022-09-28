@@ -77,7 +77,7 @@ type Answer = {
   selected?: boolean;
   image?: string;
   options?: SelectOptions[];
-  type?: 'text' | 'select';
+  type: 'text' | 'select';
   name?: string;
 };
 

@@ -39,8 +39,21 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = PropTypes.InferProps<typeof propTypes> & {
-  num: number;
+export type CorrectionPopinProps = {
+  klf: {
+    label: string;
+    tooltip: string;
+  };
+  information: {
+    label: string;
+    message: string;
+  };
+  next: {
+    label: string;
+    'aria-label': string;
+  };
+  resultLabel: string;
+  type: 'right' | 'wrong';
 };
 
 export type SlideProps = {
@@ -55,4 +68,16 @@ export type SlideProps = {
   parentContentTitle: string;
   questionText: string;
   answerUI: AnswerProps;
+};
+
+export type Props = {
+  slideIndex: string;
+  num: number;
+  slide: SlideProps;
+  correctionPopinProps: CorrectionPopinProps;
+  validateButton: {
+    label: string;
+    onClick: (args: any[]) => any;
+    disabled: boolean;
+  };
 };
