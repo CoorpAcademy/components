@@ -361,3 +361,8 @@ _:-ms-fullscreen,
 .popin {
   position: relative;
 }
+
+_:-ms-fullscreen 
+.buttonContainer {
+  width: 85%;
+}
