@@ -8,9 +8,28 @@ export default defaultsDeep(loading, {
       header: {
         type: 'popinEnd',
         title: 'Ooops...',
-        subtitle: 'Almost, try again !',
+        subtitle: 'You are out of lives!',
         failed: true,
-        cta: {onClick: () => console.log, title: 'Retry level'}
+        lives: 0,
+        rank: null,
+        stars: null,
+        cta: {
+          onClick: () => {
+            console.log('Retry level - header cta');
+          },
+          title: 'Retry level'
+        }
+      },
+      action: {
+        type: 'simple',
+        prefix: 'Retry level:',
+        title: 'Eco-Friendly Actions: Reduce Your Daily Environmental Impact - Coach',
+        button: {
+          onClick: () => {
+            console.log('Retry level - action');
+          },
+          title: 'Retry level'
+        }
       },
       feedback: {
         title: 'Encore un effort !',
@@ -30,8 +49,11 @@ export default defaultsDeep(loading, {
       comment: null,
       footer: {
         title: 'Back to home',
-        onClick: () => {}
-      }
+        onClick: () => {
+          console.log('Back to home');
+        }
+      },
+      mode: 'scorm'
     }
   }
 });

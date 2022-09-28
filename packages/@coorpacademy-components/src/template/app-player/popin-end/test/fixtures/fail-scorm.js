@@ -9,7 +9,8 @@ export default defaultsDeep(loading, {
         type: 'popinEnd',
         title: 'Ooops...',
         subtitle: 'Almost, try again !',
-        failed: true
+        failed: true,
+        cta: {onClick: () => console.log, title: 'Retry level'}
       }
     }
   }

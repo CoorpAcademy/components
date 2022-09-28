@@ -24,7 +24,12 @@
   font-family: 'Gilroy';
   flex-wrap: wrap;
 }
-
+.scorm {
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .headerTitle {
   display: flex;
   height: 100px;
@@ -442,7 +447,9 @@
     padding-right: 130px;
   }
   .resultContenantContainerScorm {
-    width: 100vw
+    width: 100vw;
+    padding: 0 40px 0 0;
+    box-sizing: border-box;
   }
 }
 
@@ -493,6 +500,7 @@
   .nextStepTitle {
     width: 177px;
   }
+  
   .iconCloseContainer,
   .iconSuccessContainer {
     margin: auto;

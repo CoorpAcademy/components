@@ -4,6 +4,7 @@
 @value colors: '../../../variables/colors.css';
 @value xtraLightGrey from colors;
 @value grey from colors;
+@value cm_grey_75 from colors;
 @value medium from colors;
 @value white from colors;
 @value light from colors;
@@ -259,30 +260,54 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
 }
 
 .smallCircle {
+  top:  -68px;
+  left: calc(50vw - 50vh - 68px);
   height: calc(100vh + 136px);
   width: calc(100vh + 136px);
   composes: circle;
 }
 .mediumCircle {
+  top: -193px;
+  left: calc(50vw - 50vh - 193px);
   height: calc(100vh + 386px);
   width: calc(100vh + 386px);
   composes: circle;
 }
 .largeCircle {
+  top: -318px;
+  left: calc(50vw - 50vh - 318px);
   height: calc(100vh + 636px);
   width: calc(100vh + 636px);
   composes: circle;
 }
+.background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 .organismPlayerResultContainerScorm {
-  height: calc(100vh - 60px);
+  height: 100%;
+  min-height: calc(100vh - 60px);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   overflow: hidden;
+}
+.content {
+  border: 1px solid cm_grey_75;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  max-width: 885px;
+  margin: 50px 0px;
 }
 .lottie {
   display: flex;
@@ -296,6 +321,7 @@
   position: absolute;
   z-index: 1;
   width: 100%;
+  top: 0px;
 }
 .ie11Backup {
   position: relative;
@@ -320,14 +346,8 @@
   }
 }
 @media tablet {
-  .organismPlayerResultContainerScorm {
-    height: 100%;
-  }
   .largeCircle , .mediumCircle, .smallCircle {
-    border: 0px;
-    height: 100%;
-    width: 100%;
-    border-radius: 0;
+    display: none;
   }
 }
 
