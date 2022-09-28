@@ -27,8 +27,7 @@ export default {
   props: {
     slides: {
       '0': {
-        hidden: false,
-        position: 4,
+        position: 5,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Hey there, .....suspense.... ready to select some answers?',
@@ -40,7 +39,6 @@ export default {
         animationType: 'unstack'
       },
       '1': {
-        hidden: false,
         position: 0,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
@@ -48,17 +46,14 @@ export default {
         answerUI: qcmGraphic
       },
       '2': {
-        hidden: false,
         position: 1,
         loading: false
       },
       '3': {
-        hidden: false,
         position: 2,
         loading: false
       },
       '4': {
-        hidden: false,
         position: 3,
         loading: false
       }

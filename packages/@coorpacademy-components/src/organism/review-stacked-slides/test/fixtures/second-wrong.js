@@ -25,8 +25,7 @@ export default {
   props: {
     slides: {
       '0': {
-        hidden: true,
-        position: 4,
+        position: 5,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
@@ -34,7 +33,6 @@ export default {
         isCorrect: true
       },
       '1': {
-        hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
@@ -43,7 +41,6 @@ export default {
         isCorrect: false // ici la question 2 devrait pas être affichée en première
       },
       '2': {
-        hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 3',
@@ -54,7 +51,6 @@ export default {
         animateCorrectionPopin: true
       },
       '3': {
-        hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 4',
@@ -62,7 +58,6 @@ export default {
         position: 1
       },
       '4': {
-        hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 5',

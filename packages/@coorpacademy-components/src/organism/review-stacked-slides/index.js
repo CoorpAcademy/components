@@ -15,14 +15,14 @@ const stylesByPosition = {
   4: style.position4
 };
 
-const getSlideAnimation = (action, position, hidden) => {
+const getSlideAnimation = (action, position) => {
   switch (action) {
     case 'unstack':
       return style.slideOutHideAndIn;
     case 'restack':
       return style.slideOutAndIn;
     default:
-      return hidden ? style.hiddenSlide : stylesByPosition[position];
+      return position > 4 ? style.hiddenSlide : stylesByPosition[position];
   }
 };
 
@@ -31,7 +31,7 @@ const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}
   // eslint-disable-next-line fp/no-loops
   for (let slideIndex = 0; slideIndex < TOTAL_SLIDES_STACK; slideIndex++) {
     const slide = slides[_toString(slideIndex)];
-    const {animationType, hidden, position} = slide;
+    const {animationType, position} = slide;
 
     const slideView = (
       <div
@@ -39,7 +39,7 @@ const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}
         data-name={`slide-${slideIndex}`}
         className={classnames(
           style.slideBase,
-          getSlideAnimation(animationType, position, hidden),
+          getSlideAnimation(animationType, position),
           endReview ? style.endReview : null
         )}
       >
