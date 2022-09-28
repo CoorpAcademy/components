@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
+import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import Slider from '@coorpacademy/react-native-slider';
 
 import {Theme} from '../../../../variables/theme.native';
 import Text from '../../../../atom/text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {BOX_STYLE} from '../../../../variables/shadow';
-import {FlexDirection, JustifyContent, TextAlign, FontWeight} from '../../../../types/styles';
 
 export type OnSlidingCompleteFunction = (value: number) => void;
 
@@ -22,49 +21,17 @@ export type Props = {
 };
 
 type StyleSheetType = {
-  container: {
-    flex: number;
-    paddingHorizontal: number;
-    flexDirection: FlexDirection;
-    justifyContent: JustifyContent;
-  };
-  header: {
-    fontSize: number;
-    fontWeight: FontWeight;
-    textAlign: TextAlign;
-  };
-  textValue: {
-    fontSize: number;
-    color: string;
-    fontWeight: FontWeight;
-    textAlign: TextAlign;
-  };
-  valuesContainer: {
-    flexDirection: FlexDirection;
-    justifyContent: JustifyContent;
-  };
-  leftValue: {
-    flex: number;
-    alignItems: FlexAlignType | undefined;
-  };
-  rightValue: {
-    flex: number;
-    alignItems: FlexAlignType | undefined;
-  };
-  track: {
-    height: number;
-    borderRadius: number;
-  };
-  thumb: {
-    width: number;
-    height: number;
-    borderRadius: number;
-    backgroundColor: string;
-    borderWidth: number;
-  };
+  container: ViewStyle;
+  header: TextStyle;
+  textValue: TextStyle;
+  valuesContainer: ViewStyle;
+  leftValue: ViewStyle;
+  rightValue: ViewStyle;
+  track: ViewStyle;
+  thumb: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       flex: 1,

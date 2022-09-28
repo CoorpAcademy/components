@@ -30,13 +30,13 @@ export type Props = {
 };
 
 type StyleSheetType = {
-  container: Pick<TextStyle, 'alignItems' | 'flexDirection'>;
-  text: Pick<TextStyle, 'flex' | 'color' | 'textAlign'>;
+  container: ViewStyle;
+  text: ViewStyle;
 };
 
 const ICON_WIDTH = 15;
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       alignItems: 'center',

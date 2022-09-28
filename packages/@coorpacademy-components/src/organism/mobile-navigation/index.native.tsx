@@ -1,19 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
 import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
-import {
-  Position,
-  FlexDirection,
-  JustifyContent,
-  AlignSelf,
-  Overflow,
-  FlexAlignType,
-  FontSize
-} from '../../types/styles';
 import {Theme} from '../../variables/theme.native';
 
 export type NavItemType = {
@@ -29,48 +20,15 @@ export interface Props {
 }
 
 type StyleSheetType = {
-  main: {
-    marginHorizontal: number;
-  };
-  container: {
-    position: Position;
-    bottom: number;
-    width: string;
-    flexDirection: FlexDirection;
-    justifyContent: JustifyContent;
-    alignSelf: AlignSelf;
-    overflow: Overflow;
-    height: number;
-    borderRadius: number;
-    backgroundColor: string;
-  };
-  button: {
-    alignItems: FlexAlignType;
-    flex: number;
-    height: string;
-    marginTop: number;
-  };
-  buttonText: {
-    fontSize: FontSize;
-    lineHeight: number;
-    color: string;
-  };
-
-  dot: {
-    width: number;
-    height: number;
-    borderRadius: number;
-    backgroundColor: string;
-    marginTop: number;
-  };
-  blur: {
-    marginTop: number;
-    width: number;
-    height: number;
-  };
+  main: ViewStyle;
+  container: ViewStyle;
+  button: ViewStyle;
+  buttonText: TextStyle;
+  dot: ViewStyle;
+  blur: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     main: {
       marginHorizontal: 20

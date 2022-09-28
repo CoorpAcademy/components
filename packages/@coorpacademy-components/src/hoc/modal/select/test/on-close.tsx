@@ -1,25 +1,14 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import {NativeTouchEvent} from 'react-native';
+import {GestureResponderEvent} from 'react-native';
 import ModalSelect, {OnChangeFunction} from '../index.native';
+import mockedGestureEvent from '../../../../test/helpers/mocked-gesture-event';
 import fixture from './fixtures/default';
 
 test('should handle close', t => {
-  const fakeEvent: NativeTouchEvent = {
-    changedTouches: [],
-    identifier: 'fake',
-    locationX: 0,
-    locationY: 0,
-    pageX: 0,
-    pageY: 0,
-    target: '',
-    timestamp: 0,
-    touches: []
-  };
-
-  const handlePress = (event: NativeTouchEvent) => {
-    t.is(event, fakeEvent);
+  const handlePress = (event: GestureResponderEvent) => {
+    t.is(event, mockedGestureEvent);
   };
 
   const onChange: OnChangeFunction = () => {
@@ -33,7 +22,7 @@ test('should handle close', t => {
   const {getByTestId} = render(component);
   const cpt = getByTestId('close-modal');
 
-  fireEvent(cpt, 'press', fakeEvent);
+  fireEvent(cpt, 'press', mockedGestureEvent);
 
   t.plan(1);
 });

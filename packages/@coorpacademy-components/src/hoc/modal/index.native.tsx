@@ -17,22 +17,16 @@ export type Props = {
 export const HEADER_HEIGHT = 64;
 
 type StyleSheetType = {
-  container: Pick<ViewStyle, 'borderRadius' | 'overflow' | 'backgroundColor'>;
-  header: Pick<
-    ViewStyle,
-    'alignItems' | 'height' | 'justifyContent' | 'paddingHorizontal' | 'backgroundColor'
-  >;
-  content: Pick<ViewStyle, 'paddingHorizontal' | 'paddingBottom' | 'alignItems'>;
-  contentWithHeader: Pick<ViewStyle, 'paddingTop'>;
-  contentWithIcon: Pick<ViewStyle, 'paddingTop'>;
-  icon: Pick<ViewStyle, 'marginTop' | 'padding' | 'backgroundColor' | 'borderRadius' | 'alignSelf'>;
-  iconContent: Pick<
-    ViewStyle,
-    'justifyContent' | 'padding' | 'backgroundColor' | 'borderRadius' | 'alignItems'
-  >;
+  container: ViewStyle;
+  header: ViewStyle;
+  content: ViewStyle;
+  contentWithHeader: ViewStyle;
+  contentWithIcon: ViewStyle;
+  icon: ViewStyle;
+  iconContent: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       borderRadius: theme.radius.card,

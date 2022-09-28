@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
 import QuestionChoice from '../../../../atom/choice/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {Theme} from '../../../../variables/theme.native';
@@ -11,7 +11,14 @@ export interface DropZoneProps {
   onPress: (item: Choice) => () => void;
 }
 
-const createDropZoneStyle = (theme: Theme) =>
+type DropZoneStyleSheet = {
+  choice: ViewStyle;
+  dropZone: ViewStyle;
+  emptyContent: ViewStyle;
+  text: TextStyle;
+};
+
+const createDropZoneStyle = (theme: Theme): DropZoneStyleSheet =>
   StyleSheet.create({
     choice: {
       margin: theme.spacing.micro
@@ -43,7 +50,7 @@ const DropZone = (props: DropZoneProps) => {
   const {theme, translations} = templateContext;
   const {onPress} = props;
 
-  const [styleSheet, setStylesheet] = useState<any | null>(null);
+  const [styleSheet, setStylesheet] = useState<DropZoneStyleSheet | null>(null);
 
   useEffect(() => {
     const _stylesheet = createDropZoneStyle(theme);
@@ -88,7 +95,12 @@ export interface Props {
   onPress: (item: Choice) => () => void;
 }
 
-const createStyleSheet = (theme: Theme) =>
+type QuestionDraggableStyleSheet = {
+  pickableChoices: ViewStyle;
+  choice: ViewStyle;
+};
+
+const createStyleSheet = (theme: Theme): QuestionDraggableStyleSheet =>
   StyleSheet.create({
     pickableChoices: {
       flexDirection: 'row',
@@ -103,7 +115,7 @@ const QuestionDraggable = (props: Props) => {
   const templateContext = useTemplateContext();
   const {theme} = templateContext;
 
-  const [styleSheet, setStylesheet] = useState<any | null>(null);
+  const [styleSheet, setStylesheet] = useState<QuestionDraggableStyleSheet | null>(null);
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);

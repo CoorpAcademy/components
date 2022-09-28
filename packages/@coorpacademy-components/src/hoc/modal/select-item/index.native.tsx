@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {NativeTouchEvent, StyleSheet, TextStyle} from 'react-native';
+import {GestureResponderEvent, StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
 import Text from '../../../atom/text/index.native';
 import Touchable from '../../touchable/index.native';
@@ -9,22 +9,14 @@ import {Theme} from '../../../variables/theme.native';
 export type Props = {
   isSelected?: boolean;
   children: string;
-  onPress?: (event: NativeTouchEvent) => any;
+  onPress?: (event: GestureResponderEvent) => any;
   testID?: string;
 };
 
 type StyleSheetType = {
-  container: {
-    backgroundColor: string;
-    padding: number;
-  };
-  text: {
-    fontWeight: TextStyle['fontWeight'];
-    color: string;
-  };
-  selectedTextStyle: {
-    color: string;
-  };
+  container: ViewStyle;
+  text: TextStyle;
+  selectedTextStyle: TextStyle;
 };
 
 const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>

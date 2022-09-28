@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, ViewStyle, Text} from 'react-native';
+import {View, StyleSheet, ViewStyle, Text, TextStyle} from 'react-native';
 import type {Media, QuestionType} from '../../molecule/questions/types';
 
 import ImageBackground from '../image-background/index.native';
@@ -21,15 +21,15 @@ export type Props = {
 };
 
 type StyleSheetType = {
-  boxShadow: any;
-  container: any;
-  text: any;
-  textSelected: any;
-  textContainer: any;
-  squeezedTextContainer: any;
-  unselectedImageContainer: any;
-  imageContainer: any;
-  image: any;
+  boxShadow: ViewStyle;
+  container: ViewStyle;
+  text: TextStyle;
+  textSelected: TextStyle;
+  textContainer: ViewStyle;
+  squeezedTextContainer: ViewStyle;
+  unselectedImageContainer: ViewStyle;
+  imageContainer: ViewStyle;
+  image: ViewStyle;
 };
 
 const createStyleSheet = (theme: Theme, squeezed: boolean): StyleSheetType =>
@@ -123,11 +123,12 @@ const Choice = ({
   const source = {uri: url ? getCleanUri(url) : undefined};
   const mediaSuffix = prefixTestID && mediaType ? `-${mediaType}` : '';
 
-  const textStyle: ViewStyle[] = [styleSheet.text];
-  const textWrapperStyle: ViewStyle[] = [
-    styleSheet.textContainer,
-    squeezed && styleSheet.squeezedTextContainer
-  ];
+  const textStyle: TextStyle[] = [styleSheet.text];
+  const textWrapperStyle: ViewStyle[] = [styleSheet.textContainer];
+
+  if (squeezed) {
+    textWrapperStyle.push(styleSheet.squeezedTextContainer);
+  }
 
   if (isSelected) {
     textStyle.push(styleSheet.textSelected);

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, GestureResponderEvent} from 'react-native';
+import {View, StyleSheet, GestureResponderEvent, ViewStyle} from 'react-native';
 
 import {
   NovaSolidPlacesPlacesHome2 as HomeIcon,
@@ -24,17 +24,9 @@ export type Props = {
 };
 
 type StyleSheetType = {
-  container: {
-    paddingLeft: number;
-  };
-  floating: {
-    paddingTop: number;
-    position: string;
-    top: number;
-  };
-  noSafeArea: {
-    top: number;
-  };
+  container: ViewStyle;
+  floating: ViewStyle;
+  noSafeArea: ViewStyle;
 };
 
 const createStyleSheet = (theme: Theme, statusBarHeight: number): StyleSheetType =>

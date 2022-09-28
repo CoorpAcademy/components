@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useMemo} from 'react';
-import {View, FlatList, StyleSheet, NativeTouchEvent} from 'react-native';
+import {View, FlatList, StyleSheet, GestureResponderEvent, ViewStyle} from 'react-native';
 import {noop} from 'lodash/fp';
 
 import type {ChoiceItem} from '../../../molecule/questions/types';
@@ -15,24 +15,17 @@ export type Props = {
   value?: string;
   values: Array<ChoiceItem> | undefined;
   onChange: OnChangeFunction;
-  onClose?: (event: NativeTouchEvent) => void;
+  onClose?: (event: GestureResponderEvent) => void;
   testID?: string;
 };
 
 type StyleSheetType = {
-  content: {
-    paddingHorizontal: number;
-  };
-  separator: {
-    borderTopWidth: number;
-    borderColor: string;
-  };
-  list: {
-    width: string;
-  };
+  content: ViewStyle;
+  separator: ViewStyle;
+  list: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     content: {
       paddingHorizontal: 0

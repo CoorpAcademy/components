@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {TextStyle, View, ViewStyle} from 'react-native';
 
 import trim from 'lodash/fp/trim';
 import last from 'lodash/fp/last';
@@ -18,7 +18,15 @@ import {
 import {Theme} from '../../../../variables/theme.native';
 import parseTemplateString from '../../../../util/parse-template-string';
 
-const createStyleSheet = (theme: Theme) => ({
+type StyleSheetType = {
+  section: ViewStyle;
+  spaced: ViewStyle;
+  input: ViewStyle;
+  htmlText: TextStyle;
+  text: TextStyle;
+};
+
+const createStyleSheet = (theme: Theme): StyleSheetType => ({
   section: {
     // backgroundColor: '#188', // flex-debug
     width: '100%',
@@ -228,7 +236,7 @@ const QuestionTemplate = (props: Props) => {
   const templateContext = useTemplateContext();
   const {theme} = templateContext;
 
-  const [styleSheet, setStylesheet] = useState<any | null>(null);
+  const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
