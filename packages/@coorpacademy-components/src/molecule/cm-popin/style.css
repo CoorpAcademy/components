@@ -347,7 +347,8 @@ button {
 }
 
 _:-ms-fullscreen,
-.descriptionText {
+.descriptionText,
+.buttonContainer {
   width: 85%;
 }
 
