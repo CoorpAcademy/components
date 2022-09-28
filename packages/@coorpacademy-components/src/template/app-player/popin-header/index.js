@@ -397,7 +397,7 @@ const PopinHeader = (props, context) => {
       data-name="popinHeader"
       data-state={state}
     >
-      <div className={mode !== 'scorm' && style.headerTitle}>
+      <div className={classnames(mode !== 'scorm' && style.headerTitle)}>
         <CorrectionPart
           title={title}
           subtitle={subtitle}
