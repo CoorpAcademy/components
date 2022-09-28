@@ -139,7 +139,17 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 }
 
 .disabledSlideContent {
-  pointer-events: none;
+  position: inherit;
+}
+.disabledSlideContent::after {
+  content: '';
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  position:absolute;
+  opacity: 0;
+  pointer-events: fill;
 }
 
 @media tablet {
