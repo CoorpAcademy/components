@@ -109,6 +109,25 @@ export type SlidesViewProps = {
       onClick: Function;
       type: string;
     };
+    quitPopin?: {
+      content: string;
+      icon: string;
+      mode: string;
+      descriptionText: string;
+      firstButton: {
+        label: string;
+        type: string;
+        customStyle: {
+          color: string;
+        };
+        'aria-label': string;
+      };
+      secondButton: {
+        label: string;
+        type: string;
+        'aria-label': string;
+      };
+    };
   };
 };
 
