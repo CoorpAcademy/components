@@ -95,7 +95,8 @@ test('should set the next slide ref with an empty array if NEXT_SLIDE action is 
         currentSlideRef: '1234',
         nextSlideRef: '5678',
         animationType: 'unstack',
-        newCurrentSlidePosition: -1
+        totalCorrectAnswers: 1,
+        answeredSlides: ['1234']
       }
     }
   );
