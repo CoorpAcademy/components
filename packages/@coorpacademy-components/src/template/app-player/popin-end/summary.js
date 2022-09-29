@@ -249,8 +249,8 @@ const BackgroundScorm = props => {
   if (mode === 'scorm')
     return (
       <div className={style.organismPlayerResultContainerScorm}>
-        <div className={style.animationContainer}>
-          {failed === false ? (
+        {failed === false ? (
+          <div className={style.animationContainer}>
             <AtomLottieWrapper
               {...{
                 'aria-label': 'aria lottie',
@@ -275,8 +275,8 @@ const BackgroundScorm = props => {
               className={style.lottie}
               backupImageClassName={style.ie11Backup}
             />
-          ) : null}
-        </div>
+          </div>
+        ) : null}
         <div className={style.background}>
           <div className={style.largeCircle} />
           <div className={style.mediumCircle} />
