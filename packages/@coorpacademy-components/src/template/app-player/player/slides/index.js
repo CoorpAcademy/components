@@ -14,6 +14,7 @@ import VideoPlayer from '../../../../molecule/video-player';
 import PDF from '../../../../molecule/pdf';
 import Audio from '../../../../molecule/audio';
 import ResourceBrowser from '../../../../organism/resource-browser';
+import CMPopin from '../../../../molecule/cm-popin';
 import Footer from './footer';
 import Header from './header';
 import style from './style.css';
@@ -356,14 +357,16 @@ ContentLayout.propTypes = {
  * Loading
  */
 
-const LoadingLayout = () => (
-  <div className={style.loading}>
-    <Loader />
-  </div>
+const LoadingLayout = ({popinError}) => (
+  <div className={style.loading}>{popinError ? <CMPopin {...popinError} /> : <Loader />}</div>
 );
 
+LoadingLayout.propTypes = {
+  popinError: CMPopin.propTypes
+};
+
 const LoadedLayout = ({question, step, ...props}) =>
-  question ? <ContentLayout {...props} question={question} /> : <LoadingLayout />;
+  question ? <ContentLayout {...props} question={question} /> : <LoadingLayout {...props} />;
 
 LoadedLayout.propTypes = {
   ...ContentLayout.propTypes,
@@ -429,7 +432,8 @@ SlidesPlayer.propTypes = {
   header: PropTypes.shape(Header.propTypes),
   showNewMedia: PropTypes.bool,
   showReviewLesson: PropTypes.bool,
-  backgroundUrl: SrcPropType
+  backgroundUrl: SrcPropType,
+  popinError: PropTypes.shape(CMPopin.propTypes)
 };
 
 export default SlidesPlayer;

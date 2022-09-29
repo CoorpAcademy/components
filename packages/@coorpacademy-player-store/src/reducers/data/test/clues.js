@@ -55,7 +55,7 @@ test(
     meta: {progressionId: 'foo', slideId: 'bar'},
     payload: 'foo'
   },
-  {entities: {foo: {bar: 'foo'}}}
+  {entities: {foo: {bar: 'foo'}}, isFailure: false}
 );
 
 test(
@@ -69,7 +69,7 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {foo: {}}}
+  {entities: {foo: {}}, isFailure: true}
 );
 
 test(
@@ -83,5 +83,5 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {foo: {bar: 'foo'}}}
+  {entities: {foo: {bar: 'foo'}}, isFailure: true}
 );

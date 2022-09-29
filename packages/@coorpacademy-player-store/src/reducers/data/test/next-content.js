@@ -62,7 +62,8 @@ test(
   {
     entities: {
       foo: chapterRecommendations.nextChapter.card
-    }
+    },
+    isFailure: false
   }
 );
 
@@ -76,7 +77,7 @@ test(
     meta: {id: 'foo'},
     payload: levelRecommendations.nextLevel
   },
-  set('entities.foo', levelRecommendations.nextLevel, {})
+  set('entities.foo', levelRecommendations.nextLevel, {isFailure: false})
 );
 
 test(
@@ -89,7 +90,7 @@ test(
     meta: {id: 'foo'},
     payload: undefined
   },
-  {entities: {}}
+  {entities: {}, isFailure: false}
 );
 
 test(
@@ -103,7 +104,7 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {}}
+  {entities: {}, isFailure: true}
 );
 
 test(
@@ -117,5 +118,5 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: 'foo'}, isFailure: true}
 );

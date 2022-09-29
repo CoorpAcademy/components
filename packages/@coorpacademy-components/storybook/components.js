@@ -1051,6 +1051,7 @@ import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtur
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
 import TemplateActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
 import TemplateAppPlayerLoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
+import TemplateAppPlayerLoadingFixtureWithPopinError from '../src/template/app-player/loading/test/fixtures/with-popin-error';
 import TemplateAppPlayerPlayerSlidesFooterFixtureClueSelected from '../src/template/app-player/player/slides/footer/test/fixtures/clue-selected';
 import TemplateAppPlayerPlayerSlidesFooterFixtureDefault from '../src/template/app-player/player/slides/footer/test/fixtures/default';
 import TemplateAppPlayerPlayerSlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/footer/test/fixtures/disabled';
@@ -1081,6 +1082,7 @@ import TemplateAppPlayerPlayerSlidesFixtureDefault from '../src/template/app-pla
 import TemplateAppPlayerPlayerSlidesFixtureDropDown from '../src/template/app-player/player/slides/test/fixtures/drop-down';
 import TemplateAppPlayerPlayerSlidesFixtureError from '../src/template/app-player/player/slides/test/fixtures/error';
 import TemplateAppPlayerPlayerSlidesFixtureFreeText from '../src/template/app-player/player/slides/test/fixtures/free-text';
+import TemplateAppPlayerPlayerSlidesFixtureLoadingWithError from '../src/template/app-player/player/slides/test/fixtures/loading-with-error';
 import TemplateAppPlayerPlayerSlidesFixtureLoading from '../src/template/app-player/player/slides/test/fixtures/loading';
 import TemplateAppPlayerPlayerSlidesFixtureMediaH5P from '../src/template/app-player/player/slides/test/fixtures/media-h5p';
 import TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer from '../src/template/app-player/player/slides/test/fixtures/media-omni-player';
@@ -1126,6 +1128,7 @@ import TemplateAppPlayerPlayerFixtureQcm from '../src/template/app-player/player
 import TemplateAppPlayerPlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectClosedWithoutKlfAndTips from '../src/template/app-player/popin-correction/test/fixtures/correct-closed-without-klf-and-tips';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
+import TemplateAppPlayerPopinCorrectionFixtureCorrectError from '../src/template/app-player/popin-correction/test/fixtures/correct-error';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenResourcesWithPdf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-resources-with-pdf';
@@ -1161,6 +1164,7 @@ import TemplateAppPlayerPopinEndFixtureLoading from '../src/template/app-player/
 import TemplateAppPlayerPopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import TemplateAppPlayerPopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-img';
+import TemplateAppPlayerPopinEndFixturePopinEndError from '../src/template/app-player/popin-end/test/fixtures/popin-end-error';
 import TemplateAppPlayerPopinEndFixtureScormCorrect from '../src/template/app-player/popin-end/test/fixtures/scorm-correct';
 import TemplateAppPlayerPopinEndFixtureScormPopinEndLoading from '../src/template/app-player/popin-end/test/fixtures/scorm-popin-end-loading';
 import TemplateAppPlayerPopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
@@ -2838,7 +2842,8 @@ export const fixtures = {
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading: {
-      Default: TemplateAppPlayerLoadingFixtureDefault
+      Default: TemplateAppPlayerLoadingFixtureDefault,
+      WithPopinError: TemplateAppPlayerLoadingFixtureWithPopinError
     },
     TemplateAppPlayerPlayer: {
       ArabicQcm: TemplateAppPlayerPlayerFixtureArabicQcm,
@@ -2868,6 +2873,7 @@ export const fixtures = {
     TemplateAppPlayerPopinCorrection: {
       CorrectClosedWithoutKlfAndTips: TemplateAppPlayerPopinCorrectionFixtureCorrectClosedWithoutKlfAndTips,
       CorrectClosed: TemplateAppPlayerPopinCorrectionFixtureCorrectClosed,
+      CorrectError: TemplateAppPlayerPopinCorrectionFixtureCorrectError,
       CorrectNextChapter: TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter,
       CorrectOpenKlf: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf,
       CorrectOpenResourcesWithPdf: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenResourcesWithPdf,
@@ -2905,6 +2911,7 @@ export const fixtures = {
       NegativeRank: TemplateAppPlayerPopinEndFixtureNegativeRank,
       NextCourse: TemplateAppPlayerPopinEndFixtureNextCourse,
       NextLevelAdaptiveImg: TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg,
+      PopinEndError: TemplateAppPlayerPopinEndFixturePopinEndError,
       ScormCorrect: TemplateAppPlayerPopinEndFixtureScormCorrect,
       ScormPopinEndLoading: TemplateAppPlayerPopinEndFixtureScormPopinEndLoading,
       SimpleAction: TemplateAppPlayerPopinEndFixtureSimpleAction,
@@ -2969,6 +2976,7 @@ export const fixtures = {
       DropDown: TemplateAppPlayerPlayerSlidesFixtureDropDown,
       Error: TemplateAppPlayerPlayerSlidesFixtureError,
       FreeText: TemplateAppPlayerPlayerSlidesFixtureFreeText,
+      LoadingWithError: TemplateAppPlayerPlayerSlidesFixtureLoadingWithError,
       Loading: TemplateAppPlayerPlayerSlidesFixtureLoading,
       MediaH5P: TemplateAppPlayerPlayerSlidesFixtureMediaH5P,
       MediaOmniPlayer: TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer,

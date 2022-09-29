@@ -15,13 +15,14 @@ const dataExitNodesReducer = (state = {entities: {}}, action) => {
     case EXIT_NODE_FETCH_SUCCESS: {
       const {payload, meta} = action;
       const {id} = meta;
-      return set(['entities', id], payload, state);
+      return pipe(set('isFailure', false), set(['entities', id], payload))(state);
     }
     case EXIT_NODE_FETCH_FAILURE: {
       const {meta} = action;
       const {id} = meta;
-      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
-      return state;
+      const _state = set('isFailure', true, state);
+      if (pipe(get(['entities', id]), isNull)(_state)) return unset(['entities', id], _state);
+      return _state;
     }
     default:
       return state;

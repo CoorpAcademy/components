@@ -17,6 +17,7 @@ import {
 } from '@coorpacademy/player-store';
 
 import getResourcesProps from './resources';
+import mapStateToErrorPopinProps from './error-popin';
 
 const isNewChapter = (state, progression) => {
   if (
@@ -161,6 +162,7 @@ export const popinCorrectionStateToProps = (options, store) => {
             header
           ),
       gameOver: noMoreExtraLife,
+      popinError: mapStateToErrorPopinProps(dispatch)(state),
       overlay: mayAcceptExtraLife
         ? {
             title: translate('Bonus!'),

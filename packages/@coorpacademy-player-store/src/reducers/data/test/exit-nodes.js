@@ -55,7 +55,7 @@ test(
     meta: {id: 'foo'},
     payload: 'foo'
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: 'foo'}, isFailure: false}
 );
 
 test(
@@ -69,7 +69,7 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {}}
+  {entities: {}, isFailure: true}
 );
 
 test(
@@ -83,5 +83,5 @@ test(
     error: true,
     payload: {}
   },
-  {entities: {foo: 'foo'}}
+  {entities: {foo: 'foo'}, isFailure: true}
 );
