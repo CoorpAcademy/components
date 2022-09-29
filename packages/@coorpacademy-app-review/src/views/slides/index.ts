@@ -93,7 +93,7 @@ export type SlidesViewProps = {
     endReview: boolean;
   };
   reviewBackgroundAriaLabel?: string;
-  congratsProps?: {
+  congrats?: {
     'aria-label'?: string;
     'data-name'?: string;
     animationLottie: unknown;
@@ -336,6 +336,6 @@ export const mapStateToSlidesProps = (
         correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
-    congratsProps: undefined
+    congrats: undefined
   };
 };
