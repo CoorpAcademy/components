@@ -51,7 +51,9 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
       payload: {
         currentSlideRef: freeTextSlide.universalRef,
         nextSlideRef: qcmGraphicSlide.universalRef,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        totalCorrectAnswers: 1,
+        answeredSlides: [freeTextSlide.universalRef]
       }
     }
   ];
@@ -71,7 +73,9 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
       payload: {
         currentSlideRef: freeTextSlide.universalRef,
         nextSlideRef: qcmGraphicSlide.universalRef,
-        animationType: 'restack'
+        animationType: 'restack',
+        totalCorrectAnswers: 0,
+        answeredSlides: [freeTextSlide.universalRef]
       }
     }
   ];

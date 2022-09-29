@@ -14,29 +14,28 @@ type NextSlidePayload = {
   answeredSlides: string[];
 };
 
-export type NextSlide = {
+export type NextSlideAction = {
   type: typeof NEXT_SLIDE;
   payload: NextSlidePayload;
 };
 
-export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextSlide => {
+export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextSlideAction => {
   const state = getState();
   const progression = state.data.progression as ProgressionFromAPI;
   const {isCorrect, allAnswers, slides} = progression.state;
   const correctAnswers = filter((answer: ProgressionAnswerItem) => answer.isCorrect, allAnswers);
 
-  const payload = {
+  const payload: NextSlidePayload = {
     currentSlideRef: get(['ui', 'currentSlideRef'], state),
     nextSlideRef: get(
       ['state', 'nextContent', 'ref'],
       state.data.progression as ProgressionFromAPI
     ),
     animationType: isCorrect ? 'unstack' : 'restack',
-    allAnswers: progression.state.allAnswers,
     totalCorrectAnswers: correctAnswers.length,
     answeredSlides: slides
   };
-  const action = {
+  const action: NextSlideAction = {
     type: NEXT_SLIDE,
     payload
   };
