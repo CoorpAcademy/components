@@ -8,13 +8,7 @@ import CMPopin from '../../../molecule/cm-popin';
 import style from './style.css';
 import {PlayerReviewPropTypes} from './prop-types';
 
-const PlayerReview = ({
-  header,
-  stack,
-  reviewBackgroundAriaLabel,
-  congratsProps,
-  onQuitPopinProps
-}) => {
+const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitPopin}) => {
   return (
     <div
       key="review-player-container"
@@ -28,15 +22,15 @@ const PlayerReview = ({
         <ReviewHeader {...header} />
       </div>
       <StackedSlides {...stack} />
-      {isNil(congratsProps) ? null : (
+      {isNil(congrats) ? null : (
         <div className={style.congrats} data-name="congrats-container">
-          <ReviewCongrats {...congratsProps} />
+          <ReviewCongrats {...congrats} />
         </div>
       )}
 
-      {isNil(onQuitPopinProps) ? null : (
-        <div className={style.onQuitPopin} data-name="popin-container">
-          <CMPopin {...onQuitPopinProps} />
+      {isNil(quitPopin) ? null : (
+        <div className={style.quitPopin} data-name="popin-container">
+          <CMPopin {...quitPopin} />
         </div>
       )}
     </div>

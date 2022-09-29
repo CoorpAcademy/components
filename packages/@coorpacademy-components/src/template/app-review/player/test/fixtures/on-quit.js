@@ -7,6 +7,6 @@ export default {
     header: headerProps.props,
     stack: DefaultStackedSlides.props,
     reviewBackgroundAriaLabel: 'review BG Aria',
-    onQuitPopinProps: onReviewQuitPopin.props
+    quitPopin: onReviewQuitPopin.props
   }
 };

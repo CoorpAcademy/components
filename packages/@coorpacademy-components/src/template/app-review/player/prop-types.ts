@@ -10,8 +10,8 @@ export const PlayerReviewPropTypes = {
   header: PropTypes.shape(ReviewHeaderPropTypes),
   stack: PropTypes.shape(StackedSlidesPropTypes),
   reviewBackgroundAriaLabel: ReviewBackgroundPropTypes['aria-label'],
-  congratsProps: PropTypes.shape(ReviewCongratsPropTypes),
-  onQuitPopinProps: PropTypes.shape({...CmPopin.propTypes})
+  congrats: PropTypes.shape(ReviewCongratsPropTypes),
+  quitPopin: PropTypes.shape({...CmPopin.propTypes})
 };
 
 export type Props = PropTypes.InferProps<typeof PlayerReviewPropTypes>;

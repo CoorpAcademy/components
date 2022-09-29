@@ -7,6 +7,6 @@ export default {
     header: Header.props,
     stack: EndReviewStackedSlides.props,
     reviewBackgroundAriaLabel: 'image background',
-    congratsProps: congratsProps.props
+    congrats: congratsProps.props
   }
 };

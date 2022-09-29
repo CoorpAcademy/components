@@ -40,7 +40,7 @@
   left: 0;
 }
 
-.onQuitPopin {
+.quitPopin {
   z-index: 50;
 }
 
@@ -52,7 +52,7 @@
 }
 
 :-ms-fullscreen,
-.onQuitPopin {
+.quitPopin {
   position: absolute;
   z-index: 80;
 }
