@@ -852,12 +852,12 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     animationType: undefined,
     position: 0
   });
-  /* t.deepEqual(pick(propsToCheck, props.stack.slides[2]), {
+  t.deepEqual(pick(propsToCheck, props.stack.slides[2]), {
     animateCorrectionPopin: false,
     animationType: undefined,
     position: 1
   });
-  t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
+  /* t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
     animateCorrectionPopin: false,
     animationType: undefined,
     position: 2
