@@ -40,9 +40,19 @@
   left: 0;
 }
 
+.quitPopin {
+  z-index: 50;
+}
+
 /* ie fallback */
 :-ms-fullscreen,
 :root .congrats {
   position: relative;
   bottom: 20%;
+}
+
+:-ms-fullscreen,
+.quitPopin {
+  position: absolute;
+  z-index: 80;
 }

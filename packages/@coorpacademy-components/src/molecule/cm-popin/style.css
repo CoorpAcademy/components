@@ -347,11 +347,22 @@ button {
 }
 
 _:-ms-fullscreen,
-.descriptionText {
+.descriptionText,
+.buttonContainer {
   width: 85%;
 }
 
 _:-ms-fullscreen,
 .button {
-  width: 40%;
+  width: 100%;
+}
+
+_:-ms-fullscreen,
+.popin {
+  position: relative;
+}
+
+_:-ms-fullscreen 
+.buttonContainer {
+  width: 85%;
 }

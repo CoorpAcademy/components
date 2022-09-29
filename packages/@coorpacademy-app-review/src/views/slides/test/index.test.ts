@@ -45,7 +45,7 @@ test('should create initial props when fetched slide is not still received', t =
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -140,7 +140,7 @@ test('should create props when first slide is on the state', t => {
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -250,7 +250,7 @@ test('should create props when slide is on the state and user has selected answe
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -366,7 +366,7 @@ test('should verify props when first slide was answered correctly and next slide
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -486,7 +486,7 @@ test('should verify props when first slide was answered with error and next slid
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -558,7 +558,7 @@ test('should verify props when first slide was answered, next slide is fetched &
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -692,7 +692,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -833,7 +833,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -939,7 +939,7 @@ test('should verify props when progression is in success', t => {
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  t.is(props.congratsProps, undefined);
+  t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
