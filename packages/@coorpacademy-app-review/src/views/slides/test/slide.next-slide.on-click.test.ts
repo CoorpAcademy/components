@@ -31,6 +31,7 @@ test('correction popin actions after click', async t => {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -52,7 +53,9 @@ test('correction popin actions after click', async t => {
       payload: {
         animationType: 'restack',
         currentSlideRef: freeTextSlide._id,
-        nextSlideRef: qcmGraphicSlide._id
+        nextSlideRef: qcmGraphicSlide._id,
+        totalCorrectAnswers: 1,
+        answeredSlides: ['sli_VJYjJnJhg']
       }
     }
   ];

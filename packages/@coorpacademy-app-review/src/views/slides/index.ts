@@ -112,6 +112,7 @@ export type SlidesViewProps = {
   };
 };
 
+// TODO replace this, position no more needed
 export const initialState: SlidesStack = {
   '0': {
     position: 0,
@@ -149,7 +150,6 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
       const positions = state.ui.positions;
       const position = positions[index];
-      // console.log('positions', index, position);
 
       const slideRef = slideRefs[index];
       if (!slideRef) return set(index, {...uiSlide, position}, acc);

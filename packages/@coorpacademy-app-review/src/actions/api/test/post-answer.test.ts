@@ -65,6 +65,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
+    positions: [0, 1, 2, 3, 4],
     answers: {
       [freeTextSlide._id]: answer
     },
@@ -148,6 +149,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
     ui: {
       currentSlideRef: templateSlide._id,
       navigation: ['skills', 'slides'],
+      positions: [-1, -1, -1, -1, 0],
       answers: {
         [freeTextSlide._id]: answer,
         [qcmGraphicSlide._id]: ['qcm-graphic answer'],

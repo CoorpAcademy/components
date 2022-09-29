@@ -47,6 +47,7 @@ const initialState: StoreState = {
     currentSlideRef: sliderSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},
+    positions: [0, 1, 2, 3, 4],
     slide: {
       [sliderSlide._id]: {
         validateButton: false,

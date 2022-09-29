@@ -22,6 +22,7 @@ const initialState: StoreState = {
     rank: {}
   },
   ui: {
+    positions: [0, 1, 2, 3, 4],
     currentSlideRef: '',
     navigation: [],
     answers: {},
