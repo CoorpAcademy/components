@@ -76,7 +76,6 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Using redux" chapter',

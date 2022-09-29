@@ -102,7 +102,6 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',

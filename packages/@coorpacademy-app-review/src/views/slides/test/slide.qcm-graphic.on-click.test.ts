@@ -76,7 +76,6 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',

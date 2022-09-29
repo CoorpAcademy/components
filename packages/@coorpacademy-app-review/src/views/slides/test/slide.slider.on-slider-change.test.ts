@@ -1,5 +1,6 @@
 import test from 'ava';
 import get from 'lodash/fp/get';
+import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import {ProgressionFromAPI} from '../../../types/common';
 import {StoreState} from '../../../reducers';
@@ -59,7 +60,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Slider slide', t => {
-  t.plan(1);
+  t.plan(2);
 
   const expectedActions = [
     {
@@ -71,8 +72,18 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
   const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
 
-  const SlideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;
+  const slideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;
+  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
+    animateCorrectionPopin: false,
+    showCorrectionPopin: false,
+    position: 0,
+    loading: false,
+    parentContentTitle: 'From "Developing the review app" course',
+    questionText:
+      'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?'
+  });
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const onSliderChange = get('onSliderChange', SlideProps)!;
+  const onSliderChange = get('onSliderChange', slideProps)!;
   onSliderChange(111);
 });
