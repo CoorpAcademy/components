@@ -864,16 +864,14 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     loading: true,
     position: 1
   });
-  /* t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
-    animateCorrectionPopin: false,
-    animationType: undefined,
+  t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
+    loading: true,
     position: 2
   });
   t.deepEqual(pick(propsToCheck, props.stack.slides[4]), {
-    animateCorrectionPopin: false,
-    animationType: undefined,
+    loading: true,
     position: 3
-  }); */
+  });
 });
 
 test('should verify props when progression is in success', t => {
