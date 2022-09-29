@@ -25,7 +25,7 @@ export default {
   props: {
     slides: {
       '0': {
-        position: 5,
+        position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
@@ -33,7 +33,7 @@ export default {
         isCorrect: true
       },
       '1': {
-        position: 5,
+        position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
@@ -41,7 +41,7 @@ export default {
         isCorrect: true
       },
       '2': {
-        position: 5,
+        position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 3',
@@ -49,7 +49,7 @@ export default {
         isCorrect: true
       },
       '3': {
-        position: 5,
+        position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 4',

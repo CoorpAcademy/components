@@ -27,7 +27,7 @@ export default {
   props: {
     slides: {
       '0': {
-        position: 5,
+        position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Hey there, .....suspense.... ready to select some answers?',

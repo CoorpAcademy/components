@@ -22,7 +22,7 @@ const getSlideAnimation = (action, position) => {
     case 'restack':
       return style.slideOutAndIn;
     default:
-      return position > 4 ? style.hiddenSlide : stylesByPosition[position];
+      return position < 0 ? style.hiddenSlide : stylesByPosition[position];
   }
 };
 
