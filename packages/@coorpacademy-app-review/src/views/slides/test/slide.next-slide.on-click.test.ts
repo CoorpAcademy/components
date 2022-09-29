@@ -66,5 +66,6 @@ test('correction popin actions after click', async t => {
 
   const updatedState = getState();
   t.deepEqual(updatedState.ui.positions, [4, 0, 1, 2, 3]);
+  t.deepEqual(updatedState.ui.currentSlideRef, qcmGraphicSlide._id);
   t.pass();
 });
