@@ -3,7 +3,7 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import {ReceivedProgression, POST_PROGRESSION_SUCCESS} from '../../actions/api/post-progression';
-import {NextSlide, NEXT_SLIDE} from '../../actions/ui/next-slide';
+import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
 
 export type UIPositionState = number[];
 const initialState: UIPositionState = [0, 1, 2, 3, 4];
@@ -11,7 +11,7 @@ const initialState: UIPositionState = [0, 1, 2, 3, 4];
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UIPositionState = initialState,
-  action: NextSlide | ReceivedProgression
+  action: NextSlideAction | ReceivedProgression
 ): UIPositionState => {
   switch (action.type) {
     case POST_PROGRESSION_SUCCESS: {
