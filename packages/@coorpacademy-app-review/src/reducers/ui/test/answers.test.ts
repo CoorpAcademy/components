@@ -94,7 +94,8 @@ test('should set the next slide ref with an empty array if NEXT_SLIDE action is 
       payload: {
         currentSlideRef: '1234',
         nextSlideRef: '5678',
-        animationType: 'unstack'
+        animationType: 'unstack',
+        newCurrentSlidePosition: -1
       }
     }
   );

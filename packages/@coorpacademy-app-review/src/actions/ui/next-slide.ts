@@ -10,7 +10,7 @@ type NextSlidePayload = {
   currentSlideRef: string;
   nextSlideRef: string;
   animationType: string;
-  position: number;
+  newCurrentSlidePosition: number;
 };
 
 export type NextSlide = {
@@ -33,7 +33,7 @@ export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextS
       state.data.progression as ProgressionFromAPI
     ),
     animationType: isCorrect ? 'unstack' : 'restack',
-    position: isCorrect ? 5 : 4 - correctAnswers.length
+    newCurrentSlidePosition: isCorrect ? -1 : 4 - correctAnswers.length
   };
   const action = {
     type: NEXT_SLIDE,

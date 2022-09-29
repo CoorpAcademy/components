@@ -66,7 +66,8 @@ test('should set animateCorrectionPopin to false and animationType to unstack or
       payload: {
         currentSlideRef: '1234',
         nextSlideRef: '5678',
-        animationType: 'unstack'
+        animationType: 'unstack',
+        newCurrentSlidePosition: 0
       }
     }
   );

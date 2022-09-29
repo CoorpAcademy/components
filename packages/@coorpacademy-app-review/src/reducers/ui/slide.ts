@@ -71,7 +71,7 @@ const reducer = (
       return pipe(
         set([action.payload.currentSlideRef, 'animateCorrectionPopin'], false),
         set([action.payload.currentSlideRef, 'animationType'], action.payload.animationType),
-        set([action.payload.currentSlideRef, 'position'], action.payload.position),
+        set([action.payload.currentSlideRef, 'position'], action.payload.newCurrentSlidePosition),
         set([action.payload.nextSlideRef, 'position'], 0)
       )(state);
     }
