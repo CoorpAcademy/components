@@ -54,7 +54,7 @@ test('correction popin actions after click', async t => {
         animationType: 'restack',
         currentSlideRef: freeTextSlide._id,
         nextSlideRef: qcmGraphicSlide._id,
-        totalCorrectAnswers: 1,
+        totalCorrectAnswers: 0,
         answeredSlides: ['sli_VJYjJnJhg']
       }
     }
