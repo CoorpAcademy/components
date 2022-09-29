@@ -5,11 +5,11 @@ import Switch from '../index.native';
 import {choices} from './fixtures/qcm';
 
 test('qcm question › should handle onItemPress', t => {
-  const handleItemPress = (value: any) => {
-    t.is(value, choices[0]);
+  choices[0].onPress = (value: any) => {
+    t.pass();
   };
 
-  const component = <Switch type="qcm" choices={choices} onItemPress={handleItemPress} />;
+  const component = <Switch type="qcm" choices={choices} />;
 
   const {getByTestId} = render(component);
   const choice1 = getByTestId('question-choice-1');

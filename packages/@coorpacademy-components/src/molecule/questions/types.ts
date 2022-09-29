@@ -65,7 +65,6 @@ export type TemplateTextChoice = {
   value: string;
   label: string;
   selected: boolean;
-  // onPress: Function;
 };
 
 export type TemplateListOfChoices = {

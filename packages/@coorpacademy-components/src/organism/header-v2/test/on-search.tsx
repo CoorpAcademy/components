@@ -40,6 +40,6 @@ test('handles onSearchPress on magnifier icon', t => {
 
   const {getByTestId} = render(component);
   const searchIcon = getByTestId('search-icon');
-  fireEvent(searchIcon, 'onPress', 'search');
+  fireEvent(searchIcon, 'press', mockedGestureEvent);
   t.plan(1);
 });

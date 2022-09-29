@@ -16,8 +16,6 @@ export const PlayerReviewPropTypes = {
   quitPopin: PropTypes.shape({...CmPopin.propTypes})
 };
 
-// export type Props = PropTypes.InferProps<typeof PlayerReviewPropTypes> ;
-
 export type Props = {
   header: PropTypes.InferProps<typeof ReviewHeaderPropTypes>;
   stack: StackedSlidesProps;
