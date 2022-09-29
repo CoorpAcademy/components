@@ -1,8 +1,8 @@
 import type {Dispatch} from 'redux';
-import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
 import type {StoreState} from '../../reducers';
 import {ProgressionFromAPI, ProgressionAnswerItem} from '../../types/common';
+import {getProgressionSlidesRefs} from '../../common';
 
 export const NEXT_SLIDE = '@@slide/NEXT_SLIDE' as const;
 
@@ -10,7 +10,8 @@ type NextSlidePayload = {
   currentSlideRef: string;
   nextSlideRef: string;
   animationType: string;
-  newCurrentSlidePosition: number;
+  allAnswers: ProgressionAnswerItem[];
+  slides: string[];
 };
 
 export type NextSlide = {
@@ -21,10 +22,6 @@ export type NextSlide = {
 export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextSlide => {
   const state = getState();
   const progression = state.data.progression as ProgressionFromAPI;
-  const correctAnswers = filter(
-    (answer: ProgressionAnswerItem) => answer.isCorrect,
-    progression.state.allAnswers
-  );
   const isCorrect = progression.state.isCorrect;
   const payload = {
     currentSlideRef: get(['ui', 'currentSlideRef'], state),
@@ -33,7 +30,8 @@ export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextS
       state.data.progression as ProgressionFromAPI
     ),
     animationType: isCorrect ? 'unstack' : 'restack',
-    newCurrentSlidePosition: isCorrect ? -1 : 4 - correctAnswers.length
+    allAnswers: progression.state.allAnswers,
+    slides: getProgressionSlidesRefs(progression)
   };
   const action = {
     type: NEXT_SLIDE,

@@ -1,16 +1,14 @@
-import concat from 'lodash/fp/concat';
 import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import last from 'lodash/fp/last';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
-import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
-import type {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
-import type {SlideIndexes} from '../../common';
+import type {ProgressionAnswerItem} from '../../types/common';
+import {getProgressionSlidesRefs, type SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
@@ -137,14 +135,6 @@ export const initialState: SlidesStack = {
   }
 };
 
-const getProgressionSlidesRefs = (progression: ProgressionFromAPI): string[] => {
-  if (progression.state.step.current < 5) {
-    const slideRef = progression.state.nextContent.ref;
-    return concat(progression.state.slides, [slideRef]);
-  }
-  return slice(0, 5, progression.state.slides);
-};
-
 const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack => {
   const currentSlideRef = state.ui.currentSlideRef;
   const progression = state.data.progression;
@@ -154,11 +144,17 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
   // @ts-expect-error typescript does not support capped versions of lodash functions
   const stack = reduce.convert({cap: false})(
-    (acc: SlidesStack, uiSlide: ReviewSlide, index: string): SlidesStack => {
-      const slideRef = slideRefs[toInteger(index)];
-      if (!slideRef) return set(index, uiSlide, acc);
+    (acc: SlidesStack, uiSlide: ReviewSlide, _index: string): SlidesStack => {
+      const index = toInteger(_index);
+
+      const positions = state.ui.positions;
+      const position = positions[index];
+      console.log('positions', index, position);
+
+      const slideRef = slideRefs[index];
+      if (!slideRef) return set(index, {...uiSlide, position}, acc);
       const slideFromAPI = get(slideRef, state.data.slides);
-      if (!slideFromAPI) return set(index, uiSlide, acc);
+      if (!slideFromAPI) return set(index, {...uiSlide, position}, acc);
 
       const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
@@ -169,7 +165,6 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
       const animateCorrectionPopin = isCurrentSlideRef && slideUI.animateCorrectionPopin;
       const showCorrectionPopin = isCurrentSlideRef && slideUI.showCorrectionPopin;
       const animationType = slideUI.animationType;
-      const position = slideUI.position || uiSlide.position;
 
       const updatedUiSlide = {
         ...uiSlide,
