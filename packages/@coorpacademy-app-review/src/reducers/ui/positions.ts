@@ -1,6 +1,5 @@
 import findIndex from 'lodash/fp/findIndex';
 import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import {ReceivedProgression, POST_PROGRESSION_SUCCESS} from '../../actions/api/post-progression';
 import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
@@ -18,20 +17,12 @@ const reducer = (
       return initialState;
     }
     case NEXT_SLIDE: {
-      const {totalCorrectAnswers, answeredSlides, currentSlideRef, animationType, nextSlideRef} =
-        action.payload;
+      const {totalCorrectAnswers, answeredSlides, currentSlideRef, animationType} = action.payload;
 
       const nextCurrentSlidePosition = animationType === 'unstack' ? -1 : 4 - totalCorrectAnswers;
       const currentSlideIndex = findIndex(ref => ref === currentSlideRef, answeredSlides);
-      if (answeredSlides.length < 5) {
-        const newState = map(position => position - 1, state);
-        return set([`${currentSlideIndex}`], nextCurrentSlidePosition)(newState);
-      }
-
-      return pipe(
-        set([`${currentSlideIndex}`], nextCurrentSlidePosition),
-        set([`${nextSlideRef}`], 0)
-      )(state); // TODO hanlde this case
+      const newState = map(position => (position === -1 ? position : position - 1), state);
+      return set([`${currentSlideIndex}`], nextCurrentSlidePosition)(newState);
     }
     default:
       return state;
