@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-store",
-  "version": "4.2.18",
+  "version": "4.2.19",
   "description": "Redux store for slide players",
   "main": "lib",
   "module": "es",
@@ -13,7 +13,6 @@
     "node": ">=12.18.4",
     "npm": ">=6.14.8"
   },
-  
   "scripts": {
     "ava": "ava",
     "test:unit": "nyc npm run ava",
