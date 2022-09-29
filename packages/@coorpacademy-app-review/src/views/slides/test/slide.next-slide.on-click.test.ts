@@ -63,5 +63,8 @@ test('correction popin actions after click', async t => {
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   const correctionPopin = props.stack.correctionPopinProps as CorrectionPopinProps;
   await correctionPopin.next.onClick();
+
+  const updatedState = getState();
+  t.deepEqual(updatedState.ui.positions, [4, 0, 1, 2, 3]);
   t.pass();
 });
