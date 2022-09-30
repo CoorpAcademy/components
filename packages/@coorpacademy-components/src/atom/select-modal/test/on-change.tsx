@@ -6,7 +6,7 @@ import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
 import {OnChangeFunction} from '../../../hoc/modal/select/index.native';
-import {select} from './fixtures/default';
+import {items} from './fixtures/default';
 
 test('should handle change', t => {
   const analyticsID = 'fake-analytics-id';
@@ -19,7 +19,6 @@ test('should handle change', t => {
     }
   });
 
-  const items = select.items || [];
   const NEW_VALUE = items[2].text;
 
   const handleBlur = () => {

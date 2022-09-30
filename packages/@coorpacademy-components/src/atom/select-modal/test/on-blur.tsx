@@ -6,7 +6,7 @@ import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
 import Select from '../index.native';
-import {select} from './fixtures/default';
+import {items} from './fixtures/default';
 
 test('should handle blur', t => {
   const analyticsID = 'fake-analytics-id';
@@ -18,8 +18,6 @@ test('should handle blur', t => {
       t.deepEqual(options, {id: analyticsID, questionType});
     }
   });
-
-  const items = select.items || [];
 
   const handleBlur = () => {
     t.pass();

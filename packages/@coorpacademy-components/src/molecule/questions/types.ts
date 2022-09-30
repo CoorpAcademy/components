@@ -1,3 +1,5 @@
+import {ChoiceItem} from '../../atom/select-modal/index.native';
+
 type Url = string;
 
 type VideoMimeType =
@@ -36,12 +38,6 @@ export type Media = {
 };
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
-
-export type ChoiceItem = {
-  text: string;
-  selected: boolean;
-  _id: string;
-};
 
 type ChoiceBase = {
   _id: string;

@@ -23,7 +23,7 @@ export default propTypes;
 export type Props = {
   validateButton: {
     label: string;
-    onClick: (args: any[]) => any;
+    onClick: (args: unknown[]) => unknown;
     disabled: boolean;
   };
   correctionPopinProps: CorrectionPopinProps;

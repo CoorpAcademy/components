@@ -3,7 +3,7 @@ import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
-import type {ChoiceItem, QuestionType} from '../../molecule/questions/types';
+import type {QuestionType} from '../../molecule/questions/types';
 import {Theme} from '../../variables/theme.native';
 
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
@@ -11,6 +11,12 @@ import Space from '../space/index.native';
 import Text from '../text/index.native';
 import ModalSelect, {OnChangeFunction} from '../../hoc/modal/select/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
+
+export type ChoiceItem = {
+  text: string;
+  selected: boolean;
+  _id: string;
+};
 
 export type Props = {
   analyticsID: string;

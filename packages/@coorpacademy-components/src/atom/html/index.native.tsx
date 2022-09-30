@@ -134,7 +134,7 @@ const Html = (props: Props) => {
             : `${children}`
         }}
         tagsStyles={tagsStyles}
-        // @ts-expect-error
+        // @ts-expect-error TS2322
         baseFontStyle={{
           ...baseFontStyle,
           color: disableBaseFontStyleColor ? null : baseFontStyle.color

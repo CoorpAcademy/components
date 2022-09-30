@@ -20,5 +20,6 @@ export type Props = {
   header: PropTypes.InferProps<typeof ReviewHeaderPropTypes>;
   stack: StackedSlidesProps;
   reviewBackgroundAriaLabel: string;
-  congratsProps: PropTypes.InferProps<typeof ReviewCongratsPropTypes>;
+  congrats: PropTypes.InferProps<typeof ReviewCongratsPropTypes>;
+  quitPopin: PropTypes.InferProps<typeof CmPopin.propTypes>;
 };

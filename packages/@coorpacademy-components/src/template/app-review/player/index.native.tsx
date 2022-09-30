@@ -35,7 +35,7 @@ const ReviewHeader = ({style}: ReviewHeaderProps) => (
 );
 
 const Slides = (props: Props) => {
-  const {header, stack, reviewBackgroundAriaLabel, congratsProps} = props;
+  const {header, stack, reviewBackgroundAriaLabel, congrats, quitPopin} = props;
 
   const {
     theme,

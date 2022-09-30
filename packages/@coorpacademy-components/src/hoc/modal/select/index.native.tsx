@@ -2,12 +2,12 @@ import React, {useState, useEffect, useMemo} from 'react';
 import {View, FlatList, StyleSheet, GestureResponderEvent, ViewStyle} from 'react-native';
 import {noop} from 'lodash/fp';
 
-import type {ChoiceItem} from '../../../molecule/questions/types';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 
 import Modal from '../index.native';
 import ModalSelectItem from '../select-item/index.native';
+import {ChoiceItem} from '../../../atom/select-modal/index.native';
 
 export type OnChangeFunction = (value: string) => void;
 
