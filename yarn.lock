@@ -5345,6 +5345,15 @@
     lodash "^4.17.21"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-ie11@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ie11/-/addon-ie11-0.0.6.tgz#aa3c704a74880328c1c3522a95a46950538c367e"
+  integrity sha512-4f8Q8vRtJwf7pujMKsPcMq+OwlON9gTp11ddhd2I5EYUp9Zrb58anCfif+rPEhUMsmOKhLjVf/H7W5RUNeEdvw==
+  dependencies:
+    "@babel/preset-env" "^7.12.11"
+    "@storybook/node-logger" "*"
+    babel-loader "^8.1.0"
+
 "@storybook/addon-postcss@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/addon-postcss/-/addon-postcss-2.0.0.tgz#ec61cb9bb2662f408072b35c466c7df801c28498"
@@ -5858,7 +5867,7 @@
     prettier ">=2.2.1 <=2.3.0"
     ts-dedent "^2.0.0"
 
-"@storybook/node-logger@6.5.12", "@storybook/node-logger@^6.1.14":
+"@storybook/node-logger@*", "@storybook/node-logger@6.5.12", "@storybook/node-logger@^6.1.14":
   version "6.5.12"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.12.tgz#0f9efcd1a37c7aae493b22fe33cacca87c135b9b"
   integrity sha512-jdLtT3mX5GQKa+0LuX0q0sprKxtCGf6HdXlKZGD5FEuz4MgJUGaaiN0Hgi+U7Z4tVNOtSoIbYBYXHqfUgJrVZw==
@@ -12147,6 +12156,11 @@ events@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
   integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
+
+eventsource-polyfill@^0.9.6:
+  version "0.9.6"
+  resolved "https://registry.yarnpkg.com/eventsource-polyfill/-/eventsource-polyfill-0.9.6.tgz#10e0d187f111b167f28fdab918843ce7d818f13c"
+  integrity sha512-LyMFp2oPDGhum2lMvkjqKZEwWd2/AoXyt8aoyftTBMWwPHNgU+2tdxhTHPluDxoz+z4gNj0uHAPR9nqevATMbg==
 
 evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
   version "1.0.3"

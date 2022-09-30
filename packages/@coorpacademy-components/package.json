@@ -25,6 +25,7 @@
     "prepare": "npm run clean && npm run build --production",
     "prestart": "npm run generate:storybook",
     "start": "npm run storybook:run",
+    "start:ie": "IE=true npm start",
     "static": "npm run storybook:export",
     "storybook:run": "cross-env BABEL_ENV=es start-storybook -p 3004 -c .storybook",
     "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static",
@@ -104,6 +105,7 @@
     "@react-native-community/blur": "^4.2.0",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-controls": "^6.5.12",
+    "@storybook/addon-ie11": "^0.0.6",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/manager-webpack5": "^6.5.12",
@@ -123,6 +125,7 @@
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
     "eslint": "^7.3.1",
+    "eventsource-polyfill": "^0.9.6",
     "file-loader": "^6.2.0",
     "glob": "^8.0.3",
     "minimatch": "^3.1.2",
@@ -143,5 +146,8 @@
     "webpack": "^5.74.0"
   },
   "author": "CoorpAcademy",
-  "gitHead": "3be3050e700db2d58de6759c1ec7de6869047209"
+  "browserslist": [
+    "last 2 versions",
+    "IE 11"
+  ]
 }
