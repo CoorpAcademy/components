@@ -62,12 +62,38 @@ type CorrectionPopinNext = {
   onClick: Function;
 };
 
+type QuitPopinContinue = {
+  label: string;
+  type: string;
+  customStyle: {
+    color: string;
+  };
+  onClick: Function;
+  ariaLabel: string;
+};
+
+type QuitPopinCancel = {
+  label: string;
+  type: string;
+  onClick: Function;
+  ariaLabel: string;
+};
+
 export type CorrectionPopinProps = {
   klf?: CorrectionPopinKlf;
   information: CorrectionPopinInformation;
   next: CorrectionPopinNext;
   resultLabel: string;
   type: 'right' | 'wrong';
+};
+
+export type QuitPopinProps = {
+  content: string;
+  icon: string;
+  mode: string;
+  descriptionText: string;
+  firstButton: QuitPopinContinue;
+  secondButton: QuitPopinCancel;
 };
 
 export type SlidesViewProps = {
@@ -109,26 +135,8 @@ export type SlidesViewProps = {
       onClick: Function;
       type: string;
     };
-    quitPopin?: {
-      content: string;
-      icon: string;
-      mode: string;
-      descriptionText: string;
-      firstButton: {
-        label: string;
-        type: string;
-        customStyle: {
-          color: string;
-        };
-        'aria-label': string;
-      };
-      secondButton: {
-        label: string;
-        type: string;
-        'aria-label': string;
-      };
-    };
   };
+  quitPopin?: QuitPopinProps;
 };
 
 // TODO replace this, position no more needed
@@ -312,6 +320,31 @@ const getCorrectionPopinProps =
     };
   };
 
+const getQuitPopinProps = (onQuitClick: Function): QuitPopinProps => {
+  return {
+    content: `Tu t'en vas déjà ?`,
+    icon: `MoonRocket`,
+    mode: 'alert',
+    descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
+    firstButton: {
+      label: 'Arrêter ma session',
+      type: 'tertiary',
+      customStyle: {
+        color: '#ED3436'
+      },
+      // eslint-disable-next-line no-console
+      onClick: () => onQuitClick,
+      ariaLabel: 'Stop session'
+    },
+    secondButton: {
+      label: `Continuer d'apprendre`,
+      type: 'primary',
+      // eslint-disable-next-line no-console
+      onClick: () => console.log('continue'),
+      ariaLabel: 'Continue review'
+    }
+  };
+};
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
@@ -321,7 +354,15 @@ export const mapStateToSlidesProps = (
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
-
+  // eslint-disable-next-line no-console
+  console.log('state');
+  // eslint-disable-next-line no-console
+  console.log(state);
+  const showQuitPopin = get(['ui', 'showQuitPopin'], state);
+  // eslint-disable-next-line no-console
+  console.log('showQuitPopin');
+  // eslint-disable-next-line no-console
+  console.log(showQuitPopin);
   return {
     header: {
       mode: '__revision_mode',
@@ -344,6 +385,7 @@ export const mapStateToSlidesProps = (
         correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
-    congrats: undefined
+    congrats: undefined,
+    quitPopin: showQuitPopin ? getQuitPopinProps(onQuitClick) : undefined
   };
 };
