@@ -320,7 +320,7 @@ const getCorrectionPopinProps =
     };
   };
 
-const getQuitPopinProps = (onQuitClick: Function): QuitPopinProps => {
+const buildQuitPopinProps = (onQuitClick: Function): QuitPopinProps => {
   return {
     content: `Tu t'en vas déjà ?`,
     icon: `MoonRocket`,
@@ -386,6 +386,6 @@ export const mapStateToSlidesProps = (
       endReview: false
     },
     congrats: undefined,
-    quitPopin: showQuitPopin ? getQuitPopinProps(onQuitClick) : undefined
+    quitPopin: showQuitPopin === true ? buildQuitPopinProps(onQuitClick) : undefined
   };
 };

@@ -53,7 +53,8 @@ const initialState: StoreState = {
     currentSlideRef: '',
     navigation: [],
     answers: {},
-    slide: {}
+    slide: {},
+    showQuitPopin: false
   }
 };
 

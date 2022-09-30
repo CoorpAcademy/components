@@ -1,20 +1,26 @@
-export const OPEN_POPIN = '@@ui/OPEN_POPIN' as const;
+export const OPEN_POPIN = '@@ui/OPEN_POPIN';
+export const CLOSE_POPIN = '@@ui/CLOSE_POPIN';
 
-type openQuitPopinPayload = {
+type quitPopinPayload = {
   showQuitPopin: boolean;
 };
 
 export type openQuitPopinAction = {
   type: typeof OPEN_POPIN;
-  payload: openQuitPopinPayload;
+  payload: quitPopinPayload;
 };
 
-export const openQuitPopin = (payload: openQuitPopinPayload): openQuitPopinAction => ({
+export type closeQuitPopinAction = {
+  type: typeof CLOSE_POPIN;
+  payload: quitPopinPayload;
+};
+
+export const openQuitPopin = (payload: quitPopinPayload): openQuitPopinAction => ({
   type: OPEN_POPIN,
   payload
 });
 
-export const closeQuitPopin = (payload: openQuitPopinPayload): openQuitPopinAction => ({
-  type: OPEN_POPIN,
+export const closeQuitPopin = (payload: quitPopinPayload): closeQuitPopinAction => ({
+  type: CLOSE_POPIN,
   payload
 });
