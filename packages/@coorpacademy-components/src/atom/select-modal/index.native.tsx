@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import {View, StyleSheet, ViewStyle, FlexAlignType} from 'react-native';
+import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Modal from 'react-native-modal';
 import Touchable from '../../hoc/touchable/index.native';
-import type {ChoiceItem, QuestionType} from '../../molecule/questions/types';
+import type {QuestionType} from '../../molecule/questions/types';
 import {Theme} from '../../variables/theme.native';
 
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
@@ -11,6 +11,12 @@ import Space from '../space/index.native';
 import Text from '../text/index.native';
 import ModalSelect, {OnChangeFunction} from '../../hoc/modal/select/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
+
+export type ChoiceItem = {
+  text: string;
+  selected: boolean;
+  _id: string;
+};
 
 export type Props = {
   analyticsID: string;
@@ -24,26 +30,19 @@ export type Props = {
   onChange: OnChangeFunction;
   onFocus: () => void;
   onBlur: () => void;
-  style?: ViewStyle;
+  style?: ViewStyle[];
   textStyle?: ViewStyle;
   testID?: string;
 };
 
 type StyleSheetType = {
-  container: {
-    alignItems: FlexAlignType;
-    flexDirection: 'row' | 'column' | 'row-reverse' | 'column-reverse' | undefined;
-  };
-  text: {
-    flex: number;
-    color: string;
-    textAlign: string;
-  };
+  container: ViewStyle;
+  text: ViewStyle;
 };
 
 const ICON_WIDTH = 15;
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       alignItems: 'center',
@@ -124,6 +123,14 @@ const Select = (props: Props) => {
 
   const selectedItem = values.find(item => item.selected);
   const text = (selectedItem && selectedItem.text) || placeholder || null;
+  const textStyles: TextStyle[] = [styleSheet.text];
+
+  if (textStyle) {
+    textStyles.push(textStyle);
+  }
+  if (color) {
+    textStyles.push({color});
+  }
 
   return (
     <>
@@ -134,7 +141,7 @@ const Select = (props: Props) => {
         testID={`${testID}-input`}
       >
         <View style={[styleSheet.container, style]}>
-          <Text style={[styleSheet.text, textStyle, color && {color}]}>{text}</Text>
+          <Text style={textStyles}>{text}</Text>
           <Space type="tiny" />
           <ArrowDown
             color={color || theme.colors.gray.dark}

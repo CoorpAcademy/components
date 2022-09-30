@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, TextStyle} from 'react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {GestureResponderEvent, StyleSheet, TextStyle, ViewStyle} from 'react-native';
 
 import Text from '../../../atom/text/index.native';
 import Touchable from '../../touchable/index.native';
@@ -10,25 +9,17 @@ import {Theme} from '../../../variables/theme.native';
 export type Props = {
   isSelected?: boolean;
   children: string;
-  onPress?: (event: PressEvent) => any;
+  onPress?: (event: GestureResponderEvent) => any;
   testID?: string;
 };
 
 type StyleSheetType = {
-  container: {
-    backgroundColor: string;
-    padding: number;
-  };
-  text: {
-    fontWeight: TextStyle;
-    color: string;
-  };
-  selectedTextStyle: {
-    color: string;
-  };
+  container: ViewStyle;
+  text: TextStyle;
+  selectedTextStyle: TextStyle;
 };
 
-const createStyleSheet = (brandTheme: any, theme: Theme) =>
+const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       backgroundColor: theme.colors.white,
@@ -59,9 +50,14 @@ const ModalSelectItem = (props: Props) => {
 
   const {children, onPress, isSelected, testID} = props;
 
+  const textStyle: TextStyle[] = [styleSheet.text];
+  if (isSelected) {
+    textStyle.push(styleSheet.selectedTextStyle);
+  }
+
   return (
     <Touchable onPress={onPress} style={styleSheet.container} testID={testID}>
-      <Text style={[styleSheet.text, isSelected && styleSheet.selectedTextStyle]}>{children}</Text>
+      <Text style={textStyle}>{children}</Text>
     </Touchable>
   );
 };

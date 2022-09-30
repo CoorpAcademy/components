@@ -1,10 +1,8 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {select} from './default';
+import {items} from './default';
 
 type Fixture = {props: Props};
-
-const items = select.items || [];
 
 const fixture: Fixture = {
   props: {

@@ -10,7 +10,13 @@ import FreeText from '../../free-text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
 
-import type {QuestionType, Choice} from '../../types';
+import type {
+  QuestionType,
+  Choice,
+  TemplateListOfChoices,
+  TemplateTextChoice,
+  SelectableChoice
+} from '../../types';
 
 export type Props = {
   type: QuestionType;
@@ -68,9 +74,9 @@ const Switch = (props: Props) => {
 
   const handleChoicePress = useCallback(
     (choice: Choice) => () => {
-      if (choice.onPress) {
+      if ((choice as SelectableChoice).onPress) {
         // e.g. app-review
-        choice.onPress();
+        (choice as SelectableChoice).onPress();
       } else if (onItemPress) {
         // e.g. learner
         onItemPress(choice);
@@ -81,9 +87,9 @@ const Switch = (props: Props) => {
 
   const handleItemInputChange = useCallback(
     (choice: Choice, _value: string) => {
-      if (choice.onPress) {
+      if ((choice as SelectableChoice).onPress) {
         // e.g. app-review
-        choice.onPress(_value);
+        (choice as SelectableChoice).onPress(_value);
       } else if (onItemInputChange) {
         // e.g. learner
         onItemInputChange(choice, _value);
@@ -111,7 +117,7 @@ const Switch = (props: Props) => {
     case 'qcm':
       return (
         <View testID="question-choices" style={styleSheet.choices}>
-          {choices.map((choice, index) => (
+          {(choices as SelectableChoice[]).map((choice, index) => (
             <QuestionChoice
               key={`question-choice-${choice._id}`}
               onPress={handleChoicePress(choice)}
@@ -129,7 +135,7 @@ const Switch = (props: Props) => {
     case 'qcmGraphic':
       return (
         <View testID="question-choices" style={styleSheet.choices}>
-          {choices.map((choice, index) => (
+          {(choices as SelectableChoice[]).map((choice, index) => (
             <QuestionChoice
               key={`question-choice-${choice._id}`}
               onPress={handleChoicePress(choice)}
@@ -174,7 +180,7 @@ const Switch = (props: Props) => {
           <QuestionTemplate
             isDisabled={isDisabled}
             template={template || ''}
-            choices={choices}
+            choices={choices as (TemplateListOfChoices | TemplateTextChoice)[]}
             onInputChange={handleItemInputChange}
             handleBlur={handleBlur}
             handleFocus={handleFocus}
@@ -185,7 +191,7 @@ const Switch = (props: Props) => {
     case 'qcmDrag':
       return (
         <View testID="question-draggable">
-          <QuestionDraggable choices={choices} onPress={handleChoicePress} />
+          <QuestionDraggable choices={choices as SelectableChoice[]} onPress={handleChoicePress} />
         </View>
       );
     case 'basic':

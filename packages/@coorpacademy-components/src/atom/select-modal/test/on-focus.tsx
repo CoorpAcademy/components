@@ -5,8 +5,7 @@ import Select from '../index.native';
 import mockMobileContext from '../../../test/helpers/mock-mobile-context';
 import {TemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../variables/analytics';
-
-import {select} from './fixtures/default';
+import {items} from './fixtures/default';
 
 test('should handle focus', t => {
   const analyticsID = 'fake-analytics-id';
@@ -23,8 +22,6 @@ test('should handle focus', t => {
       }
     }
   });
-
-  const items = select.items || [];
 
   const handleFocus = () => {
     t.pass();

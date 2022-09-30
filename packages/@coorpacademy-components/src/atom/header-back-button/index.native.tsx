@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {View, StyleSheet, GestureResponderEvent, ViewStyle} from 'react-native';
 
 import {
   NovaSolidPlacesPlacesHome2 as HomeIcon,
@@ -18,27 +17,19 @@ export const BACK_ICON_HEIGHT = 20;
 export type Props = {
   type: 'close' | 'back' | 'home';
   color?: string;
-  onPress?: (event: PressEvent) => any;
+  onPress?: (event: GestureResponderEvent) => any;
   isFloating?: boolean;
   noSafeArea?: boolean;
   testID?: string;
 };
 
 type StyleSheetType = {
-  container: {
-    paddingLeft: number;
-  };
-  floating: {
-    paddingTop: number;
-    position: string;
-    top: number;
-  };
-  noSafeArea: {
-    top: 0;
-  };
+  container: ViewStyle;
+  floating: ViewStyle;
+  noSafeArea: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme, statusBarHeight: number) =>
+const createStyleSheet = (theme: Theme, statusBarHeight: number): StyleSheetType =>
   StyleSheet.create({
     container: {
       paddingLeft: theme.spacing.base

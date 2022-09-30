@@ -1,9 +1,8 @@
-import {View, StyleSheet, TextInput} from 'react-native';
+import {View, StyleSheet, TextInput, ViewStyle} from 'react-native';
 import React, {useState, useEffect, useCallback} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
 import {Theme} from '../../../variables/theme.native';
-import {FontSize, TextAlign} from '../../../types/styles';
 
 type QuestionType = 'basic' | 'template';
 
@@ -18,41 +17,13 @@ interface Props {
 }
 
 type StyleSheetType = {
-  input: {
-    padding: number;
-    borderWidth: number;
-    borderColor: string;
-    borderRadius: number;
-    backgroundColor: string;
-    minWidth: number;
-  };
-  text: {
-    color: string;
-    fontWeight:
-      | 'normal'
-      | 'bold'
-      | '100'
-      | '200'
-      | '300'
-      | '400'
-      | '500'
-      | '600'
-      | '700'
-      | '800'
-      | '900'
-      | undefined;
-    fontSize: FontSize;
-    textAlign: TextAlign;
-  };
-  spaced: {
-    paddingVertical: number;
-  };
-  fullWitdh: {
-    width: string;
-  };
+  input: ViewStyle;
+  text: ViewStyle;
+  spaced: ViewStyle;
+  fullWitdh: ViewStyle;
 };
 
-const createStyleSheet = (brandTheme: any, theme: Theme) =>
+const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     input: {
       padding: theme.spacing.tiny,

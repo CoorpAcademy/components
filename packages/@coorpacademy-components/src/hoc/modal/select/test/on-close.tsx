@@ -1,13 +1,14 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {GestureResponderEvent} from 'react-native';
 import ModalSelect, {OnChangeFunction} from '../index.native';
+import mockedGestureEvent from '../../../../test/helpers/mocked-gesture-event';
 import fixture from './fixtures/default';
 
 test('should handle close', t => {
-  const handlePress = (event: PressEvent) => {
-    t.is(event, 'fake-event');
+  const handlePress = (event: GestureResponderEvent) => {
+    t.is(event, mockedGestureEvent);
   };
 
   const onChange: OnChangeFunction = () => {
@@ -21,7 +22,7 @@ test('should handle close', t => {
   const {getByTestId} = render(component);
   const cpt = getByTestId('close-modal');
 
-  fireEvent(cpt, 'press', 'fake-event');
+  fireEvent(cpt, 'press', mockedGestureEvent);
 
   t.plan(1);
 });

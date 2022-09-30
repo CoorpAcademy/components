@@ -1,12 +1,13 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import {GestureResponderEvent} from 'react-native';
 import HeaderBackButton from '../index.native';
+import mockedGestureEvent from '../../../test/helpers/mocked-gesture-event';
 
 test('should react on Press', t => {
-  const handlePress = (event: PressEvent) => {
-    t.is(event, 'fake-event');
+  const handlePress = (event: GestureResponderEvent) => {
+    t.is(event, mockedGestureEvent);
   };
 
   const component = (
@@ -16,7 +17,7 @@ test('should react on Press', t => {
   const {getByTestId} = render(component);
   const cpt = getByTestId('header-close-button');
 
-  fireEvent(cpt, 'press', 'fake-event');
+  fireEvent(cpt, 'press', mockedGestureEvent);
 
   t.plan(1);
 });

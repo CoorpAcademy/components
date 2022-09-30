@@ -1,12 +1,15 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import {Text} from 'react-native';
+import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
 
-type Fixture = {children: ReactNode; props: Props};
+type Fixture = {props: Props};
 
 const fixture: Fixture = {
-  props: {},
-  children: <Text>Some content</Text>
+  props: {
+    onClose: noop,
+    children: <Text>Some content</Text>
+  }
 };
 
 export default fixture;

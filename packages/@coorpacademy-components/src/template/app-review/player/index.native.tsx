@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle} from 'react-native';
 import StackedSlides from '../../../organism/review-stacked-slides/index.native';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../template-context';
 import {Props} from './prop-types';
 
-const createStyleSheet = (theme: Theme, headerHeight: number) =>
+type StyleSheetType = {
+  container: ViewStyle;
+  header: ViewStyle;
+};
+
+const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -21,14 +26,16 @@ const createStyleSheet = (theme: Theme, headerHeight: number) =>
     }
   });
 
-const ReviewHeader = ({style}) => (
+type ReviewHeaderProps = {style: ViewStyle};
+
+const ReviewHeader = ({style}: ReviewHeaderProps) => (
   <View {...style}>
     <Text>review header @todo</Text>
   </View>
 );
 
 const Slides = (props: Props) => {
-  const {header, stack, reviewBackgroundAriaLabel, congratsProps} = props;
+  const {header, stack, reviewBackgroundAriaLabel, congrats, quitPopin} = props;
 
   const {
     theme,

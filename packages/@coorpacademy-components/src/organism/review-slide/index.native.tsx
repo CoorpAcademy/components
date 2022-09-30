@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {StyleSheet, useWindowDimensions, View} from 'react-native';
+import {StyleSheet, useWindowDimensions, View, ViewStyle} from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Text from '../../atom/text/index.native';
@@ -9,14 +9,21 @@ import Answer from '../../molecule/answer/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {Props, SlideProps} from './prop-types';
+import {CorrectionPopinProps, Props, SlideProps} from './prop-types';
+
+type PopinProps = {
+  correctionPopinProps: CorrectionPopinProps;
+  slideIndex: unknown;
+  showCorrectionPopin: unknown;
+  animateCorrectionPopin: unknown;
+};
 
 const CorrectionPopin = ({
   correctionPopinProps,
   slideIndex,
   showCorrectionPopin,
   animateCorrectionPopin
-}) => {
+}: PopinProps) => {
   if (!showCorrectionPopin) return null;
 
   const klf = getOr({}, 'klf', correctionPopinProps);
@@ -65,7 +72,7 @@ const CorrectionPopin = ({
 const createQuestionStyle = (theme: Theme, brandTheme: any) =>
   StyleSheet.create({
     questionHeading: {
-      // backgroundColor: '#f00', // flex-debug
+      // backgroundColor: '#400', // flex-debug
       justifyContent: 'space-between'
     },
     questionOrigin: {
@@ -149,7 +156,11 @@ const Question = (props: QuestionProps) => {
   );
 };
 
-const creatSlideStyle = (num: number, screenWidth: number, screenHeight: number) => {
+type SlideStyle = {
+  slide: ViewStyle;
+};
+
+const createSlideStyle = (num: number, screenWidth: number, screenHeight: number): SlideStyle => {
   const slideWidth = screenWidth - 40 - num * 8;
   const slideHeight = screenHeight * 0.75;
 
@@ -179,7 +190,7 @@ const Slide = (props: Props) => {
   const {slide, validateButton, correctionPopinProps, num, slideIndex = '0'} = props;
 
   const {width, height} = useWindowDimensions();
-  const slideStyle = creatSlideStyle(num, width, height);
+  const slideStyle = createSlideStyle(num, width, height);
 
   const {
     loading,

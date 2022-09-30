@@ -1,13 +1,11 @@
-import React, {ReactNode} from 'react';
 import {Props} from '../../index.native';
 
-type Fixture = {children: ReactNode; props: Props};
+type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
-    fontSize: 20
-  },
-  children: `
+    fontSize: 20,
+    children: `
   <center>
       <img src="https://static.coorpacademy.com/content/enjoytesting/raw/Anim_Etoile_1.gif"/>
     </center>
@@ -15,6 +13,7 @@ const fixture: Fixture = {
     If you successfully complete this level, the stars you’ve accumulated so far will be added to your score and you will rise in the ranks!
     Let’s do it! Good luck on your last question, this is a tough one!
   `
+  }
 };
 
 export default fixture;

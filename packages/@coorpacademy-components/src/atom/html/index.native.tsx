@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
-import HtmlBase from 'react-native-render-html';
+import HtmlBase, {CustomRendererProps, MixedStyleRecord, TBlock} from 'react-native-render-html';
 
 import {HTML_ANCHOR_TEXT_COLOR} from '../../variables/theme.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -19,6 +19,25 @@ export type Props = {
   isTextCentered?: boolean;
 };
 
+type Styles = {
+  p: {
+    marginVertical: ViewStyle['marginVertical'];
+    textAlign: TextStyle['textAlign'];
+  };
+  u: {
+    textDecorationLine: TextStyle['textDecorationLine'];
+  };
+  i: {
+    fontStyle: TextStyle['fontStyle'];
+  };
+  b: {
+    fontWeight: TextStyle['fontWeight'];
+  };
+  s: {
+    textDecorationLine: TextStyle['textDecorationLine'];
+  };
+};
+
 const Html = (props: Props) => {
   const [disableBaseFontStyleColor, setDisableBaseFontStyleColor] = useState<boolean>(false);
   const templateContext = useTemplateContext();
@@ -32,21 +51,18 @@ const Html = (props: Props) => {
     testID,
     anchorTextColor = HTML_ANCHOR_TEXT_COLOR,
     isTextCentered,
-    numberOfLines,
-    onLinkPress
+    numberOfLines
   } = props;
 
   const handleLinkPress = useMemo(
     () => (url: string) => {
       vibration?.vibrate();
-
-      onLinkPress && onLinkPress(url);
     },
-    [onLinkPress, vibration]
+    [vibration]
   );
 
   // Don't use StyleSheet there, it's not a react style
-  const styles = {
+  const styles: Styles = {
     p: {
       marginVertical: 0,
       textAlign: 'center'
@@ -65,7 +81,7 @@ const Html = (props: Props) => {
     }
   };
 
-  const tagsStyles = {
+  const tagsStyles: MixedStyleRecord = {
     ...styles,
     h1: {fontSize},
     h2: {fontSize},
@@ -74,7 +90,7 @@ const Html = (props: Props) => {
     h5: {fontSize},
     h6: {fontSize},
     a: {color: anchorTextColor},
-    img: imageStyle
+    img: imageStyle || {}
   };
 
   let baseFontStyle = {...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black};
@@ -97,40 +113,9 @@ const Html = (props: Props) => {
   }
 
   const renderers = {
-    // eslint-disable-next-line react/display-name
-    font: (htmlAttribs, _children) => {
-      if (htmlAttribs.color) {
-        setDisableBaseFontStyleColor(true);
-      }
-      return (
-        <Text
-          key={1}
-          style={{
-            ...baseFontStyle,
-            color: htmlAttribs.color
-          }}
-        >
-          {_children}
-        </Text>
-      );
-    },
-    span: function Span(
-      _: any,
-      _children: any,
-      convertedCSSStyles: any,
-      {allowFontScaling, key}: any
-    ) {
-      return (
-        <Text
-          numberOfLines={numberOfLines}
-          allowFontScaling={allowFontScaling}
-          key={key}
-          style={convertedCSSStyles}
-        >
-          {_children}
-        </Text>
-      );
-    }
+    span: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
+      <Text numberOfLines={numberOfLines}>{_children}</Text>
+    )
   };
 
   return (
@@ -149,11 +134,11 @@ const Html = (props: Props) => {
             : `${children}`
         }}
         tagsStyles={tagsStyles}
+        // @ts-expect-error TS2322
         baseFontStyle={{
           ...baseFontStyle,
           color: disableBaseFontStyleColor ? null : baseFontStyle.color
         }}
-        onLinkPress={handleLinkPress}
         renderers={renderers}
         // this is exceptionally for the onboarding course
         // is the only course that has a gif in the context but the img tag

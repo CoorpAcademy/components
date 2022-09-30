@@ -1,14 +1,13 @@
 import React, {useState, useEffect, useMemo} from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet, GestureResponderEvent, ViewStyle} from 'react-native';
 import {noop} from 'lodash/fp';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
 
-import type {ChoiceItem} from '../../../molecule/questions/types';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 
 import Modal from '../index.native';
 import ModalSelectItem from '../select-item/index.native';
+import {ChoiceItem} from '../../../atom/select-modal/index.native';
 
 export type OnChangeFunction = (value: string) => void;
 
@@ -16,24 +15,17 @@ export type Props = {
   value?: string;
   values: Array<ChoiceItem> | undefined;
   onChange: OnChangeFunction;
-  onClose?: (event: PressEvent) => void;
+  onClose?: (event: GestureResponderEvent) => void;
   testID?: string;
 };
 
 type StyleSheetType = {
-  content: {
-    paddingHorizontal: number;
-  };
-  separator: {
-    borderTopWidth: number;
-    borderColor: string;
-  };
-  list: {
-    width: string;
-  };
+  content: ViewStyle;
+  separator: ViewStyle;
+  list: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     content: {
       paddingHorizontal: 0

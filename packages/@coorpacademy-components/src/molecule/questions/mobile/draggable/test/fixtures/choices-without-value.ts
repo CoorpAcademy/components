@@ -1,29 +1,28 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {Choice} from '../../../../types';
+import {SelectableChoice} from '../../../../types';
 
 type Fixture = {props: Props};
 
-const choices: Choice[] = [
+const choices: SelectableChoice[] = [
   {
     _id: '1',
     label: 'Play Store',
-    value: undefined
+    onPress: () => noop,
+    selected: false
   },
   {
     _id: '2',
     label: 'App Store',
-    value: undefined
+    onPress: () => noop,
+    selected: false
   }
 ];
-
-const userChoices = choices.slice(0, 2).map(item => item.label);
 
 const fixture: Fixture = {
   props: {
     choices,
-    userChoices,
-    onPress: noop
+    onPress: () => noop
   }
 };
 

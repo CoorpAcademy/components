@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import type {PressEvent} from 'react-native/Libraries/Types/CoreEventTypes';
 
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, GestureResponderEvent, ViewStyle} from 'react-native';
 import {
   NovaCompositionCoorpacademySearch as SearchIcon,
   NovaCompositionCoorpacademyCog as SettingsIcon
@@ -10,46 +9,23 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import BrandLogo from '../../molecule/brand-logo/index.native';
 import Gradient from '../../atom/gradient/index.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {FlexAlignType, FlexDirection, JustifyContent, Position} from '../../types/styles';
 import {Theme} from '../../variables/theme.native';
 
 export interface Props {
-  onSearchPress: (event: PressEvent) => any;
-  onSettingsPress: (event: PressEvent) => any;
-  onLogoLongPress: (event: PressEvent) => any;
+  onSearchPress: (event: GestureResponderEvent) => any;
+  onSettingsPress: (event: GestureResponderEvent) => any;
+  onLogoLongPress: (event: GestureResponderEvent) => any;
 }
 
 export const HEADER_HEIGHT = 67;
 const ICON_WIDTH = 20;
 
 type StyleSheetType = {
-  container: {
-    position: Position;
-    backgroundColor: string;
-    flexDirection: FlexDirection;
-    alignItems: FlexAlignType;
-    justifyContent: JustifyContent;
-    height: string | number;
-    top: number;
-    width: string | number;
-  };
-  icons: {
-    flexDirection: FlexDirection;
-  };
-  icon: {
-    marginRight: number;
-  };
-  logo: {
-    width: number;
-    marginLeft: number;
-  };
-  gradient: {
-    position: Position;
-    left: number;
-    top: number;
-    right: number;
-    opacity: number;
-  };
+  container: ViewStyle;
+  icons: ViewStyle;
+  icon: ViewStyle;
+  logo: ViewStyle;
+  gradient: ViewStyle;
 };
 
 const createStyleSheet = (theme: Theme) =>

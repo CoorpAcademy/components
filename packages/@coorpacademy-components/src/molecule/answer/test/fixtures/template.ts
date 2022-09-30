@@ -9,6 +9,9 @@ type Fixture = {
   mobileContext?: TemplateContextValues;
 };
 
+const answers = Template.props.answers as Props['model']['answers'];
+const template = Template.props.template;
+
 const fixture: Fixture = {
   mobileContext: {
     ...mockMobileContext(),
@@ -20,9 +23,11 @@ const fixture: Fixture = {
   },
   props: {
     model: {
-      ...Template.props,
-      type: 'template'
+      type: 'template',
+      template,
+      answers
     },
+    help: '',
     media: {
       type: 'img',
       url:

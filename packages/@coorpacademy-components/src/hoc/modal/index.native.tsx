@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View, ViewStyle} from 'react-native';
+import {GestureResponderEvent, StyleSheet, View, ViewStyle} from 'react-native';
 import HeaderBackButton from '../../atom/header-back-button/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
+import {Theme} from '../../variables/theme.native';
 
 export type Props = {
   children: React.ReactNode;
@@ -9,53 +10,23 @@ export type Props = {
   iconBackgroundColor?: string;
   renderIcon?: React.ReactNode;
   contentStyle?: ViewStyle;
-  onClose: () => void;
+  onClose: (event: GestureResponderEvent) => any;
   testID?: string;
 };
 
 export const HEADER_HEIGHT = 64;
 
 type StyleSheetType = {
-  container: {
-    borderRadius: number;
-    overflow: string;
-    backgroundColor: string;
-  };
-  header: {
-    backgroundColor: string;
-    alignItems: string;
-    justifyContent: string;
-    paddingHorizontal: number;
-    height: number;
-  };
-  content: {
-    paddingHorizontal: number;
-    paddingBottom: number;
-    alignItems: string;
-  };
-  contentWithHeader: {
-    paddingTop: number;
-  };
-  contentWithIcon: {
-    paddingTop: number;
-  };
-  icon: {
-    marginTop: number;
-    padding: number;
-    backgroundColor: string;
-    borderRadius: string;
-    alignSelf: string;
-  };
-  iconContent: {
-    backgroundColor: string;
-    padding: number;
-    borderRadius: number;
-    justifyContent: string;
-    alignItems: string;
-  };
+  container: ViewStyle;
+  header: ViewStyle;
+  content: ViewStyle;
+  contentWithHeader: ViewStyle;
+  contentWithIcon: ViewStyle;
+  icon: ViewStyle;
+  iconContent: ViewStyle;
 };
 
-const createStyleSheet = theme =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       borderRadius: theme.radius.card,
@@ -120,6 +91,8 @@ const Modal = (props: Props) => {
     return null;
   }
 
+  const contentStyles = [styleSheet.content, contentStyle];
+
   return (
     <View style={styleSheet.container} testID={testID}>
       <View style={[styleSheet.header, {backgroundColor: headerBackgroundColor}]}>
@@ -138,16 +111,7 @@ const Modal = (props: Props) => {
           </View>
         </View>
       ) : null}
-      <View
-        style={[
-          styleSheet.content,
-          headerBackgroundColor && styleSheet.contentWithHeader,
-          renderIcon && styleSheet.contentWithIcon,
-          contentStyle
-        ]}
-      >
-        {children}
-      </View>
+      <View style={contentStyles}>{children}</View>
     </View>
   );
 };

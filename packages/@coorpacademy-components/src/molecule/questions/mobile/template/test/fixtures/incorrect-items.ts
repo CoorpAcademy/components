@@ -26,6 +26,7 @@ export const choices = [field1, field2, field3];
 const fixture: Fixture = {
   props: {
     ...defaultFixture.props,
+    // @ts-expect-error (this test uses incorrect items on purpose)
     choices
   }
 };
