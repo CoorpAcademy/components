@@ -9,7 +9,6 @@ type StyleSheetType = {
 
 const style: StyleSheetType = StyleSheet.create({
   header: {
-    // backgroundColor: '#ded', // flex-debug
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',

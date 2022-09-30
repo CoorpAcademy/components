@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle} from 'react-native';
 
 import QuestionChoice from '../../../../atom/choice/index.native';
 import QuestionDraggable from '../draggable/index.native';
@@ -35,16 +35,19 @@ export type Props = {
   onItemPress?: (item: Choice) => void;
 };
 
-const styleSheet = StyleSheet.create({
+type StyleSheetType = {
+  cards: ViewStyle;
+  card: ViewStyle;
+  choice: ViewStyle;
+};
+
+const styleSheet: StyleSheetType = StyleSheet.create({
   cards: {
     flexDirection: 'row',
     alignItems: 'stretch'
   },
   card: {
     flex: 1
-  },
-  choices: {
-    // backgroundColor: '#967' // flex-debug
   },
   choice: {
     paddingVertical: 5
@@ -116,7 +119,7 @@ const Switch = (props: Props) => {
   switch (type) {
     case 'qcm':
       return (
-        <View testID="question-choices" style={styleSheet.choices}>
+        <View testID="question-choices">
           {(choices as SelectableChoice[]).map((choice, index) => (
             <QuestionChoice
               key={`question-choice-${choice._id}`}
@@ -134,7 +137,7 @@ const Switch = (props: Props) => {
       );
     case 'qcmGraphic':
       return (
-        <View testID="question-choices" style={styleSheet.choices}>
+        <View testID="question-choices">
           {(choices as SelectableChoice[]).map((choice, index) => (
             <QuestionChoice
               key={`question-choice-${choice._id}`}

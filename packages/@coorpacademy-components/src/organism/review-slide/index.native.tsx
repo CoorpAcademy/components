@@ -72,7 +72,6 @@ const CorrectionPopin = ({
 const createQuestionStyle = (theme: Theme, brandTheme: any) =>
   StyleSheet.create({
     questionHeading: {
-      // backgroundColor: '#400', // flex-debug
       justifyContent: 'space-between'
     },
     questionOrigin: {
@@ -91,7 +90,6 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
       textAlign: 'center'
     },
     questionHelp: {
-      // backgroundColor: '#38295b', // flex-debug
       fontSize: 12,
       lineHeight: 16,
       color: theme.colors.gray.medium,
@@ -102,7 +100,6 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
     choicesContainer: {
       flex: 1,
       width: '100%',
-      // backgroundColor: '#ff0', // flex-debug
       justifyContent: 'center'
     },
     validateButton: {
