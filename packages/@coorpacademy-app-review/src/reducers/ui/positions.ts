@@ -17,7 +17,8 @@ const reducer = (
       return initialState;
     }
     case NEXT_SLIDE: {
-      const {totalCorrectAnswers, answeredSlides, currentSlideRef, animationType, nextSlideRef} = action.payload;
+      const {totalCorrectAnswers, answeredSlides, currentSlideRef, animationType, nextSlideRef} =
+        action.payload;
       if (nextSlideRef === 'successExitNode') return state;
 
       const nextCurrentSlidePosition = animationType === 'unstack' ? -1 : 4 - totalCorrectAnswers;
