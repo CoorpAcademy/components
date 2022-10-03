@@ -16,17 +16,18 @@ import {
 } from '../../../../template/app-review/template-context';
 import {Theme} from '../../../../variables/theme.native';
 import parseTemplateString from '../../../../util/parse-template-string';
+import {BOX_STYLE} from '../../../../variables/shadow';
 
 type StyleSheetType = {
-  section: ViewStyle;
+  container: ViewStyle;
   spaced: ViewStyle;
-  input: ViewStyle;
   htmlText: TextStyle;
-  text: TextStyle;
+  selectInput: ViewStyle;
+  selectText: TextStyle;
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType => ({
-  section: {
+  container: {
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -36,21 +37,22 @@ const createStyleSheet = (theme: Theme): StyleSheetType => ({
   spaced: {
     paddingVertical: theme.spacing.tiny
   },
-  input: {
-    padding: theme.spacing.tiny,
-    borderWidth: 1,
-    borderColor: theme.colors.gray.lightMedium,
-    borderRadius: theme.radius.common,
-    backgroundColor: theme.colors.white,
-    minWidth: 175
-  },
   htmlText: {
-    padding: theme.spacing.tiny,
     color: theme.colors.black,
     fontWeight: theme.fontWeight.bold,
-    lineHeight: 30
+    lineHeight: 25
   },
-  text: {
+  // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
+  selectInput: {
+    padding: theme.spacing.tiny,
+    borderRadius: theme.radius.regular,
+    minWidth: 175,
+    marginHorizontal: 12,
+    paddingVertical: 16,
+    ...BOX_STYLE,
+    backgroundColor: theme.colors.white
+  },
+  selectText: {
     color: theme.colors.gray.medium,
     fontWeight: theme.fontWeight.bold,
     fontSize: theme.fontSize.regular,
@@ -63,74 +65,22 @@ type TemplatePart = {
   value: string;
 };
 
-type SectionProps = {
-  isDisabled: boolean;
-  section: Array<TemplatePart>;
-  choices: Array<TemplateTextChoice | TemplateListOfChoices>;
-  index: number;
-  onInputChange: (item: TemplateTextChoice | TemplateListOfChoices, value: string) => void;
-  focusedSelectId: FocusedSelectId;
-  handleBlur: HandleBlur;
-  handleFocus: HandleFocus;
-  styles: any;
-};
-
-const Section = ({
-  section,
-  choices,
-  index,
-  focusedSelectId,
-  onInputChange,
-  handleBlur,
-  handleFocus,
-  isDisabled,
-  styles
-}: SectionProps) => {
-  const prefix = `question-section-${index + 1}`;
-
-  return (
-    <View style={styles.section} key={`container-${prefix}`}>
-      {section.map((part, id) => {
-        return (
-          <View key={`${prefix}-${id}`} style={{flexDirection: 'row'}}>
-            <Item
-              prefix={prefix}
-              part={part}
-              choices={choices}
-              index={id}
-              focusedSelectId={focusedSelectId}
-              isDisabled={isDisabled}
-              handleBlur={handleBlur}
-              handleFocus={handleFocus}
-              onInputChange={onInputChange}
-              styles={styles}
-            />
-            <Space type="micro" />
-          </View>
-        );
-      })}
-    </View>
-  );
-};
-
 type ItemProps = {
   part: TemplatePart;
   choices: Array<TemplateTextChoice | TemplateListOfChoices>;
   index: number;
-  prefix: string;
   isDisabled?: boolean;
   onInputChange: (item: TemplateTextChoice | TemplateListOfChoices, value: string) => void;
   focusedSelectId: FocusedSelectId;
   handleBlur: HandleBlur;
   handleFocus: HandleFocus;
-  styles: any;
+  styles: StyleSheetType;
 };
 
 const Item = (props: ItemProps) => {
   const {
     part,
     index,
-    prefix,
     isDisabled = false,
     focusedSelectId,
     choices,
@@ -144,11 +94,10 @@ const Item = (props: ItemProps) => {
   const {theme, brandTheme, translations} = templateContext;
 
   const inputNames = choices.map(choice => choice.name);
-  const id = `${prefix}-part-${index + 1}`;
+  const id = `question-part-${index + 1}`;
   const isFocused = focusedSelectId === id;
 
-  const selectedStyle = brandTheme && {
-    borderColor: brandTheme.colors.primary,
+  const coloredText = brandTheme && {
     color: brandTheme.colors.primary
   };
 
@@ -183,9 +132,14 @@ const Item = (props: ItemProps) => {
       );
     }
 
-    const selectStyle: ViewStyle[] = [styles.input];
+    const selectInputStyle: ViewStyle[] = [styles.selectInput];
     if (value) {
-      selectStyle.push(selectedStyle);
+      selectInputStyle.push(coloredText);
+    }
+
+    const selectTextStyle: ViewStyle[] = [styles.selectText];
+    if (value) {
+      selectTextStyle.push(coloredText);
     }
 
     if (choice.type === 'select') {
@@ -201,8 +155,8 @@ const Item = (props: ItemProps) => {
             onBlur={handleBlur}
             onFocus={handleFocus(id)}
             onChange={handleInputChange(choice)}
-            textStyle={styles.text}
-            style={selectStyle}
+            textStyle={selectTextStyle}
+            style={selectInputStyle}
             analyticsID={`${id}-select${selectedSuffix}${disabledSuffix}`}
             testID={`${id}-select${selectedSuffix}${disabledSuffix}`}
           />
@@ -254,23 +208,24 @@ const QuestionTemplate = (props: Props) => {
   }
 
   const parts: TemplatePart[] = parseTemplateString(template);
-  const sections = [parts]; // @todo remove useless sections
 
   return (
-    <View testID="question-template">
-      {sections.map((section, index) => (
-        <Section
-          key={index}
-          section={section}
-          choices={choices}
-          index={index}
-          handleBlur={handleBlur}
-          handleFocus={handleFocus}
-          focusedSelectId={focusedSelectId}
-          onInputChange={onInputChange}
-          isDisabled={isDisabled}
-          styles={styleSheet}
-        />
+    <View style={styleSheet.container} testID="question-template">
+      {parts.map((part, id) => (
+        <View key={`question-part-${id}`} style={{flexDirection: 'row'}}>
+          <Item
+            part={part}
+            choices={choices}
+            index={id}
+            focusedSelectId={focusedSelectId}
+            isDisabled={isDisabled}
+            handleBlur={handleBlur}
+            handleFocus={handleFocus}
+            onInputChange={onInputChange}
+            styles={styleSheet}
+          />
+          <Space type="micro" />
+        </View>
       ))}
     </View>
   );

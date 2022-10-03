@@ -31,7 +31,7 @@ export type Props = {
   onFocus: () => void;
   onBlur: () => void;
   style?: ViewStyle[];
-  textStyle?: ViewStyle;
+  textStyle?: ViewStyle[];
   testID?: string;
 };
 
@@ -123,10 +123,10 @@ const Select = (props: Props) => {
 
   const selectedItem = values.find(item => item.selected);
   const text = (selectedItem && selectedItem.text) || placeholder || null;
-  const textStyles: TextStyle[] = [styleSheet.text];
+  let textStyles: TextStyle[] = [styleSheet.text];
 
   if (textStyle) {
-    textStyles.push(textStyle);
+    textStyles = [styleSheet.text, ...textStyle];
   }
   if (color) {
     textStyles.push({color});

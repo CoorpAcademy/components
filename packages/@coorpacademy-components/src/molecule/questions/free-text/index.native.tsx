@@ -3,6 +3,7 @@ import React, {useState, useEffect, useCallback} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
 import {Theme} from '../../../variables/theme.native';
+import {BOX_STYLE} from '../../../variables/shadow';
 
 type QuestionType = 'basic' | 'template';
 
@@ -25,13 +26,16 @@ type StyleSheetType = {
 
 const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
   StyleSheet.create({
+    // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
     input: {
       padding: theme.spacing.tiny,
-      borderWidth: 1,
       borderColor: theme.colors.gray.lightMedium,
-      borderRadius: theme.radius.common,
-      backgroundColor: theme.colors.white,
-      minWidth: 175
+      borderRadius: theme.radius.regular,
+      minWidth: 175,
+      marginHorizontal: 12,
+      paddingVertical: 16,
+      ...BOX_STYLE,
+      backgroundColor: theme.colors.white
     },
     text: {
       borderColor: brandTheme?.colors.primary,

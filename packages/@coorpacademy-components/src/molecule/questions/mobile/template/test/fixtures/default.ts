@@ -1,6 +1,6 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import {Choice, TemplateListOfChoices, TemplateTextChoice} from '../../../../types';
+import {TemplateListOfChoices, TemplateTextChoice} from '../../../../types';
 
 type Fixture = {props: Props};
 
