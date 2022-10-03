@@ -17,7 +17,7 @@ export const slideIndexes = ['0', '1', '2', '3', '4'] as const;
 export type SlideIndexes = typeof slideIndexes[number];
 
 export const getProgressionSlidesRefs = (progression: ProgressionFromAPI): string[] => {
-  if (progression.state.step.current < 5) {
+  if (progression.state.step.current <= 5) {
     const slideRef = progression.state.nextContent.ref;
     return concat(progression.state.slides, [slideRef]);
   }
