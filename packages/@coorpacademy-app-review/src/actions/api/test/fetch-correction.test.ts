@@ -43,7 +43,8 @@ const initialState: StoreState = {
         animateCorrectionPopin: false,
         showCorrectionPopin: false
       }
-    }
+    },
+    showQuitPopin: false
   }
 };
 

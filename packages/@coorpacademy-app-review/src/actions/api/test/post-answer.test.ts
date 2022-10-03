@@ -75,7 +75,8 @@ const initialState: StoreState = {
         animateCorrectionPopin: false,
         showCorrectionPopin: false
       }
-    }
+    },
+    showQuitPopin: false
   }
 };
 
@@ -177,7 +178,8 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
           animateCorrectionPopin: false,
           showCorrectionPopin: false
         }
-      }
+      },
+      showQuitPopin: false
     }
   };
 

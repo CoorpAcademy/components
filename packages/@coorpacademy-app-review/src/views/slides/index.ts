@@ -63,7 +63,7 @@ type CorrectionPopinNext = {
   onClick: Function;
 };
 
-type QuitPopinContinue = {
+type QuitPopinTypes = {
   label: string;
   type: string;
   customStyle?: {
@@ -86,8 +86,8 @@ export type QuitPopinProps = {
   icon: string;
   mode: string;
   descriptionText: string;
-  firstButton: QuitPopinContinue;
-  secondButton: QuitPopinContinue;
+  firstButton: QuitPopinTypes;
+  secondButton: QuitPopinTypes;
 };
 
 export type SlidesViewProps = {
@@ -351,10 +351,6 @@ export const mapStateToSlidesProps = (
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
   const showQuitPopin = get(['ui', 'showQuitPopin'], state);
-  // eslint-disable-next-line no-console
-  console.log('showQuitPopin');
-  // eslint-disable-next-line no-console
-  console.log(showQuitPopin);
   return {
     header: {
       mode: '__revision_mode',

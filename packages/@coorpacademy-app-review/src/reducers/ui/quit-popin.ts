@@ -4,7 +4,7 @@ export type ShowQuitPopinState = boolean;
 
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: ShowQuitPopinState = false, // default value
+  state: ShowQuitPopinState = false,
   action: QuitPopinAction
 ): ShowQuitPopinState => {
   switch (action.type) {
