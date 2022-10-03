@@ -483,7 +483,7 @@ import MoleculeAddToMyListFixtureDefault from '../src/molecule/add-to-my-list/te
 import MoleculeAddToMyListFixtureFavorite from '../src/molecule/add-to-my-list/test/fixtures/favorite';
 import MoleculeAnswerFixtureAudio from '../src/molecule/answer/test/fixtures/audio';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
-import MoleculeAnswerFixtureDropDownTs from '../src/molecule/answer/test/fixtures/drop-down.ts';
+import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import MoleculeAnswerFixtureQcmArabic from '../src/molecule/answer/test/fixtures/qcm-arabic';
 import MoleculeAnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import MoleculeAnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
@@ -492,7 +492,7 @@ import MoleculeAnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixt
 import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
-import MoleculeAnswerFixtureTemplateTs from '../src/molecule/answer/test/fixtures/template.ts';
+import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
 import MoleculeAudioFixtureDefault from '../src/molecule/audio/test/fixtures/default';
 import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/with-poster';
 import MoleculeBannerFixtureDefault from '../src/molecule/banner/test/fixtures/default';
@@ -1185,7 +1185,7 @@ import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppPlayerPopinNoAccessFixtureDefault from '../src/template/app-player/popin-no-access/test/fixtures/default';
-import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
+import TemplateAppReviewDemoTsFixtureDefault from '../src/template/app-review/demo-ts/test/fixtures/default';
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
 import TemplateAppReviewPlayerFixtureAllOk from '../src/template/app-review/player/test/fixtures/all-ok';
 import TemplateAppReviewPlayerFixtureEndReview from '../src/template/app-review/player/test/fixtures/end-review';
@@ -1954,7 +1954,7 @@ export const fixtures = {
     MoleculeAnswer: {
       Audio: MoleculeAnswerFixtureAudio,
       Default: MoleculeAnswerFixtureDefault,
-      DropDownTs: MoleculeAnswerFixtureDropDownTs,
+      DropDown: MoleculeAnswerFixtureDropDown,
       QcmArabic: MoleculeAnswerFixtureQcmArabic,
       QcmDrag: MoleculeAnswerFixtureQcmDrag,
       QcmGraphic: MoleculeAnswerFixtureQcmGraphic,
@@ -1963,7 +1963,7 @@ export const fixtures = {
       QcmShort: MoleculeAnswerFixtureQcmShort,
       Qcm: MoleculeAnswerFixtureQcm,
       Range: MoleculeAnswerFixtureRange,
-      TemplateTs: MoleculeAnswerFixtureTemplateTs
+      Template: MoleculeAnswerFixtureTemplate
     },
     MoleculeAudio: {
       Default: MoleculeAudioFixtureDefault,
@@ -3002,7 +3002,7 @@ export const fixtures = {
   },
   TemplateAppReview: {
     TemplateAppReviewDemoTs: {
-      DefaultTs: TemplateAppReviewDemoTsFixtureDefaultTs
+      Default: TemplateAppReviewDemoTsFixtureDefault
     },
     TemplateAppReviewOnboarding: {
       Default: TemplateAppReviewOnboardingFixtureDefault

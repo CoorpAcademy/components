@@ -1,6 +1,7 @@
 import {TextStyle} from 'react-native';
 
 export type SpaceType = 'micro' | 'tiny' | 'small' | 'base' | 'medium' | 'large' | 'xlarge';
+import {COLORS} from './colors';
 
 export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
 
@@ -87,8 +88,8 @@ const defaultTheme: Theme = {
     },
     background: {},
     cta: '#0061FF',
-    negative: '#F73F52',
-    positive: '#3EC483',
+    negative: COLORS.negative,
+    positive: COLORS.positive,
     white: '#FFFFFF',
     black: '#14171A',
     battle: '#FFDE03',

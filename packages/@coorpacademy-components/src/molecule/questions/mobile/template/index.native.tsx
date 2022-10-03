@@ -27,7 +27,6 @@ type StyleSheetType = {
 
 const createStyleSheet = (theme: Theme): StyleSheetType => ({
   section: {
-    // backgroundColor: '#188', // flex-debug
     width: '100%',
     flexDirection: 'row',
     flexWrap: 'wrap',

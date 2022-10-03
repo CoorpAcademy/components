@@ -5,16 +5,21 @@ const {readFixtureFiles$} = require('./fixture-files');
 const {readComponents$} = require('./components');
 const {pascalCase} = require('./string');
 
-const readComponentFixtures$ = ({title, path, type}, {native} = {native: false}) =>
+const readComponentFixtures$ = ({title, path, type}) =>
   readFixtureFiles$(join(path, 'test')).pipe(
     map(fixturePath => {
-      const fixture = pipe(f => basename(f, native ? '.tsx' : '.js'), pascalCase)(fixturePath);
+      const fixtureName = pipe(
+        f => basename(f, '.js'),
+        f => basename(f, '.ts'),
+        f => basename(f, '.tsx')
+      )(fixturePath);
+
       return {
         title,
         path,
         type,
-        fixture,
-        fixturePath: join(dirname(fixturePath), basename(fixturePath, native ? '.tsx' : '.js'))
+        fixture: pascalCase(fixtureName),
+        fixturePath: join(dirname(fixturePath), fixtureName)
       };
     })
   );
