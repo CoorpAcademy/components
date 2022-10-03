@@ -1,16 +1,16 @@
-import {openQuitPopinAction, OPEN_POPIN} from '../../actions/ui/quit-popin';
+import {CLOSE_POPIN, OPEN_POPIN, QuitPopinAction} from '../../actions/ui/quit-popin';
 
 export type ShowQuitPopinState = boolean;
 
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: ShowQuitPopinState = false, // default value
-  action: openQuitPopinAction
+  action: QuitPopinAction
 ): ShowQuitPopinState => {
   switch (action.type) {
+    case CLOSE_POPIN:
     case OPEN_POPIN: {
-      // eslint-disable-next-line no-console
-      return action.payload.showQuitPopin; // mettre la valeur à true
+      return action.payload.showQuitPopin;
     }
     default:
       return state;

@@ -14,6 +14,7 @@ import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
 import {nextSlide} from '../../actions/ui/next-slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
+import { closeQuitPopin, openQuitPopin } from 'src/actions/ui/quit-popin';
 
 const ICON_VALUES = {
   right: 'right',
@@ -320,31 +321,33 @@ const getCorrectionPopinProps =
     };
   };
 
-const buildQuitPopinProps = (onQuitClick: Function): QuitPopinProps => {
-  return {
-    content: `Tu t'en vas déjà ?`,
-    icon: `MoonRocket`,
-    mode: 'alert',
-    descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
-    firstButton: {
-      label: 'Arrêter ma session',
-      type: 'tertiary',
-      customStyle: {
-        color: '#ED3436'
+const buildQuitPopinProps =
+  (dispatch: Dispatch) =>
+  (onQuitClick: Function): QuitPopinProps => {
+    return {
+      content: `Tu t'en vas déjà ?`,
+      icon: `MoonRocket`,
+      mode: 'alert',
+      descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
+      firstButton: {
+        label: 'Arrêter ma session',
+        type: 'tertiary',
+        customStyle: {
+          color: '#ED3436'
+        },
+        onClick: onQuitClick,
+        ariaLabel: 'Stop session'
       },
-      // eslint-disable-next-line no-console
-      onClick: () => onQuitClick,
-      ariaLabel: 'Stop session'
-    },
-    secondButton: {
-      label: `Continuer d'apprendre`,
-      type: 'primary',
-      // eslint-disable-next-line no-console
-      onClick: () => console.log('continue'),
-      ariaLabel: 'Continue review'
-    }
+      secondButton: {
+        label: `Continuer d'apprendre`,
+        type: 'primary',
+        onClick: (): void => {
+          dispatch(closeQuitPopin());
+        },
+        ariaLabel: 'Continue review'
+      }
+    };
   };
-};
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
@@ -354,10 +357,6 @@ export const mapStateToSlidesProps = (
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
-  // eslint-disable-next-line no-console
-  console.log('state');
-  // eslint-disable-next-line no-console
-  console.log(state);
   const showQuitPopin = get(['ui', 'showQuitPopin'], state);
   // eslint-disable-next-line no-console
   console.log('showQuitPopin');
@@ -367,7 +366,7 @@ export const mapStateToSlidesProps = (
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick,
+      onQuitClick: () => dispatch(openQuitPopin()),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state)
@@ -386,6 +385,6 @@ export const mapStateToSlidesProps = (
       endReview: false
     },
     congrats: undefined,
-    quitPopin: showQuitPopin === true ? buildQuitPopinProps(onQuitClick) : undefined
+    quitPopin: showQuitPopin === true ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };

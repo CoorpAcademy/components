@@ -5,22 +5,21 @@ type quitPopinPayload = {
   showQuitPopin: boolean;
 };
 
-export type openQuitPopinAction = {
-  type: typeof OPEN_POPIN;
+export type QuitPopinAction = {
+  type: typeof CLOSE_POPIN | typeof OPEN_POPIN;
   payload: quitPopinPayload;
 };
 
-export type closeQuitPopinAction = {
-  type: typeof CLOSE_POPIN;
-  payload: quitPopinPayload;
-};
-
-export const openQuitPopin = (payload: quitPopinPayload): openQuitPopinAction => ({
+export const openQuitPopin = (): QuitPopinAction => ({
   type: OPEN_POPIN,
-  payload
+  payload: {
+    showQuitPopin: true
+  }
 });
 
-export const closeQuitPopin = (payload: quitPopinPayload): closeQuitPopinAction => ({
+export const closeQuitPopin = (): QuitPopinAction => ({
   type: CLOSE_POPIN,
-  payload
+  payload: {
+    showQuitPopin: false
+  }
 });
