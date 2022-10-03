@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {View, FlatList, Pressable, StyleSheet, Text, ViewStyle} from 'react-native';
-import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
+import {
+  NovaCompositionNavigationArrowRight as ArrowRight,
+  NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision
+} from '@coorpacademy/nova-icons';
 import {useTemplateContext} from '../template-context';
 import {Theme} from '../../../variables/theme.native';
 
-import propTypes, {NoSkillsPropTypes} from '../../../organism/review-skills/prop-types';
 import {HEADER_HEIGHT} from '../../../organism/header-v2/index.native';
-import {ItemProps, ListProps, NoSkillsProps, SkillProps, SkillsProps} from './prop-types';
-// import translations from '../../../translations';
-// import noSkillsImage from '../../../assets/images/revision-no-skills.png';
-// import Touchable from '../../../app-shared/components/touchable';
+import {FlatListProps, ItemProps, ListSkillsProps, SkillProps, SkillsProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
@@ -95,7 +94,7 @@ const createStyleSheet = (theme: Theme) =>
 
 // -----------------------------------------------------------------------------
 
-const onSelectSkill = title => () => {
+const onSelectSkill = (title: string) => () => {
   // eslint-disable-next-line no-console
   console.log('pressed on', {title});
 };
@@ -146,7 +145,8 @@ const Skill = ({title, info}: SkillProps) => {
 const Item = ({item: {title, info, isExtraSpace = false}}: ItemProps) =>
   isExtraSpace ? <ExtraSpace /> : <Skill title={title} info={info} />;
 
-const List = ({skills}: ListProps) => {
+const List = (props: ListSkillsProps) => {
+  const {skills} = props;
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
@@ -165,17 +165,10 @@ const List = ({skills}: ListProps) => {
 
 // -----------------------------------------------------------------------------
 
-/*
-  title: translations.revision.home.noSkills
-  text: translations.revision.home.noSkillsDetails
-  image: use web svg
-  <ImageBackground source={noSkillsImage} style={styles.noSkillsImage} />
-*/
-
-const NoSkills = ({titleNoSkills, textNoSkills}: NoSkillsProps) => {
+const NoSkills = () => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {theme} = templateContext;
+  const {theme, translations} = templateContext;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -188,13 +181,12 @@ const NoSkills = ({titleNoSkills, textNoSkills}: NoSkillsProps) => {
 
   return (
     <>
-      <Text style={styleSheet.subtitle}>{titleNoSkills}</Text>
-      <Text style={styleSheet.text}>{textNoSkills}</Text>
+      <Text style={styleSheet.subtitle}>{translations.revision?.home?.noSkills}</Text>
+      <Text style={styleSheet.text}>{translations.revision?.home?.noSkillsDetails}</Text>
+      <EmptyStateHomeRevision style={styleSheet.noSkillsImage} />
     </>
   );
 };
-
-NoSkills.propTypes = NoSkillsPropTypes;
 
 // -----------------------------------------------------------------------------
 
@@ -219,16 +211,10 @@ const Skills = (props: SkillsProps) => {
   return (
     <View style={styleSheet.container}>
       <Text style={styleSheet.title}>{title}</Text>
-      {!listSkills || listSkills.length === 0 ? (
-        <NoSkills />
-      ) : (
-        <List skills={[...listSkills, {isExtraSpace: true}]} />
-      )}
+      {!listSkills || listSkills.length === 0 ? <NoSkills /> : <List skills={listSkills} />}
     </View>
   );
 };
-
-Skills.propTypes = propTypes;
 
 // -----------------------------------------------------------------------------
 

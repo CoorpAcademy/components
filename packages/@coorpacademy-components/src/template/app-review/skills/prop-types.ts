@@ -27,27 +27,16 @@ export type ItemProps = {
   item: {title: string; info: string; isExtraSpace: boolean};
 };
 
-export type ListProps = {
-  skills:
-    | {
-        title: string;
-        info: string;
-        isExtraSpace: boolean;
-      }[]
-    | null
-    | undefined;
-};
-
 export type NoSkillsProps = {
   titleNoSkills: string;
   textNoSkills: string;
 };
 
+export type ListSkillsProps = {
+  skills: {title: string; info: string; isExtraSpace: boolean}[];
+};
+
 export type SkillsProps = {
   title: string;
-  listSkills: {
-    titleNoSkills: string;
-    textNoSkills: string;
-    iconSkillAriaLabel: string;
-  }[];
+  listSkills: Array<ListSkillsProps>;
 };
