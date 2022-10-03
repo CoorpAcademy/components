@@ -66,17 +66,10 @@ type CorrectionPopinNext = {
 type QuitPopinContinue = {
   label: string;
   type: string;
-  customStyle: {
+  customStyle?: {
     color: string;
   };
-  onClick: Function;
-  ariaLabel: string;
-};
-
-type QuitPopinCancel = {
-  label: string;
-  type: string;
-  onClick: Function;
+  handleOnClick: Function;
   ariaLabel: string;
 };
 
@@ -94,7 +87,7 @@ export type QuitPopinProps = {
   mode: string;
   descriptionText: string;
   firstButton: QuitPopinContinue;
-  secondButton: QuitPopinCancel;
+  secondButton: QuitPopinContinue;
 };
 
 export type SlidesViewProps = {
@@ -335,13 +328,13 @@ const buildQuitPopinProps =
         customStyle: {
           color: '#ED3436'
         },
-        onClick: onQuitClick,
+        handleOnClick: onQuitClick,
         ariaLabel: 'Stop session'
       },
       secondButton: {
         label: `Continuer d'apprendre`,
         type: 'primary',
-        onClick: (): void => {
+        handleOnClick: (): void => {
           dispatch(closeQuitPopin());
         },
         ariaLabel: 'Continue review'
