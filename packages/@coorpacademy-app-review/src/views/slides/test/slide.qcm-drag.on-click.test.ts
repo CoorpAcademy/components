@@ -47,6 +47,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: qcmDragSlide._id,
     navigation: ['skills', 'slides'],
+    positions: [0, 1, 2, 3, 4],
     answers: {},
     slide: {
       [qcmDragSlide._id]: {
@@ -75,7 +76,6 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Using redux" chapter',

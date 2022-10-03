@@ -47,6 +47,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: sliderSlide._id,
     navigation: ['skills', 'slides'],
+    positions: [0, 1, 2, 3, 4],
     answers: {},
     slide: {
       [sliderSlide._id]: {
@@ -75,7 +76,6 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',

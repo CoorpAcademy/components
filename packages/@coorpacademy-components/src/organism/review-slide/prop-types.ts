@@ -3,7 +3,6 @@ import ReviewCorrectionPopinPropTypes from '../../molecule/review-correction-pop
 import AnswerPropTypes, {Props as AnswerProps} from '../../molecule/answer/prop-types';
 
 export const SlidePropsTypes = PropTypes.shape({
-  hidden: PropTypes.bool,
   position: PropTypes.number,
   loading: PropTypes.bool,
   loadingAriaLabel: PropTypes.string,
@@ -57,7 +56,6 @@ export type CorrectionPopinProps = {
 };
 
 export type SlideProps = {
-  hidden: boolean;
   position: number;
   loading: boolean;
   loadingAriaLabel: string;

@@ -47,6 +47,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: qcmGraphicSlide._id,
     navigation: ['skills', 'slides'],
+    positions: [0, 1, 2, 3, 4],
     answers: {},
     slide: {
       [qcmGraphicSlide._id]: {
@@ -75,7 +76,6 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',

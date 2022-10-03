@@ -1,10 +1,10 @@
 import test from 'ava';
 import reducer from '../current-slide-ref';
-import {SetCurrentSlide, SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
+import {SetCurrentSlideAction, SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
 test('should have initial value', t => {
-  const state = reducer(undefined, {} as SetCurrentSlide);
+  const state = reducer(undefined, {} as SetCurrentSlideAction);
   t.is(state, '');
 });
 

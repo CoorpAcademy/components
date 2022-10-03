@@ -17,6 +17,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: '',
     navigation: [],
+    positions: [0, 1, 2, 3, 4],
     answers: {},
     slide: {}
   }

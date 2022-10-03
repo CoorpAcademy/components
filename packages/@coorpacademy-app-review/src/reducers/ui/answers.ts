@@ -8,7 +8,7 @@ import {
   EDIT_SLIDER,
   EDIT_TEMPLATE
 } from '../../actions/ui/answers';
-import {NextSlide, NEXT_SLIDE} from '../../actions/ui/next-slide';
+import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
 
 export type UISlideAnswer = string[];
 
@@ -19,7 +19,7 @@ export const initialState: UIAnswerState = {};
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UIAnswerState = initialState,
-  action: EditAnswerAction | NextSlide
+  action: EditAnswerAction | NextSlideAction
 ): UIAnswerState => {
   switch (action.type) {
     case EDIT_QCM:

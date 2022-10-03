@@ -31,6 +31,7 @@ test('correction popin actions after click', async t => {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -52,7 +53,9 @@ test('correction popin actions after click', async t => {
       payload: {
         animationType: 'restack',
         currentSlideRef: freeTextSlide._id,
-        nextSlideRef: qcmGraphicSlide._id
+        nextSlideRef: qcmGraphicSlide._id,
+        totalCorrectAnswers: 0,
+        answeredSlides: ['sli_VJYjJnJhg']
       }
     }
   ];
@@ -60,5 +63,9 @@ test('correction popin actions after click', async t => {
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   const correctionPopin = props.stack.correctionPopinProps as CorrectionPopinProps;
   await correctionPopin.next.onClick();
+
+  const updatedState = getState();
+  t.deepEqual(updatedState.ui.positions, [4, 0, 1, 2, 3]);
+  t.deepEqual(updatedState.ui.currentSlideRef, qcmGraphicSlide._id);
   t.pass();
 });

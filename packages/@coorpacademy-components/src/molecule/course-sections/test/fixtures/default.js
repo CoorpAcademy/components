@@ -93,7 +93,7 @@ export default {
             category: 'chapter'
           }
         ],
-        position: 5,
+        position: -1,
         id: 'chap_3'
       },
       {

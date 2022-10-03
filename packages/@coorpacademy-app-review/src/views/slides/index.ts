@@ -1,16 +1,14 @@
-import concat from 'lodash/fp/concat';
 import findLast from 'lodash/fp/findLast';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import last from 'lodash/fp/last';
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
-import slice from 'lodash/fp/slice';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
-import type {ProgressionAnswerItem, ProgressionFromAPI} from '../../types/common';
-import type {SlideIndexes} from '../../common';
+import type {ProgressionAnswerItem} from '../../types/common';
+import {getProgressionSlidesRefs, type SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
@@ -34,7 +32,6 @@ type StepItem = {
 type SlideUIAnimations = 'unstack' | 'restack';
 
 export type ReviewSlide = {
-  hidden: boolean;
   position: number;
   loading: boolean;
   showCorrectionPopin?: boolean;
@@ -115,40 +112,28 @@ export type SlidesViewProps = {
   };
 };
 
+// TODO replace this, position no more needed
 export const initialState: SlidesStack = {
   '0': {
-    hidden: false,
     position: 0,
     loading: true
   },
   '1': {
-    hidden: false,
     position: 1,
     loading: true
   },
   '2': {
-    hidden: false,
     position: 2,
     loading: true
   },
   '3': {
-    hidden: false,
     position: 3,
     loading: true
   },
   '4': {
-    hidden: false,
     position: 4,
     loading: true
   }
-};
-
-const getProgressionSlidesRefs = (progression: ProgressionFromAPI): string[] => {
-  if (progression.state.step.current < 5) {
-    const slideRef = progression.state.nextContent.ref;
-    return concat(progression.state.slides, [slideRef]);
-  }
-  return slice(0, 5, progression.state.slides);
 };
 
 const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack => {
@@ -160,26 +145,30 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
 
   // @ts-expect-error typescript does not support capped versions of lodash functions
   const stack = reduce.convert({cap: false})(
-    (acc: SlidesStack, uiSlide: ReviewSlide, index: string): SlidesStack => {
-      const slideRef = slideRefs[toInteger(index)];
-      if (!slideRef) return set(index, uiSlide, acc);
+    (acc: SlidesStack, uiSlide: ReviewSlide, _index: string): SlidesStack => {
+      const index = toInteger(_index);
+
+      const positions = state.ui.positions;
+      const position = positions[index];
+
+      const slideRef = slideRefs[index];
+      if (!slideRef) return set(index, {...uiSlide, position}, acc);
       const slideFromAPI = get(slideRef, state.data.slides);
-      if (!slideFromAPI) return set(index, uiSlide, acc);
+      if (!slideFromAPI) return set(index, {...uiSlide, position}, acc);
 
       const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
-      const parentContentTitle = getOr('', 'parentContentTitle.title', slideFromAPI);
-      const parentContentType = getOr('', 'parentContentTitle.type', slideFromAPI);
+      const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
 
       const isCurrentSlideRef = currentSlideRef === slideRef;
-      const animateCorrectionPopin =
-        isCurrentSlideRef && get(['ui', 'slide', slideRef, 'animateCorrectionPopin'], state);
-      const showCorrectionPopin =
-        isCurrentSlideRef && get(['ui', 'slide', slideRef, 'showCorrectionPopin'], state);
-      const animationType = get(['ui', 'slide', slideRef, 'animationType'], state);
+      const slideUI = get(['ui', 'slide', slideRef], state);
+      const animateCorrectionPopin = isCurrentSlideRef && slideUI.animateCorrectionPopin;
+      const showCorrectionPopin = isCurrentSlideRef && slideUI.showCorrectionPopin;
+      const animationType = slideUI.animationType;
 
       const updatedUiSlide = {
         ...uiSlide,
+        position,
         showCorrectionPopin,
         animateCorrectionPopin,
         loading: false,

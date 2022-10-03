@@ -1,6 +1,7 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
+import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 import {
   postProgressionResponse as createdProgression,
@@ -34,6 +35,7 @@ test('should create initial props when fetched slide is not still received', t =
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: {},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_N1XACJobn: {
           validateButton: false,
@@ -84,27 +86,22 @@ test('should create initial props when fetched slide is not still received', t =
     endReview: false,
     slides: {
       '0': {
-        hidden: false,
         position: 0,
         loading: true
       },
       '1': {
-        hidden: false,
         position: 1,
         loading: true
       },
       '2': {
-        hidden: false,
         position: 2,
         loading: true
       },
       '3': {
-        hidden: false,
         position: 3,
         loading: true
       },
       '4': {
-        hidden: false,
         position: 4,
         loading: true
       }
@@ -129,6 +126,7 @@ test('should create props when first slide is on the state', t => {
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -182,7 +180,6 @@ test('should create props when first slide is on the state', t => {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -200,22 +197,18 @@ test('should create props when first slide is on the state', t => {
   });
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
-      hidden: false,
       position: 1,
       loading: true
     },
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -239,6 +232,7 @@ test('should create props when slide is on the state and user has selected answe
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: true,
@@ -292,7 +286,6 @@ test('should create props when slide is on the state and user has selected answe
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -310,22 +303,18 @@ test('should create props when slide is on the state and user has selected answe
   });
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
-      hidden: false,
       position: 1,
       loading: true
     },
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -350,6 +339,7 @@ test('should verify props when first slide was answered correctly and next slide
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -408,7 +398,6 @@ test('should verify props when first slide was answered correctly and next slide
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -426,22 +415,18 @@ test('should verify props when first slide was answered correctly and next slide
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
-      hidden: false,
       position: 1,
       loading: true
     },
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -470,6 +455,7 @@ test('should verify props when first slide was answered with error and next slid
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -542,6 +528,7 @@ test('should verify props when first slide was answered, next slide is fetched &
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -611,7 +598,6 @@ test('should verify props when first slide was answered, next slide is fetched &
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -630,7 +616,6 @@ test('should verify props when first slide was answered, next slide is fetched &
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 1,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -639,17 +624,14 @@ test('should verify props when first slide was answered, next slide is fetched &
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0', '1'], props.stack.slides), {
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -676,6 +658,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -748,7 +731,6 @@ test('should verify props when first slide was answered incorrectly, next slide 
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -767,7 +749,6 @@ test('should verify props when first slide was answered incorrectly, next slide 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 1,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
@@ -776,17 +757,14 @@ test('should verify props when first slide was answered incorrectly, next slide 
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0', '1'], props.stack.slides), {
     '2': {
-      hidden: false,
       position: 2,
       loading: true
     },
     '3': {
-      hidden: false,
       position: 3,
       loading: true
     },
     '4': {
-      hidden: false,
       position: 4,
       loading: true
     }
@@ -816,6 +794,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
         sli_VJYjJnJhg: ['Benchmark'],
         sli_VkSQroQnx: []
       },
+      positions: [-1, 0, 1, 2, 3],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -868,7 +847,31 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     ]
   });
 
-  // TODO update test with props.stack validations when NEXT_SLIDE implemented
+  const propsToCheck = ['loading', 'animateCorrectionPopin', 'animationType', 'position'];
+  t.deepEqual(pick(propsToCheck, props.stack.slides[0]), {
+    loading: false,
+    animateCorrectionPopin: false,
+    animationType: 'unstack',
+    position: -1
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[1]), {
+    loading: false,
+    animateCorrectionPopin: false,
+    animationType: undefined,
+    position: 0
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[2]), {
+    loading: true,
+    position: 1
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
+    loading: true,
+    position: 2
+  });
+  t.deepEqual(pick(propsToCheck, props.stack.slides[4]), {
+    loading: true,
+    position: 3
+  });
 });
 
 test('should verify props when progression is in success', t => {
@@ -904,6 +907,7 @@ test('should verify props when progression is in success', t => {
         sli_VkAzsCLKb: ['7'],
         'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
       },
+      positions: [-1, -1, -1, -1, 0],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -1010,6 +1014,7 @@ test('should verify props when progression has answered a current pendingSlide',
         sli_VkAzsCLKb: ['7'],
         'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
       },
+      positions: [0, -1, 1, -1, -1],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,
@@ -1113,6 +1118,7 @@ test('should verify props when progression still has a pendingSlide', t => {
         sli_VkAzsCLKb: ['7'],
         'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
       },
+      positions: [-1, -1, 0, -1, -1],
       slide: {
         sli_VJYjJnJhg: {
           validateButton: false,

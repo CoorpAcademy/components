@@ -16,13 +16,11 @@ export type Slide = {
 
 export const SET_CURRENT_SLIDE = '@@slide/SET_CURRENT_SLIDE' as const;
 
-export type SetCurrentSlide = {
+export type SetCurrentSlideAction = {
   type: typeof SET_CURRENT_SLIDE;
   payload: SlideFromAPI;
 };
-export const setCurrentSlide = (payload: SlideFromAPI): SetCurrentSlide => ({
+export const setCurrentSlide = (payload: SlideFromAPI): SetCurrentSlideAction => ({
   type: SET_CURRENT_SLIDE,
   payload
 });
-
-export type UISlidesAction = SetCurrentSlide;

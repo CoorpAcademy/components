@@ -47,6 +47,7 @@ const initialState: StoreState = {
   ui: {
     currentSlideRef: qcmSlide._id,
     navigation: ['skills', 'slides'],
+    positions: [0, 1, 2, 3, 4],
     answers: {},
     slide: {
       [qcmSlide._id]: {
@@ -77,7 +78,6 @@ test('should dispatch EDIT_QCM action via the property onClick of a QCM slide', 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',

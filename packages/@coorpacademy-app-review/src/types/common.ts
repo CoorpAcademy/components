@@ -1,4 +1,3 @@
-// TODO: EDIT_CHOICES -> specify typing
 export type ChoiceFromAPI = {
   _id: string;
   id?: string;

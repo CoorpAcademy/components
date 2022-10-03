@@ -59,6 +59,7 @@ const initialState: StoreState = {
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},
+    positions: [0, 1, 2, 3, 4],
     slide: {
       [freeTextSlide._id]: {
         validateButton: false,
@@ -101,7 +102,6 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
-    hidden: false,
     position: 0,
     loading: false,
     parentContentTitle: 'From "Developing the review app" course',
