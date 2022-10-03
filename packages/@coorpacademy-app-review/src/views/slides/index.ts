@@ -210,8 +210,18 @@ export const initialState: SlidesStack = {
   }
 };
 
+const getCurrentSlideRef = (state: StoreState): string => {
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  const endReview = currentSlideRef === 'successExitNode';
+
+  if (!endReview) return currentSlideRef;
+  const progression = state.data.progression as ProgressionFromAPI;
+  const content = progression.state.content as SlideContent;
+  return content.ref;
+};
+
 const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack => {
-  const currentSlideRef = state.ui.currentSlideRef;
+  const currentSlideRef = getCurrentSlideRef(state);
   const progression = state.data.progression;
 
   if (!currentSlideRef || !progression) return initialState;
@@ -395,7 +405,9 @@ const buildQuitPopinProps =
     };
   };
 
-const buildCongratsProps = (state: StoreState): CongratsProps => {
+const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
+  if (!state.ui.showCongrats) return;
+
   const confettiAnimation: LottieAnimationProps = {
     'aria-label': 'aria lottie',
     'data-name': 'default-lottie',
@@ -479,16 +491,6 @@ const buildCongratsProps = (state: StoreState): CongratsProps => {
   };
 };
 
-const getCurrentSlideRef = (state: StoreState): string => {
-  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
-  const endReview = currentSlideRef === 'successExitNode';
-
-  if (!endReview) return currentSlideRef;
-  const progression = state.data.progression as ProgressionFromAPI;
-  const content = progression.state.content as SlideContent;
-  return content.ref;
-};
-
 const isEndOfProgression = (progression: ProgressionState): boolean => {
   if (!progression) return false;
   return progression.state.nextContent.ref === 'successExitNode';
@@ -501,6 +503,7 @@ export const mapStateToSlidesProps = (
 ): SlidesViewProps => {
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
+  console.log('currentSlideRef', currentSlideRef, 'endReview', endReview, 'state.ui.showCongrats', state.ui.showCongrats);
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
@@ -525,9 +528,9 @@ export const mapStateToSlidesProps = (
       },
       correctionPopinProps:
         correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
-      endReview
+      endReview: endReview && state.ui.showCongrats
     },
-    congrats: endReview ? buildCongratsProps(state) : undefined,
+    congrats: buildCongratsProps(state),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };

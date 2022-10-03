@@ -72,9 +72,11 @@ const reducer = (
       )(state);
     }
     case NEXT_SLIDE: {
+      const {currentSlideRef, nextSlideRef} = action.payload;
+      if (nextSlideRef === 'successExitNode') return state;
       return pipe(
-        set([action.payload.currentSlideRef, 'animateCorrectionPopin'], false),
-        set([action.payload.currentSlideRef, 'animationType'], action.payload.animationType)
+        set([currentSlideRef, 'animateCorrectionPopin'], false),
+        set([currentSlideRef, 'animationType'], action.payload.animationType)
       )(state);
     }
     default:
