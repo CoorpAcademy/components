@@ -38,5 +38,5 @@ export type ListSkillsProps = {
 
 export type SkillsProps = {
   title: string;
-  listSkills: Array<ListSkillsProps>;
+  listSkills: ListSkillsProps;
 };

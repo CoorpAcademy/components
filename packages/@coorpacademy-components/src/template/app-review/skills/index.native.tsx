@@ -8,7 +8,7 @@ import {useTemplateContext} from '../template-context';
 import {Theme} from '../../../variables/theme.native';
 
 import {HEADER_HEIGHT} from '../../../organism/header-v2/index.native';
-import {FlatListProps, ItemProps, ListSkillsProps, SkillProps, SkillsProps} from './prop-types';
+import {ItemProps, ListSkillsProps, SkillProps, SkillsProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
@@ -211,7 +211,11 @@ const Skills = (props: SkillsProps) => {
   return (
     <View style={styleSheet.container}>
       <Text style={styleSheet.title}>{title}</Text>
-      {!listSkills || listSkills.length === 0 ? <NoSkills /> : <List skills={listSkills} />}
+      {!listSkills || listSkills.skills.length === 0 ? (
+        <NoSkills />
+      ) : (
+        <List skills={listSkills.skills} />
+      )}
     </View>
   );
 };
