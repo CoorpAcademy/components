@@ -63,6 +63,7 @@ const initialState: StoreState = {
     rank: {}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
     positions: [0, 1, 2, 3, 4],
@@ -148,6 +149,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
       rank: {}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: templateSlide._id,
       navigation: ['skills', 'slides'],
       positions: [-1, -1, -1, -1, 0],

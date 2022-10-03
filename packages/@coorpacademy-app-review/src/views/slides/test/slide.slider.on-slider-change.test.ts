@@ -45,6 +45,7 @@ const initialState: StoreState = {
     rank: {}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: sliderSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},

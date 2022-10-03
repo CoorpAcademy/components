@@ -45,6 +45,7 @@ const initialState: StoreState = {
     rank: {}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: qcmGraphicSlide._id,
     navigation: ['skills', 'slides'],
     positions: [0, 1, 2, 3, 4],

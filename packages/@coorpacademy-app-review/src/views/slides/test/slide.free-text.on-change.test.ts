@@ -56,6 +56,7 @@ const initialState: StoreState = {
     rank: {}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: freeTextSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},

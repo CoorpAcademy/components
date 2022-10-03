@@ -141,7 +141,7 @@ type LottieAnimationProps = {
   loop?: boolean;
   rendererSettings?: {
     hideOnTransparent?: boolean;
-    className: string;
+    className?: string;
   };
   height?: number;
   width?: number;
@@ -416,8 +416,7 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
     loop: undefined,
     autoplay: true,
     rendererSettings: {
-      hideOnTransparent: false,
-      animationClassName: ''
+      hideOnTransparent: false
     },
     ie11ImageBackup:
       'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
@@ -434,8 +433,7 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
       loop: false,
       autoplay: undefined,
       rendererSettings: {
-        hideOnTransparent: false,
-        animationClassName: ''
+        hideOnTransparent: false
       },
       ie11ImageBackup:
         'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg'
@@ -479,12 +477,14 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
     buttonRevising: {
       'aria-label': 'Continue revising button',
       label: 'Continue revising',
+      // eslint-disable-next-line no-console
       onClick: () => console.log('Continue revising'),
       type: 'tertiary'
     },
     buttonRevisingSkill: {
       label: 'Revise another skill',
       'aria-label': 'Revise another skill button',
+      // eslint-disable-next-line no-console
       onClick: () => console.log('Revise another skill'),
       type: 'primary'
     }
@@ -503,7 +503,6 @@ export const mapStateToSlidesProps = (
 ): SlidesViewProps => {
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
-  console.log('currentSlideRef', currentSlideRef, 'endReview', endReview, 'state.ui.showCongrats', state.ui.showCongrats);
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
