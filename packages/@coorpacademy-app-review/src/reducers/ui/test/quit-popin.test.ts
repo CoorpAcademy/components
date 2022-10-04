@@ -1,5 +1,5 @@
 import test from 'ava';
-import {CLOSE_POPIN, OPEN_POPIN, QuitPopinAction} from '../../../actions/ui/quit-popin';
+import {CLOSE_POPIN, OPEN_POPIN, type QuitPopinAction} from '../../../actions/ui/quit-popin';
 import reducer from '../quit-popin';
 
 test('should have showQuitPopin intial value to false', t => {

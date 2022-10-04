@@ -5,7 +5,7 @@ import navigation, {NavigationState} from './navigation';
 import answers, {UIAnswerState} from './answers';
 import positions, {UIPositionState} from './positions';
 import slide, {UISlideState} from './slide';
-import showQuitPopin, {ShowQuitPopinState} from './quit-popin';
+import showQuitPopin, {type ShowQuitPopinState} from './quit-popin';
 
 export type UIState = {
   currentSlideRef: CurrentSlideRefState;

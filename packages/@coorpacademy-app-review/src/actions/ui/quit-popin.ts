@@ -1,13 +1,13 @@
 export const OPEN_POPIN = '@@ui/OPEN_POPIN';
 export const CLOSE_POPIN = '@@ui/CLOSE_POPIN';
 
-type quitPopinPayload = {
+type QuitPopinPayload = {
   showQuitPopin: boolean;
 };
 
 export type QuitPopinAction = {
   type: typeof CLOSE_POPIN | typeof OPEN_POPIN;
-  payload: quitPopinPayload;
+  payload: QuitPopinPayload;
 };
 
 export const openQuitPopin = (): QuitPopinAction => ({
