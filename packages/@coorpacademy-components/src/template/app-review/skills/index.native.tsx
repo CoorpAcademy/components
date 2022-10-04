@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, Pressable, StyleSheet, Text, ViewStyle} from 'react-native';
+import {View, FlatList, Pressable, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
   NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision
@@ -12,19 +12,19 @@ import {ItemProps, ListSkillsProps, SkillProps, SkillsProps} from './prop-types'
 
 type StyleSheetType = {
   container: ViewStyle;
-  title: ViewStyle;
-  subtitle: ViewStyle;
-  text: ViewStyle;
+  title: TextStyle;
+  subtitle: TextStyle;
+  text: TextStyle;
   noSkillsImage: ViewStyle;
   skills: ViewStyle;
   skill: ViewStyle;
   skillTexts: ViewStyle;
   skillTitle: ViewStyle;
-  skillInfo: ViewStyle;
+  skillInfo: TextStyle;
   extraSpace: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       flex: 1,
