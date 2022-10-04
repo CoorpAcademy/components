@@ -6,5 +6,5 @@ export const openQuitPopin = {
 };
 
 export const closeQuitPopin = {
-  type: CLOSE_POPIN, 
+  type: CLOSE_POPIN
 };
