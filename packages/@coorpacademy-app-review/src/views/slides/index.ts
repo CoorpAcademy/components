@@ -63,7 +63,7 @@ type CorrectionPopinNext = {
   onClick: Function;
 };
 
-type QuitPopinTypes = {
+type QuitPopinButton = {
   label: string;
   type: string;
   customStyle?: {
@@ -86,8 +86,8 @@ export type QuitPopinProps = {
   icon: string;
   mode: string;
   descriptionText: string;
-  firstButton: QuitPopinTypes;
-  secondButton: QuitPopinTypes;
+  firstButton: QuitPopinButton;
+  secondButton: QuitPopinButton;
 };
 
 export type SlidesViewProps = {
@@ -130,7 +130,7 @@ export type SlidesViewProps = {
       type: string;
     };
   };
-  quitPopin?: QuitPopinProps;
+  quitPopin?: QuitPopinProps | false;
 };
 
 // TODO replace this, position no more needed
@@ -335,7 +335,7 @@ const buildQuitPopinProps =
         label: `Continuer d'apprendre`,
         type: 'primary',
         handleOnclick: (): void => {
-          dispatch(closeQuitPopin());
+          dispatch(closeQuitPopin);
         },
         ariaLabel: 'Continue review'
       }
@@ -355,7 +355,7 @@ export const mapStateToSlidesProps = (
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick: () => dispatch(openQuitPopin()),
+      onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state)
@@ -374,6 +374,6 @@ export const mapStateToSlidesProps = (
       endReview: false
     },
     congrats: undefined,
-    quitPopin: showQuitPopin === true ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
+    quitPopin: showQuitPopin && buildQuitPopinProps(dispatch)(onQuitClick)
   };
 };
