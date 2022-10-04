@@ -201,7 +201,7 @@ CMPopin.propTypes = {
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
-    largeButton: PropTypes.boolean,
+    largeButton: PropTypes.bool,
     customStyle: PropTypes.object
   }),
   thirdButton: PropTypes.shape({
@@ -209,7 +209,7 @@ CMPopin.propTypes = {
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
-    largeButton: PropTypes.boolean,
+    largeButton: PropTypes.bool,
     customStyle: PropTypes.object
   }),
   onClose: PropTypes.func,

@@ -22,9 +22,12 @@ This library provide sharable components for web applications, either :
 ```sh
 yarn
 npm run start
+# OR
+npm run start:ie # for Internet Explorer
 ```
 
 Then open `http://localhost:3004`.
+
 
 ### Analyse your component
 

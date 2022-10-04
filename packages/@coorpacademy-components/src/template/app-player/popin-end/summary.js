@@ -296,7 +296,7 @@ Summary.propTypes = {
   header: PropTypes.shape(PopinHeader.propTypes),
   footer: PropTypes.shape({
     title: PropTypes.string,
-    href: PropTypes.url,
+    href: Link.propTypes.href,
     onClick: PropTypes.func
   }),
   comment: PropTypes.shape(CommentSection.propTypes),
