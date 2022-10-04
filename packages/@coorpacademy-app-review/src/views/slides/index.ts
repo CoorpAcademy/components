@@ -133,7 +133,7 @@ type LottieAnimationProps = {
   animationControl?: 'play' | 'pause' | 'stop' | 'loading';
 };
 
-type CongratsCardProps = {
+export type CongratsCardProps = {
   'aria-label': string;
   'data-name': string;
   animationLottie: LottieAnimationProps;
@@ -152,7 +152,7 @@ export type CongratsProps = {
   animationLottie: LottieAnimationProps;
   title: string;
   cardCongratsStar: CongratsCardProps;
-  cardCongratsRank: CongratsCardProps;
+  cardCongratsRank?: CongratsCardProps;
   buttonRevising?: {
     'aria-label': string;
     label: string;
@@ -165,6 +165,19 @@ export type CongratsProps = {
     onClick: Function;
     type: string;
   };
+};
+
+const confettiAnimation: LottieAnimationProps = {
+  'aria-label': 'aria lottie',
+  'data-name': 'default-lottie',
+  className: undefined,
+  animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
+  loop: undefined,
+  autoplay: true,
+  rendererSettings: {
+    hideOnTransparent: false
+  },
+  ie11ImageBackup: 'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
 };
 
 export const initialState: SlidesStack = {
@@ -385,23 +398,36 @@ const buildQuitPopinProps =
     };
   };
 
+const buildRankCard = (rank: number): CongratsCardProps | undefined => {
+  if (rank <= 0) return;
+
+  return {
+    'aria-label': 'Review Card Congrats Container',
+    'data-name': 'card-rank',
+    animationLottie: {
+      'aria-label': 'aria lottie',
+      'data-name': 'default-lottie',
+      animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
+      loop: true,
+      autoplay: true,
+      ie11ImageBackup:
+        'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
+    },
+    cardType: 'card-rank',
+    iconAriaLabel: 'Image without information',
+    className: undefined,
+    reviewCardTitle: 'You are now',
+    reviewCardValue: `${rank}`,
+    rankSuffix: 'th',
+    timerAnimation: 200
+  };
+};
+
 const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
   if (!state.ui.showCongrats) return;
 
-  const confettiAnimation: LottieAnimationProps = {
-    'aria-label': 'aria lottie',
-    'data-name': 'default-lottie',
-    className: undefined,
-    animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
-    loop: undefined,
-    autoplay: true,
-    rendererSettings: {
-      hideOnTransparent: false
-    },
-    ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
-  };
-
+  const progression = state.data.progression as ProgressionFromAPI;
+  const stars = progression.state.stars;
   const cardCongratsStar: CongratsCardProps = {
     'aria-label': 'Review Card Congrats Container',
     'data-name': 'card-star',
@@ -422,30 +448,15 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
     className: undefined,
     cardType: 'card-star',
     reviewCardTitle: 'You have won',
-    reviewCardValue: '100',
+    reviewCardValue: `${stars}`,
     timerAnimation: 200
   };
 
-  const cardCongratsRank: CongratsCardProps = {
-    'aria-label': 'Review Card Congrats Container',
-    'data-name': 'card-rank',
-    animationLottie: {
-      'aria-label': 'aria lottie',
-      'data-name': 'default-lottie',
-      animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
-      loop: true,
-      autoplay: true,
-      ie11ImageBackup:
-        'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
-    },
-    cardType: 'card-rank',
-    iconAriaLabel: 'Image without information',
-    className: undefined,
-    reviewCardTitle: 'You are now',
-    reviewCardValue: '14',
-    rankSuffix: 'th',
-    timerAnimation: 200
-  };
+  const rank = state.data.rank;
+  const end = getOr(0, 'end', rank); // TODO, this part of the state should not be undefined
+  const start = getOr(0, 'start', rank);
+  const newRank = start - end;
+  const cardCongratsRank = buildRankCard(newRank > 0 ? end : 0);
 
   return {
     'aria-label': 'Review Congratulations',

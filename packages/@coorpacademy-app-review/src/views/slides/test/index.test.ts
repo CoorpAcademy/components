@@ -10,7 +10,7 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse
 } from '../../../test/util/services.mock';
-import {CongratsProps, mapStateToSlidesProps} from '..';
+import {CongratsCardProps, CongratsProps, mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -1032,7 +1032,7 @@ test('should verify props showing congrats', t => {
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
-      rank: {}
+      rank: {start: 10, end: 9}
     },
     ui: {
       showCongrats: true,
@@ -1088,7 +1088,8 @@ test('should verify props showing congrats', t => {
     congrats.animationLottie.animationSrc,
     'https://static-staging.coorpacademy.com/animations/review/confetti.json'
   );
-  const {cardCongratsRank, cardCongratsStar, buttonRevising, buttonRevisingSkill} = congrats;
+  const {cardCongratsStar, buttonRevising, buttonRevisingSkill} = congrats;
+  const cardCongratsRank = congrats.cardCongratsRank as CongratsCardProps;
   t.deepEqual(
     {
       animationLottie: cardCongratsRank.animationLottie,
@@ -1108,7 +1109,7 @@ test('should verify props showing congrats', t => {
       },
       rankSuffix: 'th',
       reviewCardTitle: 'You are now',
-      reviewCardValue: '14'
+      reviewCardValue: '9'
     }
   );
   t.deepEqual(
@@ -1134,7 +1135,7 @@ test('should verify props showing congrats', t => {
       },
       rankSuffix: undefined,
       reviewCardTitle: 'You have won',
-      reviewCardValue: '100'
+      reviewCardValue: '40'
     }
   );
 
