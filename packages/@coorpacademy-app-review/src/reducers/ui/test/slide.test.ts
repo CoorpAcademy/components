@@ -87,3 +87,24 @@ test('should return state directly when there is no corresponding action handler
   const state = reducer(undefined, {type: 'NOPE'} as unknown as PostAnswerRequestAction);
   t.deepEqual(state, initialState);
 });
+
+test('should return same state when nextContent is successExitNode', t => {
+  const _initialState = {
+    '1234': {
+      validateButton: false,
+      animateCorrectionPopin: true,
+      showCorrectionPopin: true
+    }
+  };
+  const state = reducer(_initialState, {
+    type: NEXT_SLIDE,
+    payload: {
+      currentSlideRef: '1234',
+      nextSlideRef: 'successExitNode',
+      animationType: 'unstack',
+      totalCorrectAnswers: 5,
+      answeredSlides: ['1234']
+    }
+  });
+  t.deepEqual(state, _initialState);
+});
