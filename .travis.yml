@@ -84,7 +84,7 @@ jobs:
 
     - stage: deploy
       name: Publish on github pages
-      script: npm run static
+      script: npm run static --production
       deploy:
         provider: pages
         skip_cleanup: true

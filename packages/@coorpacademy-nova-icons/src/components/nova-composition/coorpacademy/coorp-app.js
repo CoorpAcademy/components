@@ -1,7 +1,15 @@
 import * as React from 'react';
 
 const SvgComponent = props => (
-  <svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 177 36" xmlSpace="preserve" {...props}>
+  <svg
+    id="prefix__Calque_1"
+    xmlns="http://www.w3.org/2000/svg"
+    x={0}
+    y={0}
+    viewBox="0 0 177 36"
+    xmlSpace="preserve"
+    {...props}
+  >
     <style>{'.prefix__st1{fill-rule:evenodd;clip-rule:evenodd;fill:#fff}'}</style>
     <path
       fill="#0091EA"

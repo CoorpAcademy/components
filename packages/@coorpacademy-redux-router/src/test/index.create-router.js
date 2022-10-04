@@ -80,11 +80,14 @@ test("should respect route's order", t => {
   ]);
 
   return Promise.all(
-    map(([pathname, res]) => t.deepEqual(router({route: {pathname}}), res), [
-      ['/foo/bar', {view: view1, params: {foo: 'foo', bar: 'bar'}}],
-      ['/foo', {view: view2, params: {foo: 'foo'}}],
-      ['/', {view: view3, params: {0: '/'}}]
-    ])
+    map(
+      ([pathname, res]) => t.deepEqual(router({route: {pathname}}), res),
+      [
+        ['/foo/bar', {view: view1, params: {foo: 'foo', bar: 'bar'}}],
+        ['/foo', {view: view2, params: {foo: 'foo'}}],
+        ['/', {view: view3, params: {0: '/'}}]
+      ]
+    )
   );
 });
 
@@ -112,35 +115,38 @@ test('should ignore the route if its predicate returns false', t => {
   ]);
 
   return Promise.all(
-    map(([state, res]) => t.deepEqual(router(state), res), [
+    map(
+      ([state, res]) => t.deepEqual(router(state), res),
       [
-        {
-          route: {pathname: '/admin'},
-          role: 'admin'
-        },
-        {view: view1, params: {}}
-      ],
-      [
-        {
-          route: {pathname: '/admin'},
-          role: 'user'
-        },
-        {view: view3, params: {0: '/admin'}}
-      ],
-      [
-        {
-          route: {pathname: '/'},
-          role: 'admin'
-        },
-        {view: view2, params: {0: '/'}}
-      ],
-      [
-        {
-          route: {pathname: '/'},
-          role: 'user'
-        },
-        {view: view3, params: {0: '/'}}
+        [
+          {
+            route: {pathname: '/admin'},
+            role: 'admin'
+          },
+          {view: view1, params: {}}
+        ],
+        [
+          {
+            route: {pathname: '/admin'},
+            role: 'user'
+          },
+          {view: view3, params: {0: '/admin'}}
+        ],
+        [
+          {
+            route: {pathname: '/'},
+            role: 'admin'
+          },
+          {view: view2, params: {0: '/'}}
+        ],
+        [
+          {
+            route: {pathname: '/'},
+            role: 'user'
+          },
+          {view: view3, params: {0: '/'}}
+        ]
       ]
-    ])
+    )
   );
 });

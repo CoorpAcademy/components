@@ -54,14 +54,15 @@ const SkillCard = (props, context) => {
     'data-name': 'skill-card-button'
   };
 
-  const titleBackgroundColor = useMemo(() => (isCustom ? '#128C72' : primarySkinColor), [
-    isCustom,
-    primarySkinColor
-  ]);
+  const titleBackgroundColor = useMemo(
+    () => (isCustom ? '#128C72' : primarySkinColor),
+    [isCustom, primarySkinColor]
+  );
 
-  const titleBackground = useMemo(() => getGradientBackground(titleBackgroundColor), [
-    titleBackgroundColor
-  ]);
+  const titleBackground = useMemo(
+    () => getGradientBackground(titleBackgroundColor),
+    [titleBackgroundColor]
+  );
 
   return (
     <div className={style.skillCardWrapper} data-name="skill-card-wrapper" aria-label={ariaLabel}>

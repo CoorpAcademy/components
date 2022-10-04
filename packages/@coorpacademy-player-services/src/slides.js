@@ -9,13 +9,13 @@ type SlidesService = {|
   findById: FindSlideById
 |};
 
-const findById = (dataLayer: DataLayer): FindSlideById => async (
-  slideId: string
-): Promise<Slide> => {
-  const {findSlideById} = dataLayer;
-  const slide = await findSlideById(slideId);
-  return slide;
-};
+const findById =
+  (dataLayer: DataLayer): FindSlideById =>
+  async (slideId: string): Promise<Slide> => {
+    const {findSlideById} = dataLayer;
+    const slide = await findSlideById(slideId);
+    return slide;
+  };
 
 const createSlidesService = (dataLayer: DataLayer): SlidesService => ({
   findById: findById(dataLayer)

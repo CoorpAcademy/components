@@ -3,8 +3,7 @@ import type {Slide} from '../../../types';
 
 const slide1_A_14 = {
   _id: '1.A1.4',
-  klf:
-    "Le Knowledge Graph vampirise 40% d'une page de résultats. Certes, toutes les requêtes ne sont pas concernées, mais si votre activité peut en profiter, vous avez là une merveilleuse vitrine !\n",
+  klf: "Le Knowledge Graph vampirise 40% d'une page de résultats. Certes, toutes les requêtes ne sont pas concernées, mais si votre activité peut en profiter, vous avez là une merveilleuse vitrine !\n",
   tips: 'Un conseil : cherchez un lien entre votre activité et le Knowledge Graph.\n',
   chapter_id: '1.A1',
   authors: [],
@@ -66,10 +65,8 @@ const slide1_A_14 = {
 const slides: Array<Slide> = [
   {
     _id: '1.A1.1',
-    klf:
-      "Le Knowledge Graph apporte en effet des compléments d'informations à une requête. Pour le moment, il se cantonne à des œuvres, des monuments, des personnages célèbres… Pour cela, vous obtenez des informations classiques mais aussi un carrousel comprenant des photos, des œuvres connexes et des lieux dans la même zone géographique...\n",
-    tips:
-      "Certains spécialistes affirment que le Knowledge Graph diminuerait le trafic de Wikipédia… Et ce, alors que Google est l'un des principaux donateurs de Wikipédia.\n",
+    klf: "Le Knowledge Graph apporte en effet des compléments d'informations à une requête. Pour le moment, il se cantonne à des œuvres, des monuments, des personnages célèbres… Pour cela, vous obtenez des informations classiques mais aussi un carrousel comprenant des photos, des œuvres connexes et des lieux dans la même zone géographique...\n",
+    tips: "Certains spécialistes affirment que le Knowledge Graph diminuerait le trafic de Wikipédia… Et ce, alors que Google est l'un des principaux donateurs de Wikipédia.\n",
     chapter_id: '1.A1',
     authors: [],
     context: {
@@ -168,10 +165,8 @@ const slides: Array<Slide> = [
   },
   {
     _id: '1.A1.2',
-    klf:
-      "Le Knowledge Graph est donc un moyen de rassembler des informations clés autour d'un personnage célèbre par exemple. Mais aussi autour d'autres individus liés à celui-ci. En cela, il enrichit la recherche avec des éléments qui font sens.\n",
-    tips:
-      "La serendipité, vous connaissez ? C'est de découvrir de nouvelles choses de façon inattendue. Un peu comme le Knowledge Graph, donc.\n",
+    klf: "Le Knowledge Graph est donc un moyen de rassembler des informations clés autour d'un personnage célèbre par exemple. Mais aussi autour d'autres individus liés à celui-ci. En cela, il enrichit la recherche avec des éléments qui font sens.\n",
+    tips: "La serendipité, vous connaissez ? C'est de découvrir de nouvelles choses de façon inattendue. Un peu comme le Knowledge Graph, donc.\n",
     chapter_id: '1.A1',
     authors: [],
     context: {
@@ -283,8 +278,7 @@ const slides: Array<Slide> = [
   },
   {
     _id: '1.A1.3',
-    klf:
-      "En retenant l'internaute plus longtemps sur ses pages via le Knowledge Graph, Google monétise mieux ses publicités, tout en affichant plus de résultats provenant de son écosystème : maps, images…\n",
+    klf: "En retenant l'internaute plus longtemps sur ses pages via le Knowledge Graph, Google monétise mieux ses publicités, tout en affichant plus de résultats provenant de son écosystème : maps, images…\n",
     tips: "Le site le plus visité au monde en 2013, c'est… Google. (source Nielsen)\n",
     chapter_id: '1.A1',
     authors: [],
@@ -370,8 +364,7 @@ const slides: Array<Slide> = [
   },
   {
     _id: '1.A1.5',
-    klf:
-      "En retenant l'internaute plus longtemps sur ses pages via le Knowledge Graph, Google monétise mieux ses publicités, tout en affichant plus de résultats provenant de son écosystème : maps, images…\n",
+    klf: "En retenant l'internaute plus longtemps sur ses pages via le Knowledge Graph, Google monétise mieux ses publicités, tout en affichant plus de résultats provenant de son écosystème : maps, images…\n",
     tips: "Le site le plus visité au monde en 2013, c'est… Google. (source Nielsen)\n",
     chapter_id: '1.A1',
     authors: [],

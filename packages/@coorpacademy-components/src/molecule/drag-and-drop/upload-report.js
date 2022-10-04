@@ -13,6 +13,41 @@ import InputText from '../../atom/input-text';
 import Button from '../../atom/button';
 import style from './upload-report.css';
 
+const SuccessMessage = ({message}) => (
+  <div>
+    <span className={style.emoticon}>🎉</span>
+    <p className={style.message}>{message}</p>
+  </div>
+);
+
+SuccessMessage.propTypes = {
+  message: PropTypes.string.isRequired
+};
+
+const ErrorMessage = ({message, buttonTitle, primaryColor}) => (
+  <div>
+    <div>
+      <span className={style.emoticon}>🥺</span>
+      <p className={style.message}>{message}</p>
+    </div>
+    <div>
+      <Button
+        data-name="cta"
+        type="link"
+        submitValue={buttonTitle}
+        className={style.selectButton}
+        style={{backgroundColor: primaryColor}}
+      />
+    </div>
+  </div>
+);
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string.isRequired,
+  buttonTitle: PropTypes.string,
+  primaryColor: PropTypes.string
+};
+
 export const UploadReport = ({
   state,
   message,
@@ -39,29 +74,6 @@ export const UploadReport = ({
     e.preventDefault();
   }, []);
 
-  const SuccessMessage = () => (
-    <div>
-      <span className={style.emoticon}>🎉</span>
-      <p className={style.message}>{message}</p>
-    </div>
-  );
-  const ErrorMessage = () => (
-    <div>
-      <div>
-        <span className={style.emoticon}>🥺</span>
-        <p className={style.message}>{message}</p>
-      </div>
-      <div>
-        <Button
-          data-name="cta"
-          type="link"
-          submitValue={buttonTitle}
-          className={style.selectButton}
-          style={{backgroundColor: primaryColor}}
-        />
-      </div>
-    </div>
-  );
   const showMessage = includes(state, ['success', 'error']);
 
   const fileName = pipe(head, getOr('', 'value'), split('/'), last)(fields);
@@ -107,8 +119,10 @@ export const UploadReport = ({
         {deleteView}
       </div>
       <div className={style.reportContainer} onClick={stopPropagationHandler}>
-        {state === 'success' ? <SuccessMessage /> : null}
-        {state === 'error' ? <ErrorMessage /> : null}
+        {state === 'success' ? <SuccessMessage message={message} /> : null}
+        {state === 'error' ? (
+          <ErrorMessage message={message} buttonTitle={buttonTitle} primaryColor={primaryColor} />
+        ) : null}
         {mode === 'edit' && !showMessage ? <div>{fieldsList}</div> : null}
         {mode === 'edit' && !showMessage ? <span className={style.or}>{orLabel}</span> : null}
       </div>

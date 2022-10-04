@@ -86,9 +86,10 @@ const LottieWrapper = props => {
 
   const wrapperClassName = useMemo(() => classnames(className, style.lottieContainer), [className]);
 
-  const lottieAnimationClassName = useMemo(() => classnames(animationClassName, style.animation), [
-    animationClassName
-  ]);
+  const lottieAnimationClassName = useMemo(
+    () => classnames(animationClassName, style.animation),
+    [animationClassName]
+  );
 
   const ie11BackupImageClassName = useMemo(
     () => classnames(backupImageClassName, style.backupImage),

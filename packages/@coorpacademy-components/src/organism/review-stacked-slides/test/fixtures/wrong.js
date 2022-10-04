@@ -24,7 +24,7 @@ export const correctionPopinProps = {
 export default {
   props: {
     slides: {
-      '0': {
+      0: {
         hidden: true,
         position: 0,
         loading: false,
@@ -33,7 +33,7 @@ export default {
         answerUI: qcmDrag,
         isCorrect: true
       },
-      '1': {
+      1: {
         hidden: true,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
@@ -42,7 +42,7 @@ export default {
         answerUI: qcmDrag,
         isCorrect: true
       },
-      '2': {
+      2: {
         hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
@@ -53,14 +53,14 @@ export default {
         showCorrectionPopin: true,
         animateCorrectionPopin: true
       },
-      '3': {
+      3: {
         hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 4',
         position: 3
       },
-      '4': {
+      4: {
         hidden: false,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',

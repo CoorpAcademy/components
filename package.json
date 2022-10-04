@@ -19,6 +19,7 @@
     "update": "update-node"
   },
   "engines": {
+    "node": "^16.15.0",
     "yarn": "^1.12.3"
   },
   "workspaces": [

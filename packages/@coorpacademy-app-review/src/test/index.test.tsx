@@ -22,6 +22,7 @@ const waitForChanges = async (msToWait = 3000): Promise<void> => {
 
 const LIMIT = 5;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const clickAllSlides = async (
   t: ExecutionContext<unknown>,
   container: HTMLElement,
@@ -53,7 +54,6 @@ const clickAllSlides = async (
     await fireEvent.click(nextButton[0]);
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   await clickAllSlides(t, container, accumulator + 1);
 };
 

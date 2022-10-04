@@ -4,10 +4,10 @@ src
 [libs]
 ../../flow-typed/custom/@svgr
 ../../flow-typed/custom/chalk_v2.x.x.js
-../../flow-typed/custom/mkdirp-promise_vx.x.x.js
 ../../flow-typed/custom/react-native-svg_vx.x.x.js
 # specific to avoid to crash on lodash/fp vs lodash
 ../../flow-typed/npm/glob_v7.1.x.js
+../../flow-typed/npm/mkdirp_v0.5.x.js
 
 [strict]
 # nonstrict-import

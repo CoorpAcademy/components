@@ -16,6 +16,7 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "react/prop-types": "off",
     "promise/no-native": "off",
     "node/no-unsupported-features/es-syntax": [
       "error",

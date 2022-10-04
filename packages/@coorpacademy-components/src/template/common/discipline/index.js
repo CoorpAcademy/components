@@ -146,7 +146,10 @@ const Discipline = (props, context) => {
   );
 
   const addToMyListProviderWrap = disableAddToMyList ? (
-    [shareFeedBack, discipline]
+    <>
+      {shareFeedBack}
+      {discipline}
+    </>
   ) : (
     <AddToMyListStatusProvider>
       {shareFeedBack}

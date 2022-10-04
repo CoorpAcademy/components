@@ -1,6 +1,6 @@
 import React from 'react';
 
 export default {
-  children: <p>foo</p>,
-  innerHtml: true
+  props: {innerHtml: true},
+  children: <p>foo</p>
 };

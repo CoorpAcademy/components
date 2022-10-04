@@ -57,33 +57,37 @@ const getNextStepTitle = state => {
   return isNewChapter(state, progression) ? getNextChapterTitle(state, progression) : undefined;
 };
 
-const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
-  const progressionId = getCurrentProgressionId(state);
-  const isRevival = hasViewedAResourceAtThisStep(state);
-  const updateProgression = isRevival ? acceptExtraLife : refuseExtraLife;
+const extraLifeCTAProps =
+  ({translate}, {dispatch}) =>
+  state => {
+    const progressionId = getCurrentProgressionId(state);
+    const isRevival = hasViewedAResourceAtThisStep(state);
+    const updateProgression = isRevival ? acceptExtraLife : refuseExtraLife;
 
-  return {
-    title: translate(isRevival ? 'Next' : 'Quit'),
-    onClick: () => dispatch(updateProgression(progressionId))
-  };
-};
-
-const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
-  const progression = getCurrentProgression(state);
-  const progressionId = getCurrentProgressionId(state);
-  const isDead = progression.state.lives === 0;
-  const chapterTitle = isNewChapter(state, progression)
-    ? translate('Next chapter')
-    : translate('Next');
-
-  const ctaProps = {
-    title: isDead ? translate('Game over') : chapterTitle,
-    onClick: () => dispatch(selectProgression(progressionId)),
-    nextStepTitle: isDead ? translate('Click to continue') : getNextStepTitle(state)
+    return {
+      title: translate(isRevival ? 'Next' : 'Quit'),
+      onClick: () => dispatch(updateProgression(progressionId))
+    };
   };
 
-  return omitBy(isUndefined, ctaProps);
-};
+const noExtraLifeCTAProps =
+  ({translate}, {dispatch}) =>
+  state => {
+    const progression = getCurrentProgression(state);
+    const progressionId = getCurrentProgressionId(state);
+    const isDead = progression.state.lives === 0;
+    const chapterTitle = isNewChapter(state, progression)
+      ? translate('Next chapter')
+      : translate('Next');
+
+    const ctaProps = {
+      title: isDead ? translate('Game over') : chapterTitle,
+      onClick: () => dispatch(selectProgression(progressionId)),
+      nextStepTitle: isDead ? translate('Click to continue') : getNextStepTitle(state)
+    };
+
+    return omitBy(isUndefined, ctaProps);
+  };
 
 export const createHeaderCTA = (options, store) => {
   const extraLifeCTAProps_ = extraLifeCTAProps(options, store);

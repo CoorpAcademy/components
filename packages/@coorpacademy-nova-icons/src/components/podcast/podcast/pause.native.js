@@ -4,6 +4,7 @@ import Svg, {Path} from 'react-native-svg';
 const SvgComponent = props => (
   <Svg
     viewBox="0 0 67 67"
+    xmlns="http://www.w3.org/2000/svg"
     fillRule="evenodd"
     clipRule="evenodd"
     strokeLinejoin="round"

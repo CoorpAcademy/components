@@ -3,7 +3,16 @@ import Svg, {G, Defs, Path, ClipPath, Use} from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: style */
 
 const SvgComponent = props => (
-  <Svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 24 24" xmlSpace="preserve" {...props}>
+  <Svg
+    id="prefix__Calque_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x={0}
+    y={0}
+    viewBox="0 0 24 24"
+    xmlSpace="preserve"
+    {...props}
+  >
     <G fill="none" fillRule="evenodd">
       <Defs>
         <Path id="prefix__SVGID_1_" d="M0 0h24v24H0z" />

@@ -16,10 +16,10 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
     return <CardsList {...section} key={section.title + index} />;
   }, []);
 
-  const sectionsList = useMemo(() => map.convert({cap: false})(buildSection, sections), [
-    buildSection,
-    sections
-  ]);
+  const sectionsList = useMemo(
+    () => map.convert({cap: false})(buildSection, sections),
+    [buildSection, sections]
+  );
 
   return isLoading ? (
     <div className={style.loader}>

@@ -7,6 +7,7 @@ import qcmFixture from '../../../../molecule/questions/qcm/test/fixtures/default
 import qcmGraphicFixture from '../../../../molecule/questions/qcm-graphic/test/fixtures/default';
 
 export default {
+  props: {},
   children: [
     <QcmGraphic {...qcmGraphicFixture.props} key="1" />,
     <Qcm {...qcmFixture.props} key="2" />,

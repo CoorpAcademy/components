@@ -1,7 +1,15 @@
 import * as React from 'react';
 
 const SvgComponent = props => (
-  <svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 52 41" xmlSpace="preserve" {...props}>
+  <svg
+    id="prefix__Calque_1"
+    xmlns="http://www.w3.org/2000/svg"
+    x={0}
+    y={0}
+    viewBox="0 0 52 41"
+    xmlSpace="preserve"
+    {...props}
+  >
     <style>
       {
         '.prefix__st1{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}'

@@ -114,7 +114,7 @@ DisciplinePartners.propTypes = {
         src: PropTypes.string,
         href: PropTypes.string
       }),
-      socialLinks: PropTypes.array
+      socialLinks: PropTypes.arrayOf(PropTypes.shape(SocialLink.propTypes))
     })
   ),
   authorTitle: PropTypes.string
