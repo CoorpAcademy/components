@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const concat = require('lodash/fp/concat');
 const pipe = require('lodash/fp/pipe');
 const set = require('lodash/fp/set');
@@ -15,8 +16,6 @@ const entry = {
 
 const output = {
   library: ['Coorpacademy', '[name]'],
-  path: path.resolve(__dirname, 'dist'),
-  publicPath: '/dist',
   filename: '[name].js',
   libraryTarget: 'umd'
 };
@@ -45,13 +44,15 @@ module.exports = pipe(
     concat([
       new webpack.DefinePlugin({
         'process.env.API_TEST_TOKEN': JSON.stringify(API_TEST_TOKEN)
+      }),
+      new HtmlWebpackPlugin({
+        filename: `index.html`,
+        template: './sandbox/index.html',
+        chunks: ['app-review-sandbox']
       })
     ])
   ),
   set('devServer', {
-    static: {
-      directory: path.join(__dirname, 'sandbox')
-    },
     historyApiFallback: true,
     hot: true,
     host: '0.0.0.0',
