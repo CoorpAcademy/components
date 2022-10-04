@@ -14,7 +14,7 @@ import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
 import {nextSlide} from '../../actions/ui/next-slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
-import { closeQuitPopin, openQuitPopin } from 'src/actions/ui/quit-popin';
+import { closeQuitPopin, openQuitPopin } from '../../actions/ui/quit-popin';
 
 const ICON_VALUES = {
   right: 'right',
