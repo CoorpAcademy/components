@@ -18,8 +18,8 @@ type StyleSheetType = {
   noSkillsImage: ViewStyle;
   skills: ViewStyle;
   skill: ViewStyle;
-  skillTexts: ViewStyle;
-  skillTitle: ViewStyle;
+  skillTexts: TextStyle;
+  skillTitle: TextStyle;
   skillInfo: TextStyle;
   extraSpace: ViewStyle;
 };
