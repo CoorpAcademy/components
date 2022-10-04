@@ -7,6 +7,7 @@ import set from 'lodash/fp/set';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
+import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import type {ProgressionAnswerItem} from '../../types/common';
 import {getProgressionSlidesRefs, type SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
@@ -14,7 +15,6 @@ import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
 import {nextSlide} from '../../actions/ui/next-slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
-import { closeQuitPopin, openQuitPopin } from '../../actions/ui/quit-popin';
 
 const ICON_VALUES = {
   right: 'right',
