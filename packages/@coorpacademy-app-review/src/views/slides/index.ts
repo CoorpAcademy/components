@@ -111,26 +111,7 @@ export type SlidesViewProps = {
     endReview: boolean;
   };
   reviewBackgroundAriaLabel?: string;
-  congrats?: {
-    'aria-label'?: string;
-    'data-name'?: string;
-    animationLottie: unknown;
-    title: string;
-    cardCongratsStar: unknown;
-    cardCongratsRank: unknown;
-    buttonRevising: {
-      'aria-label'?: string;
-      label: string;
-      onClick: Function;
-      type: string;
-    };
-    buttonRevisingSkill: {
-      'aria-label'?: string;
-      label: string;
-      onClick: Function;
-      type: string;
-    };
-  };
+  congrats?: CongratsProps;
   quitPopin?: QuitPopinProps;
 };
 
@@ -165,20 +146,20 @@ type CongratsCardProps = {
   timerAnimation: number;
 };
 
-type CongratsProps = {
+export type CongratsProps = {
   'aria-label': string;
   'data-name': 'review-congrats';
-  animationLottie: unknown;
+  animationLottie: LottieAnimationProps;
   title: string;
   cardCongratsStar: CongratsCardProps;
   cardCongratsRank: CongratsCardProps;
-  buttonRevising: {
+  buttonRevising?: {
     'aria-label': string;
     label: string;
     onClick: Function;
     type: string;
   };
-  buttonRevisingSkill: {
+  buttonRevisingSkill?: {
     label: string;
     'aria-label': string;
     onClick: Function;
@@ -186,7 +167,6 @@ type CongratsProps = {
   };
 };
 
-// TODO replace this, position no more needed
 export const initialState: SlidesStack = {
   '0': {
     position: 0,
@@ -474,20 +454,8 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
     title: 'Congratulations!',
     cardCongratsStar,
     cardCongratsRank,
-    buttonRevising: {
-      'aria-label': 'Continue revising button',
-      label: 'Continue revising',
-      // eslint-disable-next-line no-console
-      onClick: () => console.log('Continue revising'),
-      type: 'tertiary'
-    },
-    buttonRevisingSkill: {
-      label: 'Revise another skill',
-      'aria-label': 'Revise another skill button',
-      // eslint-disable-next-line no-console
-      onClick: () => console.log('Revise another skill'),
-      type: 'primary'
-    }
+    buttonRevising: undefined, // TODO make boutons and actions
+    buttonRevisingSkill: undefined // TODO make boutons and actions
   };
 };
 
