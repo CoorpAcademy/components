@@ -18,6 +18,7 @@ const initialState: StoreState = {
     navigation: [],
     answers: {},
     slide: {},
+    positions: [],
     showQuitPopin: false
   }
 };
