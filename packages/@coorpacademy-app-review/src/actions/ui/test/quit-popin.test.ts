@@ -1,6 +1,6 @@
 import test from 'ava';
 import {createTestStore} from '../../test/create-test-store';
-import {StoreState} from '../../../reducers';
+import type {StoreState} from '../../../reducers';
 import {closeQuitPopin, CLOSE_POPIN, openQuitPopin, OPEN_POPIN} from '../quit-popin';
 import {services} from '../../../test/util/services.mock';
 
