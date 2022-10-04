@@ -1,17 +1,15 @@
-import {AppOptions} from '../../types/common';
+import {AppOptions, ViewName} from '../../types/common';
 
 export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
 export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
 export const START_APP = '@@navigation/START_APP';
 
-export type ViewPath = 'skills' | 'onboarding' | 'slides' | 'loader';
-
-export type NavigateTo = {
+export type NavigateToAction = {
   type: '@@navigation/NAVIGATE_TO';
-  payload: ViewPath;
+  payload: ViewName;
 };
 
-export type NavigateBack = {
+export type NavigateBackAction = {
   type: '@@navigation/NAVIGATE_BACK';
 };
 
@@ -20,11 +18,11 @@ export type StartApp = {
   payload: AppOptions;
 };
 
-export const navigateTo = (newPath: ViewPath): NavigateTo => ({
+export const navigateTo = (newViewName: ViewName): NavigateToAction => ({
   type: NAVIGATE_TO,
-  payload: newPath
+  payload: newViewName
 });
 
-export const navigateBack = (): NavigateBack => ({
+export const navigateBack: NavigateBackAction = {
   type: NAVIGATE_BACK
-});
+};
