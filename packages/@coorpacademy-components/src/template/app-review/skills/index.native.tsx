@@ -145,7 +145,13 @@ const Skill = ({title, info}: SkillProps) => {
 const Item = ({item: {title, info, isExtraSpace = false}}: ItemProps) =>
   isExtraSpace ? <ExtraSpace /> : <Skill title={title} info={info} />;
 
-const List = (props: ListSkillsProps) => {
+type ItemDataType = {
+  title: string;
+  info: string;
+  isExtraSpace: boolean;
+};
+
+const List = (props: Array<ListSkillsProps>) => {
   const {skills} = props;
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
@@ -160,7 +166,22 @@ const List = (props: ListSkillsProps) => {
     return null;
   }
 
-  return <FlatList contentContainerStyle={styleSheet.skills} data={skills} renderItem={Item} />;
+  const formattedDataList: Array<ItemDataType> = [];
+  skills.map(skill =>
+    formattedDataList.push({
+      title: skill.skillTitle,
+      info: skill.skillAriaLabel,
+      isExtraSpace: true
+    })
+  );
+
+  return (
+    <FlatList
+      contentContainerStyle={styleSheet.skills}
+      data={formattedDataList}
+      renderItem={Item}
+    />
+  );
 };
 
 // -----------------------------------------------------------------------------
@@ -211,11 +232,7 @@ const Skills = (props: SkillsProps) => {
   return (
     <View style={styleSheet.container}>
       <Text style={styleSheet.title}>{title}</Text>
-      {!listSkills || listSkills.skills?.length === 0 ? (
-        <NoSkills />
-      ) : (
-        <List skills={listSkills.skills} />
-      )}
+      {!listSkills || listSkills.length === 0 ? <NoSkills /> : <List skills={listSkills} />}
     </View>
   );
 };

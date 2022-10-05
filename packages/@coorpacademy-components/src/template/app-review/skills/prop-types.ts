@@ -33,10 +33,18 @@ export type NoSkillsProps = {
 };
 
 export type ListSkillsProps = {
-  skills: {title: string; info: string; isExtraSpace: boolean}[];
+  skillTitle: string;
+  isCustom: boolean;
+  'aria-label': string;
+  skillAriaLabel: string;
+  buttonLabel: string;
+  buttonAriaLabel: string;
+  reviseLabel: string;
+  reviseAriaLabel: string;
+  onClick: () => void;
 };
 
 export type SkillsProps = {
   title: string;
-  listSkills: ListSkillsProps;
+  listSkills: Array<ListSkillsProps>;
 };
