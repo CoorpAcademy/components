@@ -151,11 +151,11 @@ type ItemDataType = {
   isExtraSpace: boolean;
 };
 
-const List = (props: Array<ListSkillsProps>) => {
-  const {skills} = props;
+const List = (props: {skills: Array<ListSkillsProps>}) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
+  const {skills} = props;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
