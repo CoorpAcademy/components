@@ -8,7 +8,7 @@ import {mapStateToSlidesProps, QuitPopinProps} from '..';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-test('should dispatch OPEN_POPIN action via the property handleOnclick of firstButton when popin is open', async t => {
+test('should dispatch CLOSE_POPIN action via the property handleOnclick of secondButton when popin is open', async t => {
   const state: StoreState = {
     data: {
       progression: incorrectFreeTextPostAnswerResponse,
@@ -45,20 +45,9 @@ test('should dispatch OPEN_POPIN action via the property handleOnclick of firstB
   const expectedAction = [{type: CLOSE_POPIN}];
   const {dispatch, getState} = createTestStore(t, state, services, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
-  const stateTest = getState();
-  // eslint-disable-next-line no-console
-  console.log('stateTest');
-  // eslint-disable-next-line no-console
-  console.log(stateTest);
-  // récupérer le premier bouton handleOnclick sur le firstButton
   const quitPopin = props.quitPopin as QuitPopinProps;
-  await quitPopin.secondButton.handleOnclick(); // on lance le premier bouton continuer d'apprendre
-
+  await quitPopin.secondButton.handleOnclick();
   const updatedState = getState();
-  // eslint-disable-next-line no-console
-  console.log('updatedState');
-  // eslint-disable-next-line no-console
-  console.log(updatedState);
   t.is(updatedState.ui.showQuitPopin, false);
   t.pass();
 });
