@@ -6,8 +6,8 @@
     "lint": "lerna run lint",
     "test": "lerna run test",
     "test:unit": "lerna run test:unit --stream",
-    "prestatic": "rm -rf static && lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web --scope @coorpacademy/app-review --include-dependencies prepare -- --production",
-    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web --scope @coorpacademy/app-review static -- --production",
+    "prestatic": "rm -rf static && lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web --scope @coorpacademy/app-review --include-dependencies prepare",
+    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web --scope @coorpacademy/app-review static",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player && cp -r packages/@coorpacademy-app-review/static static/app-review",
     "preflow": "sh scripts/links-for-nested-flow.sh",
     "flow": "lerna run flow",
@@ -19,6 +19,7 @@
     "update": "update-node"
   },
   "engines": {
+    "node": "^16.15.0",
     "yarn": "^1.12.3"
   },
   "workspaces": [

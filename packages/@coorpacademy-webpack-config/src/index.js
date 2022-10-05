@@ -75,26 +75,26 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
     },
 
     plugins: (() => {
-      const plugins = [].concat(
-        [
+      const plugins = [
+        ...[
           new MiniCssExtractPlugin({
             filename: '[name].css',
             ignoreOrder: true
           })
         ],
-        additionalPlugins
-      );
-
-      if (isProduction)
-        plugins.push(
-          new CompressionPlugin({
-            filename: '[path].gz',
-            algorithm: 'gzip',
-            test: /\.js$|\.css$/,
-            threshold: 10240,
-            minRatio: 0.8
-          })
-        );
+        ...(isProduction
+          ? [
+              new CompressionPlugin({
+                filename: '[path][base].gz',
+                algorithm: 'gzip',
+                test: /\.js$|\.css$/,
+                threshold: 10240,
+                minRatio: 0.8
+              })
+            ]
+          : []),
+        ...additionalPlugins
+      ];
 
       return plugins;
     })()

@@ -3,7 +3,7 @@ import Svg, {G, Path, Defs} from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 
 const SvgComponent = props => (
-  <Svg viewBox="0 0 94 139" fill="none" {...props}>
+  <Svg viewBox="0 0 94 139" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <G filter="url(#prefix__filter0_d)">
       <Path d="M75.896 18l-56.83 58h24.71L18 120.867 76 63.66H50.205L75.896 18z" fill="#FFD942" />
       <Path

@@ -24,26 +24,26 @@ export const correctionPopinProps = {
 export default {
   props: {
     slides: {
-      '0': {
+      0: {
         position: 0,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
         answerUI: qcmDrag
       },
-      '1': {
+      1: {
         position: 1,
         loading: false
       },
-      '2': {
+      2: {
         position: 2,
         loading: false
       },
-      '3': {
+      3: {
         position: 3,
         loading: false
       },
-      '4': {
+      4: {
         position: 4,
         loading: false
       }

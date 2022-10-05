@@ -194,7 +194,7 @@ CMPopin.propTypes = {
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary', 'tertiary']),
-    customStyle: PropTypes.object
+    customStyle: Cta.propTypes.customStyle
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
@@ -202,7 +202,7 @@ CMPopin.propTypes = {
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    customStyle: PropTypes.object
+    customStyle: Cta.propTypes.customStyle
   }),
   thirdButton: PropTypes.shape({
     label: PropTypes.string,
@@ -210,7 +210,7 @@ CMPopin.propTypes = {
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    customStyle: PropTypes.object
+    customStyle: Cta.propTypes.customStyle
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string,

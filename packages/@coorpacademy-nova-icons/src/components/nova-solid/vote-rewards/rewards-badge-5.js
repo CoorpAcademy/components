@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const SvgComponent = props => (
-  <svg viewBox="0 0 24 24" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
     <path fill="none" d="M0 .002h24v24H0z" />
     <g fill="currentColor">
       <path d="M20 17.203l-7.427-5.201a1.002 1.002 0 00-1.146 0L4 17.203v2.44l8-5.602 8 5.602v-2.44z" />

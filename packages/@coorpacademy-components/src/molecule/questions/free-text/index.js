@@ -17,9 +17,10 @@ const FreeText = (props, legacyContext) => {
 
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
-  const shadowBoxPrimaryColor = useMemo(() => convert(`color(${primarySkinColor} a(12%))`), [
-    primarySkinColor
-  ]);
+  const shadowBoxPrimaryColor = useMemo(
+    () => convert(`color(${primarySkinColor} a(12%))`),
+    [primarySkinColor]
+  );
 
   return (
     <div

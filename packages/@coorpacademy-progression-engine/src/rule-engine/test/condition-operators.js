@@ -2,14 +2,12 @@
 import test from 'ava';
 import checkCondition from '../condition-operators';
 
-const testCondition = (t, [opNormal, opNegative]) => <T>(
-  expectedResult: boolean,
-  expectedValues: Array<T>,
-  value: T
-) => {
-  t.is(checkCondition(opNormal, expectedValues, value), expectedResult);
-  t.is(checkCondition(opNegative, expectedValues, value), !expectedResult);
-};
+const testCondition =
+  (t, [opNormal, opNegative]) =>
+  <T>(expectedResult: boolean, expectedValues: Array<T>, value: T) => {
+    t.is(checkCondition(opNormal, expectedValues, value), expectedResult);
+    t.is(checkCondition(opNegative, expectedValues, value), !expectedResult);
+  };
 
 test('should return true for IN (false for NOT_IN) condition if value is among the expected values', t => {
   const check = testCondition(t, ['IN', 'NOT_IN']);

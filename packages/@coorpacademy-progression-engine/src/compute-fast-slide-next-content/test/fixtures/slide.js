@@ -1,7 +1,6 @@
 export default {
   _id: '1.A1.4',
-  klf:
-    "Le Knowledge Graph vampirise 40% d'une page de résultats. Certes, toutes les requêtes ne sont pas concernées, mais si votre activité peut en profiter, vous avez là une merveilleuse vitrine !\n",
+  klf: "Le Knowledge Graph vampirise 40% d'une page de résultats. Certes, toutes les requêtes ne sont pas concernées, mais si votre activité peut en profiter, vous avez là une merveilleuse vitrine !\n",
   tips: 'Un conseil : cherchez un lien entre votre activité et le Knowledge Graph.\n',
   chapter_id: '1.A1',
   authors: [],

@@ -56,7 +56,7 @@
     "flow-bin": "^0.125.1",
     "flow-copy-source": "^2.0.9",
     "glob": "^7.1.6",
-    "mkdirp-promise": "^5.0.1",
+    "mkdirp": "^1.0.4",
     "react": "^17.0.2",
     "react-native-svg": "^9.13.6"
   }

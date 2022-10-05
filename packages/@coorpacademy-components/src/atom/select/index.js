@@ -45,10 +45,10 @@ const Select = (props, legacyContext) => {
   } = props;
 
   const skin = GetSkinFromContext(legacyContext);
-  const title = useMemo(() => (propTitle ? `${propTitle}${required ? '*' : ''}` : null), [
-    propTitle,
-    required
-  ]);
+  const title = useMemo(
+    () => (propTitle ? `${propTitle}${required ? '*' : ''}` : null),
+    [propTitle, required]
+  );
 
   const optionList =
     options &&

@@ -42,7 +42,9 @@ test.serial(
   macro,
   {
     components: {
-      Title: () => createElement('h1')
+      Title() {
+        return createElement('h1');
+      }
     },
     template: '<coorp-title></coorp-title>'
   },
@@ -54,9 +56,13 @@ test.serial(
   macro,
   {
     components: {
-      Title: () => createElement('h1')
+      Title() {
+        return createElement('h1');
+      }
     },
-    provider: ({children}) => createElement('strong', null, children),
+    provider({children}) {
+      return createElement('strong', null, children);
+    },
     template: '<coorp-title></coorp-title>'
   },
   '<strong><h1></h1></strong>'
@@ -67,7 +73,9 @@ test.serial(
   macro,
   {
     components: {
-      Title: ({children}) => createElement('h1', null, children)
+      Title({children}) {
+        return createElement('h1', null, children);
+      }
     },
     template: '<coorp-title props="props"></coorp-title>',
     data: {
@@ -82,9 +90,13 @@ test.serial(
   macro,
   {
     components: {
-      Title: () => createElement('h1')
+      Title: function H1() {
+        return createElement('h1');
+      }
     },
-    provider: ({tagName}) => createElement(tagName),
+    provider({tagName}) {
+      return createElement(tagName);
+    },
     template: '<coorp-title context="context"></coorp-title>',
     data: {
       context: {tagName: 'section'}
@@ -108,9 +120,13 @@ test.serial(
   },
   {
     components: {
-      Title: () => createElement('h1')
+      Title: function H1() {
+        return createElement('h1');
+      }
     },
-    provider: ({tagName}) => createElement(tagName),
+    provider({tagName}) {
+      return createElement(tagName);
+    },
     template: '<coorp-title context="context"></coorp-title>',
     data: {
       context: {tagName: 'section'}

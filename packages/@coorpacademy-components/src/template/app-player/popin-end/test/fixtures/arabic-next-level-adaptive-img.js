@@ -15,8 +15,7 @@ export default defaultsDeep(correct, {
           type: 'img',
           src: [
             {
-              url:
-                'http://www.sommeildavantage.com/img/fauteuil-massage/bienfaits/fauteuil-massage-bienfaits-esprit-vivacite-esprit.jpg'
+              url: 'http://www.sommeildavantage.com/img/fauteuil-massage/bienfaits/fauteuil-massage-bienfaits-esprit-vivacite-esprit.jpg'
             }
           ]
         }

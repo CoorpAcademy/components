@@ -28,23 +28,25 @@ const apply = <T: Variables>(variables: T, instruction: Instruction): T => {
   }
 };
 
-const updateVariables = (instructions: Array<Instruction>) => (fromState: State): State => {
-  const {lives, stars, ...variables} = reduce(
-    apply,
-    {
-      lives: fromState.lives,
-      stars: fromState.stars,
-      ...fromState.variables
-    },
-    instructions
-  );
+const updateVariables =
+  (instructions: Array<Instruction>) =>
+  (fromState: State): State => {
+    const {lives, stars, ...variables} = reduce(
+      apply,
+      {
+        lives: fromState.lives,
+        stars: fromState.stars,
+        ...fromState.variables
+      },
+      instructions
+    );
 
-  return {
-    ...fromState,
-    lives,
-    stars,
-    variables
+    return {
+      ...fromState,
+      lives,
+      stars,
+      variables
+    };
   };
-};
 
 export default updateVariables;

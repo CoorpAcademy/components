@@ -46,21 +46,23 @@ const headerSubcontent = (engineRef, state) => {
   }
 };
 
-const headerProps = (options, {dispatch}) => state => {
-  const engine = getEngine(state);
-  const {ref: engineRef} = engine;
-  const {hide, count} = getLives(state);
+const headerProps =
+  (options, {dispatch}) =>
+  state => {
+    const engine = getEngine(state);
+    const {ref: engineRef} = engine;
+    const {hide, count} = getLives(state);
 
-  return {
-    type: engineRef,
-    content: {
-      ...headerContent(engineRef, state),
-      onClick: () => dispatch(back)
-    },
-    subcontent: headerSubcontent(engineRef, state),
-    lives: hide ? false : {count},
-    mode: options.mode || 'default'
+    return {
+      type: engineRef,
+      content: {
+        ...headerContent(engineRef, state),
+        onClick: () => dispatch(back)
+      },
+      subcontent: headerSubcontent(engineRef, state),
+      lives: hide ? false : {count},
+      mode: options.mode || 'default'
+    };
   };
-};
 
 export default headerProps;

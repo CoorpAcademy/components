@@ -2,7 +2,7 @@ import * as React from 'react';
 import Svg, {Path, G} from 'react-native-svg';
 
 const SvgComponent = props => (
-  <Svg viewBox="0 0 30 30" {...props}>
+  <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" {...props}>
     <Path
       fill={props.color}
       d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm0 27C8.4 27 3 21.6 3 15S8.4 3 15 3s12 5.4 12 12-5.4 12-12 12z"

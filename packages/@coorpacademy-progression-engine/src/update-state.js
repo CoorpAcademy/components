@@ -25,11 +25,12 @@ function combineReducers(
 ): Config => (State, Action) => State {
   // eslint-disable-next-line flowtype/require-return-type
   const fns = map(({fn, key}) => {
-    return (config: Config, action: Action) => (state: State): State => {
-      if (!key) return fn(config)(state, action);
-      const newState = update(key, value => fn(config)(value, action, state), state);
-      return (newState: State);
-    };
+    return (config: Config, action: Action) =>
+      (state: State): State => {
+        if (!key) return fn(config)(state, action);
+        const newState = update(key, value => fn(config)(value, action, state), state);
+        return (newState: State);
+      };
   }, fnMap);
 
   return (config: Config): ((State, Action) => State) => {

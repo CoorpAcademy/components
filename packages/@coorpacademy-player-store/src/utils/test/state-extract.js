@@ -68,9 +68,9 @@ const getStateWithContent = (
 
   return pipe(
     set('ui.current.progressionId', '12'),
-    set('data.progressions.entities', {'12': progression}),
-    set('data.contents.chapter.entities', {'1337': chapter}),
-    set('data.contents.slide.entities', {'42': nextSlide, '41': currentSlide})
+    set('data.progressions.entities', {12: progression}),
+    set('data.contents.chapter.entities', {1337: chapter}),
+    set('data.contents.slide.entities', {42: nextSlide, 41: currentSlide})
   )({});
 };
 
@@ -125,7 +125,7 @@ function macroDoNothing(t, type, shuffleChoices = true) {
       },
       progressions: {
         entities: {
-          '1234': {
+          1234: {
             engine: {ref: 'learner', version: '2'}
           }
         }
@@ -158,7 +158,7 @@ function macroDoNothingWithShuffleChoicesEnabledOnConfig(t, type, shuffleChoices
       },
       progressions: {
         entities: {
-          '1234': {
+          1234: {
             engine: {ref: 'learner', version: '2'},
             engineOptions: {shuffleChoices}
           }
@@ -192,7 +192,7 @@ function macroQCM(t, type) {
       },
       progressions: {
         entities: {
-          '1234': {
+          1234: {
             engine: {ref: 'learner', version: '2'},
             engineOptions: {}
           }
@@ -238,7 +238,7 @@ function macroQCMWithShuffleChoicesEnabledOnEngineOptionsAndDisabledOnConfig(t, 
       },
       progressions: {
         entities: {
-          '1234': {
+          1234: {
             engine: {ref: 'learner', version: '2'},
             engineOptions: {shuffleChoices: true}
           }
@@ -409,7 +409,7 @@ test('getChoices with shuffle enabled should return shuffle choices for template
       },
       progressions: {
         entities: {
-          '1234': {
+          1234: {
             engine: {ref: 'learner', version: '2'},
             engineOptions: {}
           }
@@ -479,7 +479,7 @@ test("getCurrentEngine should get current progression's engine from state", t =>
   const engine = {ref: 'microlearning'};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {engine}})
+    set('data.progressions.entities', {0: {engine}})
   )({});
 
   t.deepEqual(getCurrentEngine(state), engine);
@@ -506,7 +506,7 @@ test("isCurrentEngineLearner should return true for engine.ref='learner'", t => 
   const engine = {ref: 'learner'};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {engine}})
+    set('data.progressions.entities', {0: {engine}})
   )({});
 
   t.is(isCurrentEngineLearner(state), true);
@@ -515,7 +515,7 @@ test("isCurrentEngineLearner should return true for engine.ref='learner'", t => 
 test('isCurrentEngineLearner should return false if no engine is found', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}})
+    set('data.progressions.entities', {0: {}})
   )({});
 
   t.is(isCurrentEngineLearner(state), false);
@@ -525,7 +525,7 @@ test("isCurrentEngineMicrolearning should return true for engine.ref='learner'",
   const engine = {ref: 'microlearning'};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {engine}})
+    set('data.progressions.entities', {0: {engine}})
   )({});
 
   t.is(isCurrentEngineMicrolearning(state), true);
@@ -534,7 +534,7 @@ test("isCurrentEngineMicrolearning should return true for engine.ref='learner'",
 test('isCurrentEngineMicrolearning should return false if no engine is found', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}})
+    set('data.progressions.entities', {0: {}})
   )({});
 
   t.is(isCurrentEngineMicrolearning(state), false);
@@ -546,7 +546,7 @@ test('getEngineConfig should return proper engine string', t => {
 
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {engine}}),
+    set('data.progressions.entities', {0: {engine}}),
     set('data.configs.entities', {[tag]: {bar: 'plop'}})
   )({});
 
@@ -569,7 +569,7 @@ test('getEngineOptions should return engineOptions of current progression', t =>
 
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {engineOptions}})
+    set('data.progressions.entities', {0: {engineOptions}})
   )({});
 
   t.deepEqual(getEngineOptions(state), engineOptions);
@@ -582,7 +582,7 @@ test('getEngineConfig should return extended config with engineOptions and prope
 
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {engine, engineOptions}}),
+    set('data.progressions.entities', {0: {engine, engineOptions}}),
     set('data.configs.entities', {[tag]: {bar: 'plop', plip: true}})
   )({});
 
@@ -607,7 +607,7 @@ test('getDiscipline', t => {
 test('isCommentSent should return comment status for current progression', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}}),
+    set('data.progressions.entities', {0: {}}),
     set('data.comments.entities.0.isSent', 'plop')
   )({});
 
@@ -617,7 +617,7 @@ test('isCommentSent should return comment status for current progression', t => 
 test('getRoute should return current route for current progression', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}}),
+    set('data.progressions.entities', {0: {}}),
     set('ui.route.0', 'plop')
   )({});
   t.is(getRoute(state), 'plop');
@@ -626,7 +626,7 @@ test('getRoute should return current route for current progression', t => {
 test('getRecommendations should return recommendations for current progression', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}}),
+    set('data.progressions.entities', {0: {}}),
     set('data.recommendations.entities.0', 'plop')
   )({});
 
@@ -637,7 +637,7 @@ test('getCurrentProgression should get current progression from state', t => {
   const progression = {foo: 'bar'};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getCurrentProgression(state), progression);
@@ -794,8 +794,8 @@ test('getCurrentSlide should get current slide from state', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.is(getCurrentSlide(state), slide);
@@ -810,7 +810,7 @@ test('getCurrentSlide should return undefined if no progression.state is found',
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getCurrentSlide(state), undefined);
@@ -821,7 +821,7 @@ test('getCurrentExitNode should get current exit node from state', t => {
   const progression = {state: {nextContent: {ref: 'successExitNode'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
+    set('data.progressions.entities', {0: progression}),
     set('data.exitNodes.entities', {successExitNode: exitNode})
   )({});
   t.deepEqual(getCurrentExitNode(state), exitNode);
@@ -838,7 +838,7 @@ test('getCurrentExitNode should get current exit node from state with counters',
   };
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
+    set('data.progressions.entities', {0: progression}),
     set('data.exitNodes.entities', {successExitNode: exitNode})
   )({});
 
@@ -858,7 +858,7 @@ test('getCurrentExitNode should return undefined if no progression.state is foun
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getCurrentExitNode(state), undefined);
@@ -884,7 +884,7 @@ test('getPreviousSlide should return undefined if no progression.state is found'
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getPreviousSlide(state), undefined);
@@ -894,7 +894,7 @@ test('getPreviousSlide should return undefined if no progression.state.content i
   const progression = {state: {}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getPreviousSlide(state), undefined);
@@ -906,7 +906,7 @@ test('getCurrentContent should get current content from state', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.contents.slide.entities.0', 'bar'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getCurrentContent(state), 'bar');
@@ -916,7 +916,7 @@ test('getCurrentContent should return undefined if no content is found', t => {
   const progression = {state: {}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getCurrentContent(state), undefined);
@@ -927,7 +927,7 @@ test('getStepContent should get progression.state.nextContent', t => {
   const progression = {state: {nextContent: content}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getStepContent(state), content);
@@ -942,7 +942,7 @@ test('getStepContent should return undefined if no progression.state is found', 
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getStepContent(state), undefined);
@@ -957,7 +957,7 @@ test('getPrevStepContent should return undefined if no progression.state is foun
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getPrevStepContent(state), undefined);
@@ -967,7 +967,7 @@ test('hasViewedAResourceAtThisStep should get progression.state.hasViewedAResour
   const progression = {state: {hasViewedAResourceAtThisStep: 'foo'}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(hasViewedAResourceAtThisStep(state), 'foo');
@@ -982,7 +982,7 @@ test('hasViewedAResourceAtThisStep should return false if no progression.state i
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(hasViewedAResourceAtThisStep(state), false);
@@ -1093,7 +1093,7 @@ test('getBestScore should get bestScore from current content', t => {
   const progression = {content: {ref: 'bar', type: 'chapter'}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
+    set('data.progressions.entities', {0: progression}),
     set('data.contents.chapter.entities.bar', {bestScore})
   )({});
   t.is(getBestScore(state), bestScore);
@@ -1103,7 +1103,7 @@ test('getBestScore should return undefined if no content is a SLIDE', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {
-      '0': {
+      0: {
         content: {
           type: 'slide'
         }
@@ -1119,7 +1119,7 @@ test('getBestScore should return undefined if progression.content is not found',
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
   t.is(getBestScore(state), undefined);
 });
@@ -1128,7 +1128,7 @@ test('getBestScore should return undefined if content is not found', t => {
   const progression = {content: {ref: 'bar', type: 'chapter'}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
   t.is(getBestScore(state), undefined);
 });
@@ -1211,7 +1211,7 @@ test('getLives should throw error if progression.state is not defined', t => {
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getLives(state).count, 0);
@@ -1291,7 +1291,7 @@ test('getQuestionMedia should return undefined if no slide is found', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getQuestionMedia(state), undefined);
@@ -1305,8 +1305,8 @@ test('getQuestionMedia should return nothing if media is not provided', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.is(getQuestionMedia(state), undefined);
@@ -1331,8 +1331,8 @@ test('getQuestionMedia should return image media from state', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.deepEqual(getQuestionMedia(state), {type: 'img', url: 'http://monimage.jpg'});
@@ -1358,8 +1358,8 @@ test('getQuestionMedia should return video media from state', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.deepEqual(getQuestionMedia(state), {
@@ -1373,7 +1373,7 @@ test('getContextMedia should return undefined if no slide is found', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(getContextMedia(state), undefined);
@@ -1387,8 +1387,8 @@ test('getContextMedia should return nothing if media is not provided', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.is(getContextMedia(state), undefined);
@@ -1411,8 +1411,8 @@ test('getContextMedia should return image media from state', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.deepEqual(getContextMedia(state), {type: 'img', url: 'http://monimage.jpg'});
@@ -1436,8 +1436,8 @@ test('getContextMedia should return video media from state', t => {
   const progression = {state: {nextContent: {ref: '0'}}};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression}),
-    set('data.contents.slide.entities', {'0': slide})
+    set('data.progressions.entities', {0: progression}),
+    set('data.contents.slide.entities', {0: slide})
   )({});
 
   t.deepEqual(getContextMedia(state), {
@@ -1520,7 +1520,7 @@ test('hasSeenLesson should return false if no progression.state is found', t => 
   const progression = {};
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
+    set('data.progressions.entities', {0: progression})
   )({});
 
   t.is(hasSeenLesson(state), false);
@@ -1563,7 +1563,7 @@ test('should return true if at least one lesson has been seen', t => {
 test('getNbSlides should return 0 if no contentInfo is found', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}})
+    set('data.progressions.entities', {0: {}})
   )({});
 
   return t.is(getNbSlides(state), 0);
@@ -1619,7 +1619,7 @@ test('getNbSlides should return the proper amount', t => {
 test('getContentInfo should return undefined if no content is found', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}})
+    set('data.progressions.entities', {0: {}})
   )({});
 
   const info = getContentInfo(state);
@@ -1630,7 +1630,7 @@ test('getContentInfo should return undefined if content is a SLIDE', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {
-      '0': {
+      0: {
         content: {
           type: 'slide'
         }
@@ -1646,7 +1646,7 @@ test('getContentInfo should return undefined if content is unknown', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {
-      '0': {
+      0: {
         content: {
           type: 'foo'
         }
@@ -1662,7 +1662,7 @@ test('getContentInfo should return chapter.info', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {
-      '0': {
+      0: {
         content: {
           ref: 'chap1',
           type: 'chapter'
@@ -1706,7 +1706,7 @@ test('getPrevAnswer should return the given answer of the last answered slide', 
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {
-      '0': {
+      0: {
         state: {
           content: {
             ref: 'sli_1',
@@ -1738,7 +1738,7 @@ test('getPrevAnswer should return empty answer if there are not an previous slid
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {
-      '0': {
+      0: {
         state: {
           nextContent: {
             ref: 'sli_1',

@@ -23,7 +23,7 @@ const MenuList = props => {
 
     return (
       <li key={index} className={type ? buttonStyle[type] : style.item}>
-        <a href={href} target={outgoing ? '_blank' : '_self'} onClick={onClick}>
+        <a href={href} target={outgoing ? '_blank' : '_self'} onClick={onClick} rel="noreferrer">
           {title}
         </a>
         {subItemsView}

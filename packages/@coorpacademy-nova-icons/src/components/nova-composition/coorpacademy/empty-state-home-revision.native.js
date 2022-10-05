@@ -3,7 +3,7 @@ import Svg, {G, Circle, Rect, Path, Defs, RadialGradient, Stop, ClipPath} from '
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 
 const SvgComponent = props => (
-  <Svg viewBox="0 0 379 356" fill="none" {...props}>
+  <Svg viewBox="0 0 379 356" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <G clipPath="url(#prefix__clip0_2979_4237)">
       <Circle cx={180.5} cy={180.5} r={180.5} fill="#F1F6FE" />
       <G filter="url(#prefix__filter0_d_2979_4237)">

@@ -26,7 +26,7 @@ export const correctionPopinProps = {
 export default {
   props: {
     slides: {
-      '0': {
+      0: {
         position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
@@ -38,22 +38,22 @@ export default {
         animateCorrectionPopin: false,
         animationType: 'unstack'
       },
-      '1': {
+      1: {
         position: 0,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
         answerUI: qcmGraphic
       },
-      '2': {
+      2: {
         position: 1,
         loading: false
       },
-      '3': {
+      3: {
         position: 2,
         loading: false
       },
-      '4': {
+      4: {
         position: 3,
         loading: false
       }

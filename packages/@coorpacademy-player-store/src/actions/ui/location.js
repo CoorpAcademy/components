@@ -91,21 +91,23 @@ export const LOCATION_OPEN_RECOMMENDATION_SUCCESS =
 export const LOCATION_OPEN_RECOMMENDATION_FAILURE =
   '@@location/LOCATION_OPEN_RECOMMENDATION_FAILURE';
 
-export const openRecommendation = recommendation => (dispatch, getState, {services}) => {
-  if (!services.Location.openRecommendation) {
-    return;
-  }
-  const action = buildTask({
-    types: [
-      LOCATION_OPEN_RECOMMENDATION_REQUEST,
-      LOCATION_OPEN_RECOMMENDATION_SUCCESS,
-      LOCATION_OPEN_RECOMMENDATION_FAILURE
-    ],
-    task: () => services.Location.openRecommendation(recommendation)
-  });
+export const openRecommendation =
+  recommendation =>
+  (dispatch, getState, {services}) => {
+    if (!services.Location.openRecommendation) {
+      return;
+    }
+    const action = buildTask({
+      types: [
+        LOCATION_OPEN_RECOMMENDATION_REQUEST,
+        LOCATION_OPEN_RECOMMENDATION_SUCCESS,
+        LOCATION_OPEN_RECOMMENDATION_FAILURE
+      ],
+      task: () => services.Location.openRecommendation(recommendation)
+    });
 
-  return dispatch(action);
-};
+    return dispatch(action);
+  };
 
 export const SET_REDIRECT_URL_AFTER_END_REQUEST = '@@location/SET_REDIRECT_URL_AFTER_END_REQUEST';
 export const SET_REDIRECT_URL_AFTER_END_SUCCESS = '@@location/SET_REDIRECT_URL_AFTER_END_SUCCESS';

@@ -44,7 +44,7 @@ const Feedback = (props, context) => {
           </div>
         </div>
       </div>
-    ) : null) || ''
+    ) : null) || null
   );
 };
 
@@ -53,7 +53,7 @@ Feedback.propTypes = {
   description: PropTypes.string,
   media: PropTypes.shape({
     type: PropTypes.oneOf([TYPE_IMAGE, TYPE_PDF, TYPE_VIDEO, TYPE_AUDIO]),
-    src: PropTypes.array
+    src: PropTypes.arrayOf(PropTypes.any)
   }),
   mediaDescription: PropTypes.string
 };
