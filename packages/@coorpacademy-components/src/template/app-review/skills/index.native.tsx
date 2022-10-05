@@ -211,7 +211,7 @@ const Skills = (props: SkillsProps) => {
   return (
     <View style={styleSheet.container}>
       <Text style={styleSheet.title}>{title}</Text>
-      {!listSkills || listSkills.skills.length === 0 ? (
+      {!listSkills || listSkills.skills?.length === 0 ? (
         <NoSkills />
       ) : (
         <List skills={listSkills.skills} />
