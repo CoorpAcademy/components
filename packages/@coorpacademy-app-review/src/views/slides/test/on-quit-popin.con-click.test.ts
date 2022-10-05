@@ -51,3 +51,45 @@ test('should dispatch CLOSE_POPIN action via the property handleOnclick of secon
   t.is(updatedState.ui.showQuitPopin, false);
   t.pass();
 });
+
+test('should dispatch onQuitClick function via the property handleOnclick of firstButton when popin is open', async t => {
+  const state: StoreState = {
+    data: {
+      progression: incorrectFreeTextPostAnswerResponse,
+      skills: [],
+      slides: {
+        sli_VJYjJnJhg: freeTextSlide,
+        sli_VkSQroQnx: qcmGraphicSlide
+      },
+      token: '1234',
+      corrections: {},
+      rank: {}
+    },
+    ui: {
+      currentSlideRef: 'sli_VJYjJnJhg',
+      navigation: ['loader', 'slides'],
+      answers: {sli_VJYjJnJhg: ['My value']},
+      positions: [0, 1, 2, 3, 4],
+      slide: {
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: true
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
+      },
+      showQuitPopin: true
+    }
+  };
+
+  const expectedAction = [{type: CLOSE_POPIN}];
+  const {dispatch, getState} = createTestStore(t, state, services, expectedAction);
+  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const quitPopin = props.quitPopin as QuitPopinProps;
+  await quitPopin.firstButton.handleOnclick();
+  t.pass();
+});
