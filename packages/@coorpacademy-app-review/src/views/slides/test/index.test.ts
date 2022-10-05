@@ -1199,3 +1199,34 @@ test('should verify props when progression still has a pendingSlide', t => {
     ]
   });
 });
+
+test('should verify that props quitPopin is not undefined when popin is displayed', t => {
+  const state: StoreState = {
+    data: {
+      progression: createdProgression,
+      skills: [],
+      slides: {
+        sli_N1XACJobn: null
+      },
+      token: '1234',
+      corrections: {},
+      rank: {}
+    },
+    ui: {
+      currentSlideRef: '',
+      navigation: ['loader', 'slides'],
+      answers: {},
+      positions: [0, 1, 2, 3, 4],
+      slide: {
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
+        }
+      },
+      showQuitPopin: true
+    }
+  };
+  const props = mapStateToSlidesProps(state, identity, identity);
+  t.not(props.quitPopin, undefined);
+});
