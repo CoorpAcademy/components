@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pipe = require('lodash/fp/pipe');
 const set = require('lodash/fp/set');
 const update = require('lodash/fp/update');
@@ -11,8 +12,6 @@ const entry = {
 
 const output = {
   library: ['Coorpacademy', '[name]'],
-  path: path.resolve(__dirname, 'dist'),
-  publicPath: '/dist',
   filename: '[name].js',
   libraryTarget: 'umd'
 };
@@ -20,10 +19,16 @@ const output = {
 module.exports = pipe(
   set('entry', entry),
   set('output', output),
+  update(
+    'plugins',
+    concat([
+      new HtmlWebpackPlugin({
+        filename: `index.html`,
+        template: './sandbox/index.html'
+      })
+    ])
+  ),
   set('devServer', {
-    static: {
-      directory: path.join(__dirname, 'sandbox')
-    },
     historyApiFallback: true,
     hot: true,
     host: '0.0.0.0',

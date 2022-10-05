@@ -29,3 +29,14 @@ export const create = options => {
     ...options
   });
 };
+
+const hash = window.location.hash;
+const search = window.location.search;
+const pathname = window.location.pathname;
+const progressionId = (/[?/#]([^/]*)$/.exec(hash || search || pathname) || [])[1] || '0';
+
+create({
+  container: document.getElementById('player'),
+  progression: progressionId,
+  Vimeo: window.Vimeo
+});
