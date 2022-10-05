@@ -8,10 +8,10 @@ export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 
 export type Props = {
   viewName: ViewName;
-  slides: SlideProps;
-  skills: PropTypes.InferProps<typeof Skills.propTypes>;
-  onboarding: PropTypes.InferProps<typeof Onboarding.propTypes>;
-  navigateBack: () => void;
+  slides?: SlideProps;
+  skills?: PropTypes.InferProps<typeof Skills.propTypes>;
+  onboarding?: PropTypes.InferProps<typeof Onboarding.propTypes>;
+  navigateBack?: () => void;
 };
 
 const propTypes = {

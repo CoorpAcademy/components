@@ -23,7 +23,7 @@ export default propTypes;
 
 export type Props = {
   validateButton: ReviewSlideProps['validateButton'];
-  correctionPopinProps: ReviewSlideProps['correctionPopinProps'];
+  correctionPopinProps: CorrectionPopinProps;
   slides: {[key: string]: SlideProps};
   endReview: boolean;
 };

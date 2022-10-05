@@ -49,7 +49,8 @@ export type CorrectionPopinProps = {
   };
   next: {
     label: string;
-    'aria-label': string;
+    onClick: () => void;
+    'aria-label'?: string;
   };
   resultLabel: string;
   type: 'right' | 'wrong';
@@ -58,14 +59,14 @@ export type CorrectionPopinProps = {
 export type SlideProps = {
   position: number;
   loading: boolean;
-  loadingAriaLabel: string;
-  animationType: 'unstack' | 'restack';
-  isCorrect: boolean;
-  animateCorrectionPopin: boolean;
-  showCorrectionPopin: boolean;
-  parentContentTitle: string;
-  questionText: string;
-  answerUI: AnswerProps;
+  loadingAriaLabel?: string;
+  animationType?: 'unstack' | 'restack';
+  isCorrect?: boolean;
+  animateCorrectionPopin?: boolean;
+  showCorrectionPopin?: boolean;
+  parentContentTitle?: string;
+  questionText?: string;
+  answerUI?: AnswerProps;
 };
 
 export type Props = {

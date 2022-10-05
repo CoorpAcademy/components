@@ -6,7 +6,8 @@
   ],
   "exclude": [
     "node_modules",
-    "src/**/*.js"
+    "src/**/*.js",
+    "src/**/test/index.stories.tsx"
   ],
   "compilerOptions": {
     "target": "es2020",

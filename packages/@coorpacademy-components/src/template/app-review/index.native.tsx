@@ -16,8 +16,7 @@ const Switch = ({viewName, onboarding, skills, slides}: Props) => {
     case 'onboarding':
       return <Text>@todo view onboarding</Text>;
     case 'skills':
-      return <Player {...slides} />;
-    // return <Text>@todo view skills</Text>;
+      return <Text>@todo view skills</Text>;
     case 'slides':
       return <Player {...slides} />;
     case 'loader':
@@ -32,8 +31,10 @@ const AppReview = (props: Props) => {
 
   useEffect(() => {
     const backAction = () => {
-      navigateBack();
-      return true;
+      if (navigateBack) {
+        navigateBack();
+        return true;
+      }
     };
 
     // https://reactnative.dev/docs/backhandler
