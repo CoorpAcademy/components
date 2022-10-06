@@ -24,7 +24,7 @@ export type SkillProps = {
 };
 
 export type ItemProps = {
-  item: {title: string; info: string; isExtraSpace: boolean};
+  item: {title: string; info: string};
 };
 
 export type NoSkillsProps = {

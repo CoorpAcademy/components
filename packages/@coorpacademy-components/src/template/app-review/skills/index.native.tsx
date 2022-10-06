@@ -21,7 +21,6 @@ type StyleSheetType = {
   skillTexts: TextStyle;
   skillTitle: TextStyle;
   skillInfo: TextStyle;
-  extraSpace: ViewStyle;
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
@@ -58,7 +57,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: 320,
       height: 300
     },
-    skills: {},
+    skills: {paddingBottom: 100},
     skill: {
       display: 'flex',
       flexDirection: 'row',
@@ -86,9 +85,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fontSize: 12,
       lineHeight: 16,
       color: theme.colors.gray.medium
-    },
-    extraSpace: {
-      height: 100
     }
   });
 
@@ -97,22 +93,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
 const onSelectSkill = (title: string) => () => {
   // eslint-disable-next-line no-console
   console.log('pressed on', {title});
-};
-
-const ExtraSpace = () => {
-  const templateContext = useTemplateContext();
-  const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {theme} = templateContext;
-
-  useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
-    setStylesheet(_stylesheet);
-  }, [theme]);
-
-  if (!styleSheet) {
-    return null;
-  }
-  return <View style={styleSheet.extraSpace} />;
 };
 
 const Skill = ({title, info}: SkillProps) => {
@@ -142,13 +122,11 @@ const Skill = ({title, info}: SkillProps) => {
 
 // -----------------------------------------------------------------------------
 
-const Item = ({item: {title, info, isExtraSpace = false}}: ItemProps) =>
-  isExtraSpace ? <ExtraSpace /> : <Skill title={title} info={info} />;
+const Item = ({item: {title, info}}: ItemProps) => <Skill title={title} info={info} />;
 
 type ItemDataType = {
   title: string;
   info: string;
-  isExtraSpace: boolean;
 };
 
 const List = (props: {skills: Array<ListSkillsProps>}) => {
@@ -170,8 +148,7 @@ const List = (props: {skills: Array<ListSkillsProps>}) => {
   skills.map(skill =>
     formattedDataList.push({
       title: skill.skillTitle,
-      info: skill.skillAriaLabel,
-      isExtraSpace: true
+      info: skill.skillAriaLabel
     })
   );
 
