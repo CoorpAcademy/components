@@ -3,7 +3,7 @@ export type Translations = {
   selectSomethingBelow?: string;
   typeHere?: string;
   appReview?: {
-    no_skills?: {
+    noSkills?: {
       title?: string;
       text?: string;
     };

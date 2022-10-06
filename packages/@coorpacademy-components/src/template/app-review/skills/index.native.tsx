@@ -179,8 +179,8 @@ const NoSkills = () => {
 
   return (
     <>
-      <Text style={styleSheet.subtitle}>{translations.appReview?.no_skills?.title}</Text>
-      <Text style={styleSheet.text}>{translations.appReview?.no_skills?.text}</Text>
+      <Text style={styleSheet.subtitle}>{translations.appReview?.noSkills?.title}</Text>
+      <Text style={styleSheet.text}>{translations.appReview?.noSkills?.text}</Text>
       <EmptyStateHomeRevision style={styleSheet.noSkillsImage} />
     </>
   );
