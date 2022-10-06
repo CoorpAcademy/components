@@ -7,6 +7,7 @@ import set from 'lodash/fp/set';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
+import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import type {ProgressionAnswerItem} from '../../types/common';
 import {getProgressionSlidesRefs, type SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
@@ -62,12 +63,31 @@ type CorrectionPopinNext = {
   onClick: Function;
 };
 
+type QuitPopinButton = {
+  label: string;
+  type: string;
+  customStyle?: {
+    color: string;
+  };
+  handleOnclick: Function;
+  ariaLabel: string;
+};
+
 export type CorrectionPopinProps = {
   klf?: CorrectionPopinKlf;
   information: CorrectionPopinInformation;
   next: CorrectionPopinNext;
   resultLabel: string;
   type: 'right' | 'wrong';
+};
+
+export type QuitPopinProps = {
+  content: string;
+  icon: string;
+  mode: string;
+  descriptionText: string;
+  firstButton: QuitPopinButton;
+  secondButton: QuitPopinButton;
 };
 
 export type SlidesViewProps = {
@@ -110,6 +130,7 @@ export type SlidesViewProps = {
       type: string;
     };
   };
+  quitPopin?: QuitPopinProps;
 };
 
 // TODO replace this, position no more needed
@@ -293,6 +314,33 @@ const getCorrectionPopinProps =
     };
   };
 
+const buildQuitPopinProps =
+  (dispatch: Dispatch) =>
+  (onQuitClick: Function): QuitPopinProps => {
+    return {
+      content: `Tu t'en vas déjà ?`,
+      icon: `MoonRocket`,
+      mode: 'alert',
+      descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
+      firstButton: {
+        label: 'Arrêter ma session',
+        type: 'tertiary',
+        customStyle: {
+          color: '#ED3436'
+        },
+        handleOnclick: onQuitClick,
+        ariaLabel: 'Stop session'
+      },
+      secondButton: {
+        label: `Continuer d'apprendre`,
+        type: 'primary',
+        handleOnclick: (): void => {
+          dispatch(closeQuitPopin);
+        },
+        ariaLabel: 'Continue review'
+      }
+    };
+  };
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
@@ -302,12 +350,12 @@ export const mapStateToSlidesProps = (
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
-
+  const showQuitPopin = get(['ui', 'showQuitPopin'], state);
   return {
     header: {
       mode: '__revision_mode',
       skillName: '__agility',
-      onQuitClick,
+      onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state)
@@ -325,6 +373,7 @@ export const mapStateToSlidesProps = (
         correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
       endReview: false
     },
-    congrats: undefined
+    congrats: undefined,
+    quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };

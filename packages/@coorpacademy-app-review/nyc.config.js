@@ -13,6 +13,7 @@ module.exports = {
     'webpack.config.js',
     'commands',
     'coverage',
+    'public',
     'es',
     'lib',
     'sandbox',

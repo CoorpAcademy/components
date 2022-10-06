@@ -43,7 +43,8 @@ test('correction popin actions after click', async t => {
           animateCorrectionPopin: false,
           showCorrectionPopin: false
         }
-      }
+      },
+      showQuitPopin: false
     }
   };
 

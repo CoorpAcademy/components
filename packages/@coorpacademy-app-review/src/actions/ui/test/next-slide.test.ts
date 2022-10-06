@@ -41,7 +41,8 @@ const state: StoreState = {
         animateCorrectionPopin: true,
         showCorrectionPopin: true
       }
-    }
+    },
+    showQuitPopin: false
   }
 };
 test('should dispatch NEXT_SLIDE action when nextSlide is called and the progression state is correct', t => {

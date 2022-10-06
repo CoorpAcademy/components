@@ -5,6 +5,7 @@ import navigation, {NavigationState} from './navigation';
 import answers, {UIAnswerState} from './answers';
 import positions, {UIPositionState} from './positions';
 import slide, {UISlideState} from './slide';
+import showQuitPopin, {type ShowQuitPopinState} from './quit-popin';
 
 export type UIState = {
   currentSlideRef: CurrentSlideRefState;
@@ -12,6 +13,7 @@ export type UIState = {
   answers: UIAnswerState;
   slide: UISlideState;
   positions: UIPositionState;
+  showQuitPopin: ShowQuitPopinState;
 };
 
 export default combineReducers({
@@ -19,5 +21,6 @@ export default combineReducers({
   navigation,
   answers,
   slide,
-  positions
+  positions,
+  showQuitPopin
 });
