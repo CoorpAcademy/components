@@ -374,6 +374,6 @@ export const mapStateToSlidesProps = (
       endReview: false
     },
     congrats: undefined,
-    quitPopin: showQuitPopin === true ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
+    quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };
