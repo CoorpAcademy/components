@@ -130,7 +130,7 @@ export type SlidesViewProps = {
       type: string;
     };
   };
-  quitPopin?: QuitPopinProps | false;
+  quitPopin?: QuitPopinProps;
 };
 
 // TODO replace this, position no more needed
