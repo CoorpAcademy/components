@@ -11,8 +11,10 @@ import {
 
 import {StoreState} from '../reducers';
 
-type Callback = (callbackOnViewChanged: ViewName) => void;
-type OnViewChanged = (callbackOnViewChanged: Callback) => Middleware<{}, StoreState, Dispatch>;
+export type Callback = (callbackOnViewChanged: ViewName) => void;
+export type OnViewChanged = (
+  callbackOnViewChanged: Callback
+) => Middleware<{}, StoreState, Dispatch>;
 
 const onViewChanged: OnViewChanged =
   callbackOnViewChanged =>
