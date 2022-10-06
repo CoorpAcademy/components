@@ -16,7 +16,7 @@
     "plugin:@coorpacademy/coorpacademy/react",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

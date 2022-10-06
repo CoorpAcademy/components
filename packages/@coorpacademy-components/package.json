@@ -39,7 +39,7 @@
     "lint": "npm run eslint && npm run typecheck",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "nyc npm run ava",
-    "eslint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
+    "eslint": "eslint . --ext .js,.json,.ts,.tsx --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "typecheck": "tsc --noEmit true"
   },
   "engines": {
@@ -118,6 +118,7 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "^10.1.1",
     "@types/react-native": "~0.68.7",
+    "@typescript-eslint/parser": "^5.39.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "ava": "^4.3.3",
     "babel-loader": "^8.2.5",
