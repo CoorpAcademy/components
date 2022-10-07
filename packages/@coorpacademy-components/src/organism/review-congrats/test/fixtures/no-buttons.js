@@ -6,14 +6,7 @@ export const defaultProps = {
   'data-name': 'review-congrats',
   animationLottie: {...animationLottie.props, height: undefined, width: undefined},
   title: 'Congratulations!',
-  cardCongratsStar: moleculeReviewCardStar.props,
-  cardCongratsRank: undefined,
-  buttonRevising: {
-    'aria-label': 'Continue revising button',
-    label: 'Continue revising',
-    onClick: () => console.log('Continue revising'),
-    type: 'tertiary'
-  }
+  cardCongratsStar: moleculeReviewCardStar.props
 };
 
 export default {props: defaultProps};
