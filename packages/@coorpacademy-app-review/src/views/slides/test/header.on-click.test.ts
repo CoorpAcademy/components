@@ -29,7 +29,8 @@ const state: StoreState = {
         showCorrectionPopin: false
       }
     },
-    showQuitPopin: false
+    showQuitPopin: false,
+    showCongrats: false
   }
 };
 

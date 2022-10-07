@@ -14,6 +14,7 @@ const initialState: StoreState = {
     rank: {}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: '',
     navigation: [],
     answers: {},

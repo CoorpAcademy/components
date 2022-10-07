@@ -21,6 +21,7 @@ const state: StoreState = {
     rank: {}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: 'sli_VJYjJnJhg',
     navigation: ['loader', 'slides'],
     answers: {sli_VJYjJnJhg: ['My value']},

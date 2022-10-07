@@ -453,10 +453,10 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
   };
 
   const rank = state.data.rank;
-  const end = getOr(0, 'end', rank); // TODO, this part of the state should not be undefined
-  const start = getOr(0, 'start', rank);
-  const newRank = start - end;
-  const cardCongratsRank = buildRankCard(newRank > 0 ? end : 0);
+  // const end = getOr(0, 'end', rank); // TODO, this part of the state should not be undefined
+  // const start = getOr(0, 'start', rank);
+  // const newRank = start - end;
+  const cardCongratsRank = buildRankCard(0);
 
   return {
     'aria-label': 'Review Congratulations',

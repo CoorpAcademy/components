@@ -1035,6 +1035,7 @@ test('should verify props showing congrats', t => {
       rank: {start: 10, end: 9}
     },
     ui: {
+      showQuitPopin: false,
       showCongrats: true,
       currentSlideRef: 'successExitNode',
       navigation: ['loader', 'slides'],
@@ -1368,6 +1369,7 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       rank: {}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: {},

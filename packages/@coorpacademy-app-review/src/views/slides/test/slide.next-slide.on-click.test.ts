@@ -100,6 +100,7 @@ test('correction popin actions after click when progression is finished', async 
     },
     ui: {
       showCongrats: false,
+      showQuitPopin: false,
       currentSlideRef: templateSlide.universalRef,
       navigation: ['loader', 'slides'],
       answers: {
