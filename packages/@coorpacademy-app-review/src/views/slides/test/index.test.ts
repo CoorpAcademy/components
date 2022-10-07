@@ -1224,6 +1224,7 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: {},
