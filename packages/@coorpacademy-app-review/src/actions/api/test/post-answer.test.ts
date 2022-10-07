@@ -60,7 +60,7 @@ const initialState: StoreState = {
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
     corrections: {},
-    rank: {}
+    rank: {start: 10, end: Number.NaN}
   },
   ui: {
     showCongrats: false,
@@ -146,7 +146,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
       skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       showCongrats: false,
