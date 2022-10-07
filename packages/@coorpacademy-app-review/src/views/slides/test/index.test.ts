@@ -1036,6 +1036,7 @@ test('should verify props showing congrats', t => {
     },
     ui: {
       showCongrats: true,
+      showQuitPopin: false,
       currentSlideRef: 'successExitNode',
       navigation: ['loader', 'slides'],
       answers: {

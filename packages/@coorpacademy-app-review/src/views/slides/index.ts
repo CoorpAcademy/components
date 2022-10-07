@@ -398,9 +398,7 @@ const buildQuitPopinProps =
     };
   };
 
-const buildRankCard = (rank: number): CongratsCardProps | undefined => {
-  if (rank <= 0) return;
-
+const buildRankCard = (rank: number): CongratsCardProps => {
   return {
     'aria-label': 'Review Card Congrats Container',
     'data-name': 'card-rank',
@@ -452,11 +450,9 @@ const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
     timerAnimation: 200
   };
 
-  const rank = state.data.rank;
-  const end = getOr(0, 'end', rank); // TODO, this part of the state should not be undefined
-  const start = getOr(0, 'start', rank);
+  const {start, end} = state.data.rank;
   const newRank = start - end;
-  const cardCongratsRank = buildRankCard(newRank > 0 ? end : 0);
+  const cardCongratsRank = !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end) : undefined;
 
   return {
     'aria-label': 'Review Congratulations',
