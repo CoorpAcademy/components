@@ -60,12 +60,16 @@ const ReviewCongrats = props => {
           )}
         </div>
         <div className={style.buttonContainer}>
-          <ButtonLink
-            {...buttonRevising}
-            className={style.buttonRevise}
-            data-name="revise-skill-link"
-          />
-          <ButtonLink {...buttonRevisingSkill} className={style.buttonRevise} />
+          {buttonRevising ? (
+            <ButtonLink
+              {...buttonRevising}
+              className={style.buttonRevise}
+              data-name="revise-skill-link"
+            />
+          ) : null}
+          {buttonRevisingSkill ? (
+            <ButtonLink {...buttonRevisingSkill} className={style.buttonRevise} />
+          ) : null}
         </div>
       </div>
     </div>
