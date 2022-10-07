@@ -41,7 +41,7 @@ const bailout =
   (path: string) =>
   (state: StoreState): boolean => {
     const value = get(path, state);
-    return Number.isNaN(value);
+    return !Number.isNaN(value);
   };
 
 export const fetchRank = (
