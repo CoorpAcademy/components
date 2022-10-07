@@ -2,12 +2,8 @@ import test from 'ava';
 import reducer from '../rank';
 import {
   RankAction,
-  RANK_FETCH_START_REQUEST,
   RANK_FETCH_START_SUCCESS,
-  RANK_FETCH_START_FAILURE,
-  RANK_FETCH_END_REQUEST,
-  RANK_FETCH_END_SUCCESS,
-  RANK_FETCH_END_FAILURE
+  RANK_FETCH_END_SUCCESS
 } from '../../../actions/api/fetch-rank';
 import {POST_PROGRESSION_SUCCESS} from '../../../actions/api/post-progression';
 import {postProgressionResponse} from '../../../test/util/services.mock';
