@@ -22,7 +22,6 @@ import {templateSlide} from '../../../views/slides/test/fixtures/template';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {
   RANK_FETCH_START_REQUEST,
-  RANK_FETCH_START_SUCCESS,
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
 } from '../fetch-rank';
@@ -60,7 +59,7 @@ const initialState: StoreState = {
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
     corrections: {},
-    rank: {}
+    rank: {start: 10, end: Number.NaN}
   },
   ui: {
     currentSlideRef: freeTextSlide._id,
@@ -81,7 +80,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide ref is not "successExitNode"', async t => {
-  t.plan(9);
+  t.plan(8);
   const expectedActions = [
     {type: POST_ANSWER_REQUEST, meta: {slideRef: freeTextSlide._id}},
     {
@@ -110,10 +109,6 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
     },
     {
       type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: {rank: 93}
     }
   ];
 
@@ -145,7 +140,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
       skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: templateSlide._id,

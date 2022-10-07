@@ -25,7 +25,7 @@ test('correction popin actions after click', async t => {
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',

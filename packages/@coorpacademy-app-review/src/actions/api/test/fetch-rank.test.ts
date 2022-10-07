@@ -1,4 +1,5 @@
 import test from 'ava';
+import set from 'lodash/fp/set';
 import type {Services} from '../../../types/common';
 import type {StoreState} from '../../../reducers';
 import {
@@ -21,7 +22,7 @@ const initialState: StoreState = {
     skills: [],
     token: '1234',
     corrections: {},
-    rank: {}
+    rank: {start: Number.NaN, end: Number.NaN}
   },
   ui: {
     positions: [0, 1, 2, 3, 4],
@@ -34,7 +35,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the start rank', async t => {
-  t.plan(3);
+  t.plan(4);
 
   const services: Services = {
     ...mockedServices,
@@ -51,8 +52,11 @@ test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
   await dispatch(fetchStartRank);
+
+  const newState = getState();
+  t.deepEqual(newState.data.rank, {start: 93, end: Number.NaN});
 });
 
 test('should dispatch FETCH_START_FAILURE action when fetchStartRank fails', async t => {
@@ -81,13 +85,13 @@ test('should dispatch FETCH_START_FAILURE action when fetchStartRank fails', asy
 });
 
 test('should dispatch FETCH_END_SUCCESS action when fetchEndRank returns the end rank', async t => {
-  t.plan(3);
+  t.plan(4);
 
   const services: Services = {
     ...mockedServices,
     fetchRank: token => {
       t.is(token, '1234');
-      return Promise.resolve({rank: 93});
+      return Promise.resolve({rank: 90});
     }
   };
 
@@ -95,13 +99,16 @@ test('should dispatch FETCH_END_SUCCESS action when fetchEndRank returns the end
     {type: RANK_FETCH_END_REQUEST},
     {
       type: RANK_FETCH_END_SUCCESS,
-      payload: {rank: 93}
+      payload: {rank: 90}
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const _initialState = set('data.rank.start', 93, initialState);
+  const {dispatch, getState} = createTestStore(t, _initialState, services, expectedActions);
 
   await dispatch(fetchEndRank);
+  const newState = getState();
+  t.deepEqual(newState.data.rank, {start: 93, end: 90});
 });
 
 test('should dispatch FETCH_END_FAILURE action when fetchEndRank fails', async t => {

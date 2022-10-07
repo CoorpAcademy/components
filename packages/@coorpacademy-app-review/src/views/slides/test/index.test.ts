@@ -29,7 +29,7 @@ test('should create initial props when fetched slide is not still received', t =
       },
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
       currentSlideRef: '',
@@ -121,7 +121,7 @@ test('should create props when first slide is on the state', t => {
       },
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -228,7 +228,7 @@ test('should create props when slide is on the state and user has selected answe
       },
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -336,7 +336,7 @@ test('should verify props when first slide was answered correctly and next slide
       },
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -453,7 +453,7 @@ test('should verify props when first slide was answered with error and next slid
       },
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -527,7 +527,7 @@ test('should verify props when first slide was answered, next slide is fetched &
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -658,7 +658,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VJYjJnJhg',
@@ -792,7 +792,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: 'sli_VkSQroQnx',
@@ -903,7 +903,7 @@ test('should verify props when progression is in success', t => {
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: templateSlide.universalRef,
@@ -1011,7 +1011,7 @@ test('should verify props when progression has answered a current pendingSlide',
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: freeTextSlide.universalRef,
@@ -1116,7 +1116,7 @@ test('should verify props when progression still has a pendingSlide', t => {
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
-      rank: {}
+      rank: {start: 10, end: Number.NaN}
     },
     ui: {
       currentSlideRef: qcmSlide.universalRef,
@@ -1210,7 +1210,7 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       },
       token: '1234',
       corrections: {},
-      rank: {}
+      rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
       currentSlideRef: '',

@@ -26,7 +26,7 @@ const state: StoreState = {
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
     corrections: {[freeTextSlide.universalRef]: getChoicesCorrection(freeTextSlide.universalRef)},
-    rank: {start: 93}
+    rank: {start: 93, end: Number.NaN}
   },
   ui: {
     currentSlideRef: freeTextSlide._id,
@@ -45,6 +45,7 @@ const state: StoreState = {
     showQuitPopin: false
   }
 };
+
 test('should dispatch NEXT_SLIDE action when nextSlide is called and the progression state is correct', t => {
   const expectedActions = [
     {

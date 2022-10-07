@@ -18,7 +18,7 @@ const state: StoreState = {
     },
     token: '1234',
     corrections: {},
-    rank: {}
+    rank: {start: 10, end: Number.NaN}
   },
   ui: {
     currentSlideRef: 'sli_VJYjJnJhg',
