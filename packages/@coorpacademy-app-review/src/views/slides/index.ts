@@ -8,12 +8,13 @@ import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
-import type {ProgressionAnswerItem} from '../../types/common';
+import type {ProgressionAnswerItem, ProgressionFromAPI, SlideContent} from '../../types/common';
 import {getProgressionSlidesRefs, type SlideIndexes} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
 import {nextSlide} from '../../actions/ui/next-slide';
+import {ProgressionState} from '../../reducers/data/progression';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -133,6 +134,58 @@ export type SlidesViewProps = {
   quitPopin?: QuitPopinProps;
 };
 
+type LottieAnimationProps = {
+  'aria-label': string;
+  'data-name'?: string;
+  animationSrc: string;
+  loop?: boolean;
+  rendererSettings?: {
+    hideOnTransparent?: boolean;
+    className: string;
+  };
+  height?: number;
+  width?: number;
+  className?: number;
+  ie11ImageBackup: string;
+  backupImageClassName?: string;
+  autoplay?: boolean;
+  animationControl?: 'play' | 'pause' | 'stop' | 'loading';
+};
+
+type CongratsCardProps = {
+  'aria-label': string;
+  'data-name': string;
+  animationLottie: LottieAnimationProps;
+  iconAriaLabel: string;
+  className?: string;
+  cardType: string;
+  reviewCardTitle: string;
+  reviewCardValue: string;
+  rankSuffix?: string;
+  timerAnimation: number;
+};
+
+type CongratsProps = {
+  'aria-label': string;
+  'data-name': 'review-congrats';
+  animationLottie: unknown;
+  title: string;
+  cardCongratsStar: CongratsCardProps;
+  cardCongratsRank: CongratsCardProps;
+  buttonRevising: {
+    'aria-label': string;
+    label: string;
+    onClick: Function;
+    type: string;
+  };
+  buttonRevisingSkill: {
+    label: string;
+    'aria-label': string;
+    onClick: Function;
+    type: string;
+  };
+};
+
 // TODO replace this, position no more needed
 export const initialState: SlidesStack = {
   '0': {
@@ -157,8 +210,18 @@ export const initialState: SlidesStack = {
   }
 };
 
+const getCurrentSlideRef = (state: StoreState): string => {
+  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  const endReview = currentSlideRef === 'successExitNode';
+
+  if (!endReview) return currentSlideRef;
+  const progression = state.data.progression as ProgressionFromAPI;
+  const content = progression.state.content as SlideContent;
+  return content.ref;
+};
+
 const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack => {
-  const currentSlideRef = state.ui.currentSlideRef;
+  const currentSlideRef = getCurrentSlideRef(state);
   const progression = state.data.progression;
 
   if (!currentSlideRef || !progression) return initialState;
@@ -341,12 +404,106 @@ const buildQuitPopinProps =
       }
     };
   };
+
+const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
+  if (!state.ui.showCongrats) return;
+
+  const confettiAnimation: LottieAnimationProps = {
+    'aria-label': 'aria lottie',
+    'data-name': 'default-lottie',
+    className: undefined,
+    animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
+    loop: undefined,
+    autoplay: true,
+    rendererSettings: {
+      hideOnTransparent: false,
+      animationClassName: ''
+    },
+    ie11ImageBackup:
+      'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
+  };
+
+  const cardCongratsStar: CongratsCardProps = {
+    'aria-label': 'Review Card Congrats Container',
+    'data-name': 'card-star',
+    animationLottie: {
+      'aria-label': 'aria lottie',
+      'data-name': 'default-lottie',
+      className: undefined,
+      animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
+      loop: false,
+      autoplay: undefined,
+      rendererSettings: {
+        hideOnTransparent: false,
+        animationClassName: ''
+      },
+      ie11ImageBackup:
+        'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg'
+    },
+    iconAriaLabel: 'Image without information',
+    className: undefined,
+    cardType: 'card-star',
+    reviewCardTitle: 'You have won',
+    reviewCardValue: '100',
+    timerAnimation: 200
+  };
+
+  const cardCongratsRank: CongratsCardProps = {
+    'aria-label': 'Review Card Congrats Container',
+    'data-name': 'card-rank',
+    animationLottie: {
+      'aria-label': 'aria lottie',
+      'data-name': 'default-lottie',
+      animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
+      loop: true,
+      autoplay: true,
+      ie11ImageBackup:
+        'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
+    },
+    cardType: 'card-rank',
+    iconAriaLabel: 'Image without information',
+    className: undefined,
+    reviewCardTitle: 'You are now',
+    reviewCardValue: '14',
+    rankSuffix: 'th',
+    timerAnimation: 200
+  };
+
+  return {
+    'aria-label': 'Review Congratulations',
+    'data-name': 'review-congrats',
+    animationLottie: confettiAnimation,
+    title: 'Congratulations!',
+    cardCongratsStar,
+    cardCongratsRank,
+    buttonRevising: {
+      'aria-label': 'Continue revising button',
+      label: 'Continue revising',
+      onClick: () => console.log('Continue revising'),
+      type: 'tertiary'
+    },
+    buttonRevisingSkill: {
+      label: 'Revise another skill',
+      'aria-label': 'Revise another skill button',
+      onClick: () => console.log('Revise another skill'),
+      type: 'primary'
+    }
+  };
+};
+
+const isEndOfProgression = (progression: ProgressionState): boolean => {
+  if (!progression) return false;
+  return progression.state.nextContent.ref === 'successExitNode';
+};
+
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
   onQuitClick: Function
 ): SlidesViewProps => {
-  const currentSlideRef = get(['ui', 'currentSlideRef'], state);
+  const currentSlideRef = getCurrentSlideRef(state);
+  const endReview = isEndOfProgression(state.data.progression);
+  console.log('currentSlideRef', currentSlideRef, 'endReview', endReview, 'state.ui.showCongrats', state.ui.showCongrats);
   const correction = get(['data', 'corrections', currentSlideRef], state);
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
@@ -371,9 +528,9 @@ export const mapStateToSlidesProps = (
       },
       correctionPopinProps:
         correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
-      endReview: false
+      endReview: endReview && state.ui.showCongrats
     },
-    congrats: undefined,
+    congrats: buildCongratsProps(state),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };
