@@ -12,7 +12,6 @@
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
     "plugin:@typescript-eslint/recommended",
     "plugin:@coorpacademy/coorpacademy/react",
-    "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
