@@ -15,6 +15,7 @@ test('should create initial props when there are no skills on the state', t => {
       rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: '',
       positions: [0, 1, 2, 3, 4],
       navigation: ['loader', 'skills'],
@@ -61,6 +62,7 @@ test('should create initial props when skills on the state', t => {
       rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: '',
       positions: [0, 1, 2, 3, 4],
       navigation: ['loader', 'skills'],

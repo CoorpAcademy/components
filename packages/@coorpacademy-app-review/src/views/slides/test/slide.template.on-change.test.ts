@@ -46,6 +46,7 @@ const initialState: StoreState = {
     rank: {start: 10, end: Number.NaN}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: templateSlide._id,
     navigation: ['skills', 'slides'],
     answers: {},

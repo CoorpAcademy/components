@@ -29,6 +29,7 @@ const state: StoreState = {
     rank: {start: 93, end: Number.NaN}
   },
   ui: {
+    showCongrats: false,
     currentSlideRef: freeTextSlide._id,
     navigation: ['loader', 'slides'],
     positions: [0, 1, 2, 3, 4],
