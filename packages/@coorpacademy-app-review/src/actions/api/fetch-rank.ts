@@ -37,6 +37,13 @@ export type RankAction = RankRequestAction | RankSuccessAction | RankFailureActi
 type RankStart = [RankFetchStartRequestType, RankFetchStartSuccessType, RankFetchStartFailureType];
 type RankEnd = [RankFetchEndRequestType, RankFetchEndSuccessType, RankFetchEndFailureType];
 
+const bailout =
+  (path: string) =>
+  (state: StoreState): boolean => {
+    const value = get(path, state);
+    return Number.isNaN(value);
+  };
+
 export const fetchRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
@@ -51,7 +58,7 @@ export const fetchRank = (
       const token = get(['data', 'token'], state);
       return services.fetchRank(token);
     },
-    bailout: path ? (state: StoreState): boolean => !!get(path, state) : undefined
+    bailout: path ? bailout(path) : undefined
   });
 
   return dispatch(action);
