@@ -1,4 +1,5 @@
 import test from 'ava';
+import set from 'lodash/fp/set';
 import type {Services} from '../../../types/common';
 import type {StoreState} from '../../../reducers';
 import {
@@ -13,7 +14,6 @@ import {
 } from '../fetch-rank';
 import {services as mockedServices} from '../../../test/util/services.mock';
 import {createTestStore} from '../../test/create-test-store';
-import set from 'lodash/fp/set';
 
 const initialState: StoreState = {
   data: {
