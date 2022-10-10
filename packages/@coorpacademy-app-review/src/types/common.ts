@@ -92,17 +92,21 @@ export type ProgressionAnswerItem = {
   answer: string[];
 };
 
+export type SlideContent = {
+  type: 'slide';
+  ref: string;
+};
+
+export type SuccessNodeContent = {
+  type: 'success';
+  ref: 'successExitNode';
+};
+
 export type ProgressionState = {
   allAnswers: ProgressionAnswerItem[];
-  content?: {
-    ref: string;
-    type: string;
-  };
+  content?: SlideContent;
   isCorrect: boolean;
-  nextContent: {
-    type: 'success' | 'slide';
-    ref: 'successExitNode' | string;
-  };
+  nextContent: SlideContent | SuccessNodeContent;
   pendingSlides: string[];
   slides: string[];
   step: {

@@ -10,7 +10,7 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse
 } from '../../../test/util/services.mock';
-import {mapStateToSlidesProps} from '..';
+import {CongratsCardProps, CongratsProps, mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -890,7 +890,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
   });
 });
 
-test('should verify props when progression is in success', t => {
+test('should verify props when progression is in success, showing last correction popin', t => {
   // state after receive last POST_ANSWER_SUCCESS and before last NEXT_SLIDE
   const state: StoreState = {
     data: {
@@ -996,7 +996,263 @@ test('should verify props when progression is in success', t => {
     ]
   });
 
-  // TODO update test with props.stack validations when NEXT_SLIDE implemented
+  t.deepEqual(omit(['next.onClick'], props.stack.correctionPopinProps), {
+    information: {
+      label: '_klf',
+      message:
+        'L’apprenant peut aussi évaluer sa performance grâce à un classement disponible sur la vue leaderboard. Elle compare sa position par rapport à celle des autres apprenants de la plateforme.'
+    },
+    klf: undefined,
+    next: {
+      ariaLabel: '_correctionNextAriaLabel',
+      label: '_correctionNextLabel'
+    },
+    resultLabel: '_right',
+    type: 'right'
+  });
+});
+
+test('should verify props showing congrats', t => {
+  const state: StoreState = {
+    data: {
+      progression: postAnswerResponses[templateSlide.universalRef],
+      skills: [],
+      slides: {
+        [freeTextSlide.universalRef]: freeTextSlide,
+        [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
+        [qcmSlide.universalRef]: qcmSlide,
+        [sliderSlide.universalRef]: sliderSlide,
+        [templateSlide.universalRef]: templateSlide
+      },
+      token: '1234',
+      corrections: {
+        [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
+        [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
+        [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id),
+        [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
+        [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
+      },
+      rank: {start: 10, end: 9}
+    },
+    ui: {
+      showCongrats: true,
+      showQuitPopin: false,
+      currentSlideRef: 'successExitNode',
+      navigation: ['loader', 'slides'],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Faux'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
+      positions: [-1, -1, -1, -1, 0],
+      slide: {
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        }
+      }
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity, identity);
+  const congrats = props.congrats as CongratsProps;
+  t.is(congrats.title, 'Congratulations!');
+  t.is(
+    congrats.animationLottie.animationSrc,
+    'https://static-staging.coorpacademy.com/animations/review/confetti.json'
+  );
+  const {cardCongratsStar, buttonRevising, buttonRevisingSkill} = congrats;
+  const cardCongratsRank = congrats.cardCongratsRank as CongratsCardProps;
+  t.deepEqual(
+    {
+      animationLottie: cardCongratsRank.animationLottie,
+      rankSuffix: cardCongratsRank.rankSuffix,
+      reviewCardTitle: cardCongratsRank.reviewCardTitle,
+      reviewCardValue: cardCongratsRank.reviewCardValue
+    },
+    {
+      animationLottie: {
+        animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
+        'aria-label': 'aria lottie',
+        autoplay: true,
+        'data-name': 'default-lottie',
+        ie11ImageBackup:
+          'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg',
+        loop: true
+      },
+      rankSuffix: 'th',
+      reviewCardTitle: 'You are now',
+      reviewCardValue: '9'
+    }
+  );
+  t.deepEqual(
+    {
+      animationLottie: cardCongratsStar.animationLottie,
+      rankSuffix: cardCongratsStar.rankSuffix,
+      reviewCardTitle: cardCongratsStar.reviewCardTitle,
+      reviewCardValue: cardCongratsStar.reviewCardValue
+    },
+    {
+      animationLottie: {
+        animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
+        'aria-label': 'aria lottie',
+        autoplay: undefined,
+        className: undefined,
+        'data-name': 'default-lottie',
+        ie11ImageBackup:
+          'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg',
+        loop: false,
+        rendererSettings: {
+          hideOnTransparent: false
+        }
+      },
+      rankSuffix: undefined,
+      reviewCardTitle: 'You have won',
+      reviewCardValue: '40'
+    }
+  );
+
+  t.is(buttonRevising, undefined);
+  t.is(buttonRevisingSkill, undefined);
+});
+
+test('should verify props showing congrats, with only stars card, if user has no earn positions on raking', t => {
+  const state: StoreState = {
+    data: {
+      progression: postAnswerResponses[templateSlide.universalRef],
+      skills: [],
+      slides: {
+        [freeTextSlide.universalRef]: freeTextSlide,
+        [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
+        [qcmSlide.universalRef]: qcmSlide,
+        [sliderSlide.universalRef]: sliderSlide,
+        [templateSlide.universalRef]: templateSlide
+      },
+      token: '1234',
+      corrections: {
+        [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
+        [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
+        [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id),
+        [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
+        [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
+      },
+      rank: {start: 10, end: 10}
+    },
+    ui: {
+      showCongrats: true,
+      showQuitPopin: false,
+      currentSlideRef: 'successExitNode',
+      navigation: ['loader', 'slides'],
+      answers: {
+        sli_VJYjJnJhg: ['Benchmark'],
+        sli_VkSQroQnx: ['Faux'],
+        sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+        sli_VkAzsCLKb: ['7'],
+        'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+      },
+      positions: [-1, -1, -1, -1, 0],
+      slide: {
+        sli_VJYjJnJhg: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        sli_VkSQroQnx: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        sli_VkAzsCLKb: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        },
+        'sli_N13-hG3kX': {
+          validateButton: false,
+          animateCorrectionPopin: true,
+          showCorrectionPopin: false,
+          animationType: 'unstack'
+        }
+      }
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity, identity);
+  const congrats = props.congrats as CongratsProps;
+  t.is(congrats.title, 'Congratulations!');
+  t.is(
+    congrats.animationLottie.animationSrc,
+    'https://static-staging.coorpacademy.com/animations/review/confetti.json'
+  );
+  const {cardCongratsStar, buttonRevising, buttonRevisingSkill} = congrats;
+  t.deepEqual(
+    {
+      animationLottie: cardCongratsStar.animationLottie,
+      rankSuffix: cardCongratsStar.rankSuffix,
+      reviewCardTitle: cardCongratsStar.reviewCardTitle,
+      reviewCardValue: cardCongratsStar.reviewCardValue
+    },
+    {
+      animationLottie: {
+        animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
+        'aria-label': 'aria lottie',
+        autoplay: undefined,
+        className: undefined,
+        'data-name': 'default-lottie',
+        ie11ImageBackup:
+          'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg',
+        loop: false,
+        rendererSettings: {
+          hideOnTransparent: false
+        }
+      },
+      rankSuffix: undefined,
+      reviewCardTitle: 'You have won',
+      reviewCardValue: '40'
+    }
+  );
+  const cardCongratsRank = congrats.cardCongratsRank;
+  t.is(cardCongratsRank, undefined);
+
+  t.is(buttonRevising, undefined);
+  t.is(buttonRevisingSkill, undefined);
 });
 
 test('should verify props when progression has answered a current pendingSlide', t => {
