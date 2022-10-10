@@ -66,3 +66,17 @@ test('should set position for currentSlide according to the animationType and th
   });
   t.deepEqual(_state, [-1, 0, -1, 1, -1]);
 });
+
+test('should return same state when nextContent is successExitNode', t => {
+  const state = reducer([-1, 0, -1, 1, -1], {
+    type: NEXT_SLIDE,
+    payload: {
+      totalCorrectAnswers: 2,
+      answeredSlides: ['sli_1', 'sli_2', 'sli_3', 'sli_4', 'sli_5', 'sli_1'],
+      currentSlideRef: 'sli_1',
+      nextSlideRef: 'successExitNode',
+      animationType: 'unstack'
+    }
+  });
+  t.deepEqual(state, [-1, 0, -1, 1, -1]);
+});

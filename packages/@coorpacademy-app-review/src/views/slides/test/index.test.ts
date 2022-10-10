@@ -32,6 +32,7 @@ test('should create initial props when fetched slide is not still received', t =
       rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: {},
@@ -124,6 +125,7 @@ test('should create props when first slide is on the state', t => {
       rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {},
@@ -231,6 +233,7 @@ test('should create props when slide is on the state and user has selected answe
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
@@ -339,6 +342,7 @@ test('should verify props when first slide was answered correctly and next slide
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
@@ -456,6 +460,7 @@ test('should verify props when first slide was answered with error and next slid
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
@@ -530,6 +535,7 @@ test('should verify props when first slide was answered, next slide is fetched &
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
@@ -661,6 +667,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VJYjJnJhg',
       navigation: ['loader', 'slides'],
       answers: {sli_VJYjJnJhg: ['My value']},
@@ -795,6 +802,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: 'sli_VkSQroQnx',
       navigation: ['loader', 'slides'],
       answers: {
@@ -906,6 +914,7 @@ test('should verify props when progression is in success', t => {
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: templateSlide.universalRef,
       navigation: ['loader', 'slides'],
       answers: {
@@ -1014,6 +1023,7 @@ test('should verify props when progression has answered a current pendingSlide',
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: freeTextSlide.universalRef,
       navigation: ['loader', 'slides'],
       answers: {
@@ -1119,6 +1129,7 @@ test('should verify props when progression still has a pendingSlide', t => {
       rank: {start: 10, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: qcmSlide.universalRef,
       navigation: ['loader', 'slides'],
       answers: {
@@ -1213,6 +1224,7 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       rank: {start: Number.NaN, end: Number.NaN}
     },
     ui: {
+      showCongrats: false,
       currentSlideRef: '',
       navigation: ['loader', 'slides'],
       answers: {},
