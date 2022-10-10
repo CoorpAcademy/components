@@ -1,12 +1,10 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {fireEvent, render} from '@testing-library/react';
 import Search from '..';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should call onChange with new value when user try to change the input value', t => {
   t.plan(1);
@@ -15,9 +13,11 @@ test('should call onChange with new value when user try to change the input valu
     t.is(value, 'my name is murphy');
   };
 
-  const wrapper = shallow(
+  const {container} = render(
     <Search placeholder="say your name" value="my name is murph" onChange={onChange} />
   );
 
-  wrapper.find('input').simulate('input', {target: {value: 'my name is murphy'}});
+  const input = container.querySelector('[data-name="search-input"]');
+
+  fireEvent.input(input, {target: {value: 'my name is murphy'}});
 });
