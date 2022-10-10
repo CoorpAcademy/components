@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {StyleSheet, useWindowDimensions, View, ViewStyle} from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
@@ -123,10 +123,13 @@ type QuestionProps = {
   answerUI: SlideProps['answerUI'];
   questionText: SlideProps['questionText'];
   questionOrigin: SlideProps['parentContentTitle'];
+  validateButton: ReviewSlideProps['validateButton'];
 };
 
 const Question = (props: QuestionProps) => {
-  const {answerUI, questionText, questionOrigin} = props;
+  const {answerUI, questionText, questionOrigin, validateButton} = props;
+  const {onClick, label} = validateButton;
+
   const {theme, brandTheme} = useTemplateContext();
   const [style, setStyle] = useState<any | null>(null);
 
@@ -134,6 +137,8 @@ const Question = (props: QuestionProps) => {
     const questionStyle = createQuestionStyle(theme, brandTheme);
     setStyle(questionStyle);
   }, [theme, brandTheme]);
+
+  const handlePress = useCallback(onClick, [onClick]);
 
   if (!answerUI || !questionText || !style) return null;
 
@@ -147,8 +152,8 @@ const Question = (props: QuestionProps) => {
       <View style={style.choicesContainer}>
         <Answer {...answerUI} />
       </View>
-      <Touchable style={style.validateButton}>
-        <Text style={style.validateButtonText}>@todo validate</Text>
+      <Touchable style={style.validateButton} onPress={handlePress}>
+        <Text style={style.validateButtonText}>{label}</Text>
       </Touchable>
     </>
   );
@@ -208,6 +213,7 @@ const Slide = (props: ReviewSlideProps) => {
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
+            validateButton={validateButton}
             key="question-container"
           />
           {correctionPopinProps ? (
