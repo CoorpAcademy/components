@@ -1,4 +1,5 @@
 import test from 'ava';
+import {join} from 'path';
 import webpack from 'webpack';
 import generateConfig, {getLocalIdent} from '..';
 
@@ -28,10 +29,15 @@ test('should be validate by webpack schema', t => {
 test('should hash className', t => {
   t.is(
     getLocalIdent(
-      {resourcePath: '/usr/node_modules/@coorpacademy/components/es/atom/provider/style.css'},
+      {
+        resourcePath: join(
+          process.cwd(),
+          'node_modules/@coorpacademy/components/es/atom/provider/style.css'
+        )
+      },
       '',
       'wrapper'
     ),
-    'wrapper-A4UpW'
+    'wrapper-muWhm'
   );
 });
