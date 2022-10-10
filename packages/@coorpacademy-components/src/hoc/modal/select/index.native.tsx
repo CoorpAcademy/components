@@ -43,30 +43,27 @@ const keyExtractor = (item: ChoiceItem, index: number): string => {
   return `modal-select-item-${index + 1}`;
 };
 
-const createRenderItem = (value: string, testID: String, onChange: OnChangeFunction) => ({
-  item,
-  index
-}: {
-  item: ChoiceItem;
-  index: number;
-}) => {
-  // eslint-disable-next-line unicorn/consistent-function-scoping
-  const handleChange = (_value: string) => () => onChange(_value);
+type ItemProps = {item: ChoiceItem; index: number};
+const createRenderItem = (value: string, testID: string, onChange: OnChangeFunction) =>
+  function Item({item, index}: ItemProps) {
+    // eslint-disable-next-line unicorn/consistent-function-scoping
+    const handleChange = (_value: string) => () => onChange(_value);
 
-  return (
-    <ModalSelectItem
-      onPress={handleChange(item.text)}
-      isSelected={value === item.text}
-      testID={`${testID}-item-${index + 1}`}
-    >
-      {item.text}
-    </ModalSelectItem>
-  );
-};
+    return (
+      <ModalSelectItem
+        onPress={handleChange(item.text)}
+        isSelected={value === item.text}
+        testID={`${testID}-item-${index + 1}`}
+      >
+        {item.text}
+      </ModalSelectItem>
+    );
+  };
 
-const createSeparator = (styleSheet: StyleSheetType) => () => {
-  return <View style={styleSheet?.separator} />;
-};
+const createSeparator = (styleSheet: StyleSheetType) =>
+  function Separator() {
+    return <View style={styleSheet?.separator} />;
+  };
 
 const ModalSelect = (props: Props) => {
   const templateContext = useTemplateContext();
@@ -79,15 +76,15 @@ const ModalSelect = (props: Props) => {
     setStylesheet(_stylesheet);
   }, [theme]);
 
-  const renderItem = useMemo(() => createRenderItem(value, testID, onChange), [
-    value,
-    testID,
-    onChange
-  ]);
+  const renderItem = useMemo(
+    () => createRenderItem(value, testID, onChange),
+    [value, testID, onChange]
+  );
 
-  const renderSeparator = useMemo(() => (styleSheet ? createSeparator(styleSheet) : null), [
-    styleSheet
-  ]);
+  const renderSeparator = useMemo(
+    () => (styleSheet ? createSeparator(styleSheet) : null),
+    [styleSheet]
+  );
 
   if (!styleSheet) {
     return null;

@@ -28,15 +28,12 @@ const BrandLogo = ({height}: Props) => {
     height
   };
 
+  const source = {
+    uri: brandTheme.images && brandTheme.images['logo-mobile']
+  };
+
   return (
-    <ImageBackground
-      style={imageStyle}
-      testID="brand-logo"
-      source={{
-        uri: brandTheme.images['logo-mobile']
-      }}
-      resizeMode="contain"
-    />
+    <ImageBackground style={imageStyle} testID="brand-logo" source={source} resizeMode="contain" />
   );
 };
 

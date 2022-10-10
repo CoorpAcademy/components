@@ -1,3 +1,4 @@
+import {noop} from 'lodash/fp';
 import Qcm from '../../../questions/qcm/test/fixtures/short-answers';
 
 import {AnswerProps} from '../../prop-types';
@@ -24,7 +25,7 @@ const fixture: Fixture = {
       subtitles: [],
       posters: [],
       src: [],
-      onClick: () => {},
+      onClick: noop,
       onPlay: () => console.log('play'),
       onPause: () => console.log('pause'),
       onResume: () => console.log('resume'),

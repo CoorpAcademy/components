@@ -29,7 +29,7 @@ test('should not vibrate and not log analytics without props.onPress', t => {
 test('should vibrate and log analytics event', t => {
   const analyticsID = 'fake-analytics-id';
   const context = mockMobileContext({
-    logEvent: (eventName: string, options: {id: string}) => {
+    logEvent: (eventName, options) => {
       t.is(eventName, ANALYTICS_EVENT_TYPE.PRESS);
       t.deepEqual(options, {id: analyticsID});
     },
@@ -102,7 +102,7 @@ test('should log analytics with custom params', t => {
   };
 
   const context = mockMobileContext({
-    logEvent: (eventName: string, options: {id: string}) => {
+    logEvent: (eventName, options) => {
       t.is(eventName, ANALYTICS_EVENT_TYPE.PRESS);
       t.deepEqual(options, {...analyticsParams, id: analyticsID});
     },

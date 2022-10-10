@@ -10,7 +10,7 @@ export type Props = {
   iconBackgroundColor?: string;
   renderIcon?: React.ReactNode;
   contentStyle?: ViewStyle;
-  onClose: (event: GestureResponderEvent) => any;
+  onClose: (event: GestureResponderEvent) => void;
   testID?: string;
 };
 

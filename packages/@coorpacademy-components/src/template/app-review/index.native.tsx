@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const Switch = ({viewName, onboarding, skills, slides}: AppReviewProps) => {
+const Switch = ({viewName, slides}: AppReviewProps) => {
   switch (viewName) {
     case 'onboarding':
       return <Text>@todo view onboarding</Text>;

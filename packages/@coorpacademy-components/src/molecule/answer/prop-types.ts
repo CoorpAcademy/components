@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {Media} from '../questions/types';
 import VideoPlayerPropTypes from '../video-player/prop-types';
 
 export const TYPE_IMAGE = 'img';
@@ -93,24 +94,8 @@ export type AnswerProps = {
     title?: string;
   };
   help: string;
-  media?: {
-    type: 'img' | 'audio' | 'video';
-    url?: string;
-    mediaUrl?: string;
-    mimeType?: string;
-    poster?: string;
-    videoId?: string;
-    _id?: string;
-    description?: string;
-    subtitles?: string[];
-    posters?: string[];
-    src?: string[];
-    onClick?: () => void;
-    onPlay?: () => void;
-    onPause?: () => void;
-    onResume?: () => void;
-    onEnded?: () => void;
-  };
+
+  media?: Media;
 };
 
 export default propTypes;

@@ -15,7 +15,7 @@ const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
     container: {
       flex: 1,
       width: '100%',
-      // paddingTop: headerHeight, // @todo toggle when header is visible
+      paddingTop: headerHeight,
       backgroundColor: theme.colors.white,
       flexDirection: 'column',
       justifyContent: 'space-between',
@@ -24,14 +24,14 @@ const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
   });
 
 const Slides = (props: ReviewPlayerProps) => {
-  const {header, stack, reviewBackgroundAriaLabel, congrats, quitPopin} = props;
+  const {header, stack} = props;
 
   const {
     theme,
     display: {headerHeight}
   } = useTemplateContext();
 
-  const [styleSheet, setStylesheet] = useState<any | null>(null);
+  const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme, headerHeight);

@@ -11,6 +11,7 @@ type VideoMimeType =
 
 type ResourceMimeType =
   | 'video/mp4'
+  | 'audio/acc'
   | 'image/jpeg'
   | 'image/png'
   | 'application/pdf'
@@ -23,7 +24,7 @@ export type Source = {
   videoId?: string;
 };
 
-export type MediaType = 'img' | 'video' | 'pdf';
+export type MediaType = 'img' | 'audio' | 'video' | 'pdf';
 
 export type Media = {
   type?: MediaType;
@@ -35,6 +36,13 @@ export type Media = {
   subtitles?: Array<string>;
   posters?: Array<Url>;
   src?: Array<Source>;
+  poster?: string;
+  videoId?: string;
+  onClick?: () => void;
+  onPlay?: () => void;
+  onPause?: () => void;
+  onResume?: () => void;
+  onEnded?: () => void;
 };
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
@@ -50,7 +58,7 @@ export type SelectableChoice = {
   _id: string;
   label: string;
   selected: boolean;
-  onPress: Function;
+  onPress: (value?: string) => void;
   media?: Media;
 };
 

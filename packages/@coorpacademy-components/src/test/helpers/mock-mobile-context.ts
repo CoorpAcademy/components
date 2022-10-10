@@ -1,19 +1,20 @@
 import {noop} from 'lodash/fp';
 import defaultTheme from '../../variables/theme.native';
-import {Brand} from '../../variables/brand.native';
+import {Brand, defaultBrandTheme} from '../../variables/brand.native';
 import {TemplateContextValues} from '../../template/app-review/template-context';
-import {VibrationType, VIBRATION_TYPE} from '../../variables/vibration';
+import {Vibration, VIBRATION_TYPE} from '../../variables/vibration';
+import {Analytics} from '../../variables/analytics';
 
 type MockOptions = {
-  logEvent?: Function;
-  vibrate?: (arg0: VibrationType | void) => void;
+  logEvent?: Analytics['logEvent'];
+  vibrate?: Vibration['vibrate'];
   brandTheme?: Brand;
 };
 
 const mockMobileContext = ({
   logEvent = noop,
   vibrate = noop,
-  brandTheme
+  brandTheme = defaultBrandTheme
 }: MockOptions = {}): TemplateContextValues => ({
   theme: defaultTheme,
   translations: {

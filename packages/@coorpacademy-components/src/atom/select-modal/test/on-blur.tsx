@@ -13,7 +13,7 @@ test('should handle blur', t => {
   const questionType = 'template';
 
   const context = mockMobileContext({
-    logEvent: (eventName: string, options: {id: string}) => {
+    logEvent: (eventName, options) => {
       t.is(eventName, ANALYTICS_EVENT_TYPE.CLOSE_SELECT);
       t.deepEqual(options, {id: analyticsID, questionType});
     }

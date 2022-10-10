@@ -21,7 +21,7 @@ export const ANALYTICS_EVENT_TYPE = {
 };
 
 export type Analytics = {
-  logEvent: Function;
+  logEvent: (name: string, options: {id?: string; questionType?: string}) => void;
 };
 
 export type AnalyticsEventParams = {

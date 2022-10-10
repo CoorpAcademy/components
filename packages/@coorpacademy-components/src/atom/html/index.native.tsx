@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
 import HtmlBase, {CustomRendererProps, MixedStyleRecord, TBlock} from 'react-native-render-html';
 
@@ -39,9 +39,8 @@ type Styles = {
 };
 
 const Html = (props: Props) => {
-  const [disableBaseFontStyleColor, setDisableBaseFontStyleColor] = useState<boolean>(false);
   const templateContext = useTemplateContext();
-  const {theme, vibration} = templateContext;
+  const {theme} = templateContext;
   const {
     children,
     fontSize,
@@ -53,13 +52,6 @@ const Html = (props: Props) => {
     isTextCentered,
     numberOfLines
   } = props;
-
-  const handleLinkPress = useMemo(
-    () => (url: string) => {
-      vibration?.vibrate();
-    },
-    [vibration]
-  );
 
   // Don't use StyleSheet there, it's not a react style
   const styles: Styles = {
@@ -112,10 +104,15 @@ const Html = (props: Props) => {
     }
   }
 
-  const renderers = {
-    span: (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
+  const SpanRenderer = useCallback(
+    (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
       <Text numberOfLines={numberOfLines}>{_children}</Text>
-    )
+    ),
+    [numberOfLines]
+  );
+
+  const renderers = {
+    span: SpanRenderer
   };
 
   return (
@@ -135,10 +132,7 @@ const Html = (props: Props) => {
         }}
         tagsStyles={tagsStyles}
         // @ts-expect-error TS2322
-        baseFontStyle={{
-          ...baseFontStyle,
-          color: disableBaseFontStyleColor ? null : baseFontStyle.color
-        }}
+        baseFontStyle={baseFontStyle}
         renderers={renderers}
         // this is exceptionally for the onboarding course
         // is the only course that has a gif in the context but the img tag
