@@ -14,7 +14,7 @@ file_filter=packages/@coorpacademy-player-web/locales/<lang>/player.json
 source_file=packages/@coorpacademy-player-web/locales/en/player.json
 
 
-[components.player]
+[components.review]
 source_lang=en
 type=KEYVALUEJSON
 file_filter=packages/@coorpacademy-app-review/locales/<lang>/review.json
