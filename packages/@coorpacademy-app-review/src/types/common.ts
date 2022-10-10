@@ -168,6 +168,11 @@ export type Services = {
     answer: string[]
   ): Promise<CorrectionFromAPI | void>;
   fetchRank(token: string): Promise<Rank>;
+  fetchSlidesToReviewBySkillRef(
+    url: string,
+    token: string,
+    skillRef: string
+  ): Promise<SlideIdFromAPI[] | void>;
 };
 
 export type Options = {

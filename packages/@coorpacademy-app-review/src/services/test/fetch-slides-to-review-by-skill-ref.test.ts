@@ -41,8 +41,9 @@ test('should fetch slides id with success', async t => {
 
 test('should reject if a bad token is passed', async t => {
   const badToken = 'token is not a jwt';
-  const error = await t.throwsAsync(() => fetchSlidesToReviewBySkillRef(url, badToken, '_skill-ref'));
-
+  const error = await t.throwsAsync(() =>
+    fetchSlidesToReviewBySkillRef(url, badToken, '_skill-ref')
+  );
   t.is(
     error?.message,
     "Invalid token specified: Cannot read properties of undefined (reading 'replace')"
