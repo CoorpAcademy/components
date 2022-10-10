@@ -61,7 +61,8 @@ const appOptions: AppOptions = {
   token: process.env.API_TEST_TOKEN || '',
   skillRef: 'skill_NJC0jFKoH',
   services,
-  onQuitClick: identity
+  onQuitClick: identity,
+  url: process.env.URL_TEST || ''
 };
 
 test('should show the loader while the app is fetching the data', async t => {

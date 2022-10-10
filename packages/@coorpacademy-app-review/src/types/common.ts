@@ -82,6 +82,10 @@ export type SlideFromAPI = {
   };
 };
 
+export type SlideIdFromAPI = {
+  slideId: string;
+};
+
 export type Rank = {
   rank: number;
 };
@@ -175,6 +179,7 @@ export type AppOptions = {
   skillRef?: string;
   services: Services;
   onQuitClick: Function;
+  url: string;
 };
 
 export type JWT = {
