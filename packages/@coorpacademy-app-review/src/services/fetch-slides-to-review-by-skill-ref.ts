@@ -8,7 +8,7 @@ export const fetchSlidesToReviewBySkillRef = async (
   url: string,
   token: string,
   skillRef: string
-): Promise<SlideIdFromAPI[] | void> => {
+): Promise<SlideIdFromAPI[]> => {
   const {user: userId}: JWT = decode(token);
   const response = await crossFetch(
     `${url}/api/v1/review/users/${userId}/skills/${skillRef}/slide?limit=5&offset=0`

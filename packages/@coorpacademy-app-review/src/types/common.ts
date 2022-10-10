@@ -172,7 +172,7 @@ export type Services = {
     url: string,
     token: string,
     skillRef: string
-  ): Promise<SlideIdFromAPI[] | void>;
+  ): Promise<SlideIdFromAPI[]>;
 };
 
 export type Options = {
