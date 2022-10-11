@@ -38,7 +38,8 @@ const createSandbox = (options: SandboxOptions): void => {
       onQuitClick: () => {
         // eslint-disable-next-line no-console
         console.log('onQuitClick');
-      }
+      },
+      url: process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL || 'http://localhost:7006'
     };
     const skin = {
       common: {
