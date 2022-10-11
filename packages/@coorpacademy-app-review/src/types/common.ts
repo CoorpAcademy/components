@@ -1,4 +1,3 @@
-// import type {ViewName} from '@coorpacademy/components/es/template/app-review/prop-types';
 export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 
 export type ChoiceFromAPI = {
@@ -178,10 +177,6 @@ export type Services = {
   ): Promise<SlideIdFromAPI[]>;
 };
 
-export type Options = {
-  services: Services;
-};
-
 export type AppOptions = {
   token: string;
   skillRef?: string;
@@ -189,6 +184,11 @@ export type AppOptions = {
   onQuitClick: Function;
   url: string;
   callbackOnViewChanged?: (viewName: ViewName) => void;
+};
+
+export type ThunkOptions = {
+  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+  services: Services;
 };
 
 export type JWT = {

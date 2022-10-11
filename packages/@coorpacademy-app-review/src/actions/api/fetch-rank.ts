@@ -2,7 +2,7 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
-import type {Rank, Services, Options} from '../../types/common';
+import type {Rank, Services, ThunkOptions} from '../../types/common';
 
 export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST' as const;
 export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS' as const;
@@ -67,7 +67,7 @@ export const fetchRank = (
 export const fetchStartRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
-  {services}: Options
+  {services}: ThunkOptions
 ): RankAction => {
   return fetchRank(
     dispatch,
@@ -81,7 +81,7 @@ export const fetchStartRank = (
 export const fetchEndRank = (
   dispatch: Dispatch,
   getState: () => StoreState,
-  {services}: Options
+  {services}: ThunkOptions
 ): RankAction => {
   return fetchRank(dispatch, getState, services, [
     RANK_FETCH_END_REQUEST,

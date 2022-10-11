@@ -36,7 +36,7 @@ const state: StoreState = {
 
 test('should dispatch OPEN_POPIN action after a click on close button in header', async t => {
   const expectedAction = [{type: OPEN_POPIN}];
-  const {dispatch, getState} = createTestStore(t, state, services, expectedAction);
+  const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();

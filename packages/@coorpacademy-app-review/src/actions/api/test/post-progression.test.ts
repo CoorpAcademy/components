@@ -96,7 +96,7 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide}
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(postProgression('skill_12345'));
 });
@@ -121,7 +121,7 @@ test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(postProgression('skill_12345'));
 });

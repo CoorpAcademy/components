@@ -3,7 +3,7 @@ import {
   NavigateBackAction,
   NAVIGATE_TO,
   NAVIGATE_BACK
-} from '../../actions/ui/navigation';
+} from '../../actions/ui/navigation.definitions';
 
 export type NavigationState = Array<'skills' | 'onboarding' | 'slides' | 'loader'>;
 

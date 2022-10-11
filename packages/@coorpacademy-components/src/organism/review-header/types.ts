@@ -20,6 +20,6 @@ export type Props = {
   skillName: string;
   'aria-label': string;
   closeButtonAriaLabel: string;
-  onQuitClick: (...args: unknown[]) => unknown;
+  onQuitClick: () => void;
   hiddenSteps: boolean;
 };

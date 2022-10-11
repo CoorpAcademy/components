@@ -1,28 +1,50 @@
-import {AppOptions, ViewName} from '../../types/common';
+import {Dispatch} from 'redux';
+import {StoreState} from '../../reducers';
+import {ThunkOptions, ViewName} from '../../types/common';
+import {
+  NavigateBackAction,
+  NavigateToAction,
+  NAVIGATE_BACK,
+  NAVIGATE_TO
+} from './navigation.definitions';
 
-export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
-export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
-export const START_APP = '@@navigation/START_APP';
+export const navigateTo =
+  (newViewName: ViewName) =>
+  async (
+    dispatch: Dispatch,
+    getState: () => StoreState,
+    {callbackOnViewChanged}: ThunkOptions
+  ): Promise<NavigateToAction> => {
+    const action: NavigateToAction = {
+      type: NAVIGATE_TO,
+      payload: newViewName
+    };
 
-export type NavigateToAction = {
-  type: '@@navigation/NAVIGATE_TO';
-  payload: ViewName;
-};
+    const res = await dispatch(action);
 
-export type NavigateBackAction = {
-  type: '@@navigation/NAVIGATE_BACK';
-};
+    if (callbackOnViewChanged) {
+      callbackOnViewChanged(newViewName);
+    }
 
-export type StartApp = {
-  type: '@@navigation/START_APP';
-  payload: AppOptions;
-};
+    return res;
+  };
 
-export const navigateTo = (newViewName: ViewName): NavigateToAction => ({
-  type: NAVIGATE_TO,
-  payload: newViewName
-});
+export const navigateBack = async (
+  dispatch: Dispatch,
+  getState: () => StoreState,
+  {callbackOnViewChanged}: ThunkOptions
+): Promise<NavigateBackAction> => {
+  const action: NavigateBackAction = {
+    type: NAVIGATE_BACK
+  };
 
-export const navigateBack: NavigateBackAction = {
-  type: NAVIGATE_BACK
+  const res = await dispatch(action);
+
+  if (callbackOnViewChanged) {
+    const storeState: StoreState = getState();
+    const viewName = storeState.ui.navigation[storeState.ui.navigation.length - 1];
+    callbackOnViewChanged(viewName);
+  }
+
+  return res;
 };

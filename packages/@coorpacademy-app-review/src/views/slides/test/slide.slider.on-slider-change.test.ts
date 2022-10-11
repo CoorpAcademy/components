@@ -71,7 +71,7 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
       payload: ['111']
     }
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
 
   const slideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;

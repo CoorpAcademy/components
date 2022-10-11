@@ -71,7 +71,7 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
       payload: ['5']
     }
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
