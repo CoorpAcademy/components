@@ -171,7 +171,7 @@ export type Services = {
   ): Promise<CorrectionFromAPI | void>;
   fetchRank(token: string): Promise<Rank>;
   fetchSlidesToReviewBySkillRef(
-    url: string,
+    lambdaReviewURL: string,
     token: string,
     skillRef: string
   ): Promise<SlideIdFromAPI[]>;
@@ -190,7 +190,7 @@ export type AppOptions = ConnectedOptions & {
   token: string;
   skillRef?: string;
   services: Services;
-  url: string;
+  lambdaReviewURL: string;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };
 

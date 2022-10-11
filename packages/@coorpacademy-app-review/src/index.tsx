@@ -18,6 +18,7 @@ import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {mapStateToSkillsProps} from './views/skills';
 import {mapStateToSlidesProps} from './views/slides';
+import {storeLambdaReviewURL} from './actions/data/lambda-review-url';
 
 const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
   const dispatch = useDispatch();
@@ -58,8 +59,10 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
   useEffect(() => {
     const token = get('token', options);
+    const lambdaReviewURL = get('lambdaReviewURL', options);
     if (store === null || isEmpty(token)) return;
     store.dispatch(storeToken(token));
+    store.dispatch(storeLambdaReviewURL(lambdaReviewURL));
   }, [options, store]);
 
   useEffect(() => {

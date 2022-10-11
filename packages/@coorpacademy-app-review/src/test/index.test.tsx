@@ -63,7 +63,7 @@ const appOptions: AppOptions = {
   services,
   onQuitClick: identity,
   translate: key => key,
-  url: process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL || 'http://localhost:7006'
+  lambdaReviewURL: process.env.LAMBDA_REVIEW_URL || 'http://localhost:7006'
 };
 
 test('should show the loader while the app is fetching the data', async t => {

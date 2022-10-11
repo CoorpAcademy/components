@@ -7,7 +7,7 @@ const set = require('lodash/fp/set');
 const update = require('lodash/fp/update');
 const {default: generateConfig} = require('@coorpacademy/webpack-config');
 const {
-  environmentVariables: {API_TEST_TOKEN, LAMBDA_API_REVIEW_GET_SLIDES_URL}
+  environmentVariables: {API_TEST_TOKEN, LAMBDA_REVIEW_URL}
 } = require('./ava.config');
 
 const entry = {
@@ -44,7 +44,7 @@ module.exports = pipe(
     concat([
       new webpack.DefinePlugin({
         'process.env.API_TEST_TOKEN': JSON.stringify(API_TEST_TOKEN),
-        'process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL': JSON.stringify(LAMBDA_API_REVIEW_GET_SLIDES_URL),
+        'process.env.LAMBDA_REVIEW_URL': JSON.stringify(LAMBDA_REVIEW_URL),
       }),
       new HtmlWebpackPlugin({
         filename: `index.html`,

@@ -3,7 +3,7 @@ import nock from 'nock';
 import {fetchSlidesToReviewBySkillRef} from '../fetch-slides-to-review-by-skill-ref';
 import {SlideIdFromAPI} from '../../types/common';
 
-const url = process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL || 'http://localhost:7006';
+const lambdaReviewURL = process.env.LAMBDA_REVIEW_URL || 'http://localhost:7006';
 
 const result: SlideIdFromAPI[] = [
   {
@@ -24,7 +24,7 @@ const result: SlideIdFromAPI[] = [
 ];
 
 test.before(() => {
-  nock(url)
+  nock(lambdaReviewURL)
     .get('/api/v1/review/users/592d830b240b923f00bffba6/skills/_skill-ref/slide?limit=5&offset=0')
     .reply(200, result);
 });
@@ -35,14 +35,14 @@ test.after(() => {
 
 test('should fetch slides id with success', async t => {
   const token = process.env.API_TEST_TOKEN || '';
-  const slidesId = await fetchSlidesToReviewBySkillRef(url, token, '_skill-ref');
+  const slidesId = await fetchSlidesToReviewBySkillRef(lambdaReviewURL, token, '_skill-ref');
   t.deepEqual(result, slidesId);
 });
 
 test('should reject if a bad token is passed', async t => {
   const badToken = 'token is not a jwt';
   const error = await t.throwsAsync(() =>
-    fetchSlidesToReviewBySkillRef(url, badToken, '_skill-ref')
+    fetchSlidesToReviewBySkillRef(lambdaReviewURL, badToken, '_skill-ref')
   );
   t.is(
     error?.message,
