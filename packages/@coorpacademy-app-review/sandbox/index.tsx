@@ -3,8 +3,10 @@ import {render} from 'react-dom';
 import isNil from 'lodash/fp/isNil';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
-
+import createTranslate from '@coorpacademy/translate';
 import {WebContext} from '@coorpacademy/components/es/atom/provider';
+import localesComponents from '@coorpacademy/components/locales/en/global.json';
+import localesAppReview from '../locales/en/review.json';
 import AppReview from '../src';
 import {services} from '../src/test/util/services.mock';
 import type {AppOptions} from '../src/types/common';
@@ -20,6 +22,18 @@ declare global {
   }
 }
 
+const translate = (key: string, data: string): string => {
+  try {
+    return createTranslate({
+      ...localesAppReview,
+      ...localesComponents
+    })(key, data);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return createTranslate({[key]: key})(key, data);
+  }
+};
 const isContainerAvailable = (options: SandboxOptions): boolean =>
   !pipe(get('container'), isNil)(options);
 
@@ -35,6 +49,7 @@ const createSandbox = (options: SandboxOptions): void => {
       token: process.env.API_TEST_TOKEN || '',
       skillRef: '123',
       services,
+      translate,
       onQuitClick: () => {
         location.reload();
       },

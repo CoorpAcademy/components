@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "jsx": "react",
     "target": "es5",
     "allowJs": true,

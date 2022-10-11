@@ -183,6 +183,7 @@ export type AppOptions = {
   token: string;
   skillRef?: string;
   services: Services;
+  translate: Function;
   onQuitClick: Function;
   url: string;
 };
