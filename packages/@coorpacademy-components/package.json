@@ -12,8 +12,12 @@
     "README.md"
   ],
   "scripts": {
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
+    "build:commonjs:babel": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
+    "build:commonjs:types": "tsc --module esnext --outDir lib --emitDeclarationOnly",
+    "build:es:babel": "cross-env BABEL_ENV=es babel src --out-dir es -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
+    "build:es:types": "tsc --module es2020 --outDir es --emitDeclarationOnly",
+    "build:commonjs": "npm run build:commonjs:babel && npm run build:commonjs:types",
+    "build:es": "npm run build:es:babel && npm run build:es:types",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
     "build:watch": "npm run build:es -- -w --verbose",
     "clean:commonjs": "rm -rf lib",
@@ -36,7 +40,7 @@
     "test": "npm run lint && npm run test:unit",
     "test:unit": "nyc npm run ava",
     "eslint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
-    "typecheck": "tsc"
+    "typecheck": "tsc --noEmit true"
   },
   "engines": {
     "node": ">=12.22.12"
