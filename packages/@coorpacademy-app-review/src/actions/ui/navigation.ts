@@ -1,12 +1,24 @@
 import {Dispatch} from 'redux';
-import {StoreState} from '../../reducers';
-import {ThunkOptions, ViewName} from '../../types/common';
-import {
-  NavigateBackAction,
-  NavigateToAction,
-  NAVIGATE_BACK,
-  NAVIGATE_TO
-} from './navigation.definitions';
+import type {StoreState} from '../../reducers';
+import {ThunkOptions, AppOptions, ViewName} from '../../types/common';
+
+export type NavigateToAction = {
+  type: '@@navigation/NAVIGATE_TO';
+  payload: ViewName;
+};
+
+export type NavigateBackAction = {
+  type: '@@navigation/NAVIGATE_BACK';
+};
+
+export type StartApp = {
+  type: '@@navigation/START_APP';
+  payload: AppOptions;
+};
+
+export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
+export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
+export const START_APP = '@@navigation/START_APP';
 
 export const navigateTo =
   (newViewName: ViewName) =>
