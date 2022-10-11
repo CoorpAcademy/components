@@ -9,7 +9,8 @@ import Answer from '../../molecule/answer/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {CorrectionPopinProps, Props, SlideProps} from './prop-types';
+import {Props as CorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+import {Props, SlideProps} from './prop-types';
 
 type PopinProps = {
   correctionPopinProps: CorrectionPopinProps;

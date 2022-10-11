@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default {
+const propTypes = {
   type: PropTypes.oneOf(['right', 'wrong']),
   resultLabel: PropTypes.string,
   information: PropTypes.shape({
@@ -18,3 +18,23 @@ export default {
     tooltip: PropTypes.string
   })
 };
+
+export type Props = {
+  klf: {
+    label: string;
+    tooltip: string;
+  };
+  information: {
+    label: string;
+    message: string;
+  };
+  next: {
+    label: string;
+    onClick: () => void;
+    'aria-label'?: string;
+  };
+  resultLabel: string;
+  type: 'right' | 'wrong';
+};
+
+export default propTypes;

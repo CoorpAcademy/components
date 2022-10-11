@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import {Props as CorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+
 import ReviewSlidePropTypes, {
-  CorrectionPopinProps,
   Props as ReviewSlideProps,
   SlideProps,
   SlidePropsTypes

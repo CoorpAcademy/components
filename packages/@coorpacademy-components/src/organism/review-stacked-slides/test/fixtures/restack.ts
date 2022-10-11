@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import {Answer} from '../../../../molecule/answer/prop-types';
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
-import {CorrectionPopinProps} from '../../../review-slide/prop-types';
+import {Props as CorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
 import {Props} from '../../prop-types';
 
 type Fixture = {

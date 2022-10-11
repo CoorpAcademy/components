@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import ReviewCorrectionPopinPropTypes from '../../molecule/review-correction-popin/prop-types';
+import ReviewCorrectionPopinPropTypes, {
+  Props as CorrectionPopinProps
+} from '../../molecule/review-correction-popin/prop-types';
 import AnswerPropTypes, {Props as AnswerProps} from '../../molecule/answer/prop-types';
 
 export const SlidePropsTypes = PropTypes.shape({
@@ -37,24 +39,6 @@ const propTypes = {
 };
 
 export default propTypes;
-
-export type CorrectionPopinProps = {
-  klf: {
-    label: string;
-    tooltip: string;
-  };
-  information: {
-    label: string;
-    message: string;
-  };
-  next: {
-    label: string;
-    onClick: () => void;
-    'aria-label'?: string;
-  };
-  resultLabel: string;
-  type: 'right' | 'wrong';
-};
 
 export type SlideProps = {
   position: number;
