@@ -1,8 +1,15 @@
-import {join} from 'path';
+import {join, relative} from 'path';
+import {createHash} from 'crypto';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
-const hash = '[local]-[hash:base64:5]';
+export const getLocalIdent = (context, localIdentName, localName) => {
+  const {resourcePath} = context;
+  const hash = createHash('md4');
+  hash.update(relative(process.cwd(), resourcePath));
+  hash.update(localName);
+  return `${localName}-${hash.digest('base64').slice(0, 5)}`;
+};
 
 const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
   const isProduction = NODE_ENV === 'production';
@@ -64,7 +71,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
               loader: 'css-loader',
               options: {
                 modules: {
-                  localIdentName: hash
+                  getLocalIdent
                 }
               }
             },

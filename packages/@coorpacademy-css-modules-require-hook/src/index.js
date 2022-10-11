@@ -1,12 +1,8 @@
+import {relative} from 'path';
+import {createHash} from 'crypto';
 import {pipe, replace} from 'lodash/fp';
 
-const hook = require('css-modules-require-hook');
-const genericNames = require('generic-names');
-
-const scopedName = genericNames('[local]-[hash:base64:5]', {
-  context: process.cwd(),
-  hashPrefix: ''
-});
+const hook = require('@dr.pogodin/css-modules-require-hook');
 
 const replaceLibByEs = pipe(
   replace('/@coorpacademy/components/lib/', '/@coorpacademy/components/es/'),
@@ -14,7 +10,10 @@ const replaceLibByEs = pipe(
 );
 
 const generateScopedName = (localName, filepath) => {
-  return scopedName(localName, replaceLibByEs(filepath));
+  const hash = createHash('md4');
+  hash.update(replaceLibByEs(relative(process.cwd(), filepath)));
+  hash.update(localName);
+  return `${localName}-${hash.digest('base64').slice(0, 5)}`;
 };
 
 const customHook = options =>

@@ -12,7 +12,7 @@
     "clean": "rm -rf lib",
     "prepare": "npm run clean && npm run build --production",
     "test": "npm run lint",
-    "lint": "eslint . --ext .js,.json"
+    "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\""
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -23,20 +23,19 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "css-modules-require-hook": "^4.2.3",
-    "generic-names": "^2.0.1",
+    "@dr.pogodin/css-modules-require-hook": "^4.7.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.19.4",
+    "@babel/preset-env": "^7.19.4",
     "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
-    "babel-plugin-istanbul": "^6.0.0",
+    "babel-plugin-istanbul": "^6.1.1",
     "babel-plugin-lodash": "^3.3.4",
-    "cross-env": "^7.0.2",
-    "eslint": "^7.3.1"
+    "cross-env": "^7.0.3",
+    "eslint": "^8.25.0"
   },
   "author": "CoorpAcademy"
 }
