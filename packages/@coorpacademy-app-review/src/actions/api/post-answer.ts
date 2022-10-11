@@ -6,6 +6,7 @@ import type {StoreState} from '../../reducers';
 import {fetchCorrection} from './fetch-correction';
 import {fetchSlide} from './fetch-slide';
 import {fetchEndRank, fetchStartRank} from './fetch-rank';
+import {fetchSlidesToReviewBySkillRef} from './fetch-slides-to-review-by-skill-ref';
 
 export const POST_ANSWER_REQUEST = '@@answer/POST_REQUEST' as const;
 export const POST_ANSWER_SUCCESS = '@@answer/POST_SUCCESS' as const;
@@ -50,6 +51,7 @@ export const postAnswer = async (
     } else {
       await dispatch(fetchCorrection);
       await dispatch(fetchEndRank);
+      await dispatch(fetchSlidesToReviewBySkillRef);
     }
   }
 };
