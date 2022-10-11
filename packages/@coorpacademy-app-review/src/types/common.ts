@@ -82,6 +82,10 @@ export type SlideFromAPI = {
   };
 };
 
+export type SlideIdFromAPI = {
+  slideId: string;
+};
+
 export type Rank = {
   rank: number;
 };
@@ -164,6 +168,11 @@ export type Services = {
     answer: string[]
   ): Promise<CorrectionFromAPI | void>;
   fetchRank(token: string): Promise<Rank>;
+  fetchSlidesToReviewBySkillRef(
+    url: string,
+    token: string,
+    skillRef: string
+  ): Promise<SlideIdFromAPI[]>;
 };
 
 export type Options = {
@@ -175,6 +184,7 @@ export type AppOptions = {
   skillRef?: string;
   services: Services;
   onQuitClick: Function;
+  url: string;
 };
 
 export type JWT = {

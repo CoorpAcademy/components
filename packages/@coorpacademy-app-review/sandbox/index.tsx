@@ -36,9 +36,9 @@ const createSandbox = (options: SandboxOptions): void => {
       skillRef: '123',
       services,
       onQuitClick: () => {
-        // eslint-disable-next-line no-console
-        console.log('onQuitClick');
-      }
+        location.reload();
+      },
+      url: process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL || 'http://localhost:7006'
     };
     const skin = {
       common: {

@@ -11,7 +11,8 @@ import {
   ReviewContent,
   ReviewEngine,
   Services,
-  SlideFromAPI
+  SlideFromAPI,
+  SlideIdFromAPI
 } from '../../types/common';
 
 const content: ReviewContent = {
@@ -432,6 +433,24 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
   }
 };
 
+const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
+  {
+    slideId: freeTextSlide._id
+  },
+  {
+    slideId: templateSlide._id
+  },
+  {
+    slideId: qcmDragSlide._id
+  },
+  {
+    slideId: qcmGraphicSlide._id
+  },
+  {
+    slideId: qcmSlide._id
+  }
+];
+
 export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
@@ -441,5 +460,6 @@ export const services: Services = {
     return Promise.resolve(get(currentSlide, postAnswerResponses));
   },
   fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),
-  fetchRank: () => Promise.resolve(fetchRankResponse)
+  fetchRank: () => Promise.resolve(fetchRankResponse),
+  fetchSlidesToReviewBySkillRef: () => Promise.resolve(fetchSlidesToReviewBySkillRefResponse)
 };

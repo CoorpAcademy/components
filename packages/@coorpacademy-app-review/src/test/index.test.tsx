@@ -61,7 +61,8 @@ const appOptions: AppOptions = {
   token: process.env.API_TEST_TOKEN || '',
   skillRef: 'skill_NJC0jFKoH',
   services,
-  onQuitClick: identity
+  onQuitClick: identity,
+  url: process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL || 'http://localhost:7006'
 };
 
 test('should show the loader while the app is fetching the data', async t => {
