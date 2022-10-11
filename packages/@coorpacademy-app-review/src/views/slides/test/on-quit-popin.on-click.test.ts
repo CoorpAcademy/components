@@ -24,6 +24,7 @@ const state: StoreState = {
       sli_VkSQroQnx: qcmGraphicSlide
     },
     token: '1234',
+    lambdaReviewURL: 'http://localhost:7006',
     corrections: {},
     rank: {start: 10, end: Number.NaN}
   },

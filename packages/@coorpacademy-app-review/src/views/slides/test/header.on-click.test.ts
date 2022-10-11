@@ -18,6 +18,7 @@ const state: StoreState = {
       sli_N1XACJobn: null
     },
     token: '1234',
+    lambdaReviewURL: 'http://localhost:7006',
     corrections: {},
     rank: {start: Number.NaN, end: Number.NaN}
   },

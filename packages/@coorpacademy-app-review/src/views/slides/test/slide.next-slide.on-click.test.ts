@@ -31,6 +31,7 @@ test('correction popin actions after click', async t => {
         sli_VkSQroQnx: qcmGraphicSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
@@ -94,6 +95,7 @@ test('correction popin actions after click when progression is finished', async 
         [templateSlide.universalRef]: templateSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),

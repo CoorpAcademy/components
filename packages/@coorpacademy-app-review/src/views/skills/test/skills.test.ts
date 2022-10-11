@@ -11,6 +11,7 @@ test('should create initial props when there are no skills on the state', t => {
       skills: [],
       slides: {},
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN}
     },
@@ -56,6 +57,7 @@ test('should create initial props when skills on the state', t => {
       ],
       slides: {},
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN}
     },

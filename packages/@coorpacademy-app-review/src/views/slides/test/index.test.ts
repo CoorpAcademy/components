@@ -35,6 +35,7 @@ test('should create initial props when fetched slide is not still received', t =
         sli_N1XACJobn: null
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN}
     },
@@ -129,6 +130,7 @@ test('should create props when first slide is on the state', t => {
         sli_VJYjJnJhg: freeTextSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN}
     },
@@ -238,6 +240,7 @@ test('should create props when slide is on the state and user has selected answe
         sli_VJYjJnJhg: freeTextSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: 10, end: Number.NaN}
     },
@@ -348,6 +351,7 @@ test('should verify props when first slide was answered correctly and next slide
         sli_VkSQroQnx: null
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: 10, end: Number.NaN}
     },
@@ -467,6 +471,7 @@ test('should verify props when first slide was answered with error and next slid
         sli_VkSQroQnx: null
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: 10, end: Number.NaN}
     },
@@ -541,6 +546,7 @@ test('should verify props when first slide was answered, next slide is fetched &
         sli_VkSQroQnx: qcmGraphicSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
@@ -674,6 +680,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
         sli_VkSQroQnx: qcmGraphicSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
@@ -810,6 +817,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
         sli_VkSQroQnx: qcmGraphicSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
@@ -919,6 +927,7 @@ test('should verify props when progression is in success, showing last correctio
         [templateSlide.universalRef]: templateSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
@@ -1041,6 +1050,7 @@ test('should verify props showing congrats', t => {
         [templateSlide.universalRef]: templateSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
@@ -1173,6 +1183,7 @@ test('should verify props showing congrats, with only stars card, if user has no
         [templateSlide.universalRef]: templateSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
@@ -1285,6 +1296,7 @@ test('should verify props when progression has answered a current pendingSlide',
         [templateSlide.universalRef]: templateSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
@@ -1392,6 +1404,7 @@ test('should verify props when progression still has a pendingSlide', t => {
         [templateSlide.universalRef]: templateSlide
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
         [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
@@ -1494,6 +1507,7 @@ test('should verify that props quitPopin is not undefined when popin is displaye
         sli_N1XACJobn: null
       },
       token: '1234',
+      lambdaReviewURL: 'http://localhost:7006',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN}
     },
