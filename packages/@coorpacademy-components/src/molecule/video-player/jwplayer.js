@@ -1,16 +1,30 @@
 import React from 'react';
-import ReactJWPlayer from 'react-jw-player';
+import Player from '@jwplayer/jwplayer-react';
 import {get, includes, isFunction, keys} from 'lodash/fp';
 import style from './jwplayer.css';
 import {JWPlayerPropTypes} from './prop-types';
+
+const fileAndTracks = ({file, customProps, playlist} = {}) => {
+  if (file)
+    return {
+      file,
+      tracks: customProps ? customProps.tracks : null
+    };
+  if (playlist && playlist[0]) return playlist[0];
+
+  return {
+    file: null,
+    tracks: null
+  };
+};
 
 class JWPlayer extends React.Component {
   static propTypes = JWPlayerPropTypes;
 
   constructor(props, context) {
     super(props, context);
+
     this.state = {
-      fileUrl: '',
       scriptFailedLoading: false
     };
 
@@ -26,10 +40,8 @@ class JWPlayer extends React.Component {
     this.handleWarning = this.handleWarning.bind(this);
   }
 
-  componentDidMount() {
-    const jwPlayerScript = document.getElementById('jw-player-script');
-    jwPlayerScript.onerror = () => this.handleScriptError(jwPlayerScript);
-    this.setFileUrl();
+  static getDerivedStateFromProps(props) {
+    return fileAndTracks(props.jwpOptions);
   }
 
   componentDidUpdate(prevProps) {
@@ -44,17 +56,6 @@ class JWPlayer extends React.Component {
         window.jwplayer(prevProps.jwpOptions.playerId).play();
       }
     }
-    const {jwpOptions} = this.props;
-    if (prevProps.jwpOptions.file !== jwpOptions.file) {
-      this.setFileUrl();
-    }
-  }
-
-  setFileUrl() {
-    const {jwpOptions} = this.props;
-    const {file} = jwpOptions;
-
-    return this.setState({fileUrl: file});
   }
 
   handlePlay(e) {
@@ -125,7 +126,7 @@ class JWPlayer extends React.Component {
       if (matched) {
         const videoId = matched[1];
         return this.setState({
-          fileUrl: `https://content.jwplatform.com/videos/${videoId}-1080.mp4`
+          file: `https://content.jwplatform.com/videos/${videoId}-1080.mp4`
         });
       }
     }
@@ -133,11 +134,12 @@ class JWPlayer extends React.Component {
 
   render() {
     const {jwpOptions, disableAutostart, scriptErrorMessage} = this.props;
-    const {scriptFailedLoading, fileUrl} = this.state;
+    const {scriptFailedLoading, file, tracks} = this.state;
     const _jwpOptions = {
       ...jwpOptions,
       customProps: {
         ...get('customProps', jwpOptions),
+        key: jwpOptions.licenseKey,
         autostart: !disableAutostart && get('customProps.autostart', jwpOptions)
       }
     };
@@ -145,9 +147,14 @@ class JWPlayer extends React.Component {
     return (
       <>
         {scriptFailedLoading ? <p className={style.errorMessage}>{scriptErrorMessage} </p> : null}
-        <ReactJWPlayer
-          {..._jwpOptions}
+        <Player
+          key={file}
           className={style.wrapper}
+          id={_jwpOptions.playerId}
+          file={file}
+          tracks={tracks}
+          library={_jwpOptions.playerScript}
+          config={_jwpOptions.customProps}
           onAutoStart={this.handlePlay}
           onPlay={this.handlePlay}
           onResume={this.handleResume}
@@ -158,7 +165,6 @@ class JWPlayer extends React.Component {
           onPlayAttemptFailed={this.handlePlayAttemptFailed}
           onWarning={this.handleWarning}
           onAutostartNotAllowed={this.handleAutostartNotAllowed}
-          file={fileUrl}
         />
       </>
     );
