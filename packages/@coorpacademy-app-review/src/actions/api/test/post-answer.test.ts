@@ -2,6 +2,7 @@ import test from 'ava';
 import {AnyAction} from 'redux';
 import {createTestStore} from '../../test/create-test-store';
 import {
+  fetchSlidesToReviewBySkillRefResponse,
   getChoicesCorrection,
   postAnswerResponses,
   services
@@ -25,6 +26,10 @@ import {
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
 } from '../fetch-rank';
+import {
+  SLIDES_TO_REVIEW_FETCH_REQUEST,
+  SLIDES_TO_REVIEW_FETCH_SUCCESS
+} from '../fetch-slides-to-review-by-skill-ref';
 
 const progressionId = '123456789123';
 const skillRef = '_skill-ref';
@@ -126,8 +131,8 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   });
 });
 
-test('should dispatch post-answer, fetch-correction and fetch-end-rank actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
-  t.plan(7);
+test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-slides-to-review-by-skill-ref actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
+  t.plan(9);
 
   const stateBeforeExitNode: StoreState = {
     data: {
@@ -199,6 +204,11 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
     {
       type: RANK_FETCH_END_SUCCESS,
       payload: {rank: 93}
+    },
+    {type: SLIDES_TO_REVIEW_FETCH_REQUEST},
+    {
+      type: SLIDES_TO_REVIEW_FETCH_SUCCESS,
+      payload: fetchSlidesToReviewBySkillRefResponse
     }
   ];
 
