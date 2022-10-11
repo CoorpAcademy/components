@@ -27,7 +27,8 @@ const ConnectedApp = ({onQuitClick}: {onQuitClick: Function}): JSX.Element => {
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
     ),
     slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, onQuitClick)),
-    skills: useSelector((state: StoreState) => mapStateToSkillsProps(state))
+    skills: useSelector((state: StoreState) => mapStateToSkillsProps(state)),
+    onboarding: {}
   };
   return <AppReviewTemplate {...props} />;
 };
