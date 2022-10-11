@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "",
   "engines": {
     "node": ">=16.15.0"
@@ -42,7 +42,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@coorpacademy/components": "10.24.3",
+    "@coorpacademy/components": "10.24.4",
     "@coorpacademy/redux-task": "1.1.6",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
@@ -55,9 +55,9 @@
     "react": "^17.0.2"
   },
   "devDependencies": {
-    "@coorpacademy/css-modules-require-hook": "2.1.5",
+    "@coorpacademy/css-modules-require-hook": "3.0.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^11.0.0",
-    "@coorpacademy/webpack-config": "11.0.0",
+    "@coorpacademy/webpack-config": "12.0.0",
     "@testing-library/react": "^12.1.5",
     "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
