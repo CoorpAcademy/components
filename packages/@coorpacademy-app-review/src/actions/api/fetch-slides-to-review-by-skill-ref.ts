@@ -13,24 +13,24 @@ export type ReceivedSlidesToReviewBySkillRef = {
   payload: SlideIdFromAPI[];
 };
 
-export const fetchSlidesToReviewBySkillRef =
-  (url: string, skillRef: string) =>
-  (
-    dispatch: Dispatch,
-    getState: () => StoreState,
-    {services}: Options
-  ): ReceivedSlidesToReviewBySkillRef => {
-    const action = buildTask({
-      types: [
-        SLIDES_TO_REVIEW_FETCH_REQUEST,
-        SLIDES_TO_REVIEW_FETCH_SUCCESS,
-        SLIDES_TO_REVIEW_FETCH_FAILURE
-      ],
-      task: () => {
-        const state = getState();
-        const token = get(['data', 'token'], state);
-        return services.fetchSlidesToReviewBySkillRef(url, token, skillRef);
-      }
-    });
-    return dispatch(action);
-  };
+export const fetchSlidesToReviewBySkillRef = (
+  dispatch: Dispatch,
+  getState: () => StoreState,
+  {services}: Options
+): ReceivedSlidesToReviewBySkillRef => {
+  const action = buildTask({
+    types: [
+      SLIDES_TO_REVIEW_FETCH_REQUEST,
+      SLIDES_TO_REVIEW_FETCH_SUCCESS,
+      SLIDES_TO_REVIEW_FETCH_FAILURE
+    ],
+    task: () => {
+      const state = getState();
+      const lambdaReviewURL = get(['data', 'lambdaReviewURL'], state);
+      const token = get(['data', 'token'], state);
+      const skillRef = get(['data', 'progression', 'content', 'ref'], state);
+      return services.fetchSlidesToReviewBySkillRef(lambdaReviewURL, token, skillRef);
+    }
+  });
+  return dispatch(action);
+};
