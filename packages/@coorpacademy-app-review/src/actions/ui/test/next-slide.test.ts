@@ -25,6 +25,7 @@ const state: StoreState = {
     },
     skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
+    lambdaReviewURL: 'http://localhost:7006',
     corrections: {[freeTextSlide.universalRef]: getChoicesCorrection(freeTextSlide.universalRef)},
     rank: {start: 93, end: Number.NaN}
   },

@@ -10,6 +10,7 @@ const initialState: StoreState = {
     slides: {},
     skills: [],
     token: '1234',
+    lambdaReviewURL: 'http://localhost:7006',
     corrections: {},
     rank: {start: Number.NaN, end: Number.NaN}
   },
