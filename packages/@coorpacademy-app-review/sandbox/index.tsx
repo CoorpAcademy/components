@@ -62,15 +62,13 @@ const createSandbox = (options: SandboxOptions): void => {
     };
 
     render(
-      <WebContext skin={skin}>
+      <WebContext skin={skin} translate={translate}>
         <AppReview options={appOptions} />
       </WebContext>,
       container
     );
   }
 };
-
-// -----------------------------------------------------------------------------
 
 if (window && !window.createSandbox) {
   window.createSandbox = createSandbox;
