@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 
-import ReviewCongratsPropTypes from '../../../organism/review-congrats/prop-types';
+import {Props as QuitPopinProps} from '../../../molecule/cm-popin/types';
+import ReviewCongratsPropTypes, {
+  Props as CongratsProps
+} from '../../../organism/review-congrats/prop-types';
+
 import ReviewBackgroundPropTypes from '../../../atom/review-background/prop-types';
 import ReviewHeaderPropTypes, {Props as HeaderProps} from '../../../organism/review-header/types';
 import CmPopin from '../../../molecule/cm-popin';
@@ -21,7 +25,7 @@ export default propTypes;
 export type Props = {
   header: HeaderProps;
   stack: StackProps;
-  reviewBackgroundAriaLabel: string;
-  congrats?: PropTypes.InferProps<typeof ReviewCongratsPropTypes>;
-  quitPopin?: PropTypes.InferProps<typeof CmPopin.propTypes>;
+  reviewBackgroundAriaLabel?: string;
+  congrats?: CongratsProps;
+  quitPopin?: QuitPopinProps;
 };

@@ -1,5 +1,20 @@
 import PropTypes from 'prop-types';
-import AtomLottieWrapperPropTypes from '../../atom/lottie-wrapper/prop-types';
+import AtomLottieWrapperPropTypes, {
+  Props as LottieAnimationProps
+} from '../../atom/lottie-wrapper/prop-types';
+
+export type Props = {
+  'aria-label': string;
+  'data-name': string;
+  animationLottie: LottieAnimationProps;
+  iconAriaLabel: string;
+  className?: string;
+  cardType: string;
+  reviewCardTitle: string;
+  reviewCardValue: string;
+  rankSuffix?: string;
+  timerAnimation: number;
+};
 
 export default {
   'aria-label': PropTypes.string,

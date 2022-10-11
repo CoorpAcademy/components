@@ -20,7 +20,7 @@ const propTypes = {
 };
 
 export type Props = {
-  klf: {
+  klf?: {
     label: string;
     tooltip: string;
   };

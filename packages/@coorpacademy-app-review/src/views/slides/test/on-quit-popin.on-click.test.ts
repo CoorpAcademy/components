@@ -1,10 +1,11 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
+import {Props as QuitPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
 import {incorrectFreeTextPostAnswerResponse, services} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
-import {mapStateToSlidesProps, QuitPopinProps} from '..';
+import {mapStateToSlidesProps} from '..';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
@@ -47,7 +48,7 @@ test('should dispatch CLOSE_POPIN action via the property handleOnclick of secon
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   const quitPopin = props.quitPopin as QuitPopinProps;
-  await quitPopin.secondButton.handleOnclick();
+  await quitPopin.secondButton.handleOnClick();
   const updatedState = getState();
   t.is(updatedState.ui.showQuitPopin, false);
   t.pass();
@@ -60,6 +61,6 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, () => t.pass());
   const quitPopin = props.quitPopin as QuitPopinProps;
-  await quitPopin.firstButton.handleOnclick();
+  await quitPopin.firstButton.handleOnClick();
   t.pass();
 });

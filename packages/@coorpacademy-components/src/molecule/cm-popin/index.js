@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
@@ -11,6 +10,7 @@ import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
+import propTypes from './types';
 
 const CMPopin = props => {
   const {
@@ -184,41 +184,6 @@ const CMPopin = props => {
   );
 };
 
-CMPopin.propTypes = {
-  content: PropTypes.string,
-  mode: PropTypes.oneOf(['alert', 'information', 'cookie']),
-  header: PropTypes.string,
-  firstButton: PropTypes.shape({
-    label: PropTypes.string,
-    handleOnclick: PropTypes.func,
-    'aria-label': PropTypes.string,
-    largeButton: PropTypes.bool,
-    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary', 'tertiary']),
-    customStyle: Cta.propTypes.customStyle
-  }),
-  secondButton: PropTypes.shape({
-    label: PropTypes.string,
-    handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
-    'aria-label': PropTypes.string,
-    largeButton: PropTypes.bool,
-    customStyle: Cta.propTypes.customStyle
-  }),
-  thirdButton: PropTypes.shape({
-    label: PropTypes.string,
-    handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
-    'aria-label': PropTypes.string,
-    largeButton: PropTypes.bool,
-    customStyle: Cta.propTypes.customStyle
-  }),
-  onClose: PropTypes.func,
-  icon: PropTypes.string,
-  backgroundImageUrl: PropTypes.string,
-  descriptionText: PropTypes.string,
-  cookieTitle: PropTypes.string,
-  descriptionBtnTxt: PropTypes.string,
-  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
-};
+CMPopin.propTypes = propTypes;
 
 export default CMPopin;

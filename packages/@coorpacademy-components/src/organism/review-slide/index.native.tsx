@@ -203,21 +203,23 @@ const Slide = (props: Props) => {
         // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
         <Text>@todo loader {num}</Text>
       ) : (
-        [
+        <>
           <Question
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
             key="question-container"
-          />,
-          <CorrectionPopin
-            correctionPopinProps={correctionPopinProps}
-            slideIndex={slideIndex}
-            showCorrectionPopin={showCorrectionPopin}
-            animateCorrectionPopin={animateCorrectionPopin}
-            key="correction-popin"
           />
-        ]
+          {correctionPopinProps ? (
+            <CorrectionPopin
+              correctionPopinProps={correctionPopinProps}
+              slideIndex={slideIndex}
+              showCorrectionPopin={showCorrectionPopin}
+              animateCorrectionPopin={animateCorrectionPopin}
+              key="correction-popin"
+            />
+          ) : null}
+        </>
       )}
     </View>
   );

@@ -9,7 +9,7 @@ type SkillCard = {
   reviseLabel: string;
   reviseAriaLabel: string;
   isCustom: boolean;
-  onClick: Function;
+  onClick: () => void;
 };
 
 type NoSkillsProps = {

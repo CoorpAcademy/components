@@ -57,10 +57,10 @@ export type Props = {
   slideIndex: string;
   num: number;
   slide: SlideProps;
-  correctionPopinProps: CorrectionPopinProps;
+  correctionPopinProps?: CorrectionPopinProps;
   validateButton: {
     label: string;
-    onClick: (args: unknown[]) => unknown;
+    onClick: () => void;
     disabled: boolean;
   };
 };

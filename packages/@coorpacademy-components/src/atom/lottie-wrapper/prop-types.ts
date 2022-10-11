@@ -1,6 +1,24 @@
 import keys from 'lodash/fp/keys';
 import PropTypes from 'prop-types';
 
+export type Props = {
+  'aria-label': string;
+  'data-name'?: string;
+  animationSrc: string;
+  loop?: boolean;
+  rendererSettings?: {
+    hideOnTransparent?: boolean;
+    className?: string;
+  };
+  height?: number;
+  width?: number;
+  className?: string;
+  ie11ImageBackup: string;
+  backupImageClassName?: string;
+  autoplay?: boolean;
+  animationControl?: 'play' | 'pause' | 'stop' | 'loading';
+};
+
 export const ANIMATION_CONTROL = {
   play: 'play',
   pause: 'pause',
@@ -8,7 +26,7 @@ export const ANIMATION_CONTROL = {
   loading: 'loading'
 };
 
-export default {
+const propTypes = {
   'aria-label': PropTypes.string.isRequired,
   'data-name': PropTypes.string,
   animationSrc: PropTypes.string.isRequired,
@@ -25,3 +43,5 @@ export default {
   autoplay: PropTypes.bool,
   animationControl: PropTypes.oneOf(keys(ANIMATION_CONTROL))
 };
+
+export default propTypes;

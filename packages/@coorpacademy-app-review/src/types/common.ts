@@ -177,17 +177,18 @@ export type Services = {
   ): Promise<SlideIdFromAPI[]>;
 };
 
-export type ThunkOptions = {
-  callbackOnViewChanged?: (viewName: ViewName) => void;
-  services: Services;
-};
-
-export type AppOptions = ThunkOptions & {
+export type AppOptions = {
   token: string;
   skillRef?: string;
-  onQuitClick: () => void;
   services: Services;
+  onQuitClick: () => void;
   url: string;
+  callbackOnViewChanged?: (viewName: ViewName) => void;
+};
+
+export type ThunkOptions = {
+  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+  services: Services;
 };
 
 export type JWT = {

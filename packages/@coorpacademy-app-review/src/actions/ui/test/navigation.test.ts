@@ -24,7 +24,7 @@ const initialState: StoreState = {
   }
 };
 
-test('should dispatch NAVIGATE_TO', t => {
+test('should dispatch NAVIGATE_TO', async t => {
   const expectedActions = [
     {
       type: '@@navigation/NAVIGATE_TO',
@@ -33,7 +33,7 @@ test('should dispatch NAVIGATE_TO', t => {
   ];
 
   const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
-  dispatch(navigateTo('slides'));
+  await dispatch(navigateTo('slides'));
 });
 
 test('should dispatch NAVIGATE_BACK', t => {

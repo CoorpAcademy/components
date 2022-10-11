@@ -1,6 +1,10 @@
 import test from 'ava';
 import reducer from '../navigation';
-import {NavigateToAction, NAVIGATE_BACK, NAVIGATE_TO} from '../../../actions/ui/navigation';
+import {
+  NavigateToAction,
+  NAVIGATE_BACK,
+  NAVIGATE_TO
+} from '../../../actions/ui/navigation.definitions';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as NavigateToAction);

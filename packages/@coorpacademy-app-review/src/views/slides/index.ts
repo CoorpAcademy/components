@@ -7,9 +7,16 @@ import set from 'lodash/fp/set';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
+import {Props as CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {Props as CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
+import {Props as QuitPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
+import {Props as LottieAnimationProps} from '@coorpacademy/components/es/atom/lottie-wrapper/prop-types';
+import {Props as PlayerProps} from '@coorpacademy/components/es/template/app-review/player/prop-types';
+import {Props as CorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
+import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import type {ProgressionAnswerItem, ProgressionFromAPI, SlideContent} from '../../types/common';
-import {getProgressionSlidesRefs, type SlideIndexes} from '../../common';
+import {getProgressionSlidesRefs} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
@@ -44,128 +51,7 @@ export type ReviewSlide = {
   animationType?: SlideUIAnimations;
 };
 
-type SlidesStack = {
-  [key in SlideIndexes]: ReviewSlide;
-};
-
-type CorrectionPopinInformation = {
-  label: string;
-  message: string;
-};
-
-type CorrectionPopinKlf = {
-  label: string;
-  tooltip: string;
-};
-
-type CorrectionPopinNext = {
-  label: string;
-  ariaLabel: string;
-  onClick: Function;
-};
-
-type QuitPopinButton = {
-  label: string;
-  type: string;
-  customStyle?: {
-    color: string;
-  };
-  handleOnclick: Function;
-  ariaLabel: string;
-};
-
-export type CorrectionPopinProps = {
-  klf?: CorrectionPopinKlf;
-  information: CorrectionPopinInformation;
-  next: CorrectionPopinNext;
-  resultLabel: string;
-  type: 'right' | 'wrong';
-};
-
-export type QuitPopinProps = {
-  content: string;
-  icon: string;
-  mode: string;
-  descriptionText: string;
-  firstButton: QuitPopinButton;
-  secondButton: QuitPopinButton;
-};
-
-export type SlidesViewProps = {
-  header: {
-    mode: string;
-    skillName: string;
-    onQuitClick: Function;
-    'aria-label'?: string;
-    closeButtonAriaLabel: string;
-    steps: StepItem[];
-  };
-  stack: {
-    slides: SlidesStack;
-    validateButton: {
-      label: string;
-      disabled: boolean;
-      onClick: Function;
-    };
-    correctionPopinProps?: CorrectionPopinProps;
-    endReview: boolean;
-  };
-  reviewBackgroundAriaLabel?: string;
-  congrats?: CongratsProps;
-  quitPopin?: QuitPopinProps;
-};
-
-type LottieAnimationProps = {
-  'aria-label': string;
-  'data-name'?: string;
-  animationSrc: string;
-  loop?: boolean;
-  rendererSettings?: {
-    hideOnTransparent?: boolean;
-    className?: string;
-  };
-  height?: number;
-  width?: number;
-  className?: number;
-  ie11ImageBackup: string;
-  backupImageClassName?: string;
-  autoplay?: boolean;
-  animationControl?: 'play' | 'pause' | 'stop' | 'loading';
-};
-
-export type CongratsCardProps = {
-  'aria-label': string;
-  'data-name': string;
-  animationLottie: LottieAnimationProps;
-  iconAriaLabel: string;
-  className?: string;
-  cardType: string;
-  reviewCardTitle: string;
-  reviewCardValue: string;
-  rankSuffix?: string;
-  timerAnimation: number;
-};
-
-export type CongratsProps = {
-  'aria-label': string;
-  'data-name': 'review-congrats';
-  animationLottie: LottieAnimationProps;
-  title: string;
-  cardCongratsStar: CongratsCardProps;
-  cardCongratsRank?: CongratsCardProps;
-  buttonRevising?: {
-    'aria-label': string;
-    label: string;
-    onClick: Function;
-    type: string;
-  };
-  buttonRevisingSkill?: {
-    label: string;
-    'aria-label': string;
-    onClick: Function;
-    type: string;
-  };
-};
+type SlidesStack = {[key: string]: SlideProps};
 
 const confettiAnimation: LottieAnimationProps = {
   'aria-label': 'aria lottie',
@@ -360,7 +246,7 @@ const getCorrectionPopinProps =
         message: isCorrect ? klf : join(',', correctAnswer)
       },
       next: {
-        ariaLabel: '_correctionNextAriaLabel',
+        'aria-label': '_correctionNextAriaLabel',
         label: '_correctionNextLabel',
         onClick: (): void => {
           dispatch(nextSlide);
@@ -372,7 +258,7 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: Function): QuitPopinProps => {
+  (onQuitClick: () => void): QuitPopinProps => {
     return {
       content: `Tu t'en vas déjà ?`,
       icon: `MoonRocket`,
@@ -384,16 +270,16 @@ const buildQuitPopinProps =
         customStyle: {
           color: '#ED3436'
         },
-        handleOnclick: onQuitClick,
-        ariaLabel: 'Stop session'
+        handleOnClick: onQuitClick,
+        'aria-label': 'Stop session'
       },
       secondButton: {
         label: `Continuer d'apprendre`,
         type: 'primary',
-        handleOnclick: (): void => {
+        handleOnClick: (): void => {
           dispatch(closeQuitPopin);
         },
-        ariaLabel: 'Continue review'
+        'aria-label': 'Continue review'
       }
     };
   };
@@ -474,8 +360,8 @@ const isEndOfProgression = (progression: ProgressionState): boolean => {
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
-  onQuitClick: Function
-): SlidesViewProps => {
+  onQuitClick: () => void
+): PlayerProps => {
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
@@ -489,7 +375,8 @@ export const mapStateToSlidesProps = (
       onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
-      steps: buildStepItems(state)
+      steps: buildStepItems(state),
+      hiddenSteps: false
     },
     stack: {
       slides: buildStackSlides(state, dispatch),

@@ -1,4 +1,11 @@
-export default {
+import {noop} from 'lodash/fp';
+import {Props} from '../../types';
+
+type Fixture = {
+  props: Props;
+};
+
+const fixture: Fixture = {
   props: {
     content: 'Tu nous quittes déjà?',
     icon: 'MoonRocket',
@@ -11,13 +18,15 @@ export default {
         color: '#ED3436'
       },
       'aria-label': 'Stop session',
-      handleOnClick: () => {}
+      handleOnClick: noop
     },
     secondButton: {
       label: `Continuer d'apprendre`,
       type: 'primary',
       'aria-label': 'Continue review',
-      handleOnClick: () => {}
+      handleOnClick: noop
     }
   }
 };
+
+export default fixture;
