@@ -3,7 +3,7 @@ import AtomLottieWrapperPropTypes, {
   LottieAnimationProps
 } from '../../atom/lottie-wrapper/prop-types';
 
-export type Props = {
+export type CongratsCardProps = {
   'aria-label': string;
   'data-name': string;
   animationLottie: LottieAnimationProps;

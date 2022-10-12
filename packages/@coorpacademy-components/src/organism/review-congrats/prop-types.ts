@@ -3,7 +3,7 @@ import AtomLottieWrapperPropTypes, {
   LottieAnimationProps
 } from '../../atom/lottie-wrapper/prop-types';
 import MoleculeReviewCardCongratsPropTypes, {
-  Props as CongratsCardProps
+  CongratsCardProps
 } from '../../molecule/review-card-congrats/prop-types';
 
 const propTypes = {
