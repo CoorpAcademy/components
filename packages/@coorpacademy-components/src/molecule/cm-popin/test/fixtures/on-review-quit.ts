@@ -18,13 +18,13 @@ const fixture: Fixture = {
         color: '#ED3436'
       },
       'aria-label': 'Stop session',
-      handleOnClick: noop
+      handleOnclick: noop
     },
     secondButton: {
       label: `Continuer d'apprendre`,
       type: 'primary',
       'aria-label': 'Continue review',
-      handleOnClick: noop
+      handleOnclick: noop
     }
   }
 };

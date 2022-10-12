@@ -48,7 +48,7 @@ test('should dispatch CLOSE_POPIN action via the property handleOnclick of secon
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   const quitPopin = props.quitPopin as QuitPopinProps;
-  await quitPopin.secondButton.handleOnClick();
+  await quitPopin.secondButton.handleOnclick();
   const updatedState = getState();
   t.is(updatedState.ui.showQuitPopin, false);
   t.pass();
@@ -61,6 +61,6 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, () => t.pass());
   const quitPopin = props.quitPopin as QuitPopinProps;
-  await quitPopin.firstButton.handleOnClick();
+  await quitPopin.firstButton.handleOnclick();
   t.pass();
 });

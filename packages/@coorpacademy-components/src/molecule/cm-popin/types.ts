@@ -46,7 +46,7 @@ type QuitPopinButton = {
   customStyle?: {
     color: string;
   };
-  handleOnClick: () => void;
+  handleOnclick: () => void;
 };
 
 export type Props = {

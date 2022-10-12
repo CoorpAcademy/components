@@ -270,13 +270,13 @@ const buildQuitPopinProps =
         customStyle: {
           color: '#ED3436'
         },
-        handleOnClick: onQuitClick,
+        handleOnclick: onQuitClick,
         'aria-label': 'Stop session'
       },
       secondButton: {
         label: `Continuer d'apprendre`,
         type: 'primary',
-        handleOnClick: (): void => {
+        handleOnclick: (): void => {
           dispatch(closeQuitPopin);
         },
         'aria-label': 'Continue review'
