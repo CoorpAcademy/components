@@ -1,7 +1,7 @@
-import {Props} from '../../prop-types';
+import {ReviewHeaderStepsProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: ReviewHeaderStepsProps;
 };
 
 const fixture: Fixture = {
