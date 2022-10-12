@@ -5,6 +5,7 @@ import {NovaLineSelectionCursorsCursorArrowTarget as TargetIcon} from '@coorpaca
 import {useTemplateContext} from '../template-context';
 import {Theme} from '../../../variables/theme.native';
 import {HEADER_HEIGHT} from '../../../organism/header-v2/index.native';
+import Touchable from '../../../hoc/touchable/index.native';
 import {OnboardingProps, TipProps} from './prop-types';
 
 type StyleSheetType = {
@@ -15,6 +16,7 @@ type StyleSheetType = {
   tipText: TextStyle;
   icon: ViewStyle;
   button: ViewStyle;
+  buttonText: TextStyle;
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
@@ -62,6 +64,11 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       borderRadius: 7,
       marginBottom: theme.spacing.large,
       marginTop: theme.spacing.large
+    },
+    buttonText: {
+      fontWeight: theme.fontWeight.bold,
+      fontSize: theme.fontSize.large,
+      color: theme.colors.text.secondary
     }
   });
 
@@ -92,7 +99,7 @@ const Onboarding = (props: OnboardingProps) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme, translations} = templateContext;
-  const {title} = props;
+  const {onPress} = props;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -107,7 +114,6 @@ const Onboarding = (props: OnboardingProps) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text style={styleSheet.title}>{title}</Text>
       <Text style={styleSheet.title}>{translations.appReview?.onboarding?.title}</Text>
       <Text style={styleSheet.text}>{translations.appReview?.onboarding?.intro1}</Text>
       <Text style={styleSheet.text}>{translations.appReview?.onboarding?.intro2}</Text>
@@ -116,13 +122,14 @@ const Onboarding = (props: OnboardingProps) => {
       <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip2} />
       <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip3} />
       <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip4} />
-      {/* <Button
-        style={styleSheet.button}
-        onPress={onButtonPress}
+      <Touchable
         testID={`button-quit-revision-onboarding`}
+        onPress={onPress}
+        analyticsID="button-start"
+        style={styleSheet.button}
       >
-        {styleSheet.revision.onboarding.validate}
-  </Button>*/}
+        <Text style={styleSheet.buttonText}>{translations.appReview?.onboarding?.button}</Text>
+      </Touchable>
     </View>
   );
 };

@@ -15,6 +15,7 @@ export type Translations = {
       tip2?: string;
       tip3?: string;
       tip4?: string;
+      button?: string;
     };
   };
 };

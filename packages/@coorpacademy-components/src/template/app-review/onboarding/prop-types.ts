@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import {GestureResponderEvent} from 'react-native';
 
 export const OnboardingPropsTypes = {
-  title: PropTypes.string
+  onPress: PropTypes.func
 };
 
 export const TipPropsTypes = {
@@ -9,9 +10,7 @@ export const TipPropsTypes = {
   Icon: PropTypes.any
 };
 
-export type OnboardingProps = {
-  title: string;
-};
+export type OnboardingProps = {onPress: (event: GestureResponderEvent) => any};
 
 export type TipProps = {
   text: string | undefined;
