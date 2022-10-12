@@ -1,9 +1,9 @@
 import animationLottie from '../../../../atom/lottie-wrapper/test/fixtures/confetti';
 import moleculeReviewCardStar from '../../../../molecule/review-card-congrats/test/fixtures/star';
 import moleculeReviewCardRank from '../../../../molecule/review-card-congrats/test/fixtures/rank';
-import {Props} from '../../prop-types';
+import {CongratsProps} from '../../prop-types';
 
-export const defaultProps: Props = {
+export const defaultProps: CongratsProps = {
   'aria-label': 'Review Congratulations',
   'data-name': 'review-congrats',
   animationLottie: {...animationLottie.props, height: undefined, width: undefined},

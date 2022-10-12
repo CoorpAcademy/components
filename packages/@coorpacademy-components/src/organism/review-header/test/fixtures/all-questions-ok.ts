@@ -1,8 +1,8 @@
 import stepsProps from '../../../../molecule/review-header-steps/test/fixtures/all-questions-ok';
-import {Props} from '../../types';
+import {HeaderProps} from '../../types';
 
 type Fixture = {
-  props: Props;
+  props: HeaderProps;
 };
 
 export const defaultHeaderProps = {

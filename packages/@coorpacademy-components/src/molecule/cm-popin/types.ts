@@ -49,7 +49,7 @@ type QuitPopinButton = {
   handleOnclick: () => void;
 };
 
-export type Props = {
+export type CMPopinProps = {
   content: string;
   icon: string;
   mode: string;

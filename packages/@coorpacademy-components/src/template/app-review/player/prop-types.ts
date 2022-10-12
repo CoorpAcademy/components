@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 
-import {Props as QuitPopinProps} from '../../../molecule/cm-popin/types';
-import ReviewCongratsPropTypes, {
-  Props as CongratsProps
-} from '../../../organism/review-congrats/prop-types';
+import {CMPopinProps} from '../../../molecule/cm-popin/types';
+import ReviewCongratsPropTypes, {CongratsProps} from '../../../organism/review-congrats/prop-types';
 
 import ReviewBackgroundPropTypes from '../../../atom/review-background/prop-types';
-import ReviewHeaderPropTypes, {Props as HeaderProps} from '../../../organism/review-header/types';
+import ReviewHeaderPropTypes, {HeaderProps} from '../../../organism/review-header/types';
 import CmPopin from '../../../molecule/cm-popin';
 import StackedSlidesPropTypes, {
   Props as StackProps
@@ -27,5 +25,5 @@ export type Props = {
   stack: StackProps;
   reviewBackgroundAriaLabel?: string;
   congrats?: CongratsProps;
-  quitPopin?: QuitPopinProps;
+  quitPopin?: CMPopinProps;
 };
