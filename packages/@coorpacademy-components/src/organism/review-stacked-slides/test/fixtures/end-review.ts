@@ -1,9 +1,9 @@
 import cloneDeep from 'lodash/fp/cloneDeep';
-import {Props} from '../../prop-types';
+import {ReviewStackProps} from '../../prop-types';
 import AllOkFixture from './all-ok';
 
 type Fixture = {
-  props: Props;
+  props: ReviewStackProps;
 };
 
 const EndReviewFixture: Fixture = cloneDeep(AllOkFixture);

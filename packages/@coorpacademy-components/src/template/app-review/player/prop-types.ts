@@ -7,7 +7,7 @@ import ReviewBackgroundPropTypes from '../../../atom/review-background/prop-type
 import ReviewHeaderPropTypes, {HeaderProps} from '../../../organism/review-header/types';
 import CmPopin from '../../../molecule/cm-popin';
 import StackedSlidesPropTypes, {
-  Props as StackProps
+  ReviewStackProps
 } from '../../../organism/review-stacked-slides/prop-types';
 
 const propTypes = {
@@ -22,7 +22,7 @@ export default propTypes;
 
 export type ReviewPlayerProps = {
   header: HeaderProps;
-  stack: StackProps;
+  stack: ReviewStackProps;
   reviewBackgroundAriaLabel?: string;
   congrats?: CongratsProps;
   quitPopin?: CMPopinProps;
