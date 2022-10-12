@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import ReviewHeaderStepItemPropTypes, {
-  Props as StepProps
+  HeaderStepItemProps
 } from '../../atom/review-header-step-item/types';
 
 const propTypes = {
@@ -11,5 +11,5 @@ const propTypes = {
 export default propTypes;
 
 export type Props = {
-  steps: StepProps[];
+  steps: HeaderStepItemProps[];
 };

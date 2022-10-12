@@ -8,12 +8,12 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = {
+export type HeaderStepItemProps = {
   current: boolean;
   icon: 'no-answer' | 'right' | 'wrong';
   value: string;
 };
 
 export type Fixture = {
-  props: Props;
+  props: HeaderStepItemProps;
 };
