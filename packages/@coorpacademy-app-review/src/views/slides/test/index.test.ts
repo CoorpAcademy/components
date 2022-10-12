@@ -4,9 +4,8 @@ import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 
-import {Props as PlayerProps} from '@coorpacademy/components/es/template/app-review/player/prop-types';
-import {Props as CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {Props as CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
+import {CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
 
 import {
   postProgressionResponse as createdProgression,
@@ -147,7 +146,7 @@ test('should create props when first slide is on the state', t => {
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -256,7 +255,7 @@ test('should create props when slide is on the state and user has selected answe
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -566,7 +565,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -699,7 +698,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -839,7 +838,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -973,7 +972,7 @@ test('should verify props when progression is in success, showing last correctio
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -1096,7 +1095,7 @@ test('should verify props showing congrats', t => {
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   const congrats = props.congrats as CongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
@@ -1228,7 +1227,7 @@ test('should verify props showing congrats, with only stars card, if user has no
     }
   };
 
-  const props: PlayerProps = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, identity);
   const congrats = props.congrats as CongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(

@@ -1,6 +1,6 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {Props as CorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
+import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 
 import type {StoreState} from '../../../reducers';
 import {
@@ -69,7 +69,7 @@ test('correction popin actions after click', async t => {
   ];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
-  const correctionPopin = props.stack.correctionPopinProps as CorrectionPopinProps;
+  const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
   const updatedState = getState();
@@ -168,7 +168,7 @@ test('correction popin actions after click when progression is finished', async 
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.is(props.congrats, undefined);
-  const correctionPopin = props.stack.correctionPopinProps as CorrectionPopinProps;
+  const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
   const updatedState = getState();

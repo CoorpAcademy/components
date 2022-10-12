@@ -7,12 +7,12 @@ import set from 'lodash/fp/set';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
-import {Props as CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {Props as CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
-import {Props as QuitPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
-import {Props as LottieAnimationProps} from '@coorpacademy/components/es/atom/lottie-wrapper/prop-types';
-import {Props as PlayerProps} from '@coorpacademy/components/es/template/app-review/player/prop-types';
-import {Props as CorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
+import {CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
+import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
+import {LottieAnimationProps} from '@coorpacademy/components/es/atom/lottie-wrapper/prop-types';
+import {ReviewPlayerProps} from '@coorpacademy/components/es/template/app-review/player/prop-types';
+import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import type {ProgressionAnswerItem, ProgressionFromAPI, SlideContent} from '../../types/common';
@@ -232,7 +232,7 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
 
 const getCorrectionPopinProps =
   (dispatch: Dispatch) =>
-  (isCorrect: boolean, correctAnswer: string[], klf: string): CorrectionPopinProps => {
+  (isCorrect: boolean, correctAnswer: string[], klf: string): ReviewCorrectionPopinProps => {
     return {
       klf: isCorrect
         ? undefined
@@ -258,7 +258,7 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: () => void): QuitPopinProps => {
+  (onQuitClick: () => void): CMPopinProps => {
     return {
       content: `Tu t'en vas déjà ?`,
       icon: `MoonRocket`,
@@ -361,7 +361,7 @@ export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
   onQuitClick: () => void
-): PlayerProps => {
+): ReviewPlayerProps => {
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
