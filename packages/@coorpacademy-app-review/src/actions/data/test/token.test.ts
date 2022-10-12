@@ -27,6 +27,6 @@ const initialState: StoreState = {
 test('should dispatch STORE_TOKEN action when storeToken is called', async t => {
   const expectedActions = [{type: STORE_TOKEN, payload: 'JWT.token'}];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
   await dispatch(storeToken('JWT.token'));
 });

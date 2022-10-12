@@ -18,7 +18,6 @@ import {
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
-import {FreeText} from '../../../types/slides';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
@@ -97,7 +96,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     {type: RANK_FETCH_START_REQUEST},
     {type: RANK_FETCH_START_SUCCESS, payload: {rank: 93}}
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
@@ -111,7 +110,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
 
-  const slideProps = props.stack.slides['0'].answerUI?.model as FreeText;
-  await slideProps.onChange('My Answer');
+  const slideProps = props.stack.slides['0'].answerUI?.model;
+  slideProps?.onChange && (await slideProps.onChange('My Answer'));
   await props.stack.validateButton.onClick();
 });

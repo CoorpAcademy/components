@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, ViewStyle} from 'react-native';
 import Step from '../../atom/review-header-step-item/index.native';
-import {Props} from './types';
+import {HeaderProps} from './types';
 
 type StyleSheetType = {
   header: ViewStyle;
@@ -18,7 +18,7 @@ const style: StyleSheetType = StyleSheet.create({
   }
 });
 
-const ReviewHeader = (props: Props) => {
+const ReviewHeader = (props: HeaderProps) => {
   const {steps} = props;
 
   return (

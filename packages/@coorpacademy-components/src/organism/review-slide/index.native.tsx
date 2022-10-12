@@ -9,10 +9,11 @@ import Answer from '../../molecule/answer/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {CorrectionPopinProps, Props, SlideProps} from './prop-types';
+import {ReviewCorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+import {ReviewSlideProps, SlideProps} from './prop-types';
 
 type PopinProps = {
-  correctionPopinProps: CorrectionPopinProps;
+  correctionPopinProps: ReviewCorrectionPopinProps;
   slideIndex: unknown;
   showCorrectionPopin: unknown;
   animateCorrectionPopin: unknown;
@@ -181,7 +182,7 @@ const createSlideStyle = (num: number, screenWidth: number, screenHeight: number
   });
 };
 
-const Slide = (props: Props) => {
+const Slide = (props: ReviewSlideProps) => {
   const {slide, validateButton, correctionPopinProps, num, slideIndex = '0'} = props;
 
   const {width, height} = useWindowDimensions();
@@ -202,21 +203,23 @@ const Slide = (props: Props) => {
         // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
         <Text>@todo loader {num}</Text>
       ) : (
-        [
+        <>
           <Question
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
             key="question-container"
-          />,
-          <CorrectionPopin
-            correctionPopinProps={correctionPopinProps}
-            slideIndex={slideIndex}
-            showCorrectionPopin={showCorrectionPopin}
-            animateCorrectionPopin={animateCorrectionPopin}
-            key="correction-popin"
           />
-        ]
+          {correctionPopinProps ? (
+            <CorrectionPopin
+              correctionPopinProps={correctionPopinProps}
+              slideIndex={slideIndex}
+              showCorrectionPopin={showCorrectionPopin}
+              animateCorrectionPopin={animateCorrectionPopin}
+              key="correction-popin"
+            />
+          ) : null}
+        </>
       )}
     </View>
   );

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import ReviewCorrectionPopinPropTypes from '../../molecule/review-correction-popin/prop-types';
-import AnswerPropTypes, {Props as AnswerProps} from '../../molecule/answer/prop-types';
+import ReviewCorrectionPopinPropTypes, {
+  ReviewCorrectionPopinProps
+} from '../../molecule/review-correction-popin/prop-types';
+import AnswerPropTypes, {AnswerProps} from '../../molecule/answer/prop-types';
 
 export const SlidePropsTypes = PropTypes.shape({
   position: PropTypes.number,
@@ -38,44 +40,27 @@ const propTypes = {
 
 export default propTypes;
 
-export type CorrectionPopinProps = {
-  klf: {
-    label: string;
-    tooltip: string;
-  };
-  information: {
-    label: string;
-    message: string;
-  };
-  next: {
-    label: string;
-    'aria-label': string;
-  };
-  resultLabel: string;
-  type: 'right' | 'wrong';
-};
-
 export type SlideProps = {
   position: number;
   loading: boolean;
-  loadingAriaLabel: string;
-  animationType: 'unstack' | 'restack';
-  isCorrect: boolean;
-  animateCorrectionPopin: boolean;
-  showCorrectionPopin: boolean;
-  parentContentTitle: string;
-  questionText: string;
-  answerUI: AnswerProps;
+  loadingAriaLabel?: string;
+  animationType?: 'unstack' | 'restack';
+  isCorrect?: boolean;
+  animateCorrectionPopin?: boolean;
+  showCorrectionPopin?: boolean;
+  parentContentTitle?: string;
+  questionText?: string;
+  answerUI?: AnswerProps;
 };
 
-export type Props = {
+export type ReviewSlideProps = {
   slideIndex: string;
   num: number;
   slide: SlideProps;
-  correctionPopinProps: CorrectionPopinProps;
+  correctionPopinProps?: ReviewCorrectionPopinProps;
   validateButton: {
     label: string;
-    onClick: (args: unknown[]) => unknown;
+    onClick: () => void;
     disabled: boolean;
   };
 };

@@ -69,7 +69,7 @@ type SelectOptions = {
   value: string;
 };
 
-type Answer = {
+export type Answer = {
   title?: string;
   'aria-label'?: string;
   onClick?: () => void;
@@ -77,11 +77,11 @@ type Answer = {
   selected?: boolean;
   image?: string;
   options?: SelectOptions[];
-  type: 'text' | 'select';
+  type?: 'text' | 'select';
   name?: string;
 };
 
-export type Props = {
+export type AnswerProps = {
   model: {
     type: 'qcmDrag' | 'qcm' | 'qcmGraphic' | 'freeText' | 'dropDown' | 'slider' | 'template';
     answers?: Answer[];
@@ -93,7 +93,24 @@ export type Props = {
     title?: string;
   };
   help: string;
-  media: any;
+  media?: {
+    type: 'img' | 'audio' | 'video';
+    url?: string;
+    mediaUrl?: string;
+    mimeType?: string;
+    poster?: string;
+    videoId?: string;
+    _id?: string;
+    description?: string;
+    subtitles?: string[];
+    posters?: string[];
+    src?: string[];
+    onClick?: () => void;
+    onPlay?: () => void;
+    onPause?: () => void;
+    onResume?: () => void;
+    onEnded?: () => void;
+  };
 };
 
 export default propTypes;

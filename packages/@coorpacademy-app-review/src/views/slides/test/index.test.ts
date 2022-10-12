@@ -3,6 +3,10 @@ import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
+
+import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
+
 import {
   postProgressionResponse as createdProgression,
   postAnswerResponses,
@@ -10,7 +14,7 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse
 } from '../../../test/util/services.mock';
-import {CongratsCardProps, CongratsProps, mapStateToSlidesProps} from '..';
+import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -55,6 +59,7 @@ test('should create initial props when fetched slide is not still received', t =
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
     skillName: '__agility',
+    hiddenSteps: false,
     steps: [
       {
         current: true,
@@ -146,6 +151,7 @@ test('should create props when first slide is on the state', t => {
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
+    hiddenSteps: false,
     mode: '__revision_mode',
     skillName: '__agility',
     steps: [
@@ -256,6 +262,7 @@ test('should create props when slide is on the state and user has selected answe
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
     skillName: '__agility',
+    hiddenSteps: false,
     steps: [
       {
         current: true,
@@ -369,6 +376,7 @@ test('should verify props when first slide was answered correctly and next slide
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
+    hiddenSteps: false,
     skillName: '__agility',
     steps: [
       {
@@ -486,6 +494,7 @@ test('should verify props when first slide was answered with error and next slid
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
+    hiddenSteps: false,
     mode: '__revision_mode',
     skillName: '__agility',
     steps: [
@@ -562,6 +571,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
+    hiddenSteps: false,
     skillName: '__agility',
     steps: [
       {
@@ -601,7 +611,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     },
     klf: undefined,
     next: {
-      ariaLabel: '_correctionNextAriaLabel',
+      'aria-label': '_correctionNextAriaLabel',
       label: '_correctionNextLabel'
     },
     type: 'right'
@@ -694,6 +704,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
+    hiddenSteps: false,
     skillName: '__agility',
     steps: [
       {
@@ -736,7 +747,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
         'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
     },
     next: {
-      ariaLabel: '_correctionNextAriaLabel',
+      'aria-label': '_correctionNextAriaLabel',
       label: '_correctionNextLabel'
     },
     type: 'wrong'
@@ -833,6 +844,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
+    hiddenSteps: false,
     skillName: '__agility',
     steps: [
       {
@@ -967,6 +979,7 @@ test('should verify props when progression is in success, showing last correctio
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
     skillName: '__agility',
+    hiddenSteps: false,
     steps: [
       {
         current: false,
@@ -1004,7 +1017,7 @@ test('should verify props when progression is in success, showing last correctio
     },
     klf: undefined,
     next: {
-      ariaLabel: '_correctionNextAriaLabel',
+      'aria-label': '_correctionNextAriaLabel',
       label: '_correctionNextLabel'
     },
     resultLabel: '_right',
@@ -1083,7 +1096,7 @@ test('should verify props showing congrats', t => {
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  const congrats = props.congrats as CongratsProps;
+  const congrats = props.congrats as ReviewCongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
@@ -1215,7 +1228,7 @@ test('should verify props showing congrats, with only stars card, if user has no
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  const congrats = props.congrats as CongratsProps;
+  const congrats = props.congrats as ReviewCongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
@@ -1330,6 +1343,7 @@ test('should verify props when progression has answered a current pendingSlide',
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
+    hiddenSteps: false,
     skillName: '__agility',
     steps: [
       {
@@ -1437,6 +1451,7 @@ test('should verify props when progression still has a pendingSlide', t => {
     closeButtonAriaLabel: 'aria-close-button',
     mode: '__revision_mode',
     skillName: '__agility',
+    hiddenSteps: false,
     steps: [
       {
         current: false,

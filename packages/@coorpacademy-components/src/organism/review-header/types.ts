@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import ReviewHeaderStepsPropTypes from '../../molecule/review-header-steps/prop-types';
-import {Props as StepProps} from '../../atom/review-header-step-item/types';
+import {HeaderStepItemProps} from '../../atom/review-header-step-item/types';
 
 const propTypes = {
   steps: ReviewHeaderStepsPropTypes.steps,
@@ -14,12 +14,12 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = {
-  steps: StepProps[];
+export type HeaderProps = {
+  steps: HeaderStepItemProps[];
   mode: string;
   skillName: string;
   'aria-label': string;
   closeButtonAriaLabel: string;
-  onQuitClick: Function;
+  onQuitClick: () => void;
   hiddenSteps: boolean;
 };

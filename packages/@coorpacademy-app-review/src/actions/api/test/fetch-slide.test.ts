@@ -53,7 +53,7 @@ test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlid
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide}
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(fetchSlide('sli_VJYjJnJhg'));
 });
@@ -79,7 +79,7 @@ test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(fetchSlide('slide_ref'));
 });

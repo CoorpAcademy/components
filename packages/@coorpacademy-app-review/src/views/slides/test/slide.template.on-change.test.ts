@@ -69,7 +69,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['', 'test', '']},
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['Catalogue', '', '']}
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, identity);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
@@ -98,7 +98,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   const {dispatch, getState} = createTestStore(
     t,
     set(['ui', 'answers', templateSlide._id], ['', 'Test', ''], initialState),
-    services,
+    {services},
     expectedActions
   );
 

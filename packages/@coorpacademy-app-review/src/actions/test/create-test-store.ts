@@ -2,8 +2,8 @@ import type {ExecutionContext} from 'ava';
 import constant from 'lodash/fp/constant';
 import {AnyAction, applyMiddleware, compose, createStore, Dispatch, Middleware, Store} from 'redux';
 import thunk from 'redux-thunk';
+import {ThunkOptions} from '../../types/common';
 import rootReducer, {StoreState} from '../../reducers';
-import {Services} from '../../types/common';
 
 const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Middleware =>
   constant((next: Dispatch) => (action: AnyAction): unknown => {
@@ -16,10 +16,10 @@ const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Mid
 export const createTestStore = (
   t: ExecutionContext,
   initialState: StoreState,
-  services: Services,
+  thunkOptions: ThunkOptions,
   actions: AnyAction[]
 ): Store<StoreState, AnyAction> => {
-  const thunkMiddleware = thunk.withExtraArgument({services});
+  const thunkMiddleware = thunk.withExtraArgument(thunkOptions);
   const enhancer = compose(applyMiddleware(thunkMiddleware, assertActionsMiddleware(t, actions)));
   return createStore(rootReducer, initialState, enhancer);
 };

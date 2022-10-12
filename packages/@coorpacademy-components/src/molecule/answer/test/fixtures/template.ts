@@ -2,14 +2,14 @@ import noop from 'lodash/fp/noop';
 import {TemplateContextValues} from '../../../../template/app-review/template-context';
 import Template from '../../../questions/template/test/fixtures/multiple';
 import mockMobileContext from '../../../../test/helpers/mock-mobile-context';
-import {Props} from '../../prop-types';
+import {AnswerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: AnswerProps;
   mobileContext?: TemplateContextValues;
 };
 
-const answers = Template.props.answers as Props['model']['answers'];
+const answers = Template.props.answers as AnswerProps['model']['answers'];
 const template = Template.props.template;
 
 const fixture: Fixture = {

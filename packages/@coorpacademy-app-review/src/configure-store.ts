@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import rootReducer, {StoreState} from './reducers';
 import {getServices} from './services';
 
-import {AppOptions} from './types/common';
+import {AppOptions, ThunkOptions} from './types/common';
 
 export default function configureStore(options: AppOptions): Store<StoreState, AnyAction> {
   const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -14,7 +14,13 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
       })
     : compose;
 
-  const thunkMiddleware = thunk.withExtraArgument({services: options.services || getServices()});
+  const thunkOptions: ThunkOptions = {
+    services: options.services || getServices(),
+    callbackOnViewChanged: options.callbackOnViewChanged
+  };
+
+  const thunkMiddleware = thunk.withExtraArgument(thunkOptions);
+
   const enhancer = _compose(applyMiddleware(thunkMiddleware));
   const store = createStore(rootReducer, undefined, enhancer);
 

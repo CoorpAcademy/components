@@ -9,12 +9,10 @@ type SkillCard = {
   reviseLabel: string;
   reviseAriaLabel: string;
   isCustom: boolean;
-  onClick: Function;
+  onClick: () => void;
 };
 
 type NoSkillsProps = {
-  titleNoSkills: string;
-  textNoSkills: string;
   iconSkillAriaLabel: string;
 };
 
@@ -31,8 +29,6 @@ export {SkillsProps};
 export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
   return {
     title: '@todo title',
-    titleNoSkills: '@todo titleNoSkills',
-    textNoSkills: '@todo textNoSkills',
     iconSkillAriaLabel: '@todo iconSkillAriaLabel',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading',

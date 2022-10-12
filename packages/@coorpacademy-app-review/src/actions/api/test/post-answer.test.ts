@@ -113,7 +113,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
     }
   ];
 
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(postAnswer);
 
@@ -202,7 +202,7 @@ test('should dispatch post-answer, fetch-correction and fetch-end-rank actions w
     }
   ];
 
-  const {dispatch, getState} = createTestStore(t, stateBeforeExitNode, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, stateBeforeExitNode, {services}, expectedActions);
 
   await dispatch(postAnswer);
 
@@ -231,10 +231,12 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', a
     t,
     initialState,
     {
-      ...services,
-      postAnswer: () => {
-        t.pass();
-        return Promise.reject(new Error('unexpected'));
+      services: {
+        ...services,
+        postAnswer: () => {
+          t.pass();
+          return Promise.reject(new Error('unexpected'));
+        }
       }
     },
     expectedActions
@@ -250,7 +252,9 @@ test('should not dispatch any action && throw an error if progression does not e
   const {dispatch} = createTestStore(
     t,
     {...initialState, data: {...initialState.data, progression: null}},
-    services,
+    {
+      services
+    },
     expectedActions
   );
 

@@ -5,9 +5,9 @@ import {
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import {COLORS} from '../../variables/colors';
-import {Props} from './types';
+import {HeaderStepItemProps} from './types';
 
-const createStyle = (current: boolean, icon: Props['icon']) => {
+const createStyle = (current: boolean, icon: HeaderStepItemProps['icon']) => {
   let backgroundColor;
 
   switch (icon) {
@@ -44,7 +44,7 @@ const createStyle = (current: boolean, icon: Props['icon']) => {
   });
 };
 
-const Step = ({value, icon, current}: Props) => {
+const Step = ({value, icon, current}: HeaderStepItemProps) => {
   const [style, setStyle] = useState<any | null>(null);
 
   useEffect(() => {

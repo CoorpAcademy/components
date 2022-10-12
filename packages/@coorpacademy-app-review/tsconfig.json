@@ -3,6 +3,7 @@
     "src/types/globals.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
+    "sandbox/**/*.tsx",
   ],
   "exclude": [
     "node_modules",

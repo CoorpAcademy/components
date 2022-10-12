@@ -60,7 +60,7 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
       }
     }
   ];
-  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  const {dispatch} = createTestStore(t, state, {services}, expectedActions);
   dispatch(nextSlide);
 });
 
@@ -82,6 +82,6 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
       }
     }
   ];
-  const {dispatch} = createTestStore(t, stateWithWrongAnswer, services, expectedActions);
+  const {dispatch} = createTestStore(t, stateWithWrongAnswer, {services}, expectedActions);
   dispatch(nextSlide);
 });

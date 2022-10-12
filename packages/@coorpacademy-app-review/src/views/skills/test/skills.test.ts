@@ -29,8 +29,6 @@ test('should create initial props when there are no skills on the state', t => {
 
   t.deepEqual(props, {
     title: '@todo title',
-    titleNoSkills: '@todo titleNoSkills',
-    textNoSkills: '@todo textNoSkills',
     iconSkillAriaLabel: '@todo iconSkillAriaLabel',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading',
@@ -76,8 +74,6 @@ test('should create initial props when skills on the state', t => {
 
   t.deepEqual(omit('listSkills', props), {
     title: '@todo title',
-    titleNoSkills: '@todo titleNoSkills',
-    textNoSkills: '@todo textNoSkills',
     iconSkillAriaLabel: '@todo iconSkillAriaLabel',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading'

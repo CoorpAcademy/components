@@ -1,3 +1,5 @@
+export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
+
 export type ChoiceFromAPI = {
   _id: string;
   id?: string;
@@ -175,16 +177,18 @@ export type Services = {
   ): Promise<SlideIdFromAPI[]>;
 };
 
-export type Options = {
-  services: Services;
-};
-
 export type AppOptions = {
   token: string;
   skillRef?: string;
   services: Services;
-  onQuitClick: Function;
+  onQuitClick: () => void;
   url: string;
+  callbackOnViewChanged?: (viewName: ViewName) => void;
+};
+
+export type ThunkOptions = {
+  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+  services: Services;
 };
 
 export type JWT = {

@@ -3,26 +3,27 @@ import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/re
 import {AnyAction, Store} from 'redux';
 import {useSelector, useDispatch, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
+import {AppReviewProps} from '@coorpacademy/components/es/template/app-review/prop-types';
 
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import configureStore from './configure-store';
 
-import type {AppOptions} from './types/common';
+import type {AppOptions, ViewName} from './types/common';
 import type {StoreState} from './reducers';
 
-import {navigateTo, ViewPath} from './actions/ui/navigation';
+import {navigateBack, navigateTo} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
-import {VIEWS} from './common';
 import {mapStateToSlidesProps} from './views/slides';
 import {mapStateToSkillsProps} from './views/skills';
 
-const ConnectedApp = ({onQuitClick}: {onQuitClick: Function}): JSX.Element => {
+const ConnectedApp = ({onQuitClick}: {onQuitClick: () => void}): JSX.Element => {
   const dispatch = useDispatch();
 
-  const props = {
+  const props: AppReviewProps = {
+    navigateBack: () => dispatch(navigateBack),
     viewName: useSelector(
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
     ),
@@ -30,6 +31,7 @@ const ConnectedApp = ({onQuitClick}: {onQuitClick: Function}): JSX.Element => {
     skills: useSelector((state: StoreState) => mapStateToSkillsProps(state)),
     onboarding: {}
   };
+
   return <AppReviewTemplate {...props} />;
 };
 
@@ -82,7 +84,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
       return;
     }
 
-    const initialView: ViewPath = skillRef ? VIEWS.slides : VIEWS.skills;
+    const initialView: ViewName = skillRef ? 'slides' : 'skills';
     store.dispatch(navigateTo(initialView));
   }, [isProgressionCreated, options, store]);
 
