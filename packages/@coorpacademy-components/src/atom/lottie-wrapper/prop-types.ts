@@ -1,7 +1,7 @@
 import keys from 'lodash/fp/keys';
 import PropTypes from 'prop-types';
 
-export type Props = {
+export type LottieAnimationProps = {
   'aria-label': string;
   'data-name'?: string;
   animationSrc: string;
