@@ -368,6 +368,7 @@ export const mapStateToSlidesProps = (
   const isCorrect = get(['data', 'progression', 'state', 'isCorrect'], state);
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
   const showQuitPopin = get(['ui', 'showQuitPopin'], state);
+  const showCongrats = get(['ui', 'showCongrats'], state);
   return {
     header: {
       mode: '__revision_mode',
@@ -376,7 +377,7 @@ export const mapStateToSlidesProps = (
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state),
-      hiddenSteps: false
+      hiddenSteps: showCongrats
     },
     stack: {
       slides: buildStackSlides(state, dispatch),
