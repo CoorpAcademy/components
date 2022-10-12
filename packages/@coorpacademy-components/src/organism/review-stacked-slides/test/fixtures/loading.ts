@@ -1,8 +1,8 @@
-import {Props} from '../../prop-types';
+import {ReviewStackProps} from '../../prop-types';
 import {correctionPopinProps} from './initial-state';
 
 type Fixture = {
-  props: Props;
+  props: ReviewStackProps;
 };
 
 const fixture: Fixture = {

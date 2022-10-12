@@ -53,7 +53,7 @@ export type SlideProps = {
   answerUI?: AnswerProps;
 };
 
-export type Props = {
+export type ReviewSlideProps = {
   slideIndex: string;
   num: number;
   slide: SlideProps;

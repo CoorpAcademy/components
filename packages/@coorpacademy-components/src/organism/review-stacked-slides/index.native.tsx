@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import keys from 'lodash/fp/keys';
 import Slide from '../review-slide/index.native';
-import {Props} from './prop-types';
+import {ReviewStackProps} from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
 
@@ -14,7 +14,7 @@ const style = StyleSheet.create({
   }
 });
 
-const StackedSlides = (props: Props) => {
+const StackedSlides = (props: ReviewStackProps) => {
   const {slides, validateButton, correctionPopinProps} = props;
 
   const indexes = keys(slides).reverse();

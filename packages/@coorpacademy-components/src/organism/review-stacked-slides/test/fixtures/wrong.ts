@@ -1,9 +1,9 @@
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 import {Props as CorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
-import {Props} from '../../prop-types';
+import {ReviewStackProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: ReviewStackProps;
 };
 
 const qcmDrag = AnswerQCMDrag.props;
