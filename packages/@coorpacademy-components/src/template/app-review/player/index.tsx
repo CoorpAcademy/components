@@ -6,9 +6,10 @@ import ReviewHeader from '../../../organism/review-header';
 import StackedSlides from '../../../organism/review-stacked-slides';
 import CMPopin from '../../../molecule/cm-popin';
 import style from './style.css';
-import propTypes from './prop-types';
+import propTypes, {ReviewPlayerProps} from './prop-types';
 
-const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitPopin}) => {
+const PlayerReview = (props: ReviewPlayerProps) => {
+  const {header, stack, reviewBackgroundAriaLabel, congrats, quitPopin} = props;
   return (
     <div
       key="review-player-container"
