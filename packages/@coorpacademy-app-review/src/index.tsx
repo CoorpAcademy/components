@@ -3,7 +3,7 @@ import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/re
 import {AnyAction, Store} from 'redux';
 import {useSelector, useDispatch, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
-import {Props as AppReviewTemplateProps} from '@coorpacademy/components/es/template/app-review/prop-types';
+import {AppReviewProps} from '@coorpacademy/components/es/template/app-review/prop-types';
 
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
@@ -22,7 +22,7 @@ import {mapStateToSkillsProps} from './views/skills';
 const ConnectedApp = ({onQuitClick}: {onQuitClick: () => void}): JSX.Element => {
   const dispatch = useDispatch();
 
-  const props: AppReviewTemplateProps = {
+  const props: AppReviewProps = {
     navigateBack: () => dispatch(navigateBack),
     viewName: useSelector(
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]

@@ -4,7 +4,7 @@ import omit from 'lodash/fp/omit';
 import pick from 'lodash/fp/pick';
 import set from 'lodash/fp/set';
 
-import {CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
 import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
 
 import {
@@ -1096,7 +1096,7 @@ test('should verify props showing congrats', t => {
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  const congrats = props.congrats as CongratsProps;
+  const congrats = props.congrats as ReviewCongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
@@ -1228,7 +1228,7 @@ test('should verify props showing congrats, with only stars card, if user has no
   };
 
   const props = mapStateToSlidesProps(state, identity, identity);
-  const congrats = props.congrats as CongratsProps;
+  const congrats = props.congrats as ReviewCongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
