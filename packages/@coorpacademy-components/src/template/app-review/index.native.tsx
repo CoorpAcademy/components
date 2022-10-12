@@ -11,14 +11,17 @@ const styles = StyleSheet.create({
   }
 });
 
-const Switch = ({viewName, onboarding, skills, slides}: AppReviewProps) => {
+const Switch = (props: AppReviewProps) => {
+  const {viewName} = props;
   switch (viewName) {
     case 'onboarding':
       return <Text>@todo view onboarding</Text>;
     case 'skills':
       return <Text>@todo view skills</Text>;
-    case 'slides':
+    case 'slides': {
+      const {slides} = props;
       return <Player {...slides} />;
+    }
     case 'loader':
       return <Text>@todo loader</Text>;
     default:

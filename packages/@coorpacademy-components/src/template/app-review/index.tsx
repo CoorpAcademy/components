@@ -4,18 +4,22 @@ import Onboarding from './onboarding';
 import Skills from './skills';
 import Player from './player';
 import propTypes, {AppReviewProps} from './prop-types';
-import { ReviewPlayerProps } from './player/prop-types';
 
 const AppReview = (props: AppReviewProps) => {
-  const {viewName, onboarding, skills, slides} = props;
+  const {viewName} = props;
   switch (viewName) {
-    case 'skills':
+    case 'skills': {
+      const {skills} = props;
       return <Skills {...skills} title="@todo plug web skills | title is required" />;
-    case 'onboarding':
+    }
+    case 'onboarding': {
+      const {onboarding} = props;
       return <Onboarding {...onboarding} />;
-    case 'slides':
-      const _slides = slides as ReviewPlayerProps;
-      return <Player {..._slides} />;
+    }
+    case 'slides': {
+      const {slides} = props;
+      return <Player {...slides} />;
+    }
     default:
       return <Loader />;
   }
