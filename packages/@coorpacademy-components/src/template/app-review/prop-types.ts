@@ -6,7 +6,7 @@ import {ReviewPlayerProps} from './player/prop-types';
 
 export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 
-export type Props = {
+export type AppReviewProps = {
   viewName: ViewName;
   slides?: ReviewPlayerProps;
   skills?: PropTypes.InferProps<typeof Skills.propTypes>;

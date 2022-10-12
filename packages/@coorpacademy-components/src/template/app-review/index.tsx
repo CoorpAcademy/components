@@ -3,9 +3,9 @@ import Loader from '../../atom/loader';
 import Onboarding from './onboarding';
 import Skills from './skills';
 import Player from './player';
-import propTypes, {Props} from './prop-types';
+import propTypes, {AppReviewProps} from './prop-types';
 
-const AppReview = ({viewName, onboarding, skills, slides}: Props) => {
+const AppReview = ({viewName, onboarding, skills, slides}: AppReviewProps) => {
   switch (viewName) {
     case 'skills':
       return <Skills {...skills} title="@todo plug web skills | title is required" />;

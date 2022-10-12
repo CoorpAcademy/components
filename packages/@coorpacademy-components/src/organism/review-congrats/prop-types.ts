@@ -27,7 +27,7 @@ const propTypes = {
 
 export default propTypes;
 
-export type CongratsProps = {
+export type ReviewCongratsProps = {
   'aria-label': string;
   'data-name': 'review-congrats';
   animationLottie: LottieAnimationProps;

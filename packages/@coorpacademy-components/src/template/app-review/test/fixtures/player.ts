@@ -1,8 +1,8 @@
 import slides from '../../player/test/fixtures/initial-state';
-import {Props} from '../../prop-types';
+import {AppReviewProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: AppReviewProps;
 };
 
 const fixture: Fixture = {
