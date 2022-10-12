@@ -1,10 +1,10 @@
 import QcmDrag from '../../../questions/qcm-drag/test/fixtures/default';
-import {Props} from '../../prop-types';
+import {AnswerProps} from '../../prop-types';
 
 const answerProps = QcmDrag.props;
 
 type Fixture = {
-  props: Props;
+  props: AnswerProps;
 };
 
 const fixture: Fixture = {

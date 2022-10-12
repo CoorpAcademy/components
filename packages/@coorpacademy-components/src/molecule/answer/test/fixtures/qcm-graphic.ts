@@ -1,8 +1,8 @@
 import QcmGraphic from '../../../questions/qcm-graphic/test/fixtures/default';
-import {Props} from '../../prop-types';
+import {AnswerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: AnswerProps;
 };
 
 const answerProps = QcmGraphic.props;

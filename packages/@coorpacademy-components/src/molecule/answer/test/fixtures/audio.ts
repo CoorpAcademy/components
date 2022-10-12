@@ -1,8 +1,8 @@
 import FreeText from '../../../questions/free-text/test/fixtures/default';
-import {Props} from '../../prop-types';
+import {AnswerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: AnswerProps;
 };
 
 const fixture: Fixture = {

@@ -1,8 +1,8 @@
 import Qcm from '../../../questions/qcm/test/fixtures/arabic';
-import {Props} from '../../prop-types';
+import {AnswerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: AnswerProps;
 };
 
 const answerProps = Qcm.props;

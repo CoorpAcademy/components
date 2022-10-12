@@ -81,7 +81,7 @@ export type Answer = {
   name?: string;
 };
 
-export type Props = {
+export type AnswerProps = {
   model: {
     type: 'qcmDrag' | 'qcm' | 'qcmGraphic' | 'freeText' | 'dropDown' | 'slider' | 'template';
     answers?: Answer[];
