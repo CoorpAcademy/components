@@ -2,12 +2,12 @@ import noop from 'lodash/fp/noop';
 import {TemplateContextValues} from '../../../../template/app-review/template-context';
 import mockMobileContext from '../../../../test/helpers/mock-mobile-context';
 import DropDown from '../../../questions/drop-down/test/fixtures/default';
-import {Props} from '../../prop-types';
+import {AnswerProps} from '../../prop-types';
 
 const answerProps = DropDown.props;
 
 type Fixture = {
-  props: Props;
+  props: AnswerProps;
   mobileContext?: TemplateContextValues;
 };
 

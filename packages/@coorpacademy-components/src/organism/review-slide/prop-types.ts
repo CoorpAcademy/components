@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ReviewCorrectionPopinPropTypes, {
   Props as CorrectionPopinProps
 } from '../../molecule/review-correction-popin/prop-types';
-import AnswerPropTypes, {Props as AnswerProps} from '../../molecule/answer/prop-types';
+import AnswerPropTypes, {AnswerProps} from '../../molecule/answer/prop-types';
 
 export const SlidePropsTypes = PropTypes.shape({
   position: PropTypes.number,
