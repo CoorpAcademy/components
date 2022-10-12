@@ -14,7 +14,7 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = {
+export type HeaderProps = {
   steps: StepProps[];
   mode: string;
   skillName: string;

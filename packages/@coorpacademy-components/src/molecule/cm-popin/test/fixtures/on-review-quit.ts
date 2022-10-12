@@ -1,8 +1,8 @@
 import {noop} from 'lodash/fp';
-import {Props} from '../../types';
+import {CMPopinProps} from '../../types';
 
 type Fixture = {
-  props: Props;
+  props: CMPopinProps;
 };
 
 const fixture: Fixture = {
