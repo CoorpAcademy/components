@@ -1,8 +1,8 @@
-import {Props} from '../../prop-types';
+import {AppReviewProps} from '../../prop-types';
 import skills from '../../skills/test/fixtures/many-skills';
 
 type Fixture = {
-  props: Props;
+  props: AppReviewProps;
 };
 
 const fixture: Fixture = {

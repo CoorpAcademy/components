@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import {CMPopinProps} from '../../../molecule/cm-popin/types';
-import ReviewCongratsPropTypes, {CongratsProps} from '../../../organism/review-congrats/prop-types';
+import ReviewCongratsPropTypes, {ReviewCongratsProps} from '../../../organism/review-congrats/prop-types';
 
 import ReviewBackgroundPropTypes from '../../../atom/review-background/prop-types';
 import ReviewHeaderPropTypes, {HeaderProps} from '../../../organism/review-header/types';
@@ -24,6 +24,6 @@ export type ReviewPlayerProps = {
   header: HeaderProps;
   stack: ReviewStackProps;
   reviewBackgroundAriaLabel?: string;
-  congrats?: CongratsProps;
+  congrats?: ReviewCongratsProps;
   quitPopin?: CMPopinProps;
 };

@@ -1,8 +1,8 @@
 import onboarding from '../../onboarding/test/fixtures/default';
-import {Props} from '../../prop-types';
+import {AppReviewProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: AppReviewProps;
 };
 
 const fixture: Fixture = {
