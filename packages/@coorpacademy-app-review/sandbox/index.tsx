@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 
 import {WebContext} from '@coorpacademy/components/es/atom/provider';
+import {identity} from 'lodash/fp';
 import AppReview from '../src';
 import {services} from '../src/test/util/services.mock';
 import type {AppOptions} from '../src/types/common';
@@ -47,7 +48,7 @@ const createSandbox = (options: SandboxOptions): void => {
     };
 
     render(
-      <WebContext skin={skin}>
+      <WebContext skin={skin} translate={identity}>
         <AppReview options={appOptions} />
       </WebContext>,
       container

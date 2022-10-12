@@ -7,7 +7,7 @@ import set from 'lodash/fp/set';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
-import {CongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
 import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
 import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
 import {LottieAnimationProps} from '@coorpacademy/components/es/atom/lottie-wrapper/prop-types';
@@ -307,7 +307,7 @@ const buildRankCard = (rank: number): CongratsCardProps => {
   };
 };
 
-const buildCongratsProps = (state: StoreState): CongratsProps | undefined => {
+const buildCongratsProps = (state: StoreState): ReviewCongratsProps | undefined => {
   if (!state.ui.showCongrats) return;
 
   const progression = state.data.progression as ProgressionFromAPI;
