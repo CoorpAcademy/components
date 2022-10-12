@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import AtomLottieWrapperPropTypes, {
-  Props as LottieAnimationProps
+  LottieAnimationProps
 } from '../../atom/lottie-wrapper/prop-types';
 
 export type Props = {
