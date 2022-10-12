@@ -10,6 +10,6 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = {
+export type ReviewHeaderStepsProps = {
   steps: HeaderStepItemProps[];
 };
