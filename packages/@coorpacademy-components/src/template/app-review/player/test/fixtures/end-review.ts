@@ -2,10 +2,10 @@ import congrats from '../../../../../organism/review-congrats/test/fixtures/defa
 import Header from '../../../../../organism/review-header/test/fixtures/steps-animation';
 import EndReviewStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/end-review';
 
-import {Props} from '../../prop-types';
+import {ReviewPlayerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: ReviewPlayerProps;
 };
 
 const fixture: Fixture = {

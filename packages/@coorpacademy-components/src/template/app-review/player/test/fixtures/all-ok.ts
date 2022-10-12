@@ -1,10 +1,10 @@
 import Header from '../../../../../organism/review-header/test/fixtures/all-questions-ok';
 import AllCorrectStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/all-ok';
 
-import {Props} from '../../prop-types';
+import {ReviewPlayerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: ReviewPlayerProps;
 };
 
 const fixture: Fixture = {
