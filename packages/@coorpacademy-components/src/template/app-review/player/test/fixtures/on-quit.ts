@@ -1,10 +1,10 @@
 import headerProps from '../../../../../organism/review-header/test/fixtures/no-answered-question';
 import DefaultStackedSlides from '../../../../../organism/review-stacked-slides/test/fixtures/initial-state';
 import onReviewQuitPopin from '../../../../../molecule/cm-popin/test/fixtures/on-review-quit';
-import {Props} from '../../prop-types';
+import {ReviewPlayerProps} from '../../prop-types';
 
 type Fixture = {
-  props: Props;
+  props: ReviewPlayerProps;
 };
 
 const fixture: Fixture = {

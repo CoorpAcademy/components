@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import Onboarding from './onboarding';
 import Skills from './skills';
 import Player from './player';
-import {Props as SlideProps} from './player/prop-types';
+import {ReviewPlayerProps} from './player/prop-types';
 
 export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 
 export type Props = {
   viewName: ViewName;
-  slides?: SlideProps;
+  slides?: ReviewPlayerProps;
   skills?: PropTypes.InferProps<typeof Skills.propTypes>;
   onboarding?: PropTypes.InferProps<typeof Onboarding.propTypes>;
   navigateBack?: () => void;

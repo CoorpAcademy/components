@@ -20,7 +20,7 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = {
+export type ReviewPlayerProps = {
   header: HeaderProps;
   stack: StackProps;
   reviewBackgroundAriaLabel?: string;
