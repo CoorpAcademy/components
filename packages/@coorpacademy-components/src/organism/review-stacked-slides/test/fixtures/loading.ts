@@ -1,5 +1,4 @@
 import {ReviewStackProps} from '../../prop-types';
-import {correctionPopinProps} from './initial-state';
 
 type Fixture = {
   props: ReviewStackProps;
@@ -7,7 +6,6 @@ type Fixture = {
 
 const fixture: Fixture = {
   props: {
-    correctionPopinProps,
     slides: {
       0: {
         position: 0,

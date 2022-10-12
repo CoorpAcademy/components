@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import {Answer} from '../../../../molecule/answer/prop-types';
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
-import {Props as CorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
+import {ReviewCorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
 import {ReviewStackProps} from '../../prop-types';
 
 type Fixture = {
@@ -17,7 +17,7 @@ const qcmDrag = AnswerQCMDrag.props;
 const qcmGraphic = cloneDeep(AnswerQCMGraphic.props);
 qcmGraphic.model.answers = map(markAnswersAsUnselected, AnswerQCMGraphic.props.model.answers);
 
-export const correctionPopinProps: CorrectionPopinProps = {
+export const correctionPopinProps: ReviewCorrectionPopinProps = {
   klf: {
     label: 'Key learning factor',
     tooltip: 'Some tooltip info.'

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Props as CorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+import {ReviewCorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
 
 import ReviewSlidePropTypes, {
   ReviewSlideProps,
@@ -24,7 +24,7 @@ export default propTypes;
 
 export type ReviewStackProps = {
   validateButton: ReviewSlideProps['validateButton'];
-  correctionPopinProps?: CorrectionPopinProps;
+  correctionPopinProps?: ReviewCorrectionPopinProps;
   slides: {[key: string]: SlideProps};
   endReview: boolean;
 };

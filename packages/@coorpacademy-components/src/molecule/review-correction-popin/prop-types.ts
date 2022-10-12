@@ -19,7 +19,7 @@ const propTypes = {
   })
 };
 
-export type Props = {
+export type ReviewCorrectionPopinProps = {
   klf?: {
     label: string;
     tooltip: string;

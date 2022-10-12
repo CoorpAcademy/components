@@ -1,5 +1,4 @@
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
-import {Props as CorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
 import {ReviewStackProps} from '../../prop-types';
 
 type Fixture = {
@@ -7,25 +6,6 @@ type Fixture = {
 };
 
 const qcmDrag = AnswerQCMDrag.props;
-
-export const correctionPopinProps: CorrectionPopinProps = {
-  klf: {
-    label: 'Key learning factor',
-    tooltip: 'Some tooltip info.'
-  },
-  information: {
-    label: 'Key learning factor',
-    message: 'info msg'
-  },
-  next: {
-    label: 'Next',
-    onClick: () => {
-      console.log('Load next slide');
-    }
-  },
-  type: 'right',
-  resultLabel: 'CORRECT ANSWER'
-};
 
 const fixture: Fixture = {
   props: {
@@ -59,8 +39,7 @@ const fixture: Fixture = {
       label: 'Validate',
       onClick: () => console.log('onValidateClick'),
       disabled: false
-    },
-    correctionPopinProps
+    }
   }
 };
 

@@ -1,5 +1,5 @@
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
-import {Props as CorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
+import {ReviewCorrectionPopinProps} from '../../../../molecule/review-correction-popin/prop-types';
 import {ReviewStackProps} from '../../prop-types';
 
 type Fixture = {
@@ -8,7 +8,7 @@ type Fixture = {
 
 const qcmDrag = AnswerQCMDrag.props;
 
-export const correctionPopinProps: CorrectionPopinProps = {
+export const correctionPopinProps: ReviewCorrectionPopinProps = {
   klf: {
     label: 'Key learning factor',
     tooltip: 'Some tooltip info.'
