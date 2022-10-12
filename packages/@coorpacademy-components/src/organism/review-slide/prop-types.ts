@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import ReviewCorrectionPopinPropTypes, {
-  Props as CorrectionPopinProps
+  ReviewCorrectionPopinProps
 } from '../../molecule/review-correction-popin/prop-types';
 import AnswerPropTypes, {AnswerProps} from '../../molecule/answer/prop-types';
 
@@ -57,7 +57,7 @@ export type ReviewSlideProps = {
   slideIndex: string;
   num: number;
   slide: SlideProps;
-  correctionPopinProps?: CorrectionPopinProps;
+  correctionPopinProps?: ReviewCorrectionPopinProps;
   validateButton: {
     label: string;
     onClick: () => void;

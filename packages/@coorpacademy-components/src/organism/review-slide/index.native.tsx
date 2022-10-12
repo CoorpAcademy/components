@@ -9,11 +9,11 @@ import Answer from '../../molecule/answer/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {Props as CorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+import {ReviewCorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
 import {ReviewSlideProps, SlideProps} from './prop-types';
 
 type PopinProps = {
-  correctionPopinProps: CorrectionPopinProps;
+  correctionPopinProps: ReviewCorrectionPopinProps;
   slideIndex: unknown;
   showCorrectionPopin: unknown;
   animateCorrectionPopin: unknown;
