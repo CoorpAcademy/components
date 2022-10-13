@@ -182,6 +182,7 @@ export type AppOptions = {
   skillRef?: string;
   services: Services;
   onQuitClick: () => void;
+  translate: Function;
   url: string;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };
