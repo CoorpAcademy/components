@@ -27,7 +27,6 @@
     "packages/*"
   ],
   "devDependencies": {
-
     "@coorpacademy/update-node": "^5.0.0",
     "codecov": "^3.8.3",
     "estraverse": "^5.3.0",
