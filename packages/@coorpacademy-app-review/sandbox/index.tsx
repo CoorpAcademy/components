@@ -32,7 +32,9 @@ const translate = (key: string, data?: unknown): string => {
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);
-    return createTranslate({[key]: key})(key, data);
+    return createTranslate({
+      [key]: key
+    })(key, data);
   }
 };
 const isContainerAvailable = (options: SandboxOptions): boolean =>
