@@ -183,7 +183,7 @@ export type Options = {
 
 export type ConnectedOptions = {
   translate: (key: string, data?: unknown) => string;
-  onQuitClick: Function;
+  onQuitClick: () => void;
 };
 
 export type AppOptions = ConnectedOptions & {
