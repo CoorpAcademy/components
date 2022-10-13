@@ -408,15 +408,10 @@ export const mapStateToSlidesProps = (
       },
       correctionPopinProps:
         correction &&
-        getCorrectionPopinProps(dispatch)(
-          isCorrect,
-          correction.correctAnswer,
-          klf,
-          options.translate
-        ),
+        getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate),
       endReview: endReview && state.ui.showCongrats
     },
-    congrats: buildCongratsProps(state, options.translate),
+    congrats: buildCongratsProps(state, translate),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };
