@@ -177,12 +177,19 @@ export type Services = {
   ): Promise<SlideIdFromAPI[]>;
 };
 
-export type AppOptions = {
+export type Options = {
+  services: Services;
+};
+
+export type ConnectedOptions = {
+  translate: (key: string, data?: unknown) => string;
+  onQuitClick: Function;
+};
+
+export type AppOptions = ConnectedOptions & {
   token: string;
   skillRef?: string;
   services: Services;
-  onQuitClick: () => void;
-  translate: (key: string, data: string) => string;
   url: string;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };

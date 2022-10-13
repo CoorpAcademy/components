@@ -15,8 +15,13 @@ import {ReviewPlayerProps} from '@coorpacademy/components/es/template/app-review
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
-import type {ProgressionAnswerItem, ProgressionFromAPI, SlideContent} from '../../types/common';
 import {getProgressionSlidesRefs} from '../../common';
+import type {
+  ConnectedOptions,
+  ProgressionAnswerItem,
+  ProgressionFromAPI,
+  SlideContent
+} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
@@ -360,8 +365,9 @@ const isEndOfProgression = (progression: ProgressionState): boolean => {
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
-  onQuitClick: () => void
+  options: ConnectedOptions
 ): ReviewPlayerProps => {
+  const {translate, onQuitClick} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
@@ -371,7 +377,7 @@ export const mapStateToSlidesProps = (
   const showCongrats = get(['ui', 'showCongrats'], state);
   return {
     header: {
-      mode: '__revision_mode',
+      mode: translate('Review Title'),
       skillName: '__agility',
       onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',

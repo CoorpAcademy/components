@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-const translate = (key: string, data: string): string => {
+const translate = (key: string, data?: unknown): string => {
   try {
     return createTranslate({
       ...localesAppReview,
