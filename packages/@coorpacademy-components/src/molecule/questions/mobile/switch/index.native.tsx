@@ -120,7 +120,7 @@ const Switch = (props: Props) => {
     case 'qcm':
       return (
         <View testID="question-choices">
-          {(choices as SelectableChoice[]).map((choice, index) => (
+          {(choices as SelectableChoice[]).map(choice => (
             <QuestionChoice
               key={`question-choice-${choice._id}`}
               onPress={handleChoicePress(choice)}
@@ -138,7 +138,7 @@ const Switch = (props: Props) => {
     case 'qcmGraphic':
       return (
         <View testID="question-choices">
-          {(choices as SelectableChoice[]).map((choice, index) => (
+          {(choices as SelectableChoice[]).map(choice => (
             <QuestionChoice
               key={`question-choice-${choice._id}`}
               onPress={handleChoicePress(choice)}

@@ -5,7 +5,7 @@ import Switch from '../index.native';
 import {choices} from './fixtures/qcm';
 
 test('qcm question › should handle onItemPress', t => {
-  choices[0].onPress = (value: any) => {
+  choices[0].onPress = () => {
     t.pass();
   };
 

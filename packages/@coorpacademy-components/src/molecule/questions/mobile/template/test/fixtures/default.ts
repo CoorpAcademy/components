@@ -56,7 +56,7 @@ const fixture: Fixture = {
     template,
     choices,
     onInputChange: noop,
-    handleFocus: (id: string) => noop,
+    handleFocus: () => noop,
     handleBlur: noop,
     focusedSelectId: null
   }

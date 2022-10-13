@@ -1,6 +1,7 @@
-import React, {createContext, useContext} from 'react';
+import React, {createContext, ReactNode, useContext} from 'react';
 import {Translations} from '../../types/translations';
 import {Analytics} from '../../variables/analytics';
+import {Brand, defaultBrandTheme} from '../../variables/brand.native';
 import defaultTheme, {Theme} from '../../variables/theme.native';
 import {Vibration} from '../../variables/vibration';
 
@@ -10,7 +11,7 @@ export type FocusedSelectId = string | null;
 
 export type TemplateContextValues = {
   analytics?: Analytics;
-  brandTheme?: any;
+  brandTheme: Brand;
   theme: Theme;
   translations: Translations;
   vibration?: Vibration;
@@ -25,10 +26,11 @@ export type TemplateContextValues = {
   };
 };
 
-type Props = {values: TemplateContextValues; children: any};
+type Props = {values: TemplateContextValues; children: ReactNode};
 
 const Context = createContext({
   theme: defaultTheme,
+  brandTheme: defaultBrandTheme,
   translations: {},
   display: {
     headerHeight: 67,
@@ -50,7 +52,7 @@ const useTemplateContext = (): TemplateContextValues => {
 };
 
 const TemplateContext = ({values, children}: Props) => {
-  return <Context.Provider value={{...values}}>{children}</Context.Provider>;
+  return <Context.Provider value={values}>{children}</Context.Provider>;
 };
 
 export {TemplateContext, useTemplateContext};

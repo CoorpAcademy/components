@@ -16,3 +16,5 @@ export type Brand = {
   defaultLanguage?: string;
   env?: string;
 };
+
+export const defaultBrandTheme: Brand = {};

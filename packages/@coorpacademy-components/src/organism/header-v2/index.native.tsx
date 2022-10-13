@@ -12,9 +12,9 @@ import Touchable from '../../hoc/touchable/index.native';
 import {Theme} from '../../variables/theme.native';
 
 export interface Props {
-  onSearchPress: (event: GestureResponderEvent) => any;
-  onSettingsPress: (event: GestureResponderEvent) => any;
-  onLogoLongPress: (event: GestureResponderEvent) => any;
+  onSearchPress: (event: GestureResponderEvent) => void;
+  onSettingsPress: (event: GestureResponderEvent) => void;
+  onLogoLongPress: (event: GestureResponderEvent) => void;
 }
 
 export const HEADER_HEIGHT = 67;

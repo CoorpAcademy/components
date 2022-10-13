@@ -5,11 +5,12 @@ import Text from '../../../atom/text/index.native';
 import Touchable from '../../touchable/index.native';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {Theme} from '../../../variables/theme.native';
+import {Brand} from '../../../variables/brand.native';
 
 export type Props = {
   isSelected?: boolean;
   children: string;
-  onPress?: (event: GestureResponderEvent) => any;
+  onPress?: (event: GestureResponderEvent) => void;
   testID?: string;
 };
 
@@ -19,7 +20,7 @@ type StyleSheetType = {
   selectedTextStyle: TextStyle;
 };
 
-const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
+const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       backgroundColor: theme.colors.white,
@@ -30,7 +31,7 @@ const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
       color: theme.colors.black
     },
     selectedTextStyle: {
-      color: brandTheme?.colors.primary
+      color: brandTheme?.colors?.primary
     }
   });
 

@@ -12,7 +12,7 @@ test('should handle focus', t => {
   const questionType = 'template';
 
   const context = mockMobileContext({
-    logEvent: (eventName: string, options: {id: string}) => {
+    logEvent: (eventName, options) => {
       if (eventName === ANALYTICS_EVENT_TYPE.PRESS) {
         t.deepEqual(options, {id: analyticsID});
       }

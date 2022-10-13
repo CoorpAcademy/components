@@ -30,11 +30,11 @@ export type Props = {
   focusable?: boolean;
   onBlur?: (event: NativeSyntheticEvent<TargetedEvent>) => void;
   onFocus?: (event: NativeSyntheticEvent<TargetedEvent>) => void;
-  onLayout?: (event: LayoutChangeEvent) => any;
-  onLongPress?: (event: GestureResponderEvent) => any;
-  onPress?: (event: GestureResponderEvent) => any;
-  onPressIn?: (event: GestureResponderEvent) => any;
-  onPressOut?: (event: GestureResponderEvent) => any;
+  onLayout?: (event: LayoutChangeEvent) => void;
+  onLongPress?: (event: GestureResponderEvent) => void;
+  onPress?: (event: GestureResponderEvent) => void;
+  onPressIn?: (event: GestureResponderEvent) => void;
+  onPressOut?: (event: GestureResponderEvent) => void;
   testID?: string;
   isHighlight?: boolean;
   isWithoutFeedback?: boolean;
@@ -50,7 +50,7 @@ export type Props = {
 
 const logEvent = (
   eventName: string,
-  analyticsID: String,
+  analyticsID: string,
   analytics: Analytics,
   analyticsParams?: AnalyticsEventParams
 ) => {

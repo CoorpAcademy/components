@@ -98,7 +98,7 @@ const Item = (props: ItemProps) => {
   const isFocused = focusedSelectId === id;
 
   const coloredText = brandTheme && {
-    color: brandTheme.colors.primary
+    color: brandTheme.colors?.primary
   };
 
   if (part.type === 'answerField' && inputNames.includes(part.value)) {
@@ -113,9 +113,9 @@ const Item = (props: ItemProps) => {
     const disabledSuffix = isDisabled ? '-disabled' : '';
     const selectedSuffix = value ? '-selected' : '';
 
-    const handleInputChange = (_item: TemplateTextChoice | TemplateListOfChoices) => (
-      _value: string
-    ) => onInputChange(_item, _value);
+    const handleInputChange =
+      (_item: TemplateTextChoice | TemplateListOfChoices) => (_value: string) =>
+        onInputChange(_item, _value);
 
     if (choice.type === 'text') {
       return (
@@ -132,13 +132,13 @@ const Item = (props: ItemProps) => {
       );
     }
 
-    const selectInputStyle: ViewStyle[] = [styles.selectInput];
-    if (value) {
+    const selectInputStyle: TextStyle[] = [styles.selectInput];
+    if (coloredText && value) {
       selectInputStyle.push(coloredText);
     }
 
-    const selectTextStyle: ViewStyle[] = [styles.selectText];
-    if (value) {
+    const selectTextStyle: TextStyle[] = [styles.selectText];
+    if (coloredText && value) {
       selectTextStyle.push(coloredText);
     }
 

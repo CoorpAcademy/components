@@ -185,7 +185,7 @@ IconsPart.propTypes = {
   revival: PropTypes.bool
 };
 
-const buildClass = (value, success, failed, loading, mode = 'default', scormStyle) => {
+const buildClass = (value, success, failed, loading, scormStyle, mode = 'default') => {
   if (loading && isNil(value)) return loading;
   if (mode === 'scorm') return scormStyle;
   return value ? failed : success;
@@ -209,9 +209,9 @@ const renderIconStatusScorm = failed => {
 };
 const buildDefaultOrScormStyle = (
   defaultStyle,
-  mode = 'default',
   styleScorm,
   failed,
+  mode = 'default',
   failedStyle = null
 ) => {
   if (mode === 'scorm' && failed && failedStyle) return failedStyle;
@@ -226,8 +226,8 @@ const CorrectionPart = props => {
     stars && rank ? style.correctionSectionEndSuccess : style.correctionSectionSuccess,
     gameOver ? style.correctionSectionFailGameOver : style.correctionSectionFail,
     style.correctionSectionLoading,
-    mode,
-    style.resultContenantContainerScorm
+    style.resultContenantContainerScorm,
+    mode
   );
   return (
     <div data-name="correctionSection" className={className}>
@@ -235,9 +235,9 @@ const CorrectionPart = props => {
       <div
         className={buildDefaultOrScormStyle(
           style.titlesWrapper,
-          mode,
           style.titlesWrapperScorm,
-          failed
+          failed,
+          mode
         )}
       >
         {isLoading ? <Loader /> : null}
