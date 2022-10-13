@@ -463,3 +463,5 @@ export const services: Services = {
   fetchRank: () => Promise.resolve(fetchRankResponse),
   fetchSlidesToReviewBySkillRef: () => Promise.resolve(fetchSlidesToReviewBySkillRefResponse)
 };
+
+export const translate = (key: string): string => `___${key}`;

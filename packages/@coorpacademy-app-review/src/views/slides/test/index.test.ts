@@ -12,7 +12,8 @@ import {
   postAnswerResponses,
   progressionSlideWithPendingSlide,
   getChoicesCorrection,
-  incorrectFreeTextPostAnswerResponse
+  incorrectFreeTextPostAnswerResponse,
+  translate
 } from '../../../test/util/services.mock';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
@@ -21,6 +22,8 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
+
+const connectedOptions = {translate, onQuitClick: identity};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -52,12 +55,12 @@ test('should create initial props when fetched slide is not still received', t =
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
+    mode: '___Review Title',
     skillName: '__agility',
     hiddenSteps: false,
     steps: [
@@ -146,7 +149,7 @@ test('should create props when first slide is on the state', t => {
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -255,12 +258,12 @@ test('should create props when slide is on the state and user has selected answe
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
+    mode: '___Review Title',
     skillName: '__agility',
     hiddenSteps: false,
     steps: [
@@ -370,7 +373,7 @@ test('should verify props when first slide was answered correctly and next slide
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -489,7 +492,7 @@ test('should verify props when first slide was answered with error and next slid
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -565,7 +568,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -698,7 +701,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -838,7 +841,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
@@ -972,12 +975,12 @@ test('should verify props when progression is in success, showing last correctio
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
+    mode: '___Review Title',
     skillName: '__agility',
     hiddenSteps: false,
     steps: [
@@ -1095,7 +1098,7 @@ test('should verify props showing congrats', t => {
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
@@ -1227,7 +1230,7 @@ test('should verify props showing congrats, with only stars card, if user has no
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
   t.is(congrats.title, 'Congratulations!');
   t.is(
@@ -1338,7 +1341,7 @@ test('should verify props when progression has answered a current pendingSlide',
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
@@ -1445,11 +1448,11 @@ test('should verify props when progression still has a pendingSlide', t => {
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
+    mode: '___Review Title',
     skillName: '__agility',
     hiddenSteps: false,
     steps: [
@@ -1510,6 +1513,6 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       showQuitPopin: true
     }
   };
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.not(props.quitPopin, undefined);
 });

@@ -13,7 +13,8 @@ import {ProgressionFromAPI} from '../../../types/common';
 import {
   getChoicesCorrection,
   postAnswerResponses,
-  services
+  services,
+  translate
 } from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
@@ -21,6 +22,7 @@ import {EDIT_BASIC} from '../../../actions/ui/answers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
+const connectedOptions = {translate, onQuitClick: identity};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},
@@ -98,7 +100,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
   ];
   const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,

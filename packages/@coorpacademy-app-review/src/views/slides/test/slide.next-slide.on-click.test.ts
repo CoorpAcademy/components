@@ -7,7 +7,8 @@ import {
   postAnswerResponses,
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse,
-  services
+  services,
+  translate
 } from '../../../test/util/services.mock';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -17,6 +18,8 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
+
+const connectedOptions = {translate, onQuitClick: identity};
 
 test('correction popin actions after click', async t => {
   const state: StoreState = {
@@ -68,7 +71,7 @@ test('correction popin actions after click', async t => {
     }
   ];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
@@ -166,7 +169,7 @@ test('correction popin actions after click when progression is finished', async 
     }
   ];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.is(props.congrats, undefined);
   const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
