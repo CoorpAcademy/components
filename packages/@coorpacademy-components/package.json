@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build:commonjs:babel": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:commonjs:types": "tsc --module esnext --outDir lib --emitDeclarationOnly",
+    "build:commonjs:types": "tsc -p tsconfig.lib.json",
     "build:es:babel": "cross-env BABEL_ENV=es babel src --out-dir es -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:es:types": "tsc --module es2020 --outDir es --emitDeclarationOnly",
+    "build:es:types": "tsc -p tsconfig.es.json",
     "build:commonjs": "npm run build:commonjs:babel && npm run build:commonjs:types",
     "build:es": "npm run build:es:babel && npm run build:es:types",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
