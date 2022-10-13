@@ -29,6 +29,7 @@
   "files": [
     "lib",
     "es",
+    "locales",
     "readme.md"
   ],
   "main": "lib/index.js",
