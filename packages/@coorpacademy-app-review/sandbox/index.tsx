@@ -71,8 +71,6 @@ const createSandbox = (options: SandboxOptions): void => {
   }
 };
 
-// -----------------------------------------------------------------------------
-
 if (window && !window.createSandbox) {
   window.createSandbox = createSandbox;
 }
