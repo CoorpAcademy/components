@@ -62,6 +62,7 @@ const appOptions: AppOptions = {
   skillRef: 'skill_NJC0jFKoH',
   services,
   onQuitClick: identity,
+  translate: key => key,
   url: process.env.LAMBDA_API_REVIEW_GET_SLIDES_URL || 'http://localhost:7006'
 };
 

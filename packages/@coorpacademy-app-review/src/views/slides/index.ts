@@ -7,16 +7,21 @@ import set from 'lodash/fp/set';
 import toInteger from 'lodash/fp/toInteger';
 import type {Dispatch} from 'redux';
 import join from 'lodash/fp/join';
-import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
 import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
 import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
 import {LottieAnimationProps} from '@coorpacademy/components/es/atom/lottie-wrapper/prop-types';
 import {ReviewPlayerProps} from '@coorpacademy/components/es/template/app-review/player/prop-types';
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
+import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
-import type {ProgressionAnswerItem, ProgressionFromAPI, SlideContent} from '../../types/common';
 import {getProgressionSlidesRefs} from '../../common';
+import type {
+  ConnectedOptions,
+  ProgressionAnswerItem,
+  ProgressionFromAPI,
+  SlideContent
+} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
@@ -232,22 +237,27 @@ export const buildStepItems = (state: StoreState): StepItem[] => {
 
 const getCorrectionPopinProps =
   (dispatch: Dispatch) =>
-  (isCorrect: boolean, correctAnswer: string[], klf: string): ReviewCorrectionPopinProps => {
+  (
+    isCorrect: boolean,
+    correctAnswer: string[],
+    klf: string,
+    translate: (key: string, data?: unknown) => string
+  ): ReviewCorrectionPopinProps => {
     return {
       klf: isCorrect
         ? undefined
         : {
-            label: '_klf',
+            label: translate('KLF'),
             tooltip: klf
           },
-      resultLabel: isCorrect ? '_right' : '_wrong',
+      resultLabel: isCorrect ? translate('Correct Answer') : translate('Wrong Answer'),
       information: {
-        label: isCorrect ? '_klf' : '_correctAnswer',
+        label: isCorrect ? translate('KLF') : translate('Correct Answer'),
         message: isCorrect ? klf : join(',', correctAnswer)
       },
       next: {
-        'aria-label': '_correctionNextAriaLabel',
-        label: '_correctionNextLabel',
+        'aria-label': translate('Next Question'),
+        label: translate('Next Question'),
         onClick: (): void => {
           dispatch(nextSlide);
         }
@@ -284,7 +294,10 @@ const buildQuitPopinProps =
     };
   };
 
-const buildRankCard = (rank: number): CongratsCardProps => {
+const buildRankCard = (
+  rank: number,
+  translate: (key: string, data?: unknown) => string
+): CongratsCardProps => {
   return {
     'aria-label': 'Review Card Congrats Container',
     'data-name': 'card-rank',
@@ -300,14 +313,17 @@ const buildRankCard = (rank: number): CongratsCardProps => {
     cardType: 'card-rank',
     iconAriaLabel: 'Image without information',
     className: undefined,
-    reviewCardTitle: 'You are now',
+    reviewCardTitle: translate('You are now'),
     reviewCardValue: `${rank}`,
     rankSuffix: 'th',
     timerAnimation: 200
   };
 };
 
-const buildCongratsProps = (state: StoreState): ReviewCongratsProps | undefined => {
+const buildCongratsProps = (
+  state: StoreState,
+  translate: (key: string, data?: unknown) => string
+): ReviewCongratsProps | undefined => {
   if (!state.ui.showCongrats) return;
 
   const progression = state.data.progression as ProgressionFromAPI;
@@ -331,20 +347,21 @@ const buildCongratsProps = (state: StoreState): ReviewCongratsProps | undefined 
     iconAriaLabel: 'Image without information',
     className: undefined,
     cardType: 'card-star',
-    reviewCardTitle: 'You have won',
+    reviewCardTitle: translate('You have won'),
     reviewCardValue: `${stars}`,
     timerAnimation: 200
   };
 
   const {start, end} = state.data.rank;
   const newRank = start - end;
-  const cardCongratsRank = !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end) : undefined;
+  const cardCongratsRank =
+    !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end, translate) : undefined;
 
   return {
     'aria-label': 'Review Congratulations',
     'data-name': 'review-congrats',
     animationLottie: confettiAnimation,
-    title: 'Congratulations!',
+    title: translate('Congratulations!'),
     cardCongratsStar,
     cardCongratsRank,
     buttonRevising: undefined, // TODO make boutons and actions
@@ -360,8 +377,9 @@ const isEndOfProgression = (progression: ProgressionState): boolean => {
 export const mapStateToSlidesProps = (
   state: StoreState,
   dispatch: Dispatch,
-  onQuitClick: () => void
+  options: ConnectedOptions
 ): ReviewPlayerProps => {
+  const {translate, onQuitClick} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
@@ -371,8 +389,8 @@ export const mapStateToSlidesProps = (
   const showCongrats = get(['ui', 'showCongrats'], state);
   return {
     header: {
-      mode: '__revision_mode',
-      skillName: '__agility',
+      mode: translate('Review Title'),
+      skillName: translate('Content Parent Title'),
       onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
@@ -382,17 +400,18 @@ export const mapStateToSlidesProps = (
     stack: {
       slides: buildStackSlides(state, dispatch),
       validateButton: {
-        label: '__validate',
+        label: translate('Validate'),
         disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
         onClick: (): void => {
           dispatch(postAnswer);
         }
       },
       correctionPopinProps:
-        correction && getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf),
+        correction &&
+        getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate),
       endReview: endReview && state.ui.showCongrats
     },
-    congrats: buildCongratsProps(state),
+    congrats: buildCongratsProps(state, translate),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
   };
 };

@@ -29,6 +29,7 @@
   "files": [
     "lib",
     "es",
+    "locales",
     "readme.md"
   ],
   "main": "lib/index.js",
@@ -36,6 +37,7 @@
   "dependencies": {
     "@coorpacademy/components": "10.27.0",
     "@coorpacademy/redux-task": "1.1.6",
+    "@coorpacademy/translate": "^6.1.5",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
     "react-redux": "^7.2.9",

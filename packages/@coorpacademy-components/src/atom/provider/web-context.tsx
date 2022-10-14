@@ -8,7 +8,7 @@ type Skin = {
 
 type WebContextValues = {
   skin?: Skin;
-  translate: (key: string) => string;
+  translate: (key: string, data?: unknown) => string;
 };
 
 const Context = createContext({

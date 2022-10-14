@@ -12,7 +12,8 @@ import {
   postAnswerResponses,
   progressionSlideWithPendingSlide,
   getChoicesCorrection,
-  incorrectFreeTextPostAnswerResponse
+  incorrectFreeTextPostAnswerResponse,
+  translate
 } from '../../../test/util/services.mock';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
@@ -21,6 +22,8 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
+
+const connectedOptions = {translate, onQuitClick: identity};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -52,14 +55,14 @@ test('should create initial props when fetched slide is not still received', t =
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
-    skillName: '__agility',
     hiddenSteps: false,
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -146,14 +149,14 @@ test('should create props when first slide is on the state', t => {
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: '__revision_mode',
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -255,14 +258,14 @@ test('should create props when slide is on the state and user has selected answe
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
-    skillName: '__agility',
     hiddenSteps: false,
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -370,14 +373,14 @@ test('should verify props when first slide was answered correctly and next slide
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
     hiddenSteps: false,
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -489,14 +492,14 @@ test('should verify props when first slide was answered with error and next slid
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: '__revision_mode',
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -565,14 +568,14 @@ test('should verify props when first slide was answered, next slide is fetched &
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
     hiddenSteps: false,
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -603,16 +606,16 @@ test('should verify props when first slide was answered, next slide is fetched &
   });
   t.is(props.stack.endReview, false);
   t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
-    resultLabel: '_right',
+    resultLabel: translate('Correct Answer'),
     information: {
-      label: '_klf',
+      label: translate('KLF'),
       message:
         'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
     },
     klf: undefined,
     next: {
-      'aria-label': '_correctionNextAriaLabel',
-      label: '_correctionNextLabel'
+      'aria-label': translate('Next Question'),
+      label: translate('Next Question')
     },
     type: 'right'
   });
@@ -698,14 +701,14 @@ test('should verify props when first slide was answered incorrectly, next slide 
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
     hiddenSteps: false,
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -736,19 +739,19 @@ test('should verify props when first slide was answered incorrectly, next slide 
   });
   t.is(props.stack.endReview, false);
   t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
-    resultLabel: '_wrong',
+    resultLabel: translate('Wrong Answer'),
     information: {
-      label: '_correctAnswer',
+      label: translate('Correct Answer'),
       message: 'Benchmark'
     },
     klf: {
-      label: '_klf',
+      label: translate('KLF'),
       tooltip:
         'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
     },
     next: {
-      'aria-label': '_correctionNextAriaLabel',
-      label: '_correctionNextLabel'
+      'aria-label': translate('Next Question'),
+      label: translate('Next Question')
     },
     type: 'wrong'
   });
@@ -838,14 +841,14 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
     hiddenSteps: false,
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: false,
@@ -972,14 +975,14 @@ test('should verify props when progression is in success, showing last correctio
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.is(props.congrats, undefined);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
-    skillName: '__agility',
     hiddenSteps: false,
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: false,
@@ -1011,16 +1014,16 @@ test('should verify props when progression is in success, showing last correctio
 
   t.deepEqual(omit(['next.onClick'], props.stack.correctionPopinProps), {
     information: {
-      label: '_klf',
+      label: translate('KLF'),
       message:
         'L’apprenant peut aussi évaluer sa performance grâce à un classement disponible sur la vue leaderboard. Elle compare sa position par rapport à celle des autres apprenants de la plateforme.'
     },
     klf: undefined,
     next: {
-      'aria-label': '_correctionNextAriaLabel',
-      label: '_correctionNextLabel'
+      'aria-label': translate('Next Question'),
+      label: translate('Next Question')
     },
-    resultLabel: '_right',
+    resultLabel: translate('Correct Answer'),
     type: 'right'
   });
 });
@@ -1095,9 +1098,9 @@ test('should verify props showing congrats', t => {
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
-  t.is(congrats.title, 'Congratulations!');
+  t.is(congrats.title, translate('Congratulations!'));
   t.is(
     congrats.animationLottie.animationSrc,
     'https://static-staging.coorpacademy.com/animations/review/confetti.json'
@@ -1122,7 +1125,7 @@ test('should verify props showing congrats', t => {
         loop: true
       },
       rankSuffix: 'th',
-      reviewCardTitle: 'You are now',
+      reviewCardTitle: translate('You are now'),
       reviewCardValue: '9'
     }
   );
@@ -1148,7 +1151,7 @@ test('should verify props showing congrats', t => {
         }
       },
       rankSuffix: undefined,
-      reviewCardTitle: 'You have won',
+      reviewCardTitle: translate('You have won'),
       reviewCardValue: '40'
     }
   );
@@ -1227,9 +1230,9 @@ test('should verify props showing congrats, with only stars card, if user has no
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
-  t.is(congrats.title, 'Congratulations!');
+  t.is(congrats.title, translate('Congratulations!'));
   t.is(
     congrats.animationLottie.animationSrc,
     'https://static-staging.coorpacademy.com/animations/review/confetti.json'
@@ -1257,7 +1260,7 @@ test('should verify props showing congrats, with only stars card, if user has no
         }
       },
       rankSuffix: undefined,
-      reviewCardTitle: 'You have won',
+      reviewCardTitle: translate('You have won'),
       reviewCardValue: '40'
     }
   );
@@ -1338,13 +1341,13 @@ test('should verify props when progression has answered a current pendingSlide',
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
     hiddenSteps: false,
-    skillName: '__agility',
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: true,
@@ -1445,13 +1448,13 @@ test('should verify props when progression still has a pendingSlide', t => {
     }
   };
 
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.deepEqual(omit(['onQuitClick'], props.header), {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
-    mode: '__revision_mode',
-    skillName: '__agility',
     hiddenSteps: false,
+    mode: translate('Review Title'),
+    skillName: translate('Content Parent Title'),
     steps: [
       {
         current: false,
@@ -1510,6 +1513,6 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       showQuitPopin: true
     }
   };
-  const props = mapStateToSlidesProps(state, identity, identity);
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
   t.not(props.quitPopin, undefined);
 });

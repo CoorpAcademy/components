@@ -9,26 +9,25 @@ import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import configureStore from './configure-store';
 
-import type {AppOptions, ViewName} from './types/common';
+import type {AppOptions, ConnectedOptions, ViewName} from './types/common';
 import type {StoreState} from './reducers';
 
 import {navigateBack, navigateTo} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
-import {mapStateToSlidesProps} from './views/slides';
 import {mapStateToSkillsProps} from './views/skills';
+import {mapStateToSlidesProps} from './views/slides';
 
-const ConnectedApp = ({onQuitClick}: {onQuitClick: () => void}): JSX.Element => {
+const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
   const dispatch = useDispatch();
-
   const props: AppReviewProps = {
-    navigateBack: () => dispatch(navigateBack),
     viewName: useSelector(
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
     ),
-    slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, onQuitClick)),
+    slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, options)),
     skills: useSelector((state: StoreState) => mapStateToSkillsProps(state)),
+    navigateBack: () => dispatch(navigateBack),
     onboarding: {}
   };
 
@@ -39,7 +38,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
   const [isProgressionCreated, setIsProgressionCreated] = useState(false);
 
-  const onQuitClick = options.onQuitClick;
+  const {translate, onQuitClick} = options;
 
   useEffect(() => {
     if (store) return;
@@ -92,7 +91,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
   return (
     <Provider store={store}>
-      <ConnectedApp onQuitClick={onQuitClick} />
+      <ConnectedApp onQuitClick={onQuitClick} translate={translate} />
     </Provider>
   );
 };

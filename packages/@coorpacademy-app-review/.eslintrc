@@ -51,7 +51,7 @@
     "node/file-extension-in-import": [
       "error",
       "always",
-      {".js": "never", ".ts": "never", ".json": "never", ".tsx": "never", ".jsx": "never"}
+      {".js": "never", ".ts": "never", ".json": "always", ".tsx": "never", ".jsx": "never"}
     ],
     "node/no-extraneous-import": ["error"],
     "ava/no-ignored-test-files": [
