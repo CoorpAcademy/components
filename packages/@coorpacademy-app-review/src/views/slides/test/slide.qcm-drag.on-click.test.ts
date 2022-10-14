@@ -4,13 +4,14 @@ import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
 import {mapStateToSlidesProps} from '..';
 import {ProgressionFromAPI} from '../../../types/common';
-import {services} from '../../../test/util/services.mock';
+import {services, translate} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_QCM_DRAG} from '../../../actions/ui/answers';
 import {QcmDrag} from '../../../types/slides';
 import {qcmDragSlide} from './fixtures/qcm-drag';
 
+const connectedOptions = {translate, onQuitClick: identity};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},
@@ -71,9 +72,9 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
       payload: ['La démoralisation']
     }
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, FC} from 'react';
 import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
@@ -7,9 +7,18 @@ import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/no
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 
+interface ButtonProps {
+  title: string;
+  testID: string;
+  selected: boolean;
+  Icon: FC<{height: number; width: number; color?: string}>;
+  styles: StyleSheetType;
+  theme: Theme;
+}
+
 export type NavItemType = {
   label: string;
-  icon: any;
+  icon: ButtonProps['Icon'];
   onPress: () => void;
 };
 
@@ -76,15 +85,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       transform: [{rotateX: '180deg'}, {scaleX: 0.7}]
     }
   });
-
-interface ButtonProps {
-  title: string;
-  testID: string;
-  selected: boolean;
-  Icon: any;
-  styles: StyleSheetType;
-  theme: Theme;
-}
 
 const Button = ({testID, title, selected, Icon, styles, theme}: ButtonProps) => (
   <View testID={testID} style={styles.button}>

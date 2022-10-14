@@ -17,7 +17,7 @@ export const BACK_ICON_HEIGHT = 20;
 export type Props = {
   type: 'close' | 'back' | 'home';
   color?: string;
-  onPress?: (event: GestureResponderEvent) => any;
+  onPress?: (event: GestureResponderEvent) => void;
   isFloating?: boolean;
   noSafeArea?: boolean;
   testID?: string;

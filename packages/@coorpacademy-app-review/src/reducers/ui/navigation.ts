@@ -1,8 +1,8 @@
 import {
-  type NavigateTo,
-  type NavigateBack,
-  NAVIGATE_BACK,
-  NAVIGATE_TO
+  NavigateToAction,
+  NavigateBackAction,
+  NAVIGATE_TO,
+  NAVIGATE_BACK
 } from '../../actions/ui/navigation';
 
 export type NavigationState = Array<'skills' | 'onboarding' | 'slides' | 'loader'>;
@@ -10,7 +10,7 @@ export type NavigationState = Array<'skills' | 'onboarding' | 'slides' | 'loader
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: NavigationState = [],
-  action: NavigateTo | NavigateBack
+  action: NavigateToAction | NavigateBackAction
 ): NavigationState => {
   switch (action.type) {
     case NAVIGATE_TO: {

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import {ReviewCorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+
 import ReviewSlidePropTypes, {
-  CorrectionPopinProps,
-  Props as ReviewSlideProps,
+  ReviewSlideProps,
   SlideProps,
   SlidePropsTypes
 } from '../review-slide/prop-types';
@@ -21,9 +22,9 @@ const propTypes = {
 
 export default propTypes;
 
-export type Props = {
+export type ReviewStackProps = {
   validateButton: ReviewSlideProps['validateButton'];
-  correctionPopinProps: ReviewSlideProps['correctionPopinProps'];
+  correctionPopinProps?: ReviewCorrectionPopinProps;
   slides: {[key: string]: SlideProps};
   endReview: boolean;
 };

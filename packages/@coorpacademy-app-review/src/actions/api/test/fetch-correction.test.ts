@@ -78,7 +78,7 @@ test('should dispatch CORRECTION_FETCH_SUCCESS actions when fetchCorrection retu
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(fetchCorrection);
 });
@@ -113,7 +113,7 @@ test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(fetchCorrection);
 });

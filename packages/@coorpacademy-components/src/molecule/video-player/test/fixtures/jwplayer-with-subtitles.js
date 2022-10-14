@@ -11,7 +11,7 @@ export default {
       customProps: {
         tracks: [
           {
-            file: 'https://s3.eu-west-2.amazonaws.com/kickassstarter/-.txt',
+            file: 'https://content.jwplatform.com/tracks/XGZ5baM8.srt',
             label: 'English',
             kind: 'captions',
             default: true

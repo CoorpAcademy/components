@@ -1,7 +1,11 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {createTestStore} from '../../../actions/test/create-test-store';
-import {incorrectFreeTextPostAnswerResponse, services} from '../../../test/util/services.mock';
+import {
+  incorrectFreeTextPostAnswerResponse,
+  services,
+  translate
+} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
 import {OPEN_POPIN} from '../../../actions/ui/quit-popin';
 import {mapStateToSlidesProps} from '..';
@@ -36,11 +40,14 @@ const state: StoreState = {
 
 test('should dispatch OPEN_POPIN action after a click on close button in header', async t => {
   const expectedAction = [{type: OPEN_POPIN}];
-  const {dispatch, getState} = createTestStore(t, state, services, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
+  const props = mapStateToSlidesProps(getState(), dispatch, {translate, onQuitClick: identity});
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();
-  const updatedProps = mapStateToSlidesProps(getState(), dispatch, identity);
+  const updatedProps = mapStateToSlidesProps(getState(), dispatch, {
+    translate,
+    onQuitClick: identity
+  });
   t.not(updatedProps.quitPopin, undefined);
   t.pass();
 });

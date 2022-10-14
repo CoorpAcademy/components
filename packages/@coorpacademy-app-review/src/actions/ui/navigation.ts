@@ -1,17 +1,13 @@
-import {AppOptions} from '../../types/common';
+import {Dispatch} from 'redux';
+import type {StoreState} from '../../reducers';
+import {ThunkOptions, AppOptions, ViewName} from '../../types/common';
 
-export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
-export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
-export const START_APP = '@@navigation/START_APP';
-
-export type ViewPath = 'skills' | 'onboarding' | 'slides' | 'loader';
-
-export type NavigateTo = {
+export type NavigateToAction = {
   type: '@@navigation/NAVIGATE_TO';
-  payload: ViewPath;
+  payload: ViewName;
 };
 
-export type NavigateBack = {
+export type NavigateBackAction = {
   type: '@@navigation/NAVIGATE_BACK';
 };
 
@@ -20,11 +16,47 @@ export type StartApp = {
   payload: AppOptions;
 };
 
-export const navigateTo = (newPath: ViewPath): NavigateTo => ({
-  type: NAVIGATE_TO,
-  payload: newPath
-});
+export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
+export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
+export const START_APP = '@@navigation/START_APP';
 
-export const navigateBack = (): NavigateBack => ({
-  type: NAVIGATE_BACK
-});
+export const navigateTo =
+  (newViewName: ViewName) =>
+  async (
+    dispatch: Dispatch,
+    getState: () => StoreState,
+    {callbackOnViewChanged}: ThunkOptions
+  ): Promise<NavigateToAction> => {
+    const action: NavigateToAction = {
+      type: NAVIGATE_TO,
+      payload: newViewName
+    };
+
+    const res = await dispatch(action);
+
+    if (callbackOnViewChanged) {
+      callbackOnViewChanged(newViewName);
+    }
+
+    return res;
+  };
+
+export const navigateBack = async (
+  dispatch: Dispatch,
+  getState: () => StoreState,
+  {callbackOnViewChanged}: ThunkOptions
+): Promise<NavigateBackAction> => {
+  const action: NavigateBackAction = {
+    type: NAVIGATE_BACK
+  };
+
+  const res = await dispatch(action);
+
+  if (callbackOnViewChanged) {
+    const storeState: StoreState = getState();
+    const viewName = storeState.ui.navigation[storeState.ui.navigation.length - 1];
+    callbackOnViewChanged(viewName);
+  }
+
+  return res;
+};

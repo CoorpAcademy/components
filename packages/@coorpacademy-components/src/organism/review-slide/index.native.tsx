@@ -1,5 +1,5 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {StyleSheet, useWindowDimensions, View, ViewStyle} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, TextStyle, useWindowDimensions, View, ViewStyle} from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Text from '../../atom/text/index.native';
@@ -9,10 +9,12 @@ import Answer from '../../molecule/answer/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
-import {CorrectionPopinProps, Props, SlideProps} from './prop-types';
+import {Brand} from '../../variables/brand.native';
+import {ReviewCorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
+import {ReviewSlideProps, SlideProps} from './prop-types';
 
 type PopinProps = {
-  correctionPopinProps: CorrectionPopinProps;
+  correctionPopinProps: ReviewCorrectionPopinProps;
   slideIndex: unknown;
   showCorrectionPopin: unknown;
   animateCorrectionPopin: unknown;
@@ -22,6 +24,7 @@ const CorrectionPopin = ({
   correctionPopinProps,
   slideIndex,
   showCorrectionPopin,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   animateCorrectionPopin
 }: PopinProps) => {
   if (!showCorrectionPopin) return null;
@@ -47,7 +50,7 @@ const CorrectionPopin = ({
   };
 
   return (
-    <Text>ReviewCorrectionPopin</Text>
+    <Text>@todo ReviewCorrectionPopin {_correctionPopinProps.toString()}</Text>
     // <ReviewCorrectionPopin {..._correctionPopinProps} />
   );
 };
@@ -69,7 +72,17 @@ const CorrectionPopin = ({
 //   return <Button title="validate todo" />;
 // };
 
-const createQuestionStyle = (theme: Theme, brandTheme: any) =>
+type StyleSheetType = {
+  questionHeading: ViewStyle;
+  questionOrigin: ViewStyle;
+  questionText: TextStyle;
+  questionHelp: ViewStyle;
+  choicesContainer: ViewStyle;
+  validateButton: ViewStyle;
+  validateButtonText: ViewStyle;
+};
+
+const createQuestionStyle = (theme: Theme, brandTheme: Brand): StyleSheetType =>
   StyleSheet.create({
     questionHeading: {
       justifyContent: 'space-between'
@@ -103,7 +116,7 @@ const createQuestionStyle = (theme: Theme, brandTheme: any) =>
       justifyContent: 'center'
     },
     validateButton: {
-      backgroundColor: brandTheme?.colors.primary || theme.colors.text.primary,
+      backgroundColor: brandTheme?.colors?.primary || theme.colors.text.primary,
       borderRadius: 7,
       width: '100%'
     },
@@ -127,7 +140,7 @@ type QuestionProps = {
 const Question = (props: QuestionProps) => {
   const {answerUI, questionText, questionOrigin} = props;
   const {theme, brandTheme} = useTemplateContext();
-  const [style, setStyle] = useState<any | null>(null);
+  const [style, setStyle] = useState<StyleSheetType>();
 
   useEffect(() => {
     const questionStyle = createQuestionStyle(theme, brandTheme);
@@ -157,7 +170,7 @@ type SlideStyle = {
   slide: ViewStyle;
 };
 
-const createSlideStyle = (num: number, screenWidth: number, screenHeight: number): SlideStyle => {
+const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
   const slideWidth = screenWidth - 40 - num * 8;
 
   return StyleSheet.create({
@@ -181,11 +194,11 @@ const createSlideStyle = (num: number, screenWidth: number, screenHeight: number
   });
 };
 
-const Slide = (props: Props) => {
-  const {slide, validateButton, correctionPopinProps, num, slideIndex = '0'} = props;
+const Slide = (props: ReviewSlideProps) => {
+  const {slide, correctionPopinProps, num, slideIndex = '0'} = props;
 
-  const {width, height} = useWindowDimensions();
-  const slideStyle = createSlideStyle(num, width, height);
+  const {width} = useWindowDimensions();
+  const slideStyle = createSlideStyle(num, width);
 
   const {
     loading,
@@ -202,21 +215,23 @@ const Slide = (props: Props) => {
         // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
         <Text>@todo loader {num}</Text>
       ) : (
-        [
+        <>
           <Question
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
             key="question-container"
-          />,
-          <CorrectionPopin
-            correctionPopinProps={correctionPopinProps}
-            slideIndex={slideIndex}
-            showCorrectionPopin={showCorrectionPopin}
-            animateCorrectionPopin={animateCorrectionPopin}
-            key="correction-popin"
           />
-        ]
+          {correctionPopinProps ? (
+            <CorrectionPopin
+              correctionPopinProps={correctionPopinProps}
+              slideIndex={slideIndex}
+              showCorrectionPopin={showCorrectionPopin}
+              animateCorrectionPopin={animateCorrectionPopin}
+              key="correction-popin"
+            />
+          ) : null}
+        </>
       )}
     </View>
   );

@@ -1,4 +1,4 @@
-import React, {createContext, useContext} from 'react';
+import React, {createContext, ReactNode, useContext} from 'react';
 
 type Skin = {
   common: {
@@ -8,7 +8,7 @@ type Skin = {
 
 type WebContextValues = {
   skin?: Skin;
-  translate: (key: string) => string;
+  translate: (key: string, data?: unknown) => string;
 };
 
 const Context = createContext({
@@ -16,12 +16,11 @@ const Context = createContext({
 });
 
 type Props = WebContextValues & {
-  children: any;
+  children: ReactNode;
 };
 
-const WebContext = ({skin, translate, children}: Props) => {
-  const values = {skin, translate};
-  return <Context.Provider value={{...values}}>{children}</Context.Provider>;
+const WebContext = ({children, ...value}: Props) => {
+  return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
 export const useWebContext = (): WebContextValues => {

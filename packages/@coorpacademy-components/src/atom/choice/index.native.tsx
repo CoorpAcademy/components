@@ -133,9 +133,10 @@ const Choice = ({
   if (isSelected) {
     textStyle.push(styleSheet.textSelected);
 
+    // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
     const selectionStyle = brandTheme && {
-      backgroundColor: brandTheme.colors.primary,
-      borderColor: brandTheme.colors.primary,
+      backgroundColor: brandTheme.colors?.primary,
+      borderColor: brandTheme.colors?.primary,
       ...(url
         ? {
             borderTopRightRadius: theme.radius.regular,
@@ -146,7 +147,9 @@ const Choice = ({
           })
     };
 
-    textWrapperStyle.push(selectionStyle);
+    if (selectionStyle) {
+      textWrapperStyle.push(selectionStyle);
+    }
   }
 
   return (

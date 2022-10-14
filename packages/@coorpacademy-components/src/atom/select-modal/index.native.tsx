@@ -57,7 +57,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
 
 const logEvent = (
   eventName: string,
-  analyticsID: String,
+  analyticsID: string,
   analytics: Analytics,
   questionType: QuestionType
 ) => {

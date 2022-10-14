@@ -1,13 +1,16 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
+import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
+
 import type {StoreState} from '../../../reducers';
 import {
   postAnswerResponses,
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse,
-  services
+  services,
+  translate
 } from '../../../test/util/services.mock';
-import {CorrectionPopinProps, mapStateToSlidesProps} from '..';
+import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 import {freeTextSlide} from './fixtures/free-text';
@@ -15,6 +18,8 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
+
+const connectedOptions = {translate, onQuitClick: identity};
 
 test('correction popin actions after click', async t => {
   const state: StoreState = {
@@ -65,9 +70,9 @@ test('correction popin actions after click', async t => {
       }
     }
   ];
-  const {dispatch, getState} = createTestStore(t, state, services, expectedActions);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
-  const correctionPopin = props.stack.correctionPopinProps as CorrectionPopinProps;
+  const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
+  const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
   const updatedState = getState();
@@ -163,10 +168,10 @@ test('correction popin actions after click when progression is finished', async 
       }
     }
   ];
-  const {dispatch, getState} = createTestStore(t, state, services, expectedActions);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.is(props.congrats, undefined);
-  const correctionPopin = props.stack.correctionPopinProps as CorrectionPopinProps;
+  const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
   const updatedState = getState();

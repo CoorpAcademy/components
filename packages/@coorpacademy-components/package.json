@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "10.24.4",
+  "version": "10.27.1",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build:commonjs:babel": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:commonjs:types": "tsc --module esnext --outDir lib --emitDeclarationOnly",
+    "build:commonjs:types": "tsc -p tsconfig.lib.json",
     "build:es:babel": "cross-env BABEL_ENV=es babel src --out-dir es -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:es:types": "tsc --module es2020 --outDir es --emitDeclarationOnly",
+    "build:es:types": "tsc -p tsconfig.es.json",
     "build:commonjs": "npm run build:commonjs:babel && npm run build:commonjs:types",
     "build:es": "npm run build:es:babel && npm run build:es:types",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
@@ -39,7 +39,7 @@
     "lint": "npm run eslint && npm run typecheck",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "nyc npm run ava",
-    "eslint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
+    "eslint": "eslint . --ext .js,.json,.ts,.tsx --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "typecheck": "tsc --noEmit true"
   },
   "engines": {
@@ -57,6 +57,7 @@
   ],
   "dependencies": {
     "@coorpacademy/nova-icons": "3.11.12",
+    "@jwplayer/jwplayer-react": "^1.1.0",
     "@types/react": "^17.0.50",
     "@types/react-dom": "^17.0.17",
     "autoprefixer": "^10.4.12",
@@ -76,7 +77,6 @@
     "qs": "6.11.0",
     "react-autosuggest": "^10.0.2",
     "react-dropzone": "^9.0.0",
-    "react-jw-player": "1.19.1",
     "react-tooltip": "^4.2.6"
   },
   "peerDependencies": {
@@ -118,6 +118,8 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "^10.1.1",
     "@types/react-native": "~0.68.7",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "ava": "^4.3.3",
     "babel-loader": "^8.2.5",

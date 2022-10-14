@@ -1,9 +1,9 @@
 import React from 'react';
 import {Choice, QuestionType} from '../questions/types';
 import Switch, {Props as SwitchProps} from '../questions/mobile/switch/index.native';
-import {Props} from './prop-types';
+import {AnswerProps} from './prop-types';
 
-const convertType = (modelType: Props['model']['type']): QuestionType => {
+const convertType = (modelType: AnswerProps['model']['type']): QuestionType => {
   switch (modelType) {
     case 'freeText':
       return 'basic';
@@ -14,7 +14,7 @@ const convertType = (modelType: Props['model']['type']): QuestionType => {
   }
 };
 
-const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] =>
+const convertToChoices = (answers: AnswerProps['model']['answers'] = []): Choice[] =>
   answers.map((answer, index) => ({
     _id: `${index}`,
     label: answer.title,
@@ -40,7 +40,7 @@ const convertToChoices = (answers: Props['model']['answers'] = []): Choice[] =>
       }))
   }));
 
-const Answer = (props: Props) => {
+const Answer = (props: AnswerProps) => {
   const {
     model: {answers, onChange, template, type, onSliderChange, minLabel, maxLabel, title}
   } = props;

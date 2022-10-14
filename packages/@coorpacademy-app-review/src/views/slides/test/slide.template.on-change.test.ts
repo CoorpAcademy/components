@@ -5,13 +5,14 @@ import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import {mapStateToSlidesProps} from '..';
 import {ProgressionFromAPI} from '../../../types/common';
-import {services} from '../../../test/util/services.mock';
+import {services, translate} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_TEMPLATE} from '../../../actions/ui/answers';
 import {Template, TextTemplate} from '../../../types/slides';
 import {templateSlide} from './fixtures/template';
 
+const connectedOptions = {translate, onQuitClick: identity};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},
@@ -69,9 +70,9 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['', 'test', '']},
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['Catalogue', '', '']}
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
@@ -98,11 +99,11 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   const {dispatch, getState} = createTestStore(
     t,
     set(['ui', 'answers', templateSlide._id], ['', 'Test', ''], initialState),
-    services,
+    {services},
     expectedActions
   );
 
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
@@ -119,7 +120,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   const onChangeText = get(['1', 'onChange'], slideProps.answers);
   onChangeText('');
 
-  const newProps = mapStateToSlidesProps(getState(), dispatch, identity);
+  const newProps = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const slidePropsAfterOnChange = newProps.stack.slides['0'].answerUI?.model as Template;
   const textAnswerPropsAfterOnChange = slidePropsAfterOnChange.answers[1] as TextTemplate;
   t.is(textAnswerPropsAfterOnChange.value, '');

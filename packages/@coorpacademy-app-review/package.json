@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.5.5",
+  "version": "0.7.2",
   "description": "",
   "engines": {
     "node": ">=16.15.0"
@@ -29,21 +29,15 @@
   "files": [
     "lib",
     "es",
-    "src",
+    "locales",
     "readme.md"
   ],
-  "main": "./es/index.js",
-  "exports": {
-    ".": {
-      "import": "./es/index.js",
-      "commonjs": "./lib/index.js",
-      "types": "./es/index.d.ts"
-    },
-    "./package.json": "./package.json"
-  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "dependencies": {
-    "@coorpacademy/components": "10.24.4",
+    "@coorpacademy/components": "10.27.1",
     "@coorpacademy/redux-task": "1.1.6",
+    "@coorpacademy/translate": "^6.1.5",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
     "react-redux": "^7.2.9",

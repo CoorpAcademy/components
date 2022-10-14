@@ -107,7 +107,7 @@ const QuestionSlider = (props: Props) => {
 
   return (
     <View style={[styleSheet.container, style]} testID={testID}>
-      <Text style={[styleSheet.header, {color: brandTheme?.colors.primary}]} testID="slider-value">
+      <Text style={[styleSheet.header, {color: brandTheme?.colors?.primary}]} testID="slider-value">
         {value}
       </Text>
       <Slider
@@ -117,9 +117,9 @@ const QuestionSlider = (props: Props) => {
         maximumValue={max}
         minimumValue={min}
         onSlidingComplete={handleSlidingComplete}
-        minimumTrackTintColor={brandTheme?.colors.primary}
+        minimumTrackTintColor={brandTheme?.colors?.primary}
         trackStyle={styleSheet.track}
-        thumbStyle={[styleSheet.thumb, {borderColor: brandTheme?.colors.primary}]}
+        thumbStyle={[styleSheet.thumb, {borderColor: brandTheme?.colors?.primary}]}
         testID="slider"
       />
       <View style={styleSheet.valuesContainer} testID="slider-values-container">

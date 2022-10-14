@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {Media} from '../questions/types';
 import VideoPlayerPropTypes from '../video-player/prop-types';
 
 export const TYPE_IMAGE = 'img';
@@ -69,7 +70,7 @@ type SelectOptions = {
   value: string;
 };
 
-type Answer = {
+export type Answer = {
   title?: string;
   'aria-label'?: string;
   onClick?: () => void;
@@ -77,11 +78,11 @@ type Answer = {
   selected?: boolean;
   image?: string;
   options?: SelectOptions[];
-  type: 'text' | 'select';
+  type?: 'text' | 'select';
   name?: string;
 };
 
-export type Props = {
+export type AnswerProps = {
   model: {
     type: 'qcmDrag' | 'qcm' | 'qcmGraphic' | 'freeText' | 'dropDown' | 'slider' | 'template';
     answers?: Answer[];
@@ -93,7 +94,8 @@ export type Props = {
     title?: string;
   };
   help: string;
-  media: any;
+
+  media?: Media;
 };
 
 export default propTypes;

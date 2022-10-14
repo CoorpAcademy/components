@@ -1,3 +1,5 @@
+export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
+
 export type ChoiceFromAPI = {
   _id: string;
   id?: string;
@@ -82,6 +84,10 @@ export type SlideFromAPI = {
   };
 };
 
+export type SlideIdFromAPI = {
+  slideId: string;
+};
+
 export type Rank = {
   rank: number;
 };
@@ -164,17 +170,33 @@ export type Services = {
     answer: string[]
   ): Promise<CorrectionFromAPI | void>;
   fetchRank(token: string): Promise<Rank>;
+  fetchSlidesToReviewBySkillRef(
+    url: string,
+    token: string,
+    skillRef: string
+  ): Promise<SlideIdFromAPI[]>;
 };
 
 export type Options = {
   services: Services;
 };
 
-export type AppOptions = {
+export type ConnectedOptions = {
+  translate: (key: string, data?: unknown) => string;
+  onQuitClick: () => void;
+};
+
+export type AppOptions = ConnectedOptions & {
   token: string;
   skillRef?: string;
   services: Services;
-  onQuitClick: Function;
+  url: string;
+  callbackOnViewChanged?: (viewName: ViewName) => void;
+};
+
+export type ThunkOptions = {
+  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+  services: Services;
 };
 
 export type JWT = {

@@ -4,6 +4,7 @@ import {useTemplateContext} from '../../../template/app-review/template-context'
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
 import {Theme} from '../../../variables/theme.native';
 import {BOX_STYLE} from '../../../variables/shadow';
+import {Brand} from '../../../variables/brand.native';
 
 type QuestionType = 'basic' | 'template';
 
@@ -24,7 +25,7 @@ type StyleSheetType = {
   fullWitdh: ViewStyle;
 };
 
-const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
+const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
     input: {
@@ -38,8 +39,8 @@ const createStyleSheet = (brandTheme: any, theme: Theme): StyleSheetType =>
       backgroundColor: theme.colors.white
     },
     text: {
-      borderColor: brandTheme?.colors.primary,
-      color: brandTheme?.colors.primary || theme.colors.gray.medium,
+      borderColor: brandTheme?.colors?.primary,
+      color: brandTheme?.colors?.primary || theme.colors.gray.medium,
       fontWeight: theme.fontWeight.bold,
       fontSize: theme.fontSize.regular,
       textAlign: 'center'

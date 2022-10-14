@@ -1,12 +1,19 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
+import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
-import {incorrectFreeTextPostAnswerResponse, services} from '../../../test/util/services.mock';
+import {
+  incorrectFreeTextPostAnswerResponse,
+  services,
+  translate
+} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
-import {mapStateToSlidesProps, QuitPopinProps} from '..';
+import {mapStateToSlidesProps} from '..';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+
+const connectedOptions = {translate, onQuitClick: identity};
 
 const state: StoreState = {
   data: {
@@ -44,9 +51,9 @@ const state: StoreState = {
 
 test('should dispatch CLOSE_POPIN action via the property handleOnclick of secondButton when popin is open', async t => {
   const expectedAction = [{type: CLOSE_POPIN}];
-  const {dispatch, getState} = createTestStore(t, state, services, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
-  const quitPopin = props.quitPopin as QuitPopinProps;
+  const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
+  const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.secondButton.handleOnclick();
   const updatedState = getState();
   t.is(updatedState.ui.showQuitPopin, false);
@@ -57,9 +64,12 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
   t.plan(2);
 
   const expectedAction = [{type: CLOSE_POPIN}];
-  const {dispatch, getState} = createTestStore(t, state, services, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, () => t.pass());
-  const quitPopin = props.quitPopin as QuitPopinProps;
+  const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
+  const props = mapStateToSlidesProps(getState(), dispatch, {
+    translate,
+    onQuitClick: () => t.pass()
+  });
+  const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.firstButton.handleOnclick();
   t.pass();
 });

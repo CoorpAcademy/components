@@ -1,12 +1,11 @@
 import {TextStyle} from 'react-native';
+import {COLORS} from './colors';
 
 export type SpaceType = 'micro' | 'tiny' | 'small' | 'base' | 'medium' | 'large' | 'xlarge';
-import {COLORS} from './colors';
 
 export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
 
 export type Colors = {
-  background?: any;
   border: string;
   gray: {
     extra: string;
@@ -88,7 +87,6 @@ const defaultTheme: Theme = {
       primary: '#06265B',
       secondary: '#FFFFFF'
     },
-    background: {},
     cta: '#0061FF',
     negative: COLORS.negative,
     positive: COLORS.positive,

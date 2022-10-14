@@ -28,6 +28,6 @@ const initialState: StoreState = {
 test('should dispatch SET_CURRENT_SLIDE action when setCurrentSlide is called', async t => {
   const expectedActions = [{type: SET_CURRENT_SLIDE, payload: freeTextSlide}];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
   await dispatch(setCurrentSlide(freeTextSlide));
 });

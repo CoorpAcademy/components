@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import {COLORS} from '../../variables/colors';
-import {Props} from './types';
+import {HeaderStepItemProps} from './types';
 
-const createStyle = (current: boolean, icon: Props['icon']) => {
+type StyleSheetType = {
+  step: ViewStyle;
+  stepText: TextStyle;
+  icon: ViewStyle;
+};
+
+const createStyle = (current: boolean, icon: HeaderStepItemProps['icon']): StyleSheetType => {
   let backgroundColor;
 
   switch (icon) {
@@ -44,8 +50,8 @@ const createStyle = (current: boolean, icon: Props['icon']) => {
   });
 };
 
-const Step = ({value, icon, current}: Props) => {
-  const [style, setStyle] = useState<any | null>(null);
+const Step = ({value, icon, current}: HeaderStepItemProps) => {
+  const [style, setStyle] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
     const _style = createStyle(current, icon);

@@ -1,7 +1,7 @@
 import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
-import type {Options, ProgressionFromAPI} from '../../types/common';
+import type {ThunkOptions, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {fetchCorrection} from './fetch-correction';
 import {fetchSlide} from './fetch-slide';
@@ -25,7 +25,7 @@ export type PostAnswerSuccessAction = {
 export const postAnswer = async (
   dispatch: Dispatch,
   getState: () => StoreState,
-  {services}: Options
+  {services}: ThunkOptions
 ): Promise<void> => {
   const state = getState();
   const currentSlideRef = get(['ui', 'currentSlideRef'], state);

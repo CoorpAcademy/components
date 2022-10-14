@@ -131,7 +131,7 @@ const QuestionDraggable = (props: Props) => {
 
   const pickableChoices = choices
     .filter(item => !item.selected)
-    .map((item: SelectableChoice, index) => (
+    .map((item: SelectableChoice) => (
       <QuestionChoice
         style={styleSheet.choice}
         key={item._id}

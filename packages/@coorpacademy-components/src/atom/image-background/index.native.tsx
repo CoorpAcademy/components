@@ -38,7 +38,6 @@ const ImageBackground = ({
   testID = 'image-background',
   ...props
 }: Props) => {
-  // @ts-ignore this statement is enough but type is too weak
   let uri: string | undefined = source && source.uri;
 
   if (uri) {

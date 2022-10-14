@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
 import type {StoreState} from '../../reducers';
-import type {Options, SlideFromAPI} from '../../types/common';
+import type {ThunkOptions, SlideFromAPI} from '../../types/common';
 import {setCurrentSlide} from '../ui/slides';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
@@ -24,7 +24,11 @@ export type ReceivedSlide = {
 
 export const fetchSlide =
   (slideRef: string) =>
-  async (dispatch: Dispatch, getState: () => StoreState, {services}: Options): Promise<void> => {
+  async (
+    dispatch: Dispatch,
+    getState: () => StoreState,
+    {services}: ThunkOptions
+  ): Promise<void> => {
     const action = buildTask({
       types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
       bailout: (state: StoreState): boolean => {

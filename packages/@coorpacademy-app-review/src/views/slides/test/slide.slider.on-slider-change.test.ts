@@ -5,12 +5,13 @@ import identity from 'lodash/fp/identity';
 import {ProgressionFromAPI} from '../../../types/common';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import {services} from '../../../test/util/services.mock';
+import {services, translate} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {EDIT_SLIDER} from '../../../actions/ui/answers';
 import {QuestionRange} from '../../../types/slides';
 import {sliderSlide} from './fixtures/slider';
 
+const connectedOptions = {translate, onQuitClick: identity};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},
@@ -71,8 +72,8 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
       payload: ['111']
     }
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
-  const props = mapStateToSlidesProps(getState(), dispatch, identity);
+  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
 
   const slideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
