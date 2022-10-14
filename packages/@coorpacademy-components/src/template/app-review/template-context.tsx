@@ -1,8 +1,8 @@
 import React, {createContext, ReactNode, useContext} from 'react';
-import {Translations} from '../../types/translations';
 import {Analytics} from '../../variables/analytics';
 import {Brand, defaultBrandTheme} from '../../variables/brand.native';
 import defaultTheme, {Theme} from '../../variables/theme.native';
+import defaultMobileTranslations, {Translations} from '../../variables/default-mobile-translations';
 import {Vibration} from '../../variables/vibration';
 
 export type HandleBlur = () => void;
@@ -31,7 +31,7 @@ type Props = {values: TemplateContextValues; children: ReactNode};
 const Context = createContext({
   theme: defaultTheme,
   brandTheme: defaultBrandTheme,
-  translations: {},
+  translations: defaultMobileTranslations,
   display: {
     headerHeight: 67,
     statusBarHeight: 42
