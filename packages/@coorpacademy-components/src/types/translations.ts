@@ -3,19 +3,31 @@ export type Translations = {
   selectSomethingBelow?: string;
   typeHere?: string;
   appReview?: {
+    title: string;
+    text: string;
     noSkills?: {
       title?: string;
       text?: string;
     };
-    onboarding?: {
-      title?: string;
-      intro1?: string;
-      intro2?: string;
-      tip1?: string;
-      tip2?: string;
-      tip3?: string;
-      tip4?: string;
-      button?: string;
+    label_list?: {
+      skills?: {
+        text?: string;
+        tooltip?: string;
+      },
+      questions?: {
+        text?: string;
+        tooltip?: string;
+      },
+      lifes?: {
+        text?: string;
+        tooltip?: string;
+      },
+      allright?: {
+        text?: string;
+        tooltip?: string;
+      };
     };
+    button?: string;
+
   };
 };

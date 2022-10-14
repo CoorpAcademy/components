@@ -1,6 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
-import {NovaLineSelectionCursorsCursorArrowTarget as TargetIcon} from '@coorpacademy/nova-icons';
+import {
+  NovaLineSelectionCursorsCursorArrowTarget as TargetIcon,
+  NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionMarkIcon,
+  NovaSolidStatusCheckCircle2 as CheckCircle2Icon,
+  NovaCompositionCoorpacademyHeart as HeartIcon
+} from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../template-context';
 import {Theme} from '../../../variables/theme.native';
@@ -114,21 +119,20 @@ const Onboarding = (props: OnboardingProps) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text style={styleSheet.title}>{translations.appReview?.onboarding?.title}</Text>
-      <Text style={styleSheet.text}>{translations.appReview?.onboarding?.intro1}</Text>
-      <Text style={styleSheet.text}>{translations.appReview?.onboarding?.intro2}</Text>
+      <Text style={styleSheet.title}>{translations.appReview?.title}</Text>
+      <Text style={styleSheet.text}>{translations.appReview?.text}</Text>
 
-      <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip1} />
-      <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip2} />
-      <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip3} />
-      <Tip Icon={TargetIcon} text={translations.appReview?.onboarding?.tip4} />
+      <Tip Icon={TargetIcon} text={translations.appReview?.label_list?.skills?.text} />
+      <Tip Icon={QuestionMarkIcon} text={translations.appReview?.label_list?.questions?.text} />
+      <Tip Icon={HeartIcon} text={translations.appReview?.label_list?.lifes?.text} />
+      <Tip Icon={CheckCircle2Icon} text={translations.appReview?.label_list?.allright?.text} />
       <Touchable
         testID={`button-quit-revision-onboarding`}
         onPress={onPress}
         analyticsID="button-start"
         style={styleSheet.button}
       >
-        <Text style={styleSheet.buttonText}>{translations.appReview?.onboarding?.button}</Text>
+        <Text style={styleSheet.buttonText}>{translations.appReview?.button }</Text>
       </Touchable>
     </View>
   );
