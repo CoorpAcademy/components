@@ -390,7 +390,7 @@ export const mapStateToSlidesProps = (
   return {
     header: {
       mode: translate('Review Title'),
-      skillName: translate('Content Parent Title'),
+      skillName: '__agility',
       onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
