@@ -26,8 +26,8 @@ export const fetchSlidesToReviewBySkillRef = (
     ],
     task: () => {
       const state = getState();
-      const lambdaReviewURL = get(['data', 'lambdaReviewURL'], state);
-      const token = get(['data', 'token'], state);
+      const lambdaReviewURL = state.data.lambdaReviewURL;
+      const token = state.data.token;
       const skillRef = get(['data', 'progression', 'content', 'ref'], state);
       return services.fetchSlidesToReviewBySkillRef(lambdaReviewURL, token, skillRef);
     }
