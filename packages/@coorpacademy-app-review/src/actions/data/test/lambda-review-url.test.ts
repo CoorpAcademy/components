@@ -28,6 +28,6 @@ const initialState: StoreState = {
 test('should dispatch STORE_LAMBDA_REVIEW_URL action when storeLambdaReviewURL is called', async t => {
   const expectedActions = [{type: STORE_LAMBDA_REVIEW_URL, payload: 'http://localhost:7006'}];
 
-  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
   await dispatch(storeLambdaReviewURL('http://localhost:7006'));
 });
