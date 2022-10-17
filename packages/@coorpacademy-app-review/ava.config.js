@@ -7,6 +7,6 @@ module.exports = {
   environmentVariables: {
     API_TEST_TOKEN:
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJ1c2VyIjoiNTkyZDgzMGIyNDBiOTIzZjAwYmZmYmE2IiwiaG9zdCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJ9.uhlenI-dZCYm043sOSVHGbxjbpvGVlHWTdNaFDW5nFQ',
-      LAMBDA_REVIEW_URL: 'http://localhost:7006'
+    LAMBDA_REVIEW_URL: 'http://localhost:7006'
   }
 };

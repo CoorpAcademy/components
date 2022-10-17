@@ -1,4 +1,7 @@
 {
+  "include": [
+    "src/types/globals.d.ts"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "target": "es2020",
