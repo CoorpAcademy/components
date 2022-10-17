@@ -94,7 +94,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS action when fetchSlidesToRe
     }
   ];
 
-  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  const {dispatch} = createTestStore(t, state, {services}, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });
@@ -121,7 +121,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
     }
   ];
 
-  const {dispatch} = createTestStore(t, state, services, expectedActions);
+  const {dispatch} = createTestStore(t, state, {services}, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });
