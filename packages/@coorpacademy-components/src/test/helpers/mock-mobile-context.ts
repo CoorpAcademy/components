@@ -4,6 +4,7 @@ import {Brand, defaultBrandTheme} from '../../variables/brand.native';
 import {TemplateContextValues} from '../../template/app-review/template-context';
 import {Vibration, VIBRATION_TYPE} from '../../variables/vibration';
 import {Analytics} from '../../variables/analytics';
+import defaultMobileTranslations from '../../variables/default-mobile-translations';
 
 type MockOptions = {
   logEvent?: Analytics['logEvent'];
@@ -17,11 +18,7 @@ const mockMobileContext = ({
   brandTheme = defaultBrandTheme
 }: MockOptions = {}): TemplateContextValues => ({
   theme: defaultTheme,
-  translations: {
-    selectAnAnswer: 'Select an answer',
-    selectSomethingBelow: 'Select something below',
-    typeHere: 'type here'
-  },
+  translations: defaultMobileTranslations,
   analytics: {
     logEvent
   },

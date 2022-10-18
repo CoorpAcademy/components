@@ -16,9 +16,12 @@ export type Colors = {
     dark: string;
     extraDark: string;
   };
-  text: {
+  podcast: {
+    background: string;
     primary: string;
-    secondary: string;
+  };
+  text: {
+    primary: '#06265B';
   };
   cta: string;
   negative: string;
@@ -84,8 +87,7 @@ const defaultTheme: Theme = {
       extraDark: '#323232'
     },
     text: {
-      primary: '#06265B',
-      secondary: '#FFFFFF'
+      primary: '#06265B'
     },
     cta: '#0061FF',
     negative: COLORS.negative,
@@ -94,7 +96,11 @@ const defaultTheme: Theme = {
     black: '#14171A',
     battle: '#FFDE03',
     notification: '#FF7043',
-    salmon: '#FDE2E5'
+    salmon: '#FDE2E5',
+    podcast: {
+      background: '#171721',
+      primary: '#FF541F'
+    }
   },
   spacing: {
     micro: 4,
