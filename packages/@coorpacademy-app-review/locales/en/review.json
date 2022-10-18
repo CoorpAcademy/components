@@ -10,5 +10,41 @@
     "You are now": "You are now",
     "Revise another skill": "Review another skill",
     "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Congratulations!": "Congratulations!",
+    "aria_label": "Review Skills Template",
+    "presentation": {
+      "aria_label": "Review Presentation Container",
+      "title": "What is<br/>Revision Mode ?",
+      "text": "Information vanishes from your mind as soon as it enters it? It’s perfectly normal: there is no retention without repetition! To keep your knowledge in the long term, use the Revision Mode to refresh your memory!",
+      "button": "Ok, I got it!",
+      "label_list": {
+        "skills": {
+          "text": "Choose 1 skill",
+          "tooltip": "You can review one skill at a time."
+        },
+        "questions": {
+          "text": "Answer 5 questions",
+          "tooltip": "Answer the 5 questions correctly to validate your revision mode session."
+        },
+        "lifes": { 
+          "text": "You have infinite live",
+          "tooltip": "You can answer as many times as you like to complete your session."
+        },
+        "allright": { 
+          "text":  "Get it all right",
+          "tooltip": "To validate your session, you must get a correct answer to each question."
+        }
+      }
+    },
+    "list_title": "Skills you can review",
+    "list_aria_label": "Review Skills Container",
+    "card": {
+      "aria_label": "Skill Card",
+      "text": "{{total}} questions to review",
+      "button_text": "Review this skill"
+    },
+    "no_skills": {
+      "title": "You have no skill to revise yet",
+      "text": "First you need to complete courses before you can review different skills."
+    }      
 }
