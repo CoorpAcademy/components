@@ -7,11 +7,11 @@ import {
   NovaCompositionCoorpacademyHeart as HeartIcon
 } from '@coorpacademy/nova-icons';
 
-import {useTemplateContext} from '../template-context';
-import {Theme} from '../../../variables/theme.native';
-import {HEADER_HEIGHT} from '../../../organism/header-v2/index.native';
-import Touchable from '../../../hoc/touchable/index.native';
-import {OnboardingProps, TipProps} from '../../../atom/review-presentation/prop-types';
+import {useTemplateContext} from '../../template/app-review/template-context';
+import {Theme} from '../../variables/theme.native';
+import {HEADER_HEIGHT} from '../../organism/header-v2/index.native';
+import Touchable from '../../hoc/touchable/index.native';
+import {OnboardingProps, TipProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
