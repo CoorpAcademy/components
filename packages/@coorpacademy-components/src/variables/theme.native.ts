@@ -21,7 +21,8 @@ export type Colors = {
     primary: string;
   };
   text: {
-    primary: '#06265B';
+    primary: string;
+    secondary: string;
   };
   cta: string;
   negative: string;
@@ -87,7 +88,8 @@ const defaultTheme: Theme = {
       extraDark: '#323232'
     },
     text: {
-      primary: '#06265B'
+      primary: '#06265B',
+      secondary: '#FFFFFF'
     },
     cta: '#0061FF',
     negative: COLORS.negative,
