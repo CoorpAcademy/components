@@ -132,7 +132,7 @@ const Onboarding = (props: OnboardingProps) => {
         analyticsID="button-start"
         style={styleSheet.button}
       >
-        <Text style={styleSheet.buttonText}>{translations.appReview?.button }</Text>
+        <Text style={styleSheet.buttonText}>{translations.appReview?.button}</Text>
       </Touchable>
     </View>
   );

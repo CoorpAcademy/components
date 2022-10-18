@@ -13,21 +13,20 @@ export type Translations = {
       skills?: {
         text?: string;
         tooltip?: string;
-      },
+      };
       questions?: {
         text?: string;
         tooltip?: string;
-      },
+      };
       lifes?: {
         text?: string;
         tooltip?: string;
-      },
+      };
       allright?: {
         text?: string;
         tooltip?: string;
       };
     };
     button?: string;
-
   };
 };
