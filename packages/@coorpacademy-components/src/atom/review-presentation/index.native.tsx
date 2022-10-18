@@ -119,20 +119,26 @@ const Onboarding = (props: OnboardingProps) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text style={styleSheet.title}>{translations.appReview?.title}</Text>
-      <Text style={styleSheet.text}>{translations.appReview?.text}</Text>
+      <Text style={styleSheet.title}>{translations.appReview?.presentation.title}</Text>
+      <Text style={styleSheet.text}>{translations.appReview?.presentation.text}</Text>
 
-      <Tip Icon={TargetIcon} text={translations.appReview?.label_list?.skills?.text} />
-      <Tip Icon={QuestionMarkIcon} text={translations.appReview?.label_list?.questions?.text} />
-      <Tip Icon={HeartIcon} text={translations.appReview?.label_list?.lifes?.text} />
-      <Tip Icon={CheckCircle2Icon} text={translations.appReview?.label_list?.allright?.text} />
+      <Tip Icon={TargetIcon} text={translations.appReview?.presentation?.labelList?.skills?.text} />
+      <Tip
+        Icon={QuestionMarkIcon}
+        text={translations.appReview?.presentation?.labelList?.questions?.text}
+      />
+      <Tip Icon={HeartIcon} text={translations.appReview?.presentation?.labelList?.lifes?.text} />
+      <Tip
+        Icon={CheckCircle2Icon}
+        text={translations.appReview?.presentation?.labelList?.allright?.text}
+      />
       <Touchable
         testID={`button-quit-revision-onboarding`}
         onPress={onPress}
         analyticsID="button-start"
         style={styleSheet.button}
       >
-        <Text style={styleSheet.buttonText}>{translations.appReview?.button}</Text>
+        <Text style={styleSheet.buttonText}>{translations.appReview?.presentation.button}</Text>
       </Touchable>
     </View>
   );

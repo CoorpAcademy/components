@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import {GestureResponderEvent} from 'react-native';
+
 const levelItem = PropTypes.shape({
   text: PropTypes.string,
   tooltipText: PropTypes.string
@@ -28,7 +29,36 @@ export const TipPropsTypes = {
   Icon: PropTypes.any
 };
 
-export type OnboardingProps = {onPress: (event: GestureResponderEvent) => any};
+export type OnboardingProps = {
+  'aria-label': string | undefined;
+  reviewTitle: string | undefined;
+  reviewText: string | undefined;
+  labelsList: {
+    skills:
+      | {
+          text: string | undefined;
+          tooltipText: string | undefined;
+        }
+      | undefined;
+    questions: {
+      text: string | undefined;
+      tooltipText: string | undefined;
+    };
+    lifes:
+      | {
+          text: string | undefined;
+          tooltipText: string | undefined;
+        }
+      | undefined;
+    allright:
+      | {
+          text: string | undefined;
+          tooltipText: string | undefined;
+        }
+      | undefined;
+  };
+  onPress: (event: GestureResponderEvent) => any;
+};
 
 export type TipProps = {
   text: string | undefined;

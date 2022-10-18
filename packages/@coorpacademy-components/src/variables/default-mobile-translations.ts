@@ -72,6 +72,7 @@ export type Translations = {
       ariaLabel: string;
       title: string;
       text: string;
+      button: string;
       labelList: {
         skills: {
           text: string;
@@ -281,6 +282,7 @@ const defaultMobileTranslations: Translations = {
       ariaLabel: 'Review Presentation Container',
       title: 'What is<br/>Revision Mode ?',
       text: 'Information vanishes from your mind as soon as it enters it? It’s perfectly normal: there is no retention without repetition! To keep your knowledge in the long term, use the Revision Mode to refresh your memory!',
+      button: '',
       labelList: {
         skills: {text: 'Choose 1 skill', tooltip: 'You can review one skill at a time.'},
         questions: {
