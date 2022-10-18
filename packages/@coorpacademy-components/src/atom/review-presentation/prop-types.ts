@@ -30,30 +30,30 @@ export const TipPropsTypes = {
 };
 
 export type OnboardingProps = {
-  'aria-label': string | undefined;
-  reviewTitle: string | undefined;
-  reviewText: string | undefined;
-  labelsList: {
-    skills:
+  'aria-label'?: string | undefined;
+  reviewTitle?: string | undefined;
+  reviewText?: string | undefined;
+  labelsList?: {
+    skills?:
       | {
-          text: string | undefined;
-          tooltipText: string | undefined;
+          text?: string | undefined;
+          tooltipText?: string | undefined;
         }
       | undefined;
-    questions: {
-      text: string | undefined;
-      tooltipText: string | undefined;
+    questions?: {
+      text?: string | undefined;
+      tooltipText?: string | undefined;
     };
-    lifes:
+    lifes?:
       | {
-          text: string | undefined;
-          tooltipText: string | undefined;
+          text?: string | undefined;
+          tooltipText?: string | undefined;
         }
       | undefined;
-    allright:
+    allright?:
       | {
-          text: string | undefined;
-          tooltipText: string | undefined;
+          text?: string | undefined;
+          tooltipText?: string | undefined;
         }
       | undefined;
   };
