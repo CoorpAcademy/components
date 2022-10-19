@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Felülvizsgálati mód",
+    "Content Parent Title": "Forrás: `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Érvényesít",
+    "Next question": "Következő kérdés",
+    "KLF": "Kulcsfontosságú tanulási tényező",
+    "Correct Answer": "Helyes válasz",
+    "Wrong Answer": "Rossz válasz",
+    "You have won": "Ön nyert",
+    "You are now": "Most maga van",
+    "Revise another skill": "Tekintsen át egy másik képességet",
+    "Continue reviewing": "Folytassa az áttekintést",
+    "Congratulations!": "Gratulálunk!"
 }
