@@ -170,11 +170,7 @@ export type Services = {
     answer: string[]
   ): Promise<CorrectionFromAPI | void>;
   fetchRank(token: string): Promise<Rank>;
-  fetchSlidesToReviewBySkillRef(
-    url: string,
-    token: string,
-    skillRef: string
-  ): Promise<SlideIdFromAPI[]>;
+  fetchSlidesToReviewBySkillRef(token: string, skillRef: string): Promise<SlideIdFromAPI[]>;
 };
 
 export type Options = {
@@ -190,7 +186,6 @@ export type AppOptions = ConnectedOptions & {
   token: string;
   skillRef?: string;
   services: Services;
-  url: string;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };
 
