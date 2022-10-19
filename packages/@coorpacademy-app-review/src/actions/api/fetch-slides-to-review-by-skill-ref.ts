@@ -1,7 +1,7 @@
 import buildTask from '@coorpacademy/redux-task';
 import type {Dispatch} from 'redux';
 import type {StoreState} from '../../reducers';
-import type {Options, ProgressionState, SlideIdFromAPI, SlideContent} from '../../types/common';
+import type {Options, ProgressionFromAPI, SlideIdFromAPI} from '../../types/common';
 
 export const SLIDES_TO_REVIEW_FETCH_REQUEST = '@@slidesToReview/FETCH_REQUEST' as const;
 export const SLIDES_TO_REVIEW_FETCH_SUCCESS = '@@slidesToReview/FETCH_SUCCESS' as const;
@@ -26,9 +26,8 @@ export const fetchSlidesToReviewBySkillRef = (
     task: () => {
       const state = getState();
       const token = state.data.token;
-      const progression = state.data.progression as unknown as ProgressionState;
-      const content = progression.content as SlideContent;
-      const skillRef = content.ref;
+      const progression = state.data.progression as ProgressionFromAPI;
+      const skillRef = progression.content.ref;
       return services.fetchSlidesToReviewBySkillRef(token, skillRef);
     }
   });
