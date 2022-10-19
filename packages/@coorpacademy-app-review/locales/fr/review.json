@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Mode Révision",
+    "Content Parent Title": "de `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Valider",
+    "Next question": "Question Suivante",
+    "KLF": "Principal facteur d'apprentissage",
+    "Correct Answer": "Bonne Réponse",
+    "Wrong Answer": "Mauvaise Réponse",
+    "You have won": "Vous avez gagné",
+    "You are now": "Vous êtes à présent",
+    "Revise another skill": "Réviser une autre compétence",
+    "Continue reviewing": "Poursuivre la révision",
+    "Congratulations!": "Félicitations !"
 }
