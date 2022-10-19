@@ -82,7 +82,7 @@ const initialState: StoreState = {
       }
     },
     showQuitPopin: false,
-    showButtonContinueRevising: false
+    showButtonRevising: false
   }
 };
 
@@ -183,7 +183,7 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
         }
       },
       showQuitPopin: false,
-      showButtonContinueRevising: false
+      showButtonRevising: false
     }
   };
 

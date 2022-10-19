@@ -46,7 +46,7 @@ const initialState: StoreState = {
       }
     },
     showQuitPopin: false,
-    showButtonContinueRevising: false
+    showButtonRevising: false
   }
 };
 

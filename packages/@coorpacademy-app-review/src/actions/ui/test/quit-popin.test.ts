@@ -21,7 +21,7 @@ const initialState: StoreState = {
     slide: {},
     positions: [],
     showQuitPopin: false,
-    showButtonContinueRevising: false
+    showButtonRevising: false
   }
 };
 
