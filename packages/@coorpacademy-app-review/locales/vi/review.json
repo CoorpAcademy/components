@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Chế độ soát lại",
+    "Content Parent Title": "Từ `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Xác thực",
+    "Next question": "Câu hỏi tiếp theo",
+    "KLF": "Yếu tố học tập chính",
+    "Correct Answer": "Câu trả lời đúng",
+    "Wrong Answer": "Câu trả lời sai",
+    "You have won": "Bạn đã thắng",
+    "You are now": "Giờ bạn đang",
+    "Revise another skill": "Ôn tập kỹ năng khác",
+    "Continue reviewing": "Tiếp tục soát lại",
+    "Congratulations!": "Chúc mừng bạn!"
 }
