@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Način provjere",
+    "Content Parent Title": "Iz\n`{{naslovSadržaja}}` `{{vrstaSadržaja}}",
+    "Validate": "Potvrdite",
+    "Next question": "Sljedeće pitanje ",
+    "KLF": "Ključni čimbenik učenja ",
+    "Correct Answer": "Točan odgovor",
+    "Wrong Answer": "Pogrešan odgovor",
+    "You have won": "Pobijedili ste",
+    "You are now": "Sada ste",
+    "Revise another skill": "Izmijenite drugu vještinu",
+    "Continue reviewing": "Nastavite s provjerom",
+    "Congratulations!": "Čestitamo!"
 }
