@@ -5,7 +5,7 @@ import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS,
   type ReceivedSlidesToReviewBySkillRef
 } from '../../../actions/api/fetch-slides-to-review-by-skill-ref';
-import reducer from '../show-button-continue-revising';
+import reducer from '../show-button-revising';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as ReceivedSlidesToReviewBySkillRef);
