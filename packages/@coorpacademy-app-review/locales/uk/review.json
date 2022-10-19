@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Режим перегляду",
+    "Content Parent Title": "Від `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Підтвердити",
+    "Next question": "Наступне питання",
+    "KLF": "Ключовий навчальний фактор",
+    "Correct Answer": "Правильна відповідь",
+    "Wrong Answer": "Неправильна відповідь",
+    "You have won": "Ви виграли",
+    "You are now": "Ви зараз",
+    "Revise another skill": "Переглянути іншу навичку",
+    "Continue reviewing": "Продовжити огляд",
+    "Congratulations!": "Вітаємо!"
 }
