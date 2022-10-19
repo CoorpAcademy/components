@@ -30,7 +30,6 @@ const state: StoreState = {
     },
     skills: [{skillRef: '_skill-ref', custom: false, name: '_skill-ref', slidesToReview: 5}],
     token: '1234',
-    lambdaReviewURL: 'http://localhost:7006',
     corrections: {},
     rank: {start: 10, end: Number.NaN}
   },
@@ -74,12 +73,11 @@ const state: StoreState = {
   }
 };
 test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS action when fetchSlidesToReviewBySkillRef returns an array of slides id', async t => {
-  t.plan(5);
+  t.plan(4);
 
   const services: Services = {
     ...mockedServices,
-    fetchSlidesToReviewBySkillRef: (url, token, skillRef) => {
-      t.is(url, 'http://localhost:7006');
+    fetchSlidesToReviewBySkillRef: (token, skillRef) => {
       t.is(token, '1234');
       t.is(skillRef, '_skill-ref');
       return Promise.resolve(fetchSlidesToReviewBySkillRefResponse);
@@ -100,12 +98,11 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS action when fetchSlidesToRe
 });
 
 test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToReviewBySkillRef fails', async t => {
-  t.plan(5);
+  t.plan(4);
 
   const services: Services = {
     ...mockedServices,
-    fetchSlidesToReviewBySkillRef: (url, token, skillRef) => {
-      t.is(url, 'http://localhost:7006');
+    fetchSlidesToReviewBySkillRef: (token, skillRef) => {
       t.is(token, '1234');
       t.is(skillRef, '_skill-ref');
       return Promise.reject(new Error('unexpected'));
