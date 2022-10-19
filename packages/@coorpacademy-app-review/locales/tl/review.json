@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Mode Para Sa Pagrerebyu",
+    "Content Parent Title": "Mula sa `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Patunayan",
+    "Next question": "Susunod Na Tanong",
+    "KLF": "Mahalagang salik sa pagkatuto",
+    "Correct Answer": "Tamang Sagot",
+    "Wrong Answer": "Maling Sagot",
+    "You have won": "Nanalo ka na ng",
+    "You are now": "Ikaw ngayon ay",
+    "Revise another skill": "Rebisahin ang isa pang kasanayan",
+    "Continue reviewing": "Ipagpatuloy ang pagrerebyu",
+    "Congratulations!": "Binabati kita!"
 }
