@@ -11,8 +11,8 @@
     "Revise another skill": "새로운 스킬을 수정합니다",
     "Continue reviewing": "계속 복습니다",
     "Congratulations!": "축하드립니다!",
-    "Quit Title": "Tu t'en va déjà",
-    "Quit Description Text": "Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
-    "Stop learning": "Arrêter ma session",
-    "Continue learning": "Continuer d'apprendre"
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning"
 }

@@ -11,8 +11,8 @@
     "Revise another skill": "Zopakovat si další dovednost",
     "Continue reviewing": "Pokračovat v kontrole",
     "Congratulations!": "Gratulujeme!",
-    "Quit Title": "Tu t'en va déjà",
-    "Quit Description Text": "Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
-    "Stop learning": "Arrêter ma session",
-    "Continue learning": "Continuer d'apprendre"
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning"
 }
