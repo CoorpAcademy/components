@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "복습 모드",
+    "Content Parent Title": "`{{contentTitle}}` `{{contentType}}`에서 출제",
+    "Validate": "검증하기",
+    "Next question": "다음 질문",
+    "KLF": "핵심 학습 요소",
+    "Correct Answer": "정답",
+    "Wrong Answer": "오답",
+    "You have won": "이겼습니다",
+    "You are now": "이제",
+    "Revise another skill": "새로운 스킬을 수정합니다",
+    "Continue reviewing": "계속 복습니다",
+    "Congratulations!": "축하드립니다!"
 }
