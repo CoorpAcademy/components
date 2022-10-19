@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "复习模式\n",
+    "Content Parent Title": "从`{{contentTitle}}` `{{contentType}}`",
+    "Validate": "验证",
+    "Next question": "下一题",
+    "KLF": "学习要点",
+    "Correct Answer": "正确答案",
+    "Wrong Answer": "错误答案",
+    "You have won": "您已赢得",
+    "You are now": "您现在",
+    "Revise another skill": "复习另一项技能",
+    "Continue reviewing": "继续复习",
+    "Congratulations!": "恭喜您！"
 }
