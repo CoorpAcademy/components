@@ -433,7 +433,7 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
   }
 };
 
-const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
+export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   {
     slideId: freeTextSlide._id
   },

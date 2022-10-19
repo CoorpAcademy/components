@@ -5,14 +5,15 @@ import {JWT, SlideIdFromAPI} from '../types/common';
 import {toJSON} from './tools/fetch-responses';
 
 export const fetchSlidesToReviewBySkillRef = async (
-  url: string,
   token: string,
   skillRef: string
 ): Promise<SlideIdFromAPI[]> => {
-  const {user: userId}: JWT = decode(token);
+  const {user: userId, host}: JWT = decode(token);
   const response = await crossFetch(
-    `${url}/api/v1/review/users/${userId}/skills/${skillRef}/slide?limit=5&offset=0`
+    `${host}/api/v2/skills/${skillRef}/review/user/${userId}/slide`,
+    {
+      headers: {authorization: token}
+    }
   );
-
   return toJSON<SlideIdFromAPI[]>(response);
 };
