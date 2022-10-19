@@ -281,7 +281,7 @@ const buildQuitPopinProps =
           color: '#ED3436'
         },
         handleOnclick: onQuitClick,
-        'aria-label': translate('Stop session')
+        'aria-label': translate('Stop learning')
       },
       secondButton: {
         label: translate('Continue learning'),
