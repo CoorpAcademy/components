@@ -22,7 +22,7 @@ test('should create initial props when there are no skills on the state', t => {
       answers: {},
       slide: {},
       showQuitPopin: false,
-      showButtonContinueRevising: false
+      showButtonRevising: false
     }
   };
 
@@ -68,7 +68,7 @@ test('should create initial props when skills on the state', t => {
       answers: {},
       slide: {},
       showQuitPopin: false,
-      showButtonContinueRevising: false
+      showButtonRevising: false
     }
   };
 

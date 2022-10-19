@@ -27,7 +27,7 @@ const initialState: StoreState = {
     answers: {},
     slide: {},
     showQuitPopin: false,
-    showButtonContinueRevising: false
+    showButtonRevising: false
   }
 };
 

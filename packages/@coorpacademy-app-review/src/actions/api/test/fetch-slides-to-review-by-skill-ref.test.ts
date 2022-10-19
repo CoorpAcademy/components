@@ -70,7 +70,7 @@ const state: StoreState = {
       }
     },
     showQuitPopin: false,
-    showButtonContinueRevising: false
+    showButtonRevising: false
   }
 };
 
