@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "レビューモード",
+    "Content Parent Title": "`{{contentTitle}}` `{{contentType}}` から",
+    "Validate": "検証",
+    "Next question": "次の質問",
+    "KLF": "主な学習要因",
+    "Correct Answer": "正解",
+    "Wrong Answer": "間違った答え",
+    "You have won": "勝ちました",
+    "You are now": "あなたは現在",
+    "Revise another skill": "別のスキルを修正する",
+    "Continue reviewing": "レビューを続ける",
+    "Congratulations!": "おめでとうございます！"
 }
