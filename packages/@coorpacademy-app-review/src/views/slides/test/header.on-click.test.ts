@@ -34,7 +34,8 @@ const state: StoreState = {
       }
     },
     showQuitPopin: false,
-    showCongrats: false
+    showCongrats: false,
+    showButtonRevising: false
   }
 };
 
