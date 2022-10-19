@@ -268,28 +268,28 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: () => void): CMPopinProps => {
+  (onQuitClick: () => void, translate: (key: string, data?: unknown) => string): CMPopinProps => {
     return {
-      content: `Tu t'en vas déjà ?`,
+      content: translate('Quit Title'),
       icon: `MoonRocket`,
       mode: 'alert',
-      descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
+      descriptionText: translate('Quit Description Text'),
       firstButton: {
-        label: 'Arrêter ma session',
+        label: translate('Stop learning'),
         type: 'tertiary',
         customStyle: {
           color: '#ED3436'
         },
         handleOnclick: onQuitClick,
-        'aria-label': 'Stop session'
+        'aria-label': translate('Stop session')
       },
       secondButton: {
-        label: `Continuer d'apprendre`,
+        label: translate('Continue learning'),
         type: 'primary',
         handleOnclick: (): void => {
           dispatch(closeQuitPopin);
         },
-        'aria-label': 'Continue review'
+        'aria-label': translate('Continue learning')
       }
     };
   };
@@ -412,6 +412,6 @@ export const mapStateToSlidesProps = (
       endReview: endReview && state.ui.showCongrats
     },
     congrats: buildCongratsProps(state, translate),
-    quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick) : undefined
+    quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick, translate) : undefined
   };
 };
