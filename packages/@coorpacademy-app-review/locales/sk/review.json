@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Režim kontroly",
+    "Content Parent Title": "Z `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Overiť",
+    "Next question": "Ďalšia otázka",
+    "KLF": "Kľúčový faktor učenia",
+    "Correct Answer": "Správna odpoveď",
+    "Wrong Answer": "Nesprávna odpoveď",
+    "You have won": "Vyhrali ste",
+    "You are now": "Teraz ste",
+    "Revise another skill": "Zopakovať si ďalšiu zručnosť",
+    "Continue reviewing": "Pokračovať v kontrole",
+    "Congratulations!": "Blahoželáme!"
 }
