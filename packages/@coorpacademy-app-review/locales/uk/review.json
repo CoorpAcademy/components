@@ -10,5 +10,9 @@
     "You are now": "Ви зараз",
     "Revise another skill": "Переглянути іншу навичку",
     "Continue reviewing": "Продовжити огляд",
-    "Congratulations!": "Вітаємо!"
+    "Congratulations!": "Вітаємо!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

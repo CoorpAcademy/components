@@ -10,5 +10,9 @@
     "You are now": "Ikaw ngayon ay",
     "Revise another skill": "Rebisahin ang isa pang kasanayan",
     "Continue reviewing": "Ipagpatuloy ang pagrerebyu",
-    "Congratulations!": "Binabati kita!"
+    "Congratulations!": "Binabati kita!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

@@ -10,5 +10,9 @@
     "You are now": "Sunteți acum",
     "Revise another skill": "Revizuiți o altă abilitate",
     "Continue reviewing": "Continuați să revizuiți",
-    "Congratulations!": "\nFelicitări!"
+    "Congratulations!": "\nFelicitări!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

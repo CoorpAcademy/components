@@ -10,5 +10,9 @@
     "You are now": "Ahora eres",
     "Revise another skill": "Repasar otra habilidad",
     "Continue reviewing": "Seguir revisando",
-    "Congratulations!": "¡Enhorabuena!"
+    "Congratulations!": "¡Enhorabuena!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

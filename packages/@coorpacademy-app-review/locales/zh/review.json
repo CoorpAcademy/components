@@ -10,5 +10,9 @@
     "You are now": "您现在",
     "Revise another skill": "复习另一项技能",
     "Continue reviewing": "继续复习",
-    "Congratulations!": "恭喜您！"
+    "Congratulations!": "恭喜您！",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

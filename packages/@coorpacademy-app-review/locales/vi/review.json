@@ -10,5 +10,9 @@
     "You are now": "Giờ bạn đang",
     "Revise another skill": "Ôn tập kỹ năng khác",
     "Continue reviewing": "Tiếp tục soát lại",
-    "Congratulations!": "Chúc mừng bạn!"
+    "Congratulations!": "Chúc mừng bạn!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

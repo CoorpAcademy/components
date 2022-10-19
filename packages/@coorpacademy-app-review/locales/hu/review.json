@@ -10,5 +10,9 @@
     "You are now": "Most maga van",
     "Revise another skill": "Tekintsen át egy másik képességet",
     "Continue reviewing": "Folytassa az áttekintést",
-    "Congratulations!": "Gratulálunk!"
+    "Congratulations!": "Gratulálunk!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

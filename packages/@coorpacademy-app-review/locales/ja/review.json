@@ -10,5 +10,9 @@
     "You are now": "あなたは現在",
     "Revise another skill": "別のスキルを修正する",
     "Continue reviewing": "レビューを続ける",
-    "Congratulations!": "おめでとうございます！"
+    "Congratulations!": "おめでとうございます！",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

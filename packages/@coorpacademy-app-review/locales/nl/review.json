@@ -10,5 +10,9 @@
     "You are now": "Nu ben je",
     "Revise another skill": "Beoordeel een andere vaardigheid",
     "Continue reviewing": "Ga door met beoordelen",
-    "Congratulations!": "Gefeliciteerd!"
+    "Congratulations!": "Gefeliciteerd!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }

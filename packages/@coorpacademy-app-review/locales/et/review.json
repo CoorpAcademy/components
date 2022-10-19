@@ -10,5 +10,9 @@
     "You are now": "You are now",
     "Revise another skill": "Review another skill",
     "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Congratulations!": "Congratulations!",
+    "Quit Title": "Tu t'en va déjà",
+    "Quit Description Text": "u vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.",
+    "Stop learning": "Arrêter ma session",
+    "Continue learning": "Continuer d'apprendre"
 }
