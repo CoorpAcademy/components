@@ -72,6 +72,7 @@ const state: StoreState = {
     showQuitPopin: false
   }
 };
+
 test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS action when fetchSlidesToReviewBySkillRef returns an array of slides id', async t => {
   t.plan(4);
 
