@@ -1,11 +1,16 @@
 import test from 'ava';
 import reducer, {type CorrectionsAction} from '../corrections';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {
   CORRECTION_FETCH_REQUEST,
   CORRECTION_FETCH_SUCCESS
 } from '../../../actions/api/fetch-correction';
+import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 import {getChoicesCorrection} from '../../../test/util/services.mock';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
 
 test('should have an initial empty record value', t => {
   const state = reducer(undefined, {} as CorrectionsAction);
@@ -33,4 +38,16 @@ test('should set the value of CORRECTION_FETCH_SUCCESS', t => {
   t.deepEqual(state, {
     sli_VJYjJnJhg: expectedCorrection
   });
+});
+
+test('should have an initial empty record value when POST_PROGRESSION_REQUEST action is received', t => {
+  const expectedCorrections = {
+    [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
+    [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
+    [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id),
+    [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
+    [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
+  };
+  const state = reducer(expectedCorrections, {type: POST_PROGRESSION_REQUEST});
+  t.deepEqual(state, {});
 });
