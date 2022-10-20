@@ -9,6 +9,7 @@ import {
   EDIT_TEMPLATE
 } from '../../actions/ui/answers';
 import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
+import {FetchProgression, POST_PROGRESSION_REQUEST} from '../../actions/api/post-progression';
 
 export type UISlideAnswer = string[];
 
@@ -19,7 +20,7 @@ export const initialState: UIAnswerState = {};
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UIAnswerState = initialState,
-  action: EditAnswerAction | NextSlideAction
+  action: EditAnswerAction | NextSlideAction | FetchProgression
 ): UIAnswerState => {
   switch (action.type) {
     case EDIT_QCM:
@@ -32,6 +33,9 @@ const reducer = (
     }
     case NEXT_SLIDE: {
       return set([action.payload.nextSlideRef], [], state);
+    }
+    case POST_PROGRESSION_REQUEST: {
+      return initialState;
     }
     default:
       return state;

@@ -40,14 +40,16 @@ test('should set the value of CORRECTION_FETCH_SUCCESS', t => {
   });
 });
 
-test('should have an initial empty record value when POST_PROGRESSION_REQUEST action is received', t => {
-  const expectedCorrections = {
-    [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
-    [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
-    [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id),
-    [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
-    [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
-  };
-  const state = reducer(expectedCorrections, {type: POST_PROGRESSION_REQUEST});
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer(
+    {
+      [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id),
+      [qcmGraphicSlide.universalRef]: getChoicesCorrection(qcmGraphicSlide._id),
+      [qcmSlide.universalRef]: getChoicesCorrection(qcmSlide._id),
+      [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
+      [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
+    },
+    {type: POST_PROGRESSION_REQUEST}
+  );
   t.deepEqual(state, {});
 });

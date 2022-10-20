@@ -14,7 +14,7 @@ test('should set the value of SKILLS_FETCH_SUCCESS action', t => {
   t.deepEqual(state, skills);
 });
 
-test('should have an initial value when POST_PROGRESSION_REQUEST action is received', t => {
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
   const state = reducer([], {type: POST_PROGRESSION_REQUEST});
   t.deepEqual(state, []);
 });

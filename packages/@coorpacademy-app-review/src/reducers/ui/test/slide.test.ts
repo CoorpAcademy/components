@@ -5,6 +5,7 @@ import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../../actions/api
 import {CORRECTION_FETCH_SUCCESS} from '../../../actions/api/fetch-correction';
 import {SLIDE_FETCH_REQUEST} from '../../../actions/api/fetch-slide';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
+import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 
 test('should set validateButton, animateCorrectionPopin and showCorrectionPopin to false if SLIDE_FETCH_REQUEST is received', t => {
   const state = reducer(undefined, {
@@ -107,4 +108,43 @@ test('should return same state when nextContent is successExitNode', t => {
     }
   });
   t.deepEqual(state, _initialState);
+});
+
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer(
+    {
+      sli_VJYjJnJhg: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false,
+        animationType: 'unstack'
+      },
+      sli_VkSQroQnx: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false,
+        animationType: 'unstack'
+      },
+      sli_N1XACJobn: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false,
+        animationType: 'unstack'
+      },
+      sli_VkAzsCLKb: {
+        validateButton: false,
+        animateCorrectionPopin: false,
+        showCorrectionPopin: false,
+        animationType: 'unstack'
+      },
+      'sli_N13-hG3kX': {
+        validateButton: false,
+        animateCorrectionPopin: true,
+        showCorrectionPopin: false,
+        animationType: 'unstack'
+      }
+    },
+    {type: POST_PROGRESSION_REQUEST}
+  );
+  t.deepEqual(state, {});
 });

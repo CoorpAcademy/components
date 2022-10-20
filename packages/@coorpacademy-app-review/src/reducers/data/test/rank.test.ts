@@ -61,7 +61,7 @@ test('should unset the start and end value if the action is POST_PROGRESSION_SUC
   });
 });
 
-test('should have an initial value when POST_PROGRESSION_REQUEST action is received', t => {
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
   const state = reducer(
     {
       start: 93,

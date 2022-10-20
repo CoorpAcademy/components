@@ -32,7 +32,7 @@ test('should set the value of POST_ANSWER_SUCCESS action', t => {
   t.deepEqual(state, postAnswerResponses[freeTextSlide.universalRef]);
 });
 
-test('should have an initial value when POST_PROGRESSION_REQUEST action is received', t => {
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
   const state = reducer(postAnswerResponses[templateSlide.universalRef], {
     type: POST_PROGRESSION_REQUEST
   });

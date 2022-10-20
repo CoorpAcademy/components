@@ -1,6 +1,7 @@
 import test from 'ava';
 import reducer from '../show-congrats';
 import {
+  POST_PROGRESSION_REQUEST,
   POST_PROGRESSION_SUCCESS,
   type ReceivedProgression
 } from '../../../actions/api/post-progression';
@@ -37,4 +38,9 @@ test('should set state to false when received action is NEXT_SLIDE with nextSlid
     }
   });
   t.is(state, true);
+});
+
+test('should set state to false when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer(true, {type: POST_PROGRESSION_REQUEST});
+  t.is(state, false);
 });

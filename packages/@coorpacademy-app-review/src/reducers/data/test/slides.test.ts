@@ -31,14 +31,16 @@ test('should set the value of SLIDE_FETCH_SUCCESS action', t => {
   });
 });
 
-test('should have an initial value when POST_PROGRESSION_REQUEST action is received', t => {
-  const expectedSlides = {
-    [freeTextSlide.universalRef]: freeTextSlide,
-    [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
-    [qcmSlide.universalRef]: qcmSlide,
-    [sliderSlide.universalRef]: sliderSlide,
-    [templateSlide.universalRef]: templateSlide
-  };
-  const state = reducer(expectedSlides, {type: POST_PROGRESSION_REQUEST});
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer(
+    {
+      [freeTextSlide.universalRef]: freeTextSlide,
+      [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
+      [qcmSlide.universalRef]: qcmSlide,
+      [sliderSlide.universalRef]: sliderSlide,
+      [templateSlide.universalRef]: templateSlide
+    },
+    {type: POST_PROGRESSION_REQUEST}
+  );
   t.deepEqual(state, {});
 });

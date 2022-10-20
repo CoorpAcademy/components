@@ -1,5 +1,6 @@
 import test from 'ava';
 import {CLOSE_POPIN, OPEN_POPIN} from '../../../actions/ui/quit-popin';
+import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 import reducer from '../quit-popin';
 
 test('should have showQuitPopin intial value to false', t => {
@@ -20,5 +21,10 @@ test('should set showQuitPopin to false if CLOSE_POPIN is received', t => {
   const state = reducer(true, {
     type: CLOSE_POPIN
   });
+  t.is(state, false);
+});
+
+test('should set state to false when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer(false, {type: POST_PROGRESSION_REQUEST});
   t.is(state, false);
 });
