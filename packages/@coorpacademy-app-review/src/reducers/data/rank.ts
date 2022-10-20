@@ -1,7 +1,9 @@
 import set from 'lodash/fp/set';
 import {
+  POST_PROGRESSION_REQUEST,
   POST_PROGRESSION_SUCCESS,
-  type ReceivedProgression
+  type ReceivedProgression,
+  type FetchProgression
 } from '../../actions/api/post-progression';
 import {
   RankAction,
@@ -22,9 +24,10 @@ const initialState: RankState = {
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: RankState = initialState,
-  action: RankAction | ReceivedProgression
+  action: RankAction | ReceivedProgression | FetchProgression
 ): RankState => {
   switch (action.type) {
+    case POST_PROGRESSION_REQUEST:
     case POST_PROGRESSION_SUCCESS: {
       return initialState;
     }
