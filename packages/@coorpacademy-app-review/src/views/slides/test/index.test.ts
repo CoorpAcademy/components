@@ -51,7 +51,8 @@ test('should create initial props when fetched slide is not still received', t =
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -145,7 +146,8 @@ test('should create props when first slide is on the state', t => {
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -254,7 +256,8 @@ test('should create props when slide is on the state and user has selected answe
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -369,7 +372,8 @@ test('should verify props when first slide was answered correctly and next slide
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -488,7 +492,8 @@ test('should verify props when first slide was answered with error and next slid
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -564,7 +569,8 @@ test('should verify props when first slide was answered, next slide is fetched &
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -697,7 +703,8 @@ test('should verify props when first slide was answered incorrectly, next slide 
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -837,7 +844,8 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -971,7 +979,8 @@ test('should verify props when progression is in success, showing last correctio
           showCorrectionPopin: true
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: true
     }
   };
 
@@ -1053,6 +1062,7 @@ test('should verify props showing congrats', t => {
     ui: {
       showCongrats: true,
       showQuitPopin: false,
+      showButtonRevising: true,
       currentSlideRef: 'successExitNode',
       navigation: ['loader', 'slides'],
       answers: {
@@ -1185,6 +1195,7 @@ test('should verify props showing congrats, with only stars card, if user has no
     ui: {
       showCongrats: true,
       showQuitPopin: false,
+      showButtonRevising: true,
       currentSlideRef: 'successExitNode',
       navigation: ['loader', 'slides'],
       answers: {
@@ -1337,7 +1348,8 @@ test('should verify props when progression has answered a current pendingSlide',
           animationType: 'unstack'
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -1444,7 +1456,8 @@ test('should verify props when progression still has a pendingSlide', t => {
           animationType: 'unstack'
         }
       },
-      showQuitPopin: false
+      showQuitPopin: false,
+      showButtonRevising: false
     }
   };
 
@@ -1510,7 +1523,8 @@ test('should verify that props quitPopin is not undefined when popin is displaye
           showCorrectionPopin: false
         }
       },
-      showQuitPopin: true
+      showQuitPopin: true,
+      showButtonRevising: false
     }
   };
   const props = mapStateToSlidesProps(state, identity, connectedOptions);

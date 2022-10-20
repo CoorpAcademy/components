@@ -20,7 +20,8 @@ const initialState: StoreState = {
     navigation: [],
     answers: {},
     slide: {},
-    showQuitPopin: false
+    showQuitPopin: false,
+    showButtonRevising: false
   }
 };
 

@@ -6,6 +6,7 @@ import answers, {UIAnswerState} from './answers';
 import positions, {UIPositionState} from './positions';
 import slide, {UISlideState} from './slide';
 import showQuitPopin, {type ShowQuitPopinState} from './quit-popin';
+import showButtonRevising, {UIShowButtonRevisingState} from './show-button-revising';
 import showCongrats, {UIShowCongratsState} from './show-congrats';
 
 export type UIState = {
@@ -15,6 +16,7 @@ export type UIState = {
   slide: UISlideState;
   positions: UIPositionState;
   showQuitPopin: ShowQuitPopinState;
+  showButtonRevising: UIShowButtonRevisingState;
   showCongrats: UIShowCongratsState;
 };
 
@@ -25,5 +27,6 @@ export default combineReducers({
   slide,
   positions,
   showQuitPopin,
+  showButtonRevising,
   showCongrats
 });
