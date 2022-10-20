@@ -25,6 +25,7 @@ import type {
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';
+import {postProgression} from '../../actions/api/post-progression';
 import {nextSlide} from '../../actions/ui/next-slide';
 import {ProgressionState} from '../../reducers/data/progression';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
@@ -322,6 +323,7 @@ const buildRankCard = (
 
 const buildCongratsProps = (
   state: StoreState,
+  dispatch: Dispatch,
   translate: (key: string, data?: unknown) => string
 ): ReviewCongratsProps | undefined => {
   if (!state.ui.showCongrats) return;
@@ -351,11 +353,22 @@ const buildCongratsProps = (
     reviewCardValue: `${stars}`,
     timerAnimation: 200
   };
-
+  const skillRef = progression.content.ref;
   const {start, end} = state.data.rank;
   const newRank = start - end;
   const cardCongratsRank =
     !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end, translate) : undefined;
+
+  const buttonRevising = state.ui.showButtonRevising
+    ? {
+        'aria-label': 'Continue revising button',
+        label: 'Continue revising',
+        onClick: (): void => {
+          dispatch(postProgression(skillRef));
+        },
+        type: 'tertiary'
+      }
+    : undefined;
 
   return {
     'aria-label': 'Review Congratulations',
@@ -364,7 +377,7 @@ const buildCongratsProps = (
     title: translate('Congratulations!'),
     cardCongratsStar,
     cardCongratsRank,
-    buttonRevising: undefined, // TODO make boutons and actions
+    buttonRevising,
     buttonRevisingSkill: undefined // TODO make boutons and actions
   };
 };
@@ -411,7 +424,7 @@ export const mapStateToSlidesProps = (
         getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate),
       endReview: endReview && state.ui.showCongrats
     },
-    congrats: buildCongratsProps(state, translate),
+    congrats: buildCongratsProps(state, dispatch, translate),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick, translate) : undefined
   };
 };

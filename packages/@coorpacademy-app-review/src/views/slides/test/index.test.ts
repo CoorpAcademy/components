@@ -1166,7 +1166,11 @@ test('should verify props showing congrats', t => {
     }
   );
 
-  t.is(buttonRevising, undefined);
+  t.deepEqual(omit(['onClick'], buttonRevising), {
+    'aria-label': 'Continue revising button',
+    label: 'Continue revising',
+    type: 'tertiary'
+  });
   t.is(buttonRevisingSkill, undefined);
 });
 
@@ -1278,7 +1282,11 @@ test('should verify props showing congrats, with only stars card, if user has no
   const cardCongratsRank = congrats.cardCongratsRank;
   t.is(cardCongratsRank, undefined);
 
-  t.is(buttonRevising, undefined);
+  t.deepEqual(omit(['onClick'], buttonRevising), {
+    'aria-label': 'Continue revising button',
+    label: 'Continue revising',
+    type: 'tertiary'
+  });
   t.is(buttonRevisingSkill, undefined);
 });
 
