@@ -10,5 +10,9 @@
     "You are now": "Sada jesi",
     "Revise another skill": "Revidirajte drugu vještinu",
     "Continue reviewing": "Nastavite sa pregledom",
-    "Congratulations!": "Čestitamo!"
+    "Congratulations!": "Čestitamo!",
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning"
 }

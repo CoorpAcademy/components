@@ -10,5 +10,9 @@
     "You are now": "Вы сейчас",
     "Revise another skill": "Повторить другой навык",
     "Continue reviewing": "Продолжить повтор",
-    "Congratulations!": "Поздравляем!"
+    "Congratulations!": "Поздравляем!",
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning"
 }

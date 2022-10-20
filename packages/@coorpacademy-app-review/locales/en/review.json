@@ -12,6 +12,10 @@
     "Continue reviewing": "Keep reviewing",
     "Congratulations!": "Congratulations!",
     "aria_label": "Review Skills Template",
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning",
     "presentation": {
       "aria_label": "Review Presentation Container",
       "title": "What is<br/>Revision Mode ?",

@@ -10,5 +10,9 @@
     "You are now": "您現在是",
     "Revise another skill": "修正其他技能",
     "Continue reviewing": "繼續檢閱",
-    "Congratulations!": "恭喜！"
+    "Congratulations!": "恭喜！",
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning"
 }

@@ -10,5 +10,9 @@
     "You are now": "Sie sind jetzt",
     "Revise another skill": "Andere Fertigkeit überarbeiten",
     "Continue reviewing": "Überprüfung fortsetzen",
-    "Congratulations!": "Herzlichen Glückwunsch!"
+    "Congratulations!": "Herzlichen Glückwunsch!",
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning"
 }
