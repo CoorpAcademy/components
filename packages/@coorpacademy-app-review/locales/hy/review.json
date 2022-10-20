@@ -1,14 +1,14 @@
 {
-    "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
-    "Validate": "Validate",
-    "Next Question": "Next Question",
-    "KLF": "Key point",
-    "Correct Answer": "Good Answer",
-    "Wrong Answer": "Wrong Answer",
-    "You have won": "You have won",
-    "You are now": "You are now",
-    "Revise another skill": "Review another skill",
-    "Continue reviewing": "Keep reviewing",
-    "Congratulations!": "Congratulations!"
+    "Review Title": "Վերանայման ռեժիմ",
+    "Content Parent Title": "'{{contentTitle}}՝ ՝{{contentType}}՝-ից",
+    "Validate": "Վավերացնել",
+    "Next question": "Հաջորդ Հարցը",
+    "KLF": "Հիմնական ուսուցման գործոնը",
+    "Correct Answer": "Ճիշտ պատասխան",
+    "Wrong Answer": "Սխալ պատասխանը",
+    "You have won": "Դու հաղթել ես",
+    "You are now": "Դուք հիմա եք",
+    "Revise another skill": "Վերանայեք մեկ այլ հմտություն",
+    "Continue reviewing": "Շարունակեք վերանայել",
+    "Congratulations!": "Շնորհավորում եմ:"
 }
