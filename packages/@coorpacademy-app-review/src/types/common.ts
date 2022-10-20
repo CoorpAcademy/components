@@ -154,6 +154,11 @@ export type Skill = {
   name: string;
 };
 
+export type SkillOptions = {
+  name: string;
+  ref: string;
+};
+
 export type Services = {
   fetchSkills(token: string): Promise<Skill[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
@@ -184,7 +189,7 @@ export type ConnectedOptions = {
 
 export type AppOptions = ConnectedOptions & {
   token: string;
-  skillRef?: string;
+  skill: SkillOptions;
   services: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };

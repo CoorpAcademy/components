@@ -66,7 +66,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     const token = get('token', options);
     if (store === null || isEmpty(token)) return;
 
-    const skillRef = get('skillRef', options);
+    const skillRef = get(['skill', 'ref'], options);
 
     /* ThunkAction is not assignable to parameter of type 'AnyAction'
       ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333 */
@@ -76,14 +76,15 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   useEffect(() => {
     if (store === null) return;
 
-    const {skillRef} = options;
-
-    if (skillRef && !isProgressionCreated) {
+    const {skill} = options;
+    // eslint-disable-next-line no-console
+    console.log(options);
+    if (skill.ref && !isProgressionCreated) {
       store.dispatch(navigateTo('loader')); // use loader while posting progression
       return;
     }
 
-    const initialView: ViewName = skillRef ? 'slides' : 'skills';
+    const initialView: ViewName = skill.ref ? 'slides' : 'skills';
     store.dispatch(navigateTo(initialView));
   }, [isProgressionCreated, options, store]);
 

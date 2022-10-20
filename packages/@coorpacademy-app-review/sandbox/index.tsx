@@ -52,7 +52,7 @@ const createSandbox = (options: SandboxOptions): void => {
     // mode mobile/web
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
-      skillRef: '123',
+      skill: {name: 'skill_name', ref: '123'},
       services,
       translate,
       onQuitClick: () => {

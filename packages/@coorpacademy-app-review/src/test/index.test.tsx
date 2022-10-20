@@ -59,7 +59,7 @@ const clickAllSlides = async (
 
 const appOptions: AppOptions = {
   token: process.env.API_TEST_TOKEN || '',
-  skillRef: 'skill_NJC0jFKoH',
+  skill: {name: 'skill_name', ref: 'skill_NJC0jFKoH'},
   services,
   onQuitClick: identity,
   translate: key => key
