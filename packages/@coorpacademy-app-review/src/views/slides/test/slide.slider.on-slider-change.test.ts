@@ -11,7 +11,11 @@ import {EDIT_SLIDER} from '../../../actions/ui/answers';
 import {QuestionRange} from '../../../types/slides';
 import {sliderSlide} from './fixtures/slider';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skill: {name: 'skill_name', ref: '123'}
+};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},

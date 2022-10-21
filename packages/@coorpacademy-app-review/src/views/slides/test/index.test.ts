@@ -23,7 +23,11 @@ import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skill: {name: 'skill_name', ref: 'skill_ref'}
+};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -63,7 +67,7 @@ test('should create initial props when fetched slide is not still received', t =
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -158,7 +162,7 @@ test('should create props when first slide is on the state', t => {
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -268,7 +272,7 @@ test('should create props when slide is on the state and user has selected answe
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -384,7 +388,7 @@ test('should verify props when first slide was answered correctly and next slide
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -504,7 +508,7 @@ test('should verify props when first slide was answered with error and next slid
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -581,7 +585,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -715,7 +719,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -856,7 +860,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: false,
@@ -991,7 +995,7 @@ test('should verify props when progression is in success, showing last correctio
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: false,
@@ -1362,7 +1366,7 @@ test('should verify props when progression has answered a current pendingSlide',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: true,
@@ -1470,7 +1474,7 @@ test('should verify props when progression still has a pendingSlide', t => {
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
     mode: translate('Review Title'),
-    skillName: '__agility',
+    skillName: connectedOptions.skill.name,
     steps: [
       {
         current: false,

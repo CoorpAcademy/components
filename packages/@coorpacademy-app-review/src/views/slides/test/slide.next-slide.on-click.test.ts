@@ -19,8 +19,11 @@ import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
 
-const connectedOptions = {translate, onQuitClick: identity};
-
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skill: {name: 'skill_name', ref: '123'}
+};
 test('correction popin actions after click', async t => {
   const state: StoreState = {
     data: {
