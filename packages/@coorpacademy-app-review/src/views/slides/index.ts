@@ -321,73 +321,73 @@ const buildRankCard = (
   };
 };
 
-const buildCongratsProps =
-  (state: StoreState, dispatch: Dispatch) =>
-  (
-    onQuitClick: () => void,
-    translate: (key: string, data?: unknown) => string
-  ): ReviewCongratsProps | undefined => {
-    if (!state.ui.showCongrats) return;
+const buildCongratsProps = (
+  state: StoreState,
+  dispatch: Dispatch,
+  options: ConnectedOptions
+): ReviewCongratsProps | undefined => {
+  if (!state.ui.showCongrats) return;
 
-    const progression = state.data.progression as ProgressionFromAPI;
-    const stars = progression.state.stars;
-    const cardCongratsStar: CongratsCardProps = {
-      'aria-label': 'Review Card Congrats Container',
-      'data-name': 'card-star',
-      animationLottie: {
-        'aria-label': 'aria lottie',
-        'data-name': 'default-lottie',
-        className: undefined,
-        animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
-        loop: false,
-        autoplay: undefined,
-        rendererSettings: {
-          hideOnTransparent: false
-        },
-        ie11ImageBackup:
-          'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg'
-      },
-      iconAriaLabel: 'Image without information',
+  const {translate, onQuitClick} = options;
+  const progression = state.data.progression as ProgressionFromAPI;
+  const stars = progression.state.stars;
+  const cardCongratsStar: CongratsCardProps = {
+    'aria-label': 'Review Card Congrats Container',
+    'data-name': 'card-star',
+    animationLottie: {
+      'aria-label': 'aria lottie',
+      'data-name': 'default-lottie',
       className: undefined,
-      cardType: 'card-star',
-      reviewCardTitle: translate('You have won'),
-      reviewCardValue: `${stars}`,
-      timerAnimation: 200
-    };
-    const {start, end} = state.data.rank;
-    const newRank = start - end;
-    const cardCongratsRank =
-      !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end, translate) : undefined;
-
-    const skillRef = progression.content.ref;
-    const buttonRevising = state.ui.showButtonRevising
-      ? {
-          'aria-label': translate('Continue reviewing'),
-          label: translate('Continue reviewing'),
-          onClick: (): void => {
-            dispatch(postProgression(skillRef));
-          },
-          type: 'tertiary'
-        }
-      : undefined;
-    const buttonRevisingSkill = {
-      'aria-label': translate('Revise another skill'),
-      label: translate('Revise another skill'),
-      onClick: onQuitClick,
-      type: 'primary'
-    };
-
-    return {
-      'aria-label': 'Review Congratulations',
-      'data-name': 'review-congrats',
-      animationLottie: confettiAnimation,
-      title: translate('Congratulations!'),
-      cardCongratsStar,
-      cardCongratsRank,
-      buttonRevising,
-      buttonRevisingSkill
-    };
+      animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
+      loop: false,
+      autoplay: undefined,
+      rendererSettings: {
+        hideOnTransparent: false
+      },
+      ie11ImageBackup:
+        'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg'
+    },
+    iconAriaLabel: 'Image without information',
+    className: undefined,
+    cardType: 'card-star',
+    reviewCardTitle: translate('You have won'),
+    reviewCardValue: `${stars}`,
+    timerAnimation: 200
   };
+  const {start, end} = state.data.rank;
+  const newRank = start - end;
+  const cardCongratsRank =
+    !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end, translate) : undefined;
+
+  const skillRef = progression.content.ref;
+  const buttonRevising = state.ui.showButtonRevising
+    ? {
+        'aria-label': translate('Continue reviewing'),
+        label: translate('Continue reviewing'),
+        onClick: (): void => {
+          dispatch(postProgression(skillRef));
+        },
+        type: 'tertiary'
+      }
+    : undefined;
+  const buttonRevisingSkill = {
+    'aria-label': translate('Revise another skill'),
+    label: translate('Revise another skill'),
+    onClick: onQuitClick,
+    type: 'primary'
+  };
+
+  return {
+    'aria-label': 'Review Congratulations',
+    'data-name': 'review-congrats',
+    animationLottie: confettiAnimation,
+    title: translate('Congratulations!'),
+    cardCongratsStar,
+    cardCongratsRank,
+    buttonRevising,
+    buttonRevisingSkill
+  };
+};
 
 const isEndOfProgression = (progression: ProgressionState): boolean => {
   if (!progression) return false;
@@ -431,7 +431,7 @@ export const mapStateToSlidesProps = (
         getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate),
       endReview: endReview && state.ui.showCongrats
     },
-    congrats: buildCongratsProps(state, dispatch)(onQuitClick, translate),
+    congrats: buildCongratsProps(state, dispatch, options),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick, translate) : undefined
   };
 };
