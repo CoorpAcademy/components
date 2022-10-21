@@ -1166,11 +1166,15 @@ test('should verify props showing congrats', t => {
     }
   );
 
-  t.is(buttonRevising, undefined);
+  t.deepEqual(omit(['onClick'], buttonRevising), {
+    'aria-label': translate('Continue reviewing'),
+    label: translate('Continue reviewing'),
+    type: 'tertiary'
+  });
   t.is(buttonRevisingSkill, undefined);
 });
 
-test('should verify props showing congrats, with only stars card, if user has no earn positions on raking', t => {
+test('should verify props showing congrats, with only stars card, if user has no earn positions on raking, and without the button "Continue revising", if there are no more slides to review for this skill', t => {
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
@@ -1195,7 +1199,7 @@ test('should verify props showing congrats, with only stars card, if user has no
     ui: {
       showCongrats: true,
       showQuitPopin: false,
-      showButtonRevising: true,
+      showButtonRevising: false,
       currentSlideRef: 'successExitNode',
       navigation: ['loader', 'slides'],
       answers: {
@@ -1277,7 +1281,6 @@ test('should verify props showing congrats, with only stars card, if user has no
   );
   const cardCongratsRank = congrats.cardCongratsRank;
   t.is(cardCongratsRank, undefined);
-
   t.is(buttonRevising, undefined);
   t.is(buttonRevisingSkill, undefined);
 });

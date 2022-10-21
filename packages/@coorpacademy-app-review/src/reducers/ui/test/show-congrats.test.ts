@@ -1,13 +1,13 @@
 import test from 'ava';
 import reducer from '../show-congrats';
 import {
-  POST_PROGRESSION_SUCCESS,
-  type ReceivedProgression
+  POST_PROGRESSION_REQUEST,
+  type FetchProgression
 } from '../../../actions/api/post-progression';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 
-test('should set state to false when received action is POST_ANSWER_REQUEST', t => {
-  const state = reducer(true, {type: POST_PROGRESSION_SUCCESS} as ReceivedProgression);
+test('should set state to false when received action is POST_PROGRESSION_REQUEST', t => {
+  const state = reducer(true, {type: POST_PROGRESSION_REQUEST} as FetchProgression);
   t.is(state, false);
 });
 

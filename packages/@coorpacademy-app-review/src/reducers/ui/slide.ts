@@ -14,6 +14,7 @@ import {
 } from '../../actions/ui/answers';
 import {PostAnswerRequestAction, POST_ANSWER_REQUEST} from '../../actions/api/post-answer';
 import {ReceivedCorrection, CORRECTION_FETCH_SUCCESS} from '../../actions/api/fetch-correction';
+import {FetchProgression, POST_PROGRESSION_REQUEST} from '../../actions/api/post-progression';
 import {FetchSlide, SLIDE_FETCH_REQUEST} from '../../actions/api/fetch-slide';
 import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
 import {SlideUIAnimations} from '../../types/slides';
@@ -38,6 +39,7 @@ const reducer = (
     | EditAnswerAction
     | ReceivedCorrection
     | NextSlideAction
+    | FetchProgression
 ): UISlideState => {
   switch (action.type) {
     case SLIDE_FETCH_REQUEST: {
@@ -78,6 +80,9 @@ const reducer = (
         set([currentSlideRef, 'animateCorrectionPopin'], false),
         set([currentSlideRef, 'animationType'], action.payload.animationType)
       )(state);
+    }
+    case POST_PROGRESSION_REQUEST: {
+      return initialState;
     }
     default:
       return state;

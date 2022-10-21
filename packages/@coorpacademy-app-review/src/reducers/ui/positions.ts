@@ -1,7 +1,12 @@
 import findIndex from 'lodash/fp/findIndex';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
-import {ReceivedProgression, POST_PROGRESSION_SUCCESS} from '../../actions/api/post-progression';
+import {
+  FetchProgression,
+  ReceivedProgression,
+  POST_PROGRESSION_REQUEST,
+  POST_PROGRESSION_SUCCESS
+} from '../../actions/api/post-progression';
 import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
 
 export type UIPositionState = number[];
@@ -10,7 +15,7 @@ const initialState: UIPositionState = [0, 1, 2, 3, 4];
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UIPositionState = initialState,
-  action: NextSlideAction | ReceivedProgression
+  action: NextSlideAction | ReceivedProgression | FetchProgression
 ): UIPositionState => {
   switch (action.type) {
     case POST_PROGRESSION_SUCCESS: {
@@ -25,6 +30,9 @@ const reducer = (
       const currentSlideIndex = findIndex(ref => ref === currentSlideRef, answeredSlides);
       const newState = map(position => (position === -1 ? position : position - 1), state);
       return set([`${currentSlideIndex}`], nextCurrentSlidePosition)(newState);
+    }
+    case POST_PROGRESSION_REQUEST: {
+      return initialState;
     }
     default:
       return state;

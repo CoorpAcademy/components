@@ -1,6 +1,7 @@
 import test from 'ava';
 import reducer from '../answers';
 import {EditAnswerAction, ANSWER_EDIT} from '../../../actions/ui/answers';
+import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
@@ -102,4 +103,18 @@ test('should set the next slide ref with an empty array if NEXT_SLIDE action is 
   );
   t.truthy(state);
   t.deepEqual(state, {'1234': ['Answer'], '5678': []});
+});
+
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer(
+    {
+      sli_VJYjJnJhg: ['Benchmark'],
+      sli_VkSQroQnx: ['Faux'],
+      sli_N1XACJobn: ['Le créateur peut fixer un pourcentage pour chaque transaction future'],
+      sli_VkAzsCLKb: ['7'],
+      'sli_N13-hG3kX': ['Leaderboard', 'utilisateurs', 'étoiles']
+    },
+    {type: POST_PROGRESSION_REQUEST}
+  );
+  t.deepEqual(state, {});
 });

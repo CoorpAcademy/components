@@ -3,8 +3,13 @@ import {ReceivedSkills, SKILLS_FETCH_SUCCESS} from '../../actions/api/fetch-skil
 
 export type SkillsState = Skill[];
 
-// eslint-disable-next-line default-param-last
-const reducer = (state: SkillsState = [], action: ReceivedSkills): SkillsState => {
+const initialState: SkillsState = [];
+
+const reducer = (
+  // eslint-disable-next-line default-param-last
+  state: SkillsState = initialState,
+  action: ReceivedSkills
+): SkillsState => {
   switch (action.type) {
     case SKILLS_FETCH_SUCCESS:
       return action.payload;

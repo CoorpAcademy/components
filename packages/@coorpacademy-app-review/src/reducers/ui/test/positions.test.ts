@@ -1,6 +1,10 @@
 import test from 'ava';
 import reducer from '../positions';
-import {POST_PROGRESSION_SUCCESS, ReceivedProgression} from '../../../actions/api/post-progression';
+import {
+  POST_PROGRESSION_REQUEST,
+  POST_PROGRESSION_SUCCESS,
+  ReceivedProgression
+} from '../../../actions/api/post-progression';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 
 test('should have initial value', t => {
@@ -79,4 +83,9 @@ test('should return same state when nextContent is successExitNode', t => {
     }
   });
   t.deepEqual(state, [-1, 0, -1, 1, -1]);
+});
+
+test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
+  const state = reducer([-1, -1, -1, -1, 0], {type: POST_PROGRESSION_REQUEST});
+  t.deepEqual(state, [0, 1, 2, 3, 4]);
 });
