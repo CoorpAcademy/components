@@ -324,10 +324,11 @@ const buildRankCard = (
 const buildCongratsProps = (
   state: StoreState,
   dispatch: Dispatch,
-  translate: (key: string, data?: unknown) => string
+  options: ConnectedOptions
 ): ReviewCongratsProps | undefined => {
   if (!state.ui.showCongrats) return;
 
+  const {translate, onQuitClick} = options;
   const progression = state.data.progression as ProgressionFromAPI;
   const stars = progression.state.stars;
   const cardCongratsStar: CongratsCardProps = {
@@ -369,6 +370,12 @@ const buildCongratsProps = (
         type: 'tertiary'
       }
     : undefined;
+  const buttonRevisingSkill = {
+    'aria-label': translate('Revise another skill'),
+    label: translate('Revise another skill'),
+    onClick: onQuitClick,
+    type: 'primary'
+  };
 
   return {
     'aria-label': 'Review Congratulations',
@@ -378,7 +385,7 @@ const buildCongratsProps = (
     cardCongratsStar,
     cardCongratsRank,
     buttonRevising,
-    buttonRevisingSkill: undefined // TODO make boutons and actions
+    buttonRevisingSkill
   };
 };
 
@@ -424,7 +431,7 @@ export const mapStateToSlidesProps = (
         getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate),
       endReview: endReview && state.ui.showCongrats
     },
-    congrats: buildCongratsProps(state, dispatch, translate),
+    congrats: buildCongratsProps(state, dispatch, options),
     quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick, translate) : undefined
   };
 };

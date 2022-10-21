@@ -1171,7 +1171,11 @@ test('should verify props showing congrats', t => {
     label: translate('Continue reviewing'),
     type: 'tertiary'
   });
-  t.is(buttonRevisingSkill, undefined);
+  t.deepEqual(omit(['onClick'], buttonRevisingSkill), {
+    'aria-label': translate('Revise another skill'),
+    label: translate('Revise another skill'),
+    type: 'primary'
+  });
 });
 
 test('should verify props showing congrats, with only stars card, if user has no earn positions on raking, and without the button "Continue revising", if there are no more slides to review for this skill', t => {
@@ -1282,7 +1286,11 @@ test('should verify props showing congrats, with only stars card, if user has no
   const cardCongratsRank = congrats.cardCongratsRank;
   t.is(cardCongratsRank, undefined);
   t.is(buttonRevising, undefined);
-  t.is(buttonRevisingSkill, undefined);
+  t.deepEqual(omit(['onClick'], buttonRevisingSkill), {
+    'aria-label': translate('Revise another skill'),
+    label: translate('Revise another skill'),
+    type: 'primary'
+  });
 });
 
 test('should verify props when progression has answered a current pendingSlide', t => {
