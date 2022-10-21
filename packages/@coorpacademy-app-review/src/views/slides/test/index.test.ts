@@ -1167,8 +1167,8 @@ test('should verify props showing congrats', t => {
   );
 
   t.deepEqual(omit(['onClick'], buttonRevising), {
-    'aria-label': 'Continue revising button',
-    label: 'Continue revising',
+    'aria-label': translate('Continue reviewing'),
+    label: translate('Continue reviewing'),
     type: 'tertiary'
   });
   t.is(buttonRevisingSkill, undefined);
