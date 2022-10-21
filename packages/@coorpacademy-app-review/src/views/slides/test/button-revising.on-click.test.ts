@@ -23,7 +23,11 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {sliderSlide} from './fixtures/slider';
 import {templateSlide} from './fixtures/template';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skill: {name: 'skill_name', ref: 'skill_ref'}
+};
 
 const state: StoreState = {
   data: {
