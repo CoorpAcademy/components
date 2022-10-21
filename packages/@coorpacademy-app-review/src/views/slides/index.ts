@@ -392,7 +392,7 @@ export const mapStateToSlidesProps = (
   dispatch: Dispatch,
   options: ConnectedOptions
 ): ReviewPlayerProps => {
-  const {translate, onQuitClick} = options;
+  const {translate, onQuitClick, skill} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
@@ -400,6 +400,8 @@ export const mapStateToSlidesProps = (
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
   const showQuitPopin = get(['ui', 'showQuitPopin'], state);
   const showCongrats = get(['ui', 'showCongrats'], state);
+  // eslint-disable-next-line no-console
+  console.log(skill);
   return {
     header: {
       mode: translate('Review Title'),

@@ -185,11 +185,11 @@ export type Options = {
 export type ConnectedOptions = {
   translate: (key: string, data?: unknown) => string;
   onQuitClick: () => void;
+  skill: SkillOptions;
 };
 
 export type AppOptions = ConnectedOptions & {
   token: string;
-  skill: SkillOptions;
   services: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };
