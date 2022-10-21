@@ -5,11 +5,7 @@ import {
   RANK_FETCH_START_SUCCESS,
   RANK_FETCH_END_SUCCESS
 } from '../../../actions/api/fetch-rank';
-import {
-  POST_PROGRESSION_REQUEST,
-  POST_PROGRESSION_SUCCESS
-} from '../../../actions/api/post-progression';
-import {postProgressionResponse} from '../../../test/util/services.mock';
+import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as RankAction);
@@ -47,21 +43,7 @@ test('should set the end value of FETCH_END_SUCCESS action', t => {
   });
 });
 
-test('should unset the start and end value if the action is POST_PROGRESSION_SUCCESS', t => {
-  const state = reducer(
-    {
-      start: 93,
-      end: 94
-    },
-    {type: POST_PROGRESSION_SUCCESS, payload: postProgressionResponse}
-  );
-  t.deepEqual(state, {
-    start: Number.NaN,
-    end: Number.NaN
-  });
-});
-
-test('should set the initial value when POST_PROGRESSION_REQUEST action is received', t => {
+test('should unset the start and end value if the action is POST_PROGRESSION_REQUEST', t => {
   const state = reducer(
     {
       start: 93,

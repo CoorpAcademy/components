@@ -1,21 +1,15 @@
 import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
-import {
-  FetchProgression,
-  ReceivedProgression,
-  POST_PROGRESSION_REQUEST,
-  POST_PROGRESSION_SUCCESS
-} from '../../actions/api/post-progression';
+import {FetchProgression, POST_PROGRESSION_REQUEST} from '../../actions/api/post-progression';
 
 export type UIShowCongratsState = boolean;
 
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: UIShowCongratsState = false,
-  action: NextSlideAction | ReceivedProgression | FetchProgression
+  action: NextSlideAction | FetchProgression
 ): UIShowCongratsState => {
   switch (action.type) {
-    case POST_PROGRESSION_REQUEST:
-    case POST_PROGRESSION_SUCCESS: {
+    case POST_PROGRESSION_REQUEST: {
       return false;
     }
     case NEXT_SLIDE: {

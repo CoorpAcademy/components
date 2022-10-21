@@ -353,16 +353,16 @@ const buildCongratsProps = (
     reviewCardValue: `${stars}`,
     timerAnimation: 200
   };
-  const skillRef = progression.content.ref;
   const {start, end} = state.data.rank;
   const newRank = start - end;
   const cardCongratsRank =
     !Number.isNaN(newRank) && newRank > 0 ? buildRankCard(end, translate) : undefined;
 
+  const skillRef = progression.content.ref;
   const buttonRevising = state.ui.showButtonRevising
     ? {
-        'aria-label': 'Continue revising button',
-        label: 'Continue revising',
+        'aria-label': translate('Continue reviewing'),
+        label: translate('Continue reviewing'),
         onClick: (): void => {
           dispatch(postProgression(skillRef));
         },
