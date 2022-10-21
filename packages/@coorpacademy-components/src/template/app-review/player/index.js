@@ -1,5 +1,6 @@
 import React from 'react';
 import isNil from 'lodash/fp/isNil';
+import classnames from 'classnames';
 import ReviewBackground from '../../../atom/review-background';
 import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
@@ -18,7 +19,13 @@ const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitP
       <div key="player-background-container" className={style.playerBackground}>
         <ReviewBackground aria-label={reviewBackgroundAriaLabel} />
       </div>
-      <div key="review-header-wrapper" className={style.reviewHeaderContainer}>
+      <div
+        key="review-header-wrapper"
+        className={classnames(
+          style.reviewHeaderContainer,
+          congrats && style.reviewHeaderContainerCongrats
+        )}
+      >
         <ReviewHeader {...header} />
       </div>
       <StackedSlides {...stack} />
