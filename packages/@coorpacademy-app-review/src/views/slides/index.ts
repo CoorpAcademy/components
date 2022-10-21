@@ -401,11 +401,11 @@ export const mapStateToSlidesProps = (
   const showQuitPopin = get(['ui', 'showQuitPopin'], state);
   const showCongrats = get(['ui', 'showCongrats'], state);
   // eslint-disable-next-line no-console
-  console.log(skill);
+  console.log(skill.name);
   return {
     header: {
       mode: translate('Review Title'),
-      skillName: '__agility',
+      skillName: skill.name,
       onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',

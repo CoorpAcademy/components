@@ -38,7 +38,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
   const [isProgressionCreated, setIsProgressionCreated] = useState(false);
 
-  const {translate, onQuitClick} = options;
+  const {translate, onQuitClick, skill} = options;
 
   useEffect(() => {
     if (store) return;
@@ -76,9 +76,6 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   useEffect(() => {
     if (store === null) return;
 
-    const {skill} = options;
-    // eslint-disable-next-line no-console
-    console.log(options);
     if (skill.ref && !isProgressionCreated) {
       store.dispatch(navigateTo('loader')); // use loader while posting progression
       return;
@@ -92,7 +89,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
   return (
     <Provider store={store}>
-      <ConnectedApp onQuitClick={onQuitClick} translate={translate} />
+      <ConnectedApp onQuitClick={onQuitClick} translate={translate} skill={skill} />
     </Provider>
   );
 };
