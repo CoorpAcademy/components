@@ -25,6 +25,11 @@
   width: 100%;
 }
 
+.reviewHeaderContainerCongrats {
+  position: absolute;
+  z-index: 10
+}
+
 .congrats {
   width: 100%;
   height: 100%;
@@ -48,7 +53,7 @@
 :-ms-fullscreen,
 :root .congrats {
   position: relative;
-  bottom: 20%;
+  bottom: 5%;
 }
 
 :-ms-fullscreen,
