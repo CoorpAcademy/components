@@ -8,7 +8,7 @@ import propTypes, {AppReviewProps} from './prop-types';
 const AppReview = ({viewName, onboarding, skills, slides}: AppReviewProps) => {
   switch (viewName) {
     case 'skills':
-      return <Skills {...skills} title="@todo plug web skills | title is required" />;
+      return <Skills {...skills} />;
     case 'onboarding':
       return <Onboarding {...onboarding} />;
     case 'slides':

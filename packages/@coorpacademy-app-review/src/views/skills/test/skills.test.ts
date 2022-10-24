@@ -1,8 +1,12 @@
 import test from 'ava';
+import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import {StoreState} from '../../../reducers';
 import {mapStateToSkillsProps} from '..';
+import {translate} from '../../../test/util/services.mock';
+
+const connectedOptions = {translate, onQuitClick: identity};
 
 test('should create initial props when there are no skills on the state', t => {
   const state: StoreState = {
@@ -26,14 +30,17 @@ test('should create initial props when there are no skills on the state', t => {
     }
   };
 
-  const props = mapStateToSkillsProps(state);
+  const props = mapStateToSkillsProps(state, connectedOptions);
 
   t.deepEqual(props, {
-    title: '@todo title',
-    iconSkillAriaLabel: '@todo iconSkillAriaLabel',
+    'aria-label': translate('Review Skills Container'),
+    title: translate('Skills you can review'),
     isLoading: false,
-    isLoadingAriaLabel: '@todo loading',
-    listSkills: []
+    isLoadingAriaLabel: 'Review skills container is loading',
+    listSkills: [],
+    titleNoSkills: translate('No skill to revise'),
+    textNoSkills: translate('Complete courses before revising'),
+    iconSkillAriaLabel: 'Image without information'
   });
 });
 
@@ -72,34 +79,37 @@ test('should create initial props when skills on the state', t => {
     }
   };
 
-  const props = mapStateToSkillsProps(state);
+  const props = mapStateToSkillsProps(state, connectedOptions);
 
   t.deepEqual(omit('listSkills', props), {
-    title: '@todo title',
-    iconSkillAriaLabel: '@todo iconSkillAriaLabel',
+    'aria-label': translate('Review Skills Container'),
+    title: translate('Skills you can review'),
     isLoading: false,
-    isLoadingAriaLabel: '@todo loading'
+    isLoadingAriaLabel: 'Review skills container is loading',
+    titleNoSkills: translate('No skill to revise'),
+    textNoSkills: translate('Complete courses before revising'),
+    iconSkillAriaLabel: 'Image without information'
   });
   t.deepEqual(map(omit('onClick'), props.listSkills), [
     {
-      'aria-label': '',
+      'aria-label': translate('Skill Card'),
       isCustom: false,
       skillTitle: 'skill-test',
-      skillAriaLabel: '@todo skill aria label',
-      buttonLabel: '@todo button',
-      buttonAriaLabel: '@todo button aria label',
-      reviseLabel: '@todo revise',
-      reviseAriaLabel: '@todo revise aria label'
+      skillAriaLabel: 'skill-test',
+      buttonLabel: translate('Review this skill'),
+      buttonAriaLabel: translate('Review this skill'),
+      reviseLabel: translate('{{count}} questions to review', {count: 2}),
+      reviseAriaLabel: translate('{{count}} questions to review', {count: 2})
     },
     {
-      'aria-label': '',
+      'aria-label': translate('Skill Card'),
       isCustom: true,
       skillTitle: 'skill-test-2',
-      skillAriaLabel: '@todo skill aria label',
-      buttonLabel: '@todo button',
-      buttonAriaLabel: '@todo button aria label',
-      reviseLabel: '@todo revise',
-      reviseAriaLabel: '@todo revise aria label'
+      skillAriaLabel: 'skill-test-2',
+      buttonLabel: translate('Review this skill'),
+      buttonAriaLabel: translate('Review this skill'),
+      reviseLabel: translate('{{count}} questions to review', {count: 5}),
+      reviseAriaLabel: translate('{{count}} questions to review', {count: 5})
     }
   ]);
   t.notThrows(() => props.listSkills[0].onClick());

@@ -7,7 +7,7 @@ import {
   SKILLS_FETCH_REQUEST,
   SKILLS_FETCH_SUCCESS
 } from '../fetch-skills';
-import {services as mockedServices} from '../../../test/util/services.mock';
+import {fetchSkillsResponse, services as mockedServices} from '../../../test/util/services.mock';
 import {createTestStore} from '../../test/create-test-store';
 
 const initialState: StoreState = {
@@ -37,7 +37,7 @@ test('should dispatch SKILLS_FETCH_SUCCESS actions when fetchSkills returns a li
     ...mockedServices,
     fetchSkills: token => {
       t.is(token, '1234');
-      return Promise.resolve([]);
+      return Promise.resolve(fetchSkillsResponse);
     }
   };
 
@@ -45,7 +45,7 @@ test('should dispatch SKILLS_FETCH_SUCCESS actions when fetchSkills returns a li
     {type: SKILLS_FETCH_REQUEST},
     {
       type: SKILLS_FETCH_SUCCESS,
-      payload: []
+      payload: fetchSkillsResponse
     }
   ];
 

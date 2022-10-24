@@ -13,7 +13,7 @@ export const NoSkillsPropTypes = {
 
 export default {
   'aria-label': PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   isLoading: PropTypes.bool,
   isLoadingAriaLabel: PropTypes.string,
   ...ListSkillsPropTypes,
