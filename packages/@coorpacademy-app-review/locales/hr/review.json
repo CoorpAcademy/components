@@ -2,17 +2,53 @@
     "Review Title": "Način provjere",
     "Content Parent Title": "Iz\n`{{naslovSadržaja}}` `{{vrstaSadržaja}}",
     "Validate": "Potvrdite",
-    "Next question": "Sljedeće pitanje ",
-    "KLF": "Ključni čimbenik učenja ",
-    "Correct Answer": "Točan odgovor",
+    "Next Question": "Sljedeće pitanje",
+    "KLF": "Ključna stvar",
+    "Correct Answer": "Dobar odgovor",
     "Wrong Answer": "Pogrešan odgovor",
     "You have won": "Pobijedili ste",
     "You are now": "Sada ste",
-    "Revise another skill": "Izmijenite drugu vještinu",
-    "Continue reviewing": "Nastavite s provjerom",
+    "Revise another skill": "Pregledajte drugu vještinu",
+    "Continue reviewing": "Nastavite s pregledom",
     "Congratulations!": "Čestitamo!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Pregledajte predložak vještina",
+    "Quit Title": "Jesi li siguran da želiš odustati ?",
+    "Quit Description Text": "Na pravom ste putu!  Ako sada odustanete, izgubit ćete svoj napredak.",
+    "Stop learning": "Završi sesiju",
+    "Continue learning": "Nastavite učiti",
+    "presentation": {
+      "aria_label": "Pregledajte prezentacijski spremnik",
+      "title": "Što je<br/>način revizije?",
+      "text": "Informacija nestaje iz vašeg uma čim u njega uđe?  Sasvim je normalno: nema zadržavanja bez ponavljanja!  Kako biste dugoročno zadržali svoje znanje, upotrijebite način revizije da osvježite pamćenje!",
+      "button": "U redu, shvatio sam!",
+      "label_list": {
+        "skills": {
+          "text": "Odaberite 1 vještinu",
+          "tooltip": "Možete pregledavati jednu po jednu vještinu."
+        },
+        "questions": {
+          "text": "Odgovorite na 5 pitanja",
+          "tooltip": "Odgovorite točno na 5 pitanja kako biste potvrdili svoju sesiju načina revizije."
+        },
+        "lifes": { 
+          "text": "Imate beskonačan život",
+          "tooltip": "Možete odgovoriti onoliko puta koliko želite da dovršite sesiju."
+        },
+        "allright": { 
+          "text":  "Uredi sve",
+          "tooltip": "Da biste potvrdili svoju sesiju, morate dobiti točan odgovor na svako pitanje."
+        }
+      }
+    },
+    "list_title": "Vještine koje možete pregledati",
+    "list_aria_label": "Pregledajte spremnik vještina",
+    "card": {
+      "aria_label": "Kartica vještina",
+      "text": "{{ukupno}} pitanja za pregled",
+      "button_text": "Pregledajte ovu vještinu"
+    },
+    "no_skills": {
+      "title": "Još nemate vještinu za reviziju",
+      "text": "Prvo morate završiti tečajeve prije nego što možete pregledati različite vještine."
+    }      
 }
