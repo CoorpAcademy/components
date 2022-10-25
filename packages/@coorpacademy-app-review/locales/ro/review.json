@@ -2,17 +2,53 @@
     "Review Title": "Modul de revizuire",
     "Content Parent Title": "De la `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Validați",
-    "Next question": "Următoarea întrebare",
-    "KLF": "Factor cheie de învățare",
-    "Correct Answer": "Răspuns corect",
+    "Next Question": "Întrebarea următoare",
+    "KLF": "Punct cheie",
+    "Correct Answer": "Răspuns bun",
     "Wrong Answer": "Răspuns greșit",
     "You have won": "Ați câștigat",
     "You are now": "Sunteți acum",
     "Revise another skill": "Revizuiți o altă abilitate",
     "Continue reviewing": "Continuați să revizuiți",
     "Congratulations!": "\nFelicitări!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Șablon de revizuire a abilităților",
+    "Quit Title": "Sunteți sigur că vreți să renunțați?",
+    "Quit Description Text": "Sunteți pe drumul cel bun! Dacă renunțați acum, vă veți pierde progresul.",
+    "Stop learning": "Încheiați sesiunea",
+    "Continue learning": "Continuați să învățați",
+    "presentation": {
+      "aria_label": "Revizuiți containerul de prezentare",
+      "title": "Ce este<br/>Modul de revizuire?",
+      "text": "Informația dispare din mintea dumneavoastră imediat ce intră în ea? Este perfect normal: nu există reținere fără repetiție! Pentru a vă păstra cunoștințele pe termen lung, folosiți Modul de revizuire pentru a vă reîmprospăta memoria!",
+      "button": "Ok, am înțeles!",
+      "label_list": {
+        "skills": {
+          "text": "Alegeți 1 abilitate",
+          "tooltip": "Puteți revizui o singură abilitate la un moment dat."
+        },
+        "questions": {
+          "text": "Răspundeți la 5 întrebări",
+          "tooltip": "Răspundeți corect la cele 5 întrebări pentru a vă valida sesiunea din modul de revizuire."
+        },
+        "lifes": { 
+          "text": "Aveți o viață infinită",
+          "tooltip": "Puteți răspunde de câte ori doriți pentru a vă finaliza sesiunea."
+        },
+        "allright": { 
+          "text":  "Înțelegeți totul corect",
+          "tooltip": "Pentru a vă valida sesiunea, este necesar să obțineți un răspuns corect la fiecare întrebare."
+        }
+      }
+    },
+    "list_title": "Competențe pe care le puteți revizui",
+    "list_aria_label": "Containerul abilităților de revizuire",
+    "card": {
+      "aria_label": "Card de abilități",
+      "text": " {{total}} întrebări de revizuit",
+      "button_text": "Revizuiți această abilitate"
+    },
+    "no_skills": {
+      "title": "Nu aveți încă nicio abilitate de revizuit",
+      "text": "Mai întâi este necesar să finalizați cursuri înainte de a putea revizui diferite abilități."
+    }      
 }
