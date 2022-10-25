@@ -147,7 +147,7 @@ export type CorrectionFromAPI = {
   corrections: CorrectedChoice[];
 };
 
-export type Skill = {
+export type SkillsToReview = {
   skillRef: string;
   slidesToReview: number;
   custom: boolean;
@@ -155,7 +155,7 @@ export type Skill = {
 };
 
 export type Services = {
-  fetchSkills(token: string): Promise<Skill[]>;
+  fetchSkills(token: string): Promise<SkillsToReview[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
   postAnswer(

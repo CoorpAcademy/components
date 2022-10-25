@@ -1,9 +1,9 @@
 import test from 'ava';
 import nock from 'nock';
-import {Skill} from '../../types/common';
+import {SkillsToReview} from '../../types/common';
 import {fetchSkills} from '../fetch-skills';
 
-const result: Skill[] = [
+const result: SkillsToReview[] = [
   {
     slidesToReview: 1,
     name: 'skill-test',
