@@ -2,17 +2,53 @@
     "Review Title": "レビューモード",
     "Content Parent Title": "`{{contentTitle}}` `{{contentType}}` から",
     "Validate": "検証",
-    "Next question": "次の質問",
-    "KLF": "主な学習要因",
-    "Correct Answer": "正解",
+    "Next Question": "次の質問",
+    "KLF": "キーポイント",
+    "Correct Answer": "適切な答えです",
     "Wrong Answer": "間違った答え",
     "You have won": "勝ちました",
     "You are now": "あなたは現在",
-    "Revise another skill": "別のスキルを修正する",
-    "Continue reviewing": "レビューを続ける",
+    "Revise another skill": "別のスキルを確認",
+    "Continue reviewing": "確認を続ける",
     "Congratulations!": "おめでとうございます！",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "スキルテンプレートを確認",
+    "Quit Title": "本当にやめてよろしいですか？",
+    "Quit Description Text": "今順調に進んでいます！今やめると、進行状況が失われます。",
+    "Stop learning": "セッションを終了",
+    "Continue learning": "学習を続ける",
+    "presentation": {
+      "aria_label": "プレゼンテーションコンテナの確認",
+      "title": "<br/>リビジョンモードとは？",
+      "text": "情報が、頭に入ったらすぐに消えてしまいますか？それは全く正常なことです：反復なしに記憶を保持することはできません！長期的に知識を頭に保持するには、リビジョンモードを使用して記憶をリフレッシュしてください！",
+      "button": "はい、分かりました！",
+      "label_list": {
+        "skills": {
+          "text": "スキルを1つ選択",
+          "tooltip": "一度に確認できるのは1つのスキルだけです。"
+        },
+        "questions": {
+          "text": "5つの質問に答える",
+          "tooltip": "5つの質問に正しく答えて、リビジョンモードセッションを検証します。"
+        },
+        "lifes": { 
+          "text": "あなたのライフは無制限です",
+          "tooltip": "セッションを完了するまで、何度でも回答できます。"
+        },
+        "allright": { 
+          "text":  "すべてを正しく理解しましょう",
+          "tooltip": "セッションを認証するには、それぞれの質問に対して正しく答える必要があります。"
+        }
+      }
+    },
+    "list_title": "確認できるスキル",
+    "list_aria_label": "スキルコンテナを確認",
+    "card": {
+      "aria_label": "スキルカード",
+      "text": "確認する {{total}} の質問",
+      "button_text": "このスキルを確認"
+    },
+    "no_skills": {
+      "title": "修正するスキルはまだありません",
+      "text": "さまざまなスキルを確認する前に、まずコースを完了する必要があります。"
+    }      
 }
