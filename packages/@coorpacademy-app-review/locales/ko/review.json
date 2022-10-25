@@ -2,17 +2,53 @@
     "Review Title": "복습 모드",
     "Content Parent Title": "`{{contentTitle}}` `{{contentType}}`에서 출제",
     "Validate": "검증하기",
-    "Next question": "다음 질문",
-    "KLF": "핵심 학습 요소",
-    "Correct Answer": "정답",
+    "Next Question": "다음 질문",
+    "KLF": "요점",
+    "Correct Answer": "올바른 응답",
     "Wrong Answer": "오답",
     "You have won": "이겼습니다",
     "You are now": "이제",
-    "Revise another skill": "새로운 스킬을 수정합니다",
-    "Continue reviewing": "계속 복습니다",
+    "Revise another skill": "다른 능력 검토",
+    "Continue reviewing": "계속 검토",
     "Congratulations!": "축하드립니다!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "능력 검토 템플릿",
+    "Quit Title": "정말 나가시겠습니까?",
+    "Quit Description Text": "잘 진행하고 있는 상태입니다! 지금 나가시면 진행 상황을 잃게 됩니다.",
+    "Stop learning": "세션 종료",
+    "Continue learning": "학습 계속 진행",
+    "presentation": {
+      "aria_label": "프레젠테이션 검토 컨테이너",
+      "title": "검토 모드가<br/>무엇인가요?",
+      "text": "정보가 머리속에 들어오자마자 사라지나요? 그렇다면 지극히 정상입니다. 반복하지 않으면 기억은 오래 남지 않습니다! 지식을 오랫동안 기억하시려면 검토 모드를 통해 기억을 새롭게 해 보세요!",
+      "button": "알겠습니다!",
+      "label_list": {
+        "skills": {
+          "text": "능력 1개 선택",
+          "tooltip": "한 번에 1개 능력을 검토할 수 있습니다."
+        },
+        "questions": {
+          "text": "5개 질문 응답",
+          "tooltip": "5개 질문에 올바르게 응답해 검토 모드 세션을 완료하세요."
+        },
+        "lifes": { 
+          "text": "기회는 무제한입니다",
+          "tooltip": "원하는 만큼 응답해 세션을 완료할 수 있습니다."
+        },
+        "allright": { 
+          "text":  "모두 맞추세요",
+          "tooltip": "세션을 완료하려면 각 질문에 올바르게 응답해야 합니다."
+        }
+      }
+    },
+    "list_title": "검토할 수 있는 능력",
+    "list_aria_label": "능력 검토 컨테이너",
+    "card": {
+      "aria_label": "능력 카드",
+      "text": "검토할 질문 {{total}}개",
+      "button_text": "이 스킬 검토"
+    },
+    "no_skills": {
+      "title": "아직 검토할 능력이 없습니다",
+      "text": "먼저 코스를 완료해야 다른 능력을 검토할 수 있습니다."
+    }      
 }
