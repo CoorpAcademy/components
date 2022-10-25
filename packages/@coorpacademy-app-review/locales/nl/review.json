@@ -2,17 +2,53 @@
     "Review Title": "Beoordelingsmodus",
     "Content Parent Title": "Van `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Valideren",
-    "Next question": "Volgende vraag",
-    "KLF": "Belangrijkste leerfactor",
-    "Correct Answer": "Juiste antwoord",
+    "Next Question": "Volgende vraag",
+    "KLF": "Kernpunt",
+    "Correct Answer": "Goed antwoord",
     "Wrong Answer": "Foute antwoord",
     "You have won": "Je hebt gewonnen",
     "You are now": "Nu ben je",
-    "Revise another skill": "Beoordeel een andere vaardigheid",
-    "Continue reviewing": "Ga door met beoordelen",
+    "Revise another skill": "Een andere vaardigheid reviewen",
+    "Continue reviewing": "Doorgaan met reviewen",
     "Congratulations!": "Gefeliciteerd!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Sjabloon reviewvaardigheden",
+    "Quit Title": "Weet u zeker dat u wilt stoppen?",
+    "Quit Description Text": "U bent op het juiste spoor! Als u niet stopt, verliest u uw vorderingen.",
+    "Stop learning": "Sessie beëindigen",
+    "Continue learning": "Verder leren",
+    "presentation": {
+      "aria_label": "Review presentatie container",
+      "title": "Wat is<br/>Revisiemodus?",
+      "text": "Informatie ",
+      "button": "Oké, ik snap het!",
+      "label_list": {
+        "skills": {
+          "text": "Kies 1 vaardigheid",
+          "tooltip": "U kunt één vaardigheid reviewen per keer."
+        },
+        "questions": {
+          "text": "Beantwoord 5 vragen",
+          "tooltip": "Geef het juiste antwoord op de 5 vragen om uw revisiemodus-sessie te valideren."
+        },
+        "lifes": { 
+          "text": "U heeft onbeperkt live",
+          "tooltip": "U kunt zo vaak als u wilt antwoorden om uw sessie te voltooien."
+        },
+        "allright": { 
+          "text":  "Geef overal het juiste antwoord",
+          "tooltip": "Om uw sessie te valideren, moet u op iedere vraag het juiste antwoord geven."
+        }
+      }
+    },
+    "list_title": "Vaardigheden die u kunt reviewen",
+    "list_aria_label": "Review vaardigheden container",
+    "card": {
+      "aria_label": "Vaardighedenkaart",
+      "text": "{{total}} vragen om te reviewen",
+      "button_text": "Review deze vaardigheid"
+    },
+    "no_skills": {
+      "title": "U heeft nog geen vaardigheid om te reviseren",
+      "text": "U moet eerst lessen voltooien voordat u verschillende vaardigheden kunt reviewen."
+    }      
 }
