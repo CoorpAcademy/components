@@ -2,17 +2,53 @@
     "Review Title": "Überprüfungsmodus",
     "Content Parent Title": "Von `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Bestätigen",
-    "Next question": "Nächste Frage",
-    "KLF": "Wichtigster Lernfaktor",
-    "Correct Answer": "Richtige Antwort",
+    "Next Question": "Nächste Frage",
+    "KLF": "Schwerpunkt",
+    "Correct Answer": "Gute Antwort",
     "Wrong Answer": "Falsche Antwort",
     "You have won": "Sie haben gewonnen",
     "You are now": "Sie sind jetzt",
-    "Revise another skill": "Andere Fertigkeit überarbeiten",
-    "Continue reviewing": "Überprüfung fortsetzen",
+    "Revise another skill": "Eine andere Fähigkeit prüfen",
+    "Continue reviewing": "Weiter prüfen",
     "Congratulations!": "Herzlichen Glückwunsch!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Fähigkeiten-Vorlage prüfen",
+    "Quit Title": "Bist du sicher, dass du aufhören möchtest?",
+    "Quit Description Text": "Du bist auf dem richtigen Weg! Wenn du jetzt aufhörst, verlierst du deine Fortschritte.",
+    "Stop learning": "Lerneinheit beenden",
+    "Continue learning": "Weiter lernen",
+    "presentation": {
+      "aria_label": "Präsentations-Container prüfen",
+      "title": "Was ist der<br/>Wiederholungsmodus?",
+      "text": "Das Wissen verschwindet wieder aus deinem Kopf, kaum dass es dort angekommen ist? Das ist ganz normal: Ohne regelmäßige Wiederholung bleibt nichts hängen! Nutze den Wiederholungsmodus, um dein Wissen langfristig zu behalten und dein Erinnerungsvermögen zu verbessern!",
+      "button": "Ok, verstanden!",
+      "label_list": {
+        "skills": {
+          "text": "Wähle 1 Fähigkeit",
+          "tooltip": "Du kannst jeweils nur eine Fähigkeit auf einmal prüfen."
+        },
+        "questions": {
+          "text": "Beantworte 5 Fragen",
+          "tooltip": "Beantworte die 5 Fragen richtig, um den Wiederholungsmodus erfolgreich abzuschließen."
+        },
+        "lifes": { 
+          "text": "Du hast eine unbegrenzte Anzahl von Leben",
+          "tooltip": "Um die Lerneinheit abzuschließen, kannst du so oft antworten, wie du möchtest."
+        },
+        "allright": { 
+          "text":  "Mache alles richtig",
+          "tooltip": "Um die Lerneinheit abzuschließen, musst du auf jede Frage die richtige Antwort geben."
+        }
+      }
+    },
+    "list_title": "Fähigkeiten, die du prüfen lassen kannst",
+    "list_aria_label": "Fähigkeiten-Container prüfen",
+    "card": {
+      "aria_label": "Fähigkeitskarte",
+      "text": "{{total}} Fragen zum Prüfen",
+      "button_text": "Diese Fähigkeit prüfen"
+    },
+    "no_skills": {
+      "title": "Du hast noch keine Fähigkeiten zum Prüfen",
+      "text": "Du musst zuerst Kurse absolvieren, bevor du verschiedene Fähigkeiten prüfen lassen kannst."
+    }      
 }
