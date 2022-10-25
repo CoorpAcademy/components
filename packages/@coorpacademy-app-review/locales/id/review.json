@@ -1,0 +1,54 @@
+{
+    "Review Title": "Mode Tinjauan",
+    "Content Parent Title": "Dari `{{contentTitle}}` `{{contentType}}`",
+    "Validate": "Validasi",
+    "Next Question": "Pertanyaan Berikutnya",
+    "KLF": "Poin utama",
+    "Correct Answer": "Jawaban Bagus",
+    "Wrong Answer": "Jawaban Salah",
+    "You have won": "Anda telah menang",
+    "You are now": "Anda kini",
+    "Revise another skill": "Tinjau keterampilan lain",
+    "Continue reviewing": "Tinjau terus",
+    "Congratulations!": "Selamat!",
+    "aria_label": "Tinjau Templat Keterampilan",
+    "Quit Title": "Anda yakin ingin berhenti?",
+    "Quit Description Text": "Anda berada di jalur yang tepat! Jika berhenti sekarang, Anda akan kehilangan kemajuan Anda.",
+    "Stop learning": "Akhiri sesi",
+    "Continue learning": "Lanjutkan belajar",
+    "presentation": {
+      "aria_label": "Tinjau Wadah Presentasi",
+      "title": "Apa itu<br/>Mode Revisi?",
+      "text": "Informasi langsung hilang dari pikiran Anda begitu memasukinya? Itu sangat normal: tidak ada retensi tanpa pengulangan! Untuk mempertahankan pengetahuan Anda dalam jangka panjang, gunakan Mode Revisi untuk menyegarkan ingatan Anda!",
+      "button": "Oke, saya mengerti!",
+      "label_list": {
+        "skills": {
+          "text": "Pilih 1 keterampilan",
+          "tooltip": "Anda hanya bisa meninjau keterampilan satu per satu."
+        },
+        "questions": {
+          "text": "Jawab 5 pertanyaan",
+          "tooltip": "Jawab 5 pertanyaan dengan benar untuk memvalidasi sesi mode revisi Anda."
+        },
+        "lifes": { 
+          "text": "Anda memiliki hidup yang tak terbatas",
+          "tooltip": "Anda bisa menjawab sebanyak yang Anda mau untuk menuntaskan sesi Anda."
+        },
+        "allright": { 
+          "text":  "Jawab semua dengan benar",
+          "tooltip": "Untuk memvalidasi sesi Anda, Anda harus menjawab semua pertanyaan dengan benar."
+        }
+      }
+    },
+    "list_title": "Keterampilan yang bisa Anda tinjau",
+    "list_aria_label": "Tinjau Wadah Keterampilan",
+    "card": {
+      "aria_label": "Kartu Keterampilan",
+      "text": "{{total}} pertanyaan untuk ditinjau",
+      "button_text": "Tinjau keterampilan ini"
+    },
+    "no_skills": {
+      "title": "Anda belum memiliki keterampilan untuk direvisi",
+      "text": "Anda harus menuntaskan kursus terlebih dulu sebelum bisa meninjau keterampilan yang lain."
+    }      
+}
