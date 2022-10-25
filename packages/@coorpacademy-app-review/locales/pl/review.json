@@ -2,17 +2,53 @@
     "Review Title": "Tryb przeglądania",
     "Content Parent Title": "Od `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Zatwierdź",
-    "Next question": "Następne pytanie",
-    "KLF": "Kluczowy czynnik uczenia się",
-    "Correct Answer": "Poprawna odpowiedź",
+    "Next Question": "Kolejne pytanie",
+    "KLF": "Kluczowy punkt",
+    "Correct Answer": "Dobra odpowiedź",
     "Wrong Answer": "Błędna odpowiedź",
     "You have won": "Wygrano",
     "You are now": "Jesteś teraz",
-    "Revise another skill": "Zobacz inną umiejętność",
-    "Continue reviewing": "Kontynuuj przeglądanie",
+    "Revise another skill": "Utrwal kolejną umiejętność",
+    "Continue reviewing": "Kontynuuj utrwalanie",
     "Congratulations!": "Gratulacje!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Szablon utrwalania umiejętności",
+    "Quit Title": "Czy na pewno chcesz zrezygnować?",
+    "Quit Description Text": "Idziesz prosto do celu! Jeśli teraz zrezygnujesz, utracisz postępy.",
+    "Stop learning": "Zakończ sesję",
+    "Continue learning": "Kontynuuj naukę",
+    "presentation": {
+      "aria_label": "Kontener prezentacji utrwalania",
+      "title": "Czym jest<br/>tryb utrwalania?",
+      "text": "Informacje natychmiast wypadają ci z głowy? To zupełnie normalne: bez powtórek ciężko cokolwiek zapamiętać! Aby informacje zapisały się w pamięci długoterminowej, wyżyj trybu utrwalania w celu odświeżenia pamięci.",
+      "button": "OK, rozumiem.",
+      "label_list": {
+        "skills": {
+          "text": "Wybierz 1 umiejętność",
+          "tooltip": "W danym momencie możesz utrwalać jedną umiejętność."
+        },
+        "questions": {
+          "text": "Odpowiedz na 5 pytań",
+          "tooltip": "Odpowiedz poprawnie na 5 pytań, aby ocenić sesję w trybie utrwalania."
+        },
+        "lifes": { 
+          "text": "Nie masz ograniczeń czasowych",
+          "tooltip": "Aby zakończyć sesję, możesz odpowiadać dowolną ilość razy."
+        },
+        "allright": { 
+          "text":  "Odpowiedz poprawnie na wszystkie pytania",
+          "tooltip": "Aby sesja została oceniona, musisz poprawnie odpowiedzieć na wszystkie pytania."
+        }
+      }
+    },
+    "list_title": "Umiejętności, które możesz utrwalić",
+    "list_aria_label": "Kontener utrwalania umiejętności",
+    "card": {
+      "aria_label": "Karta umiejętności",
+      "text": "Pytania czekające na odpowiedź {{total}}",
+      "button_text": "Utrwal tę umiejętność"
+    },
+    "no_skills": {
+      "title": "Nie masz żadnej umiejętności do powtórzenia",
+      "text": "Zanim przejdziesz do utrwalania różnych umiejętności, musisz ukończyć szkolenia."
+    }      
 }
