@@ -2,17 +2,53 @@
     "Review Title": "Kontrolní režim",
     "Content Parent Title": "Od `{{obsahNázev}}` `{{obsahTyp}}`",
     "Validate": "Ověřit",
-    "Next question": "Další otázka",
-    "KLF": "Klíčový vzdělávací faktor",
-    "Correct Answer": "Správná odpověď",
+    "Next Question": "Další otázka",
+    "KLF": "Klíčový bod",
+    "Correct Answer": "Dobrá odpověď",
     "Wrong Answer": "Špatná odpověď",
     "You have won": "Vyhráli jste",
     "You are now": "Právě jste",
-    "Revise another skill": "Zopakovat si další dovednost",
-    "Continue reviewing": "Pokračovat v kontrole",
+    "Revise another skill": "Prověřit jinou dovednost",
+    "Continue reviewing": "Pokračovat v prověřování",
     "Congratulations!": "Gratulujeme!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Šablona prověřování dovedností",
+    "Quit Title": "Opravdu chcete skončit?",
+    "Quit Description Text": "Jste na správné cestě! Pokud skončíte nyní, ztratíte svůj postup.",
+    "Stop learning": "Ukončit relaci",
+    "Continue learning": "Pokračovat v učení",
+    "presentation": {
+      "aria_label": "Schránka prověření prezentace",
+      "title": "Co je <br/>režim revizí?",
+      "text": "Vypaří se vám informace z hlavy hned, jak do ní vstoupí? To je naprosto normální: neexistuje retence bez opakování! Pro dlouhodobé uchování svých znalostí použijte režim revizí, abyste si osvěžili paměť!",
+      "button": "Ok, mám to!",
+      "label_list": {
+        "skills": {
+          "text": "Vyberte si 1 dovednost",
+          "tooltip": "Můžete prověřit 1 dovednost najednou."
+        },
+        "questions": {
+          "text": "Zodpovězte 5 otázek",
+          "tooltip": "Zodpovězte správně 5 otázek, abyste ověřili svoji relaci v režimu revizí."
+        },
+        "lifes": { 
+          "text": "Máte nekonečně živých",
+          "tooltip": "Pro dokončení své relace můžete odpovědět tolikrát, kolikrát chcete."
+        },
+        "allright": { 
+          "text":  "Mějte vše správně",
+          "tooltip": "Pro ověření své relace musíte správně zodpovědět všechny otázky."
+        }
+      }
+    },
+    "list_title": "Dovednosti, které můžete prověřit",
+    "list_aria_label": "Schránka prověření dovedností",
+    "card": {
+      "aria_label": "Karta dovedností",
+      "text": "{{total}} otázek k prověření",
+      "button_text": "Prověřit tuto dovednost"
+    },
+    "no_skills": {
+      "title": "Zatím nemáte žádné dovednosti k revidování",
+      "text": "Před prověřením různých dovedností musíte nejdřív dokončit kurzy."
+    }      
 }
