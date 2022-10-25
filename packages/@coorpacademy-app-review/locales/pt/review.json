@@ -2,17 +2,53 @@
     "Review Title": "Modo de Revisão",
     "Content Parent Title": "De`{{contentTitle}}` `{{contentType}}`",
     "Validate": "Validar",
-    "Next question": "Próxima pergunta",
-    "KLF": "Fator de aprendizagem chave",
-    "Correct Answer": "Resposta correta",
+    "Next Question": "Próxima Pergunta",
+    "KLF": "Ponto chave",
+    "Correct Answer": "Boa Resposta",
     "Wrong Answer": "Resposta errada",
     "You have won": "Ganhou",
     "You are now": "Agora é",
-    "Revise another skill": "Rever outra competência",
-    "Continue reviewing": "Continuar a rever",
+    "Revise another skill": "Analise outra competência",
+    "Continue reviewing": "Continue a analisar",
     "Congratulations!": "Parabéns!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Analisar Modelo de Competências",
+    "Quit Title": "Tem a certeza de que quer sair?",
+    "Quit Description Text": "Está no caminho certo! Se desistir agora, perderá o seu progresso.\n",
+    "Stop learning": "Terminar sessão",
+    "Continue learning": "Continue a aprender",
+    "presentation": {
+      "aria_label": "Analisar Recipiente de Apresentação",
+      "title": "O que é o <br/>Modo de Revisão?",
+      "text": "A informação desaparece da sua mente assim que entra nela? É perfeitamente normal: não há retenção sem repetição! Para manter o seu conhecimento a longo prazo, utilize o Modo de Revisão para refrescar a sua memória!\n",
+      "button": "OK, percebi!",
+      "label_list": {
+        "skills": {
+          "text": "Escolha 1 competência",
+          "tooltip": "Pode analisar uma competência de cada vez."
+        },
+        "questions": {
+          "text": "Responda a 5 perguntas",
+          "tooltip": "Responda corretamente às 5 perguntas para validar a sua sessão do modo de revisão.\n"
+        },
+        "lifes": { 
+          "text": "Tem uma vida infinita",
+          "tooltip": "Pode responder as vezes que quiser para concluir a sua sessão.\n"
+        },
+        "allright": { 
+          "text":  "Responda corretamente a todas",
+          "tooltip": "Para validar a sua sessão, deve responder corretamente a cada pergunta.\n"
+        }
+      }
+    },
+    "list_title": "Competências que pode analisar",
+    "list_aria_label": "Analisar Recipiente de Competências",
+    "card": {
+      "aria_label": "Cartão de Competências",
+      "text": "{{total}} de perguntas a analisar",
+      "button_text": "Analise esta competência"
+    },
+    "no_skills": {
+      "title": "Ainda não tem nenhuma competência para analisar",
+      "text": "Primeiro é preciso completar os cursos antes de poder analisar diferentes competências.\n"
+    }      
 }
