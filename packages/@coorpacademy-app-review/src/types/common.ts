@@ -154,6 +154,11 @@ export type SkillsToReview = {
   name: string;
 };
 
+export type Skill = {
+  name: string;
+  skillRef: string;
+};
+
 export type Services = {
   fetchSkills(token: string): Promise<SkillsToReview[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
