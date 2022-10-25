@@ -2,17 +2,53 @@
     "Review Title": "复习模式\n",
     "Content Parent Title": "从`{{contentTitle}}` `{{contentType}}`",
     "Validate": "验证",
-    "Next question": "下一题",
-    "KLF": "学习要点",
-    "Correct Answer": "正确答案",
+    "Next Question": "下一个问题",
+    "KLF": "关键点",
+    "Correct Answer": "回答得好",
     "Wrong Answer": "错误答案",
     "You have won": "您已赢得",
     "You are now": "您现在",
-    "Revise another skill": "复习另一项技能",
+    "Revise another skill": "复习其他技能",
     "Continue reviewing": "继续复习",
     "Congratulations!": "恭喜您！",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "复习技能模板",
+    "Quit Title": "您确定要退出吗？",
+    "Quit Description Text": "您正走在正轨上！如果现在退出，您将丢失进度。",
+    "Stop learning": "结束课程",
+    "Continue learning": "继续学习",
+    "presentation": {
+      "aria_label": "复习演示容器",
+      "title": "<br/>温习模式是什么？",
+      "text": "看过的信息转头就忘？这太正常了：不重复，就记不住！为了牢记知识，请使用“温习模式”唤起记忆吧！",
+      "button": "好的，我知道了！",
+      "label_list": {
+        "skills": {
+          "text": "选择 1 种技能",
+          "tooltip": "您一次可以复习一种技能。"
+        },
+        "questions": {
+          "text": "回答 5 个问题",
+          "tooltip": "正确回答 5 个问题，检验您的温习模式课程。"
+        },
+        "lifes": { 
+          "text": "您的生命数无限",
+          "tooltip": "您可以根据自己的需要多次回答问题，以完成课程。"
+        },
+        "allright": { 
+          "text":  "全部答对",
+          "tooltip": "要检验课程，您必须答对所有问题。"
+        }
+      }
+    },
+    "list_title": "您可以复习的技能",
+    "list_aria_label": "复习技能容器",
+    "card": {
+      "aria_label": "技能卡",
+      "text": "共需复习 {{total}} 个问题",
+      "button_text": "复习此技能"
+    },
+    "no_skills": {
+      "title": "您还没有需要温习的技能",
+      "text": "您需要先完成课程，然后才能复习不同技能。"
+    }      
 }
