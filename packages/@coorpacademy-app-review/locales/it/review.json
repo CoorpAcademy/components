@@ -2,17 +2,53 @@
     "Review Title": "Modalità revisione",
     "Content Parent Title": "Da `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Convalida",
-    "Next question": "Domanda successiva",
-    "KLF": "Fattore di apprendimento chiave",
-    "Correct Answer": "Risposta corretta",
+    "Next Question": "Domanda seguente",
+    "KLF": "Punto chiave",
+    "Correct Answer": "Buona risposta",
     "Wrong Answer": "Risposta errata",
     "You have won": "Hai vinto",
     "You are now": "Adesso sei",
-    "Revise another skill": "Rivedi un'altra competenza",
-    "Continue reviewing": "Continua la revisione",
+    "Revise another skill": "Rivedi un'altra abilità",
+    "Continue reviewing": "Continua a ripetere",
     "Congratulations!": "Congratulazioni!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Modello di ripetizione delle competenze",
+    "Quit Title": "Vuoi davvero uscire?",
+    "Quit Description Text": "Sei sulla buona strada! Se esci ora, perderai i tuoi progressi.",
+    "Stop learning": "Termina sessione",
+    "Continue learning": "Continua a imparare",
+    "presentation": {
+      "aria_label": "Contenitore di presentazione di ripetizione",
+      "title": "Cos'è<br/> la modalità ripetizione?",
+      "text": "Le informazioni svaniscono dalla tua mente non appena ci entrano? È perfettamente normale: non c'è memorizzazione senza ripetizione! Per mantenere le tue conoscenze a lungo termine, usa la modalità di ripetizione per rinfrescarti la memoria!",
+      "button": "Ok ho capito!",
+      "label_list": {
+        "skills": {
+          "text": "Scegli 1 competenza",
+          "tooltip": "Puoi ripetere una competenza alla volta."
+        },
+        "questions": {
+          "text": "Rispondi a 5 domande",
+          "tooltip": "Rispondi correttamente alle 5 domande per convalidare la tua sessione in modalità ripetizione."
+        },
+        "lifes": { 
+          "text": "Hai vite infinite",
+          "tooltip": "Puoi rispondere tutte le volte che vuoi per completare la sessione."
+        },
+        "allright": { 
+          "text":  "Rispondi correttamente a tutto",
+          "tooltip": "Per convalidare la tua sessione, devi ottenere una risposta corretta a ciascuna domanda."
+        }
+      }
+    },
+    "list_title": "Competenze che puoi rivedere",
+    "list_aria_label": "Contenitore di ripetizione delle competenze",
+    "card": {
+      "aria_label": "Skill Card",
+      "text": "{{total}} domande da rivedere",
+      "button_text": "Rivedi questa competenza"
+    },
+    "no_skills": {
+      "title": "Non hai ancora competenze da rivedere",
+      "text": "Per prima cosa devi completare i corsi prima di poter rivedere diverse competenze."
+    }      
 }
