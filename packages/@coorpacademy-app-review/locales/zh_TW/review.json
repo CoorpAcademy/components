@@ -2,17 +2,53 @@
     "Review Title": "檢閱模式",
     "Content Parent Title": "來自 `{{contentTitle}}` `{{contentType}}`",
     "Validate": "驗證",
-    "Next question": "下個問題",
-    "KLF": "關鍵學習因素",
-    "Correct Answer": "正確答案",
+    "Next Question": "下一題",
+    "KLF": "重點",
+    "Correct Answer": "答得好",
     "Wrong Answer": "錯誤答案",
     "You have won": "你贏了",
     "You are now": "您現在是",
-    "Revise another skill": "修正其他技能",
-    "Continue reviewing": "繼續檢閱",
+    "Revise another skill": "複習另外一項技能",
+    "Continue reviewing": "繼續複習",
     "Congratulations!": "恭喜！",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "複習技能模板",
+    "Quit Title": "你確定要離開嗎？",
+    "Quit Description Text": "你就快要完成了！如果現在離開，下次就必須重新開始。",
+    "Stop learning": "結束課程",
+    "Continue learning": "繼續學習",
+    "presentation": {
+      "aria_label": "複習簡報箱",
+      "title": "什麼是<br/>複習模式？",
+      "text": "很快就會忘了學到的新知識嗎？這其實很常正常：如果沒有不斷複習的話，很容易就會忘記所學的內容！要讓所學到的知識成為長期記憶的一部分，就使用複習模式來溫習你的記憶！",
+      "button": "Ok ，我知道了！",
+      "label_list": {
+        "skills": {
+          "text": "選擇 1 項技能",
+          "tooltip": "你一次可以複習 1 項技能"
+        },
+        "questions": {
+          "text": "回答 5 個問題",
+          "tooltip": "正確回答 5 個問題，來完成複習模式課程。"
+        },
+        "lifes": { 
+          "text": "你有無限多次的機會",
+          "tooltip": "要完成你的這項課程，你不論回答幾次都可以。"
+        },
+        "allright": { 
+          "text":  "答對所有問題",
+          "tooltip": "要完成你的課程，你每一個問題都必須選擇一個正確的答案。"
+        }
+      }
+    },
+    "list_title": "你可以複習的技能",
+    "list_aria_label": "複習技能箱",
+    "card": {
+      "aria_label": "技能卡",
+      "text": "{{total}} 個問題需要複習",
+      "button_text": "複習這項技能"
+    },
+    "no_skills": {
+      "title": "你尚未有任何的技能可以複習",
+      "text": "你必須先完成課程，然後才能複習不同的技能。"
+    }      
 }
