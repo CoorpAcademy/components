@@ -2,17 +2,53 @@
     "Review Title": "Modo revisión",
     "Content Parent Title": "De `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Validar",
-    "Next question": "Siguiente pregunta",
-    "KLF": "Factor clave de aprendizaje",
-    "Correct Answer": "Respuesta correcta",
+    "Next Question": "Siguiente pregunta",
+    "KLF": "Aspecto clave",
+    "Correct Answer": "Buena respuesta",
     "Wrong Answer": "Respuesta incorrecta",
     "You have won": "Has ganado",
     "You are now": "Ahora eres",
-    "Revise another skill": "Repasar otra habilidad",
+    "Revise another skill": "Revisar otra habilidad",
     "Continue reviewing": "Seguir revisando",
     "Congratulations!": "¡Enhorabuena!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Revisar plantilla de habilidades",
+    "Quit Title": "¿Estás seguro de que quieres salir?",
+    "Quit Description Text": "¡Vas por buen camino! Si sales ahora perderás tu progreso.",
+    "Stop learning": "Finalizar sesión",
+    "Continue learning": "Seguir aprendiendo",
+    "presentation": {
+      "aria_label": "Revisar contenedor de presentación",
+      "title": "¿Qué es el <br/>Modo revisión?",
+      "text": "¿La información desaparece de tu mente en cuanto entra en ella? Es totalmente normal: ¡sin repetición no hay retención! Para conservar tus conocimientos a largo plazo, ¡usa el Modo revisión para refrescarte la memoria!",
+      "button": "Vale, ¡entendido!",
+      "label_list": {
+        "skills": {
+          "text": "Elige 1 habilidad",
+          "tooltip": "Puedes revisar las habilidades de una en una."
+        },
+        "questions": {
+          "text": "Responde a 5 preguntas",
+          "tooltip": "Responde las 5 preguntas correctamente para validar tu sesión del modo revisión."
+        },
+        "lifes": { 
+          "text": "Tienes vida infinita",
+          "tooltip": "Puedes responder todas las veces que quieras para completar tu sesión."
+        },
+        "allright": { 
+          "text":  "Acierta todas",
+          "tooltip": "Para poder validar tu sesión, debes responder correctamente a cada pregunta."
+        }
+      }
+    },
+    "list_title": "Habilidades que puedes revisar",
+    "list_aria_label": "Revisar contenedor de habilidades",
+    "card": {
+      "aria_label": "Tarjeta de habilidades",
+      "text": "{{total}} preguntas para revisar",
+      "button_text": "Revisa esta habilidad"
+    },
+    "no_skills": {
+      "title": "No tienes ninguna habilidad para revisar todavía",
+      "text": "Primero tienes que completar cursos antes de que puedas revisar distintas habilidades."
+    }      
 }
