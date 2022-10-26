@@ -11,6 +11,7 @@ import {
   ReviewContent,
   ReviewEngine,
   Services,
+  Skill,
   SlideFromAPI,
   SlideIdFromAPI
 } from '../../types/common';
@@ -38,6 +39,13 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
       return qcmDragSlide;
     default:
       return sliderSlide;
+  }
+};
+
+const fetchSkillResponse: Record<string, Skill> = {
+  skill_NyxtYFYir: {
+    ref: 'skill_NyxtYFYir',
+    name: 'Digital Awareness'
   }
 };
 
@@ -452,6 +460,7 @@ export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
 ];
 
 export const services: Services = {
+  fetchSkill: ref => Promise.resolve(fetchSkillResponse[ref]),
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),

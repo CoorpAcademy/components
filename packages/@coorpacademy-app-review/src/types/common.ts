@@ -156,10 +156,11 @@ export type SkillToReview = {
 
 export type Skill = {
   name: string;
-  skillRef: string;
+  ref: string;
 };
 
 export type Services = {
+  fetchSkill(skillRef: string, token: string): Promise<Skill>;
   fetchSkills(token: string): Promise<SkillToReview[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
