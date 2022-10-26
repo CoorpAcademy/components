@@ -2,17 +2,53 @@
     "Review Title": "Chế độ soát lại",
     "Content Parent Title": "Từ `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Xác thực",
-    "Next question": "Câu hỏi tiếp theo",
-    "KLF": "Yếu tố học tập chính",
-    "Correct Answer": "Câu trả lời đúng",
+    "Next Question": "Câu hỏi Tiếp theo",
+    "KLF": "Điểm quan trọng",
+    "Correct Answer": "Câu trả lời Tốt",
     "Wrong Answer": "Câu trả lời sai",
     "You have won": "Bạn đã thắng",
     "You are now": "Giờ bạn đang",
-    "Revise another skill": "Ôn tập kỹ năng khác",
-    "Continue reviewing": "Tiếp tục soát lại",
+    "Revise another skill": "Ôn tập một kỹ năng khác",
+    "Continue reviewing": "Tiếp tục Ôn tập",
     "Congratulations!": "Chúc mừng bạn!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Mẫu Ôn tập Kỹ năng",
+    "Quit Title": "Bạn có chắc chắn muốn thoát không?",
+    "Quit Description Text": "Bạn đang đi đúng hướng! Nếu bạn thoát ngay bây giờ, bạn sẽ mất tiến trình của mình.",
+    "Stop learning": "Kết thúc phiên",
+    "Continue learning": "Tiếp tục học",
+    "presentation": {
+      "aria_label": "Vùng chứa Ôn tập Trình bày",
+      "title": "Chế độ Ôn tập<br/>là gì?",
+      "text": "Thông tin đi vào tâm trí bạn nhưng lại biến mất ngay? Đó là điều hoàn toàn bình thường: bạn sẽ không thể lưu giữ thông tin nếu không lặp lại! Để lưu giữ lâu dài kiến ​​thức của bạn, hãy sử dụng Chế độ Ôn tập để làm mới trí nhớ của bạn!",
+      "button": "Ok, tôi hiểu rồi!",
+      "label_list": {
+        "skills": {
+          "text": "Chọn 1 kỹ năng",
+          "tooltip": "Bạn có thể ôn tập đồng thời một kỹ năng."
+        },
+        "questions": {
+          "text": "Trả lời 5 câu hỏi",
+          "tooltip": "Trả lời đúng 5 câu hỏi để xác thực phiên chế độ ôn tập của bạn."
+        },
+        "lifes": { 
+          "text": "Bạn có mạng sống vô hạn",
+          "tooltip": "Bạn có thể trả lời bao nhiêu lần tùy thích để hoàn thành phiên của mình."
+        },
+        "allright": { 
+          "text":  "Hãy trả lời đúng tất cả",
+          "tooltip": "Để xác thực phiên của mình, bạn phải trả lời chính xác mọi câu hỏi."
+        }
+      }
+    },
+    "list_title": "Các kỹ năng bạn có thể ôn tập",
+    "list_aria_label": "Vùng chứa Ôn tập Kỹ năng",
+    "card": {
+      "aria_label": "Thẻ Kỹ năng",
+      "text": "{{total}} câu hỏi cần ôn tập",
+      "button_text": "Ôn tập kỹ năng này"
+    },
+    "no_skills": {
+      "title": "Bạn chưa có kỹ năng nào để ôn tập",
+      "text": "Trước tiên, bạn cần hoàn thành các khóa học trước khi có thể ôn tập các kỹ năng khác nhau."
+    }      
 }
