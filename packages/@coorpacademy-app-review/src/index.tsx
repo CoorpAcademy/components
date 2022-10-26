@@ -18,6 +18,7 @@ import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {mapStateToSkillsProps} from './views/skills';
 import {mapStateToSlidesProps} from './views/slides';
+import {fetchSkill} from './actions/api/fetch-skill';
 
 const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
   const dispatch = useDispatch();
@@ -71,6 +72,13 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     /* ThunkAction is not assignable to parameter of type 'AnyAction'
       ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333 */
     skillRef ? store.dispatch(postProgression(skillRef)) : store.dispatch(fetchSkills);
+  }, [options, store]);
+
+  useEffect(() => {
+    const token = get('token', options);
+    if (store === null || isEmpty(token)) return;
+    const skillRef = get('skillRef', options);
+    skillRef && store.dispatch(fetchSkill(skillRef));
   }, [options, store]);
 
   useEffect(() => {
