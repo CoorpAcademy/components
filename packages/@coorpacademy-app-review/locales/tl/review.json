@@ -2,17 +2,53 @@
     "Review Title": "Mode Para Sa Pagrerebyu",
     "Content Parent Title": "Mula sa `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Patunayan",
-    "Next question": "Susunod Na Tanong",
-    "KLF": "Mahalagang salik sa pagkatuto",
-    "Correct Answer": "Tamang Sagot",
+    "Next Question": "Susunod na Tanong",
+    "KLF": "Mahalagang punto",
+    "Correct Answer": "Magandang Sagot",
     "Wrong Answer": "Maling Sagot",
     "You have won": "Nanalo ka na ng",
     "You are now": "Ikaw ngayon ay",
-    "Revise another skill": "Rebisahin ang isa pang kasanayan",
-    "Continue reviewing": "Ipagpatuloy ang pagrerebyu",
+    "Revise another skill": "Repasuhin ang isa pang kasanayan",
+    "Continue reviewing": "Magpatuloy sa pagrerepaso",
     "Congratulations!": "Binabati kita!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Template ng mga Kasanayang Rerepasuhin",
+    "Quit Title": "Sigurado ka bang gusto mong huminto?",
+    "Quit Description Text": "Nasa tamang landas ka! Kung huminto ka ngayon, mawawala ang iyong pagsulong.",
+    "Stop learning": "Tapusin ang sesyon",
+    "Continue learning": "Magpatuloy na mag-aral",
+    "presentation": {
+      "aria_label": "Lalagyan ng Rerepasuhing Presentasyon",
+      "title": "Ano ang<br/>Revision Mode ?",
+      "text": "Naglalaho ang impormasyon mula sa iyong isip sa sandaling ito ay pumasok dito? Ganap na normal ito: walang pagtanda kapag walang pag-uulit! Upang mapanatili ang iyong kaalaman sa kalaunan, gamitin ang Revision Mode upang sariwain ang iyong memorya!",
+      "button": "Okey, nakuha ko na!",
+      "label_list": {
+        "skills": {
+          "text": "Pumili ng 1 kasanayan",
+          "tooltip": "Issng kasanayan lang ang maaari mong repasuhin sa bawa't pagkakataon."
+        },
+        "questions": {
+          "text": "Sagutan ang 5 tanong",
+          "tooltip": "Sagutan nang tama ang 5 tanong upang mabigyang-bisa ang iyong sesyon ng revision mode."
+        },
+        "lifes": { 
+          "text": "Mayroon kang walang katapusang live",
+          "tooltip": "Maaari kang sumagot nang kahit gaano karaming beses hangga't gusto mo upang kumpletuhin ang iyong session."
+        },
+        "allright": { 
+          "text":  "Sagutin mo nang tama ang lahat",
+          "tooltip": "Upang mabigyang-bisa ang iyong sesyon, dapat kang makakuha ng tamang sagot sa bawa't tanong."
+        }
+      }
+    },
+    "list_title": "Mga kasanayan na maaari mong repasuhin",
+    "list_aria_label": "Lalagyan ng Mga Kasanayang Rerepasuhin",
+    "card": {
+      "aria_label": "Card ng Kasanayan",
+      "text": "{{total}} tanong na rerepasuhin",
+      "button_text": "Repasuhin ang kasanayang ito"
+    },
+    "no_skills": {
+      "title": "Wala ka pang kasanayang maire-revise",
+      "text": "Kailangan mo munang makakumpleto ng mga kurso bago ka makapagrepaso ng iba't-ibang kasanayan."
+    }      
 }
