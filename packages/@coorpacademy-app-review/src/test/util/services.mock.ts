@@ -42,9 +42,11 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
   }
 };
 
-const fetchSkillResponse: Skill = {
-  ref: 'skill_NyxtYFYir',
-  name: 'Digital Awareness'
+const fetchSkillResponse: Record<string, Skill> = {
+  skill_NyxtYFYir: {
+    ref: 'skill_NyxtYFYir',
+    name: 'Digital Awareness'
+  }
 };
 
 const fetchSkillsResponse = [
@@ -458,7 +460,7 @@ export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
 ];
 
 export const services: Services = {
-  fetchSkill: () => Promise.resolve(fetchSkillResponse),
+  fetchSkill: ref => Promise.resolve(fetchSkillResponse[ref]),
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
