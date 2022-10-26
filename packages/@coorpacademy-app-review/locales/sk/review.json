@@ -2,17 +2,53 @@
     "Review Title": "Režim kontroly",
     "Content Parent Title": "Z `{{contentTitle}}` `{{contentType}}`",
     "Validate": "Overiť",
-    "Next question": "Ďalšia otázka",
-    "KLF": "Kľúčový faktor učenia",
+    "Next Question": "Ďalšia otázka",
+    "KLF": "Kľúčový bod",
     "Correct Answer": "Správna odpoveď",
     "Wrong Answer": "Nesprávna odpoveď",
     "You have won": "Vyhrali ste",
     "You are now": "Teraz ste",
-    "Revise another skill": "Zopakovať si ďalšiu zručnosť",
-    "Continue reviewing": "Pokračovať v kontrole",
+    "Revise another skill": "Preskúmajte ďalšiu zručnosť",
+    "Continue reviewing": "Pokračujte v skúmaní",
     "Congratulations!": "Blahoželáme!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Skontrolujte šablónu zručností",
+    "Quit Title": "Určite chcete skončiť?",
+    "Quit Description Text": "Ste na dobrej ceste! Ak teraz skončíte, stratíte svoj pokrok.",
+    "Stop learning": "Ukončiť reláciu",
+    "Continue learning": "Pokračovať v učení",
+    "presentation": {
+      "aria_label": "Kontrola prezentačného kontajnera",
+      "title": "Čo je to<br/>režim revízie?",
+      "text": "Informácie zmiznú z vašej mysle hneď, ako do nej vstúpia? Je to úplne normálne: bez opakovania nie je pamäť! Aby ste si uchovali svoje vedomosti z dlhodobého hľadiska, použite režim revízie na osvieženie pamäte!",
+      "button": "OK, mám to!",
+      "label_list": {
+        "skills": {
+          "text": "Vyberte si 1 zručnosť",
+          "tooltip": "Naraz môžete kontrolovať jednu zručnosť."
+        },
+        "questions": {
+          "text": "Odpovedzte na 5 otázok",
+          "tooltip": "Správnym zodpovedaním 5 otázok potvrďte svoju reláciu režimu revízie."
+        },
+        "lifes": { 
+          "text": "Máte nekonečný život",
+          "tooltip": "Na dokončenie relácie môžete odpovedať toľkokrát, koľkokrát chcete."
+        },
+        "allright": { 
+          "text":  "Urobte všetko správne",
+          "tooltip": "Na overenie vašej relácie musíte maťsprávnu odpoveď na každú otázku."
+        }
+      }
+    },
+    "list_title": "Zručnosti, ktoré si môžete skontrolovať",
+    "list_aria_label": "Kontrola kontajnera zručností",
+    "card": {
+      "aria_label": "Karta zručností",
+      "text": "{{total}} otázok na kontrolu",
+      "button_text": "Skontrolujte túto zručnosť"
+    },
+    "no_skills": {
+      "title": "Zatiaľ nemáte žiadne zručnosti na revíziu",
+      "text": "Najprv musíte absolvovať kurzy, aby ste si mohli vyskúšať rôzne zručnosti."
+    }      
 }
