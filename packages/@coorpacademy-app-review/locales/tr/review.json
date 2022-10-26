@@ -2,17 +2,53 @@
     "Review Title": "İnceleme Modu",
     "Content Parent Title": "`{{contentTitle}}` `{{contentType}}` içeriğinden",
     "Validate": "Doğrula",
-    "Next question": "Sonraki Soru",
-    "KLF": "Anahtar öğrenme faktörü",
-    "Correct Answer": "Doğru Cevap",
+    "Next Question": "Sonraki Soru",
+    "KLF": "Temel nokta",
+    "Correct Answer": "İyi Yanıt",
     "Wrong Answer": "Yanlış Cevap",
     "You have won": "Kazandın",
     "You are now": "Şu anda",
     "Revise another skill": "Başka bir beceriyi incele",
     "Continue reviewing": "İncelemeye devam et",
     "Congratulations!": "Tebrikler!",
-    "Quit Title": "Are you sure you want to quit ?",
-    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
-    "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "aria_label": "Beceri İnceleme Şablonu",
+    "Quit Title": "Çıkmak istediğinden emin misin?",
+    "Quit Description Text": "Şu anda doğru yoldasın! Şimdi çıkarsan ilerlemeni kaybedeceksin.",
+    "Stop learning": "Oturumu sonlandır",
+    "Continue learning": "Öğrenmeye devam et",
+    "presentation": {
+      "aria_label": "Sunum Kapsayıcısını İncele",
+      "title": "Tekrar Modu <br/>nedir?",
+      "text": "Bilgi kafana girer girmez uçup gidiyor mu? Bu tamamıyla normaldir: Tekrar olmadan bilgi akılda kalmaz! Bilgilerini uzun vadeli olarak aklında tutmak için Tekrar Modunu kullanarak hafızanı tazele!",
+      "button": "Tamam, anladım!",
+      "label_list": {
+        "skills": {
+          "text": "1 beceri seç",
+          "tooltip": "Tek seferde bir beceriyi inceleyebilirsin."
+        },
+        "questions": {
+          "text": "5 soru yanıtla",
+          "tooltip": "Tekrar modu oturumunu doğrulamak için 5 soruyu doğru yanıtla."
+        },
+        "lifes": { 
+          "text": "Sonsuz hakkın vardır",
+          "tooltip": "Oturumunu tamamlamak için istediğin kadar yanıt verebilirsin."
+        },
+        "allright": { 
+          "text":  "Hepsini doğru bil",
+          "tooltip": "Oturumunu doğrulamak için her bir soruyu doğru şekilde yanıtlaman gerekir."
+        }
+      }
+    },
+    "list_title": "İnceleyebileceğin beceriler",
+    "list_aria_label": "Beceri Kapsayıcısını İncele",
+    "card": {
+      "aria_label": "Beceri Kartı",
+      "text": "İncelenecek {{total}} soru",
+      "button_text": "Bu beceriyi incele"
+    },
+    "no_skills": {
+      "title": "Henüz tekrarlanacak becerin yok",
+      "text": "Farklı becerileri inceleyebilmek için önce dersleri tamamlaman gerekiyor."
+    }      
 }
