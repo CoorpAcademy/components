@@ -156,7 +156,7 @@ export type SkillToReview = {
 
 export type Skill = {
   name: string;
-  skillRef: string;
+  ref: string;
 };
 
 export type Services = {
