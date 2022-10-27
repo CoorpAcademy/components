@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Text, StyleSheet, View, BackHandler} from 'react-native';
 import {AppReviewProps} from './prop-types';
 import Player from './player';
+import Skills from './skills';
 
 const styles = StyleSheet.create({
   rootView: {
@@ -11,12 +12,12 @@ const styles = StyleSheet.create({
   }
 });
 
-const Switch = ({viewName, slides}: AppReviewProps) => {
+const Switch = ({viewName, skills, slides}: AppReviewProps) => {
   switch (viewName) {
     case 'onboarding':
       return <Text>@todo view onboarding</Text>;
     case 'skills':
-      return <Text>@todo view skills</Text>;
+      return <Skills {...skills} />;
     case 'slides':
       return <Player {...slides} />;
     case 'loader':
