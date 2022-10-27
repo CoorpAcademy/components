@@ -6,7 +6,7 @@ import {Theme} from '../../variables/theme.native';
 import SkillCard from '../../molecule/skill-card';
 import {SkillCardProps, SkillProps} from '../../molecule/skill-card/prop-types';
 import {HEADER_HEIGHT} from '../header-v2/index.native';
-import {ItemProps, NoSkillsProps, ReviewSkillsProps} from './prop-types';
+import {ItemProps, NoSkillsProps, SkillsProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
@@ -130,7 +130,7 @@ const ReviewNoSkills = (props: NoSkillsProps) => {
   );
 };
 
-const ReviewSkills = (props: ReviewSkillsProps) => {
+const ReviewSkills = (props: SkillsProps) => {
   const {
     'aria-label': ariaLabel,
     title,
