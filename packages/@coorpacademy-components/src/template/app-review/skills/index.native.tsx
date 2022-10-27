@@ -8,7 +8,8 @@ import {useTemplateContext} from '../template-context';
 import {Theme} from '../../../variables/theme.native';
 
 import {HEADER_HEIGHT} from '../../../organism/header-v2/index.native';
-import {ItemProps, ListSkillsProps, SkillProps, SkillsProps} from './prop-types';
+import {NoSkillsProps, ReviewSkillsProps} from '../../../organism/review-skills/prop-types';
+import {ItemProps, SkillProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
@@ -90,12 +91,14 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
 
 // -----------------------------------------------------------------------------
 
-const onSelectSkill = (title: string) => () => {
-  // eslint-disable-next-line no-console
-  console.log('pressed on', {title});
-};
-
-const Skill = ({title, info}: SkillProps) => {
+const Skill = ({
+  skillTitle,
+  skillAriaLabel,
+  reviseLabel,
+  reviseAriaLabel,
+  onClick,
+  buttonAriaLabel
+}: SkillProps) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
@@ -110,10 +113,19 @@ const Skill = ({title, info}: SkillProps) => {
   }
 
   return (
-    <Pressable style={styleSheet.skill} onPress={onSelectSkill(title)}>
+    <Pressable
+      style={styleSheet.skill}
+      onPress={onClick}
+      accessibilityRole="button"
+      accessibilityLabel={buttonAriaLabel}
+    >
       <View style={styleSheet.skillTexts}>
-        <Text style={styleSheet.skillTitle}>{title}</Text>
-        <Text style={styleSheet.skillInfo}>{info}</Text>
+        <Text style={styleSheet.skillTitle} accessibilityLabel={skillAriaLabel || skillTitle}>
+          {skillTitle}
+        </Text>
+        <Text style={styleSheet.skillInfo} accessibilityLabel={reviseAriaLabel}>
+          {reviseLabel}
+        </Text>
       </View>
       <ArrowRight color="#ededed" height={20} width={20} />
     </Pressable>
@@ -122,18 +134,24 @@ const Skill = ({title, info}: SkillProps) => {
 
 // -----------------------------------------------------------------------------
 
-const Item = ({item: {title, info}}: ItemProps) => <Skill title={title} info={info} />;
+const Item = ({
+  item: {skillTitle, skillAriaLabel, reviseLabel, reviseAriaLabel, onClick, buttonAriaLabel}
+}: ItemProps) => (
+  <Skill
+    skillTitle={skillTitle}
+    skillAriaLabel={skillAriaLabel}
+    reviseLabel={reviseLabel}
+    onClick={onClick}
+    buttonAriaLabel={buttonAriaLabel}
+    reviseAriaLabel={reviseAriaLabel}
+  />
+);
 
-type ItemDataType = {
-  title: string;
-  info: string;
-};
-
-const List = (props: {skills: Array<ListSkillsProps>}) => {
+const List = (props: {listSkills: Array<SkillProps>}) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
-  const {skills} = props;
+  const {listSkills} = props;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -144,11 +162,15 @@ const List = (props: {skills: Array<ListSkillsProps>}) => {
     return null;
   }
 
-  const formattedDataList: Array<ItemDataType> = [];
-  skills.map(skill =>
+  const formattedDataList: Array<SkillProps> = [];
+  listSkills.map((skill: SkillProps) =>
     formattedDataList.push({
-      title: skill.skillTitle,
-      info: skill.skillAriaLabel
+      skillTitle: skill.skillTitle,
+      skillAriaLabel: skill.skillAriaLabel,
+      reviseLabel: skill.reviseLabel,
+      reviseAriaLabel: skill.reviseAriaLabel,
+      onClick: skill.onClick,
+      buttonAriaLabel: skill.buttonAriaLabel
     })
   );
 
@@ -163,10 +185,11 @@ const List = (props: {skills: Array<ListSkillsProps>}) => {
 
 // -----------------------------------------------------------------------------
 
-const NoSkills = () => {
+const NoSkills = (props: NoSkillsProps) => {
+  const {titleNoSkills, textNoSkills, iconSkillAriaLabel} = props;
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {theme, translations} = templateContext;
+  const {theme} = templateContext;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -179,18 +202,27 @@ const NoSkills = () => {
 
   return (
     <>
-      <Text style={styleSheet.subtitle}>{translations.appReview?.noSkills?.title}</Text>
-      <Text style={styleSheet.text}>{translations.appReview?.noSkills?.text}</Text>
-      <EmptyStateHomeRevision style={styleSheet.noSkillsImage} />
+      <Text style={styleSheet.subtitle}>{titleNoSkills}</Text>
+      <Text style={styleSheet.text}>{textNoSkills}</Text>
+      <EmptyStateHomeRevision
+        style={styleSheet.noSkillsImage}
+        iconSkillAriaLabel={iconSkillAriaLabel}
+      />
     </>
   );
 };
 
 // -----------------------------------------------------------------------------
 
-//  title --> translations.revision.home.title
-const Skills = (props: SkillsProps) => {
-  const {title, listSkills} = props;
+const Skills = (props: ReviewSkillsProps) => {
+  const {
+    'aria-label': ariaLabel,
+    title,
+    listSkills,
+    titleNoSkills,
+    textNoSkills,
+    iconSkillAriaLabel
+  } = props;
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
@@ -207,9 +239,17 @@ const Skills = (props: SkillsProps) => {
   }
 
   return (
-    <View style={styleSheet.container}>
+    <View style={styleSheet.container} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
-      {!listSkills || listSkills.length === 0 ? <NoSkills /> : <List skills={listSkills} />}
+      {!listSkills || listSkills.length === 0 ? (
+        <NoSkills
+          titleNoSkills={titleNoSkills}
+          textNoSkills={textNoSkills}
+          iconSkillAriaLabel={iconSkillAriaLabel}
+        />
+      ) : (
+        <List listSkills={listSkills} />
+      )}
     </View>
   );
 };
