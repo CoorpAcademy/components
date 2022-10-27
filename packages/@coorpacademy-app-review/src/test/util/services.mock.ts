@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import {mockTranslate} from '@coorpacademy/translate';
 import {qcmDragSlide} from '../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
@@ -49,7 +50,7 @@ const fetchSkillResponse: Record<string, Skill> = {
   }
 };
 
-const fetchSkillsResponse = [
+export const fetchSkillsResponse = [
   {
     skillRef: '_skill-ref',
     slidesToReview: 2,
@@ -473,4 +474,4 @@ export const services: Services = {
   fetchSlidesToReviewBySkillRef: () => Promise.resolve(fetchSlidesToReviewBySkillRefResponse)
 };
 
-export const translate = (key: string): string => `___${key}`;
+export const translate = (key: string, data?: unknown): string => mockTranslate(key, data);

@@ -26,7 +26,7 @@ const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
     ),
     slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, options)),
-    skills: useSelector((state: StoreState) => mapStateToSkillsProps(state)),
+    skills: useSelector((state: StoreState) => mapStateToSkillsProps(state, options)),
     navigateBack: () => dispatch(navigateBack),
     onboarding: {}
   };
