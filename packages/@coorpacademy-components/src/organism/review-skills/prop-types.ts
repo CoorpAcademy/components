@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import SkillCardPropsType, {SkillCardProps} from '../../molecule/skill-card/prop-types';
+import SkillCardPropsType, {SkillCardProps, SkillProps} from '../../molecule/skill-card/prop-types';
 
 export const ListSkillsPropTypes = {
   listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCardPropsType))
@@ -23,6 +23,10 @@ const propTypes = {
 };
 
 export default propTypes;
+
+export type ItemProps = {
+  item: SkillProps;
+};
 
 export type NoSkillsProps = {
   titleNoSkills: string;

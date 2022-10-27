@@ -14,10 +14,6 @@ const propTypes = {
 
 export default propTypes;
 
-export type ItemProps = {
-  item: SkillProps;
-};
-
 export type SkillCardProps = {
   'aria-label': string;
   skillTitle: string;
