@@ -1,35 +1,9 @@
+import {ReviewSkillsProps} from '@coorpacademy/components/es/organism/review-skills/prop-types';
 import {StoreState} from '../../reducers';
 
-type SkillCard = {
-  'aria-label': string;
-  skillTitle: string;
-  skillAriaLabel: string;
-  buttonLabel: string;
-  buttonAriaLabel: string;
-  reviseLabel: string;
-  reviseAriaLabel: string;
-  isCustom: boolean;
-  onClick: () => void;
-};
-
-type NoSkillsProps = {
-  titleNoSkills: string;
-  textNoSkills: string;
-  iconSkillAriaLabel: string;
-};
-
-type SkillsProps = NoSkillsProps & {
-  'aria-label'?: string;
-  title: string;
-  isLoading?: boolean;
-  isLoadingAriaLabel: string;
-  listSkills: SkillCard[];
-};
-
-export {SkillsProps};
-
-export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
+export const mapStateToSkillsProps = (state: StoreState): ReviewSkillsProps => {
   return {
+    'aria-label': '',
     title: '@todo title',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading',
