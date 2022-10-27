@@ -13,6 +13,8 @@ type SkillCard = {
 };
 
 type NoSkillsProps = {
+  titleNoSkills: string;
+  textNoSkills: string;
   iconSkillAriaLabel: string;
 };
 
@@ -29,7 +31,6 @@ export {SkillsProps};
 export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
   return {
     title: '@todo title',
-    iconSkillAriaLabel: '@todo iconSkillAriaLabel',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading',
     listSkills: state.data.skills.map(skill => ({
@@ -43,6 +44,9 @@ export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
       reviseAriaLabel: '@todo revise aria label',
       // eslint-disable-next-line no-console
       onClick: () => console.log('@todo plug dispatcher select skill')
-    }))
+    })),
+    titleNoSkills: '@todo title no skills',
+    textNoSkills: '@todo text no skills',
+    iconSkillAriaLabel: '@todo iconSkillAriaLabel'
   };
 };
