@@ -37,7 +37,7 @@ export type NoSkillsProps = {
 export type ReviewSkillsProps = NoSkillsProps & {
   'aria-label': string;
   title: string;
-  isLoading?: boolean;
-  isLoadingAriaLabel?: string;
+  isLoading: boolean;
+  isLoadingAriaLabel: string;
   listSkills: SkillCardProps[];
 };

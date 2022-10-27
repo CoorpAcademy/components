@@ -25,6 +25,8 @@ export default {
   props: {
     'aria-label': 'Review Skills Container',
     title: 'Skills you can revise',
-    listSkills
+    listSkills,
+    isLoading: false,
+    isLoadingAriaLabel: 'Review skills container is loading'
   }
 };
