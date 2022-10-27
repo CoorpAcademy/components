@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {ReviewSkillsProps} from '../../organism/review-skills/prop-types';
+import {SkillsProps} from '../../organism/review-skills/prop-types';
 import Onboarding from './onboarding';
 import Skills from './skills';
 import Player from './player';
@@ -10,7 +10,7 @@ export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 export type AppReviewProps = {
   viewName: ViewName;
   slides?: ReviewPlayerProps;
-  skills?: ReviewSkillsProps;
+  skills?: SkillsProps;
   onboarding?: PropTypes.InferProps<typeof Onboarding.propTypes>;
   navigateBack?: () => void;
 };

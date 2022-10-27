@@ -34,7 +34,7 @@ export type NoSkillsProps = {
   iconSkillAriaLabel: string;
 };
 
-export type ReviewSkillsProps = NoSkillsProps & {
+export type SkillsProps = NoSkillsProps & {
   'aria-label': string;
   title: string;
   isLoading: boolean;
