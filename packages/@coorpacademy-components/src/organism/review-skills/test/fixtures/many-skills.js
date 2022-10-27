@@ -25,9 +25,6 @@ export default {
   props: {
     'aria-label': 'Review Skills Container',
     title: 'Skills you can revise',
-    listSkills,
-    titleNoSkills: undefined,
-    textNoSkills: undefined,
-    iconSkillAriaLabel: undefined
+    listSkills
   }
 };

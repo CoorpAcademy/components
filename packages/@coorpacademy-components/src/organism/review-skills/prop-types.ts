@@ -29,18 +29,15 @@ export type ItemProps = {
 };
 
 export type NoSkillsProps = {
-  titleNoSkills: string;
-  textNoSkills: string;
-  iconSkillAriaLabel: string;
+  titleNoSkills?: string;
+  textNoSkills?: string;
+  iconSkillAriaLabel?: string;
 };
 
 export type ReviewSkillsProps = NoSkillsProps & {
   'aria-label': string;
   title: string;
-  isLoading: boolean;
-  isLoadingAriaLabel: string;
+  isLoading?: boolean;
+  isLoadingAriaLabel?: string;
   listSkills: SkillCardProps[];
-  titleNoSkills: string;
-  textNoSkills: string;
-  iconSkillAriaLabel: string;
 };
