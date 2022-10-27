@@ -14,6 +14,10 @@ const propTypes = {
 
 export default propTypes;
 
+export type ItemProps = {
+  item: SkillProps;
+};
+
 export type SkillCardProps = {
   'aria-label': string;
   skillTitle: string;
@@ -25,3 +29,5 @@ export type SkillCardProps = {
   isCustom: boolean;
   onClick: () => void;
 };
+
+export type SkillProps = Omit<SkillCardProps, 'aria-label' | 'buttonLabel' | 'isCustom'>;
