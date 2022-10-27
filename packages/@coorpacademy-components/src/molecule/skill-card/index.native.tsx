@@ -3,7 +3,6 @@ import {View, Pressable, StyleSheet, Text, ViewStyle, TextStyle} from 'react-nat
 import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
-
 import {SkillProps} from './prop-types';
 
 type StyleSheetType = {
