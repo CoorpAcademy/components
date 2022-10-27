@@ -218,6 +218,8 @@ const Skills = (props: ReviewSkillsProps) => {
   const {
     'aria-label': ariaLabel,
     title,
+    isLoading,
+    isLoadingAriaLabel,
     listSkills,
     titleNoSkills,
     textNoSkills,
@@ -241,14 +243,20 @@ const Skills = (props: ReviewSkillsProps) => {
   return (
     <View style={styleSheet.container} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
-      {!listSkills || listSkills.length === 0 ? (
-        <NoSkills
-          titleNoSkills={titleNoSkills}
-          textNoSkills={textNoSkills}
-          iconSkillAriaLabel={iconSkillAriaLabel}
-        />
+      {isLoading ? (
+        <Text accessibilityLabel={isLoadingAriaLabel}>Loading</Text>
       ) : (
-        <List listSkills={listSkills} />
+        <View>
+          {!listSkills || listSkills.length === 0 ? (
+            <NoSkills
+              titleNoSkills={titleNoSkills}
+              textNoSkills={textNoSkills}
+              iconSkillAriaLabel={iconSkillAriaLabel}
+            />
+          ) : (
+            <List listSkills={listSkills} />
+          )}
+        </View>
       )}
     </View>
   );
