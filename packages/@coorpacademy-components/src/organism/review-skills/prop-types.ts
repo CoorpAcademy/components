@@ -13,10 +13,10 @@ export const NoSkillsPropTypes = {
 
 const propTypes = {
   'aria-label': PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   isLoading: PropTypes.bool,
   isLoadingAriaLabel: PropTypes.string,
-  listSkills: ListSkillsPropTypes,
+  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCardPropsType)),
   titleNoSkills: PropTypes.string,
   textNoSkills: PropTypes.string,
   iconSkillAriaLabel: PropTypes.string
