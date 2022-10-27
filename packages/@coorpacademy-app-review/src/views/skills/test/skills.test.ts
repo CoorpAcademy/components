@@ -29,6 +29,7 @@ test('should create initial props when there are no skills on the state', t => {
   const props = mapStateToSkillsProps(state);
 
   t.deepEqual(props, {
+    'aria-label': '@todo aria-label',
     title: '@todo title',
     titleNoSkills: '@todo title no skills',
     textNoSkills: '@todo text no skills',
@@ -77,14 +78,17 @@ test('should create initial props when skills on the state', t => {
   const props = mapStateToSkillsProps(state);
 
   t.deepEqual(omit('listSkills', props), {
+    'aria-label': '@todo aria-label',
     title: '@todo title',
+    titleNoSkills: '@todo title no skills',
+    textNoSkills: '@todo text no skills',
     iconSkillAriaLabel: '@todo iconSkillAriaLabel',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading'
   });
   t.deepEqual(map(omit('onClick'), props.listSkills), [
     {
-      'aria-label': '',
+      'aria-label': '@todo aria-label skill',
       isCustom: false,
       skillTitle: 'skill-test',
       skillAriaLabel: '@todo skill aria label',
@@ -94,7 +98,7 @@ test('should create initial props when skills on the state', t => {
       reviseAriaLabel: '@todo revise aria label'
     },
     {
-      'aria-label': '',
+      'aria-label': '@todo aria-label skill',
       isCustom: true,
       skillTitle: 'skill-test-2',
       skillAriaLabel: '@todo skill aria label',

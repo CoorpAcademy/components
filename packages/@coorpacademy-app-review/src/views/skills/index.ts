@@ -3,12 +3,12 @@ import {StoreState} from '../../reducers';
 
 export const mapStateToSkillsProps = (state: StoreState): ReviewSkillsProps => {
   return {
-    'aria-label': '',
+    'aria-label': '@todo aria-label',
     title: '@todo title',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading',
     listSkills: state.data.skills.map(skill => ({
-      'aria-label': '',
+      'aria-label': '@todo aria-label skill',
       isCustom: skill.custom,
       skillTitle: skill.name,
       skillAriaLabel: '@todo skill aria label',
