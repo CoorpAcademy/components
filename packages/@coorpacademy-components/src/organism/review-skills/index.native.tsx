@@ -3,7 +3,7 @@ import {View, FlatList, StyleSheet, Text, ViewStyle, TextStyle} from 'react-nati
 import {NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision} from '@coorpacademy/nova-icons';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
-import SkillCard from '../../molecule/skill-card';
+import SkillCard from '../../molecule/skill-card/index.native';
 import {SkillCardProps, SkillProps} from '../../molecule/skill-card/prop-types';
 import {HEADER_HEIGHT} from '../header-v2/index.native';
 import {ItemProps, NoSkillsProps, ReviewSkillsProps} from './prop-types';

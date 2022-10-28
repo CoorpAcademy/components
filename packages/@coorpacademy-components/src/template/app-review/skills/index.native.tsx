@@ -1,3 +1,3 @@
-import Skills from '../../../organism/review-skills';
+import Skills from '../../../organism/review-skills/index.native';
 
 export default Skills;
