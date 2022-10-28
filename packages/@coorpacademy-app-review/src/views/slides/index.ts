@@ -131,7 +131,7 @@ const buildStackSlides = (
 
       const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
-      // const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
+      const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
 
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const slideUI = get(['ui', 'slide', slideRef], state);
@@ -147,8 +147,10 @@ const buildStackSlides = (
         loading: false,
         questionText,
         answerUI,
-        // parentContentTitle: `From "${parentContentTitle}" ${parentContentType}`,
-        parentContentTitle: translate('Content Parent Title'),
+        parentContentTitle: translate('Content Parent Title', {
+          contentTitle: parentContentTitle,
+          contentType: parentContentType
+        }),
         animationType
       };
 
