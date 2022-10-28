@@ -1,6 +1,6 @@
 {
     "Review Title": "Review Mode",
-    "Content Parent Title": "From `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "From \"{{contentTitle}}\" {{contentType}} ",
     "Validate": "Validate",
     "Next Question": "Next Question",
     "KLF": "Key point",
