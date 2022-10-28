@@ -21,6 +21,13 @@ test('should provide a production config', t => {
   t.is(config.plugins.length, 2);
 });
 
+test('should include lodash babel plugin by default', t => {
+  const config = generateConfig('production');
+  t.truthy(
+    config.module.rules.find(el => el.loader === 'babel-loader').options.plugins.includes('lodash')
+  );
+});
+
 test('should be validate by webpack schema', t => {
   t.notThrows(() => webpack.validate(generateConfig('development')));
   t.notThrows(() => webpack.validate(generateConfig('production')));
