@@ -107,9 +107,9 @@ const getCurrentSlideRef = (state: StoreState): string => {
 
 const buildStackSlides = (
   state: StoreState,
-  dispatch: Dispatch, 
+  dispatch: Dispatch,
   translate: (key: string, data?: unknown) => string
-  ): SlidesStack => {
+): SlidesStack => {
   const currentSlideRef = getCurrentSlideRef(state);
   const progression = state.data.progression;
 
