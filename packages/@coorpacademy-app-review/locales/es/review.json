@@ -1,6 +1,6 @@
 {
     "Review Title": "Modo revisión",
-    "Content Parent Title": "De `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Del {{contentType}} \"{{contentTitle}}\"",
     "Validate": "Validar",
     "Next Question": "Siguiente pregunta",
     "KLF": "Aspecto clave",
