@@ -197,7 +197,7 @@ test('should create props when first slide is on the state', t => {
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -307,7 +307,7 @@ test('should create props when slide is on the state and user has selected answe
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -423,7 +423,7 @@ test('should verify props when first slide was answered correctly and next slide
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -631,7 +631,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     showCorrectionPopin: true,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -649,7 +649,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     showCorrectionPopin: false,
     position: 1,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
   t.is(props.stack.validateButton.disabled, true);
@@ -768,7 +768,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     showCorrectionPopin: true,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -786,7 +786,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     showCorrectionPopin: false,
     position: 1,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
   t.is(props.stack.validateButton.disabled, true);

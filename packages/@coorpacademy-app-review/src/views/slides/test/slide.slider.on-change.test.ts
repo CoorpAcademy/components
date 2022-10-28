@@ -82,7 +82,7 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: translate('Content Parent Title'),
     questionText:
       'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?'
   });

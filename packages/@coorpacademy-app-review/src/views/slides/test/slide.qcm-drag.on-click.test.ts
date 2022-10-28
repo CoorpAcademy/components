@@ -76,13 +76,17 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
   const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
+  // eslint-disable-next-line no-console
+  console.log('props');
+  // eslint-disable-next-line no-console
+  console.log(props);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Using redux" chapter',
+    parentContentTitle: translate('Content Parent Title'),
     questionText: "Remettez dans l'ordre les quatre étapes du burn out."
   });
 
