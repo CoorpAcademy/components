@@ -99,16 +99,17 @@
 
 @keyframes slideOutAndIn {
   0% {
+    width: 100%;
     z-index: 55;
     transform: translate(0, 0);
   }
   50% {
-    width: 100%;
+    width: 97%;
     z-index: 50;
     transform: translate(0, 1000px);
   }
   60% {
-    width: 92%;
+    width: 95%;
     z-index: 30;
     transform: translate(3.2%, 900px);
   }
@@ -121,12 +122,12 @@
 
 .slideOutHideAndIn {
   pointer-events: none;
-  animation: slideOutHideAndSlideIn 3s ease forwards;
+  animation: slideOutHideAndSlideIn 2s ease forwards;
 }
 
 .slideOutAndIn {
   pointer-events: none;
-  animation: slideOutAndIn 3s ease forwards;
+  animation: slideOutAndIn 2s ease forwards;
 }
 
 .hiddenSlide {
