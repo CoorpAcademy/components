@@ -4,7 +4,7 @@ import {NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevis
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import SkillCard from '../../molecule/skill-card/index.native';
-import {SkillCardProps, SkillProps} from '../../molecule/skill-card/prop-types';
+import {SkillCardProps} from '../../molecule/skill-card/prop-types';
 import {HEADER_HEIGHT} from '../header-v2/index.native';
 import {ItemProps, NoSkillsProps, ReviewSkillsProps} from './prop-types';
 
@@ -55,15 +55,28 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
   });
 
 const Item = ({
-  item: {skillTitle, skillAriaLabel, reviseLabel, reviseAriaLabel, onClick, buttonAriaLabel}
+  item: {
+    'aria-label': ariaLabel,
+    skillTitle,
+    skillAriaLabel,
+    reviseLabel,
+    reviseAriaLabel,
+    onClick,
+    buttonLabel,
+    buttonAriaLabel,
+    isCustom
+  }
 }: ItemProps) => (
   <SkillCard
+    aria-label={ariaLabel}
     skillTitle={skillTitle}
     skillAriaLabel={skillAriaLabel}
     reviseLabel={reviseLabel}
     reviseAriaLabel={reviseAriaLabel}
     onClick={onClick}
+    buttonLabel={buttonLabel}
     buttonAriaLabel={buttonAriaLabel}
+    isCustom={isCustom}
   />
 );
 
@@ -82,25 +95,7 @@ const ReviewListSkills = (props: {listSkills: Array<SkillCardProps>}) => {
     return null;
   }
 
-  const formattedDataList: Array<SkillProps> = [];
-  listSkills.map((skill: SkillProps) =>
-    formattedDataList.push({
-      skillTitle: skill.skillTitle,
-      skillAriaLabel: skill.skillAriaLabel,
-      reviseLabel: skill.reviseLabel,
-      reviseAriaLabel: skill.reviseAriaLabel,
-      onClick: skill.onClick,
-      buttonAriaLabel: skill.buttonAriaLabel
-    })
-  );
-
-  return (
-    <FlatList
-      contentContainerStyle={styleSheet.skills}
-      data={formattedDataList}
-      renderItem={Item}
-    />
-  );
+  return <FlatList contentContainerStyle={styleSheet.skills} data={listSkills} renderItem={Item} />;
 };
 
 const ReviewNoSkills = (props: NoSkillsProps) => {

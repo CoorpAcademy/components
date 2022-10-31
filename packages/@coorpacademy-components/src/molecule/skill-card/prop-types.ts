@@ -25,5 +25,3 @@ export type SkillCardProps = {
   isCustom: boolean;
   onClick: () => void;
 };
-
-export type SkillProps = Omit<SkillCardProps, 'aria-label' | 'buttonLabel' | 'isCustom'>;

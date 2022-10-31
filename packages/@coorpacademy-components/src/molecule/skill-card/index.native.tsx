@@ -3,7 +3,7 @@ import {View, Pressable, StyleSheet, Text, ViewStyle, TextStyle} from 'react-nat
 import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
-import {SkillProps} from './prop-types';
+import {SkillCardProps} from './prop-types';
 
 type StyleSheetType = {
   skill: ViewStyle;
@@ -44,17 +44,12 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
-const SkillCard = ({
-  skillTitle,
-  skillAriaLabel,
-  reviseLabel,
-  reviseAriaLabel,
-  onClick,
-  buttonAriaLabel
-}: SkillProps) => {
+const SkillCard = (props: SkillCardProps) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
+  const {skillTitle, skillAriaLabel, reviseLabel, reviseAriaLabel, onClick, buttonAriaLabel} =
+    props;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
