@@ -59,6 +59,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   useEffect(() => {
     const token = get('token', options);
     if (store === null || isEmpty(token)) return;
+
     store.dispatch(storeToken(token));
   }, [options, store]);
 

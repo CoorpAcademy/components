@@ -1,6 +1,7 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../../../actions/api/fetch-skill';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {
   POST_PROGRESSION_REQUEST,
@@ -139,7 +140,9 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
       },
       payload: freeTextSlide
     },
-    {type: SET_CURRENT_SLIDE, payload: freeTextSlide}
+    {type: SET_CURRENT_SLIDE, payload: freeTextSlide},
+    {type: SKILL_FETCH_REQUEST},
+    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
