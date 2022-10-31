@@ -6,7 +6,7 @@ import skills, {SkillsState} from './skills';
 import slides, {SlidesState} from './slides';
 import token, {TokenState} from './token';
 import rank, {RankState} from './rank';
-import {SkillState} from './skill';
+import currentSkill, {SkillState} from './skill';
 
 export type DataState = {
   corrections: CorrectionsState;
@@ -15,7 +15,15 @@ export type DataState = {
   slides: SlidesState;
   token: TokenState;
   rank: RankState;
-  currentSkill: SkillState
+  currentSkill: SkillState;
 };
 
-export default combineReducers({corrections, progression, skills, slides, token, rank});
+export default combineReducers({
+  corrections,
+  progression,
+  skills,
+  slides,
+  token,
+  rank,
+  currentSkill
+});
