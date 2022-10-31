@@ -43,7 +43,6 @@
   width: 100%;
   transform: translate(0, 0);
   transition: transform 0.5s ease-in;
-  
 }
 
 .position1 {
@@ -97,7 +96,12 @@
   }
 }
 
-@keyframes slideOutAndIn {
+.slideOutHideAndIn {
+  pointer-events: none;
+  animation: slideOutHideAndSlideIn 2s ease forwards;
+}
+
+@keyframes slideOutAndInPosition4 {
   0% {
     width: 100%;
     z-index: 55;
@@ -120,14 +124,121 @@
   }
 }
 
-.slideOutHideAndIn {
+.slideOutAndIn4 {
   pointer-events: none;
-  animation: slideOutHideAndSlideIn 2s ease forwards;
+  animation: slideOutAndInPosition4 2s ease forwards;
 }
 
-.slideOutAndIn {
+@keyframes slideOutAndInPosition3 {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 97%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    width: 95%;
+    z-index: 30;
+    transform: translate(3.2%, 900px);
+  }
+  100% {
+    z-index: 35;
+    width: 94%;
+    transform: translate(2.4%, -24px);
+  }
+}
+
+.slideOutAndIn3 {
   pointer-events: none;
-  animation: slideOutAndIn 2s ease forwards;
+  animation: slideOutAndInPosition3 2s ease forwards;
+}
+
+@keyframes slideOutAndInPosition2 {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 97%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    width: 95%;
+    z-index: 30;
+    transform: translate(3.2%, 900px);
+  }
+  100% {
+    z-index: 40;
+    width: 96%;
+    transform: translate(1.6%, -16px);
+  }
+}
+
+.slideOutAndIn2 {
+  pointer-events: none;
+  animation: slideOutAndInPosition2 2s ease forwards;
+}
+
+@keyframes slideOutAndInPosition1 {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 97%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    width: 95%;
+    z-index: 30;
+    transform: translate(3.2%, 900px);
+  }
+  100% {
+    z-index: 45;
+    width: 98%;
+    transform: translate(0.8%, -8px);
+  }
+}
+
+.slideOutAndIn1 {
+  pointer-events: none;
+  animation: slideOutAndInPosition1 2s ease forwards;
+}
+
+@keyframes slideOutAndInPosition0 {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 97%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    width: 95%;
+    z-index: 30;
+    transform: translate(3.2%, 900px);
+  }
+  100% {
+    z-index: 55;
+    width: 100%;
+    transform: translate(0, 0);
+  }
+}
+
+.slideOutAndIn0 {
+  pointer-events: none;
+  animation: slideOutAndInPosition0 2s ease forwards;
 }
 
 .hiddenSlide {
