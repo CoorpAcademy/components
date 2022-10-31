@@ -80,7 +80,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText: 'Complétez la phrase ci-dessous.'
   });
 
@@ -111,7 +111,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText: 'Complétez la phrase ci-dessous.'
   });
 

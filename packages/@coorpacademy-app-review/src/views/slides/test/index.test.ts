@@ -62,7 +62,7 @@ test('should create initial props when fetched slide is not still received', t =
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -157,7 +157,7 @@ test('should create props when first slide is on the state', t => {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -197,7 +197,7 @@ test('should create props when first slide is on the state', t => {
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -267,7 +267,7 @@ test('should create props when slide is on the state and user has selected answe
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -307,7 +307,7 @@ test('should create props when slide is on the state and user has selected answe
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -383,7 +383,7 @@ test('should verify props when first slide was answered correctly and next slide
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -423,7 +423,7 @@ test('should verify props when first slide was answered correctly and next slide
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -503,7 +503,7 @@ test('should verify props when first slide was answered with error and next slid
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -580,7 +580,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -612,16 +612,16 @@ test('should verify props when first slide was answered, next slide is fetched &
   });
   t.is(props.stack.endReview, false);
   t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
-    resultLabel: translate('Correct Answer'),
+    resultLabel: '___Correct Answer',
     information: {
-      label: translate('KLF'),
+      label: '___KLF',
       message:
         'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
     },
     klf: undefined,
     next: {
-      'aria-label': translate('Next Question'),
-      label: translate('Next Question')
+      'aria-label': '___Next Question',
+      label: '___Next Question'
     },
     type: 'right'
   });
@@ -631,7 +631,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     showCorrectionPopin: true,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -649,7 +649,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     showCorrectionPopin: false,
     position: 1,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
   t.is(props.stack.validateButton.disabled, true);
@@ -714,7 +714,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -746,19 +746,19 @@ test('should verify props when first slide was answered incorrectly, next slide 
   });
   t.is(props.stack.endReview, false);
   t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
-    resultLabel: translate('Wrong Answer'),
+    resultLabel: '___Wrong Answer',
     information: {
-      label: translate('Correct Answer'),
+      label: '___Correct Answer',
       message: 'Benchmark'
     },
     klf: {
-      label: translate('KLF'),
+      label: '___KLF',
       tooltip:
         'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.'
     },
     next: {
-      'aria-label': translate('Next Question'),
-      label: translate('Next Question')
+      'aria-label': '___Next Question',
+      label: '___Next Question'
     },
     type: 'wrong'
   });
@@ -768,7 +768,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     showCorrectionPopin: true,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
@@ -786,7 +786,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     showCorrectionPopin: false,
     position: 1,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
   t.is(props.stack.validateButton.disabled, true);
@@ -855,7 +855,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -990,7 +990,7 @@ test('should verify props when progression is in success, showing last correctio
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -1023,16 +1023,16 @@ test('should verify props when progression is in success, showing last correctio
 
   t.deepEqual(omit(['next.onClick'], props.stack.correctionPopinProps), {
     information: {
-      label: translate('KLF'),
+      label: '___KLF',
       message:
         'L’apprenant peut aussi évaluer sa performance grâce à un classement disponible sur la vue leaderboard. Elle compare sa position par rapport à celle des autres apprenants de la plateforme.'
     },
     klf: undefined,
     next: {
-      'aria-label': translate('Next Question'),
-      label: translate('Next Question')
+      'aria-label': '___Next Question',
+      label: '___Next Question'
     },
-    resultLabel: translate('Correct Answer'),
+    resultLabel: '___Correct Answer',
     type: 'right'
   });
 });
@@ -1110,7 +1110,7 @@ test('should verify props showing congrats', t => {
 
   const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
-  t.is(congrats.title, translate('Congratulations!'));
+  t.is(congrats.title, '___Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
     'https://static-staging.coorpacademy.com/animations/review/confetti.json'
@@ -1135,7 +1135,7 @@ test('should verify props showing congrats', t => {
         loop: true
       },
       rankSuffix: 'th',
-      reviewCardTitle: translate('You are now'),
+      reviewCardTitle: '___You are now',
       reviewCardValue: '9'
     }
   );
@@ -1161,19 +1161,19 @@ test('should verify props showing congrats', t => {
         }
       },
       rankSuffix: undefined,
-      reviewCardTitle: translate('You have won'),
+      reviewCardTitle: '___You have won',
       reviewCardValue: '40'
     }
   );
 
   t.deepEqual(omit(['onClick'], buttonRevising), {
-    'aria-label': translate('Continue reviewing'),
-    label: translate('Continue reviewing'),
+    'aria-label': '___Continue reviewing',
+    label: '___Continue reviewing',
     type: 'tertiary'
   });
   t.deepEqual(omit(['onClick'], buttonRevisingSkill), {
-    'aria-label': translate('Revise another skill'),
-    label: translate('Revise another skill'),
+    'aria-label': '___Revise another skill',
+    label: '___Revise another skill',
     type: 'primary'
   });
 });
@@ -1251,7 +1251,7 @@ test('should verify props showing congrats, with only stars card, if user has no
 
   const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
-  t.is(congrats.title, translate('Congratulations!'));
+  t.is(congrats.title, '___Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
     'https://static-staging.coorpacademy.com/animations/review/confetti.json'
@@ -1279,7 +1279,7 @@ test('should verify props showing congrats, with only stars card, if user has no
         }
       },
       rankSuffix: undefined,
-      reviewCardTitle: translate('You have won'),
+      reviewCardTitle: '___You have won',
       reviewCardValue: '40'
     }
   );
@@ -1287,8 +1287,8 @@ test('should verify props showing congrats, with only stars card, if user has no
   t.is(cardCongratsRank, undefined);
   t.is(buttonRevising, undefined);
   t.deepEqual(omit(['onClick'], buttonRevisingSkill), {
-    'aria-label': translate('Revise another skill'),
-    label: translate('Revise another skill'),
+    'aria-label': '___Revise another skill',
+    label: '___Revise another skill',
     type: 'primary'
   });
 });
@@ -1369,7 +1369,7 @@ test('should verify props when progression has answered a current pendingSlide',
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {
@@ -1477,7 +1477,7 @@ test('should verify props when progression still has a pendingSlide', t => {
     'aria-label': 'aria-header-wrapper',
     closeButtonAriaLabel: 'aria-close-button',
     hiddenSteps: false,
-    mode: translate('Review Title'),
+    mode: '___Review Title',
     skillName: '__agility',
     steps: [
       {

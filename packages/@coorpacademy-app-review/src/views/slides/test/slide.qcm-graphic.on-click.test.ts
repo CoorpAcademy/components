@@ -82,7 +82,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: 'From "Developing the review app" course',
+    parentContentTitle: '___Content Parent Title',
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
 

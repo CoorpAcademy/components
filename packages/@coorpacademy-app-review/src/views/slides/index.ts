@@ -105,7 +105,12 @@ const getCurrentSlideRef = (state: StoreState): string => {
   return content.ref;
 };
 
-const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack => {
+const buildStackSlides = (
+  state: StoreState,
+  dispatch: Dispatch,
+  options: ConnectedOptions
+): SlidesStack => {
+  const {translate} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const progression = state.data.progression;
 
@@ -143,7 +148,10 @@ const buildStackSlides = (state: StoreState, dispatch: Dispatch): SlidesStack =>
         loading: false,
         questionText,
         answerUI,
-        parentContentTitle: `From "${parentContentTitle}" ${parentContentType}`,
+        parentContentTitle: translate('Content Parent Title', {
+          contentTitle: parentContentTitle,
+          contentType: parentContentType
+        }),
         animationType
       };
 
@@ -418,7 +426,7 @@ export const mapStateToSlidesProps = (
       hiddenSteps: showCongrats
     },
     stack: {
-      slides: buildStackSlides(state, dispatch),
+      slides: buildStackSlides(state, dispatch, options),
       validateButton: {
         label: translate('Validate'),
         disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
