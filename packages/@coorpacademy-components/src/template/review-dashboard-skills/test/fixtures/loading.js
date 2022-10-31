@@ -1,5 +1,5 @@
 import reviewPresentation from '../../../../atom/review-presentation/test/fixtures/default';
-import reviewSkills from '../../../../organism/review-skills/test/fixtures/loading';
+import reviewSkills from '../../../app-review/skills/test/fixtures/loading';
 
 export default {
   props: {
