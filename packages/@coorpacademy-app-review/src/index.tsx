@@ -63,15 +63,6 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
     store.dispatch(storeToken(token));
   }, [options, store]);
 
-  // useEffect(() => {
-  //   const isTokenPresent = store && !isEmpty(store.getState().data.token);
-
-  //   if (!isTokenPresent) return;
-
-  //   const skillRef = get('skillRef', options);
-  //   skillRef && store.dispatch(fetchSkill(skillRef));
-  // }, [options, store]);
-
   useEffect(() => {
     const token = get('token', options);
     if (store === null || isEmpty(token)) return;
