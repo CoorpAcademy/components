@@ -108,7 +108,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: translate('Content Parent Title'),
+    parentContentTitle: '___Content Parent Title',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });

@@ -82,7 +82,7 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: translate('Content Parent Title'),
+    parentContentTitle: '___Content Parent Title',
     questionText: "Remettez dans l'ordre les quatre étapes du burn out."
   });
 
