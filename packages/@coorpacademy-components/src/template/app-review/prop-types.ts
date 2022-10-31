@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import {ReviewSkillsProps} from '../../organism/review-skills/prop-types';
 import Onboarding from './onboarding';
 import Skills from './skills';
 import Player from './player';
+import {ReviewSkillsProps} from './skills/prop-types';
 import {ReviewPlayerProps} from './player/prop-types';
 
 export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
