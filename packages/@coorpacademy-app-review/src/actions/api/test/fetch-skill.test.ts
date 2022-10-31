@@ -44,10 +44,29 @@ test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the corr
 
   const expectedActions = [
     {type: SKILL_FETCH_REQUEST},
-    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}},
-    {type: SKILL_FETCH_FAILURE, payload: new Error('Fetch skill action failed')}
+    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];
   const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 
   await dispatch(fetchSkill('skill_NyxtYFYir'));
+});
+
+test('should dispatch FETCH_SKILL_FAILURE when fetch skill failed', async t => {
+  t.plan(4);
+  const services: Services = {
+    ...mockedServices,
+    fetchSkill: (skillRef, token) => {
+      t.is(token, '1234');
+      t.is(skillRef, '123');
+      return Promise.reject(new Error('Fetch skill action failed'));
+    }
+  };
+
+  const expectedActions = [
+    {type: SKILL_FETCH_REQUEST},
+    {type: SKILL_FETCH_FAILURE, payload: new Error('Fetch skill action failed'), error: true}
+  ];
+
+  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  await dispatch(fetchSkill('123'));
 });
