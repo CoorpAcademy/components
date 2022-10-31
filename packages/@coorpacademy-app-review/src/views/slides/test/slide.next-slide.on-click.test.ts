@@ -34,7 +34,8 @@ test('correction popin actions after click', async t => {
       corrections: {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
-      rank: {start: 10, end: Number.NaN}
+      rank: {start: 10, end: Number.NaN},
+      currentSkill: {ref: '', name: ''}
     },
     ui: {
       showCongrats: false,
@@ -102,7 +103,8 @@ test('correction popin actions after click when progression is finished', async 
         [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
-      rank: {start: 10, end: Number.NaN}
+      rank: {start: 10, end: Number.NaN},
+      currentSkill: {ref: '', name: ''}
     },
     ui: {
       showCongrats: false,

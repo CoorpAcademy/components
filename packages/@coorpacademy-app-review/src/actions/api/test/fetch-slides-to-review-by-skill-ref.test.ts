@@ -31,7 +31,8 @@ const state: StoreState = {
     skills: [{skillRef: '_skill-ref', custom: false, name: '_skill-ref', slidesToReview: 5}],
     token: '1234',
     corrections: {},
-    rank: {start: 10, end: Number.NaN}
+    rank: {start: 10, end: Number.NaN},
+    currentSkill: {ref: '', name: ''}
   },
   ui: {
     showCongrats: false,

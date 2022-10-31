@@ -45,7 +45,8 @@ const state: StoreState = {
       [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
       [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
     },
-    rank: {start: 10, end: 10}
+    rank: {start: 10, end: 10},
+    currentSkill: {ref: '', name: ''}
   },
   ui: {
     showCongrats: true,
