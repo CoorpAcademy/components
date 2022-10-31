@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import type {ThunkOptions, ProgressionFromAPI} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {fetchSlide} from './fetch-slide';
+import {fetchSkill} from './fetch-skill';
 
 export const POST_PROGRESSION_REQUEST = '@@progression/POST_REQUEST' as const;
 export const POST_PROGRESSION_SUCCESS = '@@progression/POST_SUCCESS' as const;
@@ -37,5 +38,6 @@ export const postProgression =
       const progression = response.payload;
       const slideRef = progression.state.nextContent.ref;
       await dispatch(fetchSlide(slideRef));
+      await dispatch(fetchSkill(skillRef));
     }
   };
