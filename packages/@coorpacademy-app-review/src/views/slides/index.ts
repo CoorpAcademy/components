@@ -108,8 +108,9 @@ const getCurrentSlideRef = (state: StoreState): string => {
 const buildStackSlides = (
   state: StoreState,
   dispatch: Dispatch,
-  translate: (key: string, data?: unknown) => string
+  options: ConnectedOptions
 ): SlidesStack => {
+  const {translate} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const progression = state.data.progression;
 
@@ -425,7 +426,7 @@ export const mapStateToSlidesProps = (
       hiddenSteps: showCongrats
     },
     stack: {
-      slides: buildStackSlides(state, dispatch, translate),
+      slides: buildStackSlides(state, dispatch, options),
       validateButton: {
         label: translate('Validate'),
         disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
