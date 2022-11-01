@@ -28,6 +28,7 @@ import {postAnswer} from '../../actions/api/post-answer';
 import {postProgression} from '../../actions/api/post-progression';
 import {nextSlide} from '../../actions/ui/next-slide';
 import {ProgressionState} from '../../reducers/data/progression';
+import {UISlide} from '../../reducers/ui/slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -105,6 +106,10 @@ const getCurrentSlideRef = (state: StoreState): string => {
   return content.ref;
 };
 
+const isLastSlideAnswered = (slidesRef: string[], slideRef: string): boolean => {
+  return last(slidesRef) === slideRef;
+};
+
 const buildStackSlides = (
   state: StoreState,
   dispatch: Dispatch,
@@ -121,11 +126,12 @@ const buildStackSlides = (
   const stack = reduce.convert({cap: false})(
     (acc: SlidesStack, uiSlide: ReviewSlide, _index: string): SlidesStack => {
       const index = toInteger(_index);
+      const slideRef = slideRefs[index];
+      const lastAnsweredSlideRef = isLastSlideAnswered(progression.state.slides, slideRef);
 
       const positions = state.ui.positions;
-      const position = positions[index];
+      const position = lastAnsweredSlideRef && positions[index] === -1 ? 0 : positions[index];
 
-      const slideRef = slideRefs[index];
       if (!slideRef) return set(index, {...uiSlide, position}, acc);
       const slideFromAPI = get(slideRef, state.data.slides);
       if (!slideFromAPI) return set(index, {...uiSlide, position}, acc);
@@ -138,7 +144,7 @@ const buildStackSlides = (
       const slideUI = get(['ui', 'slide', slideRef], state);
       const animateCorrectionPopin = isCurrentSlideRef && slideUI.animateCorrectionPopin;
       const showCorrectionPopin = isCurrentSlideRef && slideUI.showCorrectionPopin;
-      const animationType = slideUI.animationType;
+      const animationType = lastAnsweredSlideRef ? slideUI.animationType : undefined;
 
       const updatedUiSlide = {
         ...uiSlide,
