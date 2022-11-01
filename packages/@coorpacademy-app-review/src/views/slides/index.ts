@@ -28,7 +28,6 @@ import {postAnswer} from '../../actions/api/post-answer';
 import {postProgression} from '../../actions/api/post-progression';
 import {nextSlide} from '../../actions/ui/next-slide';
 import {ProgressionState} from '../../reducers/data/progression';
-import {UISlide} from '../../reducers/ui/slide';
 import {mapApiSlideToUi} from './map-api-slide-to-ui';
 
 const ICON_VALUES = {
@@ -130,6 +129,8 @@ const buildStackSlides = (
       const lastAnsweredSlideRef = isLastSlideAnswered(progression.state.slides, slideRef);
 
       const positions = state.ui.positions;
+      // when unstack the last answered slide (position -1), we set the position to 0 only during the animation
+      // to avoid to hide the slide (caused by the position -1).
       const position = lastAnsweredSlideRef && positions[index] === -1 ? 0 : positions[index];
 
       if (!slideRef) return set(index, {...uiSlide, position}, acc);

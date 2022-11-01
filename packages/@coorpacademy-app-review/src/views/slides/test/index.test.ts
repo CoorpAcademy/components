@@ -891,7 +891,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
     loading: false,
     animateCorrectionPopin: false,
     animationType: 'unstack',
-    position: -1
+    position: 0
   });
   t.deepEqual(pick(propsToCheck, props.stack.slides[1]), {
     loading: false,
