@@ -8,7 +8,6 @@ test('should set initial values in currentSkill property', t => {
 });
 
 test('should set the value of SKILL_FETCH_SUCCESS action', t => {
-  // value in the store is the result of the action
   const state = reducer(
     {ref: '', name: ''},
     {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
