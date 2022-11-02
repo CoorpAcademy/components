@@ -15,14 +15,22 @@ const stylesByPosition = {
   4: style.position4
 };
 
+const unstackByPosition = {
+  0: style.slideOutAndIn0,
+  1: style.slideOutAndIn1,
+  2: style.slideOutAndIn2,
+  3: style.slideOutAndIn3,
+  4: style.slideOutAndIn4
+};
+
 const getSlideAnimation = (action, position) => {
   switch (action) {
     case 'unstack':
       return style.slideOutHideAndIn;
     case 'restack':
-      return style.slideOutAndIn;
+      return unstackByPosition[position];
     default:
-      return position < 0 ? style.hiddenSlide : stylesByPosition[position];
+      return null;
   }
 };
 
@@ -40,6 +48,7 @@ const StackedSlides = ({slides, endReview, validateButton, correctionPopinProps}
         className={classnames(
           style.slideBase,
           getSlideAnimation(animationType, position),
+          position < 0 ? style.hiddenSlide : stylesByPosition[position],
           endReview ? style.endReview : null
         )}
       >

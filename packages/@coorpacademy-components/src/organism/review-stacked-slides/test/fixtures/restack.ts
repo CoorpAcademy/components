@@ -41,33 +41,41 @@ const fixture: Fixture = {
     endReview: false,
     slides: {
       0: {
-        position: 4,
+        position: -1,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 1',
         answerUI: qcmDrag,
-        isCorrect: false,
-        showCorrectionPopin: true,
-        animateCorrectionPopin: false,
-        animationType: 'restack'
+        isCorrect: true
       },
       1: {
-        position: 0,
         loading: false,
         parentContentTitle: 'From "Master Design Thinking to become more agile" course',
         questionText: 'Question 2',
-        answerUI: qcmGraphic
+        position: 2,
+        answerUI: qcmGraphic,
+        isCorrect: false
       },
       2: {
-        position: 1,
-        loading: false
+        loading: false,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
+        questionText: 'Question 3',
+        position: 3,
+        answerUI: qcmDrag,
+        showCorrectionPopin: true,
+        animateCorrectionPopin: false,
+        animationType: 'restack',
+        isCorrect: false
       },
       3: {
-        position: 2,
-        loading: false
+        loading: false,
+        parentContentTitle: 'From "Master Design Thinking to become more agile" course',
+        questionText: 'Question 4',
+        answerUI: qcmGraphic,
+        position: 0
       },
       4: {
-        position: 3,
+        position: 1,
         loading: false
       }
     },
