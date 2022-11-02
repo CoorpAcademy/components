@@ -7,6 +7,6 @@ const propTypes = {
 
 export default propTypes;
 
-export type ItemProps = {
-  item: SkillCardProps;
+export type ReviewSkills = {
+  listSkills: SkillCardProps[];
 };

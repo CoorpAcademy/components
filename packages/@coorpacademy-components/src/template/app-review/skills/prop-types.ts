@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import SkillCardPropsType, {SkillCardProps} from '../../../molecule/skill-card/prop-types';
+import SkillCardPropsType from '../../../molecule/skill-card/prop-types';
 import {NoSkillsProps} from '../../../organism/review-no-skills/prop-types';
+import {ReviewSkills} from '../../../organism/review-skills/prop-types';
 
 const propTypes = {
   'aria-label': PropTypes.string,
@@ -15,10 +16,10 @@ const propTypes = {
 
 export default propTypes;
 
-export type ReviewSkillsProps = NoSkillsProps & {
-  'aria-label': string;
-  title: string;
-  isLoading: boolean;
-  isLoadingAriaLabel: string;
-  listSkills: SkillCardProps[];
-};
+export type ReviewSkillsProps = NoSkillsProps &
+  ReviewSkills & {
+    'aria-label': string;
+    title: string;
+    isLoading: boolean;
+    isLoadingAriaLabel: string;
+  };

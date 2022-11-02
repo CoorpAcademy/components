@@ -2,7 +2,11 @@ import React from 'react';
 import {FlatList, StyleSheet} from 'react-native';
 import SkillCard from '../../molecule/skill-card/index.native';
 import {SkillCardProps} from '../../molecule/skill-card/prop-types';
-import {ItemProps} from './prop-types';
+import {ReviewSkills} from './prop-types';
+
+type ItemProps = {
+  item: SkillCardProps;
+};
 
 const style = StyleSheet.create({
   skills: {paddingBottom: 100}
@@ -34,7 +38,7 @@ const Item = ({
   />
 );
 
-const ReviewListSkills = (props: {listSkills: Array<SkillCardProps>}) => {
+const ReviewListSkills = (props: ReviewSkills) => {
   const {listSkills} = props;
 
   return <FlatList contentContainerStyle={style.skills} data={listSkills} renderItem={Item} />;
