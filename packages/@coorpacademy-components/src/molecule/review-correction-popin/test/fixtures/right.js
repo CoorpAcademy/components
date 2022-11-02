@@ -5,7 +5,7 @@ export default {
     information: {
       label: 'Key learning factor',
       message:
-        '17 frustrated software engineers grappling with the complexities of software development.'
+        '17 frustrated <i><font color="blue">software engineers</font></i> grappling with <b>the complexities</b> of software development.'
     },
     next: {
       label: 'Next Question',

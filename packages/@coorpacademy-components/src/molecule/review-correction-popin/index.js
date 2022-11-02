@@ -24,7 +24,11 @@ const buildKlfButton = klf => {
         <ButtonLink {...klfButtonProps} className={style.klfButton} />
       </div>
       <div className={style.toolTip}>
-        <div className={style.tooltipText}>{klf.tooltip}</div>
+        <span
+          className={style.tooltipText}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: klf.tooltip}}
+        />
       </div>
     </div>
   );
@@ -64,9 +68,12 @@ const ReviewCorrectionPopin = props => {
                 {information.label}
               </span>
             </div>
-            <span className={style.message} aria-label={information.message}>
-              {information.message}
-            </span>
+            <span
+              className={style.message}
+              aria-label={information.message}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: information.message}}
+            />
           </div>
         </div>
         <div className={type === 'right' ? style.actions : style.actionsWrong}>

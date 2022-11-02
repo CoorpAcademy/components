@@ -11,11 +11,11 @@ const qcmDrag = AnswerQCMDrag.props;
 export const correctionPopinProps: ReviewCorrectionPopinProps = {
   klf: {
     label: 'Key learning factor',
-    tooltip: 'Some tooltip info.'
+    tooltip: '17 frustrated <i><font color="blue">software engineers</font></i> grappling with.'
   },
   information: {
     label: 'Key learning factor',
-    message: 'info msg'
+    message: '17 frustrated <i><font color="blue">software engineers</font></i> grappling with.'
   },
   next: {
     label: 'Next',
