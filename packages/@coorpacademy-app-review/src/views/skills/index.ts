@@ -8,8 +8,8 @@ export const mapStateToSkillsProps = (
 ): ReviewSkillsProps => {
   const {translate} = options;
   return {
-    'aria-label': '@todo aria-label',
-    title: '@todo title',
+    'aria-label': translate('Review Skills Container'),
+    title: translate('Skills you can review'),
     isLoading: false,
     isLoadingAriaLabel: 'Review skills container is loading',
     listSkills: state.data.skills.map(skill => ({
