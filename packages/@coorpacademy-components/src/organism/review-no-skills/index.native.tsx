@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
+import {StyleSheet, Text, View, ViewStyle, TextStyle} from 'react-native';
 import {NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision} from '@coorpacademy/nova-icons';
 import {Theme} from '../../variables/theme.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -49,14 +49,14 @@ const ReviewNoSkills = (props: NoSkillsProps) => {
   }
 
   return (
-    <>
+    <View>
       <Text style={styleSheet.subtitle}>{titleNoSkills}</Text>
       <Text style={styleSheet.text}>{textNoSkills}</Text>
       <EmptyStateHomeRevision
         style={styleSheet.noSkillsImage}
         iconSkillAriaLabel={iconSkillAriaLabel}
       />
-    </>
+    </View>
   );
 };
 
