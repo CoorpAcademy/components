@@ -422,10 +422,11 @@ export const mapStateToSlidesProps = (
   const klf = getOr('', ['data', 'slides', currentSlideRef, 'klf'], state);
   const showQuitPopin = get(['ui', 'showQuitPopin'], state);
   const showCongrats = get(['ui', 'showCongrats'], state);
+  const skillName = getOr('', ['data', 'currentSkill', 'name'], state);
   return {
     header: {
       mode: translate('Review Title'),
-      skillName: '__agility',
+      skillName,
       onQuitClick: () => dispatch(openQuitPopin),
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
