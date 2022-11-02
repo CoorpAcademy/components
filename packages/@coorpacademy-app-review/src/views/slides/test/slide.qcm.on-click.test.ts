@@ -14,7 +14,7 @@ import {qcmSlide} from './fixtures/qcm';
 const connectedOptions = {translate, onQuitClick: identity};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
-  content: {type: 'skill', ref: '_skill-ref'},
+  content: {type: 'skill', ref: 'skill_NyxtYFYir'},
   engine: {
     ref: 'review'
   },
@@ -43,7 +43,8 @@ const initialState: StoreState = {
     skills: [],
     token: '1234',
     corrections: {},
-    rank: {start: 10, end: Number.NaN}
+    rank: {start: 10, end: Number.NaN},
+    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
   },
   ui: {
     showCongrats: false,

@@ -11,13 +11,13 @@ import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fet
 import {SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import type {ProgressionFromAPI} from '../../../types/common';
 import {
   getChoicesCorrection,
   postAnswerResponses,
   services,
   translate
 } from '../../../test/util/services.mock';
+import type {ProgressionFromAPI} from '../../../types/common';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -45,7 +45,8 @@ const state: StoreState = {
       [sliderSlide.universalRef]: getChoicesCorrection(sliderSlide._id),
       [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
     },
-    rank: {start: 10, end: 10}
+    rank: {start: 10, end: 10},
+    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
   },
   ui: {
     showCongrats: true,

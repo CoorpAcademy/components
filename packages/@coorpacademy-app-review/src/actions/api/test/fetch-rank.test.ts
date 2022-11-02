@@ -22,7 +22,8 @@ const initialState: StoreState = {
     skills: [],
     token: '1234',
     corrections: {},
-    rank: {start: Number.NaN, end: Number.NaN}
+    rank: {start: Number.NaN, end: Number.NaN},
+    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
   },
   ui: {
     showCongrats: false,

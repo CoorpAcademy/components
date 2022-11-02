@@ -17,7 +17,7 @@ import {
 } from '../../types/common';
 
 const content: ReviewContent = {
-  ref: '_skill-ref',
+  ref: 'skill_NyxtYFYir',
   type: 'skill'
 };
 
