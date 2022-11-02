@@ -46,6 +46,10 @@ const fetchSkillResponse: Record<string, Skill> = {
   skill_NyxtYFYir: {
     ref: 'skill_NyxtYFYir',
     name: 'Digital Awareness'
+  },
+  '_skill-ref': {
+    ref: '_skill-ref',
+    name: 'skill-name'
   }
 };
 

@@ -11,13 +11,13 @@ import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fet
 import {SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import type {ProgressionFromAPI} from '../../../types/common';
 import {
   getChoicesCorrection,
   postAnswerResponses,
   services,
   translate
 } from '../../../test/util/services.mock';
+import type {ProgressionFromAPI} from '../../../types/common';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -143,7 +143,7 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
     },
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide},
     {type: SKILL_FETCH_REQUEST},
-    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
+    {type: SKILL_FETCH_SUCCESS, payload: {ref: '_skill-ref', name: 'skill-test'}}
   ];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
