@@ -4,7 +4,7 @@ import reducer from '../current-skill';
 
 test('should set initial values in currentSkill property', t => {
   const state = reducer(undefined, {} as ReceivedSkill);
-  t.deepEqual(state, {ref: '', name: ''});
+  t.is(state, null);
 });
 
 test('should set the value of SKILL_FETCH_SUCCESS action', t => {

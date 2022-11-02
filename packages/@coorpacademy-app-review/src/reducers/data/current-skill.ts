@@ -3,10 +3,8 @@ import {Skill} from '../../types/common';
 
 export type CurrentSkillState = Skill | null;
 
-const initialState: Skill | null = {
-  ref: '',
-  name: ''
-};
+const initialState: CurrentSkillState = null;
+
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: CurrentSkillState = initialState,

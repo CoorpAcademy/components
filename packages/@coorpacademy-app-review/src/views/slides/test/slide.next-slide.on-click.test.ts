@@ -104,7 +104,7 @@ test('correction popin actions after click when progression is finished', async 
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: '', name: ''}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
     },
     ui: {
       showCongrats: false,
