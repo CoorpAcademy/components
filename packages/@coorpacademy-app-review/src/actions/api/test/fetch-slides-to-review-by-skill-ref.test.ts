@@ -28,11 +28,13 @@ const state: StoreState = {
       [qcmSlide._id]: qcmSlide,
       [sliderSlide._id]: sliderSlide
     },
-    skills: [{skillRef: '_skill-ref', custom: false, name: '_skill-ref', slidesToReview: 5}],
+    skills: [
+      {skillRef: 'skill_NyxtYFYir', custom: false, name: 'Digital Awareness', slidesToReview: 5}
+    ],
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: '_skill-ref', name: '_skill-ref'}
+    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
   },
   ui: {
     showCongrats: false,
@@ -82,7 +84,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS action when fetchSlidesToRe
     ...mockedServices,
     fetchSlidesToReviewBySkillRef: (token, skillRef) => {
       t.is(token, '1234');
-      t.is(skillRef, '_skill-ref');
+      t.is(skillRef, 'skill_NyxtYFYir');
       return Promise.resolve(fetchSlidesToReviewBySkillRefResponse);
     }
   };
@@ -107,7 +109,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
     ...mockedServices,
     fetchSlidesToReviewBySkillRef: (token, skillRef) => {
       t.is(token, '1234');
-      t.is(skillRef, '_skill-ref');
+      t.is(skillRef, 'skill_NyxtYFYir');
       return Promise.reject(new Error('unexpected'));
     }
   };
