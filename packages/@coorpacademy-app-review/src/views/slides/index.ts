@@ -269,7 +269,7 @@ const getCorrectionPopinProps =
       resultLabel: isCorrect ? translate('Correct Answer') : translate('Wrong Answer'),
       information: {
         label: isCorrect ? translate('KLF') : translate('Correct Answer'),
-        message: isCorrect ? klf : join(',', correctAnswer)
+        message: isCorrect ? klf : join(', ', correctAnswer)
       },
       next: {
         'aria-label': translate('Next Question'),
