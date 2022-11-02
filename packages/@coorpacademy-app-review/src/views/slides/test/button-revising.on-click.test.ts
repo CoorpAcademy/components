@@ -46,7 +46,7 @@ const state: StoreState = {
       [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
     },
     rank: {start: 10, end: 10},
-    currentSkill: {ref: '', name: ''}
+    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
   },
   ui: {
     showCongrats: true,
@@ -143,7 +143,7 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
     },
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide},
     {type: SKILL_FETCH_REQUEST},
-    {type: SKILL_FETCH_SUCCESS, payload: {ref: '_skill-ref', name: 'skill-test'}}
+    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);

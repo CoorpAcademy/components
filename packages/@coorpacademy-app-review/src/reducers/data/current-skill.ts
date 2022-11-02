@@ -1,17 +1,17 @@
 import {ReceivedSkill, SKILL_FETCH_SUCCESS} from '../../actions/api/fetch-skill';
 import {Skill} from '../../types/common';
 
-export type SkillState = Skill;
+export type CurrentSkillState = Skill | null;
 
-const initialState: Skill = {
+const initialState: Skill | null = {
   ref: '',
   name: ''
 };
 const reducer = (
   // eslint-disable-next-line default-param-last
-  state: SkillState = initialState,
+  state: CurrentSkillState = initialState,
   action: ReceivedSkill
-): SkillState => {
+): CurrentSkillState => {
   switch (action.type) {
     case SKILL_FETCH_SUCCESS:
       return action.payload;

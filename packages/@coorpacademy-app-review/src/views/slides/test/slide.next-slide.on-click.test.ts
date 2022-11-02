@@ -35,7 +35,7 @@ test('correction popin actions after click', async t => {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: '', name: ''}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
     },
     ui: {
       showCongrats: false,

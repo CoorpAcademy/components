@@ -27,7 +27,7 @@ const state: StoreState = {
     token: '1234',
     corrections: {[freeTextSlide.universalRef]: getChoicesCorrection(freeTextSlide.universalRef)},
     rank: {start: 93, end: Number.NaN},
-    currentSkill: {ref: '', name: ''}
+    currentSkill: {ref: skillRef, name: skillRef}
   },
   ui: {
     showCongrats: false,

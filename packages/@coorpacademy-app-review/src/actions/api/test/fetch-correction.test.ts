@@ -31,7 +31,7 @@ const initialState: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: '', name: ''}
+    currentSkill: {ref: skillRef, name: skillRef}
   },
   ui: {
     showCongrats: false,

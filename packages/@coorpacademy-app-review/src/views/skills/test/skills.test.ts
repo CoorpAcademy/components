@@ -13,7 +13,7 @@ test('should create initial props when there are no skills on the state', t => {
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: '', name: ''}
+      currentSkill: null
     },
     ui: {
       showCongrats: false,
@@ -60,7 +60,7 @@ test('should create initial props when skills on the state', t => {
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: '', name: ''}
+      currentSkill: null
     },
     ui: {
       showCongrats: false,

@@ -1,6 +1,6 @@
 import test from 'ava';
 import {SKILL_FETCH_SUCCESS, ReceivedSkill} from '../../../actions/api/fetch-skill';
-import reducer from '../skill';
+import reducer from '../current-skill';
 
 test('should set initial values in currentSkill property', t => {
   const state = reducer(undefined, {} as ReceivedSkill);
