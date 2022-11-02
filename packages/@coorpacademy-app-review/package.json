@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "",
   "engines": {
     "node": ">=16.15.0"
@@ -35,7 +35,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@coorpacademy/components": "10.28.0",
+    "@coorpacademy/components": "10.28.1",
     "@coorpacademy/redux-task": "1.1.6",
     "@coorpacademy/translate": "^6.1.5",
     "cross-fetch": "^3.1.5",
@@ -51,7 +51,7 @@
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "3.0.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^11.0.0",
-    "@coorpacademy/webpack-config": "12.0.0",
+    "@coorpacademy/webpack-config": "12.0.1",
     "@testing-library/react": "^12.1.5",
     "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
