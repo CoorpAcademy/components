@@ -1,50 +1,25 @@
 import PropTypes from 'prop-types';
-import {ListSkillsPropTypes} from '../../../organism/review-skills/prop-types';
+import SkillCardPropsType from '../../../molecule/skill-card/prop-types';
+import {NoSkillsProps} from '../../../organism/review-no-skills/prop-types';
+import {ReviewSkills} from '../../../organism/review-skills/prop-types';
 
-export const SkillPropsTypes = {
+const propTypes = {
+  'aria-label': PropTypes.string,
   title: PropTypes.string,
-  info: PropTypes.string
+  isLoading: PropTypes.bool,
+  isLoadingAriaLabel: PropTypes.string,
+  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCardPropsType)),
+  titleNoSkills: PropTypes.string,
+  textNoSkills: PropTypes.string,
+  iconSkillAriaLabel: PropTypes.string
 };
 
-export const ItemPropsTypes = {
-  item: PropTypes.shape({
-    title: PropTypes.string,
-    info: PropTypes.string,
-    isExtraSpace: PropTypes.bool
-  })
-};
+export default propTypes;
 
-export const ListPropTypes = {
-  skills: ListSkillsPropTypes.listSkills
-};
-
-export type SkillProps = {
-  title: string;
-  info: string;
-};
-
-export type ItemProps = {
-  item: {title: string; info: string};
-};
-
-export type NoSkillsProps = {
-  titleNoSkills: string;
-  textNoSkills: string;
-};
-
-export type ListSkillsProps = {
-  skillTitle: string;
-  isCustom: boolean;
-  'aria-label': string;
-  skillAriaLabel: string;
-  buttonLabel: string;
-  buttonAriaLabel: string;
-  reviseLabel: string;
-  reviseAriaLabel: string;
-  onClick: () => void;
-};
-
-export type SkillsProps = {
-  title: string;
-  listSkills: Array<ListSkillsProps>;
-};
+export type ReviewSkillsProps = NoSkillsProps &
+  ReviewSkills & {
+    'aria-label': string;
+    title: string;
+    isLoading: boolean;
+    isLoadingAriaLabel: string;
+  };

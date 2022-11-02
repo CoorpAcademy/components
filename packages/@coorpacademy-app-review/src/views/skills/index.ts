@@ -1,39 +1,14 @@
+import {ReviewSkillsProps} from '@coorpacademy/components/es/template/app-review/skills/prop-types';
 import {StoreState} from '../../reducers';
 
-type SkillCard = {
-  'aria-label': string;
-  skillTitle: string;
-  skillAriaLabel: string;
-  buttonLabel: string;
-  buttonAriaLabel: string;
-  reviseLabel: string;
-  reviseAriaLabel: string;
-  isCustom: boolean;
-  onClick: () => void;
-};
-
-type NoSkillsProps = {
-  iconSkillAriaLabel: string;
-};
-
-type SkillsProps = NoSkillsProps & {
-  'aria-label'?: string;
-  title: string;
-  isLoading?: boolean;
-  isLoadingAriaLabel: string;
-  listSkills: SkillCard[];
-};
-
-export {SkillsProps};
-
-export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
+export const mapStateToSkillsProps = (state: StoreState): ReviewSkillsProps => {
   return {
+    'aria-label': '@todo aria-label',
     title: '@todo title',
-    iconSkillAriaLabel: '@todo iconSkillAriaLabel',
     isLoading: false,
     isLoadingAriaLabel: '@todo loading',
     listSkills: state.data.skills.map(skill => ({
-      'aria-label': '',
+      'aria-label': '@todo aria-label skill',
       isCustom: skill.custom,
       skillTitle: skill.name,
       skillAriaLabel: '@todo skill aria label',
@@ -43,6 +18,9 @@ export const mapStateToSkillsProps = (state: StoreState): SkillsProps => {
       reviseAriaLabel: '@todo revise aria label',
       // eslint-disable-next-line no-console
       onClick: () => console.log('@todo plug dispatcher select skill')
-    }))
+    })),
+    titleNoSkills: '@todo title no skills',
+    textNoSkills: '@todo text no skills',
+    iconSkillAriaLabel: '@todo iconSkillAriaLabel'
   };
 };

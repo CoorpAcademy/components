@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Onboarding from './onboarding';
 import Skills from './skills';
 import Player from './player';
+import {ReviewSkillsProps} from './skills/prop-types';
 import {ReviewPlayerProps} from './player/prop-types';
 
 export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
@@ -9,7 +10,7 @@ export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 export type AppReviewProps = {
   viewName: ViewName;
   slides?: ReviewPlayerProps;
-  skills?: PropTypes.InferProps<typeof Skills.propTypes>;
+  skills?: ReviewSkillsProps;
   onboarding?: PropTypes.InferProps<typeof Onboarding.propTypes>;
   navigateBack?: () => void;
 };
