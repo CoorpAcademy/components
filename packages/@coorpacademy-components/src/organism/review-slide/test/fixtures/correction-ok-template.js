@@ -3,8 +3,10 @@ import Template from '../../../../molecule/answer/test/fixtures/template';
 import RightCorrectionPopin from '../../../../molecule/review-correction-popin/test/fixtures/right';
 
 const templateProps = Template.props;
+const templateContext = Template.mobileContext;
 
 export default {
+  mobileContext: templateContext,
   props: {
     slide: {
       hidden: false,
