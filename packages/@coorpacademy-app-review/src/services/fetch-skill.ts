@@ -8,5 +8,6 @@ export const fetchSkill = async (skillRef: string, token: string): Promise<Skill
   const response = await crossFetch(`${host}/api/v2/skills?conditions={"ref":"${skillRef}"}`, {
     headers: {authorization: token}
   });
-  return toJSON<Skill>(response);
+  const skills = await toJSON<Skill[]>(response);
+  return skills[0];
 };
