@@ -46,7 +46,7 @@
 }
 
 .quitPopin {
-  z-index: 50;
+  z-index: 150;
 }
 
 /* ie fallback */
@@ -59,5 +59,5 @@
 :-ms-fullscreen,
 .quitPopin {
   position: absolute;
-  z-index: 80;
+  z-index: 150;
 }

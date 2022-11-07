@@ -112,6 +112,7 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   border-radius: 7px;
   margin: 0 15px 15px;
   width: 95%;
+  z-index: 100;
 }
 
 .popinAnimation {
