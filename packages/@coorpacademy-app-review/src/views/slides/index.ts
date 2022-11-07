@@ -140,7 +140,8 @@ const buildStackSlides = (
       const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch)(slideFromAPI, answers);
       const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
-
+      // eslint-disable-next-line no-console
+      console.log(slideFromAPI);
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const slideUI = get(['ui', 'slide', slideRef], state);
       const animateCorrectionPopin = isCurrentSlideRef && slideUI.animateCorrectionPopin;
