@@ -3,16 +3,17 @@ import nock from 'nock';
 import {Skill} from '../../types/common';
 import {fetchSkill} from '../fetch-skill';
 
-const result: Skill = {
-  ref: 'skill_NyxtYFYir',
-  name: 'Digital Awareness'
-};
-
+const results: Skill[] = [
+  {
+    ref: 'skill_NyxtYFYir',
+    name: 'Digital Awareness'
+  }
+];
 test.before(() => {
   nock('http://localhost:3000')
     .get('/api/v2/skills')
     .query({conditions: `{"ref":"skill_NyxtYFYir"}`})
-    .reply(200, result);
+    .reply(200, results);
 });
 
 test.after(() => {
@@ -22,5 +23,5 @@ test.after(() => {
 test('should fetch the skill with success', async t => {
   const token = process.env.API_TEST_TOKEN || '';
   const skill = await fetchSkill('skill_NyxtYFYir', token);
-  t.deepEqual(result, skill);
+  t.deepEqual(results[0], skill);
 });
