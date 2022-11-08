@@ -20,7 +20,8 @@ import type {
   ConnectedOptions,
   ProgressionAnswerItem,
   ProgressionFromAPI,
-  SlideContent
+  SlideContent,
+  Translate
 } from '../../types/common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
@@ -257,7 +258,7 @@ const getCorrectionPopinProps =
     isCorrect: boolean,
     correctAnswer: string[],
     klf: string,
-    translate: (key: string, data?: unknown) => string
+    translate: Translate
   ): ReviewCorrectionPopinProps => {
     return {
       klf: isCorrect
@@ -284,7 +285,7 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: () => void, translate: (key: string, data?: unknown) => string): CMPopinProps => {
+  (onQuitClick: () => void, translate: Translate): CMPopinProps => {
     return {
       content: translate('Quit Title'),
       icon: `MoonRocket`,
@@ -310,10 +311,7 @@ const buildQuitPopinProps =
     };
   };
 
-const buildRankCard = (
-  rank: number,
-  translate: (key: string, data?: unknown) => string
-): CongratsCardProps => {
+const buildRankCard = (rank: number, translate: Translate): CongratsCardProps => {
   return {
     'aria-label': 'Review Card Congrats Container',
     'data-name': 'card-rank',
