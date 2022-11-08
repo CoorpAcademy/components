@@ -191,7 +191,7 @@ export type ConnectedOptions = {
 export type AppOptions = ConnectedOptions & {
   token: string;
   skillRef?: string;
-  services: Services;
+  services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
 };
 
