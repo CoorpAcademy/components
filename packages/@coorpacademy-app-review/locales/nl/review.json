@@ -16,6 +16,8 @@
     "Quit Description Text": "U bent op het juiste spoor! Als u niet stopt, verliest u uw vorderingen.",
     "Stop learning": "Sessie beëindigen",
     "Continue learning": "Verder leren",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "Review presentatie container",
       "title": "Wat is<br/>Revisiemodus?",

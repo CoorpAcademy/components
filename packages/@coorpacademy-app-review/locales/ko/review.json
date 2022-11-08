@@ -16,6 +16,8 @@
     "Quit Description Text": "잘 진행하고 있는 상태입니다! 지금 나가시면 진행 상황을 잃게 됩니다.",
     "Stop learning": "세션 종료",
     "Continue learning": "학습 계속 진행",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "프레젠테이션 검토 컨테이너",
       "title": "검토 모드가<br/>무엇인가요?",

@@ -16,6 +16,8 @@
     "Quit Description Text": "今順調に進んでいます！今やめると、進行状況が失われます。",
     "Stop learning": "セッションを終了",
     "Continue learning": "学習を続ける",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "プレゼンテーションコンテナの確認",
       "title": "<br/>リビジョンモードとは？",

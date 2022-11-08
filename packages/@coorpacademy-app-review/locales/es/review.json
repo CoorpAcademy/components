@@ -16,6 +16,8 @@
     "Quit Description Text": "¡Vas por buen camino! Si sales ahora perderás tu progreso.",
     "Stop learning": "Finalizar sesión",
     "Continue learning": "Seguir aprendiendo",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "Revisar contenedor de presentación",
       "title": "¿Qué es el <br/>Modo revisión?",

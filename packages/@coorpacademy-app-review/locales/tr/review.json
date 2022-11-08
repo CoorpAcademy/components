@@ -16,6 +16,8 @@
     "Quit Description Text": "Şu anda doğru yoldasın! Şimdi çıkarsan ilerlemeni kaybedeceksin.",
     "Stop learning": "Oturumu sonlandır",
     "Continue learning": "Öğrenmeye devam et",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "Sunum Kapsayıcısını İncele",
       "title": "Tekrar Modu <br/>nedir?",

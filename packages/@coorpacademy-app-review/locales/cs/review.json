@@ -16,6 +16,8 @@
     "Quit Description Text": "Jste na správné cestě! Pokud skončíte nyní, ztratíte svůj postup.",
     "Stop learning": "Ukončit relaci",
     "Continue learning": "Pokračovat v učení",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "Schránka prověření prezentace",
       "title": "Co je <br/>režim revizí?",
