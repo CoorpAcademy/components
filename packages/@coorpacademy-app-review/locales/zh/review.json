@@ -16,8 +16,6 @@
     "Quit Description Text": "您正走在正轨上！如果现在退出，您将丢失进度。",
     "Stop learning": "结束课程",
     "Continue learning": "继续学习",
-    "Type here": "Type here",
-    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "复习演示容器",
       "title": "<br/>温习模式是什么？",

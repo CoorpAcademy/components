@@ -16,8 +16,6 @@
     "Quit Description Text": "Vous êtes sur la bonne voie ! Si vous partez maintenant, vous perdrez votre progression.",
     "Stop learning": "Terminer la session",
     "Continue learning": "Continuer à apprendre",
-    "Type here": "Saisissez votre réponse",
-    "Select an answer": "Selectionnez une réponse",
     "presentation": {
       "aria_label": "Revoir le conteneur de présentation",
       "title": "Qu'est-ce que le mode<br/>Révision ?",

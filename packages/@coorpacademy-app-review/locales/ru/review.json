@@ -16,8 +16,6 @@
     "Quit Description Text": "Вы на верном пути! Если вы сейчас уйдете, то потеряете свой прогресс.",
     "Stop learning": "Закончить сеанс",
     "Continue learning": "Продолжить обучение",
-    "Type here": "Type here",
-    "Select an answer": "Select an answer",
     "presentation": {
       "aria_label": "Контейнер для повторения презентации",
       "title": "Что такое<br/>режим повторения?",
