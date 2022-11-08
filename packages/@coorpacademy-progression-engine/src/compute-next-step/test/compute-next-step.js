@@ -8,7 +8,8 @@ import {
   computeNextStep,
   nextSlidePool,
   computeNextStepForNewChapter,
-  prepareStateToSwitchChapters
+  prepareStateToSwitchChapters,
+  computeNextStepForReview
 } from '../compute-next-step';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent, lastStepProgressionState} from './fixtures/states';
@@ -227,4 +228,177 @@ test('computeNextStepForNewChapter --> should return null when computeNextStep r
 
   const result = computeNextStepForNewChapter(config, state, chapterRule, false, availableContent);
   t.is(result, null);
+});
+
+test('computeNextStepForReview --> should return the next slide for an init state', t => {
+  const _config: Config = getConfig({ref: 'review', version: '1'});
+
+  const _availableContent: AvailableContent = [
+    {
+      ref: 'skill_ref',
+      slides: [
+        allSlides[3], // _id: '1.A1.5'
+        allSlides[4] // _id: '1.A1.4'
+      ],
+      rules: null
+    }
+  ];
+
+  const result = computeNextStepForReview(_config, null, _availableContent, null);
+  t.deepEqual(result, {
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.5'
+    },
+    instructions: null,
+    isCorrect: false
+  });
+});
+
+test('computeNextStepForReview --> should return the next slide', t => {
+  const state: State = Object.freeze({
+    livesDisabled: true,
+    isCorrect: false,
+    slides: ['1.A1.1', '1.A1.2'],
+    lives: 0,
+    step: {
+      current: 3
+    },
+    stars: 0,
+    requestedClues: [],
+    viewedResources: [],
+    remainingLifeRequests: 0,
+    hasViewedAResourceAtThisStep: false,
+    content: {
+      ref: '1.A1.2',
+      type: 'slide'
+    },
+    nextContent: {
+      ref: '1.A1.3',
+      type: 'slide'
+    },
+    allAnswers: [
+      {
+        slideRef: '1.A1.1',
+        isCorrect: true,
+        answer: ['d']
+      },
+      {
+        slideRef: '1.A1.2',
+        isCorrect: true,
+        answer: ['d']
+      }
+    ],
+    pendingSlides: [],
+    variables: {}
+  });
+  const _config: Config = getConfig({ref: 'review', version: '1'});
+
+  const _availableContent: AvailableContent = [
+    {
+      ref: 'skill_ref',
+      slides: [
+        allSlides[3], // _id: '1.A1.5'
+        allSlides[4] // _id: '1.A1.4'
+      ],
+      rules: null
+    }
+  ];
+
+  const result = computeNextStepForReview(_config, state, _availableContent, {
+    type: 'answer',
+    payload: {
+      answer: ['answer'],
+      content: {
+        ref: '1.A1.3',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: false
+    }
+  });
+
+  t.deepEqual(result, {
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.5'
+    },
+    instructions: null,
+    isCorrect: false
+  });
+});
+
+test('computeNextStepForReview --> should avoid to return the already answered slide if there are lag on review lambda and available content are not updated', t => {
+  const state: State = Object.freeze({
+    livesDisabled: true,
+    isCorrect: false,
+    slides: ['1.A1.1', '1.A1.2'],
+    lives: 0,
+    step: {
+      current: 3
+    },
+    stars: 0,
+    requestedClues: [],
+    viewedResources: [],
+    remainingLifeRequests: 0,
+    hasViewedAResourceAtThisStep: false,
+    content: {
+      ref: '1.A1.2',
+      type: 'slide'
+    },
+    nextContent: {
+      ref: '1.A1.3',
+      type: 'slide'
+    },
+    allAnswers: [
+      {
+        slideRef: '1.A1.1',
+        isCorrect: true,
+        answer: ['d']
+      },
+      {
+        slideRef: '1.A1.2',
+        isCorrect: true,
+        answer: ['d']
+      }
+    ],
+    pendingSlides: [],
+    variables: {}
+  });
+  const _config: Config = getConfig({ref: 'review', version: '1'});
+
+  const _availableContent: AvailableContent = [
+    {
+      ref: 'skill_ref',
+      slides: [
+        allSlides[1], // _id: '1.A1.2'
+        allSlides[2], // _id: '1.A1.3'
+        allSlides[3], // _id: '1.A1.5'
+        allSlides[4] // _id: '1.A1.4'
+      ],
+      rules: null
+    }
+  ];
+
+  const result = computeNextStepForReview(_config, state, _availableContent, {
+    type: 'answer',
+    payload: {
+      answer: ['answer'],
+      content: {
+        ref: '1.A1.3',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: false
+    }
+  });
+
+  t.deepEqual(result, {
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.5'
+    },
+    instructions: null,
+    isCorrect: false
+  });
 });
