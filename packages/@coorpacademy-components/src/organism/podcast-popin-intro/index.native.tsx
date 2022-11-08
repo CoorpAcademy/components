@@ -59,11 +59,11 @@ const createStyleSheet = (theme: Theme, windowHeight: number) => {
       fill: theme.colors.podcast.primary
     },
     button: {
-      width: '40%',
       height: 44,
       backgroundColor: theme.colors.podcast.primary,
       borderRadius: 7,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      paddingHorizontal: 12
     },
     buttonText: {
       alignSelf: 'center',
@@ -85,7 +85,7 @@ const createStyleSheet = (theme: Theme, windowHeight: number) => {
       lineHeight: 19,
       fontWeight: '300',
       fontSize: 16,
-      paddingHorizontal: 40
+      paddingHorizontal: 35
     }
   });
 };
