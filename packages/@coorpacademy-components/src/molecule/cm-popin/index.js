@@ -120,7 +120,13 @@ const CMPopin = props => {
             />
           ) : null}
         </header>
-        <div className={style.titleContainer}>
+        <div
+          className={
+            mode === 'cookie' || mode === 'information'
+              ? style.cookieTitleContainer
+              : style.titleContainer
+          }
+        >
           <div className={style.contentSection}>
             {LogoComponent ? <LogoComponent className={style.icon} /> : null}
             {content ? (
