@@ -24,6 +24,8 @@ declare global {
 }
 
 const translate = (key: string, data?: unknown): string => {
+  // eslint-disable-next-line no-console
+  console.log('type of data', typeof data);
   try {
     return createTranslate({
       ...localesAppReview,
