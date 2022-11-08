@@ -388,7 +388,7 @@ const getNextPendingSlide = (
 export const computeNextStepForReview = (
   config: Config,
   _state: State | null,
-  availableContent: AvailableContent,
+  _availableContent: AvailableContent,
   partialAction: PartialAction
 ): Result => {
   const action = extendPartialAction(partialAction, _state);
@@ -406,6 +406,17 @@ export const computeNextStepForReview = (
       isCorrect
     };
   }
+
+  const filteredSlides = filter(
+    slideRef => (state ? !state.slides.includes(slideRef) : true),
+    _availableContent[0].slides
+  );
+  const availableContent: AvailableContent = [
+    {
+      ..._availableContent[0],
+      slides: filteredSlides
+    }
+  ];
 
   const nextSlide = getNextSlide(config, state, availableContent);
   if (!nextSlide) {
