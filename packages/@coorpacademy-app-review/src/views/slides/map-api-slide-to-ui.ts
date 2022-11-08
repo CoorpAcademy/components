@@ -42,7 +42,8 @@ import {
   Question,
   SlideFromAPI,
   SliderQuestion,
-  TemplateQuestion
+  TemplateQuestion,
+  Translate
 } from '../../types/common';
 import {editAnswer} from '../../actions/ui/answers';
 
@@ -117,7 +118,7 @@ const updateTemplateAnswer = (
 
 const templateTextProps = (
   dispatch: Dispatch,
-  translate: (key: string, data?: unknown) => string,
+  translate: Translate,
   answers: string[],
   choice: ChoiceFromAPI,
   index: number,
@@ -137,7 +138,7 @@ const templateTextProps = (
 
 const templateSelectProps = (
   dispatch: Dispatch,
-  translate: (key: string, data?: unknown) => string,
+  translate: Translate,
   answers: string[],
   choice: ChoiceFromAPI,
   index: number,
@@ -172,7 +173,7 @@ const templateSelectProps = (
 };
 
 const templateProps =
-  (dispatch: Dispatch, translate: (key: string, data?: unknown) => string) =>
+  (dispatch: Dispatch, translate: Translate) =>
   (answers: string[], question: TemplateQuestion): Template => {
     const choices = question.content.choices;
     const maxLength = size(choices);
@@ -251,7 +252,7 @@ const getAnswerUIModel = (
   question: Question,
   answers: string[],
   dispatch: Dispatch,
-  translate: (key: string, data?: unknown) => string
+  translate: Translate
 ): AnswerUI['model'] => {
   const type = getQuestionType(question);
   switch (type) {
@@ -279,7 +280,7 @@ const getAnswerUIModel = (
 };
 
 export const mapApiSlideToUi =
-  (dispatch: Dispatch, translate: (key: string, data?: unknown) => string) =>
+  (dispatch: Dispatch, translate: Translate) =>
   (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
 
