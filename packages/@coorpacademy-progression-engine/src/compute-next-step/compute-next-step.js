@@ -365,7 +365,7 @@ const getNextSlide = (
 ): Slide | null => {
   if (!state) return get(['0', 'slides', '0'], availableContent);
 
-  // We filter slides in orther to exclude already answered slides.
+  // We filter slides in other to exclude already answered slides.
   // In case of lag on recallUpdate lambda that would not update the review database
   // and the getSlide lambda would return as available slide, an already proposed slide
   const answeredSlides = getOr([], 'slides', state);
