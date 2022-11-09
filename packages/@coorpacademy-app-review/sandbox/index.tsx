@@ -9,7 +9,7 @@ import {identity} from 'lodash/fp';
 import localesComponents from '@coorpacademy/components/locales/en/global.json';
 import localesAppReview from '../locales/en/review.json';
 import AppReview from '../src';
-import type {AppOptions} from '../src/types/common';
+import type {AppOptions, Translate} from '../src/types/common';
 import {services} from '../src/test/util/services.mock';
 
 type SandboxOptions = {
@@ -23,7 +23,7 @@ declare global {
   }
 }
 
-const translate = (key: string, data?: unknown): string => {
+const translate: Translate = (key: string, data?: Record<string, string>): string => {
   try {
     return createTranslate({
       ...localesAppReview,

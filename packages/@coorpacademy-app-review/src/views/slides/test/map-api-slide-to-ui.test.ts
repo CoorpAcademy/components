@@ -10,7 +10,7 @@ import {qcmGraphicUISlide, qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide, templateUISlide} from './fixtures/template';
 import {sliderSlide, sliderUISlide} from './fixtures/slider';
 
-const _mapApiSlideToUi = mapApiSlideToUi(identity);
+const _mapApiSlideToUi = mapApiSlideToUi(identity, identity);
 
 const macro = test.macro({
   title(providedTitle) {

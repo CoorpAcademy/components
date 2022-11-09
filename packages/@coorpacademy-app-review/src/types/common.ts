@@ -1,5 +1,9 @@
 export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
 
+export interface Translate {
+  (key: string, data?: Record<string, string>): string;
+}
+
 export type ChoiceFromAPI = {
   _id: string;
   id?: string;
@@ -184,7 +188,7 @@ export type Options = {
 };
 
 export type ConnectedOptions = {
-  translate: (key: string, data?: unknown) => string;
+  translate: Translate;
   onQuitClick: () => void;
 };
 
