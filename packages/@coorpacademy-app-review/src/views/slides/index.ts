@@ -275,7 +275,7 @@ const getCorrectionPopinProps =
       },
       next: {
         'aria-label': endReview ? translate('Continue') : translate('Next Question'),
-        label: translate('Next Question'),
+        label: endReview ? translate('Continue') : translate('Next Question'),
         onClick: (): void => {
           dispatch(nextSlide);
         }
@@ -443,7 +443,13 @@ export const mapStateToSlidesProps = (
       },
       correctionPopinProps:
         correction &&
-        getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate, endReview),
+        getCorrectionPopinProps(dispatch)(
+          isCorrect,
+          correction.correctAnswer,
+          klf,
+          translate,
+          endReview
+        ),
       endReview: endReview && state.ui.showCongrats
     },
     congrats: buildCongratsProps(state, dispatch, options),
