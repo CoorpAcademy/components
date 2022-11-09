@@ -15,7 +15,8 @@ import {
   shuffle,
   includes,
   findIndex,
-  intersection
+  intersection,
+  getOr
 } from 'lodash/fp';
 
 import type {
@@ -364,9 +365,17 @@ const getNextSlide = (
 ): Slide | null => {
   if (!state) return get(['0', 'slides', '0'], availableContent);
 
+  // We filter slides in other to exclude already answered slides.
+  // In case of lag on recallUpdate lambda that would not update the review database
+  // and the getSlide lambda would return as available slide, an already proposed slide
+  const answeredSlides = getOr([], 'slides', state);
+  const filteredSlides = filter(
+    slide => !answeredSlides.includes(slide._id),
+    availableContent[0].slides
+  );
   const current = get('step.current', state);
   if (current <= config.slidesToComplete) {
-    return get(['0', 'slides', '1'], availableContent);
+    return filteredSlides[0];
   }
 
   return null;
