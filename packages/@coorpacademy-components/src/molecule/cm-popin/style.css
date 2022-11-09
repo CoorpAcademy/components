@@ -48,7 +48,6 @@
 .popin {
   overflow: auto;
   width: 500px;
-  height: 414px;
   flex-grow: 0;
   margin: 16px;
   padding: 16px 16px 20px 16px;
@@ -150,7 +149,16 @@
   white-space: pre-line;
   margin-top: 0px;
 }
+
+.cookieTitleContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .titleContainer {
+  padding-top: 40px;
   align-items: center;
   display: flex;
   flex-direction: column;
