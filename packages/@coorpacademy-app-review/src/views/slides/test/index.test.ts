@@ -1038,8 +1038,8 @@ test('should verify props when progression is in success, showing last correctio
     },
     klf: undefined,
     next: {
-      'aria-label': '___Next Question',
-      label: '___Next Question'
+      'aria-label': '___Continue',
+      label: '___Continue'
     },
     resultLabel: '___Correct Answer',
     type: 'right'
