@@ -258,7 +258,8 @@ const getCorrectionPopinProps =
     isCorrect: boolean,
     correctAnswer: string[],
     klf: string,
-    translate: Translate
+    translate: Translate,
+    endReview: boolean
   ): ReviewCorrectionPopinProps => {
     return {
       klf: isCorrect
@@ -273,7 +274,7 @@ const getCorrectionPopinProps =
         message: isCorrect ? klf : join(', ', correctAnswer)
       },
       next: {
-        'aria-label': translate('Next Question'),
+        'aria-label': endReview ? translate('Continue') : translate('Next Question'),
         label: translate('Next Question'),
         onClick: (): void => {
           dispatch(nextSlide);
@@ -442,7 +443,7 @@ export const mapStateToSlidesProps = (
       },
       correctionPopinProps:
         correction &&
-        getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate),
+        getCorrectionPopinProps(dispatch)(isCorrect, correction.correctAnswer, klf, translate, endReview),
       endReview: endReview && state.ui.showCongrats
     },
     congrats: buildCongratsProps(state, dispatch, options),
