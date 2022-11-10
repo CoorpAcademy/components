@@ -261,6 +261,7 @@ const getCorrectionPopinProps =
     translate: Translate,
     endReview: boolean
   ): ReviewCorrectionPopinProps => {
+    const nextLabel = endReview ? translate('Continue') : translate('Next Question');
     return {
       klf: isCorrect
         ? undefined
@@ -274,8 +275,8 @@ const getCorrectionPopinProps =
         message: isCorrect ? klf : join(', ', correctAnswer)
       },
       next: {
-        'aria-label': endReview ? translate('Continue') : translate('Next Question'),
-        label: endReview ? translate('Continue') : translate('Next Question'),
+        'aria-label': nextLabel,
+        label: nextLabel,
         onClick: (): void => {
           dispatch(nextSlide);
         }
