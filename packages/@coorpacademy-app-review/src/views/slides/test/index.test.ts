@@ -1120,6 +1120,7 @@ test('should verify props showing congrats', t => {
 
   const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
+  t.true(props.stack.endReview);
   t.is(congrats.title, '___Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
