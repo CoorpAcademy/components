@@ -1038,8 +1038,8 @@ test('should verify props when progression is in success, showing last correctio
     },
     klf: undefined,
     next: {
-      'aria-label': '___Next Question',
-      label: '___Next Question'
+      'aria-label': '___Continue',
+      label: '___Continue'
     },
     resultLabel: '___Correct Answer',
     type: 'right'
@@ -1120,6 +1120,7 @@ test('should verify props showing congrats', t => {
 
   const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
+  t.true(props.stack.endReview);
   t.is(congrats.title, '___Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,
