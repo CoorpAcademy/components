@@ -1,6 +1,6 @@
 {
     "Review Title": "Felülvizsgálati mód",
-    "Content Parent Title": "Forrás: `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "\"{{contentTitle}}\" {{contentType}} felől",
     "Validate": "Érvényesít",
     "Next Question": "Következő kérdés",
     "KLF": "Kulcsfontosságú pont",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Jó úton haladsz! Ha most kilépsz, eddig elért eredményeid odavesznek.",
     "Stop learning": "Munkamenet befejezése",
     "Continue learning": "Folytasd a tanulást  ",
+    "Continue": "Folytatás",
+    "Type here": "Gépeljen ide",
+    "Select an answer": "Válasszon egy választ",
     "presentation": {
       "aria_label": "Prezentációs konténer áttekintése",
       "title": "Mi az a <br/> Áttekintés mód?",
