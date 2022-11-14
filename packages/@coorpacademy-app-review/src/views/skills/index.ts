@@ -19,8 +19,10 @@ export const mapStateToSkillsProps = (
       skillAriaLabel: skill.name,
       buttonLabel: translate('Review this skill'),
       buttonAriaLabel: translate('Review this skill'),
-      reviseLabel: translate('{{count}} questions to review', {count: skill.slidesToReview}),
-      reviseAriaLabel: translate('{{count}} questions to review', {count: skill.slidesToReview}),
+      reviseLabel: translate('{{count}} questions to review', {count: `${skill.slidesToReview}`}),
+      reviseAriaLabel: translate('{{count}} questions to review', {
+        count: `${skill.slidesToReview}`
+      }),
       // eslint-disable-next-line no-console
       onClick: () => console.log('@todo plug dispatcher select skill')
     })),

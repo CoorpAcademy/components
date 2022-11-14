@@ -85,7 +85,8 @@ test('should dispatch EDIT_QCM action via the property onClick of a QCM slide', 
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: '___Content Parent Title',
+    parentContentTitle:
+      '__Content Parent Title{"contentTitle":"Developing the review app","contentType":"course"}',
     questionText: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?"
   });
 

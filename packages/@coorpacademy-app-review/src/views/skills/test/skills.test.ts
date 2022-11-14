@@ -100,8 +100,8 @@ test('should create initial props when skills on the state', t => {
       skillAriaLabel: 'skill-test',
       buttonLabel: translate('Review this skill'),
       buttonAriaLabel: translate('Review this skill'),
-      reviseLabel: translate('{{count}} questions to review', {count: 2}),
-      reviseAriaLabel: translate('{{count}} questions to review', {count: 2})
+      reviseLabel: translate('{{count}} questions to review', {count: '2'}),
+      reviseAriaLabel: translate('{{count}} questions to review', {count: '2'})
     },
     {
       'aria-label': translate('Skill Card'),
@@ -110,8 +110,8 @@ test('should create initial props when skills on the state', t => {
       skillAriaLabel: 'skill-test-2',
       buttonLabel: translate('Review this skill'),
       buttonAriaLabel: translate('Review this skill'),
-      reviseLabel: translate('{{count}} questions to review', {count: 5}),
-      reviseAriaLabel: translate('{{count}} questions to review', {count: 5})
+      reviseLabel: translate('{{count}} questions to review', {count: '5'}),
+      reviseAriaLabel: translate('{{count}} questions to review', {count: '5'})
     }
   ]);
   t.notThrows(() => props.listSkills[0].onClick());
