@@ -7,7 +7,6 @@
   margin: 48px 24px 48px 64px;
   position: relative;
   box-sizing: border-box;
-  overflow: auto;
   height: 100%;
 }
 
@@ -17,7 +16,7 @@
   max-width: 348px;
   min-width: 348px;
   position: sticky;
-  top: 0;
+  top: 80px;
 }
 
 .reviewSkillsContainer {

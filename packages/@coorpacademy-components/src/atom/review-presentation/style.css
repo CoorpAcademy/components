@@ -86,11 +86,11 @@
   opacity: 0;
   transition: opacity 0.8s;
   position: absolute;
-  width: 103px;
   height: auto;
+  width: 200px;
   border-radius: 7px;
   background-color: cm_grey_700;
-  right: -42px;
+  right: -81px;
   bottom: 32px;
 }
 
@@ -113,7 +113,6 @@
   composes: textBase;
   font-weight: 500;
   font-size: 14px;
-  line-height: 20px;
   display: inline-block;
   border-radius: 3px;
   word-wrap: break-word;
