@@ -1,6 +1,6 @@
 {
     "Review Title": "Način provjere",
-    "Content Parent Title": "Iz\n`{{naslovSadržaja}}` `{{vrstaSadržaja}}",
+    "Content Parent Title": "Od \"{{contentTitle}}\" {{contentType}",
     "Validate": "Potvrdite",
     "Next Question": "Sljedeće pitanje",
     "KLF": "Ključna stvar",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Na pravom ste putu!  Ako sada odustanete, izgubit ćete svoj napredak.",
     "Stop learning": "Završi sesiju",
     "Continue learning": "Nastavite učiti",
+    "Continue": "Nastavite",
+    "Type here": "Upišite ovdje",
+    "Select an answer": "Odaberite odgovor",
     "presentation": {
       "aria_label": "Pregledajte prezentacijski spremnik",
       "title": "Što je<br/>način revizije?",
