@@ -1,6 +1,6 @@
 {
     "Review Title": "レビューモード",
-    "Content Parent Title": "`{{contentTitle}}` `{{contentType}}` から",
+    "Content Parent Title": "「{{contentTitle}」 {{contentType}} から",
     "Validate": "検証",
     "Next Question": "次の質問",
     "KLF": "キーポイント",
@@ -16,6 +16,9 @@
     "Quit Description Text": "今順調に進んでいます！今やめると、進行状況が失われます。",
     "Stop learning": "セッションを終了",
     "Continue learning": "学習を続ける",
+    "Continue": "続行する",
+    "Type here": "ここに入力する",
+    "Select an answer": "回答を選択する",
     "presentation": {
       "aria_label": "プレゼンテーションコンテナの確認",
       "title": "<br/>リビジョンモードとは？",
