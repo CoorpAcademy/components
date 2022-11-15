@@ -1,6 +1,6 @@
 {
     "Review Title": "Chế độ soát lại",
-    "Content Parent Title": "Từ `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Từ \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Xác thực",
     "Next Question": "Câu hỏi Tiếp theo",
     "KLF": "Điểm quan trọng",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Bạn đang đi đúng hướng! Nếu bạn thoát ngay bây giờ, bạn sẽ mất tiến trình của mình.",
     "Stop learning": "Kết thúc phiên",
     "Continue learning": "Tiếp tục học",
+    "Continue": "Tiếp tục",
+    "Type here": "Nhập vào đây",
+    "Select an answer": "Chọn một đáp án",
     "presentation": {
       "aria_label": "Vùng chứa Ôn tập Trình bày",
       "title": "Chế độ Ôn tập<br/>là gì?",
