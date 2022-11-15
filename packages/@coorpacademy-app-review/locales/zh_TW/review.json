@@ -1,6 +1,6 @@
 {
     "Review Title": "檢閱模式",
-    "Content Parent Title": "來自 `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "從 \"{{contentTitle}}\" {{contentType}}",
     "Validate": "驗證",
     "Next Question": "下一題",
     "KLF": "重點",
@@ -16,6 +16,9 @@
     "Quit Description Text": "你就快要完成了！如果現在離開，下次就必須重新開始。",
     "Stop learning": "結束課程",
     "Continue learning": "繼續學習",
+    "Continue": "繼續",
+    "Type here": "在此輸入",
+    "Select an answer": "選一個答案",
     "presentation": {
       "aria_label": "複習簡報箱",
       "title": "什麼是<br/>複習模式？",
