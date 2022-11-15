@@ -1,6 +1,6 @@
 {
     "Review Title": "Tryb przeglądania",
-    "Content Parent Title": "Od `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Z {{contentType}} „{{contentTitle}}”",
     "Validate": "Zatwierdź",
     "Next Question": "Kolejne pytanie",
     "KLF": "Kluczowy punkt",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Idziesz prosto do celu! Jeśli teraz zrezygnujesz, utracisz postępy.",
     "Stop learning": "Zakończ sesję",
     "Continue learning": "Kontynuuj naukę",
+    "Continue": "Anuluj",
+    "Type here": "Wpisz tutaj",
+    "Select an answer": "Wybierz odpowiedź",
     "presentation": {
       "aria_label": "Kontener prezentacji utrwalania",
       "title": "Czym jest<br/>tryb utrwalania?",
