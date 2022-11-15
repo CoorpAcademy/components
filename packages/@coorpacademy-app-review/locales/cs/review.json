@@ -1,6 +1,6 @@
 {
     "Review Title": "Kontrolní režim",
-    "Content Parent Title": "Od `{{obsahNázev}}` `{{obsahTyp}}`",
+    "Content Parent Title": "Od „{{contentTitle}}“ {{contentType}}",
     "Validate": "Ověřit",
     "Next Question": "Další otázka",
     "KLF": "Klíčový bod",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Jste na správné cestě! Pokud skončíte nyní, ztratíte svůj postup.",
     "Stop learning": "Ukončit relaci",
     "Continue learning": "Pokračovat v učení",
+    "Continue": "Pokračovat",
+    "Type here": "Zadejte zde",
+    "Select an answer": "Vyberte odpověď",
     "presentation": {
       "aria_label": "Schránka prověření prezentace",
       "title": "Co je <br/>režim revizí?",
