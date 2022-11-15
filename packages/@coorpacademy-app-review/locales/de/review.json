@@ -1,6 +1,6 @@
 {
     "Review Title": "Überprüfungsmodus",
-    "Content Parent Title": "Von `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Von \"{{contentTitle}}\" {{contentType}}\n",
     "Validate": "Bestätigen",
     "Next Question": "Nächste Frage",
     "KLF": "Schwerpunkt",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Du bist auf dem richtigen Weg! Wenn du jetzt aufhörst, verlierst du deine Fortschritte.",
     "Stop learning": "Lerneinheit beenden",
     "Continue learning": "Weiter lernen",
+    "Continue": "Weiter",
+    "Type here": "Type here\n",
+    "Select an answer": "Wählen Sie eine Antwort\n",
     "presentation": {
       "aria_label": "Präsentations-Container prüfen",
       "title": "Was ist der<br/>Wiederholungsmodus?",
