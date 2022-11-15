@@ -298,7 +298,7 @@ const buildQuitPopinProps =
         label: translate('Stop learning'),
         type: 'tertiary',
         customStyle: {
-          color: skin.common.primary
+          color: '#ED3436'
         },
         handleOnclick: onQuitClick,
         'aria-label': translate('Stop learning')
@@ -309,7 +309,10 @@ const buildQuitPopinProps =
         handleOnclick: (): void => {
           dispatch(closeQuitPopin);
         },
-        'aria-label': translate('Continue learning')
+        'aria-label': translate('Continue learning'),
+        customStyle: {
+          color: skin.common.primary
+        }
       }
     };
   };
