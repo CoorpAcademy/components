@@ -1,6 +1,6 @@
 {
     "Review Title": "Beoordelingsmodus",
-    "Content Parent Title": "Van `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Van '{{contentTitle}}' {{contentType}}",
     "Validate": "Valideren",
     "Next Question": "Volgende vraag",
     "KLF": "Kernpunt",
@@ -16,6 +16,9 @@
     "Quit Description Text": "U bent op het juiste spoor! Als u niet stopt, verliest u uw vorderingen.",
     "Stop learning": "Sessie beëindigen",
     "Continue learning": "Verder leren",
+    "Continue": "Verdergaan",
+    "Type here": "Hier typen",
+    "Select an answer": "Selecteer een antwoord",
     "presentation": {
       "aria_label": "Review presentatie container",
       "title": "Wat is<br/>Revisiemodus?",
