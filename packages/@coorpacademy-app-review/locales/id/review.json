@@ -1,6 +1,6 @@
 {
     "Review Title": "Mode Tinjauan",
-    "Content Parent Title": "Dari `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Dari \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Validasi",
     "Next Question": "Pertanyaan Berikutnya",
     "KLF": "Poin utama",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Anda berada di jalur yang tepat! Jika berhenti sekarang, Anda akan kehilangan kemajuan Anda.",
     "Stop learning": "Akhiri sesi",
     "Continue learning": "Lanjutkan belajar",
+    "Continue": "Lanjutkan",
+    "Type here": "Ketik di sini",
+    "Select an answer": "Pilih satu jawaban",
     "presentation": {
       "aria_label": "Tinjau Wadah Presentasi",
       "title": "Apa itu<br/>Mode Revisi?",
