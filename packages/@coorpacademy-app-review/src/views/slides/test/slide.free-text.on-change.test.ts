@@ -109,7 +109,8 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: '___Content Parent Title',
+    parentContentTitle:
+      '__Content Parent Title{"contentTitle":"Developing the review app","contentType":"course"}',
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });

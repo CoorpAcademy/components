@@ -83,7 +83,8 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
     showCorrectionPopin: false,
     position: 0,
     loading: false,
-    parentContentTitle: '___Content Parent Title',
+    parentContentTitle:
+      '__Content Parent Title{"contentTitle":"Using redux","contentType":"chapter"}',
     questionText: "Remettez dans l'ordre les quatre étapes du burn out."
   });
 
