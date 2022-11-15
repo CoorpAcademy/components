@@ -1,6 +1,6 @@
 {
     "Review Title": "Modul de revizuire",
-    "Content Parent Title": "De la `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "De la \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Validați",
     "Next Question": "Întrebarea următoare",
     "KLF": "Punct cheie",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Sunteți pe drumul cel bun! Dacă renunțați acum, vă veți pierde progresul.",
     "Stop learning": "Încheiați sesiunea",
     "Continue learning": "Continuați să învățați",
+    "Continue": "Continuați",
+    "Type here": "Scrieți aici",
+    "Select an answer": "Selectați un răspuns",
     "presentation": {
       "aria_label": "Revizuiți containerul de prezentare",
       "title": "Ce este<br/>Modul de revizuire?",
