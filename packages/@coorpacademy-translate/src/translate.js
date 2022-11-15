@@ -3,7 +3,7 @@ import {get, has, isString, isNumber, trim, replace} from 'lodash/fp';
 const interpolation = /\{\{([\s\S]+?)\}\}/g;
 
 function getTemplate(locales, key, count) {
-  const regularTemplate = locales[key];
+  const regularTemplate = get(key, locales);
   if (!isNumber(count)) {
     return regularTemplate;
   }
