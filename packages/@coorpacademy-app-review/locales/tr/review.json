@@ -1,6 +1,6 @@
 {
     "Review Title": "İnceleme Modu",
-    "Content Parent Title": "`{{contentTitle}}` `{{contentType}}` içeriğinden",
+    "Content Parent Title": "\"{{contentTitle}}\" {{contentType}} içeriğinden",
     "Validate": "Doğrula",
     "Next Question": "Sonraki Soru",
     "KLF": "Temel nokta",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Şu anda doğru yoldasın! Şimdi çıkarsan ilerlemeni kaybedeceksin.",
     "Stop learning": "Oturumu sonlandır",
     "Continue learning": "Öğrenmeye devam et",
+    "Continue": "Devam et",
+    "Type here": "Buraya yaz",
+    "Select an answer": "Bir cevap seç",
     "presentation": {
       "aria_label": "Sunum Kapsayıcısını İncele",
       "title": "Tekrar Modu <br/>nedir?",
