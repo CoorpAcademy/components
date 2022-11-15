@@ -18,6 +18,7 @@ import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';
 import type {
   ConnectedOptions,
+  PrimarySkin,
   ProgressionAnswerItem,
   ProgressionFromAPI,
   SlideContent,
@@ -287,7 +288,7 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: () => void, translate: Translate): CMPopinProps => {
+  (onQuitClick: () => void, translate: Translate, skin: PrimarySkin): CMPopinProps => {
     return {
       content: translate('Quit Title'),
       icon: `MoonRocket`,
@@ -297,7 +298,7 @@ const buildQuitPopinProps =
         label: translate('Stop learning'),
         type: 'tertiary',
         customStyle: {
-          color: '#ED3436'
+          color: skin.common.primary
         },
         handleOnclick: onQuitClick,
         'aria-label': translate('Stop learning')
@@ -414,7 +415,7 @@ export const mapStateToSlidesProps = (
   dispatch: Dispatch,
   options: ConnectedOptions
 ): ReviewPlayerProps => {
-  const {translate, onQuitClick} = options;
+  const {translate, onQuitClick, skin} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
@@ -454,6 +455,8 @@ export const mapStateToSlidesProps = (
       endReview: endReview && state.ui.showCongrats
     },
     congrats: buildCongratsProps(state, dispatch, options),
-    quitPopin: showQuitPopin ? buildQuitPopinProps(dispatch)(onQuitClick, translate) : undefined
+    quitPopin: showQuitPopin
+      ? buildQuitPopinProps(dispatch)(onQuitClick, translate, skin)
+      : undefined
   };
 };

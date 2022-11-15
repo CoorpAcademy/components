@@ -46,7 +46,11 @@ const createSandbox = (options: SandboxOptions): void => {
     console.error('[AppReview sandbox] Requires a container.');
   } else {
     const container = document.getElementById(options.container);
-
+    const skin = {
+      common: {
+        primary: '#248e59'
+      }
+    };
     // mode mobile/web
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
@@ -55,14 +59,9 @@ const createSandbox = (options: SandboxOptions): void => {
       translate,
       onQuitClick: () => {
         location.reload();
-      }
+      },
+      skin
     };
-    const skin = {
-      common: {
-        primary: '#248e59'
-      }
-    };
-
     render(
       <WebContext skin={skin} translate={identity}>
         <AppReview options={appOptions} />

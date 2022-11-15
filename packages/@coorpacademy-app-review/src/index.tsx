@@ -38,7 +38,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
   const [isProgressionCreated, setIsProgressionCreated] = useState(false);
 
-  const {translate, onQuitClick} = options;
+  const {translate, onQuitClick, skin} = options;
 
   useEffect(() => {
     if (store) return;
@@ -92,7 +92,7 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
   return (
     <Provider store={store}>
-      <ConnectedApp onQuitClick={onQuitClick} translate={translate} />
+      <ConnectedApp onQuitClick={onQuitClick} translate={translate} skin={skin} />
     </Provider>
   );
 };
