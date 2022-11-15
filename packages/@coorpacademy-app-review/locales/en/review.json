@@ -43,11 +43,15 @@
         }
       }
     },
-    "Review Skills Container": "Review Skills Container",
-    "Skills you can review": "Skills you can review",
-    "Skill Card": "Skill Card",
-    "{{count}} questions to review" : "{{count}} questions to review",
-    "Review this skill": "Review this skill",
-    "No skill to revise": "You have no skill to revise yet",
-    "Complete courses before revising" : "First you need to complete courses before you can review different skills."
+    "list_title": "Skills you can review",
+    "list_aria_label": "Review Skills Container",
+    "card": {
+      "aria_label": "Skill Card",
+      "text": "{{total}} questions to review",
+      "button_text": "Review this skill"
+    },
+    "no_skills": {
+      "title": "You have no skill to revise yet",
+      "text": "First you need to complete courses before you can review different skills."
+    }      
 }

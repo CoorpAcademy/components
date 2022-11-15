@@ -34,13 +34,13 @@ test('should create initial props when there are no skills on the state', t => {
   const props = mapStateToSkillsProps(state, connectedOptions);
 
   t.deepEqual(props, {
-    'aria-label': translate('Review Skills Container'),
-    title: translate('Skills you can review'),
+    'aria-label': translate('list_aria_label'),
+    title: translate('list_title'),
     isLoading: false,
     isLoadingAriaLabel: 'Review skills container is loading',
     listSkills: [],
-    titleNoSkills: translate('No skill to revise'),
-    textNoSkills: translate('Complete courses before revising'),
+    titleNoSkills: translate('no_skills.title'),
+    textNoSkills: translate('no_skills.text'),
     iconSkillAriaLabel: 'Image without information'
   });
 });
@@ -84,34 +84,34 @@ test('should create initial props when skills on the state', t => {
   const props = mapStateToSkillsProps(state, connectedOptions);
 
   t.deepEqual(omit('listSkills', props), {
-    'aria-label': translate('Review Skills Container'),
-    title: translate('Skills you can review'),
+    'aria-label': translate('list_aria_label'),
+    title: translate('list_title'),
     isLoading: false,
     isLoadingAriaLabel: 'Review skills container is loading',
-    titleNoSkills: translate('No skill to revise'),
-    textNoSkills: translate('Complete courses before revising'),
+    titleNoSkills: translate('no_skills.title'),
+    textNoSkills: translate('no_skills.text'),
     iconSkillAriaLabel: 'Image without information'
   });
   t.deepEqual(map(omit('onClick'), props.listSkills), [
     {
-      'aria-label': translate('Skill Card'),
+      'aria-label': translate('card.aria_label'),
       isCustom: false,
       skillTitle: 'skill-test',
       skillAriaLabel: 'skill-test',
-      buttonLabel: translate('Review this skill'),
-      buttonAriaLabel: translate('Review this skill'),
-      reviseLabel: translate('{{count}} questions to review', {count: '2'}),
-      reviseAriaLabel: translate('{{count}} questions to review', {count: '2'})
+      buttonLabel: translate('card.button_text'),
+      buttonAriaLabel: translate('card.button_text'),
+      reviseLabel: translate('card.text', {total: '2'}),
+      reviseAriaLabel: translate('card.text', {total: '2'})
     },
     {
-      'aria-label': translate('Skill Card'),
+      'aria-label': translate('card.aria_label'),
       isCustom: true,
       skillTitle: 'skill-test-2',
       skillAriaLabel: 'skill-test-2',
-      buttonLabel: translate('Review this skill'),
-      buttonAriaLabel: translate('Review this skill'),
-      reviseLabel: translate('{{count}} questions to review', {count: '5'}),
-      reviseAriaLabel: translate('{{count}} questions to review', {count: '5'})
+      buttonLabel: translate('card.button_text'),
+      buttonAriaLabel: translate('card.button_text'),
+      reviseLabel: translate('card.text', {total: '5'}),
+      reviseAriaLabel: translate('card.text', {total: '5'})
     }
   ]);
   t.notThrows(() => props.listSkills[0].onClick());
