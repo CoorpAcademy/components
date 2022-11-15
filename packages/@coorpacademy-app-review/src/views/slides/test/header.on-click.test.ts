@@ -43,12 +43,17 @@ const state: StoreState = {
 test('should dispatch OPEN_POPIN action after a click on close button in header', async t => {
   const expectedAction = [{type: OPEN_POPIN}];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, {translate, onQuitClick: identity});
+  const props = mapStateToSlidesProps(getState(), dispatch, {
+    translate,
+    onQuitClick: identity,
+    skin: {common: {primary: '#248e59'}}
+  });
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();
   const updatedProps = mapStateToSlidesProps(getState(), dispatch, {
     translate,
-    onQuitClick: identity
+    onQuitClick: identity,
+    skin: {common: {primary: '#248e59'}}
   });
   t.not(updatedProps.quitPopin, undefined);
   t.pass();

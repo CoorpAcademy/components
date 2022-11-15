@@ -11,7 +11,7 @@ import {EDIT_QCM_DRAG} from '../../../actions/ui/answers';
 import {QcmDrag} from '../../../types/slides';
 import {qcmDragSlide} from './fixtures/qcm-drag';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin: {common: {primary: '#248e59'}}};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},

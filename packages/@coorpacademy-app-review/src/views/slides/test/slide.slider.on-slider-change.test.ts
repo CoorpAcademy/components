@@ -11,7 +11,7 @@ import {EDIT_SLIDER} from '../../../actions/ui/answers';
 import {QuestionRange} from '../../../types/slides';
 import {sliderSlide} from './fixtures/slider';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin: {common: {primary: '#248e59'}}};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: 'skill_NyxtYFYir'},

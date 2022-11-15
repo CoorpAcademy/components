@@ -11,7 +11,7 @@ import {EDIT_QCM_GRAPHIC} from '../../../actions/ui/answers';
 import {QcmGraphic} from '../../../types/slides';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin: {common: {primary: '#248e59'}}};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: 'skill_NyxtYFYir'},

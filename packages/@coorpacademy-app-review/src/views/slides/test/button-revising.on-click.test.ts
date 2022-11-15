@@ -24,7 +24,7 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {sliderSlide} from './fixtures/slider';
 import {templateSlide} from './fixtures/template';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin: {common: {primary: '#248e59'}}};
 
 const state: StoreState = {
   data: {
