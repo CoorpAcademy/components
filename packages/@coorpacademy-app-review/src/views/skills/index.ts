@@ -8,26 +8,26 @@ export const mapStateToSkillsProps = (
 ): ReviewSkillsProps => {
   const {translate} = options;
   return {
-    'aria-label': translate('Review Skills Container'),
-    title: translate('Skills you can review'),
+    'aria-label': translate('list_aria_label'),
+    title: translate('list_title'),
     isLoading: false,
     isLoadingAriaLabel: 'Review skills container is loading',
     listSkills: state.data.skills.map(skill => ({
-      'aria-label': translate('Skill Card'),
+      'aria-label': translate('card.aria_label'),
       isCustom: skill.custom,
       skillTitle: skill.name,
       skillAriaLabel: skill.name,
-      buttonLabel: translate('Review this skill'),
-      buttonAriaLabel: translate('Review this skill'),
-      reviseLabel: translate('{{count}} questions to review', {count: `${skill.slidesToReview}`}),
-      reviseAriaLabel: translate('{{count}} questions to review', {
-        count: `${skill.slidesToReview}`
+      buttonLabel: translate('card.button_text'),
+      buttonAriaLabel: translate('card.button_text'),
+      reviseLabel: translate('card.text', {total: `${skill.slidesToReview}`}),
+      reviseAriaLabel: translate('card.text', {
+        total: `${skill.slidesToReview}`
       }),
       // eslint-disable-next-line no-console
       onClick: () => console.log('@todo plug dispatcher select skill')
     })),
-    titleNoSkills: translate('No skill to revise'),
-    textNoSkills: translate('Complete courses before revising'),
+    titleNoSkills: translate('no_skills.title'),
+    textNoSkills: translate('no_skills.text'),
     iconSkillAriaLabel: 'Image without information'
   };
 };
