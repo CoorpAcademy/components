@@ -1,6 +1,6 @@
 {
     "Review Title": "Režim kontroly",
-    "Content Parent Title": "Z `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Z „{{contentTitle}}“ {{contentType}}",
     "Validate": "Overiť",
     "Next Question": "Ďalšia otázka",
     "KLF": "Kľúčový bod",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Ste na dobrej ceste! Ak teraz skončíte, stratíte svoj pokrok.",
     "Stop learning": "Ukončiť reláciu",
     "Continue learning": "Pokračovať v učení",
+    "Continue": "Pokračovať",
+    "Type here": "Píšte sem",
+    "Select an answer": "Vybrať odpoveď",
     "presentation": {
       "aria_label": "Kontrola prezentačného kontajnera",
       "title": "Čo je to<br/>režim revízie?",
