@@ -1,6 +1,6 @@
 {
     "Review Title": "Mode Para Sa Pagrerebyu",
-    "Content Parent Title": "Mula sa `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Mula sa \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Patunayan",
     "Next Question": "Susunod na Tanong",
     "KLF": "Mahalagang punto",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Nasa tamang landas ka! Kung huminto ka ngayon, mawawala ang iyong pagsulong.",
     "Stop learning": "Tapusin ang sesyon",
     "Continue learning": "Magpatuloy na mag-aral",
+    "Continue": "Magpatuloy",
+    "Type here": "Mag-type dito",
+    "Select an answer": "Pumili ng sagot",
     "presentation": {
       "aria_label": "Lalagyan ng Rerepasuhing Presentasyon",
       "title": "Ano ang<br/>Revision Mode ?",
