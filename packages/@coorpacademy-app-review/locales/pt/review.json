@@ -1,6 +1,6 @@
 {
     "Review Title": "Modo de Revisão",
-    "Content Parent Title": "De`{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "De \"{{contentTitle}}\" {{contentType}} ",
     "Validate": "Validar",
     "Next Question": "Próxima Pergunta",
     "KLF": "Ponto chave",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Está no caminho certo! Se desistir agora, perderá o seu progresso.\n",
     "Stop learning": "Terminar sessão",
     "Continue learning": "Continue a aprender",
+    "Continue": "Continuar",
+    "Type here": "Escreva aqui",
+    "Select an answer": "Selecione uma resposta ",
     "presentation": {
       "aria_label": "Analisar Recipiente de Apresentação",
       "title": "O que é o <br/>Modo de Revisão?",
