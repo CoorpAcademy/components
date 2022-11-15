@@ -1,6 +1,6 @@
 {
     "Review Title": "Режим перегляду",
-    "Content Parent Title": "Від `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Від \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Підтвердити",
     "Next Question": "Наступне питання",
     "KLF": "Ключова точка",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Ви на правильному шляху! Якщо ви припините зараз, ви втратите свій прогрес.",
     "Stop learning": "Завершити сесію",
     "Continue learning": "Продовжити навчання",
+    "Continue": "Продовжити",
+    "Type here": "Друкуйте тут",
+    "Select an answer": "Обрати відповідь",
     "presentation": {
       "aria_label": "Контейнер з презентацією перегляду",
       "title": "Що таке <br/>Режим перегляду?",
