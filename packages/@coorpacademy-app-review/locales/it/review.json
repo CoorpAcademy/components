@@ -1,6 +1,6 @@
 {
     "Review Title": "Modalità revisione",
-    "Content Parent Title": "Da `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "Da \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Convalida",
     "Next Question": "Domanda seguente",
     "KLF": "Punto chiave",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Sei sulla buona strada! Se esci ora, perderai i tuoi progressi.",
     "Stop learning": "Termina sessione",
     "Continue learning": "Continua a imparare",
+    "Continue": "Continua",
+    "Type here": "Scrivi qui",
+    "Select an answer": "Seleziona una risposta",
     "presentation": {
       "aria_label": "Contenitore di presentazione di ripetizione",
       "title": "Cos'è<br/> la modalità ripetizione?",
