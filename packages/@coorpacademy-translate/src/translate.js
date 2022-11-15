@@ -1,4 +1,4 @@
-import {get, has, isString, isNumber, trim, replace} from 'lodash/fp';
+import {get, getOr, has, isString, isNumber, trim, replace} from 'lodash/fp';
 
 const interpolation = /\{\{([\s\S]+?)\}\}/g;
 
@@ -8,12 +8,12 @@ function getTemplate(locales, key, count) {
     return regularTemplate;
   }
   if (count === 0) {
-    return locales[`${key}_none`] || regularTemplate;
+    return getOr(regularTemplate, `${key}_none`, locales);
   }
   if (count === 1 || Number.isNaN(count)) {
     return regularTemplate;
   }
-  return locales[`${key}_plural`] || regularTemplate;
+  return getOr(regularTemplate, `${key}_plural`, locales);
 }
 
 const createTranslate = locales => (key, data) => {
