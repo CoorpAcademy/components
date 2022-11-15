@@ -1,6 +1,6 @@
 {
     "Review Title": "复习模式\n",
-    "Content Parent Title": "从`{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "来自 \"{{contentTitle}}\" {{contentType}}",
     "Validate": "验证",
     "Next Question": "下一个问题",
     "KLF": "关键点",
@@ -16,6 +16,9 @@
     "Quit Description Text": "您正走在正轨上！如果现在退出，您将丢失进度。",
     "Stop learning": "结束课程",
     "Continue learning": "继续学习",
+    "Continue": "继续",
+    "Type here": "在此输入",
+    "Select an answer": "选择一个答案",
     "presentation": {
       "aria_label": "复习演示容器",
       "title": "<br/>温习模式是什么？",
