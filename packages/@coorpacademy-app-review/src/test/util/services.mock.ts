@@ -1,5 +1,6 @@
 import get from 'lodash/fp/get';
 import {mockTranslate} from '@coorpacademy/translate';
+import {computeNextStepAfterAnswerForReview} from '@coorpacademy/progression-engine';
 import {qcmDragSlide} from '../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
@@ -466,6 +467,9 @@ export const services: Services = {
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
   postAnswer: progression => {
+    // TODO: call the real fonction here computeNextStepAfterAnswerForReview
+    console.log(progression, 'progression');
+    computeNextStepAfterAnswerForReview();
     const currentSlide = progression.state.nextContent.ref;
     return Promise.resolve(get(currentSlide, postAnswerResponses));
   },
