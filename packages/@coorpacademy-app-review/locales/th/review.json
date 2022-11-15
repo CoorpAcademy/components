@@ -1,6 +1,6 @@
 {
     "Review Title": "โหมดทบทวน",
-    "Content Parent Title": "จาก `{{contentTitle}}` `{{contentType}}`",
+    "Content Parent Title": "จาก \"{{contentTitle}}\" {{contentType}}",
     "Validate": "ผ่านการตรวจสอบ",
     "Next Question": "คำถามถัดไป",
     "KLF": "ประเด็นสำคัญ",
@@ -16,6 +16,9 @@
     "Quit Description Text": "คุณมาถูกทางแล้ว! ถ้าคุณออกตอนนี้คุณจะสูญเสียความคืบหน้าไป",
     "Stop learning": "สิ้นสุดเซสชัน",
     "Continue learning": "เรียนรู้ต่อไป",
+    "Continue": "ดำเนินการต่อ",
+    "Type here": "พิมพ์ที่นี่",
+    "Select an answer": "เลือกคำตอบ",
     "presentation": {
       "aria_label": "ทบทวนคอนเทนเนอร์นำเสนอ",
       "title": "อะไรคือ<br/>โหมดทบทวน",
