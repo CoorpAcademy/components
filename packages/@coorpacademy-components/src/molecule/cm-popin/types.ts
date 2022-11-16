@@ -44,7 +44,8 @@ type QuitPopinButton = {
   label: string;
   type: string;
   customStyle?: {
-    color: string;
+    backgroundColor?: string;
+    color?: string;
   };
   handleOnclick: () => void;
 };

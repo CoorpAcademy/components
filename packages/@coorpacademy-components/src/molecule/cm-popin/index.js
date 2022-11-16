@@ -169,6 +169,7 @@ const CMPopin = props => {
                 data-name={`cm-popin-cta-${secondButton.type}`}
                 aria-label={secondButton['aria-label']}
                 type={secondButton.type}
+                customStyle={secondButton.customStyle}
               />
             </div>
           ) : null}
