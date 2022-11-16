@@ -1,6 +1,10 @@
 import get from 'lodash/fp/get';
 import {mockTranslate} from '@coorpacademy/translate';
-import {computeNextStepAfterAnswerForReview} from '@coorpacademy/progression-engine';
+import {
+  computeNextStepAfterAnswerForReview,
+  getConfig,
+  updateState
+} from '@coorpacademy/progression-engine';
 import {qcmDragSlide} from '../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
@@ -8,6 +12,7 @@ import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
 import {sliderSlide} from '../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../views/slides/test/fixtures/template';
 import {
+  Config,
   CorrectionFromAPI,
   ProgressionFromAPI,
   ReviewContent,
@@ -381,13 +386,13 @@ export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
 export const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
   switch (ref) {
     case qcmSlide.universalRef: {
-      const correctAnswer = [get('question.content.choices.0.label', qcmSlide)];
+      const correctAnswer = [get('question.content.answers', qcmSlide)];
       return {
         correctAnswer,
         corrections: wrongChoice
           ? [
               {
-                answer: get('question.content.choices.2.label', qcmSlide),
+                answer: get('question.content.answers', qcmSlide),
                 isCorrect: false
               }
             ]
@@ -395,16 +400,16 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
       };
     }
     case qcmGraphicSlide.universalRef: {
-      const correctAnswer = [get('question.content.choices.1.label', qcmGraphicSlide)];
+      const correctAnswer = [get('question.content.answers', qcmGraphicSlide)];
       return {
         correctAnswer,
         corrections: wrongChoice
-          ? [{answer: get('question.content.choices.0.label', qcmGraphicSlide), isCorrect: false}]
+          ? [{answer: get('question.content.answers', qcmGraphicSlide), isCorrect: false}]
           : [{answer: correctAnswer[0], isCorrect: true}]
       };
     }
     case freeTextSlide.universalRef: {
-      const correctAnswer = ['Benchmark'];
+      const correctAnswer = [get('question.content.answers', freeTextSlide)];
       return {
         correctAnswer,
         corrections: wrongChoice
@@ -413,13 +418,13 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
       };
     }
     case templateSlide.universalRef: {
-      const correctAnswer = [get('question.content.choices.1.items.1.text', templateSlide)];
+      const correctAnswer = [get('question.content.answers', templateSlide)];
       return {
         correctAnswer,
         corrections: wrongChoice
           ? [
               {
-                answer: get('question.content.choices.1.items.0.text', templateSlide),
+                answer: get('question.content.answers', templateSlide),
                 isCorrect: false
               }
             ]
@@ -427,7 +432,7 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
       };
     }
     default: {
-      const correctAnswer = ['7', '7 ans'];
+      const correctAnswer = get('question.content.answers', sliderSlide);
       return {
         correctAnswer,
         corrections: wrongChoice
@@ -461,18 +466,41 @@ export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   }
 ];
 
+const availableContent = [
+  {
+    ref: content.ref,
+    slides: [freeTextSlide, qcmGraphicSlide, qcmSlide, sliderSlide, templateSlide],
+    rules: null
+  }
+];
+
+const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): ProgressionFromAPI => {
+  const reviewConfig: Config = getConfig({ref: 'review', version: '1'});
+  const action = [
+    computeNextStepAfterAnswerForReview(
+      reviewConfig,
+      progression.state,
+      availableContent,
+      getSlideFixture(progression.state.nextContent.ref),
+      {
+        type: 'answer',
+        payload: {answer, content: progression.state.nextContent, godMode: false}
+      }
+    )
+  ];
+
+  const newState = updateState(reviewConfig, progression.state, action);
+  const response = {...progression, state: newState};
+  return response;
+};
+
 export const services: Services = {
   fetchSkill: ref => Promise.resolve(fetchSkillResponse[ref]),
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: () => Promise.resolve(postProgressionResponse),
-  postAnswer: progression => {
-    // TODO: call the real fonction here computeNextStepAfterAnswerForReview
-    console.log(progression, 'progression');
-    computeNextStepAfterAnswerForReview();
-    const currentSlide = progression.state.nextContent.ref;
-    return Promise.resolve(get(currentSlide, postAnswerResponses));
-  },
+  postAnswer: (progression: ProgressionFromAPI, _: string, answer: string[]) =>
+    Promise.resolve(getPostAnswer(progression, answer)),
   fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),
   fetchRank: () => Promise.resolve(fetchRankResponse),
   fetchSlidesToReviewBySkillRef: () => Promise.resolve(fetchSlidesToReviewBySkillRefResponse)

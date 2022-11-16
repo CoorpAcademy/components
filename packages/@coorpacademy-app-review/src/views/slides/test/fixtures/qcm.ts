@@ -61,7 +61,8 @@ export const qcmSlide: SlideFromAPI = {
           value: 'sli_N1XACJobn.choice_VyS3LxjZh',
           id: '62c853412d0f9b088718e75c'
         }
-      ]
+      ],
+      answers: [['Le créateur peut fixer un pourcentage pour chaque transaction future']]
     },
     type: 'qcm',
     header: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?",

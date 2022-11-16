@@ -7,7 +7,8 @@ export const sliderSlide: SlideFromAPI = {
     content: {
       min: 1,
       max: 15,
-      unitLabel: 'an(s)'
+      unitLabel: 'an(s)',
+      answers: [['7']]
     },
     type: 'slider',
     header:

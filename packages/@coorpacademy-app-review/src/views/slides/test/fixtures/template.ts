@@ -74,7 +74,8 @@ export const templateSlide: SlideFromAPI = {
           name: 'sel80496',
           type: 'select'
         }
-      ]
+      ],
+      answers: [['Leaderboard', 'utilisateurs', 'étoiles']]
     },
     type: 'template',
     header: 'Complétez la phrase ci-dessous.',
