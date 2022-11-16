@@ -190,7 +190,7 @@ export type Options = {
 export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
-  skin: PrimarySkin;
+  skin: Skin;
 };
 
 export type AppOptions = ConnectedOptions & {
@@ -220,7 +220,7 @@ export type WithRequired<T, K extends keyof T> = T & {
   [P in K]-?: T[P];
 };
 
-export type PrimarySkin = {
+export type Skin = {
   common: {
     primary: string;
   };

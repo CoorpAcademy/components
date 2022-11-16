@@ -18,7 +18,7 @@ import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';
 import type {
   ConnectedOptions,
-  PrimarySkin,
+  Skin,
   ProgressionAnswerItem,
   ProgressionFromAPI,
   SlideContent,
@@ -288,7 +288,7 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: () => void, translate: Translate, skin: PrimarySkin): CMPopinProps => {
+  (onQuitClick: () => void, translate: Translate, skin: Skin): CMPopinProps => {
     return {
       content: translate('Quit Title'),
       icon: `MoonRocket`,
