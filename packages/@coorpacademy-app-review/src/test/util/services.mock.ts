@@ -15,6 +15,7 @@ import {
   Config,
   CorrectionFromAPI,
   ProgressionFromAPI,
+  ProgressionState,
   ReviewContent,
   ReviewEngine,
   Services,
@@ -489,8 +490,8 @@ const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): Progr
     )
   ];
 
-  const newState = updateState(reviewConfig, progression.state, action);
-  const response = {...progression, state: newState};
+  const newState: ProgressionState = updateState(reviewConfig, progression.state, action);
+  const response: ProgressionFromAPI = {...progression, state: newState};
   return response;
 };
 
