@@ -24,6 +24,9 @@ const fixture: Fixture = {
       label: `Continuer d'apprendre`,
       type: 'primary',
       'aria-label': 'Continue review',
+      customStyle: {
+        backgroundColor: '#248e59'
+      },
       handleOnclick: noop
     }
   }
