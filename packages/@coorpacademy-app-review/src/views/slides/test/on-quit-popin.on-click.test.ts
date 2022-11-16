@@ -71,7 +71,7 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: () => t.pass(),
-    skin: {common: {primary: '#248e59'}}
+    skin
   });
   const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.firstButton.handleOnclick();

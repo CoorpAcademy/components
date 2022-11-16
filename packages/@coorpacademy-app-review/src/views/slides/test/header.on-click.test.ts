@@ -9,6 +9,7 @@ import {
 import {StoreState} from '../../../reducers';
 import {OPEN_POPIN} from '../../../actions/ui/quit-popin';
 import {mapStateToSlidesProps} from '..';
+import {skin} from './fixtures/skin';
 
 const state: StoreState = {
   data: {
@@ -46,14 +47,14 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: identity,
-    skin: {common: {primary: '#248e59'}}
+    skin
   });
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();
   const updatedProps = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: identity,
-    skin: {common: {primary: '#248e59'}}
+    skin
   });
   t.not(updatedProps.quitPopin, undefined);
   t.pass();
