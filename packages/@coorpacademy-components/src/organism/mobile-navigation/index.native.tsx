@@ -1,5 +1,5 @@
 import React, {useState, useEffect, FC} from 'react';
-import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle, TextStyle, GestureResponderEvent} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
 import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/nova-icons';
@@ -15,13 +15,13 @@ interface ButtonProps {
   Icon: FC<{height: number; width: number; color?: string}>;
   styles: StyleSheetType;
   theme: Theme;
-  onPress: () => void;
+  onPress: (event: GestureResponderEvent) => void;
 }
 
 export type NavItemType = {
   label: string;
   icon: ButtonProps['Icon'];
-  handleOnPress: () => void;
+  handlePress: (event: GestureResponderEvent) => void;
 };
 
 export interface Props {
@@ -134,7 +134,7 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
             key={`button-${prop.label}`}
             title={prop.label}
             Icon={prop.icon}
-            onPress={prop.handleOnPress}
+            onPress={prop.handlePress}
             selected={index === selectedItemIndex}
             testID={`navigationButton_${index}`}
             styles={styleSheet}
