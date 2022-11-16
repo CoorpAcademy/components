@@ -474,4 +474,5 @@ export const services: Services = {
   fetchSlidesToReviewBySkillRef: () => Promise.resolve(fetchSlidesToReviewBySkillRefResponse)
 };
 
-export const translate = (key: string, data?: unknown): string => mockTranslate(key, data);
+export const translate = (key: string, data?: Record<string, string>): string =>
+  mockTranslate(key, data);
