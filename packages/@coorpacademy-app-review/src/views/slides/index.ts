@@ -306,13 +306,13 @@ const buildQuitPopinProps =
       secondButton: {
         label: translate('Continue learning'),
         type: 'primary',
+        customStyle: {
+          backgroundColor: skin.common.primary
+        },
         handleOnclick: (): void => {
           dispatch(closeQuitPopin);
         },
-        'aria-label': translate('Continue learning'),
-        customStyle: {
-          color: skin.common.primary
-        }
+        'aria-label': translate('Continue learning')
       }
     };
   };
