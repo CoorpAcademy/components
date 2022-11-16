@@ -22,8 +22,9 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity, skin: {common: {primary: '#248e59'}}};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)

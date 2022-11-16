@@ -12,8 +12,9 @@ import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity, skin: {common: {primary: '#248e59'}}};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 
 const state: StoreState = {
   data: {
