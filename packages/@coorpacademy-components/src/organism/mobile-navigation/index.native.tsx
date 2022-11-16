@@ -21,7 +21,7 @@ interface ButtonProps {
 export type NavItemType = {
   label: string;
   icon: ButtonProps['Icon'];
-  handlePress: (event: GestureResponderEvent) => void;
+  action: (event: GestureResponderEvent) => void;
 };
 
 export interface Props {
@@ -129,18 +129,21 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
         reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
       />
       <View style={styleSheet.container}>
-        {items.map((prop, index) => (
-          <Button
-            key={`button-${prop.label}`}
-            title={prop.label}
-            Icon={prop.icon}
-            onPress={prop.handlePress}
-            selected={index === selectedItemIndex}
-            testID={`navigationButton_${index}`}
-            styles={styleSheet}
-            theme={theme}
-          />
-        ))}
+        {items.map((prop, index) => {
+          const handlePress = prop.action;
+          return (
+            <Button
+              key={`button-${prop.label}`}
+              title={prop.label}
+              Icon={prop.icon}
+              onPress={handlePress}
+              selected={index === selectedItemIndex}
+              testID={`navigationButton_${index}`}
+              styles={styleSheet}
+              theme={theme}
+            />
+          );
+        })}
       </View>
     </View>
   );

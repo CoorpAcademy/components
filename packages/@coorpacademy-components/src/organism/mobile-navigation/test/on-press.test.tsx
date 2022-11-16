@@ -13,16 +13,16 @@ import NavigationBar from '../index.native';
 test('should handle onPress', t => {
   t.plan(1);
 
-  const handlePress = (event: GestureResponderEvent) => {
+  const action = (event: GestureResponderEvent) => {
     t.is(event, mockedGestureEvent);
   };
 
   const component = (
     <NavigationBar
       items={[
-        {label: 'Home', icon: HomeIcon, handlePress},
-        {label: 'Search', icon: SearchIcon, handlePress},
-        {label: 'Revision', icon: ClockIcon, handlePress}
+        {label: 'Home', icon: HomeIcon, action},
+        {label: 'Search', icon: SearchIcon, action},
+        {label: 'Revision', icon: ClockIcon, action}
       ]}
       selectedItemIndex={2}
     />
