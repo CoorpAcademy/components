@@ -78,7 +78,8 @@ const reducer = (
       if (nextSlideRef === 'successExitNode') return state;
       return pipe(
         set([currentSlideRef, 'animateCorrectionPopin'], false),
-        set([currentSlideRef, 'animationType'], action.payload.animationType)
+        set([currentSlideRef, 'animationType'], action.payload.animationType),
+        set([currentSlideRef, 'showCorrectionPopin'], false)
       )(state);
     }
     case POST_PROGRESSION_REQUEST: {
