@@ -14,9 +14,9 @@ const openRevision = () => null;
 const fixture: Fixture = {
   props: {
     items: [
-      {label: 'Home', icon: HomeIcon, onPress: openHome},
-      {label: 'Search', icon: SearchIcon, onPress: openSearch},
-      {label: 'Revision', icon: ClockIcon, onPress: openRevision}
+      {label: 'Home', icon: HomeIcon, action: openHome},
+      {label: 'Search', icon: SearchIcon, action: openSearch},
+      {label: 'Revision', icon: ClockIcon, action: openRevision}
     ],
     selectedItemIndex: 2
   }
