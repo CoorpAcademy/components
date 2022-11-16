@@ -5,6 +5,7 @@ import {BlurView} from '@react-native-community/blur';
 import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
+import Touchable from '../../hoc/touchable/index.native';
 import {Theme} from '../../variables/theme.native';
 
 interface ButtonProps {
@@ -14,12 +15,13 @@ interface ButtonProps {
   Icon: FC<{height: number; width: number; color?: string}>;
   styles: StyleSheetType;
   theme: Theme;
+  onPress: () => void;
 }
 
 export type NavItemType = {
   label: string;
   icon: ButtonProps['Icon'];
-  onPress: () => void;
+  handleOnPress: () => void;
 };
 
 export interface Props {
@@ -86,8 +88,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
-const Button = ({testID, title, selected, Icon, styles, theme}: ButtonProps) => (
-  <View testID={testID} style={styles.button}>
+const Button = ({testID, title, selected, Icon, styles, theme, onPress}: ButtonProps) => (
+  <Touchable testID={testID} style={styles.button} onPress={onPress}>
     <View style={{alignItems: 'center'}}>
       <Icon
         height={16}
@@ -102,7 +104,7 @@ const Button = ({testID, title, selected, Icon, styles, theme}: ButtonProps) => 
         <BlurredShadow color={theme.colors.cta} style={styles.blur} />
       </View>
     ) : null}
-  </View>
+  </Touchable>
 );
 
 const NavigationBar = ({items, selectedItemIndex}: Props) => {
@@ -132,6 +134,7 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
             key={`button-${prop.label}`}
             title={prop.label}
             Icon={prop.icon}
+            onPress={prop.handleOnPress}
             selected={index === selectedItemIndex}
             testID={`navigationButton_${index}`}
             styles={styleSheet}

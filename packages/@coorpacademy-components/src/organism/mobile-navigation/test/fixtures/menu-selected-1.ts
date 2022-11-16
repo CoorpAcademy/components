@@ -11,9 +11,9 @@ type Fixture = {props: Props};
 const fixture: Fixture = {
   props: {
     items: [
-      {label: 'Home', icon: HomeIcon, onPress: noop},
-      {label: 'Search', icon: SearchIcon, onPress: noop},
-      {label: 'Revision', icon: ClockIcon, onPress: noop}
+      {label: 'Home', icon: HomeIcon, handleOnPress: noop},
+      {label: 'Search', icon: SearchIcon, handleOnPress: noop},
+      {label: 'Revision', icon: ClockIcon, handleOnPress: noop}
     ],
     selectedItemIndex: 1
   }
