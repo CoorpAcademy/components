@@ -21,8 +21,9 @@ import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: 'skill_NyxtYFYir'},

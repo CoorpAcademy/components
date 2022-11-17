@@ -11,8 +11,9 @@ import {StoreState} from '../../../reducers';
 import {EDIT_TEMPLATE} from '../../../actions/ui/answers';
 import {Template, TextTemplate} from '../../../types/slides';
 import {templateSlide} from './fixtures/template';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: 'skill_NyxtYFYir'},

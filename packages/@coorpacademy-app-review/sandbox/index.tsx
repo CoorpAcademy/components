@@ -11,6 +11,7 @@ import localesAppReview from '../locales/en/review.json';
 import AppReview from '../src';
 import type {AppOptions, Translate} from '../src/types/common';
 import {services} from '../src/test/util/services.mock';
+import {skin} from '../src/views/slides/test/fixtures/skin';
 
 type SandboxOptions = {
   container: string;
@@ -46,7 +47,6 @@ const createSandbox = (options: SandboxOptions): void => {
     console.error('[AppReview sandbox] Requires a container.');
   } else {
     const container = document.getElementById(options.container);
-
     // mode mobile/web
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
@@ -55,14 +55,9 @@ const createSandbox = (options: SandboxOptions): void => {
       translate,
       onQuitClick: () => {
         location.reload();
-      }
+      },
+      skin
     };
-    const skin = {
-      common: {
-        primary: '#248e59'
-      }
-    };
-
     render(
       <WebContext skin={skin} translate={identity}>
         <AppReview options={appOptions} />

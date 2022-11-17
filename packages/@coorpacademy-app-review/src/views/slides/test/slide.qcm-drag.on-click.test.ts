@@ -10,8 +10,9 @@ import {StoreState} from '../../../reducers';
 import {EDIT_QCM_DRAG} from '../../../actions/ui/answers';
 import {QcmDrag} from '../../../types/slides';
 import {qcmDragSlide} from './fixtures/qcm-drag';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},

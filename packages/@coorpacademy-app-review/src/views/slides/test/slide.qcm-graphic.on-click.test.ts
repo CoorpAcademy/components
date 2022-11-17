@@ -10,8 +10,9 @@ import {StoreState} from '../../../reducers';
 import {EDIT_QCM_GRAPHIC} from '../../../actions/ui/answers';
 import {QcmGraphic} from '../../../types/slides';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: 'skill_NyxtYFYir'},

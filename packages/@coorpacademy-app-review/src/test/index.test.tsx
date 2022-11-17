@@ -62,7 +62,12 @@ const appOptions: AppOptions = {
   skillRef: 'skill_NJC0jFKoH',
   services,
   onQuitClick: identity,
-  translate: key => key
+  translate: key => key,
+  skin: {
+    common: {
+      primary: '#248e59'
+    }
+  }
 };
 
 test('should show the loader while the app is fetching the data', async t => {

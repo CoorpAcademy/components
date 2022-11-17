@@ -190,6 +190,7 @@ export type Options = {
 export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
+  skin: Skin;
 };
 
 export type AppOptions = ConnectedOptions & {
@@ -217,4 +218,10 @@ export type JWT = {
 export type WithRequired<T, K extends keyof T> = T & {
   // the "-" is a Mapping Modifier, removes optionality from a prop
   [P in K]-?: T[P];
+};
+
+export type Skin = {
+  common: {
+    primary: string;
+  };
 };

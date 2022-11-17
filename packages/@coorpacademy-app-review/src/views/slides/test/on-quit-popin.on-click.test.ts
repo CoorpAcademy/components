@@ -12,8 +12,9 @@ import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 
 const state: StoreState = {
   data: {
@@ -69,7 +70,8 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
-    onQuitClick: () => t.pass()
+    onQuitClick: () => t.pass(),
+    skin
   });
   const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.firstButton.handleOnclick();

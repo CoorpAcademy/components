@@ -23,8 +23,9 @@ import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {sliderSlide} from './fixtures/slider';
 import {templateSlide} from './fixtures/template';
+import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity};
+const connectedOptions = {translate, onQuitClick: identity, skin};
 
 const state: StoreState = {
   data: {

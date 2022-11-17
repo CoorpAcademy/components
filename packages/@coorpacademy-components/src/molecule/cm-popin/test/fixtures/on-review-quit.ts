@@ -23,6 +23,9 @@ const fixture: Fixture = {
     secondButton: {
       label: `Continuer d'apprendre`,
       type: 'primary',
+      customStyle: {
+        backgroundColor: '#0061FF'
+      },
       'aria-label': 'Continue review',
       handleOnclick: noop
     }
