@@ -59,7 +59,8 @@ export const qcmDragSlide: SlideFromAPI = {
           value: 'sli_4yGBq-mCg.choice_Eybw5dQCx',
           id: '624f01970a234b0333bc7ceb'
         }
-      ]
+      ],
+      answers: [['L’implication', 'La frustration', 'La frustration', 'La démoralisation']]
     },
     type: 'qcmDrag',
     header: "Remettez dans l'ordre les quatre étapes du burn out.",

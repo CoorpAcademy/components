@@ -9,7 +9,7 @@ const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Mid
   constant((next: Dispatch) => (action: AnyAction): unknown => {
     const expectedAction = ACTIONS.shift();
     if (!expectedAction) throw new Error(`Missing {type: "${action.type}"} action`);
-    t.deepEqual(action, expectedAction);
+    t.deepEqual(expectedAction, action);
     return next(action);
   });
 

@@ -12,7 +12,8 @@ export const freeTextSlide: SlideFromAPI = {
       },
       label: '',
       placeholder: 'Type here',
-      id: 'sli_VJYjJnJhg.choice_1'
+      id: 'sli_VJYjJnJhg.choice_1',
+      answers: [['Benchmark']]
     },
     type: 'basic',
     header:

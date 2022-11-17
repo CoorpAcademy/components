@@ -36,6 +36,7 @@
   "module": "es/index.js",
   "dependencies": {
     "@coorpacademy/components": "10.29.2",
+    "@coorpacademy/progression-engine": "^11.5.0",
     "@coorpacademy/redux-task": "1.1.6",
     "@coorpacademy/translate": "6.2.0",
     "cross-fetch": "^3.1.5",

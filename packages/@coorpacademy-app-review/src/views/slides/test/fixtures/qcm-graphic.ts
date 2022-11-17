@@ -171,6 +171,14 @@ export const qcmGraphicSlide: SlideFromAPI = {
           value: 'sli_4k5O3zaN5.choice_41xAWYJYI9',
           id: '616dbbb61a50f8051c1971c7'
         }
+      ],
+      answers: [
+        [
+          'La consolidation des acquis',
+          'Le retour d’information',
+          'L’engagement actif',
+          'L’attention'
+        ]
       ]
     },
     type: 'qcmGraphic',

@@ -18,6 +18,7 @@ export type ChoiceFromAPI = {
 type BaseContent = {
   media?: unknown;
   choices: ChoiceFromAPI[];
+  answers: string[][];
 };
 
 type BaseQuestion = {
@@ -45,6 +46,7 @@ export type BasicQuestion = Omit<BaseQuestion, 'content'> & {
     label?: string;
     placeholder?: string;
     id: string;
+    answers: string[][];
   };
 };
 
@@ -55,6 +57,7 @@ export type SliderQuestion = Omit<BaseQuestion, 'content'> & {
     min: number;
     max: number;
     step?: number;
+    answers: string[][];
   };
   type: 'slider';
 };
@@ -62,6 +65,7 @@ export type SliderQuestion = Omit<BaseQuestion, 'content'> & {
 export type TemplateQuestion = Omit<BaseQuestion, 'content'> & {
   content: BaseContent & {
     template: string;
+    answers: string[][];
   };
   type: 'template';
 };
@@ -116,8 +120,15 @@ export type ProgressionState = {
   allAnswers: ProgressionAnswerItem[];
   content?: SlideContent;
   isCorrect: boolean;
+  lives?: number;
+  livesDisabled?: boolean;
+  hasViewedAResourceAtThisStep?: boolean;
   nextContent: SlideContent | SuccessNodeContent;
   pendingSlides: string[];
+  remainingLifeRequests?: number;
+  requestedClues?: [];
+  variables?: {};
+  viewedResources?: [];
   slides: string[];
   step: {
     current: number;
@@ -224,4 +235,18 @@ export type Skin = {
   common: {
     primary: string;
   };
+};
+
+export type Config = {
+  version: string;
+  livesDisabled: boolean;
+  lives: number;
+  maxTypos: number;
+  slidesToComplete: number;
+  shuffleChoices?: boolean;
+  answerBoundaryLimit: number;
+  starsPerAskingClue: number;
+  starsPerCorrectAnswer: number;
+  starsPerResourceViewed: number;
+  remainingLifeRequests: number;
 };

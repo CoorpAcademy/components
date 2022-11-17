@@ -12,6 +12,7 @@ import createProgression from './create-progression';
 import getFastSlideExitNode from './compute-fast-slide-next-content';
 import {getConfig, getConfigForProgression} from './config';
 import ERRORS from './errors';
+import updateState from './update-state';
 
 import type {
   CHAPTER,
@@ -133,5 +134,6 @@ export {
   createProgression,
   getConfig,
   getConfigForProgression,
+  updateState,
   ERRORS
 };

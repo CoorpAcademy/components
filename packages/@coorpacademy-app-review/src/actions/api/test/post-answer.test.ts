@@ -1,5 +1,6 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
+import {ReviewEngine, ReviewContent, ProgressionFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRefResponse,
@@ -31,9 +32,18 @@ import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS
 } from '../fetch-slides-to-review-by-skill-ref';
 
-const progressionId = '123456789123';
-const skillRef = '_skill-ref';
-const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
+const progressionId = '62b1d1087aa12f00253f40ee';
+const skillRef = 'skill_NyxtYFYir';
+const answer = ['Benchmark'];
+
+const content: ReviewContent = {
+  ref: 'skill_NyxtYFYir',
+  type: 'skill'
+};
+
+const engine: ReviewEngine = {
+  ref: 'review'
+};
 
 const initialState: StoreState = {
   data: {
@@ -89,12 +99,55 @@ const initialState: StoreState = {
 
 test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-start-rank actions when the answer is submitted and when the slide ref is not "successExitNode"', async t => {
   t.plan(8);
+
+  const expectedProgressionAfter: ProgressionFromAPI = {
+    _id: '62b1d1087aa12f00253f40ee',
+    content: {
+      ref: 'skill_NyxtYFYir',
+      type: 'skill'
+    },
+    engine: {
+      ref: 'review'
+    },
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        }
+      ],
+      content: {
+        ref: freeTextSlide.universalRef,
+        type: 'slide'
+      },
+      hasViewedAResourceAtThisStep: false,
+      isCorrect: true,
+      lives: 0,
+      livesDisabled: true,
+      nextContent: {
+        ref: qcmGraphicSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      remainingLifeRequests: 0,
+      requestedClues: [],
+      slides: [freeTextSlide.universalRef],
+      stars: 8,
+      step: {
+        current: 2
+      },
+      variables: {},
+      viewedResources: []
+    }
+  };
+
   const expectedActions = [
     {type: POST_ANSWER_REQUEST, meta: {slideRef: freeTextSlide._id}},
     {
       type: POST_ANSWER_SUCCESS,
       meta: {slideRef: freeTextSlide._id},
-      payload: postAnswerResponses[freeTextSlide._id]
+      payload: expectedProgressionAfter
     },
     {
       type: SLIDE_FETCH_REQUEST,
@@ -133,8 +186,72 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   });
 });
 
+// check if you should not do the last slide there
 test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-slides-to-review-by-skill-ref actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
   t.plan(9);
+
+  const expectedProgressionAfter: ProgressionFromAPI = {
+    _id: '62b1d1087aa12f00253f40ee',
+    content,
+    engine,
+    state: {
+      allAnswers: [
+        {
+          slideRef: freeTextSlide.universalRef,
+          isCorrect: true,
+          answer: ['Benchmark']
+        },
+        {
+          slideRef: qcmGraphicSlide.universalRef,
+          isCorrect: true,
+          answer: ['Faux']
+        },
+        {
+          slideRef: qcmSlide.universalRef,
+          isCorrect: true,
+          answer: ['Le créateur peut fixer un pourcentage pour chaque transaction future']
+        },
+        {
+          slideRef: sliderSlide.universalRef,
+          isCorrect: true,
+          answer: ['7']
+        },
+        {
+          slideRef: templateSlide.universalRef,
+          isCorrect: true,
+          answer: ['Leaderboard', 'utilisateurs', 'étoiles']
+        }
+      ],
+      hasViewedAResourceAtThisStep: false,
+      isCorrect: true,
+      lives: 0,
+      livesDisabled: true,
+      nextContent: {
+        ref: 'successExitNode',
+        type: 'success'
+      },
+      content: {
+        ref: templateSlide.universalRef,
+        type: 'slide'
+      },
+      pendingSlides: [],
+      remainingLifeRequests: 0,
+      requestedClues: [],
+      variables: {},
+      viewedResources: [],
+      slides: [
+        freeTextSlide.universalRef,
+        qcmGraphicSlide.universalRef,
+        qcmSlide.universalRef,
+        sliderSlide.universalRef,
+        templateSlide.universalRef
+      ],
+      step: {
+        current: 6
+      },
+      stars: 40
+    }
+  };
 
   const stateBeforeExitNode: StoreState = {
     data: {
@@ -143,7 +260,8 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
         [freeTextSlide._id]: freeTextSlide,
         [qcmGraphicSlide._id]: qcmGraphicSlide,
         [qcmSlide._id]: qcmSlide,
-        [sliderSlide._id]: sliderSlide
+        [sliderSlide._id]: sliderSlide,
+        [templateSlide._id]: templateSlide
       },
       skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
       token: '1234',
@@ -160,7 +278,8 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
         [freeTextSlide._id]: answer,
         [qcmGraphicSlide._id]: ['qcm-graphic answer'],
         [qcmSlide._id]: ['qcm-slide answer'],
-        [sliderSlide._id]: ['Leaderboard', 'utilisateurs', 'étoiles']
+        [sliderSlide._id]: ['slider-slide answer'],
+        [templateSlide._id]: ['Leaderboard', 'utilisateurs', 'étoiles']
       },
       slide: {
         [freeTextSlide._id]: {
@@ -182,6 +301,11 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
           validateButton: true,
           animateCorrectionPopin: false,
           showCorrectionPopin: false
+        },
+        [templateSlide._id]: {
+          validateButton: true,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false
         }
       },
       showQuitPopin: false,
@@ -194,7 +318,7 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
     {
       type: POST_ANSWER_SUCCESS,
       meta: {slideRef: templateSlide._id},
-      payload: postAnswerResponses[templateSlide._id]
+      payload: expectedProgressionAfter
     },
     {type: CORRECTION_FETCH_REQUEST, meta: {slideRef: templateSlide._id}},
     {
