@@ -61,7 +61,6 @@
     "browser-env": "^3.3.0",
     "concurrently": "^5.2.0",
     "eslint": "^8.18.0",
-    "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "html-webpack-plugin": "^5.5.0",
     "nock": "^13.2.9",
