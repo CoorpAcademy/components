@@ -245,9 +245,9 @@ const CorrectionPart = props => {
           data-name="title"
           className={buildDefaultOrScormStyle(
             classnames(style.title, style.innerHTML),
-            mode,
             style.resultTitleScorm,
-            failed
+            failed,
+            mode
           )}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
@@ -255,9 +255,9 @@ const CorrectionPart = props => {
         <h2
           className={buildDefaultOrScormStyle(
             style.subtitle,
-            mode,
             style.resultSubtitleScorm,
             failed,
+            mode,
             style.statusPlayerResultFailScorm
           )}
         >
