@@ -120,8 +120,15 @@ export type ProgressionState = {
   allAnswers: ProgressionAnswerItem[];
   content?: SlideContent;
   isCorrect: boolean;
+  lives?: number;
+  livesDisabled?: boolean;
+  hasViewedAResourceAtThisStep?: boolean;
   nextContent: SlideContent | SuccessNodeContent;
   pendingSlides: string[];
+  remainingLifeRequests?: number;
+  requestedClues?: [];
+  variables?: {};
+  viewedResources?: [];
   slides: string[];
   step: {
     current: number;
