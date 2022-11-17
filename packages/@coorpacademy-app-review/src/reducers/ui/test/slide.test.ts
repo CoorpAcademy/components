@@ -78,7 +78,7 @@ test('should set animateCorrectionPopin to false and animationType to unstack or
     '1234': {
       validateButton: false,
       animateCorrectionPopin: false,
-      showCorrectionPopin: true,
+      showCorrectionPopin: false,
       animationType: 'unstack'
     }
   });
