@@ -1,6 +1,6 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
-import {ProgressionFromAPI, ReviewContent, ReviewEngine} from 'src/types/common';
+import {ReviewEngine, ReviewContent, ProgressionFromAPI} from '../../../types/common';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRefResponse,
