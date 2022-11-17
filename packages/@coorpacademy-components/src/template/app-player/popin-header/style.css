@@ -101,8 +101,6 @@
   display: flex;
   justify-content: center;
   flex-direction: column-reverse;
-  color: white;
-  height: 20px;
 }
 
 .titleElement {
