@@ -183,7 +183,7 @@ export const qcmGraphicSlide: SlideFromAPI = {
     },
     type: 'qcmGraphic',
     header: 'Quels sont les 4 piliers de l’apprentissage ?',
-    explanation: 'Sélectionnez les  4 bonnes réponses.'
+    explanation: 'Sélectionnez les 4 bonnes réponses.'
   },
   klf: 'Avec l’engagement actif, le retour d’information et la consolidation des acquis, l’attention est le premier des quatre piliers de l’apprentissage, identifiés par les chercheurs en neuroscience, spécialistes de l’éducation.',
   tips: 'Une configuration idéale pour l’apprentissage, mettant en œuvre ces 4 piliers : présenter à un apprenant un contenu de durée raisonnable, qui respecte le temps d’attention qu’il peut lui accorder ; proposer ensuite un exercice sur le contenu qui vient d’être expliqué ; puis donner à l’apprenant un retour en direct sur sa production.',

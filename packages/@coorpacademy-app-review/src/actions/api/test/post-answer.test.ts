@@ -31,9 +31,9 @@ import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS
 } from '../fetch-slides-to-review-by-skill-ref';
 
-const progressionId = '123456789123';
-const skillRef = '_skill-ref';
-const answer = ['Lister vos tâches pour vous libérer l’esprit', 'Vous isoler dans un lieu calme'];
+const progressionId = '62b1d1087aa12f00253f40ee';
+const skillRef = 'skill_NyxtYFYir';
+const answer = ['Benchmark'];
 
 const initialState: StoreState = {
   data: {
