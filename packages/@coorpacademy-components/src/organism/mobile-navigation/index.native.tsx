@@ -1,10 +1,11 @@
 import React, {useState, useEffect, FC} from 'react';
-import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
+import {View, StyleSheet, Text, ViewStyle, TextStyle, GestureResponderEvent} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
 import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
+import Touchable from '../../hoc/touchable/index.native';
 import {Theme} from '../../variables/theme.native';
 
 interface ButtonProps {
@@ -14,12 +15,13 @@ interface ButtonProps {
   Icon: FC<{height: number; width: number; color?: string}>;
   styles: StyleSheetType;
   theme: Theme;
+  onPress: (event: GestureResponderEvent) => void;
 }
 
 export type NavItemType = {
   label: string;
   icon: ButtonProps['Icon'];
-  onPress: () => void;
+  action: (event: GestureResponderEvent) => void;
 };
 
 export interface Props {
@@ -86,8 +88,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
-const Button = ({testID, title, selected, Icon, styles, theme}: ButtonProps) => (
-  <View testID={testID} style={styles.button}>
+const Button = ({testID, title, selected, Icon, styles, theme, onPress}: ButtonProps) => (
+  <Touchable testID={testID} style={styles.button} onPress={onPress}>
     <View style={{alignItems: 'center'}}>
       <Icon
         height={16}
@@ -102,7 +104,7 @@ const Button = ({testID, title, selected, Icon, styles, theme}: ButtonProps) => 
         <BlurredShadow color={theme.colors.cta} style={styles.blur} />
       </View>
     ) : null}
-  </View>
+  </Touchable>
 );
 
 const NavigationBar = ({items, selectedItemIndex}: Props) => {
@@ -127,17 +129,21 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
         reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
       />
       <View style={styleSheet.container}>
-        {items.map((prop, index) => (
-          <Button
-            key={`button-${prop.label}`}
-            title={prop.label}
-            Icon={prop.icon}
-            selected={index === selectedItemIndex}
-            testID={`navigationButton_${index}`}
-            styles={styleSheet}
-            theme={theme}
-          />
-        ))}
+        {items.map((prop, index) => {
+          const handlePress = prop.action;
+          return (
+            <Button
+              key={`button-${prop.label}`}
+              title={prop.label}
+              Icon={prop.icon}
+              onPress={handlePress}
+              selected={index === selectedItemIndex}
+              testID={`navigationButton_${index}`}
+              styles={styleSheet}
+              theme={theme}
+            />
+          );
+        })}
       </View>
     </View>
   );
