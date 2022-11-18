@@ -100,7 +100,7 @@ const defaultTheme: Theme = {
     notification: '#FF7043',
     salmon: '#FDE2E5',
     podcast: {
-      background: '#171721',
+      background: COLORS.cm_grey_800,
       primary: '#FF541F'
     }
   },
