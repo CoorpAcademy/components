@@ -403,8 +403,8 @@ export const computeNextStepForReview = (
   const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const state = !_state || !action ? _state : updateState(config, _state, [action]);
-
   const correctAnswers = state ? filter(a => a.isCorrect, state.allAnswers) : [];
+
   if (correctAnswers.length === config.slidesToComplete) {
     return {
       nextContent: {
@@ -431,8 +431,20 @@ export const computeNextStepForReview = (
         state.pendingSlides
       );
 
-      // all other questions have been already right answered, so we close the progression
+      // all other questions have been already right answered BUT you fail the last question
+      if (!pendingSlide && !isCorrect) {
+        return {
+          nextContent: {
+            type: 'slide',
+            ref: state.nextContent.ref
+          },
+          instructions: null,
+          isCorrect
+        };
+      }
+
       if (!pendingSlide) {
+        // all other questions have been already right answered, so we close the progression
         return null;
       }
 
