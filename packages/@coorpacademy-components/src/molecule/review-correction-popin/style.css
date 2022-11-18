@@ -6,6 +6,7 @@
 @value cm_positive_100 from colors;
 @value cm_negative_100 from colors;
 @value cm_primary_blue from colors;
+@value cm_grey_800 from colors;
 @value cm_blue_900 from colors;
 
 .wrapper {
@@ -217,7 +218,7 @@
 
 .nextQuestionButton {
   background: white;
-  color: cm_primary_blue;
+  color: cm_grey_800;
 }
 
 .nextQuestionButton:hover {
