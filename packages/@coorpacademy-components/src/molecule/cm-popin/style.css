@@ -3,7 +3,7 @@
 @value brand from colors;
 @value light from colors;
 @value black from colors;
-@value cm_grey_800 from colors;
+@value cm_grey_600 from colors;
 @value negative from colors;
 @value lightGreen from colors;
 @value xtraLightGrey from colors;
@@ -101,7 +101,7 @@
   line-height: 1.4;
   letter-spacing: normal;
   text-align: center;
-  color: cm_grey_800;
+  color: cm_grey_600;
 }
 
 .buttonContainer {
@@ -126,7 +126,7 @@
 .icon {
   width: 60px;
   height: 60px;
-  color: cm_grey_800;
+  color: cm_grey_600;
 }
 
 .popinHeader {
