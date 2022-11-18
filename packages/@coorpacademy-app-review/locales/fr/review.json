@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Compétences que vous pouvez réviser",
-    "list_aria_label": "Revoir le conteneur de compétences",
+    "list_title": "Compétences que vous pouvez reviser",
+    "list_aria_label": "Examiner le conteneur de compétences",
     "card": {
       "aria_label": "Carte de compétence",
-      "text": "{{total}} questions à revoir",
-      "button_text": "Réviser cette compétence"
+      "text": "{{total}} questions à reviser",
+      "button_text": "Reviser cette compétence"
     },
     "no_skills": {
-      "title": "Vous n'avez encore aucune compétence à réviser",
-      "text": "Vous devez d'abord suivre des cours pour pouvoir réviser des compétences."
+      "title": "Vous n'avez pas encore de compétence à réviser",
+      "text": "Vous devez d'abord suivre des cours avant de pouvoir passer en revue différentes compétences."
     }      
 }
