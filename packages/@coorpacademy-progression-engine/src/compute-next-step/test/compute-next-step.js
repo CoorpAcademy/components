@@ -328,6 +328,86 @@ test('computeNextStepForReview --> should return the next slide', t => {
   });
 });
 
+test('computeNextStepForReview --> should return the same slide if you fail the last question', t => {
+  const state: State = Object.freeze({
+    livesDisabled: true,
+    isCorrect: true,
+    slides: ['1.A1.1', '1.A1.2', '1.A1.3', '1.A1.4'],
+    lives: 0,
+    step: {
+      current: 5
+    },
+    stars: 32,
+    requestedClues: [],
+    viewedResources: [],
+    remainingLifeRequests: 0,
+    hasViewedAResourceAtThisStep: false,
+    content: {
+      ref: '1.A1.4',
+      type: 'slide'
+    },
+    nextContent: {
+      ref: '1.A1.5',
+      type: 'slide'
+    },
+    allAnswers: [
+      {
+        slideRef: '1.A1.1',
+        isCorrect: true,
+        answer: ['d']
+      },
+      {
+        slideRef: '1.A1.2',
+        isCorrect: true,
+        answer: ['d']
+      },
+      {
+        slideRef: '1.A1.3',
+        isCorrect: true,
+        answer: ['d']
+      },
+      {
+        slideRef: '1.A1.4',
+        isCorrect: true,
+        answer: ['d']
+      }
+    ],
+    pendingSlides: [],
+    variables: {}
+  });
+  const _config: Config = getConfig({ref: 'review', version: '1'});
+
+  const _availableContent: AvailableContent = [
+    {
+      ref: 'skill_ref',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const result = computeNextStepForReview(_config, state, _availableContent, {
+    type: 'answer',
+    payload: {
+      answer: ['answer'],
+      content: {
+        ref: '1.A1.5',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: false
+    }
+  });
+
+  t.deepEqual(result, {
+    nextContent: {
+      type: 'slide',
+      ref: '1.A1.5'
+    },
+    instructions: null,
+    isCorrect: false
+  });
+});
+
 test('computeNextStepForReview --> should avoid to return the already answered slide if there are lag on review lambda and available content are not updated', t => {
   const state: State = Object.freeze({
     livesDisabled: true,
