@@ -165,7 +165,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 }
 
 @media mobile {
-  .questionOrigin, .question, .help, .answerContainer {
+  .questionOrigin, .question, .help {
     max-width: 90%;
   }
   
@@ -176,5 +176,11 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
     to {
       transform: translate3d(0, 0, 0);
     }
+  }
+
+  .answerContainer {
+    width: 100%;
+    max-width: unset;
+    justify-content: unset;
   }
 }
