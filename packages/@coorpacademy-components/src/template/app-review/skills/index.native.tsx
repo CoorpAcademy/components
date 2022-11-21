@@ -17,6 +17,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     container: {
       flex: 1,
       padding: 20,
+      width: '100%',
       paddingTop: HEADER_HEIGHT + 20,
       backgroundColor: theme.colors.white
     },
