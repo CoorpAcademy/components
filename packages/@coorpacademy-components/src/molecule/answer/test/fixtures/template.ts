@@ -25,7 +25,7 @@ const fixture: Fixture = {
     model: {
       type: 'template',
       template,
-      answers,
+      answers
     },
     help: '',
     media: {
