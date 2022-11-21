@@ -26,7 +26,6 @@ const fixture: Fixture = {
       type: 'template',
       template,
       answers,
-      title: 'coucou'
     },
     help: '',
     media: {
