@@ -24,6 +24,7 @@ export type UISlide = {
   animateCorrectionPopin: boolean;
   showCorrectionPopin: boolean;
   animationType?: SlideUIAnimations;
+  pendingAnswerRequest: boolean;
 };
 
 export type UISlideState = Record<string, UISlide>;
@@ -65,7 +66,10 @@ const reducer = (
       );
     }
     case POST_ANSWER_REQUEST: {
-      return set([action.meta.slideRef, 'validateButton'], false, state);
+      return pipe(
+        set([action.meta.slideRef, 'validateButton'], false),
+        set([action.meta.slideRef, 'pendingAnswerRequest'], true)
+      )(state);
     }
     case CORRECTION_FETCH_SUCCESS: {
       return pipe(
