@@ -504,7 +504,7 @@
     margin: 0;
 
     /* hack for ie <= 11, limit for 1/3 of desktop breakpoint (1024px) */
-    max-width: 341px;
+    max-width: 150px;
   }
 }
 
