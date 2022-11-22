@@ -41,7 +41,8 @@ const state: StoreState = {
       [freeTextSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
