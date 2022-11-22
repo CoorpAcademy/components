@@ -1,6 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
 @value mobile from breakpoints;
+@value desktop from breakpoints;
 @value colors: "../../variables/colors.css";
 @value medium from colors;
 @value light from colors;
@@ -62,11 +63,6 @@
   background-color: white;
   background-image: none;
   color: medium;
-}
-
-.search::placeholder {
-  color: medium;
-  font-size: 14px;
 }
 
 .coorpmanager {
@@ -180,6 +176,12 @@
   line-height: 16px;
 }
 
+@media desktop {
+  .search::placeholder {
+    color: transparent;
+  }
+}
+
 @media tablet {
   .search,
   input {
@@ -188,6 +190,7 @@
 
   .search::placeholder {
     font-size: 12px;
+    color: medium;
   }
 }
 
