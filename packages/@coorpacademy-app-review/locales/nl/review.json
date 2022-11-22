@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Vaardigheden die u kunt reviewen",
-    "list_aria_label": "Review vaardigheden container",
+    "list_title": "Vaardigheden die je kunt beoordelen",
+    "list_aria_label": "Beoordeel vaardigheden container",
     "card": {
       "aria_label": "Vaardighedenkaart",
-      "text": "{{total}} vragen om te reviewen",
-      "button_text": "Review deze vaardigheid"
+      "text": "{{total}} vragen om te beoordelen",
+      "button_text": "Beoordeel deze vaardigheid"
     },
     "no_skills": {
-      "title": "U heeft nog geen vaardigheid om te reviseren",
-      "text": "U moet eerst lessen voltooien voordat u verschillende vaardigheden kunt reviewen."
+      "title": "Je hebt nog geen vaardigheden om aan te passen",
+      "text": "Je moet eerst cursussen afronden voor je verschillende vaardigheden kunt beoordelen."
     }      
 }
