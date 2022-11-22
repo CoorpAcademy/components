@@ -483,6 +483,10 @@
 }
 
 @media desktop {
+  .item {
+    padding: 0 11px;
+  }
+
   .logoWrapper {
     height: 100%;
     background-color: white;
