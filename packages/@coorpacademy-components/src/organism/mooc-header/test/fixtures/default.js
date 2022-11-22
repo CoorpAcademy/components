@@ -5,8 +5,9 @@ const research = SearchBar.props;
 export default {
   props: {
     logo: {
-      src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491561426926.svg',
-      srcMobile: 'https://static.coorpacademy.com/content/up/raw/logo-generique-teams-mobile.png',
+      src: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/onboarding/raw/coorp_logo-1522333286516.svg&h=80&w=600&q=90&m=contain',
+      srcMobile:
+        'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/onboarding/raw/coorp_logo_infinite-1553079705037.png&h=80&w=600&q=90&m=contain',
       href: '#',
       'aria-label': 'brand logo up.coorpacademy.com',
       'button-aria-label': 'brand logo used to open menu'
@@ -44,12 +45,22 @@ export default {
     pages: {
       displayed: [
         {
-          title: 'Explore',
+          title: 'Catalogue',
           href: '#',
           selected: true
         },
         {
           title: 'Battles',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'Certifications',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'Review',
           href: '#',
           selected: false
         }
