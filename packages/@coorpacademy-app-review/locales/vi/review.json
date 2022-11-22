@@ -44,14 +44,14 @@
       }
     },
     "list_title": "Các kỹ năng bạn có thể ôn tập",
-    "list_aria_label": "Vùng chứa Ôn tập Kỹ năng",
+    "list_aria_label": "Bộ chứa Ôn tập Kỹ năng",
     "card": {
       "aria_label": "Thẻ Kỹ năng",
-      "text": "{{total}} câu hỏi cần ôn tập",
+      "text": "{{total}} câu hỏi để ôn tập",
       "button_text": "Ôn tập kỹ năng này"
     },
     "no_skills": {
       "title": "Bạn chưa có kỹ năng nào để ôn tập",
-      "text": "Trước tiên, bạn cần hoàn thành các khóa học trước khi có thể ôn tập các kỹ năng khác nhau."
+      "text": "Trước tiên, bạn cần hoàn thành các khóa học rồi mới có thể ôn tập các kỹ năng khác nhau."
     }      
 }
