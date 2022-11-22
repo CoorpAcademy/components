@@ -47,7 +47,7 @@
     "list_aria_label": "Pregledajte spremnik vještina",
     "card": {
       "aria_label": "Kartica vještina",
-      "text": "{{ukupno}} pitanja za pregled",
+      "text": "{{total}} pitanja za pregled",
       "button_text": "Pregledajte ovu vještinu"
     },
     "no_skills": {
