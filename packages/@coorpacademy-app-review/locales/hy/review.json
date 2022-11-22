@@ -1,6 +1,6 @@
 {
     "Review Title": "Վերանայման ռեժիմ",
-    "Content Parent Title": "'{{contentTitle}}՝ ՝{{contentType}}՝-ից",
+    "Content Parent Title": "\"{{contentTitle}}\"-ից {{contentType}}",
     "Validate": "Վավերացնել",
     "Next Question": "Հաջորդ Հարցը",
     "KLF": "Կարեւոր կետ",
@@ -16,6 +16,9 @@
     "Quit Description Text": "Դուք ճիշտ ուղու վրա եք: Եթե հիմա թողնեք, կկորցնեք ձեր առաջընթացը:",
     "Stop learning": "Ավարտել նիստը",
     "Continue learning": "Շարունակեք սովորել",
+    "Continue": "Շարունակել",
+    "Type here": "Գրեք այստեղ",
+    "Select an answer": "Ընտրեք պատասխան",
     "presentation": {
       "aria_label": "Վերանայման ներկայացման կոնտեյներ",
       "title": "Ինչ է<br/> Վերանայման ռեժիմ.",
