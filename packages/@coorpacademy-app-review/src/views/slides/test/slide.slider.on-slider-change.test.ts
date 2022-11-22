@@ -2,7 +2,7 @@ import test from 'ava';
 import get from 'lodash/fp/get';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
-import {ProgressionFromAPI} from '../../../types/common';
+import {ProgressionFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {services, translate} from '../../../test/util/services.mock';

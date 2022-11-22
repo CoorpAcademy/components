@@ -7,9 +7,13 @@ import {AppReviewProps} from '@coorpacademy/components/es/template/app-review/pr
 
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
+import type {
+  AppOptions,
+  ConnectedOptions,
+  ViewName
+} from '@coorpacademy/review-services/es/types/services-types';
 import configureStore from './configure-store';
 
-import type {AppOptions, ConnectedOptions, ViewName} from './types/common';
 import type {StoreState} from './reducers';
 
 import {navigateBack, navigateTo} from './actions/ui/navigation';

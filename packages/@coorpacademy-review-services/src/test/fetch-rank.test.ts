@@ -1,6 +1,6 @@
 import test from 'ava';
 import nock from 'nock';
-import {Rank} from '../../types/common';
+import {Rank} from '../types/services-types';
 import {fetchRank} from '../fetch-rank';
 
 const result: Rank = {

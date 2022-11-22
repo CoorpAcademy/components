@@ -1,7 +1,7 @@
 import test from 'ava';
 import nock from 'nock';
 import {fetchSlidesToReviewBySkillRef} from '../fetch-slides-to-review-by-skill-ref';
-import {SlideIdFromAPI} from '../../types/common';
+import {SlideIdFromAPI} from '../types/services-types';
 
 const result: SlideIdFromAPI[] = [
   {

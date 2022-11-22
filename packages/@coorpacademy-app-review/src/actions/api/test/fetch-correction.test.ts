@@ -1,5 +1,5 @@
 import test from 'ava';
-import type {Services} from '../../../types/common';
+import type {Services} from '../'@coorpacademy/review-services/es/types/services-types';
 import type {StoreState} from '../../../reducers';
 import {
   getChoicesCorrection,

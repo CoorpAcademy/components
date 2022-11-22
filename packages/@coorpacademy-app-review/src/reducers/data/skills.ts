@@ -1,4 +1,4 @@
-import {SkillToReview} from '../../types/common';
+import {SkillToReview} from '@coorpacademy/review-services/es/types/services-types';
 import {ReceivedSkills, SKILLS_FETCH_SUCCESS} from '../../actions/api/fetch-skills';
 
 export type SkillsState = SkillToReview[];

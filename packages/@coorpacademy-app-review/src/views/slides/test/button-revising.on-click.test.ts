@@ -17,7 +17,7 @@ import {
   services,
   translate
 } from '../../../test/util/services.mock';
-import type {ProgressionFromAPI} from '../../../types/common';
+import type {ProgressionFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';

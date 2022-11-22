@@ -1,5 +1,8 @@
 import test from 'ava';
-import type {ProgressionFromAPI, Services} from '../../../types/common';
+import type {
+  ProgressionFromAPI,
+  Services
+} from '../'@coorpacademy/review-services/es/types/services-types';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,

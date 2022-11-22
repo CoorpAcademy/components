@@ -1,6 +1,10 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
-import {ReviewEngine, ReviewContent, ProgressionFromAPI} from '../../../types/common';
+import {
+  ReviewEngine,
+  ReviewContent,
+  ProgressionFromAPI
+} from '../'@coorpacademy/review-services/es/types/services-types';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRefResponse,

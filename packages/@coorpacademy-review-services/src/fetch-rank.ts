@@ -1,7 +1,7 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {JWT, Rank} from '../types/common';
+import {JWT, Rank} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
 
 export const fetchRank = async (token: string): Promise<Rank> => {

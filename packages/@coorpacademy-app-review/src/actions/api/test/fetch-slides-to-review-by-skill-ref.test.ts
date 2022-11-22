@@ -1,6 +1,6 @@
 import test from 'ava';
 import type {StoreState} from '../../../reducers';
-import type {Services} from '../../../types/common';
+import type {Services} from '../'@coorpacademy/review-services/es/types/services-types';
 import {
   fetchSlidesToReviewBySkillRef,
   SLIDES_TO_REVIEW_FETCH_REQUEST,

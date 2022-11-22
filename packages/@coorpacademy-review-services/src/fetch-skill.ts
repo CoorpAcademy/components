@@ -1,6 +1,6 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
-import {JWT, Skill} from '../types/common';
+import {JWT, Skill} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
 
 export const fetchSkill = async (skillRef: string, token: string): Promise<Skill> => {

@@ -1,6 +1,6 @@
 import test from 'ava';
 import nock from 'nock';
-import {CorrectionFromAPI} from '../../types/common';
+import {CorrectionFromAPI} from '../types/services-types';
 import {fetchCorrection} from '../fetch-correction';
 
 const progressionId = '123456789123';

@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import {mapStateToSlidesProps} from '..';
-import {ProgressionFromAPI} from '../../../types/common';
+import {ProgressionFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
 import {services, translate} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';

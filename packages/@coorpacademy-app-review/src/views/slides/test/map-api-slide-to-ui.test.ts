@@ -1,6 +1,6 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {SlideFromAPI} from '../../../types/common';
+import {SlideFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {ReviewSlide} from '..';
 import {qcmUISlide, qcmSlide} from './fixtures/qcm';

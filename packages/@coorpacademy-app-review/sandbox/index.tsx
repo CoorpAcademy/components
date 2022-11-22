@@ -7,9 +7,9 @@ import createTranslate from '@coorpacademy/translate';
 import {WebContext} from '@coorpacademy/components/es/atom/provider';
 import {identity} from 'lodash/fp';
 import localesComponents from '@coorpacademy/components/locales/en/global.json';
+import type {AppOptions, Translate} from '@coorpacademy/review-services/es/types/services-types';
 import localesAppReview from '../locales/en/review.json';
 import AppReview from '../src';
-import type {AppOptions, Translate} from '../src/types/common';
 import {services} from '../src/test/util/services.mock';
 import {skin} from '../src/views/slides/test/fixtures/skin';
 

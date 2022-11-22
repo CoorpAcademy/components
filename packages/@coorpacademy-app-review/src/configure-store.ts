@@ -1,9 +1,8 @@
 import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
+import {AppOptions, ThunkOptions} from '@coorpacademy/review-services/es/types/services-types';
+import {getServices} from '@coorpacademy/review-services';
 import rootReducer, {StoreState} from './reducers';
-import {getServices} from './services';
-
-import {AppOptions, ThunkOptions} from './types/common';
 
 export default function configureStore(options: AppOptions): Store<StoreState, AnyAction> {
   const _compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

@@ -23,17 +23,6 @@ import {
 } from 'lodash/fp';
 import {Dispatch} from 'redux';
 import {
-  AnswerUI,
-  FreeText,
-  Qcm,
-  QcmDrag,
-  QcmGraphic,
-  QuestionRange,
-  SelectionTemplate,
-  Template,
-  TextTemplate
-} from '../../types/slides';
-import {
   BasicQuestion,
   ChoiceFromAPI,
   QcmDragQuestion,
@@ -44,7 +33,18 @@ import {
   SliderQuestion,
   TemplateQuestion,
   Translate
-} from '../../types/common';
+} from '@coorpacademy/review-services/es/types/services-types';
+import {
+  AnswerUI,
+  FreeText,
+  Qcm,
+  QcmDrag,
+  QcmGraphic,
+  QuestionRange,
+  SelectionTemplate,
+  Template,
+  TextTemplate
+} from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
 
 const qcmProps =

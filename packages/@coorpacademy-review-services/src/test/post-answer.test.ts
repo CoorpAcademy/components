@@ -1,6 +1,6 @@
 import test from 'ava';
 import nock from 'nock';
-import type {ProgressionFromAPI} from '../../types/common';
+import type {ProgressionFromAPI} from '../types/services-types';
 import {postAnswer} from '../post-answer';
 
 const skillRef = '_skill-ref';

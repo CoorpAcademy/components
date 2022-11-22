@@ -1,7 +1,7 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {CorrectionFromAPI, JWT} from '../types/common';
+import {CorrectionFromAPI, JWT} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
 
 export const fetchCorrection = async (

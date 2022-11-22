@@ -1,6 +1,6 @@
 import test from 'ava';
 import nock from 'nock';
-import {SkillToReview} from '../../types/common';
+import {SkillToReview} from '../types/services-types';
 import {fetchSkills} from '../fetch-skills';
 
 const result: SkillToReview[] = [

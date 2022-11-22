@@ -3,7 +3,7 @@ import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
-import {Question, SlideFromAPI} from '../../../types/common';
+import {Question, SlideFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
 import {createTestStore} from '../../test/create-test-store';
 import {services} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';

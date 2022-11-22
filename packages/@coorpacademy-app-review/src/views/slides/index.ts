@@ -14,8 +14,6 @@ import {ReviewPlayerProps} from '@coorpacademy/components/es/template/app-review
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
-import {getProgressionSlidesRefs} from '../../common';
 import type {
   ConnectedOptions,
   Skin,
@@ -23,7 +21,9 @@ import type {
   ProgressionFromAPI,
   SlideContent,
   Translate
-} from '../../types/common';
+} from '@coorpacademy/review-services/es/types/services-types';
+import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
+import {getProgressionSlidesRefs} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';

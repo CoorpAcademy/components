@@ -1,7 +1,7 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {JWT, SlideIdFromAPI} from '../types/common';
+import {JWT, SlideIdFromAPI} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
 
 export const fetchSlidesToReviewBySkillRef = async (

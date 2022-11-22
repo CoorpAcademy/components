@@ -1,6 +1,6 @@
 import {ReviewSkillsProps} from '@coorpacademy/components/es/template/app-review/skills/prop-types';
+import type {ConnectedOptions} from '@coorpacademy/review-services/es/types/services-types';
 import {StoreState} from '../../reducers';
-import type {ConnectedOptions} from '../../types/common';
 
 export const mapStateToSkillsProps = (
   state: StoreState,

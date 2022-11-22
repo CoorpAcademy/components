@@ -1,4 +1,4 @@
-import {Services} from '../types/common';
+import {Services} from './types/services-types';
 import {fetchCorrection} from './fetch-correction';
 import {fetchRank} from './fetch-rank';
 import {fetchSkills} from './fetch-skills';

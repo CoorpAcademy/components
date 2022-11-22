@@ -1,7 +1,7 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {JWT, SlideFromAPI} from '../types/common';
+import {JWT, SlideFromAPI} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
 
 export const fetchSlide = async (slideRef: string, token: string): Promise<SlideFromAPI | void> => {

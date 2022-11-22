@@ -9,7 +9,7 @@ import {
 } from '../../../actions/api/fetch-correction';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../../actions/api/fetch-rank';
 import {mapStateToSlidesProps} from '..';
-import {ProgressionFromAPI} from '../../../types/common';
+import {ProgressionFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
 import {
   getChoicesCorrection,
   postAnswerResponses,
