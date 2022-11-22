@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Fähigkeiten, die du prüfen lassen kannst",
-    "list_aria_label": "Fähigkeiten-Container prüfen",
+    "list_title": "Fähigkeiten, die Sie überprüfen können",
+    "list_aria_label": "Fähigkeiten-überprüfen-Container",
     "card": {
-      "aria_label": "Fähigkeitskarte",
-      "text": "{{total}} Fragen zum Prüfen",
-      "button_text": "Diese Fähigkeit prüfen"
+      "aria_label": "Fähigkeitenkarte",
+      "text": "{{total}} Fragen zum Überprüfen",
+      "button_text": "Diese Fähigkeit überprüfen"
     },
     "no_skills": {
-      "title": "Du hast noch keine Fähigkeiten zum Prüfen",
-      "text": "Du musst zuerst Kurse absolvieren, bevor du verschiedene Fähigkeiten prüfen lassen kannst."
+      "title": "Sie haben noch keine Fähigkeiten zum Überarbeiten",
+      "text": "Zuerst müssen Sie Kurse absolvieren, ehe Sie verschiedene Fähigkeiten überprüfen können."
     }      
 }
