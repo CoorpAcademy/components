@@ -16,13 +16,13 @@ import {
   Skill,
   SlideFromAPI,
   SlideIdFromAPI
-} from '@coorpacademy/review-services/es/types/services-types';
-import {qcmDragSlide} from '../../views/slides/test/fixtures/qcm-drag';
-import {qcmSlide} from '../../views/slides/test/fixtures/qcm';
-import {qcmGraphicSlide} from '../../views/slides/test/fixtures/qcm-graphic';
-import {freeTextSlide} from '../../views/slides/test/fixtures/free-text';
-import {sliderSlide} from '../../views/slides/test/fixtures/slider';
-import {templateSlide} from '../../views/slides/test/fixtures/template';
+} from '../types/services-types';
+import {qcmDragSlide} from './fixtures/qcm-drag';
+import {qcmSlide} from './fixtures/qcm';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {freeTextSlide} from './fixtures/free-text';
+import {sliderSlide} from './fixtures/slider';
+import {templateSlide} from './fixtures/template';
 
 const content: ReviewContent = {
   ref: 'skill_NyxtYFYir',

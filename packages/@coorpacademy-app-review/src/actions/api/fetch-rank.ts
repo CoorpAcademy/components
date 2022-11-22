@@ -1,11 +1,8 @@
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {Dispatch} from 'redux';
-import type {
-  Rank,
-  Services,
-  ThunkOptions
-} from '@coorpacademy/review-services/es/types/services-types';
+import type {Rank, Services} from '@coorpacademy/review-services/es/types/services-types';
+import {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 
 export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST' as const;

@@ -1,33 +1,3 @@
-export interface Translate {
-  (key: string, data?: Record<string, string>): string;
-}
-
-export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
-
-export type Skin = {
-  common: {
-    primary: string;
-  };
-};
-
-export type ConnectedOptions = {
-  translate: Translate;
-  onQuitClick: () => void;
-  skin: Skin;
-};
-
-export type AppOptions = ConnectedOptions & {
-  token: string;
-  skillRef?: string;
-  services?: Services;
-  callbackOnViewChanged?: (viewName: ViewName) => void;
-};
-
-export type ThunkOptions = {
-  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
-  services: Services;
-};
-
 export type CorrectedChoice = {
   answer: string;
   isCorrect: boolean;
@@ -154,10 +124,6 @@ export type SlideFromAPI = {
 
 export type SlideIdFromAPI = {
   slideId: string;
-};
-
-export type Options = {
-  services: Services;
 };
 
 export type Services = {

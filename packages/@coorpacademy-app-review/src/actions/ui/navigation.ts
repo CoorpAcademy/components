@@ -1,9 +1,5 @@
 import {Dispatch} from 'redux';
-import {
-  ThunkOptions,
-  AppOptions,
-  ViewName
-} from '@coorpacademy/review-services/es/types/services-types';
+import {ThunkOptions, AppOptions, ViewName} from '../../types/common';
 import type {StoreState} from '../../reducers';
 
 export type NavigateToAction = {

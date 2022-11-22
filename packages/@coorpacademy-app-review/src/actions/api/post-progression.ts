@@ -2,12 +2,12 @@ import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {
-  ThunkOptions,
   ProgressionFromAPI
 } from '@coorpacademy/review-services/es/types/services-types';
 import type {StoreState} from '../../reducers';
 import {fetchSlide} from './fetch-slide';
 import {fetchSkill} from './fetch-skill';
+import { ThunkOptions } from 'src/types/common';
 
 export const POST_PROGRESSION_REQUEST = '@@progression/POST_REQUEST' as const;
 export const POST_PROGRESSION_SUCCESS = '@@progression/POST_SUCCESS' as const;

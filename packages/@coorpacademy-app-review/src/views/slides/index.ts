@@ -15,13 +15,11 @@ import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/r
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
 import type {
-  ConnectedOptions,
-  Skin,
   ProgressionAnswerItem,
   ProgressionFromAPI,
-  SlideContent,
-  Translate
+  SlideContent
 } from '@coorpacademy/review-services/es/types/services-types';
+import {ConnectedOptions, Skin, Translate} from '../../types/common';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';
 import type {StoreState} from '../../reducers';

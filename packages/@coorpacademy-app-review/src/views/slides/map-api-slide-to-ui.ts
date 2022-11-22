@@ -31,8 +31,7 @@ import {
   Question,
   SlideFromAPI,
   SliderQuestion,
-  TemplateQuestion,
-  Translate
+  TemplateQuestion
 } from '@coorpacademy/review-services/es/types/services-types';
 import {
   AnswerUI,
@@ -46,6 +45,7 @@ import {
   TextTemplate
 } from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
+import {Translate} from '../../types/common';
 
 const qcmProps =
   (dispatch: Dispatch) =>

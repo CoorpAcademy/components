@@ -1,4 +1,4 @@
-import {Skin} from '@coorpacademy/review-services/es/types/services-types';
+import {Skin} from '../../../../types/common';
 
 export const skin: Skin = {
   common: {

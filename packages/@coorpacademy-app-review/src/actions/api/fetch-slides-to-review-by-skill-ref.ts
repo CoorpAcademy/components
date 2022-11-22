@@ -1,10 +1,10 @@
 import buildTask from '@coorpacademy/redux-task';
 import type {Dispatch} from 'redux';
 import type {
-  Options,
   ProgressionFromAPI,
   SlideIdFromAPI
 } from '@coorpacademy/review-services/es/types/services-types';
+import {Options} from '../../types/common';
 import type {StoreState} from '../../reducers';
 
 export const SLIDES_TO_REVIEW_FETCH_REQUEST = '@@slidesToReview/FETCH_REQUEST' as const;
