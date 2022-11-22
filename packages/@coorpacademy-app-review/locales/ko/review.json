@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "검토할 수 있는 능력",
-    "list_aria_label": "능력 검토 컨테이너",
+    "list_title": "검토할 수 있는 기술",
+    "list_aria_label": "기술 보관함 검토",
     "card": {
-      "aria_label": "능력 카드",
-      "text": "검토할 질문 {{total}}개",
-      "button_text": "이 스킬 검토"
+      "aria_label": "기술 카드",
+      "text": "{{total}} 검토할 문제",
+      "button_text": "이 기술 검토"
     },
     "no_skills": {
-      "title": "아직 검토할 능력이 없습니다",
-      "text": "먼저 코스를 완료해야 다른 능력을 검토할 수 있습니다."
+      "title": "아직 수정할 기술이 없습니다",
+      "text": "다른 기술을 검토할 수 있으려면 먼저 코스를 완료해야 합니다."
     }      
 }
