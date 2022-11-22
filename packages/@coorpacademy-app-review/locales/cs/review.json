@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Dovednosti, které můžete prověřit",
-    "list_aria_label": "Schránka prověření dovedností",
+    "list_title": "Dovednosti, které si můžete zobrazit",
+    "list_aria_label": "Zobrazit zásobník dovedností",
     "card": {
       "aria_label": "Karta dovedností",
-      "text": "{{total}} otázek k prověření",
-      "button_text": "Prověřit tuto dovednost"
+      "text": "{{total}} otázek k zobrazení",
+      "button_text": "Zobrazit tuto dovednost"
     },
     "no_skills": {
-      "title": "Zatím nemáte žádné dovednosti k revidování",
-      "text": "Před prověřením různých dovedností musíte nejdřív dokončit kurzy."
+      "title": "Dosud nemáte k revizi žádnou dovednost",
+      "text": "Nejprve musíte dokončit kursy a teprve poté si zobrazíte různé dovednosti."
     }      
 }
