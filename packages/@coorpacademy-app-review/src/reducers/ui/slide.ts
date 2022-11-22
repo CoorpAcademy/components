@@ -49,7 +49,8 @@ const reducer = (
         set([action.meta.slideRef], {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         })
       )(state);
     }
