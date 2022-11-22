@@ -43,7 +43,8 @@ const initialState: StoreState = {
       [freeTextSlide.universalRef]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,

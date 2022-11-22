@@ -89,7 +89,8 @@ const initialState: StoreState = {
       [freeTextSlide._id]: {
         validateButton: true,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -285,27 +286,32 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
         [freeTextSlide._id]: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: true
         },
         [qcmGraphicSlide._id]: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         },
         [qcmSlide._id]: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         },
         [sliderSlide._id]: {
           validateButton: true,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         },
         [templateSlide._id]: {
           validateButton: true,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
