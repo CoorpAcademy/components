@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Számodra áttekinthető készségek",
-    "list_aria_label": "Készségek konténer áttekintése",
+    "list_title": "Ellenőrizhető készségek",
+    "list_aria_label": "Készségellenörző tároló",
     "card": {
-      "aria_label": "Készségek kártya",
-      "text": "{{total}} áttekintendő kérdés",
-      "button_text": "Tekintsd át ezt a készséget"
+      "aria_label": "Készségkártya",
+      "text": "{{total}} ellenőrizendő kérdés",
+      "button_text": "Készség ellenőrzése"
     },
     "no_skills": {
-      "title": "Egyenlőre nincs számodra áttekintendő készség",
-      "text": "Először el kell végezned egy tanfolyamot, mielőtt áttekinthetsz különféle készségeket."
+      "title": "Még nincs ellenőriendő készsége",
+      "text": "Először tanfolyamokat kell elvégeznie, mielőtt különböző készségeket ellenőrizhetne."
     }      
 }
