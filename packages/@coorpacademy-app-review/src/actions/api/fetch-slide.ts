@@ -3,12 +3,10 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
-import type {
-  SlideFromAPI
-} from '@coorpacademy/review-services/es/types/services-types';
+import type {SlideFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {setCurrentSlide} from '../ui/slides';
-import { ThunkOptions } from 'src/types/common';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;

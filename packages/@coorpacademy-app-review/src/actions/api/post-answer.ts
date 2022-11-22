@@ -3,7 +3,7 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
 import type {StoreState} from '../../reducers';
-import {ThunkOptions} from '../../types/common';
+import type {ThunkOptions} from '../../types/common';
 import {fetchCorrection} from './fetch-correction';
 import {fetchSlide} from './fetch-slide';
 import {fetchEndRank, fetchStartRank} from './fetch-rank';
