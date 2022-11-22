@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Competențe pe care le puteți revizui",
-    "list_aria_label": "Containerul abilităților de revizuire",
+    "list_title": "Abilități pe care le puteți revizui",
+    "list_aria_label": "Revizuirea Containerului de abilități",
     "card": {
-      "aria_label": "Card de abilități",
-      "text": " {{total}} întrebări de revizuit",
-      "button_text": "Revizuiți această abilitate"
+      "aria_label": "Carte de abilități",
+      "text": "{{total}} întrebări de analizat",
+      "button_text": "Revizuiți această abilitate\n"
     },
     "no_skills": {
       "title": "Nu aveți încă nicio abilitate de revizuit",
-      "text": "Mai întâi este necesar să finalizați cursuri înainte de a putea revizui diferite abilități."
+      "text": "Mai întâi trebuie să finalizați cursuri înainte de a putea revizui diferite abilități."
     }      
 }
