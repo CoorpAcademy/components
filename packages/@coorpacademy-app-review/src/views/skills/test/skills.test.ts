@@ -2,9 +2,9 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
+import {translate} from '@coorpacademy/review-services/es/mock/services.mock';
 import {StoreState} from '../../../reducers';
 import {mapStateToSkillsProps} from '..';
-import {translate} from '../../../test/util/services.mock';
 import {skin} from '../../slides/test/fixtures/skin';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};

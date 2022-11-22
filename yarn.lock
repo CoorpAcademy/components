@@ -1466,6 +1466,24 @@
   dependencies:
     prop-types "^15.5.6"
 
+"@coorpacademy/review-services@/Users/william/Projects/Front-End/components/packages/@coorpacademy-review-services":
+  version "1.0.0"
+  dependencies:
+    "@coorpacademy/progression-engine" "^11.5.2"
+    "@coorpacademy/translate" "^6.2.0"
+    cross-fetch "^3.1.5"
+    jwt-decode "^3.1.2"
+    lodash "^4.17.21"
+
+"@coorpacademy/review-services@file:packages/@coorpacademy-review-services":
+  version "1.0.0"
+  dependencies:
+    "@coorpacademy/progression-engine" "^11.5.2"
+    "@coorpacademy/translate" "^6.2.0"
+    cross-fetch "^3.1.5"
+    jwt-decode "^3.1.2"
+    lodash "^4.17.21"
+
 "@coorpacademy/update-node@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@coorpacademy/update-node/-/update-node-5.0.0.tgz#10501cf3cfb6338e0d510bf0f1e7202854bfd3e2"

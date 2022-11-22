@@ -1,23 +1,23 @@
 import test from 'ava';
-import type {StoreState} from '../../../reducers';
-import type {Services} from '../'@coorpacademy/review-services/es/types/services-types';
+import type {Services} from '@coorpacademy/review-services/es/types/services-types';
+import {
+  fetchSlidesToReviewBySkillRefResponse,
+  postAnswerResponses,
+  services as mockedServices
+} from '@coorpacademy/review-services/es/mock/services.mock';
+import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
+import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
+import {sliderSlide} from '@coorpacademy/review-services/es/mock/fixtures/slider';
+import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRef,
   SLIDES_TO_REVIEW_FETCH_REQUEST,
   SLIDES_TO_REVIEW_FETCH_SUCCESS,
   SLIDES_TO_REVIEW_FETCH_FAILURE
 } from '../fetch-slides-to-review-by-skill-ref';
-import {
-  fetchSlidesToReviewBySkillRefResponse,
-  postAnswerResponses,
-  services as mockedServices
-} from '../../../test/util/services.mock';
-import {createTestStore} from '../../test/create-test-store';
-import {templateSlide} from '../../../views/slides/test/fixtures/template';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
-import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
-import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import type {StoreState} from '../../../reducers';
 
 const state: StoreState = {
   data: {

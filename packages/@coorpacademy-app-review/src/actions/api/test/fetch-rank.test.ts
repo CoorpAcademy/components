@@ -1,6 +1,7 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
-import type {Services} from '../'@coorpacademy/review-services/es/types/services-types';
+import type {Services} from '@coorpacademy/review-services/es/types/services-types';
+import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
 import type {StoreState} from '../../../reducers';
 import {
   fetchStartRank,
@@ -12,7 +13,6 @@ import {
   RANK_FETCH_END_SUCCESS,
   RANK_FETCH_END_FAILURE
 } from '../fetch-rank';
-import {services as mockedServices} from '../../../test/util/services.mock';
 import {createTestStore} from '../../test/create-test-store';
 
 const initialState: StoreState = {

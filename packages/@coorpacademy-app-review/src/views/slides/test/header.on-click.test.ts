@@ -1,11 +1,11 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {createTestStore} from '../../../actions/test/create-test-store';
 import {
   incorrectFreeTextPostAnswerResponse,
   services,
   translate
-} from '../../../test/util/services.mock';
+} from '@coorpacademy/review-services/es/mock/services.mock';
+import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {OPEN_POPIN} from '../../../actions/ui/quit-popin';
 import {mapStateToSlidesProps} from '..';

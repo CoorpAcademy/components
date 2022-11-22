@@ -1,12 +1,16 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {SlideFromAPI} from '../'@coorpacademy/review-services/es/types/services-types';
+import {SlideFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
+import {qcmDragSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-drag';
+import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {ReviewSlide} from '..';
-import {qcmUISlide, qcmSlide} from './fixtures/qcm';
-import {qcmDragUISlide, qcmDragSlide} from './fixtures/qcm-drag';
-import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
-import {qcmGraphicUISlide, qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {qcmUISlide} from './fixtures/qcm';
+import {qcmDragUISlide} from './fixtures/qcm-drag';
+import {freeTextUISlide} from './fixtures/free-text';
+import {qcmGraphicUISlide} from './fixtures/qcm-graphic';
 import {templateSlide, templateUISlide} from './fixtures/template';
 import {sliderSlide, sliderUISlide} from './fixtures/slider';
 

@@ -4,14 +4,19 @@ import {
   ReviewEngine,
   ReviewContent,
   ProgressionFromAPI
-} from '../'@coorpacademy/review-services/es/types/services-types';
-import {createTestStore} from '../../test/create-test-store';
+} from '@coorpacademy/review-services/es/types/services-types';
 import {
   fetchSlidesToReviewBySkillRefResponse,
   getChoicesCorrection,
   postAnswerResponses,
   services
-} from '../../../test/util/services.mock';
+} from '@coorpacademy/review-services/es/mock/services.mock';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
+import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
+import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
+import {sliderSlide} from '@coorpacademy/review-services/es/mock/fixtures/slider';
+import {createTestStore} from '../../test/create-test-store';
 import {
   postAnswer,
   POST_ANSWER_FAILURE,
@@ -19,13 +24,8 @@ import {
   POST_ANSWER_SUCCESS
 } from '../post-answer';
 import type {StoreState} from '../../../reducers';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS} from '../fetch-correction';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
-import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
-import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
-import {templateSlide} from '../../../views/slides/test/fixtures/template';
-import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {
   RANK_FETCH_START_REQUEST,
   RANK_FETCH_END_REQUEST,

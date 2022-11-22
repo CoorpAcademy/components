@@ -2,15 +2,15 @@ import test from 'ava';
 import type {
   ProgressionFromAPI,
   Services
-} from '../'@coorpacademy/review-services/es/types/services-types';
+} from '@coorpacademy/review-services/es/types/services-types';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
   POST_PROGRESSION_SUCCESS,
   POST_PROGRESSION_FAILURE
 } from '../post-progression';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {services as mockedServices} from '../../../test/util/services.mock';
 import type {StoreState} from '../../../reducers';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
