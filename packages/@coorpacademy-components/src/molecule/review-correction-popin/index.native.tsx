@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
+import RenderHTML from 'react-native-render-html';
 import {NovaCompositionCoorpacademyCheck as RightIcon} from '@coorpacademy/nova-icons';
 import {COLORS} from '../../variables/colors';
 
@@ -40,24 +41,45 @@ const styles = StyleSheet.create({
     borderRadius: 50
   },
   icon: {
-    width: 30,
-    height: 30
+    height: 30,
+    width: 30
   },
   resultLabel: {
     color: 'white',
     fontSize: 24,
     fontWeight: '600',
     lineHeight: 24,
+    marginLeft: 12,
     textTransform: 'uppercase',
-    wordBreak: 'break-word',
-    marginLeft: 12
+    wordBreak: 'break-word'
+  },
+  feedbackSection: {
+    marginTop: 32
+  },
+  labelContainer: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: 56,
+    paddingHorizontal: 8,
+    paddingVertical: 4
+  },
+  label: {
+    color: 'white',
+    fontSize: 14,
+    fontWeight: '900',
+    lineHeight: 17,
+    wordBreak: 'break-word'
   }
 });
 
 const popinRight = StyleSheet.compose(styles.popin, styles.right);
 
 const ReviewCorrectionPopin = props => {
-  const {resultLabel} = props;
+  const {information, resultLabel} = props;
+  const source = {
+    html: `<p aria-label='${information.message}' style='color:white; font-size:16; font-weight:600; line-height:19;'>${information.message}</p>`
+  };
+
   return (
     <View style={styles.wrapper}>
       <View style={popinRight}>
@@ -65,9 +87,17 @@ const ReviewCorrectionPopin = props => {
           <View style={styles.iconCircle}>
             <RightIcon style={styles.icon} color={COLORS.positive} />
           </View>
-          <Text aria-label={resultLabel} style={styles.resultLabel}>
+          <Text accessibilityLabel={resultLabel} style={styles.resultLabel}>
             {resultLabel}
           </Text>
+        </View>
+        <View style={styles.feedbackSection} accessibilityLabel="answer-information">
+          <View style={styles.labelContainer} needsOffscreenAlphaCompositing>
+            <Text accessibilityLabel={information.label} style={styles.label}>
+              {information.label}
+            </Text>
+          </View>
+          <RenderHTML source={source} />
         </View>
       </View>
     </View>
