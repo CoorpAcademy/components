@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.9.5",
+  "version": "0.10.0",
   "description": "",
   "engines": {
     "node": ">=16.15.0"
@@ -35,7 +35,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@coorpacademy/components": "10.29.4",
+    "@coorpacademy/components": "10.29.5-alpha.0",
     "@coorpacademy/progression-engine": "11.5.2",
     "@coorpacademy/redux-task": "1.1.6",
     "@coorpacademy/review-services": "/Users/william/Projects/Front-End/components/packages/@coorpacademy-review-services",
