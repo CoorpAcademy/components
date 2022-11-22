@@ -44,14 +44,14 @@
       }
     },
     "list_title": "Zručnosti, ktoré si môžete skontrolovať",
-    "list_aria_label": "Kontrola kontajnera zručností",
+    "list_aria_label": "Kontajner zručností na kontrolu",
     "card": {
       "aria_label": "Karta zručností",
-      "text": "{{total}} otázok na kontrolu",
+      "text": "{{total}} otázok na skontrolovanie",
       "button_text": "Skontrolujte túto zručnosť"
     },
     "no_skills": {
       "title": "Zatiaľ nemáte žiadne zručnosti na revíziu",
-      "text": "Najprv musíte absolvovať kurzy, aby ste si mohli vyskúšať rôzne zručnosti."
+      "text": "Najprv musíte dokončiť kurzy a až potom si môžete skontrolovať rôzne zručnosti."
     }      
 }
