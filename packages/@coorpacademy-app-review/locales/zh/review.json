@@ -44,14 +44,14 @@
       }
     },
     "list_title": "您可以复习的技能",
-    "list_aria_label": "复习技能容器",
+    "list_aria_label": "复习技能箱",
     "card": {
       "aria_label": "技能卡",
-      "text": "共需复习 {{total}} 个问题",
+      "text": "{{total}}个问题需要复习",
       "button_text": "复习此技能"
     },
     "no_skills": {
-      "title": "您还没有需要温习的技能",
-      "text": "您需要先完成课程，然后才能复习不同技能。"
+      "title": "您还没有需要修改的技能",
+      "text": "您需要先完成课程，才能复习不同的技能。"
     }      
 }
