@@ -43,7 +43,7 @@
         }
       }
     },
-    "list_title": "Keterampilan yang bisa Anda tinjau",
+    "list_title": "Keterampilan yang dapat Anda ulas",
     "list_aria_label": "Tinjau Wadah Keterampilan",
     "card": {
       "aria_label": "Kartu Keterampilan",
@@ -51,7 +51,7 @@
       "button_text": "Tinjau keterampilan ini"
     },
     "no_skills": {
-      "title": "Anda belum memiliki keterampilan untuk direvisi",
-      "text": "Anda harus menuntaskan kursus terlebih dulu sebelum bisa meninjau keterampilan yang lain."
+      "title": "Anda belum memiliki keterampilan untuk merevisi",
+      "text": "Pertama, Anda harus menyelesaikan kursus sebelum Anda dapat mengulas keterampilan yang berbeda."
     }      
 }
