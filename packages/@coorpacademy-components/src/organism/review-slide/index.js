@@ -132,6 +132,7 @@ const ReviewSlide = props => {
     loadingAriaLabel,
     parentContentTitle,
     questionText,
+    disabledContent,
     answerUI,
     showCorrectionPopin,
     animateCorrectionPopin
@@ -147,7 +148,7 @@ const ReviewSlide = props => {
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
-            disableContent={showCorrectionPopin}
+            disableContent={disabledContent}
             key="question-container"
           />,
           <ValidateButton
