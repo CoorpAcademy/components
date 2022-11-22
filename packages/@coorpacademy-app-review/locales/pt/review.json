@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Competências que pode analisar",
-    "list_aria_label": "Analisar Recipiente de Competências",
+    "list_title": "Competências que pode rever",
+    "list_aria_label": "Rever contentor de competências",
     "card": {
-      "aria_label": "Cartão de Competências",
-      "text": "{{total}} de perguntas a analisar",
-      "button_text": "Analise esta competência"
+      "aria_label": "Cartão de competências",
+      "text": "{{total}} questões para rever",
+      "button_text": "Rever esta competência"
     },
     "no_skills": {
-      "title": "Ainda não tem nenhuma competência para analisar",
-      "text": "Primeiro é preciso completar os cursos antes de poder analisar diferentes competências.\n"
+      "title": "Ainda não tem nenhuma competência para rever",
+      "text": "Antes de poder rever diferentes competências, precisa de concluir os cursos."
     }      
 }
