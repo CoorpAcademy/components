@@ -51,7 +51,7 @@
       "button_text": "Bu beceriyi incele"
     },
     "no_skills": {
-      "title": "Henüz tekrarlanacak becerin yok",
-      "text": "Farklı becerileri inceleyebilmek için önce dersleri tamamlaman gerekiyor."
+      "title": "Henüz revize etme becerin yok",
+      "text": "Farklı becerileri inceleyebilmen için önce kursları tamamlaman gerekir."
     }      
 }
