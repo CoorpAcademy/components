@@ -183,7 +183,8 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   t.deepEqual(state.ui.slide[freeTextSlide._id], {
     validateButton: false,
     animateCorrectionPopin: true,
-    showCorrectionPopin: true
+    showCorrectionPopin: true,
+    pendingAnswerRequest: true
   });
 });
 
@@ -355,7 +356,8 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
   t.deepEqual(state.ui.slide[templateSlide._id], {
     validateButton: false,
     animateCorrectionPopin: true,
-    showCorrectionPopin: true
+    showCorrectionPopin: true,
+    pendingAnswerRequest: true
   });
 });
 
