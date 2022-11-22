@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Mga kasanayan na maaari mong repasuhin",
-    "list_aria_label": "Lalagyan ng Mga Kasanayang Rerepasuhin",
+    "list_title": "Mga skill na maaari mong repasuhin",
+    "list_aria_label": "Repasuhin ang Skill Container",
     "card": {
-      "aria_label": "Card ng Kasanayan",
-      "text": "{{total}} tanong na rerepasuhin",
-      "button_text": "Repasuhin ang kasanayang ito"
+      "aria_label": "Skill Card",
+      "text": "{{total}} (na) tanong na rerepasuhin",
+      "button_text": "Repasuhin ang skill na ito"
     },
     "no_skills": {
-      "title": "Wala ka pang kasanayang maire-revise",
-      "text": "Kailangan mo munang makakumpleto ng mga kurso bago ka makapagrepaso ng iba't-ibang kasanayan."
+      "title": "Wala ka pang skill na rerebisahin",
+      "text": "Una, kailangan mong kumpletuhin ang mga kurso bago ka makapag-repaso ng iba't ibang skill."
     }      
 }
