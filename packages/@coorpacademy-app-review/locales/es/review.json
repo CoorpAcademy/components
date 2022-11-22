@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Habilidades que puedes revisar",
-    "list_aria_label": "Revisar contenedor de habilidades",
+    "list_title": "Competencias que puedes revisar",
+    "list_aria_label": "Contenedor de competencias a revisar",
     "card": {
-      "aria_label": "Tarjeta de habilidades",
-      "text": "{{total}} preguntas para revisar",
-      "button_text": "Revisa esta habilidad"
+      "aria_label": "Tarjeta de competencia",
+      "text": "{{total}} preguntas a revisar",
+      "button_text": "Revisa esta competencia"
     },
     "no_skills": {
-      "title": "No tienes ninguna habilidad para revisar todavía",
-      "text": "Primero tienes que completar cursos antes de que puedas revisar distintas habilidades."
+      "title": "No tiene aún competencias que revisar",
+      "text": "Primero necesitas completar cursos antes de poder revisar alguna competencia."
     }      
 }
