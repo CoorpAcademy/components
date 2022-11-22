@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "你可以複習的技能",
-    "list_aria_label": "複習技能箱",
+    "list_title": "您能複習的技能",
+    "list_aria_label": "複習技能",
     "card": {
       "aria_label": "技能卡",
-      "text": "{{total}} 個問題需要複習",
-      "button_text": "複習這項技能"
+      "text": "共有 {{total}} 個問題可複習",
+      "button_text": "複習該技能"
     },
     "no_skills": {
-      "title": "你尚未有任何的技能可以複習",
-      "text": "你必須先完成課程，然後才能複習不同的技能。"
+      "title": "您還沒有能溫習的技能",
+      "text": "首先您必須完成課程，才能複習不同的技能。"
     }      
 }
