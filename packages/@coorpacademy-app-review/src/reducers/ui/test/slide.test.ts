@@ -59,7 +59,8 @@ test('should set animateCorrectionPopin to false and animationType to unstack or
       '1234': {
         validateButton: false,
         animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        pendingAnswerRequest: false
       }
     },
     {
@@ -94,7 +95,8 @@ test('should return same state when nextContent is successExitNode', t => {
     '1234': {
       validateButton: false,
       animateCorrectionPopin: true,
-      showCorrectionPopin: true
+      showCorrectionPopin: true,
+      pendingAnswerRequest: false
     }
   };
   const state = reducer(_initialState, {
@@ -117,31 +119,36 @@ test('should set the initial value when POST_PROGRESSION_REQUEST action is recei
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_VkSQroQnx: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_N1XACJobn: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_VkAzsCLKb: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       'sli_N13-hG3kX': {
         validateButton: false,
         animateCorrectionPopin: true,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       }
     },
     {type: POST_PROGRESSION_REQUEST}
