@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Competenze che puoi rivedere",
-    "list_aria_label": "Contenitore di ripetizione delle competenze",
+    "list_title": "Abilità che puoi rivedere",
+    "list_aria_label": "Contenitore di abilità da rivedere",
     "card": {
-      "aria_label": "Skill Card",
+      "aria_label": "Scheda abilità",
       "text": "{{total}} domande da rivedere",
-      "button_text": "Rivedi questa competenza"
+      "button_text": "Rivedi questa abilità"
     },
     "no_skills": {
-      "title": "Non hai ancora competenze da rivedere",
-      "text": "Per prima cosa devi completare i corsi prima di poter rivedere diverse competenze."
+      "title": "Non hai ancora alcuna abilità da rivedere",
+      "text": "Devi completare i corsi prima di poter rivedere le varie abilità."
     }      
 }
