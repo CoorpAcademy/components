@@ -1,7 +1,7 @@
 import test from 'ava';
 import nock from 'nock';
-import {qcmDragSlide} from '../../views/slides/test/fixtures/qcm-drag';
 import {fetchSlide} from '../fetch-slide';
+import {qcmDragSlide} from '../mock/fixtures/qcm-drag';
 
 test.before(() => {
   nock('http://localhost:3000')

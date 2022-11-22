@@ -1,4 +1,3 @@
-import noop from 'lodash/fp/noop';
 import {SlideFromAPI} from '../../types/services-types';
 
 export const sliderSlide: SlideFromAPI = {
