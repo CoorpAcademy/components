@@ -43,15 +43,15 @@
         }
       }
     },
-    "list_title": "Umiejętności, które możesz utrwalić",
-    "list_aria_label": "Kontener utrwalania umiejętności",
+    "list_title": "Umiejętności, które możesz przejrzeć",
+    "list_aria_label": "Przejrzyj kontener umiejętności",
     "card": {
       "aria_label": "Karta umiejętności",
-      "text": "Pytania czekające na odpowiedź {{total}}",
-      "button_text": "Utrwal tę umiejętność"
+      "text": "Liczba pytań od przejrzenia: {{total}}",
+      "button_text": "Przejrzyj tę umiejętność"
     },
     "no_skills": {
-      "title": "Nie masz żadnej umiejętności do powtórzenia",
-      "text": "Zanim przejdziesz do utrwalania różnych umiejętności, musisz ukończyć szkolenia."
+      "title": "Nie masz jeszcze umiejętności do przejrzenia",
+      "text": "Musisz najpierw ukończyć kursy, aby być w stanie przeglądać różne umiejętności."
     }      
 }
