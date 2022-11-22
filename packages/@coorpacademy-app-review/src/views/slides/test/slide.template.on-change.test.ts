@@ -58,7 +58,8 @@ const initialState: StoreState = {
       [templateSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -80,6 +81,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:
@@ -112,6 +114,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:

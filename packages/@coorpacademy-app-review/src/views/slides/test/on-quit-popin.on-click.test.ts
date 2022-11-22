@@ -39,12 +39,14 @@ const state: StoreState = {
       sli_VJYjJnJhg: {
         validateButton: false,
         animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        pendingAnswerRequest: false
       },
       sli_VkSQroQnx: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: true,

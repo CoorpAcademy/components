@@ -7,8 +7,6 @@ import {SLIDE_FETCH_REQUEST} from '../../../actions/api/fetch-slide';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 
-// UPDATE TESTS HERE AND MAYBE ADD ONE FOR PENDINGANSWERREQUEST
-// 'should set pendingAnswerRequest to true if POST_ANSWER_REQUEST is received'
 test('should set validateButton, animateCorrectionPopin, showCorrectionPopin and pendingAnswerRequest to false if SLIDE_FETCH_REQUEST is received', t => {
   const state = reducer(undefined, {
     type: SLIDE_FETCH_REQUEST,
@@ -41,7 +39,7 @@ test('should set validateButton to true if answers are found when an EditAnswerA
   t.deepEqual(state, {'1234': {validateButton: true}});
 });
 
-test('should set validateButton to false if POST_ANSWER_REQUEST is received', t => {
+test('should set validateButton to false and pendingAnswerRequest to true if POST_ANSWER_REQUEST is received', t => {
   const state = reducer(undefined, {
     type: POST_ANSWER_REQUEST,
     meta: {slideRef: '1234'}

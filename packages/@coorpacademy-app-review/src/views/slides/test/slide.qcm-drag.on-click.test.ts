@@ -57,7 +57,8 @@ const initialState: StoreState = {
       [qcmDragSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -82,6 +83,7 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:

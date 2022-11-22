@@ -50,7 +50,8 @@ test('should create initial props when fetched slide is not still received', t =
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -146,7 +147,8 @@ test('should create props when first slide is on the state', t => {
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -198,6 +200,7 @@ test('should create props when first slide is on the state', t => {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:
@@ -258,7 +261,8 @@ test('should create props when slide is on the state and user has selected answe
         sli_VJYjJnJhg: {
           validateButton: true,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: true
         }
       },
       showQuitPopin: false,
@@ -310,6 +314,7 @@ test('should create props when slide is on the state and user has selected answe
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: true,
     position: 0,
     loading: false,
     parentContentTitle:
@@ -371,12 +376,14 @@ test('should verify props when first slide was answered correctly and next slide
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -428,6 +435,7 @@ test('should verify props when first slide was answered correctly and next slide
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:
@@ -493,12 +501,14 @@ test('should verify props when first slide was answered with error and next slid
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -571,12 +581,14 @@ test('should verify props when first slide was answered, next slide is fetched &
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: true,
-          showCorrectionPopin: true
+          showCorrectionPopin: true,
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -639,6 +651,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:
@@ -658,6 +671,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 1,
     loading: false,
     parentContentTitle:
@@ -708,12 +722,14 @@ test('should verify props when first slide was answered incorrectly, next slide 
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: true,
-          showCorrectionPopin: true
+          showCorrectionPopin: true,
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -779,6 +795,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:
@@ -798,6 +815,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 1,
     loading: false,
     parentContentTitle:
@@ -852,12 +870,14 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: true,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -970,30 +990,35 @@ test('should verify props when progression is in success, showing last correctio
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: true,
-          showCorrectionPopin: true
+          showCorrectionPopin: true,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -1096,31 +1121,36 @@ test('should verify props showing congrats', t => {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: true,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         }
       }
     }
@@ -1239,31 +1269,36 @@ test('should verify props showing congrats, with only stars card, if user has no
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: true,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         }
       }
     }
@@ -1353,31 +1388,36 @@ test('should verify props when progression has answered a current pendingSlide',
         sli_VJYjJnJhg: {
           validateButton: false,
           animateCorrectionPopin: true,
-          showCorrectionPopin: true
+          showCorrectionPopin: true,
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'restack'
+          animationType: 'restack',
+          pendingAnswerRequest: false
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -1463,30 +1503,35 @@ test('should verify props when progression still has a pendingSlide', t => {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_VkSQroQnx: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         },
         sli_VkAzsCLKb: {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         },
         'sli_N13-hG3kX': {
           validateButton: false,
           animateCorrectionPopin: false,
           showCorrectionPopin: false,
-          animationType: 'unstack'
+          animationType: 'unstack',
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: false,
@@ -1554,7 +1599,8 @@ test('should verify that props quitPopin is not undefined when popin is displaye
         sli_N1XACJobn: {
           validateButton: false,
           animateCorrectionPopin: false,
-          showCorrectionPopin: false
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
         }
       },
       showQuitPopin: true,

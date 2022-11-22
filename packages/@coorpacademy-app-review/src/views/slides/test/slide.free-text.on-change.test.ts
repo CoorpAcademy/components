@@ -68,7 +68,8 @@ const initialState: StoreState = {
       [freeTextSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -108,6 +109,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:

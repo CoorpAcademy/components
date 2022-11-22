@@ -32,7 +32,8 @@ const state: StoreState = {
       sli_N1XACJobn: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
