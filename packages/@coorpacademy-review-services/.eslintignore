@@ -12,4 +12,3 @@ tsconfig*.json
 **/commands/**
 ava.config.js
 nyc.config.js
-**/*.disabled
