@@ -142,12 +142,12 @@ const buildStackSlides = (
       const answers = getOr([], ['ui', 'answers', slideRef], state);
       const {questionText, answerUI} = mapApiSlideToUi(dispatch, translate)(slideFromAPI, answers);
       const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
-
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const slideUI = get(['ui', 'slide', slideRef], state);
       const animateCorrectionPopin = isCurrentSlideRef && slideUI.animateCorrectionPopin;
       const showCorrectionPopin = isCurrentSlideRef && slideUI.showCorrectionPopin;
       const animationType = lastAnsweredSlideRef ? slideUI.animationType : undefined;
+      const disabledContent = get(['ui', 'slide', slideRef, 'pendingAnswerRequest'], state);
 
       const updatedUiSlide = {
         ...uiSlide,
@@ -157,6 +157,7 @@ const buildStackSlides = (
         loading: false,
         questionText,
         answerUI,
+        disabledContent,
         parentContentTitle: translate('Content Parent Title', {
           contentTitle: parentContentTitle,
           contentType: parentContentType

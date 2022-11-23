@@ -12,6 +12,7 @@ export const SlidePropsTypes = PropTypes.shape({
   isCorrect: PropTypes.bool,
   animateCorrectionPopin: PropTypes.bool,
   showCorrectionPopin: PropTypes.bool,
+  disableContent: PropTypes.bool,
   parentContentTitle: PropTypes.string,
   questionText: PropTypes.string,
   answerUI: PropTypes.shape(AnswerPropTypes)

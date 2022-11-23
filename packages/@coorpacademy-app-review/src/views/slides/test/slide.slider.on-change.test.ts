@@ -57,7 +57,8 @@ const initialState: StoreState = {
       [sliderSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -81,6 +82,7 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
+    disabledContent: false,
     showCorrectionPopin: false,
     position: 0,
     loading: false,

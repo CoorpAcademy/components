@@ -68,31 +68,36 @@ const state: StoreState = {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_VkSQroQnx: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_N1XACJobn: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_VkAzsCLKb: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       'sli_N13-hG3kX': {
         validateButton: false,
         animateCorrectionPopin: true,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       }
     }
   }

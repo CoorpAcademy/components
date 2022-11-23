@@ -57,7 +57,8 @@ const initialState: StoreState = {
       [sliderSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -83,6 +84,7 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:

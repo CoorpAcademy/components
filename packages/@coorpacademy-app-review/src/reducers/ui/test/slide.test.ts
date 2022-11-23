@@ -7,14 +7,19 @@ import {SLIDE_FETCH_REQUEST} from '../../../actions/api/fetch-slide';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
 
-test('should set validateButton, animateCorrectionPopin and showCorrectionPopin to false if SLIDE_FETCH_REQUEST is received', t => {
+test('should set validateButton, animateCorrectionPopin, showCorrectionPopin and pendingAnswerRequest to false if SLIDE_FETCH_REQUEST is received', t => {
   const state = reducer(undefined, {
     type: SLIDE_FETCH_REQUEST,
     meta: {slideRef: '1234'}
   });
   t.truthy(state);
   t.deepEqual(state, {
-    '1234': {validateButton: false, animateCorrectionPopin: false, showCorrectionPopin: false}
+    '1234': {
+      validateButton: false,
+      animateCorrectionPopin: false,
+      showCorrectionPopin: false,
+      pendingAnswerRequest: false
+    }
   });
 });
 
@@ -34,13 +39,13 @@ test('should set validateButton to true if answers are found when an EditAnswerA
   t.deepEqual(state, {'1234': {validateButton: true}});
 });
 
-test('should set validateButton to false if POST_ANSWER_REQUEST is received', t => {
+test('should set validateButton to false and pendingAnswerRequest to true if POST_ANSWER_REQUEST is received', t => {
   const state = reducer(undefined, {
     type: POST_ANSWER_REQUEST,
     meta: {slideRef: '1234'}
   });
   t.truthy(state);
-  t.deepEqual(state, {'1234': {validateButton: false}});
+  t.deepEqual(state, {'1234': {validateButton: false, pendingAnswerRequest: true}});
 });
 
 test('should set animateCorrectionPopin to true if CORRECTION_FETCH_SUCCESS is received', t => {
@@ -59,7 +64,8 @@ test('should set animateCorrectionPopin to false and animationType to unstack or
       '1234': {
         validateButton: false,
         animateCorrectionPopin: true,
-        showCorrectionPopin: true
+        showCorrectionPopin: true,
+        pendingAnswerRequest: false
       }
     },
     {
@@ -79,7 +85,8 @@ test('should set animateCorrectionPopin to false and animationType to unstack or
       validateButton: false,
       animateCorrectionPopin: false,
       showCorrectionPopin: false,
-      animationType: 'unstack'
+      animationType: 'unstack',
+      pendingAnswerRequest: false
     }
   });
 });
@@ -94,7 +101,8 @@ test('should return same state when nextContent is successExitNode', t => {
     '1234': {
       validateButton: false,
       animateCorrectionPopin: true,
-      showCorrectionPopin: true
+      showCorrectionPopin: true,
+      pendingAnswerRequest: false
     }
   };
   const state = reducer(_initialState, {
@@ -117,31 +125,36 @@ test('should set the initial value when POST_PROGRESSION_REQUEST action is recei
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_VkSQroQnx: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_N1XACJobn: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       sli_VkAzsCLKb: {
         validateButton: false,
         animateCorrectionPopin: false,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       },
       'sli_N13-hG3kX': {
         validateButton: false,
         animateCorrectionPopin: true,
         showCorrectionPopin: false,
-        animationType: 'unstack'
+        animationType: 'unstack',
+        pendingAnswerRequest: false
       }
     },
     {type: POST_PROGRESSION_REQUEST}

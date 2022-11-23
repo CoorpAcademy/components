@@ -57,7 +57,8 @@ const initialState: StoreState = {
       [qcmSlide._id]: {
         validateButton: false,
         animateCorrectionPopin: false,
-        showCorrectionPopin: false
+        showCorrectionPopin: false,
+        pendingAnswerRequest: false
       }
     },
     showQuitPopin: false,
@@ -84,6 +85,7 @@ test('should dispatch EDIT_QCM action via the property onClick of a QCM slide', 
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
+    disabledContent: false,
     position: 0,
     loading: false,
     parentContentTitle:
