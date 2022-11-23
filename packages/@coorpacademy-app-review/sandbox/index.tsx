@@ -51,15 +51,15 @@ const createSandbox = (options: SandboxOptions): void => {
     const appOptions: AppOptions = {
       token: process.env.API_TEST_TOKEN || '',
       skillRef: 'skill_NyxtYFYir',
-      services,
       translate,
+      services,
       onQuitClick: () => {
         location.reload();
       },
       skin
     };
     render(
-      <WebContext skin={skin} translate={identity}>
+      <WebContext translate={identity} skin={skin}>
         <AppReview options={appOptions} />
       </WebContext>,
       container
