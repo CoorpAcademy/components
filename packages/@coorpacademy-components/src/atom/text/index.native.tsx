@@ -8,6 +8,7 @@ export type Props = {
   testID?: string;
   numberOfLines?: number;
   allowFontScaling?: boolean;
+  accessibilityLabel?: string;
 };
 
 export const DEFAULT_STYLE = {
@@ -25,7 +26,14 @@ const styles = StyleSheet.create({
 });
 
 const Text = (props: Props) => {
-  const {children, style, testID, numberOfLines, allowFontScaling = true} = props;
+  const {
+    children,
+    style,
+    testID,
+    numberOfLines,
+    allowFontScaling = true,
+    accessibilityLabel
+  } = props;
 
   return (
     <TextBase
@@ -33,6 +41,7 @@ const Text = (props: Props) => {
       style={[styles.text, style]}
       testID={testID}
       numberOfLines={numberOfLines}
+      accessibilityLabel={accessibilityLabel}
     >
       {children}
     </TextBase>

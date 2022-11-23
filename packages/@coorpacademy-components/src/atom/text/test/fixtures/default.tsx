@@ -7,7 +7,8 @@ type Fixture = {props: Props};
 const fixture: Fixture = {
   props: {
     testID: 'basic-text',
-    children: <Text>Basic text</Text>
+    children: <Text>Basic text</Text>,
+    accessibilityLabel: 'basic-text'
   }
 };
 
