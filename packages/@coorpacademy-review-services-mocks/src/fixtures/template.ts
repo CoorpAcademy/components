@@ -1,6 +1,4 @@
-import noop from 'lodash/fp/noop';
-import {ReviewSlide} from '../..';
-import {SlideFromAPI} from '../../../../types/common';
+import {SlideFromAPI} from '@coorpacademy/review-services';
 
 export const templateSlide: SlideFromAPI = {
   question: {
@@ -89,90 +87,5 @@ export const templateSlide: SlideFromAPI = {
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'
-  }
-};
-
-export const templateUISlide: Partial<ReviewSlide> = {
-  questionText: 'Complétez la phrase ci-dessous.',
-  answerUI: {
-    help: 'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).',
-    model: {
-      type: 'template',
-      template:
-        'La vue {{sel80495}} présente la liste des   {{inp58402}}   ayant le plus grand nombre d’{{sel80496}} cumulées.',
-      answers: [
-        {
-          type: 'select',
-          name: 'sel80495',
-          onChange: noop,
-          options: [
-            {name: 'Select an answer', value: '', validOption: false, selected: true},
-            {
-              name: 'Catalogue',
-              value: 'Catalogue',
-              validOption: true,
-              selected: false
-            },
-            {
-              name: 'Leaderboard',
-              value: 'Leaderboard',
-              validOption: true,
-              selected: false
-            },
-            {
-              name: 'Activité',
-              value: 'Activité',
-              validOption: true,
-              selected: false
-            },
-            {
-              name: 'Slides',
-              value: 'Slides',
-              validOption: true,
-              selected: false
-            }
-          ]
-        },
-        {
-          type: 'text',
-          name: 'inp58402',
-          placeholder: 'Type here',
-          value: undefined,
-          onChange: noop
-        },
-        {
-          type: 'select',
-          name: 'sel80496',
-          onChange: noop,
-          options: [
-            {name: 'Select an answer', value: '', validOption: false, selected: true},
-            {
-              name: 'étoiles',
-              value: 'étoiles',
-              validOption: true,
-              selected: false
-            },
-            {
-              name: 'idées',
-              value: 'idées',
-              validOption: true,
-              selected: false
-            },
-            {
-              name: 'envies',
-              value: 'envies',
-              validOption: true,
-              selected: false
-            },
-            {
-              name: 'images',
-              value: 'images',
-              validOption: true,
-              selected: false
-            }
-          ]
-        }
-      ]
-    }
   }
 };

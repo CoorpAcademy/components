@@ -1,6 +1,4 @@
-import noop from 'lodash/fp/noop';
-import {ReviewSlide} from '../..';
-import {SlideFromAPI} from '../../../../types/common';
+import {SlideFromAPI} from '@coorpacademy/review-services';
 
 export const sliderSlide: SlideFromAPI = {
   question: {
@@ -22,23 +20,5 @@ export const sliderSlide: SlideFromAPI = {
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'
-  }
-};
-
-export const sliderUISlide: Partial<ReviewSlide> = {
-  questionText:
-    'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?',
-  answerUI: {
-    help: 'Déplacez le curseur.',
-    model: {
-      type: 'slider',
-      placeholder: 'Déplacez le curseur.',
-      minLabel: '1 an(s)',
-      maxLabel: '15 an(s)',
-      title: '1 an(s)',
-      value: 0,
-      onChange: noop,
-      onSliderChange: noop
-    }
   }
 };

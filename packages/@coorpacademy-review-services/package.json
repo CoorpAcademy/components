@@ -30,7 +30,6 @@
   "files": [
     "lib",
     "es",
-    "locales",
     "README.md"
   ],
   "main": "lib/index.js",

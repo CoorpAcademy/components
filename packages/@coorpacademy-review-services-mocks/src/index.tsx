@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import {
+import type {
   Config,
   CorrectionFromAPI,
   ProgressionFromAPI,
