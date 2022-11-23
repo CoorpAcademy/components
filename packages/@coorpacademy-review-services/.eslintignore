@@ -1,13 +1,8 @@
 **/node_modules
 **/.nyc_output
-**/.webpack
 **/coverage
-**/scripts
-**/explorer
 **/es/**
 **/lib/**
-**/static
-**/app.min.js*
 *.yml
 *.md
 *.sh
@@ -17,5 +12,4 @@ tsconfig*.json
 **/commands/**
 ava.config.js
 nyc.config.js
-webpack.config.js
 **/*.disabled

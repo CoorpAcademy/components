@@ -40,7 +40,7 @@ jobs:
       name: App review
       env: PACKAGE_NAME=@coorpacademy/app-review
     - <<: *test-job
-      name: Serivces review
+      name: Review services
       env: PACKAGE_NAME=@coorpacademy/review-services
     - <<: *test-job
       name: Player store
