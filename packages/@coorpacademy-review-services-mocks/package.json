@@ -32,7 +32,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@coorpacademy/review-services": "1.0.3"
+    "@coorpacademy/progression-engine": "^11.5.2",
+    "@coorpacademy/review-services": "^1.0.3"
   },
   "peerDependencies": {
     "lodash": "^4.17.21"

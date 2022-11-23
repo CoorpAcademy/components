@@ -1,4 +1,4 @@
-import {SlideFromAPI} from '@coorpacademy/review-services';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 
 export const templateSlide: SlideFromAPI = {
   question: {
