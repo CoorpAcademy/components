@@ -3,18 +3,18 @@ import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
-import {Question, SlideFromAPI} from '@coorpacademy/review-services/es/types/services-types';
-import {services} from '@coorpacademy/review-services/es/mock/services.mock';
+import type {Question, SlideFromAPI} from '@coorpacademy/review-services';
+import {services} from '@coorpacademy/review-services-mocks';
 
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
-import {qcmDragSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-drag';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
-import {sliderSlide} from '@coorpacademy/review-services/es/mock/fixtures/slider';
-import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
 import {editAnswer, ANSWER_EDIT} from '../answers';
 import {StoreState} from '../../../reducers';
 import {createTestStore} from '../../test/create-test-store';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
 
 const initialState: StoreState = {
   data: {

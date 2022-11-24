@@ -1,10 +1,6 @@
 import test from 'ava';
-import type {
-  ProgressionFromAPI,
-  Services
-} from '@coorpacademy/review-services/es/types/services-types';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
+import type {ProgressionFromAPI, Services} from '@coorpacademy/review-services';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
@@ -16,6 +12,7 @@ import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';
 import {SKILL_FETCH_FAILURE, SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../fetch-skill';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
 const initialState: StoreState = {
   data: {

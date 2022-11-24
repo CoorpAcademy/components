@@ -4,7 +4,7 @@ import test from 'ava';
 import type {ExecutionContext} from 'ava';
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react';
-import {services} from '@coorpacademy/review-services/es/mock/services.mock';
+import {services} from '@coorpacademy/review-services-mocks';
 import {sleep} from '@coorpacademy/review-services/es/tools/sleep';
 import type {AppOptions} from '../types/common';
 import AppReview from '..';

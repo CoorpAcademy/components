@@ -1,6 +1,6 @@
 import concat from 'lodash/fp/concat';
 import slice from 'lodash/fp/slice';
-import type {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 
 export const slideIndexes = ['0', '1', '2', '3', '4'] as const;
 

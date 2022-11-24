@@ -1,9 +1,6 @@
 import buildTask from '@coorpacademy/redux-task';
 import type {Dispatch} from 'redux';
-import type {
-  ProgressionFromAPI,
-  SlideIdFromAPI
-} from '@coorpacademy/review-services/es/types/services-types';
+import type {ProgressionFromAPI, SlideIdFromAPI} from '@coorpacademy/review-services';
 import {Options} from '../../types/common';
 import type {StoreState} from '../../reducers';
 

@@ -1,7 +1,7 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
-import type {Services} from '@coorpacademy/review-services/es/types/services-types';
-import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
+import type {Services} from '@coorpacademy/review-services';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {
   fetchStartRank,

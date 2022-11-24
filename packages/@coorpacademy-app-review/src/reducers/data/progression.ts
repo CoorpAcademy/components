@@ -1,4 +1,4 @@
-import {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import {PostAnswerSuccessAction, POST_ANSWER_SUCCESS} from '../../actions/api/post-answer';
 import {
   POST_PROGRESSION_REQUEST,

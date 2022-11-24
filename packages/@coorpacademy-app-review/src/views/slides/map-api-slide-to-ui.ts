@@ -22,7 +22,7 @@ import {
   __
 } from 'lodash/fp';
 import {Dispatch} from 'redux';
-import {
+import type {
   BasicQuestion,
   ChoiceFromAPI,
   QcmDragQuestion,
@@ -31,8 +31,9 @@ import {
   Question,
   SlideFromAPI,
   SliderQuestion,
-  TemplateQuestion
-} from '@coorpacademy/review-services/es/types/services-types';
+  TemplateQuestion,
+  ChoiceItem
+} from '@coorpacademy/review-services';
 import {
   AnswerUI,
   FreeText,
@@ -151,7 +152,7 @@ const templateSelectProps = (
     validOption: false,
     selected: true
   };
-  const selectOptions = choice.items.map(item => {
+  const selectOptions = choice.items.map((item: ChoiceItem) => {
     const itemText = getOr('', 'text', item);
     return {
       name: itemText,
@@ -180,7 +181,7 @@ const templateProps =
     return {
       type: 'template',
       template: get('content.template', question),
-      answers: choices.map((choice, index) =>
+      answers: choices.map((choice: ChoiceFromAPI, index: number) =>
         choice.type === 'text'
           ? templateTextProps(dispatch, translate, answers, choice, index, maxLength)
           : templateSelectProps(dispatch, translate, answers, choice, index, maxLength)

@@ -1,8 +1,8 @@
 import test from 'ava';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
 import reducer from '../current-slide-ref';
 import {SetCurrentSlideAction, SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as SetCurrentSlideAction);

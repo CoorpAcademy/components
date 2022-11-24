@@ -1,15 +1,12 @@
 import test from 'ava';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
-import {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import {
   getChoicesCorrection,
   postAnswerResponses,
-  services,
-  translate
-} from '@coorpacademy/review-services/es/mock/services.mock';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
+  services
+} from '@coorpacademy/review-services-mocks';
 import {POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from '../../../actions/api/post-answer';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
 import {
@@ -21,7 +18,10 @@ import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
+import {translate} from '../../../../sandbox/translation.mock';
 import {skin} from './fixtures/skin';
+import {freeTextSlide} from './fixtures/free-text';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 const progression: ProgressionFromAPI = {

@@ -3,7 +3,7 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
-import type {SlideFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {setCurrentSlide} from '../ui/slides';

@@ -1,21 +1,12 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
-import {
-  ReviewEngine,
-  ReviewContent,
-  ProgressionFromAPI
-} from '@coorpacademy/review-services/es/types/services-types';
+import type {ReviewEngine, ReviewContent, ProgressionFromAPI} from '@coorpacademy/review-services';
 import {
   fetchSlidesToReviewBySkillRefResponse,
   getChoicesCorrection,
   postAnswerResponses,
   services
-} from '@coorpacademy/review-services/es/mock/services.mock';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
-import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
-import {sliderSlide} from '@coorpacademy/review-services/es/mock/fixtures/slider';
+} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   postAnswer,
@@ -35,6 +26,11 @@ import {
   SLIDES_TO_REVIEW_FETCH_REQUEST,
   SLIDES_TO_REVIEW_FETCH_SUCCESS
 } from '../fetch-slides-to-review-by-skill-ref';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
 
 const progressionId = '62b1d1087aa12f00253f40ee';
 const skillRef = 'skill_NyxtYFYir';

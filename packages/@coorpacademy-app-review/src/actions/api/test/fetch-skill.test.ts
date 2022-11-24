@@ -1,6 +1,6 @@
 import test from 'ava';
-import type {Services} from '@coorpacademy/review-services/es/types/services-types';
-import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
+import type {Services} from '@coorpacademy/review-services';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import type {StoreState} from '../../../reducers';
 import {

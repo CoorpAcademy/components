@@ -18,7 +18,7 @@ import type {
   ProgressionAnswerItem,
   ProgressionFromAPI,
   SlideContent
-} from '@coorpacademy/review-services/es/types/services-types';
+} from '@coorpacademy/review-services';
 import {ConnectedOptions, Skin, Translate} from '../../types/common';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';

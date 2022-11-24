@@ -5,12 +5,12 @@ import {
   getChoicesCorrection,
   postAnswerResponses,
   services
-} from '@coorpacademy/review-services/es/mock/services.mock';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
+} from '@coorpacademy/review-services-mocks';
 import {StoreState} from '../../../reducers';
 import {nextSlide, NEXT_SLIDE} from '../next-slide';
 import {createTestStore} from '../../test/create-test-store';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 
 const progression = postAnswerResponses[freeTextSlide.universalRef];
 const skillRef = '_skill-ref';

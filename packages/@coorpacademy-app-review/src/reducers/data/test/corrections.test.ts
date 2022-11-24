@@ -1,16 +1,16 @@
 import test from 'ava';
-import {getChoicesCorrection} from '@coorpacademy/review-services/es/mock/services.mock';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
-import {sliderSlide} from '@coorpacademy/review-services/es/mock/fixtures/slider';
-import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
-import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
+import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
+import reducer, {type CorrectionsAction} from '../corrections';
 import {
   CORRECTION_FETCH_REQUEST,
   CORRECTION_FETCH_SUCCESS
 } from '../../../actions/api/fetch-correction';
-import reducer, {type CorrectionsAction} from '../corrections';
+import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
 
 test('should have an initial empty record value', t => {
   const state = reducer(undefined, {} as CorrectionsAction);

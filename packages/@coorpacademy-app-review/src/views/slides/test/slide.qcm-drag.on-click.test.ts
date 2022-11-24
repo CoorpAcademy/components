@@ -2,17 +2,19 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
-import {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
-import {services, translate} from '@coorpacademy/review-services/es/mock/services.mock';
-import {qcmDragSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-drag';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
+import {services} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_QCM_DRAG} from '../../../actions/ui/answers';
 import {QcmDrag} from '../../../types/slides';
+import {translate} from '../../../../sandbox/translation.mock';
 import {skin} from './fixtures/skin';
+import {qcmDragSlide} from './fixtures/qcm-drag';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
+
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},

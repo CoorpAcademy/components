@@ -1,5 +1,5 @@
 import set from 'lodash/fp/set';
-import {SlideFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {
   ReceivedSlide,
   FetchSlide,

@@ -1,4 +1,4 @@
-import {Skill} from '@coorpacademy/review-services/es/types/services-types';
+import type {Skill} from '@coorpacademy/review-services';
 import {ReceivedSkill, SKILL_FETCH_SUCCESS} from '../../actions/api/fetch-skill';
 
 export type CurrentSkillState = Skill | null;

@@ -1,7 +1,6 @@
 import test from 'ava';
-import type {Services} from '@coorpacademy/review-services/es/types/services-types';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
+import type {Services} from '@coorpacademy/review-services';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import {
   fetchSlide,
   SLIDE_FETCH_FAILURE,
@@ -11,6 +10,7 @@ import {
 import type {StoreState} from '../../../reducers';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
 const initialState: StoreState = {
   data: {

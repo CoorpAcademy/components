@@ -1,4 +1,4 @@
-import {Services} from '@coorpacademy/review-services/es/types/services-types';
+import type {Services} from '@coorpacademy/review-services';
 
 export type WithRequired<T, K extends keyof T> = T & {
   // the "-" is a Mapping Modifier, removes optionality from a prop

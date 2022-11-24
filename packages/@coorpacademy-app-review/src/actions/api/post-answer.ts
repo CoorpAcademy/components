@@ -1,7 +1,7 @@
 import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
-import type {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import type {StoreState} from '../../reducers';
 import type {ThunkOptions} from '../../types/common';
 import {fetchCorrection} from './fetch-correction';

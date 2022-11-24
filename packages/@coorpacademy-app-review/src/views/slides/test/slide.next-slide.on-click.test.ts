@@ -6,19 +6,19 @@ import {
   postAnswerResponses,
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse,
-  services,
-  translate
-} from '@coorpacademy/review-services/es/mock/services.mock';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
-import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
-import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
+  services
+} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
+import {translate} from '../../../../sandbox/translation.mock';
 import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';
+import {freeTextSlide} from './fixtures/free-text';
+import {qcmSlide} from './fixtures/qcm';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {templateSlide} from './fixtures/template';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

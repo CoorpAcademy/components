@@ -1,7 +1,7 @@
 import {Dispatch} from 'redux';
 import get from 'lodash/fp/get';
 import buildTask from '@coorpacademy/redux-task';
-import type {Skill} from '@coorpacademy/review-services/es/types/services-types';
+import type {Skill} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 

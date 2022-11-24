@@ -12,17 +12,17 @@ import {
   postAnswerResponses,
   progressionSlideWithPendingSlide,
   getChoicesCorrection,
-  incorrectFreeTextPostAnswerResponse,
-  translate
-} from '@coorpacademy/review-services/es/mock/services.mock';
-import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
-import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
-import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
+  incorrectFreeTextPostAnswerResponse
+} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
+import {translate} from '../../../../sandbox/translation.mock';
 import {skin} from './fixtures/skin';
 import {sliderSlide} from './fixtures/slider';
 import {templateSlide} from './fixtures/template';
+import {freeTextSlide} from './fixtures/free-text';
+import {qcmSlide} from './fixtures/qcm';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

@@ -1,5 +1,5 @@
 import set from 'lodash/fp/set';
-import type {CorrectionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {CorrectionFromAPI} from '@coorpacademy/review-services';
 import {
   ReceivedCorrection,
   CORRECTION_FETCH_SUCCESS,
