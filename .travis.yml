@@ -43,6 +43,9 @@ jobs:
       name: Review services
       env: PACKAGE_NAME=@coorpacademy/review-services
     - <<: *test-job
+      name: Review services mocks
+      env: PACKAGE_NAME=@coorpacademy/review-services-mocks
+    - <<: *test-job
       name: Player store
       env: PACKAGE_NAME=@coorpacademy/player-store
     - <<: *test-job

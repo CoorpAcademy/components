@@ -1,0 +1,14 @@
+**/node_modules
+**/.nyc_output
+**/coverage
+**/es/**
+**/lib/**
+*.yml
+*.md
+*.sh
+tmp
+**/zip
+tsconfig*.json
+**/commands/**
+ava.config.js
+nyc.config.js
