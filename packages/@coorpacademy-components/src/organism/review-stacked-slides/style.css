@@ -29,8 +29,6 @@
   border-radius: 24px;
   overflow: hidden;
   position: absolute;
-
-  /* transition: transform 1s ease-in, width 1s ease-in; */
   pointer-events: none;
 }
 
@@ -72,6 +70,7 @@
   transform: translate(3.2%, -32px);
   transition: transform 1s ease-in, width 1s ease-in;
 }
+
 @keyframes slideOutHideAndSlideIn {
   0% {
     width: 100%;
