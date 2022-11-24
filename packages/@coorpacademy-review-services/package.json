@@ -20,7 +20,7 @@
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
     "ava": "ava",
-    "test": "npm run lint && npm run test:unit",
+    "test": "npm run lint && npm run typecheck && npm run test:unit",
     "lint": "npm run eslint",
     "test:unit": "nyc npm run ava",
     "eslint": "eslint . --ext .js,.json,.ts,.tsx --cache --cache-location \"node_modules/.cache/.eslintcache\"",
