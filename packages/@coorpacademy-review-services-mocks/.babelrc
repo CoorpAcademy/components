@@ -7,8 +7,7 @@
     [
       "@babel/preset-typescript",
       {
-        "allExtensions": true,
-        "isTSX": true
+        "allExtensions": true
       }
     ]
   ]
