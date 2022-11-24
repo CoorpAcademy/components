@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
-  NovaCompositionNavigationBurger as ArrowDown,
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
@@ -588,10 +589,10 @@ class MoocHeader extends React.Component {
               data-name="nav-mobile"
               aria-label={logoButtonAriaLabel}
             >
-              <ArrowDown
+              <BurgerIcon
                 role="button"
                 color={mediumColor}
-                className={isMenuOpen ? style.caretHidden : style.caret}
+                className={isMenuOpen ? style.burgerHidden : style.burger}
                 onClick={this.handleMenuToggle}
               />
               <CloseIcon

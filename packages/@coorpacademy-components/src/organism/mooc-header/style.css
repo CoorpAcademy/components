@@ -101,13 +101,21 @@
 }
 
 .caret {
+  margin: 2px 0 0 15px;
+  color: medium;
+  width: 10px;
+  height: 10px;
+  transition: transform 0.3s;
+}
+
+.burger {
   margin: 0 20px 0 0;
   color: medium;
   width: 25px;
   height: 25px;
 }
 
-.caretHidden {
+.burgerHidden {
   composes: caret;
   display: none;
 }
