@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
-  NovaSolidNavigationNavigationDrawer2 as ArrowDown,
-  NovaSolidStatusClose as CloseIcon,
+  NovaCompositionNavigationBurger as ArrowDown,
+  NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
