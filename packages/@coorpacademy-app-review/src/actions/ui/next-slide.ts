@@ -1,8 +1,11 @@
 import type {Dispatch} from 'redux';
 import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
+import {
+  ProgressionFromAPI,
+  ProgressionAnswerItem
+} from '@coorpacademy/review-services/es/types/services-types';
 import type {StoreState} from '../../reducers';
-import {ProgressionFromAPI, ProgressionAnswerItem} from '../../types/common';
 
 export const NEXT_SLIDE = '@@slide/NEXT_SLIDE' as const;
 

@@ -1,7 +1,7 @@
 import test from 'ava';
+import type {Services} from '@coorpacademy/review-services/es/types/services-types';
+import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
 import {createTestStore} from '../../test/create-test-store';
-import {Services} from '../../../types/common';
-import {services as mockedServices} from '../../../test/util/services.mock';
 import type {StoreState} from '../../../reducers';
 import {
   fetchSkill,

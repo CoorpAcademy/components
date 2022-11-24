@@ -1,6 +1,6 @@
 import test from 'ava';
 import drop from 'lodash/fp/drop';
-import {fetchSlidesToReviewBySkillRefResponse} from '../../../test/util/services.mock';
+import {fetchSlidesToReviewBySkillRefResponse} from '@coorpacademy/review-services/es/mock/services.mock';
 import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS,
   type ReceivedSlidesToReviewBySkillRef

@@ -14,15 +14,15 @@ import {
   getChoicesCorrection,
   incorrectFreeTextPostAnswerResponse,
   translate
-} from '../../../test/util/services.mock';
+} from '@coorpacademy/review-services/es/mock/services.mock';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
+import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
-import {freeTextSlide} from './fixtures/free-text';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {templateSlide} from './fixtures/template';
-import {qcmSlide} from './fixtures/qcm';
-import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';
+import {sliderSlide} from './fixtures/slider';
+import {templateSlide} from './fixtures/template';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

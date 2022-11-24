@@ -3,7 +3,7 @@ import {
   postAnswerResponses,
   postProgressionResponse,
   progressionSlideWithPendingSlide
-} from '../../test/util/services.mock';
+} from '@coorpacademy/review-services/es/mock/services.mock';
 import {templateSlide} from '../../views/slides/test/fixtures/template';
 import {getProgressionSlidesRefs} from '..';
 

@@ -2,14 +2,14 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
+import {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import {services, translate} from '@coorpacademy/review-services/es/mock/services.mock';
+import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
 import {mapStateToSlidesProps} from '..';
-import {ProgressionFromAPI} from '../../../types/common';
-import {services, translate} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_QCM_GRAPHIC} from '../../../actions/ui/answers';
 import {QcmGraphic} from '../../../types/slides';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {skin} from './fixtures/skin';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};

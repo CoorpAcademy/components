@@ -1,8 +1,8 @@
 import test from 'ava';
+import {services} from '@coorpacademy/review-services/es/mock/services.mock';
 import {createTestStore} from '../../test/create-test-store';
 import type {StoreState} from '../../../reducers';
 import {closeQuitPopin, CLOSE_POPIN, openQuitPopin, OPEN_POPIN} from '../quit-popin';
-import {services} from '../../../test/util/services.mock';
 
 const initialState: StoreState = {
   data: {

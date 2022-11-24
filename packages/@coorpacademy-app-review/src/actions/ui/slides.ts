@@ -1,4 +1,4 @@
-import {SlideFromAPI} from '../../types/common';
+import {SlideFromAPI} from '@coorpacademy/review-services/es/types/services-types';
 import {AnswerUI} from '../../types/slides';
 
 type SlideUIAnimations = 'unstack' | 'restack';

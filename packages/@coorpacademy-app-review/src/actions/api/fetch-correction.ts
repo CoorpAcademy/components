@@ -1,8 +1,9 @@
 import type {Dispatch} from 'redux';
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
+import type {CorrectionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
-import type {CorrectionFromAPI, ThunkOptions} from '../../types/common';
 
 export const CORRECTION_FETCH_REQUEST = '@@correction/FETCH_REQUEST' as const;
 export const CORRECTION_FETCH_SUCCESS = '@@correction/FETCH_SUCCESS' as const;

@@ -1,6 +1,18 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
+import {
+  getChoicesCorrection,
+  postAnswerResponses,
+  services,
+  translate
+} from '@coorpacademy/review-services/es/mock/services.mock';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services/es/types/services-types';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {qcmSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm';
+import {qcmGraphicSlide} from '@coorpacademy/review-services/es/mock/fixtures/qcm-graphic';
+import {sliderSlide} from '@coorpacademy/review-services/es/mock/fixtures/slider';
+import {templateSlide} from '@coorpacademy/review-services/es/mock/fixtures/template';
 import {SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../../../actions/api/fetch-skill';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {
@@ -11,18 +23,6 @@ import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fet
 import {SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import {
-  getChoicesCorrection,
-  postAnswerResponses,
-  services,
-  translate
-} from '../../../test/util/services.mock';
-import type {ProgressionFromAPI} from '../../../types/common';
-import {freeTextSlide} from './fixtures/free-text';
-import {qcmSlide} from './fixtures/qcm';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {sliderSlide} from './fixtures/slider';
-import {templateSlide} from './fixtures/template';
 import {skin} from './fixtures/skin';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};

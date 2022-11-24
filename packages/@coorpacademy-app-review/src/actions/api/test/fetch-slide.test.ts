@@ -1,13 +1,13 @@
 import test from 'ava';
-import type {Services} from '../../../types/common';
+import type {Services} from '@coorpacademy/review-services/es/types/services-types';
+import {freeTextSlide} from '@coorpacademy/review-services/es/mock/fixtures/free-text';
+import {services as mockedServices} from '@coorpacademy/review-services/es/mock/services.mock';
 import {
   fetchSlide,
   SLIDE_FETCH_FAILURE,
   SLIDE_FETCH_REQUEST,
   SLIDE_FETCH_SUCCESS
 } from '../fetch-slide';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {services as mockedServices} from '../../../test/util/services.mock';
 import type {StoreState} from '../../../reducers';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';

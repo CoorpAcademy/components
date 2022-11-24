@@ -2,7 +2,7 @@ import type {ExecutionContext} from 'ava';
 import constant from 'lodash/fp/constant';
 import {AnyAction, applyMiddleware, compose, createStore, Dispatch, Middleware, Store} from 'redux';
 import thunk from 'redux-thunk';
-import {ThunkOptions} from '../../types/common';
+import type {ThunkOptions} from '../../types/common';
 import rootReducer, {StoreState} from '../../reducers';
 
 const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Middleware =>

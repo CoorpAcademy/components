@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux';
-import type {StoreState} from '../../reducers';
 import {ThunkOptions, AppOptions, ViewName} from '../../types/common';
+import type {StoreState} from '../../reducers';
 
 export type NavigateToAction = {
   type: '@@navigation/NAVIGATE_TO';
