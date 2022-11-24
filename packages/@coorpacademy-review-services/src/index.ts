@@ -8,7 +8,20 @@ import type {
   Services as Services_,
   Skill as Skill_,
   SlideFromAPI as SlideFromAPI_,
-  SlideIdFromAPI as SlideIdFromAPI_
+  SlideIdFromAPI as SlideIdFromAPI_,
+  SkillToReview as _SkillToReview,
+  BasicQuestion as _BasicQuestion,
+  ChoiceFromAPI as _ChoiceFromAPI,
+  QcmDragQuestion as _QcmDragQuestion,
+  Question as _Question,
+  QcmGraphicQuestion as _QcmGraphicQuestion,
+  QcmQuestion as _QcmQuestion,
+  SliderQuestion as _SliderQuestion,
+  TemplateQuestion as _TemplateQuestion,
+  ProgressionAnswerItem as _ProgressionAnswerItem,
+  SlideContent as _SlideContent,
+  Rank as _Rank,
+  ChoiceItem as _ChoiceItem
 } from './types/services-types';
 import {fetchCorrection} from './fetch-correction';
 import {fetchRank} from './fetch-rank';
@@ -40,3 +53,16 @@ export type Services = Services_;
 export type Skill = Skill_;
 export type SlideFromAPI = SlideFromAPI_;
 export type SlideIdFromAPI = SlideIdFromAPI_;
+export type SkillToReview = _SkillToReview;
+export type BasicQuestion = _BasicQuestion;
+export type ChoiceFromAPI = _ChoiceFromAPI;
+export type QcmDragQuestion = _QcmDragQuestion;
+export type Question = _Question;
+export type QcmGraphicQuestion = _QcmGraphicQuestion;
+export type QcmQuestion = _QcmQuestion;
+export type SliderQuestion = _SliderQuestion;
+export type TemplateQuestion = _TemplateQuestion;
+export type ProgressionAnswerItem = _ProgressionAnswerItem;
+export type SlideContent = _SlideContent;
+export type Rank = _Rank;
+export type ChoiceItem = _ChoiceItem;
