@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
-  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaSolidNavigationNavigationDrawer2 as ArrowDown,
+  NovaSolidStatusClose as CloseIcon,
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
@@ -583,15 +584,27 @@ class MoocHeader extends React.Component {
         >
           <div className={style.logoWrapper}>
             <div
-              className={style.logoMobile}
-              data-name="logo-mobile"
-              onClick={this.handleMenuToggle}
+              className={style.navMobile}
+              data-name="nav-mobile"
               aria-label={logoButtonAriaLabel}
-              role="button"
             >
-              <Picture src={logoMobileUrl} aria-label={logoAriaLabel} />
-              {notificationsView}
-              <ArrowDown color={mediumColor} className={isMenuOpen ? style.caretUp : style.caret} />
+              <ArrowDown
+                role="button"
+                color={mediumColor}
+                className={isMenuOpen ? style.caretHidden : style.caret}
+                onClick={this.handleMenuToggle}
+              />
+              <CloseIcon
+                color={mediumColor}
+                className={isMenuOpen ? style.close : style.closeHidden}
+                onClick={this.handleMenuToggle}
+              />
+              <Picture
+                src={logoMobileUrl}
+                aria-label={logoAriaLabel}
+                data-name="logo-mobile"
+                href={logo.href}
+              />
             </div>
             <Link
               className={style.logo}
