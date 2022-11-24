@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState, useMemo} from 'react';
 import {TextStyle, StyleSheet, View, ViewStyle} from 'react-native';
 import RenderHTML from 'react-native-render-html';
 import {
@@ -25,6 +25,7 @@ interface StyleSheetType {
   button: ViewStyle;
   buttonText: TextStyle;
   buttonKlf: ViewStyle;
+  buttonKlfActive: TextStyle;
   buttonKlfText: TextStyle;
   iconKey: ViewStyle;
   containerTooltip: ViewStyle;
@@ -47,9 +48,11 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       flexDirection: 'column',
       alignItems: 'flex-start',
       backgroundColor: type === 'wrong' ? theme.colors.negative : theme.colors.positive,
-      shadowRadius: 28,
       shadowColor: type === 'wrong' ? theme.colors.negative : theme.colors.positive,
-      shadowOpacity: 0.4
+      shadowOpacity: 0.5,
+      shadowOffset: {width: 0, height: 0},
+      shadowRadius: 15,
+      elevation: 4
     },
     correctionSection: {
       flexDirection: 'row',
@@ -122,6 +125,10 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       paddingVertical: theme.spacing.small,
       marginBottom: theme.spacing.tiny
     },
+    buttonKlfActive: {
+      backgroundColor:
+        'linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), rgba(255, 255, 255, 0.1)'
+    },
     buttonKlfText: {
       color: 'white',
       fontSize: 14,
@@ -143,7 +150,12 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       width: '112%',
       position: 'absolute',
       bottom: 4,
-      right: -15
+      right: -15,
+      shadowColor: theme.colors.black,
+      shadowOpacity: 0.3,
+      shadowOffset: {width: 0, height: 0},
+      shadowRadius: 8,
+      zIndex: 20
     },
     textTooltip: {
       color: theme.colors.text.primary,
@@ -166,13 +178,34 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       transform: [{rotate: '180deg'}],
       position: 'absolute',
       left: 105,
-      top: -12
+      top: -12,
+      shadowColor: theme.colors.black,
+      shadowOpacity: 0.3,
+      shadowOffset: {width: 0, height: 0},
+      shadowRadius: 4,
+      zIndex: 15
     }
   });
 
-const KlfButton = (klf: ReviewCorrectionPopinProps['klf'], styleSheet: StyleSheetType) => {
+const KlfButton = ({
+  klf,
+  styleSheet
+}: {
+  klf: ReviewCorrectionPopinProps['klf'];
+  styleSheet: StyleSheetType | null;
+}) => {
+  const [displayTooltip, setDisplayTooltip] = useState(false);
+
+  const handlePressKey = useCallback(
+    () => setDisplayTooltip(!displayTooltip),
+    [setDisplayTooltip, displayTooltip]
+  );
+
+  if (!styleSheet) return null;
+
   const {
     buttonKlf,
+    buttonKlfActive,
     buttonKlfText,
     containerButtonKlf,
     containerTooltip,
@@ -180,24 +213,32 @@ const KlfButton = (klf: ReviewCorrectionPopinProps['klf'], styleSheet: StyleShee
     textTooltip,
     triangleTooltip
   } = styleSheet;
-  const {label} = klf;
+
+  const {label, tooltip} = klf;
 
   return (
     <View style={containerButtonKlf}>
-      <View>
-        <Touchable
-          style={containerTooltip}
-          accessibilityLabel={`aria-label-tooltip`}
-          testID="tooltip"
-        >
-          <Text style={textTooltip}>
-            17 frustrated software engineers grappling with the complexities of software
-            development.
-          </Text>
-        </Touchable>
-        <View style={triangleTooltip} />
-      </View>
-      <Touchable style={buttonKlf} accessibilityLabel={`aria-label-${label}`} testID={label}>
+      {displayTooltip ? (
+        <View>
+          <Touchable
+            style={containerTooltip}
+            accessibilityLabel={`aria-label-tooltip`}
+            testID="tooltip"
+            isHighlight
+            onPress={handlePressKey}
+          >
+            <Text style={textTooltip}>{tooltip}</Text>
+          </Touchable>
+          <View style={triangleTooltip} />
+        </View>
+      ) : null}
+
+      <Touchable
+        style={[buttonKlf, displayTooltip ? buttonKlfActive : null]}
+        accessibilityLabel={`aria-label-${label}`}
+        testID={label}
+        onPress={handlePressKey}
+      >
         <KlfIcon style={iconKey} color="white" />
         <Text style={buttonKlfText}>{label}</Text>
       </Touchable>
@@ -228,12 +269,11 @@ const ReviewCorrectionPopin = ({
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme, type);
     setStylesheet(_stylesheet);
-  }, [theme]);
+  }, [theme, type]);
 
   if (!styleSheet) {
     return null;
   }
-  const cta = type === 'wrong' ? KlfButton(klf, styleSheet) : null;
 
   return (
     <View style={styleSheet.wrapper}>
@@ -255,7 +295,7 @@ const ReviewCorrectionPopin = ({
           </View>
           <RenderHTML source={source} systemFonts={['Gilroy']} />
         </View>
-        {cta}
+        {type === 'wrong' ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
         <Touchable
           style={styleSheet.button}
           onPress={handlePressNext}
