@@ -591,21 +591,20 @@ class MoocHeader extends React.Component {
             >
               <BurgerIcon
                 role="button"
+                data-name="nav-mobile-open"
                 color={mediumColor}
                 className={isMenuOpen ? style.burgerHidden : style.burger}
                 onClick={this.handleMenuToggle}
               />
-              <CloseIcon
+              {/* <CloseIcon
+                data-name="nav-mobile-close"
                 color={mediumColor}
                 className={isMenuOpen ? style.close : style.closeHidden}
                 onClick={this.handleMenuToggle}
               />
-              <Picture
-                src={logoMobileUrl}
-                aria-label={logoAriaLabel}
-                data-name="logo-mobile"
-                href={logo.href}
-              />
+              <Link data-name="logo-mobile" href={logo.href} aria-label={logoAriaLabel}>
+                <Picture src={logoMobileUrl} />
+    </Link>*/}
             </div>
             <Link
               className={style.logo}

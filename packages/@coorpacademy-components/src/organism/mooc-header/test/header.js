@@ -54,7 +54,7 @@ test('should launch onResetSearch handler when reset is triggered', t => {
 });
 
 test('Launch onMenuOpen & onMenuClose handlers', t => {
-  t.plan(4);
+  t.plan(6);
   const translate = identity;
 
   const props = defaultsDeep(defaultFixture.props, {
@@ -65,10 +65,13 @@ test('Launch onMenuOpen & onMenuClose handlers', t => {
     context: {translate}
   });
 
-  const mobileLogo = wrapper.find('[data-name="logo-mobile"]');
-  t.assert(mobileLogo.exists());
-  mobileLogo.simulate('click', {});
-  mobileLogo.simulate('click', {});
+  const navMobileOpen = wrapper.find('[data-name="nav-mobile-open"]');
+  t.assert(navMobileOpen.exists());
+  navMobileOpen.simulate('click', {});
+
+  const navMobileClose = wrapper.find('[data-name="nav-mobile-close"]');
+  t.assert(navMobileClose.exists());
+  navMobileClose.simulate('click', {});
 
   t.pass();
 });
@@ -80,10 +83,12 @@ test('Pass if onMenuOpen & onMenuClose are not provided', t => {
     context: {translate}
   });
 
-  const mobileLogo = wrapper.find('[data-name="logo-mobile"]');
-  t.assert(mobileLogo.exists());
-  mobileLogo.simulate('click', {});
-  mobileLogo.simulate('click', {});
+  const navMobileOpen = wrapper.find('[data-name="nav-mobile-open"]');
+  t.assert(navMobileOpen.exists());
+  navMobileOpen.simulate('click', {});
+  const navMobileClose = wrapper.find('[data-name="nav-mobile-close"]');
+  t.assert(navMobileClose.exists());
+  navMobileClose.simulate('click', {});
 
   t.pass();
 });
