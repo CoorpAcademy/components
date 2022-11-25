@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
 import HtmlBase, {CustomRendererProps, MixedStyleRecord, TBlock} from 'react-native-render-html';
 
@@ -8,7 +8,7 @@ import Text, {DEFAULT_STYLE as DEFAULT_TEXT_STYLE} from '../text/index.native';
 
 export type Props = {
   children: string;
-  fontSize: TextStyle['fontSize'];
+  fontSize?: TextStyle['fontSize'];
   numberOfLines?: number;
   onLinkPress?: (url: string) => void;
   containerStyle?: ViewStyle;
@@ -40,6 +40,7 @@ type Styles = {
 
 const Html = (props: Props) => {
   const templateContext = useTemplateContext();
+  const [isDisabledBaseFontStyleColor, disableBaseFontStyleColor] = useState<boolean>(false);
   const {theme} = templateContext;
   const {
     children,
@@ -111,7 +112,30 @@ const Html = (props: Props) => {
     [numberOfLines]
   );
 
+  const FontRenderer = useCallback(
+    (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => {
+      // @ts-expect-error ts(2339) --> color may actually exist on <font>
+      if (htmlAttribs.color) {
+        disableBaseFontStyleColor(true);
+      }
+      return (
+        <Text
+          key={1}
+          style={{
+            ...baseFontStyle,
+            // @ts-expect-error ts(2339) --> color is a string
+            color: htmlAttribs.color?.replace(/ /g, '')
+          }}
+        >
+          {_children}
+        </Text>
+      );
+    },
+    [baseFontStyle]
+  );
+
   const renderers = {
+    font: FontRenderer,
     span: SpanRenderer
   };
 
@@ -131,8 +155,11 @@ const Html = (props: Props) => {
             : `${children}`
         }}
         tagsStyles={tagsStyles}
-        // @ts-expect-error TS2322
-        baseFontStyle={baseFontStyle}
+        // @ts-expect-error ts(2322)
+        baseFontStyle={{
+          ...baseFontStyle,
+          color: isDisabledBaseFontStyleColor ? null : baseFontStyle.color
+        }}
         renderers={renderers}
         // this is exceptionally for the onboarding course
         // is the only course that has a gif in the context but the img tag

@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, ViewStyle, Text, TextStyle} from 'react-native';
-import type {Media, QuestionType} from '../../molecule/questions/types';
+import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 
+import Html from '../html/index.native';
 import ImageBackground from '../image-background/index.native';
+import type {Media, QuestionType} from '../../molecule/questions/types';
 import getCleanUri from '../../util/get-clean-uri';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -175,7 +176,7 @@ const Choice = ({
 
         {children ? (
           <View style={textWrapperStyle}>
-            <Text style={textStyle}>{children}</Text>
+            <Html style={textStyle}>{children}</Html>
           </View>
         ) : null}
       </View>
