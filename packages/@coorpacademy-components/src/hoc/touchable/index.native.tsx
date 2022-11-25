@@ -41,7 +41,7 @@ export type Props = {
   isWithoutFeedback?: boolean;
   // for TouchableOpacity
   activeOpacity?: number;
-  style?: ViewStyle;
+  style?: ViewStyle | (ViewStyle | null)[];
   // Analytics
   analytics?: Analytics;
   analyticsID?: string;

@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useState, useMemo} from 'react';
-import {TextStyle, StyleSheet, View, ViewStyle} from 'react-native';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {Animated, Easing, TextStyle, StyleSheet, View, ViewStyle} from 'react-native';
 import RenderHTML from 'react-native-render-html';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
@@ -29,6 +29,7 @@ interface StyleSheetType {
   buttonKlfText: TextStyle;
   iconKey: ViewStyle;
   containerTooltip: ViewStyle;
+  buttonTooltip: ViewStyle;
   textTooltip: TextStyle;
   containerButtonKlf: ViewStyle;
   triangleTooltip: ViewStyle;
@@ -142,6 +143,14 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       marginRight: theme.spacing.tiny
     },
     containerTooltip: {
+      zIndex: 30,
+      position: 'relative',
+      shadowColor: theme.colors.black,
+      shadowOpacity: 0.3,
+      shadowOffset: {width: 0, height: 0},
+      shadowRadius: 8
+    },
+    buttonTooltip: {
       flexDirection: 'column',
       justifyContent: 'center',
       backgroundColor: theme.colors.white,
@@ -151,10 +160,6 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       position: 'absolute',
       bottom: 4,
       right: -15,
-      shadowColor: theme.colors.black,
-      shadowOpacity: 0.3,
-      shadowOffset: {width: 0, height: 0},
-      shadowRadius: 8,
       zIndex: 20
     },
     textTooltip: {
@@ -169,21 +174,19 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       height: 0,
       backgroundColor: 'transparent',
       borderStyle: 'solid',
-      borderLeftWidth: 20,
-      borderRightWidth: 20,
-      borderBottomWidth: 20,
+      borderLeftWidth: 13,
+      borderRightWidth: 13,
+      borderBottomWidth: 13,
+      borderTopWidth: 13,
       borderLeftColor: 'transparent',
-      borderRightColor: 'transparent',
+      borderTopColor: 'transparent',
+      borderRightColor: theme.colors.white,
       borderBottomColor: theme.colors.white,
-      transform: [{rotate: '180deg'}],
+      transform: [{rotate: '45deg'}],
       position: 'absolute',
-      left: 105,
-      top: -12,
-      shadowColor: theme.colors.black,
-      shadowOpacity: 0.3,
-      shadowOffset: {width: 0, height: 0},
-      shadowRadius: 4,
-      zIndex: 15
+      left: 110,
+      top: -20,
+      borderRadius: 4
     }
   });
 
@@ -196,10 +199,32 @@ const KlfButton = ({
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
 
-  const handlePressKey = useCallback(
-    () => setDisplayTooltip(!displayTooltip),
-    [setDisplayTooltip, displayTooltip]
-  );
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      easing: Easing.bezier(0.25, 1, 0.5, 1),
+      useNativeDriver: true
+    }).start();
+  };
+
+  const fadeOut = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 500,
+      easing: Easing.bezier(0.25, 1, 0.5, 1),
+      useNativeDriver: true
+    }).start();
+  };
+
+  const handlePressKey = useCallback(() => {
+    setDisplayTooltip(!displayTooltip);
+    !displayTooltip ? fadeIn() : fadeOut();
+  }, [setDisplayTooltip, displayTooltip]);
+
+  console.log('displayTooltip', displayTooltip);
 
   if (!styleSheet) return null;
 
@@ -209,6 +234,7 @@ const KlfButton = ({
     buttonKlfText,
     containerButtonKlf,
     containerTooltip,
+    buttonTooltip,
     iconKey,
     textTooltip,
     triangleTooltip
@@ -218,21 +244,18 @@ const KlfButton = ({
 
   return (
     <View style={containerButtonKlf}>
-      {displayTooltip ? (
-        <View>
-          <Touchable
-            style={containerTooltip}
-            accessibilityLabel={`aria-label-tooltip`}
-            testID="tooltip"
-            isHighlight
-            onPress={handlePressKey}
-          >
-            <Text style={textTooltip}>{tooltip}</Text>
-          </Touchable>
-          <View style={triangleTooltip} />
-        </View>
-      ) : null}
-
+      <Animated.View style={[containerTooltip, {opacity: fadeAnim}]}>
+        <Touchable
+          style={buttonTooltip}
+          accessibilityLabel={`aria-label-tooltip`}
+          testID="tooltip"
+          isHighlight
+          onPress={handlePressKey}
+        >
+          <Text style={textTooltip}>{tooltip}</Text>
+        </Touchable>
+        <View style={triangleTooltip} />
+      </Animated.View>
       <Touchable
         style={[buttonKlf, displayTooltip ? buttonKlfActive : null]}
         accessibilityLabel={`aria-label-${label}`}
