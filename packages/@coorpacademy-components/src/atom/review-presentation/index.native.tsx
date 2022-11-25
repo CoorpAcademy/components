@@ -4,13 +4,15 @@ import {
   NovaLineSelectionCursorsCursorArrowTarget as TargetIcon,
   NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionMarkIcon,
   NovaSolidStatusCheckCircle2 as CheckCircle2Icon,
-  NovaCompositionCoorpacademyHeart as HeartIcon
+  NovaCompositionCoorpacademyVoteHeartOutline as HeartIcon
 } from '@coorpacademy/nova-icons';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import {HEADER_HEIGHT} from '../../organism/header-v2/index.native';
 import Touchable from '../../hoc/touchable/index.native';
+import Html from '../html/index.native';
+import {Brand} from '../../variables/brand.native';
 import {OnboardingProps, TipProps} from './prop-types';
 
 type StyleSheetType = {
@@ -24,9 +26,10 @@ type StyleSheetType = {
   buttonText: TextStyle;
 };
 
-const createStyleSheet = (theme: Theme): StyleSheetType =>
+const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
+      backgroundColor: '#FFF',
       justifyContent: 'space-between',
       flex: 1,
       padding: 20,
@@ -53,12 +56,13 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       alignItems: 'center',
       height: 54,
       borderRadius: 8,
-      backgroundColor: theme.colors.gray.extra,
+      backgroundColor: '#FAFAFA',
       marginTop: theme.spacing.micro,
       marginBottom: theme.spacing.micro
     },
     tipText: {
-      fontSize: theme.fontSize.large,
+      fontSize: 16,
+      lineHeight: 22,
       color: theme.colors.text.primary
     },
     icon: {
@@ -68,25 +72,28 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       height: 52,
       borderRadius: 7,
       marginBottom: theme.spacing.large,
-      marginTop: theme.spacing.large
+      marginTop: theme.spacing.large,
+      backgroundColor: brandTheme?.colors?.primary || theme.colors.cta,
+      justifyContent: 'center'
     },
     buttonText: {
+      alignSelf: 'center',
       fontWeight: theme.fontWeight.bold,
       fontSize: theme.fontSize.large,
-      color: theme.colors.text.secondary
+      color: '#fff'
     }
   });
 
 const Tip = (props: TipProps) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {theme} = templateContext;
+  const {brandTheme, theme} = templateContext;
   const {Icon, text} = props;
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
+    const _stylesheet = createStyleSheet(brandTheme, theme);
     setStylesheet(_stylesheet);
-  }, [theme]);
+  }, [brandTheme, theme]);
 
   if (!styleSheet) {
     return null;
@@ -103,13 +110,13 @@ const Tip = (props: TipProps) => {
 const Onboarding = (props: OnboardingProps) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const {theme, translations} = templateContext;
+  const {brandTheme, theme, translations} = templateContext;
   const {onPress} = props;
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
+    const _stylesheet = createStyleSheet(brandTheme, theme);
     setStylesheet(_stylesheet);
-  }, [theme]);
+  }, [brandTheme, theme]);
 
   // ------------------------------------
 
@@ -119,26 +126,26 @@ const Onboarding = (props: OnboardingProps) => {
 
   return (
     <View style={styleSheet.container}>
-      <Text style={styleSheet.title}>{translations.appReview?.presentation.title}</Text>
-      <Text style={styleSheet.text}>{translations.appReview?.presentation.text}</Text>
+      <Html style={styleSheet.title}>{translations.appReview.presentation.title}</Html>
+      <Html style={styleSheet.text}>{translations.appReview.presentation.text}</Html>
 
-      <Tip Icon={TargetIcon} text={translations.appReview?.presentation?.labelList?.skills?.text} />
+      <Tip Icon={TargetIcon} text={translations.appReview.presentation.labelList.skills.text} />
       <Tip
         Icon={QuestionMarkIcon}
-        text={translations.appReview?.presentation?.labelList?.questions?.text}
+        text={translations.appReview.presentation.labelList.questions.text}
       />
-      <Tip Icon={HeartIcon} text={translations.appReview?.presentation?.labelList?.lifes?.text} />
+      <Tip Icon={HeartIcon} text={translations.appReview.presentation.labelList.lifes.text} />
       <Tip
         Icon={CheckCircle2Icon}
-        text={translations.appReview?.presentation?.labelList?.allright?.text}
+        text={translations.appReview.presentation.labelList.allright.text}
       />
       <Touchable
-        testID={`button-quit-revision-onboarding`}
+        testID="button-quit-revision-onboarding"
         onPress={onPress}
         analyticsID="button-start"
         style={styleSheet.button}
       >
-        <Text style={styleSheet.buttonText}>{translations.appReview?.presentation.button}</Text>
+        <Text style={styleSheet.buttonText}>{translations.ok}</Text>
       </Touchable>
     </View>
   );
