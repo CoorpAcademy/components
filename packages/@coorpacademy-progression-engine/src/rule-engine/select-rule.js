@@ -1,5 +1,5 @@
 // @flow
-import {get, head, isEqual, filter, sortBy, pipe, find, reverse, uniqBy} from 'lodash/fp';
+import {get, head, isEqual, filter, sortBy, pipe, find, reverse, uniqBy, sample} from 'lodash/fp';
 import type {Content, State} from '../types';
 import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';
@@ -27,47 +27,54 @@ const isSameType =
     return typeof refValue === typeof value;
   };
 
-const matchWithState =
-  (state: State) =>
-  (chapterRule: ChapterRule): boolean => {
-    const conditions = chapterRule.conditions;
-    return conditions.every((condition): boolean => {
-      const {target, operator, values} = condition;
-      switch (target.scope) {
-        case 'slide': {
-          const {ref, field} = target;
+const matchWithState = (state: State, chapterRule: ChapterRule): boolean => {
+  const conditions = chapterRule.conditions;
+  return conditions.every((condition): boolean => {
+    const {target, operator, values} = condition;
+    switch (target.scope) {
+      case 'slide': {
+        const {ref, field} = target;
 
-          const answerRecord = pipe(
-            reverse,
-            uniqBy('slideRef'),
-            find({slideRef: ref})
-          )(state.allAnswers);
+        const answerRecord = pipe(
+          reverse,
+          uniqBy('slideRef'),
+          find({slideRef: ref})
+        )(state.allAnswers);
 
-          if (!answerRecord) return false;
+        if (!answerRecord) return false;
 
-          const value = answerRecord[field];
-          const typedValues = values.filter(isSameType(value));
+        const value = answerRecord[field];
+        const typedValues = values.filter(isSameType(value));
 
-          return checkCondition(operator, typedValues, value);
-        }
-        case 'variable': {
-          const {field} = target;
-          const variables = {
-            lives: state.lives,
-            stars: state.stars,
-            ...state.variables
-          };
-
-          const value = variables[field];
-          const typedValues = values.filter(isSameType(value));
-          return checkCondition(operator, typedValues, value);
-        }
-        /* istanbul ignore next */
-        default: {
-          return false;
-        }
+        return checkCondition(operator, typedValues, value);
       }
-    });
+      case 'variable': {
+        const {field} = target;
+        const variables = {
+          lives: state.lives,
+          stars: state.stars,
+          ...state.variables
+        };
+
+        const value = variables[field];
+        const typedValues = values.filter(isSameType(value));
+        return checkCondition(operator, typedValues, value);
+      }
+      /* istanbul ignore next */
+      default: {
+        return false;
+      }
+    }
+  });
+};
+
+const match =
+  (state: State | null) =>
+  (chapterRule: ChapterRule): boolean => {
+    if (!state) {
+      return chapterRule.source.ref === '' && chapterRule.source.type === 'slide';
+    }
+    return matchWithState(state, chapterRule);
   };
 
 const selectRule = (rules: Array<ChapterRule>, state: State | null): ChapterRule | null => {
@@ -77,10 +84,9 @@ const selectRule = (rules: Array<ChapterRule>, state: State | null): ChapterRule
   );
   const sortedChapterRules: Array<ChapterRule> = sortBy('priority', targetedChapterRules);
 
-  if (!state) {
-    return head(sortedChapterRules);
-  }
-  return sortedChapterRules.find(matchWithState(state)) || null;
+  const machedRules = sortedChapterRules.filter(match(state));
+  const priority = pipe(head, get('priority'))(machedRules);
+  return pipe(filter({priority}), sample)(machedRules) || null;
 };
 
 export default selectRule;
