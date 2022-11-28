@@ -1,11 +1,7 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
 import type {ReviewEngine, ReviewContent, ProgressionFromAPI} from '@coorpacademy/review-services';
-import {
-  fetchSlidesToReviewBySkillRefResponse,
-  getChoicesCorrection,
-  services
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   postAnswer,
@@ -30,7 +26,7 @@ import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
-import {postAnswerResponses} from '../../../test/fixtures';
+import {fetchSlidesToReviewBySkillRefResponse, postAnswerResponses} from '../../../test/fixtures';
 
 const progressionId = '62b1d1087aa12f00253f40ee';
 const skillRef = 'skill_NyxtYFYir';

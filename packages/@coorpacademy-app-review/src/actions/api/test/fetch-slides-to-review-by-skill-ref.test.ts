@@ -1,9 +1,6 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
-import {
-  fetchSlidesToReviewBySkillRefResponse,
-  services as mockedServices
-} from '@coorpacademy/review-services-mocks';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRef,
@@ -17,7 +14,7 @@ import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
-import {postAnswerResponses} from '../../../test/fixtures';
+import {fetchSlidesToReviewBySkillRefResponse, postAnswerResponses} from '../../../test/fixtures';
 
 const state: StoreState = {
   data: {

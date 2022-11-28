@@ -1,11 +1,11 @@
 import test from 'ava';
 import drop from 'lodash/fp/drop';
-import {fetchSlidesToReviewBySkillRefResponse} from '@coorpacademy/review-services-mocks';
 import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS,
   type ReceivedSlidesToReviewBySkillRef
 } from '../../../actions/api/fetch-slides-to-review-by-skill-ref';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
+import {fetchSlidesToReviewBySkillRefResponse} from '../../../test/fixtures';
 import reducer from '../show-button-revising';
 
 test('should have initial value', t => {

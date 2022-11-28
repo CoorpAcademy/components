@@ -2,10 +2,12 @@ import type {
   ProgressionFromAPI,
   ReviewContent,
   ReviewEngine,
-  Skill
+  Skill,
+  SlideIdFromAPI
 } from '@coorpacademy/review-services';
 import {freeTextSlide} from '../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../views/slides/test/fixtures/qcm';
+import {qcmDragSlide} from '../views/slides/test/fixtures/qcm-drag';
 import {qcmGraphicSlide} from '../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../views/slides/test/fixtures/slider';
 import {templateSlide} from '../views/slides/test/fixtures/template';
@@ -36,6 +38,24 @@ export const fetchSkillsResponse = [
     slidesToReview: 2,
     name: 'skill-test-2',
     custom: true
+  }
+];
+
+export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
+  {
+    slideId: freeTextSlide._id
+  },
+  {
+    slideId: templateSlide._id
+  },
+  {
+    slideId: qcmDragSlide._id
+  },
+  {
+    slideId: qcmGraphicSlide._id
+  },
+  {
+    slideId: qcmSlide._id
   }
 ];
 
