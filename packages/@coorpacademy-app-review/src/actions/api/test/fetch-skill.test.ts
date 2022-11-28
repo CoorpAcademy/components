@@ -9,6 +9,7 @@ import {
   SKILL_FETCH_REQUEST,
   SKILL_FETCH_SUCCESS
 } from '../fetch-skill';
+import {fetchSkillResponse} from '../../../test/fixtures';
 
 const initialState: StoreState = {
   data: {
@@ -39,13 +40,13 @@ test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the corr
     fetchSkill: (skillRef, token) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_NyxtYFYir');
-      return Promise.resolve({ref: 'skill_NyxtYFYir', name: 'Digital Awareness'});
+      return Promise.resolve(fetchSkillResponse);
     }
   };
 
   const expectedActions = [
     {type: SKILL_FETCH_REQUEST},
-    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
+    {type: SKILL_FETCH_SUCCESS, payload: fetchSkillResponse}
   ];
   const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
 

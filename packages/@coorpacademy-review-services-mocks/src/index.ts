@@ -56,7 +56,7 @@ const fetchSkillResponse: Record<string, Skill> = {
   }
 };
 
-export const fetchSkillsResponse = [
+const fetchSkillsResponse = [
   {
     skillRef: '_skill-ref',
     slidesToReview: 2,

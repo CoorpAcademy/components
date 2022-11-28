@@ -1,4 +1,9 @@
-import type {ProgressionFromAPI, ReviewContent, ReviewEngine} from '@coorpacademy/review-services';
+import type {
+  ProgressionFromAPI,
+  ReviewContent,
+  ReviewEngine,
+  Skill
+} from '@coorpacademy/review-services';
 import {freeTextSlide} from '../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../views/slides/test/fixtures/qcm-graphic';
@@ -13,6 +18,26 @@ const content: ReviewContent = {
 const engine: ReviewEngine = {
   ref: 'review'
 };
+
+export const fetchSkillResponse: Skill = {
+  ref: 'skill_NyxtYFYir',
+  name: 'Digital Awareness'
+};
+
+export const fetchSkillsResponse = [
+  {
+    skillRef: '_skill-ref',
+    slidesToReview: 2,
+    name: 'skill-test',
+    custom: false
+  },
+  {
+    skillRef: '_skill-ref-2',
+    slidesToReview: 2,
+    name: 'skill-test-2',
+    custom: true
+  }
+];
 
 export const postAnswerResponses: Record<string, ProgressionFromAPI> = {
   [freeTextSlide.universalRef]: {
