@@ -30,8 +30,8 @@ export type ReviewCorrectionPopinProps = {
   next: {
     label: string;
     onClick: (event: GestureResponderEvent) => void;
-    'data-name': string;
-    'aria-label'?: string;
+    'data-name'?: string;
+    'aria-label': string;
   };
   klf?: {
     label: string;
