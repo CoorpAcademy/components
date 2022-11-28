@@ -22,7 +22,6 @@ test('should handle onPress on next button', t => {
       information={props.information}
       next={next}
       resultLabel={props.resultLabel}
-      klf={{}}
     />
   );
 

@@ -33,9 +33,9 @@ export type ReviewCorrectionPopinProps = {
     'data-name': string;
     'aria-label'?: string;
   };
-  klf: {
-    label?: string;
-    tooltip?: string;
+  klf?: {
+    label: string;
+    tooltip: string;
   };
 };
 
