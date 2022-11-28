@@ -224,8 +224,6 @@ const KlfButton = ({
     !displayTooltip ? fadeIn() : fadeOut();
   }, [setDisplayTooltip, displayTooltip]);
 
-  console.log('displayTooltip', displayTooltip);
-
   if (!styleSheet) return null;
 
   const {
@@ -248,7 +246,6 @@ const KlfButton = ({
         <Touchable
           style={buttonTooltip}
           accessibilityLabel={`aria-label-tooltip`}
-          testID="tooltip"
           isHighlight
           onPress={handlePressKey}
         >
@@ -259,7 +256,6 @@ const KlfButton = ({
       <Touchable
         style={[buttonKlf, displayTooltip ? buttonKlfActive : null]}
         accessibilityLabel={`aria-label-${label}`}
-        testID={label}
         onPress={handlePressKey}
       >
         <KlfIcon style={iconKey} color="white" />
