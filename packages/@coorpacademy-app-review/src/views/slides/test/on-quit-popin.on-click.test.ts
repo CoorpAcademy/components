@@ -1,12 +1,13 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
-import {incorrectFreeTextPostAnswerResponse, services} from '@coorpacademy/review-services-mocks';
+import {services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {translate} from '../../../../sandbox/translation.mock';
+import {incorrectFreeTextPostAnswerResponse} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';

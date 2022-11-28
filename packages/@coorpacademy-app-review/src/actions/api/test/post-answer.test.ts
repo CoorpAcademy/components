@@ -4,7 +4,6 @@ import type {ReviewEngine, ReviewContent, ProgressionFromAPI} from '@coorpacadem
 import {
   fetchSlidesToReviewBySkillRefResponse,
   getChoicesCorrection,
-  postAnswerResponses,
   services
 } from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
@@ -31,6 +30,7 @@ import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
+import {postAnswerResponses} from '../../../test/fixtures';
 
 const progressionId = '62b1d1087aa12f00253f40ee';
 const skillRef = 'skill_NyxtYFYir';

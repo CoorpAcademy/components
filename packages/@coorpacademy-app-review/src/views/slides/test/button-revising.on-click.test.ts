@@ -1,11 +1,7 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {
-  getChoicesCorrection,
-  postAnswerResponses,
-  services
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import {SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../../../actions/api/fetch-skill';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -18,6 +14,7 @@ import {SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {translate} from '../../../../sandbox/translation.mock';
+import {postAnswerResponses} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {freeTextSlide} from './fixtures/free-text';

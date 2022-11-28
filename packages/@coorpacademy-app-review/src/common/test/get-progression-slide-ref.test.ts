@@ -1,11 +1,11 @@
 import test from 'ava';
 import {
-  postAnswerResponses,
   postProgressionResponse,
   progressionSlideWithPendingSlide
 } from '@coorpacademy/review-services-mocks';
 import {templateSlide} from '../../views/slides/test/fixtures/template';
 import {getProgressionSlidesRefs} from '..';
+import {postAnswerResponses} from '../../test/fixtures';
 
 test('should return first slide for a created slide', t => {
   const slides = getProgressionSlidesRefs(postProgressionResponse);

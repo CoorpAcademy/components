@@ -1,16 +1,13 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import {
-  getChoicesCorrection,
-  postAnswerResponses,
-  services
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
 import {StoreState} from '../../../reducers';
 import {nextSlide, NEXT_SLIDE} from '../next-slide';
 import {createTestStore} from '../../test/create-test-store';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {postAnswerResponses} from '../../../test/fixtures';
 
 const progression = postAnswerResponses[freeTextSlide.universalRef];
 const skillRef = '_skill-ref';

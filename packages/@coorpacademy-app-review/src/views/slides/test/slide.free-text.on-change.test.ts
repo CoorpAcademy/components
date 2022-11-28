@@ -2,11 +2,7 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
-import {
-  getChoicesCorrection,
-  postAnswerResponses,
-  services
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
 import {POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from '../../../actions/api/post-answer';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
 import {
@@ -19,6 +15,7 @@ import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
 import {translate} from '../../../../sandbox/translation.mock';
+import {postAnswerResponses} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
