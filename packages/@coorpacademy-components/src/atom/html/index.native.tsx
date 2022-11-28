@@ -1,14 +1,28 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
-import HtmlBase, {CustomRendererProps, MixedStyleRecord, TBlock} from 'react-native-render-html';
+import RenderHTML, {
+  CustomRendererProps,
+  MixedStyleRecord,
+  RenderHTMLProps,
+  TBlock
+} from 'react-native-render-html';
 
 import {HTML_ANCHOR_TEXT_COLOR} from '../../variables/theme.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import Text, {DEFAULT_STYLE as DEFAULT_TEXT_STYLE} from '../text/index.native';
 
+interface CustomRenderHTMLProps extends RenderHTMLProps {
+  baseFontStyle?: TextStyle;
+  testID?: string;
+}
+
+const HtmlBase = (props: CustomRenderHTMLProps) => {
+  return <RenderHTML {...props} />;
+};
+
 export type Props = {
   children: string;
-  fontSize: TextStyle['fontSize'];
+  fontSize?: TextStyle['fontSize'];
   numberOfLines?: number;
   onLinkPress?: (url: string) => void;
   containerStyle?: ViewStyle;
@@ -40,6 +54,7 @@ type Styles = {
 
 const Html = (props: Props) => {
   const templateContext = useTemplateContext();
+  const [isDisabledBaseFontStyleColor, disableBaseFontStyleColor] = useState<boolean>(false);
   const {theme} = templateContext;
   const {
     children,
@@ -85,7 +100,7 @@ const Html = (props: Props) => {
     img: imageStyle || {}
   };
 
-  let baseFontStyle = {...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black};
+  let baseFontStyle: TextStyle = {...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black};
   if (style) {
     if (Array.isArray(style)) {
       const styleObject = style.reduce((result, child) => ({
@@ -111,7 +126,33 @@ const Html = (props: Props) => {
     [numberOfLines]
   );
 
+  interface HtmlAttrib extends CustomRendererProps<TBlock> {
+    color?: string;
+  }
+
+  const FontRenderer = useCallback(
+    (htmlAttribs: HtmlAttrib, _children: string) => {
+      if (htmlAttribs.color) {
+        disableBaseFontStyleColor(true);
+      }
+
+      return (
+        <Text
+          key={1}
+          style={{
+            ...baseFontStyle,
+            color: htmlAttribs.color?.replace(/ /g, '')
+          }}
+        >
+          {_children}
+        </Text>
+      );
+    },
+    [baseFontStyle]
+  );
+
   const renderers = {
+    font: FontRenderer,
     span: SpanRenderer
   };
 
@@ -131,8 +172,10 @@ const Html = (props: Props) => {
             : `${children}`
         }}
         tagsStyles={tagsStyles}
-        // @ts-expect-error TS2322
-        baseFontStyle={baseFontStyle}
+        baseFontStyle={{
+          ...baseFontStyle,
+          color: isDisabledBaseFontStyleColor ? undefined : baseFontStyle.color
+        }}
         renderers={renderers}
         // this is exceptionally for the onboarding course
         // is the only course that has a gif in the context but the img tag
