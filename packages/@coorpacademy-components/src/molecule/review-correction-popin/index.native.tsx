@@ -194,35 +194,35 @@ const KlfButton = ({
   klf,
   styleSheet
 }: {
-  klf: ReviewCorrectionPopinProps['klf'];
+  klf: NonNullable<ReviewCorrectionPopinProps['klf']>;
   styleSheet: StyleSheetType | null;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
-  const fadeIn = () => {
+  const fadeIn = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 1000,
       easing: Easing.bezier(0.25, 1, 0.5, 1),
       useNativeDriver: true
     }).start();
-  };
+  }, [fadeAnim]);
 
-  const fadeOut = () => {
+  const fadeOut = useCallback(() => {
     Animated.timing(fadeAnim, {
       toValue: 0,
       duration: 500,
       easing: Easing.bezier(0.25, 1, 0.5, 1),
       useNativeDriver: true
     }).start();
-  };
+  }, [fadeAnim]);
 
   const handlePressKey = useCallback(() => {
     setDisplayTooltip(!displayTooltip);
     !displayTooltip ? fadeIn() : fadeOut();
-  }, [setDisplayTooltip, displayTooltip]);
+  }, [displayTooltip, fadeIn, fadeOut]);
 
   if (!styleSheet) return null;
 
@@ -248,6 +248,7 @@ const KlfButton = ({
           accessibilityLabel={`aria-label-tooltip`}
           isHighlight
           onPress={handlePressKey}
+          testID="button-tooltip"
         >
           <Text style={textTooltip}>{tooltip}</Text>
         </Touchable>
@@ -257,6 +258,7 @@ const KlfButton = ({
         style={[buttonKlf, displayTooltip ? buttonKlfActive : null]}
         accessibilityLabel={`aria-label-${label}`}
         onPress={handlePressKey}
+        testID="button-klf"
       >
         <KlfIcon style={iconKey} color="white" />
         <Text style={buttonKlfText}>{label}</Text>
@@ -264,6 +266,12 @@ const KlfButton = ({
     </View>
   );
 };
+
+// Type narrowing function
+const isWrongType = (
+  klf: ReviewCorrectionPopinProps['klf'],
+  type: ReviewCorrectionPopinProps['type']
+): klf is NonNullable<ReviewCorrectionPopinProps['klf']> => type === 'wrong';
 
 const ReviewCorrectionPopin = ({
   information,
@@ -314,7 +322,7 @@ const ReviewCorrectionPopin = ({
           </View>
           <RenderHTML source={source} systemFonts={['Gilroy']} />
         </View>
-        {type === 'wrong' ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
+        {isWrongType(klf, type) ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
         <Touchable
           style={styleSheet.button}
           onPress={handlePressNext}
