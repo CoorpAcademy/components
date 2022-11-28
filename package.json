@@ -12,9 +12,10 @@
     "preflow": "sh scripts/links-for-nested-flow.sh",
     "flow": "lerna run flow",
     "codecov": "codecov",
-    "publish:beta": "lerna publish --npm-tag beta --exact",
+    "pre:publish": "sh scripts/prevent-master-publish.sh",
+    "publish:beta": "npm run pre:publish && lerna publish --npm-tag beta --exact",
     "publish:canary": "lerna publish --canary --exact patch --no-git-tag-version --no-push",
-    "publish:latest": "lerna publish --exact",
+    "publish:latest": "npm run pre:publish && lerna publish --exact",
     "postinstall": "npm run preflow",
     "update": "update-node"
   },

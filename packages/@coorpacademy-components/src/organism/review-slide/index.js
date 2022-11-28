@@ -91,6 +91,7 @@ const QuestionContainer = props => {
   return (
     <div
       key="content-container"
+      data-testid="content-container"
       className={classnames(
         style.slideContentContainer,
         disableContent ? style.disabledSlideContent : null
@@ -101,6 +102,7 @@ const QuestionContainer = props => {
       </div>
       <div
         key="title"
+        data-testid="slide-question"
         className={style.question}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: questionText}}
@@ -139,24 +141,24 @@ const ReviewSlide = props => {
   } = slide;
 
   return (
-    <div data-name={`slide-container`} className={style.slide}>
+    <div data-testid="review-slide" className={style.slide}>
       {loading ? (
         <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
       ) : (
-        [
+        <>
           <QuestionContainer
             questionOrigin={parentContentTitle}
             questionText={questionText}
             answerUI={answerUI}
             disableContent={disabledContent}
             key="question-container"
-          />,
+          />
           <ValidateButton
             slideIndex={slideIndex}
             validateButton={validateButton}
             primarySkinColor={primarySkinColor}
             key="validate-button"
-          />,
+          />
           <CorrectionPopin
             correctionPopinProps={correctionPopinProps}
             slideIndex={slideIndex}
@@ -164,7 +166,7 @@ const ReviewSlide = props => {
             animateCorrectionPopin={animateCorrectionPopin}
             key="correction-popin"
           />
-        ]
+        </>
       )}
     </div>
   );

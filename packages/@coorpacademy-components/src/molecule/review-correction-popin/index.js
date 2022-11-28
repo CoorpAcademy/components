@@ -51,7 +51,7 @@ const ReviewCorrectionPopin = props => {
   const Icon = ICONS[type];
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} data-testid="review-correction-popin">
       <div className={classnames(style.popin, type === 'right' ? style.right : style.wrong)}>
         <div className={style.correctionSection}>
           <div className={style.iconCircle}>
@@ -78,7 +78,7 @@ const ReviewCorrectionPopin = props => {
         </div>
         <div className={type === 'right' ? style.actions : style.actionsWrong}>
           {cta}
-          <div className={style.nextQuestionContainer}>
+          <div className={style.nextQuestionContainer} data-testid="next-question-button-container">
             <ButtonLink {...nextQuestionButtonProps} className={style.nextQuestionButton} />
           </div>
         </div>

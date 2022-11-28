@@ -30,13 +30,13 @@ const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitP
       </div>
       <StackedSlides {...stack} />
       {isNil(congrats) ? null : (
-        <div className={style.congrats} data-name="congrats-container">
+        <div className={style.congrats} data-testid="congrats-container">
           <ReviewCongrats {...congrats} />
         </div>
       )}
 
       {isNil(quitPopin) ? null : (
-        <div className={style.quitPopin} data-name="popin-container">
+        <div className={style.quitPopin} data-testid="quit-popin-container">
           <CMPopin {...quitPopin} />
         </div>
       )}
