@@ -1,5 +1,5 @@
 import test from 'ava';
-import {postAnswerResponses, postProgressionResponse} from '@coorpacademy/review-services-mocks';
+import {postProgressionResponse} from '@coorpacademy/review-services-mocks';
 import reducer from '../progression';
 import {
   POST_PROGRESSION_REQUEST,
@@ -9,6 +9,7 @@ import {
 import {POST_ANSWER_SUCCESS} from '../../../actions/api/post-answer';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
+import {postAnswerResponses} from '../../../test/fixtures';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as ReceivedProgression);
