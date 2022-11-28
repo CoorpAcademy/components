@@ -179,9 +179,6 @@ class MoocHeader extends React.Component {
   handleMenuToggle() {
     const {isMenuOpen} = this.state;
     isMenuOpen ? this.handleOnMenuClose() : this.handleOnMenuOpen();
-    this.setState(prevState => ({
-      isMenuOpen: !prevState.isMenuOpen
-    }));
   }
 
   handleSubmitSearch() {
@@ -215,6 +212,9 @@ class MoocHeader extends React.Component {
     if (onMenuOpen) {
       onMenuOpen();
     }
+    this.setState(() => ({
+      isMenuOpen: true
+    }));
   }
 
   handleOnMenuClose() {
@@ -222,6 +222,9 @@ class MoocHeader extends React.Component {
     if (onMenuClose) {
       onMenuClose();
     }
+    this.setState(() => ({
+      isMenuOpen: false
+    }));
   }
 
   render() {
@@ -594,17 +597,17 @@ class MoocHeader extends React.Component {
                 data-name="nav-mobile-open"
                 color={mediumColor}
                 className={isMenuOpen ? style.burgerHidden : style.burger}
-                onClick={this.handleMenuToggle}
+                onClick={this.handleOnMenuOpen}
               />
-              {/* <CloseIcon
+              <CloseIcon
                 data-name="nav-mobile-close"
                 color={mediumColor}
                 className={isMenuOpen ? style.close : style.closeHidden}
-                onClick={this.handleMenuToggle}
+                onClick={this.handleOnMenuClose}
               />
               <Link data-name="logo-mobile" href={logo.href} aria-label={logoAriaLabel}>
                 <Picture src={logoMobileUrl} />
-    </Link>*/}
+              </Link>
             </div>
             <Link
               className={style.logo}
