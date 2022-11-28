@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 });
 
 const CorrectionPopin = ({correctionPopinProps, slideIndex}: PopinProps) => {
-  const klf = getOr({}, 'klf', correctionPopinProps);
+  const klf = getOr(undefined, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
   const onClick = get(['next', 'onClick'], correctionPopinProps);
