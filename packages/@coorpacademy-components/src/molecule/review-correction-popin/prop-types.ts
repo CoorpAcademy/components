@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import {GestureResponderEvent} from 'react-native';
 
 const propTypes = {
   type: PropTypes.oneOf(['right', 'wrong']),
@@ -29,7 +28,7 @@ export type ReviewCorrectionPopinProps = {
   };
   next: {
     label: string;
-    onClick: (event: GestureResponderEvent) => void;
+    onClick: () => void;
     'data-name'?: string;
     'aria-label': string;
   };

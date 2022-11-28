@@ -195,7 +195,7 @@ const KlfButton = ({
   styleSheet
 }: {
   klf: NonNullable<ReviewCorrectionPopinProps['klf']>;
-  styleSheet: StyleSheetType | null;
+  styleSheet: StyleSheetType;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
 
@@ -223,8 +223,6 @@ const KlfButton = ({
     setDisplayTooltip(!displayTooltip);
     !displayTooltip ? fadeIn() : fadeOut();
   }, [displayTooltip, fadeIn, fadeOut]);
-
-  if (!styleSheet) return null;
 
   const {
     buttonKlf,

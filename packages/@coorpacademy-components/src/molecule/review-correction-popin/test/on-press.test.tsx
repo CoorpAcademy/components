@@ -1,7 +1,6 @@
 import test from 'ava';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import {GestureResponderEvent} from 'react-native';
 import mockedGestureEvent from '../../../test/helpers/mocked-gesture-event';
 import ReviewCorrectionPopin from '../index.native';
 import fixturesRight from './fixtures/right';
@@ -10,12 +9,8 @@ import fixturesWrong from './fixtures/wrong';
 test('should handle onPress on next button', t => {
   t.plan(1);
 
-  const onClick = (event: GestureResponderEvent) => {
-    t.is(event, mockedGestureEvent);
-  };
-
   const props = fixturesRight.props;
-  const next = {...props.next, onClick};
+  const next = {...props.next, onClick: () => t.pass()};
 
   const component = (
     <ReviewCorrectionPopin
@@ -32,7 +27,7 @@ test('should handle onPress on next button', t => {
   fireEvent.press(buttonNext, mockedGestureEvent);
 });
 
-test('test', t => {
+test('should handle onPress on button klf', t => {
   const props = fixturesWrong.props;
   const component = (
     <ReviewCorrectionPopin
@@ -47,6 +42,6 @@ test('test', t => {
 
   const buttonKlf = getByTestId('button-klf');
   t.notThrows(() => fireEvent.press(buttonKlf, mockedGestureEvent));
-
+  t.notThrows(() => fireEvent.press(buttonKlf, mockedGestureEvent));
   t.pass();
 });
