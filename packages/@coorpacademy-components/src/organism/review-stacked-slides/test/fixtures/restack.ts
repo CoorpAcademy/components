@@ -28,6 +28,7 @@ export const correctionPopinProps: ReviewCorrectionPopinProps = {
   },
   next: {
     label: 'Next',
+    'aria-label': 'next question button',
     onClick: () => {
       console.log('Load next slide');
     }
