@@ -13,7 +13,7 @@ import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fet
 import {SET_CURRENT_SLIDE} from '../../../actions/ui/slides';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {postAnswerResponses} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';

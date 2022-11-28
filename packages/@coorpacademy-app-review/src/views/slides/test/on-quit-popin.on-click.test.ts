@@ -6,7 +6,7 @@ import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {incorrectFreeTextPostAnswerResponse} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';

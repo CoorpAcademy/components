@@ -9,7 +9,7 @@ import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_QCM_GRAPHIC} from '../../../actions/ui/answers';
 import {QcmGraphic} from '../../../types/slides';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {skin} from './fixtures/skin';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 

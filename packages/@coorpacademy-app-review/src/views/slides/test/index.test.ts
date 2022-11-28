@@ -14,7 +14,7 @@ import {
 } from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {incorrectFreeTextPostAnswerResponse, postAnswerResponses} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {sliderSlide} from './fixtures/slider';

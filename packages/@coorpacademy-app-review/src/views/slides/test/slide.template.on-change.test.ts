@@ -10,7 +10,7 @@ import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_TEMPLATE} from '../../../actions/ui/answers';
 import {Template, TextTemplate} from '../../../types/slides';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {templateSlide} from './fixtures/template';
 import {skin} from './fixtures/skin';
 

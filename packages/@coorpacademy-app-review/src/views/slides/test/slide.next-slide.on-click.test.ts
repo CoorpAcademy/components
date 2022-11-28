@@ -7,7 +7,7 @@ import type {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {incorrectFreeTextPostAnswerResponse, postAnswerResponses} from '../../../test/fixtures';
 import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';

@@ -14,7 +14,7 @@ import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
-import {translate} from '../../../../sandbox/translation.mock';
+import {translate} from '../../../test/utils/translation.mock';
 import {postAnswerResponses} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
