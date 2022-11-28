@@ -23,12 +23,12 @@ import {freeTextSlide} from './fixtures/free-text';
 import {sliderSlide} from './fixtures/slider';
 import {templateSlide} from './fixtures/template';
 
-export const content: ReviewContent = {
+const content: ReviewContent = {
   ref: 'skill_NyxtYFYir',
   type: 'skill'
 };
 
-export const engine: ReviewEngine = {
+const engine: ReviewEngine = {
   ref: 'review'
 };
 
