@@ -11,8 +11,47 @@
     "Revise another skill": "Review another skill",
     "Continue reviewing": "Keep reviewing",
     "Congratulations!": "Congratulations!",
+    "aria_label": "Vaadake üle oskuste mall",
     "Quit Title": "Are you sure you want to quit ?",
     "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
     "Stop learning": "End session",
-    "Continue learning": "Continue learning"
+    "Continue learning": "Continue learning",
+    "Continue": "Jätka",
+    "Type here": "Sisestage siia",
+    "Select an answer": "Valige vastus",
+    "presentation": {
+      "aria_label": "Arvustage esitluskonteiner",
+      "title": "Mis on<br/> Revisjonirežiim?",
+      "text": "Kas teave kaob teie meelest kohe, kui see sellesse siseneb? See on täiesti normaalne: ilma kordamiseta pole kinnipidamist! Oma teadmiste pikaajaliseks säilitamiseks kasutage oma mälu värskendamiseks muutmisrežiimi!",
+      "button": "Ok, sain aru!",
+      "label_list": {
+        "skills": {
+          "text": "Valige 1 oskus",
+          "tooltip": "Saate korraga üle vaadata ühe oskuse."
+        },
+        "questions": {
+          "text": "Vasta 5 küsimusele",
+          "tooltip": "Revisjonirežiimi seansi kinnitamiseks vastake 5 küsimusele õigesti."
+        },
+        "lifes": { 
+          "text": "Teil on lõputu otseülekanne",
+          "tooltip": "Saate seansi lõpetamiseks vastata nii mitu korda kui soovite."
+        },
+        "allright": { 
+          "text":  "Tee kõik korda",
+          "tooltip": "Seansi kinnitamiseks peate saama igale küsimusele õige vastuse."
+        }
+      }
+    },
+    "list_title": "Oskused, mida saate üle vaadata",
+    "list_aria_label": "Arvustage oskuste konteiner",
+    "card": {
+      "aria_label": "Oskuste kaart",
+      "text": "{{total}} ülevaatavat küsimust",
+      "button_text": "Vaadake see oskus üle"
+    },
+    "no_skills": {
+      "title": "Teil pole veel ülevaatamiseks oskusi",
+      "text": "Enne erinevate oskuste ülevaatamist peate esmalt läbima kursused."
+    }      
 }
