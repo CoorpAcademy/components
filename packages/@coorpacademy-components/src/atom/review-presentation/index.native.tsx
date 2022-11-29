@@ -29,7 +29,7 @@ type StyleSheetType = {
 const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
-      backgroundColor: '#FFF',
+      backgroundColor: theme.colors.white,
       justifyContent: 'space-between',
       flex: 1,
       padding: 20,
@@ -56,7 +56,7 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
       alignItems: 'center',
       height: 54,
       borderRadius: 8,
-      backgroundColor: '#FAFAFA',
+      backgroundColor: theme.colors.gray.extra,
       marginTop: theme.spacing.micro,
       marginBottom: theme.spacing.micro
     },
