@@ -68,7 +68,7 @@
   height: 100%;
 }
 
-.logoMobile {
+.navMobile {
   display: none;
 }
 
@@ -108,9 +108,28 @@
   transition: transform 0.3s;
 }
 
-.caretUp {
+.burger {
+  margin: 0 20px 0 0;
+  color: medium;
+  width: 25px;
+  height: 25px;
+}
+
+.burgerHidden {
   composes: caret;
-  transform: rotate(180deg);
+  display: none;
+}
+
+.close {
+  margin: 0 20px 0 0;
+  color: medium;
+  width: 25px;
+  height: 25px;
+}
+
+.closeHidden {
+  composes: close;
+  display: none;
 }
 
 .optionsGroup {
@@ -498,7 +517,7 @@
     height: 100%;
   }
 
-  .logoMobile {
+  .navMobile {
     display: none;
   }
 
@@ -532,14 +551,14 @@
   .logoWrapper {
     background-color: white;
     z-index: 2;
-    margin: 0 8px;
+    margin: 0 8px 0 0;
   }
 
   .logo {
     display: none;
   }
 
-  .logoMobile {
+  .navMobile {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -551,18 +570,13 @@
     min-height: 30px;
   }
 
-  .logoMobile img {
+  .navMobile img {
     height: auto;
     max-height: 50px;
     width: auto;
     max-width: 100px;
     display: block;
     align-self: center;
-  }
-
-  .logoMobile .notifications {
-    top: 5px;
-    right: 10px;
   }
 
   .hiddenMenuWrapper {

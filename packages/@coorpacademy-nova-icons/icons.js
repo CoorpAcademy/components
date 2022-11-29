@@ -133,6 +133,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/address-error.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/reload.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/school-graduation.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/burger.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/close.svg')},
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/information-icon.svg'),
     replaceColors: false

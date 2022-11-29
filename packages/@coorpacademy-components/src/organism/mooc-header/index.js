@@ -4,6 +4,8 @@ import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionNavigationBurger as BurgerIcon,
+  NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
@@ -177,9 +179,6 @@ class MoocHeader extends React.Component {
   handleMenuToggle() {
     const {isMenuOpen} = this.state;
     isMenuOpen ? this.handleOnMenuClose() : this.handleOnMenuOpen();
-    this.setState(prevState => ({
-      isMenuOpen: !prevState.isMenuOpen
-    }));
   }
 
   handleSubmitSearch() {
@@ -213,6 +212,9 @@ class MoocHeader extends React.Component {
     if (onMenuOpen) {
       onMenuOpen();
     }
+    this.setState(() => ({
+      isMenuOpen: true
+    }));
   }
 
   handleOnMenuClose() {
@@ -220,6 +222,9 @@ class MoocHeader extends React.Component {
     if (onMenuClose) {
       onMenuClose();
     }
+    this.setState(() => ({
+      isMenuOpen: false
+    }));
   }
 
   render() {
@@ -583,15 +588,26 @@ class MoocHeader extends React.Component {
         >
           <div className={style.logoWrapper}>
             <div
-              className={style.logoMobile}
-              data-name="logo-mobile"
-              onClick={this.handleMenuToggle}
+              className={style.navMobile}
+              data-name="nav-mobile"
               aria-label={logoButtonAriaLabel}
-              role="button"
             >
-              <Picture src={logoMobileUrl} aria-label={logoAriaLabel} />
-              {notificationsView}
-              <ArrowDown color={mediumColor} className={isMenuOpen ? style.caretUp : style.caret} />
+              <BurgerIcon
+                role="button"
+                data-name="nav-mobile-open"
+                color={mediumColor}
+                className={isMenuOpen ? style.burgerHidden : style.burger}
+                onClick={this.handleOnMenuOpen}
+              />
+              <CloseIcon
+                data-name="nav-mobile-close"
+                color={mediumColor}
+                className={isMenuOpen ? style.close : style.closeHidden}
+                onClick={this.handleOnMenuClose}
+              />
+              <Link data-name="logo-mobile" href={logo.href} aria-label={logoAriaLabel}>
+                <Picture src={logoMobileUrl} />
+              </Link>
             </div>
             <Link
               className={style.logo}
