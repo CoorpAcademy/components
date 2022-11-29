@@ -20,7 +20,6 @@ const StackedSlides = (props: ReviewStackProps) => {
   const indexes = keys(slides).reverse();
   const stackedSlides = indexes.map(slideIndex => {
     const slide = slides[slideIndex];
-    // const {animationType, hidden, position} = slide;
 
     return (
       <Slide
