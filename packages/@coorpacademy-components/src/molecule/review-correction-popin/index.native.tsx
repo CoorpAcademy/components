@@ -266,6 +266,11 @@ const isWrongType = (
   type: ReviewCorrectionPopinProps['type']
 ): klf is NonNullable<ReviewCorrectionPopinProps['klf']> => type === 'wrong';
 
+const ICONS = {
+  right: RightIcon,
+  wrong: WrongIcon
+};
+
 const ReviewCorrectionPopin = ({
   information,
   klf,
@@ -280,10 +285,7 @@ const ReviewCorrectionPopin = ({
   const infoMessage = {
     html: `<p style='color:white; font-size:16; font-weight:600; line-height:19;'>${information.message}</p>`
   };
-  const ICONS = {
-    right: RightIcon,
-    wrong: WrongIcon
-  };
+
   const Icon = ICONS[type];
 
   useEffect(() => {
