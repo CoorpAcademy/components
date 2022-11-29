@@ -8,7 +8,7 @@ export type Props = {
   colors: Array<string>;
   transparencyPosition?: 'top' | 'bottom';
   height?: number;
-  style?: ViewStyle | ViewStyle[] | undefined;
+  style?: ViewStyle | ViewStyle[];
   testID?: string;
   pointerEvents?: 'auto' | 'none' | 'box-none' | 'box-only' | undefined;
 };
