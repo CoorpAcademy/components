@@ -44,6 +44,7 @@
 
 @media mobile {  
   .title {
-  margin-left: 0;
+    margin-left: 20px;
+    margin-top: 40px;
   }
 }
