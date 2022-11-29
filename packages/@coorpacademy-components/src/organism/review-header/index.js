@@ -56,7 +56,7 @@ const ReviewHeader = (props, context) => {
         <ReviewHeaderSteps steps={steps} key={'review-header-steps'} />
       </div>
 
-      <div className={style.iconButtonWrapper} data-name="review-header-close-button-wrapper">
+      <div className={style.iconButtonWrapper} data-testid="review-header-close-button-wrapper">
         <ButtonLinkIconOnly {...buttonProps} />
       </div>
     </div>

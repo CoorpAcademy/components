@@ -10,10 +10,10 @@ browserEnv();
 test.afterEach(cleanup);
 
 test('should click on skill button', async t => {
-  const {container} = render(<ReviewCongrats {...defaultFixture.props} />);
+  const {getByTestId} = render(<ReviewCongrats {...defaultFixture.props} />);
 
   await waitFor(() => {
-    const skillLink = container.querySelector('[data-name="revise-skill-link"]');
+    const skillLink = getByTestId('[data-testid="revise-skill-link"]');
     t.truthy(skillLink);
     if (skillLink)
       t.notThrows(() => {

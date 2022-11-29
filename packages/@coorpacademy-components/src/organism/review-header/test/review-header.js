@@ -27,7 +27,9 @@ test('onQuitClick (close button onClick) should be reachable, should match given
   const skillName = headerWrapper.find('[data-name="review-header-skill-name"]');
   t.true(skillName.at(0).exists());
   t.is(skillName.at(0).props()['aria-label'], 'Agility');
-  const closeButtonWrapper = headerWrapper.find('[data-name="review-header-close-button-wrapper"]');
+  const closeButtonWrapper = headerWrapper.find(
+    '[data-testid="review-header-close-button-wrapper"]'
+  );
   t.true(closeButtonWrapper.at(0).exists());
   const closeButton = headerWrapper.find('[data-name="review-header-close-button"]');
   t.true(closeButton.at(0).exists());

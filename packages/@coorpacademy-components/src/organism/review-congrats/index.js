@@ -33,7 +33,12 @@ const ReviewCongrats = props => {
   }, []);
 
   return (
-    <div className={style.mainContainer} aria-label={ariaLabel} data-name={dataName}>
+    <div
+      className={style.mainContainer}
+      aria-label={ariaLabel}
+      data-name={dataName}
+      data-testid="congrats"
+    >
       <AtomLottieWrapper
         {...animationLottie}
         loop={false}
@@ -64,11 +69,15 @@ const ReviewCongrats = props => {
             <ButtonLink
               {...buttonRevising}
               className={style.buttonRevise}
-              data-name="revise-skill-link"
+              data-testid="revise-skill-link"
             />
           ) : null}
           {buttonRevisingSkill ? (
-            <ButtonLink {...buttonRevisingSkill} className={style.buttonRevise} />
+            <ButtonLink
+              {...buttonRevisingSkill}
+              className={style.buttonRevise}
+              data-testid="revise-another-skill-link"
+            />
           ) : null}
         </div>
       </div>
