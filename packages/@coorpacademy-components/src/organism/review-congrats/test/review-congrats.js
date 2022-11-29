@@ -5,20 +5,27 @@ import {render, cleanup, fireEvent, waitFor} from '@testing-library/react';
 import ReviewCongrats, {setScroll} from '..';
 import defaultFixture from './fixtures/default';
 
-browserEnv();
+browserEnv({pretendToBeVisual: true});
 
-test.afterEach(cleanup);
+test.after.always(cleanup);
 
 test('should click on skill button', async t => {
-  const {getByTestId} = render(<ReviewCongrats {...defaultFixture.props} />);
+  const {getByTestId} = render(
+    <ReviewCongrats {...defaultFixture.props} data-testid="revise-skill-link" />
+  );
 
-  await waitFor(() => {
-    const skillLink = getByTestId('revise-skill-link');
-    t.truthy(skillLink);
-    if (skillLink)
-      t.notThrows(() => {
-        return fireEvent.click(skillLink);
-      });
+  await waitFor(async () => {
+    const result = await t.try(tt => {
+      const skillLink = getByTestId('revise-skill-link');
+      tt.truthy(skillLink);
+      if (skillLink)
+        tt.notThrows(() => {
+          return fireEvent.click(skillLink);
+        });
+    });
+    if (result.passed) return result.commit();
+    result.discard();
+    throw result.errors;
   });
 
   t.pass();

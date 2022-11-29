@@ -34,6 +34,7 @@ const ButtonLink = props => {
     disabled,
     icon = {},
     'data-name': dataName,
+    'data-testid': dataTestId = 'button-link',
     'aria-label': ariaLabel,
     link,
     onClick = noop,
@@ -62,6 +63,7 @@ const ButtonLink = props => {
         style={customStyle}
         className={styleButton}
         data-name={dataName}
+        data-testid={dataTestId}
         aria-label={ariaLabel || label}
         title={ariaLabel || label}
       >
@@ -76,6 +78,7 @@ const ButtonLink = props => {
       aria-label={ariaLabel || label}
       title={ariaLabel || label}
       data-name={dataName}
+      data-testid={dataTestId}
       style={customStyle}
       className={styleButton}
       onClick={handleOnClick}
@@ -90,6 +93,7 @@ ButtonLink.propTypes = {
   label: PropTypes.string,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
+  'data-testid': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left']),
     type: PropTypes.oneOf(keys(ICONS))
