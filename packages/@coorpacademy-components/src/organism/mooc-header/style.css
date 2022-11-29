@@ -571,9 +571,9 @@
   }
 
   .navMobile img {
-    height: auto;
+    height: 100%;
     max-height: 50px;
-    width: auto;
+    width: 100%;
     max-width: 100px;
     display: block;
     align-self: center;
