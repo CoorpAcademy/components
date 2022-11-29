@@ -4,6 +4,7 @@ import {AnyAction, Store} from 'redux';
 import {useSelector, useDispatch, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 import {AppReviewProps} from '@coorpacademy/components/es/template/app-review/prop-types';
+import fixtureEndReview from '@coorpacademy/components/src/template/app-review/player/test/fixtures/end-review';
 
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
@@ -22,10 +23,12 @@ import {mapStateToSlidesProps} from './views/slides';
 const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
   const dispatch = useDispatch();
   const props: AppReviewProps = {
-    viewName: useSelector(
-      (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
-    ),
-    slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, options)),
+    // viewName: useSelector(
+    //   (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
+    // ),
+    // slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, options)),
+    viewName: 'slides',
+    slides: fixtureEndReview.props,
     skills: useSelector((state: StoreState) => mapStateToSkillsProps(state, options)),
     navigateBack: () => dispatch(navigateBack),
     onboarding: {}

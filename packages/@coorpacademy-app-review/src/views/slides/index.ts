@@ -14,11 +14,11 @@ import {ReviewPlayerProps} from '@coorpacademy/components/es/template/app-review
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import type {
-  ProgressionAnswerItem,
-  ProgressionFromAPI,
-  SlideContent
-} from '@coorpacademy/review-services';
+// import type {
+//   ProgressionAnswerItem,
+//   ProgressionFromAPI,
+//   SlideContent
+// } from '@coorpacademy/review-services';
 import {ConnectedOptions, Skin, Translate} from '../../types/common';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';
@@ -344,7 +344,7 @@ const buildCongratsProps = (
   dispatch: Dispatch,
   options: ConnectedOptions
 ): ReviewCongratsProps | undefined => {
-  if (!state.ui.showCongrats) return;
+  // if (!state.ui.showCongrats) return;
 
   const {translate, onQuitClick} = options;
   const progression = state.data.progression as ProgressionFromAPI;
