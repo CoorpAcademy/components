@@ -44,10 +44,6 @@
 
 @media mobile {  
   .title {
-    margin: 40px 0 24px 20px;
-  }
-
-  .containerReviewSkill {
-    margin-top: 76px;
+  margin-left: 0;
   }
 }
