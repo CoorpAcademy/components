@@ -13,7 +13,7 @@ test('should click on skill button', async t => {
   const {getByTestId} = render(<ReviewCongrats {...defaultFixture.props} />);
 
   await waitFor(() => {
-    const skillLink = getByTestId('[data-testid="revise-skill-link"]');
+    const skillLink = getByTestId('revise-skill-link');
     t.truthy(skillLink);
     if (skillLink)
       t.notThrows(() => {
