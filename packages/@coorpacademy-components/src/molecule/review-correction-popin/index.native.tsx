@@ -10,7 +10,7 @@ import {Theme} from '../../variables/theme.native';
 import Text from '../../atom/text/index.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
-import {ReviewCorrectionPopinProps} from './prop-types';
+import {ReviewCorrectionPopinKLFProps, ReviewCorrectionPopinProps} from './prop-types';
 
 interface StyleSheetType {
   wrapper: ViewStyle;
@@ -186,7 +186,7 @@ const KlfButton = ({
   klf,
   styleSheet
 }: {
-  klf: NonNullable<ReviewCorrectionPopinProps['klf']>;
+  klf: ReviewCorrectionPopinKLFProps;
   styleSheet: StyleSheetType;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
@@ -248,7 +248,7 @@ const KlfButton = ({
         <View style={triangleTooltip} />
       </Animated.View>
       <Touchable
-        style={[buttonKlf, displayTooltip ? buttonKlfActive : null]}
+        style={displayTooltip ? {...buttonKlf, ...buttonKlfActive} : buttonKlf}
         accessibilityLabel={`aria-label-${label}`}
         onPress={handlePressKey}
         testID="button-klf"

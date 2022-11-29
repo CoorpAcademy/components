@@ -19,11 +19,13 @@ const propTypes = {
   })
 };
 
+export type ReviewCorrectionPopinKLFProps = {
+  label: string;
+  tooltip: string;
+};
+
 export type ReviewCorrectionPopinProps = {
-  klf?: {
-    label: string;
-    tooltip: string;
-  };
+  klf?: ReviewCorrectionPopinKLFProps;
   information: {
     label: string;
     message: string;

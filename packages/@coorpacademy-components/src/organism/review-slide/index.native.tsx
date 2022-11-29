@@ -4,7 +4,6 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
-// import Loader from '../../atom/loader';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
