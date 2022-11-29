@@ -273,12 +273,6 @@ const KlfButton = ({
   );
 };
 
-// Type narrowing function
-const isWrongType = (
-  klf: ReviewCorrectionPopinProps['klf'],
-  type: ReviewCorrectionPopinProps['type']
-): klf is ReviewCorrectionPopinKLFProps => type === 'wrong';
-
 const ICONS = {
   right: RightIcon,
   wrong: WrongIcon
@@ -327,7 +321,7 @@ const ReviewCorrectionPopin = ({
           </View>
           <Html style={styleSheet.htmlInfoMessage}>{information.message}</Html>
         </View>
-        {isWrongType(klf, type) ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
+        {klf && type === 'wrong' ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
         <Touchable
           style={styleSheet.button}
           onPress={handlePressNext}
