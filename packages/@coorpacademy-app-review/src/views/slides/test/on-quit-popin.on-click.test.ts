@@ -1,18 +1,16 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
+import {services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
-import {
-  incorrectFreeTextPostAnswerResponse,
-  services,
-  translate
-} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
+import {translate} from '../../../test/utils/translation.mock';
+import {incorrectFreeTextPostAnswerResponse} from '../../../test/fixtures';
+import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {skin} from './fixtures/skin';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

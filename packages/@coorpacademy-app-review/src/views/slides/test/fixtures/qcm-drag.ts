@@ -1,6 +1,6 @@
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import noop from 'lodash/fp/noop';
 import {ReviewSlide} from '../..';
-import {SlideFromAPI} from '../../../../types/common';
 
 export const qcmDragSlide: SlideFromAPI = {
   question: {

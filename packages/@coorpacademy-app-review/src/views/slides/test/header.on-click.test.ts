@@ -1,14 +1,12 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
+import {services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
-import {
-  incorrectFreeTextPostAnswerResponse,
-  services,
-  translate
-} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
 import {OPEN_POPIN} from '../../../actions/ui/quit-popin';
 import {mapStateToSlidesProps} from '..';
+import {translate} from '../../../test/utils/translation.mock';
+import {incorrectFreeTextPostAnswerResponse} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
 
 const state: StoreState = {

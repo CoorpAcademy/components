@@ -4,8 +4,8 @@ import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import {StoreState} from '../../../reducers';
 import {mapStateToSkillsProps} from '..';
-import {translate} from '../../../test/util/services.mock';
 import {skin} from '../../slides/test/fixtures/skin';
+import {translate} from '../../../test/utils/translation.mock';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

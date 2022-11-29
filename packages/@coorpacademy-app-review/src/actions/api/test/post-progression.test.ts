@@ -1,18 +1,18 @@
 import test from 'ava';
-import type {ProgressionFromAPI, Services} from '../../../types/common';
+import type {ProgressionFromAPI, Services} from '@coorpacademy/review-services';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
   POST_PROGRESSION_SUCCESS,
   POST_PROGRESSION_FAILURE
 } from '../post-progression';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {services as mockedServices} from '../../../test/util/services.mock';
 import type {StoreState} from '../../../reducers';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';
 import {SKILL_FETCH_FAILURE, SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../fetch-skill';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
 const initialState: StoreState = {
   data: {

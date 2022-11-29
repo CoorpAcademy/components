@@ -1,5 +1,6 @@
 import test from 'ava';
-import type {Services} from '../../../types/common';
+import type {Services} from '@coorpacademy/review-services';
+import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {
   fetchSkills,
@@ -7,8 +8,8 @@ import {
   SKILLS_FETCH_REQUEST,
   SKILLS_FETCH_SUCCESS
 } from '../fetch-skills';
-import {fetchSkillsResponse, services as mockedServices} from '../../../test/util/services.mock';
 import {createTestStore} from '../../test/create-test-store';
+import {fetchSkillsResponse} from '../../../test/fixtures';
 
 const initialState: StoreState = {
   data: {

@@ -1,9 +1,9 @@
 import test from 'ava';
+import {services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
-import {services} from '../../../test/util/services.mock';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {StoreState} from '../../../reducers';
 import {setCurrentSlide, SET_CURRENT_SLIDE} from '../slides';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 
 const initialState: StoreState = {
   data: {

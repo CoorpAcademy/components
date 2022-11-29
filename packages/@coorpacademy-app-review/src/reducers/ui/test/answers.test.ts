@@ -2,13 +2,13 @@ import test from 'ava';
 import reducer from '../answers';
 import {EditAnswerAction, ANSWER_EDIT} from '../../../actions/ui/answers';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
+import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
-import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 
 test('should have initial value', t => {
   const state = reducer(undefined, {} as EditAnswerAction);

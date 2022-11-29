@@ -1,14 +1,14 @@
 import test from 'ava';
+import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
 import reducer, {type CorrectionsAction} from '../corrections';
 import {
   CORRECTION_FETCH_REQUEST,
   CORRECTION_FETCH_SUCCESS
 } from '../../../actions/api/fetch-correction';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
-import {getChoicesCorrection} from '../../../test/util/services.mock';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
 

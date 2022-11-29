@@ -2,17 +2,19 @@ import test from 'ava';
 import get from 'lodash/fp/get';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
-import {ProgressionFromAPI} from '../../../types/common';
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
+import {services} from '@coorpacademy/review-services-mocks';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
-import {services, translate} from '../../../test/util/services.mock';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {EDIT_SLIDER} from '../../../actions/ui/answers';
 import {QuestionRange} from '../../../types/slides';
+import {translate} from '../../../test/utils/translation.mock';
 import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
+
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: 'skill_NyxtYFYir'},

@@ -1,12 +1,12 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {SlideFromAPI} from '../../../types/common';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {ReviewSlide} from '..';
-import {qcmUISlide, qcmSlide} from './fixtures/qcm';
-import {qcmDragUISlide, qcmDragSlide} from './fixtures/qcm-drag';
+import {qcmSlide, qcmUISlide} from './fixtures/qcm';
+import {qcmDragSlide, qcmDragUISlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
-import {qcmGraphicUISlide, qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {qcmGraphicSlide, qcmGraphicUISlide} from './fixtures/qcm-graphic';
 import {templateSlide, templateUISlide} from './fixtures/template';
 import {sliderSlide, sliderUISlide} from './fixtures/slider';
 

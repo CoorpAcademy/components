@@ -34,6 +34,12 @@ export type Skill = {
   ref: string;
 };
 
+export type ChoiceItem = {
+  text: string;
+  value: string;
+  _id: string;
+};
+
 export type ChoiceFromAPI = {
   _id: string;
   id?: string;
@@ -41,7 +47,7 @@ export type ChoiceFromAPI = {
   name?: string;
   type?: 'text' | 'select';
   label?: string;
-  items: {text: string; value: string; _id: string}[];
+  items: ChoiceItem[];
   media?: unknown;
 };
 

@@ -1,3 +1,4 @@
+import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import {PostAnswerSuccessAction, POST_ANSWER_SUCCESS} from '../../actions/api/post-answer';
 import {
   POST_PROGRESSION_REQUEST,
@@ -5,7 +6,6 @@ import {
   FetchProgression,
   ReceivedProgression
 } from '../../actions/api/post-progression';
-import {ProgressionFromAPI} from '../../types/common';
 
 export type ProgressionState = ProgressionFromAPI | null;
 

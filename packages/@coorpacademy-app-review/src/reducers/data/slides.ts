@@ -1,4 +1,5 @@
 import set from 'lodash/fp/set';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {
   ReceivedSlide,
   FetchSlide,
@@ -6,7 +7,6 @@ import {
   SLIDE_FETCH_SUCCESS
 } from '../../actions/api/fetch-slide';
 import {FetchProgression, POST_PROGRESSION_REQUEST} from '../../actions/api/post-progression';
-import {SlideFromAPI} from '../../types/common';
 
 export type SlidesAction = FetchSlide | ReceivedSlide;
 

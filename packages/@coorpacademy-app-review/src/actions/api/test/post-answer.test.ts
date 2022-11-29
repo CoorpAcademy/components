@@ -1,13 +1,8 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
-import {ReviewEngine, ReviewContent, ProgressionFromAPI} from '../../../types/common';
+import type {ReviewEngine, ReviewContent, ProgressionFromAPI} from '@coorpacademy/review-services';
+import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
-import {
-  fetchSlidesToReviewBySkillRefResponse,
-  getChoicesCorrection,
-  postAnswerResponses,
-  services
-} from '../../../test/util/services.mock';
 import {
   postAnswer,
   POST_ANSWER_FAILURE,
@@ -15,13 +10,8 @@ import {
   POST_ANSWER_SUCCESS
 } from '../post-answer';
 import type {StoreState} from '../../../reducers';
-import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {CORRECTION_FETCH_REQUEST, CORRECTION_FETCH_SUCCESS} from '../fetch-correction';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
-import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
-import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
-import {templateSlide} from '../../../views/slides/test/fixtures/template';
-import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {
   RANK_FETCH_START_REQUEST,
   RANK_FETCH_END_REQUEST,
@@ -31,6 +21,12 @@ import {
   SLIDES_TO_REVIEW_FETCH_REQUEST,
   SLIDES_TO_REVIEW_FETCH_SUCCESS
 } from '../fetch-slides-to-review-by-skill-ref';
+import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
+import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
+import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
+import {templateSlide} from '../../../views/slides/test/fixtures/template';
+import {fetchSlidesToReviewBySkillRefResponse, postAnswerResponses} from '../../../test/fixtures';
 
 const progressionId = '62b1d1087aa12f00253f40ee';
 const skillRef = 'skill_NyxtYFYir';

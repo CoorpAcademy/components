@@ -22,6 +22,18 @@ import {
   __
 } from 'lodash/fp';
 import {Dispatch} from 'redux';
+import type {
+  BasicQuestion,
+  ChoiceFromAPI,
+  QcmDragQuestion,
+  QcmGraphicQuestion,
+  QcmQuestion,
+  Question,
+  SlideFromAPI,
+  SliderQuestion,
+  TemplateQuestion,
+  ChoiceItem
+} from '@coorpacademy/review-services';
 import {
   AnswerUI,
   FreeText,
@@ -33,19 +45,8 @@ import {
   Template,
   TextTemplate
 } from '../../types/slides';
-import {
-  BasicQuestion,
-  ChoiceFromAPI,
-  QcmDragQuestion,
-  QcmGraphicQuestion,
-  QcmQuestion,
-  Question,
-  SlideFromAPI,
-  SliderQuestion,
-  TemplateQuestion,
-  Translate
-} from '../../types/common';
 import {editAnswer} from '../../actions/ui/answers';
+import {Translate} from '../../types/common';
 
 const qcmProps =
   (dispatch: Dispatch) =>
@@ -151,7 +152,7 @@ const templateSelectProps = (
     validOption: false,
     selected: true
   };
-  const selectOptions = choice.items.map(item => {
+  const selectOptions = choice.items.map((item: ChoiceItem) => {
     const itemText = getOr('', 'text', item);
     return {
       name: itemText,
@@ -180,7 +181,7 @@ const templateProps =
     return {
       type: 'template',
       template: get('content.template', question),
-      answers: choices.map((choice, index) =>
+      answers: choices.map((choice: ChoiceFromAPI, index: number) =>
         choice.type === 'text'
           ? templateTextProps(dispatch, translate, answers, choice, index, maxLength)
           : templateSelectProps(dispatch, translate, answers, choice, index, maxLength)

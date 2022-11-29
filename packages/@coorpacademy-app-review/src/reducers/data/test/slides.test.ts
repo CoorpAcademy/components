@@ -1,10 +1,10 @@
 import test from 'ava';
-import reducer, {type SlidesAction} from '../slides';
-import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
 import {POST_PROGRESSION_REQUEST} from '../../../actions/api/post-progression';
+import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
+import reducer, {type SlidesAction} from '../slides';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
 

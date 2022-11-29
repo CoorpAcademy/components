@@ -1,6 +1,6 @@
 import noop from 'lodash/fp/noop';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {ReviewSlide} from '../..';
-import {SlideFromAPI} from '../../../../types/common';
 
 export const templateSlide: SlideFromAPI = {
   question: {

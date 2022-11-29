@@ -1,8 +1,9 @@
 import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import type {Dispatch} from 'redux';
+import type {SkillToReview} from '@coorpacademy/review-services';
 import type {StoreState} from '../../reducers';
-import type {ThunkOptions, SkillToReview} from '../../types/common';
+import type {ThunkOptions} from '../../types/common';
 
 export const SKILLS_FETCH_REQUEST = '@@skills/FETCH_REQUEST' as const;
 export const SKILLS_FETCH_SUCCESS = '@@skills/FETCH_SUCCESS' as const;

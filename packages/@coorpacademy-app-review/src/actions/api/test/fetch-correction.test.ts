@@ -1,11 +1,10 @@
 import test from 'ava';
-import type {Services} from '../../../types/common';
-import type {StoreState} from '../../../reducers';
+import type {Services} from '@coorpacademy/review-services';
 import {
   getChoicesCorrection,
-  postAnswerResponses,
   services as mockedServices
-} from '../../../test/util/services.mock';
+} from '@coorpacademy/review-services-mocks';
+import type {StoreState} from '../../../reducers';
 import {createTestStore} from '../../test/create-test-store';
 import {
   CORRECTION_FETCH_FAILURE,
@@ -15,6 +14,7 @@ import {
 } from '../fetch-correction';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
+import {postAnswerResponses} from '../../../test/fixtures';
 
 const progression = postAnswerResponses[freeTextSlide.universalRef];
 const skillRef = '_skill-ref';

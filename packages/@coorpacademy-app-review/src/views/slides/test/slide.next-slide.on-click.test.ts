@@ -2,23 +2,19 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 
+import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
-import {
-  postAnswerResponses,
-  getChoicesCorrection,
-  incorrectFreeTextPostAnswerResponse,
-  services,
-  translate
-} from '../../../test/util/services.mock';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
-import {freeTextSlide} from './fixtures/free-text';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {templateSlide} from './fixtures/template';
-import {qcmSlide} from './fixtures/qcm';
+import {translate} from '../../../test/utils/translation.mock';
+import {incorrectFreeTextPostAnswerResponse, postAnswerResponses} from '../../../test/fixtures';
 import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';
+import {freeTextSlide} from './fixtures/free-text';
+import {qcmSlide} from './fixtures/qcm';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
+import {templateSlide} from './fixtures/template';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

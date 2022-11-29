@@ -14,16 +14,14 @@ import {ReviewPlayerProps} from '@coorpacademy/components/es/template/app-review
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
-import {getProgressionSlidesRefs} from '../../common';
 import type {
-  ConnectedOptions,
-  Skin,
   ProgressionAnswerItem,
   ProgressionFromAPI,
-  SlideContent,
-  Translate
-} from '../../types/common';
+  SlideContent
+} from '@coorpacademy/review-services';
+import {ConnectedOptions, Skin, Translate} from '../../types/common';
+import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
+import {getProgressionSlidesRefs} from '../../common';
 import type {StoreState} from '../../reducers';
 import type {AnswerUI} from '../../types/slides';
 import {postAnswer} from '../../actions/api/post-answer';

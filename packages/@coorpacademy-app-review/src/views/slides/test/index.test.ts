@@ -9,20 +9,19 @@ import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-car
 
 import {
   postProgressionResponse as createdProgression,
-  postAnswerResponses,
   progressionSlideWithPendingSlide,
-  getChoicesCorrection,
-  incorrectFreeTextPostAnswerResponse,
-  translate
-} from '../../../test/util/services.mock';
+  getChoicesCorrection
+} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
-import {freeTextSlide} from './fixtures/free-text';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {templateSlide} from './fixtures/template';
-import {qcmSlide} from './fixtures/qcm';
-import {sliderSlide} from './fixtures/slider';
+import {translate} from '../../../test/utils/translation.mock';
+import {incorrectFreeTextPostAnswerResponse, postAnswerResponses} from '../../../test/fixtures';
 import {skin} from './fixtures/skin';
+import {sliderSlide} from './fixtures/slider';
+import {templateSlide} from './fixtures/template';
+import {freeTextSlide} from './fixtures/free-text';
+import {qcmSlide} from './fixtures/qcm';
+import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
 

@@ -1,6 +1,6 @@
 import test from 'ava';
+import {services} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
-import {services} from '../../../test/util/services.mock';
 import {StoreState} from '../../../reducers';
 import {storeToken, STORE_TOKEN} from '../token';
 
