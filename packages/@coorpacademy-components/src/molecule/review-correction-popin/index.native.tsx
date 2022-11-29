@@ -30,7 +30,6 @@ interface StyleSheetType {
   iconKey: ViewStyle;
   containerTooltip: ViewStyle;
   buttonTooltip: ViewStyle;
-  textTooltip: TextStyle;
   containerButtonKlf: ViewStyle;
   triangleTooltip: ViewStyle;
 }
@@ -162,13 +161,6 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       right: -15,
       zIndex: 20
     },
-    textTooltip: {
-      color: theme.colors.text.primary,
-      fontSize: 16,
-      fontWeight: '600',
-      lineHeight: 22,
-      textAlign: 'center'
-    },
     triangleTooltip: {
       width: 0,
       height: 0,
@@ -232,11 +224,14 @@ const KlfButton = ({
     containerTooltip,
     buttonTooltip,
     iconKey,
-    textTooltip,
     triangleTooltip
   } = styleSheet;
 
   const {label, tooltip} = klf;
+
+  const tooltipMessage = {
+    html: `<p style='color:#06265B; font-size:16; font-weight:600; line-height:22; text-align:center;'>${tooltip}</p>`
+  };
 
   return (
     <View style={containerButtonKlf}>
@@ -248,7 +243,7 @@ const KlfButton = ({
           onPress={handlePressKey}
           testID="button-tooltip"
         >
-          <Text style={textTooltip}>{tooltip}</Text>
+          <RenderHTML source={tooltipMessage} />
         </Touchable>
         <View style={triangleTooltip} />
       </Animated.View>
@@ -282,8 +277,8 @@ const ReviewCorrectionPopin = ({
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
   const handlePressNext = next.onClick;
-  const source = {
-    html: `<p aria-label='${information.message}' style='color:white; font-size:16; font-weight:600; line-height:19;'>${information.message}</p>`
+  const infoMessage = {
+    html: `<p style='color:white; font-size:16; font-weight:600; line-height:19;'>${information.message}</p>`
   };
   const ICONS = {
     right: RightIcon,
@@ -318,7 +313,7 @@ const ReviewCorrectionPopin = ({
               {information.label}
             </Text>
           </View>
-          <RenderHTML source={source} systemFonts={['Gilroy']} />
+          <RenderHTML source={infoMessage} />
         </View>
         {isWrongType(klf, type) ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
         <Touchable
