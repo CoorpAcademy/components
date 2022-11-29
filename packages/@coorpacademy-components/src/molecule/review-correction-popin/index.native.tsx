@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {Animated, Easing, TextStyle, StyleSheet, View, ViewStyle} from 'react-native';
-import RenderHTML from 'react-native-render-html';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon,
   NovaLineLoginKey1 as KlfIcon
 } from '@coorpacademy/nova-icons';
+import Html from '../../atom/html/index.native';
 import {Theme} from '../../variables/theme.native';
 import Text from '../../atom/text/index.native';
 import Touchable from '../../hoc/touchable/index.native';
@@ -22,6 +22,7 @@ interface StyleSheetType {
   feedbackSection: ViewStyle;
   labelContainer: ViewStyle;
   label: TextStyle;
+  htmlInfoMessage: TextStyle;
   button: ViewStyle;
   buttonText: TextStyle;
   buttonKlf: ViewStyle;
@@ -32,6 +33,7 @@ interface StyleSheetType {
   buttonTooltip: ViewStyle;
   containerButtonKlf: ViewStyle;
   triangleTooltip: ViewStyle;
+  htmlTooltipText: TextStyle;
 }
 
 const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
@@ -89,7 +91,8 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       backgroundColor: 'rgba(255, 255, 255, 0.3)',
       borderRadius: 56,
       paddingHorizontal: theme.spacing.tiny,
-      paddingVertical: theme.spacing.micro
+      paddingVertical: theme.spacing.micro,
+      marginBottom: 8
     },
     label: {
       color: theme.colors.white,
@@ -97,6 +100,12 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       fontWeight: theme.fontWeight.extraBold,
       lineHeight: 17,
       wordBreak: 'break-word'
+    },
+    htmlInfoMessage: {
+      color: theme.colors.white,
+      fontSize: 16,
+      fontWeight: '600',
+      lineHeight: 19
     },
     button: {
       alignSelf: 'stretch',
@@ -161,6 +170,13 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       right: -15,
       zIndex: 20
     },
+    htmlTooltipText: {
+      color: theme.colors.text.primary,
+      fontSize: 16,
+      fontWeight: '600',
+      lineHeight: 22,
+      textAlign: 'center'
+    },
     triangleTooltip: {
       width: 0,
       height: 0,
@@ -223,15 +239,12 @@ const KlfButton = ({
     containerButtonKlf,
     containerTooltip,
     buttonTooltip,
+    htmlTooltipText,
     iconKey,
     triangleTooltip
   } = styleSheet;
 
   const {label, tooltip} = klf;
-
-  const tooltipMessage = {
-    html: `<p style='color:#06265B; font-size:16; font-weight:600; line-height:22; text-align:center;'>${tooltip}</p>`
-  };
 
   return (
     <View style={containerButtonKlf}>
@@ -243,7 +256,7 @@ const KlfButton = ({
           onPress={handlePressKey}
           testID="button-tooltip"
         >
-          <RenderHTML source={tooltipMessage} />
+          <Html style={htmlTooltipText}>{tooltip}</Html>
         </Touchable>
         <View style={triangleTooltip} />
       </Animated.View>
@@ -264,7 +277,7 @@ const KlfButton = ({
 const isWrongType = (
   klf: ReviewCorrectionPopinProps['klf'],
   type: ReviewCorrectionPopinProps['type']
-): klf is NonNullable<ReviewCorrectionPopinProps['klf']> => type === 'wrong';
+): klf is ReviewCorrectionPopinKLFProps => type === 'wrong';
 
 const ICONS = {
   right: RightIcon,
@@ -282,9 +295,6 @@ const ReviewCorrectionPopin = ({
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
   const handlePressNext = next.onClick;
-  const infoMessage = {
-    html: `<p style='color:white; font-size:16; font-weight:600; line-height:19;'>${information.message}</p>`
-  };
 
   const Icon = ICONS[type];
 
@@ -315,7 +325,7 @@ const ReviewCorrectionPopin = ({
               {information.label}
             </Text>
           </View>
-          <RenderHTML source={infoMessage} />
+          <Html style={styleSheet.htmlInfoMessage}>{information.message}</Html>
         </View>
         {isWrongType(klf, type) ? <KlfButton styleSheet={styleSheet} klf={klf} /> : null}
         <Touchable
