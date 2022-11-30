@@ -439,3 +439,34 @@ test("should select a rule with source.ref:'*'", t => {
   const selectedRule = selectRule(rules, state);
   t.deepEqual(selectedRule, globalSourceHighPriority);
 });
+
+test("should select a random rule with source.ref:'*'", t => {
+  const value = 111;
+  const baseRule = {
+    source,
+    destination,
+    instructions: [],
+    conditions: [
+      {
+        target: {
+          scope: 'variable',
+          field: 'foo'
+        },
+        operator: 'EQUALS',
+        values: [value]
+      }
+    ],
+    ref: '1',
+    priority: 1
+  };
+
+  const rules = [baseRule, baseRule, baseRule];
+
+  const state = {
+    ...defaultState,
+    variables: {foo: value}
+  };
+
+  const selectedRule = selectRule(rules, state);
+  t.deepEqual(selectedRule, baseRule);
+});
