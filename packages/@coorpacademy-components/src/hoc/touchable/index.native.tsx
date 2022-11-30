@@ -21,6 +21,7 @@ const hitSlop = {
 };
 
 export type Props = {
+  accessibilityLabel?: string;
   accessible?: boolean;
   children?: React.ReactNode;
   delayLongPress?: number;

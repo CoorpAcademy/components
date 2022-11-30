@@ -19,11 +19,13 @@ const propTypes = {
   })
 };
 
+export type ReviewCorrectionPopinKLFProps = {
+  label: string;
+  tooltip: string;
+};
+
 export type ReviewCorrectionPopinProps = {
-  klf?: {
-    label: string;
-    tooltip: string;
-  };
+  klf?: ReviewCorrectionPopinKLFProps;
   information: {
     label: string;
     message: string;
@@ -31,7 +33,8 @@ export type ReviewCorrectionPopinProps = {
   next: {
     label: string;
     onClick: () => void;
-    'aria-label'?: string;
+    'data-name'?: string;
+    'aria-label': string;
   };
   resultLabel: string;
   type: 'right' | 'wrong';

@@ -4,8 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
-// import Loader from '../../atom/loader';
-// import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
+import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
@@ -20,25 +19,23 @@ type PopinProps = {
   animateCorrectionPopin: unknown;
 };
 
-const CorrectionPopin = ({
-  correctionPopinProps,
-  slideIndex,
-  showCorrectionPopin,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  animateCorrectionPopin
-}: PopinProps) => {
-  if (!showCorrectionPopin) return null;
+const styles = StyleSheet.create({
+  correctionPopinWrapper: {
+    position: 'absolute',
+    bottom: 16,
+    width: '105%'
+  }
+});
 
-  const klf = getOr({}, 'klf', correctionPopinProps);
+const CorrectionPopin = ({correctionPopinProps, slideIndex}: PopinProps) => {
+  const klf = getOr(undefined, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
+  const onClick = get(['next', 'onClick'], correctionPopinProps);
 
   const _correctionPopinProps = {
     next: {
-      onClick: () => {
-        // eslint-disable-next-line no-console
-        console.log('Next Slide');
-      },
+      onClick,
       label: next && next.label,
       'data-name': `next-question-button-${slideIndex}`,
       'aria-label': next && next['aria-label']
@@ -50,8 +47,9 @@ const CorrectionPopin = ({
   };
 
   return (
-    <Text>@todo ReviewCorrectionPopin {_correctionPopinProps.toString()}</Text>
-    // <ReviewCorrectionPopin {..._correctionPopinProps} />
+    <View style={styles.correctionPopinWrapper}>
+      <ReviewCorrectionPopin {..._correctionPopinProps} />
+    </View>
   );
 };
 

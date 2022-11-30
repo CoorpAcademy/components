@@ -17,7 +17,6 @@ export default {
       label: 'Validate',
       onClick: () => console.log('onValidateClick'),
       disabled: false
-    },
-    correctionPopinProps: {}
+    }
   }
 };
