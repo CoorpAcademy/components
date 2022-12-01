@@ -5,7 +5,7 @@ import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaSolidVoteRewardsRewardsBadge5 as RankIcon
 } from '@coorpacademy/nova-icons';
-import AtomLottieWrapper from '../../atom/lottie-wrapper';
+import LottieWrapper from '../../atom/lottie-wrapper';
 import Animation, {EASE_OUT_CUBIC} from '../../hoc/animation';
 import AnimationScheduler from '../../hoc/animation-scheduler';
 import style from './style.css';
@@ -51,7 +51,7 @@ const ReviewCardCongrats = props => {
   return (
     <div className={wrapperClassName} aria-label={ariaLabel} data-name={dataName}>
       <div className={style.mainIcon}>
-        <AtomLottieWrapper
+        <LottieWrapper
           {...animationLottie}
           loop={false}
           animationControl={isAnimationVisible}
