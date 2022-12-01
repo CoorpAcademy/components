@@ -107,9 +107,12 @@ const QuestionContainer = props => {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: questionText}}
       />
-      <div key="help" className={style.help}>
-        {get('help', answerUI)}
-      </div>
+      <div
+        key="help"
+        className={style.help}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: get('help', answerUI)}}
+      />
       <div key="answer-container" className={style.answerContainer}>
         <Answer {...answerUI} key="answer" />
       </div>
