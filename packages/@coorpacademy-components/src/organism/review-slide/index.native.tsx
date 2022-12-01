@@ -1,5 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, TextStyle, useWindowDimensions, View, ViewStyle} from 'react-native';
+import React, {useCallback, useEffect, useState, useRef} from 'react';
+import {
+  Animated,
+  Easing,
+  StyleSheet,
+  TextStyle,
+  useWindowDimensions,
+  View,
+  ViewStyle
+} from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import Text from '../../atom/text/index.native';
@@ -9,15 +17,7 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {Brand} from '../../variables/brand.native';
-import {ReviewCorrectionPopinProps} from '../../molecule/review-correction-popin/prop-types';
-import {ReviewSlideProps, SlideProps} from './prop-types';
-
-type PopinProps = {
-  correctionPopinProps: ReviewCorrectionPopinProps;
-  slideIndex: unknown;
-  showCorrectionPopin: unknown;
-  animateCorrectionPopin: unknown;
-};
+import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
   correctionPopinWrapper: {
@@ -27,7 +27,29 @@ const styles = StyleSheet.create({
   }
 });
 
-const CorrectionPopin = ({correctionPopinProps, slideIndex}: PopinProps) => {
+const CorrectionPopin = ({
+  correctionPopinProps,
+  slideIndex,
+  showCorrectionPopin,
+  animateCorrectionPopin
+}: PopinProps) => {
+  const translateAnim = useRef(new Animated.Value(1000)).current;
+
+  const translateYAnim = useCallback(() => {
+    Animated.timing(translateAnim, {
+      toValue: 0,
+      duration: 800,
+      easing: Easing.bezier(0.37, 0, 0.63, 1),
+      useNativeDriver: true
+    }).start();
+  }, [translateAnim]);
+
+  if (animateCorrectionPopin) {
+    translateYAnim();
+  }
+
+  if (!showCorrectionPopin) return null;
+
   const klf = getOr(undefined, 'klf', correctionPopinProps);
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
@@ -47,9 +69,18 @@ const CorrectionPopin = ({correctionPopinProps, slideIndex}: PopinProps) => {
   };
 
   return (
-    <View style={styles.correctionPopinWrapper}>
+    <Animated.View
+      style={{
+        ...styles.correctionPopinWrapper,
+        transform: [
+          {
+            translateY: translateAnim
+          }
+        ]
+      }}
+    >
       <ReviewCorrectionPopin {..._correctionPopinProps} />
-    </View>
+    </Animated.View>
   );
 };
 
