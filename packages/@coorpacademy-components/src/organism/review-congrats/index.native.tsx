@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import LottieView from 'lottie-react-native';
 import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaSolidVoteRewardsRewardsBadge5 as RankIcon
 } from '@coorpacademy/nova-icons';
+
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import {ReviewCongratsProps} from './prop-types';
@@ -13,7 +15,8 @@ type StyleSheetType = {
   card: ViewStyle;
   iconBig: ViewStyle;
   iconSmall: ViewStyle;
-  iconCircle: ViewStyle;
+  animation: ViewStyle;
+  confettis: ViewStyle;
   reward: ViewStyle;
   rewardText: TextStyle;
   title: TextStyle;
@@ -36,6 +39,12 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fontSize: 32,
       lineHeight: 40,
       color: theme.colors.text.primary
+    },
+    confettis: {
+      flexGrow: 1,
+      position: 'absolute',
+      width: '100%',
+      height: '100%'
     },
     card: {
       alignItems: 'center',
@@ -63,9 +72,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: 53,
       height: 53
     },
-    iconCircle: {
-      borderRadius: 100,
-      padding: 34,
+    animation: {
       marginBottom: 12,
       width: 132,
       height: 132
@@ -73,11 +80,10 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
   });
 
 const CardCongrats = ({
-  TitleIcon,
+  animationUri,
   RewardIcon,
   value,
   text,
-  titleIconColor,
   rewardIconColor,
   rewardTextColor,
   rewardDirection
@@ -97,8 +103,8 @@ const CardCongrats = ({
 
   return (
     <View style={styleSheet.card}>
-      <View style={[styleSheet.iconCircle, {backgroundColor: `${titleIconColor}2f`}]}>
-        <TitleIcon style={styleSheet.iconBig} color={titleIconColor} />
+      <View style={styleSheet.animation}>
+        <LottieView source={{uri: animationUri}} autoPlay loop={false} />
       </View>
       <Text style={styleSheet.title}>{text}</Text>
       <View style={[styleSheet.reward, {flexDirection: rewardDirection}]}>
@@ -139,25 +145,30 @@ const ReviewHeader = (props: ReviewCongratsProps) => {
       <Text style={styleSheet.title}>{title}</Text>
       {cardCongratsRank ? (
         <CardCongrats
+          animationUri={cardCongratsRank.animationLottie.animationSrc}
           text={cardCongratsRank.reviewCardTitle}
           value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
-          TitleIcon={RankIcon}
-          titleIconColor={theme.colors.battle}
           RewardIcon={RankIcon}
           rewardIconColor={theme.colors.positive}
           rewardTextColor={theme.colors.text.primary}
           rewardDirection="row-reverse"
         />
       ) : null}
-      {/* <CardCongrats
-        Icon={StarIcon}
+      <CardCongrats
+        animationUri={cardCongratsStar.animationLottie.animationSrc}
+        RewardIcon={StarIcon}
         text={cardCongratsStar.reviewCardTitle}
         value={cardCongratsStar.reviewCardValue}
-        titleIconColor={theme.colors.battle}
         rewardIconColor={theme.colors.battle}
         rewardTextColor={theme.colors.battle}
         rewardDirection="row"
-      /> */}
+      />
+      <LottieView
+        source={{uri: animationLottie.animationSrc}}
+        autoPlay
+        loop={false}
+        style={styleSheet.confettis}
+      />
     </View>
   );
 };
