@@ -41,6 +41,13 @@ const propTypes = {
 
 export default propTypes;
 
+export type PopinProps = {
+  correctionPopinProps: ReviewCorrectionPopinProps;
+  slideIndex: string;
+  showCorrectionPopin?: boolean;
+  animateCorrectionPopin?: boolean;
+};
+
 export type SlideProps = {
   position: number;
   loading: boolean;
