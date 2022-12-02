@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import {
+  GestureResponderEvent,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle
+} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {
   NovaCompositionCoorpacademyStar as StarIcon,
@@ -32,7 +40,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop: 25
+      paddingTop: 25,
+      flex: 1
     },
     title: {
       fontWeight: '400',
@@ -44,7 +53,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       flexGrow: 1,
       position: 'absolute',
       width: '100%',
-      height: '100%'
+      height: '100%',
+      pointerEvents: 'box-none'
     },
     card: {
       alignItems: 'center',
@@ -115,10 +125,9 @@ const CardCongrats = ({
   );
 };
 
-const ReviewHeader = (props: ReviewCongratsProps) => {
+const ReviewCongrats = (props: ReviewCongratsProps) => {
   const {
     'aria-label': ariaLabel,
-    'data-name': dataName,
     animationLottie,
     title,
     cardCongratsStar,
@@ -143,34 +152,33 @@ const ReviewHeader = (props: ReviewCongratsProps) => {
   return (
     <View style={styleSheet.congrats}>
       <Text style={styleSheet.title}>{title}</Text>
-      {cardCongratsRank ? (
+      <ScrollView horizontal>
+        {cardCongratsRank ? (
+          <CardCongrats
+            animationUri={cardCongratsRank.animationLottie.animationSrc}
+            text={cardCongratsRank.reviewCardTitle}
+            value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
+            RewardIcon={RankIcon}
+            rewardIconColor={theme.colors.positive}
+            rewardTextColor={theme.colors.text.primary}
+            rewardDirection="row-reverse"
+          />
+        ) : null}
         <CardCongrats
-          animationUri={cardCongratsRank.animationLottie.animationSrc}
-          text={cardCongratsRank.reviewCardTitle}
-          value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
-          RewardIcon={RankIcon}
-          rewardIconColor={theme.colors.positive}
-          rewardTextColor={theme.colors.text.primary}
-          rewardDirection="row-reverse"
+          animationUri={cardCongratsStar.animationLottie.animationSrc}
+          RewardIcon={StarIcon}
+          text={cardCongratsStar.reviewCardTitle}
+          value={cardCongratsStar.reviewCardValue}
+          rewardIconColor={theme.colors.battle}
+          rewardTextColor={theme.colors.battle}
+          rewardDirection="row"
         />
-      ) : null}
-      <CardCongrats
-        animationUri={cardCongratsStar.animationLottie.animationSrc}
-        RewardIcon={StarIcon}
-        text={cardCongratsStar.reviewCardTitle}
-        value={cardCongratsStar.reviewCardValue}
-        rewardIconColor={theme.colors.battle}
-        rewardTextColor={theme.colors.battle}
-        rewardDirection="row"
-      />
-      <LottieView
-        source={{uri: animationLottie.animationSrc}}
-        autoPlay
-        loop={false}
-        style={styleSheet.confettis}
-      />
+      </ScrollView>
+      <View pointerEvents="none" style={styleSheet.confettis}>
+        <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
+      </View>
     </View>
   );
 };
 
-export default ReviewHeader;
+export default ReviewCongrats;
