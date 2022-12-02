@@ -1,13 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  GestureResponderEvent,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextStyle,
-  View,
-  ViewStyle
-} from 'react-native';
+import {ScrollView, StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {
   NovaCompositionCoorpacademyStar as StarIcon,
@@ -16,11 +8,13 @@ import {
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
+import Button from '../../atom/button/index.native';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {
   congrats: ViewStyle;
   card: ViewStyle;
+  cardTitle: TextStyle;
   iconBig: ViewStyle;
   iconSmall: ViewStyle;
   animation: ViewStyle;
@@ -37,16 +31,17 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: '100%',
       height: '100%',
       backgroundColor: '#e7e7e778',
+      backgroundColor: 'pink',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: 25,
+      paddingVertical: 90,
       flex: 1
     },
     title: {
       fontWeight: '400',
       fontSize: 32,
       lineHeight: 40,
+      marginVertical: 20,
       color: theme.colors.text.primary
     },
     confettis: {
@@ -62,8 +57,15 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       paddingBottom: 24,
       backgroundColor: theme.colors.white,
       borderRadius: 24,
+      margin: 10,
       width: 280,
       height: 317
+    },
+    cardTitle: {
+      fontWeight: '400',
+      fontSize: 32,
+      lineHeight: 40,
+      color: theme.colors.text.primary
     },
     reward: {
       alignItems: 'center'
@@ -116,7 +118,7 @@ const CardCongrats = ({
       <View style={styleSheet.animation}>
         <LottieView source={{uri: animationUri}} autoPlay loop={false} />
       </View>
-      <Text style={styleSheet.title}>{text}</Text>
+      <Text style={styleSheet.cardTitle}>{text}</Text>
       <View style={[styleSheet.reward, {flexDirection: rewardDirection}]}>
         <Text style={[styleSheet.rewardText, {color: rewardTextColor}]}>{value}</Text>
         <RewardIcon style={styleSheet.iconSmall} color={rewardIconColor} />
@@ -150,9 +152,9 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   }
 
   return (
-    <View style={styleSheet.congrats}>
+    <View style={styleSheet.congrats} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
-      <ScrollView horizontal>
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{height: 300}}>
         {cardCongratsRank ? (
           <CardCongrats
             animationUri={cardCongratsRank.animationLottie.animationSrc}
@@ -174,6 +176,21 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
           rewardDirection="row"
         />
       </ScrollView>
+      {buttonRevising ? (
+        <Button
+          accessibilityLabel={buttonRevising['aria-label']}
+          submitValue={buttonRevising.label}
+          style={{margin: 10, width: '80%'}}
+        />
+      ) : null}
+      {buttonRevisingSkill ? (
+        <Button
+          accessibilityLabel={buttonRevisingSkill['aria-label']}
+          submitValue={buttonRevisingSkill.label}
+          style={{margin: 10, width: '80%', backgroundColor: '#fff'}}
+          textStyle={{color: '#123'}}
+        />
+      ) : null}
       <View pointerEvents="none" style={styleSheet.confettis}>
         <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
       </View>

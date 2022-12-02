@@ -17,6 +17,7 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {Brand} from '../../variables/brand.native';
+import Button from '../../atom/button';
 import {PopinProps, ReviewSlideProps, SlideProps, ValidateButtonProps} from './prop-types';
 
 const styles = StyleSheet.create({
