@@ -17,7 +17,7 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {Brand} from '../../variables/brand.native';
-import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
+import {PopinProps, ReviewSlideProps, SlideProps, ValidateButtonProps} from './prop-types';
 
 const styles = StyleSheet.create({
   correctionPopinWrapper: {
@@ -84,22 +84,53 @@ const CorrectionPopin = ({
   );
 };
 
-// const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
-//   const {label, onClick, disabled} = validateButton;
-//   const validateButtonProps = {
-//     type: 'primary',
-//     label,
-//     'aria-label': label,
-//     'data-name': `slide-validate-button-${slideIndex}`,
-//     onClick,
-//     disabled,
-//     customStyle: {
-//       backgroundColor: primarySkinColor
-//     }
-//   };
+type StyleValidateButtonType = {
+  validateButton: ViewStyle;
+  validateButtonText: ViewStyle;
+};
 
-//   return <Button title="validate todo" />;
-// };
+const createValidateButtonStyle = (theme: Theme, brandTheme: Brand): StyleValidateButtonType =>
+  StyleSheet.create({
+    validateButton: {
+      backgroundColor: brandTheme?.colors?.primary || theme.colors.text.primary,
+      borderRadius: 7,
+      width: '100%'
+    },
+    validateButtonText: {
+      fontSize: 14,
+      lineHeight: 20,
+      fontWeight: theme.fontWeight.bold,
+      color: theme.colors.white,
+      marginBottom: theme.spacing.small,
+      marginTop: theme.spacing.small,
+      textAlign: 'center'
+    }
+  });
+
+const ValidateButton = ({slideIndex, validateButton}: ValidateButtonProps) => {
+  const {label, onClick, disabled} = validateButton;
+  const {theme, brandTheme} = useTemplateContext();
+  const [style, setStyle] = useState<StyleValidateButtonType>();
+
+  useEffect(() => {
+    const buttonStyle = createValidateButtonStyle(theme, brandTheme);
+    setStyle(buttonStyle);
+  }, [theme, brandTheme]);
+
+  if (!style) return null;
+
+  return (
+    <Touchable
+      style={style.validateButton}
+      onPress={onClick}
+      disabled={disabled}
+      accessibilityLabel={label}
+      testID={`slide-validate-button-${slideIndex}`}
+    >
+      <Text style={style.validateButtonText}>{label}</Text>
+    </Touchable>
+  );
+};
 
 type StyleSheetType = {
   questionHeading: ViewStyle;
@@ -107,11 +138,9 @@ type StyleSheetType = {
   questionText: TextStyle;
   questionHelp: ViewStyle;
   choicesContainer: ViewStyle;
-  validateButton: ViewStyle;
-  validateButtonText: ViewStyle;
 };
 
-const createQuestionStyle = (theme: Theme, brandTheme: Brand): StyleSheetType =>
+const createQuestionStyle = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     questionHeading: {
       justifyContent: 'space-between'
@@ -143,20 +172,6 @@ const createQuestionStyle = (theme: Theme, brandTheme: Brand): StyleSheetType =>
       flex: 1,
       width: '100%',
       justifyContent: 'center'
-    },
-    validateButton: {
-      backgroundColor: brandTheme?.colors?.primary || theme.colors.text.primary,
-      borderRadius: 7,
-      width: '100%'
-    },
-    validateButtonText: {
-      fontSize: 14,
-      lineHeight: 20,
-      fontWeight: '700',
-      color: theme.colors.white,
-      marginBottom: 16,
-      marginTop: 16,
-      textAlign: 'center'
     }
   });
 
@@ -168,13 +183,13 @@ type QuestionProps = {
 
 const Question = (props: QuestionProps) => {
   const {answerUI, questionText, questionOrigin} = props;
-  const {theme, brandTheme} = useTemplateContext();
+  const {theme} = useTemplateContext();
   const [style, setStyle] = useState<StyleSheetType>();
 
   useEffect(() => {
-    const questionStyle = createQuestionStyle(theme, brandTheme);
+    const questionStyle = createQuestionStyle(theme);
     setStyle(questionStyle);
-  }, [theme, brandTheme]);
+  }, [theme]);
 
   if (!answerUI || !questionText || !style) return null;
 
@@ -188,9 +203,6 @@ const Question = (props: QuestionProps) => {
       <View style={style.choicesContainer}>
         <Answer {...answerUI} />
       </View>
-      <Touchable style={style.validateButton}>
-        <Text style={style.validateButtonText}>@todo validate</Text>
-      </Touchable>
     </>
   );
 };
@@ -224,7 +236,7 @@ const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
 };
 
 const Slide = (props: ReviewSlideProps) => {
-  const {slide, correctionPopinProps, num, slideIndex = '0'} = props;
+  const {slide, correctionPopinProps, validateButton, num, slideIndex = '0'} = props;
 
   const {width} = useWindowDimensions();
   const slideStyle = createSlideStyle(num, width);
@@ -250,6 +262,11 @@ const Slide = (props: ReviewSlideProps) => {
             questionText={questionText}
             answerUI={answerUI}
             key="question-container"
+          />
+          <ValidateButton
+            slideIndex={slideIndex}
+            validateButton={validateButton}
+            key="validate-button"
           />
           {correctionPopinProps ? (
             <CorrectionPopin

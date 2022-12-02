@@ -48,6 +48,12 @@ export type PopinProps = {
   animateCorrectionPopin?: boolean;
 };
 
+export type ValidateButtonProps = {
+  slideIndex: string;
+  validateButton: ReviewSlideProps['validateButton'];
+  primarySkinColor?: string;
+};
+
 export type SlideProps = {
   position: number;
   loading: boolean;
