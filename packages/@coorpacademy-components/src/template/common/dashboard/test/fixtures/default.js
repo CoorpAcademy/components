@@ -43,6 +43,6 @@ export default {
         key: 'news'
       })
     ],
-    onLoadMoreSections: () => console.loog('here we are')
+    onLoadMoreSections: () => console.log('onScroll')
   }
 };
