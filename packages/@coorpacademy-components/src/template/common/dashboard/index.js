@@ -19,7 +19,8 @@ Hero.propTypes = {
 };
 
 const Dashboard = props => {
-  const {sections = [], hero, welcome, cookie} = props;
+  const {sections = [], hero, welcome, cookie, onLoadMoreSections} = props;
+
 
   const buildSectionComponent = section => {
     const {type} = section;
@@ -44,10 +45,19 @@ const Dashboard = props => {
 
     return <div key={index}>{sectionView}</div>;
   };
+  
 
   const sectionsList = [{type: 'hero', key: 'hero'}, ...sections].map(section => (
     <div key={section.key}>{buildSection(section)}</div>
   ));
+
+  const handleScroll = () => {
+    if (window.innerHeight + document.documentElement.scrollTop + 1 >= document.scrollingElement.scrollHeight) {
+      onLoadMoreSections ? onLoadMoreSections() : null;
+  }
+      return;
+  };
+  window.addEventListener('scroll', handleScroll, true)
   return (
     <div className={style.wrapper} data-name="dashboard">
       {sectionsList}
@@ -59,6 +69,7 @@ const Dashboard = props => {
 Dashboard.propTypes = {
   hero: Hero.propTypes.hero,
   welcome: Hero.propTypes.welcome,
+  onLoadMoreSections: PropTypes.func,
   sections: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape(BattleRequestList.propTypes),

@@ -42,6 +42,7 @@ export default {
         type: 'news',
         key: 'news'
       })
-    ]
+    ],
+    onLoadMoreSections: () => console.loog('here we are')
   }
 };
