@@ -136,6 +136,7 @@
   composes: text;
   margin-right: 5px;
   min-width: 120px;
+  flex-shrink: 0;
 }
 
 .answer {
