@@ -11,13 +11,12 @@ type StyleSheetType = {
   container: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       flex: 1,
       width: '100%',
       height: '100%',
-      // paddingTop: headerHeight,
       backgroundColor: theme.colors.white,
       flexDirection: 'column',
       justifyContent: 'space-between',
@@ -28,17 +27,14 @@ const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
 const Slides = (props: ReviewPlayerProps) => {
   const {congrats, header, stack} = props;
 
-  const {
-    theme,
-    display: {headerHeight}
-  } = useTemplateContext();
+  const {theme} = useTemplateContext();
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme, headerHeight);
+    const _stylesheet = createStyleSheet(theme);
     setStylesheet(_stylesheet);
-  }, [theme, headerHeight]);
+  }, [theme]);
 
   if (!styleSheet) {
     return null;
