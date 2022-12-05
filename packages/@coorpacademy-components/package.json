@@ -103,7 +103,7 @@
     "@babel/types": "^7.19.0",
     "@coorpacademy/css-modules-require-hook": "3.0.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
-    "@coorpacademy/react-native-mock-render": "^0.2.4",
+    "@coorpacademy/react-native-mock-render": "^0.2.5",
     "@coorpacademy/react-native-slider": "^0.11.1",
     "@coorpacademy/translate": "6.2.0",
     "@coorpacademy/webpack-config": "12.0.1",
