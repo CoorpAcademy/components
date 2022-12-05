@@ -30,14 +30,17 @@ const createStyle = (theme: Theme, brandTheme: Brand): StyleSheetType =>
   });
 
 type ButtonProps = {
-  submitValue: string;
   accessibilityLabel?: string;
+  disabled?: boolean;
+  onPress: () => void;
   style?: ViewStyle;
+  submitValue: string;
+  testID?: string;
   textStyle?: TextStyle;
 };
 
 const Button = (props: ButtonProps) => {
-  const {accessibilityLabel, submitValue, style, textStyle} = props;
+  const {accessibilityLabel, disabled, onPress, style, submitValue, testID, textStyle} = props;
   const {theme, brandTheme} = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType>();
 
@@ -49,7 +52,13 @@ const Button = (props: ButtonProps) => {
   if (!styleSheet) return null;
 
   return (
-    <Touchable accessibilityLabel={accessibilityLabel} style={[styleSheet.wrapper, style]}>
+    <Touchable
+      testID={testID}
+      onPress={onPress}
+      disabled={disabled}
+      accessibilityLabel={accessibilityLabel}
+      style={[styleSheet.wrapper, style]}
+    >
       <Text style={[styleSheet.text, textStyle]}>{submitValue}</Text>
     </Touchable>
   );

@@ -9,6 +9,7 @@ import {
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
+import {BOX_STYLE} from '../../variables/shadow';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {
@@ -30,8 +31,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       position: 'absolute',
       width: '100%',
       height: '100%',
-      backgroundColor: '#e7e7e778',
-      backgroundColor: 'pink',
+      backgroundColor: '#ededed',
       flexDirection: 'column',
       alignItems: 'center',
       paddingVertical: 90,
@@ -51,15 +51,17 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       height: '100%',
       pointerEvents: 'box-none'
     },
+    // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
     card: {
       alignItems: 'center',
       paddingTop: 32,
       paddingBottom: 24,
-      backgroundColor: theme.colors.white,
       borderRadius: 24,
       margin: 10,
       width: 280,
-      height: 317
+      height: 317,
+      ...BOX_STYLE,
+      backgroundColor: theme.colors.white
     },
     cardTitle: {
       fontWeight: '400',

@@ -47,7 +47,7 @@ const Slides = (props: ReviewPlayerProps) => {
   return (
     <View style={styleSheet.container}>
       <ReviewHeader {...header} />
-      {/* {stack ? <StackedSlides {...stack} /> : null} */}
+      {stack ? <StackedSlides {...stack} /> : null}
       {congrats ? <ReviewCongrats {...congrats} /> : null}
     </View>
   );
