@@ -80,8 +80,7 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       fontWeight: '600',
       lineHeight: 24,
       marginLeft: 12,
-      textTransform: 'uppercase',
-      wordBreak: 'break-word'
+      textTransform: 'uppercase'
     },
     feedbackSection: {
       marginVertical: theme.spacing.medium
@@ -98,8 +97,7 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       color: theme.colors.white,
       fontSize: 14,
       fontWeight: theme.fontWeight.extraBold,
-      lineHeight: 17,
-      wordBreak: 'break-word'
+      lineHeight: 17
     },
     htmlInfoMessage: {
       color: theme.colors.white,
