@@ -1,18 +1,20 @@
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 import WrongCorrectionPopin from '../../../../molecule/review-correction-popin/test/fixtures/wrong';
+import {Fixture} from '../../prop-types';
 
 const qcmGraphic = AnswerQCMGraphic.props;
 
-export default {
+const fixture: Fixture = {
   props: {
+    slideIndex: '',
+    num: 0,
     slide: {
-      hidden: false,
       position: 0,
       loading: false,
       parentContentTitle: 'From "Master Design Thinking to become more agile" course',
       questionText: 'Question 1',
       answerUI: qcmGraphic,
-      animateCorrectionPopin: true,
+      animateCorrectionPopin: false,
       showCorrectionPopin: true
     },
     validateButton: {
@@ -23,3 +25,5 @@ export default {
     correctionPopinProps: WrongCorrectionPopin.props
   }
 };
+
+export default fixture;

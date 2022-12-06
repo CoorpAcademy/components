@@ -1,16 +1,19 @@
 import cloneDeep from 'lodash/fp/cloneDeep';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
+import {Answer} from '../../../../molecule/answer/prop-types';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
+import {Fixture} from '../../prop-types';
 
-const markAnswersAsUnselected = answer => set('selected', false, answer);
+const markAnswersAsUnselected = (answer: Answer) => set('selected', false, answer);
 const qcmGraphic = cloneDeep(AnswerQCMGraphic.props);
 qcmGraphic.model.answers = map(markAnswersAsUnselected, AnswerQCMGraphic.props.model.answers);
 
-export default {
+const fixture: Fixture = {
   props: {
+    slideIndex: '',
+    num: 0,
     slide: {
-      hidden: false,
       position: 0,
       loading: false,
       parentContentTitle: 'From "Master Design Thinking to become more agile" course',
@@ -26,3 +29,5 @@ export default {
     }
   }
 };
+
+export default fixture;

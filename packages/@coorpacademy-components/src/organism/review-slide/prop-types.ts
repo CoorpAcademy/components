@@ -3,6 +3,7 @@ import ReviewCorrectionPopinPropTypes, {
   ReviewCorrectionPopinProps
 } from '../../molecule/review-correction-popin/prop-types';
 import AnswerPropTypes, {AnswerProps} from '../../molecule/answer/prop-types';
+import {TemplateContextValues} from '../../template/app-review/template-context';
 
 export const SlidePropsTypes = PropTypes.shape({
   position: PropTypes.number,
@@ -78,3 +79,5 @@ export type ReviewSlideProps = {
     disabled: boolean;
   };
 };
+
+export type Fixture = {props: ReviewSlideProps; mobileContext?: TemplateContextValues};

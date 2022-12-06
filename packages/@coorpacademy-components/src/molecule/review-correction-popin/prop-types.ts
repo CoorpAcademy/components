@@ -40,4 +40,6 @@ export type ReviewCorrectionPopinProps = {
   type: 'right' | 'wrong';
 };
 
+export type Fixture = {props: ReviewCorrectionPopinProps};
+
 export default propTypes;
