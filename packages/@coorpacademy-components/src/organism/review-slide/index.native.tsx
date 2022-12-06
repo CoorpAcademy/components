@@ -201,38 +201,35 @@ const Slide = (props: ReviewSlideProps) => {
     animateCorrectionPopin
   } = slide;
 
+  if (loading) {
+    return <Text>@todo loader {num}</Text>;
+  }
+
   const {onClick: handleValidatePress} = validateButton;
 
   return (
     <View style={slideStyle.slide}>
-      {loading ? (
-        // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
-        <Text>@todo loader {num}</Text>
-      ) : (
-        <>
-          <Question
-            questionOrigin={parentContentTitle}
-            questionText={questionText}
-            answerUI={answerUI}
-            key="question-container"
-          />
-          <Button
-            disabled={validateButton.disabled}
-            submitValue={validateButton.label}
-            onPress={handleValidatePress}
-            testID={`slide-validate-button-${slideIndex}`}
-          />
-          {correctionPopinProps ? (
-            <CorrectionPopin
-              correctionPopinProps={correctionPopinProps}
-              slideIndex={slideIndex}
-              showCorrectionPopin={showCorrectionPopin}
-              animateCorrectionPopin={animateCorrectionPopin}
-              key="correction-popin"
-            />
-          ) : null}
-        </>
-      )}
+      <Question
+        questionOrigin={parentContentTitle}
+        questionText={questionText}
+        answerUI={answerUI}
+        key="question-container"
+      />
+      <Button
+        disabled={validateButton.disabled}
+        submitValue={validateButton.label}
+        onPress={handleValidatePress}
+        testID={`slide-validate-button-${slideIndex}`}
+      />
+      {correctionPopinProps ? (
+        <CorrectionPopin
+          correctionPopinProps={correctionPopinProps}
+          slideIndex={slideIndex}
+          showCorrectionPopin={showCorrectionPopin}
+          animateCorrectionPopin={animateCorrectionPopin}
+          key="correction-popin"
+        />
+      ) : null}
     </View>
   );
 };
