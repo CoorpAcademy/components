@@ -1,4 +1,4 @@
-import {Fixture} from '../../prop-types';
+import type {Fixture} from '../../prop-types';
 
 const fixture: Fixture = {
   props: {
