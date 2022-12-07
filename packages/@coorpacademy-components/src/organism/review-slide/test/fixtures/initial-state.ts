@@ -1,9 +1,9 @@
 import cloneDeep from 'lodash/fp/cloneDeep';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
-import {Answer} from '../../../../molecule/answer/prop-types';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
-import {Fixture} from '../../prop-types';
+import type {Answer} from '../../../../molecule/answer/prop-types';
+import type {Fixture} from '../../prop-types';
 
 const markAnswersAsUnselected = (answer: Answer) => set('selected', false, answer);
 const qcmGraphic = cloneDeep(AnswerQCMGraphic.props);
