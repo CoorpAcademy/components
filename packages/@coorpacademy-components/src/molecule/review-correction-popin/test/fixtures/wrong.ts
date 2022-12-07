@@ -1,4 +1,6 @@
-export default {
+import {Fixture} from '../../prop-types';
+
+const fixture: Fixture = {
   props: {
     type: 'wrong',
     resultLabel: 'WRONG ANSWER',
@@ -19,3 +21,5 @@ export default {
     }
   }
 };
+
+export default fixture;

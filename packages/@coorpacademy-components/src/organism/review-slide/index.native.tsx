@@ -15,9 +15,8 @@ import Answer from '../../molecule/answer/index.native';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
-import Touchable from '../../hoc/touchable/index.native';
-import {Brand} from '../../variables/brand.native';
-import {PopinProps, ReviewSlideProps, SlideProps, ValidateButtonProps} from './prop-types';
+import Button from '../../atom/button/index.native';
+import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
   correctionPopinWrapper: {
@@ -81,54 +80,6 @@ const CorrectionPopin = ({
     >
       <ReviewCorrectionPopin {..._correctionPopinProps} />
     </Animated.View>
-  );
-};
-
-type StyleValidateButtonType = {
-  validateButton: ViewStyle;
-  validateButtonText: ViewStyle;
-};
-
-const createValidateButtonStyle = (theme: Theme, brandTheme: Brand): StyleValidateButtonType =>
-  StyleSheet.create({
-    validateButton: {
-      backgroundColor: brandTheme?.colors?.primary || theme.colors.text.primary,
-      borderRadius: 7,
-      width: '100%'
-    },
-    validateButtonText: {
-      fontSize: 14,
-      lineHeight: 20,
-      fontWeight: theme.fontWeight.bold,
-      color: theme.colors.white,
-      marginBottom: theme.spacing.small,
-      marginTop: theme.spacing.small,
-      textAlign: 'center'
-    }
-  });
-
-const ValidateButton = ({slideIndex, validateButton}: ValidateButtonProps) => {
-  const {label, onClick, disabled} = validateButton;
-  const {theme, brandTheme} = useTemplateContext();
-  const [style, setStyle] = useState<StyleValidateButtonType>();
-
-  useEffect(() => {
-    const buttonStyle = createValidateButtonStyle(theme, brandTheme);
-    setStyle(buttonStyle);
-  }, [theme, brandTheme]);
-
-  if (!style) return null;
-
-  return (
-    <Touchable
-      style={style.validateButton}
-      onPress={onClick}
-      disabled={disabled}
-      accessibilityLabel={label}
-      testID={`slide-validate-button-${slideIndex}`}
-    >
-      <Text style={style.validateButtonText}>{label}</Text>
-    </Touchable>
   );
 };
 
@@ -250,35 +201,35 @@ const Slide = (props: ReviewSlideProps) => {
     animateCorrectionPopin
   } = slide;
 
+  if (loading) {
+    return <Text>@todo loader {num}</Text>;
+  }
+
+  const {onClick: handleValidatePress} = validateButton;
+
   return (
     <View style={slideStyle.slide}>
-      {loading ? (
-        // <Loader className={style.loader} theme="default" aria-label={loadingAriaLabel} />
-        <Text>@todo loader {num}</Text>
-      ) : (
-        <>
-          <Question
-            questionOrigin={parentContentTitle}
-            questionText={questionText}
-            answerUI={answerUI}
-            key="question-container"
-          />
-          <ValidateButton
-            slideIndex={slideIndex}
-            validateButton={validateButton}
-            key="validate-button"
-          />
-          {correctionPopinProps ? (
-            <CorrectionPopin
-              correctionPopinProps={correctionPopinProps}
-              slideIndex={slideIndex}
-              showCorrectionPopin={showCorrectionPopin}
-              animateCorrectionPopin={animateCorrectionPopin}
-              key="correction-popin"
-            />
-          ) : null}
-        </>
-      )}
+      <Question
+        questionOrigin={parentContentTitle}
+        questionText={questionText}
+        answerUI={answerUI}
+        key="question-container"
+      />
+      <Button
+        disabled={validateButton.disabled}
+        submitValue={validateButton.label}
+        onPress={handleValidatePress}
+        testID={`slide-validate-button-${slideIndex}`}
+      />
+      {correctionPopinProps ? (
+        <CorrectionPopin
+          correctionPopinProps={correctionPopinProps}
+          slideIndex={slideIndex}
+          showCorrectionPopin={showCorrectionPopin}
+          animateCorrectionPopin={animateCorrectionPopin}
+          key="correction-popin"
+        />
+      ) : null}
     </View>
   );
 };

@@ -5,7 +5,8 @@ import {
   LayoutChangeEvent,
   NativeSyntheticEvent,
   GestureResponderEvent,
-  TargetedEvent
+  TargetedEvent,
+  StyleProp
 } from 'react-native';
 
 import React, {useMemo} from 'react';
@@ -41,7 +42,7 @@ export type Props = {
   isWithoutFeedback?: boolean;
   // for TouchableOpacity
   activeOpacity?: number;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   // Analytics
   analytics?: Analytics;
   analyticsID?: string;
@@ -70,6 +71,7 @@ const Touchable = (props: Props) => {
   const {
     analyticsID,
     analyticsParams,
+    accessibilityLabel,
     onPress,
     onLongPress,
     isWithoutFeedback,
@@ -110,6 +112,7 @@ const Touchable = (props: Props) => {
     return (
       <TouchableHighlight
         {...props}
+        accessibilityLabel={accessibilityLabel}
         hitSlop={hitSlop}
         underlayColor={theme.colors.gray.light}
         onPress={handlePress}
@@ -122,6 +125,7 @@ const Touchable = (props: Props) => {
   return (
     <TouchableOpacity
       {...props}
+      accessibilityLabel={accessibilityLabel}
       hitSlop={hitSlop}
       onPress={handlePress}
       onLongPress={handleLongPress}

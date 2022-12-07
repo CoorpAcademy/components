@@ -3,7 +3,7 @@ import type {} from 'redux-thunk/extend-redux'; // https://github.com/reduxjs/re
 import {AnyAction, Store} from 'redux';
 import {useSelector, useDispatch, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
-import {AppReviewProps} from '@coorpacademy/components/es/template/app-review/prop-types';
+import type {AppReviewProps} from '@coorpacademy/components/es/template/app-review/prop-types';
 
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';

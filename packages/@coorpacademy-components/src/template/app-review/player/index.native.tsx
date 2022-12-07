@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ViewStyle} from 'react-native';
 import StackedSlides from '../../../organism/review-stacked-slides/index.native';
+import ReviewCongrats from '../../../organism/review-congrats/index.native';
 import ReviewHeader from '../../../organism/review-header/index.native';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../template-context';
@@ -10,12 +11,12 @@ type StyleSheetType = {
   container: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       flex: 1,
       width: '100%',
-      paddingTop: headerHeight,
+      height: '100%',
       backgroundColor: theme.colors.white,
       flexDirection: 'column',
       justifyContent: 'space-between',
@@ -24,19 +25,16 @@ const createStyleSheet = (theme: Theme, headerHeight: number): StyleSheetType =>
   });
 
 const Slides = (props: ReviewPlayerProps) => {
-  const {header, stack} = props;
+  const {congrats, header, stack} = props;
 
-  const {
-    theme,
-    display: {headerHeight}
-  } = useTemplateContext();
+  const {theme} = useTemplateContext();
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme, headerHeight);
+    const _stylesheet = createStyleSheet(theme);
     setStylesheet(_stylesheet);
-  }, [theme, headerHeight]);
+  }, [theme]);
 
   if (!styleSheet) {
     return null;
@@ -46,6 +44,7 @@ const Slides = (props: ReviewPlayerProps) => {
     <View style={styleSheet.container}>
       <ReviewHeader {...header} />
       {stack ? <StackedSlides {...stack} /> : null}
+      {congrats ? <ReviewCongrats {...congrats} /> : null}
     </View>
   );
 };
