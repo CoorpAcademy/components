@@ -207,7 +207,9 @@ class MoocHeader extends React.Component {
     }));
   }
 
-  handleOnMenuOpen() {
+  handleOnMenuOpen(e) {
+    e.stopPropagation();
+    e.preventDefault();
     const {onMenuOpen} = this.props;
     if (onMenuOpen) {
       onMenuOpen();
@@ -217,7 +219,9 @@ class MoocHeader extends React.Component {
     }));
   }
 
-  handleOnMenuClose() {
+  handleOnMenuClose(e) {
+    e.stopPropagation();
+    e.preventDefault();
     const {onMenuClose} = this.props;
     if (onMenuClose) {
       onMenuClose();
