@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Animated, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
 import Slide from '../review-slide/index.native';
@@ -19,11 +19,13 @@ const StackedSlides = (props: ReviewStackProps) => {
   const {height: windowHeight} = useWindowDimensions();
   const {slides, validateButton, correctionPopinProps} = props;
 
-  const translateDown = useTranslateVertically({
+  const {translate, animatedY} = useTranslateVertically({
     fromValue: 0,
     toValue: windowHeight,
     duration: 800
   });
+
+  useEffect(translate, [translate]);
 
   const indexes = keys(slides).reverse();
   const stackedSlides = indexes.map(slideIndex => {
@@ -43,7 +45,7 @@ const StackedSlides = (props: ReviewStackProps) => {
     );
   });
 
-  return <Animated.View style={[style.slides, translateDown]}>{stackedSlides}</Animated.View>;
+  return <Animated.View style={[style.slides, animatedY]}>{stackedSlides}</Animated.View>;
 };
 
 export default StackedSlides;

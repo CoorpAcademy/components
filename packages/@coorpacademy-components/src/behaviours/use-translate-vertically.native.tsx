@@ -1,13 +1,14 @@
-import {useCallback, useEffect, useRef} from 'react';
+import {useCallback, useRef} from 'react';
 import {Animated} from 'react-native';
 
 type Params = Omit<Animated.TimingAnimationConfig, 'useNativeDriver' | 'toValue'> & {
+  onFinished?: () => void;
   fromValue?: number;
   toValue?: Animated.TimingAnimationConfig['toValue'];
 };
 
 const useTranslateVertically = (params: Params = {}) => {
-  const {fromValue = 0, toValue = 100, duration = 550, ...othersParams} = params;
+  const {fromValue = 0, toValue = 100, duration = 550, onFinished, ...othersParams} = params;
   const translateY = useRef(new Animated.Value(fromValue)).current;
 
   const translate = useCallback(() => {
@@ -16,12 +17,14 @@ const useTranslateVertically = (params: Params = {}) => {
       toValue,
       duration,
       useNativeDriver: true
-    }).start();
-  }, [duration, othersParams, toValue, translateY]);
+    }).start(({finished}) => {
+      if (finished) {
+        onFinished?.();
+      }
+    });
+  }, [onFinished, duration, othersParams, toValue, translateY]);
 
-  useEffect(translate, [translate]);
-
-  return {transform: [{translateY}]};
+  return {translate, animatedY: {transform: [{translateY}]}};
 };
 
 export default useTranslateVertically;

@@ -22,12 +22,15 @@ import Button from '../../atom/button/index.native';
 import {BOX_STYLE} from '../../variables/shadow';
 import CardCongrats from '../../molecule/card-congrats/index.native';
 import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
+import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {
   buttons: ViewStyle;
   congrats: ViewStyle;
   confettis: ViewStyle;
+  scrollView: ViewStyle;
+  scrollViewContent: ViewStyle;
   title: TextStyle;
 };
 
@@ -62,6 +65,13 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: '100%',
       height: '100%',
       pointerEvents: 'box-none'
+    },
+    scrollView: {
+      height: 300
+    },
+    scrollViewContent: {
+      alignItems: 'center',
+      paddingHorizontal: 40
     }
   });
 
@@ -80,16 +90,53 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const {height: windowHeight} = useWindowDimensions();
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
+  const [isCongratsTranslationDone, setCongratsTranslationDone] = useState<boolean>(false);
+  const [isRankShown, setRankShown] = useState<boolean>(false);
+
+  const {translate: translateCongratsUp, animatedY: animatedCongratsY} = useTranslateVertically({
+    fromValue: windowHeight,
+    toValue: 0,
+    delay: 750,
+    onFinished: () => {
+      setCongratsTranslationDone(true);
+    }
+  });
+
+  const {translate: translateRankUp, animatedY: animatedRankY} = useTranslateVertically({
+    fromValue: 150,
+    duration: 350,
+    toValue: 0
+  });
+
+  const {fadeIn: showRank, animatedOpacity: animatedRankOpacity} = useUpdateOpacity({
+    onFadeInFinished: () => {
+      setRankShown(true);
+    }
+  });
+
+  const {fadeIn: showStars, animatedOpacity: animatedStarsOpacity} = useUpdateOpacity();
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
     setStylesheet(_stylesheet);
   }, [theme]);
 
-  const translateUp = useTranslateVertically({
-    fromValue: windowHeight,
-    toValue: 0
-  });
+  useEffect(() => {
+    translateCongratsUp();
+  }, [translateCongratsUp]);
+
+  useEffect(() => {
+    if (isCongratsTranslationDone) {
+      showRank();
+      translateRankUp();
+    }
+  }, [isCongratsTranslationDone, showRank, translateRankUp]);
+
+  useEffect(() => {
+    if (isRankShown) {
+      showStars();
+    }
+  }, [isRankShown, showStars]);
 
   if (!styleSheet) {
     return null;
@@ -99,29 +146,38 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const handleReviseAnotherSkillPress = buttonRevisingSkill?.onClick || noop;
 
   return (
-    <Animated.View style={[styleSheet.congrats, translateUp]} accessibilityLabel={ariaLabel}>
+    <Animated.View style={[styleSheet.congrats, animatedCongratsY]} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{height: 300}}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styleSheet.scrollView}
+        contentContainerStyle={styleSheet.scrollViewContent}
+      >
         {cardCongratsRank ? (
-          <CardCongrats
-            animationUri={cardCongratsRank.animationLottie.animationSrc}
-            text={cardCongratsRank.reviewCardTitle}
-            value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
-            Icon={RankIcon}
-            iconColor={theme.colors.positive}
-            textColor={theme.colors.text.primary}
-            direction="row-reverse"
-          />
+          <Animated.View style={[animatedRankOpacity, animatedRankY]}>
+            <CardCongrats
+              animationUri={cardCongratsRank.animationLottie.animationSrc}
+              text={cardCongratsRank.reviewCardTitle}
+              value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
+              Icon={RankIcon}
+              iconColor={theme.colors.positive}
+              textColor={theme.colors.text.primary}
+              direction="row-reverse"
+            />
+          </Animated.View>
         ) : null}
-        <CardCongrats
-          animationUri={cardCongratsStar.animationLottie.animationSrc}
-          Icon={StarIcon}
-          text={cardCongratsStar.reviewCardTitle}
-          value={cardCongratsStar.reviewCardValue}
-          iconColor={theme.colors.battle}
-          textColor={theme.colors.battle}
-          direction="row"
-        />
+        <Animated.View style={animatedStarsOpacity}>
+          <CardCongrats
+            animationUri={cardCongratsStar.animationLottie.animationSrc}
+            Icon={StarIcon}
+            text={cardCongratsStar.reviewCardTitle}
+            value={cardCongratsStar.reviewCardValue}
+            iconColor={theme.colors.battle}
+            textColor={theme.colors.battle}
+            direction="row"
+          />
+        </Animated.View>
       </ScrollView>
 
       <View style={styleSheet.buttons}>
@@ -143,9 +199,11 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         ) : null}
       </View>
 
-      <View pointerEvents="none" style={styleSheet.confettis}>
-        <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
-      </View>
+      {isCongratsTranslationDone ? (
+        <View pointerEvents="none" style={styleSheet.confettis}>
+          <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
+        </View>
+      ) : null}
     </Animated.View>
   );
 };

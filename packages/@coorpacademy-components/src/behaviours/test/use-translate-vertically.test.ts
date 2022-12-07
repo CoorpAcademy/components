@@ -1,7 +1,7 @@
 import test from 'ava';
 import {renderHook} from '@testing-library/react-native';
 import {Animated, Easing, EasingFunction} from 'react-native';
-import useTranslateVertically from '../use-translate-vertically.native';
+import useTranslateVertically from '../use-update-opacity.native';
 
 type TranslateYTestType = Animated.Value & {
   _animation: {
