@@ -21,7 +21,7 @@ import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
 import {BOX_STYLE} from '../../variables/shadow';
 import CardCongrats from '../../molecule/card-congrats/index.native';
-import useTranslateVertically from '../../hooks/use-translate-vertically/index.native';
+import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {

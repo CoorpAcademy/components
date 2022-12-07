@@ -2,7 +2,7 @@ import React from 'react';
 import {Animated, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
 import Slide from '../review-slide/index.native';
-import useTranslateVertically from '../../hooks/use-translate-vertically/index.native';
+import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
 import {ReviewStackProps} from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
