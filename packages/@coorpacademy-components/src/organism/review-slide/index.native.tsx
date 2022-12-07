@@ -16,6 +16,7 @@ import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
+import useTranslateVertically from '../../behaviours/use-update-opacity.native';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
@@ -32,20 +33,12 @@ const CorrectionPopin = ({
   showCorrectionPopin,
   animateCorrectionPopin
 }: PopinProps) => {
-  const translateAnim = useRef(new Animated.Value(1000)).current;
-
-  const translateYAnim = useCallback(() => {
-    Animated.timing(translateAnim, {
-      toValue: 0,
-      duration: 800,
-      easing: Easing.bezier(0.37, 0, 0.63, 1),
-      useNativeDriver: true
-    }).start();
-  }, [translateAnim]);
-
-  if (animateCorrectionPopin) {
-    translateYAnim();
-  }
+  const translateUp = useTranslateVertically({
+    fromValue: 1000,
+    toValue: 0,
+    duration: 800,
+    easing: Easing.bezier(0.37, 0, 0.63, 1)
+  });
 
   if (!showCorrectionPopin) return null;
 
@@ -67,17 +60,12 @@ const CorrectionPopin = ({
     resultLabel: correctionPopinProps.resultLabel
   };
 
+  const style = animateCorrectionPopin
+    ? [styles.correctionPopinWrapper, translateUp]
+    : styles.correctionPopinWrapper;
+
   return (
-    <Animated.View
-      style={{
-        ...styles.correctionPopinWrapper,
-        transform: [
-          {
-            translateY: translateAnim
-          }
-        ]
-      }}
-    >
+    <Animated.View style={style}>
       <ReviewCorrectionPopin {..._correctionPopinProps} />
     </Animated.View>
   );

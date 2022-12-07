@@ -10,6 +10,7 @@ import {Theme} from '../../variables/theme.native';
 import Text from '../../atom/text/index.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
+import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
 import {ReviewCorrectionPopinKLFProps, ReviewCorrectionPopinProps} from './prop-types';
 
 interface StyleSheetType {
@@ -204,26 +205,9 @@ const KlfButton = ({
   styleSheet: StyleSheetType;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
-
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
-  const fadeIn = useCallback(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
-      easing: Easing.bezier(0.25, 1, 0.5, 1),
-      useNativeDriver: true
-    }).start();
-  }, [fadeAnim]);
-
-  const fadeOut = useCallback(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 500,
-      easing: Easing.bezier(0.25, 1, 0.5, 1),
-      useNativeDriver: true
-    }).start();
-  }, [fadeAnim]);
+  const {fadeIn, fadeOut, animatedOpacity} = useUpdateOpacity({
+    easing: Easing.bezier(0.25, 1, 0.5, 1)
+  });
 
   const handlePressKey = useCallback(() => {
     setDisplayTooltip(!displayTooltip);
@@ -246,7 +230,7 @@ const KlfButton = ({
 
   return (
     <View style={containerButtonKlf}>
-      <Animated.View style={[containerTooltip, {opacity: fadeAnim}]}>
+      <Animated.View style={[containerTooltip, animatedOpacity]}>
         <Touchable
           style={buttonTooltip}
           accessibilityLabel={`aria-label-tooltip`}
