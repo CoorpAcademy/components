@@ -41,6 +41,7 @@ const Search = props => {
       <input
         data-name="search-input"
         className={style.search}
+        aria-label={placeholder}
         type="text"
         name="search"
         id="search"
