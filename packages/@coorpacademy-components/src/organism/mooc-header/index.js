@@ -605,17 +605,16 @@ class MoocHeader extends React.Component {
                 className={isMenuOpen ? style.close : style.closeHidden}
                 onClick={this.handleOnMenuClose}
               />
-              <Link data-name="logo-mobile" href={logo.href} aria-label={logoAriaLabel}>
-                <Picture src={logoMobileUrl} />
+              <Link data-name="logo-mobile" href={logo.href}>
+                <Picture src={logoMobileUrl} aria-label={logoAriaLabel} />
               </Link>
             </div>
             <Link
               className={style.logo}
               data-name="logo"
               href={logo.href}
-              aria-label={logoAriaLabel}
             >
-              <Picture src={logoUrl} />
+              <Picture src={logoUrl} aria-label={logoAriaLabel} />
             </Link>
           </div>
           {searchFormView}
