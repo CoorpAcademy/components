@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Animated, Easing, TextStyle, StyleSheet, View, ViewStyle} from 'react-native';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,

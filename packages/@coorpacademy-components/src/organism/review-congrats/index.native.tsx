@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Animated,
   ScrollView,
@@ -104,7 +104,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const {translate: translateRankUp, animatedY: animatedRankY} = useTranslateVertically({
     fromValue: 150,
-    duration: 350,
+    duration: 750,
     toValue: 0
   });
 
@@ -114,7 +114,18 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
     }
   });
 
-  const {fadeIn: showStars, animatedOpacity: animatedStarsOpacity} = useUpdateOpacity();
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  const {translate: translateStarsUp, animatedY: animatedStarsY} = useTranslateVertically({
+    fromValue: 150,
+    toValue: 0,
+    duration: 750,
+    delay: 250
+  });
+
+  const {fadeIn: showStars, animatedOpacity: animatedStarsOpacity} = useUpdateOpacity({
+    delay: 250
+  });
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -123,7 +134,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   useEffect(() => {
     translateCongratsUp();
-  }, [translateCongratsUp]);
+  }, []);
 
   useEffect(() => {
     if (isCongratsTranslationDone) {
@@ -134,9 +145,11 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   useEffect(() => {
     if (isRankShown) {
+      scrollViewRef?.current?.scrollToEnd();
+      translateStarsUp();
       showStars();
     }
-  }, [isRankShown, showStars]);
+  }, [isRankShown, translateStarsUp, showStars]);
 
   if (!styleSheet) {
     return null;
@@ -149,6 +162,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
     <Animated.View style={[styleSheet.congrats, animatedCongratsY]} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
       <ScrollView
+        ref={scrollViewRef}
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styleSheet.scrollView}
@@ -167,9 +181,9 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
             />
           </Animated.View>
         ) : null}
-        <Animated.View style={animatedStarsOpacity}>
+        <Animated.View style={[animatedStarsOpacity, animatedStarsY]}>
           <CardCongrats
-            animationUri={cardCongratsStar.animationLottie.animationSrc}
+            animationUri={isRankShown ? cardCongratsStar.animationLottie.animationSrc : null}
             Icon={StarIcon}
             text={cardCongratsStar.reviewCardTitle}
             value={cardCongratsStar.reviewCardValue}

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Animated,
   Easing,
@@ -16,7 +16,7 @@ import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
-import useTranslateVertically from '../../behaviours/use-update-opacity.native';
+import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
@@ -61,7 +61,7 @@ const CorrectionPopin = ({
   };
 
   const style = animateCorrectionPopin
-    ? [styles.correctionPopinWrapper, translateUp]
+    ? [styles.correctionPopinWrapper, translateUp.animatedY]
     : styles.correctionPopinWrapper;
 
   return (
