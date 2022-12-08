@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Animated,
   ScrollView,
@@ -6,7 +6,6 @@ import {
   Text,
   TextStyle,
   useWindowDimensions,
-  View,
   ViewStyle
 } from 'react-native';
 import LottieView from 'lottie-react-native';
@@ -21,8 +20,6 @@ import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
 import {BOX_STYLE} from '../../variables/shadow';
 import CardCongrats from '../../molecule/card-congrats/index.native';
-import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
-import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
 import useAnimation from '../../behaviours/use-animation.native';
 import {ReviewCongratsProps} from './prop-types';
 
@@ -91,8 +88,6 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const {height: windowHeight} = useWindowDimensions();
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const [, setCongratsTranslationDone] = useState<boolean>(false);
-  const [isStarsShown, setStarsShown] = useState<boolean>(false);
 
   const animation = useAnimation({
     type: 'sequence',
@@ -101,8 +96,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         property: 'translateY',
         fromValue: windowHeight,
         toValue: 0,
-        duration: 850,
-        onFinished: () => setCongratsTranslationDone(true)
+        duration: 850
       },
       {
         type: 'parallel',
@@ -114,94 +108,59 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
             duration: 350
           },
           {
+            type: 'parallel',
+            steps: [
+              {
+                property: 'opacity',
+                fromValue: 0,
+                toValue: 1,
+                duration: 350
+              },
+              {
+                property: 'translateX',
+                fromValue: 180,
+                toValue: 0,
+                duration: 800
+              }
+            ]
+          }
+        ]
+      },
+      {
+        type: 'parallel',
+        steps: [
+          {
+            property: 'opacity',
+            fromValue: 0,
+            toValue: 1,
+            delay: 1000,
+            duration: 350
+          },
+          {
             property: 'translateX',
             fromValue: 180,
             toValue: 0,
+            delay: 1000,
             duration: 800
           }
         ]
       },
       {
-        type: 'parallel',
-        steps: [
-          {
-            property: 'opacity',
-            fromValue: 0,
-            toValue: 1,
-            delay: 1000,
-            duration: 350
-          },
-          {
-            property: 'translateX',
-            fromValue: 180,
-            toValue: 0,
-            delay: 1000,
-            duration: 800,
-            onFinished: () => setStarsShown(true)
-          }
-        ]
+        property: 'opacity',
+        fromValue: 0,
+        toValue: 1,
+        duration: 850
       }
     ]
   });
 
-  const {timing: translateCongratsUp, style} = useMemo(() => animation, [animation]);
-
-  const [animatedCongratsY, animatedRank, animatedStars] = useMemo(() => style, [style]);
-
-  // const {translate: translateCongratsUp, animatedY: animatedCongratsY} = useTranslateVertically({
-  //   fromValue: windowHeight,
-  //   toValue: 0,
-  //   duration: 850,
-  //   onFinished: () => {
-  //     setCongratsTranslationDone(true);
-  //   }
-  // });
-
-  // const {translate: translateRankUp, animatedY: animatedRankY} = useTranslateVertically({
-  //   fromValue: 180,
-  //   duration: 800,
-  //   toValue: 0,
-  //   onFinished: () => {
-  //     setRankShown(true);
-  //   }
-  // });
-
-  // const {fadeIn: showRank, animatedOpacity: animatedRankOpacity} = useUpdateOpacity({
-  //   duration: 350
-  // });
-
-  // const {translate: translateStarsUp, animatedY: animatedStarsY} = useTranslateVertically({
-  //   fromValue: 180,
-  //   delay: 1000,
-  //   duration: 800,
-  //   toValue: 0,
-  //   onFinished: () => {
-  //     setStarsShown(true);
-  //   }
-  // });
-
-  // const {fadeIn: showStars, animatedOpacity: animatedStarsOpacity} = useUpdateOpacity({
-  //   delay: 1000,
-  //   duration: 350
-  // });
+  const {timing: translateCongratsUp, style} = animation;
+  const [animatedCongratsY, step2, animatedStars, animatedButtons] = style;
+  const [animatedConfettis, animatedRank] = step2;
 
   useEffect(() => {
     translateCongratsUp.start();
   }, []);
-
-  // useEffect(() => {
-  //   if (isCongratsTranslationDone) {
-  //     showRank();
-  //     translateRankUp();
-  //   }
-  // }, [isCongratsTranslationDone, showRank, translateRankUp]);
-
-  // useEffect(() => {
-  //   if (isRankShown) {
-  //     showStars();
-  //     translateStarsUp();
-  //   }
-  // }, [isRankShown, showStars, translateStarsUp]);
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -214,8 +173,6 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const handleContinueRevisingPress = buttonRevising?.onClick || noop;
   const handleReviseAnotherSkillPress = buttonRevisingSkill?.onClick || noop;
-
-  console.log({animatedRank});
 
   return (
     <Animated.View style={[styleSheet.congrats, animatedCongratsY]} accessibilityLabel={ariaLabel}>
@@ -252,7 +209,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         </Animated.View>
       </ScrollView>
 
-      <View style={[styleSheet.buttons, {opacity: isStarsShown ? 1 : 0}]}>
+      <Animated.View style={[styleSheet.buttons, animatedButtons]}>
         {buttonRevisingSkill ? (
           <Button
             onPress={handleReviseAnotherSkillPress}
@@ -269,11 +226,11 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
             submitValue={buttonRevising.label}
           />
         ) : null}
-      </View>
+      </Animated.View>
 
-      <View pointerEvents="none" style={styleSheet.confettis}>
+      <Animated.View pointerEvents="none" style={[styleSheet.confettis, animatedConfettis]}>
         <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
-      </View>
+      </Animated.View>
     </Animated.View>
   );
 };

@@ -135,7 +135,7 @@ const requireTransform = (property: AnimationParams['property']) =>
 const useAnimation = (configuration: AnimationConfiguration) => {
   if ('type' in configuration) {
     const anims = configuration.steps.map((_config: AnimationStep) => useAnimation(_config));
-    const timing = Animation[configuration.type](anims.map(_anim => _anim.timing));
+    const timing = Animated[configuration.type](anims.map(_anim => _anim.timing));
     const style = anims.map(_anim => _anim.style);
     return {timing, style};
   } else {
@@ -152,14 +152,9 @@ const useAnimation = (configuration: AnimationConfiguration) => {
       ? {transform: [{[property]: ref}]}
       : {[property]: ref};
 
-    timing.onFinished = onFinished;
-    // if (onFinished) {
-    //   console.log('attaching an onFinishedfor', property);
-    //   timing.onFinished = () => {
-    //     console.log('--- calling finished for', property);
-    //     onFinished();
-    //   };
-    // }
+    if (onFinished) {
+      timing.onFinished = onFinished;
+    }
 
     return {timing, style: animatedStyle};
   }
