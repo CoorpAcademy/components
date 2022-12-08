@@ -82,6 +82,8 @@ const CardCongrats = ({
     return null;
   }
 
+  console.log('render card with lottie');
+
   return (
     <View style={styleSheet.card}>
       <View style={styleSheet.animation}>

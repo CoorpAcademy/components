@@ -24,6 +24,7 @@ const useTranslateVertically = (params: Params = {}) => {
     });
   }, [onFinished, duration, othersParams, toValue, translateY]);
 
+  // return {translate, animatedY: {transform: [{translateX: translateY}]}};
   return {translate, animatedY: {transform: [{translateY}]}};
 };
 
