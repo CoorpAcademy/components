@@ -609,11 +609,7 @@ class MoocHeader extends React.Component {
                 <Picture src={logoMobileUrl} aria-label={logoAriaLabel} />
               </Link>
             </div>
-            <Link
-              className={style.logo}
-              data-name="logo"
-              href={logo.href}
-            >
+            <Link className={style.logo} data-name="logo" href={logo.href}>
               <Picture src={logoUrl} aria-label={logoAriaLabel} />
             </Link>
           </div>
