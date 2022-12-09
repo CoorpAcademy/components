@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const SvgComponent = props => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94 43" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94 43" aria-hidden="true" {...props}>
     <defs>
       <radialGradient
         id="prefix__a"

@@ -8,6 +8,7 @@ const SvgComponent = props => (
     y={0}
     viewBox="0 0 351 190"
     xmlSpace="preserve"
+    aria-hidden="true"
     {...props}
   >
     <style>{'.prefix__st0{fill:#fff}'}</style>

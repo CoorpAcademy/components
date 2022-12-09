@@ -8,6 +8,7 @@ const SvgComponent = props => (
     clipRule="evenodd"
     strokeLinejoin="round"
     strokeMiterlimit={2}
+    aria-hidden="true"
     {...props}
   >
     <path

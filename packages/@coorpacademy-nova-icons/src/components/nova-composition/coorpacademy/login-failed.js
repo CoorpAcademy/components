@@ -8,6 +8,7 @@ const SvgComponent = props => (
     y={0}
     viewBox="0 0 52 41"
     xmlSpace="preserve"
+    aria-hidden="true"
     {...props}
   >
     <style>
