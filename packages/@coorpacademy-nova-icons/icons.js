@@ -4,7 +4,8 @@ import path from 'path';
 
 export type Icon = {|
   filePath: string,
-  replaceColors?: boolean
+  replaceColors?: boolean,
+  withoutTextAlternative?: boolean
 |};
 
 const icons: Array<Icon> = [
