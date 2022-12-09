@@ -2,16 +2,24 @@
 
 Components bank (react and react-native) based on Nova SVG icons (through [Iconjar](https://geticonjar.com) files)
 
+<br/>
+
 ## Before all
 
 - Download iconjar application for macos (<https://geticonjar.com/>) or free app nucleoapp (<https://nucleoapp.com/>)
+
+<br/>
 
 ## Adding an icon
 
 - Open `IconJar` <https://geticonjar.com/>
 - Delete the previous collection if any
-- Import the collection from `packages/@coorpacademy-nova-icons/third-party` or create a new one
-- If you want any path's color to be injected (to be replaced by `currentColor`/`props.color`), set color `#757575`
+- Import the collection from `packages/@coorpacademy-nova-icons/third-party` or create a new one.
+
+### Adding an icon - colors & RGAA
+
+#### Colors:
+- If you want any path's color to be injected (to be replaced by `currentColor`/`props.color`), set color `#757575`.
 
 ex:
 
@@ -26,11 +34,40 @@ ex:
 
 (the last path is going to keep `#4B4C4C` as its color) anything else will remain __as is__
 
+- You must set `replaceColors` to false (`replaceColors: false`) in ./icons.js _if you don't want_ the original color to be replaced by the script.
+
+ex:
+```javascript
+  {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
+    replaceColors: false
+  }
+```
+
+<br/>
+
+#### RGAA: 
+- if _you want to use an aria-label prop later_, then, as it is the case with the `replaceColors` flag, you must use a:
+`withoutTextAlternative` flag set to true (`withoutTextAlternative: true`), in ./icons.js for the desired icon.
+
+ex:
+```javascript
+  {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
+    withoutTextAlternative: true
+  }
+```
+
+<br/>
+
+### Adding an icon - final steps
 - Drag and drop your SVG file into a collection
 - Export the new updated iconjar collection (be careful to have the same name when you export, to erase the old one)
 - Add the brand new svg icon's path into `icons.js` file that's in root project (if you're SVG has a color and you want to keep it, you can add the property: `replaceColors: false`)
 - Generate the component using `yarn prepare`
 - You have to commit the Meta file
+
+<br/>
 
 ## Usage
 
@@ -47,9 +84,13 @@ export default MyComponent;
 
 __Note__: React-Native component will automatically be resolved as [Metro](https://github.com/facebook/metro) supports `.native.js` extension.
 
+<br/>
+
 ## Props
 
 You can use the props supported by [svg](https://developer.mozilla.org/docs/Web/SVG/Attribute) and [react-native-svg](https://github.com/react-native-community/react-native-svg) `<SVG />` component with camel case format (ie: strokeColor).
+
+<br/>
 
 ## Contributing
 
