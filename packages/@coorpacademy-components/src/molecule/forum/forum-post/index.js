@@ -48,7 +48,6 @@ const ForumPost = (props, context) => {
   const deleteLabel = translate('Delete');
   const rejectLabel = translate('Reject');
   const putBackLabel = translate('Put back');
-
   let messageClassName = style.message;
   if (deleted) {
     messageClassName = style.deletedMessage;
@@ -67,7 +66,7 @@ const ForumPost = (props, context) => {
     >
       <div className={style.avatarWrapper}>
         <div className={style.image}>
-          <Picture src={avatar} className={style.avatar} />
+          <Picture src={avatar} className={style.avatar} aria-label={author} />
         </div>
         <span data-name="author" className={style.author}>
           {author}
