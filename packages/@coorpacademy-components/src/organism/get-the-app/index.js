@@ -6,6 +6,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import {get} from 'lodash/fp';
 import Button from '../../atom/button';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const Header = ({step, header, subHeader}) => (
@@ -90,11 +91,23 @@ const StoresLinks = ({
   onAppStoreButtonClick,
   appStoreButtonImageUrl,
   playStoreButtonImageUrl,
-  onPlayStoreButtonClick
+  onPlayStoreButtonClick,
+  'android-alt': androidAlt,
+  'ios-alt': iosAlt
 }) => (
   <div className={style.storeLinksContainer}>
-    <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
-    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
+    <Picture
+      className={style.img}
+      src={appStoreButtonImageUrl}
+      onClick={onAppStoreButtonClick}
+      alt={iosAlt}
+    />
+    <Picture
+      className={style.img}
+      src={playStoreButtonImageUrl}
+      onClick={onPlayStoreButtonClick}
+      alt={androidAlt}
+    />
   </div>
 );
 
