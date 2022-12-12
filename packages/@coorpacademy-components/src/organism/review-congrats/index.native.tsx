@@ -1,5 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+  Animated,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextStyle,
+  useWindowDimensions,
+  View,
+  ViewStyle
+} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {noop} from 'lodash/fp';
 import {
@@ -12,12 +21,16 @@ import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
 import {BOX_STYLE} from '../../variables/shadow';
 import CardCongrats from '../../molecule/card-congrats/index.native';
+import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
+import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {
   buttons: ViewStyle;
   congrats: ViewStyle;
   confettis: ViewStyle;
+  scrollView: ViewStyle;
+  scrollViewContent: ViewStyle;
   title: TextStyle;
 };
 
@@ -27,7 +40,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       position: 'absolute',
       width: '100%',
       height: '100%',
-      backgroundColor: '#ededed',
       flexDirection: 'column',
       alignItems: 'center',
       paddingVertical: 90,
@@ -53,6 +65,13 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: '100%',
       height: '100%',
       pointerEvents: 'box-none'
+    },
+    scrollView: {
+      height: 300
+    },
+    scrollViewContent: {
+      alignItems: 'center',
+      paddingHorizontal: 40
     }
   });
 
@@ -68,13 +87,69 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   } = props;
 
   const {theme} = useTemplateContext();
+  const {height: windowHeight} = useWindowDimensions();
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
+  const [isCongratsTranslationDone, setCongratsTranslationDone] = useState<boolean>(false);
+  const [isRankShown, setRankShown] = useState<boolean>(false);
+
+  const {translate: translateCongratsUp, animatedY: animatedCongratsY} = useTranslateVertically({
+    fromValue: windowHeight,
+    toValue: 0,
+    delay: 750,
+    onFinished: () => {
+      setCongratsTranslationDone(true);
+    }
+  });
+
+  const {translate: translateRankUp, animatedY: animatedRankY} = useTranslateVertically({
+    fromValue: 150,
+    duration: 750,
+    toValue: 0
+  });
+
+  const {fadeIn: showRank, animatedOpacity: animatedRankOpacity} = useUpdateOpacity({
+    onFadeInFinished: () => {
+      setRankShown(true);
+    }
+  });
+
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  const {translate: translateStarsUp, animatedY: animatedStarsY} = useTranslateVertically({
+    fromValue: 150,
+    toValue: 0,
+    duration: 750,
+    delay: 250
+  });
+
+  const {fadeIn: showStars, animatedOpacity: animatedStarsOpacity} = useUpdateOpacity({
+    delay: 250
+  });
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
     setStylesheet(_stylesheet);
   }, [theme]);
+
+  useEffect(() => {
+    translateCongratsUp();
+  }, []);
+
+  useEffect(() => {
+    if (isCongratsTranslationDone) {
+      showRank();
+      translateRankUp();
+    }
+  }, [isCongratsTranslationDone, showRank, translateRankUp]);
+
+  useEffect(() => {
+    if (isRankShown) {
+      scrollViewRef?.current?.scrollToEnd();
+      translateStarsUp();
+      showStars();
+    }
+  }, [isRankShown, translateStarsUp, showStars]);
 
   if (!styleSheet) {
     return null;
@@ -84,29 +159,39 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const handleReviseAnotherSkillPress = buttonRevisingSkill?.onClick || noop;
 
   return (
-    <View style={styleSheet.congrats} accessibilityLabel={ariaLabel}>
+    <Animated.View style={[styleSheet.congrats, animatedCongratsY]} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{height: 300}}>
+      <ScrollView
+        ref={scrollViewRef}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styleSheet.scrollView}
+        contentContainerStyle={styleSheet.scrollViewContent}
+      >
         {cardCongratsRank ? (
-          <CardCongrats
-            animationUri={cardCongratsRank.animationLottie.animationSrc}
-            text={cardCongratsRank.reviewCardTitle}
-            value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
-            Icon={RankIcon}
-            iconColor={theme.colors.positive}
-            textColor={theme.colors.text.primary}
-            direction="row-reverse"
-          />
+          <Animated.View style={[animatedRankOpacity, animatedRankY]}>
+            <CardCongrats
+              animationUri={cardCongratsRank.animationLottie.animationSrc}
+              text={cardCongratsRank.reviewCardTitle}
+              value={`${cardCongratsRank.reviewCardValue} ${cardCongratsRank.rankSuffix}`}
+              Icon={RankIcon}
+              iconColor={theme.colors.positive}
+              textColor={theme.colors.text.primary}
+              direction="row-reverse"
+            />
+          </Animated.View>
         ) : null}
-        <CardCongrats
-          animationUri={cardCongratsStar.animationLottie.animationSrc}
-          Icon={StarIcon}
-          text={cardCongratsStar.reviewCardTitle}
-          value={cardCongratsStar.reviewCardValue}
-          iconColor={theme.colors.battle}
-          textColor={theme.colors.battle}
-          direction="row"
-        />
+        <Animated.View style={[animatedStarsOpacity, animatedStarsY]}>
+          <CardCongrats
+            animationUri={isRankShown ? cardCongratsStar.animationLottie.animationSrc : null}
+            Icon={StarIcon}
+            text={cardCongratsStar.reviewCardTitle}
+            value={cardCongratsStar.reviewCardValue}
+            iconColor={theme.colors.battle}
+            textColor={theme.colors.battle}
+            direction="row"
+          />
+        </Animated.View>
       </ScrollView>
 
       <View style={styleSheet.buttons}>
@@ -128,10 +213,12 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         ) : null}
       </View>
 
-      <View pointerEvents="none" style={styleSheet.confettis}>
-        <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
-      </View>
-    </View>
+      {isCongratsTranslationDone ? (
+        <View pointerEvents="none" style={styleSheet.confettis}>
+          <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
+        </View>
+      ) : null}
+    </Animated.View>
   );
 };
 

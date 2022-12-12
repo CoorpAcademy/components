@@ -85,7 +85,7 @@ const CardCongrats = ({
   return (
     <View style={styleSheet.card}>
       <View style={styleSheet.animation}>
-        <LottieView source={{uri: animationUri}} autoPlay loop={false} />
+        {animationUri ? <LottieView source={{uri: animationUri}} autoPlay loop={false} /> : null}
       </View>
       <Text style={styleSheet.cardTitle}>{text}</Text>
       <View style={[styleSheet.reward, {flexDirection: direction}]}>

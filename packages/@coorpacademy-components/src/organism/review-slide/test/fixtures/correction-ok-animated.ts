@@ -1,6 +1,6 @@
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 import RightCorrectionPopin from '../../../../molecule/review-correction-popin/test/fixtures/right';
-import {Fixture} from '../../prop-types';
+import type {Fixture} from '../../prop-types';
 
 const qcmGraphic = AnswerQCMGraphic.props;
 

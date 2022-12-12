@@ -1,7 +1,7 @@
 import Template from '../../../../molecule/answer/test/fixtures/template';
 
 import RightCorrectionPopin from '../../../../molecule/review-correction-popin/test/fixtures/right';
-import {Fixture} from '../../prop-types';
+import type {Fixture} from '../../prop-types';
 
 const templateProps = Template.props;
 const templateContext = Template.mobileContext;

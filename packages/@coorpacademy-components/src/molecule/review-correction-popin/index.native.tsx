@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Animated, Easing, TextStyle, StyleSheet, View, ViewStyle} from 'react-native';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
@@ -10,6 +10,7 @@ import {Theme} from '../../variables/theme.native';
 import Text from '../../atom/text/index.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
+import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
 import {ReviewCorrectionPopinKLFProps, ReviewCorrectionPopinProps} from './prop-types';
 
 interface StyleSheetType {
@@ -80,8 +81,7 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       fontWeight: '600',
       lineHeight: 24,
       marginLeft: 12,
-      textTransform: 'uppercase',
-      wordBreak: 'break-word'
+      textTransform: 'uppercase'
     },
     feedbackSection: {
       marginVertical: theme.spacing.medium
@@ -98,8 +98,7 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       color: theme.colors.white,
       fontSize: 14,
       fontWeight: theme.fontWeight.extraBold,
-      lineHeight: 17,
-      wordBreak: 'break-word'
+      lineHeight: 17
     },
     htmlInfoMessage: {
       color: theme.colors.white,
@@ -206,26 +205,9 @@ const KlfButton = ({
   styleSheet: StyleSheetType;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
-
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
-  const fadeIn = useCallback(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
-      easing: Easing.bezier(0.25, 1, 0.5, 1),
-      useNativeDriver: true
-    }).start();
-  }, [fadeAnim]);
-
-  const fadeOut = useCallback(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 500,
-      easing: Easing.bezier(0.25, 1, 0.5, 1),
-      useNativeDriver: true
-    }).start();
-  }, [fadeAnim]);
+  const {fadeIn, fadeOut, animatedOpacity} = useUpdateOpacity({
+    easing: Easing.bezier(0.25, 1, 0.5, 1)
+  });
 
   const handlePressKey = useCallback(() => {
     setDisplayTooltip(!displayTooltip);
@@ -248,7 +230,7 @@ const KlfButton = ({
 
   return (
     <View style={containerButtonKlf}>
-      <Animated.View style={[containerTooltip, {opacity: fadeAnim}]}>
+      <Animated.View style={[containerTooltip, animatedOpacity]}>
         <Touchable
           style={buttonTooltip}
           accessibilityLabel={`aria-label-tooltip`}
