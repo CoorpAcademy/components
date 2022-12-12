@@ -33,7 +33,8 @@ const Picture = props => {
 };
 
 Picture.propTypes = {
-  src: PropTypes.oneOfType([SrcPropType, PropTypes.objectOf(SrcPropType)])
+  src: PropTypes.oneOfType([SrcPropType, PropTypes.objectOf(SrcPropType)]),
+  alt: PropTypes.string
 };
 
 export default Picture;
