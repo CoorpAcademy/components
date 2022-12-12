@@ -26,7 +26,7 @@ const Picture = props => {
     return <div className={style.empty} />;
   }
 
-  return <img {...props} {...toSrcSet(props)} alt="" />;
+  return <img {...props} {...toSrcSet(props)} />;
 };
 
 Picture.propTypes = {
