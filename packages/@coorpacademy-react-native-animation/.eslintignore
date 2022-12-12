@@ -1,0 +1,8 @@
+**/node_modules
+**/.nyc_output
+**/coverage
+**/es/**
+**/lib/**
+tsconfig*.json
+ava.config.cjs
+nyc.config.js

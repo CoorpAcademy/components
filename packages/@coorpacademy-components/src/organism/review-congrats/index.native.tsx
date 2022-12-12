@@ -6,7 +6,6 @@ import {
   Text,
   TextStyle,
   useWindowDimensions,
-  View,
   ViewStyle
 } from 'react-native';
 import LottieView from 'lottie-react-native';
@@ -21,8 +20,7 @@ import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
 import {BOX_STYLE} from '../../variables/shadow';
 import CardCongrats from '../../molecule/card-congrats/index.native';
-import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
-import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
+import {sequence, parallel, AnimationParams} from '../../behaviours/use-animation.native';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {
@@ -75,6 +73,20 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
+const fadeIn: AnimationParams = {
+  property: 'opacity',
+  fromValue: 0,
+  toValue: 1,
+  duration: 350
+};
+
+const translateHorizontally: AnimationParams = {
+  property: 'translateX',
+  fromValue: 180,
+  toValue: 0,
+  duration: 800
+};
+
 const ReviewCongrats = (props: ReviewCongratsProps) => {
   const {
     'aria-label': ariaLabel,
@@ -93,63 +105,64 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const [isCongratsTranslationDone, setCongratsTranslationDone] = useState<boolean>(false);
   const [isRankShown, setRankShown] = useState<boolean>(false);
 
-  const {translate: translateCongratsUp, animatedY: animatedCongratsY} = useTranslateVertically({
-    fromValue: windowHeight,
-    toValue: 0,
-    delay: 750,
-    onFinished: () => {
-      setCongratsTranslationDone(true);
-    }
-  });
-
-  const {translate: translateRankUp, animatedY: animatedRankY} = useTranslateVertically({
-    fromValue: 150,
-    duration: 750,
-    toValue: 0
-  });
-
-  const {fadeIn: showRank, animatedOpacity: animatedRankOpacity} = useUpdateOpacity({
-    onFadeInFinished: () => {
-      setRankShown(true);
-    }
-  });
-
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const {translate: translateStarsUp, animatedY: animatedStarsY} = useTranslateVertically({
-    fromValue: 150,
+  const showCongrats: AnimationParams = {
+    property: 'translateY',
+    fromValue: windowHeight,
     toValue: 0,
-    duration: 750,
-    delay: 250
-  });
+    duration: 850,
+    onComplete: () => setCongratsTranslationDone(true)
+  };
 
-  const {fadeIn: showStars, animatedOpacity: animatedStarsOpacity} = useUpdateOpacity({
-    delay: 250
-  });
+  const showConfettis = fadeIn;
+  const fadeInRank = fadeIn;
+  const translateRank = {
+    ...translateHorizontally,
+    onComplete: () => {
+      setRankShown(true);
+      setTimeout(() => {
+        scrollViewRef?.current?.scrollToEnd();
+      }, 700);
+    }
+  };
+
+  const fadeInStars = {
+    ...fadeIn,
+    delay: 1000
+  };
+
+  const translateStars = {
+    ...translateHorizontally,
+    delay: 1000
+  };
+
+  const showButton1 = fadeIn;
+  const showButton2 = fadeIn;
+
+  const animation = sequence([
+    showCongrats,
+    parallel([showConfettis, fadeInRank, translateRank]),
+    parallel([fadeInStars, translateStars]),
+    sequence([showButton1, showButton2])
+  ]);
+
+  const {timing: congratsSequence, style} = animation;
+
+  const [animatedCongratsY, step2, animatedStars, step4] = style;
+  const [animatedConfettis, ...animatedRank] = step2;
+  const [animatedButton1, animatedButton2] = step4;
+
+  useEffect(() => {
+    congratsSequence.start();
+    // (required only once on mount)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
     setStylesheet(_stylesheet);
   }, [theme]);
-
-  useEffect(() => {
-    translateCongratsUp();
-  }, []);
-
-  useEffect(() => {
-    if (isCongratsTranslationDone) {
-      showRank();
-      translateRankUp();
-    }
-  }, [isCongratsTranslationDone, showRank, translateRankUp]);
-
-  useEffect(() => {
-    if (isRankShown) {
-      scrollViewRef?.current?.scrollToEnd();
-      translateStarsUp();
-      showStars();
-    }
-  }, [isRankShown, translateStarsUp, showStars]);
 
   if (!styleSheet) {
     return null;
@@ -169,7 +182,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         contentContainerStyle={styleSheet.scrollViewContent}
       >
         {cardCongratsRank ? (
-          <Animated.View style={[animatedRankOpacity, animatedRankY]}>
+          <Animated.View style={animatedRank}>
             <CardCongrats
               animationUri={cardCongratsRank.animationLottie.animationSrc}
               text={cardCongratsRank.reviewCardTitle}
@@ -181,7 +194,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
             />
           </Animated.View>
         ) : null}
-        <Animated.View style={[animatedStarsOpacity, animatedStarsY]}>
+        <Animated.View style={animatedStars}>
           <CardCongrats
             animationUri={isRankShown ? cardCongratsStar.animationLottie.animationSrc : null}
             Icon={StarIcon}
@@ -194,29 +207,33 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         </Animated.View>
       </ScrollView>
 
-      <View style={styleSheet.buttons}>
+      <Animated.View style={[styleSheet.buttons]}>
         {buttonRevisingSkill ? (
-          <Button
-            onPress={handleReviseAnotherSkillPress}
-            accessibilityLabel={buttonRevisingSkill['aria-label']}
-            submitValue={buttonRevisingSkill.label}
-            style={{...BOX_STYLE, backgroundColor: '#fff'}}
-            textStyle={{color: '#123'}}
-          />
+          <Animated.View style={animatedButton1}>
+            <Button
+              onPress={handleReviseAnotherSkillPress}
+              accessibilityLabel={buttonRevisingSkill['aria-label']}
+              submitValue={buttonRevisingSkill.label}
+              style={{...BOX_STYLE, backgroundColor: '#fff'}}
+              textStyle={{color: '#123'}}
+            />
+          </Animated.View>
         ) : null}
         {buttonRevising ? (
-          <Button
-            onPress={handleContinueRevisingPress}
-            accessibilityLabel={buttonRevising['aria-label']}
-            submitValue={buttonRevising.label}
-          />
+          <Animated.View style={animatedButton2}>
+            <Button
+              onPress={handleContinueRevisingPress}
+              accessibilityLabel={buttonRevising['aria-label']}
+              submitValue={buttonRevising.label}
+            />
+          </Animated.View>
         ) : null}
-      </View>
+      </Animated.View>
 
       {isCongratsTranslationDone ? (
-        <View pointerEvents="none" style={styleSheet.confettis}>
+        <Animated.View pointerEvents="none" style={[styleSheet.confettis, animatedConfettis]}>
           <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
-        </View>
+        </Animated.View>
       ) : null}
     </Animated.View>
   );
