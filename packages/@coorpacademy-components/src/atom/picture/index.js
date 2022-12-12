@@ -29,18 +29,11 @@ const Picture = props => {
   if (isNil(src)) {
     return <div className={style.empty} />;
   }
-
-  // if (!(alt)) {
-  //   return <img {...props} {...toSrcSet(props)} alt="" />;
-  // }
-
-  // return <img {...props} {...toSrcSet(props)} />;
   return <img {...props} {...toSrcSet(props)} {...toSetAlt(props)} />;
 };
 
 Picture.propTypes = {
   src: PropTypes.oneOfType([SrcPropType, PropTypes.objectOf(SrcPropType)])
-  // alt: PropTypes.string
 };
 
 export default Picture;
