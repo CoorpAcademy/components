@@ -21,7 +21,7 @@ const toSrcSet = ({src}) => {
 };
 
 const toSetAlt = ({alt}) => {
-  return !alt ? {alt: ''} : {alt};
+  return !alt ? {alt: '', 'aria-hidden': true} : {alt};
 };
 
 const Picture = props => {
