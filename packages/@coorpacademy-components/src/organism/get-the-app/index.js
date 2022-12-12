@@ -93,8 +93,8 @@ const StoresLinks = ({
   onPlayStoreButtonClick
 }) => (
   <div className={style.storeLinksContainer}>
-    {/* <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
-    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} /> */}
+    <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
+    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
   </div>
 );
 
