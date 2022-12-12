@@ -1,0 +1,54 @@
+{
+  "presets": [
+    "@babel/preset-react",
+    [
+      "@babel/preset-typescript",
+      {
+        "allExtensions": true,
+        "isTSX": true
+      }
+    ]
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": true
+            },
+            "modules": false,
+            "loose": true
+          }
+        ]
+      ]
+    }
+  }
+}

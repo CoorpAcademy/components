@@ -9,11 +9,6 @@
     "skipLibCheck": true,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
-    "types": [
-      "react-native"
-    ],
-    // https://stackoverflow.com/questions/39423054/react-jsx-file-giving-error-cannot-read-property-createelement-of-undefined#comment103952221_56015464
-    "esModuleInterop": true,
     "strict": true
   }
 }

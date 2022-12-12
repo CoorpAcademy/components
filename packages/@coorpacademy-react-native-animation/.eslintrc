@@ -1,0 +1,81 @@
+{
+  "env": {
+    "es6": true,
+    "node": false,
+    "browser": true
+  },
+  "plugins": [
+    "@coorpacademy/coorpacademy"
+  ],
+  "extends": [
+    "plugin:@coorpacademy/coorpacademy/core",
+    "plugin:@coorpacademy/coorpacademy/ava",
+    "plugin:@coorpacademy/coorpacademy/es20XX",
+    "plugin:@coorpacademy/coorpacademy/lodash-fp",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@coorpacademy/coorpacademy/react",
+    "plugin:react-hooks/recommended",
+    "plugin:@coorpacademy/coorpacademy/prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "promise/no-native": "off",
+    "no-shadow": [
+      "error",
+      {
+        "allow": [
+          "Notification"
+        ]
+      }
+    ],
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": [
+          "modules"
+        ]
+      }
+    ],
+    "node/file-extension-in-import": [
+      "error",
+      "always",
+      {
+        ".js": "never",
+        ".ts": "never",
+        ".tsx": "never",
+        ".json": "never"
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".json",
+          ".jsx",
+          ".ts",
+          ".d.ts",
+          ".tsx"
+        ]
+      }
+    },
+    "node": {
+      "allowModules": [
+        "ava"
+      ],
+      "tryExtensions": [
+        ".js",
+        ".json",
+        ".ts",
+        ".tsx",
+        ".d.ts"
+      ]
+    }
+  }
+}

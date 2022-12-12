@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import {useTranslateY} from '@coorpacademy/react-native-animation';
 import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
-import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
@@ -33,12 +33,14 @@ const CorrectionPopin = ({
   showCorrectionPopin,
   animateCorrectionPopin
 }: PopinProps) => {
-  const translateUp = useTranslateVertically({
+  const translateUp = useTranslateY({
     fromValue: 1000,
     toValue: 0,
     duration: 800,
     easing: Easing.bezier(0.37, 0, 0.63, 1)
   });
+
+  useEffect(() => translateUp.start(), []);
 
   if (!showCorrectionPopin) return null;
 
@@ -61,7 +63,7 @@ const CorrectionPopin = ({
   };
 
   const style = animateCorrectionPopin
-    ? [styles.correctionPopinWrapper, translateUp.animatedY]
+    ? [styles.correctionPopinWrapper, translateUp.animatedStyle]
     : styles.correctionPopinWrapper;
 
   return (
