@@ -20,17 +20,21 @@ const toSrcSet = ({src}) => {
   )({});
 };
 
+const toSetAlt = ({alt}) => {
+  return alt ? {alt} : {alt: '', 'aria-hidden': true};
+};
+
 const Picture = props => {
   const {src} = props;
   if (isNil(src)) {
     return <div className={style.empty} />;
   }
-
-  return <img {...props} {...toSrcSet(props)} alt="" />;
+  return <img {...props} {...toSrcSet(props)} {...toSetAlt(props)} />;
 };
 
 Picture.propTypes = {
-  src: PropTypes.oneOfType([SrcPropType, PropTypes.objectOf(SrcPropType)])
+  src: PropTypes.oneOfType([SrcPropType, PropTypes.objectOf(SrcPropType)]),
+  alt: PropTypes.string
 };
 
 export default Picture;
