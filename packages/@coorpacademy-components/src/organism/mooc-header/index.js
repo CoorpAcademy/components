@@ -611,6 +611,7 @@ class MoocHeader extends React.Component {
             </div>
             <Link className={style.logo} data-name="logo" href={logo.href}>
               <Picture src={logoUrl} alt={logoAriaLabel} />
+              <Picture src={logoUrl} />
             </Link>
           </div>
           {searchFormView}
