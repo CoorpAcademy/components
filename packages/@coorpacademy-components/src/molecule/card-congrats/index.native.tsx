@@ -70,7 +70,6 @@ const CardCongrats = ({
   direction
 }: CardCongratsProps) => {
   const {theme} = useTemplateContext();
-
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {

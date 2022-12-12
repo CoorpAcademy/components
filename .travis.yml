@@ -82,6 +82,9 @@ jobs:
       name: Dust adapter
       env: PACKAGE_NAME=@coorpacademy/react-adapter-dust
     - <<: *test-job
+      name: React Native Animation
+      env: PACKAGE_NAME=@coorpacademy/react-native-animation
+    - <<: *test-job
       name: Css Module Require Hook
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
     - <<: *test-job
