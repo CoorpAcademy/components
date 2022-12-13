@@ -11,11 +11,6 @@ import svgr from '@svgr/core';
 import mkdirp from 'mkdirp';
 // eslint-disable-next-line flowtype-errors/show-errors
 import get from 'lodash/fp/get';
-// eslint-disable-next-line flowtype-errors/show-errors
-import identity from 'lodash/fp/identity';
-// eslint-disable-next-line flowtype-errors/show-errors
-import pipe from 'lodash/fp/pipe';
-
 import whiteList from '../icons';
 import type {Icon} from '../icons';
 import {parseMeta, getSVGFilePath} from './modules/iconjar-reader';
@@ -65,6 +60,8 @@ const replaceWithPropValue = (types, identifier: string) =>
 
 const replaceWithCurrentColor = types => types.stringLiteral('currentColor');
 
+const isSvg = (name: string) => name === 'svg';
+
 const findElementAndReplaceAttributes = (
   native: boolean,
   types
@@ -76,8 +73,11 @@ const findElementAndReplaceAttributes = (
     ...properties
   }: JSXElement): JSXElement => {
     let newAttributes;
+    const elementName = get(['name', 'name'], properties);
+    const elementIsSvg = elementName === 'div';
     if (attributes) {
       newAttributes = attributes.map((attribute: JSXAttribute): JSXAttribute => {
+        if (elementIsSvg) console.log('------test', JSON.stringify(attribute, null, 2));
         if (isCustomizableColor(attribute)) {
           return {
             ...attribute,
@@ -109,58 +109,39 @@ const findElementAndReplaceAttributes = (
   return _findElementAndReplaceAttributes;
 };
 
-const isSvg = (name: string) => name === 'svg';
-
-// native Rgaa is not handled yet.
-const addRgaaAttributes = ({
-  openingElement,
-  children,
-  attributes,
-  ...properties
-}: JSXElement): JSXElement => {
-  const elementName = get(['name', 'name'], properties);
-  const elementIsSvg = isSvg(elementName);
-  if (attributes && elementIsSvg) {
-    attributes.push({
-      type: 'JSXAttribute',
-      name: {type: 'JSXIdentifier', name: 'aria-hidden'},
-      value: {type: 'StringLiteral', value: 'true'}
-    });
-  }
-  return {
-    ...properties,
-    openingElement: openingElement !== undefined ? addRgaaAttributes(openingElement) : undefined,
-    children: children !== undefined ? children.map(child => addRgaaAttributes(child)) : undefined,
-    attributes
-  };
-};
-
 const template =
-  (replaceColors?: boolean = true, withoutTextAlternative?: boolean = true) =>
+  (replaceColors?: boolean = true) =>
   (
     {template: templateAlias, types},
     opts,
     {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
   ): // eslint-disable-next-line flowtype/no-weak-types
   Object => {
-    const extendedJsx = pipe(
-      replaceColors ? findElementAndReplaceAttributes(opts.native, types) : identity,
-      withoutTextAlternative && !opts.native ? addRgaaAttributes : identity
-    )(jsx);
+    const extendedJsx = replaceColors
+      ? findElementAndReplaceAttributes(opts.native, types)(jsx)
+      : jsx;
 
-    // @todo add flow type
-    return templateAlias.ast`
+    const completeTemplate = opts.native
+      ? templateAlias.ast`
     ${importsAlias}
     const ${componentName} = props => ${extendedJsx}
     ${exportsAlias}
+  `
+      : templateAlias.ast`
+    ${importsAlias}
+    const ${componentName} = _props => {const {"aria-label":ariaLabel, alt} = _props; const props = {..._props, ...((!ariaLabel && !alt) && {
+      "aria-hidden": "true"
+    })};return ${extendedJsx}}
+    ${exportsAlias}
   `;
+
+    return completeTemplate;
   };
 
 const generateComponent = (
   fileContent: Buffer,
   fileName: string,
   replaceColors?: boolean,
-  withoutTextAlternative?: boolean,
   native?: boolean = false
 ): string => {
   const options = {
@@ -169,7 +150,7 @@ const generateComponent = (
     icon: true,
     dimensions: false,
     native,
-    template: template(replaceColors, withoutTextAlternative),
+    template: template(replaceColors),
     prettierConfig: {
       singleQuote: true,
       printWidth: 100,
@@ -250,21 +231,19 @@ const files: Array<OutputFile> = glob
             }): {
               item: IconSetGroupItem,
               filePath: string,
-              replaceColors?: boolean,
-              withoutTextAlternative?: boolean
+              replaceColors?: boolean
             } => {
-              const {replaceColors, withoutTextAlternative} = findIcon(filePath) || {};
+              const {replaceColors} = findIcon(filePath) || {};
               return {
                 item,
                 filePath,
-                replaceColors,
-                withoutTextAlternative
+                replaceColors
               };
             }
           );
 
         return itemArrayFiltered
-          .map(({item, filePath, replaceColors, withoutTextAlternative}): Array<string> => {
+          .map(({item, filePath, replaceColors}): Array<string> => {
             const content = fs.readFileSync(filePath);
             // $FlowFixMe path.join() is defined
             const outputFileName = path.join(
@@ -274,14 +253,8 @@ const files: Array<OutputFile> = glob
             );
 
             return [
-              generateComponent(content, outputFileName, replaceColors, withoutTextAlternative),
-              generateComponent(
-                content,
-                outputFileName,
-                replaceColors,
-                withoutTextAlternative,
-                true
-              )
+              generateComponent(content, outputFileName, replaceColors),
+              generateComponent(content, outputFileName, replaceColors, true)
             ];
           })
           .reduce((result, outputFileNames) => result.concat(outputFileNames), []);

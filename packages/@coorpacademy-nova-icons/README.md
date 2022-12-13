@@ -47,16 +47,7 @@ ex:
 <br/>
 
 #### RGAA: 
-- if _you want to use an aria-label prop later_, then, as it is the case with the `replaceColors` flag, you must use a:
-`withoutTextAlternative` flag set to true (`withoutTextAlternative: true`), in ./icons.js for the desired icon.
-
-ex:
-```javascript
-  {
-    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
-    withoutTextAlternative: true
-  }
-```
+- if __you want to use an aria-label or alt prop__, you can pass it as a prop directly, if __you want an aria-hidden prop__ instead, it will be added automatically if you don't use an `aria-label` or `alt`.
 
 <br/>
 
