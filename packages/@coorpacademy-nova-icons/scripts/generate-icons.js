@@ -60,8 +60,6 @@ const replaceWithPropValue = (types, identifier: string) =>
 
 const replaceWithCurrentColor = types => types.stringLiteral('currentColor');
 
-const isSvg = (name: string) => name === 'svg';
-
 const findElementAndReplaceAttributes = (
   native: boolean,
   types
