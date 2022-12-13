@@ -211,7 +211,7 @@
 @media tablet, mobile {
   .engineStars {
     width: auto;
-    height: 75px;
+    height: 145px;
     flex: 1 2;
     justify-content: flex-end;
     padding-bottom: 8px;
@@ -237,7 +237,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+  } 
 
   .score p {
     padding: 0;

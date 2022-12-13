@@ -34,9 +34,7 @@
 }
 
 .myStarsWrapper {
-    display: inline-block;
     max-width: 690px;
-    float: right;
 }
 
 .footerSummaryStars{
@@ -145,7 +143,8 @@
 @media tablet, mobile {
     .myStars,
     .allStars,
-    .totalStars {
+    .totalStars,
+    .myStarsWrapper {
         width: 100%;
     }
 
@@ -172,13 +171,13 @@
     }
 
     .navigationLeft {
-        display: none;
+        display:none;
     }
 
     .navigationRight {
-        display: none;
+        display:none;
     }
-
+    
     .iconHeader {
         width: 13px;
         height: 13px;
