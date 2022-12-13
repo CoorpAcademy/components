@@ -32,6 +32,8 @@ export default {
     preMessage:
       "Cette fonctionnalité n'est pas encore activée sur votre plateform. Si vous souhaitez l'activer, contactez votre resposable RH ou",
     linkMessage: 'cliquez ici',
-    endMessage: 'et nous passerons le message'
+    endMessage: 'et nous passerons le message',
+    'android-alt': 'Link to the Coorpacademy android app',
+    'ios-alt': 'Link to the Coorpacademy ios app'
   }
 };

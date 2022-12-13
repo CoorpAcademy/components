@@ -115,7 +115,9 @@ StoresLinks.propTypes = {
   onAppStoreButtonClick: PropTypes.func,
   appStoreButtonImageUrl: PropTypes.string,
   playStoreButtonImageUrl: PropTypes.string,
-  onPlayStoreButtonClick: PropTypes.func
+  onPlayStoreButtonClick: PropTypes.func,
+  'android-alt': PropTypes.string,
+  'ios-alt': PropTypes.string
 };
 
 const Divider = ({word}) => (
@@ -148,7 +150,9 @@ const GetTheApp = (props, context) => {
     submitValue,
     preMessage,
     linkMessage,
-    endMessage
+    endMessage,
+    'android-alt': androidAlt,
+    'ios-alt': iosAlt
   } = props;
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
@@ -164,6 +168,8 @@ const GetTheApp = (props, context) => {
           appStoreButtonImageUrl={appStoreButtonImageUrl}
           playStoreButtonImageUrl={playStoreButtonImageUrl}
           onPlayStoreButtonClick={onPlayStoreButtonClick}
+          android-alt={androidAlt}
+          ios-alt={iosAlt}
         />
       </div>
       <div className={style.secondStepWrapper}>
