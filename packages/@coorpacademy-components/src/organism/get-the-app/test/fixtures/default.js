@@ -34,6 +34,7 @@ export default {
     linkMessage: 'cliquez ici',
     endMessage: 'et nous passerons le message',
     'android-alt': 'Link to the Coorpacademy android app',
-    'ios-alt': 'Link to the Coorpacademy ios app'
+    'ios-alt': 'Link to the Coorpacademy ios app',
+    qrCodeImageAlt: 'QR code to be scanned for app connection'
   }
 };

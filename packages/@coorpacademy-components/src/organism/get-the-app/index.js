@@ -34,11 +34,12 @@ const QrCodeImage = ({
   qrCodeImageUrl,
   preMessage,
   linkMessage,
-  endMessage
+  endMessage,
+  qrCodeImageAlt
 }) => {
   return (
     <div className={style.qrcodeWrapper}>
-      <img src={qrCodeImageUrl} />
+      <Picture src={qrCodeImageUrl} alt={qrCodeImageAlt} />
       {showMobileAppAccess ? (
         <div className={style.qrcodeOverlay}>
           <div className={style.qrcodeModal}>
@@ -58,7 +59,8 @@ QrCodeImage.propTypes = {
   qrCodeImageUrl: PropTypes.string,
   preMessage: PropTypes.string,
   linkMessage: PropTypes.string,
-  endMessage: PropTypes.string
+  endMessage: PropTypes.string,
+  qrCodeImageAlt: PropTypes.string
 };
 
 const MagicLink = ({disabled, submitValue, magicLinkUrl, color}) => {
@@ -152,7 +154,8 @@ const GetTheApp = (props, context) => {
     linkMessage,
     endMessage,
     'android-alt': androidAlt,
-    'ios-alt': iosAlt
+    'ios-alt': iosAlt,
+    qrCodeImageAlt
   } = props;
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
@@ -183,6 +186,7 @@ const GetTheApp = (props, context) => {
               preMessage={preMessage}
               linkMessage={linkMessage}
               endMessage={endMessage}
+              qrCodeImageAlt={qrCodeImageAlt}
             />
           </div>
           <Divider word={diviserWord} />
