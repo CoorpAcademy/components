@@ -4,10 +4,10 @@
   and adds static callback onComplete usage
 */
 import {Animated} from 'react-native';
-import type {ExtendedAnimation} from './use-animation.native';
+import type {Animation} from './use-animation.native';
 
 const parallel = function (
-  animations: Array<ExtendedAnimation>,
+  animations: Array<Animation | Animated.CompositeAnimation>,
   config?: Animated.ParallelConfig
 ): Animated.CompositeAnimation {
   let doneCount = 0;
@@ -30,7 +30,7 @@ const parallel = function (
             doneCount = 0;
             endCallback && endCallback(endResult);
 
-            if (endResult.finished) {
+            if (endResult.finished && 'onComplete' in animation) {
               animation.onComplete?.();
             }
             return;

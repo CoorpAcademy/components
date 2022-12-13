@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {Animated, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
+import {useAnimation} from '@coorpacademy/react-native-animation';
 import Slide from '../review-slide/index.native';
-import useTranslateVertically from '../../behaviours/use-translate-vertically.native';
 import {ReviewStackProps} from './prop-types';
 
 export const TOTAL_SLIDES_STACK = 5;
@@ -19,13 +19,14 @@ const StackedSlides = (props: ReviewStackProps) => {
   const {height: windowHeight} = useWindowDimensions();
   const {slides, validateButton, correctionPopinProps} = props;
 
-  const {translate, animatedY} = useTranslateVertically({
+  const hideSlides = useAnimation({
+    property: 'translateY',
     fromValue: 0,
     toValue: windowHeight,
     duration: 800
   });
 
-  useEffect(translate, [translate]);
+  useEffect(() => hideSlides.start(), []);
 
   const indexes = keys(slides).reverse();
   const stackedSlides = indexes.map(slideIndex => {
@@ -45,7 +46,9 @@ const StackedSlides = (props: ReviewStackProps) => {
     );
   });
 
-  return <Animated.View style={[style.slides, animatedY]}>{stackedSlides}</Animated.View>;
+  return (
+    <Animated.View style={[style.slides, hideSlides.animatedStyle]}>{stackedSlides}</Animated.View>
+  );
 };
 
 export default StackedSlides;

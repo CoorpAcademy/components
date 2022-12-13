@@ -1,26 +1,19 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {
-  Animated,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextStyle,
-  useWindowDimensions,
-  ViewStyle
-} from 'react-native';
+import {Animated, ScrollView, StyleSheet, Text, TextStyle, ViewStyle} from 'react-native';
 import LottieView from 'lottie-react-native';
 import {noop} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaSolidVoteRewardsRewardsBadge5 as RankIcon
 } from '@coorpacademy/nova-icons';
+import {sequence, parallel, useAnimation} from '@coorpacademy/react-native-animation';
+import type {AnimationParams} from '@coorpacademy/react-native-animation/es/use-animation.native';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
 import {BOX_STYLE} from '../../variables/shadow';
 import CardCongrats from '../../molecule/card-congrats/index.native';
-import {sequence, parallel, AnimationParams} from '../../behaviours/use-animation.native';
 import {ReviewCongratsProps} from './prop-types';
 
 type StyleSheetType = {
@@ -99,7 +92,6 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   } = props;
 
   const {theme} = useTemplateContext();
-  const {height: windowHeight} = useWindowDimensions();
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const [isCongratsTranslationDone, setCongratsTranslationDone] = useState<boolean>(false);
@@ -107,17 +99,26 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const showCongrats: AnimationParams = {
-    property: 'translateY',
-    fromValue: windowHeight,
-    toValue: 0,
-    duration: 850,
-    onComplete: () => setCongratsTranslationDone(true)
-  };
+  const showCongrats = useAnimation({
+    property: 'opacity',
+    fromValue: 0,
+    toValue: 1,
+    duration: 950,
+    onComplete: () => {
+      setCongratsTranslationDone(true);
+    }
+  });
 
-  const showConfettis = fadeIn;
-  const fadeInRank = fadeIn;
-  const translateRank = {
+  const translateCongrats = useAnimation({
+    property: 'translateY',
+    fromValue: 100,
+    toValue: 0,
+    duration: 550
+  });
+
+  const showConfettis = useAnimation(fadeIn);
+  const fadeInRank = useAnimation(fadeIn);
+  const translateRank = useAnimation({
     ...translateHorizontally,
     onComplete: () => {
       setRankShown(true);
@@ -125,33 +126,29 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         scrollViewRef?.current?.scrollToEnd();
       }, 700);
     }
-  };
+  });
 
-  const fadeInStars = {
+  const animatedRank = [fadeInRank.animatedStyle, translateRank.animatedStyle];
+
+  const fadeInStars = useAnimation({
     ...fadeIn,
     delay: 1000
-  };
+  });
 
-  const translateStars = {
+  const translateStars = useAnimation({
     ...translateHorizontally,
     delay: 1000
-  };
+  });
 
-  const showButton1 = fadeIn;
-  const showButton2 = fadeIn;
+  const showButton1 = useAnimation(fadeIn);
+  const showButton2 = useAnimation(fadeIn);
 
-  const animation = sequence([
-    showCongrats,
+  const congratsSequence = sequence([
+    parallel([showCongrats, translateCongrats]),
     parallel([showConfettis, fadeInRank, translateRank]),
     parallel([fadeInStars, translateStars]),
     sequence([showButton1, showButton2])
   ]);
-
-  const {timing: congratsSequence, style} = animation;
-
-  const [animatedCongratsY, step2, animatedStars, step4] = style;
-  const [animatedConfettis, ...animatedRank] = step2;
-  const [animatedButton1, animatedButton2] = step4;
 
   useEffect(() => {
     congratsSequence.start();
@@ -171,8 +168,14 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const handleContinueRevisingPress = buttonRevising?.onClick || noop;
   const handleReviseAnotherSkillPress = buttonRevisingSkill?.onClick || noop;
 
+  const congratsStyle = [
+    styleSheet.congrats,
+    translateCongrats.animatedStyle,
+    showCongrats.animatedStyle
+  ] as ViewStyle[];
+
   return (
-    <Animated.View style={[styleSheet.congrats, animatedCongratsY]} accessibilityLabel={ariaLabel}>
+    <Animated.View style={congratsStyle} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
       <ScrollView
         ref={scrollViewRef}
@@ -194,7 +197,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
             />
           </Animated.View>
         ) : null}
-        <Animated.View style={animatedStars}>
+        <Animated.View style={[fadeInStars.animatedStyle, translateStars.animatedStyle]}>
           <CardCongrats
             animationUri={isRankShown ? cardCongratsStar.animationLottie.animationSrc : null}
             Icon={StarIcon}
@@ -207,9 +210,9 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         </Animated.View>
       </ScrollView>
 
-      <Animated.View style={[styleSheet.buttons]}>
+      <Animated.View style={styleSheet.buttons}>
         {buttonRevisingSkill ? (
-          <Animated.View style={animatedButton1}>
+          <Animated.View style={showButton1.animatedStyle}>
             <Button
               onPress={handleReviseAnotherSkillPress}
               accessibilityLabel={buttonRevisingSkill['aria-label']}
@@ -220,7 +223,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
           </Animated.View>
         ) : null}
         {buttonRevising ? (
-          <Animated.View style={animatedButton2}>
+          <Animated.View style={showButton2.animatedStyle}>
             <Button
               onPress={handleContinueRevisingPress}
               accessibilityLabel={buttonRevising['aria-label']}
@@ -231,7 +234,10 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
       </Animated.View>
 
       {isCongratsTranslationDone ? (
-        <Animated.View pointerEvents="none" style={[styleSheet.confettis, animatedConfettis]}>
+        <Animated.View
+          pointerEvents="none"
+          style={[styleSheet.confettis, showConfettis.animatedStyle]}
+        >
           <LottieView source={{uri: animationLottie.animationSrc}} autoPlay loop={false} />
         </Animated.View>
       ) : null}

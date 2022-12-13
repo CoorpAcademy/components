@@ -5,12 +5,12 @@ import {
   NovaSolidStatusClose as WrongIcon,
   NovaLineLoginKey1 as KlfIcon
 } from '@coorpacademy/nova-icons';
+import {useAnimation} from '@coorpacademy/react-native-animation';
 import Html from '../../atom/html/index.native';
 import {Theme} from '../../variables/theme.native';
 import Text from '../../atom/text/index.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
-import useUpdateOpacity from '../../behaviours/use-update-opacity.native';
 import {ReviewCorrectionPopinKLFProps, ReviewCorrectionPopinProps} from './prop-types';
 
 interface StyleSheetType {
@@ -205,14 +205,17 @@ const KlfButton = ({
   styleSheet: StyleSheetType;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
-  const {fadeIn, fadeOut, animatedOpacity} = useUpdateOpacity({
+  const fadeIn = useAnimation({
+    property: 'opacity',
+    fromValue: 0,
+    toValue: 1,
     easing: Easing.bezier(0.25, 1, 0.5, 1)
   });
 
   const handlePressKey = useCallback(() => {
     setDisplayTooltip(!displayTooltip);
-    !displayTooltip ? fadeIn() : fadeOut();
-  }, [displayTooltip, fadeIn, fadeOut]);
+    !displayTooltip ? fadeIn.start() : fadeIn.revert();
+  }, [displayTooltip, fadeIn]);
 
   const {
     buttonKlf,
@@ -230,7 +233,7 @@ const KlfButton = ({
 
   return (
     <View style={containerButtonKlf}>
-      <Animated.View style={[containerTooltip, animatedOpacity]}>
+      <Animated.View style={[containerTooltip, fadeIn.animatedStyle]}>
         <Touchable
           style={buttonTooltip}
           accessibilityLabel={`aria-label-tooltip`}

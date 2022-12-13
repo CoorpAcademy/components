@@ -4,9 +4,11 @@
   and adds static callback onComplete usage
 */
 import {Animated} from 'react-native';
-import {ExtendedAnimation} from './use-animation.native';
+import type {Animation} from './use-animation.native';
 
-const sequence = function (animations: Array<ExtendedAnimation>): Animated.CompositeAnimation {
+const sequence = function (
+  animations: Array<Animation | Animated.CompositeAnimation>
+): Animated.CompositeAnimation {
   let current = 0;
   return {
     start(endCallback?: Animated.EndCallback) {
@@ -15,7 +17,10 @@ const sequence = function (animations: Array<ExtendedAnimation>): Animated.Compo
           endCallback && endCallback(result);
           return;
         } else {
-          animations[current].onComplete?.();
+          const currentAnimation = animations[current];
+          if ('onComplete' in currentAnimation) {
+            currentAnimation.onComplete?.();
+          }
         }
 
         current++;

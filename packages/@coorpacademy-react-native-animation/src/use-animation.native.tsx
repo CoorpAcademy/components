@@ -1,7 +1,5 @@
 import {useRef} from 'react';
-import {Animated, ViewStyle} from 'react-native';
-import _sequence from './sequence';
-import _parallel from './parallel';
+import {Animated, TransformsStyle, ViewStyle} from 'react-native';
 
 export type AnimationParams = Omit<Animated.TimingAnimationConfig, 'useNativeDriver'> & {
   property: 'translateX' | 'translateY' | keyof ViewStyle;
@@ -10,66 +8,44 @@ export type AnimationParams = Omit<Animated.TimingAnimationConfig, 'useNativeDri
   onComplete?: () => void;
 };
 
-type AnimatedProperty = {
-  [x: string]: Animated.Value;
-};
+type AnimatedStyle =
+  | {transform: Animated.AnimatedProps<TransformsStyle>[]}
+  | Animated.AnimatedProps<ViewStyle>;
 
-type Style = {transform: AnimatedProperty[]} | AnimatedProperty;
-export type RecursiveArray<T> = (T | RecursiveArray<T>)[];
-
-type Animation = {timing: Animated.CompositeAnimation; style: RecursiveArray<Style>};
-
-type Sequence = (animations: (AnimationParams | Animation)[]) => Animation;
-type Parallel = (animations: (AnimationParams | Animation)[]) => Animation;
-// type Stagger = (animations: (AnimationParams | Animation)[]) => Animation;
-
-export type ExtendedAnimation = Animated.CompositeAnimation & {
+export type Animation = Animated.CompositeAnimation & {
   onComplete?: () => void;
+  animatedStyle?: AnimatedStyle;
+  revert: Animated.CompositeAnimation['start'];
 };
 
 const requireTransform = (property: AnimationParams['property']) =>
   property === 'translateX' || property === 'translateY';
 
-const useAnimation = (params: AnimationParams | Animation): Animation => {
-  if (!('property' in params)) {
-    return params;
-  }
-
+const useAnimation = (params: AnimationParams): Animation => {
   const {property, fromValue = 0, toValue = 100, onComplete, ...othersParams} = params;
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const ref = useRef(new Animated.Value(fromValue)).current;
+  const animatedProperty = {[property]: ref};
 
-  const timing: ExtendedAnimation = Animated.timing(ref, {
+  const timing = Animated.timing(ref, {
     ...othersParams,
     toValue,
     useNativeDriver: true
   });
 
-  const animatedStyle = requireTransform(property)
-    ? {transform: [{[property]: ref}]}
-    : {[property]: ref};
+  const revertTiming = Animated.timing(ref, {
+    ...othersParams,
+    toValue: fromValue,
+    useNativeDriver: true
+  });
 
-  if (onComplete) {
-    timing.onComplete = onComplete;
-  }
-
-  return {timing, style: [animatedStyle]};
-};
-
-type OrganiseFunc = typeof _sequence | typeof _parallel;
-
-const organise = (func: OrganiseFunc, allParams: (AnimationParams | Animation)[]): Animation => {
-  const animations = allParams.map(params => useAnimation(params));
-
-  return {
-    timing: func(animations.map(a => a.timing)),
-    style: animations.map(a => a.style)
+  const animation: Animation = {
+    ...timing,
+    animatedStyle: requireTransform(property) ? {transform: [animatedProperty]} : animatedProperty,
+    onComplete,
+    revert: revertTiming.start
   };
+
+  return animation;
 };
 
-const sequence: Sequence = allParams => organise(_sequence, allParams);
-const parallel: Parallel = allParams => organise(_parallel, allParams);
-// const stagger: Stagger = allParams => organise(Animated.stagger, allParams);
-
-export {useAnimation, sequence, parallel};
+export default useAnimation;
