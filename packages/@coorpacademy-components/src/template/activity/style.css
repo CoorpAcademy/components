@@ -157,19 +157,6 @@
   }
 }
 
-@media mobile {
-  .select {
-    margin-left: 24px;
-    margin-right: 40px;
-    margin-top: 30px;
-    padding-bottom: 0;
-  }
-  
-  .recommendationWrapper {
-    margin: 24px 40px 24px 24px;
-  }
-}
-
 .innerHTML {
   composes: innerHTML from '../../atom/label/style.css'
 }
