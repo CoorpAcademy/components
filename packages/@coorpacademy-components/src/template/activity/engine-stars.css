@@ -213,7 +213,7 @@
     width: auto;
     height: 145px;
     flex: 1 2;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-bottom: 8px;
     overflow: none;
     top: 0;
@@ -223,8 +223,8 @@
   }
 
   .engineIcon {
-    width: 30px;
-    height: 25px;
+    width: 50px;
+    height: 48px;
     right: 5px;
   }
 
@@ -235,9 +235,8 @@
     align-items: flex-end;
     align-content: flex-end;
     padding: 0;
-    margin: 0;
     box-sizing: border-box;
-  } 
+  }
 
   .score p {
     padding: 0;

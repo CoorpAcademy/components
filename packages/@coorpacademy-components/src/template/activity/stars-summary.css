@@ -170,13 +170,13 @@
         overflow-x: auto;
     }
 
-    .navigationLeft {
-        display:none;
+    /* .navigationLeft {
+        display: none;
     }
 
     .navigationRight {
-        display:none;
-    }
+        display: none;
+    } */
     
     .iconHeader {
         width: 13px;
