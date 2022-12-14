@@ -9,8 +9,6 @@ import chalk from 'chalk';
 import glob from 'glob';
 import svgr from '@svgr/core';
 import mkdirp from 'mkdirp';
-// eslint-disable-next-line flowtype-errors/show-errors
-import get from 'lodash/fp/get';
 import whiteList from '../icons';
 import type {Icon} from '../icons';
 import {parseMeta, getSVGFilePath} from './modules/iconjar-reader';
@@ -71,11 +69,8 @@ const findElementAndReplaceAttributes = (
     ...properties
   }: JSXElement): JSXElement => {
     let newAttributes;
-    const elementName = get(['name', 'name'], properties);
-    const elementIsSvg = elementName === 'div';
     if (attributes) {
       newAttributes = attributes.map((attribute: JSXAttribute): JSXAttribute => {
-        if (elementIsSvg) console.log('------test', JSON.stringify(attribute, null, 2));
         if (isCustomizableColor(attribute)) {
           return {
             ...attribute,
