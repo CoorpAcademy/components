@@ -20,7 +20,8 @@ function Discussion(props) {
     hideComments,
     textareaDisabled,
     postDisabled,
-    className
+    className,
+    profileAvatarAlt
   } = props;
 
   const threadsView = threads.map(thread => <ForumThread {...thread} key={thread.id} mainPost />);
@@ -29,6 +30,7 @@ function Discussion(props) {
     <ForumComment
       avatar={avatar}
       value={value}
+      profileAvatarAlt={profileAvatarAlt}
       newPost
       onPost={onPost}
       onChange={onChange}
@@ -62,6 +64,7 @@ Discussion.propTypes = {
   avatar: SrcPropType,
   loading: PropTypes.bool,
   value: PropTypes.string,
+  profileAvatarAlt: PropTypes.string,
   title: PropTypes.string,
   onPost: PropTypes.func,
   onChange: PropTypes.func,

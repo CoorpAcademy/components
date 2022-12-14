@@ -25,7 +25,7 @@ const toSetAlt = ({alt}) => {
 };
 
 const Picture = props => {
-  const {src} = props;
+  const {src, alt} = props;
   if (isNil(src)) {
     return <div className={style.empty} />;
   }

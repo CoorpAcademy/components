@@ -9,14 +9,22 @@ import style from './style.css';
 
 const ForumComment = (props, context) => {
   const {translate, skin} = context;
-  const {avatar, onPost, onChange, value, textareaDisabled, postDisabled, newPost = false} = props;
-
+  const {
+    avatar,
+    onPost,
+    onChange,
+    value,
+    textareaDisabled,
+    postDisabled,
+    newPost = false,
+    profileAvatarAlt
+  } = props;
   const primary = get('common.primary', skin);
   const light = get('common.light', skin);
 
   const avatarView = avatar ? (
     <div className={style.image}>
-      <img src={avatar} />
+      <img src={avatar} alt={profileAvatarAlt} />
     </div>
   ) : null;
 
@@ -63,6 +71,7 @@ ForumComment.contextTypes = {
 
 ForumComment.propTypes = {
   value: PropTypes.string,
+  profileAvatarAlt: PropTypes.string,
   avatar: SrcPropType,
   onChange: PropTypes.func,
   onPost: PropTypes.func,
