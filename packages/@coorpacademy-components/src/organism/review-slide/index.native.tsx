@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import {useAnimation} from '@coorpacademy/react-native-animation';
+import {useTranslateY} from '@coorpacademy/react-native-animation';
 import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
@@ -33,8 +33,7 @@ const CorrectionPopin = ({
   showCorrectionPopin,
   animateCorrectionPopin
 }: PopinProps) => {
-  const translateUp = useAnimation({
-    property: 'translateY',
+  const translateUp = useTranslateY({
     fromValue: 1000,
     toValue: 0,
     duration: 800,

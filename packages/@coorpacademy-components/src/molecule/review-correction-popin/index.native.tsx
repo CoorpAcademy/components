@@ -5,7 +5,7 @@ import {
   NovaSolidStatusClose as WrongIcon,
   NovaLineLoginKey1 as KlfIcon
 } from '@coorpacademy/nova-icons';
-import {useAnimation} from '@coorpacademy/react-native-animation';
+import {useAnimateProp} from '@coorpacademy/react-native-animation';
 import Html from '../../atom/html/index.native';
 import {Theme} from '../../variables/theme.native';
 import Text from '../../atom/text/index.native';
@@ -205,7 +205,7 @@ const KlfButton = ({
   styleSheet: StyleSheetType;
 }) => {
   const [displayTooltip, setDisplayTooltip] = useState(false);
-  const fadeIn = useAnimation({
+  const fadeIn = useAnimateProp({
     property: 'opacity',
     fromValue: 0,
     toValue: 1,

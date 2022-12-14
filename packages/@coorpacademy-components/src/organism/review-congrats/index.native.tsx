@@ -6,8 +6,14 @@ import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaSolidVoteRewardsRewardsBadge5 as RankIcon
 } from '@coorpacademy/nova-icons';
-import {sequence, parallel, useAnimation} from '@coorpacademy/react-native-animation';
-import type {AnimationParams} from '@coorpacademy/react-native-animation/es/use-animation.native';
+import {
+  sequence,
+  parallel,
+  useAnimateProp,
+  useTranslateY,
+  useTranslateX
+} from '@coorpacademy/react-native-animation';
+import type {AnimatePropParams} from '@coorpacademy/react-native-animation/es/use-animate-prop';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
@@ -66,14 +72,14 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
-const fadeIn: AnimationParams = {
+const fadeIn: AnimatePropParams = {
   property: 'opacity',
   fromValue: 0,
   toValue: 1,
   duration: 350
 };
 
-const translateHorizontally: AnimationParams = {
+const translateHorizontally = {
   property: 'translateX',
   fromValue: 180,
   toValue: 0,
@@ -99,7 +105,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const scrollViewRef = useRef<ScrollView>(null);
 
-  const showCongrats = useAnimation({
+  const showCongrats = useAnimateProp({
     property: 'opacity',
     fromValue: 0,
     toValue: 1,
@@ -109,16 +115,15 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
     }
   });
 
-  const translateCongrats = useAnimation({
-    property: 'translateY',
+  const translateCongrats = useTranslateY({
     fromValue: 100,
     toValue: 0,
     duration: 550
   });
 
-  const showConfettis = useAnimation(fadeIn);
-  const fadeInRank = useAnimation(fadeIn);
-  const translateRank = useAnimation({
+  const showConfettis = useAnimateProp(fadeIn);
+  const fadeInRank = useAnimateProp(fadeIn);
+  const translateRank = useTranslateX({
     ...translateHorizontally,
     onComplete: () => {
       setRankShown(true);
@@ -130,18 +135,18 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const animatedRank = [fadeInRank.animatedStyle, translateRank.animatedStyle];
 
-  const fadeInStars = useAnimation({
+  const fadeInStars = useAnimateProp({
     ...fadeIn,
     delay: 1000
   });
 
-  const translateStars = useAnimation({
+  const translateStars = useTranslateX({
     ...translateHorizontally,
     delay: 1000
   });
 
-  const showButton1 = useAnimation(fadeIn);
-  const showButton2 = useAnimation(fadeIn);
+  const showButton1 = useAnimateProp(fadeIn);
+  const showButton2 = useAnimateProp(fadeIn);
 
   const congratsSequence = sequence([
     parallel([showCongrats, translateCongrats]),
@@ -168,14 +173,11 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
   const handleContinueRevisingPress = buttonRevising?.onClick || noop;
   const handleReviseAnotherSkillPress = buttonRevisingSkill?.onClick || noop;
 
-  const congratsStyle = [
-    styleSheet.congrats,
-    translateCongrats.animatedStyle,
-    showCongrats.animatedStyle
-  ] as ViewStyle[];
-
   return (
-    <Animated.View style={congratsStyle} accessibilityLabel={ariaLabel}>
+    <Animated.View
+      style={[styleSheet.congrats, translateCongrats.animatedStyle, showCongrats.animatedStyle]}
+      accessibilityLabel={ariaLabel}
+    >
       <Text style={styleSheet.title}>{title}</Text>
       <ScrollView
         ref={scrollViewRef}

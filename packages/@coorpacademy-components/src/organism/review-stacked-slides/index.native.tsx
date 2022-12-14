@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Animated, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
-import {useAnimation} from '@coorpacademy/react-native-animation';
+import {useTranslateY} from '@coorpacademy/react-native-animation';
 import Slide from '../review-slide/index.native';
 import {ReviewStackProps} from './prop-types';
 
@@ -19,8 +19,7 @@ const StackedSlides = (props: ReviewStackProps) => {
   const {height: windowHeight} = useWindowDimensions();
   const {slides, validateButton, correctionPopinProps} = props;
 
-  const hideSlides = useAnimation({
-    property: 'translateY',
+  const hideSlides = useTranslateY({
     fromValue: 0,
     toValue: windowHeight,
     duration: 800

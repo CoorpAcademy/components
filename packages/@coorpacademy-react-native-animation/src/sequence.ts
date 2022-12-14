@@ -4,7 +4,7 @@
   and adds static callback onComplete usage
 */
 import {Animated} from 'react-native';
-import type {Animation} from './use-animation.native';
+import type {Animation} from '.';
 
 const sequence = function (
   animations: Array<Animation | Animated.CompositeAnimation>

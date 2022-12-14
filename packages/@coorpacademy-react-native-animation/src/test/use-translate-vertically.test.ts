@@ -1,11 +1,11 @@
 import test from 'ava';
-import type {Animated, EasingFunction, TransformsStyle, ViewStyle} from 'react-native';
+import type {Animated, EasingFunction} from 'react-native';
 import {Easing} from 'react-native';
 
 import {renderHook} from '@testing-library/react-native';
-import useAnimation from '../use-animation.native';
+import useTranslateY from '../use-translate-y';
 
-type TranslateYTestType = Animated.Value & {
+type TranslateTestType = Animated.Value & {
   _animation: {
     _easing: EasingFunction;
     _delay: number;
@@ -16,17 +16,14 @@ type TranslateYTestType = Animated.Value & {
 
 test('using default params', t => {
   const {result} = renderHook(() =>
-    useAnimation({
-      property: 'translateY',
+    useTranslateY({
       fromValue: 100,
       toValue: 200
     })
   );
 
-  const animatedStyle = result.current.animatedStyle as {
-    transform: Animated.AnimatedProps<ViewStyle>[];
-  };
-  const translateY = animatedStyle.transform[0].translateY as TranslateYTestType;
+  const animatedStyle = result.current.animatedStyle;
+  const translateY = animatedStyle?.transform[0].translateY as TranslateTestType;
 
   result.current.start();
 
@@ -36,8 +33,7 @@ test('using default params', t => {
 
 test('using custom params', t => {
   const {result} = renderHook(() =>
-    useAnimation({
-      property: 'translateY',
+    useTranslateY({
       fromValue: 100,
       toValue: 300,
       delay: 100,
@@ -46,10 +42,8 @@ test('using custom params', t => {
     })
   );
 
-  const animatedStyle = result.current.animatedStyle as {
-    transform: Animated.AnimatedProps<ViewStyle>[];
-  };
-  const translateY = animatedStyle.transform[0].translateY as TranslateYTestType;
+  const animatedStyle = result.current.animatedStyle;
+  const translateY = animatedStyle?.transform[0].translateY as TranslateTestType;
   result.current.start();
 
   t.is(translateY._animation._toValue, 300);
@@ -60,17 +54,14 @@ test('using custom params', t => {
 
 test('using revert', t => {
   const {result} = renderHook(() =>
-    useAnimation({
-      property: 'translateY',
+    useTranslateY({
       fromValue: 100,
       toValue: 200
     })
   );
 
-  const animatedStyle = result.current.animatedStyle as {
-    transform: Animated.AnimatedProps<TransformsStyle>[];
-  };
-  const translateY = animatedStyle.transform[0].translateY as TranslateYTestType;
+  const animatedStyle = result.current.animatedStyle;
+  const translateY = animatedStyle?.transform[0].translateY as TranslateTestType;
 
   result.current.start();
   t.is(translateY._animation._toValue, 200);
