@@ -64,6 +64,7 @@ class StarsSummary extends React.Component {
       return null;
     }
 
+    // transform component
     const engineTabs = engines.map((engine, index) => {
       const state = index < firstItem ? 'hidden' : 'active';
       return (
