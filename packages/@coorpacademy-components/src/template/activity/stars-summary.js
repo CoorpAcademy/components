@@ -10,12 +10,16 @@ import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
 import style from './stars-summary.css';
 
-const EngineTabs = ({engines, state, firstItem}) => {
+const EngineTabs = ({engines, firstItem, index}) => {
+  const state = index < firstItem ? 'hidden' : 'active';
   const buildEngineTab = useCallback(
-    (engine, index) => {
+    (engine, engineIndex) => {
       return (
         <div className={style[state]} key={engine.type} data-name={`${engine.type}_total_${state}`}>
-          <EngineStars {...engine} className={index < firstItem ? style.hidden : style.active} />
+          <EngineStars
+            {...engine}
+            className={engineIndex < firstItem ? style.hidden : style.active}
+          />
         </div>
       );
     },
@@ -30,7 +34,7 @@ const EngineTabs = ({engines, state, firstItem}) => {
 
 EngineTabs.propTypes = {
   engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
-  state: PropTypes.oneOf(['hidden', 'active']),
+  index: PropTypes.number,
   firstItem: PropTypes.number
 };
 
@@ -105,7 +109,7 @@ class StarsSummary extends React.Component {
       <div data-name="myStars" className={style.myStars}>
         <div data-name="myStars-wrapper" className={style.myStarsWrapper}>
           <div className={style.allStars} data-name="engineList">
-            <EngineStars engines={engines} state={this.state} firstItem={firstItem} />
+            <EngineTabs engines={engines} state={this.state} firstItem={firstItem} />
           </div>
           <div
             className={style.footerSummaryStars}
