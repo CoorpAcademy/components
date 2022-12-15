@@ -15,6 +15,8 @@ export type TransformAnimation<T> = Animated.CompositeAnimation & {
 type Timing = {
   animation: Animated.CompositeAnimation & {
     onComplete?: () => void;
+    reset: (callback: Animated.EndCallback) => void;
+    start: Animated.CompositeAnimation['start'];
     revert: Animated.CompositeAnimation['start'];
   };
   ref: Animated.Value;
@@ -22,7 +24,7 @@ type Timing = {
 
 const useTiming = (params: AnimationParams): Timing => {
   const {fromValue = 0, toValue = 100, onComplete, ...othersParams} = params;
-  const ref = useRef(new Animated.Value(fromValue)).current;
+  const ref = useRef<Animated.Value>(new Animated.Value(fromValue)).current;
 
   const timing = Animated.timing(ref, {
     ...othersParams,
@@ -36,9 +38,17 @@ const useTiming = (params: AnimationParams): Timing => {
     useNativeDriver: true
   });
 
+  const reset = () => ref.setValue(fromValue);
+  const start = (cb?: Animated.EndCallback) => {
+    reset();
+    timing.start(cb);
+  };
+
   const animation = {
     ...timing,
     onComplete,
+    start,
+    reset,
     revert: revertTiming.start
   };
 

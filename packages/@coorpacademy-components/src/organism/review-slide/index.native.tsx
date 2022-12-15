@@ -177,7 +177,7 @@ const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
 };
 
 const Slide = (props: ReviewSlideProps) => {
-  const {slide, correctionPopinProps, validateButton, num, slideIndex = '0'} = props;
+  const {animatedStyle, slide, correctionPopinProps, validateButton, num, slideIndex = '0'} = props;
 
   const {width} = useWindowDimensions();
   const slideStyle = createSlideStyle(num, width);
@@ -192,13 +192,13 @@ const Slide = (props: ReviewSlideProps) => {
   } = slide;
 
   if (loading) {
-    return <Text>@todo loader {num}</Text>;
+    return <View style={slideStyle.slide} />;
   }
 
   const {onClick: handleValidatePress} = validateButton;
 
   return (
-    <View style={slideStyle.slide}>
+    <Animated.View style={[slideStyle.slide, animatedStyle]}>
       <Question
         questionOrigin={parentContentTitle}
         questionText={questionText}
@@ -220,7 +220,7 @@ const Slide = (props: ReviewSlideProps) => {
           key="correction-popin"
         />
       ) : null}
-    </View>
+    </Animated.View>
   );
 };
 
