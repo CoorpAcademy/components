@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import type {Animation} from '@coorpacademy/react-native-animation';
 import ReviewCorrectionPopinPropTypes, {
   ReviewCorrectionPopinProps
 } from '../../molecule/review-correction-popin/prop-types';
@@ -78,6 +79,7 @@ export type ReviewSlideProps = {
     onClick: () => void;
     disabled: boolean;
   };
+  animatedStyle?: Animation['animatedStyle'][];
 };
 
 export type Fixture = {props: ReviewSlideProps; mobileContext?: TemplateContextValues};
