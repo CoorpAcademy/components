@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr, isEmpty} from 'lodash/fp';
+import {get, getOr, isEmpty, map} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
   NovaCompositionNavigationArrowRight as ArrowRight,
@@ -9,6 +9,30 @@ import {
 import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
 import style from './stars-summary.css';
+
+const EngineTabs = ({engines, state, firstItem}) => {
+  const buildEngineTab = useCallback(
+    (engine, index) => {
+      return (
+        <div className={style[state]} key={engine.type} data-name={`${engine.type}_total_${state}`}>
+          <EngineStars {...engine} className={index < firstItem ? style.hidden : style.active} />
+        </div>
+      );
+    },
+    [firstItem, state]
+  );
+
+  return useMemo(
+    () => map.convert({cap: false})(buildEngineTab, engines),
+    [buildEngineTab, engines]
+  );
+};
+
+EngineTabs.propTypes = {
+  engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
+  state: PropTypes.oneOf(['hidden', 'active']),
+  firstItem: PropTypes.number
+};
 
 class StarsSummary extends React.Component {
   static propTypes = {
@@ -63,17 +87,6 @@ class StarsSummary extends React.Component {
     if (isEmpty(engines)) {
       return null;
     }
-
-    // transform component
-    const engineTabs = engines.map((engine, index) => {
-      const state = index < firstItem ? 'hidden' : 'active';
-      return (
-        <div className={style[state]} key={engine.type} data-name={`${engine.type}_total_${state}`}>
-          <EngineStars {...engine} className={index < firstItem ? style.hidden : style.active} />
-        </div>
-      );
-    });
-
     const leftArrowView =
       totalItems > 6 && firstItem > 0 ? (
         <div className={style.circle} onClick={this.handleOnLeft} data-name="left-arrow">
@@ -92,7 +105,7 @@ class StarsSummary extends React.Component {
       <div data-name="myStars" className={style.myStars}>
         <div data-name="myStars-wrapper" className={style.myStarsWrapper}>
           <div className={style.allStars} data-name="engineList">
-            {engineTabs}
+            <EngineStars engines={engines} state={this.state} firstItem={firstItem} />
           </div>
           <div
             className={style.footerSummaryStars}
