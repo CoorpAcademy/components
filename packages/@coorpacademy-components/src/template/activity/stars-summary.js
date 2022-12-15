@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get, getOr, isEmpty, map} from 'lodash/fp';
 import {
@@ -10,31 +10,36 @@ import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
 import style from './stars-summary.css';
 
-const EngineTabs = ({engines, firstItem, index}) => {
-  const state = index < firstItem ? 'hidden' : 'active';
-  const buildEngineTab = useCallback(
-    (engine, engineIndex) => {
-      return (
-        <div className={style[state]} key={engine.type} data-name={`${engine.type}_total_${state}`}>
-          <EngineStars
-            {...engine}
-            className={engineIndex < firstItem ? style.hidden : style.active}
-          />
-        </div>
-      );
-    },
-    [firstItem, state]
+const EngineTab = ({engine, engineIndex, firstItem}) => {
+  const {type} = engine;
+  const state = engineIndex < firstItem ? 'hidden' : 'active';
+  return (
+    <div className={style[state]} key={type} data-name={`${type}_total_${state}`}>
+      <EngineStars {...engine} className={engineIndex < firstItem ? style.hidden : style.active} />
+    </div>
   );
+};
+EngineTab.propTypes = {
+  engine: PropTypes.shape(EngineStars.propTypes),
+  engineIndex: PropTypes.number,
+  firstItem: PropTypes.number
+};
 
+const EngineTabs = ({engines, firstItem}) => {
   return useMemo(
-    () => map.convert({cap: false})(buildEngineTab, engines),
-    [buildEngineTab, engines]
+    () =>
+      map.convert({cap: false})(
+        (engine, index) => (
+          <EngineTab engine={engine} key={index} firstItem={firstItem} engineIndex={index} />
+        ),
+        engines
+      ),
+    [engines, firstItem]
   );
 };
 
 EngineTabs.propTypes = {
   engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
-  index: PropTypes.number,
   firstItem: PropTypes.number
 };
 
@@ -109,7 +114,7 @@ class StarsSummary extends React.Component {
       <div data-name="myStars" className={style.myStars}>
         <div data-name="myStars-wrapper" className={style.myStarsWrapper}>
           <div className={style.allStars} data-name="engineList">
-            <EngineTabs engines={engines} state={this.state} firstItem={firstItem} />
+            <EngineTabs engines={engines} firstItem={firstItem} />
           </div>
           <div
             className={style.footerSummaryStars}

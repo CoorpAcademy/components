@@ -86,7 +86,7 @@ ToolTip.propTypes = {
 class EngineStars extends React.Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
-    stars: PropTypes.number,
+    stars: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     active: PropTypes.bool,
     disabled: PropTypes.bool,
