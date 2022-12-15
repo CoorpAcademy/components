@@ -4,7 +4,7 @@ import {filter, get, isNil, isObject, join, map, pipe, set, toPairs} from 'lodas
 import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
 
-const toSrcSet = ({src}) => {
+const toSrcSet = src => {
   if (!isObject(src)) return {};
   return pipe(
     set(
@@ -20,16 +20,16 @@ const toSrcSet = ({src}) => {
   )({});
 };
 
-const toSetAlt = ({alt}) => {
+const toSetAlt = alt => {
   return alt ? {alt} : {alt: '', 'aria-hidden': true};
 };
 
 const Picture = props => {
-  const {src} = props;
+  const {src, alt} = props;
   if (isNil(src)) {
     return <div className={style.empty} />;
   }
-  return <img {...props} {...toSrcSet(props)} {...toSetAlt(props)} />;
+  return <img {...props} {...toSrcSet(src)} {...toSetAlt(alt)} />;
 };
 
 Picture.propTypes = {

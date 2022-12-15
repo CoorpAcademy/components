@@ -14,6 +14,8 @@ const ForumPost = (props, context) => {
     id,
     author,
     avatar,
+    avatarAlt,
+    profileAvatarAlt,
     date,
     message,
     answer,
@@ -48,7 +50,6 @@ const ForumPost = (props, context) => {
   const deleteLabel = translate('Delete');
   const rejectLabel = translate('Reject');
   const putBackLabel = translate('Put back');
-
   let messageClassName = style.message;
   if (deleted) {
     messageClassName = style.deletedMessage;
@@ -67,7 +68,7 @@ const ForumPost = (props, context) => {
     >
       <div className={style.avatarWrapper}>
         <div className={style.image}>
-          <Picture src={avatar} className={style.avatar} />
+          <Picture src={avatar} className={style.avatar} alt={avatarAlt} />
         </div>
         <span data-name="author" className={style.author}>
           {author}
@@ -127,6 +128,7 @@ const ForumPost = (props, context) => {
           <div className={`${style.edition} ${showEditBox ? style.visible : ''}`}>
             <ForumComment
               avatar={null}
+              profileAvatarAlt={profileAvatarAlt}
               value={edition}
               textareaDisabled={editionTextareaDisabled}
               postDisabled={editionPostDisabled}
@@ -138,6 +140,7 @@ const ForumPost = (props, context) => {
           <div className={`${style.answer} ${showAnswerBox ? style.visible : ''}`}>
             <ForumComment
               avatar={answerAvatar}
+              profileAvatarAlt={profileAvatarAlt}
               textareaDisabled={answerTextareaDisabled}
               postDisabled={answerPostDisabled}
               value={answer}
@@ -159,6 +162,8 @@ ForumPost.contextTypes = {
 ForumPost.propTypes = {
   id: PropTypes.string,
   author: PropTypes.string,
+  avatarAlt: PropTypes.string,
+  profileAvatarAlt: PropTypes.string,
   date: PropTypes.string,
   message: PropTypes.string,
   avatar: SrcPropType,
