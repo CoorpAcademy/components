@@ -67,7 +67,7 @@ const DisciplinePartners = (props, context) => {
 
     const logoView = authorLogo ? (
       <div className={style.logoContainer}>
-        <Picture className={style.logo} src={authorLogo.src} />
+        <Picture className={style.logo} src={authorLogo.src} alt={authorLogo.alt} />
         <div className={style.arrowWrapper}>
           <ArrowDown className={style.arrow} height={14} whidth={14} />
         </div>
