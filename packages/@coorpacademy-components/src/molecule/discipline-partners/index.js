@@ -112,7 +112,8 @@ DisciplinePartners.propTypes = {
       href: PropTypes.string,
       logo: PropTypes.shape({
         src: PropTypes.string,
-        href: PropTypes.string
+        href: PropTypes.string,
+        alt: PropTypes.string
       }),
       socialLinks: PropTypes.arrayOf(PropTypes.shape(SocialLink.propTypes))
     })
