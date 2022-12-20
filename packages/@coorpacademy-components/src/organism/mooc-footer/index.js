@@ -7,6 +7,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const socialLinksTypes = ['facebook', 'twitter', 'linkedin', 'youtube', 'instagram'];
@@ -20,13 +21,13 @@ const StoresLinks = ({
   'ios-alt': iosAlt
 }) => (
   <div className={style.storeLinksContainer}>
-    <img
+    <Picture
       className={style.imgApple}
       src={appStoreButtonImageUrl}
       onClick={onAppStoreButtonClick}
       alt={iosAlt}
     />
-    <img
+    <Picture
       className={style.img}
       src={playStoreButtonImageUrl}
       onClick={onPlayStoreButtonClick}

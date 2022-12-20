@@ -6,6 +6,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import {get} from 'lodash/fp';
 import Button from '../../atom/button';
+import Picture from '../../atom/picture';
 import style from './style.css';
 
 const Header = ({step, header, subHeader}) => (
@@ -33,11 +34,12 @@ const QrCodeImage = ({
   qrCodeImageUrl,
   preMessage,
   linkMessage,
-  endMessage
+  endMessage,
+  qrCodeImageAlt
 }) => {
   return (
     <div className={style.qrcodeWrapper}>
-      <img src={qrCodeImageUrl} />
+      <Picture src={qrCodeImageUrl} alt={qrCodeImageAlt} />
       {showMobileAppAccess ? (
         <div className={style.qrcodeOverlay}>
           <div className={style.qrcodeModal}>
@@ -57,7 +59,8 @@ QrCodeImage.propTypes = {
   qrCodeImageUrl: PropTypes.string,
   preMessage: PropTypes.string,
   linkMessage: PropTypes.string,
-  endMessage: PropTypes.string
+  endMessage: PropTypes.string,
+  qrCodeImageAlt: PropTypes.string
 };
 
 const MagicLink = ({disabled, submitValue, magicLinkUrl, color}) => {
@@ -90,11 +93,23 @@ const StoresLinks = ({
   onAppStoreButtonClick,
   appStoreButtonImageUrl,
   playStoreButtonImageUrl,
-  onPlayStoreButtonClick
+  onPlayStoreButtonClick,
+  'android-alt': androidAlt,
+  'ios-alt': iosAlt
 }) => (
   <div className={style.storeLinksContainer}>
-    <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
-    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
+    <Picture
+      className={style.img}
+      src={appStoreButtonImageUrl}
+      onClick={onAppStoreButtonClick}
+      alt={iosAlt}
+    />
+    <Picture
+      className={style.img}
+      src={playStoreButtonImageUrl}
+      onClick={onPlayStoreButtonClick}
+      alt={androidAlt}
+    />
   </div>
 );
 
@@ -102,7 +117,9 @@ StoresLinks.propTypes = {
   onAppStoreButtonClick: PropTypes.func,
   appStoreButtonImageUrl: PropTypes.string,
   playStoreButtonImageUrl: PropTypes.string,
-  onPlayStoreButtonClick: PropTypes.func
+  onPlayStoreButtonClick: PropTypes.func,
+  'android-alt': PropTypes.string,
+  'ios-alt': PropTypes.string
 };
 
 const Divider = ({word}) => (
@@ -135,7 +152,10 @@ const GetTheApp = (props, context) => {
     submitValue,
     preMessage,
     linkMessage,
-    endMessage
+    endMessage,
+    'android-alt': androidAlt,
+    'ios-alt': iosAlt,
+    qrCodeImageAlt
   } = props;
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
@@ -151,6 +171,8 @@ const GetTheApp = (props, context) => {
           appStoreButtonImageUrl={appStoreButtonImageUrl}
           playStoreButtonImageUrl={playStoreButtonImageUrl}
           onPlayStoreButtonClick={onPlayStoreButtonClick}
+          android-alt={androidAlt}
+          ios-alt={iosAlt}
         />
       </div>
       <div className={style.secondStepWrapper}>
@@ -164,6 +186,7 @@ const GetTheApp = (props, context) => {
               preMessage={preMessage}
               linkMessage={linkMessage}
               endMessage={endMessage}
+              qrCodeImageAlt={qrCodeImageAlt}
             />
           </div>
           <Divider word={diviserWord} />
