@@ -26,7 +26,7 @@ test('when mount component, it should initialize state with correct value', t =>
   const wrapper = mount(<StarsSummary {...props} />, {context});
   const instance = wrapper.instance();
   t.is(instance.state.firstItem, 0);
-  t.is(instance.state.totalItems, 9);
+  t.is(instance.state.totalItems, 10);
 
   const activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
   t.is(activeLearnerStars.exists(), true);
@@ -47,7 +47,7 @@ test('when mount component and after click on handleRight, it should update stat
 
   instance.handleOnRight();
   t.is(instance.state.firstItem, 1);
-  t.is(instance.state.totalItems, 9);
+  t.is(instance.state.totalItems, 10);
   wrapper.update();
 
   const activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
@@ -65,7 +65,7 @@ test('when mount component and after click on handleRight, it should update stat
   t.is(rightNavigation.exists(), true);
 });
 
-test('when mount component with 9 engines and after clicking on handleRight three times, it should update state with correct value and hide first and second engine and hide right navigation button', t => {
+test('when mount component with 10 engines and after clicking on handleRight four times, it should update state with correct value and hide first and second engine and hide right navigation button', t => {
   const props = {
     engines: fixtures.props.engines,
     total: fixtures.props.total
@@ -76,8 +76,9 @@ test('when mount component with 9 engines and after clicking on handleRight thre
   instance.handleOnRight();
   instance.handleOnRight();
   instance.handleOnRight();
-  t.is(instance.state.firstItem, 3);
-  t.is(instance.state.totalItems, 9);
+  instance.handleOnRight();
+  t.is(instance.state.firstItem, 4);
+  t.is(instance.state.totalItems, 10);
   wrapper.update();
 
   const activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
@@ -106,7 +107,7 @@ test('when mount component and after click on handleRight twice and handleLeft o
   instance.handleOnRight();
   instance.handleOnRight();
   t.is(instance.state.firstItem, 2);
-  t.is(instance.state.totalItems, 9);
+  t.is(instance.state.totalItems, 10);
   wrapper.update();
 
   let activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
@@ -125,7 +126,7 @@ test('when mount component and after click on handleRight twice and handleLeft o
 
   instance.handleOnLeft();
   t.is(instance.state.firstItem, 1);
-  t.is(instance.state.totalItems, 9);
+  t.is(instance.state.totalItems, 10);
   wrapper.update();
 
   activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
@@ -143,7 +144,7 @@ test('when mount component and after click on handleRight twice and handleLeft o
 
   instance.handleOnLeft();
   t.is(instance.state.firstItem, 0);
-  t.is(instance.state.totalItems, 9);
+  t.is(instance.state.totalItems, 10);
   wrapper.update();
 
   activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
