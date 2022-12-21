@@ -83,6 +83,12 @@ export default {
         title: 'Podcasts',
         stars: 0,
         onClick: () => console.log('podcast')
+      },
+      {
+        type: 'review',
+        title: 'Review',
+        stars: 0,
+        onClick: () => console.log('review')
       }
     ],
     progressions: [

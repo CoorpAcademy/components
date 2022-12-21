@@ -13,7 +13,8 @@ import {
   NovaCompositionCoorpacademyScorm as ScormIcon,
   NovaCompositionCoorpacademyArticle as ArticleIcon,
   NovaCompositionCoorpacademyVideo as VideoIcon,
-  NovaCompositionCoorpacademyMicrophone as PodcastIcon
+  NovaCompositionCoorpacademyMicrophone as PodcastIcon,
+  NovaCompositionCoorpacademyRevision as RevisionIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
@@ -28,7 +29,8 @@ const ICONS = {
   article: ArticleIcon,
   scorm: ScormIcon,
   video: VideoIcon,
-  podcast: PodcastIcon
+  podcast: PodcastIcon,
+  review: RevisionIcon
 };
 
 const ToolTip = ({toolTip, id}, context) => {

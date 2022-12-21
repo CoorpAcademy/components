@@ -71,6 +71,7 @@ import _NovaCompositionCoorpacademyPrev from './components/nova-composition/coor
 import _NovaCompositionCoorpacademyProfile from './components/nova-composition/coorpacademy/profile';
 import _NovaCompositionCoorpacademyQueue from './components/nova-composition/coorpacademy/queue';
 import _NovaCompositionCoorpacademyReload from './components/nova-composition/coorpacademy/reload';
+import _NovaCompositionCoorpacademyRevision from './components/nova-composition/coorpacademy/revision';
 import _NovaCompositionCoorpacademySchoolGraduation from './components/nova-composition/coorpacademy/school-graduation';
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
 import _NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
@@ -293,6 +294,7 @@ export const NovaCompositionCoorpacademyPrev: Icon = _NovaCompositionCoorpacadem
 export const NovaCompositionCoorpacademyProfile: Icon = _NovaCompositionCoorpacademyProfile;
 export const NovaCompositionCoorpacademyQueue: Icon = _NovaCompositionCoorpacademyQueue;
 export const NovaCompositionCoorpacademyReload: Icon = _NovaCompositionCoorpacademyReload;
+export const NovaCompositionCoorpacademyRevision: Icon = _NovaCompositionCoorpacademyRevision;
 export const NovaCompositionCoorpacademySchoolGraduation: Icon =
   _NovaCompositionCoorpacademySchoolGraduation;
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
