@@ -448,7 +448,7 @@ class MoocHeader extends React.Component {
                 onClick={this.handleLinkClick}
                 aria-label={user['picture-aria-label']}
               >
-                <Picture src={user.picture} />
+                <Picture src={user.picture} alt={user['picture-aria-label']} />
               </Link>
             </div>
           </div>
