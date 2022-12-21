@@ -5,7 +5,9 @@ const SvgComponent = _props => {
   const props = {
     ..._props,
     ...(ariaLabel || alt
-      ? {role: 'img'}
+      ? {
+          role: 'img'
+        }
       : {
           'aria-hidden': 'true'
         })
