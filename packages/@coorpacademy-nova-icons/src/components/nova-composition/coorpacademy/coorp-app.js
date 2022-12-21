@@ -4,10 +4,11 @@ const SvgComponent = _props => {
   const {'aria-label': ariaLabel, alt} = _props;
   const props = {
     ..._props,
-    ...(!ariaLabel &&
-      !alt && {
-        'aria-hidden': 'true'
-      })
+    ...(ariaLabel || alt
+      ? {role: 'img'}
+      : {
+          'aria-hidden': 'true'
+        })
   };
   return (
     <svg
