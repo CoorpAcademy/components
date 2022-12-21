@@ -27,7 +27,8 @@ export default {
     onResetSearch: () => console.log('onResetSearch'),
     user: {
       picture: 'https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg',
-      'picture-aria-label': 'Your picture',
+      'picture-aria-label': 'My account',
+      profileAvatarAlt: 'Your profile picture',
       notifications: {
         href: '#notifications',
         value: 5,

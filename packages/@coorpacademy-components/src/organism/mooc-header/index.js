@@ -62,6 +62,7 @@ class MoocHeader extends React.Component {
     user: PropTypes.shape({
       picture: PropTypes.string,
       'picture-aria-label': PropTypes.string,
+      profileAvatarAlt: PropTypes.string,
       href: PropTypes.string,
       notifications: PropTypes.shape({
         href: PropTypes.string,
@@ -448,7 +449,7 @@ class MoocHeader extends React.Component {
                 onClick={this.handleLinkClick}
                 aria-label={user['picture-aria-label']}
               >
-                <Picture src={user.picture} alt={user['picture-aria-label']} />
+                <Picture src={user.picture} alt={user.profileAvatarAlt} />
               </Link>
             </div>
           </div>
