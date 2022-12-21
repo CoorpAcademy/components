@@ -7,7 +7,8 @@ export default {
         more: 'Author Details',
         logo: {
           src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
-          href: 'http://google.fr'
+          href: 'http://google.fr',
+          alt: "ELEPHANT's author logo"
         },
         socialLinks: [
           {
@@ -26,7 +27,8 @@ export default {
         more: 'Author Details',
         logo: {
           src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
-          href: 'http://www.nextstage.com/'
+          href: 'http://www.nextstage.com/',
+          alt: "NEXSTAGE's author logo"
         },
         socialLinks: [
           {
