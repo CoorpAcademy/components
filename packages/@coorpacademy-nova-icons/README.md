@@ -47,7 +47,7 @@ ex:
 <br/>
 
 #### RGAA: 
-- if __you want to use an aria-label or alt prop__, you can pass it as a prop directly, if __you want an aria-hidden prop__ instead, it will be added automatically if you don't use an `aria-label` or `alt`.
+- if __you want to use an aria-label or alt prop__, you can pass it as a prop directly, this would add __role="img"__ automatically. If __you want an aria-hidden prop__ instead, it will be added automatically if you don't use an `aria-label` or `alt`.
 
 <br/>
 
