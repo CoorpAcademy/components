@@ -14,9 +14,9 @@ const EngineTab = ({engine, engineIndex, firstItem}) => {
   const {type} = engine;
   const state = engineIndex < firstItem ? 'hidden' : 'active';
   return (
-    <div className={style[state]} key={type} data-name={`${type}_total_${state}`}>
+    <li className={style[state]} key={type} data-name={`${type}_total_${state}`}>
       <EngineStars {...engine} className={engineIndex < firstItem ? style.hidden : style.active} />
-    </div>
+    </li>
   );
 };
 EngineTab.propTypes = {
@@ -113,9 +113,9 @@ class StarsSummary extends React.Component {
     return (
       <div data-name="myStars" className={style.myStars}>
         <div data-name="myStars-wrapper" className={style.myStarsWrapper}>
-          <div className={style.allStars} data-name="engineList">
+          <ul className={style.allStars} data-name="engineList">
             <EngineTabs engines={engines} firstItem={firstItem} />
-          </div>
+          </ul>
           <div
             className={style.footerSummaryStars}
             style={{
