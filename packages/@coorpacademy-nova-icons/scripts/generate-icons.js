@@ -122,7 +122,7 @@ const template =
   `
       : templateAlias.ast`
     ${importsAlias}
-    const ${componentName} = _props => {const {"aria-label":ariaLabel, alt} = _props; const props = {..._props, ...((!ariaLabel && !alt) && {
+    const ${componentName} = _props => {const {"aria-label":ariaLabel, alt} = _props; const props = {..._props, ...((ariaLabel || alt) ? {role: "img"} : {
       "aria-hidden": "true"
     })};return ${extendedJsx}}
     ${exportsAlias}
