@@ -94,7 +94,7 @@ class CardsList extends React.PureComponent {
     cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
-    'left-right-arrows-aria-label': PropTypes.shape({
+    'arrows-aria-label': PropTypes.shape({
       showMoreOnLeftAriaLabel: PropTypes.string,
       showMoreOnRightAriaLabel: PropTypes.string
     })
@@ -275,7 +275,7 @@ class CardsList extends React.PureComponent {
       onShowMore,
       dataName,
       contentType,
-      'left-right-arrows-aria-label': ariaLabel = {}
+      'arrows-aria-label': ariaLabel = {}
     } = this.props;
     const {skin} = this.context;
     const {maxPages} = this.state;
