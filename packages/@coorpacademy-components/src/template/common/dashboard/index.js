@@ -20,7 +20,13 @@ Hero.propTypes = {
 };
 
 const Dashboard = props => {
-  const {sections = [], hero, welcome, cookie} = props;
+  const {
+    sections = [],
+    hero,
+    welcome,
+    cookie,
+    'left-right-arrows-aria-label': showMoreOnLeftOrRightAriaLabel
+  } = props;
 
   const buildSectionComponent = section => {
     const {type} = section;
@@ -30,7 +36,9 @@ const Dashboard = props => {
       case 'battleRequests':
         return <BattleRequestList {...section} />;
       case 'cards':
-        return <CardsList {...section} />;
+        return (
+          <CardsList {...section} left-right-arrows-aria-label={showMoreOnLeftOrRightAriaLabel} />
+        );
       case 'news':
         return <NewsList {...section} />;
       case 'battle':
@@ -71,6 +79,7 @@ Dashboard.propTypes = {
       PropTypes.shape(ReviewBanner.propTypes)
     ])
   ),
-  cookie: PropTypes.shape(CMPopin.propTypes)
+  cookie: PropTypes.shape(CMPopin.propTypes),
+  'left-right-arrows-aria-label': CardsList.propTypes['left-right-arrows-aria-label']
 };
 export default Dashboard;
