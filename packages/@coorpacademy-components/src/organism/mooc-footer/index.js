@@ -63,7 +63,7 @@ function MoocFooter(props) {
           <div className={style.logoWrapper}>
             <CoorpAppLogo
               className={style.coorpAppLogo}
-              aria-label={headSection['mobile-logo-aria-label']}
+              aria-label={headSection['logo-aria-label']}
             />
           </div>
           <div data-name="mobile-marketing-text" className={style.marketingLabel}>
@@ -181,7 +181,7 @@ MoocFooter.propTypes = {
     appStoreButtonImageUrl: PropTypes.string,
     playStoreButtonImageUrl: PropTypes.string,
     onPlayStoreButtonClick: PropTypes.func,
-    'mobile-logo-aria-label': PropTypes.string,
+    'logo-aria-label': PropTypes.string,
     'android-alt': PropTypes.string,
     'ios-alt': PropTypes.string
   }),
