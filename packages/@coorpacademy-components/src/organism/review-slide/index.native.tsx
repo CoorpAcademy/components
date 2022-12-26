@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {
   Animated,
   Easing,
+  ScrollView,
   StyleSheet,
   TextStyle,
   useWindowDimensions,
@@ -34,10 +35,10 @@ const CorrectionPopin = ({
   animateCorrectionPopin
 }: PopinProps) => {
   const translateUp = useTranslateY({
-    fromValue: 1000,
+    fromValue: 500,
     toValue: 0,
-    duration: 800,
-    easing: Easing.bezier(0.37, 0, 0.63, 1)
+    duration: 500,
+    easing: Easing.bezier(0.34, 1.36, 0.64, 1)
   });
 
   useEffect(() => translateUp.start(), []);
@@ -78,7 +79,8 @@ type StyleSheetType = {
   questionOrigin: ViewStyle;
   questionText: TextStyle;
   questionHelp: ViewStyle;
-  choicesContainer: ViewStyle;
+  choicesScrollView: ViewStyle;
+  choicesScrollContent: ViewStyle;
 };
 
 const createQuestionStyle = (theme: Theme): StyleSheetType =>
@@ -109,10 +111,12 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
       marginTop: theme.spacing.small,
       textAlign: 'center'
     },
-    choicesContainer: {
-      flex: 1,
-      width: '100%',
-      justifyContent: 'center'
+    choicesScrollView: {
+      marginVertical: 20,
+      width: '100%'
+    },
+    choicesScrollContent: {
+      padding: 10
     }
   });
 
@@ -141,9 +145,15 @@ const Question = (props: QuestionProps) => {
         <Text style={style.questionText}>{questionText}</Text>
         <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
       </View>
-      <View style={style.choicesContainer}>
+      <ScrollView
+        style={style.choicesScrollView}
+        contentContainerStyle={style.choicesScrollContent}
+        centerContent
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <Answer {...answerUI} />
-      </View>
+      </ScrollView>
     </>
   );
 };

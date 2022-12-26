@@ -39,7 +39,7 @@ const createStyleSheet = (theme: Theme, squeezed: boolean): StyleSheetType =>
       shadowColor: '#000',
       shadowOffset: {width: 0, height: 4},
       shadowOpacity: 0.12,
-      shadowRadius: 16,
+      shadowRadius: 8,
       elevation: 8,
       backgroundColor: '#0000'
     },
@@ -47,7 +47,8 @@ const createStyleSheet = (theme: Theme, squeezed: boolean): StyleSheetType =>
       backgroundColor: theme.colors.white,
       borderRadius: theme.radius.regular,
       flexDirection: 'row',
-      alignItems: 'stretch'
+      alignItems: 'stretch',
+      minHeight: 60
     },
     textContainer: {
       paddingHorizontal: 24,
