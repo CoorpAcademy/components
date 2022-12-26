@@ -7,7 +7,7 @@ export default {
       playStoreButtonImageUrl: 'https://static.coorpacademy.com/content/Google-Play-Store.png',
       onPlayStoreButtonClick: () =>
         window.open('https://play.google.com/store/apps/details?id=com.coorpacademy.app'),
-      'mobile-logo-aria-label': 'Coorp mobile logo',
+      'logo-aria-label': 'Coorp mobile logo',
       'android-alt': 'Link to our android app',
       'ios-alt': 'Link to our ios app'
     },
