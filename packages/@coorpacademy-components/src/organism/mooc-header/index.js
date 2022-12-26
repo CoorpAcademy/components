@@ -89,6 +89,7 @@ class MoocHeader extends React.Component {
     }),
     'settings-aria-label': PropTypes.string,
     'close-settings-aria-label': PropTypes.string,
+    'active-page-aria-label': PropTypes.string,
     settings: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
@@ -239,7 +240,8 @@ class MoocHeader extends React.Component {
       search,
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
-      'close-settings-aria-label': closeSettingsAriaLabel
+      'close-settings-aria-label': closeSettingsAriaLabel,
+      'active-page-aria-label': activePageAriaLabel
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     const {translate, skin} = this.context;
@@ -271,6 +273,7 @@ class MoocHeader extends React.Component {
           : null;
 
         const {'page-count-aria-label': pageCountAriaLabel} = item;
+        const itemLabel = item.selected ? `${item.title}. ${activePageAriaLabel}` : item.title;
         const pageBadge =
           item.counter > 0 ? (
             <Link
@@ -294,7 +297,7 @@ class MoocHeader extends React.Component {
             skinHover
             onClick={this.handleLinkClick}
             target={item.target || null}
-            aria-label={item.title}
+            aria-label={itemLabel}
             style={{
               ...activeColor
             }}
@@ -317,9 +320,8 @@ class MoocHeader extends React.Component {
               color: primaryColor
             }
           : null;
-
+        const itemLabel = item.selected ? `${item.title}. ${activePageAriaLabel}` : item.title;
         const {name: itemName = index} = item;
-
         return (
           <Link
             href={item.href}
@@ -327,7 +329,7 @@ class MoocHeader extends React.Component {
             className={style.option}
             data-name={`item-more-${itemName}`}
             target={item.target || null}
-            aria-label={item.title}
+            aria-label={itemLabel}
             onClick={this.handleLinkClick}
             skinHover
             style={{
