@@ -158,11 +158,8 @@ const ContentInfo = ({
     ) : null;
 
   const adaptiveIcon = adaptiv ? (
-    <div
-      className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}
-      aria-label={get('adaptive', ariaLabel)}
-    >
-      <AdaptivIcon height={25} />
+    <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
+      <AdaptivIcon height={25} aria-label={get('adaptive', ariaLabel)} />
     </div>
   ) : null;
 

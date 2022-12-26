@@ -93,7 +93,11 @@ class CardsList extends React.PureComponent {
     showMore: PropTypes.string,
     cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
     onScroll: PropTypes.func,
-    onShowMore: PropTypes.func
+    onShowMore: PropTypes.func,
+    'arrows-aria-label': PropTypes.shape({
+      showMoreOnLeftAriaLabel: PropTypes.string,
+      showMoreOnRightAriaLabel: PropTypes.string
+    })
   };
 
   static contextTypes = {
@@ -264,7 +268,15 @@ class CardsList extends React.PureComponent {
   }
 
   render() {
-    const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
+    const {
+      title,
+      showMore,
+      cards,
+      onShowMore,
+      dataName,
+      contentType,
+      'arrows-aria-label': ariaLabel = {}
+    } = this.props;
     const {skin} = this.context;
     const {maxPages} = this.state;
     const dark = getOr('#90A4AE', 'common.dark', skin);
@@ -281,12 +293,24 @@ class CardsList extends React.PureComponent {
     )(cards);
     const leftArrowView = (
       <div className={style.circle} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
-        <ArrowLeft color={dark} className={style.left} width={10} height={10} />
+        <ArrowLeft
+          color={dark}
+          className={style.left}
+          width={10}
+          height={10}
+          aria-label={ariaLabel.showMoreOnLeftAriaLabel}
+        />
       </div>
     );
     const rightArrowView = (
       <div className={style.circle} onClick={this.handleOnRight} data-name="card-list-right-arrow">
-        <ArrowRight color={dark} className={style.right} width={10} height={10} />
+        <ArrowRight
+          color={dark}
+          className={style.right}
+          width={10}
+          height={10}
+          aria-label={ariaLabel.showMoreOnRightAriaLabel}
+        />
       </div>
     );
 
