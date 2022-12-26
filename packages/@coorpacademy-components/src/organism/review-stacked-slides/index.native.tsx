@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Animated, StyleSheet, useWindowDimensions} from 'react-native';
+import {Animated, Easing, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
 import {useTranslateY} from '@coorpacademy/react-native-animation';
 import Slide from '../review-slide/index.native';
@@ -46,7 +46,8 @@ const StackedSlides = (props: ReviewStackProps) => {
   const translateDown = useTranslateY({
     fromValue: 0,
     toValue: windowHeight - 100,
-    duration: 1000
+    duration: 500,
+    easing: Easing.cubic
   });
 
   useEffect(() => {
