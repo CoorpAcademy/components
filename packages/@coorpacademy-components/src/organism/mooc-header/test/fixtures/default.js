@@ -108,7 +108,7 @@ export default {
     ],
     'settings-aria-label': 'account settings',
     'close-settings-aria-label': 'close account settings',
-    'active-page-alt': 'Active page',
+    'active-page-aria-label': 'Active page',
     settings: [
       {
         title: 'Language',

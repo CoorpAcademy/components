@@ -89,7 +89,7 @@ class MoocHeader extends React.Component {
     }),
     'settings-aria-label': PropTypes.string,
     'close-settings-aria-label': PropTypes.string,
-    'active-page-alt': PropTypes.string,
+    'active-page-aria-label': PropTypes.string,
     settings: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
@@ -241,7 +241,7 @@ class MoocHeader extends React.Component {
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
       'close-settings-aria-label': closeSettingsAriaLabel,
-      'active-page-alt': activePageAlt
+      'active-page-aria-label': activePageAriaLabel
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     const {translate, skin} = this.context;
@@ -273,7 +273,7 @@ class MoocHeader extends React.Component {
           : null;
 
         const {'page-count-aria-label': pageCountAriaLabel} = item;
-        const itemLabel = item.selected ? `${item.title}. ${activePageAlt}` : item.title;
+        const itemLabel = item.selected ? `${item.title}. ${activePageAriaLabel}` : item.title;
         const pageBadge =
           item.counter > 0 ? (
             <Link
@@ -320,7 +320,7 @@ class MoocHeader extends React.Component {
               color: primaryColor
             }
           : null;
-        const itemLabel = item.selected ? `${item.title}. ${activePageAlt}` : item.title;
+        const itemLabel = item.selected ? `${item.title}. ${activePageAriaLabel}` : item.title;
         const {name: itemName = index} = item;
         return (
           <Link
