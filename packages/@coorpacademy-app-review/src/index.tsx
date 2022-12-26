@@ -7,14 +7,13 @@ import type {AppReviewProps} from '@coorpacademy/components/es/template/app-revi
 
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
-import type {AppOptions, ConnectedOptions, ViewName} from './types/common';
+import type {AppOptions, ConnectedOptions} from './types/common';
 import configureStore from './configure-store';
 
 import type {StoreState} from './reducers';
 
 import {navigateBack, navigateTo} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
-import {fetchSkills} from './actions/api/fetch-skills';
 import {postProgression} from './actions/api/post-progression';
 import {mapStateToSkillsProps} from './views/skills';
 import {mapStateToSlidesProps} from './views/slides';
@@ -34,59 +33,35 @@ const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
   return <AppReviewTemplate {...props} />;
 };
 
+const storeTokenAndCreateProgression = async (
+  store: Store<StoreState>,
+  options: AppOptions
+): Promise<void> => {
+  const token = get('token', options);
+  if (store === null || isEmpty(token)) return;
+  store.dispatch(storeToken(token));
+
+  const skillRef = get('skillRef', options);
+
+  if (skillRef) {
+    store.dispatch(navigateTo('loader'));
+    await store.dispatch(postProgression(skillRef));
+    store.dispatch(navigateTo('slides'));
+  }
+};
+
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
-  const [isProgressionCreated, setIsProgressionCreated] = useState(false);
-
   const {translate, onQuitClick, skin} = options;
 
   useEffect(() => {
-    if (store) return;
-
     const newStore = configureStore(options);
     setStore(newStore);
-  }, [options, store]);
+    storeTokenAndCreateProgression(newStore, options);
 
-  useEffect(() => {
-    if (!store || isProgressionCreated) return;
-
-    return store.subscribe(() => {
-      const isProgressionPresent = !isEmpty(store.getState().data.progression);
-      return isProgressionPresent && setIsProgressionCreated(isProgressionPresent);
-    });
-  }, [isProgressionCreated, options, store]);
-
-  useEffect(() => {
-    const token = get('token', options);
-    if (store === null || isEmpty(token)) return;
-
-    store.dispatch(storeToken(token));
-  }, [options, store]);
-
-  useEffect(() => {
-    const token = get('token', options);
-    if (store === null || isEmpty(token)) return;
-
-    const skillRef = get('skillRef', options);
-
-    /* ThunkAction is not assignable to parameter of type 'AnyAction'
-      ts problem is described here = https://github.com/reduxjs/redux-thunk/issues/333 */
-    skillRef ? store.dispatch(postProgression(skillRef)) : store.dispatch(fetchSkills);
-  }, [options, store]);
-
-  useEffect(() => {
-    if (store === null) return;
-
-    const {skillRef} = options;
-
-    if (skillRef && !isProgressionCreated) {
-      store.dispatch(navigateTo('loader')); // use loader while posting progression
-      return;
-    }
-
-    const initialView: ViewName = skillRef ? 'slides' : 'skills';
-    store.dispatch(navigateTo(initialView));
-  }, [isProgressionCreated, options, store]);
+    // should create store, store token and create progression only once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!store) return null;
 
