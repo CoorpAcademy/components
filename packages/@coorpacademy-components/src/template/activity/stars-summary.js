@@ -30,7 +30,12 @@ const EngineTabs = ({engines, firstItem}) => {
     () =>
       map.convert({cap: false})(
         (engine, index) => (
-          <EngineTab engine={engine} key={index} firstItem={firstItem} engineIndex={index} />
+          <EngineTab
+            engine={engine}
+            key={`engineTab_${index}`}
+            firstItem={firstItem}
+            engineIndex={index}
+          />
         ),
         engines
       ),
