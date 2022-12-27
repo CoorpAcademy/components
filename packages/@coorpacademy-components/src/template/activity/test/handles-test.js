@@ -56,7 +56,7 @@ test('should call the onClick function with click on engine tab', t => {
   t.plan(4);
 
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = set('engines[2].onClick', e => t.pass(), defaultFixture.props);
+  const props = set(['engines', '2', 'onClick'], e => t.pass(), defaultFixture.props);
   const wrapper = mount(<Activity {...props} />, {context});
   const battleTab = wrapper.find('[data-engine="battle"]');
   t.is(battleTab.exists(), true);

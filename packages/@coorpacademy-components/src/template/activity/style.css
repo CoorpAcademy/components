@@ -123,7 +123,7 @@
   }
 
   .recommendationWrapper {
-    display: none;
+    margin: 24px 40px 24px 24px;
   }
 
   .wrapperCta {
@@ -142,7 +142,11 @@
   }
 
   .select {
+    margin-left: 24px;
+    margin-right: 40px;
+    margin-top: 30px;
     padding-bottom: 0;
+    z-index: 1;
   }
 
   .selectBorder {
