@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.12.6",
+  "version": "0.13.0",
   "description": "",
   "engines": {
     "node": ">=16.15.0"
