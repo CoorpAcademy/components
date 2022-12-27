@@ -103,6 +103,7 @@ function MoocFooter(props) {
                 data-text={page.title}
                 className={style.pageLink}
                 target={page.target}
+                aria-label={page.ariaLabel ? page.ariaLabel : page.title}
                 data-name={page.title}
               >
                 {page.title}

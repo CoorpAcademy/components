@@ -45,7 +45,8 @@ export default {
           {
             title: 'FAQ',
             link: 'https://www.support.coorpacademy.com/faq-users-fr',
-            target: '_self'
+            target: '_self',
+            ariaLabel: 'Access to the support page'
           },
           {
             title: 'Data privacy policy',
