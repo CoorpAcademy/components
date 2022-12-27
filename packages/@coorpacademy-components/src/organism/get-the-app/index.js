@@ -155,14 +155,20 @@ const GetTheApp = (props, context) => {
     endMessage,
     'android-alt': androidAlt,
     'ios-alt': iosAlt,
-    qrCodeImageAlt
+    qrCodeImageAlt,
+    'logo-aria-label': coorpAppLogoAriaLabel
   } = props;
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
   return (
     <div className={style.container}>
       <div className={style.coorpAppLogoWrapper}>
-        <CoorpAppLogo height={51} width={250} className={style.coorpAppLogo} />
+        <CoorpAppLogo
+          height={51}
+          width={250}
+          className={style.coorpAppLogo}
+          aria-label={coorpAppLogoAriaLabel}
+        />
       </div>
       <div className={style.store}>
         <Header {...storeStep} />
