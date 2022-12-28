@@ -137,12 +137,12 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const fadeInStars = useAnimateProp({
     ...fadeIn,
-    delay: 1000
+    delay: cardCongratsRank ? 1000 : 0
   });
 
   const translateStars = useTranslateX({
     ...translateHorizontally,
-    delay: 1000
+    delay: cardCongratsRank ? 1000 : 0
   });
 
   const showButton1 = useAnimateProp(fadeIn);
@@ -150,8 +150,12 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const congratsSequence = sequence([
     parallel([showCongrats, translateCongrats]),
-    parallel([showConfettis, fadeInRank, translateRank]),
-    parallel([fadeInStars, translateStars]),
+    parallel([
+      showConfettis,
+      cardCongratsRank
+        ? sequence([parallel([fadeInRank, translateRank]), parallel([fadeInStars, translateStars])])
+        : parallel([fadeInStars, translateStars])
+    ]),
     sequence([showButton1, showButton2])
   ]);
 
@@ -172,6 +176,7 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
 
   const handleContinueRevisingPress = buttonRevising?.onClick || noop;
   const handleReviseAnotherSkillPress = buttonRevisingSkill?.onClick || noop;
+  const showStarLottieAnimation = !cardCongratsRank || isRankShown;
 
   return (
     <Animated.View
@@ -201,7 +206,9 @@ const ReviewCongrats = (props: ReviewCongratsProps) => {
         ) : null}
         <Animated.View style={[fadeInStars.animatedStyle, translateStars.animatedStyle]}>
           <CardCongrats
-            animationUri={isRankShown ? cardCongratsStar.animationLottie.animationSrc : null}
+            animationUri={
+              showStarLottieAnimation ? cardCongratsStar.animationLottie.animationSrc : null
+            }
             Icon={StarIcon}
             text={cardCongratsStar.reviewCardTitle}
             value={cardCongratsStar.reviewCardValue}
