@@ -103,6 +103,7 @@ function MoocFooter(props) {
                 data-text={page.title}
                 className={style.pageLink}
                 target={page.target}
+                aria-label={page.ariaLabel ? page.ariaLabel : page.title}
                 data-name={page.title}
               >
                 {page.title}
@@ -189,7 +190,12 @@ MoocFooter.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       pages: PropTypes.arrayOf(
-        PropTypes.shape({title: PropTypes.string, link: PropTypes.string, target: PropTypes.string})
+        PropTypes.shape({
+          title: PropTypes.string,
+          link: PropTypes.string,
+          target: PropTypes.string,
+          ariaLabel: PropTypes.string
+        })
       )
     })
   ),
