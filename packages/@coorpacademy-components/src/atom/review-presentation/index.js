@@ -36,7 +36,9 @@ const ToolTip = ({tooltipText}) => {
         <InformationIcon className={style.informationIcon} width={12} height={12} />
       </div>
       <div className={style.toolTip}>
-        <div className={style.tooltipText}>{tooltipText}</div>
+        <div className={style.tooltipText}>
+          <p>{tooltipText}</p>
+        </div>
       </div>
     </div>
   );
