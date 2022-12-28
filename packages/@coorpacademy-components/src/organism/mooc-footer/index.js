@@ -190,7 +190,12 @@ MoocFooter.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       pages: PropTypes.arrayOf(
-        PropTypes.shape({title: PropTypes.string, link: PropTypes.string, target: PropTypes.string})
+        PropTypes.shape({
+          title: PropTypes.string,
+          link: PropTypes.string,
+          target: PropTypes.string,
+          ariaLabel: PropTypes.string
+        })
       )
     })
   ),
