@@ -19,7 +19,9 @@ class Filters extends React.Component {
     sorting: PropTypes.shape(Select.propTypes),
     onSearch: PropTypes.func,
     onToggleFilters: PropTypes.func,
-    onToggleSorts: PropTypes.func
+    onToggleSorts: PropTypes.func,
+    moreSortAriaLabel: PropTypes.string,
+    moreFilterAriaLabel: PropTypes.string
   };
 
   static contextTypes = {
@@ -77,8 +79,16 @@ class Filters extends React.Component {
   }
 
   render() {
-    const {sorting, filterCTALabel, filterTabLabel, sortCTALabel, sortTabLabel, filters} =
-      this.props;
+    const {
+      sorting,
+      filterCTALabel,
+      filterTabLabel,
+      sortCTALabel,
+      sortTabLabel,
+      filters,
+      moreFilterAriaLabel,
+      moreSortAriaLabel
+    } = this.props;
     const {filter, sorted} = this.state;
     const {skin} = this.context;
 
@@ -104,7 +114,7 @@ class Filters extends React.Component {
           <div className={style.title} data-name="filterButton" onClick={this.handleOpenFilter}>
             {filterTabLabel}
             <div className={style.arrow}>
-              <ArrowDown color={darkColor} height={14} />
+              <ArrowDown color={darkColor} height={14} aria-label={moreFilterAriaLabel} />
             </div>
           </div>
         </div>
@@ -116,7 +126,7 @@ class Filters extends React.Component {
           <div className={style.title} data-name="sortButton" onClick={this.handleOpenSort}>
             {sortTabLabel}
             <div className={style.arrow}>
-              <ArrowDown color={darkColor} height={14} />
+              <ArrowDown color={darkColor} height={14} aria-label={moreSortAriaLabel} />
             </div>
           </div>
         </div>

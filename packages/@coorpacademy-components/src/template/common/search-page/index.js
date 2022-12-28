@@ -9,7 +9,16 @@ import CardsList from '../../../molecule/dashboard/cards-list';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
-  const {title, searchFilters, cards, noresultsfound, clearFilters, recommendations} = props;
+  const {
+    title,
+    searchFilters,
+    cards,
+    noresultsfound,
+    clearFilters,
+    recommendations,
+    moreSortAriaLabel,
+    moreFilterAriaLabel
+  } = props;
 
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -36,7 +45,11 @@ const SearchPage = (props, context) => {
 
   return (
     <div>
-      <Filters {...searchFilters} />
+      <Filters
+        {...searchFilters}
+        moreSortAriaLabel={moreSortAriaLabel}
+        moreFilterAriaLabel={moreFilterAriaLabel}
+      />
       <div data-name="searchResult" className={style.cardsWrapper}>
         <div className={style.title}>{title}</div>
         {cardsView}
@@ -55,7 +68,9 @@ SearchPage.propTypes = {
   searchFilters: PropTypes.shape(Filters.propTypes),
   cards: PropTypes.shape(CardsGrid.propTypes),
   clearFilters: PropTypes.shape(Button.propTypes),
-  recommendations: PropTypes.shape(CardsList.propTypes)
+  recommendations: PropTypes.shape(CardsList.propTypes),
+  moreSortAriaLabel: PropTypes.string,
+  moreFilterAriaLabel: PropTypes.string
 };
 
 export default SearchPage;
