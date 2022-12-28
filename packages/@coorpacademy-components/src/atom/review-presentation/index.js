@@ -46,7 +46,6 @@ const ToolTip = ({tooltipText}) => {
 
 const ReviewPresentation = props => {
   const {'aria-label': ariaLabel, reviewTitle, reviewText, labelsList} = props;
-
   return (
     <div className={style.reviewWrapper} aria-label={ariaLabel}>
       <div

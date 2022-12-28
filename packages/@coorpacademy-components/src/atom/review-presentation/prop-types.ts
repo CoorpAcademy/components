@@ -3,7 +3,8 @@ import {GestureResponderEvent} from 'react-native';
 
 const levelItem = PropTypes.shape({
   text: PropTypes.string,
-  tooltipText: PropTypes.string
+  tooltipText: PropTypes.string,
+  moreDetailsAreaLabel: PropTypes.string
 });
 
 const propTypes = {
