@@ -21,6 +21,8 @@
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    margin: auto;
+    padding-left: 0;
 }
 
 .myStars {
