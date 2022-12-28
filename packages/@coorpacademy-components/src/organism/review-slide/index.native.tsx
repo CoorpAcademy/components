@@ -41,6 +41,8 @@ const CorrectionPopin = ({
     easing: Easing.bezier(0.34, 1.36, 0.64, 1)
   });
 
+  // the translation is required only once on mount
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => translateUp.start(), []);
 
   if (!showCorrectionPopin) return null;

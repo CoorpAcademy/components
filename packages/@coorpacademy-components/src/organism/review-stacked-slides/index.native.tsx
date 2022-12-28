@@ -3,10 +3,7 @@ import {Animated, Easing, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
 import {useTranslateY} from '@coorpacademy/react-native-animation';
 import Slide from '../review-slide/index.native';
-import type {ReviewSlideProps} from '../review-slide/prop-types';
 import type {ReviewStackProps} from './prop-types';
-
-export const TOTAL_SLIDES_STACK = 5;
 
 const style = StyleSheet.create({
   slides: {
@@ -15,16 +12,6 @@ const style = StyleSheet.create({
     width: '100%'
   }
 });
-
-type FakeSlideProps = {position: number; validateButton: ReviewSlideProps['validateButton']};
-const FakeSlide = ({position, validateButton}: FakeSlideProps) => (
-  <Slide
-    num={position}
-    slide={{loading: true, position}}
-    slideIndex={`${position}`}
-    validateButton={validateButton}
-  />
-);
 
 /*
    - slides are ordered to be played from left to right: [0,1,2,3]
@@ -35,7 +22,8 @@ const StackedSlides = (props: ReviewStackProps) => {
   const {height: windowHeight} = useWindowDimensions();
   const {endReview, slides, validateButton, correctionPopinProps} = props;
   const [unstacked, setUnstacked] = useState<string[]>([]);
-  const [restacked, setRestacked] = useState<string | null>();
+  const [restacking, setRestacking] = useState<string | null>(null);
+  const [restackingDone, setRestackingDone] = useState<boolean>(false);
 
   const hideSlides = useTranslateY({
     fromValue: 0,
@@ -48,6 +36,13 @@ const StackedSlides = (props: ReviewStackProps) => {
     toValue: windowHeight - 100,
     duration: 500,
     easing: Easing.cubic
+  });
+
+  const restackTranslation = useTranslateY({
+    toValue: 0,
+    fromValue: -windowHeight,
+    duration: 1200,
+    easing: Easing.out(Easing.cubic)
   });
 
   useEffect(() => {
@@ -67,11 +62,15 @@ const StackedSlides = (props: ReviewStackProps) => {
     slides[k2].position > slides[k1].position ? 1 : -1
   );
 
-  const animatedSlide = restackingSlide || unstackingSlide;
+  const animatedFrontSlide =
+    unstackingSlide || (restackingSlide && restacking === null ? restackingSlide : undefined);
+
+  const animatedRestackedSlide = restacking !== null;
 
   useEffect(() => {
-    if (restacked && orderedKeys.includes(restacked)) {
-      setRestacked(null);
+    if (restacking !== null && orderedKeys.includes(restacking)) {
+      setRestacking(null);
+      setRestackingDone(false);
     }
     // this effect is required only when the list orderedKeys changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -88,22 +87,28 @@ const StackedSlides = (props: ReviewStackProps) => {
   }, [unstackingSlide, unstacked, setUnstacked, translateDown]);
 
   useEffect(() => {
-    const restacking = restackingSlide && restacked !== restackingSlide;
+    const startRestacking = !restackingDone && restackingSlide && restacking !== restackingSlide;
 
-    if (restacking) {
+    if (startRestacking) {
       translateDown.start(() => {
-        setRestacked(restackingSlide);
+        setRestacking(restackingSlide);
+        restackTranslation.start(() => {
+          setRestackingDone(true);
+        });
       });
     }
-  }, [restackingSlide, restacked, setRestacked, translateDown]);
+    // this effect is required only to trigger the restack animation when a new restackingSlide is set
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [restackingSlide, restacking]);
 
   const stackedSlides = orderedKeys.map((slideIndex, index) => {
     const slide = slides[slideIndex];
+    const num = orderedKeys.length - index;
 
     return (
       <Slide
         {...{
-          num: orderedKeys.length - index,
+          num,
           slideIndex,
           slide,
           validateButton,
@@ -114,26 +119,36 @@ const StackedSlides = (props: ReviewStackProps) => {
     );
   });
 
-  if (animatedSlide) {
+  if (animatedFrontSlide) {
     stackedSlides.push(
       <Slide
         {...{
           num: 0,
-          slideIndex: animatedSlide,
-          slide: slides[animatedSlide],
+          slideIndex: animatedFrontSlide,
+          slide: slides[animatedFrontSlide],
           validateButton,
           correctionPopinProps
         }}
         animatedStyle={[translateDown.animatedStyle]}
-        key={animatedSlide}
+        key={animatedFrontSlide}
       />
     );
   }
 
   return (
     <Animated.View style={[style.slides, hideSlides.animatedStyle]}>
-      {restacked ? (
-        <FakeSlide position={orderedKeys.length + 1} validateButton={validateButton} />
+      {animatedRestackedSlide ? (
+        <Slide
+          {...{
+            num: orderedKeys.length + 1,
+            slideIndex: restacking,
+            slide: slides[restacking],
+            validateButton,
+            correctionPopinProps
+          }}
+          animatedStyle={[restackTranslation.animatedStyle]}
+          key={restacking}
+        />
       ) : null}
       {stackedSlides}
     </Animated.View>
