@@ -256,7 +256,7 @@ class MoocHeader extends React.Component {
     let notificationsView = null;
     let searchFormView = null;
 
-    const moreLabel = translate('More');
+    const moreAriaLabel = translate('More');
     const closeLabel = translate('Close');
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
@@ -345,14 +345,9 @@ class MoocHeader extends React.Component {
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
           <div className={style.more}>
-            <div
-              className={style.currentOption}
-              aria-haspopup="true"
-              data-name="item-more"
-              aria-label={moreLabel}
-            >
-              {moreLabel}
-              <ArrowDown color={mediumColor} className={style.caret} />
+            <div className={style.currentOption} aria-haspopup="true" data-name="item-more">
+              {moreAriaLabel}
+              <ArrowDown color={mediumColor} className={style.caret} aria-label={moreAriaLabel} />
             </div>
             <div className={style.optionsGroup}>{optionsView}</div>
           </div>

@@ -41,7 +41,8 @@ const Select = (props, legacyContext) => {
     theme,
     modified = false,
     error = false,
-    title: propTitle
+    title: propTitle,
+    moreAriaLabel
   } = props;
 
   const skin = GetSkinFromContext(legacyContext);
@@ -109,6 +110,7 @@ const Select = (props, legacyContext) => {
     <ArrowDown
       color={includes(theme, ['question', 'template', 'player']) ? arrowColor : black}
       className={shouldUseSkinFontColor ? style.selectedArrow : style.arrow}
+      aria-label={moreAriaLabel}
     />
   ) : null;
   const behaviourClassName = useMemo(
@@ -196,6 +198,7 @@ Select.contextTypes = {
 
 Select.propTypes = {
   title: PropTypes.string,
+  moreAriaLabel: PropTypes.string,
   name: PropTypes.string,
   className: PropTypes.string,
   borderClassName: PropTypes.string,
