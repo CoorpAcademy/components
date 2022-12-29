@@ -12,6 +12,8 @@ export default {
     filterCTALabel: 'Filter',
     sortTabLabel: 'Sort by',
     sortCTALabel: 'Sort',
+    moreSortAriaLabel: 'show or hide sortBy options',
+    moreFilterAriaLabel: 'show or hide sortBy options',
     filters: [
       {
         ...selectFilter,

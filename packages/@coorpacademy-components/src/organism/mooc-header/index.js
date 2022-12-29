@@ -497,14 +497,9 @@ class MoocHeader extends React.Component {
             selectProps.onChange = options.onChange;
 
             settingView = (
-              <div
-                data-name={`setting-${settingName}`}
-                className={style.setting}
-                key={settingName}
-                aria-label={ariaLabel || title}
-              >
+              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
                 <span className={style.label}>{title}</span>
-                <Select {...selectProps} />
+                <Select {...selectProps} moreAriaLabel={ariaLabel || title} />
               </div>
             );
             break;

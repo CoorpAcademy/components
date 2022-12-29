@@ -11,6 +11,8 @@ export default {
     searchFilters: defaultsDeep(searchFilters, {
       openFilters: true
     }),
-    cards
+    cards,
+    moreSortAriaLabel: 'show or hide sortBy options',
+    moreFilterAriaLabel: 'show or hide sortBy options'
   }
 };
