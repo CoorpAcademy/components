@@ -91,15 +91,11 @@ const Item = (props: ItemProps) => {
   } = props;
 
   const templateContext = useTemplateContext();
-  const {theme, brandTheme, translations} = templateContext;
+  const {theme, translations} = templateContext;
 
   const inputNames = choices.map(choice => choice.name);
   const id = `question-part-${index + 1}`;
   const isFocused = focusedSelectId === id;
-
-  const coloredText = brandTheme && {
-    color: brandTheme.colors?.primary
-  };
 
   if (part.type === 'answerField' && inputNames.includes(part.value)) {
     const choiceIndex = choices.findIndex(choice => choice.name === part.value);
@@ -133,14 +129,7 @@ const Item = (props: ItemProps) => {
     }
 
     const selectInputStyle: TextStyle[] = [styles.selectInput];
-    if (coloredText && value) {
-      selectInputStyle.push(coloredText);
-    }
-
     const selectTextStyle: TextStyle[] = [styles.selectText];
-    if (coloredText && value) {
-      selectTextStyle.push(coloredText);
-    }
 
     if (choice.type === 'select') {
       return (

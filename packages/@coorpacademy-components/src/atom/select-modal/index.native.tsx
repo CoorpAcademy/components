@@ -16,6 +16,7 @@ export type ChoiceItem = {
   text: string;
   selected: boolean;
   _id: string;
+  value: string;
 };
 
 export type Props = {
@@ -26,7 +27,6 @@ export type Props = {
   values: Array<ChoiceItem>;
   value?: string;
   placeholder?: string;
-  color?: string;
   onChange: OnChangeFunction;
   onFocus: () => void;
   onBlur: () => void;
@@ -70,7 +70,7 @@ const logEvent = (
 
 const Select = (props: Props) => {
   const templateContext = useTemplateContext();
-  const {theme, analytics} = templateContext;
+  const {brandTheme, theme, analytics} = templateContext;
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
@@ -88,7 +88,6 @@ const Select = (props: Props) => {
     value,
     style,
     textStyle,
-    color,
     questionType,
     isFocused = false,
     isDisabled = false,
@@ -128,7 +127,10 @@ const Select = (props: Props) => {
   if (textStyle) {
     textStyles = [styleSheet.text, ...textStyle];
   }
-  if (color) {
+
+  let color;
+  if ((selectedItem?.value?.length || 0) > 0) {
+    color = brandTheme?.colors?.primary;
     textStyles.push({color});
   }
 
