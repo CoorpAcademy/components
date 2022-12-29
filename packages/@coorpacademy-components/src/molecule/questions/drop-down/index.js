@@ -5,7 +5,7 @@ import Select, {SelectOptionPropTypes} from '../../../atom/select';
 import style from './style.css';
 
 const DropDown = props => {
-  const {options, onChange, theme: propsTheme} = props;
+  const {options, onChange, theme: propsTheme, 'aria-label': ariaLabel} = props;
 
   const currentSelection = find('selected', options);
   const defaultTheme =
@@ -15,7 +15,7 @@ const DropDown = props => {
 
   return (
     <div className={style.wrapper}>
-      <Select theme={theme} options={options} onChange={onChange} />
+      <Select aria-label={ariaLabel} theme={theme} options={options} onChange={onChange} />
     </div>
   );
 };
@@ -23,7 +23,8 @@ const DropDown = props => {
 DropDown.propTypes = {
   onChange: Select.propTypes.onChange,
   options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
-  theme: Select.propTypes.theme
+  theme: Select.propTypes.theme,
+  'aria-label': PropTypes.string
 };
 
 export default DropDown;

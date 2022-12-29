@@ -1,5 +1,6 @@
 export default {
   props: {
+    'aria-label': 'dropdown aria icon label',
     options: [
       {
         name: 'There is no need for a password',

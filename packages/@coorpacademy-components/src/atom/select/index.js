@@ -42,7 +42,7 @@ const Select = (props, legacyContext) => {
     modified = false,
     error = false,
     title: propTitle,
-    moreAriaLabel
+    'aria-label': ariaLabel
   } = props;
 
   const skin = GetSkinFromContext(legacyContext);
@@ -110,21 +110,22 @@ const Select = (props, legacyContext) => {
     <ArrowDown
       color={includes(theme, ['question', 'template', 'player']) ? arrowColor : black}
       className={shouldUseSkinFontColor ? style.selectedArrow : style.arrow}
-      aria-label={moreAriaLabel}
+      aria-label={ariaLabel}
+      data-testid="select-arrow-down-icon"
     />
   ) : null;
-  const behaviourClassName = useMemo(
+  const behaviorClassName = useMemo(
     () => getClassState(style.default, style.modified, style.error, modified, error),
     [error, modified]
   );
   const composedClassName = useMemo(
     () =>
       classnames(
-        theme && theme !== 'coorpmanager' ? themeStyle[theme] : behaviourClassName,
+        theme && theme !== 'coorpmanager' ? themeStyle[theme] : behaviorClassName,
         selected ? style.selected : style.unselected,
         className
       ),
-    [behaviourClassName, className, selected, theme]
+    [behaviorClassName, className, selected, theme]
   );
 
   const labelSize = useMemo(() => size(selectedLabel), [selectedLabel]);
@@ -198,7 +199,6 @@ Select.contextTypes = {
 
 Select.propTypes = {
   title: PropTypes.string,
-  moreAriaLabel: PropTypes.string,
   name: PropTypes.string,
   className: PropTypes.string,
   borderClassName: PropTypes.string,
@@ -210,7 +210,8 @@ Select.propTypes = {
   theme: PropTypes.oneOf(keys(themeStyle)),
   options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
   modified: PropTypes.bool,
-  error: PropTypes.bool
+  error: PropTypes.bool,
+  'aria-label': PropTypes.string
 };
 
 export default Select;
