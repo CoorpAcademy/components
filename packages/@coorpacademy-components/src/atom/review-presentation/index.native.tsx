@@ -101,7 +101,7 @@ const Tip = (props: TipProps) => {
 
   return (
     <View style={styleSheet.tip}>
-      {<Icon height={16} width={16} style={styleSheet.icon} color={theme.colors.text.primary} />}
+      <Icon height={16} width={16} style={styleSheet.icon} color={theme.colors.text.primary} />
       <Text style={styleSheet.tipText}>{text}</Text>
     </View>
   );

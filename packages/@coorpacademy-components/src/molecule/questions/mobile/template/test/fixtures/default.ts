@@ -23,21 +23,25 @@ const field2: TemplateListOfChoices = {
     {
       _id: '1',
       text: 'Play Store',
+      value: 'Play Store',
       selected: false
     },
     {
       _id: '2',
       text: 'App Store',
+      value: 'App Store',
       selected: true
     },
     {
       _id: '3',
       text: 'Apple Store',
+      value: 'Apple Store',
       selected: false
     },
     {
       _id: '4',
       text: 'Pineapple Store',
+      value: 'Pineapple Store',
       selected: false
     }
   ]
