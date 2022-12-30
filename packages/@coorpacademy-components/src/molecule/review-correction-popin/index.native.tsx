@@ -40,9 +40,10 @@ interface StyleSheetType {
 const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
   StyleSheet.create({
     wrapper: {
-      height: 'auto',
-      color: theme.colors.white,
-      display: 'flex'
+      backgroundColor: '#00000000',
+      height: 2000,
+      display: 'flex',
+      justifyContent: 'flex-end'
     },
     popin: {
       padding: theme.spacing.medium,
