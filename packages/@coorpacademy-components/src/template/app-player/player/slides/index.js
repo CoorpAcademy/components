@@ -362,7 +362,7 @@ const LoadingLayout = ({popinError}) => (
 );
 
 LoadingLayout.propTypes = {
-  popinError: CMPopin.propTypes
+  popinError: PropTypes.shape(CMPopin.propTypes)
 };
 
 const LoadedLayout = ({question, step, ...props}) =>

@@ -39,11 +39,20 @@ const renderNativeComponent = (t, Component, fixture) => {
   let vDom;
 
   if (fixture.mobileContext) {
-    vDom = (
-      <TemplateContext values={fixture.mobileContext}>
-        <Component {...fixture.props} />
-      </TemplateContext>
-    );
+    try {
+      vDom = (
+        <TemplateContext values={fixture.mobileContext}>
+          <Component {...fixture.props} />
+        </TemplateContext>
+      );
+    } catch (e) {
+      console.log(
+        `[------ ❌ [native rendering]---> error for ${Component.name}, vDom building step`
+      );
+      console.log(e);
+      console.log('-------------------]');
+      throw e;
+    }
   } else {
     vDom = <Component {...fixture.props} />;
   }
