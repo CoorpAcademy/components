@@ -47,7 +47,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       paddingHorizontal: 20,
       flexDirection: 'column',
       justifyContent: 'space-between',
-      flex: 1
+      height: 114
     },
     title: {
       fontWeight: '400',

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {GestureResponderEvent} from 'react-native';
+import {ColorValue, GestureResponderEvent, ViewStyle} from 'react-native';
 
 const levelItem = PropTypes.shape({
   text: PropTypes.string,
@@ -57,10 +57,10 @@ export type OnboardingProps = {
         }
       | undefined;
   };
-  onPress: (event: GestureResponderEvent) => any;
+  onPress: (event: GestureResponderEvent) => void;
 };
 
 export type TipProps = {
   text: string | undefined;
-  Icon: any;
+  Icon: React.FC<{height: number; width: number; style: ViewStyle; color: ColorValue}>;
 };

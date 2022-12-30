@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
 import RenderHTML, {
   CustomRendererProps,
@@ -100,7 +100,11 @@ const Html = (props: Props) => {
     img: imageStyle || {}
   };
 
-  let baseFontStyle: TextStyle = {...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black};
+  let baseFontStyle: TextStyle = useMemo(
+    () => ({...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black}),
+    [fontSize, theme]
+  );
+
   if (style) {
     if (Array.isArray(style)) {
       const styleObject = style.reduce((result, child) => ({

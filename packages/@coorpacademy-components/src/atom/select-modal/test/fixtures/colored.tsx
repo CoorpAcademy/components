@@ -10,7 +10,6 @@ const fixture: Fixture = {
     placeholder: 'Feel free to edit',
     analyticsID: 'foo',
     values: items,
-    color: '#ff00ff',
     onChange: noop,
     onBlur: noop,
     onFocus: noop
