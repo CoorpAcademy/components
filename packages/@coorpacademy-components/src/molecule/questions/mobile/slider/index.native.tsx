@@ -6,6 +6,7 @@ import {Theme} from '../../../../variables/theme.native';
 import Text from '../../../../atom/text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {BOX_STYLE} from '../../../../variables/shadow';
+import {Brand} from '../../../../variables/brand.native';
 
 export type OnSlidingCompleteFunction = (value: number) => void;
 
@@ -31,7 +32,7 @@ type StyleSheetType = {
   thumb: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme): StyleSheetType =>
+const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -71,8 +72,9 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: 30,
       height: 30,
       borderRadius: 30 / 2,
-      backgroundColor: 'white',
-      borderWidth: 1
+      borderWidth: 5,
+      backgroundColor: brandTheme?.colors?.primary,
+      borderColor: 'white'
     }
   });
 
@@ -97,7 +99,7 @@ const QuestionSlider = (props: Props) => {
   }, [onSlidingComplete, value]);
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
+    const _stylesheet = createStyleSheet(brandTheme, theme);
     setStylesheet(_stylesheet);
   }, [theme]);
 
@@ -119,7 +121,7 @@ const QuestionSlider = (props: Props) => {
         onSlidingComplete={handleSlidingComplete}
         minimumTrackTintColor={brandTheme?.colors?.primary}
         trackStyle={styleSheet.track}
-        thumbStyle={[styleSheet.thumb, {borderColor: brandTheme?.colors?.primary}]}
+        thumbStyle={[styleSheet.thumb]}
         testID="slider"
       />
       <View style={styleSheet.valuesContainer} testID="slider-values-container">
