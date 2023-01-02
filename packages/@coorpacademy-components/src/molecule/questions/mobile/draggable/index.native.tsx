@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, Text, ViewStyle, TextStyle} from 'react-native';
+import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 import QuestionChoice from '../../../../atom/choice/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {Theme} from '../../../../variables/theme.native';
@@ -13,47 +13,33 @@ export interface DropZoneProps {
 
 type DropZoneStyleSheet = {
   choice: ViewStyle;
-  dropZone: ViewStyle;
-  emptyContent: ViewStyle;
+  selectionArea: ViewStyle;
   text: TextStyle;
 };
 
-const createDropZoneStyle = (theme: Theme): DropZoneStyleSheet =>
+const createSelectionStyle = (theme: Theme): DropZoneStyleSheet =>
   StyleSheet.create({
     choice: {
       margin: theme.spacing.micro
     },
-    dropZone: {
+    selectionArea: {
       flexWrap: 'wrap',
-      flexDirection: 'row',
-      borderStyle: 'dashed',
-      borderWidth: 2,
-      padding: theme.spacing.micro,
-      borderColor: theme.colors.gray.light,
-      backgroundColor: theme.colors.gray.extra,
-      borderRadius: theme.radius.common,
-      marginBottom: theme.spacing.tiny
-    },
-    emptyContent: {
-      justifyContent: 'center',
-      alignContent: 'center',
-      alignItems: 'center',
-      height: 60
+      flexDirection: 'row'
     },
     text: {
       color: theme.colors.gray.medium
     }
   });
 
-const DropZone = (props: DropZoneProps) => {
+const Selection = (props: DropZoneProps) => {
   const templateContext = useTemplateContext();
-  const {theme, translations} = templateContext;
+  const {theme} = templateContext;
   const {onPress} = props;
 
   const [styleSheet, setStylesheet] = useState<DropZoneStyleSheet | null>(null);
 
   useEffect(() => {
-    const _stylesheet = createDropZoneStyle(theme);
+    const _stylesheet = createSelectionStyle(theme);
     setStylesheet(_stylesheet);
   }, [theme]);
 
@@ -76,17 +62,7 @@ const DropZone = (props: DropZoneProps) => {
     </QuestionChoice>
   ));
 
-  const hasNoSelectedChoices = mappedSortedChoices.length === 0;
-
-  return (
-    <View style={[styleSheet.dropZone, hasNoSelectedChoices && styleSheet.emptyContent]}>
-      {hasNoSelectedChoices ? (
-        <Text style={styleSheet.text}>{translations.selectSomethingBelow}</Text>
-      ) : null}
-
-      {!hasNoSelectedChoices && mappedSortedChoices}
-    </View>
-  );
+  return <View style={styleSheet.selectionArea}>{mappedSortedChoices}</View>;
 };
 
 export interface Props {
@@ -96,18 +72,32 @@ export interface Props {
 }
 
 type QuestionDraggableStyleSheet = {
+  container: ViewStyle;
   pickableChoices: ViewStyle;
   choice: ViewStyle;
+  line: ViewStyle;
 };
 
 const createStyleSheet = (theme: Theme): QuestionDraggableStyleSheet =>
   StyleSheet.create({
+    container: {
+      flex: 1
+    },
     pickableChoices: {
       flexDirection: 'row',
       flexWrap: 'wrap'
     },
     choice: {
       margin: theme.spacing.micro
+    },
+    line: {
+      borderWidth: 1,
+      borderColor: '#E1E1E3',
+      borderRadius: 17,
+      marginHorizontal: 4,
+      marginBottom: 24,
+      marginTop: 16,
+      height: 2
     }
   });
 
@@ -145,8 +135,9 @@ const QuestionDraggable = (props: Props) => {
     ));
 
   return (
-    <View testID={testID}>
-      <DropZone choices={selectedChoices} onPress={onPress} />
+    <View testID={testID} style={styleSheet.container}>
+      <Selection choices={selectedChoices} onPress={onPress} />
+      <View style={styleSheet.line} />
       <View style={styleSheet.pickableChoices}>{pickableChoices}</View>
     </View>
   );
