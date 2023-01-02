@@ -25,6 +25,7 @@ export default {
         label: 'No description',
         onChange: console.log
       }
-    ]
+    ],
+    moreInfoAriaLabel: 'show more info'
   }
 };

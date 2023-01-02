@@ -6,14 +6,19 @@ import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
 const Settings = props => {
-  const {label, description, ...settings} = props;
+  const {label, description, moreInfoAriaLabel, ...settings} = props;
   return (
     <div className={style.settings}>
       <InputSwitch {...settings} />
       <span className={style.label}>{label}</span>
       {isEmpty(description) ? null : (
         <div className={style.infoIconWrapper}>
-          <InfoIcon height={16} width={16} className={style.infoIcon} />
+          <InfoIcon
+            height={16}
+            width={16}
+            className={style.infoIcon}
+            aria-label={moreInfoAriaLabel}
+          />
           <div className={style.showToolTip}>
             <div className={style.descriptionLabel}>{description}</div>
           </div>
@@ -30,13 +35,13 @@ Settings.propTypes = {
 };
 
 const UserPreferences = props => {
-  const {preferences = []} = props;
+  const {preferences = [], moreInfoAriaLabel} = props;
 
   return (
     <div className={style.preferences}>
       {map(
         settings => (
-          <Settings {...settings} key={settings.label} />
+          <Settings {...settings} key={settings.label} moreInfoAriaLabel={moreInfoAriaLabel} />
         ),
         preferences
       )}
@@ -45,7 +50,8 @@ const UserPreferences = props => {
 };
 
 UserPreferences.propTypes = {
-  preferences: PropTypes.arrayOf(PropTypes.shape(Settings.propTypes))
+  preferences: PropTypes.arrayOf(PropTypes.shape(Settings.propTypes)),
+  moreInfoAriaLabel: PropTypes.string
 };
 
 export default UserPreferences;
