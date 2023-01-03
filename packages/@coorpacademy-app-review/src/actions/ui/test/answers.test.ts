@@ -43,7 +43,6 @@ const initialState: StoreState = {
       }
     },
     slides: {},
-    skills: [],
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},

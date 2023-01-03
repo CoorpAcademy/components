@@ -17,7 +17,6 @@ const connectedOptions = {translate, onQuitClick: identity, skin};
 const state: StoreState = {
   data: {
     progression: incorrectFreeTextPostAnswerResponse,
-    skills: [],
     slides: {
       sli_VJYjJnJhg: freeTextSlide,
       sli_VkSQroQnx: qcmGraphicSlide

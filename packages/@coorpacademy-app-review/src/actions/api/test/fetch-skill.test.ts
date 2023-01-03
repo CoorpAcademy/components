@@ -1,5 +1,5 @@
 import test from 'ava';
-import type {Services} from '@coorpacademy/review-services';
+import type {Services, Skill} from '@coorpacademy/review-services';
 import {services as mockedServices} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import type {StoreState} from '../../../reducers';
@@ -9,13 +9,16 @@ import {
   SKILL_FETCH_REQUEST,
   SKILL_FETCH_SUCCESS
 } from '../fetch-skill';
-import {fetchSkillResponse} from '../../../test/fixtures';
+
+export const fetchSkillResponse: Skill = {
+  ref: 'skill_NyxtYFYir',
+  name: 'Digital Awareness'
+};
 
 const initialState: StoreState = {
   data: {
     progression: null,
     slides: {},
-    skills: [],
     token: '1234',
     corrections: {},
     rank: {start: Number.NaN, end: Number.NaN},

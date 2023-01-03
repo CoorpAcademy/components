@@ -15,7 +15,6 @@ import type {StoreState} from './reducers';
 import {navigateBack, navigateTo} from './actions/ui/navigation';
 import {storeToken} from './actions/data/token';
 import {postProgression} from './actions/api/post-progression';
-import {mapStateToSkillsProps} from './views/skills';
 import {mapStateToSlidesProps} from './views/slides';
 
 const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
@@ -25,9 +24,7 @@ const ConnectedApp = (options: ConnectedOptions): JSX.Element => {
       (state: StoreState) => state.ui.navigation[state.ui.navigation.length - 1]
     ),
     slides: useSelector((state: StoreState) => mapStateToSlidesProps(state, dispatch, options)),
-    skills: useSelector((state: StoreState) => mapStateToSkillsProps(state, options)),
-    navigateBack: () => dispatch(navigateBack),
-    onboarding: {}
+    navigateBack: () => dispatch(navigateBack)
   };
 
   return <AppReviewTemplate {...props} />;

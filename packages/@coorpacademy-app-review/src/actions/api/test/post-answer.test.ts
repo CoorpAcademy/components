@@ -67,7 +67,6 @@ const initialState: StoreState = {
     slides: {
       [freeTextSlide._id]: freeTextSlide
     },
-    skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
@@ -76,7 +75,7 @@ const initialState: StoreState = {
   ui: {
     showCongrats: false,
     currentSlideRef: freeTextSlide._id,
-    navigation: ['skills', 'slides'],
+    navigation: ['slides'],
     positions: [0, 1, 2, 3, 4],
     answers: {
       [freeTextSlide._id]: answer
@@ -261,7 +260,6 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
         [sliderSlide._id]: sliderSlide,
         [templateSlide._id]: templateSlide
       },
-      skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
@@ -270,7 +268,7 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
     ui: {
       showCongrats: false,
       currentSlideRef: templateSlide._id,
-      navigation: ['skills', 'slides'],
+      navigation: ['slides'],
       positions: [-1, -1, -1, -1, 0],
       answers: {
         [freeTextSlide._id]: answer,

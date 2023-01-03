@@ -22,7 +22,6 @@ test('correction popin actions after click', async t => {
   const state: StoreState = {
     data: {
       progression: incorrectFreeTextPostAnswerResponse,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide,
         sli_VkSQroQnx: qcmGraphicSlide
@@ -86,7 +85,6 @@ test('correction popin actions after click when progression is finished', async 
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
-      skills: [],
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,

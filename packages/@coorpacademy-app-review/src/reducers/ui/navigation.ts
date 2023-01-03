@@ -5,7 +5,7 @@ import {
   NAVIGATE_BACK
 } from '../../actions/ui/navigation';
 
-export type NavigationState = Array<'skills' | 'onboarding' | 'slides' | 'loader'>;
+export type NavigationState = Array<'slides' | 'loader'>;
 
 const reducer = (
   // eslint-disable-next-line default-param-last

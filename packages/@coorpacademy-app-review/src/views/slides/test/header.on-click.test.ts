@@ -12,7 +12,6 @@ import {skin} from './fixtures/skin';
 const state: StoreState = {
   data: {
     progression: incorrectFreeTextPostAnswerResponse,
-    skills: [],
     slides: {
       sli_N1XACJobn: null
     },

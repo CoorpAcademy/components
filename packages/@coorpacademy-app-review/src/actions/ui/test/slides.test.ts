@@ -9,7 +9,6 @@ const initialState: StoreState = {
   data: {
     progression: null,
     slides: {},
-    skills: [],
     token: '1234',
     corrections: {},
     rank: {start: Number.NaN, end: Number.NaN},

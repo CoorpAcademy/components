@@ -20,7 +20,6 @@ const state: StoreState = {
       [freeTextSlide.universalRef]: freeTextSlide,
       [qcmGraphicSlide.universalRef]: qcmGraphicSlide
     },
-    skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
     corrections: {[freeTextSlide.universalRef]: getChoicesCorrection(freeTextSlide.universalRef)},
     rank: {start: 93, end: Number.NaN},
