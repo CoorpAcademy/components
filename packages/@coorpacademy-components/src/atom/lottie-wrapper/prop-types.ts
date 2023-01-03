@@ -2,7 +2,7 @@ import keys from 'lodash/fp/keys';
 import PropTypes from 'prop-types';
 
 export type LottieAnimationProps = {
-  'aria-label': string;
+  'aria-label'?: string;
   'data-name'?: string;
   animationSrc: string;
   loop?: boolean;
