@@ -11,6 +11,7 @@ import style from './style.css';
 class CTA extends React.Component {
   static propTypes = {
     submitValue: Link.propTypes.children,
+    submitAriaLabel: Link.propTypes.children,
     href: Link.propTypes.href,
     onClick: Link.propTypes.onClick,
     target: Link.propTypes.target,
@@ -96,6 +97,7 @@ class CTA extends React.Component {
   render() {
     const {
       submitValue = 'submit',
+      submitAriaLabel,
       name: ctaName,
       href,
       target,
@@ -117,6 +119,7 @@ class CTA extends React.Component {
         onClick={disabled ? noop : onClick}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
+        aria-label={submitAriaLabel}
         target={target}
         className={classnames(
           style.button,

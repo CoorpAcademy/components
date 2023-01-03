@@ -9,7 +9,7 @@ import style from './style.css';
 
 const Hero = (props, context) => {
   const {skin} = context;
-  const {image, title, author, progress, onClick, submitValue} = props;
+  const {image, title, author, progress, onClick, submitValue, submitAriaLabel} = props;
 
   const primaryColor = get('common.primary', skin);
   const cardStyle = classnames(style.hero, title ? null : style.lazy);
@@ -33,6 +33,7 @@ const Hero = (props, context) => {
           data-name="hero-button"
           onClick={onClick}
           submitValue={submitValue}
+          submitAriaLabel={submitAriaLabel}
           className={style.heroButton}
           style={{backgroundColor: primaryColor}}
         />
@@ -51,7 +52,8 @@ Hero.propTypes = {
   author: CardContentInfo.propTypes.author,
   progress: CardContentInfo.propTypes.progress,
   onClick: Button.propTypes.onClick,
-  submitValue: Button.propTypes.submitValue
+  submitValue: Button.propTypes.submitValue,
+  submitAriaLabel: Button.propTypes.submitAriaLabel
 };
 
 export default Hero;

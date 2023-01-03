@@ -9,7 +9,8 @@ import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = React.memo(function StartBattle(props) {
-  const {startBattleText, becomeAChampionText, challengeText, onClick, href} = props;
+  const {startBattleText, becomeAChampionText, challengeText, onClick, href, startBattleAriaLabel} =
+    props;
 
   return (
     <div className={style.root} data-name="start-battle">
@@ -27,7 +28,12 @@ const StartBattle = React.memo(function StartBattle(props) {
                 <FlashRight className={style.smallFlashRightMobile} />
               </div>
               <div className={style.challengeText}>{challengeText}</div>
-              <Link className={style.button} onClick={onClick} href={href}>
+              <Link
+                className={style.button}
+                onClick={onClick}
+                href={href}
+                aria-label={startBattleAriaLabel}
+              >
                 {startBattleText}
               </Link>
             </div>
@@ -51,7 +57,8 @@ StartBattle.propTypes = {
   becomeAChampionText: PropTypes.string,
   challengeText: PropTypes.string,
   onClick: PropTypes.func,
-  href: PropTypes.string
+  href: PropTypes.string,
+  startBattleAriaLabel: PropTypes.string
 };
 
 export default StartBattle;

@@ -8,7 +8,8 @@ export default {
     authorLogo:
       'https://static.coorpacademy.com/content/digital/raw/logo_coorpacademy-1487689750995.svg',
     cta: {
-      submitValue: 'Read more',
+      submitValue: 'More',
+      submitAriaLabel: 'More. see more news',
       href: '#',
       small: true,
       target: '_blank'

@@ -9,6 +9,7 @@ const ButtonContent = props => {
   const {
     color,
     submitValue,
+    submitAriaLabel,
     disabled,
     download,
     href,
@@ -35,6 +36,7 @@ const ButtonContent = props => {
           onClick={anchorOnClick}
           target={target}
           className={anchorClassName}
+          aria-label={submitAriaLabel}
           style={style}
         >
           {submitValue || children || 'submit'}
@@ -76,6 +78,7 @@ const ButtonContent = props => {
 ButtonContent.propTypes = {
   color: ColorPropType,
   submitValue: PropTypes.string,
+  submitAriaLabel: PropTypes.string,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   download: PropTypes.bool,
