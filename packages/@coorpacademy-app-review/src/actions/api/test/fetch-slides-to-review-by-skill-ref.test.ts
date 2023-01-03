@@ -25,9 +25,6 @@ const state: StoreState = {
       [qcmSlide._id]: qcmSlide,
       [sliderSlide._id]: sliderSlide
     },
-    skills: [
-      {skillRef: 'skill_NyxtYFYir', custom: false, name: 'Digital Awareness', slidesToReview: 5}
-    ],
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
@@ -36,7 +33,7 @@ const state: StoreState = {
   ui: {
     showCongrats: false,
     currentSlideRef: templateSlide._id,
-    navigation: ['skills', 'slides'],
+    navigation: ['slides'],
     positions: [-1, -1, -1, -1, 0],
     answers: {
       [freeTextSlide._id]: [

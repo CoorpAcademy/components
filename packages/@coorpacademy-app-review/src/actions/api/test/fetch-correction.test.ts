@@ -27,7 +27,6 @@ const initialState: StoreState = {
       [freeTextSlide.universalRef]: freeTextSlide,
       [qcmSlide.universalRef]: qcmSlide
     },
-    skills: [{skillRef, custom: false, name: skillRef, slidesToReview: 5}],
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
@@ -36,7 +35,7 @@ const initialState: StoreState = {
   ui: {
     showCongrats: false,
     currentSlideRef: freeTextSlide._id,
-    navigation: ['skills', 'slides'],
+    navigation: ['slides'],
     answers: {[freeTextSlide.universalRef]: answer},
     positions: [0, 1, 2, 3, 4],
     slide: {

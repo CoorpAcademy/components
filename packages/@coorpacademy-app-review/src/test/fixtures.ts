@@ -2,7 +2,6 @@ import type {
   ProgressionFromAPI,
   ReviewContent,
   ReviewEngine,
-  Skill,
   SlideIdFromAPI
 } from '@coorpacademy/review-services';
 import {freeTextSlide} from '../views/slides/test/fixtures/free-text';
@@ -20,26 +19,6 @@ const content: ReviewContent = {
 const engine: ReviewEngine = {
   ref: 'review'
 };
-
-export const fetchSkillResponse: Skill = {
-  ref: 'skill_NyxtYFYir',
-  name: 'Digital Awareness'
-};
-
-export const fetchSkillsResponse = [
-  {
-    skillRef: '_skill-ref',
-    slidesToReview: 2,
-    name: 'skill-test',
-    custom: false
-  },
-  {
-    skillRef: '_skill-ref-2',
-    slidesToReview: 2,
-    name: 'skill-test-2',
-    custom: true
-  }
-];
 
 export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   {

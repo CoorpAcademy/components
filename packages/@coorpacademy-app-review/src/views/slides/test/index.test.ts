@@ -30,7 +30,6 @@ test('should create initial props when fetched slide is not still received', t =
   const state: StoreState = {
     data: {
       progression: createdProgression,
-      skills: [],
       slides: {
         sli_N1XACJobn: null
       },
@@ -127,7 +126,6 @@ test('should create props when first slide is on the state', t => {
   const state: StoreState = {
     data: {
       progression: createdProgression,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide
       },
@@ -241,7 +239,6 @@ test('should create props when slide is on the state and user has selected answe
   const state: StoreState = {
     data: {
       progression: createdProgression,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide
       },
@@ -355,7 +352,6 @@ test('should verify props when first slide was answered correctly and next slide
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide,
         sli_VkSQroQnx: null
@@ -480,7 +476,6 @@ test('should verify props when first slide was answered with error and next slid
         false,
         postAnswerResponses.sli_VJYjJnJhg
       ),
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide,
         sli_VkSQroQnx: null
@@ -558,7 +553,6 @@ test('should verify props when first slide was answered, next slide is fetched &
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide,
         sli_VkSQroQnx: qcmGraphicSlide
@@ -699,7 +693,6 @@ test('should verify props when first slide was answered incorrectly, next slide 
   const state: StoreState = {
     data: {
       progression: incorrectFreeTextPostAnswerResponse,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide,
         sli_VkSQroQnx: qcmGraphicSlide
@@ -843,7 +836,6 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
   const state: StoreState = {
     data: {
       progression: postAnswerResponses.sli_VJYjJnJhg,
-      skills: [],
       slides: {
         sli_VJYjJnJhg: freeTextSlide,
         sli_VkSQroQnx: qcmGraphicSlide
@@ -953,7 +945,6 @@ test('should verify props when progression is in success, showing last correctio
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
-      skills: [],
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1082,7 +1073,6 @@ test('should verify props showing congrats', t => {
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
-      skills: [],
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1230,7 +1220,6 @@ test('should verify props showing congrats, with only stars card, if user has no
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
-      skills: [],
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1352,7 +1341,6 @@ test('should verify props when progression has answered a current pendingSlide',
   const state: StoreState = {
     data: {
       progression: progressionSlideWithPendingSlide,
-      skills: [],
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1466,7 +1454,6 @@ test('should verify props when progression still has a pendingSlide', t => {
   const state: StoreState = {
     data: {
       progression: progressionSlideWithPendingSlide,
-      skills: [],
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1579,7 +1566,6 @@ test('should verify that props quitPopin is not undefined when popin is displaye
   const state: StoreState = {
     data: {
       progression: createdProgression,
-      skills: [],
       slides: {
         sli_N1XACJobn: null
       },

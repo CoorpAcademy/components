@@ -9,7 +9,7 @@ export interface Translate {
   (key: string, data?: Record<string, string>): string;
 }
 
-export type ViewName = 'skills' | 'onboarding' | 'slides' | 'loader';
+export type ViewName = 'slides' | 'loader';
 
 export type Skin = {
   common: {
