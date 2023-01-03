@@ -59,8 +59,8 @@ export type ReviewSlide = {
 
 type SlidesStack = {[key: string]: SlideProps};
 
-const confettiAnimation: LottieAnimationProps = {
-  'aria-label': 'aria lottie',
+const buildConfettiAnimation = (translate: Translate): LottieAnimationProps => ({
+  'aria-label': translate('Congratulations confetti animation'),
   'data-name': 'default-lottie',
   className: undefined,
   animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
@@ -70,7 +70,7 @@ const confettiAnimation: LottieAnimationProps = {
     hideOnTransparent: false
   },
   ie11ImageBackup: 'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
-};
+});
 
 export const initialState: SlidesStack = {
   '0': {
@@ -321,7 +321,7 @@ const buildRankCard = (rank: number, translate: Translate): CongratsCardProps =>
     'aria-label': 'Review Card Congrats Container',
     'data-name': 'card-rank',
     animationLottie: {
-      'aria-label': 'aria lottie',
+      'aria-label': translate('New rank animation'),
       'data-name': 'default-lottie',
       animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
       loop: true,
@@ -353,7 +353,7 @@ const buildCongratsProps = (
     'aria-label': 'Review Card Congrats Container',
     'data-name': 'card-star',
     animationLottie: {
-      'aria-label': 'aria lottie',
+      'aria-label': translate('Acquired stars animation'),
       'data-name': 'default-lottie',
       className: undefined,
       animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
@@ -398,7 +398,7 @@ const buildCongratsProps = (
   return {
     'aria-label': 'Review Congratulations',
     'data-name': 'review-congrats',
-    animationLottie: confettiAnimation,
+    animationLottie: buildConfettiAnimation(translate),
     title: translate('Congratulations!'),
     cardCongratsStar,
     cardCongratsRank,

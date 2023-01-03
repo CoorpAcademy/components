@@ -143,10 +143,20 @@ const LottieWrapper = props => {
     autoplay
   ]);
 
+  const accessibilityProps = ariaLabel
+    ? {
+        'aria-label': ariaLabel,
+        role: 'img'
+      }
+    : {
+        'aria-hidden': 'true',
+        role: 'presentation'
+      };
+
   return (
     <div
+      {...accessibilityProps}
       ref={containerRef}
-      aria-label={ariaLabel}
       data-name={dataName}
       className={wrapperClassName}
       style={{
