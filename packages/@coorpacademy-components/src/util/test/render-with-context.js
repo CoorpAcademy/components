@@ -40,9 +40,7 @@ test('should use default context if the context is empty', t => {
     _test: t
   };
 
-  const {container} = renderWithContext(<TestComponent {...props} />, {
-    context: {}
-  });
+  const {container} = renderWithContext(<TestComponent {...props} />);
 
   const element = container.querySelector('[data-name="test-component"]');
 

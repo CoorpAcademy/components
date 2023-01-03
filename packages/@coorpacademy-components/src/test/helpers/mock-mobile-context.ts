@@ -10,14 +10,17 @@ type MockOptions = {
   logEvent?: Analytics['logEvent'];
   vibrate?: Vibration['vibrate'];
   brandTheme?: Brand;
+  translate?: TemplateContextValues['translate'];
 };
 
 const mockMobileContext = ({
   logEvent = noop,
   vibrate = noop,
-  brandTheme = defaultBrandTheme
+  brandTheme = defaultBrandTheme,
+  translate = (arg: string) => arg
 }: MockOptions = {}): TemplateContextValues => ({
   theme: defaultTheme,
+  translate,
   translations: defaultMobileTranslations,
   analytics: {
     logEvent

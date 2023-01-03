@@ -4,7 +4,8 @@ import {render} from '@testing-library/react';
 import {mockTranslate} from '@coorpacademy/translate';
 import Provider from '../atom/provider';
 
-export const renderWithContext = (component, {context, ...renderOptions}) => {
+export const renderWithContext = (component, options = {}) => {
+  const {context = {}, ...renderOptions} = options;
   // uses mockTranslate as a default translate function
   const {translate = mockTranslate, ...rest} = context;
 

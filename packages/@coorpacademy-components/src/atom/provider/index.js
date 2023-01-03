@@ -68,7 +68,7 @@ class Provider extends React.Component {
   static childContextTypes = {
     history: historyShape,
     skin: skinShape,
-    translate: translateShape.isRequired,
+    translate: translateShape,
     Vimeo: PropTypes.object
   };
 

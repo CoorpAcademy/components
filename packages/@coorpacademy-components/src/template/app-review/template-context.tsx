@@ -24,6 +24,7 @@ export type TemplateContextValues = {
     handleBlur?: HandleBlur;
     handleFocus?: HandleFocus;
   };
+  translate: (arg: string) => string;
 };
 
 type Props = {values: TemplateContextValues; children: ReactNode};
@@ -36,7 +37,8 @@ const Context = createContext({
     headerHeight: 67,
     statusBarHeight: 42
   },
-  store: {}
+  store: {},
+  translate: (arg: string) => arg
 });
 
 const useTemplateContext = (): TemplateContextValues => {

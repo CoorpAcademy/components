@@ -1,7 +1,8 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {render, fireEvent, act} from '@testing-library/react';
+import {fireEvent, act} from '@testing-library/react';
+import {renderWithContext} from '../../../../util/render-with-context';
 import PlayerReview from '..';
 import allOkFixture from './fixtures/all-ok';
 import failFixture from './fixtures/one-fail';
@@ -12,7 +13,7 @@ browserEnv({pretendToBeVisual: true});
 const elementExists = foundElements => foundElements && foundElements[0];
 
 test.serial('validate click test', async t => {
-  const {container} = render(<PlayerReview {...initialFixture.props} key={0} />);
+  const {container} = renderWithContext(<PlayerReview {...initialFixture.props} key={0} />);
 
   const wrapper = container.querySelectorAll('[data-name="slides-revision-container"]');
   t.truthy(wrapper);
@@ -33,7 +34,7 @@ test.serial('validate click test', async t => {
 });
 
 test.serial('Next click test - success', async t => {
-  const {container} = render(<PlayerReview {...allOkFixture.props} key={1} />);
+  const {container} = renderWithContext(<PlayerReview {...allOkFixture.props} key={1} />);
 
   const wrapper = container.querySelectorAll('[data-name="slides-revision-container"]');
   t.truthy(wrapper);
@@ -54,7 +55,7 @@ test.serial('Next click test - success', async t => {
 });
 
 test.serial('Next click test - fail', async t => {
-  const {container} = render(<PlayerReview {...failFixture.props} key={2} />);
+  const {container} = renderWithContext(<PlayerReview {...failFixture.props} key={2} />);
 
   const wrapper = container.querySelectorAll('[data-name="slides-revision-container"]');
   t.truthy(wrapper);
