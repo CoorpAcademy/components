@@ -46,7 +46,8 @@ const ProgressionItem = (props, context) => {
     maxStars,
     state,
     type,
-    steps = 0
+    steps = 0,
+    adaptiveAriaLabel
   } = props;
 
   const dark = get('common.dark', skin);
@@ -61,7 +62,7 @@ const ProgressionItem = (props, context) => {
         backgroundColor: primary
       }}
     >
-      <AdaptiveIcon color={white} height={14} />
+      <AdaptiveIcon color={white} height={14} aria-label={adaptiveAriaLabel} />
     </div>
   ) : null;
 
@@ -132,6 +133,7 @@ ProgressionItem.propTypes = {
   label: PropTypes.string.isRequired,
   level: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
+  adaptiveAriaLabel: PropTypes.string,
   type: PropTypes.string.isRequired,
   adaptive: PropTypes.bool.isRequired,
   onClick: PropTypes.func

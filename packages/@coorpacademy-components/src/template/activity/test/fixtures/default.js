@@ -99,6 +99,7 @@ export default {
         }
       }
     ],
+    adaptiveAriaLabel: 'This is an adaptive course',
     themeFilter: {
       options: [
         {

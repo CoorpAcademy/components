@@ -15,6 +15,7 @@ class Progression extends React.Component {
   static propTypes = {
     mainTitle: PropTypes.string.isRequired,
     mainSubtitle: PropTypes.string.isRequired,
+    adaptiveAriaLabel: PropTypes.string,
     total: PropTypes.shape({
       label: PropTypes.string.isRequired,
       stars: PropTypes.number.isRequired
@@ -68,6 +69,7 @@ class Progression extends React.Component {
       mainSubtitle,
       recommendation = {},
       progressions = [],
+      adaptiveAriaLabel,
       total,
       engines = [],
       themeFilter = {},
@@ -82,7 +84,11 @@ class Progression extends React.Component {
       </div>
     ) : null;
     const allProgressions = progressions.map(progression => (
-      <ProgressionItem {...omit(['ref'], progression)} key={progression.ref} />
+      <ProgressionItem
+        {...omit(['ref'], progression)}
+        key={progression.ref}
+        adaptiveAriaLabel={adaptiveAriaLabel}
+      />
     ));
 
     const coreProgression = (
