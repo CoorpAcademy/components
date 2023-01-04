@@ -1175,7 +1175,7 @@ test('should verify props showing congrats', t => {
     {
       animationLottie: {
         animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
-        'aria-label': 'aria lottie',
+        'aria-label': '__New rank animation',
         autoplay: true,
         'data-name': 'default-lottie',
         ie11ImageBackup:
@@ -1197,7 +1197,7 @@ test('should verify props showing congrats', t => {
     {
       animationLottie: {
         animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
-        'aria-label': 'aria lottie',
+        'aria-label': '__Acquired stars animation',
         autoplay: undefined,
         className: undefined,
         'data-name': 'default-lottie',
@@ -1321,7 +1321,7 @@ test('should verify props showing congrats, with only stars card, if user has no
     {
       animationLottie: {
         animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
-        'aria-label': 'aria lottie',
+        'aria-label': '__Acquired stars animation',
         autoplay: undefined,
         className: undefined,
         'data-name': 'default-lottie',
