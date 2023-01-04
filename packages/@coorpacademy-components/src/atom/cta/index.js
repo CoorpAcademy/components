@@ -11,7 +11,7 @@ import style from './style.css';
 class CTA extends React.Component {
   static propTypes = {
     submitValue: Link.propTypes.children,
-    submitAriaLabel: Link.propTypes.children,
+    'aria-label': PropTypes.string,
     href: Link.propTypes.href,
     onClick: Link.propTypes.onClick,
     target: Link.propTypes.target,
@@ -97,7 +97,7 @@ class CTA extends React.Component {
   render() {
     const {
       submitValue = 'submit',
-      submitAriaLabel,
+      'aria-label': submitAriaLabel,
       name: ctaName,
       href,
       target,

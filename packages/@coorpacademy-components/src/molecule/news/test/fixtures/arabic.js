@@ -9,7 +9,7 @@ export default {
       'https://static.coorpacademy.com/content/digital/raw/logo_coorpacademy-1487689750995.svg',
     cta: {
       submitValue: 'More',
-      submitAriaLabel: 'More. see more news',
+      'aria-label': 'More. see more news',
       href: '#',
       small: true,
       target: '_blank'

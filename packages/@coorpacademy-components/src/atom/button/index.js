@@ -9,7 +9,7 @@ const ButtonContent = props => {
   const {
     color,
     submitValue,
-    submitAriaLabel,
+    'aria-label': submitAriaLabel,
     disabled,
     download,
     href,
@@ -78,7 +78,7 @@ const ButtonContent = props => {
 ButtonContent.propTypes = {
   color: ColorPropType,
   submitValue: PropTypes.string,
-  submitAriaLabel: PropTypes.string,
+  'aria-label': PropTypes.string,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   download: PropTypes.bool,
