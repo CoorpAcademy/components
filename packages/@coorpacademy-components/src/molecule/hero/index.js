@@ -33,7 +33,7 @@ const Hero = (props, context) => {
           data-name="hero-button"
           onClick={onClick}
           submitValue={submitValue}
-          submitAriaLabel={submitAriaLabel}
+          aria-label={submitAriaLabel}
           className={style.heroButton}
           style={{backgroundColor: primaryColor}}
         />
@@ -53,7 +53,7 @@ Hero.propTypes = {
   progress: CardContentInfo.propTypes.progress,
   onClick: Button.propTypes.onClick,
   submitValue: Button.propTypes.submitValue,
-  submitAriaLabel: Button.propTypes.submitAriaLabel
+  submitAriaLabel: PropTypes.string
 };
 
 export default Hero;
