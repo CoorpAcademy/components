@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
-import AtomLottieWrapper from '../../atom/lottie-wrapper';
+import LottieWrapper from '../../atom/lottie-wrapper';
 import ButtonLink from '../../atom/button-link';
-import MoleculeReviewCardCongrats from '../../molecule/review-card-congrats';
+import ReviewCardCongrats from '../../molecule/review-card-congrats';
 import style from './style.css';
 import propTypes from './prop-types';
 
@@ -39,7 +39,8 @@ const ReviewCongrats = props => {
       data-name={dataName}
       data-testid="congrats"
     >
-      <AtomLottieWrapper
+      <LottieWrapper
+        /** confetti animation */
         {...animationLottie}
         loop={false}
         animationControl={'play'}
@@ -53,15 +54,15 @@ const ReviewCongrats = props => {
         <div ref={container} className={style.containerCards}>
           {cardCongratsRank ? (
             <>
-              <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
-              <MoleculeReviewCardCongrats
+              <ReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
+              <ReviewCardCongrats
                 {...cardCongratsRank}
                 timerAnimation={1800}
                 className={style.cardRank}
               />
             </>
           ) : (
-            <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStarNoRank} />
+            <ReviewCardCongrats {...cardCongratsStar} className={style.cardStarNoRank} />
           )}
         </div>
         <div className={style.buttonContainer}>

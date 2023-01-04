@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "You have no skill to revise yet",
       "text": "First you need to complete courses before you can review different skills."
-    }      
+    },
+    "Acquired stars animation": "Acquired stars animation",
+    "New rank animation": "New rank animation",
+    "Congratulations confetti animation": "Congratulations confetti animation"
 }
