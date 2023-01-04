@@ -41,9 +41,7 @@ const ToolTip = ({tooltipText, moreDetailsAriaLabel}) => {
         />
       </div>
       <div className={style.toolTip}>
-        <div className={style.tooltipText}>
-          <p>{tooltipText}</p>
-        </div>
+        <p className={style.tooltipText}>{tooltipText}</p>
       </div>
     </div>
   );
