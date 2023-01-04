@@ -27,7 +27,7 @@ export const ANIMATION_CONTROL = {
 };
 
 const propTypes = {
-  'aria-label': PropTypes.string.isRequired,
+  'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
   animationSrc: PropTypes.string.isRequired,
   loop: PropTypes.bool,
