@@ -36,7 +36,7 @@ export const AddToMyListFeedback = ({addToMyListText, removeFromMyListText, favo
   return (
     <div className={classnames(styles.feedback)} data-name={'add-to-my-list-feedback'}>
       <CheckIcon className={styles.checkIcon} width={13} height={13} />
-      <p>{favorite ? addToMyListText : removeFromMyListText}</p>
+      <p role="status">{favorite ? addToMyListText : removeFromMyListText}</p>
     </div>
   );
 };

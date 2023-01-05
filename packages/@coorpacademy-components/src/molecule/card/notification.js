@@ -37,7 +37,7 @@ const Notification = props => {
       <div className={style.notification}>
         <IconType className={style.icon} color={null} stroke={null} />
         <div className={style.message}>
-          <span>{message}</span>
+          <span role="status">{message}</span>
         </div>
       </div>
     </div>

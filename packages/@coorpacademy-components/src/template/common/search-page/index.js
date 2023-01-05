@@ -51,7 +51,9 @@ const SearchPage = (props, context) => {
         moreFilterAriaLabel={moreFilterAriaLabel}
       />
       <div data-name="searchResult" className={style.cardsWrapper}>
-        <div className={style.title}>{title}</div>
+        <div className={style.title} role="status">
+          {title}
+        </div>
         {cardsView}
       </div>
     </div>

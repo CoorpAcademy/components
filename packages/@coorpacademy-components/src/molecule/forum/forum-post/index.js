@@ -123,7 +123,9 @@ const ForumPost = (props, context) => {
             {rejected ? putBackLabel : rejectLabel}
           </span>
 
-          <div className={messageClassName}>{deleted ? infoDeleted : message}</div>
+          <div className={messageClassName} role="status">
+            {deleted ? infoDeleted : message}
+          </div>
 
           <div className={`${style.edition} ${showEditBox ? style.visible : ''}`}>
             <ForumComment
