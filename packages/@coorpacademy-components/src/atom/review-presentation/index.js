@@ -29,14 +29,19 @@ const getIcon = icon => {
   return <Icon className={style.labelIcon} />;
 };
 
-const ToolTip = ({tooltipText}) => {
+const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel}) => {
   return (
     <div className={style.tooltipContainer}>
       <div className={style.tooltipIconContainer}>
-        <InformationIcon className={style.informationIcon} width={12} height={12} />
+        <InformationIcon
+          className={style.informationIcon}
+          width={12}
+          height={12}
+          aria-label={moreDetailsAriaLabel}
+        />
       </div>
       <div className={style.toolTip}>
-        <div className={style.tooltipText}>{tooltipText}</div>
+        <p className={style.tooltipText}>{tooltipText}</p>
       </div>
     </div>
   );
@@ -44,7 +49,6 @@ const ToolTip = ({tooltipText}) => {
 
 const ReviewPresentation = props => {
   const {'aria-label': ariaLabel, reviewTitle, reviewText, labelsList} = props;
-
   return (
     <div className={style.reviewWrapper} aria-label={ariaLabel}>
       <div
@@ -65,7 +69,7 @@ const ReviewPresentation = props => {
                 <div className={style.reviewListText}>
                   {getIcon(key)} {label.text}
                 </div>
-                <ToolTip tooltipText={label.tooltipText} />
+                <ToolTip tooltipText={label.tooltipText} aria-label={label.moreDetailsAriaLabel} />
               </div>
             </li>
           );
@@ -76,7 +80,8 @@ const ReviewPresentation = props => {
 };
 
 ToolTip.propTypes = {
-  tooltipText: PropTypes.string
+  tooltipText: PropTypes.string,
+  'aria-label': PropTypes.string
 };
 
 ReviewPresentation.propTypes = propTypes;

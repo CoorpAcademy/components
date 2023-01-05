@@ -3,7 +3,8 @@ import {ColorValue, GestureResponderEvent, ViewStyle} from 'react-native';
 
 const levelItem = PropTypes.shape({
   text: PropTypes.string,
-  tooltipText: PropTypes.string
+  tooltipText: PropTypes.string,
+  moreDetailsAreaLabel: PropTypes.string
 });
 
 const propTypes = {
@@ -38,22 +39,26 @@ export type OnboardingProps = {
       | {
           text?: string | undefined;
           tooltipText?: string | undefined;
+          'aria-label'?: string | undefined;
         }
       | undefined;
     questions?: {
       text?: string | undefined;
       tooltipText?: string | undefined;
+      'aria-label'?: string | undefined;
     };
     lifes?:
       | {
           text?: string | undefined;
           tooltipText?: string | undefined;
+          'aria-label'?: string | undefined;
         }
       | undefined;
     allright?:
       | {
           text?: string | undefined;
           tooltipText?: string | undefined;
+          'aria-label'?: string | undefined;
         }
       | undefined;
   };
