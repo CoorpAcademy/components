@@ -9,8 +9,14 @@ import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = React.memo(function StartBattle(props) {
-  const {startBattleText, becomeAChampionText, challengeText, onClick, href, startBattleAriaLabel} =
-    props;
+  const {
+    startBattleText,
+    becomeAChampionText,
+    challengeText,
+    onClick,
+    href,
+    'aria-label': startBattleAriaLabel
+  } = props;
 
   return (
     <div className={style.root} data-name="start-battle">
@@ -58,7 +64,7 @@ StartBattle.propTypes = {
   challengeText: PropTypes.string,
   onClick: PropTypes.func,
   href: PropTypes.string,
-  startBattleAriaLabel: PropTypes.string
+  'aria-label': PropTypes.string
 };
 
 export default StartBattle;
