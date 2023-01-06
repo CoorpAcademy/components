@@ -40,7 +40,7 @@ const StackedSlides = (props: ReviewStackProps) => {
 
   const restackTranslation = useTranslateY({
     toValue: 0,
-    fromValue: -windowHeight,
+    fromValue: windowHeight,
     duration: 1200,
     easing: Easing.out(Easing.cubic)
   });
