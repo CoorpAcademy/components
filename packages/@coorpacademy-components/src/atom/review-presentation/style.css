@@ -82,8 +82,8 @@
 }
 
 .toolTip {
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: hidden;
+  opacity: 0; */
   transition: opacity 0.8s;
   position: absolute;
   height: auto;
@@ -97,8 +97,10 @@
 .toolTip::before {
   content: '';
   display: inline-block;
-  visibility: hidden;
-  opacity: 0;
+  /* visibility: hidden; */
+  visibility: inherit;
+  /* opacity: 0; */
+  opacity: inherit;
   width: 15px;
   height: 15px;
   transform: rotate(-45deg);
@@ -126,7 +128,7 @@
   position: relative;
 }
 
-.reviewListItemWrapper:hover .tooltipContainer .toolTip {
+/* .reviewListItemWrapper:hover .tooltipContainer .toolTip {
   visibility: visible;
   opacity: 1;
 }
@@ -134,7 +136,7 @@
 .reviewListItemWrapper:hover .tooltipContainer .toolTip::before {
   visibility: visible;
   opacity: 1;
-}
+} */
 
 .tooltipIconContainer {
   display: flex;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
@@ -19,7 +19,7 @@ const ICONS = {
   allright: CheckIcon
 };
 
-const getIcon = icon => {
+const ReviewIcon = ({icon}) => {
   const Icon = getOr(null, icon, ICONS);
 
   /* istanbul ignore next */
@@ -29,7 +29,11 @@ const getIcon = icon => {
   return <Icon className={style.labelIcon} />;
 };
 
-const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel}) => {
+const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, isVisible}) => {
+  const customStyle = {
+    visibility: isVisible ? 'visible' : 'hidden',
+    opacity: isVisible ? 1 : 0
+  };
   return (
     <div className={style.tooltipContainer}>
       <div className={style.tooltipIconContainer}>
@@ -40,15 +44,53 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel}) => {
           aria-label={moreDetailsAriaLabel}
         />
       </div>
-      <div className={style.toolTip}>
+      <div className={style.toolTip} style={customStyle}>
         <p className={style.tooltipText}>{tooltipText}</p>
       </div>
     </div>
   );
 };
 
+const ReviewListItemWrapper = ({key, label}) => {
+  const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
+  const handleKeyPress = useCallback(
+    event => {
+      // eslint-disable-next-line no-console
+      console.log('event key', event.key);
+      if (event.key === 'Esc') {
+        setToolTipIsVisible(false);
+      }
+    },
+    [setToolTipIsVisible]
+  );
+  const handleMouseOver = useCallback(() => setToolTipIsVisible(true), [setToolTipIsVisible]);
+
+  const handleMouseLeave = useCallback(() => setToolTipIsVisible(false), [setToolTipIsVisible]);
+  return (
+    <div
+      className={style.reviewListItemWrapper}
+      data-tip
+      data-for="reviewListItem"
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      onKeyPress={handleKeyPress}
+      tabIndex={0}
+    >
+      <div className={style.reviewListText}>
+        <ReviewIcon icon={key} /> {label.text}
+      </div>
+      <ToolTip
+        tooltipText={label.tooltipText}
+        aria-label={label.moreDetailsAriaLabel}
+        isVisible={toolTipIsVisible}
+      />
+    </div>
+  );
+};
+
 const ReviewPresentation = props => {
   const {'aria-label': ariaLabel, reviewTitle, reviewText, labelsList} = props;
+
   return (
     <div className={style.reviewWrapper} aria-label={ariaLabel}>
       <div
@@ -65,12 +107,12 @@ const ReviewPresentation = props => {
         {map.convert({cap: false})((label, key) => {
           return (
             <li key={`step-${key}`} className={style.reviewList}>
-              <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem">
-                <div className={style.reviewListText}>
-                  {getIcon(key)} {label.text}
-                </div>
-                <ToolTip tooltipText={label.tooltipText} aria-label={label.moreDetailsAriaLabel} />
-              </div>
+              <ReviewListItemWrapper
+                key={key}
+                label={label}
+                tooltipText={label.tooltipText}
+                aria-label={label.moreDetailsAriaLabel}
+              />
             </li>
           );
         }, labelsList)}
@@ -81,7 +123,18 @@ const ReviewPresentation = props => {
 
 ToolTip.propTypes = {
   tooltipText: PropTypes.string,
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+  isVisible: PropTypes.bool
+};
+
+ReviewIcon.propTypes = {
+  icon: PropTypes.string
+};
+
+ReviewListItemWrapper.propTypes = {
+  ...ToolTip.propTypes,
+  key: PropTypes.string,
+  label: PropTypes.string
 };
 
 ReviewPresentation.propTypes = propTypes;
