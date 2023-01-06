@@ -131,6 +131,7 @@
     "color": "^4.2.3",
     "concurrently": "^7.4.0",
     "cross-env": "^7.0.3",
+    "delay": "5.0.0",
     "enzyme": "^3.11.0",
     "eslint": "^7.3.1",
     "eventsource-polyfill": "^0.9.6",

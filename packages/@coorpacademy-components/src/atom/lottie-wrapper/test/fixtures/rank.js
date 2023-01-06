@@ -7,8 +7,6 @@ export default {
     autoplay: true,
     height: 200,
     width: 200,
-    ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg',
     animationControl: undefined
   }
 };

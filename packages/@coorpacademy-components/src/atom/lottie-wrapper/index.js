@@ -1,24 +1,12 @@
 import React, {useMemo, useRef, useEffect, useState} from 'react';
 import classnames from 'classnames';
 import lottie from 'lottie-web';
-import get from 'lodash/fp/get';
-import has from 'lodash/fp/has';
 import includes from 'lodash/fp/includes';
 import keys from 'lodash/fp/keys';
 import omit from 'lodash/fp/omit';
 import unfetch from 'isomorphic-unfetch';
 import style from './style.css';
 import propTypes, {ANIMATION_CONTROL} from './prop-types';
-
-const isIE11 = () => {
-  if (typeof window === 'undefined') return;
-  const userAgent = get('navigator.userAgent', window);
-  const hasMsCrypto = has('msCrypto', window);
-  const hasRevision = includes('rv:', userAgent);
-  const hasTrident = includes('Trident/', userAgent);
-
-  return hasMsCrypto || (hasRevision && hasTrident);
-};
 
 export const fetchAndLoadAnimation = async (
   _lottie,
@@ -67,8 +55,6 @@ const LottieWrapper = props => {
     rendererSettings = {},
     width,
     height,
-    ie11ImageBackup,
-    backupImageClassName,
     autoplay = true,
     animationControl
   } = props;
@@ -82,18 +68,11 @@ const LottieWrapper = props => {
 
   const [isAnimationVisible, setIsAnimationVisible] = useState(autoplay);
 
-  const _isIE11 = useMemo(() => isIE11(), []);
-
   const wrapperClassName = useMemo(() => classnames(className, style.lottieContainer), [className]);
 
   const lottieAnimationClassName = useMemo(
     () => classnames(animationClassName, style.animation),
     [animationClassName]
-  );
-
-  const ie11BackupImageClassName = useMemo(
-    () => classnames(backupImageClassName, style.backupImage),
-    [backupImageClassName]
   );
 
   useEffect(() => {
@@ -109,7 +88,8 @@ const LottieWrapper = props => {
 
   useEffect(() => {
     const loadAnimation = async () => {
-      if (!_isIE11 && !animationItem) {
+      /* istanbul ignore else */
+      if (!animationItem) {
         /* istanbul ignore else */
         if (typeof window !== 'undefined') {
           window.lottie = lottie;
@@ -138,7 +118,6 @@ const LottieWrapper = props => {
     hideOnTransparent,
     loop,
     animationSrc,
-    _isIE11,
     animationItem,
     autoplay
   ]);
@@ -171,15 +150,7 @@ const LottieWrapper = props => {
         opacity: isAnimationVisible ? 1 : 0,
         transition: 'opacity 0.25s ease-in'
       }}
-    >
-      {_isIE11 ? (
-        <img
-          src={ie11ImageBackup}
-          className={ie11BackupImageClassName}
-          data-name="ie11-backup-image"
-        />
-      ) : null}
-    </div>
+    />
   );
 };
 
