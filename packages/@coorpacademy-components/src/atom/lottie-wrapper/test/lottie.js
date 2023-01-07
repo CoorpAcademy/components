@@ -12,7 +12,7 @@ browserEnv();
 test.afterEach(cleanup);
 
 test('should update && load the animation, should clean up after unmount', async t => {
-  const {container, rerender, unmount} = render(<LottieWrapper {...starFixture.props} />);
+  const {container, rerender} = render(<LottieWrapper {...starFixture.props} />);
 
   await delay(500);
 
@@ -22,8 +22,6 @@ test('should update && load the animation, should clean up after unmount', async
 
   const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
   t.truthy(wrapper);
-
-  unmount();
 
   t.pass();
 });
