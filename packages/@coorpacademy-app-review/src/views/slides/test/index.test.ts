@@ -1168,8 +1168,6 @@ test('should verify props showing congrats', t => {
         'aria-label': '__New rank animation',
         autoplay: true,
         'data-name': 'default-lottie',
-        ie11ImageBackup:
-          'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg',
         loop: true
       },
       rankSuffix: 'th',
@@ -1191,8 +1189,6 @@ test('should verify props showing congrats', t => {
         autoplay: undefined,
         className: undefined,
         'data-name': 'default-lottie',
-        ie11ImageBackup:
-          'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg',
         loop: false,
         rendererSettings: {
           hideOnTransparent: false
@@ -1314,8 +1310,6 @@ test('should verify props showing congrats, with only stars card, if user has no
         autoplay: undefined,
         className: undefined,
         'data-name': 'default-lottie',
-        ie11ImageBackup:
-          'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg',
         loop: false,
         rendererSettings: {
           hideOnTransparent: false
