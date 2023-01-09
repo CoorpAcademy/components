@@ -68,8 +68,7 @@ const buildConfettiAnimation = (translate: Translate): LottieAnimationProps => (
   autoplay: true,
   rendererSettings: {
     hideOnTransparent: false
-  },
-  ie11ImageBackup: 'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
+  }
 });
 
 export const initialState: SlidesStack = {
@@ -325,9 +324,7 @@ const buildRankCard = (rank: number, translate: Translate): CongratsCardProps =>
       'data-name': 'default-lottie',
       animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
       loop: true,
-      autoplay: true,
-      ie11ImageBackup:
-        'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
+      autoplay: true
     },
     cardType: 'card-rank',
     iconAriaLabel: 'Image without information',
@@ -361,9 +358,7 @@ const buildCongratsProps = (
       autoplay: undefined,
       rendererSettings: {
         hideOnTransparent: false
-      },
-      ie11ImageBackup:
-        'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg'
+      }
     },
     iconAriaLabel: 'Image without information',
     className: undefined,

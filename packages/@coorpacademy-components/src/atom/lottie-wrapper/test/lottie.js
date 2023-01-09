@@ -1,6 +1,7 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
+import delay from 'delay';
 import {render, cleanup} from '@testing-library/react';
 import LottieWrapper, {fetchAndLoadAnimation} from '..';
 import starFixture from './fixtures/default';
@@ -10,18 +11,17 @@ browserEnv();
 
 test.afterEach(cleanup);
 
-test('should update && load the animation, should clean up after unmount', t => {
-  const {container, rerender, unmount} = render(<LottieWrapper {...starFixture.props} />);
+test('should update && load the animation, should clean up after unmount', async t => {
+  const {container, rerender} = render(<LottieWrapper {...starFixture.props} />);
+
+  await delay(500);
 
   rerender(<LottieWrapper {...starFixture.props} />);
 
+  await delay(500);
+
   const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
   t.truthy(wrapper);
-
-  const backupImage = wrapper[0].querySelector('[data-name="ie11-backup-image"]');
-  t.falsy(backupImage);
-
-  unmount();
 
   t.pass();
 });
@@ -38,58 +38,6 @@ test('lottie controls: should update && load the animation, should clean up afte
   const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
   t.truthy(wrapper);
 
-  const backupImage = wrapper[0].querySelector('[data-name="ie11-backup-image"]');
-  t.falsy(backupImage);
-  unmount();
-
-  t.pass();
-});
-
-test('ie11: should load an image in place of the animation', t => {
-  window.msCrypto = () => {};
-  // eslint-disable-next-line lodash-fp/prefer-constant
-  window.navigator.__defineGetter__('userAgent', function () {
-    return 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
-  });
-
-  const {container, rerender, unmount} = render(<LottieWrapper {...starFixture.props} />);
-
-  rerender(<LottieWrapper {...starFixture.props} />);
-  const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
-  t.truthy(wrapper);
-
-  const backupImage = wrapper[0].querySelector('[data-name="ie11-backup-image"]');
-  t.truthy(backupImage);
-
-  delete window.msCrypto;
-  // eslint-disable-next-line lodash-fp/prefer-constant
-  window.navigator.__defineGetter__('userAgent', function () {
-    return 'Mozilla/5.0 (darwin) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/13.2.0';
-  });
-  unmount();
-
-  t.pass();
-});
-
-test('other browser: should not load an image in place of the animation', t => {
-  // eslint-disable-next-line lodash-fp/prefer-constant
-  window.navigator.__defineGetter__('userAgent', function () {
-    return 'Mozilla/5.0 (other stuff; rv:77.0) like Gecko';
-  });
-
-  const {container, rerender, unmount} = render(<LottieWrapper {...starFixture.props} />);
-
-  rerender(<LottieWrapper {...starFixture.props} />);
-  const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
-  t.truthy(wrapper);
-
-  const backupImage = wrapper[0].querySelector('[data-name="ie11-backup-image"]');
-  t.falsy(backupImage);
-
-  // eslint-disable-next-line lodash-fp/prefer-constant
-  window.navigator.__defineGetter__('userAgent', function () {
-    return 'Mozilla/5.0 (darwin) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/13.2.0';
-  });
   unmount();
 
   t.pass();

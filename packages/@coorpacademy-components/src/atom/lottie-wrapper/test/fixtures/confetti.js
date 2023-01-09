@@ -12,8 +12,6 @@ export default {
     },
     height: 600,
     width: 1000,
-    ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
     animationControl: undefined
   }
 };

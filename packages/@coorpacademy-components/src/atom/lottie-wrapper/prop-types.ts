@@ -13,8 +13,6 @@ export type LottieAnimationProps = {
   height?: number;
   width?: number;
   className?: string;
-  ie11ImageBackup: string;
-  backupImageClassName?: string;
   autoplay?: boolean;
   animationControl?: 'play' | 'pause' | 'stop' | 'loading';
 };
@@ -38,8 +36,6 @@ const propTypes = {
   height: PropTypes.number,
   width: PropTypes.number,
   className: PropTypes.string,
-  ie11ImageBackup: PropTypes.string.isRequired,
-  backupImageClassName: PropTypes.string,
   autoplay: PropTypes.bool,
   animationControl: PropTypes.oneOf(keys(ANIMATION_CONTROL))
 };

@@ -264,8 +264,6 @@ const BackgroundScorm = props => {
                   hideOnTransparent: false,
                   animationClassName: ''
                 },
-                ie11ImageBackup:
-                  'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
                 animationControl: undefined
               }}
               loop={false}

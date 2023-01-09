@@ -12,8 +12,6 @@ export default {
     },
     height: 200,
     width: 200,
-    ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg',
     animationControl: undefined
   }
 };
