@@ -107,8 +107,6 @@ const ReviewPresentation = props => {
       />
       <ul className={style.reviewListWrapper}>
         {map.convert({cap: false})((label, key) => {
-          // eslint-disable-next-line no-console
-          console.log(key);
           return (
             <li key={`step-${key}`} className={style.reviewList}>
               <ReviewListItemWrapper
@@ -138,7 +136,10 @@ ReviewIcon.propTypes = {
 ReviewListItemWrapper.propTypes = {
   ...ToolTip.propTypes,
   iconKey: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.shape({
+    tooltipText: PropTypes.string,
+    moreDetailsAriaLabel: PropTypes.string
+  })
 };
 
 ReviewPresentation.propTypes = propTypes;
