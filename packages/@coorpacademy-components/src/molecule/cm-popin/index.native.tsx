@@ -27,7 +27,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       backgroundColor: 'rgba(255, 255, 255, 1)',
       borderRadius: 20,
       width: '90%',
-      maxHeight: 420,
+      maxHeight: '50%',
       marginTop: '70%'
     },
     wrapper: {
