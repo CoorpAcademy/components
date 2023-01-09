@@ -64,19 +64,19 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       marginVertical: 12,
       textAlign: 'center'
     },
-    firstButton: {
+    secondButton: {
       backgroundColor: theme.colors.cta,
       borderRadius: 7,
       marginBottom: theme.spacing.small
     },
-    firstButtonText: {
+    secondButtonText: {
       color: theme.colors.white
     },
-    secondButton: {
+    firstButton: {
       borderRadius: 7,
       marginBottom: theme.spacing.small
     },
-    secondButtonText: {
+    firstButtonText: {
       color: '#ED3436'
     }
   });
@@ -106,24 +106,24 @@ const QuitPopinReview = (props: CMPopinProps) => {
       </View>
       <View style={styleSheet.buttonContainer}>
         <Touchable
-          style={styleSheet.firstButton}
-          onPress={firstButton?.handleOnclick}
-          accessibilityLabel={firstButton?.['aria-label']}
-          testID="first-button"
-        >
-          <Text style={[styleSheet.buttonText, styleSheet.firstButtonText]}>
-            {firstButton?.label}
-          </Text>
-        </Touchable>
-        <Touchable
           style={styleSheet.secondButton}
-          isHighlight
           onPress={secondButton?.handleOnclick}
           accessibilityLabel={secondButton?.['aria-label']}
           testID="second-button"
         >
           <Text style={[styleSheet.buttonText, styleSheet.secondButtonText]}>
             {secondButton?.label}
+          </Text>
+        </Touchable>
+        <Touchable
+          style={styleSheet.firstButton}
+          isHighlight
+          onPress={firstButton?.handleOnclick}
+          accessibilityLabel={firstButton?.['aria-label']}
+          testID="first-button"
+        >
+          <Text style={[styleSheet.buttonText, styleSheet.firstButtonText]}>
+            {firstButton?.label}
           </Text>
         </Touchable>
       </View>
