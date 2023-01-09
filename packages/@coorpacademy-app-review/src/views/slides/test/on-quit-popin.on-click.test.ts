@@ -56,7 +56,7 @@ test('should dispatch CLOSE_POPIN action via the property handleOnclick of secon
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const quitPopin = props.quitPopin as CMPopinProps;
-  await quitPopin.secondButton.handleOnclick();
+  await quitPopin.secondButton?.handleOnclick();
   const updatedState = getState();
   t.is(updatedState.ui.showQuitPopin, false);
   t.pass();
@@ -73,6 +73,6 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
     skin
   });
   const quitPopin = props.quitPopin as CMPopinProps;
-  await quitPopin.firstButton.handleOnclick();
+  await quitPopin.firstButton?.handleOnclick();
   t.pass();
 });
