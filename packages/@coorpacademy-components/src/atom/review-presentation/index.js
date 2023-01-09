@@ -45,7 +45,11 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, isVisible}) =
         />
       </div>
       {isVisible ? (
-        <div className={style.toolTip} style={customStyle}>
+        <div
+          className={style.toolTip}
+          style={customStyle}
+          data-testid="review-presentation-tooltip"
+        >
           <p className={style.tooltipText}>{tooltipText}</p>
         </div>
       ) : null}
@@ -53,7 +57,7 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, isVisible}) =
   );
 };
 
-const ReviewListItemWrapper = ({iconKey, label}) => {
+const ReviewListItemWrapper = ({iconKey, label, 'data-testid': dataTestId}) => {
   const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
   const handleKeyPress = useCallback(
     event => {
@@ -77,6 +81,7 @@ const ReviewListItemWrapper = ({iconKey, label}) => {
       onMouseLeave={handleMouseLeave}
       onKeyDown={handleKeyPress}
       tabIndex={0}
+      data-testid={dataTestId}
     >
       <div className={style.reviewListText}>
         <ReviewIcon icon={iconKey} /> {label.text}
@@ -114,6 +119,7 @@ const ReviewPresentation = props => {
                 label={label}
                 tooltipText={label.tooltipText}
                 aria-label={label.moreDetailsAriaLabel}
+                data-testid={`review-list-item-wrapper-${key}`}
               />
             </li>
           );
@@ -139,7 +145,8 @@ ReviewListItemWrapper.propTypes = {
   label: PropTypes.shape({
     tooltipText: PropTypes.string,
     moreDetailsAriaLabel: PropTypes.string
-  })
+  }),
+  'data-testid': PropTypes.string
 };
 
 ReviewPresentation.propTypes = propTypes;
