@@ -1,0 +1,61 @@
+{
+    "Review Title": "Review Mode",
+    "Content Parent Title": "From \"{{contentTitle}}\" {{contentType}}",
+    "Review Step Item Aria Description": "Step \"{{stepItem}} is \" {{stepIconValue}}",
+    "Validate": "Validate",
+    "Next Question": "Next Question",
+    "KLF": "Key point",
+    "Correct Answer": "Good Answer",
+    "Wrong Answer": "Wrong Answer",
+    "You have won": "You have won",
+    "You are now": "You are now",
+    "Revise another skill": "Review another skill",
+    "Continue reviewing": "Keep reviewing",
+    "Congratulations!": "Congratulations!",
+    "aria_label": "Review Skills Template",
+    "Quit Title": "Are you sure you want to quit ?",
+    "Quit Description Text": "You’re right on track! If you quit now, you’ll lose your progress.",
+    "Stop learning": "End session",
+    "Continue learning": "Continue learning",
+    "Continue": "Continue",
+    "Type here": "Type here",
+    "Select an answer": "Select an answer",
+    "presentation": {
+      "aria_label": "Review Presentation Container",
+      "title": "What is<br/>Revision Mode ?",
+      "text": "Information vanishes from your mind as soon as it enters it? It’s perfectly normal: there is no retention without repetition! To keep your knowledge in the long term, use the Revision Mode to refresh your memory!",
+      "button": "Ok, I got it!",
+      "label_list": {
+        "skills": {
+          "text": "Choose 1 skill",
+          "tooltip": "You can review one skill at a time."
+        },
+        "questions": {
+          "text": "Answer 5 questions",
+          "tooltip": "Answer the 5 questions correctly to validate your revision mode session."
+        },
+        "lifes": { 
+          "text": "You have infinite live",
+          "tooltip": "You can answer as many times as you like to complete your session."
+        },
+        "allright": { 
+          "text":  "Get it all right",
+          "tooltip": "To validate your session, you must get a correct answer to each question."
+        }
+      }
+    },
+    "list_title": "Skills you can review",
+    "list_aria_label": "Review Skills Container",
+    "card": {
+      "aria_label": "Skill Card",
+      "text": "{{total}} questions to review",
+      "button_text": "Review this skill"
+    },
+    "no_skills": {
+      "title": "You have no skill to revise yet",
+      "text": "First you need to complete courses before you can review different skills."
+    },
+    "Acquired stars animation": "Acquired stars animation",
+    "New rank animation": "New rank animation",
+    "Congratulations confetti animation": "Congratulations confetti animation"
+}
