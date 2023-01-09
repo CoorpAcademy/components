@@ -44,24 +44,26 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, isVisible}) =
           aria-label={moreDetailsAriaLabel}
         />
       </div>
-      <div className={style.toolTip} style={customStyle}>
-        <p className={style.tooltipText}>{tooltipText}</p>
-      </div>
+      {isVisible ? (
+        <div className={style.toolTip} style={customStyle}>
+          <p className={style.tooltipText}>{tooltipText}</p>
+        </div>
+      ) : null}
     </div>
   );
 };
 
-const ReviewListItemWrapper = ({key, label}) => {
+const ReviewListItemWrapper = ({iconKey, label}) => {
   const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
   const handleKeyPress = useCallback(
     event => {
-      // eslint-disable-next-line no-console
-      console.log('event key', event.key);
-      if (event.key === 'Esc') {
+      if (event.key === 'Enter') {
+        setToolTipIsVisible(!toolTipIsVisible);
+      } else if (event.key === 'Tab' || event.key === 'Escape') {
         setToolTipIsVisible(false);
       }
     },
-    [setToolTipIsVisible]
+    [setToolTipIsVisible, toolTipIsVisible]
   );
   const handleMouseOver = useCallback(() => setToolTipIsVisible(true), [setToolTipIsVisible]);
 
@@ -73,11 +75,11 @@ const ReviewListItemWrapper = ({key, label}) => {
       data-for="reviewListItem"
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
-      onKeyPress={handleKeyPress}
+      onKeyDown={handleKeyPress}
       tabIndex={0}
     >
       <div className={style.reviewListText}>
-        <ReviewIcon icon={key} /> {label.text}
+        <ReviewIcon icon={iconKey} /> {label.text}
       </div>
       <ToolTip
         tooltipText={label.tooltipText}
@@ -105,10 +107,12 @@ const ReviewPresentation = props => {
       />
       <ul className={style.reviewListWrapper}>
         {map.convert({cap: false})((label, key) => {
+          // eslint-disable-next-line no-console
+          console.log(key);
           return (
             <li key={`step-${key}`} className={style.reviewList}>
               <ReviewListItemWrapper
-                key={key}
+                iconKey={key}
                 label={label}
                 tooltipText={label.tooltipText}
                 aria-label={label.moreDetailsAriaLabel}
@@ -133,7 +137,7 @@ ReviewIcon.propTypes = {
 
 ReviewListItemWrapper.propTypes = {
   ...ToolTip.propTypes,
-  key: PropTypes.string,
+  iconKey: PropTypes.string,
   label: PropTypes.string
 };
 
