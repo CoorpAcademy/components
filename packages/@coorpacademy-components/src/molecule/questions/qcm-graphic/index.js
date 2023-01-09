@@ -57,7 +57,7 @@ const QCMImage = (props, legacyContext) => {
   });
 
   return (
-    <div data-name="qcm-graphic-wrapper" className={style.wrapper}>
+    <div data-name="qcm-graphic-wrapper" className={style.wrapper} role="group">
       {answersViews}
     </div>
   );

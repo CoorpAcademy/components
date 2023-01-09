@@ -52,7 +52,7 @@ const QCM = (props, legacyContext) => {
   );
 
   return (
-    <div data-name="qcm" className={style.wrapper}>
+    <div data-name="qcm" className={style.wrapper} role="group">
       {answersViews}
     </div>
   );

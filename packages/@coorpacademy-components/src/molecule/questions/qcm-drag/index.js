@@ -101,7 +101,7 @@ const QcmDrag = ({answers, help}, legacyContext) => {
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} role="group">
       <SelectedAnswerSections answers={answers} help={help} backgroundColor={primarySkinColor} />
       <div data-name="qcm-drag-answers" className={style.answers}>
         <Choices answers={answers} />

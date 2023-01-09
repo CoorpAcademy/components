@@ -17,7 +17,7 @@ const QuestionRange = (props, legacyContext) => {
   };
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} role="group">
       <span
         style={titleStyle}
         className={classnames(style.title, style.innerHTML)}

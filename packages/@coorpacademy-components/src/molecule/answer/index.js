@@ -73,7 +73,7 @@ const Answer = props => {
   const {model, media, help} = props;
 
   return (
-    <div data-name="answer" className={style.wrapper} role="group">
+    <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
       <Switch model={model} help={help} />
     </div>

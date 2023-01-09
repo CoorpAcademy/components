@@ -40,7 +40,7 @@ const Template = ({template, answers}) => {
   }, totalTemplate);
 
   return (
-    <div data-name="template-wrapper" className={style.wrapper}>
+    <div data-name="template-wrapper" className={style.wrapper} role="group">
       {templateCompose}
     </div>
   );
