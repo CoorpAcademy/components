@@ -1,6 +1,7 @@
 {
     "Review Title": "Review Mode",
     "Content Parent Title": "From \"{{contentTitle}}\" {{contentType}}",
+    "Review Header Step Item Aria Description": "Step \"{{stepItem}} is \" {{stepItemIconValue}}",
     "Validate": "Validate",
     "Next Question": "Next Question",
     "KLF": "Key point",
