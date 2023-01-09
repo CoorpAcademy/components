@@ -6,7 +6,7 @@ export default {
     author: 'Coorpcademy',
     title: 'From Mass Market to One to One targeting',
     submitValue: 'Continue',
-    'aria-label': 'Continue. Continue course',
+    ariaLabel: 'Continue. Continue course',
     progress: 0.67,
     onClick: () => console.log('card-content.hero.onclick')
   }
