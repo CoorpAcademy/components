@@ -39,7 +39,7 @@ const propTypes = {
   listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
-type QuitPopinButton = {
+export type QuitPopinButton = {
   'aria-label'?: string;
   label: string;
   type: string;
@@ -55,8 +55,8 @@ export type CMPopinProps = {
   icon: string;
   mode: string;
   descriptionText: string;
-  firstButton: QuitPopinButton;
-  secondButton: QuitPopinButton;
+  firstButton?: QuitPopinButton;
+  secondButton?: QuitPopinButton;
 };
 
 export default propTypes;

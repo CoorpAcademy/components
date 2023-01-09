@@ -3,6 +3,7 @@ import {View, StyleSheet, ViewStyle} from 'react-native';
 import StackedSlides from '../../../organism/review-stacked-slides/index.native';
 import ReviewCongrats from '../../../organism/review-congrats/index.native';
 import ReviewHeader from '../../../organism/review-header/index.native';
+import QuitPopinReview from '../../../molecule/cm-popin/index.native';
 import {Theme} from '../../../variables/theme.native';
 import {useTemplateContext} from '../template-context';
 import {ReviewPlayerProps} from './prop-types';
@@ -25,7 +26,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
   });
 
 const Slides = (props: ReviewPlayerProps) => {
-  const {congrats, header, stack} = props;
+  const {congrats, header, stack, quitPopin} = props;
 
   const {theme} = useTemplateContext();
 
@@ -45,6 +46,7 @@ const Slides = (props: ReviewPlayerProps) => {
       <ReviewHeader {...header} />
       {stack ? <StackedSlides {...stack} /> : null}
       {congrats ? <ReviewCongrats {...congrats} /> : null}
+      {quitPopin ? <QuitPopinReview {...quitPopin} /> : null}
     </View>
   );
 };
