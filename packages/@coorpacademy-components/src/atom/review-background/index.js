@@ -5,15 +5,19 @@ import propTypes from './prop-types';
 const ReviewBackground = props => {
   const {'aria-label': ariaLabel} = props;
   return (
-    <div className={style.mainContainer} aria-label={ariaLabel}>
-      <div className={style.container}>
-        <span className={style.interrogationLeft}>?</span>
-        <span className={style.interrogationRight}>?</span>
-        <div className={style.recYellow} />
-        <div className={style.recRed} />
-        <div className={style.recBlue} />
-        <div className={style.recGreen} />
-        <div className={style.recGreenLight} />
+    <div className={style.mainContainer} aria-label={ariaLabel} tabIndex={-1}>
+      <div className={style.container} tabIndex={-1}>
+        <span className={style.interrogationLeft} tabIndex={-1}>
+          ?
+        </span>
+        <span className={style.interrogationRight} tabIndex={-1}>
+          ?
+        </span>
+        <div className={style.recYellow} tabIndex={-1} />
+        <div className={style.recRed} tabIndex={-1} />
+        <div className={style.recBlue} tabIndex={-1} />
+        <div className={style.recGreen} tabIndex={-1} />
+        <div className={style.recGreenLight} tabIndex={-1} />
       </div>
     </div>
   );
