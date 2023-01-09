@@ -1,5 +1,13 @@
 import React, {useState, useEffect, FC} from 'react';
-import {View, StyleSheet, Text, ViewStyle, TextStyle, GestureResponderEvent} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  ViewStyle,
+  TextStyle,
+  GestureResponderEvent,
+  Platform
+} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
 import {NovaCompositionNavigationNavBar as BlurredShadow} from '@coorpacademy/nova-icons';
@@ -123,11 +131,13 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
 
   return (
     <View style={styleSheet.main}>
-      <BlurView
-        style={styleSheet.container}
-        blurAmount={32}
-        reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
-      />
+      {Platform.OS === 'ios' ? (
+        <BlurView
+          style={styleSheet.container}
+          blurAmount={32}
+          reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
+        />
+      ) : null}
       <View style={styleSheet.container}>
         {items.map((prop, index) => {
           const handlePress = prop.action;
