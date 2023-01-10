@@ -425,7 +425,11 @@ export const mapStateToSlidesProps = (
     header: {
       mode: translate('Review Title'),
       skillName,
-      onQuitClick: () => dispatch(openQuitPopin),
+      onQuitClick: showCongrats
+        ? onQuitClick
+        : (): void => {
+            dispatch(openQuitPopin);
+          },
       'aria-label': 'aria-header-wrapper',
       closeButtonAriaLabel: 'aria-close-button',
       steps: buildStepItems(state),
