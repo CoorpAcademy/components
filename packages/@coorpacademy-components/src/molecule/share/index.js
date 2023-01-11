@@ -65,7 +65,8 @@ export const ShareStatusProvider = ({children}) => {
 };
 
 export const ShareFeedback = ({successWording, errorWording}) => {
-  const [status] = useContext(StatusContext);
+  // const [status] = useContext(StatusContext);
+  const [status] = SHARE_STATUS.ERROR;
   if (status === SHARE_STATUS.IDLE) return null;
 
   return (
@@ -77,7 +78,11 @@ export const ShareFeedback = ({successWording, errorWording}) => {
       ) : (
         <AttentionIcon className={styles.checkIcon} width={13} height={13} />
       )}
-      <p role="status">{status === SHARE_STATUS.SUCCESS ? successWording : errorWording}</p>
+      {status === SHARE_STATUS.SUCCESS ? (
+        <p role="status">{successWording}</p>
+      ) : (
+        <p role="alert">{errorWording}</p>
+      )}
     </div>
   );
 };
