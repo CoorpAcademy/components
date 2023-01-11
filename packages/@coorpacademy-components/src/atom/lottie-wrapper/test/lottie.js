@@ -3,7 +3,6 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import delay from 'delay';
 import {render, cleanup} from '@testing-library/react';
-import isEmpty from 'lodash/fp/isEmpty';
 import LottieWrapper, {fetchAndLoadAnimation} from '..';
 import starFixture from './fixtures/default';
 import controlsFixture from './fixtures/controls';
