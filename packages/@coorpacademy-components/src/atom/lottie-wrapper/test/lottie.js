@@ -3,6 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import delay from 'delay';
 import {render, cleanup} from '@testing-library/react';
+import isEmpty from 'lodash/fp/isEmpty';
 import LottieWrapper, {fetchAndLoadAnimation} from '..';
 import starFixture from './fixtures/default';
 import controlsFixture from './fixtures/controls';
@@ -26,17 +27,20 @@ test('should update && load the animation, should clean up after unmount', async
   t.pass();
 });
 
-test('lottie controls: should update && load the animation, should clean up after unmount', t => {
-  const props = {
-    ...controlsFixture.props,
-    animationControl: 'play'
-  };
+test('lottie controls: should update && load the animation, should clean up after unmount', async t => {
+  const {container, rerender, unmount} = render(<LottieWrapper {...controlsFixture.props} />);
 
-  const {container, rerender, unmount} = render(<LottieWrapper {...props} />);
+  await delay(500);
 
-  rerender(<LottieWrapper {...props} />);
-  const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
-  t.truthy(wrapper);
+  const lottieAnimation = container.querySelectorAll('[data-name="default-lottie"] svg');
+
+  t.truthy(lottieAnimation);
+
+  rerender(<LottieWrapper {...controlsFixture.props} animationControl="play" />);
+
+  await delay(500);
+
+  rerender(<LottieWrapper {...controlsFixture.props} animationControl="stop" />);
 
   unmount();
 

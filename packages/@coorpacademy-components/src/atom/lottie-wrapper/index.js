@@ -2,6 +2,7 @@ import React, {useMemo, useRef, useEffect, useState} from 'react';
 import classnames from 'classnames';
 import lottie from 'lottie-web';
 import includes from 'lodash/fp/includes';
+import isNil from 'lodash/fp/isNil';
 import keys from 'lodash/fp/keys';
 import omit from 'lodash/fp/omit';
 import unfetch from 'isomorphic-unfetch';
@@ -58,10 +59,10 @@ const LottieWrapper = props => {
     autoplay = true,
     animationControl
   } = props;
-
   const {className: animationClassName, hideOnTransparent = true} = rendererSettings;
 
   const containerRef = useRef(null);
+  const isCancelledRef = useRef(null);
 
   // lottie's animation instance
   const [animationItem, setAnimationItem] = useState(null);
@@ -76,15 +77,9 @@ const LottieWrapper = props => {
   );
 
   useEffect(() => {
-    // enzyme does not handle well the state update after an async useEffect in tests
-    // to remove when the migration towards @testing-library/react is done
-    /* istanbul ignore next */
-    if (
-      containerRef.current &&
-      includes(animationControl, keys(omit('loading', ANIMATION_CONTROL))) &&
-      !autoplay
-    ) {
+    if (includes(animationControl, keys(omit('loading', ANIMATION_CONTROL))) && !autoplay) {
       setIsAnimationVisible(true);
+      /* istanbul ignore next */
       if (animationItem) animationItem[animationControl]();
       if (animationControl === ANIMATION_CONTROL.stop) setIsAnimationVisible(false);
     }
@@ -93,13 +88,10 @@ const LottieWrapper = props => {
   useEffect(() => {
     const loadAnimation = async () => {
       /* istanbul ignore else */
-      if (!animationItem) {
-        /* istanbul ignore else */
-        if (typeof window !== 'undefined') {
-          window.lottie = lottie;
-        }
+      if (!animationItem && typeof window !== 'undefined') {
+        window.lottie = lottie;
         const animation = await fetchAndLoadAnimation(
-          lottie,
+          window.lottie,
           unfetch,
           animationSrc,
           containerRef,
@@ -109,14 +101,14 @@ const LottieWrapper = props => {
           autoplay
         );
 
-        containerRef.current && setAnimationItem(animation);
+        isNil(isCancelledRef.current) && setAnimationItem(animation);
       }
     };
 
     loadAnimation();
     return () => {
-      containerRef.current = false;
-      return animationItem && /* istanbul ignore next */ lottie.destroy(animationItem.name);
+      isCancelledRef.current = true;
+      return animationItem && /* istanbul ignore next */ window.lottie.destroy(animationItem.name);
     };
   }, [
     lottieAnimationClassName,
