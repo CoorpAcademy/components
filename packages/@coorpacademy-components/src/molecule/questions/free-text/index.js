@@ -33,7 +33,6 @@ const FreeText = (props, legacyContext) => {
           boxShadow: hovered ? 'none' : `0 4px 16px ${shadowBoxPrimaryColor}`
         })
       }}
-      role="group"
     >
       <input
         data-name="free-text-input"
