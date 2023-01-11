@@ -305,7 +305,7 @@ const buildQuitPopinProps =
         label: translate('Continue learning'),
         type: 'primary',
         customStyle: {
-          backgroundColor: skin.common.primary
+          backgroundColor: get(['common', 'primary'], skin)
         },
         handleOnclick: (): void => {
           dispatch(closeQuitPopin);
