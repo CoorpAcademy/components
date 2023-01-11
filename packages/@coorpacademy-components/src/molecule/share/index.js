@@ -65,8 +65,7 @@ export const ShareStatusProvider = ({children}) => {
 };
 
 export const ShareFeedback = ({successWording, errorWording}) => {
-  // const [status] = useContext(StatusContext);
-  const [status] = SHARE_STATUS.ERROR;
+  const [status] = useContext(StatusContext);
   if (status === SHARE_STATUS.IDLE) return null;
 
   return (
