@@ -29,35 +29,7 @@ const ReviewIcon = ({icon}) => {
   return <Icon className={style.labelIcon} />;
 };
 
-const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, isVisible}) => {
-  const customStyle = {
-    visibility: isVisible ? 'visible' : 'hidden',
-    opacity: isVisible ? 1 : 0
-  };
-  return (
-    <div className={style.tooltipContainer}>
-      <div className={style.tooltipIconContainer}>
-        <InformationIcon
-          className={style.informationIcon}
-          width={12}
-          height={12}
-          aria-label={moreDetailsAriaLabel}
-        />
-      </div>
-      {isVisible ? (
-        <div
-          className={style.toolTip}
-          style={customStyle}
-          data-testid="review-presentation-tooltip"
-        >
-          <p className={style.tooltipText}>{tooltipText}</p>
-        </div>
-      ) : null}
-    </div>
-  );
-};
-
-const ReviewListItemWrapper = ({iconKey, label, 'data-testid': dataTestId}) => {
+const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, 'data-testid': dataTestId}) => {
   const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
   const handleKeyPress = useCallback(
     event => {
@@ -72,24 +44,52 @@ const ReviewListItemWrapper = ({iconKey, label, 'data-testid': dataTestId}) => {
   const handleMouseOver = useCallback(() => setToolTipIsVisible(true), [setToolTipIsVisible]);
 
   const handleMouseLeave = useCallback(() => setToolTipIsVisible(false), [setToolTipIsVisible]);
+  const customStyle = {
+    visibility: toolTipIsVisible ? 'visible' : 'hidden',
+    opacity: toolTipIsVisible ? 1 : 0
+  };
   return (
-    <div
-      className={style.reviewListItemWrapper}
-      data-tip
-      data-for="reviewListItem"
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
-      onKeyDown={handleKeyPress}
-      tabIndex={0}
-      data-testid={dataTestId}
-    >
+    <div className={style.tooltipContainer}>
+      <div
+        className={style.tooltipIconContainer}
+        data-testid={dataTestId}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+      >
+        <InformationIcon
+          className={style.informationIcon}
+          width={12}
+          height={12}
+          aria-label={moreDetailsAriaLabel}
+        />
+      </div>
+      {toolTipIsVisible ? (
+        <div
+          className={style.toolTip}
+          style={customStyle}
+          data-testid="review-presentation-tooltip"
+          // aria-label to close the information icon with Echap or Enter
+        >
+          <p className={style.tooltipText}>{tooltipText}</p>
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+const ReviewListItemWrapper = ({iconKey, label}) => {
+  // déplacer dans ToolTip
+  return (
+    <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem" tabIndex={0}>
       <div className={style.reviewListText}>
         <ReviewIcon icon={iconKey} /> {label.text}
       </div>
       <ToolTip
         tooltipText={label.tooltipText}
         aria-label={label.moreDetailsAriaLabel}
-        isVisible={toolTipIsVisible}
+        data-testid={`review-list-item-tooltip-button-${iconKey}`}
       />
     </div>
   );
@@ -119,7 +119,6 @@ const ReviewPresentation = props => {
                 label={label}
                 tooltipText={label.tooltipText}
                 aria-label={label.moreDetailsAriaLabel}
-                data-testid={`review-list-item-wrapper-${key}`}
               />
             </li>
           );
@@ -132,7 +131,7 @@ const ReviewPresentation = props => {
 ToolTip.propTypes = {
   tooltipText: PropTypes.string,
   'aria-label': PropTypes.string,
-  isVisible: PropTypes.bool
+  'data-testid': PropTypes.string
 };
 
 ReviewIcon.propTypes = {
@@ -145,8 +144,7 @@ ReviewListItemWrapper.propTypes = {
   label: PropTypes.shape({
     tooltipText: PropTypes.string,
     moreDetailsAriaLabel: PropTypes.string
-  }),
-  'data-testid': PropTypes.string
+  })
 };
 
 ReviewPresentation.propTypes = propTypes;
