@@ -127,6 +127,7 @@
 .tooltipIconContainer {
   display: flex;
   justify-content: flex-end;
+  border: none;
 }
 
 @media tablet {

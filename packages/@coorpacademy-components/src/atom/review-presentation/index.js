@@ -50,7 +50,8 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, 'data-testid'
   };
   return (
     <div className={style.tooltipContainer}>
-      <div
+      <button
+        type="button"
         className={style.tooltipIconContainer}
         data-testid={dataTestId}
         onMouseOver={handleMouseOver}
@@ -64,7 +65,7 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, 'data-testid'
           height={12}
           aria-label={moreDetailsAriaLabel}
         />
-      </div>
+      </button>
       {toolTipIsVisible ? (
         <div
           className={style.toolTip}
