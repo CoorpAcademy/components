@@ -90,12 +90,7 @@ export type Template = {
   answers: (TextTemplate | SelectionTemplate)[];
 };
 
-export type VideoMedia = {
-  mimeType: string;
-  videoId: string;
-  mediaRef: string;
-  jwpOptions: unknown;
-};
+export type VideoMedia = unknown;
 
 export type Media =
   | VideoMedia

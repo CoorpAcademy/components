@@ -47,7 +47,7 @@ import {
   Media
 } from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
-import {Translate} from '../../types/common';
+import {ApiMediaVideo, ConnectedOptions, Translate} from '../../types/common';
 
 const qcmProps =
   (dispatch: Dispatch) =>
@@ -281,7 +281,10 @@ const getAnswerUIModel = (
   }
 };
 
-const buildMedia = (media: unknown): Media | undefined => {
+const buildMedia = (
+  media: unknown,
+  appendVideoOptions: (video: ApiMediaVideo) => unknown
+): Media | undefined => {
   const type = get('type', media);
   const resource = get('src.0', media);
   switch (type) {
@@ -292,44 +295,24 @@ const buildMedia = (media: unknown): Media | undefined => {
         type,
         url: get('url', resource)
       };
-    case 'video':
-      return {
-        ...resource,
-        type
-      };
-  }
-
-  /*
-  return {
-    type: 'video',
-    videoId: 'uc65pjvl',
-    mimeType: 'application/jwplayer',
-    mediaRef: 'med_EJwkijoQp',
-    jwpOptions: {
-      playerId: '7IMa4DCK',
-      playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
-      licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
+    case 'video': {
+      return appendVideoOptions(resource);
     }
-  };
-  /*
-  return {
-    type: 'img',
-    url: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-minds-and-more/cockpit-minds-and-more/default/shutterstock_701165035-1518620484928.jpg&h=400&w=835&q=80&m=contain'
-  };
-  */
+  }
 };
 
 export const mapApiSlideToUi =
-  (dispatch: Dispatch, translate: Translate) =>
+  (dispatch: Dispatch, translate: Translate, options: ConnectedOptions) =>
   (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
     const media = get('question.medias.0', slide);
+    const {appendVideoOptions} = options;
 
     return {
       questionText,
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
-        media: buildMedia(media),
+        media: buildMedia(media, appendVideoOptions),
         help: getHelp(slide)
       }
     };

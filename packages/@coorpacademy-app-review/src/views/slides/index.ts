@@ -137,7 +137,11 @@ const buildStackSlides = (
       if (!slideFromAPI) return set(index, {...uiSlide, position}, acc);
 
       const answers = getOr([], ['ui', 'answers', slideRef], state);
-      const {questionText, answerUI} = mapApiSlideToUi(dispatch, translate)(slideFromAPI, answers);
+      const {questionText, answerUI} = mapApiSlideToUi(
+        dispatch,
+        translate,
+        options
+      )(slideFromAPI, answers);
       const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const slideUI = get(['ui', 'slide', slideRef], state);

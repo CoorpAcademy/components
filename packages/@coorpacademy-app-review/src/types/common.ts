@@ -17,10 +17,18 @@ export type Skin = {
   };
 };
 
+export type ApiMediaVideo = {
+  mimeType: string;
+  videoId: string;
+  mediaRef: string;
+  id: string;
+};
+
 export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
   skin: Skin;
+  appendVideoOptions: (video: ApiMediaVideo) => unknown;
 };
 
 export type AppOptions = ConnectedOptions & {
