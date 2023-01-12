@@ -62,6 +62,7 @@ const appOptions: AppOptions = {
   skillRef: 'skill_NJC0jFKoH',
   services,
   onQuitClick: identity,
+  appendVideoOptions: identity,
   translate: key => key,
   skin: {
     common: {

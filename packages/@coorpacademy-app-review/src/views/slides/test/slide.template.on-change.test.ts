@@ -14,7 +14,7 @@ import {translate} from '../../../test/utils/translation.mock';
 import {templateSlide} from './fixtures/template';
 import {skin} from './fixtures/skin';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
 
 const progression: ProgressionFromAPI = {
   _id: '123456789123',

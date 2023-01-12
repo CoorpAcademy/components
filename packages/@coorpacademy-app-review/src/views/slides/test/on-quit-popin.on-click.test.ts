@@ -12,7 +12,7 @@ import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
 
 const state: StoreState = {
   data: {
@@ -67,11 +67,7 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
 
   const expectedAction = [{type: CLOSE_POPIN}];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, {
-    translate,
-    onQuitClick: () => t.pass(),
-    skin
-  });
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.firstButton?.handleOnclick();
   t.pass();

@@ -3,14 +3,17 @@ import identity from 'lodash/fp/identity';
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {ReviewSlide} from '..';
+import {translate} from '../../../test/utils/translation.mock';
 import {qcmSlide, qcmUISlide} from './fixtures/qcm';
 import {qcmDragSlide, qcmDragUISlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
 import {qcmGraphicSlide, qcmGraphicUISlide} from './fixtures/qcm-graphic';
 import {templateSlide, templateUISlide} from './fixtures/template';
 import {sliderSlide, sliderUISlide} from './fixtures/slider';
+import {skin} from './fixtures/skin';
 
-const _mapApiSlideToUi = mapApiSlideToUi(identity, identity);
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
+const _mapApiSlideToUi = mapApiSlideToUi(identity, identity, connectedOptions);
 
 const macro = test.macro({
   title(providedTitle) {

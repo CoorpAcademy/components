@@ -23,7 +23,7 @@ import {freeTextSlide} from './fixtures/free-text';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)

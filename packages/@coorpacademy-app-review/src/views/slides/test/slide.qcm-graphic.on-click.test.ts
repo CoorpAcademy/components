@@ -13,7 +13,7 @@ import {translate} from '../../../test/utils/translation.mock';
 import {skin} from './fixtures/skin';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
 
 const progression: ProgressionFromAPI = {
   _id: '123456789123',

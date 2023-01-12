@@ -22,7 +22,7 @@ import {qcmSlide} from './fixtures/qcm';
 import {sliderSlide} from './fixtures/slider';
 import {templateSlide} from './fixtures/template';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
 
 const state: StoreState = {
   data: {

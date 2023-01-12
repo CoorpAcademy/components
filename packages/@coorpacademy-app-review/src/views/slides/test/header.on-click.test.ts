@@ -15,6 +15,8 @@ import {freeTextSlide} from './fixtures/free-text';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
+const connectedOptions = {translate, onQuitClick: identity, skin, appendVideoOptions: identity};
+
 test('should dispatch OPEN_POPIN action after a click on close button in header', async t => {
   const state: StoreState = {
     data: {
@@ -47,17 +49,14 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
   };
   const expectedAction = [{type: OPEN_POPIN}];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, {
-    translate,
-    onQuitClick: identity,
-    skin
-  });
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();
   const updatedProps = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: identity,
-    skin
+    skin,
+    appendVideoOptions: identity
   });
   t.not(updatedProps.quitPopin, undefined);
   t.pass();
@@ -143,11 +142,7 @@ test('should dispatch onQuitClick function after a click on close button in head
 
   const expectedAction = [{type: NEXT_SLIDE}];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
-  const props = mapStateToSlidesProps(getState(), dispatch, {
-    translate,
-    onQuitClick: () => t.pass(),
-    skin
-  });
+  const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
 
   await props.header.onQuitClick();
   t.pass();
