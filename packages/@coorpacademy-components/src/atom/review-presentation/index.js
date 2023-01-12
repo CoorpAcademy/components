@@ -29,7 +29,12 @@ const ReviewIcon = ({icon}) => {
   return <Icon className={style.labelIcon} />;
 };
 
-const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, 'data-testid': dataTestId}) => {
+const ToolTip = ({
+  tooltipText,
+  'aria-label': moreDetailsAriaLabel,
+  'data-testid': dataTestId,
+  closeToolTipInformationTextAriaLabel
+}) => {
   const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
   const handleKeyPress = useCallback(
     event => {
@@ -71,7 +76,7 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, 'data-testid'
           className={style.toolTip}
           style={customStyle}
           data-testid="review-presentation-tooltip"
-          // aria-label to close the information icon with Echap or Enter
+          aria-label={closeToolTipInformationTextAriaLabel}
         >
           <p className={style.tooltipText}>{tooltipText}</p>
         </div>
@@ -81,7 +86,6 @@ const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel, 'data-testid'
 };
 
 const ReviewListItemWrapper = ({iconKey, label}) => {
-  // déplacer dans ToolTip
   return (
     <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem" tabIndex={0}>
       <div className={style.reviewListText}>
@@ -90,6 +94,7 @@ const ReviewListItemWrapper = ({iconKey, label}) => {
       <ToolTip
         tooltipText={label.tooltipText}
         aria-label={label.moreDetailsAriaLabel}
+        closeToolTipInformationTextAriaLabel={label.closeToolTipInformationTextAriaLabel}
         data-testid={`review-list-item-tooltip-button-${iconKey}`}
       />
     </div>
@@ -132,7 +137,8 @@ const ReviewPresentation = props => {
 ToolTip.propTypes = {
   tooltipText: PropTypes.string,
   'aria-label': PropTypes.string,
-  'data-testid': PropTypes.string
+  'data-testid': PropTypes.string,
+  closeToolTipInformationTextAriaLabel: PropTypes.string
 };
 
 ReviewIcon.propTypes = {

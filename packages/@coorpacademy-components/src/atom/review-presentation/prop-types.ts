@@ -4,7 +4,8 @@ import {ColorValue, GestureResponderEvent, ViewStyle} from 'react-native';
 const levelItem = PropTypes.shape({
   text: PropTypes.string,
   tooltipText: PropTypes.string,
-  moreDetailsAreaLabel: PropTypes.string
+  moreDetailsAreaLabel: PropTypes.string,
+  closeToolTipInformationTextAriaLabel: PropTypes.string
 });
 
 const propTypes = {
