@@ -52,12 +52,7 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();
-  const updatedProps = mapStateToSlidesProps(getState(), dispatch, {
-    translate,
-    onQuitClick: identity,
-    skin,
-    appendVideoOptions: identity
-  });
+  const updatedProps = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.not(updatedProps.quitPopin, undefined);
   t.pass();
 });
