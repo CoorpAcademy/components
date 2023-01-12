@@ -16,6 +16,9 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
   const thunkOptions: ThunkOptions = {
     services: options.services || getServices(),
     callbackOnViewChanged: options.callbackOnViewChanged
+    // TODO passer le fonction ici, elle est une promesse et l'appeler à 
+    // la suite du fetch de slide, comme ça on aura les données calculées
+    // --> remplacer ce qu'on a fait
   };
 
   const thunkMiddleware = thunk.withExtraArgument(thunkOptions);
