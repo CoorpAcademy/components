@@ -10,7 +10,8 @@ export default {
         'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/onboarding/raw/coorp_logo_infinite-1553079705037.png&h=80&w=600&q=90&m=contain',
       href: '#',
       'aria-label': 'brand logo up.coorpacademy.com',
-      'button-aria-label': 'brand logo used to open menu'
+      openMenuAriaLabel: 'open the navigation menu',
+      closeMenuAriaLabel: 'close the navigation menu'
     },
     search: {
       ...research,

@@ -245,7 +245,7 @@ class MoocHeader extends React.Component {
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     const {translate, skin} = this.context;
-    const {'aria-label': logoAriaLabel, 'button-aria-label': logoButtonAriaLabel} = logo;
+    const {'aria-label': logoAriaLabel, closeMenuAriaLabel, openMenuAriaLabel} = logo;
     const logoUrl = get('src', logo) || get('images.logo', skin);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
 
@@ -580,23 +580,21 @@ class MoocHeader extends React.Component {
           className={isMenuOpen ? style.open : style.header}
         >
           <div className={style.logoWrapper}>
-            <div
-              className={style.navMobile}
-              data-name="nav-mobile"
-              aria-label={logoButtonAriaLabel}
-            >
+            <div className={style.navMobile} data-name="nav-mobile">
               <BurgerIcon
                 role="button"
                 data-name="nav-mobile-open"
                 color={mediumColor}
                 className={isMenuOpen ? style.burgerHidden : style.burger}
                 onClick={this.handleOnMenuOpen}
+                aria-label={openMenuAriaLabel}
               />
               <CloseIcon
                 data-name="nav-mobile-close"
                 color={mediumColor}
                 className={isMenuOpen ? style.close : style.closeHidden}
                 onClick={this.handleOnMenuClose}
+                aria-label={closeMenuAriaLabel}
               />
               <Link data-name="logo-mobile" href={logo.href}>
                 <Picture src={logoMobileUrl} alt={logoAriaLabel} />
