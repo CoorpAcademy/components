@@ -281,8 +281,25 @@ const getAnswerUIModel = (
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const buildMedia = (medias: unknown[]): Media => {
+const buildMedia = (media: unknown): Media | undefined => {
+  const type = get('type', media);
+  const resource = get('src.0', media);
+  switch (type) {
+    case 'img':
+    case 'audio':
+      return {
+        ...resource,
+        type,
+        url: get('url', resource)
+      };
+    case 'video':
+      return {
+        ...resource,
+        type
+      };
+  }
+
+  /*
   return {
     type: 'video',
     videoId: 'uc65pjvl',
@@ -306,13 +323,13 @@ export const mapApiSlideToUi =
   (dispatch: Dispatch, translate: Translate) =>
   (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
-    const medias = slide.question.medias;
+    const media = get('question.medias.0', slide);
 
     return {
       questionText,
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
-        media: medias ? buildMedia(medias) : undefined,
+        media: buildMedia(media),
         help: getHelp(slide)
       }
     };

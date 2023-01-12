@@ -34,6 +34,21 @@ export const freeTextSlide: SlideFromAPI = {
         subtitles: [],
         id: '63910a48c34a78041f0cad13'
       }
+      /* {
+        _id: '6377c7f7c76a8a017fac4363',
+        type: 'img',
+        src: [
+          {
+            _id: '6377c7f7c76a8a017fac4364',
+            mimeType: 'image/jpeg',
+            url: '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-partner-wedemain/default/shutterstock_181414391-1480431629586.jpg',
+            id: '6377c7f7c76a8a017fac4364'
+          }
+        ],
+        posters: [],
+        subtitles: [],
+        id: '6377c7f7c76a8a017fac4363'
+      } */
     ]
   },
   klf: 'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.',
