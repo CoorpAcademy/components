@@ -289,7 +289,16 @@ export const mapApiSlideToUi =
       questionText,
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
-        media: slide.question.media,
+        media: {
+          videoId: 'uc65pjvl',
+          mimeType: 'application/jwplayer',
+          mediaRef: 'med_EJwkijoQp',
+          jwpOptions: {
+            playerId: '7IMa4DCK',
+            playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+            licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
+          }
+        },
         help: getHelp(slide)
       }
     };

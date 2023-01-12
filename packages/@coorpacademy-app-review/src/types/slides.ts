@@ -90,9 +90,17 @@ export type Template = {
   answers: (TextTemplate | SelectionTemplate)[];
 };
 
+type Media = {
+  mimeType: string;
+  videoId: string;
+  mediaRef: string;
+  jwpOptions: unknown;
+};
+
 export type AnswerUI = {
   model: QcmDrag | Qcm | QcmGraphic | FreeText | DropDown | QuestionRange | Template;
   help: string;
+  media?: Media;
 };
 
 export type SlideUIAnimations = 'unstack' | 'restack';
