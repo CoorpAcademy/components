@@ -290,6 +290,7 @@ export const mapApiSlideToUi =
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
         media: {
+          type: 'video',
           videoId: 'uc65pjvl',
           mimeType: 'application/jwplayer',
           mediaRef: 'med_EJwkijoQp',
@@ -298,7 +299,11 @@ export const mapApiSlideToUi =
             playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
             licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
           }
-        },
+        } /*
+        media: {
+          type: 'img',
+          url: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-minds-and-more/cockpit-minds-and-more/default/shutterstock_701165035-1518620484928.jpg&h=400&w=835&q=80&m=contain'
+        }, */,
         help: getHelp(slide)
       }
     };

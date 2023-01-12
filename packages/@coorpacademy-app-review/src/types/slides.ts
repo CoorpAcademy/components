@@ -90,12 +90,17 @@ export type Template = {
   answers: (TextTemplate | SelectionTemplate)[];
 };
 
-type Media = {
-  mimeType: string;
-  videoId: string;
-  mediaRef: string;
-  jwpOptions: unknown;
-};
+type Media =
+  | {
+      mimeType: string;
+      videoId: string;
+      mediaRef: string;
+      jwpOptions: unknown;
+    }
+  | {
+      url: string;
+      type: string;
+    };
 
 export type AnswerUI = {
   model: QcmDrag | Qcm | QcmGraphic | FreeText | DropDown | QuestionRange | Template;
