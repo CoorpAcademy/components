@@ -61,6 +61,7 @@ type BaseQuestion = {
   header?: string;
   content: BaseContent;
   explanation?: string;
+  medias?: unknown[];
 };
 
 export type QcmQuestion = BaseQuestion & {

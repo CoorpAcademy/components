@@ -289,6 +289,7 @@ export const mapApiSlideToUi =
       questionText,
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
+        media: slide.question.media,
         help: getHelp(slide)
       }
     };
