@@ -90,7 +90,7 @@ export type Template = {
   answers: (TextTemplate | SelectionTemplate)[];
 };
 
-type Media =
+export type Media =
   | {
       mimeType: string;
       videoId: string;

@@ -43,7 +43,8 @@ import {
   QuestionRange,
   SelectionTemplate,
   Template,
-  TextTemplate
+  TextTemplate,
+  Media
 } from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
 import {Translate} from '../../types/common';
@@ -280,30 +281,38 @@ const getAnswerUIModel = (
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const buildMedia = (medias: unknown[]): Media => {
+  return {
+    type: 'video',
+    videoId: 'uc65pjvl',
+    mimeType: 'application/jwplayer',
+    mediaRef: 'med_EJwkijoQp',
+    jwpOptions: {
+      playerId: '7IMa4DCK',
+      playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
+    }
+  };
+  /*
+  return {
+    type: 'img',
+    url: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-minds-and-more/cockpit-minds-and-more/default/shutterstock_701165035-1518620484928.jpg&h=400&w=835&q=80&m=contain'
+  };
+  */
+};
+
 export const mapApiSlideToUi =
   (dispatch: Dispatch, translate: Translate) =>
   (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
+    const medias = slide.question.medias;
 
     return {
       questionText,
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
-        media: {
-          type: 'video',
-          videoId: 'uc65pjvl',
-          mimeType: 'application/jwplayer',
-          mediaRef: 'med_EJwkijoQp',
-          jwpOptions: {
-            playerId: '7IMa4DCK',
-            playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
-            licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
-          }
-        } /*
-        media: {
-          type: 'img',
-          url: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-minds-and-more/cockpit-minds-and-more/default/shutterstock_701165035-1518620484928.jpg&h=400&w=835&q=80&m=contain'
-        }, */,
+        media: medias ? buildMedia(medias) : undefined,
         help: getHelp(slide)
       }
     };
