@@ -1,6 +1,6 @@
 import test from 'ava';
 import type {Services, Skill} from '@coorpacademy/review-services';
-import {services as mockedServices} from '@coorpacademy/review-services-mocks';
+import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import type {StoreState} from '../../../reducers';
 import {
@@ -51,7 +51,9 @@ test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the corr
     {type: SKILL_FETCH_REQUEST},
     {type: SKILL_FETCH_SUCCESS, payload: fetchSkillResponse}
   ];
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchSkill('skill_NyxtYFYir'));
 });
@@ -72,6 +74,7 @@ test('should dispatch FETCH_SKILL_FAILURE when fetch skill failed', async t => {
     {type: SKILL_FETCH_FAILURE, payload: new Error('Fetch skill action failed'), error: true}
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
   await dispatch(fetchSkill('123'));
 });

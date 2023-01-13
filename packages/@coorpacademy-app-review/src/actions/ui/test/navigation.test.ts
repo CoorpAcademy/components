@@ -1,8 +1,10 @@
 import test from 'ava';
-import {services} from '@coorpacademy/review-services-mocks';
+import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import type {StoreState} from '../../../reducers';
 import {navigateBack, navigateTo} from '../navigation';
+
+const thunkOptions = {services, appendVideoOptions};
 
 const initialState: StoreState = {
   data: {
@@ -33,7 +35,7 @@ test('should dispatch NAVIGATE_TO', async t => {
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
   await dispatch(navigateTo('slides'));
 });
 
@@ -44,7 +46,7 @@ test('should dispatch NAVIGATE_BACK', t => {
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
   dispatch(navigateBack);
 });
 
@@ -65,7 +67,7 @@ test('should dispatch NAVIGATE_TO with callbackOnViewChanged', async t => {
   const {dispatch} = createTestStore(
     t,
     initialState,
-    {callbackOnViewChanged, services},
+    {callbackOnViewChanged, services, appendVideoOptions},
     expectedActions
   );
 
@@ -88,7 +90,7 @@ test('should dispatch NAVIGATE_BACK with callbackOnViewChanged', async t => {
   const {dispatch} = createTestStore(
     t,
     initialState,
-    {callbackOnViewChanged, services},
+    {callbackOnViewChanged, services, appendVideoOptions},
     expectedActions
   );
 

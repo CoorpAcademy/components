@@ -39,6 +39,7 @@ const translate: Translate = (key: string, data?: Record<string, string>): strin
     })(key, data);
   }
 };
+
 const isContainerAvailable = (options: SandboxOptions): boolean =>
   !pipe(get('container'), isNil)(options);
 
