@@ -50,20 +50,9 @@ export const fetchSlide =
       const slides = get('data.progression.state.slides', state);
       if (isEmpty(slides)) {
         const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
-        if (slideMedia) {
-          if (slideMedia.type === 'video') {
-            const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
-            slideFromAPI.question.medias = [props];
-          } else if (slideMedia.type === 'img' || slideMedia.type === 'audio') {
-            const resource = get('src.0', slideMedia);
-            const props = {
-              ...resource,
-              type: slideMedia.type,
-              url: get('url', resource)
-            };
-            // eslint-disable-next-line no-console
-            console.log(props);
-          }
+        if (slideMedia && slideMedia.type === 'video') {
+          const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
+          slideFromAPI.question.medias = [props];
         }
 
         dispatch(setCurrentSlide(slideFromAPI));
