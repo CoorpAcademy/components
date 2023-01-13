@@ -48,13 +48,12 @@ export const fetchSlide =
       const slideFromAPI = response.payload as SlideFromAPI;
       const state = getState();
       const slides = get('data.progression.state.slides', state);
+      const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
+      if (slideMedia && slideMedia.type === 'video') {
+        const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
+        slideFromAPI.question.medias = [props];
+      }
       if (isEmpty(slides)) {
-        const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
-        if (slideMedia && slideMedia.type === 'video') {
-          const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
-          slideFromAPI.question.medias = [props];
-        }
-
         dispatch(setCurrentSlide(slideFromAPI));
       }
     }
