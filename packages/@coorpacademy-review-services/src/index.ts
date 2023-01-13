@@ -8,6 +8,12 @@ import type {
   Services as Services_,
   Skill as Skill_,
   SlideFromAPI as SlideFromAPI_,
+  SlideMedia as SlideMedia_,
+  MediaSrc as MediaSrc_,
+  VideoSrc as VideoSrc_,
+  AudioMedia as _AudioMedia,
+  ImageMedia as _ImageMedia,
+  VideoMedia as _VideoMedia,
   SlideIdFromAPI as SlideIdFromAPI_,
   SkillToReview as _SkillToReview,
   BasicQuestion as _BasicQuestion,
@@ -53,6 +59,12 @@ export type Services = Services_;
 export type Skill = Skill_;
 export type SlideFromAPI = SlideFromAPI_;
 export type SlideIdFromAPI = SlideIdFromAPI_;
+export type MediaSrc = MediaSrc_;
+export type VideoSrc = VideoSrc_;
+export type SlideMedia = SlideMedia_;
+export type AudioMedia = _AudioMedia;
+export type ImageMedia = _ImageMedia;
+export type VideoMedia = _VideoMedia;
 export type SkillToReview = _SkillToReview;
 export type BasicQuestion = _BasicQuestion;
 export type ChoiceFromAPI = _ChoiceFromAPI;

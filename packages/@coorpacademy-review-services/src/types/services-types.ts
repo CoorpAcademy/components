@@ -57,10 +57,36 @@ type BaseContent = {
   answers: string[][];
 };
 
+export type MediaSrc = {_id: string; mimeType: string; url: string};
+export type VideoSrc = {
+  _id: string;
+  mimeType: string;
+  videoId: string;
+  mediaRef: string;
+};
+
+export type VideoMedia = {
+  type: 'video';
+  src: VideoSrc[];
+};
+
+export type ImageMedia = {
+  type: 'img';
+  src: MediaSrc[];
+};
+
+export type AudioMedia = {
+  type: 'audio';
+  src: MediaSrc[];
+};
+
+export type SlideMedia = VideoMedia | AudioMedia | ImageMedia;
+
 type BaseQuestion = {
   header?: string;
   content: BaseContent;
   explanation?: string;
+  medias?: SlideMedia[];
 };
 
 export type QcmQuestion = BaseQuestion & {
