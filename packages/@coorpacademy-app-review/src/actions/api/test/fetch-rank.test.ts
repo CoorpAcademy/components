@@ -1,7 +1,7 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import type {Services} from '@coorpacademy/review-services';
-import {services as mockedServices} from '@coorpacademy/review-services-mocks';
+import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {
   fetchStartRank,
@@ -54,7 +54,8 @@ test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the
     }
   ];
 
-  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
   await dispatch(fetchStartRank);
 
   const newState = getState();
@@ -81,7 +82,8 @@ test('should dispatch FETCH_START_FAILURE action when fetchStartRank fails', asy
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchStartRank);
 });
@@ -106,7 +108,8 @@ test('should dispatch FETCH_END_SUCCESS action when fetchEndRank returns the end
   ];
 
   const _initialState = set('data.rank.start', 93, initialState);
-  const {dispatch, getState} = createTestStore(t, _initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, _initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchEndRank);
   const newState = getState();
@@ -133,7 +136,8 @@ test('should dispatch FETCH_END_FAILURE action when fetchEndRank fails', async t
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchEndRank);
 });

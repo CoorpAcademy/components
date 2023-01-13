@@ -2,7 +2,11 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
-import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  services,
+  appendVideoOptions
+} from '@coorpacademy/review-services-mocks';
 import {POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from '../../../actions/api/post-answer';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
 import {
@@ -98,7 +102,8 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     {type: RANK_FETCH_START_REQUEST},
     {type: RANK_FETCH_START_SUCCESS, payload: {rank: 93}}
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {

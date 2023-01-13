@@ -1,6 +1,6 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
-import {services as mockedServices} from '@coorpacademy/review-services-mocks';
+import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {
   fetchSlide,
   SLIDE_FETCH_FAILURE,
@@ -54,7 +54,8 @@ test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlid
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide}
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchSlide('sli_VJYjJnJhg'));
 });
@@ -80,7 +81,8 @@ test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchSlide('slide_ref'));
 });
