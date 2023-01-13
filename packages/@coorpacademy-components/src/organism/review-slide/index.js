@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
@@ -37,6 +37,20 @@ const CorrectionPopin = ({
     resultLabel: correctionPopinProps.resultLabel
   };
 
+  // there is an error of eslint here because this useEffect will be only there when the correctionPopin will be there
+  // but that is on purpose to go to the next slide if you press enter when the correctionPopin is present
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    const keyDownHandler = event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        onClick();
+        document.removeEventListener('keydown', keyDownHandler);
+      }
+    };
+    document.addEventListener('keydown', keyDownHandler);
+  }, []);
+
   return (
     <div
       className={classnames(
@@ -70,6 +84,18 @@ const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
       backgroundColor: primarySkinColor
     }
   };
+
+  useEffect(() => {
+    const keyDownHandler = event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+      }
+    };
+    if (disabled) document.addEventListener('keydown', keyDownHandler);
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [disabled]);
 
   return (
     <div key="button-wrapper" className={style.validateButtonWrapper}>
