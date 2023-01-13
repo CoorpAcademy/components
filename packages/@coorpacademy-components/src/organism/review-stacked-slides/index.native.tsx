@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Animated, Easing, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
-import {useTranslateY} from '@coorpacademy/react-native-animation';
+import {useAnimateProp, useTranslateY} from '@coorpacademy/react-native-animation';
 import Slide from '../review-slide/index.native';
 import type {ReviewStackProps} from './prop-types';
 
@@ -38,11 +38,11 @@ const StackedSlides = (props: ReviewStackProps) => {
     easing: Easing.cubic
   });
 
-  const restackTranslation = useTranslateY({
-    toValue: 0,
-    fromValue: windowHeight,
-    duration: 1200,
-    easing: Easing.out(Easing.cubic)
+  const restackTranslation = useAnimateProp({
+    property: 'opacity',
+    toValue: 1,
+    fromValue: 0,
+    duration: 700
   });
 
   useEffect(() => {
