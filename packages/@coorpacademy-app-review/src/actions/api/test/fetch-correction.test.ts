@@ -2,7 +2,8 @@ import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
 import {
   getChoicesCorrection,
-  services as mockedServices
+  services as mockedServices,
+  appendVideoOptions
 } from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {createTestStore} from '../../test/create-test-store';
@@ -80,7 +81,8 @@ test('should dispatch CORRECTION_FETCH_SUCCESS actions when fetchCorrection retu
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchCorrection);
 });
@@ -115,7 +117,8 @@ test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(fetchCorrection);
 });

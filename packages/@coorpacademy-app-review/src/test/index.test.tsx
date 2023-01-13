@@ -4,7 +4,7 @@ import test from 'ava';
 import type {ExecutionContext} from 'ava';
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react';
-import {services} from '@coorpacademy/review-services-mocks';
+import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import type {AppOptions} from '../types/common';
 import AppReview from '..';
 import {sleep} from './utils/sleep';
@@ -67,7 +67,8 @@ const appOptions: AppOptions = {
     common: {
       primary: '#248e59'
     }
-  }
+  },
+  appendVideoOptions
 };
 
 test('should show the loader while the app is fetching the data', async t => {

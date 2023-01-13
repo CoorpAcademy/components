@@ -2,7 +2,11 @@ import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 
-import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  services,
+  appendVideoOptions
+} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -70,7 +74,9 @@ test('correction popin actions after click', async t => {
       }
     }
   ];
-  const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
+
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
@@ -174,7 +180,9 @@ test('correction popin actions after click when progression is finished', async 
       }
     }
   ];
-  const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
+
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.is(props.congrats, undefined);
   const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;

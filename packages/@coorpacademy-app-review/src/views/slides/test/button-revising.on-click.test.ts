@@ -1,7 +1,11 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {getChoicesCorrection, services} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  services,
+  appendVideoOptions
+} from '@coorpacademy/review-services-mocks';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import {SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../../../actions/api/fetch-skill';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -147,7 +151,8 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
     {type: SKILL_FETCH_REQUEST},
     {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];
-  const {dispatch, getState} = createTestStore(t, state, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
   await congrats.buttonRevising?.onClick();

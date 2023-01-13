@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
-import {services} from '@coorpacademy/review-services-mocks';
+import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
@@ -75,7 +75,8 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['', 'test', '']},
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['Catalogue', '', '']}
   ];
-  const {dispatch, getState} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {
@@ -103,10 +104,11 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   const expectedActions = [
     {type: EDIT_TEMPLATE, meta: {slideRef: templateSlide._id}, payload: ['', '', '']}
   ];
+  const thunkOptions = {services, appendVideoOptions};
   const {dispatch, getState} = createTestStore(
     t,
     set(['ui', 'answers', templateSlide._id], ['', 'Test', ''], initialState),
-    {services},
+    thunkOptions,
     expectedActions
   );
 
