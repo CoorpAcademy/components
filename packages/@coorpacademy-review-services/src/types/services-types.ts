@@ -82,7 +82,7 @@ export type AudioMedia = {
 
 export type SlideMedia = VideoMedia | AudioMedia | ImageMedia;
 
-type BaseQuestion = {
+export type BaseQuestion = {
   header?: string;
   content: BaseContent;
   explanation?: string;
