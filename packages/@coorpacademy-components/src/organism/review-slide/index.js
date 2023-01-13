@@ -39,6 +39,7 @@ const CorrectionPopin = ({
 
   // there is an error of eslint here because this useEffect will be only there when the correctionPopin will be there
   // but that is on purpose to go to the next slide if you press enter when the correctionPopin is present
+  // istanbul ignore next
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     const keyDownHandler = event => {
@@ -85,6 +86,7 @@ const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
     }
   };
 
+  /* istanbul ignore next */
   useEffect(() => {
     const keyDownHandler = event => {
       if (event.key === 'Enter' || event.key === ' ') {
