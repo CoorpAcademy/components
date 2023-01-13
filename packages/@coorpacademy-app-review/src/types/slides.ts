@@ -93,6 +93,7 @@ export type Template = {
 export type AnswerUI = {
   model: QcmDrag | Qcm | QcmGraphic | FreeText | DropDown | QuestionRange | Template;
   help: string;
+  media?: unknown;
 };
 
 export type SlideUIAnimations = 'unstack' | 'restack';

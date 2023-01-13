@@ -212,7 +212,8 @@ test('should create props when first slide is on the state', t => {
       placeholder: 'Type here',
       type: 'freeText',
       value: ''
-    }
+    },
+    media: undefined
   });
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
@@ -325,7 +326,8 @@ test('should create props when slide is on the state and user has selected answe
       placeholder: 'Type here',
       type: 'freeText',
       value: 'My value'
-    }
+    },
+    media: undefined
   });
   t.deepEqual(omit(['0'], props.stack.slides), {
     '1': {
@@ -444,7 +446,8 @@ test('should verify props when first slide was answered correctly and next slide
       placeholder: 'Type here',
       type: 'freeText',
       value: 'My value'
-    }
+    },
+    media: undefined
   });
   t.is(props.stack.validateButton.disabled, true);
   t.deepEqual(omit(['0'], props.stack.slides), {
@@ -658,7 +661,8 @@ test('should verify props when first slide was answered, next slide is fetched &
       placeholder: 'Type here',
       type: 'freeText',
       value: 'My value'
-    }
+    },
+    media: undefined
   });
   t.deepEqual(omit('answerUI', props.stack.slides['1']), {
     animationType: undefined,
@@ -801,7 +805,8 @@ test('should verify props when first slide was answered incorrectly, next slide 
       placeholder: 'Type here',
       type: 'freeText',
       value: 'My value'
-    }
+    },
+    media: undefined
   });
   t.deepEqual(omit('answerUI', props.stack.slides['1']), {
     animationType: undefined,

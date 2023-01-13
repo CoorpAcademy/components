@@ -32,7 +32,8 @@ import type {
   SlideFromAPI,
   SliderQuestion,
   TemplateQuestion,
-  ChoiceItem
+  ChoiceItem,
+  SlideMedia
 } from '@coorpacademy/review-services';
 import {
   AnswerUI,
@@ -280,16 +281,33 @@ const getAnswerUIModel = (
   }
 };
 
+const getMedia = (media: SlideMedia): unknown | void => {
+  if (!media) return;
+  const {type} = media;
+  const resource = get('src.0', media);
+  switch (type) {
+    case 'img':
+    case 'audio':
+      return {
+        ...resource,
+        type,
+        url: get('url', resource)
+      };
+  }
+};
+
 export const mapApiSlideToUi =
   (dispatch: Dispatch, translate: Translate) =>
   (slide: SlideFromAPI, answers: string[]): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
+    const media = get('question.medias.0', slide);
 
     return {
       questionText,
       answerUI: {
         model: getAnswerUIModel(slide.question, answers, dispatch, translate),
-        help: getHelp(slide)
+        help: getHelp(slide),
+        media: getMedia(media)
       }
     };
   };
