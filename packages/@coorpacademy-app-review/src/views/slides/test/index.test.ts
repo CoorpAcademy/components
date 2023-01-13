@@ -235,6 +235,127 @@ test('should create props when first slide is on the state', t => {
   });
 });
 
+test('should create props for a slide having a image media is current on the state', t => {
+  const state: StoreState = {
+    data: {
+      progression: set('state.nextContent.ref', sliderSlide.universalRef, createdProgression),
+      slides: {
+        [sliderSlide.universalRef]: sliderSlide
+      },
+      token: '1234',
+      corrections: {},
+      rank: {start: Number.NaN, end: Number.NaN},
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+    },
+    ui: {
+      showCongrats: false,
+      currentSlideRef: 'sli_VJYjJnJhg',
+      navigation: ['loader', 'slides'],
+      answers: {},
+      positions: [0, 1, 2, 3, 4],
+      slide: {
+        [sliderSlide.universalRef]: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
+        }
+      },
+      showQuitPopin: false,
+      showButtonRevising: false
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity, connectedOptions);
+  t.is(props.congrats, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    hiddenSteps: false,
+    mode: '__Review Title',
+    skillName: 'Digital Awareness',
+    steps: [
+      {
+        current: true,
+        icon: 'no-answer',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+  t.deepEqual(omit(['validateButton', 'slides'], props.stack), {
+    correctionPopinProps: undefined,
+    endReview: false
+  });
+  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+    animationType: undefined,
+    animateCorrectionPopin: false,
+    showCorrectionPopin: false,
+    disabledContent: false,
+    position: 0,
+    loading: false,
+    parentContentTitle:
+      '__Content Parent Title{"contentTitle":"Developing the review app","contentType":"course"}',
+    questionText:
+      'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?'
+  });
+  t.is(props.stack.validateButton.disabled, true);
+  t.deepEqual(omit(['model.onSliderChange', 'model.onChange'], props.stack.slides['0'].answerUI), {
+    help: 'Déplacez le curseur.',
+    model: {
+      maxLabel: '15 an(s)',
+      minLabel: '1 an(s)',
+      title: '1 an(s)',
+      placeholder: 'Déplacez le curseur.',
+      type: 'slider',
+      value: 0
+    },
+    media: {
+      type: 'img',
+      mimeType: 'image/jpeg',
+      _id: '6377c7f7c76a8a017fac4364',
+      url: '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-partner-wedemain/default/shutterstock_181414391-1480431629586.jpg'
+    }
+  });
+  t.deepEqual(omit(['0'], props.stack.slides), {
+    '1': {
+      position: 1,
+      loading: true
+    },
+    '2': {
+      position: 2,
+      loading: true
+    },
+    '3': {
+      position: 3,
+      loading: true
+    },
+    '4': {
+      position: 4,
+      loading: true
+    }
+  });
+});
+
 test('should create props when slide is on the state and user has selected answers', t => {
   // This is the case after EDIT_ANSWER and before POST_ANSWER_REQUEST
   const state: StoreState = {
