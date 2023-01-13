@@ -3,7 +3,7 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
-import type {SlideFromAPI} from '@coorpacademy/review-services';
+import type {SlideFromAPI, SlideMedia} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {setCurrentSlide} from '../ui/slides';
@@ -28,7 +28,7 @@ export const fetchSlide =
   async (
     dispatch: Dispatch,
     getState: () => StoreState,
-    {services}: ThunkOptions
+    {services, appendVideoOptions}: ThunkOptions
   ): Promise<void> => {
     const action = buildTask({
       types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
@@ -45,10 +45,28 @@ export const fetchSlide =
     const response = await dispatch(action);
 
     if (response.type === SLIDE_FETCH_SUCCESS) {
-      const slideFromAPI = response.payload;
+      const slideFromAPI = response.payload as SlideFromAPI;
       const state = getState();
       const slides = get('data.progression.state.slides', state);
       if (isEmpty(slides)) {
+        const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
+        if (slideMedia) {
+          if (slideMedia.type === 'video') {
+            const props = await appendVideoOptions(slideMedia);
+            // eslint-disable-next-line no-console
+            console.log(props);
+          } else if (slideMedia.type === 'img' || slideMedia.type === 'audio') {
+            const resource = get('src.0', slideMedia);
+            const props = {
+              ...resource,
+              type: slideMedia.type,
+              url: get('url', resource)
+            };
+            // eslint-disable-next-line no-console
+            console.log(props);
+          }
+        }
+
         dispatch(setCurrentSlide(slideFromAPI));
       }
     }

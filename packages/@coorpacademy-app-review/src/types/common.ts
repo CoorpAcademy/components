@@ -1,4 +1,4 @@
-import type {Services} from '@coorpacademy/review-services';
+import type {Services, VideoMedia} from '@coorpacademy/review-services';
 
 export type WithRequired<T, K extends keyof T> = T & {
   // the "-" is a Mapping Modifier, removes optionality from a prop
@@ -28,10 +28,12 @@ export type AppOptions = ConnectedOptions & {
   skillRef?: string;
   services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
+  appendVideoOptions: (media: VideoMedia) => Promise<unknown>;
 };
 
 export type ThunkOptions = {
   callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+  appendVideoOptions: (media: VideoMedia) => Promise<unknown>;
   services: Services;
 };
 
