@@ -3,7 +3,7 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
-import type {SlideFromAPI, SlideMedia} from '@coorpacademy/review-services';
+import type {SlideFromAPI, SlideMedia, VideoMedia} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {setCurrentSlide} from '../ui/slides';
@@ -52,9 +52,8 @@ export const fetchSlide =
         const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
         if (slideMedia) {
           if (slideMedia.type === 'video') {
-            const props = await appendVideoOptions(slideMedia);
-            // eslint-disable-next-line no-console
-            console.log(props);
+            const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
+            slideFromAPI.question.medias = [props];
           } else if (slideMedia.type === 'img' || slideMedia.type === 'audio') {
             const resource = get('src.0', slideMedia);
             const props = {

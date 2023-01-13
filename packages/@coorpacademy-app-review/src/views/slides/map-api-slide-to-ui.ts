@@ -293,6 +293,11 @@ const getMedia = (media: SlideMedia): unknown | void => {
         type,
         url: get('url', resource)
       };
+    case 'video':
+      return {
+        ...resource,
+        type
+      };
   }
 };
 
