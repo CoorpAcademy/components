@@ -14,9 +14,10 @@ install:
 
 stages:
   - name: lint
-    if: type = pull_request OR (tag IS blank AND branch = master AND type != pull_request)
+    if: (type = pull_request OR (tag IS blank AND branch = master AND type != pull_request)) AND commit_message !~ /^Apply translations in.*/
+    # note: new tx integrations have commits that does not comply the [ci skip], hence pattern condition
   - name: test
-    if: type = pull_request OR (tag IS blank AND branch = master AND commit_message !~ /^Publish$/ AND type != pull_request)
+    if: (type = pull_request OR (tag IS blank AND branch = master AND commit_message !~ /^Publish$/ AND type != pull_request)) AND commit_message !~ /^Apply translations in.*/
   - name: deploy
     if: branch = master AND commit_message =~ /^Publish$/
 
