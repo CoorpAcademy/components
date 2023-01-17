@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Még nincs ellenőriendő készsége",
       "text": "Először tanfolyamokat kell elvégeznie, mielőtt különböző készségeket ellenőrizhetne."
-    }      
+    },
+    "Acquired stars animation": "Acquired stars animáció",
+    "New rank animation": "Új rangú animáció",
+    "Congratulations confetti animation": "Gratulálunk, konfetti animáció"
 }
