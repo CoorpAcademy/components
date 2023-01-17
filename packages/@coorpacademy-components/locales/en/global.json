@@ -79,7 +79,10 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Question ${headerStepValue}",
-    "aria_description": "Question ${headerStepValue} is ${questionIconStatus}"
+    "aria_label": "Question {{headerStepValue}}",
+    "current_question": "Question {{headerStepValue}} is the current question",
+    "correct_question": "Question {{headerStepValue}} is correct",
+    "incorrect_question": "Question {{headerStepValue}} is incorrect",
+    "not_answered_question": "Question {{headerStepValue}} is not answered yet"
   }
 }
