@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Dosud nemáte k revizi žádnou dovednost",
       "text": "Nejprve musíte dokončit kursy a teprve poté si zobrazíte různé dovednosti."
-    }      
+    },
+    "Acquired stars animation": "Animace získaných hvězd",
+    "New rank animation": "Nová animace hodnosti",
+    "Congratulations confetti animation": "Gratulujeme animace konfet"
 }
