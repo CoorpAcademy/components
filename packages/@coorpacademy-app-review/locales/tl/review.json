@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Wala ka pang skill na rerebisahin",
       "text": "Una, kailangan mong kumpletuhin ang mga kurso bago ka makapag-repaso ng iba't ibang skill."
-    }      
+    },
+    "Acquired stars animation": "Nakuhang animation ng mga bituin",
+    "New rank animation": "Bagong ranggo ng animation",
+    "Congratulations confetti animation": "Congratulations confetti animation"
 }
