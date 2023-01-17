@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Henüz revize etme becerin yok",
       "text": "Farklı becerileri inceleyebilmen için önce kursları tamamlaman gerekir."
-    }      
+    },
+    "Acquired stars animation": "Edinilmiş yıldızlar animasyonu",
+    "New rank animation": "Yeni sıralama animasyonu",
+    "Congratulations confetti animation": "Tebrikler konfeti animasyonu"
 }
