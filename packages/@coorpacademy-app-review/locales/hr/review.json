@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Još nemate vještinu za reviziju",
       "text": "Prvo morate završiti tečajeve prije nego što možete pregledati različite vještine."
-    }      
+    },
+    "Acquired stars animation": "Dobivena animacija zvijezda",
+    "New rank animation": "Nova animacija ranga",
+    "Congratulations confetti animation": "Čestitke, animacija s konfetima"
 }
