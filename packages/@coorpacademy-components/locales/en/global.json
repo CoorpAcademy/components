@@ -77,5 +77,9 @@
   "zuora_discount_code_submit": "Apply",
   "zuora_discount_code": "Promo code",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "Question ${headerStepValue}",
+    "aria_description": "Question ${headerStepValue} is ${questionIconStatus}"
+  }
 }
