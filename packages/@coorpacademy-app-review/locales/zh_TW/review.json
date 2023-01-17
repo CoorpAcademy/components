@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "您還沒有能溫習的技能",
       "text": "首先您必須完成課程，才能複習不同的技能。"
-    }      
+    },
+    "Acquired stars animation": "後天星星動畫",
+    "New rank animation": "新等級動畫",
+    "Congratulations confetti animation": "祝賀五彩紙屑動畫"
 }
