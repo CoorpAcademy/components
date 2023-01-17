@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import flatten from 'lodash/fp/flatten';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import SelectMultiple, {useChoices} from '..';
 import defaultFixture from './fixtures/checked';
 

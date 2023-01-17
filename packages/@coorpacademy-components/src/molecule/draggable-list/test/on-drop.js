@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import {set} from 'lodash/fp';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import SetupSections from '..';
 // eslint-disable-next-line css-modules/no-unused-class

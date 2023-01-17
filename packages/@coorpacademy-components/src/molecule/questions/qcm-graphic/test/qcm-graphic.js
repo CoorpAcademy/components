@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import {identity} from 'lodash/fp';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import QCMImage from '..';
 import defaultFixture from './fixtures/default';
 

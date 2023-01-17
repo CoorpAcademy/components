@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {mount, shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import {noop} from 'lodash/fp';
 import AnimationScheduler, {AnimationAdapter} from '..';
 

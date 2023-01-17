@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {take} from 'lodash/fp';
 import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Accordion from '..';
 import onlyOneFixture from './fixtures/only-one';
 

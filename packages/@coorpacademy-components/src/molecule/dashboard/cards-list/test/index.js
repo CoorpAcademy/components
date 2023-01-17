@@ -2,7 +2,7 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import {times} from 'lodash/fp';
 import {wrappingComponent} from '../../../../test/helpers/render-component';
 import Card from '../../../card/test/fixtures/default';
