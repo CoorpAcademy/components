@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "아직 수정할 기술이 없습니다",
       "text": "다른 기술을 검토할 수 있으려면 먼저 코스를 완료해야 합니다."
-    }      
+    },
+    "Acquired stars animation": "획득한 별 애니메이션",
+    "New rank animation": "새로운 등급 애니메이션",
+    "Congratulations confetti animation": "축하 색종이 애니메이션"
 }
