@@ -79,7 +79,7 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "area_label": "Question ${headerStepValue}",
-    "area_description": "Question ${headerStepValue} is ${questionIconStatus}"
+    "aria_label": "Question ${headerStepValue}",
+    "aria_description": "Question ${headerStepValue} is ${questionIconStatus}"
   }
 }
