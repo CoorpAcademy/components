@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Sie haben noch keine Fähigkeiten zum Überarbeiten",
       "text": "Zuerst müssen Sie Kurse absolvieren, ehe Sie verschiedene Fähigkeiten überprüfen können."
-    }      
+    },
+    "Acquired stars animation": "Erworbene Sterne-Animation",
+    "New rank animation": "Neue Ranganimation",
+    "Congratulations confetti animation": "Herzlichen Glückwunsch Konfetti-Animation"
 }
