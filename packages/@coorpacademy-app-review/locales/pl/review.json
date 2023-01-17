@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Nie masz jeszcze umiejętności do przejrzenia",
       "text": "Musisz najpierw ukończyć kursy, aby być w stanie przeglądać różne umiejętności."
-    }      
+    },
+    "Acquired stars animation": "Animacja zdobytych gwiazdek",
+    "New rank animation": "Nowa animacja rangi",
+    "Congratulations confetti animation": "Gratulacje animacji konfetti"
 }
