@@ -29,8 +29,8 @@
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -45,8 +45,8 @@
     "dustjs-linkedin": "^3.0.1",
     "eslint": "^8.18.0",
     "nyc": "^15.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "author": "CoorpAcademy"
 }
