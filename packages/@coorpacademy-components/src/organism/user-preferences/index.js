@@ -38,7 +38,7 @@ const UserPreferences = props => {
   const {preferences = [], moreInfoAriaLabel} = props;
 
   return (
-    <div className={style.preferences}>
+    <div className={style.preferences} role="group">
       {map(
         settings => (
           <Settings {...settings} key={settings.label} moreInfoAriaLabel={moreInfoAriaLabel} />
