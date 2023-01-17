@@ -55,7 +55,7 @@
     "@coorpacademy/css-modules-require-hook": "3.0.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^11.0.0",
     "@coorpacademy/webpack-config": "12.0.1",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^13.4.0",
     "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
     "@typescript-eslint/parser": "^5.28.0",

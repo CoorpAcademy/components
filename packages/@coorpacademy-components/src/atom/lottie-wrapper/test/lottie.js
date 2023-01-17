@@ -2,14 +2,12 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import delay from 'delay';
-import {render, cleanup} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import LottieWrapper, {fetchAndLoadAnimation} from '..';
 import starFixture from './fixtures/default';
 import controlsFixture from './fixtures/controls';
 
 browserEnv();
-
-test.afterEach(cleanup);
 
 test('should update && load the animation, should clean up after unmount', async t => {
   const {container, rerender} = render(<LottieWrapper {...starFixture.props} />);
@@ -22,7 +20,6 @@ test('should update && load the animation, should clean up after unmount', async
 
   const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
   t.truthy(wrapper);
-
   t.pass();
 });
 

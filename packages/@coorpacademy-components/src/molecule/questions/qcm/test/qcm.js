@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {shallow, mount, configure} from 'enzyme';
 import {identity} from 'lodash/fp';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import Qcm from '..';
 import defaultFixture from './fixtures/default';
 import noAriaLabelFixture from './fixtures/no-selected';

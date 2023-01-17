@@ -28,7 +28,7 @@
     "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox/webpack.config.js"
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=16.15.0"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {

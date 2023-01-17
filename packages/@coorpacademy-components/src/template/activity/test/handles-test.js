@@ -2,7 +2,7 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {shallow, mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import {set} from 'lodash/fp';
 import Button from '../../../atom/button';
 import Select from '../../../atom/select';

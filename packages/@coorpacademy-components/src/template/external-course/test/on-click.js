@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {set, replace} from 'lodash/fp';
 import {mount, shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import ExternalCourse from '..';
 import fixture from './fixtures/default';
