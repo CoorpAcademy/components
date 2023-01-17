@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "修正するスキルはまだありません",
       "text": "さまざまなスキルをレビューする前に、まずコースを完了する必要があります。"
-    }      
+    },
+    "Acquired stars animation": "星獲得アニメーション",
+    "New rank animation": "新しいランクアニメーション",
+    "Congratulations confetti animation": "おめでとう紙吹雪アニメーション"
 }
