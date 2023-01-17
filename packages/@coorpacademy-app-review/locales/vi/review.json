@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Bạn chưa có kỹ năng nào để ôn tập",
       "text": "Trước tiên, bạn cần hoàn thành các khóa học rồi mới có thể ôn tập các kỹ năng khác nhau."
-    }      
+    },
+    "Acquired stars animation": "Hoạt ảnh ngôi sao được mua lại",
+    "New rank animation": "Hoạt hình xếp hạng mới",
+    "Congratulations confetti animation": "Chúc mừng hoạt hình confetti"
 }
