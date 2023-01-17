@@ -3,10 +3,11 @@ import buildTask from '@coorpacademy/redux-task';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import isEmpty from 'lodash/fp/isEmpty';
-import type {SlideFromAPI, SlideMedia, VideoMedia} from '@coorpacademy/review-services';
+import type {SlideFromAPI} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {setCurrentSlide} from '../ui/slides';
+import {fetchPropsVideo} from './fetch-video-props';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;
@@ -28,7 +29,7 @@ export const fetchSlide =
   async (
     dispatch: Dispatch,
     getState: () => StoreState,
-    {services, appendVideoOptions}: ThunkOptions
+    {services}: ThunkOptions
   ): Promise<void> => {
     const action = buildTask({
       types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
@@ -48,11 +49,7 @@ export const fetchSlide =
       const slideFromAPI = response.payload as SlideFromAPI;
       const state = getState();
       const slides = get('data.progression.state.slides', state);
-      const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
-      if (slideMedia && slideMedia.type === 'video') {
-        const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
-        slideFromAPI.question.medias = [props];
-      }
+      await dispatch(fetchPropsVideo(slideFromAPI));
       if (isEmpty(slides)) {
         dispatch(setCurrentSlide(slideFromAPI));
       }

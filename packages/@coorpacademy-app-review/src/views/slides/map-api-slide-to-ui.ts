@@ -293,11 +293,14 @@ const getMedia = (media: SlideMedia): unknown | void => {
         type,
         url: get('url', resource)
       };
-    case 'video':
+    case 'video': {
+      // console.log(resource);
+      if (!resource.jwpOptions) return;
       return {
         ...resource,
         type
       };
+    }
   }
 };
 
