@@ -26,24 +26,36 @@ const RenderHandles = props => {
     onHandleMinChange,
     onHandleMinChangeEnd,
     onHandleMaxChange,
-    onHandleMaxChangeEnd
+    onHandleMaxChangeEnd,
+    HammerForTestingMin,
+    HammerForTestingMax
   } = props;
 
   return (
-    <div>
+    <div data-testid="handles">
       {multi ? (
         <span
           className={pending ? style.handle : style.animatedHandle}
           style={{left: `${left * 100}%`}}
         >
-          <Handle axis="x" onPan={onHandleMinChange} onPanEnd={onHandleMinChangeEnd} />
+          <Handle
+            axis="x"
+            onPan={onHandleMinChange}
+            onPanEnd={onHandleMinChangeEnd}
+            HammerForTesting={HammerForTestingMin}
+          />
         </span>
       ) : null}
       <span
         className={pending ? style.handle : style.animatedHandle}
         style={{left: `${right * 100}%`}}
       >
-        <Handle axis="x" onPan={onHandleMaxChange} onPanEnd={onHandleMaxChangeEnd} />
+        <Handle
+          axis="x"
+          onPan={onHandleMaxChange}
+          onPanEnd={onHandleMaxChangeEnd}
+          HammerForTesting={HammerForTestingMax}
+        />
       </span>
     </div>
   );
@@ -57,7 +69,9 @@ RenderHandles.propTypes = {
   onHandleMinChange: PropTypes.func,
   onHandleMinChangeEnd: PropTypes.func,
   onHandleMaxChange: PropTypes.func,
-  onHandleMaxChangeEnd: PropTypes.func
+  onHandleMaxChangeEnd: PropTypes.func,
+  HammerForTestingMin: Handle.propTypes.HammerForTesting,
+  HammerForTestingMax: Handle.propTypes.HammerForTesting
 };
 
 class Range extends React.Component {
@@ -65,6 +79,8 @@ class Range extends React.Component {
     onChange: PropTypes.func,
     onChangeEnd: PropTypes.func,
     multi: PropTypes.bool,
+    HammerForTestingMin: RenderHandles.propTypes.HammerForTestingMin,
+    HammerForTestingMax: RenderHandles.propTypes.HammerForTestingMax,
     // eslint-disable-next-line react/no-unused-prop-types
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
   };
@@ -184,12 +200,21 @@ class Range extends React.Component {
       left: `${railLeft * 100}%`
     };
 
+    const {HammerForTestingMin, HammerForTestingMax} = this.props;
+
     return (
-      <div className={style.containerWrapper} onClick={this.handleClick}>
+      <div data-testid="slider" className={style.containerWrapper} onClick={this.handleClick}>
         <div className={style.container}>
-          <div className={style.track} data-name="sliderTrack" ref={this.setRefTrack} />
+          <div
+            data-testid="track"
+            className={style.track}
+            data-name="sliderTrack"
+            ref={this.setRefTrack}
+          />
           <div className={pending ? style.rail : style.animatedRail} style={railStyle} />
           <RenderHandles
+            HammerForTestingMin={HammerForTestingMin}
+            HammerForTestingMax={HammerForTestingMax}
             left={left}
             right={right}
             pending={pending}

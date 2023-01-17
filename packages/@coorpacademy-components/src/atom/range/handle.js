@@ -1,5 +1,5 @@
 import {noop, getOr} from 'lodash/fp';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 import PropTypes from 'prop-types';
 import Provider, {GetSkinFromContext} from '../provider';
 import {getShadowBoxColorFromPrimary} from '../../util/get-shadow-box-color-from-primary';
@@ -31,14 +31,13 @@ const Handle = (props, legacyContext) => {
   const skin = GetSkinFromContext(legacyContext);
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
   const backgroundColor = primaryColor;
-  const {onPanStart = noop, onPanEnd = noop, onPan = noop} = props;
+  const {onPanStart = noop, onPanEnd = noop, onPan = noop, HammerForTesting} = props;
 
   const handle = useRef();
-  const [hammer, setHammer] = useState();
-
-  useEffect(() => {
-    setHammer(new Hammer(handle.current));
-  }, [handle]);
+  const hammer = useMemo(
+    () => HammerForTesting || new Hammer(handle.current),
+    [handle, HammerForTesting]
+  );
 
   useEffect(() => {
     if (!hammer) return;
@@ -50,12 +49,11 @@ const Handle = (props, legacyContext) => {
     return () => {
       hammer.stop();
       hammer.destroy();
-      setHammer(null);
     };
   }, [hammer, onPanStart, onPanEnd, onPan]);
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} data-testid="handle-wrapper">
       <div
         style={{
           backgroundColor,
@@ -72,7 +70,12 @@ const Handle = (props, legacyContext) => {
 Handle.propTypes = {
   onPan: PropTypes.func,
   onPanStart: PropTypes.func,
-  onPanEnd: PropTypes.func
+  onPanEnd: PropTypes.func,
+  HammerForTesting: PropTypes.shape({
+    on: PropTypes.func,
+    destroy: PropTypes.func,
+    stop: PropTypes.func
+  })
 };
 
 Handle.contextTypes = {

@@ -1,29 +1,33 @@
 import test from 'ava';
+import {EventEmitter} from 'node:events';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render, fireEvent} from '@testing-library/react';
 import {noop} from 'lodash/fp';
-import style from '../style.css';
 import Range from '..';
-
-browserEnv();
-configure({adapter: new Adapter()});
 
 const defaultEvent = {
   stopPropagation: noop,
   preventDefault: noop
 };
 
+const createFakeHammer = t => {
+  const fakeHammer = new EventEmitter();
+  fakeHammer.stop = () => t.pass();
+  fakeHammer.destroy = () => t.pass();
+
+  return fakeHammer;
+};
+
+browserEnv();
+
 test('should instanciate Range without props', t => {
   const component = <Range />;
-  const slider = mount(component);
-  const instance = slider.instance();
-  instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
-  instance.handleMaxChange({srcEvent: defaultEvent, center: {}});
-  slider.setProps({multi: true});
-  instance.handleMaxChangeEnd({srcEvent: defaultEvent, center: {}});
-  slider.unmount();
+  const {getByTestId, unmount, rerender} = render(component);
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 0, right: 100});
+  rerender(<Range multi />);
+  unmount();
   t.pass();
 });
 
@@ -36,29 +40,53 @@ const macro = (
   minCenterEvent,
   minExpected
 ) => {
-  t.plan(minExpected ? 4 : 2);
+  t.plan(props.multi ? 8 : 4);
+
+  const HammerForTestingMin = createFakeHammer(t);
+  const HammerForTestingMax = createFakeHammer(t);
 
   const expectedChange = [maxExpected, minExpected];
   const validChange = value => {
     t.deepEqual(value, expectedChange.shift());
   };
   const expectedChangeEnd = [maxExpected, minExpected];
+
   const validChangeEnd = value => {
     t.deepEqual(value, expectedChangeEnd.shift());
   };
 
-  const component = <Range {...props} onChange={validChange} onChangeEnd={validChangeEnd} />;
-  const slider = mount(component);
-  const instance = slider.instance();
+  const component = (
+    <Range
+      {...props}
+      HammerForTestingMin={HammerForTestingMin}
+      HammerForTestingMax={HammerForTestingMax}
+      onChange={validChange}
+      onChangeEnd={validChangeEnd}
+    />
+  );
 
-  instance.track.getBoundingClientRect = () => boundingRect;
+  const {getByTestId, unmount} = render(component);
 
-  instance.handleMaxChange({srcEvent: {...defaultEvent}, center: maxCenterEvent});
-  instance.handleMaxChangeEnd({srcEvent: {...defaultEvent}, center: maxCenterEvent});
-  if (minCenterEvent)
-    instance.handleMinChange({srcEvent: {...defaultEvent}, center: minCenterEvent});
-  if (minCenterEvent)
-    instance.handleMinChangeEnd({srcEvent: {...defaultEvent}, center: minCenterEvent});
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => boundingRect;
+
+  HammerForTestingMax.emit('panleft panright', {
+    srcEvent: {...defaultEvent},
+    center: maxCenterEvent
+  });
+
+  HammerForTestingMax.emit('panend', {srcEvent: {...defaultEvent}, center: maxCenterEvent});
+
+  if (minCenterEvent) {
+    HammerForTestingMin.emit('panleft panright', {
+      srcEvent: {...defaultEvent},
+      center: minCenterEvent
+    });
+
+    HammerForTestingMin.emit('panend', {srcEvent: {...defaultEvent}, center: minCenterEvent});
+  }
+
+  unmount();
 };
 
 test('should instanciate Range', macro, {value: 0.5}, {left: 10, right: 110}, {x: 60}, 0.5);
@@ -76,7 +104,7 @@ test(
   [0.1, 1]
 );
 test(
-  'should limit hangles',
+  'should limit handles',
   macro,
   {multi: true, value: [0, 1]},
   {left: 10, right: 110},
@@ -86,7 +114,7 @@ test(
   [0, 1]
 );
 test(
-  'should limit hangles 2',
+  'should limit handles 2',
   macro,
   {multi: true, value: [0.4, 0.6]},
   {left: 0, right: 100},
@@ -102,10 +130,17 @@ test('should move handle when range is clicked (single)', t => {
     t.is(value, 0.2);
   };
 
-  const wrapper = mount(<Range value={0.5} onChange={onChange} />);
-  const instance = wrapper.instance();
-  instance.track.getBoundingClientRect = () => ({left: 1000, right: 1100});
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1020});
+  const component = <Range value={0.5} onChange={onChange} />;
+
+  const {getByTestId, unmount} = render(component);
+
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 1000, right: 1100});
+
+  const slider = getByTestId('slider');
+  fireEvent.click(slider, {...defaultEvent, clientX: 1020});
+
+  unmount();
 });
 
 test('should move closest handle when range is clicked (multi)', t => {
@@ -119,24 +154,36 @@ test('should move closest handle when range is clicked (multi)', t => {
   ];
   t.plan(expectedValues.length);
   const onChange = value => {
-    t.deepEqual(value, expectedValues.shift());
+    const expectedValue = expectedValues.shift();
+    t.deepEqual(value, expectedValue);
   };
 
-  const wrapper = mount(<Range value={[0.3, 0.7]} onChange={onChange} multi />);
-  const instance = wrapper.instance();
-  instance.track.getBoundingClientRect = () => ({left: 1000, right: 1100});
+  const {getByTestId, rerender, unmount} = render(
+    <Range value={[0.3, 0.7]} onChange={onChange} multi />
+  );
 
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1020});
-  wrapper.setProps({value: [0.2, 0.7]});
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1090});
-  wrapper.setProps({value: [0.2, 0.9]});
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1040});
-  wrapper.setProps({value: [0.4, 0.9]});
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1070});
-  wrapper.setProps({value: [0.4, 0.7]});
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1000});
-  wrapper.setProps({value: [0, 0.7]});
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 1100});
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 1000, right: 1100});
+
+  const slider = getByTestId('slider');
+  fireEvent.click(slider, {...defaultEvent, clientX: 1020});
+
+  rerender(<Range value={[0.2, 0.7]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1090});
+
+  rerender(<Range value={[0.2, 0.9]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1040});
+
+  rerender(<Range value={[0.4, 0.9]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1070});
+
+  rerender(<Range value={[0.4, 0.7]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1000});
+
+  rerender(<Range value={[0, 0.7]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1100});
+
+  unmount();
 });
 
 test('should moveleft handle if the two handles have the same values and the click is on the left', t => {
@@ -144,11 +191,15 @@ test('should moveleft handle if the two handles have the same values and the cli
     t.deepEqual(value, [0.4, 0.5]);
   };
 
-  const wrapper = mount(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
-  const instance = wrapper.instance();
-  instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
+  const {getByTestId, unmount} = render(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
 
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 40});
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 0, right: 100});
+
+  const slider = getByTestId('slider');
+  fireEvent.click(slider, {...defaultEvent, clientX: 40});
+
+  unmount();
 });
 
 test('should move right handle if the two handles have the same values and the click is on the right', t => {
@@ -156,9 +207,13 @@ test('should move right handle if the two handles have the same values and the c
     t.deepEqual(value, [0.5, 0.6]);
   };
 
-  const wrapper = mount(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
-  const instance = wrapper.instance();
-  instance.track.getBoundingClientRect = () => ({left: 0, right: 100});
+  const {getByTestId, unmount} = render(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
 
-  wrapper.find(`.${style.containerWrapper}`).simulate('click', {...defaultEvent, clientX: 60});
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 0, right: 100});
+
+  const slider = getByTestId('slider');
+  fireEvent.click(slider, {...defaultEvent, clientX: 60});
+
+  unmount();
 });
