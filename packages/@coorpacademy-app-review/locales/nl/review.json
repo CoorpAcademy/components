@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Je hebt nog geen vaardigheden om aan te passen",
       "text": "Je moet eerst cursussen afronden voor je verschillende vaardigheden kunt beoordelen."
-    }      
+    },
+    "Acquired stars animation": "Verworven sterren animatie",
+    "New rank animation": "Nieuwe rang animatie",
+    "Congratulations confetti animation": "Gefeliciteerd confetti-animatie"
 }
