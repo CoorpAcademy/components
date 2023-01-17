@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Nu aveți încă nicio abilitate de revizuit",
       "text": "Mai întâi trebuie să finalizați cursuri înainte de a putea revizui diferite abilități."
-    }      
+    },
+    "Acquired stars animation": "Animație de stele dobândite",
+    "New rank animation": "Noua animație de rang",
+    "Congratulations confetti animation": "Felicitări animație confetti"
 }
