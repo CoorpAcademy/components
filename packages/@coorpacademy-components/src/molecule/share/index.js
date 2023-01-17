@@ -77,7 +77,11 @@ export const ShareFeedback = ({successWording, errorWording}) => {
       ) : (
         <AttentionIcon className={styles.checkIcon} width={13} height={13} />
       )}
-      <p>{status === SHARE_STATUS.SUCCESS ? successWording : errorWording}</p>
+      {status === SHARE_STATUS.SUCCESS ? (
+        <p role="status">{successWording}</p>
+      ) : (
+        <p role="alert">{errorWording}</p>
+      )}
     </div>
   );
 };
