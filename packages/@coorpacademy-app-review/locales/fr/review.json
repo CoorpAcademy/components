@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Vous n'avez pas encore de compétence à réviser",
       "text": "Vous devez d'abord suivre des cours avant de pouvoir passer en revue différentes compétences."
-    }      
+    },
+    "Acquired stars animation": "Animation des étoiles acquises",
+    "New rank animation": "Animation du nouveau classement",
+    "Congratulations confetti animation": "Animation de confettis de félicitations"
 }
