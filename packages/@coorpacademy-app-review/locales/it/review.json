@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Non hai ancora alcuna abilità da rivedere",
       "text": "Devi completare i corsi prima di poter rivedere le varie abilità."
-    }      
+    },
+    "Acquired stars animation": "Animazione delle stelle acquisita",
+    "New rank animation": "Nuova animazione di rango",
+    "Congratulations confetti animation": "Congratulazioni animazione di coriandoli"
 }
