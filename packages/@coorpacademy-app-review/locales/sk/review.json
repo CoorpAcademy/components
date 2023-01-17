@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Zatiaľ nemáte žiadne zručnosti na revíziu",
       "text": "Najprv musíte dokončiť kurzy a až potom si môžete skontrolovať rôzne zručnosti."
-    }      
+    },
+    "Acquired stars animation": "Animácia získaných hviezd",
+    "New rank animation": "Nová animácia hodnosti",
+    "Congratulations confetti animation": "Gratulujem animácia konfety"
 }
