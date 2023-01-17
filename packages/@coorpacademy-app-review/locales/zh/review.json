@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "您还没有需要修改的技能",
       "text": "您需要先完成课程，才能复习不同的技能。"
-    }      
+    },
+    "Acquired stars animation": "后天星星动画",
+    "New rank animation": "新等级动画",
+    "Congratulations confetti animation": "祝贺五彩纸屑动画"
 }
