@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Teil pole veel ülevaatamiseks oskusi",
       "text": "Enne erinevate oskuste ülevaatamist peate esmalt läbima kursused."
-    }      
+    },
+    "Acquired stars animation": "Omandatud tähtede animatsioon",
+    "New rank animation": "Uus järgu animatsioon",
+    "Congratulations confetti animation": "Õnnitleme konfeti animatsiooni"
 }
