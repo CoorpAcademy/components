@@ -53,5 +53,8 @@
     "no_skills": {
       "title": "Ainda não tem nenhuma competência para rever",
       "text": "Antes de poder rever diferentes competências, precisa de concluir os cursos."
-    }      
+    },
+    "Acquired stars animation": "Animação de estrelas adquiridas",
+    "New rank animation": "Nova animação de classificação",
+    "Congratulations confetti animation": "Parabéns animação de confete"
 }
