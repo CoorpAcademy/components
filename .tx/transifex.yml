@@ -1,0 +1,23 @@
+# Transifex github integration configuration
+git:
+  filters:
+    - filter_type: dir
+      file_format: KEYVALUEJSON
+      source_file_extension: json
+      source_language: en
+      source_file_dir: packages/@coorpacademy-components/locales/en/
+      translation_files_expression: 'packages/@coorpacademy-components/locales/<lang>/'
+
+    - filter_type: dir
+      file_format: KEYVALUEJSON
+      source_file_extension: json
+      source_language: en
+      source_file_dir: packages/@coorpacademy-player-web/locales/en/
+      translation_files_expression: 'packages/@coorpacademy-player-web/locales/<lang>/'
+
+    - filter_type: dir
+      file_format: KEYVALUEJSON
+      source_file_extension: json
+      source_language: en
+      source_file_dir: packages/@coorpacademy-app-review/locales/en/
+      translation_files_expression: 'packages/@coorpacademy-app-review/locales/<lang>/'
