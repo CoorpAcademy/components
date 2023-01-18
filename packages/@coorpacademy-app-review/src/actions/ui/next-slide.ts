@@ -1,8 +1,13 @@
 import type {Dispatch} from 'redux';
 import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
-import type {ProgressionFromAPI, ProgressionAnswerItem} from '@coorpacademy/review-services';
+import type {
+  ProgressionFromAPI,
+  ProgressionAnswerItem,
+  SlideFromAPI
+} from '@coorpacademy/review-services';
 import type {StoreState} from '../../reducers';
+import {fetchPropsVideo} from '../api/fetch-video-props';
 
 export const NEXT_SLIDE = '@@slide/NEXT_SLIDE' as const;
 
@@ -19,7 +24,7 @@ export type NextSlideAction = {
   payload: NextSlidePayload;
 };
 
-export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextSlideAction => {
+export const nextSlide = async (dispatch: Dispatch, getState: () => StoreState): Promise<void> => {
   const state = getState();
   const progression = state.data.progression as ProgressionFromAPI;
   const {isCorrect, allAnswers, slides} = progression.state;
@@ -40,5 +45,9 @@ export const nextSlide = (dispatch: Dispatch, getState: () => StoreState): NextS
     payload
   };
 
-  return dispatch(action);
+  dispatch(action);
+
+  const slideFromAPI = get(['data', 'slides', payload.nextSlideRef], state) as SlideFromAPI;
+  await dispatch(fetchPropsVideo(slideFromAPI));
+  return;
 };

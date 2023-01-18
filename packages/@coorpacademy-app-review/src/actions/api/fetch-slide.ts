@@ -7,7 +7,6 @@ import type {SlideFromAPI} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 import {setCurrentSlide} from '../ui/slides';
-import {fetchPropsVideo} from './fetch-video-props';
 
 export const SLIDE_FETCH_REQUEST = '@@slides/FETCH_REQUEST' as const;
 export const SLIDE_FETCH_SUCCESS = '@@slides/FETCH_SUCCESS' as const;
@@ -49,7 +48,6 @@ export const fetchSlide =
       const slideFromAPI = response.payload as SlideFromAPI;
       const state = getState();
       const slides = get('data.progression.state.slides', state);
-      await dispatch(fetchPropsVideo(slideFromAPI));
       if (isEmpty(slides)) {
         dispatch(setCurrentSlide(slideFromAPI));
       }

@@ -1,3 +1,4 @@
+import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {
@@ -8,8 +9,9 @@ import {
 } from '../../actions/api/fetch-slide';
 import {SetVideoPropsAction, SET_VIDEO_PROPS} from '../../actions/api/fetch-video-props';
 import {FetchProgression, POST_PROGRESSION_REQUEST} from '../../actions/api/post-progression';
+import {NextSlideAction, NEXT_SLIDE} from '../../actions/ui/next-slide';
 
-export type SlidesAction = FetchSlide | ReceivedSlide;
+export type SlidesAction = FetchSlide | ReceivedSlide | NextSlideAction;
 
 export type SlidesState = Record<string, SlideFromAPI | null>;
 export const initialState: SlidesState = {};
@@ -34,6 +36,14 @@ const reducer = (
     }
     case POST_PROGRESSION_REQUEST: {
       return initialState;
+    }
+    case NEXT_SLIDE: {
+      const {currentSlideRef} = action.payload;
+      const isMediaVideo = get([currentSlideRef, 'question', 'medias', '0', 'type'], state);
+      if (isMediaVideo) {
+        return set([currentSlideRef, 'question', 'medias', '0', 'src', '0', 'hide'], true, state);
+      }
+      return state;
     }
     default:
       return state;

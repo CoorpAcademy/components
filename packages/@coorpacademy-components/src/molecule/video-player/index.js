@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoIframe from '../video-iframe';
+import Loader from '../../atom/loader';
 import JWPlayer from './jwplayer';
 import Vimeo from './vimeo';
 import style from './style.css';
@@ -73,9 +74,11 @@ class VideoPlayer extends React.Component {
       case 'application/kontiki':
       case 'application/jwplayer':
       case 'video/mp4': {
-        const {disableAutostart, jwpOptions, ...otherProps} = this.props;
+        const {hide = false, disableAutostart, jwpOptions, ...otherProps} = this.props;
 
-        return (
+        return hide ? (
+          <Loader />
+        ) : (
           <JWPlayer
             {...otherProps}
             disableAutostart={disableAutostart}
