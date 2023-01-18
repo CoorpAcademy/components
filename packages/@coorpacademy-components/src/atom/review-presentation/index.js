@@ -46,21 +46,29 @@ const ToolTip = ({
     },
     [setToolTipIsVisible, toolTipIsVisible]
   );
-  const handleMouseOver = useCallback(() => setToolTipIsVisible(true), [setToolTipIsVisible]);
+  const handleMouseOver = useCallback(() => {
+    setToolTipIsVisible(true);
+  }, [setToolTipIsVisible]);
 
-  const handleMouseLeave = useCallback(() => setToolTipIsVisible(false), [setToolTipIsVisible]);
+  const handleMouseLeave = useCallback(() => {
+    setToolTipIsVisible(false);
+  }, [setToolTipIsVisible]);
+
   const customStyle = {
     visibility: toolTipIsVisible ? 'visible' : 'hidden',
     opacity: toolTipIsVisible ? 1 : 0
   };
+
   return (
-    <div className={style.tooltipContainer}>
+    <div
+      className={style.tooltipContainer}
+      onMouseLeave={handleMouseLeave}
+      onMouseOver={handleMouseOver}
+    >
       <button
         type="button"
         className={style.tooltipIconContainer}
         data-testid={dataTestId}
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
         onKeyDown={handleKeyPress}
         tabIndex={0}
       >
