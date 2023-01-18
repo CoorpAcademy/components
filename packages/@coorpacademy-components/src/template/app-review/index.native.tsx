@@ -18,7 +18,7 @@ const Switch = ({viewName, slides}: AppReviewProps) => {
     case 'loader':
       return <Text>@todo loader</Text>;
     default:
-      return <Text>unknown viewname: {viewName}</Text>;
+      return <Text>{`unknown viewName: "${viewName}"`}</Text>;
   }
 };
 

@@ -298,7 +298,10 @@ const buildQuitPopinProps =
         customStyle: {
           color: '#ED3436'
         },
-        handleOnclick: onQuitClick,
+        handleOnclick: (): void => {
+          dispatch(closeQuitPopin);
+          onQuitClick();
+        },
         'aria-label': translate('Stop learning')
       },
       secondButton: {
