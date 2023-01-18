@@ -36,7 +36,6 @@ export const fetchPropsVideo =
     const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
     if (slideMedia && slideMedia.type === 'video') {
       const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
-      // eslint-disable-next-line no-console
       dispatch(
         setVideoProps({
           slideId: slideFromAPI._id,

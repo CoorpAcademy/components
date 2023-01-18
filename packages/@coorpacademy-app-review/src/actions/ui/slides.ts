@@ -22,6 +22,7 @@ export type SetCurrentSlideAction = {
   type: typeof SET_CURRENT_SLIDE;
   payload: SlideFromAPI;
 };
+
 export const setCurrentSlide =
   (slideFromAPI: SlideFromAPI) =>
   async (dispatch: Dispatch): Promise<void> => {
