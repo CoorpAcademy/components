@@ -40,14 +40,16 @@ const Template = ({template, answers, groupAriaLabel}) => {
   }, totalTemplate);
 
   return (
-    <div
-      data-name="template-wrapper"
-      className={style.wrapper}
-      role="group"
-      aria-label={groupAriaLabel}
-    >
-      {templateCompose}
-    </div>
+    <form>
+      <div
+        data-name="template-wrapper"
+        className={style.wrapper}
+        role="group"
+        aria-label={groupAriaLabel}
+      >
+        {templateCompose}
+      </div>
+    </form>
   );
 };
 

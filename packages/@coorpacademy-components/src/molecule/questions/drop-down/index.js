@@ -14,9 +14,11 @@ const DropDown = props => {
   const theme = propsTheme || defaultTheme;
 
   return (
-    <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
-      <Select aria-label={ariaLabel} theme={theme} options={options} onChange={onChange} />
-    </div>
+    <form>
+      <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+        <Select aria-label={ariaLabel} theme={theme} options={options} onChange={onChange} />
+      </div>
+    </form>
   );
 };
 

@@ -38,14 +38,16 @@ const UserPreferences = props => {
   const {preferences = [], moreInfoAriaLabel, groupAriaLabel} = props;
 
   return (
-    <div className={style.preferences} role="group" aria-label={groupAriaLabel}>
-      {map(
-        settings => (
-          <Settings {...settings} key={settings.label} moreInfoAriaLabel={moreInfoAriaLabel} />
-        ),
-        preferences
-      )}
-    </div>
+    <form>
+      <div className={style.preferences} role="group" aria-label={groupAriaLabel}>
+        {map(
+          settings => (
+            <Settings {...settings} key={settings.label} moreInfoAriaLabel={moreInfoAriaLabel} />
+          ),
+          preferences
+        )}
+      </div>
+    </form>
   );
 };
 

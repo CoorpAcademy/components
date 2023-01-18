@@ -101,12 +101,14 @@ const QcmDrag = ({answers, help, groupAriaLabel}, legacyContext) => {
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   return (
-    <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
-      <SelectedAnswerSections answers={answers} help={help} backgroundColor={primarySkinColor} />
-      <div data-name="qcm-drag-answers" className={style.answers}>
-        <Choices answers={answers} />
+    <form>
+      <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+        <SelectedAnswerSections answers={answers} help={help} backgroundColor={primarySkinColor} />
+        <div data-name="qcm-drag-answers" className={style.answers}>
+          <Choices answers={answers} />
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 
