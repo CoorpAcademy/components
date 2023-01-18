@@ -33,7 +33,7 @@ export const fetchSlide =
     const action = buildTask({
       types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
       bailout: (state: StoreState): boolean => {
-        return has(`data.slide.${slideRef}`, state);
+        return has(`data.slides.${slideRef}`, state);
       },
       task: () => {
         const state = getState();
