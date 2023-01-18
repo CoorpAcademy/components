@@ -8,10 +8,10 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {CMPopinProps} from './types';
 
 interface StyleSheetType {
-  container: ViewStyle;
-  wrapper: ViewStyle;
+  modalView: ViewStyle;
+  textsContainer: ViewStyle;
   icon: ViewStyle;
-  content: TextStyle;
+  title: TextStyle;
   descriptionText: TextStyle;
   buttonContainer: ViewStyle;
   buttonText: TextStyle;
@@ -23,14 +23,12 @@ interface StyleSheetType {
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
-    container: {
-      backgroundColor: 'rgba(255, 255, 255, 1)',
-      borderRadius: 20,
-      width: '90%',
-      maxHeight: '50%',
-      marginTop: '70%'
+    modalView: {
+      backgroundColor: '#fff',
+      margin: 5,
+      borderRadius: 20
     },
-    wrapper: {
+    textsContainer: {
       display: 'flex',
       alignItems: 'center',
       marginVertical: theme.spacing.large,
@@ -40,7 +38,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: 76,
       height: 76
     },
-    content: {
+    title: {
       color: '#1D1D2B',
       fontWeight: theme.fontWeight.bold,
       fontSize: 20,
@@ -86,7 +84,6 @@ const QuitPopinReview = (props: CMPopinProps) => {
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
-  const isVisible = true;
 
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
@@ -98,34 +95,36 @@ const QuitPopinReview = (props: CMPopinProps) => {
   }
 
   return (
-    <Modal isVisible={isVisible} style={styleSheet.container} testID="podcast-popin-intro">
-      <View style={styleSheet.wrapper}>
-        <MoonRocket style={styleSheet.icon} color="#06265B" />
-        <Text style={styleSheet.content}>{content}</Text>
-        <Text style={styleSheet.descriptionText}>{descriptionText}</Text>
-      </View>
-      <View style={styleSheet.buttonContainer}>
-        <Touchable
-          style={styleSheet.secondButton}
-          onPress={secondButton?.handleOnclick}
-          accessibilityLabel={secondButton?.['aria-label']}
-          testID="second-button"
-        >
-          <Text style={[styleSheet.buttonText, styleSheet.secondButtonText]}>
-            {secondButton?.label}
-          </Text>
-        </Touchable>
-        <Touchable
-          style={styleSheet.firstButton}
-          isHighlight
-          onPress={firstButton?.handleOnclick}
-          accessibilityLabel={firstButton?.['aria-label']}
-          testID="first-button"
-        >
-          <Text style={[styleSheet.buttonText, styleSheet.firstButtonText]}>
-            {firstButton?.label}
-          </Text>
-        </Touchable>
+    <Modal isVisible animationIn="fadeIn" animationOut="fadeOut">
+      <View style={styleSheet.modalView}>
+        <View style={styleSheet.textsContainer}>
+          <MoonRocket style={styleSheet.icon} color="#06265B" />
+          <Text style={styleSheet.title}>{content}</Text>
+          <Text style={styleSheet.descriptionText}>{descriptionText}</Text>
+        </View>
+        <View style={styleSheet.buttonContainer}>
+          <Touchable
+            style={styleSheet.secondButton}
+            onPress={secondButton?.handleOnclick}
+            accessibilityLabel={secondButton?.['aria-label']}
+            testID="second-button"
+          >
+            <Text style={[styleSheet.buttonText, styleSheet.secondButtonText]}>
+              {secondButton?.label}
+            </Text>
+          </Touchable>
+          <Touchable
+            style={styleSheet.firstButton}
+            isHighlight
+            onPress={firstButton?.handleOnclick}
+            accessibilityLabel={firstButton?.['aria-label']}
+            testID="first-button"
+          >
+            <Text style={[styleSheet.buttonText, styleSheet.firstButtonText]}>
+              {firstButton?.label}
+            </Text>
+          </Touchable>
+        </View>
       </View>
     </Modal>
   );

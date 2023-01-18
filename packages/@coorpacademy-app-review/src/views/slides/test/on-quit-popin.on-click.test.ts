@@ -62,8 +62,8 @@ test('should dispatch CLOSE_POPIN action via the property handleOnclick of secon
   t.pass();
 });
 
-test('should dispatch onQuitClick function via the property handleOnclick of firstButton when popin is open', async t => {
-  t.plan(2);
+test('should dispatch CLOSE_POPIN action and call onQuitClick function via the property handleOnclick of firstButton when popin is open', async t => {
+  t.plan(4);
 
   const expectedAction = [{type: CLOSE_POPIN}];
   const {dispatch, getState} = createTestStore(t, state, {services}, expectedAction);
@@ -74,5 +74,7 @@ test('should dispatch onQuitClick function via the property handleOnclick of fir
   });
   const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.firstButton?.handleOnclick();
+  const updatedState = getState();
+  t.is(updatedState.ui.showQuitPopin, false);
   t.pass();
 });
