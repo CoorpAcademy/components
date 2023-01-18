@@ -7,22 +7,26 @@ export const defaultProps = {
     skills: {
       text: 'Choose 1 Skill',
       tooltipText: 'This is the tooltip text',
-      moreDetailsAriaLabel: 'More details'
+      moreDetailsAriaLabel: 'More details',
+      closeToolTipInformationTextAriaLabel: 'Click on Escape to close the information text'
     },
     questions: {
       text: 'Answer 5 Questions',
       tooltipText: 'This is the tooltip text',
-      moreDetailsAriaLabel: 'More details'
+      moreDetailsAriaLabel: 'More details',
+      closeToolTipInformationTextAriaLabel: 'Click on Escape to close the information text'
     },
     lifes: {
       text: 'You have Infinite Lifes',
       tooltipText: 'This is the tooltip text, a tooltip text',
-      moreDetailsAriaLabel: 'More details'
+      moreDetailsAriaLabel: 'More details',
+      closeToolTipInformationTextAriaLabel: 'Click on Escape to close the information text'
     },
     allright: {
       text: 'Get it all right',
       tooltipText: 'Egestas elementum duis bibendum',
-      moreDetailsAriaLabel: 'More details'
+      moreDetailsAriaLabel: 'More details',
+      closeToolTipInformationTextAriaLabel: 'Click on Escape to close the information text'
     }
   }
 };

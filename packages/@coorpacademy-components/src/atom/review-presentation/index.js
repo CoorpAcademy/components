@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
@@ -19,7 +19,7 @@ const ICONS = {
   allright: CheckIcon
 };
 
-const getIcon = icon => {
+const ReviewIcon = ({icon}) => {
   const Icon = getOr(null, icon, ICONS);
 
   /* istanbul ignore next */
@@ -29,26 +29,83 @@ const getIcon = icon => {
   return <Icon className={style.labelIcon} />;
 };
 
-const ToolTip = ({tooltipText, 'aria-label': moreDetailsAriaLabel}) => {
+const ToolTip = ({
+  tooltipText,
+  'aria-label': moreDetailsAriaLabel,
+  'data-testid': dataTestId,
+  closeToolTipInformationTextAriaLabel
+}) => {
+  const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
+  const handleKeyPress = useCallback(
+    event => {
+      if (event.key === 'Enter') {
+        setToolTipIsVisible(!toolTipIsVisible);
+      } else if (event.key === 'Tab' || event.key === 'Escape') {
+        setToolTipIsVisible(false);
+      }
+    },
+    [setToolTipIsVisible, toolTipIsVisible]
+  );
+  const handleMouseOver = useCallback(() => {
+    setToolTipIsVisible(true);
+  }, [setToolTipIsVisible]);
+
+  const handleMouseLeave = useCallback(() => {
+    setToolTipIsVisible(false);
+  }, [setToolTipIsVisible]);
+
   return (
-    <div className={style.tooltipContainer}>
-      <div className={style.tooltipIconContainer}>
+    <div
+      className={style.tooltipContainer}
+      onMouseLeave={handleMouseLeave}
+      onMouseOver={handleMouseOver}
+    >
+      <button
+        type="button"
+        className={style.tooltipIconContainer}
+        data-testid={dataTestId}
+        onKeyDown={handleKeyPress}
+        tabIndex={0}
+      >
         <InformationIcon
           className={style.informationIcon}
           width={12}
           height={12}
           aria-label={moreDetailsAriaLabel}
         />
+      </button>
+      {toolTipIsVisible ? (
+        <div
+          className={style.toolTip}
+          data-testid="review-presentation-tooltip"
+          aria-label={closeToolTipInformationTextAriaLabel}
+        >
+          <p className={style.tooltipText}>{tooltipText}</p>
+        </div>
+      ) : null}
+    </div>
+  );
+};
+
+const ReviewListItemWrapper = ({iconKey, label}) => {
+  return (
+    <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem" tabIndex={0}>
+      <div className={style.reviewListText}>
+        <ReviewIcon icon={iconKey} /> {label.text}
       </div>
-      <div className={style.toolTip}>
-        <p className={style.tooltipText}>{tooltipText}</p>
-      </div>
+      <ToolTip
+        tooltipText={label.tooltipText}
+        aria-label={label.moreDetailsAriaLabel}
+        closeToolTipInformationTextAriaLabel={label.closeToolTipInformationTextAriaLabel}
+        data-testid={`review-list-item-tooltip-button-${iconKey}`}
+      />
     </div>
   );
 };
 
 const ReviewPresentation = props => {
   const {'aria-label': ariaLabel, reviewTitle, reviewText, labelsList} = props;
+
   return (
     <div className={style.reviewWrapper} aria-label={ariaLabel}>
       <div
@@ -65,12 +122,12 @@ const ReviewPresentation = props => {
         {map.convert({cap: false})((label, key) => {
           return (
             <li key={`step-${key}`} className={style.reviewList}>
-              <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem">
-                <div className={style.reviewListText}>
-                  {getIcon(key)} {label.text}
-                </div>
-                <ToolTip tooltipText={label.tooltipText} aria-label={label.moreDetailsAriaLabel} />
-              </div>
+              <ReviewListItemWrapper
+                iconKey={key}
+                label={label}
+                tooltipText={label.tooltipText}
+                aria-label={label.moreDetailsAriaLabel}
+              />
             </li>
           );
         }, labelsList)}
@@ -81,7 +138,22 @@ const ReviewPresentation = props => {
 
 ToolTip.propTypes = {
   tooltipText: PropTypes.string,
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+  'data-testid': PropTypes.string,
+  closeToolTipInformationTextAriaLabel: PropTypes.string
+};
+
+ReviewIcon.propTypes = {
+  icon: PropTypes.string
+};
+
+ReviewListItemWrapper.propTypes = {
+  ...ToolTip.propTypes,
+  iconKey: PropTypes.string,
+  label: PropTypes.shape({
+    tooltipText: PropTypes.string,
+    moreDetailsAriaLabel: PropTypes.string
+  })
 };
 
 ReviewPresentation.propTypes = propTypes;
