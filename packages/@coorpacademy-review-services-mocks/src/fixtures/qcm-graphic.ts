@@ -189,7 +189,7 @@ export const qcmGraphicSlide: SlideFromAPI = {
           {
             _id: 'graphic',
             mimeType: 'application/jwplayer',
-            videoId: '489S0B87',
+            videoId: 'qHTGckfl',
             mediaRef: 'med_graphic'
           }
         ]

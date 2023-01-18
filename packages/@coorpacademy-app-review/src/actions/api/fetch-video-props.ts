@@ -1,6 +1,6 @@
 import type {Dispatch} from 'redux';
 import get from 'lodash/fp/get';
-import type {SlideFromAPI, SlideMedia, VideoMedia} from '@coorpacademy/review-services';
+import type {SlideMedia, VideoMedia} from '@coorpacademy/review-services';
 import type {ThunkOptions} from '../../types/common';
 import type {StoreState} from '../../reducers';
 
@@ -21,17 +21,22 @@ export const setVideoProps = (payload: VideoPropsPayload): SetVideoPropsAction =
 });
 
 export const fetchPropsVideo =
-  (slideFromAPI: SlideFromAPI) =>
+  (slideRef: string) =>
   async (
     dispatch: Dispatch,
     getState: () => StoreState,
     {appendVideoOptions}: ThunkOptions
   ): Promise<void> => {
+    const state = getState();
+    const slideFromAPI = get(['data', 'slides', slideRef], state);
+    if (!slideFromAPI) {
+      return;
+    }
+
     const slideMedia = get('question.medias.0', slideFromAPI) as SlideMedia;
     if (slideMedia && slideMedia.type === 'video') {
       const props = (await appendVideoOptions(slideMedia)) as VideoMedia;
       // eslint-disable-next-line no-console
-      console.log('-----------> props for player', props);
       dispatch(
         setVideoProps({
           slideId: slideFromAPI._id,

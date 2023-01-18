@@ -29,6 +29,6 @@ export const setCurrentSlide =
       type: SET_CURRENT_SLIDE,
       payload: slideFromAPI
     });
-    await dispatch(fetchPropsVideo(slideFromAPI));
+    await dispatch(fetchPropsVideo(slideFromAPI._id));
     return;
   };

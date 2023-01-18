@@ -1,11 +1,7 @@
 import type {Dispatch} from 'redux';
 import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
-import type {
-  ProgressionFromAPI,
-  ProgressionAnswerItem,
-  SlideFromAPI
-} from '@coorpacademy/review-services';
+import type {ProgressionFromAPI, ProgressionAnswerItem} from '@coorpacademy/review-services';
 import type {StoreState} from '../../reducers';
 import {fetchPropsVideo} from '../api/fetch-video-props';
 
@@ -46,8 +42,6 @@ export const nextSlide = async (dispatch: Dispatch, getState: () => StoreState):
   };
 
   dispatch(action);
-
-  const slideFromAPI = get(['data', 'slides', payload.nextSlideRef], state) as SlideFromAPI;
-  await dispatch(fetchPropsVideo(slideFromAPI));
+  await dispatch(fetchPropsVideo(payload.nextSlideRef));
   return;
 };

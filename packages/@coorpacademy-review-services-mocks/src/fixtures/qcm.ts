@@ -64,7 +64,20 @@ export const qcmSlide: SlideFromAPI = {
     },
     type: 'qcm',
     header: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?",
-    explanation: 'Sélectionnez la bonne réponse.'
+    explanation: 'Sélectionnez la bonne réponse.',
+    medias: [
+      {
+        type: 'video',
+        src: [
+          {
+            _id: 'drag',
+            mimeType: 'application/jwplayer',
+            videoId: 'eRqV3sFB',
+            mediaRef: 'med_drag'
+          }
+        ]
+      }
+    ]
   },
   klf: 'Si vous êtes le créateur d’un NFT, vous pouvez choisir le pourcentage de commission pour chaque transaction de votre NFT.  Certains choisissent de ne rien toucher pour fluidifier le marché.',
   tips: 'En 2021, le média en ligne Numerama a créé un NFT vendu aux enchères sur OpenSea. Sur cette plateforme, il est obligatoire de mettre un prix de réserve, autrement dit un prix minimum au-dessous duquel la vente ne sera pas automatiquement acceptée. Sur OpenSea il ne peut être inférieur à 1 ETH. Si le prix de réserve est atteint, pas de problème, les "gas fees" (les frais de gaz) sont couverts par OpenSea. Mais, si ce n’est pas le cas, c’est au vendeur de s’en acquitter. <br/>Le NFT en question est parti à 0,021 ETH, soit 40€ au cours de l\'époque, un prix inférieur au prix de réserve. Numerama a dû acquitter des frais de gaz, et payer 190 €. <br/>Avec les NFT, on ne gagne pas à tous les coups.',
