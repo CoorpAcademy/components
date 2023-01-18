@@ -31,9 +31,13 @@ const items = [
     title: 'Content Creation',
     key: 'contentCreation',
     href: '#brand/samsung/content-creation',
-    open: false,
+    isOpen: true,
     selected: true,
-    type: 'iconLink'
+    type: 'collapsibleTab',
+    tabs: [
+      {title: 'Go to Cockpit', href: '#/cockpit', selected: false, type: 'iconLink'},
+      {title: 'External Content', href: '#/external-content', selected: true}
+    ]
   },
   {
     title: 'Animation',

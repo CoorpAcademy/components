@@ -7,7 +7,7 @@ const BulkEmptyDashboard = ({mainText, subText, imageUrl, buttonLink}) => {
   return (
     <div className={style.container}>
       <div>
-        <img className={style.img} src={imageUrl} />
+        <img className={style.img} src={imageUrl} aria-hidden="true" />
       </div>
       <p className={style.mainText}>{mainText}</p>
       <p className={style.subText}>{subText}</p>
