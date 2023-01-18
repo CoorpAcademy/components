@@ -8,7 +8,7 @@ import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-f
 import style from './style.css';
 
 const QCM = (props, legacyContext) => {
-  const {answers} = props;
+  const {answers, groupAriaLabel} = props;
   const longestAnswer = maxBy(({title}) => title.length, answers);
   const skin = GetSkinFromContext(legacyContext);
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -52,7 +52,7 @@ const QCM = (props, legacyContext) => {
   );
 
   return (
-    <div data-name="qcm" className={style.wrapper} role="group">
+    <div data-name="qcm" className={style.wrapper} role="group" aria-label={groupAriaLabel}>
       {answersViews}
     </div>
   );
@@ -70,7 +70,8 @@ QCM.propTypes = {
       onClick: PropTypes.func,
       'aria-label': PropTypes.string
     })
-  )
+  ),
+  groupAriaLabel: PropTypes.string
 };
 
 export default QCM;

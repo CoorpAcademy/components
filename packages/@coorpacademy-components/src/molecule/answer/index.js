@@ -9,6 +9,7 @@ import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
 import Audio from '../audio';
+import {GetTranslateFromContext} from '../../atom/provider';
 import style from './style.css';
 import propTypes, {MediaViewPropTypes, TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from './prop-types';
 
@@ -45,22 +46,22 @@ MediaView.propTypes = MediaViewPropTypes;
 
 const Switch = ({model, help}) => {
   const {type} = model;
-
+  const translate = GetTranslateFromContext();
   switch (type) {
     case 'qcmDrag':
-      return <QcmDrag {...model} help={help} />;
+      return <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />;
     case 'qcm':
-      return <Qcm {...model} />;
+      return <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'qcmGraphic':
-      return <QcmGraphic {...model} />;
+      return <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'freeText':
       return <FreeText {...model} />;
     case 'dropDown':
-      return <DropDown {...model} />;
+      return <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'slider':
-      return <QuestionRange {...model} />;
+      return <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'template':
-      return <Template {...model} />;
+      return <Template {...model} groupAriaLabel={translate('answer_the_question')} />;
   }
 };
 

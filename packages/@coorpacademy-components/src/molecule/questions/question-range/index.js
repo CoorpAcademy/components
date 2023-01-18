@@ -7,7 +7,7 @@ import Range from '../../../atom/range';
 import style from './style.css';
 
 const QuestionRange = (props, legacyContext) => {
-  const {title, minLabel, maxLabel, ...rangeProps} = props;
+  const {title, minLabel, maxLabel, groupAriaLabel, ...rangeProps} = props;
 
   const skin = GetSkinFromContext(legacyContext);
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -17,7 +17,7 @@ const QuestionRange = (props, legacyContext) => {
   };
 
   return (
-    <div className={style.wrapper} role="group">
+    <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
       <span
         style={titleStyle}
         className={classnames(style.title, style.innerHTML)}
@@ -49,7 +49,8 @@ QuestionRange.propTypes = {
   ...Range.propTypes,
   title: PropTypes.string,
   minLabel: PropTypes.string,
-  maxLabel: PropTypes.string
+  maxLabel: PropTypes.string,
+  groupAriaLabel: PropTypes.string
 };
 
 export default QuestionRange;

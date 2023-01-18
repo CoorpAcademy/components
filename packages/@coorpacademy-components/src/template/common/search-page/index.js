@@ -17,7 +17,8 @@ const SearchPage = (props, context) => {
     clearFilters,
     recommendations,
     moreSortAriaLabel,
-    moreFilterAriaLabel
+    moreFilterAriaLabel,
+    filterGroupAriaLabel
   } = props;
 
   const {skin} = context;
@@ -49,6 +50,7 @@ const SearchPage = (props, context) => {
         {...searchFilters}
         moreSortAriaLabel={moreSortAriaLabel}
         moreFilterAriaLabel={moreFilterAriaLabel}
+        filterGroupAriaLabel={filterGroupAriaLabel}
       />
       <div data-name="searchResult" className={style.cardsWrapper}>
         <div className={style.title} role="status">
@@ -72,7 +74,8 @@ SearchPage.propTypes = {
   clearFilters: PropTypes.shape(Button.propTypes),
   recommendations: PropTypes.shape(CardsList.propTypes),
   moreSortAriaLabel: PropTypes.string,
-  moreFilterAriaLabel: PropTypes.string
+  moreFilterAriaLabel: PropTypes.string,
+  filterGroupAriaLabel: PropTypes.string
 };
 
 export default SearchPage;

@@ -21,7 +21,8 @@ class Filters extends React.Component {
     onToggleFilters: PropTypes.func,
     onToggleSorts: PropTypes.func,
     moreSortAriaLabel: PropTypes.string,
-    moreFilterAriaLabel: PropTypes.string
+    moreFilterAriaLabel: PropTypes.string,
+    filterGroupAriaLabel: PropTypes.string
   };
 
   static contextTypes = {
@@ -87,7 +88,8 @@ class Filters extends React.Component {
       sortTabLabel,
       filters,
       moreFilterAriaLabel,
-      moreSortAriaLabel
+      moreSortAriaLabel,
+      filterGroupAriaLabel
     } = this.props;
     const {filter, sorted} = this.state;
     const {skin} = this.context;
@@ -134,7 +136,11 @@ class Filters extends React.Component {
           data-name="filterWrapper"
           className={filtersActive ? style.activeWrapperFilters : style.wrapperFilters}
         >
-          <FiltersWrapper className={style.wrapper} filters={filters} />
+          <FiltersWrapper
+            className={style.wrapper}
+            filters={filters}
+            filterGroupAriaLabel={filterGroupAriaLabel}
+          />
           <div
             data-name="cta"
             className={style.CTAfilter}
