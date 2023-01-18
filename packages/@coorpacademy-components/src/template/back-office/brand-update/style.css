@@ -103,7 +103,7 @@
 }
 
 .contentFixHeight {
-  height: calc(100% - 109px);
+  height: calc(100% - 124px);
 }
 .selectedElement {
   font-size: 12px;
