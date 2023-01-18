@@ -35,10 +35,10 @@ Settings.propTypes = {
 };
 
 const UserPreferences = props => {
-  const {preferences = [], moreInfoAriaLabel} = props;
+  const {preferences = [], moreInfoAriaLabel, groupAriaLabel} = props;
 
   return (
-    <div className={style.preferences} role="group">
+    <div className={style.preferences} role="group" aria-label={groupAriaLabel}>
       {map(
         settings => (
           <Settings {...settings} key={settings.label} moreInfoAriaLabel={moreInfoAriaLabel} />
@@ -51,7 +51,8 @@ const UserPreferences = props => {
 
 UserPreferences.propTypes = {
   preferences: PropTypes.arrayOf(PropTypes.shape(Settings.propTypes)),
-  moreInfoAriaLabel: PropTypes.string
+  moreInfoAriaLabel: PropTypes.string,
+  groupAriaLabel: PropTypes.string
 };
 
 export default UserPreferences;
