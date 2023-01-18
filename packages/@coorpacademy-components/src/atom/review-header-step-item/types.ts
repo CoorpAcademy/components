@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import Provider from '../provider';
 
 const propTypes = {
   current: PropTypes.bool,
@@ -19,8 +18,9 @@ export type HeaderStepItemProps = {
   value: string;
 };
 
-export type HeaderStepItemContextTypes = {translate: typeof Provider.childContextTypes.translate};
-
+export type HeaderStepItemContextTypes = {
+  translate: (key: string, data?: Record<string, string>) => string;
+};
 export type Fixture = {
   props: HeaderStepItemProps;
 };

@@ -5,10 +5,9 @@ import {
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
-import propTypes, {contextTypes, HeaderStepItemProps} from './types';
+import propTypes, {contextTypes, HeaderStepItemContextTypes, HeaderStepItemProps} from './types';
 
-// HeaderStepItemContextTypes to context
-const Content = (props: HeaderStepItemProps, context: any) => {
+const Content = (props: HeaderStepItemProps, context: HeaderStepItemContextTypes) => {
   const {icon, current, value} = props;
   const {translate} = context;
   let child;
@@ -79,5 +78,6 @@ const ReviewHeaderStepItem = (props: HeaderStepItemProps) => {
 
 ReviewHeaderStepItem.propTypes = propTypes;
 Content.contextTypes = contextTypes;
+Content.propTypse = propTypes;
 
 export default ReviewHeaderStepItem;
