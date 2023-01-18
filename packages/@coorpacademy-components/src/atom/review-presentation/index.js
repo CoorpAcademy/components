@@ -54,11 +54,6 @@ const ToolTip = ({
     setToolTipIsVisible(false);
   }, [setToolTipIsVisible]);
 
-  const customStyle = {
-    visibility: toolTipIsVisible ? 'visible' : 'hidden',
-    opacity: toolTipIsVisible ? 1 : 0
-  };
-
   return (
     <div
       className={style.tooltipContainer}
@@ -82,7 +77,6 @@ const ToolTip = ({
       {toolTipIsVisible ? (
         <div
           className={style.toolTip}
-          style={customStyle}
           data-testid="review-presentation-tooltip"
           aria-label={closeToolTipInformationTextAriaLabel}
         >
