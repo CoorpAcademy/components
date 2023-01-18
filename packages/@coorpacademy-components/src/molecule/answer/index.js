@@ -8,7 +8,6 @@ import Qcm from '../questions/qcm';
 import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
-import Provider from '../../atom/provider';
 import Audio from '../audio';
 import style from './style.css';
 import propTypes, {MediaViewPropTypes, TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from './prop-types';
@@ -44,7 +43,7 @@ const MediaView = ({media}) => {
 
 MediaView.propTypes = MediaViewPropTypes;
 
-const Switch = ({model, help}, {translate}) => {
+const Switch = ({model, help}) => {
   const {type} = model;
 
   switch (type) {
@@ -57,7 +56,7 @@ const Switch = ({model, help}, {translate}) => {
     case 'freeText':
       return <FreeText {...model} />;
     case 'dropDown':
-      return <DropDown {...model} aria-label={translate('drop_down_icon')} />;
+      return <DropDown {...model} />;
     case 'slider':
       return <QuestionRange {...model} />;
     case 'template':
@@ -68,10 +67,6 @@ const Switch = ({model, help}, {translate}) => {
 Switch.propTypes = {
   model: propTypes.model,
   help: propTypes.help
-};
-
-Switch.contextTypes = {
-  translate: Provider.childContextTypes.translate
 };
 
 const Answer = props => {

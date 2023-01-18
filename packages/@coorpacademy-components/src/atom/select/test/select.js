@@ -7,6 +7,7 @@ import noop from 'lodash/fp/noop';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Select from '..';
 import playerFixture from './fixtures/player';
+import defaultFixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -43,4 +44,30 @@ test('text color: should not use skin color (selected, invalid option, player), 
     selectSpan.at(0).props().className,
     'select__selectSpan select__noLabelCommon select__longLabel'
   );
+});
+
+test('after onClick, arrow up icon should be shown, then arrow down on blur/mouse leave', t => {
+  const wrapper = mount(<Select {...defaultFixture.props} />);
+
+  const nativeSelect = wrapper.find('[data-testid="native-select"]');
+
+  nativeSelect.simulate('click', {});
+
+  const arrowUp = wrapper.find('[data-testid="select-arrow-up-icon"]');
+
+  const arrowDown = wrapper.find('[data-testid="select-arrow-down-icon"]');
+
+  t.truthy(arrowUp);
+
+  nativeSelect.simulate('mouseleave', {});
+
+  t.truthy(arrowDown);
+
+  nativeSelect.simulate('click', {});
+
+  t.truthy(arrowUp);
+
+  nativeSelect.simulate('blur', {});
+
+  t.truthy(arrowDown);
 });
