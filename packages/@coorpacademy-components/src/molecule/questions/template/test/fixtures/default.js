@@ -29,6 +29,7 @@ export default {
           }
         ]
       }
-    ]
+    ],
+    groupAriaLabel: 'Answer the question'
   }
 };
