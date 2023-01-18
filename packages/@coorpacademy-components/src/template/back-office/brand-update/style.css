@@ -32,7 +32,7 @@
 }
 
 .left {
-  width: 223px;
+  width: 248px;
 }
 
 .contentWrapper {
@@ -86,7 +86,7 @@
   height: 100%;
   overflow: scroll;
   z-index: 999;
-  width: 16%;
+  min-width: 240px
 }
 
 .content {
