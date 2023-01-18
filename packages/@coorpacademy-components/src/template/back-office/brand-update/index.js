@@ -15,6 +15,7 @@ import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import WizardContents from '../../../organism/wizard-contents';
 import ListItems from '../../../organism/list-items';
+import BulkEmptyDashboard from '../../../molecule/bulk-empty-dashboard';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -169,6 +170,8 @@ const buildContentView = content => {
       return <BrandDashboard {...content} />;
     case 'wizard':
       return <WizardContents {...content} />;
+    case 'bulk-empty-dashboard':
+      return <BulkEmptyDashboard {...content} />;
   }
 };
 
@@ -178,7 +181,17 @@ const buildDetailsView = details => {
 };
 
 const BrandUpdate = props => {
-  const {notifications, header, items, content, details, popin, onItemClick, documentation} = props;
+  const {
+    notifications,
+    header,
+    items,
+    content,
+    details,
+    popin,
+    onItemClick,
+    documentation,
+    contentFixHeight
+  } = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
@@ -192,7 +205,8 @@ const BrandUpdate = props => {
 
   const contentStyle = classNames([
     style.content,
-    !isEmpty(notifications) && style.contentWithNotifications
+    !isEmpty(notifications) && style.contentWithNotifications,
+    contentFixHeight && style.contentFixHeight
   ]);
 
   return (
@@ -284,6 +298,11 @@ BrandUpdate.propTypes = {
       ...ListItems.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['list-content'])
+    }),
+    PropTypes.shape({
+      ...BulkEmptyDashboard.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['bulk-empty-dashboard'])
     })
   ]),
   documentation: PropTypes.shape({
@@ -297,7 +316,8 @@ BrandUpdate.propTypes = {
     key: PropTypes.string,
     type: PropTypes.oneOf(['list'])
   }),
-  onItemClick: PropTypes.func
+  onItemClick: PropTypes.func,
+  contentFixHeight: PropTypes.bool
 };
 
 export default BrandUpdate;

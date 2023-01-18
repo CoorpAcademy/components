@@ -102,6 +102,9 @@
   top: 100px;
 }
 
+.contentFixHeight {
+  height: calc(100% - 109px);
+}
 .selectedElement {
   font-size: 12px;
   background-color: cm_grey_100;
