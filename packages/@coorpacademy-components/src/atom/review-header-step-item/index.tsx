@@ -4,12 +4,13 @@ import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
+import {GetTranslateFromContext} from '../provider';
 import style from './style.css';
-import propTypes, {contextTypes, HeaderStepItemContextTypes, HeaderStepItemProps} from './types';
+import propTypes, {HeaderStepItemProps} from './types';
 
-const Content = (props: HeaderStepItemProps, context: HeaderStepItemContextTypes) => {
+const Content = (props: HeaderStepItemProps) => {
   const {icon, current, value} = props;
-  const {translate} = context;
+  const translate = GetTranslateFromContext();
   let child;
   let ariaDescription;
   switch (icon) {
@@ -77,7 +78,5 @@ const ReviewHeaderStepItem = (props: HeaderStepItemProps) => {
 };
 
 ReviewHeaderStepItem.propTypes = propTypes;
-Content.contextTypes = contextTypes;
-Content.propTypse = propTypes;
 
 export default ReviewHeaderStepItem;

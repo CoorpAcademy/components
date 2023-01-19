@@ -6,10 +6,6 @@ const propTypes = {
   value: PropTypes.string
 };
 
-export const contextTypes = {
-  translate: PropTypes.func
-};
-
 export default propTypes;
 
 export type HeaderStepItemProps = {
@@ -18,9 +14,6 @@ export type HeaderStepItemProps = {
   value: string;
 };
 
-export type HeaderStepItemContextTypes = {
-  translate: (key: string, data?: Record<string, string>) => string;
-};
 export type Fixture = {
   props: HeaderStepItemProps;
 };
