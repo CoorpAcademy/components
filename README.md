@@ -24,7 +24,6 @@ If you want to see what theses packages have to look there: :wink:
 
 ```bash
 yarn
-yarn bootstrap
 ```
 
 ### Publish:
