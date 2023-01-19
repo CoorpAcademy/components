@@ -63,6 +63,7 @@ export type VideoSrc = {
   mimeType: string;
   videoId: string;
   mediaRef: string;
+  hide?: boolean;
 };
 
 export type VideoMedia = {
