@@ -29,6 +29,7 @@ export type MediaType = 'img' | 'audio' | 'video' | 'pdf';
 export type Media = {
   type?: MediaType;
   description?: string;
+  loading?: boolean;
   mimeType?: ResourceMimeType;
   _id?: string;
   mediaUrl?: Url;

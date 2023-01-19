@@ -5,6 +5,7 @@ export const JWPlayerPropTypes = {
   mimeType: PropTypes.string,
   scriptErrorMessage: PropTypes.string,
   disableAutostart: PropTypes.bool,
+  loading: PropTypes.bool,
   // https://developer.jwplayer.com/jwplayer/docs/jw8-player-configuration-reference
   jwpOptions: PropTypes.shape({
     file: SrcPropType,
@@ -51,6 +52,7 @@ export default {
   onError: PropTypes.func,
   autoplay: PropTypes.bool,
   disableAutostart: PropTypes.bool,
+  loading: PropTypes.bool,
   jwpOptions: JWPlayerPropTypes.jwpOptions,
   mimeType: PropTypes.oneOf([
     'application/kontiki',
