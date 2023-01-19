@@ -7,7 +7,7 @@ import createTranslate from '@coorpacademy/translate';
 import {WebContext} from '@coorpacademy/components/es/atom/provider';
 import {identity} from 'lodash/fp';
 import localesComponents from '@coorpacademy/components/locales/en/global.json';
-import {services} from '@coorpacademy/review-services-mocks';
+import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {AppOptions, Translate} from '../src/types/common';
 import localesAppReview from '../locales/en/review.json';
 import AppReview from '../src';
@@ -57,7 +57,8 @@ const createSandbox = (options: SandboxOptions): void => {
       onQuitClick: () => {
         location.reload();
       },
-      skin
+      skin,
+      appendVideoOptions
     };
     render(
       <WebContext translate={identity} skin={skin}>
