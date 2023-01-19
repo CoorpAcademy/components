@@ -57,13 +57,24 @@ type BaseContent = {
   answers: string[][];
 };
 
+type VideoSrcPropsForPlayer = {
+  mimeType: string;
+  videoId: string;
+  jwpOptions: unknown;
+  hide?: boolean;
+};
+
+export type VideoPropsForPlayer = {
+  type: string;
+  src: VideoSrcPropsForPlayer[];
+};
+
 export type MediaSrc = {_id: string; mimeType: string; url: string};
 export type VideoSrc = {
   _id: string;
   mimeType: string;
   videoId: string;
   mediaRef: string;
-  hide?: boolean;
 };
 
 export type VideoMedia = {
