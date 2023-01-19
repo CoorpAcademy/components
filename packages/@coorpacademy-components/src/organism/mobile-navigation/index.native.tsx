@@ -39,35 +39,54 @@ export interface Props {
 }
 
 type StyleSheetType = {
-  main: ViewStyle;
   container: ViewStyle;
+  navbar: ViewStyle;
+  blur: ViewStyle;
   button: ViewStyle;
   buttonText: TextStyle;
   dot: ViewStyle;
-  blur: ViewStyle;
+  dotShadow: ViewStyle;
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
-    main: {
-      marginHorizontal: 20
-    },
     container: {
       position: 'absolute',
-      bottom: 34,
+      bottom: 0,
+      paddingTop: 10,
+      paddingBottom: 34,
+      paddingHorizontal: 20,
       width: '100%',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.15,
+      shadowRadius: 3,
+      elevation: 4
+    },
+    blur: {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0
+    },
+    navbar: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignSelf: 'center',
       overflow: 'hidden',
       height: 66,
       borderRadius: 12,
-      backgroundColor: theme.colors.gray.light
+      backgroundColor: Platform.OS === 'ios' ? theme.colors.gray.light : '#edededee'
     },
     button: {
       alignItems: 'center',
       flex: 1,
       height: '100%',
+      maxWidth: 110,
       marginTop: theme.spacing.small
     },
     buttonText: {
@@ -76,7 +95,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       // height: 11,
       color: theme.colors.text.primary
     },
-
     dot: {
       width: 8,
       height: 8,
@@ -86,7 +104,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       position: 'absolute',
       alignSelf: 'center'
     },
-    blur: {
+    dotShadow: {
       marginTop: -87,
       width: 200,
       height: 100,
@@ -109,7 +127,7 @@ const Button = ({testID, title, selected, Icon, styles, theme, onPress}: ButtonP
     {selected ? (
       <View>
         <View style={styles.dot} />
-        <BlurredShadow color={theme.colors.cta} style={styles.blur} />
+        <BlurredShadow color={theme.colors.cta} style={styles.dotShadow} />
       </View>
     ) : null}
   </Touchable>
@@ -130,15 +148,11 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
   }
 
   return (
-    <View style={styleSheet.main}>
-      {Platform.OS === 'ios' ? (
-        <BlurView
-          style={styleSheet.container}
-          blurAmount={32}
-          reducedTransparencyFallbackColor="rgba(17, 17, 23, 0.5)"
-        />
-      ) : null}
-      <View style={styleSheet.container}>
+    <View style={styleSheet.container}>
+      <View style={styleSheet.navbar}>
+        {Platform.OS === 'ios' ? (
+          <BlurView style={styleSheet.blur} blurAmount={75} blurType="xlight" />
+        ) : null}
         {items.map((prop, index) => {
           const handlePress = prop.action;
           return (
