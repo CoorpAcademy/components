@@ -74,7 +74,6 @@ class VideoPlayer extends React.Component {
       case 'application/kontiki':
       case 'application/jwplayer':
       case 'video/mp4': {
-        console.log('props', this.props);
         const {loading = false, disableAutostart, jwpOptions, ...otherProps} = this.props;
 
         return loading ? (
