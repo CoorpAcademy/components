@@ -152,7 +152,8 @@ ReviewListItemWrapper.propTypes = {
   iconKey: PropTypes.string,
   label: PropTypes.shape({
     tooltipText: PropTypes.string,
-    moreDetailsAriaLabel: PropTypes.string
+    moreDetailsAriaLabel: PropTypes.string,
+    closeToolTipInformationTextAriaLabel: PropTypes.string
   })
 };
 
