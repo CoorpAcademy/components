@@ -22,10 +22,10 @@ export const freeTextSlide: SlideFromAPI = {
         type: 'video',
         src: [
           {
-            _id: '63910a48c34a78041f0cad14',
+            _id: 'free-text',
             mimeType: 'application/jwplayer',
             videoId: '489S0B87',
-            mediaRef: 'med_Vk0eisjXT'
+            mediaRef: 'med_free_text'
           }
         ]
       }

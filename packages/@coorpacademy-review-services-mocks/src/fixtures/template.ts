@@ -78,7 +78,20 @@ export const templateSlide: SlideFromAPI = {
     type: 'template',
     header: 'Complétez la phrase ci-dessous.',
     explanation:
-      'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).'
+      'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).',
+    medias: [
+      {
+        type: 'video',
+        src: [
+          {
+            _id: 'drag',
+            mimeType: 'application/jwplayer',
+            videoId: 'eRqV3sFB',
+            mediaRef: 'med_template'
+          }
+        ]
+      }
+    ]
   },
   klf: 'L’apprenant peut aussi évaluer sa performance grâce à un classement disponible sur la vue leaderboard. Elle compare sa position par rapport à celle des autres apprenants de la plateforme.',
   tips: "La position d'un apprenant peut être aussi consultée depuis le header ou en-tête de la page. Elle se met à jour à chaque fois qu'un apprenant obtient des étoiles.",
