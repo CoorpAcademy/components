@@ -1,4 +1,5 @@
 import React, {createContext, ReactNode, useContext} from 'react';
+import {mockTranslate} from '@coorpacademy/translate';
 import {Analytics} from '../../variables/analytics';
 import {Brand, defaultBrandTheme} from '../../variables/brand.native';
 import defaultTheme, {Theme} from '../../variables/theme.native';
@@ -24,7 +25,7 @@ export type TemplateContextValues = {
     handleBlur?: HandleBlur;
     handleFocus?: HandleFocus;
   };
-  translate: (arg: string) => string;
+  translate: (key: string, data?: Record<string, string>) => string;
 };
 
 type Props = {values: TemplateContextValues; children: ReactNode};
@@ -38,7 +39,7 @@ const Context = createContext({
     statusBarHeight: 42
   },
   store: {},
-  translate: (arg: string) => arg
+  translate: mockTranslate
 });
 
 const useTemplateContext = (): TemplateContextValues => {

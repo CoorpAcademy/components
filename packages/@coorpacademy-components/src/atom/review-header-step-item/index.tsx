@@ -4,27 +4,43 @@ import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
+import {GetTranslateFromContext} from '../provider';
 import style from './style.css';
 import propTypes, {HeaderStepItemProps} from './types';
 
-const Content = ({icon, current, value}: HeaderStepItemProps) => {
+const Content = (props: HeaderStepItemProps) => {
+  const {icon, current, value} = props;
+  const translate = GetTranslateFromContext();
   let child;
-
+  let ariaDescription;
   switch (icon) {
     case 'no-answer':
       child = value;
+      ariaDescription = current
+        ? translate('review_header_step_item.current_question', {
+            headerStepValue: value
+          })
+        : translate('review_header_step_item.not_answered_question', {
+            headerStepValue: value
+          });
       break;
 
     case 'right':
       child = (
         <RightIcon className={classnames(style.rightIcon, current && style.currentRightIcon)} />
       );
+      ariaDescription = translate('review_header_step_item.correct_question', {
+        headerStepValue: value
+      });
       break;
 
     case 'wrong':
       child = (
         <WrongIcon className={classnames(style.wrongIcon, current && style.currentWrongIcon)} />
       );
+      ariaDescription = translate('review_header_step_item.incorrect_question', {
+        headerStepValue: value
+      });
       break;
 
     default:
@@ -32,7 +48,13 @@ const Content = ({icon, current, value}: HeaderStepItemProps) => {
   }
 
   return (
-    <span className={style.value} aria-label={`step ${value}`}>
+    <span
+      className={style.value}
+      aria-label={translate('review_header_step_item.aria_label', {
+        headerStepValue: value
+      })}
+      aria-describedby={ariaDescription}
+    >
       {child}
     </span>
   );

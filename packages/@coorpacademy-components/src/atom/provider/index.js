@@ -107,5 +107,12 @@ const GetSkinFromContext = legacyContext => {
   return skin;
 };
 
-export {WebContext, useWebContext, GetSkinFromContext};
+const GetTranslateFromContext = legacyContext => {
+  const context = useWebContext();
+  const legacyTranslate = get('translate', legacyContext);
+  const translate = getOr(legacyTranslate, 'translate', context);
+  return translate;
+};
+
+export {WebContext, useWebContext, GetSkinFromContext, GetTranslateFromContext};
 export default Provider;
