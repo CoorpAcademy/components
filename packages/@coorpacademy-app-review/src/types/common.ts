@@ -28,7 +28,7 @@ export type AppOptions = ConnectedOptions & {
   skillRef?: string;
   services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
-  appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
+  appendVideoOptions?: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
 };
 
 export type ThunkOptions = {
