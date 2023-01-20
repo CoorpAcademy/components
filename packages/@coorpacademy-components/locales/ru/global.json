@@ -79,7 +79,10 @@
   "mandatory_fields": "*Обязательные поля",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Вопрос ${headerStepValue}",
-    "aria_description": "Вопрос ${headerStepValue} - это ${questionIconStatus}"
+    "aria_label": "Вопрос {{headerStepValue}}",
+    "current_question": "Вопрос {{headerStepValue}} — текущий вопрос",
+    "correct_question": "Вопрос {{headerStepValue}} правильный",
+    "incorrect_question": "Вопрос {{headerStepValue}} неверен",
+    "not_answered_question": "На вопрос {{headerStepValue}} пока нет ответа"
   }
 }
