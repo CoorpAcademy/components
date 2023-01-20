@@ -9,7 +9,7 @@ import CMPopin from '../../../molecule/cm-popin';
 import style from './style.css';
 import propTypes from './prop-types';
 
-const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitPopin}) => {
+const PlayerReview = ({header, stack, congrats, quitPopin}) => {
   return (
     <div
       key="review-player-container"
@@ -17,7 +17,7 @@ const PlayerReview = ({header, stack, reviewBackgroundAriaLabel, congrats, quitP
       className={style.playerReviewContainer}
     >
       <div key="player-background-container" className={style.playerBackground}>
-        <ReviewBackground aria-label={reviewBackgroundAriaLabel} />
+        <ReviewBackground />
       </div>
       <div
         key="review-header-wrapper"
