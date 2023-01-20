@@ -1,6 +1,7 @@
 export default {
   props: {
     'aria-label': 'select aria-label',
+    'aria-labelledby': 'select aria-labelledby',
     options: [
       {
         name: 'Pouet',
