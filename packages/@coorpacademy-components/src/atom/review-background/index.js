@@ -1,11 +1,9 @@
 import React from 'react';
 import style from './style.css';
-import propTypes from './prop-types';
 
-const ReviewBackground = props => {
-  const {'aria-label': ariaLabel} = props;
+const ReviewBackground = () => {
   return (
-    <div className={style.mainContainer} aria-label={ariaLabel} tabIndex={-1}>
+    <div className={style.mainContainer} tabIndex={-1}>
       <div className={style.container} tabIndex={-1}>
         <span className={style.interrogationLeft} tabIndex={-1}>
           ?
@@ -22,7 +20,5 @@ const ReviewBackground = props => {
     </div>
   );
 };
-
-ReviewBackground.propTypes = propTypes;
 
 export default ReviewBackground;
