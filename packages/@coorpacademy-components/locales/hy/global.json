@@ -20,6 +20,7 @@
   "Create a new cohort": "Ստեղծել նոր խումբ",
   "Delete": "Ջնջել",
   "Draft": "Նախագիծ",
+  "drop_down_icon": "Բացվող՝ հասանելի պատասխանների ցանկը բացելու համար",
   "Edit": "Խմբագրել",
   "external_content_article": "ՓԱՍՏԱԹՂԹԵՐ",
   "external_content_scorm": "ԱՆԻՄԱՏ ՌԵՍՈՒՐՍՆԵՐ",
@@ -76,5 +77,12 @@
   "zuora_discount_code_submit": "Դիմել",
   "zuora_discount_code": "Պրոմո Կոդ",
   "mandatory_fields": "*Պարտադիր դաշտեր",
-  "something_went_wrong": "Վա՜յ: Ինչ որ բան այնպես չգնաց."
+  "something_went_wrong": "Վա՜յ: Ինչ որ բան այնպես չգնաց.",
+  "review_header_step_item": {
+    "aria_label": "Հարց {{headerStepValue}}",
+    "current_question": "{{headerStepValue}} հարցը ընթացիկ հարցն է",
+    "correct_question": "{{headerStepValue}} հարցը ճիշտ է",
+    "incorrect_question": "Հարցը {{headerStepValue}} սխալ է",
+    "not_answered_question": "Հարցին {{headerStepValue}} դեռ պատասխանված չէ"
+  }
 }
