@@ -10,7 +10,7 @@ import {ReviewPlayerProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
-  imageBackground: ImageStyle;
+  backgroundImage: ImageStyle;
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
@@ -24,7 +24,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       justifyContent: 'space-between',
       alignItems: 'center'
     },
-    imageBackground: {
+    backgroundImage: {
       position: 'absolute',
       top: 0,
       bottom: 0,
@@ -55,7 +55,7 @@ const Slides = (props: ReviewPlayerProps) => {
 
   return (
     <View style={styleSheet.container}>
-      <ImageBackground style={styleSheet.imageBackground} source={source} resizeMode="cover" />
+      <ImageBackground style={styleSheet.backgroundImage} source={source} resizeMode="cover" />
       <ReviewHeader {...header} />
       {stack ? <StackedSlides {...stack} /> : null}
       {congrats ? <ReviewCongrats {...congrats} /> : null}

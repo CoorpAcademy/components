@@ -12,7 +12,6 @@ type Fixture = {
 const fixture: Fixture = {
   props: {
     header: Header.props,
-    reviewBackgroundAriaLabel: 'image background',
     stack: pipe(
       set('slides.2.answerUI.media', {
         type: 'video',
