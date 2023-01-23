@@ -24,6 +24,10 @@ import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptionsForMobile = {
+  ...connectedOptions,
+  backgroundImage: 1
+};
 
 test('should create initial props when fetched slide is not still received', t => {
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
@@ -119,6 +123,103 @@ test('should create initial props when fetched slide is not still received', t =
       }
     }
   });
+});
+
+test('should create initial props when fetched slide is not still received for mobile application', t => {
+  // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
+  const state: StoreState = {
+    data: {
+      progression: createdProgression,
+      slides: {
+        sli_N1XACJobn: null
+      },
+      token: '1234',
+      corrections: {},
+      rank: {start: Number.NaN, end: Number.NaN},
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+    },
+    ui: {
+      showCongrats: false,
+      currentSlideRef: '',
+      navigation: ['loader', 'slides'],
+      answers: {},
+      positions: [0, 1, 2, 3, 4],
+      slide: {
+        sli_N1XACJobn: {
+          validateButton: false,
+          animateCorrectionPopin: false,
+          showCorrectionPopin: false,
+          pendingAnswerRequest: false
+        }
+      },
+      showQuitPopin: false,
+      showButtonRevising: false
+    }
+  };
+
+  const props = mapStateToSlidesProps(state, identity, connectedOptionsForMobile);
+  t.is(props.congrats, undefined);
+  t.deepEqual(omit(['onQuitClick'], props.header), {
+    'aria-label': 'aria-header-wrapper',
+    closeButtonAriaLabel: 'aria-close-button',
+    hiddenSteps: false,
+    mode: '__Review Title',
+    skillName: 'Digital Awareness',
+    steps: [
+      {
+        current: true,
+        icon: 'no-answer',
+        value: '1'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '2'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '3'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '4'
+      },
+      {
+        current: false,
+        icon: 'no-answer',
+        value: '5'
+      }
+    ]
+  });
+  t.deepEqual(omit(['validateButton'], props.stack), {
+    correctionPopinProps: undefined,
+    endReview: false,
+    slides: {
+      '0': {
+        position: 0,
+        loading: true
+      },
+      '1': {
+        position: 1,
+        loading: true
+      },
+      '2': {
+        position: 2,
+        loading: true
+      },
+      '3': {
+        position: 3,
+        loading: true
+      },
+      '4': {
+        position: 4,
+        loading: true
+      }
+    }
+  });
+  t.is(props.backgroundImage, connectedOptionsForMobile.backgroundImage);
 });
 
 test('should create props when first slide is on the state', t => {

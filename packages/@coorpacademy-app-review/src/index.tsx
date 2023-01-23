@@ -49,7 +49,7 @@ const storeTokenAndCreateProgression = async (
 
 const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
   const [store, setStore] = useState<Store<StoreState, AnyAction> | null>(null);
-  const {translate, onQuitClick, skin} = options;
+  const {translate, onQuitClick, skin, backgroundImage} = options;
 
   useEffect(() => {
     const newStore = configureStore(options);
@@ -64,7 +64,12 @@ const AppReview = ({options}: {options: AppOptions}): JSX.Element | null => {
 
   return (
     <Provider store={store}>
-      <ConnectedApp onQuitClick={onQuitClick} translate={translate} skin={skin} />
+      <ConnectedApp
+        onQuitClick={onQuitClick}
+        translate={translate}
+        skin={skin}
+        backgroundImage={backgroundImage}
+      />
     </Provider>
   );
 };
