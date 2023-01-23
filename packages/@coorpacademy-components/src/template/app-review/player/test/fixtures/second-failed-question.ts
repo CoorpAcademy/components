@@ -10,8 +10,7 @@ type Fixture = {
 const fixture: Fixture = {
   props: {
     header: Header.props,
-    stack: WrongStackedSlides.props,
-    reviewBackgroundAriaLabel: 'image background'
+    stack: WrongStackedSlides.props
   }
 };
 

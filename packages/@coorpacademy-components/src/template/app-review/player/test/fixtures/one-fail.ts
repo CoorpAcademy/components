@@ -39,8 +39,7 @@ const fixture: Fixture = {
         }
       ]
     },
-    stack: WrongStackedSlides.props,
-    reviewBackgroundAriaLabel: 'image background'
+    stack: WrongStackedSlides.props
   }
 };
 
