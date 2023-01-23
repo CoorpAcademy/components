@@ -21,6 +21,7 @@ export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
   skin: Skin;
+  backgroundImage?: number;
 };
 
 export type AppOptions = ConnectedOptions & {

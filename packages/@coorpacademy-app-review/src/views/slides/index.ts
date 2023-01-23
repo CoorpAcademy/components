@@ -415,7 +415,7 @@ export const mapStateToSlidesProps = (
   dispatch: Dispatch,
   options: ConnectedOptions
 ): ReviewPlayerProps => {
-  const {translate, onQuitClick, skin} = options;
+  const {translate, onQuitClick, skin, backgroundImage} = options;
   const currentSlideRef = getCurrentSlideRef(state);
   const endReview = isEndOfProgression(state.data.progression);
   const correction = get(['data', 'corrections', currentSlideRef], state);
@@ -458,6 +458,7 @@ export const mapStateToSlidesProps = (
         ),
       endReview: endReview && state.ui.showCongrats
     },
+    backgroundImage,
     congrats: buildCongratsProps(state, dispatch, options),
     quitPopin: showQuitPopin
       ? buildQuitPopinProps(dispatch)(onQuitClick, translate, skin)
