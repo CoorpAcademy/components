@@ -3,7 +3,7 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 import {Props, propTypes} from './types';
 
-const BulkEmptyDashboard = ({mainText, subText, imageUrl, buttonLink}: Props) => (
+const EmptyStateDashboard = ({mainText, subText, imageUrl, buttonLink}: Props) => (
   <div className={style.container}>
     <div>
       <img className={style.img} src={imageUrl} aria-hidden="true" />
@@ -16,6 +16,6 @@ const BulkEmptyDashboard = ({mainText, subText, imageUrl, buttonLink}: Props) =>
   </div>
 );
 
-BulkEmptyDashboard.propTypes = propTypes;
+EmptyStateDashboard.propTypes = propTypes;
 
-export default BulkEmptyDashboard;
+export default EmptyStateDashboard;

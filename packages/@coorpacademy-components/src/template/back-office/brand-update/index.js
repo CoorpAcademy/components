@@ -15,13 +15,13 @@ import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import WizardContents from '../../../organism/wizard-contents';
 import ListItems from '../../../organism/list-items';
-import BulkEmptyDashboard from '../../../molecule/bulk-empty-dashboard';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
+import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -170,8 +170,8 @@ const buildContentView = content => {
       return <BrandDashboard {...content} />;
     case 'wizard':
       return <WizardContents {...content} />;
-    case 'bulk-empty-dashboard':
-      return <BulkEmptyDashboard {...content} />;
+    case 'empty-state-dashboard':
+      return <EmptyStateDashboard {...content} />;
   }
 };
 
@@ -300,9 +300,9 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['list-content'])
     }),
     PropTypes.shape({
-      ...BulkEmptyDashboard.propTypes,
+      ...EmptyStateDashboard.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['bulk-empty-dashboard'])
+      type: PropTypes.oneOf(['empty-state-dashboard'])
     })
   ]),
   documentation: PropTypes.shape({
