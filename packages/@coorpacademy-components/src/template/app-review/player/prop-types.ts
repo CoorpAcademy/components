@@ -23,6 +23,7 @@ export default propTypes;
 export type ReviewPlayerProps = {
   header: HeaderProps;
   stack: ReviewStackProps;
+  backgroundImage?: number;
   congrats?: ReviewCongratsProps;
   quitPopin?: CMPopinProps;
 };
