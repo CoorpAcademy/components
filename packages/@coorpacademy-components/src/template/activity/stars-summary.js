@@ -54,7 +54,7 @@ class StarsSummary extends React.Component {
       label: PropTypes.string.isRequired,
       stars: PropTypes.number.isRequired
     }).isRequired,
-    engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes))
+    engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)).isRequired
   };
 
   static contextTypes = {
@@ -64,7 +64,7 @@ class StarsSummary extends React.Component {
   constructor(props) {
     super(props);
 
-    const {engines = []} = props;
+    const {engines} = props;
     this.state = {
       firstItem: 0,
       totalItems: engines.length
@@ -92,7 +92,7 @@ class StarsSummary extends React.Component {
   }
 
   render() {
-    const {total, engines = []} = this.props;
+    const {total, engines} = this.props;
     const {skin} = this.context;
     const {firstItem, totalItems} = this.state;
     const dark = getOr('#90A4AE', 'common.dark', skin);

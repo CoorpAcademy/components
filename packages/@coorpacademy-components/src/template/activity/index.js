@@ -1,8 +1,10 @@
-import React from 'react';
-import {get, omit, isEmpty} from 'lodash/fp';
+import React, {useCallback} from 'react';
+import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
+import omit from 'lodash/fp/omit';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Provider from '../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../atom/provider';
 import Button from '../../atom/button';
 import Select from '../../atom/select';
 import Loader from '../../atom/loader';
@@ -11,143 +13,139 @@ import EngineStars from './engine-stars';
 import StarsSummary from './stars-summary';
 import style from './style.css';
 
-class Progression extends React.Component {
-  static propTypes = {
-    mainTitle: PropTypes.string.isRequired,
-    mainSubtitle: PropTypes.string.isRequired,
-    adaptiveAriaLabel: PropTypes.string,
-    total: PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      stars: PropTypes.number.isRequired
-    }).isRequired,
-    engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
-    loading: PropTypes.bool.isRequired,
-    progressions: PropTypes.arrayOf(
-      PropTypes.shape({...ProgressionItem.propTypes, ref: PropTypes.string.isRequired})
-    ),
-    themeFilter: PropTypes.shape({
-      options: Select.propTypes.options.isRequired,
-      onChange: Select.propTypes.onChange
-    }),
-    recommendation: PropTypes.shape({
-      cta: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
-      courseTitle: PropTypes.string.isRequired,
-      onClick: PropTypes.func
-    })
-  };
+const Progression = (props, legacyContext) => {
+  const {
+    mainTitle,
+    mainSubtitle,
+    recommendation = {},
+    progressions = [],
+    adaptiveAriaLabel,
+    total,
+    engines = [],
+    themeFilter = {},
+    loading
+  } = props;
+  const skin = GetSkinFromContext(legacyContext);
+  const {onChange: themeFilterOnChange} = themeFilter;
 
-  static contextTypes = {
-    skin: Provider.childContextTypes.skin
-  };
+  const handleClick = useCallback(
+    e => {
+      e.stopPropagation();
+      e.preventDefault();
+      const {onClick} = recommendation;
+      onClick && onClick(e);
+    },
+    [recommendation]
+  );
 
-  constructor(props, context) {
-    super(props, context);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSelectTheme = this.handleSelectTheme.bind(this);
-  }
+  const handleSelectTheme = useCallback(
+    e => {
+      themeFilterOnChange && themeFilterOnChange(e);
+    },
+    [themeFilterOnChange]
+  );
 
-  handleClick = e => {
-    const {recommendation} = this.props;
-    e.stopPropagation();
-    e.preventDefault();
-    const {onClick} = recommendation;
-    onClick && onClick(e);
-  };
+  const primary = get('common.primary', skin);
+  const loader = loading ? (
+    <div className={style.loader}>
+      <Loader />
+    </div>
+  ) : null;
+  const allProgressions = progressions.map(progression => (
+    <ProgressionItem
+      {...omit(['ref'], progression)}
+      key={progression.ref}
+      adaptiveAriaLabel={adaptiveAriaLabel}
+    />
+  ));
 
-  handleSelectTheme = e => {
-    const {
-      themeFilter: {onChange}
-    } = this.props;
-    onChange && onChange(e);
-  };
-
-  render() {
-    const {
-      mainTitle,
-      mainSubtitle,
-      recommendation = {},
-      progressions = [],
-      adaptiveAriaLabel,
-      total,
-      engines = [],
-      themeFilter = {},
-      loading
-    } = this.props;
-    const {skin} = this.context;
-
-    const primary = get('common.primary', skin);
-    const loader = loading ? (
-      <div className={style.loader}>
-        <Loader />
-      </div>
-    ) : null;
-    const allProgressions = progressions.map(progression => (
-      <ProgressionItem
-        {...omit(['ref'], progression)}
-        key={progression.ref}
-        adaptiveAriaLabel={adaptiveAriaLabel}
-      />
-    ));
-
-    const coreProgression = (
-      <div data-name="activityCore" className={style.core}>
-        {allProgressions}
-      </div>
-    );
-    const themeSelect = !isEmpty(themeFilter.options) ? (
-      <Select
-        borderClassName={style.selectBorder}
-        className={style.select}
-        theme="thematiques"
-        options={themeFilter.options}
-        onChange={this.handleSelectTheme}
-      />
-    ) : null;
-    const recommendationSection = !isEmpty(recommendation) ? (
-      <div className={style.recommendationWrapper}>
-        <p className={style.recommendationSection}>{recommendation.title} </p>
-        <p className={style.recommendationSection}>
-          <span>{recommendation.subtitle} </span>
-          <span
-            className={classnames(style.course, style.innerHTML)}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: recommendation.courseTitle}}
-          />
-        </p>
-        <Button
-          type="link"
-          onClick={this.handleClick}
-          submitValue={recommendation.cta}
-          style={{
-            backgroundColor: primary
-          }}
-          className={style.cta}
+  const coreProgression = (
+    <div data-name="activityCore" className={style.core}>
+      {allProgressions}
+    </div>
+  );
+  const themeSelect = !isEmpty(themeFilter.options) ? (
+    <Select
+      borderClassName={style.selectBorder}
+      className={style.select}
+      theme="thematiques"
+      options={themeFilter.options}
+      onChange={handleSelectTheme}
+    />
+  ) : null;
+  const recommendationSection = !isEmpty(recommendation) ? (
+    <div className={style.recommendationWrapper}>
+      <p className={style.recommendationSection}>{recommendation.title} </p>
+      <p className={style.recommendationSection}>
+        <span>{recommendation.subtitle} </span>
+        <span
+          className={classnames(style.course, style.innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: recommendation.courseTitle}}
         />
-      </div>
-    ) : null;
-    return (
-      <div className={style.default}>
-        <div data-name="activity-header">
-          <div className={style.mainTitle}>
-            <span>{mainTitle}</span> {mainSubtitle}
-          </div>
-          <div className={style.headerProgression}>
-            <div className={style.wrapperCta}>
-              {themeSelect}
-              {recommendationSection}
-            </div>
-            <StarsSummary engines={engines} total={total} />
-          </div>
+      </p>
+      <Button
+        type="link"
+        onClick={handleClick}
+        submitValue={recommendation.cta}
+        style={{
+          backgroundColor: primary
+        }}
+        className={style.cta}
+      />
+    </div>
+  ) : null;
+
+  return (
+    <div className={style.default}>
+      <div data-name="activity-header">
+        <div className={style.mainTitle}>
+          <span>{mainTitle}</span> {mainSubtitle}
         </div>
-        <div className={style.wrapperProgression} data-name="activityList">
-          {coreProgression}
-          {loader}
+        <div className={style.headerProgression}>
+          <div className={style.wrapperCta}>
+            {themeSelect}
+            {recommendationSection}
+          </div>
+          <StarsSummary engines={engines} total={total} />
         </div>
       </div>
-    );
-  }
-}
+      <div className={style.wrapperProgression} data-name="activityList">
+        {coreProgression}
+        {loader}
+      </div>
+    </div>
+  );
+};
+
+Progression.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+Progression.propTypes = {
+  mainTitle: PropTypes.string.isRequired,
+  mainSubtitle: PropTypes.string.isRequired,
+  adaptiveAriaLabel: PropTypes.string,
+  total: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    stars: PropTypes.number.isRequired
+  }).isRequired,
+  engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
+  loading: PropTypes.bool.isRequired,
+  progressions: PropTypes.arrayOf(
+    PropTypes.shape({...ProgressionItem.propTypes, ref: PropTypes.string.isRequired})
+  ),
+  themeFilter: PropTypes.shape({
+    options: Select.propTypes.options.isRequired,
+    onChange: Select.propTypes.onChange
+  }),
+  recommendation: PropTypes.shape({
+    cta: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    courseTitle: PropTypes.string.isRequired,
+    onClick: PropTypes.func
+  })
+};
 
 export default Progression;
