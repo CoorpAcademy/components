@@ -9,7 +9,6 @@ import {
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
-import {HEADER_HEIGHT} from '../../organism/header-v2/index.native';
 import Touchable from '../../hoc/touchable/index.native';
 import Html from '../html/index.native';
 import {Brand} from '../../variables/brand.native';
@@ -19,6 +18,7 @@ type StyleSheetType = {
   container: ViewStyle;
   title: TextStyle;
   text: TextStyle;
+  tips: ViewStyle;
   tip: ViewStyle;
   tipText: TextStyle;
   icon: ViewStyle;
@@ -33,7 +33,8 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
       justifyContent: 'space-between',
       flex: 1,
       padding: 20,
-      paddingTop: HEADER_HEIGHT + 20
+      paddingTop: 20,
+      paddingBottom: 100
     },
     title: {
       height: 72,
@@ -42,13 +43,17 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
       fontWeight: theme.fontWeight.bold,
       lineHeight: 36,
       color: theme.colors.text.primary,
-      marginBottom: theme.spacing.small
+      marginBottom: 32
     },
     text: {
       fontSize: theme.fontSize.large,
       color: theme.colors.text.primary,
-      opacity: 0.7,
-      marginBottom: theme.spacing.small
+      opacity: 0.7
+    },
+    tips: {
+      marginTop: 32,
+      height: 300,
+      justifyContent: 'center'
     },
     tip: {
       flexDirection: 'row',
@@ -71,8 +76,8 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
     button: {
       height: 52,
       borderRadius: 7,
-      marginBottom: theme.spacing.large,
-      marginTop: theme.spacing.large,
+      marginBottom: 32,
+      marginTop: 16,
       backgroundColor: brandTheme?.colors?.primary || theme.colors.cta,
       justifyContent: 'center'
     },
@@ -129,16 +134,18 @@ const Onboarding = (props: OnboardingProps) => {
       <Html style={styleSheet.title}>{translations.appReview.presentation.title}</Html>
       <Html style={styleSheet.text}>{translations.appReview.presentation.text}</Html>
 
-      <Tip Icon={TargetIcon} text={translations.appReview.presentation.labelList.skills.text} />
-      <Tip
-        Icon={QuestionMarkIcon}
-        text={translations.appReview.presentation.labelList.questions.text}
-      />
-      <Tip Icon={HeartIcon} text={translations.appReview.presentation.labelList.lifes.text} />
-      <Tip
-        Icon={CheckCircle2Icon}
-        text={translations.appReview.presentation.labelList.allright.text}
-      />
+      <View style={styleSheet.tips}>
+        <Tip Icon={TargetIcon} text={translations.appReview.presentation.labelList.skills.text} />
+        <Tip
+          Icon={QuestionMarkIcon}
+          text={translations.appReview.presentation.labelList.questions.text}
+        />
+        <Tip Icon={HeartIcon} text={translations.appReview.presentation.labelList.lifes.text} />
+        <Tip
+          Icon={CheckCircle2Icon}
+          text={translations.appReview.presentation.labelList.allright.text}
+        />
+      </View>
       <Touchable
         testID="button-quit-revision-onboarding"
         onPress={onPress}

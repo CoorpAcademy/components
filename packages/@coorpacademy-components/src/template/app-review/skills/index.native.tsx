@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
-import {HEADER_HEIGHT} from '../../../organism/header-v2/index.native';
 import ReviewNoSkills from '../../../organism/review-no-skills/index.native';
 import ReviewListSkills from '../../../organism/review-skills/index.native';
 import {Theme} from '../../../variables/theme.native';
@@ -18,7 +17,6 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       flex: 1,
       padding: 20,
       width: '100%',
-      paddingTop: HEADER_HEIGHT + 20,
       backgroundColor: theme.colors.white
     },
     title: {
