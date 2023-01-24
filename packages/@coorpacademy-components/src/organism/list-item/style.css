@@ -4,6 +4,7 @@
 @value xtraLightGrey from colors;
 @value cm_grey_900 from colors;
 @value primaryAdd1 from colors;
+@value cm_grey_400 from colors;
 
 .wrapper {
   align-items: center;
@@ -50,4 +51,22 @@
 .edit {
   margin: 0 16px 0 0;
   min-width: 93px;
+}
+
+.order {
+  width: 6px;
+  height: 20px;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: cm_grey_400;
+  margin: 0 16px 0 0;
+}
+.orderWrapper {
+  align-items: center;
+  display: flex;
+  padding: 0 24px;
+  width: 100%;
 }

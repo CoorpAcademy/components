@@ -7,7 +7,7 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
-  const {bulletPointMenuButton, buttonLink, tags, title} = props;
+  const {bulletPointMenuButton, buttonLink, tags, title, order} = props;
   const tagsView = map.convert({cap: false})((tag, index) => {
     return (
       <div key={index} className={style.tag}>
@@ -17,8 +17,11 @@ const ListItem = props => {
   })(tags);
   return (
     <div className={style.wrapper}>
-      <div className={style.title} title={title}>
-        {title}
+      <div className={style.orderWrapper}>
+        <div className={style.order}>{order}</div>
+        <div className={style.title} title={title}>
+          {title}
+        </div>
       </div>
       <div className={style.settings}>
         {tagsView}
@@ -62,7 +65,8 @@ ListItem.propTypes = {
       type: PropTypes.oneOf(['published', 'draft', 'archived', 'revised', 'default'])
     })
   ),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  order: PropTypes.number
 };
 
 export default ListItem;
