@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import filter from 'lodash/fp/filter';
@@ -9,7 +9,10 @@ import includes from 'lodash/fp/includes';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import size from 'lodash/fp/size';
-import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
+import {
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionNavigationArrowTop as ArrowUp
+} from '@coorpacademy/nova-icons';
 import Provider, {GetSkinFromContext} from '../provider';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
@@ -25,6 +28,30 @@ const themeStyle = {
   player: style.player,
   template: style.template,
   coorpmanager: null
+};
+
+const ArrowView = ({shouldRender, isArrowUp, ariaLabel, arrowClass, arrowColor}) => {
+  const props = useMemo(
+    () => ({
+      ...(ariaLabel &
+        {
+          'aria-label': ariaLabel
+        }),
+      ...(arrowColor &
+        {
+          color: arrowColor
+        }),
+      className: arrowClass
+    }),
+    [ariaLabel, arrowClass, arrowColor]
+  );
+  if (shouldRender) {
+    return isArrowUp ? (
+      <ArrowUp {...props} data-testid="select-arrow-up-icon" />
+    ) : (
+      <ArrowDown {...props} data-testid="select-arrow-down-icon" />
+    );
+  } else return null;
 };
 
 const Select = (props, legacyContext) => {
@@ -50,6 +77,11 @@ const Select = (props, legacyContext) => {
     () => (propTitle ? `${propTitle}${required ? '*' : ''}` : null),
     [propTitle, required]
   );
+
+  const [isArrowUp, setIsArrowUp] = useState(false);
+
+  const handleSelectOnFocus = useCallback(() => setIsArrowUp(true), []);
+  const handleSelectOnBlur = useCallback(() => setIsArrowUp(false), []);
 
   const optionList =
     options &&
@@ -89,9 +121,11 @@ const Select = (props, legacyContext) => {
     () =>
       multiple
         ? e => {
+            setIsArrowUp(false);
             onChange(map(get('value'), e.target.selectedOptions));
           }
         : e => {
+            setIsArrowUp(false);
             onChange(e.target.value);
           },
     [onChange, multiple]
@@ -99,21 +133,16 @@ const Select = (props, legacyContext) => {
 
   const black = useMemo(() => getOr('#14171A', 'common.black', skin), [skin]);
   const color = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+  const isThemeOneOfQuestionTemplateOrPlayer = useMemo(
+    () => includes(theme, ['question', 'template', 'player']),
+    [theme]
+  );
   const shouldUseSkinFontColor = useMemo(
-    () =>
-      !isSelectedInValidOption && selected && includes(theme, ['question', 'template', 'player']),
-    [isSelectedInValidOption, selected, theme]
+    () => !isSelectedInValidOption && selected && isThemeOneOfQuestionTemplateOrPlayer,
+    [isSelectedInValidOption, selected, isThemeOneOfQuestionTemplateOrPlayer]
   );
   const arrowColor = selected ? color : undefined;
 
-  const arrowView = !multiple ? (
-    <ArrowDown
-      color={includes(theme, ['question', 'template', 'player']) ? arrowColor : black}
-      className={shouldUseSkinFontColor ? style.selectedArrow : style.arrow}
-      aria-label={ariaLabel}
-      data-testid="select-arrow-down-icon"
-    />
-  ) : null;
   const behaviorClassName = useMemo(
     () => getClassState(style.default, style.modified, style.error, modified, error),
     [error, modified]
@@ -167,7 +196,13 @@ const Select = (props, legacyContext) => {
         >
           {selectedLabel}
         </span>
-        {arrowView}
+        <ArrowView
+          shouldRender={!multiple}
+          isArrowUp={isArrowUp}
+          ariaLabel={ariaLabel}
+          arrowClass={shouldUseSkinFontColor ? style.selectedArrow : style.arrow}
+          arrowColor={isThemeOneOfQuestionTemplateOrPlayer ? arrowColor : black}
+        />
         <select
           data-name="native-select"
           className={style.selectBox}
@@ -177,6 +212,13 @@ const Select = (props, legacyContext) => {
           value={selected}
           multiple={multiple}
           disabled={disabled}
+          onClick={handleSelectOnFocus}
+          onBlur={handleSelectOnBlur}
+          // onBlur does not handle completely an out of bounds click
+          // ex: select is Opened and a click is done outside, cancelling the select
+          // that doesn't count as a Blur, so an onMouseLeave is needed
+          onMouseLeave={handleSelectOnBlur}
+          data-testid="native-select"
         >
           {optionList}
         </select>
