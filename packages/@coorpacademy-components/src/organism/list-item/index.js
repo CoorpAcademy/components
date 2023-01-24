@@ -21,7 +21,9 @@ const ListItem = props => {
     <div className={style.wrapper}>
       {isPublished ? (
         <div className={style.orderWrapper}>
-          <div className={style.order}>{order + 1}</div>
+          <div className={style.order} ariaLabel="Certification's order">
+            {order + 1}
+          </div>
           <div className={style.title} title={title}>
             {title}
           </div>
