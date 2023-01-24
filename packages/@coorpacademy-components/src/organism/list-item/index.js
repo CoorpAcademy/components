@@ -18,7 +18,7 @@ const ListItem = props => {
   return (
     <div className={style.wrapper}>
       <div className={style.orderWrapper}>
-        <div className={style.order}>{order}</div>
+        <div className={style.order}>{order + 1}</div>
         <div className={style.title} title={title}>
           {title}
         </div>
