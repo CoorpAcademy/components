@@ -76,5 +76,12 @@
   "zuora_discount_code_submit": "Anwenden",
   "zuora_discount_code": "Promo-Code",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "Frage {{headerStepValue}}",
+    "current_question": "Frage {{headerStepValue}} ist die aktuelle Frage",
+    "correct_question": "Frage {{headerStepValue}} ist richtig",
+    "incorrect_question": "Frage {{headerStepValue}} ist falsch",
+    "not_answered_question": "Frage {{headerStepValue}} ist noch nicht beantwortet"
+  }
 }
