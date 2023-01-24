@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ImageBackground, ImageStyle, View, StyleSheet, ViewStyle} from 'react-native';
+import type {ImageSourcePropType} from 'react-native';
 import StackedSlides from '../../../organism/review-stacked-slides/index.native';
 import ReviewCongrats from '../../../organism/review-congrats/index.native';
 import ReviewHeader from '../../../organism/review-header/index.native';
@@ -51,7 +52,7 @@ const Slides = (props: ReviewPlayerProps) => {
     return null;
   }
 
-  const source = backgroundImage as number;
+  const source = backgroundImage as ImageSourcePropType;
 
   return (
     <View style={styleSheet.container}>
