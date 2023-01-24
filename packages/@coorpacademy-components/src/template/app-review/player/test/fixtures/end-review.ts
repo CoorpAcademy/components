@@ -12,7 +12,6 @@ const fixture: Fixture = {
   props: {
     header: Header.props,
     stack: EndReviewStackedSlides.props,
-    reviewBackgroundAriaLabel: 'image background',
     congrats: congrats.props
   }
 };

@@ -11,7 +11,6 @@ const fixture: Fixture = {
   props: {
     header: headerProps.props,
     stack: DefaultStackedSlides.props,
-    reviewBackgroundAriaLabel: 'review BG Aria',
     quitPopin: onReviewQuitPopin.props
   }
 };

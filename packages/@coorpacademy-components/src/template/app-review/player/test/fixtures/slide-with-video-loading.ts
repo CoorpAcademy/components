@@ -16,8 +16,7 @@ type Fixture = {
 const fixture: Fixture = {
   props: {
     header: headerProps.props,
-    stack: set('slides.0.answerUI', slide, DefaultStackedSlides.props),
-    reviewBackgroundAriaLabel: 'review BG Aria'
+    stack: set('slides.0.answerUI', slide, DefaultStackedSlides.props)
   }
 };
 

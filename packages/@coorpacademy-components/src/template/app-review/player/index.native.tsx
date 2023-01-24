@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, ViewStyle} from 'react-native';
+import {ImageBackground, ImageStyle, View, StyleSheet, ViewStyle} from 'react-native';
+import type {ImageSourcePropType} from 'react-native';
 import StackedSlides from '../../../organism/review-stacked-slides/index.native';
 import ReviewCongrats from '../../../organism/review-congrats/index.native';
 import ReviewHeader from '../../../organism/review-header/index.native';
@@ -10,6 +11,7 @@ import {ReviewPlayerProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
+  backgroundImage: ImageStyle;
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
@@ -22,11 +24,20 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: 'center'
+    },
+    backgroundImage: {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: '100%',
+      height: '100%'
     }
   });
 
 const Slides = (props: ReviewPlayerProps) => {
-  const {congrats, header, stack, quitPopin} = props;
+  const {congrats, header, stack, quitPopin, backgroundImage} = props;
 
   const {theme} = useTemplateContext();
 
@@ -41,8 +52,11 @@ const Slides = (props: ReviewPlayerProps) => {
     return null;
   }
 
+  const source = backgroundImage as ImageSourcePropType;
+
   return (
     <View style={styleSheet.container}>
+      <ImageBackground style={styleSheet.backgroundImage} source={source} resizeMode="cover" />
       <ReviewHeader {...header} />
       {stack ? <StackedSlides {...stack} /> : null}
       {congrats ? <ReviewCongrats {...congrats} /> : null}
