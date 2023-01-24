@@ -5,6 +5,7 @@ import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
 import StackedSlides from '../../../organism/review-stacked-slides';
 import CMPopin from '../../../molecule/cm-popin';
+import ReviewBackground from './background-review';
 import style from './style.css';
 import propTypes from './prop-types';
 
@@ -16,21 +17,7 @@ const PlayerReview = ({header, stack, congrats, quitPopin}) => {
       className={style.playerReviewContainer}
     >
       <div key="player-background-container" className={style.playerBackground}>
-        <div className={style.mainContainer} tabIndex={-1} key="player-background-container">
-          <div className={style.container} tabIndex={-1}>
-            <span className={style.interrogationLeft} tabIndex={-1}>
-              ?
-            </span>
-            <span className={style.interrogationRight} tabIndex={-1}>
-              ?
-            </span>
-            <div className={style.recYellow} tabIndex={-1} />
-            <div className={style.recRed} tabIndex={-1} />
-            <div className={style.recBlue} tabIndex={-1} />
-            <div className={style.recGreen} tabIndex={-1} />
-            <div className={style.recGreenLight} tabIndex={-1} />
-          </div>
-        </div>
+        <ReviewBackground />
       </div>
       <div
         key="review-header-wrapper"

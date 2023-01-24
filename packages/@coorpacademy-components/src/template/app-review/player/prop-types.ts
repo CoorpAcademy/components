@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import type {ImageSourcePropType} from 'react-native';
 import {CMPopinProps} from '../../../molecule/cm-popin/types';
 import ReviewCongratsPropTypes, {
   ReviewCongratsProps
@@ -23,7 +23,7 @@ export default propTypes;
 export type ReviewPlayerProps = {
   header: HeaderProps;
   stack: ReviewStackProps;
-  backgroundImage?: number;
+  backgroundImage?: ImageSourcePropType;
   congrats?: ReviewCongratsProps;
   quitPopin?: CMPopinProps;
 };
