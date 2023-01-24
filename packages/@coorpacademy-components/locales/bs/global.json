@@ -76,5 +76,12 @@
   "zuora_discount_code_submit": "Primijeni",
   "zuora_discount_code": "Promotivni kod",
   "mandatory_fields": "* Obavezna polja",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "Pitanje {{headerStepValue}}",
+    "current_question": "Pitanje {{headerStepValue}} je trenutno pitanje",
+    "correct_question": "Pitanje {{headerStepValue}} je tačno",
+    "incorrect_question": "Pitanje {{headerStepValue}} je netačno",
+    "not_answered_question": "Pitanje {{headerStepValue}} još nije odgovoreno"
+  }
 }
