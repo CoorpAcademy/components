@@ -76,5 +76,12 @@
   "zuora_discount_code_submit": "Uygula",
   "zuora_discount_code": "Promosyon kodu",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "Soru {{headerStepValue}}",
+    "current_question": "Soru {{headerStepValue}} şu anki soru",
+    "correct_question": "{{headerStepValue}} sorusu doğru",
+    "incorrect_question": "{{headerStepValue}} sorusu yanlış",
+    "not_answered_question": "{{headerStepValue}} sorusu henüz cevaplanmadı"
+  }
 }
