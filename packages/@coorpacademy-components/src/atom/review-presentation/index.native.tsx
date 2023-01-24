@@ -52,7 +52,7 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
     },
     tips: {
       marginTop: 32,
-      height: 300,
+      height: 230,
       justifyContent: 'center'
     },
     tip: {
