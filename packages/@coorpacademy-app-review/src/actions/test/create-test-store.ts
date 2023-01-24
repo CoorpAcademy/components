@@ -12,7 +12,9 @@ const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Mid
     if (!expectedAction) throw new Error(`Missing {type: "${action.type}"} action`);
     t.deepEqual(expectedAction, action);
     if (!isEqual(expectedAction, action)) {
-      throw new Error(`Missing {type: "${action.type}"} action`);
+      throw new Error(
+        `Difference between received action {type: "${action.type}"}, an expected action ${expectedAction.type}. Check payloads.`
+      );
     }
     return next(action);
   });
