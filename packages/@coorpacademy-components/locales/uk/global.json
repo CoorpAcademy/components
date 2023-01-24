@@ -76,5 +76,12 @@
   "zuora_discount_code_submit": "Застосувати",
   "zuora_discount_code": "Промокод",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "Питання {{headerStepValue}}",
+    "current_question": "Питання {{headerStepValue}} є поточним питанням",
+    "correct_question": "Питання {{headerStepValue}} правильне",
+    "incorrect_question": "Питання {{headerStepValue}} некоректне",
+    "not_answered_question": "На запитання {{headerStepValue}} ще немає відповіді"
+  }
 }
