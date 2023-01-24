@@ -18,6 +18,8 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
     services: options.services || getServices(),
     callbackOnViewChanged: options.callbackOnViewChanged,
     appendVideoOptions: options.appendVideoOptions || identity
+    // this identity is temporary added to avoir errors on mobile application,
+    // while the function to compute the props is made
   };
 
   const thunkMiddleware = thunk.withExtraArgument(thunkOptions);

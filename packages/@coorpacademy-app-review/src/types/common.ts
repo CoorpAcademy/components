@@ -29,6 +29,7 @@ export type AppOptions = ConnectedOptions & {
   services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
   appendVideoOptions?: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
+  // set again as mandatory when mobile function would be implemented
 };
 
 export type ThunkOptions = {
