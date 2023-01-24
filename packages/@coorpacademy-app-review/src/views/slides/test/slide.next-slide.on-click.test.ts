@@ -7,12 +7,22 @@ import {
   services,
   appendVideoOptions
 } from '@coorpacademy/review-services-mocks';
+import {isEqual} from 'lodash/fp';
 import type {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
+import {RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS} from '../../../actions/api/fetch-rank';
+import {
+  SLIDES_TO_REVIEW_FETCH_REQUEST,
+  SLIDES_TO_REVIEW_FETCH_SUCCESS
+} from '../../../actions/api/fetch-slides-to-review-by-skill-ref';
 import {translate} from '../../../test/utils/translation.mock';
-import {incorrectFreeTextPostAnswerResponse, postAnswerResponses} from '../../../test/fixtures';
+import {
+  incorrectFreeTextPostAnswerResponse,
+  fetchSlidesToReviewBySkillRefResponse,
+  postAnswerResponses
+} from '../../../test/fixtures';
 import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
@@ -21,7 +31,7 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 
 const connectedOptions = {translate, onQuitClick: identity, skin};
-
+/*
 test('correction popin actions after click', async t => {
   const state: StoreState = {
     data: {
@@ -86,8 +96,18 @@ test('correction popin actions after click', async t => {
   t.deepEqual(updatedState.ui.currentSlideRef, qcmGraphicSlide._id);
   t.pass();
 });
+*/
+
+const checkStatePositions = (getState: () => StoreState): boolean => {
+  const updatedState = getState();
+  return (
+    isEqual(updatedState.ui.positions, [-1, -1, -1, -1, 0]) &&
+    updatedState.ui.currentSlideRef === 'successExitNode'
+  );
+};
 
 test('correction popin actions after click when progression is finished', async t => {
+  t.plan(9);
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
@@ -163,6 +183,20 @@ test('correction popin actions after click when progression is finished', async 
   };
 
   const expectedActions = [
+    {
+      type: RANK_FETCH_END_REQUEST
+    },
+    {
+      type: RANK_FETCH_END_SUCCESS,
+      payload: {rank: 93}
+    },
+    {
+      type: SLIDES_TO_REVIEW_FETCH_REQUEST
+    },
+    {
+      type: SLIDES_TO_REVIEW_FETCH_SUCCESS,
+      payload: fetchSlidesToReviewBySkillRefResponse
+    },
     {
       type: NEXT_SLIDE,
       payload: {

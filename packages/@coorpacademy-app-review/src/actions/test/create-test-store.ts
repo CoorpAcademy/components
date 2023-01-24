@@ -1,5 +1,6 @@
 import type {ExecutionContext} from 'ava';
 import constant from 'lodash/fp/constant';
+import isEqual from 'lodash/fp/isEqual';
 import {AnyAction, applyMiddleware, compose, createStore, Dispatch, Middleware, Store} from 'redux';
 import thunk from 'redux-thunk';
 import type {ThunkOptions} from '../../types/common';
@@ -8,8 +9,12 @@ import rootReducer, {StoreState} from '../../reducers';
 const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Middleware =>
   constant((next: Dispatch) => (action: AnyAction): unknown => {
     const expectedAction = ACTIONS.shift();
+    console.log(action, expectedAction);
     if (!expectedAction) throw new Error(`Missing {type: "${action.type}"} action`);
     t.deepEqual(expectedAction, action);
+    if (!isEqual(expectedAction, action)) {
+      throw new Error(`Missing {type: "${action.type}"} action`);
+    }
     return next(action);
   });
 

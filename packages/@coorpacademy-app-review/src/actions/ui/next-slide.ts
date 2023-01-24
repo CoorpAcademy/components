@@ -34,6 +34,7 @@ export const nextSlide = async (
     ['state', 'nextContent', 'ref'],
     state.data.progression as ProgressionFromAPI
   );
+  console.log('nextSlideRef', nextSlideRef);
   const payload: NextSlidePayload = {
     currentSlideRef: get(['ui', 'currentSlideRef'], state),
     nextSlideRef,
