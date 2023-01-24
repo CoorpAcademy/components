@@ -8,7 +8,7 @@ import {HeaderProps} from './types';
 type StyleSheetType = {
   container: ViewStyle;
   header: ViewStyle;
-  iconContainer: ViewStyle;
+  touchArea: ViewStyle;
   icon: ViewStyle;
 };
 
@@ -17,7 +17,8 @@ const style: StyleSheetType = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    alignContent: 'center'
+    alignContent: 'center',
+    width: '100%'
   },
   header: {
     width: '80%',
@@ -25,14 +26,14 @@ const style: StyleSheetType = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 70,
-    paddingTop: 25
+    paddingTop: 8
   },
-  iconContainer: {
+  touchArea: {
     position: 'absolute',
-    right: 5,
-    bottom: 10,
+    right: 24,
     borderRadius: 12,
-    padding: 5
+    paddingTop: 16,
+    padding: 8
   },
   icon: {
     width: 12,
@@ -51,7 +52,7 @@ const ReviewHeader = (props: HeaderProps) => {
         ))}
       </View>
       <Touchable
-        style={style.iconContainer}
+        style={style.touchArea}
         isHighlight
         onPress={onQuitClick}
         accessibilityLabel="open-popin-button"
