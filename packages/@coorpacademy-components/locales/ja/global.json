@@ -76,5 +76,12 @@
   "zuora_discount_code_submit": "適用",
   "zuora_discount_code": "プロモーション コード",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "質問 {{headerStepValue}}",
+    "current_question": "質問 {{headerStepValue}} が現在の質問です",
+    "correct_question": "問題 {{headerStepValue}} は正解です",
+    "incorrect_question": "質問 {{headerStepValue}} は不正解です",
+    "not_answered_question": "質問 {{headerStepValue}} はまだ回答されていません"
+  }
 }
