@@ -102,11 +102,12 @@ const state: StoreState = {
     }
   }
 };
+
 test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick of the button "Continue revising"', async t => {
   const progression: ProgressionFromAPI = {
-    _id: '62b1d1087aa12f00253f40ff',
+    _id: '62b1d1087aa12f00253f40ee',
     content: {
-      ref: '_skill-ref',
+      ref: 'skill_NyxtYFYir',
       type: 'skill'
     },
     engine: {
