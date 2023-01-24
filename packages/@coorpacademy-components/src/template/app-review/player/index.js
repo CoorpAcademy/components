@@ -1,7 +1,6 @@
 import React from 'react';
 import isNil from 'lodash/fp/isNil';
 import classnames from 'classnames';
-import ReviewBackground from '../../../atom/review-background';
 import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
 import StackedSlides from '../../../organism/review-stacked-slides';
@@ -17,7 +16,21 @@ const PlayerReview = ({header, stack, congrats, quitPopin}) => {
       className={style.playerReviewContainer}
     >
       <div key="player-background-container" className={style.playerBackground}>
-        <ReviewBackground />
+        <div className={style.mainContainer} tabIndex={-1} key="player-background-container">
+          <div className={style.container} tabIndex={-1}>
+            <span className={style.interrogationLeft} tabIndex={-1}>
+              ?
+            </span>
+            <span className={style.interrogationRight} tabIndex={-1}>
+              ?
+            </span>
+            <div className={style.recYellow} tabIndex={-1} />
+            <div className={style.recRed} tabIndex={-1} />
+            <div className={style.recBlue} tabIndex={-1} />
+            <div className={style.recGreen} tabIndex={-1} />
+            <div className={style.recGreenLight} tabIndex={-1} />
+          </div>
+        </div>
       </div>
       <div
         key="review-header-wrapper"
