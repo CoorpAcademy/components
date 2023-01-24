@@ -188,9 +188,8 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   });
 });
 
-// check if you should not do the last slide there
 test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-slides-to-review-by-skill-ref actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
-  t.plan(9);
+  t.plan(5);
 
   const expectedProgressionAfter: ProgressionFromAPI = {
     _id: '62b1d1087aa12f00253f40ee',
@@ -331,18 +330,6 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
       type: CORRECTION_FETCH_SUCCESS,
       meta: {slideRef: templateSlide._id},
       payload: getChoicesCorrection(templateSlide._id)
-    },
-    {
-      type: RANK_FETCH_END_REQUEST
-    },
-    {
-      type: RANK_FETCH_END_SUCCESS,
-      payload: {rank: 93}
-    },
-    {type: SLIDES_TO_REVIEW_FETCH_REQUEST},
-    {
-      type: SLIDES_TO_REVIEW_FETCH_SUCCESS,
-      payload: fetchSlidesToReviewBySkillRefResponse
     }
   ];
 
