@@ -76,5 +76,12 @@
   "zuora_discount_code_submit": "적용",
   "zuora_discount_code": "프로모션 코드",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "review_header_step_item": {
+    "aria_label": "질문 {{headerStepValue}}",
+    "current_question": "질문 {{headerStepValue}}이 현재 질문입니다.",
+    "correct_question": "질문 {{headerStepValue}}이 맞습니다.",
+    "incorrect_question": "질문 {{headerStepValue}}이 올바르지 않습니다.",
+    "not_answered_question": "질문 {{headerStepValue}}은 아직 답변되지 않았습니다."
+  }
 }
