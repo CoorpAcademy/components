@@ -11,7 +11,6 @@ const reducer = (
 ): CurrentSlideRefState => {
   switch (action.type) {
     case NEXT_SLIDE: {
-      console.log('-----> reducer CurrentSlideRef', action);
       return action.payload.nextSlideRef;
     }
     case SET_CURRENT_SLIDE: {

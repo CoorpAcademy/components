@@ -9,7 +9,6 @@ import rootReducer, {StoreState} from '../../reducers';
 const assertActionsMiddleware = (t: ExecutionContext, ACTIONS: AnyAction[]): Middleware =>
   constant((next: Dispatch) => (action: AnyAction): unknown => {
     const expectedAction = ACTIONS.shift();
-    console.log(action, expectedAction);
     if (!expectedAction) throw new Error(`Missing {type: "${action.type}"} action`);
     t.deepEqual(expectedAction, action);
     if (!isEqual(expectedAction, action)) {
