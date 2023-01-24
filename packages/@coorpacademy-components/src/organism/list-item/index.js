@@ -8,7 +8,8 @@ import style from './style.css';
 
 const ListItem = props => {
   let isPublished = false;
-  const {bulletPointMenuButton, buttonLink, tags, title, order} = props;
+  const {bulletPointMenuButton, buttonLink, tags, title, order, 'aria-label': ariaLabel} = props;
+
   const tagsView = map.convert({cap: false})((tag, index) => {
     isPublished = tag.type === 'published';
     return (
@@ -21,7 +22,7 @@ const ListItem = props => {
     <div className={style.wrapper}>
       {isPublished ? (
         <div className={style.orderWrapper}>
-          <div className={style.order} ariaLabel="Certification's order">
+          <div className={style.order} aria-label={ariaLabel}>
             {order + 1}
           </div>
           <div className={style.title} title={title}>
@@ -76,7 +77,8 @@ ListItem.propTypes = {
     })
   ),
   title: PropTypes.string.isRequired,
-  order: PropTypes.number
+  order: PropTypes.number,
+  'aria-label': PropTypes.string
 };
 
 export default ListItem;
