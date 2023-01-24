@@ -24,17 +24,20 @@ test('when mount component, it should initialize state with correct value', t =>
     total: fixtures.props.total
   };
   const wrapper = mount(<StarsSummary {...props} />, {context});
-  const instance = wrapper.instance();
-  t.is(instance.state.firstItem, 0);
-  t.is(instance.state.totalItems, 10);
+
+  const indexOnZero = wrapper.find('[data-testid="stars-summary-engine-index-0"]');
+  t.true(indexOnZero.exists());
+  const engineTabs = wrapper.find('[data-testid="stars-summary-engine-tabs"] li');
+  t.is(engineTabs.length, 10);
 
   const activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
-  t.is(activeLearnerStars.exists(), true);
+
+  t.true(activeLearnerStars.exists());
 
   const leftNavigation = wrapper.find('[data-name="left-arrow"]');
-  t.is(leftNavigation.exists(), false);
+  t.false(leftNavigation.exists());
   const rightNavigation = wrapper.find('[data-name="right-arrow"]');
-  t.is(rightNavigation.exists(), true);
+  t.true(rightNavigation.exists());
 });
 
 test('when mount component and after click on handleRight, it should update state with correct value and hide first engine and show left navigation button', t => {
@@ -43,26 +46,29 @@ test('when mount component and after click on handleRight, it should update stat
     total: fixtures.props.total
   };
   const wrapper = mount(<StarsSummary {...props} />, {context});
-  const instance = wrapper.instance();
 
-  instance.handleOnRight();
-  t.is(instance.state.firstItem, 1);
-  t.is(instance.state.totalItems, 10);
+  const rightArrowView = wrapper.find('[data-testid="stars-summary-right-arrow"]');
+  rightArrowView.simulate('click', {});
+
+  const indexOnOne = wrapper.find('[data-testid="stars-summary-engine-index-1"]');
+  t.true(indexOnOne.exists());
+  const engineTabs = wrapper.find('[data-testid="stars-summary-engine-tabs"] li');
+  t.is(engineTabs.length, 10);
   wrapper.update();
 
   const activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
-  t.is(activeLearnerStars.exists(), false);
+  t.false(activeLearnerStars.exists());
   const hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
-  t.is(hiddenLearnerStars.exists(), true);
+  t.true(hiddenLearnerStars.exists());
   const activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
-  t.is(activeMicrolearningStars.exists(), true);
+  t.true(activeMicrolearningStars.exists());
   const hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
-  t.is(hiddenMicrolearningStars.exists(), false);
+  t.false(hiddenMicrolearningStars.exists());
 
   const leftNavigation = wrapper.find('[data-name="left-arrow"]');
-  t.is(leftNavigation.exists(), true);
+  t.true(leftNavigation.exists());
   const rightNavigation = wrapper.find('[data-name="right-arrow"]');
-  t.is(rightNavigation.exists(), true);
+  t.true(rightNavigation.exists());
 });
 
 test('when mount component with 10 engines and after clicking on handleRight four times, it should update state with correct value and hide first and second engine and hide right navigation button', t => {
@@ -71,29 +77,33 @@ test('when mount component with 10 engines and after clicking on handleRight fou
     total: fixtures.props.total
   };
   const wrapper = mount(<StarsSummary {...props} />, {context});
-  const instance = wrapper.instance();
 
-  instance.handleOnRight();
-  instance.handleOnRight();
-  instance.handleOnRight();
-  instance.handleOnRight();
-  t.is(instance.state.firstItem, 4);
-  t.is(instance.state.totalItems, 10);
+  const rightArrowView = wrapper.find('[data-testid="stars-summary-right-arrow"]');
+  rightArrowView.simulate('click', {});
+  rightArrowView.simulate('click', {});
+  rightArrowView.simulate('click', {});
+  rightArrowView.simulate('click', {});
+
+  const indexOnFour = wrapper.find('[data-testid="stars-summary-engine-index-4"]');
+  t.true(indexOnFour.exists());
+
+  const engineTabs = wrapper.find('[data-testid="stars-summary-engine-tabs"] li');
+  t.is(engineTabs.length, 10);
   wrapper.update();
 
   const activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
-  t.is(activeLearnerStars.exists(), false);
+  t.false(activeLearnerStars.exists());
   const hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
-  t.is(hiddenLearnerStars.exists(), true);
+  t.true(hiddenLearnerStars.exists());
   const activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
-  t.is(activeMicrolearningStars.exists(), false);
+  t.false(activeMicrolearningStars.exists());
   const hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
-  t.is(hiddenMicrolearningStars.exists(), true);
+  t.true(hiddenMicrolearningStars.exists());
 
   const leftNavigation = wrapper.find('[data-name="left-arrow"]');
-  t.is(leftNavigation.exists(), true);
+  t.true(leftNavigation.exists());
   const rightNavigation = wrapper.find('[data-name="right-arrow"]');
-  t.is(rightNavigation.exists(), false);
+  t.false(rightNavigation.exists());
 });
 
 test('when mount component and after click on handleRight twice and handleLeft once, it should update state with correct value and display the correct items', t => {
@@ -102,61 +112,71 @@ test('when mount component and after click on handleRight twice and handleLeft o
     total: fixtures.props.total
   };
   const wrapper = mount(<StarsSummary {...props} />, {context});
-  const instance = wrapper.instance();
 
-  instance.handleOnRight();
-  instance.handleOnRight();
-  t.is(instance.state.firstItem, 2);
-  t.is(instance.state.totalItems, 10);
+  const rightArrowView = wrapper.find('[data-testid="stars-summary-right-arrow"]');
+  rightArrowView.simulate('click', {});
+  rightArrowView.simulate('click', {});
+
+  const indexOnTwo = wrapper.find('[data-testid="stars-summary-engine-index-2"]');
+  t.true(indexOnTwo.exists());
+
+  const engineTabs = wrapper.find('[data-testid="stars-summary-engine-tabs"] li');
+  t.is(engineTabs.length, 10);
   wrapper.update();
 
   let activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
-  t.is(activeLearnerStars.exists(), false);
+  t.false(activeLearnerStars.exists());
   let hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
-  t.is(hiddenLearnerStars.exists(), true);
+  t.true(hiddenLearnerStars.exists());
   let activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
-  t.is(activeMicrolearningStars.exists(), false);
+  t.false(activeMicrolearningStars.exists());
   let hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
-  t.is(hiddenMicrolearningStars.exists(), true);
+  t.true(hiddenMicrolearningStars.exists());
 
   let leftNavigation = wrapper.find('[data-name="left-arrow"]');
-  t.is(leftNavigation.exists(), true);
+  t.true(leftNavigation.exists());
   let rightNavigation = wrapper.find('[data-name="right-arrow"]');
-  t.is(rightNavigation.exists(), true);
+  t.true(rightNavigation.exists());
 
-  instance.handleOnLeft();
-  t.is(instance.state.firstItem, 1);
-  t.is(instance.state.totalItems, 10);
+  const leftArrowView = wrapper.find('[data-testid="stars-summary-left-arrow"]');
+  leftArrowView.simulate('click', {});
+  const indexOnOne = wrapper.find('[data-testid="stars-summary-engine-index-1"]');
+  t.true(indexOnOne.exists());
+
+  t.is(engineTabs.length, 10);
   wrapper.update();
 
   activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
-  t.is(activeLearnerStars.exists(), false);
+  t.false(activeLearnerStars.exists());
   hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
-  t.is(hiddenLearnerStars.exists(), true);
+  t.true(hiddenLearnerStars.exists());
   activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
-  t.is(activeMicrolearningStars.exists(), true);
+  t.true(activeMicrolearningStars.exists());
   hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
-  t.is(hiddenMicrolearningStars.exists(), false);
+  t.false(hiddenMicrolearningStars.exists());
   leftNavigation = wrapper.find('[data-name="left-arrow"]');
-  t.is(leftNavigation.exists(), true);
+  t.true(leftNavigation.exists());
   rightNavigation = wrapper.find('[data-name="right-arrow"]');
-  t.is(rightNavigation.exists(), true);
+  t.true(rightNavigation.exists());
 
-  instance.handleOnLeft();
-  t.is(instance.state.firstItem, 0);
-  t.is(instance.state.totalItems, 10);
+  leftArrowView.simulate('click', {});
+  const indexOnZero = wrapper.find('[data-testid="stars-summary-engine-index-0"]');
+  t.true(indexOnZero.exists());
+
+  t.is(engineTabs.length, 10);
+
   wrapper.update();
 
   activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
-  t.is(activeLearnerStars.exists(), true);
+  t.true(activeLearnerStars.exists());
   hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
-  t.is(hiddenLearnerStars.exists(), false);
+  t.false(hiddenLearnerStars.exists());
   activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
-  t.is(activeMicrolearningStars.exists(), true);
+  t.true(activeMicrolearningStars.exists());
   hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
-  t.is(hiddenMicrolearningStars.exists(), false);
+  t.false(hiddenMicrolearningStars.exists());
   leftNavigation = wrapper.find('[data-name="left-arrow"]');
-  t.is(leftNavigation.exists(), false);
+  t.false(leftNavigation.exists());
   rightNavigation = wrapper.find('[data-name="right-arrow"]');
-  t.is(rightNavigation.exists(), true);
+  t.true(rightNavigation.exists());
 });
