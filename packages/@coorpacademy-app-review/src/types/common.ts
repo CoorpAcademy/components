@@ -21,7 +21,7 @@ export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
   skin: Skin;
-  backgroundImage?: number;
+  backgroundImage?: number; // in this case, the image source is a number : https://reactnative.dev/docs/image#imagesource
 };
 
 export type AppOptions = ConnectedOptions & {
