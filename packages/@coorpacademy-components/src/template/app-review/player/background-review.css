@@ -2,7 +2,6 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 
-
 .interrogationBase {
     position: absolute;
     font-family: "Gilroy";
