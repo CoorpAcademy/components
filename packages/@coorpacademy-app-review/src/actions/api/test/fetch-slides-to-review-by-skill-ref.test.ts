@@ -1,6 +1,6 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
-import {services as mockedServices} from '@coorpacademy/review-services-mocks';
+import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRef,
@@ -95,7 +95,8 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS action when fetchSlidesToRe
     }
   ];
 
-  const {dispatch} = createTestStore(t, state, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });
@@ -121,7 +122,8 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
     }
   ];
 
-  const {dispatch} = createTestStore(t, state, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });

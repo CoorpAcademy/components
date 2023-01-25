@@ -1,5 +1,5 @@
 import test from 'ava';
-import {services} from '@coorpacademy/review-services-mocks';
+import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {storeToken, STORE_TOKEN} from '../token';
@@ -28,6 +28,7 @@ const initialState: StoreState = {
 test('should dispatch STORE_TOKEN action when storeToken is called', async t => {
   const expectedActions = [{type: STORE_TOKEN, payload: 'JWT.token'}];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
   await dispatch(storeToken('JWT.token'));
 });

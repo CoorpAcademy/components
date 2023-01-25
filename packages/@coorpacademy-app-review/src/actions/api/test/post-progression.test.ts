@@ -1,6 +1,6 @@
 import test from 'ava';
 import type {ProgressionFromAPI, Services} from '@coorpacademy/review-services';
-import {services as mockedServices} from '@coorpacademy/review-services-mocks';
+import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
@@ -100,7 +100,8 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
     {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(postProgression('skill_NyxtYFYir'));
 });
@@ -127,7 +128,8 @@ test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails
     {type: SKILL_FETCH_FAILURE, payload: new Error('Fetch skill action failed'), error: true}
   ];
 
-  const {dispatch} = createTestStore(t, initialState, {services}, expectedActions);
+  const thunkOptions = {services, appendVideoOptions};
+  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
 
   await dispatch(postProgression('skill_12345'));
 });
