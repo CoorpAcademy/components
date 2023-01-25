@@ -5,3 +5,5 @@ if [[ "$BRANCH" != "master" ]]; then
 fi
 
 echo "On $BRANCH, procedding to publish.";
+nvm use
+yarn && yarn bootstrap
