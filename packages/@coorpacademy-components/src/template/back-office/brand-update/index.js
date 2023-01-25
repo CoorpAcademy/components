@@ -21,6 +21,7 @@ import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
+import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -169,6 +170,8 @@ const buildContentView = content => {
       return <BrandDashboard {...content} />;
     case 'wizard':
       return <WizardContents {...content} />;
+    case 'empty-state-dashboard':
+      return <EmptyStateDashboard {...content} />;
   }
 };
 
@@ -178,7 +181,17 @@ const buildDetailsView = details => {
 };
 
 const BrandUpdate = props => {
-  const {notifications, header, items, content, details, popin, onItemClick, documentation} = props;
+  const {
+    notifications,
+    header,
+    items,
+    content,
+    details,
+    popin,
+    onItemClick,
+    documentation,
+    contentFixHeight
+  } = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
@@ -192,7 +205,8 @@ const BrandUpdate = props => {
 
   const contentStyle = classNames([
     style.content,
-    !isEmpty(notifications) && style.contentWithNotifications
+    !isEmpty(notifications) && style.contentWithNotifications,
+    contentFixHeight && style.contentFixHeight
   ]);
 
   return (
@@ -284,6 +298,11 @@ BrandUpdate.propTypes = {
       ...ListItems.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['list-content'])
+    }),
+    PropTypes.shape({
+      ...EmptyStateDashboard.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['empty-state-dashboard'])
     })
   ]),
   documentation: PropTypes.shape({
@@ -297,7 +316,8 @@ BrandUpdate.propTypes = {
     key: PropTypes.string,
     type: PropTypes.oneOf(['list'])
   }),
-  onItemClick: PropTypes.func
+  onItemClick: PropTypes.func,
+  contentFixHeight: PropTypes.bool
 };
 
 export default BrandUpdate;
