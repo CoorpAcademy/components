@@ -8,7 +8,7 @@ import style from './style.css';
 const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel}) => {
   const itemsView = items.map((item, index) => (
     <li key={item.id} className={style.item} data-name={`content-${index}`}>
-      <ListItem {...item} order={index} aria-label={ariaLabel} />
+      <ListItem {...item} order={index} />
     </li>
   ));
 
