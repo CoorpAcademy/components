@@ -1741,6 +1741,23 @@
     react-timer-mixin "^0.13.4"
     warning "^4.0.3"
 
+"@coorpacademy/react-native-mock-render@^0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-mock-render/-/react-native-mock-render-0.2.9.tgz#1d0d586694cc180883fad95887223d9a6c60a119"
+  integrity sha512-RHOA5qzn9IMcsjTlRr6mH3JV9maLeJ9PO6eMt5urkft6g5Jk6prdkQjjR7uwBVUcVQ67M50myDjRzj+i96Upww==
+  dependencies:
+    art "^0.10.3"
+    create-react-class "^15.7.0"
+    cubic-bezier "^0.1.2"
+    invariant "^2.2.4"
+    keymirror "^0.1.1"
+    lodash "^4.17.21"
+    prop-types "^15.8.1"
+    raf "^3.4.1"
+    react-dom "^18.2.0"
+    react-timer-mixin "^0.13.4"
+    warning "^4.0.3"
+
 "@coorpacademy/react-native-slider@^0.11.1":
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/@coorpacademy/react-native-slider/-/react-native-slider-0.11.1.tgz#50567fbf94374644d3e6618bbb90fb4c634bc29c"

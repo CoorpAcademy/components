@@ -36,7 +36,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
-type Props = {
+export type Props = {
   color?: ColorValue;
   height?: number;
   readyToHide: boolean;
