@@ -10,7 +10,7 @@ browserEnv();
 test.after(cleanup);
 
 test('should hide and show toolTip depending on key press event', t => {
-  const toolTipTestId = '[data-testid="review-presentation-tooltip"]';
+  const toolTipTestId = '[data-testid="tooltip"]';
   const {getByTestId, container} = render(<ReviewPresentation {...defaultFixture.props} />);
   const skillsDiv = getByTestId('review-list-item-tooltip-button-questions');
   t.truthy(skillsDiv);

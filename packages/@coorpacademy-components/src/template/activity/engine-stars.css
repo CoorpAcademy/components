@@ -21,6 +21,10 @@
 
   user-select: none;
   position: relative;
+  border-bottom: none;
+  border-right: 0px;
+  border-width: 1px 0 0 1px;
+  background: inherit;
 }
 
 .engineIcon {
@@ -156,28 +160,22 @@
   opacity: 0.4;
 }
 
-.toolTip {
-  opacity: 1 !important;
-  padding: 0;
-  pointer-events: all;
-  background-color: transparent !important;
-}
-
-.toolTip::after {
-  border-left-color: transparent !important;
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: white;
 }
 
 .toolTipContent {
-  padding: 10px;
-  margin: 0;
-  border-radius: 3px;
-  font-family: 'Gilroy';
-  font-size: 12px;
+  composes: textBase;
   width: 270px;
-  background-color: white;
-  border: 1px solid white;
-  color: dark;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 8px 3px 10px rgba(0, 0, 0, 0.23);
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 3px;
+  word-wrap: break-word;
+  padding: 8px 14px;
+  text-align: center;
 }
 
 .toolTipContent > a {
@@ -189,21 +187,6 @@
 
 .toolTipContent > a:hover {
   text-decoration: underline;
-}
-
-.toolTipContent::after {
-  content: '';
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left-color: inherit;
-  border-left-style: solid;
-  border-left-width: 6px;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  right: -6px;
-  top: 50%;
-  margin-top: -4px;
 }
 
 /* ------------------------------------------------------ */

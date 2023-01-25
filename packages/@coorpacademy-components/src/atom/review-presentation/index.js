@@ -1,14 +1,14 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
   NovaSolidVoteRewardsVoteHeart as HeartIcon,
-  NovaCompositionCoorpacademyInformationIcon as InformationIcon,
   NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon,
   NovaLineSelectionCursorsCursorArrowTarget as TargetIcon
 } from '@coorpacademy/nova-icons';
+import ToolTip from '../tooltip';
 import style from './style.css';
 import propTypes from './prop-types';
 
@@ -29,64 +29,6 @@ const ReviewIcon = ({icon}) => {
   return <Icon className={style.labelIcon} />;
 };
 
-const ToolTip = ({
-  tooltipText,
-  'aria-label': moreDetailsAriaLabel,
-  'data-testid': dataTestId,
-  closeToolTipInformationTextAriaLabel
-}) => {
-  const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
-  const handleKeyPress = useCallback(
-    event => {
-      if (event.key === 'Enter') {
-        setToolTipIsVisible(!toolTipIsVisible);
-      } else if (event.key === 'Tab' || event.key === 'Escape') {
-        setToolTipIsVisible(false);
-      }
-    },
-    [setToolTipIsVisible, toolTipIsVisible]
-  );
-  const handleMouseOver = useCallback(() => {
-    setToolTipIsVisible(true);
-  }, [setToolTipIsVisible]);
-
-  const handleMouseLeave = useCallback(() => {
-    setToolTipIsVisible(false);
-  }, [setToolTipIsVisible]);
-
-  return (
-    <div
-      className={style.tooltipContainer}
-      onMouseLeave={handleMouseLeave}
-      onMouseOver={handleMouseOver}
-    >
-      <button
-        type="button"
-        className={style.tooltipIconContainer}
-        data-testid={dataTestId}
-        onKeyDown={handleKeyPress}
-        tabIndex={0}
-      >
-        <InformationIcon
-          className={style.informationIcon}
-          width={12}
-          height={12}
-          aria-label={moreDetailsAriaLabel}
-        />
-      </button>
-      {toolTipIsVisible ? (
-        <div
-          className={style.toolTip}
-          data-testid="review-presentation-tooltip"
-          aria-label={closeToolTipInformationTextAriaLabel}
-        >
-          <p className={style.tooltipText}>{tooltipText}</p>
-        </div>
-      ) : null}
-    </div>
-  );
-};
-
 const ReviewListItemWrapper = ({iconKey, label}) => {
   return (
     <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem" tabIndex={0}>
@@ -94,10 +36,10 @@ const ReviewListItemWrapper = ({iconKey, label}) => {
         <ReviewIcon icon={iconKey} /> {label.text}
       </div>
       <ToolTip
-        tooltipText={label.tooltipText}
-        aria-label={label.moreDetailsAriaLabel}
+        TooltipContent={label.tooltipText}
         closeToolTipInformationTextAriaLabel={label.closeToolTipInformationTextAriaLabel}
         data-testid={`review-list-item-tooltip-button-${iconKey}`}
+        aria-label={label.moreDetailsAriaLabel}
       />
     </div>
   );
@@ -136,24 +78,17 @@ const ReviewPresentation = props => {
   );
 };
 
-ToolTip.propTypes = {
-  tooltipText: PropTypes.string,
-  'aria-label': PropTypes.string,
-  'data-testid': PropTypes.string,
-  closeToolTipInformationTextAriaLabel: PropTypes.string
-};
-
 ReviewIcon.propTypes = {
   icon: PropTypes.string
 };
 
 ReviewListItemWrapper.propTypes = {
-  ...ToolTip.propTypes,
   iconKey: PropTypes.string,
   label: PropTypes.shape({
-    tooltipText: PropTypes.string,
-    moreDetailsAriaLabel: PropTypes.string,
-    closeToolTipInformationTextAriaLabel: PropTypes.string
+    tooltipText: ToolTip.propTypes.tooltipText,
+    moreDetailsAriaLabel: ToolTip.propTypes['aria-label'],
+    closeToolTipInformationTextAriaLabel: ToolTip.propTypes.closeToolTipInformationTextAriaLabel,
+    text: PropTypes.string
   })
 };
 

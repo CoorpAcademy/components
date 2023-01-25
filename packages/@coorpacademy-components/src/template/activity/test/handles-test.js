@@ -31,6 +31,16 @@ test('should call the onClick function with click on cta', t => {
   wrapper.find(Button).first().simulate('click', clickEvent);
 });
 
+test('should pass even if onClick function is undefined', t => {
+  t.plan(2);
+
+  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
+  const props = set('recommendation.onClick', undefined, defaultFixture.props);
+  const wrapper = shallow(<Activity {...props} />, {context});
+
+  wrapper.find(Button).first().simulate('click', clickEvent);
+});
+
 test('should call onChange with the target value', t => {
   t.plan(1);
 
@@ -63,11 +73,14 @@ test('should call the onClick function with click on engine tab', t => {
   battleTab.simulate('click', clickEvent);
 });
 
-test('should not call the onClick function with click on engine tab', t => {
-  t.plan(3);
-
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = set('engines[2].onClick', null, defaultFixture.props);
+test('should not call the onClick function with click on engine tab if engine is disabled', t => {
+  const clickEvent = {preventDefault: () => t.fail(), stopPropagation: () => t.fail()};
+  const onClick = () => t.fail();
+  const props = set(
+    'engines[2]',
+    {...defaultFixture.props.engines[2], onClick, disabled: true},
+    defaultFixture.props
+  );
   const wrapper = mount(<Activity {...props} />, {context});
   const battleTab = wrapper.find('[data-engine="battle"]');
   t.is(battleTab.exists(), true);

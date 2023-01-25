@@ -78,7 +78,8 @@
     "qs": "6.11.0",
     "react-autosuggest": "^10.0.2",
     "react-dropzone": "^9.0.0",
-    "react-tooltip": "^4.2.6"
+    "react-tooltip": "4.5.1",
+    "uuid": "^9.0.0"
   },
   "peerDependencies": {
     "react": "^17.0.2"

@@ -70,7 +70,7 @@ const ProgressionItem = (props, context) => {
     () => e => {
       e.stopPropagation();
       e.preventDefault();
-      onClick && onClick(e);
+      onClick(e);
     },
     [onClick]
   );

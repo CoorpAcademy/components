@@ -18,7 +18,7 @@ const context = {
   }
 };
 
-test('when mount component, it should initialize state with correct value', t => {
+test('on component mount, it should initialize state with 10 engines, should find the navigation tools', t => {
   const props = {
     engines: fixtures.props.engines,
     total: fixtures.props.total

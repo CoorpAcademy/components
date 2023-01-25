@@ -1,0 +1,81 @@
+@value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
+@value cm_grey_75 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: cm_blue_900;
+  user-select: none;
+}
+
+.tooltipContainer {
+  overflow: visible;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+}
+
+.tooltipIconContainer {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  background: cm_grey_75;
+  height: 25px;
+  align-items: center;
+}
+
+.toolTip {
+  transition: opacity 0.8s;
+  position: absolute;
+  border-radius: 7px;
+  background-color: cm_grey_700;
+  right: -75px;
+  bottom: 32px;
+  height: auto;
+  width: 200px;
+}
+
+.toolTip::before {
+  content: '';
+  display: inline-block;
+  visibility: inherit;
+  opacity: inherit;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg);
+  background-color: cm_grey_700;
+  position: inherit;
+  border-radius: 2px;
+  bottom: -5px;
+  right: 40%;
+}
+
+.tooltipContent {
+  composes: textBase;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: white;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.informationIcon {
+  color: cm_grey_500;
+}
+
+.toolTipReact {
+  pointer-events: all !important;
+  background-color: cm_grey_700;
+  border-radius: 7px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  left: 5px;
+}
