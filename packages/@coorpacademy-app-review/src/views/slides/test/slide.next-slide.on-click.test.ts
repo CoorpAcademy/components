@@ -1,4 +1,4 @@
-import test from 'ava';
+import test, {ExecutionContext} from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 
@@ -7,12 +7,23 @@ import {
   services,
   appendVideoOptions
 } from '@coorpacademy/review-services-mocks';
+import {isEqual} from 'lodash/fp';
 import type {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
+import {RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS} from '../../../actions/api/fetch-rank';
+import {
+  SLIDES_TO_REVIEW_FETCH_REQUEST,
+  SLIDES_TO_REVIEW_FETCH_SUCCESS
+} from '../../../actions/api/fetch-slides-to-review-by-skill-ref';
 import {translate} from '../../../test/utils/translation.mock';
-import {incorrectFreeTextPostAnswerResponse, postAnswerResponses} from '../../../test/fixtures';
+import {
+  incorrectFreeTextPostAnswerResponse,
+  fetchSlidesToReviewBySkillRefResponse,
+  postAnswerResponses
+} from '../../../test/fixtures';
+import {sleep} from '../../../test/utils/sleep';
 import {sliderSlide} from './fixtures/slider';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
@@ -87,7 +98,25 @@ test('correction popin actions after click', async t => {
   t.pass();
 });
 
+const checkStatePositionsAndSuccessExitNode = async (
+  t: ExecutionContext,
+  getState: () => StoreState,
+  count = 0
+): Promise<boolean> => {
+  const updatedState = getState();
+  if (
+    isEqual(updatedState.ui.positions, [-1, -1, -1, -1, 0]) &&
+    updatedState.ui.currentSlideRef === 'successExitNode'
+  ) {
+    return true;
+  }
+  if (count > 5) t.fail();
+  await sleep(10);
+  return checkStatePositionsAndSuccessExitNode(t, getState, count + 1);
+};
+
 test('correction popin actions after click when progression is finished', async t => {
+  t.plan(7);
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
@@ -164,6 +193,20 @@ test('correction popin actions after click when progression is finished', async 
 
   const expectedActions = [
     {
+      type: RANK_FETCH_END_REQUEST
+    },
+    {
+      type: RANK_FETCH_END_SUCCESS,
+      payload: {rank: 93}
+    },
+    {
+      type: SLIDES_TO_REVIEW_FETCH_REQUEST
+    },
+    {
+      type: SLIDES_TO_REVIEW_FETCH_SUCCESS,
+      payload: fetchSlidesToReviewBySkillRefResponse
+    },
+    {
       type: NEXT_SLIDE,
       payload: {
         animationType: 'unstack',
@@ -188,8 +231,6 @@ test('correction popin actions after click when progression is finished', async 
   const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
-  const updatedState = getState();
-  t.deepEqual(updatedState.ui.positions, [-1, -1, -1, -1, 0]);
-  t.is(updatedState.ui.currentSlideRef, 'successExitNode');
+  await checkStatePositionsAndSuccessExitNode(t, getState);
   t.pass();
 });

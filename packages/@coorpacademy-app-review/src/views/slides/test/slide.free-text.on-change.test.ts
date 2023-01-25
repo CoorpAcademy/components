@@ -19,7 +19,7 @@ import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {EDIT_BASIC} from '../../../actions/ui/answers';
 import {translate} from '../../../test/utils/translation.mock';
-import {postAnswerResponses} from '../../../test/fixtures';
+import {sleep} from '../../../test/utils/sleep';
 import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -44,6 +44,48 @@ const progression: ProgressionFromAPI = {
       current: 1
     },
     stars: 0
+  }
+};
+
+const progressionAfterAnswer = {
+  _id: '123456789123',
+  content: {
+    type: 'skill',
+    ref: 'skill_NyxtYFYir'
+  },
+  engine: {
+    ref: 'review'
+  },
+  state: {
+    allAnswers: [
+      {
+        slideRef: 'sli_VJYjJnJhg',
+        isCorrect: false,
+        answer: ['My Answer']
+      }
+    ],
+    isCorrect: false,
+    nextContent: {
+      type: 'slide',
+      ref: 'sli_VkSQroQnx'
+    },
+    pendingSlides: ['sli_VJYjJnJhg'],
+    slides: ['sli_VJYjJnJhg'],
+    step: {
+      current: 2
+    },
+    stars: 0,
+    livesDisabled: true,
+    lives: 0,
+    requestedClues: [],
+    viewedResources: [],
+    remainingLifeRequests: 0,
+    hasViewedAResourceAtThisStep: false,
+    content: {
+      ref: 'sli_VJYjJnJhg',
+      type: 'slide'
+    },
+    variables: {}
   }
 };
 
@@ -78,7 +120,7 @@ const initialState: StoreState = {
 };
 
 test('should dispatch EDIT_BASIC action via the property onChange of a Free Text slide, and all actions after click on validate the slide', async t => {
-  t.plan(3);
+  t.plan(9);
   const expectedActions = [
     {
       type: EDIT_BASIC,
@@ -89,7 +131,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
     {
       type: POST_ANSWER_SUCCESS,
       meta: {slideRef: freeTextSlide._id},
-      payload: postAnswerResponses[freeTextSlide._id]
+      payload: progressionAfterAnswer
     },
     {type: SLIDE_FETCH_REQUEST, meta: {slideRef: qcmGraphicSlide._id}},
     {type: SLIDE_FETCH_SUCCESS, meta: {slideRef: qcmGraphicSlide._id}, payload: qcmGraphicSlide},
@@ -122,4 +164,5 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
   const slideProps = props.stack.slides['0'].answerUI?.model;
   slideProps?.onChange && (await slideProps.onChange('My Answer'));
   await props.stack.validateButton.onClick();
+  await sleep(10);
 });

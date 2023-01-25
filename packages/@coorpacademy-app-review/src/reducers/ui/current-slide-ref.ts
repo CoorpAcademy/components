@@ -10,8 +10,9 @@ const reducer = (
   action: SetCurrentSlideAction | NextSlideAction | FetchProgression
 ): CurrentSlideRefState => {
   switch (action.type) {
-    case NEXT_SLIDE:
+    case NEXT_SLIDE: {
       return action.payload.nextSlideRef;
+    }
     case SET_CURRENT_SLIDE: {
       return action.payload._id;
     }
