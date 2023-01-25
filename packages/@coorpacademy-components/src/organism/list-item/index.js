@@ -7,8 +7,11 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
-  const {bulletPointMenuButton, buttonLink, tags, title} = props;
+  let isPublished = false;
+  const {bulletPointMenuButton, buttonLink, tags, title, order, 'aria-label': ariaLabel} = props;
+
   const tagsView = map.convert({cap: false})((tag, index) => {
+    isPublished = tag.type === 'published';
     return (
       <div key={index} className={style.tag}>
         <Tag {...tag} />
@@ -17,9 +20,20 @@ const ListItem = props => {
   })(tags);
   return (
     <div className={style.wrapper}>
-      <div className={style.title} title={title}>
-        {title}
-      </div>
+      {isPublished ? (
+        <div className={style.orderWrapper}>
+          <div className={style.order} aria-label={ariaLabel}>
+            {order + 1}
+          </div>
+          <div className={style.title} title={title}>
+            {title}
+          </div>
+        </div>
+      ) : (
+        <div className={style.title} title={title}>
+          {title}
+        </div>
+      )}
       <div className={style.settings}>
         {tagsView}
         <div className={style.edit}>
@@ -62,7 +76,9 @@ ListItem.propTypes = {
       type: PropTypes.oneOf(['published', 'draft', 'archived', 'revised', 'default'])
     })
   ),
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  order: PropTypes.number,
+  'aria-label': PropTypes.string
 };
 
 export default ListItem;

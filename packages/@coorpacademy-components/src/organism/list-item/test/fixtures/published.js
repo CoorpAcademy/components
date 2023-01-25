@@ -38,6 +38,8 @@ export default {
       },
       onClick: () => console.log('click')
     },
-    bulletPointButtonOnClick: () => console.log('click')
+    bulletPointButtonOnClick: () => console.log('click'),
+    order: 0,
+    'aria-label': "Certification's order"
   }
 };
