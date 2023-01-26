@@ -4,6 +4,7 @@ export default {
     minLabel: '0',
     maxLabel: '10000',
     value: 0.5,
-    onChange: () => {}
+    onChange: () => {},
+    groupAriaLabel: 'Answer the question'
   }
 };

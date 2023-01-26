@@ -9,7 +9,7 @@ import RangeSlider from '../../atom/range';
 import style from './filters-wapper.css';
 
 const FiltersWapper = (props, context) => {
-  const {filters, className} = props;
+  const {filters, className, filterGroupAriaLabel} = props;
 
   const buildFilter = (filter, idx) => {
     const {type, fieldName} = filter;
@@ -59,9 +59,15 @@ const FiltersWapper = (props, context) => {
   const filtersList = map.convert({cap: false})(buildFilter, filters);
   const emptyFilters = isEmpty(filters);
   return (
-    <div className={classnames(className, emptyFilters ? style.wrapperNone : style.wrapper)}>
-      {filtersList}
-    </div>
+    <form>
+      <div
+        className={classnames(className, emptyFilters ? style.wrapperNone : style.wrapper)}
+        role="group"
+        aria-label={filterGroupAriaLabel}
+      >
+        {filtersList}
+      </div>
+    </form>
   );
 };
 
@@ -72,6 +78,7 @@ FiltersWapper.propTypes = {
       type: PropTypes.oneOf(['select', 'range', 'radio', 'switch']).isRequired,
       fieldName: PropTypes.string.isRequired
     })
-  )
+  ),
+  filterGroupAriaLabel: PropTypes.string
 };
 export default FiltersWapper;

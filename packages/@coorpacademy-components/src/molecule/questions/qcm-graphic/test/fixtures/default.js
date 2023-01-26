@@ -58,6 +58,7 @@ export default {
         image:
           'https://images.unsplash.com/photo-1493442043090-087540b34c1a?dpr=2&auto=format&fit=crop&w=1080&h=607&q=80&cs=tinysrgb&crop=&bg='
       }
-    ]
+    ],
+    groupAriaLabel: 'Answer the question'
   }
 };

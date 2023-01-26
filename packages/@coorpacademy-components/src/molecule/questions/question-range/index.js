@@ -7,7 +7,7 @@ import Range from '../../../atom/range';
 import style from './style.css';
 
 const QuestionRange = (props, legacyContext) => {
-  const {title, minLabel, maxLabel, ...rangeProps} = props;
+  const {title, minLabel, maxLabel, groupAriaLabel, ...rangeProps} = props;
 
   const skin = GetSkinFromContext(legacyContext);
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -17,27 +17,29 @@ const QuestionRange = (props, legacyContext) => {
   };
 
   return (
-    <div className={style.wrapper}>
-      <span
-        style={titleStyle}
-        className={classnames(style.title, style.innerHTML)}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: title}}
-      />
-      <Range {...rangeProps} />
-      <div className={style.labelWrapper}>
+    <form>
+      <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
         <span
-          className={classnames(style.label, style.innerHTML)}
+          style={titleStyle}
+          className={classnames(style.title, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: minLabel}}
+          dangerouslySetInnerHTML={{__html: title}}
         />
-        <span
-          className={classnames(style.label, style.innerHTML)}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: maxLabel}}
-        />
+        <Range {...rangeProps} />
+        <div className={style.labelWrapper}>
+          <span
+            className={classnames(style.label, style.innerHTML)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: minLabel}}
+          />
+          <span
+            className={classnames(style.label, style.innerHTML)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: maxLabel}}
+          />
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 
@@ -49,7 +51,8 @@ QuestionRange.propTypes = {
   ...Range.propTypes,
   title: PropTypes.string,
   minLabel: PropTypes.string,
-  maxLabel: PropTypes.string
+  maxLabel: PropTypes.string,
+  groupAriaLabel: PropTypes.string
 };
 
 export default QuestionRange;

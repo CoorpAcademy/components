@@ -43,6 +43,7 @@ export default {
         onClick: () => {},
         selected: false
       }
-    ]
+    ],
+    groupAriaLabel: 'Answer the question'
   }
 };

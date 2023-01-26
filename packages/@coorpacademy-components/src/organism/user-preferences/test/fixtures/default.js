@@ -26,6 +26,7 @@ export default {
         onChange: console.log
       }
     ],
-    moreInfoAriaLabel: 'show more info'
+    moreInfoAriaLabel: 'show more info',
+    groupAriaLabel: 'set Email settings'
   }
 };

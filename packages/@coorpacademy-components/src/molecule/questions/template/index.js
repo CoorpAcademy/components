@@ -6,7 +6,7 @@ import DropDown from '../drop-down';
 import FreeText from '../free-text';
 import style from './style.css';
 
-const Template = ({template, answers}) => {
+const Template = ({template, answers, groupAriaLabel}) => {
   const totalTemplate = parseTemplateString(template);
   const templateCompose = map.convert({cap: false})((part, key) => {
     const type = part.type;
@@ -40,9 +40,16 @@ const Template = ({template, answers}) => {
   }, totalTemplate);
 
   return (
-    <div data-name="template-wrapper" className={style.wrapper}>
-      {templateCompose}
-    </div>
+    <form>
+      <div
+        data-name="template-wrapper"
+        className={style.wrapper}
+        role="group"
+        aria-label={groupAriaLabel}
+      >
+        {templateCompose}
+      </div>
+    </form>
   );
 };
 
@@ -55,7 +62,8 @@ Template.propTypes = {
   template: PropTypes.string,
   answers: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.shape(DropDown.propTypes), PropTypes.shape(TextPropTypes)])
-  )
+  ),
+  groupAriaLabel: PropTypes.string
 };
 
 export default Template;
