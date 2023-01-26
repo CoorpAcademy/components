@@ -28,7 +28,8 @@ const state: StoreState = {
     token: '1234',
     corrections: {[freeTextSlide.universalRef]: getChoicesCorrection(freeTextSlide.universalRef)},
     rank: {start: 93, end: Number.NaN},
-    currentSkill: {ref: skillRef, name: skillRef}
+    currentSkill: {ref: skillRef, name: skillRef},
+    videos: {}
   },
   ui: {
     showCongrats: false,
@@ -51,7 +52,8 @@ const state: StoreState = {
   }
 };
 
-test('should dispatch NEXT_SLIDE action when nextSlide is called and the progression state is correct', t => {
+test('should dispatch NEXT_SLIDE action when nextSlide is called and the progression state is correct', async t => {
+  t.plan(1);
   const expectedActions = [
     {
       type: NEXT_SLIDE,
@@ -65,10 +67,11 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
     }
   ];
   const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
-  dispatch(nextSlide);
+  await dispatch(nextSlide);
 });
 
-test('should dispatch NEXT_SLIDE action when nextSlide is called and the progression state is not correct', t => {
+test('should dispatch NEXT_SLIDE action when nextSlide is called and the progression state is not correct', async t => {
+  t.plan(1);
   const stateWithWrongAnswer = pipe(
     set(['data', 'progression', 'state', 'isCorrect'], false),
     set(['data', 'progression', 'state', 'allAnswers', 0, 'isCorrect'], false)
@@ -87,5 +90,5 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
     }
   ];
   const {dispatch} = createTestStore(t, stateWithWrongAnswer, thunkOptions, expectedActions);
-  dispatch(nextSlide);
+  await dispatch(nextSlide);
 });

@@ -2,7 +2,7 @@ import test from 'ava';
 import type {Services, Skill} from '@coorpacademy/review-services';
 import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
-import type {StoreState} from '../../../reducers';
+import {initialState} from '../../../test/fixtures';
 import {
   fetchSkill,
   SKILL_FETCH_FAILURE,
@@ -13,27 +13,6 @@ import {
 export const fetchSkillResponse: Skill = {
   ref: 'skill_NyxtYFYir',
   name: 'Digital Awareness'
-};
-
-const initialState: StoreState = {
-  data: {
-    progression: null,
-    slides: {},
-    token: '1234',
-    corrections: {},
-    rank: {start: Number.NaN, end: Number.NaN},
-    currentSkill: null
-  },
-  ui: {
-    showCongrats: false,
-    positions: [0, 1, 2, 3, 4],
-    currentSlideRef: '',
-    navigation: [],
-    answers: {},
-    slide: {},
-    showQuitPopin: false,
-    showButtonRevising: false
-  }
 };
 
 test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the correct skill', async t => {

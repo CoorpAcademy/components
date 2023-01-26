@@ -46,7 +46,8 @@ test('correction popin actions after click', async t => {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -136,7 +137,8 @@ test('correction popin actions after click when progression is finished', async 
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,

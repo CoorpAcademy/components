@@ -40,7 +40,8 @@ test('should create initial props when fetched slide is not still received', t =
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -136,7 +137,8 @@ test('should create initial props when fetched slide is not still received for m
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -233,7 +235,8 @@ test('should create props when first slide is on the state', t => {
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -347,7 +350,8 @@ test('should create props when slide is on the state and user has selected answe
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -462,7 +466,8 @@ test('should verify props when first slide was answered correctly and next slide
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -587,7 +592,8 @@ test('should verify props when first slide was answered with error and next slid
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -666,7 +672,8 @@ test('should verify props when first slide was answered, next slide is fetched &
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -807,7 +814,8 @@ test('should verify props when first slide was answered incorrectly, next slide 
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -951,7 +959,8 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -1067,7 +1076,8 @@ test('should verify props when progression is in success, showing last correctio
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -1195,7 +1205,8 @@ test('should verify props showing congrats', t => {
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: 9},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: true,
@@ -1338,7 +1349,8 @@ test('should verify props showing congrats, with only stars card, if user has no
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: 10},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: true,
@@ -1457,7 +1469,8 @@ test('should verify props when progression has answered a current pendingSlide',
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -1570,7 +1583,8 @@ test('should verify props when progression still has a pendingSlide', t => {
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,
@@ -1672,7 +1686,8 @@ test('should verify that props quitPopin is not undefined when popin is displaye
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: false,

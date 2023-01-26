@@ -48,7 +48,8 @@ const initialState: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: '_skill-ref', name: '_skill-ref'}
+    currentSkill: {ref: '_skill-ref', name: '_skill-ref'},
+    videos: {}
   },
   ui: {
     showCongrats: false,
