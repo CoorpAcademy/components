@@ -36,10 +36,6 @@ const themeStyle = {
 const ArrowView = ({shouldRender, isArrowUp, ariaLabel, arrowClass, arrowColor}) => {
   const props = useMemo(
     () => ({
-      ...(ariaLabel &
-        {
-          'aria-label': ariaLabel
-        }),
       ...(arrowColor &
         {
           color: arrowColor
@@ -217,7 +213,8 @@ const Select = (props, legacyContext) => {
           arrowColor={isThemeOneOfQuestionTemplateOrPlayer ? arrowColor : black}
         />
         <select
-          {...(ariaLabelledBy ? {'aria-labelledby': ariaLabelledBy} : {})}
+          {...(ariaLabelledBy && !ariaLabel ? {'aria-labelledby': ariaLabelledBy} : {})}
+          {...(ariaLabel && !ariaLabelledBy ? {'aria-label': ariaLabel} : {})}
           data-name="native-select"
           className={style.selectBox}
           title={selectedLabel}
