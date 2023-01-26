@@ -1,9 +1,11 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
+import groupOptions from '../../../../atom/select/test/fixtures/group-options';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
 import RadioGroup from '../../../../atom/radio-group/test/fixtures/default';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
+const selectOptionsGroup = groupOptions.props;
 const types = RadioGroup.props;
 
 export default {
@@ -68,6 +70,7 @@ export default {
         ],
         onChange: value => console.log(value)
       },
+      {...selectOptionsGroup, type: 'select', fieldName: 'Playlists', title: 'Playlists:'},
       {
         ...types,
         type: 'radio',
