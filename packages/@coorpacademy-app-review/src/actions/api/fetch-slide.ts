@@ -33,7 +33,7 @@ export const fetchSlide =
     const action = buildTask({
       types: [SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS, SLIDE_FETCH_FAILURE],
       bailout: (state: StoreState): boolean => {
-        return has(`data.slide.${slideRef}`, state);
+        return has(`data.slides.${slideRef}`, state);
       },
       task: () => {
         const state = getState();
@@ -45,7 +45,7 @@ export const fetchSlide =
     const response = await dispatch(action);
 
     if (response.type === SLIDE_FETCH_SUCCESS) {
-      const slideFromAPI = response.payload;
+      const slideFromAPI = response.payload as SlideFromAPI;
       const state = getState();
       const slides = get('data.progression.state.slides', state);
       if (isEmpty(slides)) {
