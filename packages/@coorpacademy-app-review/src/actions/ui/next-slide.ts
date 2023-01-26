@@ -5,6 +5,7 @@ import type {ProgressionFromAPI, ProgressionAnswerItem} from '@coorpacademy/revi
 import {fetchEndRank} from '../api/fetch-rank';
 import {fetchSlidesToReviewBySkillRef} from '../api/fetch-slides-to-review-by-skill-ref';
 import type {StoreState} from '../../reducers';
+import {fetchPropsVideo} from '../api/fetch-video-props';
 
 export const NEXT_SLIDE = '@@slide/NEXT_SLIDE' as const;
 
@@ -21,10 +22,7 @@ export type NextSlideAction = {
   payload: NextSlidePayload;
 };
 
-export const nextSlide = async (
-  dispatch: Dispatch,
-  getState: () => StoreState
-): Promise<NextSlideAction> => {
+export const nextSlide = async (dispatch: Dispatch, getState: () => StoreState): Promise<void> => {
   const state = getState();
   const progression = state.data.progression as ProgressionFromAPI;
   const {isCorrect, allAnswers, slides} = progression.state;
@@ -49,7 +47,9 @@ export const nextSlide = async (
   if (nextSlideRef === 'successExitNode') {
     await dispatch(fetchEndRank);
     await dispatch(fetchSlidesToReviewBySkillRef);
+    dispatch(action);
+  } else {
+    dispatch(action);
+    await dispatch(fetchPropsVideo(payload.nextSlideRef));
   }
-
-  return dispatch(action);
 };
