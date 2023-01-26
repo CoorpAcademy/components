@@ -1,11 +1,14 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import concat from 'lodash/fp/concat';
 import filter from 'lodash/fp/filter';
 import find from 'lodash/fp/find';
+import flatMapDeep from 'lodash/fp/flatMapDeep';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import includes from 'lodash/fp/includes';
+import isEmpty from 'lodash/fp/isEmpty';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
 import size from 'lodash/fp/size';
@@ -58,6 +61,7 @@ const Select = (props, legacyContext) => {
   const {
     name,
     options = [],
+    optgroups = [],
     className,
     borderClassName,
     onChange,
@@ -83,15 +87,23 @@ const Select = (props, legacyContext) => {
   const handleSelectOnFocus = useCallback(() => setIsArrowUp(true), []);
   const handleSelectOnBlur = useCallback(() => setIsArrowUp(false), []);
 
-  const optionList =
-    options &&
-    options.map((option, index) => {
-      return (
-        <option key={index} value={option.value} className={style.selectOption}>
-          {option.name}
-        </option>
-      );
-    });
+  const selectOption = (option, index) => {
+    return (
+      <option key={index} value={option.value} className={style.selectOption}>
+        {option.name}
+      </option>
+    );
+  };
+
+  const optionList = !isEmpty(options)
+    ? options.map((option, index) => selectOption(option, index))
+    : optgroups.map((optgroup, index) => {
+        return (
+          <optgroup key={index} label={optgroup.label}>
+            {optgroup.options && optgroup.options.map((option, i) => selectOption(option, i))}
+          </optgroup>
+        );
+      });
 
   const titleView = title ? <span className={style.title}>{title} </span> : null;
 
@@ -99,15 +111,15 @@ const Select = (props, legacyContext) => {
     () =>
       multiple
         ? map(get('value'), filter({selected: true}, options))
-        : get('value', find({selected: true}, options)),
-    [multiple, options]
+        : get('value', find({selected: true}, concat(options, flatMapDeep('options', optgroups)))),
+    [multiple, options, optgroups]
   );
   const selectedLabel = useMemo(
     () =>
       multiple
         ? map(get('name'), filter({selected: true}, options))
-        : get('name', find({selected: true}, options)),
-    [multiple, options]
+        : get('value', find({selected: true}, concat(options, flatMapDeep('options', optgroups)))),
+    [multiple, options, optgroups]
   );
 
   const isSelectedInValidOption = useMemo(
@@ -235,6 +247,11 @@ export const SelectOptionPropTypes = {
   validOption: PropTypes.bool
 };
 
+export const SelectOptionGroupPropTypes = {
+  label: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
+};
+
 Select.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
@@ -251,6 +268,7 @@ Select.propTypes = {
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(keys(themeStyle)),
   options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
+  optgroups: PropTypes.arrayOf(PropTypes.shape(SelectOptionGroupPropTypes)),
   modified: PropTypes.bool,
   error: PropTypes.bool,
   'aria-label': PropTypes.string
