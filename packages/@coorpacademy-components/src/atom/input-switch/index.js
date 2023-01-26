@@ -52,7 +52,7 @@ const InputSwitch = props => {
 
   return (
     <div className={className} data-name={`switch-input-${theme}${dataName}`}>
-      {titlePosition === 'left' ? titleView : null}
+      {titlePosition === 'left' ? <div id={`title-view-${dataName}`}>{titleView} </div> : null}
       <div className={requiredSelection ? style.requiredSelection : null}>
         <div className={style.btnSwitchContainer}>
           <input
@@ -63,12 +63,13 @@ const InputSwitch = props => {
             checked={value}
             disabled={isDisabled}
             className={style.checkbox}
+            aria-labelledby={`title-view-${dataName}`}
           />
           <label htmlFor={idSwitch} data-name="input-switch-label" />
         </div>
       </div>
       <div className={!details ? style.alignedTextContainer : null}>
-        {titlePosition === 'right' ? titleView : null}
+        {titlePosition === 'right' ? <div id={`title-view-${dataName}`}>{titleView} </div> : null}
         {details ? <div className={style.detailsTxt}>{details}</div> : null}
       </div>
       {descriptionView}
