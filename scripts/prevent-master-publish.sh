@@ -4,6 +4,6 @@ if [[ "$BRANCH" != "master" ]]; then
   exit 1;
 fi
 
-echo "On $BRANCH, procedding to publish.";
+echo "On ♆ $BRANCH, proceeding to publish.";
 nvm use
-yarn && yarn bootstrap
+yarn

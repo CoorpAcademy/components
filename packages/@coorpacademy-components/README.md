@@ -28,7 +28,6 @@ npm run start:ie # for Internet Explorer
 
 Then open `http://localhost:3004`.
 
-
 ### Analyse your component
 
 The `props` is the contract your app should fill in order to use the component.
@@ -78,6 +77,7 @@ which is also launched automatically whenever you run `npm start`
 - Be sure to have `translate: Provider.childContextTypes.translate` in the contextTypes object of your component
 
 example:
+
 ```
   ....
 
@@ -143,7 +143,7 @@ const props = {
 }
 ```
 
-#### Additional information:
+#### Additional information
 
 The props include classNames && size control to handle additional styling.
 
@@ -180,4 +180,4 @@ You may need to install these optional libs depending on which native components
 
 Error when trying to launch the storybook:
 
-Try to delete your ```node_modules```, go to the project's root and launch: ```yarn && yarn bootstrap```
+Try to delete your ```node_modules```, go to the project's root and launch: ```yarn```
