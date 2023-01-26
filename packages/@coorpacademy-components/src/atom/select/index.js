@@ -100,7 +100,7 @@ const Select = (props, legacyContext) => {
     : optgroups.map((optgroup, index) => {
         return (
           <optgroup key={index} label={optgroup.label}>
-            {optgroup.options.map((option, i) => selectOption(option, i))}
+            {optgroup.options && optgroup.options.map((option, i) => selectOption(option, i))}
           </optgroup>
         );
       });
