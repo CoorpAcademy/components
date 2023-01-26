@@ -2,8 +2,7 @@
   "name": "@coorpacademy/components-monorepo",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna run prepare",
-    "prepare": "npm run bootstrap",
+    "prepare": "lerna run prepare",
     "lint": "lerna run lint",
     "test": "lerna run test",
     "test:unit": "lerna run test:unit --stream",

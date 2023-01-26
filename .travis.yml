@@ -24,15 +24,11 @@ stages:
 jobs:
   include:
     - stage: lint
-      before_script: npm run bootstrap
       script: npx lerna run lint
 
     - &test-job
       stage: test
       name: React components
-      before_script:
-        - npx lerna bootstrap --scope $PACKAGE_NAME --include-dependencies
-        - npx lerna run prepare --stream --no-prefix --scope $PACKAGE_NAME --include-dependencies
       script: npx lerna run test:unit --stream --no-prefix  --since --scope $PACKAGE_NAME
       after_script: yarn codecov
       env: PACKAGE_NAME=@coorpacademy/components
