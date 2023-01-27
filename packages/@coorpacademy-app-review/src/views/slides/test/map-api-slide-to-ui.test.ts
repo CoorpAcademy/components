@@ -3,6 +3,7 @@ import identity from 'lodash/fp/identity';
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {ReviewSlide} from '..';
+import {MediaPropsForPlayer, VideoPropsForPlayer} from '../../../types/common';
 import {qcmSlide, qcmUISlide} from './fixtures/qcm';
 import {qcmDragSlide, qcmDragUISlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
@@ -22,10 +23,11 @@ const macro = test.macro({
       slide: SlideFromAPI;
       answers: string[];
       expectedUiSlide: Partial<ReviewSlide>;
+      media?: MediaPropsForPlayer | VideoPropsForPlayer;
     }
   ) {
     t.deepEqual(
-      JSON.parse(JSON.stringify(_mapApiSlideToUi(arg.slide, arg.answers))),
+      JSON.parse(JSON.stringify(_mapApiSlideToUi(arg.slide, arg.answers, arg.media))),
       JSON.parse(JSON.stringify(arg.expectedUiSlide))
     );
   }
@@ -44,7 +46,20 @@ test('template', macro, {
   expectedUiSlide: templateUISlide
 });
 test('free text', macro, {slide: freeTextSlide, answers: [], expectedUiSlide: freeTextUISlide});
-test('slider', macro, {slide: sliderSlide, answers: [], expectedUiSlide: sliderUISlide});
+
+const media: MediaPropsForPlayer = {
+  _id: '6377c7f7c76a8a017fac4364',
+  mimeType: 'image/jpeg',
+  url: '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-partner-wedemain/default/shutterstock_181414391-1480431629586.jpg',
+  type: 'img'
+};
+
+test('slider', macro, {
+  slide: sliderSlide,
+  answers: [],
+  expectedUiSlide: sliderUISlide,
+  media
+});
 
 test('should throw an error if the question type can not be handled', t => {
   const faultySlide = {...qcmSlide, question: {type: 'lol'}};

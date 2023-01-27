@@ -17,9 +17,17 @@ import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-c
 import type {
   ProgressionAnswerItem,
   ProgressionFromAPI,
-  SlideContent
+  SlideContent,
+  SlideFromAPI,
+  SlideMedia
 } from '@coorpacademy/review-services';
-import {ConnectedOptions, Skin, Translate} from '../../types/common';
+import {
+  ConnectedOptions,
+  MediaPropsForPlayer,
+  Skin,
+  Translate,
+  VideoPropsForPlayer
+} from '../../types/common';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';
 import type {StoreState} from '../../reducers';
@@ -108,6 +116,31 @@ const isLastSlideAnswered = (slidesRef: string[], slideRef: string): boolean => 
   return last(slidesRef) === slideRef;
 };
 
+const getSlideMedia = (
+  state: StoreState,
+  slideFromAPI: SlideFromAPI
+): MediaPropsForPlayer | VideoPropsForPlayer | void => {
+  const media = get(['question', 'medias', '0'], slideFromAPI) as SlideMedia | void;
+  if (!media) return;
+  const {type} = media;
+  const resource = get(['src', '0'], media);
+  switch (type) {
+    case 'img':
+    case 'audio': {
+      const mediaProps: MediaPropsForPlayer = {
+        ...resource,
+        type,
+        url: get('url', resource)
+      };
+      return mediaProps;
+    }
+    case 'video': {
+      const videoProps = get(['data', 'videos', slideFromAPI._id, 'src', '0'], state);
+      return videoProps;
+    }
+  }
+};
+
 const buildStackSlides = (
   state: StoreState,
   dispatch: Dispatch,
@@ -137,7 +170,12 @@ const buildStackSlides = (
       if (!slideFromAPI) return set(index, {...uiSlide, position}, acc);
 
       const answers = getOr([], ['ui', 'answers', slideRef], state);
-      const {questionText, answerUI} = mapApiSlideToUi(dispatch, translate)(slideFromAPI, answers);
+      const media = getSlideMedia(state, slideFromAPI);
+      const {questionText, answerUI} = mapApiSlideToUi(dispatch, translate)(
+        slideFromAPI,
+        answers,
+        media
+      );
       const {title: parentContentTitle, type: parentContentType} = slideFromAPI.parentContentTitle;
       const isCurrentSlideRef = currentSlideRef === slideRef;
       const slideUI = get(['ui', 'slide', slideRef], state);
