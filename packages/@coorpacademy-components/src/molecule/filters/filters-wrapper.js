@@ -45,9 +45,11 @@ const FiltersWapper = (props, context) => {
       case 'switch':
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
-            <p className={style.title}>{filter.title}</p>
+            <p id={filter.title} className={style.title}>
+              {filter.title}
+            </p>
             <div className={style.toggle}>
-              <InputSwitch {...filter.display} />
+              <InputSwitch {...filter.display} aria-labelledby={filter.title} />
             </div>
           </div>
         );

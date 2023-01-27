@@ -14,6 +14,7 @@ export default {
     cards,
     moreSortAriaLabel: 'show or hide sortBy options',
     moreFilterAriaLabel: 'show or hide sortBy options',
-    filterGroupAriaLabel: 'Apply filtering options to refine search results'
+    filterGroupAriaLabel: 'Apply filtering options to refine search results',
+    sortAriaLabel: 'show more sort options'
   }
 };
