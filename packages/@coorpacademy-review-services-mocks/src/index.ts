@@ -10,8 +10,7 @@ import type {
   Skill,
   SlideFromAPI,
   SlideIdFromAPI,
-  VideoMedia,
-  VideoPropsForPlayer
+  VideoMedia
 } from '@coorpacademy/review-services';
 import {
   computeNextStepAfterAnswerForReview,
@@ -268,6 +267,19 @@ const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): Progr
   const newState: ProgressionState = updateState(reviewConfig, progression.state, action);
   const response: ProgressionFromAPI = {...progression, state: newState};
   return response;
+};
+
+type VideoSrcPropsForPlayer = {
+  mimeType: string;
+  videoId: string;
+  jwpOptions: unknown;
+  loading?: boolean;
+  type: string;
+};
+
+type VideoPropsForPlayer = {
+  type: string;
+  src: VideoSrcPropsForPlayer[];
 };
 
 export const appendVideoOptions = (media: VideoMedia): Promise<VideoPropsForPlayer> => {

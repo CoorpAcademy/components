@@ -11,7 +11,6 @@ import type {
   SlideMedia as SlideMedia_,
   MediaSrc as MediaSrc_,
   VideoSrc as VideoSrc_,
-  VideoPropsForPlayer as VideoPropsForPlayer_,
   AudioMedia as _AudioMedia,
   ImageMedia as _ImageMedia,
   VideoMedia as _VideoMedia,
@@ -62,7 +61,6 @@ export type SlideFromAPI = SlideFromAPI_;
 export type SlideIdFromAPI = SlideIdFromAPI_;
 export type MediaSrc = MediaSrc_;
 export type VideoSrc = VideoSrc_;
-export type VideoPropsForPlayer = VideoPropsForPlayer_;
 export type SlideMedia = SlideMedia_;
 export type AudioMedia = _AudioMedia;
 export type ImageMedia = _ImageMedia;
