@@ -213,11 +213,11 @@ const Select = (props, legacyContext) => {
           arrowColor={isThemeOneOfQuestionTemplateOrPlayer ? arrowColor : black}
         />
         <select
-          {...(ariaLabelledBy && !ariaLabel ? {'aria-labelledby': ariaLabelledBy} : {})}
+          {...(ariaLabelledBy ? {'aria-labelledby': ariaLabelledBy} : {})}
           {...(ariaLabel && !ariaLabelledBy ? {'aria-label': ariaLabel} : {})}
+          {...(ariaLabel ? {title: ariaLabel} : {})}
           data-name="native-select"
           className={style.selectBox}
-          title={selectedLabel}
           name={name}
           onChange={handleChange}
           value={selected}
