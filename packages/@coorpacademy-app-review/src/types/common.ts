@@ -1,4 +1,4 @@
-import type {Services, VideoMedia, VideoPropsForPlayer} from '@coorpacademy/review-services';
+import type {Services, VideoMedia} from '@coorpacademy/review-services';
 
 export type WithRequired<T, K extends keyof T> = T & {
   // the "-" is a Mapping Modifier, removes optionality from a prop
@@ -15,6 +15,26 @@ export type Skin = {
   common: {
     primary: string;
   };
+};
+
+type VideoSrcPropsForPlayer = {
+  mimeType: string;
+  videoId: string;
+  jwpOptions: unknown;
+  loading?: boolean;
+  type: string;
+};
+
+export type VideoPropsForPlayer = {
+  type: string;
+  src: VideoSrcPropsForPlayer[];
+};
+
+export type MediaPropsForPlayer = {
+  type: 'img' | 'audio';
+  url: string;
+  _id: string;
+  mimeType: string;
 };
 
 export type ConnectedOptions = {
