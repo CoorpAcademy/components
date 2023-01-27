@@ -61,7 +61,8 @@ type VideoSrcPropsForPlayer = {
   mimeType: string;
   videoId: string;
   jwpOptions: unknown;
-  hide?: boolean;
+  loading?: boolean;
+  type: string;
 };
 
 export type VideoPropsForPlayer = {

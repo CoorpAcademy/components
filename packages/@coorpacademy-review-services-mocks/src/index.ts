@@ -280,6 +280,7 @@ export const appendVideoOptions = (media: VideoMedia): Promise<VideoPropsForPlay
         mimeType: 'application/jwplayer',
         videoId,
         mediaRef,
+        type: 'video',
         jwpOptions: {
           playerId: '7IMa4DCK',
           playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
