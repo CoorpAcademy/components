@@ -12,6 +12,7 @@ import CourseSelection from '../course-selection';
 import CourseSections from '../../molecule/course-sections';
 import RewardsForm from '../rewards-form';
 import style from './style.css';
+import isEmpty from 'lodash/fp/isEmpty';
 
 const buildHeader = (wizardHeader, steps) => {
   const {title, onClick} = wizardHeader;
@@ -103,12 +104,14 @@ const WizardContents = props => {
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
 
+
   return (
     <div className={style.container} data-name="content-summary">
-      <div className={style.leftSection}>
+      <div className={summary ? style.leftSection: style.leftSectionWithoutSummary}>
         {headerView}
         <div className={style.form}>{formView}</div>
       </div>
+      {summary ? (
       <div className={style.rightSection} data-name="summary-right-section">
         <div className={style.stickySection}>
           <div className={style.summaryZone} data-name="summary-zone">
@@ -117,12 +120,16 @@ const WizardContents = props => {
           {rightActionView}
         </div>
       </div>
-      <div className={style.footer} data-name="summary-footer-section">
-        <div className={style.summaryFooter}>
+        ) : null}
+    {summary ? ( <div className={style.footer} data-name="summary-footer-section">
+   <div className={style.summaryFooter}>
           <WizardSummary {...summary} side={'footer'} />
         </div>
         <div className={style.actionFooter}>{footerActionView}</div>
       </div>
+        ) : ( <div className={style.footerWithoutSummary} data-name="footer-section">
+        <div className={style.actionFooterWithoutSummary}>{footerActionView}</div>
+        </div>)}
     </div>
   );
 };
@@ -136,7 +143,7 @@ WizardContents.propTypes = {
   steps: WizardSteps.propTypes.steps,
   summary: PropTypes.shape({
     ...WizardSummary.propTypes
-  }).isRequired,
+  }),
   content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,
