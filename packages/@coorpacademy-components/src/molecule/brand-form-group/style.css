@@ -42,17 +42,12 @@
   justify-content: space-evenly;
 }
 
-.grid .field {
-  margin-right: 20px;
-}
-
 .field {
-  margin-bottom: 10px;
+  display: flex;
+  margin: 0 32px 64px 0;
+  flex: 1 0 0;
 }
 
-.field:last-child {
-  margin-bottom: 0;
-}
 
 .fieldCoorpmanager {
   margin: 0 0 32px 0;
@@ -74,8 +69,9 @@
 }
 
 .imageUploadContainer {
-  height: 300px;
-  width: 360px;
+ display: flex;
+ flex-direction: column;
+ width: 100%;
 }
 
 @media desktop {
@@ -84,6 +80,8 @@
   }
 
   .groupGrid .grid {
+    display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     margin-top: 0;
   }
