@@ -74,6 +74,7 @@
   "Video Loading Error": "加载视频时出错，请重试。",
   "Wait_creation": "该平台正在被创建中。订阅这可能需要几秒。请等待……",
   "Write something here": "在这里填写内容",
+  "comment_aria_label": "添加您的评论",
   "zuora_discount_code_submit": "应用",
   "zuora_discount_code": "促销码",
   "mandatory_fields": "*Mandatory fields",
