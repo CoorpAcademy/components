@@ -49,47 +49,19 @@ const Switch = ({model, help}) => {
   const translate = GetTranslateFromContext();
   switch (type) {
     case 'qcmDrag':
-      return (
-        <div role="form">
-          <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />{' '}
-        </div>
-      );
+      return <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />;
     case 'qcm':
-      return (
-        <div role="form">
-          <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />
-        </div>
-      );
+      return <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'qcmGraphic':
-      return (
-        <div role="form">
-          <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />
-        </div>
-      );
+      return <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'freeText':
-      return (
-        <div role="form">
-          <FreeText {...model} />
-        </div>
-      );
+      return <FreeText {...model} />;
     case 'dropDown':
-      return (
-        <div role="form">
-          <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />
-        </div>
-      );
+      return <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'slider':
-      return (
-        <div role="form">
-          <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />
-        </div>
-      );
+      return <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />;
     case 'template':
-      return (
-        <div role="form">
-          <Template {...model} groupAriaLabel={translate('answer_the_question')} />
-        </div>
-      );
+      return <Template {...model} groupAriaLabel={translate('answer_the_question')} />;
   }
 };
 
@@ -104,7 +76,9 @@ const Answer = props => {
   return (
     <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
-      <Switch model={model} help={help} />
+      <form>
+        <Switch model={model} help={help} />
+      </form>
     </div>
   );
 };
