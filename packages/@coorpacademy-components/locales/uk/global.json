@@ -74,6 +74,7 @@
   "Video Loading Error": "Під час завантаження відео сталася помилка. Повторіть ще раз.",
   "Wait_creation": "Платформу створено. Це може забрати кілька секунд. Почекайте, будь ласка...",
   "Write something here": "Напишіть щось тут",
+  "comment_aria_label": "додати свій коментар",
   "zuora_discount_code_submit": "Застосувати",
   "zuora_discount_code": "Промокод",
   "mandatory_fields": "*Mandatory fields",
