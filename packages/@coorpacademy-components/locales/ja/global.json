@@ -74,6 +74,7 @@
   "Video Loading Error": "ビデオの読み込み中にエラーが発生しました。再度お試しください。",
   "Wait_creation": "プラットフォームを作成しています。これは、数秒をかかることができます。お待ちください。。。",
   "Write something here": "ここで何かを書く",
+  "comment_aria_label": "コメントを追加",
   "zuora_discount_code_submit": "適用",
   "zuora_discount_code": "プロモーション コード",
   "mandatory_fields": "*Mandatory fields",
