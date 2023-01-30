@@ -96,7 +96,7 @@ SelectedAnswerSections.propTypes = {
   backgroundColor: PropTypes.string
 };
 
-const yarnQcmDrag = ({answers, help, groupAriaLabel}, legacyContext) => {
+const QcmDrag = ({answers, help, groupAriaLabel}, legacyContext) => {
   const skin = GetSkinFromContext(legacyContext);
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
