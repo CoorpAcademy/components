@@ -50,7 +50,7 @@ const Loader = (props: Props) => {
   const {theme} = templateContext;
 
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
-  const [visible, setVisible] = useState<boolean>(true);
+  const [hidden, setHidden] = useState<boolean>(false);
   const [minTimeIsSpent, setMinTimeSpent] = useState<boolean>(false);
 
   const rotation = useRef<Animated.Value>(new Animated.Value(0)).current;
@@ -59,7 +59,10 @@ const Loader = (props: Props) => {
   const hideAnimation = useAnimateProp({
     property: 'opacity',
     fromValue: 1,
-    toValue: 0
+    toValue: 0,
+    onComplete: () => {
+      setHidden(true);
+    }
   });
 
   const {height = 60, color, readyToHide} = props;
@@ -70,16 +73,10 @@ const Loader = (props: Props) => {
   }, [theme]);
 
   useEffect(() => {
-    if (readyToHide && minTimeIsSpent) {
-      setVisible(false);
-    }
-  }, [readyToHide, minTimeIsSpent]);
-
-  useEffect(() => {
-    if (!visible) {
+    if (readyToHide && minTimeIsSpent && !hidden) {
       hideAnimation.start();
     }
-  }, [visible, hideAnimation]);
+  }, [hidden, hideAnimation, readyToHide, minTimeIsSpent]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -133,6 +130,10 @@ const Loader = (props: Props) => {
   }, []);
 
   if (!styleSheet) {
+    return null;
+  }
+
+  if (hidden) {
     return null;
   }
 

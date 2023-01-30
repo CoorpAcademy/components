@@ -1,29 +1,39 @@
 import React, {useEffect} from 'react';
-import {Text, StyleSheet, View, BackHandler} from 'react-native';
+import {StyleSheet, View, BackHandler, Animated} from 'react-native';
+import {useAnimateProp, useAnimationWaiter} from '@coorpacademy/react-native-animation';
+import Loader from '../../atom/loader/index.native';
 import {AppReviewProps} from './prop-types';
-import Player from './player';
+import Player from './player/index.native';
 
 const styles = StyleSheet.create({
   rootView: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  player: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  loaderContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
 
-const Switch = ({viewName, slides}: AppReviewProps) => {
-  switch (viewName) {
-    case 'slides':
-      return <Player {...slides} />;
-    case 'loader':
-      return <Text>@todo loader</Text>;
-    default:
-      return <Text>{`unknown viewName: "${viewName}"`}</Text>;
-  }
-};
-
 const AppReview = (props: AppReviewProps) => {
-  const {navigateBack} = props;
+  const {navigateBack, viewName, slides} = props;
 
   useEffect(() => {
     const backAction = () => {
@@ -39,9 +49,33 @@ const AppReview = (props: AppReviewProps) => {
     return () => backHandler.remove();
   }, [navigateBack]);
 
+  const fadePlayerIn = useAnimateProp({
+    property: 'opacity',
+    fromValue: 0,
+    toValue: 1,
+    duration: 1300
+  });
+
+  const isLoading = viewName === 'loader';
+  useAnimationWaiter(isLoading, fadePlayerIn);
+
   return (
     <View style={styles.rootView}>
-      <Switch {...props} />
+      <Animated.View style={[styles.player, fadePlayerIn.animatedStyle]}>
+        {slides ? (
+          <Player
+            congrats={slides.congrats}
+            header={slides.header}
+            stack={slides.stack}
+            quitPopin={slides.quitPopin}
+            backgroundImage={slides.backgroundImage}
+          />
+        ) : null}
+      </Animated.View>
+
+      <View style={styles.loaderContainer} pointerEvents="none">
+        <Loader readyToHide={!isLoading} />
+      </View>
     </View>
   );
 };

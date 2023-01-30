@@ -1,5 +1,7 @@
+import {useAnimateProp, useAnimationWaiter} from '@coorpacademy/react-native-animation';
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {Text, View, StyleSheet, ViewStyle, TextStyle, Animated} from 'react-native';
+import Loader from '../../../atom/loader/index.native';
 import ReviewNoSkills from '../../../organism/review-no-skills/index.native';
 import ReviewListSkills from '../../../organism/review-skills/index.native';
 import {Theme} from '../../../variables/theme.native';
@@ -8,6 +10,7 @@ import {ReviewSkillsProps} from './prop-types';
 
 type StyleSheetType = {
   container: ViewStyle;
+  loaderContainer: ViewStyle;
   title: TextStyle;
 };
 
@@ -18,6 +21,15 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       padding: 20,
       width: '100%',
       backgroundColor: theme.colors.white
+    },
+    loaderContainer: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     title: {
       fontSize: theme.fontSize.xlarge,
@@ -34,7 +46,6 @@ const ReviewSkills = (props: ReviewSkillsProps) => {
     'aria-label': ariaLabel,
     title,
     isLoading,
-    isLoadingAriaLabel,
     listSkills,
     titleNoSkills,
     textNoSkills,
@@ -49,6 +60,14 @@ const ReviewSkills = (props: ReviewSkillsProps) => {
     setStylesheet(_stylesheet);
   }, [theme]);
 
+  const fadeResultsIn = useAnimateProp({
+    property: 'opacity',
+    fromValue: 0,
+    toValue: 1
+  });
+
+  useAnimationWaiter(isLoading, fadeResultsIn);
+
   if (!styleSheet) {
     return null;
   }
@@ -56,21 +75,21 @@ const ReviewSkills = (props: ReviewSkillsProps) => {
   return (
     <View style={styleSheet.container} accessibilityLabel={ariaLabel}>
       <Text style={styleSheet.title}>{title}</Text>
-      {isLoading ? (
-        <Text accessibilityLabel={isLoadingAriaLabel}>Loading</Text>
-      ) : (
-        <View>
-          {!listSkills || listSkills.length === 0 ? (
-            <ReviewNoSkills
-              titleNoSkills={titleNoSkills}
-              textNoSkills={textNoSkills}
-              iconSkillAriaLabel={iconSkillAriaLabel}
-            />
-          ) : (
-            <ReviewListSkills listSkills={listSkills} />
-          )}
-        </View>
-      )}
+
+      <Animated.View style={fadeResultsIn.animatedStyle}>
+        {!listSkills || listSkills.length === 0 ? (
+          <ReviewNoSkills
+            titleNoSkills={titleNoSkills}
+            textNoSkills={textNoSkills}
+            iconSkillAriaLabel={iconSkillAriaLabel}
+          />
+        ) : (
+          <ReviewListSkills listSkills={listSkills} />
+        )}
+      </Animated.View>
+      <View style={styleSheet.loaderContainer} pointerEvents="none">
+        <Loader readyToHide={!isLoading} />
+      </View>
     </View>
   );
 };
