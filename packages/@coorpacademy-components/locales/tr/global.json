@@ -74,6 +74,7 @@
   "Video Loading Error": "Video yüklenirken bir hata meydana geldi, lütfen tekrar deneyin.",
   "Wait_creation": "Platform yaratılıyor. Bu birkaç saniye sürebilir. Lütfen bekleyin...",
   "Write something here": "Buraya bir şey yazın",
+  "comment_aria_label": "yorumunu ekle",
   "zuora_discount_code_submit": "Uygula",
   "zuora_discount_code": "Promosyon kodu",
   "mandatory_fields": "*Mandatory fields",
