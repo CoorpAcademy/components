@@ -156,21 +156,18 @@
   padding: 4px 8px;
   font-size: 12px;
   font-weight: 400;
+  position: relative;
 }
 
 .resetSrcLabel {
   color: cm_grey_700;
-  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
-  direction: rtl;
-  flex: 1;
   white-space: nowrap;
-  text-align: left;
-  display: flex;
-  min-width: 0;
   flex-wrap: nowrap;
-  max-width: 90%;
+  position: absolute;
+  left: 0;
+  right: 15px;
 }
 
 .closeIcon {
@@ -179,6 +176,8 @@
   margin-left: 6px;
   height: 15px;
   width: 15px;
+  position: absolute;
+  right: 0;
 }
 
 .dragging {
