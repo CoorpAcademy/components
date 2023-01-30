@@ -74,6 +74,7 @@
   "Video Loading Error": "Hiba történt a videó betöltése közben, kérjük, próbálja meg újra.",
   "Wait_creation": "A platform készítése folyamatban van. Ez néhány másodpercet igénybe vehet. Kérjük, várjon...",
   "Write something here": "Írjon ide valamit",
+  "comment_aria_label": "add hozzá a megjegyzésedet",
   "zuora_discount_code_submit": "Alkalmaz",
   "zuora_discount_code": "Promóciókód",
   "mandatory_fields": "*Mandatory fields",
