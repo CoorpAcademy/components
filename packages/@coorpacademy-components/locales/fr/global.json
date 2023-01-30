@@ -74,6 +74,7 @@
   "Video Loading Error": "Une erreur est survenue lors du chargement de la vidéo. Pouvez-vous vérifier votre connection internet et réessayer ?",
   "Wait_creation": "La plateforme est en cours de création. Cela peut prendre plusieurs secondes. Veuillez patienter...",
   "Write something here": "Écrire ici",
+  "comment_aria_label": "Ajoutez votre commentaire",
   "zuora_discount_code_submit": "Appliquer",
   "zuora_discount_code": "Code promo",
   "mandatory_fields": "* Champs obligatoires",
