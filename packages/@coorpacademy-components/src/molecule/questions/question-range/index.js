@@ -17,29 +17,27 @@ const QuestionRange = (props, legacyContext) => {
   };
 
   return (
-    <form>
-      <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+    <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+      <span
+        style={titleStyle}
+        className={classnames(style.title, style.innerHTML)}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: title}}
+      />
+      <Range {...rangeProps} />
+      <div className={style.labelWrapper}>
         <span
-          style={titleStyle}
-          className={classnames(style.title, style.innerHTML)}
+          className={classnames(style.label, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: title}}
+          dangerouslySetInnerHTML={{__html: minLabel}}
         />
-        <Range {...rangeProps} />
-        <div className={style.labelWrapper}>
-          <span
-            className={classnames(style.label, style.innerHTML)}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: minLabel}}
-          />
-          <span
-            className={classnames(style.label, style.innerHTML)}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: maxLabel}}
-          />
-        </div>
+        <span
+          className={classnames(style.label, style.innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: maxLabel}}
+        />
       </div>
-    </form>
+    </div>
   );
 };
 

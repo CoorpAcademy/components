@@ -57,16 +57,14 @@ const QCMImage = (props, legacyContext) => {
   });
 
   return (
-    <form>
-      <div
-        data-name="qcm-graphic-wrapper"
-        className={style.wrapper}
-        role="group"
-        aria-label={groupAriaLabel}
-      >
-        {answersViews}
-      </div>
-    </form>
+    <div
+      data-name="qcm-graphic-wrapper"
+      className={style.wrapper}
+      role="group"
+      aria-label={groupAriaLabel}
+    >
+      {answersViews}
+    </div>
   );
 };
 

@@ -49,19 +49,47 @@ const Switch = ({model, help}) => {
   const translate = GetTranslateFromContext();
   switch (type) {
     case 'qcmDrag':
-      return <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />;
+      return (
+        <form>
+          <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />{' '}
+        </form>
+      );
     case 'qcm':
-      return <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return (
+        <form>
+          <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />
+        </form>
+      );
     case 'qcmGraphic':
-      return <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return (
+        <form>
+          <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />
+        </form>
+      );
     case 'freeText':
-      return <FreeText {...model} />;
+      return (
+        <form>
+          <FreeText {...model} />
+        </form>
+      );
     case 'dropDown':
-      return <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return (
+        <form>
+          <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />
+        </form>
+      );
     case 'slider':
-      return <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return (
+        <form>
+          <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />
+        </form>
+      );
     case 'template':
-      return <Template {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return (
+        <form>
+          <Template {...model} groupAriaLabel={translate('answer_the_question')} />
+        </form>
+      );
   }
 };
 
