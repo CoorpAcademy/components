@@ -74,6 +74,7 @@
   "Video Loading Error": "An error occurred while loading the video, please try again.",
   "Wait_creation": "The platform is being created. This can take several seconds. Please wait...",
   "Write something here": "Write something here",
+  "comment_aria_label": "add your comment",
   "zuora_discount_code_submit": "Apply",
   "zuora_discount_code": "Promo code",
   "mandatory_fields": "*Mandatory fields",

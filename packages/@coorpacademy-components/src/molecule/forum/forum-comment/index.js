@@ -53,6 +53,8 @@ const ForumComment = (props, context) => {
         <div className={style.comment}>
           <textarea
             placeholder={translate('Write something here')}
+            title={translate('Write something here')}
+            aria-label={translate('comment_aria_label')}
             value={value}
             onChange={onChange}
             disabled={textareaDisabled}
