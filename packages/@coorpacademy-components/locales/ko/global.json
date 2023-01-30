@@ -74,6 +74,7 @@
   "Video Loading Error": "비디오를 불러오는 중에 오류가 발생했습니다. 다시 시도하세요.",
   "Wait_creation": "플랫폼이 생성되고 있습니다. 몇 초가 소요될 수 있습니다. 기다려 주세요...",
   "Write something here": "여기에 무언가를 기재하세요",
+  "comment_aria_label": "댓글 추가",
   "zuora_discount_code_submit": "적용",
   "zuora_discount_code": "프로모션 코드",
   "mandatory_fields": "*Mandatory fields",
