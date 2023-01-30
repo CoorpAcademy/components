@@ -7,36 +7,16 @@ import {
   POST_PROGRESSION_SUCCESS,
   POST_PROGRESSION_FAILURE
 } from '../post-progression';
-import type {StoreState} from '../../../reducers';
+import {initialState} from '../../../test/fixtures';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../fetch-slide';
 import {SET_CURRENT_SLIDE} from '../../ui/slides';
 import {createTestStore} from '../../test/create-test-store';
 import {SKILL_FETCH_FAILURE, SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../fetch-skill';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
-
-const initialState: StoreState = {
-  data: {
-    progression: null,
-    slides: {},
-    token: '1234',
-    corrections: {},
-    rank: {start: 10, end: Number.NaN},
-    currentSkill: null
-  },
-  ui: {
-    showCongrats: false,
-    positions: [0, 1, 2, 3, 4],
-    currentSlideRef: '',
-    navigation: [],
-    answers: {},
-    slide: {},
-    showQuitPopin: false,
-    showButtonRevising: false
-  }
-};
+import {SET_VIDEO_PROPS} from '../fetch-video-props';
 
 test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions when postProgression returns a progression', async t => {
-  t.plan(11);
+  t.plan(12);
   const progression: ProgressionFromAPI = {
     _id: '62b1d1087aa12f00253f40ee',
     content: {
@@ -96,6 +76,50 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
       payload: freeTextSlide
     },
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide},
+    {
+      type: SET_VIDEO_PROPS,
+      payload: {
+        slideId: freeTextSlide._id,
+        props: {
+          type: 'video',
+          src: [
+            {
+              loading: false,
+              type: 'video',
+              mimeType: 'application/jwplayer',
+              videoId: '489S0B87',
+              mediaRef: 'med_free_text',
+              jwpOptions: {
+                playerId: '7IMa4DCK',
+                playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+                licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
+                playlist: [
+                  {
+                    file: 'https://content.jwplatform.com/manifests/489S0B87.m3u8',
+                    tracks: [
+                      {
+                        file: 'https://content.jwplatform.com/strips/489S0B87-120.vtt',
+                        kind: 'thumbnails'
+                      }
+                    ]
+                  }
+                ],
+                customProps: {
+                  playbackRateControls: true,
+                  playbackRates: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
+                  preload: 'auto',
+                  autostart: 'true',
+                  width: '100%',
+                  height: '343px',
+                  visualplaylist: false,
+                  nextUpDisplay: false
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     {type: SKILL_FETCH_REQUEST},
     {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];

@@ -1,31 +1,17 @@
 import test from 'ava';
 import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
+import {set} from 'lodash/fp';
 import {createTestStore} from '../../test/create-test-store';
-import type {StoreState} from '../../../reducers';
+import {initialState as _initialState_} from '../../../test/fixtures';
 import {closeQuitPopin, CLOSE_POPIN, openQuitPopin, OPEN_POPIN} from '../quit-popin';
 
 const thunkOptions = {services, appendVideoOptions};
 
-const initialState: StoreState = {
-  data: {
-    progression: null,
-    slides: {},
-    token: '1234',
-    corrections: {},
-    rank: {start: Number.NaN, end: Number.NaN},
-    currentSkill: {ref: '_skill-ref', name: '_skill-ref'}
-  },
-  ui: {
-    showCongrats: false,
-    currentSlideRef: '',
-    navigation: [],
-    answers: {},
-    slide: {},
-    positions: [],
-    showQuitPopin: false,
-    showButtonRevising: false
-  }
-};
+const initialState = set(
+  'data.currentSkill',
+  {ref: '_skill-ref', name: '_skill-ref'},
+  _initialState_
+);
 
 test('should dispatch OPEN_POPIN when openQuitPopin action is called', async t => {
   const expectedAction = [{type: OPEN_POPIN}];

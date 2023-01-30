@@ -29,7 +29,8 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       currentSlideRef: '',
@@ -90,7 +91,8 @@ test('should dispatch onQuitClick function after a click on close button in head
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: 9},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      videos: {}
     },
     ui: {
       showCongrats: true,

@@ -14,27 +14,13 @@ import {
   RANK_FETCH_END_FAILURE
 } from '../fetch-rank';
 import {createTestStore} from '../../test/create-test-store';
+import {initialState as _initialState_} from '../../../test/fixtures';
 
-const initialState: StoreState = {
-  data: {
-    progression: null,
-    slides: {},
-    token: '1234',
-    corrections: {},
-    rank: {start: Number.NaN, end: Number.NaN},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
-  },
-  ui: {
-    showCongrats: false,
-    positions: [0, 1, 2, 3, 4],
-    currentSlideRef: '',
-    navigation: [],
-    answers: {},
-    slide: {},
-    showQuitPopin: false,
-    showButtonRevising: false
-  }
-};
+const initialState: StoreState = set(
+  'data.currentSkill',
+  {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+  _initialState_
+);
 
 test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the start rank', async t => {
   t.plan(4);

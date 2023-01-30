@@ -66,7 +66,8 @@ const initialState: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: skillRef, name: skillRef}
+    currentSkill: {ref: skillRef, name: skillRef},
+    videos: {}
   },
   ui: {
     showCongrats: false,
@@ -259,7 +260,8 @@ test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-sl
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: skillRef, name: skillRef}
+      currentSkill: {ref: skillRef, name: skillRef},
+      videos: {}
     },
     ui: {
       showCongrats: false,

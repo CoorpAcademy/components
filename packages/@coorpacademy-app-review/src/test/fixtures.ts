@@ -4,6 +4,7 @@ import type {
   ReviewEngine,
   SlideIdFromAPI
 } from '@coorpacademy/review-services';
+import {StoreState} from '../reducers';
 import {freeTextSlide} from '../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../views/slides/test/fixtures/qcm';
 import {qcmDragSlide} from '../views/slides/test/fixtures/qcm-drag';
@@ -261,5 +262,27 @@ export const incorrectFreeTextPostAnswerResponse: ProgressionFromAPI = {
     ],
     pendingSlides: [freeTextSlide.universalRef],
     stars: 0
+  }
+};
+
+export const initialState: StoreState = {
+  data: {
+    progression: null,
+    slides: {},
+    token: '1234',
+    corrections: {},
+    rank: {start: Number.NaN, end: Number.NaN},
+    currentSkill: null,
+    videos: {}
+  },
+  ui: {
+    showCongrats: false,
+    positions: [0, 1, 2, 3, 4],
+    currentSlideRef: '',
+    navigation: [],
+    answers: {},
+    slide: {},
+    showQuitPopin: false,
+    showButtonRevising: false
   }
 };

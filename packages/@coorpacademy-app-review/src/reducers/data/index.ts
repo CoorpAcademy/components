@@ -6,6 +6,7 @@ import slides, {SlidesState} from './slides';
 import token, {TokenState} from './token';
 import rank, {RankState} from './rank';
 import currentSkill, {CurrentSkillState} from './current-skill';
+import videos, {VideoPropsState} from './videos';
 
 export type DataState = {
   corrections: CorrectionsState;
@@ -14,6 +15,7 @@ export type DataState = {
   token: TokenState;
   rank: RankState;
   currentSkill: CurrentSkillState;
+  videos: VideoPropsState;
 };
 
 export default combineReducers({
@@ -22,5 +24,6 @@ export default combineReducers({
   slides,
   token,
   rank,
-  currentSkill
+  currentSkill,
+  videos
 });

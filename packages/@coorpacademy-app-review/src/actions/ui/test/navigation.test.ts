@@ -1,31 +1,12 @@
 import test from 'ava';
 import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
+import {set} from 'lodash/fp';
 import {createTestStore} from '../../test/create-test-store';
-import type {StoreState} from '../../../reducers';
+import {initialState as _initialState_} from '../../../test/fixtures';
 import {navigateBack, navigateTo} from '../navigation';
 
 const thunkOptions = {services, appendVideoOptions};
-
-const initialState: StoreState = {
-  data: {
-    progression: null,
-    slides: {},
-    token: '1234',
-    corrections: {},
-    rank: {start: 10, end: Number.NaN},
-    currentSkill: null
-  },
-  ui: {
-    positions: [0, 1, 2, 3, 4],
-    currentSlideRef: '',
-    navigation: ['loader', 'slides'],
-    answers: {},
-    slide: {},
-    showCongrats: false,
-    showQuitPopin: false,
-    showButtonRevising: false
-  }
-};
+const initialState = set('ui.navigation', ['loader', 'slides'], _initialState_);
 
 test('should dispatch NAVIGATE_TO', async t => {
   const expectedActions = [

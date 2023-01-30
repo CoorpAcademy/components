@@ -19,6 +19,7 @@ import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {translate} from '../../../test/utils/translation.mock';
 import {postAnswerResponses} from '../../../test/fixtures';
+import {SHOW_VIDEO} from '../../../actions/api/fetch-video-props';
 import {skin} from './fixtures/skin';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {freeTextSlide} from './fixtures/free-text';
@@ -47,7 +48,46 @@ const state: StoreState = {
       [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
     },
     rank: {start: 10, end: 10},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}
+    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    videos: {
+      [freeTextSlide._id]: {
+        type: 'video',
+        src: [
+          {
+            mimeType: 'application/jwplayer',
+            type: 'video',
+            videoId: '489S0B87',
+            loading: true,
+            jwpOptions: {
+              playerId: '7IMa4DCK',
+              playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+              licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
+              playlist: [
+                {
+                  file: 'https://content.jwplatform.com/manifests/489S0B87.m3u8',
+                  tracks: [
+                    {
+                      file: 'https://content.jwplatform.com/strips/489S0B87-120.vtt',
+                      kind: 'thumbnails'
+                    }
+                  ]
+                }
+              ],
+              customProps: {
+                playbackRateControls: true,
+                playbackRates: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
+                preload: 'auto',
+                autostart: 'true',
+                width: '100%',
+                height: '343px',
+                visualplaylist: false,
+                nextUpDisplay: false
+              }
+            }
+          }
+        ]
+      }
+    }
   },
   ui: {
     showCongrats: true,
@@ -149,6 +189,7 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
       payload: freeTextSlide
     },
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide},
+    {type: SHOW_VIDEO, payload: {slideId: freeTextSlide._id}},
     {type: SKILL_FETCH_REQUEST},
     {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];

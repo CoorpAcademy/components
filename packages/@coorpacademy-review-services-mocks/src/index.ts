@@ -10,8 +10,7 @@ import type {
   Skill,
   SlideFromAPI,
   SlideIdFromAPI,
-  VideoMedia,
-  VideoPropsForPlayer
+  VideoMedia
 } from '@coorpacademy/review-services';
 import {
   computeNextStepAfterAnswerForReview,
@@ -270,6 +269,19 @@ const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): Progr
   return response;
 };
 
+type VideoSrcPropsForPlayer = {
+  mimeType: string;
+  videoId: string;
+  jwpOptions: unknown;
+  loading?: boolean;
+  type: string;
+};
+
+type VideoPropsForPlayer = {
+  type: string;
+  src: VideoSrcPropsForPlayer[];
+};
+
 export const appendVideoOptions = (media: VideoMedia): Promise<VideoPropsForPlayer> => {
   const videoSrc = media.src[0];
   const {videoId, mediaRef} = videoSrc;
@@ -280,6 +292,7 @@ export const appendVideoOptions = (media: VideoMedia): Promise<VideoPropsForPlay
         mimeType: 'application/jwplayer',
         videoId,
         mediaRef,
+        type: 'video',
         jwpOptions: {
           playerId: '7IMa4DCK',
           playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
