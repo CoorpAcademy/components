@@ -25,15 +25,26 @@ EmptyView.propTypes = {
 const Choices = ({answers}) => {
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected} = answer;
+    const checkboxId = `checkbox-${key}`;
     return (
       <div
         className={classnames(selected ? style.invisibleAnswer : style.unselected, style.innerHTML)}
         data-name="answer"
-        onClick={onClick}
         key={key}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: title}}
-      />
+        onClick={onClick}
+      >
+        <label htmlFor={checkboxId}>
+          <input
+            id={checkboxId}
+            type="checkbox"
+            value={title}
+            checked={selected}
+            onChange={onClick}
+            className={style.hiddenCheckbox}
+          />
+          {title}
+        </label>
+      </div>
     );
   });
 

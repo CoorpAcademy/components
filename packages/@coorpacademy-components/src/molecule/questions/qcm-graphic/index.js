@@ -13,6 +13,7 @@ const QCMImage = (props, legacyContext) => {
 
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected, image, ariaLabel} = answer;
+    const checkboxId = `checkbox-${key}`;
 
     return (
       <div
@@ -48,8 +49,19 @@ const QCMImage = (props, legacyContext) => {
               title={title}
               className={classnames(style.title, style.innerHTML)}
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: title}}
-            />
+            >
+              <label htmlFor={checkboxId}>
+                <input
+                  id={checkboxId}
+                  type="checkbox"
+                  value={title}
+                  checked={selected}
+                  onChange={onClick}
+                  className={style.hiddenCheckbox}
+                />
+                {title}
+              </label>
+            </div>
           </div>
         </div>
       </div>
