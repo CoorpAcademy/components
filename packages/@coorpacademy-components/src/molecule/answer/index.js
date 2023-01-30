@@ -50,45 +50,45 @@ const Switch = ({model, help}) => {
   switch (type) {
     case 'qcmDrag':
       return (
-        <form>
+        <div role="form">
           <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />{' '}
-        </form>
+        </div>
       );
     case 'qcm':
       return (
-        <form>
+        <div role="form">
           <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />
-        </form>
+        </div>
       );
     case 'qcmGraphic':
       return (
-        <form>
+        <div role="form">
           <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />
-        </form>
+        </div>
       );
     case 'freeText':
       return (
-        <form>
+        <div role="form">
           <FreeText {...model} />
-        </form>
+        </div>
       );
     case 'dropDown':
       return (
-        <form>
+        <div role="form">
           <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />
-        </form>
+        </div>
       );
     case 'slider':
       return (
-        <form>
+        <div role="form">
           <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />
-        </form>
+        </div>
       );
     case 'template':
       return (
-        <form>
+        <div role="form">
           <Template {...model} groupAriaLabel={translate('answer_the_question')} />
-        </form>
+        </div>
       );
   }
 };
