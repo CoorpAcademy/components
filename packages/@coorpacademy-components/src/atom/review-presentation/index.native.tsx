@@ -18,6 +18,7 @@ type StyleSheetType = {
   container: ViewStyle;
   title: TextStyle;
   text: TextStyle;
+  textContainer: ViewStyle;
   tips: ViewStyle;
   tip: ViewStyle;
   tipText: TextStyle;
@@ -44,6 +45,9 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
       lineHeight: 36,
       color: theme.colors.text.primary,
       marginBottom: 32
+    },
+    textContainer: {
+      marginTop: 8
     },
     text: {
       fontSize: theme.fontSize.large,
@@ -132,7 +136,10 @@ const Onboarding = (props: OnboardingProps) => {
   return (
     <View style={styleSheet.container}>
       <Html style={styleSheet.title}>{translations.appReview.presentation.title}</Html>
-      <Html style={styleSheet.text}>{translations.appReview.presentation.text}</Html>
+
+      <View style={styleSheet.textContainer}>
+        <Html style={styleSheet.text}>{translations.appReview.presentation.text}</Html>
+      </View>
 
       <View style={styleSheet.tips}>
         <Tip Icon={TargetIcon} text={translations.appReview.presentation.labelList.skills.text} />
