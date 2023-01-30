@@ -7,7 +7,7 @@ export default {
       {
         label: 'Generic playlists',
         options: [
-          {name: 'Onboarding', value: 'Onboarding', selected: true},
+          {name: 'Onboarding', value: 'ref_1234', selected: true},
           {name: 'Re-energize yourself', value: 'Re-energize yourself', selected: false}
         ]
       },

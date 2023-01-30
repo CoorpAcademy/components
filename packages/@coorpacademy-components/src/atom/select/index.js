@@ -118,7 +118,7 @@ const Select = (props, legacyContext) => {
     () =>
       multiple
         ? map(get('name'), filter({selected: true}, options))
-        : get('value', find({selected: true}, concat(options, flatMapDeep('options', optgroups)))),
+        : get('name', find({selected: true}, concat(options, flatMapDeep('options', optgroups)))),
     [multiple, options, optgroups]
   );
 
