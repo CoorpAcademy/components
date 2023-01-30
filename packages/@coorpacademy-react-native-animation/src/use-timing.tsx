@@ -41,7 +41,10 @@ const useTiming = (params: AnimationParams): Timing => {
   const reset = () => ref.setValue(fromValue);
   const start = (cb?: Animated.EndCallback) => {
     reset();
-    timing.start(cb);
+    timing.start((result: Animated.EndResult) => {
+      onComplete?.();
+      return cb?.(result);
+    });
   };
 
   const animation = {
