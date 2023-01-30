@@ -74,6 +74,7 @@
   "Video Loading Error": "Video laadimisel esines viga, palun proovige uuesti.",
   "Wait_creation": "Platvormi luuakse. See võib võtta mõne hetke. Palun oodake...",
   "Write something here": "Kirjuta siia midagi",
+  "comment_aria_label": "lisa oma kommentaar",
   "zuora_discount_code_submit": "Rakenda",
   "zuora_discount_code": "Promo code",
   "mandatory_fields": "*Kohustuslikud väljad",
