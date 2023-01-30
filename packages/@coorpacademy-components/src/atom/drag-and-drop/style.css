@@ -20,6 +20,8 @@
   font-family: "Gilroy";
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .disabled {
@@ -53,6 +55,7 @@
   width: 100%;
   height: 80%;
   border: none;
+  display: flex;
   border-radius: 7px;
   background: cm_grey_50;
 }
@@ -68,8 +71,8 @@
   height: 100%;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   background-clip: content-box;
   border-radius: 19px;
   background-color: white;
@@ -145,6 +148,8 @@
   background-color: cm_grey_50;
   border-radius: 3px;
   display: flex;
+  flex-wrap: nowrap;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
   margin-top: 16px;
@@ -155,12 +160,16 @@
 
 .resetSrcLabel {
   color: cm_grey_700;
-  display: inline-block;
   /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
   direction: rtl;
+  flex: 1;
+  white-space: nowrap;
   text-align: left;
+  display: flex;
+  min-width: 0;
+  flex-wrap: nowrap;
   max-width: 90%;
 }
 
@@ -242,7 +251,7 @@
 }
 
 .loaderWrapper:hover .loadingCancel {
-  display: block;
+  display: flex;
 }
 
 .loaderWrapper:hover {
