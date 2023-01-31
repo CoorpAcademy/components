@@ -7,8 +7,8 @@ export default {
       {
         label: 'Generic playlists',
         options: [
-          {name: 'Onboarding', value: 'Onboarding', selected: true},
-          {name: 'Re-energize yourself', value: 'Re-energize yourself', selected: false}
+          {name: 'Onboarding', value: 'ref_1234', selected: true},
+          {name: 'Re-energize yourself', value: 'ref_5678', selected: false}
         ]
       },
       {
@@ -16,10 +16,10 @@ export default {
         options: [
           {
             name: 'All about Cybersecurity',
-            value: 'All about Cybersecurity',
+            value: 'ref_9123',
             selected: false
           },
-          {name: 'People Development', value: 'People Development', selected: false}
+          {name: 'People Development', value: 'ref_4567', selected: false}
         ]
       }
     ],
