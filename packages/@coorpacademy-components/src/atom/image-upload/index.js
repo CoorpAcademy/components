@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {join, map, pipe, isNil} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
 import {ImagePropType} from '../../util/proptypes';
+import Link from '../button-link'
 import style from './style.css';
 
 const ImageUpload = ({
@@ -18,10 +19,13 @@ const ImageUpload = ({
   onReset = null,
   name,
   // See ImagePropType for accepted values
+  labelLink = '',
+  labelButtonLink = '',
+  hrefLink = '',
   imageTypes = ['*'],
   error = '',
-  buttonAriaLabel,
-  errorButtonLabel
+  buttonAriaLabel ='',
+  errorButtonLabel= ''
 }) => {
   const handleReset = useCallback(
     e => {
@@ -36,9 +40,10 @@ const ImageUpload = ({
     map(t => `image/${t}`),
     join(',')
   )(imageTypes);
-
+  
   return (
-    <DragAndDrop
+    <div>
+     <DragAndDrop
       title={title}
       description={description}
       previewLabel={previewLabel}
@@ -53,7 +58,6 @@ const ImageUpload = ({
       errorButtonLabel={errorButtonLabel}
     >
       {(onDragStart, onDragStop) => (
-        <div>
           <input
             type="file"
             name={name}
@@ -65,9 +69,14 @@ const ImageUpload = ({
             onDrop={onDragStop}
             onDragLeave={onDragStop}
           />
-        </div>
       )}
     </DragAndDrop>
+    {labelLink && hrefLink ? <div className={style.templateLink}>
+           {labelLink}
+            <Link type="text" customStyle={{width: '40px', color: 'red'}} link={{href: hrefLink, download: true}} label={labelButtonLink}></Link>
+          </div>: null}
+    </div>
+
   );
 };
 
@@ -79,7 +88,9 @@ ImageUpload.propTypes = {
   imageTypes: PropTypes.arrayOf(ImagePropType),
   error: PropTypes.string,
   buttonAriaLabel: PropTypes.string,
-  errorButtonLabel: PropTypes.string
+  errorButtonLabel: PropTypes.string,
+  labelLink: PropTypes.string,
+  hrefLink: PropTypes.string,
 };
 
 export default ImageUpload;

@@ -41,3 +41,9 @@
     line-height: 20px;
     color: cm_grey_400;
 }
+
+
+.smallSubtitleFormGroup{
+    composes: subtitleFormGroup;
+    max-width: 450px
+}

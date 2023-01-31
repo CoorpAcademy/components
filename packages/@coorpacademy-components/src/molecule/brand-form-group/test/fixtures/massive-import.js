@@ -4,6 +4,7 @@ export default {
     title: 'Massive Import',
     subtitle:
       'Both files (csv & zip) are required for bulk upload and must match each other (the csv contains the metadata of the content in the zip)',
+    subtitleSize: 'small',
     fields: [
       {
         uploadLabel: 'Browse',
@@ -11,7 +12,8 @@ export default {
         onChange: () => true,
         title: 'Upload ZIP',
         // childType: 'drag-and-drop-wrapper',
-        type: 'image'
+        type: 'image',
+        buttonAriaLabel: 'Browse file to upload Bulk ZIP'
       },
       {
         uploadLabel: 'Browse',
@@ -19,7 +21,11 @@ export default {
         onChange: () => true,
         title: 'Upload CSV',
         // childType: 'drag-and-drop-wrapper',
-        type: 'image'
+        type: 'image',
+        buttonAriaLabel: 'Browse file to upload CSV Bulk Metadata',
+        labelButtonLink: 'here',
+        labelLink: 'Need the template? Download it',
+        hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx',
       }
     ],
     fieldsLayout: 'grid'
