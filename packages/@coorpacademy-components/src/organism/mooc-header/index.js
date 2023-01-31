@@ -9,8 +9,8 @@ import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
-  NovaCompositionCoorpacademyPlacesHome24 as CogIcon,
-  NovaSolidPlacesPlacesHome2 as HomeIcon,
+  NovaCompositionCoorpacademyCog as CogIcon,
+  NovaCompositionCoorpacademyPlacesHome24 as HomeIcon,
   NovaSolidTimeAlarm as AlarmIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
