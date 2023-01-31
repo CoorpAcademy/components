@@ -76,7 +76,9 @@ const Answer = props => {
   return (
     <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
-      <Switch model={model} help={help} />
+      <form>
+        <Switch model={model} help={help} />
+      </form>
     </div>
   );
 };
