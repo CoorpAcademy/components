@@ -217,6 +217,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/pencil-write.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/places-home-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/places-home-2.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/places-home-24.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/programming-jigsaw.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/redo.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/rewards-badge-1.svg')},
