@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {join, map, pipe, isNil} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
 import {ImagePropType} from '../../util/proptypes';
-import Link from '../button-link'
+import Link from '../button-link';
 import style from './style.css';
 
 const ImageUpload = ({
@@ -19,13 +19,13 @@ const ImageUpload = ({
   onReset = null,
   name,
   // See ImagePropType for accepted values
-  labelLink = '',
-  labelButtonLink = '',
-  hrefLink = '',
+  labelLink,
+  labelButtonLink,
+  hrefLink,
   imageTypes = ['*'],
   error = '',
-  buttonAriaLabel ='',
-  errorButtonLabel= ''
+  buttonAriaLabel,
+  errorButtonLabel
 }) => {
   const handleReset = useCallback(
     e => {
@@ -40,24 +40,29 @@ const ImageUpload = ({
     map(t => `image/${t}`),
     join(',')
   )(imageTypes);
-  
+
+  const linkCustomStyle = {
+    width: '40px',
+    color: 'red'
+  };
+
   return (
     <div>
-     <DragAndDrop
-      title={title}
-      description={description}
-      previewLabel={previewLabel}
-      previewContent={previewContent}
-      uploadLabel={uploadLabel}
-      loading={loading}
-      modified={modified}
-      onReset={handleReset}
-      error={error}
-      disabled={disabled}
-      buttonAriaLabel={buttonAriaLabel}
-      errorButtonLabel={errorButtonLabel}
-    >
-      {(onDragStart, onDragStop) => (
+      <DragAndDrop
+        title={title}
+        description={description}
+        previewLabel={previewLabel}
+        previewContent={previewContent}
+        uploadLabel={uploadLabel}
+        loading={loading}
+        modified={modified}
+        onReset={handleReset}
+        error={error}
+        disabled={disabled}
+        buttonAriaLabel={buttonAriaLabel}
+        errorButtonLabel={errorButtonLabel}
+      >
+        {(onDragStart, onDragStop) => (
           <input
             type="file"
             name={name}
@@ -69,12 +74,12 @@ const ImageUpload = ({
             onDrop={onDragStop}
             onDragLeave={onDragStop}
           />
-      )}
-    </DragAndDrop>
-    {labelLink && hrefLink ? <div className={style.templateLink}>
-           {labelLink}
-            <Link type="text" customStyle={{width: '40px', color: 'red'}} link={{href: hrefLink, download: true}} label={labelButtonLink}></Link>
-          </div>: null}
+        )}
+      </DragAndDrop>
+      {labelLink && hrefLink ? <div className={style.templateLink}>
+        {labelLink}
+        <Link type="text" customStyle={linkCustomStyle} link={{ href: hrefLink, download: true }} label={labelButtonLink}></Link>
+      </div> : null}
     </div>
 
   );

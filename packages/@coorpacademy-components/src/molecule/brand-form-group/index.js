@@ -104,7 +104,7 @@ const BrandFormGroup = props => {
     fieldsLayout = '',
     groupLayout = '',
     fields = [],
-    subtitleSize = 'small'
+    subtitleSize = 'standard'
   } = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
 

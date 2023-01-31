@@ -1,4 +1,3 @@
-// import DragDrop from '../../../drag-and-drop-wrapper/test/fixtures/default';
 export default {
   props: {
     title: 'Massive Import',
@@ -11,7 +10,6 @@ export default {
         description: 'ZIP',
         onChange: () => true,
         title: 'Upload ZIP',
-        // childType: 'drag-and-drop-wrapper',
         type: 'image',
         buttonAriaLabel: 'Browse file to upload Bulk ZIP'
       },
@@ -20,12 +18,11 @@ export default {
         description: 'CSV',
         onChange: () => true,
         title: 'Upload CSV',
-        // childType: 'drag-and-drop-wrapper',
         type: 'image',
         buttonAriaLabel: 'Browse file to upload CSV Bulk Metadata',
         labelButtonLink: 'here',
         labelLink: 'Need the template? Download it',
-        hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx',
+        hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx'
       }
     ],
     fieldsLayout: 'grid'
