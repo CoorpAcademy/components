@@ -647,10 +647,11 @@ class MoocHeader extends React.Component {
               href={logo.href}
               onKeyDown={this.handleKeyPress}
               tabIndex={0}
+              data-testid="brand-logo"
             >
               <Picture src={logoUrl} alt={logoAriaLabel} />
               {isToolTipOpen ? (
-                <div aria-label={toolTipText} tabIndex={0}>
+                <div aria-label={toolTipText} tabIndex={0} data-testid="home-tooltip">
                   <div
                     aria-label={`${toolTipText} ${closeToolTipInformationTextAriaLabel}`}
                     role="tooltip"
