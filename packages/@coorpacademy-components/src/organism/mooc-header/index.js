@@ -9,7 +9,7 @@ import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
-  NovaCompositionCoorpacademyCog as CogIcon,
+  NovaCompositionCoorpacademyPlacesHome24 as CogIcon,
   NovaSolidPlacesPlacesHome2 as HomeIcon,
   NovaSolidTimeAlarm as AlarmIcon
 } from '@coorpacademy/nova-icons';
