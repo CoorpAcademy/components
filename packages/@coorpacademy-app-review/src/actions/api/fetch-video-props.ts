@@ -39,6 +39,7 @@ export const fetchPropsVideo =
   ): Promise<void> => {
     const state = getState();
     const slideFromAPI = get(['data', 'slides', slideId], state);
+    console.log('fetchPropsVideo', {slideId, slideFromAPI});
     if (!slideFromAPI) {
       return;
     }
@@ -54,6 +55,8 @@ export const fetchPropsVideo =
       const props = await appendVideoOptions(slideMedia);
       props.src[0].loading = false; // set to false to not show it until the next slide is unstack
       props.src[0].type = 'video';
+
+      console.log('fetchPropsVideo', {slideId, props});
       dispatch(
         setVideoProps({
           slideId,

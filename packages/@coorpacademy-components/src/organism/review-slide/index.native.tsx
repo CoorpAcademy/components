@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+
 import {
   Animated,
   Easing,
@@ -12,21 +13,35 @@ import {
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {useTranslateY} from '@coorpacademy/react-native-animation';
+import {Config} from 'react-native-jw-media-player';
 import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
+import {TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from '../../molecule/answer/prop-types';
+import Video from '../../molecule/video-player/index.native';
+import {Media} from '../../molecule/questions/types';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
   correctionPopinWrapper: {
-    position: 'absolute',
     bottom: 16,
     width: '105%'
   }
 });
+
+const MediaView = ({media}: {media: Media}) => {
+  switch (media.type) {
+    case TYPE_VIDEO:
+      return <Video media={media} />;
+    case TYPE_IMAGE:
+    case TYPE_AUDIO:
+    default:
+      return <Text>{`media type ${media.type} is not handled`}</Text>;
+  }
+};
 
 const CorrectionPopin = ({
   correctionPopinProps,
@@ -147,6 +162,7 @@ const Question = (props: QuestionProps) => {
         <Text style={style.questionText}>{questionText}</Text>
         <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
       </View>
+      {answerUI.media ? <MediaView media={answerUI.media} /> : null}
       <ScrollView
         style={style.choicesScrollView}
         contentContainerStyle={style.choicesScrollContent}

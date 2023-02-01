@@ -1,3 +1,5 @@
+import {Media} from '@coorpacademy/components/es/molecule/questions/types';
+
 export type Choice = {
   order?: number;
   selected: boolean;
@@ -93,7 +95,7 @@ export type Template = {
 export type AnswerUI = {
   model: QcmDrag | Qcm | QcmGraphic | FreeText | DropDown | QuestionRange | Template;
   help: string;
-  media?: unknown;
+  media?: Media;
 };
 
 export type SlideUIAnimations = 'unstack' | 'restack';

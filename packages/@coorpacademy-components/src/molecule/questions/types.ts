@@ -1,3 +1,4 @@
+import {Config} from 'react-native-jw-media-player';
 import {ChoiceItem} from '../../atom/select-modal/index.native';
 
 type Url = string;
@@ -32,6 +33,9 @@ export type Media = {
   loading?: boolean;
   mimeType?: ResourceMimeType;
   _id?: string;
+  jwpOptions?: {
+    config?: Config;
+  };
   mediaUrl?: Url;
   url?: Url;
   subtitles?: Array<string>;
