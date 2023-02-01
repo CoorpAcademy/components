@@ -76,7 +76,6 @@ const ImageUpload = ({
           />
         )}
       </DragAndDrop>
-      (
       {labelLink && hrefLink ? (
         <div className={style.templateLink}>
           {labelLink}
@@ -88,7 +87,6 @@ const ImageUpload = ({
           />
         </div>
       ) : null}
-      )
     </div>
   );
 };

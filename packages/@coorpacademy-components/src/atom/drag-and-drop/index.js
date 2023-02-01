@@ -110,7 +110,7 @@ class DragAndDrop extends React.Component {
         </div>
       );
     } else {
-      previewView = <div>{previewLabel}</div>;
+      previewView = <span>{previewLabel}</span>;
     }
 
     const resetContent =
