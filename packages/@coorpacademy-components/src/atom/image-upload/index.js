@@ -76,12 +76,20 @@ const ImageUpload = ({
           />
         )}
       </DragAndDrop>
-      {labelLink && hrefLink ? <div className={style.templateLink}>
-        {labelLink}
-        <Link type="text" customStyle={linkCustomStyle} link={{ href: hrefLink, download: true }} label={labelButtonLink}></Link>
-      </div> : null}
+      (
+      {labelLink && hrefLink ? (
+        <div className={style.templateLink}>
+          {labelLink}
+          <Link
+            type="text"
+            customStyle={linkCustomStyle}
+            link={{href: hrefLink, download: true}}
+            label={labelButtonLink}
+          />
+        </div>
+      ) : null}
+      )
     </div>
-
   );
 };
 
@@ -95,7 +103,7 @@ ImageUpload.propTypes = {
   buttonAriaLabel: PropTypes.string,
   errorButtonLabel: PropTypes.string,
   labelLink: PropTypes.string,
-  hrefLink: PropTypes.string,
+  hrefLink: PropTypes.string
 };
 
 export default ImageUpload;
