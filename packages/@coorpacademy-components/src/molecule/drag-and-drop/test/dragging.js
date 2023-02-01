@@ -5,7 +5,7 @@ import {mount, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {replace} from 'lodash/fp';
 import {Overlay} from '../overlay';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+import style from '../style.css';
 import DragDrop from '..';
 import Default from './fixtures/default';
 

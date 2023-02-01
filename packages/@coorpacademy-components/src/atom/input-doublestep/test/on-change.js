@@ -4,7 +4,7 @@ import forEach from 'lodash/fp/forEach';
 import replace from 'lodash/fp/replace';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+import style from '../style.css';
 import InputDoubleStep from '..';
 import inputConfirmFixture from './fixtures/input-confirm';
 

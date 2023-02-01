@@ -5,7 +5,7 @@ import {fireEvent} from '@testing-library/react';
 import forEach from 'lodash/fp/forEach';
 import replace from 'lodash/fp/replace';
 import {renderWithContext} from '../../../util/render-with-context';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+import style from '../style.css';
 import Clue from '..';
 import defaultFixture from './fixtures/default';
 
