@@ -16,7 +16,7 @@ import {
   NovaCompositionCoorpacademyMicrophone as PodcastIcon,
   NovaCompositionCoorpacademyRevision as RevisionIcon
 } from '@coorpacademy/nova-icons';
-import Provider, {GetSkinFromContext} from '../../atom/provider';
+import Provider, {GetSkinFromContext, GetTranslateFromContext} from '../../atom/provider';
 import ToolTip, {toggleStateOnKeyPress} from '../../atom/tooltip';
 import Link from '../../atom/link';
 import style from './engine-stars.css';
@@ -71,6 +71,7 @@ ToolTipContent.propTypes = {
 
 const EngineStars = (props, legacyContext) => {
   const skin = GetSkinFromContext(legacyContext);
+  const translate = GetTranslateFromContext(legacyContext);
   const {
     toolTip = null,
     disabled,
@@ -136,9 +137,9 @@ const EngineStars = (props, legacyContext) => {
   );
 
   const toolTipProps = {
-    'aria-label': '',
-    'data-testid': '',
-    closeToolTipInformationTextAriaLabel: ''
+    closeToolTipInformationTextAriaLabel: translate(
+      'Press the escape key to close the information text'
+    )
   };
 
   const TooltipContent = useCallback(

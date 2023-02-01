@@ -71,6 +71,7 @@
   color: cm_grey_500;
 }
 
+/* ----------------------- ReactToolTip exclusive classes ------------------------- */
 .toolTipReact {
   pointer-events: all !important;
   background-color: cm_grey_700;
@@ -78,4 +79,18 @@
   visibility: visible !important;
   opacity: 1 !important;
   left: 5px;
+}
+
+/* for keyboard navigation, the position can't be obtained from the mouse */
+[class*="__react_component_tooltip"]:not(.toolTipReact) {
+  border-radius: 7px !important;
+  top: 97px!important;
+  left: 628px!important;
+  visibility: visible !important;
+  opacity: 1!important;
+}
+
+/* same reason, arrow can't be placed effectively */
+[class*="__react_component_tooltip"]:not(.toolTipReact)::after {
+  content: none !important;
 }

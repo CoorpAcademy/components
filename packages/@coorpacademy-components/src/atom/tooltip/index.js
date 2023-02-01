@@ -13,18 +13,12 @@ const ToolTipWrapper = ({
 }) => {
   if (!toolTipIsVisible) return null;
   if (anchorId) {
-    // const element = document.getElementById('anchorId');
-    // const element = document.getElementById('anchorId');
-    // element.style.left = "100px";
-    // element.style.top = "200px";
     return (
       <ReactTooltip
         id={anchorId}
-        // anchorId={anchorId}
         className={style.toolTipReact}
         data-event-off="click"
         place="left"
-        // delayHide={500}
         effect="solid"
         aria-label={closeToolTipInformationTextAriaLabel}
       >
@@ -62,7 +56,6 @@ export const toggleStateOnKeyPress = (state, setState, ref) => event => {
   }
 };
 
-// expose hooks for events
 const ToolTip = ({
   anchorId,
   TooltipContent,
