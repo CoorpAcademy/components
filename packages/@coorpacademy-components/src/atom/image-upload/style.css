@@ -10,3 +10,10 @@
   bottom: 0;
   right: 0;
 }
+
+.templateLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 8px;
+}

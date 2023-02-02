@@ -98,7 +98,14 @@ const buildField = (field, index) => {
 };
 
 const BrandFormGroup = props => {
-  const {title, subtitle = '', fieldsLayout = '', groupLayout = '', fields = []} = props;
+  const {
+    title,
+    subtitle = '',
+    fieldsLayout = '',
+    groupLayout = '',
+    fields = [],
+    subtitleSize = 'standard'
+  } = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return (
@@ -107,7 +114,7 @@ const BrandFormGroup = props => {
       className={classNames(style.wrapper, groupLayout === 'grid' && style.groupGrid)}
     >
       <div className={style.titleWrapper}>
-        <Title title={title} subtitle={subtitle} type={'form-group'} />
+        <Title title={title} subtitle={subtitle} subtitleSize={subtitleSize} type={'form-group'} />
       </div>
       <div className={fieldsLayout === 'grid' ? style.grid : null}>{fieldsList}</div>
     </div>
@@ -117,6 +124,7 @@ const BrandFormGroup = props => {
 BrandFormGroup.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  subtitleSize: PropTypes.string,
   fieldsLayout: PropTypes.string,
   groupLayout: PropTypes.string,
   fields: PropTypes.arrayOf(

@@ -121,7 +121,8 @@
       },
       "rules": {
         "no-console": "off",
-        "react/jsx-no-bind": "off"
+        "react/jsx-no-bind": "off",
+        "css-modules/no-unused-class": "off"
       }
     },
     {

@@ -6,7 +6,6 @@ import {set} from 'lodash/fp';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import SetupSections from '..';
-// eslint-disable-next-line css-modules/no-unused-class
 import style from '../../draggable/style.css';
 import fixtures from './fixtures/dashboard-sections';
 

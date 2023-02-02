@@ -4,7 +4,7 @@ import {replace} from 'lodash/fp';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+import style from '../style.css';
 import Authors from '..';
 import authorFixture from './fixtures/default';
 

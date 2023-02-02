@@ -18,10 +18,10 @@
 
 .wrapper {
   font-family: "Gilroy";
-  max-height: 350px;
-  max-width: 460px;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .disabled {
@@ -55,6 +55,7 @@
   width: 100%;
   height: 80%;
   border: none;
+  display: flex;
   border-radius: 7px;
   background: cm_grey_50;
 }
@@ -96,7 +97,6 @@
 .inputWrapper {
   background: cm_grey_50;
   width: 100%;
-  height: 80%;
   box-sizing: border-box;
   border-radius: 7px;
   position: relative;
@@ -147,23 +147,26 @@
   background-color: cm_grey_50;
   border-radius: 3px;
   display: flex;
+  flex-wrap: nowrap;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
   margin-top: 16px;
   padding: 4px 8px;
   font-size: 12px;
   font-weight: 400;
+  position: relative;
 }
 
 .resetSrcLabel {
   color: cm_grey_700;
-  display: inline-block;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  direction: rtl;
-  text-align: left;
-  max-width: 90%;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  position: absolute;
+  left: 0;
+  right: 15px;
 }
 
 .closeIcon {
@@ -172,6 +175,8 @@
   margin-left: 6px;
   height: 15px;
   width: 15px;
+  position: absolute;
+  right: 0;
 }
 
 .dragging {
@@ -244,7 +249,7 @@
 }
 
 .loaderWrapper:hover .loadingCancel {
-  display: block;
+  display: flex;
 }
 
 .loaderWrapper:hover {
