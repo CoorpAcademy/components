@@ -90,7 +90,7 @@ const StarsSummary = (props, legacyContext) => {
         data-testid="stars-summary-left-arrow"
         type="button"
       >
-        <ArrowLeft color={dark} className={style.left} width={10} height={10} />
+        <ArrowLeft style={{color: dark}} className={style.left} width={10} height={10} />
       </button>
     ) : null;
 
@@ -102,7 +102,7 @@ const StarsSummary = (props, legacyContext) => {
         data-name="right-arrow"
         data-testid="stars-summary-right-arrow"
       >
-        <ArrowRight color={dark} className={style.right} width={10} height={10} />
+        <ArrowRight style={{color: dark}} className={style.right} width={10} height={10} />
       </div>
     ) : null;
 
@@ -132,7 +132,7 @@ const StarsSummary = (props, legacyContext) => {
             <span>{total.label}</span>
             <p data-name="star-counter">{total.stars}</p>
             <div className={style.iconBubble}>
-              <StarIcon className={style.iconHeader} color={primary} />
+              <StarIcon className={style.iconHeader} style={{color: primary}} />
             </div>
           </div>
           <div className={style.navigationLeft}>{leftArrowView}</div>

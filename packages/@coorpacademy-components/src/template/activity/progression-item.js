@@ -86,7 +86,7 @@ const ProgressionItem = (props, context) => {
   return (
     <div className={classnames(style.progressionItem, disabled ? style.disabled : '')}>
       <div className={style.wrapperTitle}>
-        <IconType className={style.iconType} color={dark} />
+        <IconType className={style.iconType} style={{color: dark}} />
         <div data-name="activityLabel" className={style.label} title={label}>
           <div
             className={style.innerHTML}
