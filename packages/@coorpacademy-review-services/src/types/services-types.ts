@@ -175,7 +175,11 @@ export type Services = {
     answer: string[]
   ): Promise<CorrectionFromAPI | void>;
   fetchRank(token: string): Promise<Rank>;
-  fetchSlidesToReviewBySkillRef(token: string, skillRef: string): Promise<SlideIdFromAPI[]>;
+  fetchSlidesToReviewBySkillRef(
+    token: string,
+    skillRef: string,
+    limit: number
+  ): Promise<SlideIdFromAPI[]>;
 };
 
 export type ReviewEngine = {

@@ -6,11 +6,12 @@ import {toJSON} from './tools/fetch-responses';
 
 export const fetchSlidesToReviewBySkillRef = async (
   token: string,
-  skillRef: string
+  skillRef: string,
+  limit: number
 ): Promise<SlideIdFromAPI[]> => {
   const {user: userId, host}: JWT = decode(token);
   const response = await crossFetch(
-    `${host}/api/v2/skills/${skillRef}/review/user/${userId}/slide`,
+    `${host}/api/v2/skills/${skillRef}/review/user/${userId}/slide?limit=${limit}`,
     {
       headers: {authorization: token}
     }
