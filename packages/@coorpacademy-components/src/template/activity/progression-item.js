@@ -62,7 +62,7 @@ const ProgressionItem = (props, context) => {
         backgroundColor: primary
       }}
     >
-      <AdaptiveIcon color={white} height={14} aria-label={adaptiveAriaLabel} />
+      <AdaptiveIcon style={{color: white}} height={14} aria-label={adaptiveAriaLabel} />
     </div>
   ) : null;
 
@@ -78,7 +78,7 @@ const ProgressionItem = (props, context) => {
   const link = disabled ? null : (
     <Link style={{color: primary}} onClick={handleCTAClick} data-progression-state={state}>
       <span className={style.cta}>
-        {state} <ArrowRightIcon color={primary} height={12} width={20} />
+        {state} <ArrowRightIcon style={{color: primary}} height={12} width={20} />
       </span>
     </Link>
   );
@@ -106,7 +106,7 @@ const ProgressionItem = (props, context) => {
           {stars}
           {maxStars ? ' /' : null}
           {maxStars ? <span className={style.smallStars}>{maxStars}</span> : null}{' '}
-          <StarIcon className={style.iconStar} color={primary} />
+          <StarIcon className={style.iconStar} style={{color: primary}} />
         </div>
       </div>
       <ProgressBar
