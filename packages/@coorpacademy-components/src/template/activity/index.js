@@ -1,6 +1,8 @@
 import React, {useCallback} from 'react';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
+import noop from 'lodash/fp/noop';
 import omit from 'lodash/fp/omit';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -12,6 +14,8 @@ import ProgressionItem from './progression-item';
 import EngineStars from './engine-stars';
 import StarsSummary from './stars-summary';
 import style from './style.css';
+
+const mapWithIndex = map.convert({cap: false});
 
 const Progression = (props, legacyContext) => {
   const {
@@ -32,8 +36,8 @@ const Progression = (props, legacyContext) => {
     e => {
       e.stopPropagation();
       e.preventDefault();
-      const {onClick} = recommendation;
-      onClick && onClick(e);
+      const {onClick = noop} = recommendation;
+      onClick(e);
     },
     [recommendation]
   );
@@ -51,13 +55,16 @@ const Progression = (props, legacyContext) => {
       <Loader />
     </div>
   ) : null;
-  const allProgressions = progressions.map(progression => (
-    <ProgressionItem
-      {...omit(['ref'], progression)}
-      key={progression.ref}
-      adaptiveAriaLabel={adaptiveAriaLabel}
-    />
-  ));
+  const allProgressions = mapWithIndex(
+    (progression, index) => (
+      <ProgressionItem
+        {...omit(['ref'], progression)}
+        key={`${index}-${progression.ref}`}
+        adaptiveAriaLabel={adaptiveAriaLabel}
+      />
+    ),
+    progressions
+  );
 
   const coreProgression = (
     <div data-name="activityCore" className={style.core}>
@@ -98,12 +105,12 @@ const Progression = (props, legacyContext) => {
 
   return (
     <div className={style.default}>
-      <div data-name="activity-header">
-        <div className={style.mainTitle}>
+      <div data-name="activity-header" tabIndex={0}>
+        <div className={style.mainTitle} tabIndex={0}>
           <span>{mainTitle}</span> {mainSubtitle}
         </div>
-        <div className={style.headerProgression}>
-          <div className={style.wrapperCta}>
+        <div className={style.headerProgression} tabIndex={0}>
+          <div className={style.wrapperCta} tabIndex={0}>
             {themeSelect}
             {recommendationSection}
           </div>

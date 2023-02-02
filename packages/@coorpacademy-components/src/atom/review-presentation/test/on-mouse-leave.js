@@ -10,7 +10,7 @@ browserEnv();
 test.after(cleanup);
 
 test('should hide toolTip depending on mouse leave event', t => {
-  const toolTipTestId = '[data-testid="review-presentation-tooltip"]';
+  const toolTipTestId = '[data-testid="tooltip"]';
   const {container} = render(<ReviewPresentation {...defaultFixture.props} />);
   const skillsDiv = container.querySelector(
     '[data-testid="review-list-item-tooltip-button-skills"]'

@@ -22,6 +22,7 @@ const EngineTab = ({engine, engineIndex, firstItemIndex}) => {
     <li className={style[state]} key={type} data-name={dataName}>
       <EngineStars
         {...engine}
+        key={type}
         className={engineIndex < firstItemIndex ? style.hidden : style.active}
       />
     </li>
@@ -82,14 +83,15 @@ const StarsSummary = (props, legacyContext) => {
 
   const leftArrowView =
     totalItems > 6 && firstItemIndex > 0 ? (
-      <div
+      <button
         className={style.circle}
         onClick={handleOnLeft}
         data-name="left-arrow"
         data-testid="stars-summary-left-arrow"
+        type="button"
       >
         <ArrowLeft color={dark} className={style.left} width={10} height={10} />
-      </div>
+      </button>
     ) : null;
 
   const rightArrowView =
@@ -105,16 +107,18 @@ const StarsSummary = (props, legacyContext) => {
     ) : null;
 
   return (
-    <div data-name="myStars" className={style.myStars}>
+    <div data-name="myStars" className={style.myStars} tabIndex={0}>
       <div
         data-name="myStars-wrapper"
         className={style.myStarsWrapper}
         data-testid={`stars-summary-engine-index-${firstItemIndex}`}
+        tabIndex={0}
       >
         <ul
           className={style.allStars}
           data-name="engineList"
           data-testid="stars-summary-engine-tabs"
+          tabIndex={0}
         >
           <EngineTabs engines={engines} firstItemIndex={firstItemIndex} />
         </ul>
