@@ -97,10 +97,7 @@ const Part = ({
           <div className={style.header} data-type={iconType} onClick={onClick}>
             <div data-name="title" className={style.title}>
               {Icon ? (
-                <Icon
-                  className={classnames(style.titleIcon, iconColor, hoverIconColor)}
-                  color="inherit"
-                />
+                <Icon className={classnames(style.titleIcon, iconColor, hoverIconColor)} />
               ) : null}
               <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>
                 {title}

@@ -193,6 +193,7 @@
   width: 12px;
   height: 12px;
   margin-left: 0.25em;
+  color: inherit;
 }
 
 .iconShadow {

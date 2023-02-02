@@ -7,7 +7,7 @@ import style from './microlearning.css';
 
 const Content = ({onClick, title}, context) => (
   <Link onClick={onClick} className={style.content}>
-    <BackIcon className={style.backIcon} color="inherit" />
+    <BackIcon className={style.backIcon} />
     <div
       data-name="contentTitle"
       className={classnames(style.contentTitle, style.innerHTML)}

@@ -18,7 +18,7 @@ const LearnerHeaderWrapper = props => {
     );
   return (
     <Link onClick={onClick} className={style.contentWrapper}>
-      <BackIcon className={style.backIcon} color="inherit" />
+      <BackIcon className={style.backIcon} />
       {children}
     </Link>
   );

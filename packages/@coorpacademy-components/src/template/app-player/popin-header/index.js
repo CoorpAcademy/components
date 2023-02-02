@@ -335,7 +335,7 @@ const NextQuestionPart = (props, context) => {
       <div className={style.wrapperNextSection}>
         <div className={style.nextButton}>
           {title}
-          <ArrowRight color="inherit" className={style.nextButtonIcon} />
+          <ArrowRight className={style.nextButtonIcon} />
         </div>
         {nextStep}
       </div>

@@ -23,6 +23,7 @@
 
 .backIcon {
   composes: backIcon from './style.css';
+  color: inherit;
 }
 
 .contentTitle {
