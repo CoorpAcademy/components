@@ -74,7 +74,7 @@ function BrandForm(props, context) {
 
   const backView = back ? (
     <p className={style.back}>
-      <ArrowLeft color={darkColor} className={style.arrowBack} />
+      <ArrowLeft style={{color: darkColor}} className={style.arrowBack} />
       <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>

@@ -88,7 +88,7 @@ const Table = (props, context) => {
           <div className={style.optionsIconWrapper}>
             {hasOptions ? (
               <OptionsIcon
-                color={mediumColor}
+                style={{color: mediumColor}}
                 height={16}
                 width={16}
                 className={style.optionsIcon}
@@ -144,7 +144,7 @@ const Table = (props, context) => {
         // TODO restore dropped support of hoverColor={brandColor}
         <td key="header">
           <Link href={editHref}>
-            <PencilIcon color={mediumColor} height={16} width={16} />
+            <PencilIcon style={{color: mediumColor}} height={16} width={16} />
           </Link>
         </td>
       );

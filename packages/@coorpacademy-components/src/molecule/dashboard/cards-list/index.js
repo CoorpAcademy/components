@@ -61,7 +61,7 @@ const IconView = (props, context) => {
 
   return (
     <div>
-      <IconType color={dark} className={style.icon} data-contenttype={contentType} />
+      <IconType style={{color: dark}} className={style.icon} data-contenttype={contentType} />
     </div>
   );
 };
@@ -294,7 +294,7 @@ class CardsList extends React.PureComponent {
     const leftArrowView = (
       <div className={style.circle} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
         <ArrowLeft
-          color={dark}
+          style={{color: dark}}
           className={style.left}
           width={10}
           height={10}
@@ -305,7 +305,7 @@ class CardsList extends React.PureComponent {
     const rightArrowView = (
       <div className={style.circle} onClick={this.handleOnRight} data-name="card-list-right-arrow">
         <ArrowRight
-          color={dark}
+          style={{color: dark}}
           className={style.right}
           width={10}
           height={10}

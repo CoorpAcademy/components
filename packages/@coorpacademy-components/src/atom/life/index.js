@@ -81,7 +81,7 @@ const Life = (props, context) => {
         <span className={cssStyle.operator}>{operator}</span>
       </div>
       <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
-        <HeartIconOutline className={cssStyle.heartOutline} color={white} />
+        <HeartIconOutline className={cssStyle.heartOutline} style={{color: white}} />
         <HeartIcon
           className={pickStyle(
             cssStyle.heartNormalDefault,
@@ -89,7 +89,7 @@ const Life = (props, context) => {
             cssStyle.heartNormalAnimatedFailed,
             cssStyle.heartNormalRevival
           )}
-          color={negativeColor}
+          style={{color: negativeColor}}
         />
         <HeartBrokenIcon
           className={pickStyle(
@@ -98,7 +98,7 @@ const Life = (props, context) => {
             cssStyle.heartBrokenAnimatedFailed,
             cssStyle.heartBrokenRevival
           )}
-          color={negativeColor}
+          style={{color: negativeColor}}
         />
       </div>
     </div>

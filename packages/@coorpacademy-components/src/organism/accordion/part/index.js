@@ -42,8 +42,8 @@ const AccordionPart = (props, context) => {
           {TitleIcon ? <TitleIcon className={style.titleIcon} color="inherit" /> : null}
           <h3 className={style.titleLabel}>{title}</h3>
         </div>
-        <MoreIcon className={closeIconClassName} color={darkColor} />
-        <LessIcon className={openIconClassName} color={mediumColor} />
+        <MoreIcon className={closeIconClassName} style={{color: darkColor}} />
+        <LessIcon className={openIconClassName} style={{color: mediumColor}} />
       </div>
       {isOpen ? <div className={style.container}>{content}</div> : null}
     </div>

@@ -57,7 +57,7 @@ const AssistanceLink = (props, context) => {
 
   return (
     <div className={style.wrapperAssistance} onClick={onClick}>
-      <AlertIcon className={style.alertIcon} color={white} />
+      <AlertIcon className={style.alertIcon} style={{color: white}} />
       <span className={style.titleLink}> {title} </span>
     </div>
   );

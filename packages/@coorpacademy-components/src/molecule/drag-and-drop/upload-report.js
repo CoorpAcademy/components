@@ -112,7 +112,7 @@ export const UploadReport = ({
       <div className={style.reportHeader} onClick={stopPropagationHandler}>
         <div className={style.iconContainer} style={{backgroundColor: iconColor}}>
           <div className={style.oval}>
-            <IconType className={style.iconHeader} color={iconColor} />
+            <IconType className={style.iconHeader} style={{color: iconColor}} />
           </div>
         </div>
         {fileView}

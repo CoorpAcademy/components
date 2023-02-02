@@ -48,7 +48,7 @@ const DisciplinePartners = (props, context) => {
           }}
         >
           {moreDetails}
-          <ArrowRight color={defaultColor} className={style.linkicon} />
+          <ArrowRight style={{color: defaultColor}} className={style.linkicon} />
         </a>
       </div>
     );

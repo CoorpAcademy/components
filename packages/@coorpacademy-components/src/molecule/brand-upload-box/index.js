@@ -62,7 +62,7 @@ class BrandUploadBox extends React.Component {
           <div className={style.wrapper}>
             <div id={idBox} className={dragging ? style.dropping : style.default}>
               <div className={style.cont}>
-                <UploadIcon color={brandColor} className={style.arrow} />
+                <UploadIcon style={{color: brandColor}} className={style.arrow} />
                 <div className={style.desc}>{description}</div>
                 <span className={style.browse}>{browse}</span>
               </div>
