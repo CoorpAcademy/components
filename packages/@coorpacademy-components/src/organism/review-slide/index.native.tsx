@@ -13,7 +13,6 @@ import {
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {useTranslateY} from '@coorpacademy/react-native-animation';
-import {Config} from 'react-native-jw-media-player';
 import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
@@ -21,7 +20,7 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';
 import Button from '../../atom/button/index.native';
 import {TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from '../../molecule/answer/prop-types';
-import Video from '../../molecule/video-player/index.native';
+import Video from '../../molecule/video-player-mobile/index.native';
 import {Media} from '../../molecule/questions/types';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 

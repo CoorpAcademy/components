@@ -47,7 +47,7 @@ import {
   TextTemplate
 } from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
-import {MediaPropsForPlayer, Translate, VideoPropsForPlayer} from '../../types/common';
+import {MediaPropsForPlayer, Translate} from '../../types/common';
 
 const qcmProps =
   (dispatch: Dispatch) =>
