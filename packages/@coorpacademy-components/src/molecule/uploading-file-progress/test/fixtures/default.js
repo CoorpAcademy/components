@@ -3,7 +3,6 @@ export default {
     mainText: 'Upload in Progress ...',
     subText:
       'continue working (or go for a coffee) while your files are being uploading, you will be notified when it is over. ',
-    // imageUrl: 'https://static.coorpacademy.com/coorpmanager/bulk-empty-home.svg',
     progressionValue: 3,
     leftButtonLink: {
       type: 'secondary',
