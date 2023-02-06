@@ -517,7 +517,7 @@
 }
 
 [role="tooltip"],
-.tooltipIconContainer + [role="tooltip"] {
+.logo .tooltipIconContainer + [role="tooltip"] {
   border: none;
   border-radius: 8px;
   display: flex;
