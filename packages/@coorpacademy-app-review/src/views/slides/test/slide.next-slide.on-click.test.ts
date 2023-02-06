@@ -8,6 +8,7 @@ import {
   appendVideoOptions
 } from '@coorpacademy/review-services-mocks';
 import {isEqual} from 'lodash/fp';
+import {SHOW_BUTTON_REVISING} from '../../../actions/ui/show-button-revising';
 import type {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -20,7 +21,7 @@ import {
 import {translate} from '../../../test/utils/translation.mock';
 import {
   incorrectFreeTextPostAnswerResponse,
-  fetchSlidesToReviewBySkillRefResponse,
+  fetchNewSlidesToReviewBySkillRefResponse,
   postAnswerResponses
 } from '../../../test/fixtures';
 import {sleep} from '../../../test/utils/sleep';
@@ -117,7 +118,7 @@ const checkStatePositionsAndSuccessExitNode = async (
 };
 
 test('correction popin actions after click when progression is finished', async t => {
-  t.plan(7);
+  t.plan(8);
   const state: StoreState = {
     data: {
       progression: postAnswerResponses[templateSlide.universalRef],
@@ -206,8 +207,9 @@ test('correction popin actions after click when progression is finished', async 
     },
     {
       type: SLIDES_TO_REVIEW_FETCH_SUCCESS,
-      payload: fetchSlidesToReviewBySkillRefResponse
+      payload: fetchNewSlidesToReviewBySkillRefResponse
     },
+    {type: SHOW_BUTTON_REVISING},
     {
       type: NEXT_SLIDE,
       payload: {
