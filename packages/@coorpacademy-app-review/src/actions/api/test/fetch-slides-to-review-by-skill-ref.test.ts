@@ -8,7 +8,7 @@ import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS,
   SLIDES_TO_REVIEW_FETCH_FAILURE
 } from '../fetch-slides-to-review-by-skill-ref';
-import {SHOW_REVISING_BUTTON} from '../../ui/show-button-revising';
+import {SHOW_BUTTON_REVISING} from '../../ui/show-button-revising';
 import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';
@@ -137,7 +137,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
   await dispatch(fetchSlidesToReviewBySkillRef);
 });
 
-test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS and SHOW_REVISING_BUTTON actions when fetchSlidesToReviewBySkillRef returns an array of at least 5 new slides id', async t => {
+test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS and SHOW_BUTTON_REVISING actions when fetchSlidesToReviewBySkillRef returns an array of at least 5 new slides id', async t => {
   t.plan(6);
 
   const services: Services = {
@@ -156,7 +156,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS and SHOW_REVISING_BUTTON ac
       type: SLIDES_TO_REVIEW_FETCH_SUCCESS,
       payload: fetchNewSlidesToReviewBySkillRefResponse
     },
-    {type: SHOW_REVISING_BUTTON}
+    {type: SHOW_BUTTON_REVISING}
   ];
 
   const thunkOptions = {services, appendVideoOptions};

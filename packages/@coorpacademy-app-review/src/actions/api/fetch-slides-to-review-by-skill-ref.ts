@@ -6,7 +6,7 @@ import type {Dispatch} from 'redux';
 import type {ProgressionFromAPI, SlideIdFromAPI} from '@coorpacademy/review-services';
 import {Options} from '../../types/common';
 import type {StoreState} from '../../reducers';
-import {showRevisingButton} from '../ui/show-button-revising';
+import {showButtonRevising} from '../ui/show-button-revising';
 
 export const SLIDES_TO_REVIEW_FETCH_REQUEST = '@@slidesToReview/FETCH_REQUEST' as const;
 export const SLIDES_TO_REVIEW_FETCH_SUCCESS = '@@slidesToReview/FETCH_SUCCESS' as const;
@@ -43,7 +43,7 @@ export const fetchSlidesToReviewBySkillRef = async (
     const answeredSlidesRef = get(['data', 'progression', 'state', 'slides'], state);
     const slidesToReview = map(({slideId}) => slideId, response.payload);
     if (difference(slidesToReview, answeredSlidesRef).length >= 5) {
-      dispatch(showRevisingButton);
+      dispatch(showButtonRevising);
     }
   }
 };
