@@ -181,7 +181,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   });
 });
 
-test('should dispatch post-answer, fetch-correction, fetch-end-rank and fetch-slides-to-review-by-skill-ref actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
+test('should dispatch post-answer and fetch-correction actions when the answer is submitted and when the slide ref is "successExitNode"', async t => {
   t.plan(5);
 
   const expectedProgressionAfter: ProgressionFromAPI = {

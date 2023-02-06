@@ -225,19 +225,28 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
 
 const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   {
-    slideId: freeTextSlide._id
+    slideId: sliderSlide._id
   },
   {
     slideId: templateSlide._id
   },
   {
-    slideId: qcmDragSlide._id
+    slideId: 'sli_Vky4XzUwr'
   },
   {
-    slideId: qcmGraphicSlide._id
+    slideId: 'sli_V12AXpOPr'
   },
   {
-    slideId: qcmSlide._id
+    slideId: 'sli_NkX57xMdS'
+  },
+  {
+    slideId: 'sli_EyL7PDfJ8'
+  },
+  {
+    slideId: 'sli_EkOX-xfOr'
+  },
+  {
+    slideId: 'sli_EkOX-xmpT'
   }
 ];
 

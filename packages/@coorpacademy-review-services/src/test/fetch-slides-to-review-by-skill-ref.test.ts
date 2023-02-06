@@ -23,7 +23,7 @@ const result: SlideIdFromAPI[] = [
 
 test.before(() => {
   nock('http://localhost:3000')
-    .get('/api/v2/skills/_skill-ref/review/user/592d830b240b923f00bffba6/slide')
+    .get('/api/v2/skills/_skill-ref/review/user/592d830b240b923f00bffba6/slide?limit=10')
     .reply(200, result);
 });
 
@@ -33,13 +33,15 @@ test.after(() => {
 
 test('should fetch slides id with success', async t => {
   const token = process.env.API_TEST_TOKEN || '';
-  const slidesId = await fetchSlidesToReviewBySkillRef(token, '_skill-ref');
+  const slidesId = await fetchSlidesToReviewBySkillRef(token, '_skill-ref', 10);
   t.deepEqual(result, slidesId);
 });
 
 test('should reject if a bad token is passed', async t => {
   const badToken = 'token is not a jwt';
-  const error = await t.throwsAsync(() => fetchSlidesToReviewBySkillRef(badToken, '_skill-ref'));
+  const error = await t.throwsAsync(() =>
+    fetchSlidesToReviewBySkillRef(badToken, '_skill-ref', 10)
+  );
   t.is(
     error?.message,
     "Invalid token specified: Cannot read properties of undefined (reading 'replace')"
