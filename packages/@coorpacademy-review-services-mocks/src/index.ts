@@ -238,6 +238,21 @@ const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   },
   {
     slideId: qcmSlide._id
+  },
+  {
+    slideId: 'sli_Vky4XzUwr'
+  },
+  {
+    slideId: 'sli_V12AXpOPr'
+  },
+  {
+    slideId: 'sli_NkX57xMdS'
+  },
+  {
+    slideId: 'sli_EyL7PDfJ8'
+  },
+  {
+    slideId: 'sli_EkOX-xfOr'
   }
 ];
 

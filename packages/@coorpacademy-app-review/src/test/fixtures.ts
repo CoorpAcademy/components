@@ -7,7 +7,6 @@ import type {
 import {StoreState} from '../reducers';
 import {freeTextSlide} from '../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../views/slides/test/fixtures/qcm';
-import {qcmDragSlide} from '../views/slides/test/fixtures/qcm-drag';
 import {qcmGraphicSlide} from '../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../views/slides/test/fixtures/slider';
 import {templateSlide} from '../views/slides/test/fixtures/template';
@@ -26,16 +25,43 @@ export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
     slideId: freeTextSlide._id
   },
   {
-    slideId: templateSlide._id
-  },
-  {
-    slideId: qcmDragSlide._id
-  },
-  {
     slideId: qcmGraphicSlide._id
   },
   {
     slideId: qcmSlide._id
+  },
+  {
+    slideId: sliderSlide._id
+  },
+  {
+    slideId: templateSlide._id
+  }
+];
+
+export const fetchNewSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
+  {
+    slideId: sliderSlide._id
+  },
+  {
+    slideId: templateSlide._id
+  },
+  {
+    slideId: 'sli_Vky4XzUwr'
+  },
+  {
+    slideId: 'sli_V12AXpOPr'
+  },
+  {
+    slideId: 'sli_NkX57xMdS'
+  },
+  {
+    slideId: 'sli_EyL7PDfJ8'
+  },
+  {
+    slideId: 'sli_EkOX-xfOr'
+  },
+  {
+    slideId: 'sli_EkOX-xmpT'
   }
 ];
 
