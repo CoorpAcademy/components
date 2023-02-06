@@ -24,13 +24,6 @@ import Video from '../../molecule/video-player-mobile/index.native';
 import {Media} from '../../molecule/questions/types';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
-const styles = StyleSheet.create({
-  correctionPopinWrapper: {
-    bottom: 16,
-    width: '105%'
-  }
-});
-
 const MediaView = ({media}: {media: Media}) => {
   switch (media.type) {
     case TYPE_VIDEO:
@@ -41,6 +34,14 @@ const MediaView = ({media}: {media: Media}) => {
       return <Text>{`media type ${media.type} is not handled`}</Text>;
   }
 };
+
+const styles = StyleSheet.create({
+  correctionPopinWrapper: {
+    position: 'absolute',
+    bottom: 16,
+    width: '105%'
+  }
+});
 
 const CorrectionPopin = ({
   correctionPopinProps,

@@ -12,12 +12,11 @@ const styleSheet = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20,
-    width: '100%'
+    width: '100%',
+    minHeight: 150
   },
   video: {
     flex: 1,
-    backgroundColor: '#f0f',
-    height: 500,
     width: '100%'
   }
 });
