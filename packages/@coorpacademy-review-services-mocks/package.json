@@ -33,6 +33,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
+    "@coorpacademy/components": "11.9.1",
     "@coorpacademy/progression-engine": "11.5.3",
     "@coorpacademy/review-services": "1.4.0"
   },

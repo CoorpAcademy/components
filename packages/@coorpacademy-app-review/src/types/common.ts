@@ -45,10 +45,8 @@ export type AppOptions = ConnectedOptions & {
   appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
 };
 
-export type ThunkOptions = {
-  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+export type ThunkOptions = Pick<AppOptions, 'callbackOnViewChanged' | 'appendVideoOptions'> & {
   services: Services;
-  appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
 };
 
 export type Options = {

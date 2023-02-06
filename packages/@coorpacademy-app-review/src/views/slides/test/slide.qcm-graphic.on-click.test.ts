@@ -3,7 +3,6 @@ import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
-import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
@@ -78,8 +77,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
       payload: ['Le retour d’information']
     }
   ];
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.deepEqual(omit('answerUI', props.stack.slides['0']), {

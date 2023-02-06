@@ -7,12 +7,12 @@ import createTranslate from '@coorpacademy/translate';
 import {WebContext} from '@coorpacademy/components/es/atom/provider';
 import {identity} from 'lodash/fp';
 import localesComponents from '@coorpacademy/components/locales/en/global.json';
-import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
+import {services} from '@coorpacademy/review-services-mocks';
 import {AppOptions, Translate} from '../src/types/common';
 import localesAppReview from '../locales/en/review.json';
 import AppReview from '../src';
-
 import {skin} from '../src/views/slides/test/fixtures/skin';
+import {appendVideoOptions} from './options';
 
 type SandboxOptions = {
   container: string;

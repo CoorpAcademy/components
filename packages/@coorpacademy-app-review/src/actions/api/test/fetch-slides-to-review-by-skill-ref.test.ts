@@ -1,6 +1,5 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
-import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRef,
@@ -85,8 +84,7 @@ const state: StoreState = {
 test('should dispatch only one action, SLIDES_TO_REVIEW_FETCH_SUCCESS action, when fetchSlidesToReviewBySkillRef returns an array of less 5 new slides id', async t => {
   t.plan(5);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSlidesToReviewBySkillRef: Services['fetchSlidesToReviewBySkillRef']} = {
     fetchSlidesToReviewBySkillRef: (token, skillRef, limit) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_NyxtYFYir');
@@ -103,8 +101,7 @@ test('should dispatch only one action, SLIDES_TO_REVIEW_FETCH_SUCCESS action, wh
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });
@@ -112,8 +109,7 @@ test('should dispatch only one action, SLIDES_TO_REVIEW_FETCH_SUCCESS action, wh
 test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToReviewBySkillRef fails', async t => {
   t.plan(5);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSlidesToReviewBySkillRef: Services['fetchSlidesToReviewBySkillRef']} = {
     fetchSlidesToReviewBySkillRef: (token, skillRef, limit) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_NyxtYFYir');
@@ -131,8 +127,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });
@@ -140,8 +135,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
 test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS and SHOW_BUTTON_REVISING actions when fetchSlidesToReviewBySkillRef returns an array of at least 5 new slides id', async t => {
   t.plan(6);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSlidesToReviewBySkillRef: Services['fetchSlidesToReviewBySkillRef']} = {
     fetchSlidesToReviewBySkillRef: (token, skillRef, limit) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_NyxtYFYir');
@@ -159,8 +153,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS and SHOW_BUTTON_REVISING ac
     {type: SHOW_BUTTON_REVISING}
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, services, expectedActions);
 
   await dispatch(fetchSlidesToReviewBySkillRef);
 });

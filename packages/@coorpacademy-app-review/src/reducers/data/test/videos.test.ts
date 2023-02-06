@@ -1,7 +1,7 @@
 import test from 'ava';
 import {NEXT_SLIDE} from '../../../actions/ui/next-slide';
 import {SET_VIDEO_PROPS, ShowVideoAction, SHOW_VIDEO} from '../../../actions/api/fetch-video-props';
-import reducer from '../videos';
+import reducer, {VideoPropsState} from '../videos';
 import {VideoPropsForPlayer} from '../../../types/common';
 
 const videoProps: VideoPropsForPlayer = {
@@ -105,7 +105,7 @@ test('should return same state when SHOW_VIDEO action is called but no video bel
 });
 
 test('should show a video when SHOW_VIDEO action is called and slideId has video', t => {
-  const initialState = {
+  const initialState: VideoPropsState = {
     current_slide: {
       type: 'video',
       src: [

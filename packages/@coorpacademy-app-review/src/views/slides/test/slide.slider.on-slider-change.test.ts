@@ -3,7 +3,6 @@ import get from 'lodash/fp/get';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
-import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {StoreState} from '../../../reducers';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -78,8 +77,7 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
       payload: ['111']
     }
   ];
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
 
   const slideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;

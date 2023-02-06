@@ -1,11 +1,7 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import {
-  getChoicesCorrection,
-  services,
-  appendVideoOptions
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
 import {StoreState} from '../../../reducers';
 import {nextSlide, NEXT_SLIDE} from '../next-slide';
 import {createTestStore} from '../../test/create-test-store';
@@ -16,7 +12,6 @@ import {postAnswerResponses} from '../../../test/fixtures';
 const progression = postAnswerResponses[freeTextSlide.universalRef];
 const skillRef = '_skill-ref';
 const answer = ['Vous isoler dans un lieu calme'];
-const thunkOptions = {services, appendVideoOptions};
 
 const state: StoreState = {
   data: {
@@ -66,7 +61,7 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
       }
     }
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(nextSlide);
 });
 
@@ -89,6 +84,6 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
       }
     }
   ];
-  const {dispatch} = createTestStore(t, stateWithWrongAnswer, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, stateWithWrongAnswer, {}, expectedActions);
   await dispatch(nextSlide);
 });

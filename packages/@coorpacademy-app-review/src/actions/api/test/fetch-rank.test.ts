@@ -1,7 +1,6 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import type {Services} from '@coorpacademy/review-services';
-import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {
   fetchStartRank,
@@ -25,8 +24,7 @@ const initialState: StoreState = set(
 test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the start rank', async t => {
   t.plan(4);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchRank: Services['fetchRank']} = {
     fetchRank: token => {
       t.is(token, '1234');
       return Promise.resolve({rank: 93});
@@ -40,8 +38,7 @@ test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, services, expectedActions);
   await dispatch(fetchStartRank);
 
   const newState = getState();
@@ -51,8 +48,7 @@ test('should dispatch FETCH_START_SUCCESS action when fetchStartRank returns the
 test('should dispatch FETCH_START_FAILURE action when fetchStartRank fails', async t => {
   t.plan(3);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchRank: Services['fetchRank']} = {
     fetchRank: token => {
       t.is(token, '1234');
       return Promise.reject(new Error('unexpected'));
@@ -68,8 +64,7 @@ test('should dispatch FETCH_START_FAILURE action when fetchStartRank fails', asy
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchStartRank);
 });
@@ -77,8 +72,7 @@ test('should dispatch FETCH_START_FAILURE action when fetchStartRank fails', asy
 test('should dispatch FETCH_END_SUCCESS action when fetchEndRank returns the end rank', async t => {
   t.plan(4);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchRank: Services['fetchRank']} = {
     fetchRank: token => {
       t.is(token, '1234');
       return Promise.resolve({rank: 90});
@@ -94,8 +88,7 @@ test('should dispatch FETCH_END_SUCCESS action when fetchEndRank returns the end
   ];
 
   const _initialState = set('data.rank.start', 93, initialState);
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, _initialState, thunkOptions, expectedActions);
+  const {dispatch, getState} = createTestStore(t, _initialState, services, expectedActions);
 
   await dispatch(fetchEndRank);
   const newState = getState();
@@ -105,8 +98,7 @@ test('should dispatch FETCH_END_SUCCESS action when fetchEndRank returns the end
 test('should dispatch FETCH_END_FAILURE action when fetchEndRank fails', async t => {
   t.plan(3);
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchRank: Services['fetchRank']} = {
     fetchRank: token => {
       t.is(token, '1234');
       return Promise.reject(new Error('unexpected'));
@@ -122,8 +114,7 @@ test('should dispatch FETCH_END_FAILURE action when fetchEndRank fails', async t
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchEndRank);
 });

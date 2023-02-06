@@ -1,6 +1,5 @@
 import test from 'ava';
 import type {Services, Skill} from '@coorpacademy/review-services';
-import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {initialState} from '../../../test/fixtures';
 import {
@@ -17,8 +16,7 @@ export const fetchSkillResponse: Skill = {
 
 test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the correct skill', async t => {
   t.plan(4);
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSkill: Services['fetchSkill']} = {
     fetchSkill: (skillRef, token) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_NyxtYFYir');
@@ -31,16 +29,14 @@ test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the corr
     {type: SKILL_FETCH_SUCCESS, payload: fetchSkillResponse}
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchSkill('skill_NyxtYFYir'));
 });
 
 test('should dispatch FETCH_SKILL_FAILURE when fetch skill failed', async t => {
   t.plan(4);
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSkill: Services['fetchSkill']} = {
     fetchSkill: (skillRef, token) => {
       t.is(token, '1234');
       t.is(skillRef, '123');
@@ -53,7 +49,6 @@ test('should dispatch FETCH_SKILL_FAILURE when fetch skill failed', async t => {
     {type: SKILL_FETCH_FAILURE, payload: new Error('Fetch skill action failed'), error: true}
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
   await dispatch(fetchSkill('123'));
 });
