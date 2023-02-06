@@ -308,7 +308,7 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['empty-state-dashboard'])
     }),
     PropTypes.shape({
-      ...EmptyStateDashboard.propTypes,
+      ...UploadingFileProgress.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['uploading-file-progress'])
     })

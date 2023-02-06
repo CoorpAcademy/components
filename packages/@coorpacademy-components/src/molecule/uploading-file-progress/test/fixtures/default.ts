@@ -1,4 +1,7 @@
-export default {
+import {Props} from '../../types';
+
+type Fixture = {props: Props};
+const fixture: Fixture = {
   props: {
     mainText: 'Upload in Progress ...',
     subText:
@@ -20,3 +23,5 @@ export default {
     }
   }
 };
+
+export default fixture;
