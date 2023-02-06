@@ -25,7 +25,7 @@ EmptyView.propTypes = {
 const Choices = ({answers}) => {
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected} = answer;
-    const checkboxId = `checkbox-${key}`;
+    const checkboxId = `checkbox-drag-${key}`;
     return (
       <div
         className={classnames(selected ? style.invisibleAnswer : style.unselected, style.innerHTML)}

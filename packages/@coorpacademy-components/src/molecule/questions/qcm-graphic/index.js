@@ -13,7 +13,7 @@ const QCMImage = (props, legacyContext) => {
 
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected, image, ariaLabel} = answer;
-    const checkboxId = `checkbox-${key}`;
+    const checkboxId = `checkbox-graphic-${key}`;
 
     return (
       <div
