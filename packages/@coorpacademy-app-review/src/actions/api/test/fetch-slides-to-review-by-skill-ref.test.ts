@@ -8,7 +8,7 @@ import {
   SLIDES_TO_REVIEW_FETCH_SUCCESS,
   SLIDES_TO_REVIEW_FETCH_FAILURE
 } from '../fetch-slides-to-review-by-skill-ref';
-import {SHOW_REVISING_BUTTON} from '../../ui/show-revising-button';
+import {SHOW_REVISING_BUTTON} from '../../ui/show-button-revising';
 import type {StoreState} from '../../../reducers';
 import {freeTextSlide} from '../../../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../../../views/slides/test/fixtures/qcm';

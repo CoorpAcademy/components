@@ -6,7 +6,7 @@ import type {Dispatch} from 'redux';
 import type {ProgressionFromAPI, SlideIdFromAPI} from '@coorpacademy/review-services';
 import {Options} from '../../types/common';
 import type {StoreState} from '../../reducers';
-import {showRevisingButton} from '../ui/show-revising-button';
+import {showRevisingButton} from '../ui/show-button-revising';
 
 export const SLIDES_TO_REVIEW_FETCH_REQUEST = '@@slidesToReview/FETCH_REQUEST' as const;
 export const SLIDES_TO_REVIEW_FETCH_SUCCESS = '@@slidesToReview/FETCH_SUCCESS' as const;
