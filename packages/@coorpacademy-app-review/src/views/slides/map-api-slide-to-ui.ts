@@ -47,7 +47,7 @@ import {
   TextTemplate
 } from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
-import {MediaPropsForPlayer, Translate} from '../../types/common';
+import {Translate} from '../../types/common';
 
 const qcmProps =
   (dispatch: Dispatch) =>
@@ -286,7 +286,7 @@ export const mapApiSlideToUi =
   (
     slide: SlideFromAPI,
     answers: string[],
-    media?: MediaPropsForPlayer | Media
+    media?: Media
   ): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
 

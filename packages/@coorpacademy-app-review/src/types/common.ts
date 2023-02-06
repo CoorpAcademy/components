@@ -23,13 +23,6 @@ export type VideoPropsForPlayer = {
   src: Media[];
 };
 
-export type MediaPropsForPlayer = {
-  type: 'img' | 'audio';
-  url: string;
-  _id: string;
-  mimeType: Media['mimeType'];
-};
-
 export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;

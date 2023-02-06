@@ -4,7 +4,6 @@ import type {SlideFromAPI} from '@coorpacademy/review-services';
 import {Media} from '@coorpacademy/components/es/molecule/questions/types';
 import {mapApiSlideToUi} from '../map-api-slide-to-ui';
 import {ReviewSlide} from '..';
-import {MediaPropsForPlayer} from '../../../types/common';
 import {qcmSlide, qcmUISlide} from './fixtures/qcm';
 import {qcmDragSlide, qcmDragUISlide} from './fixtures/qcm-drag';
 import {freeTextSlide, freeTextUISlide} from './fixtures/free-text';
@@ -24,7 +23,7 @@ const macro = test.macro({
       slide: SlideFromAPI;
       answers: string[];
       expectedUiSlide: Partial<ReviewSlide>;
-      media?: MediaPropsForPlayer | Media;
+      media?: Media;
     }
   ) {
     t.deepEqual(
@@ -48,7 +47,7 @@ test('template', macro, {
 });
 test('free text', macro, {slide: freeTextSlide, answers: [], expectedUiSlide: freeTextUISlide});
 
-const media: MediaPropsForPlayer = {
+const media: Media = {
   _id: '6377c7f7c76a8a017fac4364',
   mimeType: 'image/jpeg',
   url: '//static.coorpacademy.com/content/CoorpAcademy/content/cockpit-partner-wedemain/default/shutterstock_181414391-1480431629586.jpg',
