@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {
   Animated,
   Easing,
+  Image,
   ScrollView,
   StyleSheet,
   TextStyle,
@@ -24,24 +25,41 @@ import Video from '../../molecule/video-player-mobile/index.native';
 import {Media} from '../../molecule/questions/types';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
-const MediaView = ({media}: {media: Media}) => {
-  switch (media.type) {
-    case TYPE_VIDEO:
-      return <Video media={media} />;
-    case TYPE_IMAGE:
-    case TYPE_AUDIO:
-    default:
-      return <Text>{`media type ${media.type} is not handled`}</Text>;
-  }
-};
-
 const styles = StyleSheet.create({
+  mediaContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    width: '100%',
+    minHeight: 150,
+    borderRadius: 10,
+    overflow: 'hidden'
+  },
+  image: {
+    flex: 1,
+    width: '100%'
+  },
   correctionPopinWrapper: {
     position: 'absolute',
     bottom: 16,
     width: '105%'
   }
 });
+
+const MediaView = ({media}: {media: Media}) => {
+  switch (media.type) {
+    case TYPE_VIDEO:
+      return <Video media={media} />;
+    case TYPE_IMAGE: {
+      const uri = `https://${media.url?.split('//')[1]}`;
+      return <Image style={styles.image} source={{uri}} />;
+    }
+    case TYPE_AUDIO:
+    default:
+      return <Text>{`media type ${media.type} is not handled`}</Text>;
+  }
+};
 
 const CorrectionPopin = ({
   correctionPopinProps,
@@ -162,7 +180,11 @@ const Question = (props: QuestionProps) => {
         <Text style={style.questionText}>{questionText}</Text>
         <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
       </View>
-      {answerUI.media ? <MediaView media={answerUI.media} /> : null}
+      {answerUI.media ? (
+        <View style={styles.mediaContainer}>
+          <MediaView media={answerUI.media} />
+        </View>
+      ) : null}
       <ScrollView
         style={style.choicesScrollView}
         contentContainerStyle={style.choicesScrollContent}

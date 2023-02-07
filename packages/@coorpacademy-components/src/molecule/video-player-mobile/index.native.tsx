@@ -9,11 +9,7 @@ export type Props = {media: Media};
 const styleSheet = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20,
-    width: '100%',
-    minHeight: 150
+    width: '100%'
   },
   video: {
     flex: 1,
