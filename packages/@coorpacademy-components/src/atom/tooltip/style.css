@@ -67,6 +67,15 @@
   text-align: center;
 }
 
+.tooltipContentFontSize14 {
+  font-size: 14px;
+}
+
+.tooltipContentFontSize12 {
+  font-size: 12px;
+}
+
+
 .informationIcon {
   color: cm_grey_500;
 }
