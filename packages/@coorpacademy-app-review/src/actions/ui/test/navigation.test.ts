@@ -1,11 +1,9 @@
 import test from 'ava';
-import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {set} from 'lodash/fp';
-import {createTestStore} from '../../test/create-test-store';
+import {createTestStore, createTestStoreWithThunkOptions} from '../../test/create-test-store';
 import {initialState as _initialState_} from '../../../test/fixtures';
 import {navigateBack, navigateTo} from '../navigation';
 
-const thunkOptions = {services, appendVideoOptions};
 const initialState = set('ui.navigation', ['loader', 'slides'], _initialState_);
 
 test('should dispatch NAVIGATE_TO', async t => {
@@ -16,7 +14,7 @@ test('should dispatch NAVIGATE_TO', async t => {
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {}, expectedActions);
   await dispatch(navigateTo('slides'));
 });
 
@@ -27,7 +25,7 @@ test('should dispatch NAVIGATE_BACK', t => {
     }
   ];
 
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, {}, expectedActions);
   dispatch(navigateBack);
 });
 
@@ -45,10 +43,10 @@ test('should dispatch NAVIGATE_TO with callbackOnViewChanged', async t => {
     }
   ];
 
-  const {dispatch} = createTestStore(
+  const {dispatch} = createTestStoreWithThunkOptions(
     t,
     initialState,
-    {callbackOnViewChanged, services, appendVideoOptions},
+    {callbackOnViewChanged},
     expectedActions
   );
 
@@ -68,10 +66,10 @@ test('should dispatch NAVIGATE_BACK with callbackOnViewChanged', async t => {
     }
   ];
 
-  const {dispatch} = createTestStore(
+  const {dispatch} = createTestStoreWithThunkOptions(
     t,
     initialState,
-    {callbackOnViewChanged, services, appendVideoOptions},
+    {callbackOnViewChanged},
     expectedActions
   );
 

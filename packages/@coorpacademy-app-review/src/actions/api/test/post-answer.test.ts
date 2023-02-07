@@ -1,11 +1,7 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
 import type {ReviewEngine, ReviewContent, ProgressionFromAPI} from '@coorpacademy/review-services';
-import {
-  getChoicesCorrection,
-  services,
-  appendVideoOptions
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   postAnswer,
@@ -166,8 +162,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   await dispatch(postAnswer);
 
@@ -327,13 +322,7 @@ test('should dispatch post-answer and fetch-correction actions when the answer i
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(
-    t,
-    stateBeforeExitNode,
-    thunkOptions,
-    expectedActions
-  );
+  const {dispatch, getState} = createTestStore(t, stateBeforeExitNode, {}, expectedActions);
 
   await dispatch(postAnswer);
 
@@ -363,14 +352,10 @@ test('should dispatch POST_ANSWER_REQUEST, then POST_ANSWER_FAILURE on error', a
     t,
     initialState,
     {
-      services: {
-        ...services,
-        postAnswer: () => {
-          t.pass();
-          return Promise.reject(new Error('unexpected'));
-        }
-      },
-      appendVideoOptions
+      postAnswer: () => {
+        t.pass();
+        return Promise.reject(new Error('unexpected'));
+      }
     },
     expectedActions
   );
@@ -382,11 +367,10 @@ test('should not dispatch any action && throw an error if progression does not e
   t.plan(1);
   const expectedActions: AnyAction[] = [];
 
-  const thunkOptions = {services, appendVideoOptions};
   const {dispatch} = createTestStore(
     t,
     {...initialState, data: {...initialState.data, progression: null}},
-    thunkOptions,
+    {},
     expectedActions
   );
 

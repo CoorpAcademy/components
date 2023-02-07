@@ -17,6 +17,7 @@ import {
   getConfig,
   updateState
 } from '@coorpacademy/progression-engine';
+import type {Media} from '@coorpacademy/components/es/molecule/questions/types';
 import {qcmDragSlide} from './fixtures/qcm-drag';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
@@ -278,17 +279,9 @@ const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): Progr
   return response;
 };
 
-type VideoSrcPropsForPlayer = {
-  mimeType: string;
-  videoId: string;
-  jwpOptions: unknown;
-  loading?: boolean;
-  type: string;
-};
-
 type VideoPropsForPlayer = {
   type: string;
-  src: VideoSrcPropsForPlayer[];
+  src: Media[];
 };
 
 export const appendVideoOptions = (media: VideoMedia): Promise<VideoPropsForPlayer> => {

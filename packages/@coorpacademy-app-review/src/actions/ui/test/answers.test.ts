@@ -4,7 +4,6 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
 import type {Question, SlideFromAPI} from '@coorpacademy/review-services';
-import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 
 import {editAnswer, ANSWER_EDIT} from '../answers';
 import {StoreState} from '../../../reducers';
@@ -15,8 +14,6 @@ import {qcmDragSlide} from '../../../views/slides/test/fixtures/qcm-drag';
 import {qcmGraphicSlide} from '../../../views/slides/test/fixtures/qcm-graphic';
 import {sliderSlide} from '../../../views/slides/test/fixtures/slider';
 import {templateSlide} from '../../../views/slides/test/fixtures/template';
-
-const thunkOptions = {services, appendVideoOptions};
 
 const initialState: StoreState = {
   data: {
@@ -77,7 +74,7 @@ test('editAnswer should throw an Error if the slide is not found', async t => {
   const {dispatch} = createTestStore(
     t,
     omit(['data', 'slides'], state) as StoreState,
-    thunkOptions,
+    {},
     expectedActions
   );
   await t.throws(
@@ -92,7 +89,7 @@ test('editAnswer should throw an Error for unsupported questions', async t => {
     ...freeTextSlide,
     question: {...freeTextSlide.question, type: 'unsupportedType'} as unknown as Question
   });
-  const {dispatch} = createTestStore(t, state, thunkOptions, []);
+  const {dispatch} = createTestStore(t, state, {}, []);
   await t.throws(
     () => dispatch(editAnswer(['Some kind of answer'])),
     undefined,
@@ -105,7 +102,7 @@ test('should dispatch EDIT_BASIC action when editAnswer is called', async t => {
   const expectedActions = [
     {type: ANSWER_EDIT.basic, meta: {slideRef: freeTextSlide.universalRef}, payload: ['My Answer']}
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(editAnswer(['My Answer']));
 });
 
@@ -116,7 +113,7 @@ test('should dispatch EDIT_QCM action when editAnswer is called', async t => {
   const expectedActions = [
     {type: ANSWER_EDIT.qcm, meta: {slideRef: qcmSlide.universalRef}, payload: ['My First Answer']}
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(editAnswer(['My Second Answer']));
 });
 
@@ -135,7 +132,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action when editAnswer is called', async 
       payload: ['My First Answer', 'My Third Answer']
     }
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(editAnswer(['My Second Answer']));
 });
 
@@ -150,7 +147,7 @@ test('should dispatch EDIT_QCM_DRAG action when editAnswer is called', async t =
       payload: ['My First Answer', 'My Second Answer', 'My Third Answer']
     }
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(editAnswer(['My Third Answer']));
 });
 
@@ -159,7 +156,7 @@ test('should dispatch EDIT_SLIDER action when editAnswer is called', async t => 
   const expectedActions = [
     {type: ANSWER_EDIT.slider, meta: {slideRef: sliderSlide.universalRef}, payload: ['5']}
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(editAnswer(['5']));
 });
 
@@ -173,6 +170,6 @@ test('should dispatch EDIT_TEMPLATE action when editAnswer is called', async t =
       payload: ['Catalogue', 'My Answer', 'étoiles']
     }
   ];
-  const {dispatch} = createTestStore(t, state, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, state, {}, expectedActions);
   await dispatch(editAnswer(['Catalogue', 'My Answer', 'étoiles']));
 });

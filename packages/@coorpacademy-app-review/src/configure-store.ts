@@ -1,7 +1,6 @@
 import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
 import {getServices} from '@coorpacademy/review-services';
-import {identity} from 'lodash/fp';
 import rootReducer, {StoreState} from './reducers';
 import type {ThunkOptions, AppOptions} from './types/common';
 
@@ -17,9 +16,7 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
   const thunkOptions: ThunkOptions = {
     services: options.services || getServices(),
     callbackOnViewChanged: options.callbackOnViewChanged,
-    appendVideoOptions: options.appendVideoOptions || identity
-    // this identity is temporary added to avoir errors on mobile application,
-    // while the function to compute the props is made
+    appendVideoOptions: options.appendVideoOptions
   };
 
   const thunkMiddleware = thunk.withExtraArgument(thunkOptions);

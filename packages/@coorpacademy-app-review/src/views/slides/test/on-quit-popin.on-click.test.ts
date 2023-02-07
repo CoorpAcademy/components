@@ -1,7 +1,6 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
-import {services, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
 import {StoreState} from '../../../reducers';
@@ -54,8 +53,7 @@ const state: StoreState = {
 
 test('should dispatch CLOSE_POPIN action via the property handleOnclick of secondButton when popin is open', async t => {
   const expectedAction = [{type: CLOSE_POPIN}];
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedAction);
+  const {dispatch, getState} = createTestStore(t, state, {}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   const quitPopin = props.quitPopin as CMPopinProps;
   await quitPopin.secondButton?.handleOnclick();
@@ -68,8 +66,7 @@ test('should dispatch CLOSE_POPIN action and call onQuitClick function via the p
   t.plan(4);
 
   const expectedAction = [{type: CLOSE_POPIN}];
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedAction);
+  const {dispatch, getState} = createTestStore(t, state, {}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: () => t.pass(),

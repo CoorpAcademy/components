@@ -1,6 +1,5 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
-import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {
   fetchSlide,
   SLIDE_FETCH_FAILURE,
@@ -15,8 +14,7 @@ import {SET_VIDEO_PROPS} from '../fetch-video-props';
 
 test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlide return a slide', async t => {
   t.plan(6);
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSlide: Services['fetchSlide']} = {
     fetchSlide: (slideRef, token) => {
       t.is(token, '1234');
       t.is(slideRef, 'sli_VJYjJnJhg');
@@ -78,16 +76,14 @@ test('should dispatch FETCH_SUCCESS and SET_CURRENT_SLIDE actions when fetchSlid
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchSlide('sli_VJYjJnJhg'));
 });
 
 test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t => {
   t.plan(4);
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchSlide: Services['fetchSlide']} = {
     fetchSlide: (slideRef, token) => {
       t.is(token, '1234');
       t.is(slideRef, 'slide_ref');
@@ -105,8 +101,7 @@ test('should dispatch SLIDE_FETCH_FAILURE action when fetchSlide fails', async t
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchSlide('slide_ref'));
 });

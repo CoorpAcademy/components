@@ -1,10 +1,6 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {
-  services,
-  getChoicesCorrection,
-  appendVideoOptions
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {OPEN_POPIN} from '../../../actions/ui/quit-popin';
@@ -51,8 +47,7 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
     }
   };
   const expectedAction = [{type: OPEN_POPIN}];
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedAction);
+  const {dispatch, getState} = createTestStore(t, state, {}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: identity,
@@ -149,8 +144,7 @@ test('should dispatch onQuitClick function after a click on close button in head
   };
 
   const expectedAction = [{type: NEXT_SLIDE}];
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch, getState} = createTestStore(t, state, thunkOptions, expectedAction);
+  const {dispatch, getState} = createTestStore(t, state, {}, expectedAction);
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: () => t.pass(),

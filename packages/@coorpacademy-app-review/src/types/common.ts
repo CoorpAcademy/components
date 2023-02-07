@@ -1,3 +1,4 @@
+import {Media} from '@coorpacademy/components/es/molecule/questions/types';
 import type {Services, VideoMedia} from '@coorpacademy/review-services';
 
 export type WithRequired<T, K extends keyof T> = T & {
@@ -17,24 +18,9 @@ export type Skin = {
   };
 };
 
-type VideoSrcPropsForPlayer = {
-  mimeType: string;
-  videoId: string;
-  jwpOptions: unknown;
-  loading?: boolean;
-  type: string;
-};
-
 export type VideoPropsForPlayer = {
   type: string;
-  src: VideoSrcPropsForPlayer[];
-};
-
-export type MediaPropsForPlayer = {
-  type: 'img' | 'audio';
-  url: string;
-  _id: string;
-  mimeType: string;
+  src: Media[];
 };
 
 export type ConnectedOptions = {
@@ -49,14 +35,11 @@ export type AppOptions = ConnectedOptions & {
   skillRef?: string;
   services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
-  appendVideoOptions?: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
-  // set again as mandatory when mobile function would be implemented
+  appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
 };
 
-export type ThunkOptions = {
-  callbackOnViewChanged?: AppOptions['callbackOnViewChanged'];
+export type ThunkOptions = Pick<AppOptions, 'callbackOnViewChanged' | 'appendVideoOptions'> & {
   services: Services;
-  appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
 };
 
 export type Options = {

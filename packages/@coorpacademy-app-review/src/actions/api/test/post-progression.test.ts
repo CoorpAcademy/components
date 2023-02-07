@@ -1,6 +1,5 @@
 import test from 'ava';
 import type {ProgressionFromAPI, Services} from '@coorpacademy/review-services';
-import {services as mockedServices, appendVideoOptions} from '@coorpacademy/review-services-mocks';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
@@ -42,8 +41,10 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
     }
   };
 
-  const services: Services = {
-    ...mockedServices,
+  const services: {
+    postProgression: Services['postProgression'];
+    fetchSlide: Services['fetchSlide'];
+  } = {
     postProgression: (skillRef, token) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_NyxtYFYir');
@@ -124,16 +125,14 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
     {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(postProgression('skill_NyxtYFYir'));
 });
 
 test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails', async t => {
   t.plan(4);
-  const services: Services = {
-    ...mockedServices,
+  const services: {postProgression: Services['postProgression']} = {
     postProgression: (skillRef, token) => {
       t.is(token, '1234');
       t.is(skillRef, 'skill_12345');
@@ -152,8 +151,7 @@ test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails
     {type: SKILL_FETCH_FAILURE, payload: new Error('Fetch skill action failed'), error: true}
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(postProgression('skill_12345'));
 });

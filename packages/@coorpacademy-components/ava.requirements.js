@@ -5,6 +5,7 @@ require('@coorpacademy/react-native-mock-render/mock')({
     {name: 'react-native-modal'},
     {name: 'react-native-render-html'},
     {name: 'react-native-linear-gradient'},
+    {name: 'react-native-jw-media-player'},
     {name: '@coorpacademy/react-native-slider'},
     {name: '@react-native-community/blur', exports: ['BlurView']}
   ]

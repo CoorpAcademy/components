@@ -1,10 +1,6 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
-import {
-  getChoicesCorrection,
-  services as mockedServices,
-  appendVideoOptions
-} from '@coorpacademy/review-services-mocks';
+import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {createTestStore} from '../../test/create-test-store';
 import {
@@ -55,8 +51,7 @@ const initialState: StoreState = {
 
 test('should dispatch CORRECTION_FETCH_SUCCESS actions when fetchCorrection returns a correction object', async t => {
   t.plan(6);
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchCorrection: Services['fetchCorrection']} = {
     fetchCorrection: (slideRef, token, progressionId, _answer) => {
       t.is(slideRef, freeTextSlide.universalRef);
       t.is(token, '1234');
@@ -82,16 +77,14 @@ test('should dispatch CORRECTION_FETCH_SUCCESS actions when fetchCorrection retu
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchCorrection);
 });
 
 test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails', async t => {
   t.plan(6);
-  const services: Services = {
-    ...mockedServices,
+  const services: {fetchCorrection: Services['fetchCorrection']} = {
     fetchCorrection: (slideRef, token, progressionId, _answer) => {
       t.is(slideRef, freeTextSlide.universalRef);
       t.is(token, '1234');
@@ -118,8 +111,7 @@ test('should dispatch CORRECTION_FETCH_FAILURE action when fetchCorrection fails
     }
   ];
 
-  const thunkOptions = {services, appendVideoOptions};
-  const {dispatch} = createTestStore(t, initialState, thunkOptions, expectedActions);
+  const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
   await dispatch(fetchCorrection);
 });

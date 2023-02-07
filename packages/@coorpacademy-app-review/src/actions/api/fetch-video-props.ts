@@ -54,6 +54,7 @@ export const fetchPropsVideo =
       const props = await appendVideoOptions(slideMedia);
       props.src[0].loading = false; // set to false to not show it until the next slide is unstack
       props.src[0].type = 'video';
+
       dispatch(
         setVideoProps({
           slideId,

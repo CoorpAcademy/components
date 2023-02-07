@@ -21,13 +21,8 @@ import type {
   SlideFromAPI,
   SlideMedia
 } from '@coorpacademy/review-services';
-import {
-  ConnectedOptions,
-  MediaPropsForPlayer,
-  Skin,
-  Translate,
-  VideoPropsForPlayer
-} from '../../types/common';
+import {Media} from '@coorpacademy/components/es/molecule/questions/types';
+import {ConnectedOptions, Skin, Translate} from '../../types/common';
 import {closeQuitPopin, openQuitPopin} from '../../actions/ui/quit-popin';
 import {getProgressionSlidesRefs} from '../../common';
 import type {StoreState} from '../../reducers';
@@ -116,10 +111,7 @@ const isLastSlideAnswered = (slidesRef: string[], slideRef: string): boolean => 
   return last(slidesRef) === slideRef;
 };
 
-const getSlideMedia = (
-  state: StoreState,
-  slideFromAPI: SlideFromAPI
-): MediaPropsForPlayer | VideoPropsForPlayer | void => {
+const getSlideMedia = (state: StoreState, slideFromAPI: SlideFromAPI): Media | undefined => {
   const media = get(['question', 'medias', '0'], slideFromAPI) as SlideMedia | void;
   if (!media) return;
   const {type} = media;
@@ -127,7 +119,7 @@ const getSlideMedia = (
   switch (type) {
     case 'img':
     case 'audio': {
-      const mediaProps: MediaPropsForPlayer = {
+      const mediaProps: Media = {
         ...resource,
         type,
         url: get('url', resource)

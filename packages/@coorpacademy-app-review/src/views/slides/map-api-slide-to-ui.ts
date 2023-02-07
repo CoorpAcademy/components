@@ -34,6 +34,7 @@ import type {
   TemplateQuestion,
   ChoiceItem
 } from '@coorpacademy/review-services';
+import {Media} from '@coorpacademy/components/es/molecule/questions/types';
 import {
   AnswerUI,
   FreeText,
@@ -46,7 +47,7 @@ import {
   TextTemplate
 } from '../../types/slides';
 import {editAnswer} from '../../actions/ui/answers';
-import {MediaPropsForPlayer, Translate, VideoPropsForPlayer} from '../../types/common';
+import {Translate} from '../../types/common';
 
 const qcmProps =
   (dispatch: Dispatch) =>
@@ -285,7 +286,7 @@ export const mapApiSlideToUi =
   (
     slide: SlideFromAPI,
     answers: string[],
-    media: MediaPropsForPlayer | VideoPropsForPlayer | void
+    media?: Media
   ): {questionText: string; answerUI: AnswerUI} => {
     const questionText = getOr('', 'question.header', slide);
 

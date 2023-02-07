@@ -1,3 +1,4 @@
+import {Config} from 'react-native-jw-media-player';
 import {ChoiceItem} from '../../atom/select-modal/index.native';
 
 type Url = string;
@@ -31,7 +32,30 @@ export type Media = {
   description?: string;
   loading?: boolean;
   mimeType?: ResourceMimeType;
+  mediaRef?: string;
   _id?: string;
+  jwpOptions?: {
+    // --- native JWPlayer
+    config?: Config;
+    // --- web JWPlayer
+    playlist?: Array<{
+      file: string;
+      tracks: [{file: string; kind: 'thumbnails'}];
+    }>;
+    playerId?: string;
+    playerScript?: string;
+    licenseKey?: string;
+    customProps?: {
+      playbackRateControls: boolean;
+      playbackRates: number[];
+      preload: 'auto';
+      autostart: 'true' | 'false';
+      width: string;
+      height: string;
+      visualplaylist: boolean;
+      nextUpDisplay: boolean;
+    };
+  };
   mediaUrl?: Url;
   url?: Url;
   subtitles?: Array<string>;
