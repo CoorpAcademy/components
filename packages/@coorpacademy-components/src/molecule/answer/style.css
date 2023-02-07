@@ -42,11 +42,6 @@
     margin: 0 8px;
   }
 
-  .video {
-    width: 100%;
-    min-width: 100vw;
-    height: 56.25vw;
-  }
 }
 
 @media tablet {
@@ -55,4 +50,10 @@
     height: 300px;
     width: 100%;
   }
+
+  .video {
+    max-width: 80vw;
+    height: auto;
+  }
+
 }
