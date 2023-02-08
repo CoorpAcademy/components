@@ -1,5 +1,6 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
+import {mockTranslate} from '@coorpacademy/translate';
 import {mount, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import React from 'react';
@@ -15,7 +16,8 @@ const context = {
       light: '#FF7043',
       dark: '#FF7043'
     }
-  }
+  },
+  translate: mockTranslate
 };
 
 test('on component mount, it should initialize state with 10 engines, should find the navigation tools', t => {

@@ -152,7 +152,8 @@ StarsSummary.propTypes = {
 };
 
 StarsSummary.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 export default StarsSummary;

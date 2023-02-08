@@ -126,7 +126,8 @@ const Progression = (props, legacyContext) => {
 };
 
 Progression.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 Progression.propTypes = {

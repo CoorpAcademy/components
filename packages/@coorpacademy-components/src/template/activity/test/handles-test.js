@@ -1,6 +1,7 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
+import {mockTranslate} from '@coorpacademy/translate';
 import {shallow, mount, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {set} from 'lodash/fp';
@@ -18,7 +19,8 @@ const context = {
       light: '#FF7043',
       dark: '#FF7043'
     }
-  }
+  },
+  translate: mockTranslate
 };
 
 test('should call the onClick function with click on cta', t => {
