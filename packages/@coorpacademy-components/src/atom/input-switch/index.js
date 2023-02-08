@@ -19,7 +19,8 @@ const InputSwitch = props => {
     details = '',
     requiredSelection = false,
     'data-name': dataName,
-    'aria-labelledby': ariaLabelledBy
+    'aria-labelledby': ariaLabelledBy,
+    'aria-label': ariaLabel
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
@@ -27,9 +28,9 @@ const InputSwitch = props => {
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   const titleView = title ? (
-    <div id={`title-view-${dataName}`}>
-      <span className={style.title}>{`${title} `} </span>
-    </div>
+    <span id={`title-view-${dataName}`} className={style.title}>
+      {`${title} `}{' '}
+    </span>
   ) : null;
 
   const descriptionView = description ? (
@@ -63,6 +64,7 @@ const InputSwitch = props => {
           <input
             {...(ariaLabelledBy ? {'aria-labelledby': ariaLabelledBy} : {})}
             {...(title && !ariaLabelledBy ? {'aria-labelledby': `title-view-${dataName}`} : {})}
+            {...(ariaLabel && !ariaLabelledBy && !title ? {'aria-label': ariaLabel} : {})}
             type="checkbox"
             id={idSwitch}
             name={name}
@@ -93,6 +95,7 @@ InputSwitch.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   'aria-labelledby': PropTypes.string,
+  'aria-label': PropTypes.string,
   modified: PropTypes.bool,
   titlePosition: PropTypes.oneOf(['right', 'left']),
   theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
