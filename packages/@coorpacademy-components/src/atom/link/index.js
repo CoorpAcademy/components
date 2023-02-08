@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {identity, getOr, noop} from 'lodash/fp';
-import Provider from '../provider';
+import Provider, {GetSkinFromContext} from '../provider';
 import pushToHistory from '../../util/navigation';
 
 class Link extends React.Component {
@@ -65,7 +65,8 @@ class Link extends React.Component {
   };
 
   render() {
-    const {skin, history: {createHref = identity} = {}} = this.context;
+    const {history: {createHref = identity} = {}} = this.context;
+    const skin = GetSkinFromContext(this.context);
     const {
       skinHover,
       hoverColor = getOr('#00B0FF', 'common.primary', skin),

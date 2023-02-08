@@ -16,7 +16,7 @@ import {
   NovaCompositionCoorpacademyMicrophone as PodcastIcon,
   NovaCompositionCoorpacademyRevision as RevisionIcon
 } from '@coorpacademy/nova-icons';
-import Provider from '../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';
 import style from './progression-item.css';
@@ -33,8 +33,8 @@ const ICONS = {
   review: RevisionIcon
 };
 
-const ProgressionItem = (props, context) => {
-  const {skin} = context;
+const ProgressionItem = (props, legacyContext) => {
+  const skin = GetSkinFromContext(legacyContext);
   const {
     disabled = false,
     adaptive,
