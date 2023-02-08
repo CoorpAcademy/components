@@ -46,7 +46,6 @@ MediaView.propTypes = MediaViewPropTypes;
 
 const Switch = ({model, help}, legacyContext) => {
   const {type} = model;
-  // const translate = legacyContext.translate;
   const translate = GetTranslateFromContext(legacyContext);
   switch (type) {
     case 'qcmDrag':

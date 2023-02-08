@@ -6,7 +6,7 @@ type Skin = {
   };
 };
 
-type WebContextValues = {
+export type WebContextValues = {
   skin?: Skin;
   translate?: (key: string, data?: Record<string, string>) => string;
 };
