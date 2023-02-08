@@ -22,6 +22,7 @@ import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
 import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
+import UploadingFileProgress from '../../../molecule/uploading-file-progress';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -172,6 +173,8 @@ const buildContentView = content => {
       return <WizardContents {...content} />;
     case 'empty-state-dashboard':
       return <EmptyStateDashboard {...content} />;
+    case 'uploading-file-progress':
+      return <UploadingFileProgress {...content} />;
   }
 };
 
@@ -303,6 +306,11 @@ BrandUpdate.propTypes = {
       ...EmptyStateDashboard.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['empty-state-dashboard'])
+    }),
+    PropTypes.shape({
+      ...UploadingFileProgress.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['uploading-file-progress'])
     })
   ]),
   documentation: PropTypes.shape({
