@@ -1,6 +1,9 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
-import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
 import {OPEN_POPIN} from '../../../actions/ui/quit-popin';
@@ -25,7 +28,7 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -86,7 +89,7 @@ test('should dispatch onQuitClick function after a click on close button in head
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: 9},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {

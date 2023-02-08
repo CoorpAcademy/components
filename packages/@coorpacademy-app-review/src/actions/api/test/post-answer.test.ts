@@ -1,7 +1,10 @@
 import test from 'ava';
 import {AnyAction} from 'redux';
 import type {ReviewEngine, ReviewContent, ProgressionFromAPI} from '@coorpacademy/review-services';
-import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   postAnswer,
@@ -21,11 +24,11 @@ import {templateSlide} from '../../../views/slides/test/fixtures/template';
 import {postAnswerResponses} from '../../../test/fixtures';
 
 const progressionId = '62b1d1087aa12f00253f40ee';
-const skillRef = 'skill_NyxtYFYir';
+const skillRef = SKILL_REF_FOR_DEFAULT_SLIDES;
 const answer = ['Benchmark'];
 
 const content: ReviewContent = {
-  ref: 'skill_NyxtYFYir',
+  ref: SKILL_REF_FOR_DEFAULT_SLIDES,
   type: 'skill'
 };
 
@@ -92,7 +95,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
   const expectedProgressionAfter: ProgressionFromAPI = {
     _id: '62b1d1087aa12f00253f40ee',
     content: {
-      ref: 'skill_NyxtYFYir',
+      ref: SKILL_REF_FOR_DEFAULT_SLIDES,
       type: 'skill'
     },
     engine: {

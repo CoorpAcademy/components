@@ -1,6 +1,7 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import type {Services} from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import type {StoreState} from '../../../reducers';
 import {
   fetchStartRank,
@@ -17,7 +18,7 @@ import {initialState as _initialState_} from '../../../test/fixtures';
 
 const initialState: StoreState = set(
   'data.currentSkill',
-  {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+  {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
   _initialState_
 );
 

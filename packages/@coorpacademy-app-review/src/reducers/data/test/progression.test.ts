@@ -1,5 +1,8 @@
 import test from 'ava';
-import {postProgressionResponse} from '@coorpacademy/review-services-mocks';
+import {
+  postProgressionResponse,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import reducer from '../progression';
 import {
   POST_PROGRESSION_REQUEST,
@@ -17,11 +20,12 @@ test('should have initial value', t => {
 });
 
 test('should set the value of POST_PROGRESSION_SUCCESS action', t => {
+  const mockedProgression = postProgressionResponse(SKILL_REF_FOR_DEFAULT_SLIDES);
   const state = reducer(null, {
     type: POST_PROGRESSION_SUCCESS,
-    payload: postProgressionResponse
+    payload: mockedProgression
   });
-  t.deepEqual(state, postProgressionResponse);
+  t.deepEqual(state, mockedProgression);
 });
 
 test('should set the value of POST_ANSWER_SUCCESS action', t => {

@@ -2,7 +2,10 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
-import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import {POST_ANSWER_REQUEST, POST_ANSWER_SUCCESS} from '../../../actions/api/post-answer';
 import {SLIDE_FETCH_REQUEST, SLIDE_FETCH_SUCCESS} from '../../../actions/api/fetch-slide';
 import {
@@ -23,7 +26,7 @@ import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 const connectedOptions = {translate, onQuitClick: identity, skin};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
-  content: {type: 'skill', ref: 'skill_NyxtYFYir'},
+  content: {type: 'skill', ref: SKILL_REF_FOR_DEFAULT_SLIDES},
   engine: {
     ref: 'review'
   },
@@ -47,7 +50,7 @@ const progressionAfterAnswer = {
   _id: '123456789123',
   content: {
     type: 'skill',
-    ref: 'skill_NyxtYFYir'
+    ref: SKILL_REF_FOR_DEFAULT_SLIDES
   },
   engine: {
     ref: 'review'
@@ -94,7 +97,7 @@ const initialState: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
     videos: {}
   },
   ui: {

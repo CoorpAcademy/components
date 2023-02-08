@@ -1,5 +1,6 @@
 import test from 'ava';
 import type {Services, Skill} from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {initialState} from '../../../test/fixtures';
 import {
@@ -10,7 +11,7 @@ import {
 } from '../fetch-skill';
 
 export const fetchSkillResponse: Skill = {
-  ref: 'skill_NyxtYFYir',
+  ref: SKILL_REF_FOR_DEFAULT_SLIDES,
   name: 'Digital Awareness'
 };
 
@@ -19,7 +20,7 @@ test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the corr
   const services: {fetchSkill: Services['fetchSkill']} = {
     fetchSkill: (skillRef, token) => {
       t.is(token, '1234');
-      t.is(skillRef, 'skill_NyxtYFYir');
+      t.is(skillRef, SKILL_REF_FOR_DEFAULT_SLIDES);
       return Promise.resolve(fetchSkillResponse);
     }
   };
@@ -31,7 +32,7 @@ test('should dispatch FETCH_SKILL_SUCCESS when fetch skill is call with the corr
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(fetchSkill('skill_NyxtYFYir'));
+  await dispatch(fetchSkill(SKILL_REF_FOR_DEFAULT_SLIDES));
 });
 
 test('should dispatch FETCH_SKILL_FAILURE when fetch skill failed', async t => {

@@ -4,6 +4,7 @@ import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
@@ -17,7 +18,7 @@ const connectedOptions = {translate, onQuitClick: identity, skin};
 
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
-  content: {type: 'skill', ref: 'skill_NyxtYFYir'},
+  content: {type: 'skill', ref: SKILL_REF_FOR_DEFAULT_SLIDES},
   engine: {
     ref: 'review'
   },
@@ -46,7 +47,7 @@ const initialState: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
     videos: {}
   },
   ui: {

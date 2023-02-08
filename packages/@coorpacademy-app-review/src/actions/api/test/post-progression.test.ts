@@ -1,5 +1,6 @@
 import test from 'ava';
 import type {ProgressionFromAPI, Services} from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
@@ -47,7 +48,7 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
   } = {
     postProgression: (skillRef, token) => {
       t.is(token, '1234');
-      t.is(skillRef, 'skill_NyxtYFYir');
+      t.is(skillRef, SKILL_REF_FOR_DEFAULT_SLIDES);
       return Promise.resolve(progression);
     },
     fetchSlide: (slideRef, token) => {
@@ -122,12 +123,15 @@ test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions w
       }
     },
     {type: SKILL_FETCH_REQUEST},
-    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
+    {
+      type: SKILL_FETCH_SUCCESS,
+      payload: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'}
+    }
   ];
 
   const {dispatch} = createTestStore(t, initialState, services, expectedActions);
 
-  await dispatch(postProgression('skill_NyxtYFYir'));
+  await dispatch(postProgression(SKILL_REF_FOR_DEFAULT_SLIDES));
 });
 
 test('should dispatch POST_PROGRESSION_FAILURE action when postProgression fails', async t => {

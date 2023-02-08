@@ -8,9 +8,10 @@ import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-c
 import {CongratsCardProps} from '@coorpacademy/components/es/molecule/review-card-congrats/prop-types';
 
 import {
-  postProgressionResponse as createdProgression,
+  postProgressionResponse as createMockedProgression,
   progressionSlideWithPendingSlide,
-  getChoicesCorrection
+  getChoicesCorrection,
+  SKILL_REF_FOR_DEFAULT_SLIDES
 } from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import type {StoreState} from '../../../reducers';
@@ -33,14 +34,14 @@ test('should create initial props when fetched slide is not still received', t =
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
   const state: StoreState = {
     data: {
-      progression: createdProgression,
+      progression: createMockedProgression(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         sli_N1XACJobn: null
       },
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -130,14 +131,14 @@ test('should create initial props when fetched slide is not still received for m
   // SCENARIO : @@progression/POST_SUCCESS ok and @@slides/FETCH_REQUEST, (the slide is being fetched)
   const state: StoreState = {
     data: {
-      progression: createdProgression,
+      progression: createMockedProgression(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         sli_N1XACJobn: null
       },
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -228,14 +229,14 @@ test('should create props when first slide is on the state', t => {
   // SCENARIO : after @@slides/FETCH_SUCCESS
   const state: StoreState = {
     data: {
-      progression: createdProgression,
+      progression: createMockedProgression(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         sli_VJYjJnJhg: freeTextSlide
       },
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -343,14 +344,14 @@ test('should create props when slide is on the state and user has selected answe
   // This is the case after EDIT_ANSWER and before POST_ANSWER_REQUEST
   const state: StoreState = {
     data: {
-      progression: createdProgression,
+      progression: createMockedProgression(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         sli_VJYjJnJhg: freeTextSlide
       },
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -466,7 +467,7 @@ test('should verify props when first slide was answered correctly and next slide
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -592,7 +593,7 @@ test('should verify props when first slide was answered with error and next slid
       token: '1234',
       corrections: {},
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -672,7 +673,7 @@ test('should verify props when first slide was answered, next slide is fetched &
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -814,7 +815,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -959,7 +960,7 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -1076,7 +1077,7 @@ test('should verify props when progression is in success, showing last correctio
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -1205,7 +1206,7 @@ test('should verify props showing congrats', t => {
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: 9},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -1349,7 +1350,7 @@ test('should verify props showing congrats, with only stars card, if user has no
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: 10},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -1452,7 +1453,7 @@ test('should verify props when progression has answered a current pendingSlide',
   // Scenario, freeTextSlide and qcmSlide are pending slides, freeTextSlide was answered correctly, qcmSlide remains but not yet the currentSlideRef
   const state: StoreState = {
     data: {
-      progression: progressionSlideWithPendingSlide,
+      progression: progressionSlideWithPendingSlide(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1469,7 +1470,7 @@ test('should verify props when progression has answered a current pendingSlide',
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -1566,7 +1567,7 @@ test('should verify props when progression still has a pendingSlide', t => {
   // Scenario, freeTextSlide and qcmSlide are pending slides, freeTextSlide was answered correctly, qcmSlide remains and it is the currentSlideRef
   const state: StoreState = {
     data: {
-      progression: progressionSlideWithPendingSlide,
+      progression: progressionSlideWithPendingSlide(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         [freeTextSlide.universalRef]: freeTextSlide,
         [qcmGraphicSlide.universalRef]: qcmGraphicSlide,
@@ -1583,7 +1584,7 @@ test('should verify props when progression still has a pendingSlide', t => {
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -1679,14 +1680,14 @@ test('should verify props when progression still has a pendingSlide', t => {
 test('should verify that props quitPopin is not undefined when popin is displayed', t => {
   const state: StoreState = {
     data: {
-      progression: createdProgression,
+      progression: createMockedProgression(SKILL_REF_FOR_DEFAULT_SLIDES),
       slides: {
         sli_N1XACJobn: null
       },
       token: '1234',
       corrections: {},
       rank: {start: Number.NaN, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
