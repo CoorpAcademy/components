@@ -10,6 +10,7 @@ import {
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
+  NovaCompositionCoorpacademyPlacesHome24 as HomeIcon,
   NovaSolidTimeAlarm as AlarmIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
@@ -29,7 +30,9 @@ class MoocHeader extends React.Component {
       srcMobile: PropTypes.string,
       href: PropTypes.string,
       'aria-label': PropTypes.string,
-      'button-aria-label': PropTypes.string
+      'button-aria-label': PropTypes.string,
+      toolTipText: PropTypes.string,
+      closeToolTipInformationTextAriaLabel: PropTypes.string
     }),
     search: PropTypes.shape(Search.propTypes),
     'search-reset-aria-label': PropTypes.string,
@@ -126,7 +129,8 @@ class MoocHeader extends React.Component {
     this.state = {
       isSettingsOpen: false,
       isMenuOpen: false,
-      isFocus: false
+      isFocus: false,
+      isToolTipOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -140,6 +144,9 @@ class MoocHeader extends React.Component {
     this.handleOnBlur = this.handleOnBlur.bind(this);
     this.handleOnMenuOpen = this.handleOnMenuOpen.bind(this);
     this.handleOnMenuClose = this.handleOnMenuClose.bind(this);
+    this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
+    this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -229,6 +236,30 @@ class MoocHeader extends React.Component {
     }));
   }
 
+  handleOnMouseOver() {
+    this.setState(() => ({
+      isToolTipOpen: true
+    }));
+  }
+
+  handleOnMouseLeave() {
+    this.setState(() => ({
+      isToolTipOpen: false
+    }));
+  }
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      this.setState(() => ({
+        isToolTipOpen: true
+      }));
+    } else if (event.key === 'Tab' || event.key === 'Escape') {
+      this.setState(() => ({
+        isToolTipOpen: false
+      }));
+    }
+  }
+
   render() {
     if (isEmpty(this.props)) return null;
     const {
@@ -243,12 +274,17 @@ class MoocHeader extends React.Component {
       'close-settings-aria-label': closeSettingsAriaLabel,
       'active-page-aria-label': activePageAriaLabel
     } = this.props;
-    const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
+    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
     const {translate, skin} = this.context;
-    const {'aria-label': logoAriaLabel, closeMenuAriaLabel, openMenuAriaLabel} = logo;
+    const {
+      'aria-label': logoAriaLabel,
+      closeMenuAriaLabel,
+      openMenuAriaLabel,
+      toolTipText,
+      closeToolTipInformationTextAriaLabel
+    } = logo;
     const logoUrl = get('src', logo) || get('images.logo', skin);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
-
     let pagesView = null;
     let linksView = null;
     let userView = null;
@@ -583,7 +619,12 @@ class MoocHeader extends React.Component {
           data-open={isMenuOpen}
           className={isMenuOpen ? style.open : style.header}
         >
-          <div className={style.logoWrapper}>
+          <div
+            className={style.logoWrapper}
+            aria-label={toolTipText}
+            onMouseOver={this.handleOnMouseOver}
+            onMouseLeave={this.handleOnMouseLeave}
+          >
             <div className={style.navMobile} data-name="nav-mobile">
               <BurgerIcon
                 role="button"
@@ -604,8 +645,33 @@ class MoocHeader extends React.Component {
                 <Picture src={logoMobileUrl} alt={logoAriaLabel} />
               </Link>
             </div>
-            <Link className={style.logo} data-name="logo" href={logo.href}>
+            <Link
+              className={style.logo}
+              data-name="logo"
+              href={logo.href}
+              onKeyDown={this.handleKeyPress}
+              tabIndex={0}
+              data-testid="brand-logo"
+            >
               <Picture src={logoUrl} alt={logoAriaLabel} />
+              {isToolTipOpen ? (
+                <div aria-label={toolTipText} tabIndex={0} data-testid="home-tooltip">
+                  <div
+                    aria-label={`${toolTipText} ${closeToolTipInformationTextAriaLabel}`}
+                    role="tooltip"
+                    className={style.tooltipIconContainer}
+                    tabIndex={0}
+                  >
+                    <HomeIcon className={style.homeIcon} style={{color: primaryColor}} />
+                    <p
+                      className={style.toolTipText}
+                      // eslint-disable-next-line react/no-danger
+                      dangerouslySetInnerHTML={{__html: toolTipText}}
+                      style={{color: primaryColor}}
+                    />
+                  </div>
+                </div>
+              ) : null}
             </Link>
           </div>
           {searchFormView}

@@ -11,7 +11,9 @@ export default {
       href: '#',
       'aria-label': 'brand logo up.coorpacademy.com',
       openMenuAriaLabel: 'open the navigation menu',
-      closeMenuAriaLabel: 'close the navigation menu'
+      closeMenuAriaLabel: 'close the navigation menu',
+      toolTipText: 'Access to Home',
+      closeToolTipInformationTextAriaLabel: 'Press the escape key to close the information text'
     },
     search: {
       ...research,
