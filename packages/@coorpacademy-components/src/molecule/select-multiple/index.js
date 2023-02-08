@@ -224,14 +224,14 @@ const SelectMultiple = (
               <div className={style.flex}>{errorIconView}</div>
               <div className={classnames(style.flex, isActive && style.clicked)}>
                 <ArrowDown
-                  color={black}
+                  style={{color: black}}
                   className={classnames(style.arrow, {[style.down]: isActive})}
                 />
               </div>
             </div>
           ) : (
             <ArrowDown
-              color={black}
+              style={{color: black}}
               className={classnames(style.arrow, {[style.down]: isActive})}
             />
           )}

@@ -57,7 +57,7 @@ const AssistanceLink = (props, context) => {
 
   return (
     <div className={style.wrapperAssistance} onClick={onClick}>
-      <AlertIcon className={style.alertIcon} color={white} />
+      <AlertIcon className={style.alertIcon} style={{color: white}} />
       <span className={style.titleLink}> {title} </span>
     </div>
   );
@@ -80,7 +80,7 @@ const Question = ({header, answer, answerPrefix}) => (
       dangerouslySetInnerHTML={{__html: header}}
     />
     <div className={style.answerWrapper}>
-      <CheckIcon className={style.checkIcon} color="inherit" />
+      <CheckIcon className={style.checkIcon} />
       {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
       <span
         className={classnames(style.answer, style.innerHTML)}

@@ -81,7 +81,9 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
     );
   }
 
-  const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
+  const emptyIcon = empty ? (
+    <PicturesIcon className={style.emptyIcon} style={{color: whiteColor}} />
+  ) : null;
   return (
     <div
       className={classnames(
@@ -160,7 +162,7 @@ const Card = memo(function Card(props, context) {
   const disabled = hidden && (!isSelected || isUndefined(isSelected));
   const handleClick = useMemo(() => e => !disabled && onClick(e), [disabled, onClick]);
   const lock = disabled ? (
-    <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
+    <LockIcon className={style.lockIcon} style={{color: whiteColor}} height={40} />
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
   const getType = contentType => {

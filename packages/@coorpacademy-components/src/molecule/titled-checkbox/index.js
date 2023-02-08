@@ -18,7 +18,7 @@ const TitledCheckbox = props => {
           background: background || '#3d3d3d'
         }}
       >
-        {choice.selected ? <Check className={style.icon} color="white" /> : null}
+        {choice.selected ? <Check className={style.icon} /> : null}
         <Checkbox
           className={style.input}
           checked={choice.selected}

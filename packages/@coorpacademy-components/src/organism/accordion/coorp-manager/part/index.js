@@ -54,8 +54,8 @@ const setupThemeStyle = {
 const MoreLessIcons = ({type, moreClassName, lessClassName, darkColor, mediumColor}) => {
   return type !== 'iconLink' ? (
     <div>
-      <ArrowIcon className={moreClassName} color={darkColor} />
-      <ArrowIcon className={lessClassName} color={mediumColor} />
+      <ArrowIcon className={moreClassName} style={{color: darkColor}} />
+      <ArrowIcon className={lessClassName} style={{color: mediumColor}} />
     </div>
   ) : (
     <OpenInNewTabIcon className={style.newTabIcon} />
@@ -97,10 +97,7 @@ const Part = ({
           <div className={style.header} data-type={iconType} onClick={onClick}>
             <div data-name="title" className={style.title}>
               {Icon ? (
-                <Icon
-                  className={classnames(style.titleIcon, iconColor, hoverIconColor)}
-                  color="inherit"
-                />
+                <Icon className={classnames(style.titleIcon, iconColor, hoverIconColor)} />
               ) : null}
               <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>
                 {title}
@@ -109,8 +106,8 @@ const Part = ({
             </div>
             {isCollapsible ? (
               <div>
-                <ArrowIcon className={moreClassName} color={darkColor} />
-                <ArrowIcon className={lessClassName} color={mediumColor} />
+                <ArrowIcon className={moreClassName} style={{color: darkColor}} />
+                <ArrowIcon className={lessClassName} style={{color: mediumColor}} />
               </div>
             ) : null}
           </div>

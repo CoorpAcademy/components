@@ -359,6 +359,7 @@
   padding: 0;
   box-sizing: border-box;
   margin-left: 2px;
+  color: inherit;
 }
 
 .nextStepTitle {

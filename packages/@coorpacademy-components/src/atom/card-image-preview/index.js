@@ -8,7 +8,9 @@ import style from './style.css';
 
 const CardImagePreview = ({image}, {skin}) => {
   const whiteColor = get('common.white', skin);
-  const emptyIcon = !image ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
+  const emptyIcon = !image ? (
+    <PicturesIcon className={style.emptyIcon} style={{color: whiteColor}} />
+  ) : null;
 
   return (
     <div

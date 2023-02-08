@@ -12,7 +12,7 @@ const Avatar = ({url}) => {
         </div>
       </div>
       <div className={style.iconBubble}>
-        <BoltIcon color="#fff" className={style.icon} />
+        <BoltIcon className={style.icon} />
       </div>
     </div>
   );

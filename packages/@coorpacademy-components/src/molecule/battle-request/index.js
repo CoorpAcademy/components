@@ -45,7 +45,7 @@ const BattleRequest = (props, context) => {
         </div>
       </div>
       <div className={style.start}>{startLabel}</div>
-      <ArrowRightIcon className={style.arrow} color={light} />
+      <ArrowRightIcon className={style.arrow} style={{color: light}} />
     </Link>
   );
 };

@@ -50,7 +50,7 @@ class Audio extends React.Component {
     const white = get('common.white', skin);
     return (
       <div className={style.frame} style={{backgroundImage: `url(${poster})`}}>
-        <PodcastIcon color={white} className={style.icon} />
+        <PodcastIcon style={{color: white}} className={style.icon} />
         {description ? (
           <div
             className={classnames(style.description, style.innerHTML)}

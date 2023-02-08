@@ -20,7 +20,7 @@ const ContentTypesToggler = (props, context) => {
 
   return (
     <div className={style.contentTypeWrapper}>
-      <RadioGroup {...contentTypes} color={contentTypesColor} />
+      <RadioGroup {...contentTypes} style={{color: contentTypesColor}} />
     </div>
   );
 };

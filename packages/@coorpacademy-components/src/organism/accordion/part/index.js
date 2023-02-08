@@ -39,11 +39,11 @@ const AccordionPart = (props, context) => {
         onClick={onClick}
       >
         <div data-name="title" className={style.title}>
-          {TitleIcon ? <TitleIcon className={style.titleIcon} color="inherit" /> : null}
+          {TitleIcon ? <TitleIcon className={style.titleIcon} /> : null}
           <h3 className={style.titleLabel}>{title}</h3>
         </div>
-        <MoreIcon className={closeIconClassName} color={darkColor} />
-        <LessIcon className={openIconClassName} color={mediumColor} />
+        <MoreIcon className={closeIconClassName} style={{color: darkColor}} />
+        <LessIcon className={openIconClassName} style={{color: mediumColor}} />
       </div>
       {isOpen ? <div className={style.container}>{content}</div> : null}
     </div>

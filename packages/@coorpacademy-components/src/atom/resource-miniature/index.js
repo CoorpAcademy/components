@@ -28,7 +28,7 @@ const ResourceMiniature = (props, context) => {
     <div className={TYPES[type].style} onClick={handleOnClick} data-type={type}>
       <div className={style.posterWrapper} style={{borderColor: posterOutlineColor}}>
         <div className={style.poster} style={{backgroundImage: `url(${poster})`}} />
-        {!selected ? <Icon color={white} className={style.icon} /> : null}
+        {!selected ? <Icon style={{color: white}} className={style.icon} /> : null}
       </div>
       <div
         className={classnames(descriptionClassName, style.innerHTML)}

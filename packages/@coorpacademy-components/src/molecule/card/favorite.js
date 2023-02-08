@@ -75,7 +75,7 @@ class Favorite extends React.Component {
           {favorite ? (
             <CheckIcon
               className={style.checkIcon}
-              color={brandColor}
+              style={{color: brandColor}}
               width={13}
               height={13}
               aria-label={ariaLabel.removeFromFavorite}
@@ -83,7 +83,7 @@ class Favorite extends React.Component {
           ) : (
             <MoreIcon
               className={style.moreIcon}
-              color={darkColor}
+              style={{color: darkColor}}
               width={13}
               height={13}
               aria-label={ariaLabel.addToFavorite}

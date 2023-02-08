@@ -13,7 +13,7 @@ const BrandDownloadBox = (props, context) => {
 
   const type = warning ? (
     <div className={style.texts}>
-      <AlertIcon className={style.icon} color={negativeColor} />
+      <AlertIcon className={style.icon} style={{color: negativeColor}} />
       <span className={style.warning}>{warning}</span>
       <p className={style.description}>{description}</p>
     </div>

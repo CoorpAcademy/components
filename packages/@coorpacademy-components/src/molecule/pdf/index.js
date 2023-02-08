@@ -21,7 +21,7 @@ const PDF = (props, context) => {
         backgroundImage: `url(${poster})`
       }}
     >
-      <PDFIcon color={white} className={style.pdfIcon} />
+      <PDFIcon style={{color: white}} className={style.pdfIcon} />
       <div
         className={classnames(style.pdfDescription, style.innerHTML)}
         data-name="pdfDescription"

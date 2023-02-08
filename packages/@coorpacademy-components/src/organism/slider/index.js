@@ -108,7 +108,7 @@ class Slider extends React.Component {
       totalSlide > 1 ? (
         <ArrowLeft
           className={style.leftControl}
-          color={controlColor}
+          style={{color: controlColor}}
           onClick={this.handlePreviousSlide}
         />
       ) : null;
@@ -117,7 +117,7 @@ class Slider extends React.Component {
       totalSlide > 1 ? (
         <ArrowRight
           className={style.rightControl}
-          color={controlColor}
+          style={{color: controlColor}}
           onClick={this.handleNextSlide}
         />
       ) : null;

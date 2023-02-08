@@ -42,7 +42,7 @@ const SearchForm = (props, context) => {
         onClick={onReset}
         className={search.value ? style.wrapperClear : style.wrapperNoClear}
       >
-        <ClearIcon color={dark} className={style.clear} />
+        <ClearIcon style={{color: dark}} className={style.clear} />
       </div>
     </form>
   );

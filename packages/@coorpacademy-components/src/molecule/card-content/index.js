@@ -88,10 +88,7 @@ CardTitle.propTypes = {
 
 const AuthorName = ({author, empty, courseContent, certifiedAuthor, 'aria-label': ariaLabel}) => {
   const checkIcon = certifiedAuthor ? (
-    <CheckIcon
-      className={classnames(style.authorIcon, courseContent ? style.iconShadow : null)}
-      color="inherit"
-    />
+    <CheckIcon className={classnames(style.authorIcon, courseContent ? style.iconShadow : null)} />
   ) : null;
 
   return (

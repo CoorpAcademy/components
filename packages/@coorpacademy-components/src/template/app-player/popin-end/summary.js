@@ -135,7 +135,7 @@ const CommentConfirmation = (props, context) => {
   return (
     <div className={style.commentSection}>
       <div className={style.commentSectionIconWrapper}>
-        <CheckIcon className={style.commentSectionIcon} color={dark} />
+        <CheckIcon className={style.commentSectionIcon} style={{color: dark}} />
       </div>
       <div className={style.commentSectionTexts}>
         <p>{commentSectionTitle}</p>

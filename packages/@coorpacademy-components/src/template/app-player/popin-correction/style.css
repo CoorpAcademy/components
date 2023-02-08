@@ -130,6 +130,7 @@
   width: 14px;
   height: 14px;
   margin-right: 8px;
+  color: inherit;
 }
 
 .answerPrefix {

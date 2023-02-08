@@ -199,7 +199,7 @@ const GetTheApp = (props, context) => {
           <div className={style.wrapper}>
             <Header {...magicLinkStep} />
             <MagicLink
-              color={primaryColor}
+              style={{color: primaryColor}}
               submitValue={submitValue}
               disabled={disabled}
               magicLinkUrl={magicLinkUrl}

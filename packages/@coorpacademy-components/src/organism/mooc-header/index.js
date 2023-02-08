@@ -347,7 +347,11 @@ class MoocHeader extends React.Component {
           <div className={style.more}>
             <div className={style.currentOption} aria-haspopup="true" data-name="item-more">
               {moreAriaLabel}
-              <ArrowDown color={mediumColor} className={style.caret} aria-label={moreAriaLabel} />
+              <ArrowDown
+                style={{color: mediumColor}}
+                className={style.caret}
+                aria-label={moreAriaLabel}
+              />
             </div>
             <div className={style.optionsGroup}>{optionsView}</div>
           </div>
@@ -403,7 +407,7 @@ class MoocHeader extends React.Component {
               aria-label={user.stats.stars['aria-label']}
             >
               <div className={style.iconWrapper} style={iconWrapperStyle}>
-                <StarIcon className={style.stars} color={white} />
+                <StarIcon className={style.stars} style={{color: white}} />
               </div>
               <div data-name="value" className={style.label}>
                 {user.stats.stars.label}
@@ -417,7 +421,7 @@ class MoocHeader extends React.Component {
               aria-label={user.stats.ranking['aria-label']}
             >
               <div className={style.iconWrapper} style={iconWrapperStyle}>
-                <ChartsIcon className={style.ranking} color={white} />
+                <ChartsIcon className={style.ranking} style={{color: white}} />
               </div>
 
               <div data-name="value" className={style.label}>
@@ -432,7 +436,7 @@ class MoocHeader extends React.Component {
               aria-label={user.stats.badge['aria-label']}
             >
               <div className={style.iconWrapper} style={iconWrapperStyle}>
-                <TrophyIcon className={style.badge} color={white} />
+                <TrophyIcon className={style.badge} style={{color: white}} />
               </div>
               <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
@@ -532,7 +536,7 @@ class MoocHeader extends React.Component {
         <div className={style.settings} ref={this.setMenuSettings}>
           <CogIcon
             data-name="settings-toggle"
-            color={darkColor}
+            style={{color: darkColor}}
             className={style.settingsToggle}
             onClick={this.handleSettingsToggle}
             aria-expanded={isSettingsOpen}
@@ -584,14 +588,14 @@ class MoocHeader extends React.Component {
               <BurgerIcon
                 role="button"
                 data-name="nav-mobile-open"
-                color={mediumColor}
+                style={{color: mediumColor}}
                 className={isMenuOpen ? style.burgerHidden : style.burger}
                 onClick={this.handleOnMenuOpen}
                 aria-label={openMenuAriaLabel}
               />
               <CloseIcon
                 data-name="nav-mobile-close"
-                color={mediumColor}
+                style={{color: mediumColor}}
                 className={isMenuOpen ? style.close : style.closeHidden}
                 onClick={this.handleOnMenuClose}
                 aria-label={closeMenuAriaLabel}

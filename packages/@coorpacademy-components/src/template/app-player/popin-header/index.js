@@ -80,7 +80,7 @@ const Rank = ({failed, rank, animated, onAnimationEnd}, {skin}) => {
       <div className={style.centerContent}>
         <Transition name="label" after="counter" className={style.bumped}>
           <div className={style.iconBubble}>
-            <ChartsIcon className={style.icon} color={positive} />
+            <ChartsIcon className={style.icon} style={{color: positive}} />
           </div>
         </Transition>
         <span className={style.iconText}>
@@ -113,7 +113,7 @@ const Stars = ({failed, stars, animated, onAnimationEnd}, {skin}) => {
       <div className={style.centerContent}>
         <Transition name="label" after="counter" className={style.bumped}>
           <div className={style.iconBubble}>
-            <StarIcon className={style.icon} color={positive} />
+            <StarIcon className={style.icon} style={{color: positive}} />
           </div>
         </Transition>
         <span data-name="iconText" className={style.iconText}>
@@ -335,7 +335,7 @@ const NextQuestionPart = (props, context) => {
       <div className={style.wrapperNextSection}>
         <div className={style.nextButton}>
           {title}
-          <ArrowRight color="inherit" className={style.nextButtonIcon} />
+          <ArrowRight className={style.nextButtonIcon} />
         </div>
         {nextStep}
       </div>
