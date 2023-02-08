@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import get from 'lodash/fp/get';
 import PropTypes from 'prop-types';
-import mockTranslate from '@coorpacademy/translate';
+import {mockTranslate} from '@coorpacademy/translate';
 import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
 import {TemplateContext} from '../../template/app-review/template-context';
@@ -24,11 +24,7 @@ const renderComponent = (t, Component, fixture) => {
 
   const vTree = <Component {...fixture.props}>{fixture.children}</Component>;
 
-  const wrappedVTree = (
-    <Provider {...context} translate={mockTranslate}>
-      {vTree}
-    </Provider>
-  );
+  const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
   try {
     return ReactDOM.renderToStaticMarkup(wrappedVTree);
