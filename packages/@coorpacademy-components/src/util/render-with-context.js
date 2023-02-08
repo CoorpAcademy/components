@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {render} from '@testing-library/react';
 import {mockTranslate} from '@coorpacademy/translate';
-import Provider from '../atom/provider';
+import {WebContext} from '../atom/provider';
 
 export const renderWithContext = (component, options = {}) => {
   const {context = {}, ...renderOptions} = options;
@@ -10,9 +10,9 @@ export const renderWithContext = (component, options = {}) => {
   const {translate = mockTranslate, ...rest} = context;
 
   const wrapper = ({children}) => (
-    <Provider {...rest} translate={translate}>
+    <WebContext {...rest} translate={translate}>
       {children}
-    </Provider>
+    </WebContext>
   );
 
   wrapper.propTypes = {
