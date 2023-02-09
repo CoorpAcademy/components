@@ -104,7 +104,10 @@ const WizardContents = props => {
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
 
   return (
-    <div className={style.container} data-name="content-summary">
+    <div
+      className={summary ? style.container : style.containerWithoutSummary}
+      data-name="content-summary"
+    >
       <div className={summary ? style.leftSection : style.leftSectionWithoutSummary}>
         {headerView}
         <div className={style.form}>{formView}</div>

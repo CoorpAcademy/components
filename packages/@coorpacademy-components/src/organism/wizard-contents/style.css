@@ -7,10 +7,14 @@
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
-  flex-wrap: wrap;
   overflow: auto;
   height: calc(100vh - 124px);
   width: 100%;
+}
+
+.containerWithoutSummary {
+  composes: container;
+  flex-direction: column;
 }
 
 .leftSection {
@@ -18,12 +22,12 @@
   overflow: auto;
   box-sizing: border-box;
   width: calc(100% - 320px);
-  height: 100%;
   position: relative;
 }
 
 .leftSectionWithoutSummary {
-  display: block;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   box-sizing: border-box;
   width: 100%;
@@ -78,9 +82,9 @@
 .actionZone {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
   margin: 16px 0;
-  flex-wrap: wrap;
 }
 
 .button {
@@ -107,16 +111,18 @@
   width: 100%;
   display: flex;
   right: 0;
-  max-width: 184px;
   bottom: -10px;
   position: sticky;
-  position: absolute;
 }
 
 @media desktop, tablet {
   .leftSection {
     width: 100%;
     min-height: 500px;
+  }
+
+  .container {
+    display: block;
   }
 
   .rightSection {
@@ -148,7 +154,6 @@
   }
 
   .actionFooter {
-    max-width: 184px;
     width: 100%;
   }
   
