@@ -65,7 +65,7 @@ const InputSwitch = props => {
             className={style.checkbox}
             aria-labelledby={`title-view-${dataName}`}
           />
-          <label htmlFor={idSwitch} data-name="input-switch-label" />
+          <label htmlFor={idSwitch} data-name="input-switch-label" tabIndex={0} />
         </div>
       </div>
       <div className={!details ? style.alignedTextContainer : null}>

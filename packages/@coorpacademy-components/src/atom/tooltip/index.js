@@ -1,15 +1,22 @@
 import React, {isValidElement, useState, useCallback, useMemo} from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import isString from 'lodash/fp/isString';
 import {NovaCompositionCoorpacademyInformationIcon as InformationIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
 
+const FontSizes = {
+  12: style.tooltipContentFontSize12,
+  14: style.tooltipContentFontSize14
+};
+
 const ToolTipWrapper = ({
   toolTipIsVisible,
   anchorId,
   closeToolTipInformationTextAriaLabel,
-  content
+  content,
+  handleContentMouseOver
 }) => {
   if (!toolTipIsVisible) return null;
   if (anchorId) {
@@ -31,6 +38,7 @@ const ToolTipWrapper = ({
         className={style.toolTip}
         data-testid="tooltip"
         aria-label={closeToolTipInformationTextAriaLabel}
+        onMouseOver={handleContentMouseOver}
       >
         {content}
       </div>
@@ -42,7 +50,8 @@ ToolTipWrapper.propTypes = {
   toolTipIsVisible: PropTypes.bool,
   anchorId: PropTypes.string,
   closeToolTipInformationTextAriaLabel: PropTypes.string.isRequired,
-  content: PropTypes.node
+  content: PropTypes.node,
+  handleContentMouseOver: PropTypes.func
 };
 
 export const toggleStateOnKeyPress = (state, setState, ref) => event => {
@@ -62,7 +71,10 @@ const ToolTip = ({
   'aria-label': ariaLabel,
   'data-testid': dataTestId,
   closeToolTipInformationTextAriaLabel,
-  toolTipIsVisible: _toolTipIsVisible
+  toolTipIsVisible: _toolTipIsVisible,
+  iconContainerClassName,
+  delayHide = 250,
+  fontSize = 14
 }) => {
   const isComponent = useMemo(
     () => !isString(TooltipContent) && isValidElement(TooltipContent()),
@@ -71,6 +83,8 @@ const ToolTip = ({
 
   const [toolTipIsVisible, setToolTipIsVisible] = useState(false);
 
+  const [mouseLeaveTimer, setMouseLeaveTimer] = useState(undefined);
+
   const handleKeyPress = useCallback(
     event => {
       toggleStateOnKeyPress(toolTipIsVisible, setToolTipIsVisible)(event);
@@ -78,21 +92,26 @@ const ToolTip = ({
     [toolTipIsVisible]
   );
 
+  const handleContentMouseOver = useCallback(() => {
+    mouseLeaveTimer && /* istanbul ignore next */ clearTimeout(mouseLeaveTimer);
+  }, [mouseLeaveTimer]);
+
   const handleMouseOver = useCallback(() => {
+    mouseLeaveTimer && clearTimeout(mouseLeaveTimer);
     setToolTipIsVisible(true);
-  }, []);
+  }, [mouseLeaveTimer]);
 
   const handleMouseLeave = useCallback(() => {
-    setToolTipIsVisible(false);
-  }, []);
+    setMouseLeaveTimer(setTimeout(() => setToolTipIsVisible(false), delayHide));
+  }, [delayHide]);
 
   const content = useMemo(() => {
     return isComponent ? (
       <TooltipContent />
     ) : (
-      <p className={style.tooltipContent}>{TooltipContent}</p>
+      <p className={classnames([style.tooltipContent, FontSizes[fontSize]])}>{TooltipContent}</p>
     );
-  }, [TooltipContent, isComponent]);
+  }, [TooltipContent, fontSize, isComponent]);
 
   return anchorId ? (
     <ToolTipWrapper
@@ -102,6 +121,7 @@ const ToolTip = ({
       content={content}
       onMouseLeave={handleMouseLeave}
       onMouseOver={handleMouseOver}
+      fontSize={fontSize}
     />
   ) : (
     <div
@@ -111,7 +131,7 @@ const ToolTip = ({
     >
       <button
         type="button"
-        className={style.tooltipIconContainer}
+        className={classnames([style.tooltipIconContainer, iconContainerClassName])}
         data-testid={dataTestId}
         onKeyDown={handleKeyPress}
         tabIndex={0}
@@ -128,6 +148,8 @@ const ToolTip = ({
         anchorId={anchorId}
         closeToolTipInformationTextAriaLabel={closeToolTipInformationTextAriaLabel}
         content={content}
+        handleContentMouseOver={handleContentMouseOver}
+        fontSize={fontSize}
       />
     </div>
   );
@@ -138,8 +160,12 @@ ToolTip.propTypes = {
   'data-testid': PropTypes.string,
   'aria-label': PropTypes.string,
   closeToolTipInformationTextAriaLabel: PropTypes.string.isRequired,
-  // ---------- externalHandling --------------
-  // if passed down, React Tooltip is used instead, due to limitations on
+  // ---------- Regular Tooltip exclusive --------------
+  iconContainerClassName: PropTypes.string,
+  delayHide: PropTypes.number,
+  fontSize: PropTypes.oneOf([12, 14]),
+  // ----------  React Tooltip exclusive  --------------
+  // externalHandling: if passed down, React Tooltip is used instead, due to limitations on
   // parents overflow hidden controls
   anchorId: PropTypes.string,
   toolTipIsVisible: PropTypes.bool
