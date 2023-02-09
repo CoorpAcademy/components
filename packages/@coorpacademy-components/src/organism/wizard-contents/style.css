@@ -18,7 +18,8 @@
 }
 
 .leftSection {
-  display: block;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   box-sizing: border-box;
   width: calc(100% - 320px);
@@ -90,6 +91,7 @@
 .button {
   width: 100%;
   max-width: 184px;
+  margin: 10px;
 }
 
 .footerWithoutSummary {
@@ -122,7 +124,8 @@
   }
 
   .container {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .rightSection {

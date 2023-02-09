@@ -23,7 +23,6 @@ import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
 import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
 import UploadingFileProgress from '../../../molecule/uploading-file-progress';
-import ImageUpload from '../../../atom/image-upload';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
