@@ -1,6 +1,6 @@
 import type {Dispatch} from 'redux';
 import get from 'lodash/fp/get';
-import type {SlideMedia} from '@coorpacademy/review-services';
+import type {VideoMedia} from '@coorpacademy/review-services';
 import type {ThunkOptions, VideoPropsForPlayer} from '../../types/common';
 import type {StoreState} from '../../reducers';
 
@@ -43,7 +43,7 @@ export const fetchPropsVideo =
       return;
     }
 
-    const slideMedia = get(['question', 'medias', '0'], slideFromAPI) as SlideMedia;
+    const slideMedia = get(['question', 'medias', '0'], slideFromAPI) as VideoMedia;
     if (slideMedia && slideMedia.type === 'video') {
       const videoProps = get(['data', 'videos', slideId], state);
       if (videoProps) {

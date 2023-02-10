@@ -5,6 +5,7 @@ import {SlideFromAPI} from '../types/services-types';
 
 const qcmDragSlide: SlideFromAPI = {
   question: {
+    medias: [],
     content: {
       media: {
         src: [],

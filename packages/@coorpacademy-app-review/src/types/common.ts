@@ -20,7 +20,7 @@ export type Skin = {
 
 export type VideoPropsForPlayer = {
   type: string;
-  src: Media[];
+  src: (Media & {loading?: boolean})[];
 };
 
 export type ConnectedOptions = {

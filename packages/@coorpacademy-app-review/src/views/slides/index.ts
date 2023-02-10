@@ -15,11 +15,11 @@ import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/r
 import {SlideProps} from '@coorpacademy/components/es/organism/review-slide/prop-types';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
 import type {
+  MediaFromAPI,
   ProgressionAnswerItem,
   ProgressionFromAPI,
   SlideContent,
-  SlideFromAPI,
-  SlideMedia
+  SlideFromAPI
 } from '@coorpacademy/review-services';
 import {Media} from '@coorpacademy/components/es/molecule/questions/types';
 import {ConnectedOptions, Skin, Translate} from '../../types/common';
@@ -112,7 +112,7 @@ const isLastSlideAnswered = (slidesRef: string[], slideRef: string): boolean => 
 };
 
 const getSlideMedia = (state: StoreState, slideFromAPI: SlideFromAPI): Media | undefined => {
-  const media = get(['question', 'medias', '0'], slideFromAPI) as SlideMedia | void;
+  const media = get(['question', 'medias', '0'], slideFromAPI) as MediaFromAPI | void;
   if (!media) return;
   const {type} = media;
   const resource = get(['src', '0'], media);

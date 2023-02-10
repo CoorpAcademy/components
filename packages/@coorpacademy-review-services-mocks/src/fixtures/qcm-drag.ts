@@ -1,7 +1,8 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const qcmDragSlide: SlideFromAPI = {
+export const createQcmDragSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
   question: {
+    medias: medias || [],
     content: {
       media: {
         src: [],
@@ -72,4 +73,4 @@ export const qcmDragSlide: SlideFromAPI = {
     title: 'Using redux',
     type: 'chapter'
   }
-};
+});

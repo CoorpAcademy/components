@@ -1,7 +1,19 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const qcmSlide: SlideFromAPI = {
+export const createQcmSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
   question: {
+    medias: medias || [
+      {
+        type: 'audio',
+        src: [
+          {
+            mimeType: 'audio/acc',
+            url: '//static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac',
+            _id: '590b9be24f7b862e0046e577'
+          }
+        ]
+      }
+    ],
     content: {
       media: {
         src: [],
@@ -75,4 +87,4 @@ export const qcmSlide: SlideFromAPI = {
     title: 'Developing the review app',
     type: 'course'
   }
-};
+});

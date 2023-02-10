@@ -40,6 +40,45 @@ export type ChoiceItem = {
   _id: string;
 };
 
+export type MediaSrc = {
+  _id: string;
+  id?: string;
+  mimeType: string;
+  url: string;
+};
+
+export type VideoSrc = {
+  _id: string;
+  id?: string;
+  mimeType: string;
+  videoId: string;
+  mediaRef: string;
+};
+
+type DefaultMedia = {
+  type?: string;
+  src?: Array<unknown>;
+  posters?: Array<string>;
+  subtitles?: Array<string>;
+};
+
+export type VideoMedia = DefaultMedia & {
+  type: 'video';
+  src: VideoSrc[];
+};
+
+export type ImageMedia = DefaultMedia & {
+  type: 'img';
+  src: MediaSrc[];
+};
+
+export type AudioMedia = DefaultMedia & {
+  type: 'audio';
+  src: MediaSrc[];
+};
+
+export type MediaFromAPI = DefaultMedia | VideoMedia | AudioMedia | ImageMedia;
+
 export type ChoiceFromAPI = {
   _id: string;
   id?: string;
@@ -48,45 +87,20 @@ export type ChoiceFromAPI = {
   type?: 'text' | 'select';
   label?: string;
   items: ChoiceItem[];
-  media?: unknown;
+  media?: MediaFromAPI;
 };
 
 type BaseContent = {
-  media?: unknown;
+  media?: MediaFromAPI;
   choices: ChoiceFromAPI[];
   answers: string[][];
 };
-
-export type MediaSrc = {_id: string; mimeType: string; url: string};
-export type VideoSrc = {
-  _id: string;
-  mimeType: string;
-  videoId: string;
-  mediaRef: string;
-};
-
-export type VideoMedia = {
-  type: 'video';
-  src: VideoSrc[];
-};
-
-export type ImageMedia = {
-  type: 'img';
-  src: MediaSrc[];
-};
-
-export type AudioMedia = {
-  type: 'audio';
-  src: MediaSrc[];
-};
-
-export type SlideMedia = VideoMedia | AudioMedia | ImageMedia;
 
 type BaseQuestion = {
   header?: string;
   content: BaseContent;
   explanation?: string;
-  medias?: SlideMedia[];
+  medias: MediaFromAPI[];
 };
 
 export type QcmQuestion = BaseQuestion & {
@@ -104,7 +118,7 @@ export type QcmDragQuestion = BaseQuestion & {
 export type BasicQuestion = Omit<BaseQuestion, 'content'> & {
   type: 'basic';
   content: {
-    media?: unknown;
+    media?: MediaFromAPI;
     label?: string;
     placeholder?: string;
     id: string;
@@ -114,7 +128,7 @@ export type BasicQuestion = Omit<BaseQuestion, 'content'> & {
 
 export type SliderQuestion = Omit<BaseQuestion, 'content'> & {
   content: {
-    media?: unknown;
+    media?: MediaFromAPI;
     unitLabel: string;
     min: number;
     max: number;

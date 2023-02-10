@@ -4,14 +4,15 @@ import {ChoiceItem} from '../../atom/select-modal/index.native';
 type Url = string;
 
 type VideoMimeType =
+  | 'video/mp4'
   | 'application/kontiki'
   | 'application/jwplayer'
   | 'application/youtube'
   | 'application/omniPlayer'
+  | 'application/uptale'
   | 'application/vimeo';
 
 type ResourceMimeType =
-  | 'video/mp4'
   | 'audio/acc'
   | 'image/jpeg'
   | 'image/png'

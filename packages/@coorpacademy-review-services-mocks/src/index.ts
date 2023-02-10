@@ -16,12 +16,19 @@ import {
   getConfig,
   updateState
 } from '@coorpacademy/progression-engine';
-import {qcmDragSlide} from './fixtures/qcm-drag';
-import {qcmSlide} from './fixtures/qcm';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {freeTextSlide} from './fixtures/free-text';
-import {sliderSlide} from './fixtures/slider';
-import {templateSlide} from './fixtures/template';
+import {
+  freeTextSlide,
+  freeTextWithYoutube,
+  qcmDragSlide,
+  qcmGraphicSlide,
+  qcmGraphicWithVimeo,
+  qcmSlide,
+  qcmSlideWithOmniplayer,
+  sliderSlide,
+  sliderWithUptale,
+  templateSlide,
+  templateWithMp4Player
+} from './fixtures';
 
 export const SKILL_REF_FOR_DEFAULT_SLIDES = 'skill_NyxtYFYir';
 export const SKILL_REF_FOR_MANY_MEDIA = 'skill_many_media';
@@ -33,6 +40,23 @@ const getContent = (ref: string): ReviewContent => ({
 
 const engine: ReviewEngine = {
   ref: 'review'
+};
+
+const getSlides = (skillRef: string): SlideFromAPI[] => {
+  switch (skillRef) {
+    case SKILL_REF_FOR_MANY_MEDIA:
+      return [
+        freeTextWithYoutube,
+        qcmGraphicWithVimeo,
+        qcmSlideWithOmniplayer,
+        sliderWithUptale,
+        templateWithMp4Player
+      ];
+
+    case SKILL_REF_FOR_DEFAULT_SLIDES:
+    default:
+      return [freeTextSlide, qcmGraphicSlide, qcmSlide, sliderSlide, templateSlide];
+  }
 };
 
 const getSlideFixture = (ref: string): SlideFromAPI => {
@@ -261,7 +285,7 @@ const availableContent = (
 ): Array<{ref: string; slides: SlideFromAPI[]; rules: null}> => [
   {
     ref: skillRef,
-    slides: [freeTextSlide, qcmGraphicSlide, qcmSlide, sliderSlide, templateSlide],
+    slides: getSlides(skillRef),
     rules: null
   }
 ];
