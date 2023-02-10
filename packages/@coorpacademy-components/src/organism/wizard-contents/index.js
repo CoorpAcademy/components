@@ -96,31 +96,55 @@ const buildActionZone = (previousStep, nextStep, side) => {
   );
 };
 
+const THEMES = {
+  'no-summary': {
+    container: style.containerWithoutSummary,
+    footer: style.footerWithoutSummary,
+    actionFooter: style.actionFooterWithoutSummary,
+    leftSection: style.leftSectionWithoutSummary
+  },
+  summary: {
+    container: style.container,
+    footer: style.footer,
+    actionFooter: style.actionFooter,
+    leftSection: style.leftSection
+  }
+};
+
+const getTheme = summary => (summary ? 'summary' : 'no-summary');
+
 const WizardContents = props => {
   const {isLoading, wizardHeader, steps, summary, content, nextStep, previousStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
   const formView = buildForm({...content, isLoading});
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
+  const currentStyle = THEMES[getTheme(summary)];
+
+  const summaryWrapper = (
+    <div className={style.rightSection} data-name="summary-right-section">
+      <div className={style.stickySection}>
+        <div className={style.summaryZone} data-name="summary-zone">
+          <WizardSummary {...summary} side={'right'} />
+        </div>
+        {rightActionView}
+      </div>
+    </div>
+  );
 
   return (
-    <div className={style.container} data-name="content-summary">
-      <div className={style.leftSection}>
+    <div className={currentStyle.container} data-name="content-summary">
+      <div className={currentStyle.leftSection}>
         {headerView}
         <div className={style.form}>{formView}</div>
       </div>
-      <div className={style.rightSection} data-name="summary-right-section">
-        <div className={style.stickySection}>
-          <div className={style.summaryZone} data-name="summary-zone">
-            <WizardSummary {...summary} side={'right'} />
+      {summary ? summaryWrapper : null}
+      <div className={currentStyle.footer} data-name="footer-section">
+        {summary ? (
+          <div className={style.summaryFooter}>
+            <WizardSummary {...summary} side={'footer'} />
           </div>
-          {rightActionView}
-        </div>
-      </div>
-      <div className={style.footer} data-name="summary-footer-section">
-        <div className={style.summaryFooter}>
-          <WizardSummary {...summary} side={'footer'} />
-        </div>
+        ) : null}
         <div className={style.actionFooter}>{footerActionView}</div>
       </div>
     </div>
@@ -136,7 +160,7 @@ WizardContents.propTypes = {
   steps: WizardSteps.propTypes.steps,
   summary: PropTypes.shape({
     ...WizardSummary.propTypes
-  }).isRequired,
+  }),
   content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,

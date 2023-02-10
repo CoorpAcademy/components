@@ -7,17 +7,31 @@
   display: flex;
   align-items: stretch;
   justify-content: flex-start;
-  flex-wrap: wrap;
   overflow: auto;
   height: calc(100vh - 124px);
   width: 100%;
 }
 
+.containerWithoutSummary {
+  composes: container;
+  flex-direction: column;
+}
+
 .leftSection {
-  display: block;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   box-sizing: border-box;
   width: calc(100% - 320px);
+  position: relative;
+}
+
+.leftSectionWithoutSummary {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  box-sizing: border-box;
+  width: 100%;
   height: 100%;
   position: relative;
 }
@@ -69,12 +83,23 @@
 .actionZone {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-end;
   margin: 16px 0;
 }
 
 .button {
-  width: calc(50% - 8px);
+  width: 100%;
+  max-width: 184px;
+  margin: 10px;
+}
+
+.footerWithoutSummary {
+  width: 100%;
+  bottom: 0px;
+  position: inherit;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .footer {
@@ -84,23 +109,37 @@
   position: inherit;
 }
 
+.actionFooterWithoutSummary {
+  width: 100%;
+  display: flex;
+  right: 0;
+  bottom: -10px;
+  position: sticky;
+}
+
 @media desktop, tablet {
   .leftSection {
     width: 100%;
     min-height: 500px;
   }
 
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .rightSection {
     display: none;
   }
 
-  .footer {
+  .footer  {
     display: flex;
     align-items: flex-end;
     bottom: 10px;
     position: sticky;
     z-index: 1;
   }
+
   .footer::before {
     content: '';
     background: linear-gradient(to top,white 64px, #ffffff00 );
@@ -118,8 +157,9 @@
   }
 
   .actionFooter {
-    width: 43%;
+    width: 100%;
   }
+  
   .actionZone {
     margin: 0;
   }
