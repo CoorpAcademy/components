@@ -3,7 +3,7 @@ export default {
     size: 'small',
     'data-name': 'default-button',
     'aria-label': 'aria button',
-    icon: 'chevron-down',
+    icon: 'close',
     disabled: true,
     onClick: () => console.log('click')
   }
