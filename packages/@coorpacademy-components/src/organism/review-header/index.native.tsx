@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, ViewStyle} from 'react-native';
 import {NovaSolidStatusClose as CloseIcon} from '@coorpacademy/nova-icons';
-import Step from '../../atom/review-header-step-item/index.native';
+import Step from '../../atom/status-item/index.native';
 import Touchable from '../../hoc/touchable/index.native';
 import {HeaderProps} from './types';
 

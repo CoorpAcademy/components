@@ -81,8 +81,6 @@
   "mandatory_fields": "*Povinné polia",
   "something_went_wrong": "Och! Niečo sa pokazilo.",
   "review_header_step_item": {
-    "aria_label": "Otázka {{headerStepValue}}",
-    "current_question": "Otázka {{headerStepValue}} je aktuálna otázka",
     "correct_question": "Otázka {{headerStepValue}} je správna",
     "incorrect_question": "Otázka {{headerStepValue}} je nesprávna",
     "not_answered_question": "Otázka {{headerStepValue}} zatiaľ nie je zodpovedaná"

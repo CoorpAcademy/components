@@ -81,8 +81,6 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Otázka {{headerStepValue}}",
-    "current_question": "Otázka {{headerStepValue}} je aktuální otázka",
     "correct_question": "Otázka {{headerStepValue}} je správná",
     "incorrect_question": "Otázka {{headerStepValue}} je nesprávná",
     "not_answered_question": "Otázka {{headerStepValue}} zatím není zodpovězena"

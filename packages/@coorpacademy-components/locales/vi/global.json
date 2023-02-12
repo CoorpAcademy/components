@@ -81,8 +81,6 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Câu hỏi {{headerStepValue}}",
-    "current_question": "Câu hỏi {{headerStepValue}} là câu hỏi hiện tại",
     "correct_question": "Câu {{headerStepValue}} đúng không",
     "incorrect_question": "Câu {{headerStepValue}} sai",
     "not_answered_question": "Câu hỏi {{headerStepValue}} chưa có câu trả lời"

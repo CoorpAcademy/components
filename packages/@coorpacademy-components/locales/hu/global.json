@@ -81,8 +81,6 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Kérdés {{headerStepValue}}",
-    "current_question": "Az {{headerStepValue}} kérdés az aktuális kérdés",
     "correct_question": "Az {{headerStepValue}} kérdés helyes",
     "incorrect_question": "Az {{headerStepValue}} kérdés helytelen",
     "not_answered_question": "Az {{headerStepValue}} kérdésre még nincs válasz"

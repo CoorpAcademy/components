@@ -5,7 +5,7 @@ import {
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import {COLORS} from '../../variables/colors';
-import {HeaderStepItemProps} from './types';
+import {StatusItemProps} from './types';
 
 type StyleSheetType = {
   step: ViewStyle;
@@ -13,7 +13,7 @@ type StyleSheetType = {
   icon: ViewStyle;
 };
 
-const createStyle = (current: boolean, icon: HeaderStepItemProps['icon']): StyleSheetType => {
+const createStyle = (icon: StatusItemProps['icon'], current?: boolean): StyleSheetType => {
   let backgroundColor;
 
   switch (icon) {
@@ -50,11 +50,11 @@ const createStyle = (current: boolean, icon: HeaderStepItemProps['icon']): Style
   });
 };
 
-const Step = ({value, icon, current}: HeaderStepItemProps) => {
+const Step = ({value, icon, current}: StatusItemProps) => {
   const [style, setStyle] = useState<StyleSheetType | null>(null);
 
   useEffect(() => {
-    const _style = createStyle(current, icon);
+    const _style = createStyle(icon, current);
     setStyle(_style);
   }, [current, icon]);
 

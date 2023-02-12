@@ -81,8 +81,6 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "问题{{headerStepValue}}",
-    "current_question": "问题 {{headerStepValue}} 是当前问题",
     "correct_question": "问题{{headerStepValue}}是正确的",
     "incorrect_question": "问题 {{headerStepValue}} 不正确",
     "not_answered_question": "问题 {{headerStepValue}} 尚未回答"

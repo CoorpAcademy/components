@@ -81,8 +81,6 @@
   "mandatory_fields": "*Kohustuslikud väljad",
   "something_went_wrong": "Oih! Midagi läks viltu.",
   "review_header_step_item": {
-    "aria_label": "Küsimus {{headerStepValue}}",
-    "current_question": "Küsimus {{headerStepValue}} on praegune küsimus",
     "correct_question": "Küsimus {{headerStepValue}} on õige",
     "incorrect_question": "Küsimus {{headerStepValue}} on vale",
     "not_answered_question": "Küsimusele {{headerStepValue}} pole veel vastust"

@@ -81,8 +81,6 @@
   "mandatory_fields": "*ข้อมูลที่จำเป็นต้องกรอก",
   "something_went_wrong": "อ้าว! มีสิ่งผิดปกติ",
   "review_header_step_item": {
-    "aria_label": "คำถามข้อที่ {{headerStepValue}}",
-    "current_question": "คำถามข้อที่ {{headerStepValue}} คือคำถามปัจจุบัน",
     "correct_question": "คำถามข้อที่ {{headerStepValue}} ถูกต้อง",
     "incorrect_question": "คำถามข้อที่ {{headerStepValue}} ไม่ถูกต้อง",
     "not_answered_question": "คำถามข้อที่ {{headerStepValue}} ยังไม่ได้ตอบ"
