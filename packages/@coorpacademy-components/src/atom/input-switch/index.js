@@ -63,7 +63,7 @@ const InputSwitch = props => {
         <div className={style.btnSwitchContainer}>
           <input
             {...(ariaLabelledBy ? {'aria-labelledby': ariaLabelledBy} : {})}
-            {...(title && !ariaLabelledBy ? {'aria-labelledby': `title-view-${dataName}`} : {})}
+            {...(title ? {'aria-labelledby': `title-view-${dataName}`} : {})}
             {...(ariaLabel && !ariaLabelledBy && !title ? {'aria-label': ariaLabel} : {})}
             type="checkbox"
             id={idSwitch}
