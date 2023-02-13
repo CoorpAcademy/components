@@ -11,7 +11,8 @@ export const createQcmSlide = (
         src: [
           {
             mimeType: 'audio/acc',
-            url: '//static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac',
+            mediaUrl:
+              '//static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac',
             _id: '590b9be24f7b862e0046e577'
           }
         ]
