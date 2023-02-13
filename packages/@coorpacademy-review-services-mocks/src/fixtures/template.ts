@@ -1,6 +1,9 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const createTemplateSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
+export const createTemplateSlide = (
+  universalRef: string,
+  medias?: SlideFromAPI['question']['medias']
+): SlideFromAPI => ({
   question: {
     content: {
       template:
@@ -95,8 +98,8 @@ export const createTemplateSlide = (medias?: SlideFromAPI['question']['medias'])
   },
   klf: 'L’apprenant peut aussi évaluer sa performance grâce à un classement disponible sur la vue leaderboard. Elle compare sa position par rapport à celle des autres apprenants de la plateforme.',
   tips: "La position d'un apprenant peut être aussi consultée depuis le header ou en-tête de la page. Elle se met à jour à chaque fois qu'un apprenant obtient des étoiles.",
-  universalRef: 'sli_N13-hG3kX',
-  _id: 'sli_N13-hG3kX',
+  universalRef,
+  _id: universalRef,
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'

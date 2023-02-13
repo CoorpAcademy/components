@@ -24,14 +24,16 @@ import {
   qcmGraphicWithVimeo,
   qcmSlide,
   qcmSlideWithOmniplayer,
+  SKILL_REF_FOR_DEFAULT_SLIDES,
+  SKILL_REF_FOR_MANY_MEDIA,
+  slideRef,
   sliderSlide,
   sliderWithUptale,
   templateSlide,
   templateWithMp4Player
 } from './fixtures';
 
-export const SKILL_REF_FOR_DEFAULT_SLIDES = 'skill_NyxtYFYir';
-export const SKILL_REF_FOR_MANY_MEDIA = 'skill_many_media';
+export {SKILL_REF_FOR_DEFAULT_SLIDES, SKILL_REF_FOR_MANY_MEDIA} from './fixtures';
 
 const getContent = (ref: string): ReviewContent => ({
   ref,
@@ -71,6 +73,16 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
       return templateSlide;
     case qcmDragSlide.universalRef:
       return qcmDragSlide;
+    case freeTextWithYoutube.universalRef:
+      return freeTextWithYoutube;
+    case qcmGraphicWithVimeo.universalRef:
+      return qcmGraphicWithVimeo;
+    case qcmSlideWithOmniplayer.universalRef:
+      return qcmSlideWithOmniplayer;
+    case sliderWithUptale.universalRef:
+      return sliderWithUptale;
+    case templateWithMp4Player.universalRef:
+      return templateWithMp4Player;
     default:
       return sliderSlide;
   }
@@ -114,7 +126,7 @@ export const postProgressionResponse = (skillRef: string): ProgressionFromAPI =>
     allAnswers: [],
     isCorrect: true,
     nextContent: {
-      ref: freeTextSlide.universalRef,
+      ref: slideRef(freeTextSlide.universalRef, skillRef),
       type: 'slide'
     },
     pendingSlides: [],
@@ -190,6 +202,7 @@ export const progressionSlideWithPendingSlide = (skillRef: string): ProgressionF
 
 export const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
   switch (ref) {
+    case qcmSlideWithOmniplayer.universalRef:
     case qcmSlide.universalRef: {
       const correctAnswer = [get('question.content.answers', qcmSlide)];
       return {
@@ -204,6 +217,7 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
           : [{answer: correctAnswer[0], isCorrect: true}]
       };
     }
+    case qcmGraphicWithVimeo.universalRef:
     case qcmGraphicSlide.universalRef: {
       const correctAnswer = [get('question.content.answers', qcmGraphicSlide)];
       return {
@@ -213,6 +227,7 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
           : [{answer: correctAnswer[0], isCorrect: true}]
       };
     }
+    case freeTextWithYoutube.universalRef:
     case freeTextSlide.universalRef: {
       const correctAnswer = [get('question.content.answers', freeTextSlide)];
       return {
@@ -222,6 +237,7 @@ export const getChoicesCorrection = (ref: string, wrongChoice = false): Correcti
           : [{answer: correctAnswer[0], isCorrect: true}]
       };
     }
+    case templateWithMp4Player.universalRef:
     case templateSlide.universalRef: {
       const correctAnswer = [get('question.content.answers', templateSlide)];
       return {
