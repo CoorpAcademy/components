@@ -9,29 +9,54 @@ import type {
   Services,
   Skill,
   SlideFromAPI,
-  SlideIdFromAPI,
-  VideoMedia
+  SlideIdFromAPI
 } from '@coorpacademy/review-services';
 import {
   computeNextStepAfterAnswerForReview,
   getConfig,
   updateState
 } from '@coorpacademy/progression-engine';
-import type {Media} from '@coorpacademy/components/es/molecule/questions/types';
-import {qcmDragSlide} from './fixtures/qcm-drag';
-import {qcmSlide} from './fixtures/qcm';
-import {qcmGraphicSlide} from './fixtures/qcm-graphic';
-import {freeTextSlide} from './fixtures/free-text';
-import {sliderSlide} from './fixtures/slider';
-import {templateSlide} from './fixtures/template';
+import {
+  freeTextSlide,
+  freeTextWithYoutube,
+  qcmDragSlide,
+  qcmGraphicSlide,
+  qcmGraphicWithVimeo,
+  qcmSlide,
+  qcmSlideWithOmniplayer,
+  sliderSlide,
+  sliderWithUptale,
+  templateSlide,
+  templateWithMp4Player
+} from './fixtures';
 
-const content: ReviewContent = {
-  ref: 'skill_NyxtYFYir',
+export const SKILL_REF_FOR_DEFAULT_SLIDES = 'skill_NyxtYFYir';
+export const SKILL_REF_FOR_MANY_MEDIA = 'skill_many_media';
+
+const getContent = (ref: string): ReviewContent => ({
+  ref,
   type: 'skill'
-};
+});
 
 const engine: ReviewEngine = {
   ref: 'review'
+};
+
+const getSlides = (skillRef: string): SlideFromAPI[] => {
+  switch (skillRef) {
+    case SKILL_REF_FOR_MANY_MEDIA:
+      return [
+        freeTextWithYoutube,
+        qcmGraphicWithVimeo,
+        qcmSlideWithOmniplayer,
+        sliderWithUptale,
+        templateWithMp4Player
+      ];
+
+    case SKILL_REF_FOR_DEFAULT_SLIDES:
+    default:
+      return [freeTextSlide, qcmGraphicSlide, qcmSlide, sliderSlide, templateSlide];
+  }
 };
 
 const getSlideFixture = (ref: string): SlideFromAPI => {
@@ -52,23 +77,27 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
 };
 
 const fetchSkillResponse: Record<string, Skill> = {
-  skill_NyxtYFYir: {
-    ref: 'skill_NyxtYFYir',
+  [SKILL_REF_FOR_DEFAULT_SLIDES]: {
+    ref: SKILL_REF_FOR_DEFAULT_SLIDES,
     name: 'Digital Awareness'
+  },
+  [SKILL_REF_FOR_MANY_MEDIA]: {
+    ref: SKILL_REF_FOR_MANY_MEDIA,
+    name: 'Testing many media'
   }
 };
 
 const fetchSkillsResponse = [
   {
-    skillRef: '_skill-ref',
+    skillRef: SKILL_REF_FOR_DEFAULT_SLIDES,
     slidesToReview: 2,
-    name: 'skill-test',
+    name: 'Default slides',
     custom: false
   },
   {
-    skillRef: '_skill-ref-2',
+    skillRef: SKILL_REF_FOR_MANY_MEDIA,
     slidesToReview: 2,
-    name: 'skill-test-2',
+    name: 'Many media',
     custom: true
   }
 ];
@@ -77,9 +106,9 @@ const fetchRankResponse = {
   rank: 93
 };
 
-export const postProgressionResponse: ProgressionFromAPI = {
+export const postProgressionResponse = (skillRef: string): ProgressionFromAPI => ({
   _id: '62b1d1087aa12f00253f40ee',
-  content,
+  content: getContent(skillRef),
   engine,
   state: {
     allAnswers: [],
@@ -95,11 +124,11 @@ export const postProgressionResponse: ProgressionFromAPI = {
     },
     stars: 0
   }
-};
+});
 
-export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
+export const progressionSlideWithPendingSlide = (skillRef: string): ProgressionFromAPI => ({
   _id: '62b1d1087aa12f00253f40ee',
-  content,
+  content: getContent(skillRef),
   engine,
   state: {
     allAnswers: [
@@ -157,7 +186,7 @@ export const progressionSlideWithPendingSlide: ProgressionFromAPI = {
     },
     stars: 32
   }
-};
+});
 
 export const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
   switch (ref) {
@@ -251,10 +280,12 @@ const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   }
 ];
 
-const availableContent = [
+const availableContent = (
+  skillRef: string
+): Array<{ref: string; slides: SlideFromAPI[]; rules: null}> => [
   {
-    ref: content.ref,
-    slides: [freeTextSlide, qcmGraphicSlide, qcmSlide, sliderSlide, templateSlide],
+    ref: skillRef,
+    slides: getSlides(skillRef),
     rules: null
   }
 ];
@@ -265,7 +296,7 @@ const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): Progr
     computeNextStepAfterAnswerForReview(
       reviewConfig,
       progression.state,
-      availableContent,
+      availableContent(progression.content.ref),
       getSlideFixture(progression.state.nextContent.ref),
       {
         type: 'answer',
@@ -279,58 +310,11 @@ const getPostAnswer = (progression: ProgressionFromAPI, answer: string[]): Progr
   return response;
 };
 
-type VideoPropsForPlayer = {
-  type: string;
-  src: Media[];
-};
-
-export const appendVideoOptions = (media: VideoMedia): Promise<VideoPropsForPlayer> => {
-  const videoSrc = media.src[0];
-  const {videoId, mediaRef} = videoSrc;
-  return Promise.resolve({
-    type: 'video',
-    src: [
-      {
-        mimeType: 'application/jwplayer',
-        videoId,
-        mediaRef,
-        type: 'video',
-        jwpOptions: {
-          playerId: '7IMa4DCK',
-          playerScript: 'https://static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
-          licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
-          playlist: [
-            {
-              file: `https://content.jwplatform.com/manifests/${videoId}.m3u8`,
-              tracks: [
-                {
-                  file: `https://content.jwplatform.com/strips/${videoId}-120.vtt`,
-                  kind: 'thumbnails'
-                }
-              ]
-            }
-          ],
-          customProps: {
-            playbackRateControls: true,
-            playbackRates: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
-            preload: 'auto',
-            autostart: 'true',
-            width: '100%',
-            height: '343px',
-            visualplaylist: false,
-            nextUpDisplay: false
-          }
-        }
-      }
-    ]
-  });
-};
-
 export const services: Services = {
   fetchSkill: ref => Promise.resolve(fetchSkillResponse[ref]),
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
-  postProgression: () => Promise.resolve(postProgressionResponse),
+  postProgression: (skillRef: string) => Promise.resolve(postProgressionResponse(skillRef)),
   postAnswer: (progression: ProgressionFromAPI, _: string, answer: string[]) =>
     Promise.resolve(getPostAnswer(progression, answer)),
   fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),

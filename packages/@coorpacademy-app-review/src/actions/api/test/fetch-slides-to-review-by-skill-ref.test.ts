@@ -1,5 +1,6 @@
 import test from 'ava';
 import type {Services} from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../test/create-test-store';
 import {
   fetchSlidesToReviewBySkillRef,
@@ -33,7 +34,7 @@ const state: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
     videos: {}
   },
   ui: {
@@ -87,7 +88,7 @@ test('should dispatch only one action, SLIDES_TO_REVIEW_FETCH_SUCCESS action, wh
   const services: {fetchSlidesToReviewBySkillRef: Services['fetchSlidesToReviewBySkillRef']} = {
     fetchSlidesToReviewBySkillRef: (token, skillRef, limit) => {
       t.is(token, '1234');
-      t.is(skillRef, 'skill_NyxtYFYir');
+      t.is(skillRef, SKILL_REF_FOR_DEFAULT_SLIDES);
       t.is(limit, 10);
       return Promise.resolve(fetchSlidesToReviewBySkillRefResponse);
     }
@@ -112,7 +113,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_FAILURE action when fetchSlidesToRe
   const services: {fetchSlidesToReviewBySkillRef: Services['fetchSlidesToReviewBySkillRef']} = {
     fetchSlidesToReviewBySkillRef: (token, skillRef, limit) => {
       t.is(token, '1234');
-      t.is(skillRef, 'skill_NyxtYFYir');
+      t.is(skillRef, SKILL_REF_FOR_DEFAULT_SLIDES);
       t.is(limit, 10);
       return Promise.reject(new Error('unexpected'));
     }
@@ -138,7 +139,7 @@ test('should dispatch SLIDES_TO_REVIEW_FETCH_SUCCESS and SHOW_BUTTON_REVISING ac
   const services: {fetchSlidesToReviewBySkillRef: Services['fetchSlidesToReviewBySkillRef']} = {
     fetchSlidesToReviewBySkillRef: (token, skillRef, limit) => {
       t.is(token, '1234');
-      t.is(skillRef, 'skill_NyxtYFYir');
+      t.is(skillRef, SKILL_REF_FOR_DEFAULT_SLIDES);
       t.is(limit, 10);
       return Promise.resolve(fetchNewSlidesToReviewBySkillRefResponse);
     }

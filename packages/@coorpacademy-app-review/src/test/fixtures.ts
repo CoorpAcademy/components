@@ -4,6 +4,7 @@ import type {
   ReviewEngine,
   SlideIdFromAPI
 } from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {StoreState} from '../reducers';
 import {freeTextSlide} from '../views/slides/test/fixtures/free-text';
 import {qcmSlide} from '../views/slides/test/fixtures/qcm';
@@ -12,7 +13,7 @@ import {sliderSlide} from '../views/slides/test/fixtures/slider';
 import {templateSlide} from '../views/slides/test/fixtures/template';
 
 const content: ReviewContent = {
-  ref: 'skill_NyxtYFYir',
+  ref: SKILL_REF_FOR_DEFAULT_SLIDES,
   type: 'skill'
 };
 

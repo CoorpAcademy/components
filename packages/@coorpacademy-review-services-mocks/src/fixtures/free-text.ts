@@ -1,6 +1,6 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const freeTextSlide: SlideFromAPI = {
+export const createFreeTextSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
   question: {
     content: {
       media: {
@@ -17,15 +17,15 @@ export const freeTextSlide: SlideFromAPI = {
     header:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?',
     explanation: 'Type your answer.',
-    medias: [
+    medias: medias || [
       {
         type: 'video',
         src: [
           {
             _id: 'free-text',
+            mediaRef: 'med_free_text',
             mimeType: 'application/jwplayer',
-            videoId: '489S0B87',
-            mediaRef: 'med_free_text'
+            videoId: '489S0B87'
           }
         ]
       }
@@ -39,4 +39,4 @@ export const freeTextSlide: SlideFromAPI = {
     title: 'Developing the review app',
     type: 'course'
   }
-};
+});

@@ -1,6 +1,7 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {CMPopinProps} from '@coorpacademy/components/es/molecule/cm-popin/types';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {CLOSE_POPIN} from '../../../actions/ui/quit-popin';
 import {StoreState} from '../../../reducers';
@@ -23,7 +24,7 @@ const state: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
     videos: {}
   },
   ui: {

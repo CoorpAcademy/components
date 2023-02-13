@@ -26,8 +26,8 @@ export const freeTextSlide: SlideFromAPI = {
           {
             _id: 'free-text',
             mimeType: 'application/jwplayer',
-            videoId: '489S0B87',
-            mediaRef: 'med_free_text'
+            mediaRef: 'med_free_text',
+            videoId: '489S0B87'
           }
         ]
       }

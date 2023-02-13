@@ -4,6 +4,7 @@ import {ReviewSlide} from '../..';
 
 export const templateSlide: SlideFromAPI = {
   question: {
+    medias: [],
     content: {
       template:
         'La vue {{sel80495}} présente la liste des   {{inp58402}}   ayant le plus grand nombre d’{{sel80496}} cumulées.',

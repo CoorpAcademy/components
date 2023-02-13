@@ -4,6 +4,7 @@ import {ReviewSlide} from '../..';
 
 export const qcmGraphicSlide: SlideFromAPI = {
   question: {
+    medias: [],
     content: {
       media: {
         src: [],

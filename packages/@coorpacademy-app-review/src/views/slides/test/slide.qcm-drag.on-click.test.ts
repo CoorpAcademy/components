@@ -3,6 +3,7 @@ import omit from 'lodash/fp/omit';
 import get from 'lodash/fp/get';
 import identity from 'lodash/fp/identity';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
+import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
 import {mapStateToSlidesProps} from '..';
 import {createTestStore} from '../../../actions/test/create-test-store';
 import {StoreState} from '../../../reducers';
@@ -45,7 +46,7 @@ const initialState: StoreState = {
     token: '1234',
     corrections: {},
     rank: {start: 10, end: Number.NaN},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
     videos: {}
   },
   ui: {

@@ -1,7 +1,10 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const qcmGraphicSlide: SlideFromAPI = {
+export const createQcmGraphicSlide = (
+  medias?: SlideFromAPI['question']['medias']
+): SlideFromAPI => ({
   question: {
+    medias: medias || [],
     content: {
       media: {
         src: [],
@@ -191,4 +194,4 @@ export const qcmGraphicSlide: SlideFromAPI = {
     title: 'Developing the review app',
     type: 'course'
   }
-};
+});

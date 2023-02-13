@@ -2,7 +2,10 @@ import test, {ExecutionContext} from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCorrectionPopinProps} from '@coorpacademy/components/es/molecule/review-correction-popin/prop-types';
 
-import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import {isEqual} from 'lodash/fp';
 import {SHOW_BUTTON_REVISING} from '../../../actions/ui/show-button-revising';
 import type {StoreState} from '../../../reducers';
@@ -43,7 +46,7 @@ test('correction popin actions after click', async t => {
         [freeTextSlide._id]: getChoicesCorrection(freeTextSlide._id, true)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {
@@ -133,7 +136,7 @@ test('correction popin actions after click when progression is finished', async 
         [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
       },
       rank: {start: 10, end: Number.NaN},
-      currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+      currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
       videos: {}
     },
     ui: {

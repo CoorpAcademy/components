@@ -1,6 +1,6 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const templateSlide: SlideFromAPI = {
+export const createTemplateSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
   question: {
     content: {
       template:
@@ -79,7 +79,7 @@ export const templateSlide: SlideFromAPI = {
     header: 'Complétez la phrase ci-dessous.',
     explanation:
       'Saisissez votre réponse ou sélectionnez la bonne réponse dans le(s) menu(s) déroulant(s).',
-    medias: [
+    medias: medias || [
       {
         type: 'video',
         src: [
@@ -101,4 +101,4 @@ export const templateSlide: SlideFromAPI = {
     title: 'Developing the review app',
     type: 'course'
   }
-};
+});

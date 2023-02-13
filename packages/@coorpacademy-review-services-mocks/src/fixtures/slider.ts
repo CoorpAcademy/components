@@ -1,6 +1,6 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const sliderSlide: SlideFromAPI = {
+export const createSliderSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
   question: {
     content: {
       min: 1,
@@ -12,7 +12,7 @@ export const sliderSlide: SlideFromAPI = {
     header:
       'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?',
     explanation: 'Déplacez le curseur.',
-    medias: [
+    medias: medias || [
       {
         type: 'img',
         src: [
@@ -33,4 +33,4 @@ export const sliderSlide: SlideFromAPI = {
     title: 'Developing the review app',
     type: 'course'
   }
-};
+});

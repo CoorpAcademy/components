@@ -1,7 +1,10 @@
 import test from 'ava';
 import identity from 'lodash/fp/identity';
 import {ReviewCongratsProps} from '@coorpacademy/components/es/organism/review-congrats/prop-types';
-import {getChoicesCorrection} from '@coorpacademy/review-services-mocks';
+import {
+  getChoicesCorrection,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import type {ProgressionFromAPI} from '@coorpacademy/review-services';
 import {SKILL_FETCH_REQUEST, SKILL_FETCH_SUCCESS} from '../../../actions/api/fetch-skill';
 import {createTestStore} from '../../../actions/test/create-test-store';
@@ -44,7 +47,7 @@ const state: StoreState = {
       [templateSlide.universalRef]: getChoicesCorrection(templateSlide._id)
     },
     rank: {start: 10, end: 10},
-    currentSkill: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'},
+    currentSkill: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'},
     videos: {
       [freeTextSlide._id]: {
         type: 'video',
@@ -143,7 +146,7 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
   const progression: ProgressionFromAPI = {
     _id: '62b1d1087aa12f00253f40ee',
     content: {
-      ref: 'skill_NyxtYFYir',
+      ref: SKILL_REF_FOR_DEFAULT_SLIDES,
       type: 'skill'
     },
     engine: {
@@ -187,7 +190,10 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
     {type: SET_CURRENT_SLIDE, payload: freeTextSlide},
     {type: SHOW_VIDEO, payload: {slideId: freeTextSlide._id}},
     {type: SKILL_FETCH_REQUEST},
-    {type: SKILL_FETCH_SUCCESS, payload: {ref: 'skill_NyxtYFYir', name: 'Digital Awareness'}}
+    {
+      type: SKILL_FETCH_SUCCESS,
+      payload: {ref: SKILL_REF_FOR_DEFAULT_SLIDES, name: 'Digital Awareness'}
+    }
   ];
   const {dispatch, getState} = createTestStore(t, state, {}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);

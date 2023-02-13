@@ -1,14 +1,15 @@
 import test from 'ava';
 import {
   postProgressionResponse,
-  progressionSlideWithPendingSlide
+  progressionSlideWithPendingSlide,
+  SKILL_REF_FOR_DEFAULT_SLIDES
 } from '@coorpacademy/review-services-mocks';
 import {templateSlide} from '../../views/slides/test/fixtures/template';
 import {getProgressionSlidesRefs} from '..';
 import {postAnswerResponses} from '../../test/fixtures';
 
 test('should return first slide for a created slide', t => {
-  const slides = getProgressionSlidesRefs(postProgressionResponse);
+  const slides = getProgressionSlidesRefs(postProgressionResponse(SKILL_REF_FOR_DEFAULT_SLIDES));
   t.deepEqual(slides, ['sli_VJYjJnJhg']);
 });
 
@@ -24,7 +25,9 @@ test('should return all 5 slides when user is going to answer the 5th slide', t 
 });
 
 test('should return all 5 slides when progression has a nextContent ref that is a pending slide', t => {
-  const slides = getProgressionSlidesRefs(progressionSlideWithPendingSlide);
+  const slides = getProgressionSlidesRefs(
+    progressionSlideWithPendingSlide(SKILL_REF_FOR_DEFAULT_SLIDES)
+  );
   t.deepEqual(slides, [
     'sli_VJYjJnJhg',
     'sli_VkSQroQnx',
