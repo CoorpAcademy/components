@@ -3,6 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {wrappingComponent} from '../../../test/helpers/render-component';
 import ReviewHeader from '..';
 import defaultFixture from './fixtures/all-questions-ok';
 
@@ -17,7 +18,7 @@ test('onQuitClick (close button onClick) should be reachable, should match given
       closeButtonWasClicked = true;
     }
   };
-  const wrapper = mount(<ReviewHeader {...defaultFixture.props} />);
+  const wrapper = mount(<ReviewHeader {...defaultFixture.props} />, {wrappingComponent});
   const headerWrapper = wrapper.find('[data-name="review-header"]');
   t.true(headerWrapper.at(0).exists());
   t.is(headerWrapper.at(0).props()['aria-label'], 'aria-header-wrapper');

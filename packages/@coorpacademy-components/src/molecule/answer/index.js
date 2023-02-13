@@ -9,7 +9,7 @@ import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
 import Audio from '../audio';
-import {GetTranslateFromContext} from '../../atom/provider';
+import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import style from './style.css';
 import propTypes, {MediaViewPropTypes, TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from './prop-types';
 
@@ -44,9 +44,9 @@ const MediaView = ({media}) => {
 
 MediaView.propTypes = MediaViewPropTypes;
 
-const Switch = ({model, help}) => {
+const Switch = ({model, help}, legacyContext) => {
   const {type} = model;
-  const translate = GetTranslateFromContext();
+  const translate = GetTranslateFromContext(legacyContext);
   switch (type) {
     case 'qcmDrag':
       return <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />;
@@ -70,6 +70,10 @@ Switch.propTypes = {
   help: propTypes.help
 };
 
+Switch.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
 const Answer = props => {
   const {model, media, help} = props;
 
@@ -84,5 +88,9 @@ const Answer = props => {
 };
 
 Answer.propTypes = propTypes;
+
+Answer.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default Answer;

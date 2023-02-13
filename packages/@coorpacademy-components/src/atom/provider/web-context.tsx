@@ -1,5 +1,4 @@
 import React, {createContext, ReactNode, useContext} from 'react';
-import {mockTranslate} from '@coorpacademy/translate';
 
 type Skin = {
   common: {
@@ -7,14 +6,12 @@ type Skin = {
   };
 };
 
-type WebContextValues = {
+export type WebContextValues = {
   skin?: Skin;
-  translate: (key: string, data?: Record<string, string>) => string;
+  translate?: (key: string, data?: Record<string, string>) => string;
 };
 
-const Context = createContext({
-  translate: mockTranslate
-});
+const Context = createContext({});
 
 type Props = WebContextValues & {
   children: ReactNode;

@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
+import Provider from '../../atom/provider';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ReviewHeaderSteps from '../../molecule/review-header-steps';
 import style from './style.css';
@@ -64,5 +65,9 @@ const ReviewHeader = (props, context) => {
 };
 
 ReviewHeader.propTypes = propTypes;
+
+ReviewHeader.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 export default ReviewHeader;

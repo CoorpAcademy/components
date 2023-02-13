@@ -1,14 +1,14 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {render} from '@testing-library/react';
+import {renderWithContext} from '../../../util/render-with-context';
 import Answer from '..';
 import dropDownFixture from './fixtures/drop-down';
 
 browserEnv();
 
 test('should not find an aria-label for a dropdown answer icon', t => {
-  const {getByTestId} = render(<Answer {...dropDownFixture.props} />, {
+  const {getByTestId} = renderWithContext(<Answer {...dropDownFixture.props} />, {
     context: {
       skin: {},
       translate: key => {
