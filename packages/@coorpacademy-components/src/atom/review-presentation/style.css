@@ -2,6 +2,7 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
 @value xtraLightGrey from colors;
 @value cm_grey_75 from colors;
 
