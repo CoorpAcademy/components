@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import JWPlayer from 'react-native-jw-media-player';
+import Youtube from 'react-native-youtube';
+import {useTemplateContext} from '../../template/app-review/template-context';
 
 import {Media} from '../questions/types';
 
@@ -18,6 +20,8 @@ const styleSheet = StyleSheet.create({
 });
 
 const VideoSwitch = ({media}: Props) => {
+  const {brandTheme} = useTemplateContext();
+
   switch (media.mimeType) {
     case 'application/jwplayer':
       if (!media.jwpOptions?.config) {
@@ -25,6 +29,14 @@ const VideoSwitch = ({media}: Props) => {
       }
 
       return <JWPlayer style={styleSheet.video} config={media.jwpOptions.config} />;
+    case 'application/youtube':
+      return (
+        <Youtube
+          apiKey={brandTheme.youtube?.apiKey || ''}
+          style={styleSheet.video}
+          videoId={media.videoId}
+        />
+      );
     default:
       return <Text>{`video mimeType ${media.mimeType} is not handled`}</Text>;
   }

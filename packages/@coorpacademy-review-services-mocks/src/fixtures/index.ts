@@ -34,7 +34,7 @@ export const freeTextWithYoutube = createFreeTextSlide(
           _id: 'youtube-fixture-id',
           mimeType: 'application/youtube',
           mediaRef: 'youtube-fixture-ref',
-          videoId: 'nLMZd05FQKc'
+          videoId: 'yMMpEg0jpV4'
         }
       ]
     }
