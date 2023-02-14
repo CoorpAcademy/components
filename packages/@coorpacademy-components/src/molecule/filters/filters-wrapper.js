@@ -45,7 +45,7 @@ const FiltersWapper = (props, context) => {
       case 'switch':
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
-            <p id={`title-id-${idx}`} className={style.title}>
+            <p id={`titleId-${idx}`} className={style.title}>
               {filter.title}
             </p>
             <div className={style.toggle}>
