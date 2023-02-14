@@ -58,34 +58,17 @@ export const qcmGraphicWithVimeo = createQcmGraphicSlide(
   ]
 );
 
-export const qcmSlideWithOmniplayer = createQcmSlide(
+export const qcmSlideWithKontiki = createQcmSlide(
   slideRef(DEFAULT_QCM_REF, SKILL_REF_FOR_MANY_MEDIA),
   [
     {
       type: 'video',
       src: [
         {
-          _id: 'omniPlayer-fixture-id',
-          mediaRef: 'omniPlayer-fixture-ref',
-          mimeType: 'application/omniPlayer',
-          videoId: '5e429de5be444d66709af632'
-        }
-      ]
-    }
-  ]
-);
-
-export const sliderWithUptale = createSliderSlide(
-  slideRef(DEFAULT_SLIDER_REF, SKILL_REF_FOR_MANY_MEDIA),
-  [
-    {
-      type: 'video',
-      src: [
-        {
-          _id: 'uptale-fixture-id',
-          mediaRef: 'uptale-fixture-ref',
-          mimeType: 'application/uptale',
-          videoId: 'xap9fp26d0ufH3lY6pOmw'
+          _id: 'kontiki-fixture-id',
+          mediaRef: 'kontiki-fixture-ref',
+          mimeType: 'application/kontiki',
+          videoId: 'eRqV3sFB'
         }
       ]
     }

@@ -13,10 +13,6 @@ const styleSheet = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%'
-  },
-  video: {
-    flex: 1,
-    width: '100%'
   }
 });
 
@@ -24,21 +20,25 @@ const VideoSwitch = ({media}: Props) => {
   const {brandTheme} = useTemplateContext();
 
   switch (media.mimeType) {
+    case 'application/kontiki':
     case 'application/jwplayer':
+    case 'video/mp4':
       if (!media.jwpOptions?.config) {
         return null;
       }
 
-      return <JWPlayer style={styleSheet.video} config={media.jwpOptions.config} />;
+      return <JWPlayer style={styleSheet.container} config={media.jwpOptions.config} />;
     case 'application/vimeo':
-      return media.videoId ? <Vimeo videoId={media.videoId} /> : null;
-    case 'application/omniPlayer':
-      return media.videoId ? <Vimeo videoId={media.videoId} /> : null;
+      return media.videoId ? (
+        <View style={styleSheet.container}>
+          <Vimeo videoId={media.videoId} />
+        </View>
+      ) : null;
     case 'application/youtube':
       return (
         <Youtube
           apiKey={brandTheme.youtube?.apiKey || ''}
-          style={styleSheet.video}
+          style={styleSheet.container}
           videoId={media.videoId}
         />
       );
@@ -48,7 +48,7 @@ const VideoSwitch = ({media}: Props) => {
 };
 
 const Video = ({media}: Props) => {
-  return <View style={styleSheet.container}>{media ? <VideoSwitch media={media} /> : null}</View>;
+  return media ? <VideoSwitch media={media} /> : null;
 };
 
 export default Video;

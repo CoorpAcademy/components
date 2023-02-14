@@ -50,14 +50,18 @@ const styles = StyleSheet.create({
 const MediaView = ({media}: {media: Media}) => {
   switch (media.type) {
     case TYPE_VIDEO:
-      return <Video media={media} />;
+      return (
+        <View style={styles.mediaContainer}>
+          <Video media={media} />
+        </View>
+      );
     case TYPE_IMAGE: {
       const uri = `https://${media.url?.split('//')[1]}`;
-      return <Image style={styles.image} source={{uri}} />;
+      return <Image style={[styles.mediaContainer, styles.image]} source={{uri}} />;
     }
     case TYPE_AUDIO:
     default:
-      return <Text>{`media type ${media.type} is not handled`}</Text>;
+      return null;
   }
 };
 
@@ -180,11 +184,7 @@ const Question = (props: QuestionProps) => {
         <Text style={style.questionText}>{questionText}</Text>
         <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
       </View>
-      {answerUI.media ? (
-        <View style={styles.mediaContainer}>
-          <MediaView media={answerUI.media} />
-        </View>
-      ) : null}
+      {answerUI.media ? <MediaView media={answerUI.media} /> : null}
       <ScrollView
         style={style.choicesScrollView}
         contentContainerStyle={style.choicesScrollContent}
