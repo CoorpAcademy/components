@@ -58,7 +58,7 @@ const InputSwitch = props => {
 
   return (
     <div className={className} data-name={`switch-input-${theme}${dataName}`}>
-      {titlePosition === 'left' ? {titleView} : null}
+      {titlePosition === 'left' ? titleView : null}
       <div className={requiredSelection ? style.requiredSelection : null}>
         <div className={style.btnSwitchContainer}>
           <input
