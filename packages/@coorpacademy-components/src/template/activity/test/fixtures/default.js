@@ -2,6 +2,7 @@ export default {
   props: {
     mainTitle: 'Activity:',
     mainSubtitle: 'How is your progress going in your course?',
+    'aria-label': 'select aria-label',
     total: {
       stars: 400,
       label: 'Total:'

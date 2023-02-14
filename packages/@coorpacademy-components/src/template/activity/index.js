@@ -27,7 +27,8 @@ const Progression = (props, legacyContext) => {
     total,
     engines = [],
     themeFilter = {},
-    loading
+    loading,
+    'aria-label': ariaLabel
   } = props;
   const skin = GetSkinFromContext(legacyContext);
   const {onChange: themeFilterOnChange} = themeFilter;
@@ -78,6 +79,7 @@ const Progression = (props, legacyContext) => {
       theme="thematiques"
       options={themeFilter.options}
       onChange={handleSelectTheme}
+      aria-label={ariaLabel}
     />
   ) : null;
   const recommendationSection = !isEmpty(recommendation) ? (
@@ -153,7 +155,8 @@ Progression.propTypes = {
     subtitle: PropTypes.string.isRequired,
     courseTitle: PropTypes.string.isRequired,
     onClick: PropTypes.func
-  })
+  }),
+  'aria-label': PropTypes.string
 };
 
 export default Progression;

@@ -18,14 +18,20 @@ const InputSwitch = props => {
     titlePosition = 'left',
     details = '',
     requiredSelection = false,
-    'data-name': dataName
+    'data-name': dataName,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-label': ariaLabel
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
-  const titleView = title ? <span className={style.title}>{`${title} `}</span> : null;
+  const titleView = title ? (
+    <span id={`title-view-${dataName}`} className={style.title}>
+      {`${title} `}{' '}
+    </span>
+  ) : null;
 
   const descriptionView = description ? (
     <div className={style.description}>{description}</div>
@@ -52,10 +58,13 @@ const InputSwitch = props => {
 
   return (
     <div className={className} data-name={`switch-input-${theme}${dataName}`}>
-      {titlePosition === 'left' ? <div id={`title-view-${dataName}`}>{titleView} </div> : null}
+      {titlePosition === 'left' ? titleView : null}
       <div className={requiredSelection ? style.requiredSelection : null}>
         <div className={style.btnSwitchContainer}>
           <input
+            {...(ariaLabelledBy ? {'aria-labelledby': ariaLabelledBy} : {})}
+            {...(title ? {'aria-labelledby': `title-view-${dataName}`} : {})}
+            {...(ariaLabel && !ariaLabelledBy && !title ? {'aria-label': ariaLabel} : {})}
             type="checkbox"
             id={idSwitch}
             name={name}
@@ -63,13 +72,13 @@ const InputSwitch = props => {
             checked={value}
             disabled={isDisabled}
             className={style.checkbox}
-            aria-labelledby={`title-view-${dataName}`}
+            aria-labelledby={ariaLabelledBy}
           />
           <label htmlFor={idSwitch} data-name="input-switch-label" tabIndex={0} />
         </div>
       </div>
       <div className={!details ? style.alignedTextContainer : null}>
-        {titlePosition === 'right' ? <div id={`title-view-${dataName}`}>{titleView} </div> : null}
+        {titlePosition === 'right' ? {titleView} : null}
         {details ? <div className={style.detailsTxt}>{details}</div> : null}
       </div>
       {descriptionView}
@@ -85,6 +94,8 @@ InputSwitch.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   description: PropTypes.string,
+  'aria-labelledby': PropTypes.string,
+  'aria-label': PropTypes.string,
   modified: PropTypes.bool,
   titlePosition: PropTypes.oneOf(['right', 'left']),
   theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),

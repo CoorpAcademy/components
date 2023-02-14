@@ -46,6 +46,7 @@ const Search = props => {
         name="search"
         id="search"
         placeholder={placeholder}
+        title={placeholder}
         value={value}
         onInput={handleChange}
         onFocus={onFocus}

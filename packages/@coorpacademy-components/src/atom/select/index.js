@@ -36,10 +36,6 @@ const themeStyle = {
 const ArrowView = ({shouldRender, isArrowUp, ariaLabel, arrowClass, arrowColor}) => {
   const props = useMemo(
     () => ({
-      ...(ariaLabel &
-        {
-          'aria-label': ariaLabel
-        }),
       ...(arrowColor &
         {
           color: arrowColor
@@ -73,7 +69,8 @@ const Select = (props, legacyContext) => {
     modified = false,
     error = false,
     title: propTitle,
-    'aria-label': ariaLabel
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy
   } = props;
 
   const skin = GetSkinFromContext(legacyContext);
@@ -216,9 +213,11 @@ const Select = (props, legacyContext) => {
           arrowColor={isThemeOneOfQuestionTemplateOrPlayer ? arrowColor : black}
         />
         <select
+          {...(ariaLabelledBy ? {'aria-labelledby': ariaLabelledBy} : {})}
+          {...(ariaLabel && !ariaLabelledBy ? {'aria-label': ariaLabel} : {})}
+          {...(ariaLabel ? {title: ariaLabel} : {})}
           data-name="native-select"
           className={style.selectBox}
-          title={selectedLabel}
           name={name}
           onChange={handleChange}
           value={selected}
@@ -271,7 +270,8 @@ Select.propTypes = {
   optgroups: PropTypes.arrayOf(PropTypes.shape(SelectOptionGroupPropTypes)),
   modified: PropTypes.bool,
   error: PropTypes.bool,
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+  'aria-labelledby': PropTypes.string
 };
 
 export default Select;

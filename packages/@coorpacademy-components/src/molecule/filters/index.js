@@ -22,7 +22,8 @@ class Filters extends React.Component {
     onToggleSorts: PropTypes.func,
     moreSortAriaLabel: PropTypes.string,
     moreFilterAriaLabel: PropTypes.string,
-    filterGroupAriaLabel: PropTypes.string
+    filterGroupAriaLabel: PropTypes.string,
+    sortAriaLabel: PropTypes.string
   };
 
   static contextTypes = {
@@ -89,7 +90,8 @@ class Filters extends React.Component {
       filters,
       moreFilterAriaLabel,
       moreSortAriaLabel,
-      filterGroupAriaLabel
+      filterGroupAriaLabel,
+      sortAriaLabel
     } = this.props;
     const {filter, sorted} = this.state;
     const {skin} = this.context;
@@ -102,7 +104,7 @@ class Filters extends React.Component {
     const sortView =
       sorting !== undefined ? (
         <div data-name="choice" className={style.select}>
-          <Select {...sorting} />
+          <Select {...sorting} aria-label={sortAriaLabel} />
         </div>
       ) : null;
 
