@@ -1,0 +1,126 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value dark from colors;
+@value black from colors;
+@value cm_grey_75 from colors;
+@value medium from colors;
+@value light from colors;
+@value brand from colors;
+
+.rightArrow {
+  position: flex;
+  padding: 9px;
+  cursor: pointer;
+  opacity: 1;
+  user-select: none;
+  text-align: right;
+  color: dark;
+}
+
+.card {
+  margin: 5px;
+}
+
+.opponent-card {
+  flex: 1 1 350px;
+  height: 80px;
+  background-color: white;
+  box-shadow: 0 0 4px 1px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.opponent-card .name {
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: 700;
+  color: black;
+  flex-grow: 1;
+}
+
+
+.opponent-card .rightArrow {
+  margin-left: 20px;
+}
+
+/* div:not(.random) */
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: light;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: auto;
+}
+
+
+.random {
+  color: medium;
+}
+
+.alreadyEngaged.name,
+.random .name {
+  color: medium;
+}
+
+.random .avatar {
+  background-color: brand;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.random .avatar:before {
+  content: '?';
+  font-family: 'Gilroy';
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+
+.random .avatar img {
+  display: none;
+}
+
+.opponent-card:hover {
+  background-color: cm_grey_75;
+}
+
+.card .infoIconTooltip {
+  background: transparent;
+  /* height: 100%; */
+}
+
+@media mobile {
+  .opponent-card {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .opponent-card .avatar {
+    margin-right: 10px;
+  }
+
+  .opponent-card .rightArrow {
+    margin-left: 10px;
+  }
+
+  .card {
+    margin: 0 0 10px;
+  }
+}
+

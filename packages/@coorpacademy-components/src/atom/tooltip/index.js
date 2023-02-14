@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import isString from 'lodash/fp/isString';
+import keys from 'lodash/fp/keys';
 import {NovaCompositionCoorpacademyInformationIcon as InformationIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
 
@@ -11,12 +12,18 @@ const FontSizes = {
   14: style.tooltipContentFontSize14
 };
 
+const IconSizes = {
+  small: 12,
+  big: 20
+};
+
 const ToolTipWrapper = ({
   toolTipIsVisible,
   anchorId,
   closeToolTipInformationTextAriaLabel,
   content,
-  handleContentMouseOver
+  handleContentMouseOver,
+  iconSize
 }) => {
   if (!toolTipIsVisible) return null;
   if (anchorId) {
@@ -35,7 +42,10 @@ const ToolTipWrapper = ({
   } else {
     return (
       <div
-        className={style.toolTip}
+        className={classnames(
+          style.toolTip,
+          iconSize === 'big' ? style.bigIconToolTip : style.smallIconToolTip
+        )}
         data-testid="tooltip"
         aria-label={closeToolTipInformationTextAriaLabel}
         onMouseOver={handleContentMouseOver}
@@ -51,7 +61,8 @@ ToolTipWrapper.propTypes = {
   anchorId: PropTypes.string,
   closeToolTipInformationTextAriaLabel: PropTypes.string.isRequired,
   content: PropTypes.node,
-  handleContentMouseOver: PropTypes.func
+  handleContentMouseOver: PropTypes.func,
+  iconSize: PropTypes.oneOf(keys(IconSizes))
 };
 
 export const toggleStateOnKeyPress = (state, setState, ref) => event => {
@@ -74,7 +85,8 @@ const ToolTip = ({
   toolTipIsVisible: _toolTipIsVisible,
   iconContainerClassName,
   delayHide = 250,
-  fontSize = 14
+  fontSize = 14,
+  iconSize = 'small'
 }) => {
   const isComponent = useMemo(
     () => !isString(TooltipContent) && isValidElement(TooltipContent()),
@@ -138,8 +150,8 @@ const ToolTip = ({
       >
         <InformationIcon
           className={style.informationIcon}
-          width={12}
-          height={12}
+          width={IconSizes[iconSize]}
+          height={IconSizes[iconSize]}
           aria-label={ariaLabel}
         />
       </button>
@@ -150,6 +162,7 @@ const ToolTip = ({
         content={content}
         handleContentMouseOver={handleContentMouseOver}
         fontSize={fontSize}
+        iconSize={iconSize}
       />
     </div>
   );
@@ -164,6 +177,7 @@ ToolTip.propTypes = {
   iconContainerClassName: PropTypes.string,
   delayHide: PropTypes.number,
   fontSize: PropTypes.oneOf([12, 14]),
+  iconSize: PropTypes.oneOf(keys(IconSizes)),
   // ----------  React Tooltip exclusive  --------------
   // externalHandling: if passed down, React Tooltip is used instead, due to limitations on
   // parents overflow hidden controls
