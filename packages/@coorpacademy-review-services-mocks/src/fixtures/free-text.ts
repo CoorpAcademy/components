@@ -1,6 +1,9 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const createFreeTextSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
+export const createFreeTextSlide = (
+  universalRef: string,
+  medias?: SlideFromAPI['question']['medias']
+): SlideFromAPI => ({
   question: {
     content: {
       media: {
@@ -33,8 +36,8 @@ export const createFreeTextSlide = (medias?: SlideFromAPI['question']['medias'])
   },
   klf: 'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.',
   tips: 'According to Insee, Paris salaries are 20-25% higher compared with those of the provinces in 2015.',
-  universalRef: 'sli_VJYjJnJhg',
-  _id: 'sli_VJYjJnJhg',
+  universalRef,
+  _id: universalRef,
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'

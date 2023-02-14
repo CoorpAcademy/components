@@ -1,6 +1,9 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
-export const createQcmSlide = (medias?: SlideFromAPI['question']['medias']): SlideFromAPI => ({
+export const createQcmSlide = (
+  universalRef: string,
+  medias?: SlideFromAPI['question']['medias']
+): SlideFromAPI => ({
   question: {
     medias: medias || [
       {
@@ -8,7 +11,8 @@ export const createQcmSlide = (medias?: SlideFromAPI['question']['medias']): Sli
         src: [
           {
             mimeType: 'audio/acc',
-            url: '//static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac',
+            mediaUrl:
+              '//static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac',
             _id: '590b9be24f7b862e0046e577'
           }
         ]
@@ -80,9 +84,9 @@ export const createQcmSlide = (medias?: SlideFromAPI['question']['medias']): Sli
   },
   klf: 'Si vous êtes le créateur d’un NFT, vous pouvez choisir le pourcentage de commission pour chaque transaction de votre NFT.  Certains choisissent de ne rien toucher pour fluidifier le marché.',
   tips: 'En 2021, le média en ligne Numerama a créé un NFT vendu aux enchères sur OpenSea. Sur cette plateforme, il est obligatoire de mettre un prix de réserve, autrement dit un prix minimum au-dessous duquel la vente ne sera pas automatiquement acceptée. Sur OpenSea il ne peut être inférieur à 1 ETH. Si le prix de réserve est atteint, pas de problème, les "gas fees" (les frais de gaz) sont couverts par OpenSea. Mais, si ce n’est pas le cas, c’est au vendeur de s’en acquitter. <br/>Le NFT en question est parti à 0,021 ETH, soit 40€ au cours de l\'époque, un prix inférieur au prix de réserve. Numerama a dû acquitter des frais de gaz, et payer 190 €. <br/>Avec les NFT, on ne gagne pas à tous les coups.',
-  universalRef: 'sli_N1XACJobn',
+  universalRef,
   hasClue: true,
-  _id: 'sli_N1XACJobn',
+  _id: universalRef,
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'

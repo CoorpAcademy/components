@@ -1,6 +1,7 @@
 import type {SlideFromAPI} from '@coorpacademy/review-services';
 
 export const createQcmGraphicSlide = (
+  universalRef: string,
   medias?: SlideFromAPI['question']['medias']
 ): SlideFromAPI => ({
   question: {
@@ -188,8 +189,8 @@ export const createQcmGraphicSlide = (
   },
   klf: 'Avec l’engagement actif, le retour d’information et la consolidation des acquis, l’attention est le premier des quatre piliers de l’apprentissage, identifiés par les chercheurs en neuroscience, spécialistes de l’éducation.',
   tips: 'Une configuration idéale pour l’apprentissage, mettant en œuvre ces 4 piliers : présenter à un apprenant un contenu de durée raisonnable, qui respecte le temps d’attention qu’il peut lui accorder ; proposer ensuite un exercice sur le contenu qui vient d’être expliqué ; puis donner à l’apprenant un retour en direct sur sa production.',
-  universalRef: 'sli_VkSQroQnx',
-  _id: 'sli_VkSQroQnx',
+  universalRef,
+  _id: universalRef,
   parentContentTitle: {
     title: 'Developing the review app',
     type: 'course'
