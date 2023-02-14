@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {
   Animated,
   Easing,
   Image,
+  Keyboard,
   ScrollView,
   StyleSheet,
   TextStyle,
@@ -200,12 +201,21 @@ const Question = (props: QuestionProps) => {
 
 type SlideStyle = {
   slide: ViewStyle;
+  hiddenBackgroundToLockActions: ViewStyle;
 };
 
 const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
   const slideWidth = screenWidth - 40 - num * 8;
 
   return StyleSheet.create({
+    hiddenBackgroundToLockActions: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+      backgroundColor: '#00000000'
+    },
     slide: {
       position: 'absolute',
       left: 20 + num * 4,
@@ -228,6 +238,20 @@ const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
 
 const Slide = (props: ReviewSlideProps) => {
   const {animatedStyle, slide, correctionPopinProps, validateButton, num, slideIndex = '0'} = props;
+  const [isValidated, setValidated] = useState<boolean>(false);
+
+  const handleValidatePress = useCallback(() => {
+    Keyboard.dismiss();
+    setValidated(true);
+
+    // calling the onclick later, after react has rerendered, to display the locking BG as soon as possible
+    setTimeout(() => {
+      validateButton.onClick();
+    }, 20);
+
+    // only to create on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const {width} = useWindowDimensions();
   const slideStyle = createSlideStyle(num, width);
@@ -245,8 +269,6 @@ const Slide = (props: ReviewSlideProps) => {
     return <View style={slideStyle.slide} />;
   }
 
-  const {onClick: handleValidatePress} = validateButton;
-
   return (
     <Animated.View style={[slideStyle.slide, animatedStyle]}>
       <Question
@@ -256,11 +278,12 @@ const Slide = (props: ReviewSlideProps) => {
         key="question-container"
       />
       <Button
-        disabled={validateButton.disabled}
+        disabled={isValidated || validateButton.disabled}
         submitValue={validateButton.label}
         onPress={handleValidatePress}
         testID={`slide-validate-button-${slideIndex}`}
       />
+      {isValidated ? <View style={slideStyle.hiddenBackgroundToLockActions} /> : null}
       {correctionPopinProps ? (
         <CorrectionPopin
           correctionPopinProps={correctionPopinProps}

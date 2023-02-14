@@ -5,7 +5,7 @@ import Slide from '../index.native';
 import mockedGestureEvent from '../../../test/helpers/mocked-gesture-event';
 import fixtures from './fixtures/initial-state';
 
-test('should handle onPress on validate button', t => {
+test('should handle onPress on validate button', async t => {
   t.plan(1);
 
   const props = fixtures.props;
@@ -18,4 +18,9 @@ test('should handle onPress on validate button', t => {
   const buttonValidate = getByTestId('slide-validate-button-0');
 
   fireEvent.press(buttonValidate, mockedGestureEvent);
+
+  // wait for onclick to be triggered
+  await new Promise(resolve => {
+    setTimeout(resolve, 50);
+  });
 });
