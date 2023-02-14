@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import JWPlayer from 'react-native-jw-media-player';
 import Youtube from 'react-native-youtube';
+import {Vimeo} from 'react-native-vimeo-iframe';
 import {useTemplateContext} from '../../template/app-review/template-context';
 
 import {Media} from '../questions/types';
@@ -29,6 +30,10 @@ const VideoSwitch = ({media}: Props) => {
       }
 
       return <JWPlayer style={styleSheet.video} config={media.jwpOptions.config} />;
+    case 'application/vimeo':
+      return media.videoId ? <Vimeo videoId={media.videoId} /> : null;
+    case 'application/omniPlayer':
+      return media.videoId ? <Vimeo videoId={media.videoId} /> : null;
     case 'application/youtube':
       return (
         <Youtube
