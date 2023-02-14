@@ -520,7 +520,7 @@ class MoocHeader extends React.Component {
                 <span id={`title-id-${settingName}`} className={style.label}>
                   {title}
                 </span>
-                <InputSwitch {...switchProps} aria-labelledby={`titleId-${settingName}`} />
+                <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
               </div>
             );
             break;
