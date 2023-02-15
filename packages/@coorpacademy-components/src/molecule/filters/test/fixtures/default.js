@@ -1,10 +1,8 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
-import groupOptions from '../../../../atom/select/test/fixtures/group-options';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
-const selectOptionsGroup = groupOptions.props;
 
 export default {
   props: {
