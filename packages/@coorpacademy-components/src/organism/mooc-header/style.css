@@ -210,9 +210,23 @@
   transition: all 0.2s ease-out;
 }
 
+.option .line {
+  background-color: brand;
+  width: 3px;
+  height: 0;
+  left: 0;
+  position: absolute;
+  transition: all 0.2s ease-out;
+}
+
 .activePage .bar {
   left: 0;
   width: 100%;
+}
+
+.option:hover  .line {
+  height: 40px;
+  width: 3px;
 }
 
 .item:hover .bar {
