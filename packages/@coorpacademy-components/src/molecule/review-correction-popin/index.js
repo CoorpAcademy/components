@@ -57,8 +57,10 @@ const ReviewCorrectionPopin = props => {
           <div className={style.iconCircle}>
             <Icon className={type === 'right' ? style.iconRight : style.iconWrong} />
           </div>
-          <div className={style.resultLabel} aria-label="result">
-            <span aria-label={resultLabel}>{resultLabel}</span>
+          <div className={style.resultLabel}>
+            <span aria-label={resultLabel} role="status">
+              {resultLabel}
+            </span>
           </div>
         </div>
         <div className={style.feedbackSection}>

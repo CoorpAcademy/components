@@ -260,6 +260,7 @@ const CorrectionPart = props => {
             mode,
             style.statusPlayerResultFailScorm
           )}
+          role={'status'}
         >
           {subtitle}
         </h2>
