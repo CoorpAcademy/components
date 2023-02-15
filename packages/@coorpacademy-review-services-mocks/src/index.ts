@@ -23,12 +23,11 @@ import {
   qcmGraphicSlide,
   qcmGraphicWithVimeo,
   qcmSlide,
-  qcmSlideWithOmniplayer,
+  qcmSlideWithKontiki,
   SKILL_REF_FOR_DEFAULT_SLIDES,
   SKILL_REF_FOR_MANY_MEDIA,
   slideRef,
   sliderSlide,
-  sliderWithUptale,
   templateSlide,
   templateWithMp4Player
 } from './fixtures';
@@ -50,8 +49,8 @@ const getSlides = (skillRef: string): SlideFromAPI[] => {
       return [
         freeTextWithYoutube,
         qcmGraphicWithVimeo,
-        qcmSlideWithOmniplayer,
-        sliderWithUptale,
+        qcmSlideWithKontiki,
+        sliderSlide,
         templateWithMp4Player
       ];
 
@@ -77,10 +76,8 @@ const getSlideFixture = (ref: string): SlideFromAPI => {
       return freeTextWithYoutube;
     case qcmGraphicWithVimeo.universalRef:
       return qcmGraphicWithVimeo;
-    case qcmSlideWithOmniplayer.universalRef:
-      return qcmSlideWithOmniplayer;
-    case sliderWithUptale.universalRef:
-      return sliderWithUptale;
+    case qcmSlideWithKontiki.universalRef:
+      return qcmSlideWithKontiki;
     case templateWithMp4Player.universalRef:
       return templateWithMp4Player;
     default:
@@ -202,7 +199,7 @@ export const progressionSlideWithPendingSlide = (skillRef: string): ProgressionF
 
 export const getChoicesCorrection = (ref: string, wrongChoice = false): CorrectionFromAPI => {
   switch (ref) {
-    case qcmSlideWithOmniplayer.universalRef:
+    case qcmSlideWithKontiki.universalRef:
     case qcmSlide.universalRef: {
       const correctAnswer = [get('question.content.answers', qcmSlide)];
       return {
