@@ -5,7 +5,7 @@ const fixture = {
     TooltipContent: 'This is the tooltip text, a tooltip text',
     closeToolTipInformationTextAriaLabel: 'Press the escape key to close the information text',
     fontSize: 12,
-    iconSize: 20
+    iconSize: 'big'
   }
 };
 
