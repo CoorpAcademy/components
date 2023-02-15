@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
-import {GetTranslateFromContext} from '../../atom/provider';
+import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import ToolTip from '../../atom/tooltip';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
-const Settings = props => {
-  const translate = GetTranslateFromContext();
+const Settings = (props, legacyContext) => {
+  const translate = GetTranslateFromContext(legacyContext);
   const {label, description, moreInfoAriaLabel, ...settings} = props;
   return (
     <div className={style.settings}>
@@ -36,6 +36,10 @@ Settings.propTypes = {
   ...InputSwitch.propTypes,
   label: PropTypes.string.isRequired,
   description: PropTypes.string
+};
+
+Settings.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 const UserPreferences = props => {

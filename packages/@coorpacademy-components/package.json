@@ -120,6 +120,7 @@
     "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "^10.1.1",
     "@types/react-native": "~0.68.7",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
