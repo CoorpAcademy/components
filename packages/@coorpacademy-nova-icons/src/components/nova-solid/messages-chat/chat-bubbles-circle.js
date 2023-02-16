@@ -6,7 +6,7 @@ const SvgComponent = _props => {
     ...rest,
     ...(ariaLabel || alt
       ? {
-          role: role ?? 'img',
+          role: role || 'img',
           'aria-label': ariaLabel,
           alt
         }
