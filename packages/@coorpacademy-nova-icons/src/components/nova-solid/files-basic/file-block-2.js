@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 const SvgComponent = _props => {
-  const {'aria-label': ariaLabel, alt, ...rest} = _props;
+  const {'aria-label': ariaLabel, role, alt, ...rest} = _props;
   const props = {
     ...rest,
     ...(ariaLabel || alt
       ? {
-          role: 'img',
+          role: role || 'img',
           'aria-label': ariaLabel,
           alt
         }
