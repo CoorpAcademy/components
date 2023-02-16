@@ -181,6 +181,7 @@ ToolTip.propTypes = {
   // ----------  React Tooltip exclusive  --------------
   // externalHandling: if passed down, React Tooltip is used instead, due to limitations on
   // parents overflow hidden controls
+  // data-for={anchorId} && data-tooltip-place="left" are needed on the anchored component
   anchorId: PropTypes.string,
   toolTipIsVisible: PropTypes.bool
 };

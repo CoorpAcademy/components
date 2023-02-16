@@ -96,6 +96,7 @@
   visibility: visible !important;
   opacity: 1 !important;
   left: 5px;
+  max-width: 400px;
 }
 
 /* for keyboard navigation, the position can't be obtained from the mouse */
