@@ -49,7 +49,7 @@ const ReviewCardCongrats = props => {
   );
 
   return (
-    <div className={wrapperClassName} aria-label={ariaLabel} data-name={dataName}>
+    <div className={wrapperClassName} data-name={dataName}>
       <div className={style.mainIcon}>
         <LottieWrapper
           {...animationLottie}
@@ -61,7 +61,9 @@ const ReviewCardCongrats = props => {
           backupImageClassName={style.ie11Backup}
         />
       </div>
-      <div className={style.title}>{reviewCardTitle}</div>
+      <div className={style.title} role="status" aria-label={ariaLabel}>
+        {reviewCardTitle}
+      </div>
       <div className={cardType === 'card-star' ? style.textContainerStar : style.textContainerRank}>
         {cardType === 'card-rank' ? (
           <RankIcon className={style.iconRank} width={40} height={40} aria-label={iconAriaLabel} />

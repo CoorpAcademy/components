@@ -148,6 +148,7 @@ const ContentInfo = ({
             data-name="progress"
             className={style.progress}
             style={inlineProgressValueStyle}
+            role="progressbar"
             aria-label={get('progression', ariaLabel)}
           />
         ) : null}
