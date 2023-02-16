@@ -15,7 +15,6 @@ import {
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import {useTranslateY} from '@coorpacademy/react-native-animation';
-import Text from '../../atom/text/index.native';
 import Answer from '../../molecule/answer/index.native';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -24,16 +23,15 @@ import Button from '../../atom/button/index.native';
 import {TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from '../../molecule/answer/prop-types';
 import Video from '../../molecule/video-player-mobile/index.native';
 import {Media} from '../../molecule/questions/types';
+import Html from '../../atom/html/index.native';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
   mediaContainer: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 20,
     width: '100%',
-    minHeight: 150,
+    height: 200,
     borderRadius: 10,
     overflow: 'hidden'
   },
@@ -48,12 +46,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const MediaView = ({media}: {media: Media}) => {
+const MediaView = ({media, autoplay}: {media?: Media; autoplay: boolean}) => {
+  if (!media) {
+    return null;
+  }
+
   switch (media.type) {
     case TYPE_VIDEO:
       return (
         <View style={styles.mediaContainer}>
-          <Video media={media} />
+          <Video media={media} autoplay={autoplay} />
         </View>
       );
     case TYPE_IMAGE: {
@@ -152,22 +154,24 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
       textAlign: 'center'
     },
     choicesScrollView: {
-      marginVertical: 20,
+      marginTop: 20,
       width: '100%'
     },
     choicesScrollContent: {
+      justifyContent: 'space-between',
       padding: 10
     }
   });
 
 type QuestionProps = {
+  autoplayMedia: boolean;
   answerUI: SlideProps['answerUI'];
   questionText: SlideProps['questionText'];
   questionOrigin: SlideProps['parentContentTitle'];
 };
 
 const Question = (props: QuestionProps) => {
-  const {answerUI, questionText, questionOrigin} = props;
+  const {answerUI, questionText, questionOrigin = '', autoplayMedia = false} = props;
   const {theme} = useTemplateContext();
   const [style, setStyle] = useState<StyleSheetType>();
 
@@ -178,14 +182,16 @@ const Question = (props: QuestionProps) => {
 
   if (!answerUI || !questionText || !style) return null;
 
+  const hasVideoOrImage =
+    answerUI.media?.type && [TYPE_VIDEO, TYPE_IMAGE].includes(answerUI.media.type);
+
   return (
     <>
       <View style={style.questionHeading}>
-        <Text style={style.questionOrigin}>{questionOrigin}</Text>
-        <Text style={style.questionText}>{questionText}</Text>
-        <Text style={style.questionHelp}>{get('help', answerUI)}</Text>
+        <Html style={style.questionOrigin}>{questionOrigin}</Html>
+        <Html style={style.questionText}>{questionText}</Html>
+        <Html style={style.questionHelp}>{get('help', answerUI)}</Html>
       </View>
-      {answerUI.media ? <MediaView media={answerUI.media} /> : null}
       <ScrollView
         style={style.choicesScrollView}
         contentContainerStyle={style.choicesScrollContent}
@@ -193,7 +199,10 @@ const Question = (props: QuestionProps) => {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        <Answer {...answerUI} />
+        {hasVideoOrImage ? <MediaView media={answerUI.media} autoplay={autoplayMedia} /> : null}
+        <View style={{marginTop: hasVideoOrImage ? 30 : 0}}>
+          <Answer {...answerUI} />
+        </View>
       </ScrollView>
     </>
   );
@@ -255,6 +264,7 @@ const Slide = (props: ReviewSlideProps) => {
 
   const {width} = useWindowDimensions();
   const slideStyle = createSlideStyle(num, width);
+  const isFirstSlide = num === 1;
 
   const {
     loading,
@@ -275,6 +285,7 @@ const Slide = (props: ReviewSlideProps) => {
         questionOrigin={parentContentTitle}
         questionText={questionText}
         answerUI={answerUI}
+        autoplayMedia={isFirstSlide}
         key="question-container"
       />
       <Button

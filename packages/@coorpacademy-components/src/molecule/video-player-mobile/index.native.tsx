@@ -7,7 +7,7 @@ import {useTemplateContext} from '../../template/app-review/template-context';
 
 import {Media} from '../questions/types';
 
-export type Props = {media: Media};
+export type Props = {media: Media; autoplay: boolean};
 
 const styleSheet = StyleSheet.create({
   container: {
@@ -16,18 +16,24 @@ const styleSheet = StyleSheet.create({
   }
 });
 
-const VideoSwitch = ({media}: Props) => {
+const VideoSwitch = ({media, autoplay}: Props) => {
   const {brandTheme} = useTemplateContext();
 
   switch (media.mimeType) {
     case 'application/kontiki':
     case 'application/jwplayer':
-    case 'video/mp4':
+    case 'video/mp4': {
       if (!media.jwpOptions?.config) {
         return null;
       }
 
-      return <JWPlayer style={styleSheet.container} config={media.jwpOptions.config} />;
+      const config = {
+        ...media.jwpOptions.config,
+        autostart: autoplay
+      };
+
+      return <JWPlayer style={styleSheet.container} config={config} />;
+    }
     case 'application/vimeo':
       return media.videoId ? (
         <View style={styleSheet.container}>
@@ -40,6 +46,7 @@ const VideoSwitch = ({media}: Props) => {
           apiKey={brandTheme.youtube?.apiKey || ''}
           style={styleSheet.container}
           videoId={media.videoId}
+          play={autoplay}
         />
       );
     default:
@@ -47,8 +54,8 @@ const VideoSwitch = ({media}: Props) => {
   }
 };
 
-const Video = ({media}: Props) => {
-  return media ? <VideoSwitch media={media} /> : null;
+const Video = ({media, autoplay}: Props) => {
+  return media ? <VideoSwitch media={media} autoplay={autoplay} /> : null;
 };
 
 export default Video;

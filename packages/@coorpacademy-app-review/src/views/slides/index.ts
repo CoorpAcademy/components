@@ -316,7 +316,7 @@ const getCorrectionPopinProps =
 
 const buildQuitPopinProps =
   (dispatch: Dispatch) =>
-  (onQuitClick: () => void, translate: Translate, skin: Skin): CMPopinProps => {
+  (onQuitClick: () => void, translate: Translate, skin?: Skin): CMPopinProps => {
     return {
       content: translate('Quit Title'),
       icon: `MoonRocket`,

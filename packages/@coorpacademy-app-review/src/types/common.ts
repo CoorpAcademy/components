@@ -26,7 +26,7 @@ export type VideoPropsForPlayer = {
 export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
-  skin: Skin;
+  skin?: Skin;
   backgroundImage?: number; // in this case, the image source is a number : https://reactnative.dev/docs/image#imagesource
 };
 
