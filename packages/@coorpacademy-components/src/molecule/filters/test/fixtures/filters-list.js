@@ -1,9 +1,7 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
 import rangeslider from '../../../../atom/range/test/fixtures/multi';
-import RadioGroup from '../../../../atom/radio-group/test/fixtures/default';
 
-const types = RadioGroup.props;
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
 const timer = rangeslider.props;
@@ -111,10 +109,32 @@ export default {
         }
       },
       {
-        ...types,
-        type: 'radio',
+        type: 'select',
+        theme: 'filter',
         fieldName: 'contentType',
         title: 'Type:',
+        options: [
+          {
+            name: 'All',
+            value: 'ALL',
+            selected: false
+          },
+          {
+            name: "5' learning",
+            value: 'microlearning',
+            selected: true
+          },
+          {
+            name: 'Cours',
+            value: 'learner',
+            selected: false
+          },
+          {
+            name: 'Scorm',
+            value: 'scorm',
+            selected: false
+          }
+        ],
         onChange: value => console.log(value)
       }
     ],

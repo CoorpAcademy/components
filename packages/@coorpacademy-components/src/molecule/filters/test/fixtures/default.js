@@ -1,12 +1,8 @@
 import dropdownsFilter from '../../../../atom/select/test/fixtures/filter';
-import groupOptions from '../../../../atom/select/test/fixtures/group-options';
 import dropdownsSort from '../../../../atom/select/test/fixtures/sort';
-import RadioGroup from '../../../../atom/radio-group/test/fixtures/default';
 
 const selectFilter = dropdownsFilter.props;
 const selectSort = dropdownsSort.props;
-const selectOptionsGroup = groupOptions.props;
-const types = RadioGroup.props;
 
 export default {
   props: {
@@ -22,8 +18,8 @@ export default {
       {
         ...selectFilter,
         type: 'select',
-        fieldName: 'Thematic',
-        title: 'Thematic:',
+        fieldName: 'skills',
+        title: 'Compétences:',
         options: [
           {
             name: 'digital',
@@ -44,10 +40,86 @@ export default {
         onChange: value => console.log(value)
       },
       {
+        type: 'select',
+        theme: 'filter',
+        fieldName: 'them',
+        title: 'Playlists transverses:',
+        options: [
+          {
+            name: 'All',
+            value: 'ref_all',
+            selected: true
+          },
+          {name: 'Apprendre en continu', value: 'ref_1234', selected: false},
+          {name: 'Domptez vos neurones !', value: 'ref_5678', selected: false},
+          {name: 'Future of sales', value: 'ref_5679', selected: false}
+        ],
+        onChange: value => console.log(value)
+      },
+      {
+        type: 'select',
+        theme: 'filter',
+        fieldName: 'cp_them',
+        title: 'Faurecia University playlists:',
+        options: [
+          {
+            name: 'All',
+            value: 'ref_all',
+            selected: true
+          },
+          {
+            name: '8 Quality Basics in Production',
+            value: 'ref_9123',
+            selected: false
+          },
+          {
+            name: 'Bienvenue à Faurecia Clarion Electronics (FCE)',
+            value: 'ref_4567',
+            selected: false
+          },
+          {
+            name: 'CR Digital Manufacturing Platform Management',
+            value: 'ref_4569',
+            selected: false
+          },
+          {name: 'CR HR Site Manager', value: 'ref_4567', selected: false}
+        ],
+        onChange: value => console.log(value)
+      },
+      {
+        type: 'select',
+        theme: 'filter',
+        fieldName: 'contentType',
+        title: 'Type:',
+        options: [
+          {
+            name: 'All',
+            value: 'ALL',
+            selected: false
+          },
+          {
+            name: "5' learning",
+            value: 'microlearning',
+            selected: true
+          },
+          {
+            name: 'Cours',
+            value: 'learner',
+            selected: false
+          },
+          {
+            name: 'Scorm',
+            value: 'scorm',
+            selected: false
+          }
+        ],
+        onChange: value => console.log(value)
+      },
+      {
         ...selectFilter,
         type: 'select',
         fieldName: 'Courses',
-        title: 'Learning Paths:',
+        title: 'Certifications:',
         options: [
           {
             name: 'All categories',
@@ -70,14 +142,6 @@ export default {
             selected: false
           }
         ],
-        onChange: value => console.log(value)
-      },
-      {...selectOptionsGroup, type: 'select', fieldName: 'Playlists', title: 'Playlists:'},
-      {
-        ...types,
-        type: 'radio',
-        fieldName: 'contentType',
-        title: 'Type:',
         onChange: value => console.log(value)
       }
     ],
