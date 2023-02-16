@@ -30,7 +30,7 @@ const BattleOpponent = (
   );
 
   return (
-    <div
+    <li
       {...(!isAlreadyEngaged && {onClick})}
       className={wrapperClassnames}
       data-testid="battle-opponent-wrapper"
@@ -52,7 +52,7 @@ const BattleOpponent = (
       ) : (
         <ArrowRight className={style.rightArrow} width={16} height={16} />
       )}
-    </div>
+    </li>
   );
 };
 

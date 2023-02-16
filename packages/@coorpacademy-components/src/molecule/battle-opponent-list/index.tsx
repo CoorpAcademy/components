@@ -4,6 +4,7 @@ import map from 'lodash/fp/map';
 import {v5 as uuidV5} from 'uuid';
 import BattleOpponent from '../../atom/battle-opponent';
 import propTypes, {BattleOpponentListProps} from './prop-types';
+import style from './style.css';
 
 const BattleOpponentList = ({opponents}: BattleOpponentListProps) => {
   const opponentList = useMemo(
@@ -21,7 +22,7 @@ const BattleOpponentList = ({opponents}: BattleOpponentListProps) => {
     [opponents]
   );
 
-  return opponentList;
+  return <ul className={style.opponentList}>{opponentList}</ul>;
 };
 
 BattleOpponentList.propTypes = propTypes;
