@@ -4,6 +4,7 @@ type Fixture = {props: Props};
 
 const fixture: Fixture = {
   props: {
+    autoplay: false,
     media: {
       mimeType: 'application/kontiki',
       videoId: '1234',

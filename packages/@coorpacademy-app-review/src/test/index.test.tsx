@@ -5,7 +5,7 @@ import type {ExecutionContext} from 'ava';
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react';
 import {services} from '@coorpacademy/review-services-mocks';
-import {WebContext} from '@coorpacademy/components/lib/atom/provider';
+import {WebContext} from '@coorpacademy/components/es/atom/provider';
 import {appendVideoOptions} from '../../sandbox/options';
 import type {AppOptions} from '../types/common';
 import AppReview from '..';

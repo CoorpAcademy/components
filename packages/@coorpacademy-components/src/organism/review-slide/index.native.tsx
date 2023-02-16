@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const MediaView = ({media}: {media?: Media}) => {
+const MediaView = ({media, autoplay}: {media?: Media; autoplay: boolean}) => {
   if (!media) {
     return null;
   }
@@ -55,7 +55,7 @@ const MediaView = ({media}: {media?: Media}) => {
     case TYPE_VIDEO:
       return (
         <View style={styles.mediaContainer}>
-          <Video media={media} />
+          <Video media={media} autoplay={autoplay} />
         </View>
       );
     case TYPE_IMAGE: {
@@ -164,13 +164,14 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
   });
 
 type QuestionProps = {
+  autoplayMedia: boolean;
   answerUI: SlideProps['answerUI'];
   questionText: SlideProps['questionText'];
   questionOrigin: SlideProps['parentContentTitle'];
 };
 
 const Question = (props: QuestionProps) => {
-  const {answerUI, questionText, questionOrigin = ''} = props;
+  const {answerUI, questionText, questionOrigin = '', autoplayMedia = false} = props;
   const {theme} = useTemplateContext();
   const [style, setStyle] = useState<StyleSheetType>();
 
@@ -198,7 +199,7 @@ const Question = (props: QuestionProps) => {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        {hasVideoOrImage ? <MediaView media={answerUI.media} /> : null}
+        {hasVideoOrImage ? <MediaView media={answerUI.media} autoplay={autoplayMedia} /> : null}
         <View style={{marginTop: hasVideoOrImage ? 30 : 0}}>
           <Answer {...answerUI} />
         </View>
@@ -263,6 +264,7 @@ const Slide = (props: ReviewSlideProps) => {
 
   const {width} = useWindowDimensions();
   const slideStyle = createSlideStyle(num, width);
+  const isFirstSlide = num === 1;
 
   const {
     loading,
@@ -283,6 +285,7 @@ const Slide = (props: ReviewSlideProps) => {
         questionOrigin={parentContentTitle}
         questionText={questionText}
         answerUI={answerUI}
+        autoplayMedia={isFirstSlide}
         key="question-container"
       />
       <Button
