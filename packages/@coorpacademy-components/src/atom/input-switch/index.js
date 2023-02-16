@@ -78,7 +78,7 @@ const InputSwitch = props => {
         </div>
       </div>
       <div className={!details ? style.alignedTextContainer : null}>
-        {titlePosition === 'right' ? {titleView} : null}
+        {titlePosition === 'right' ? titleView : null}
         {details ? <div className={style.detailsTxt}>{details}</div> : null}
       </div>
       {descriptionView}
