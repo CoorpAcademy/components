@@ -51,13 +51,7 @@ const BattleOpponent = (
   }, [mouseLeaveTimer]);
 
   const handleMouseLeave = useCallback(() => {
-    setMouseLeaveTimer(
-      setTimeout(() => {
-        setToolTipIsVisible(false);
-        // @ts-expect-error (error: blur does not exists on type never)
-        buttonRef.current.blur();
-      }, 500) as unknown as number
-    );
+    setMouseLeaveTimer(setTimeout(() => setToolTipIsVisible(false), 500) as unknown as number);
   }, []);
 
   const handleKeyPress = useCallback(
