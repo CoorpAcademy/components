@@ -76,7 +76,7 @@ test('should show the loader while the app is fetching the data', async t => {
   t.plan(2);
   const {container} = render(<AppReview options={appOptions} />);
 
-  await waitForChanges(1000);
+  await waitForChanges(1001);
 
   const loader = container.querySelector('[data-name="loader"]');
   t.truthy(loader);
