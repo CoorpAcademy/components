@@ -461,7 +461,18 @@
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+}
+
+.languageSelect {
+  width: 98%;
+}
+
+.setting:nth-child(1) {
+  flex-direction: column;
+  gap: 6px;
+  height: 60px;
+  align-items: baseline;
 }
 
 .setting .label {
