@@ -22,3 +22,11 @@ test('should hide toolTip depending on mouse leave event on the logo header', t 
   toolTipDiv = container.querySelector(toolTipTestId);
   t.falsy(toolTipDiv);
 });
+test('should handle mouse enter and leave events on item more', t => {
+  const itemMoreSelector = '[data-name="item-more"]';
+  const {container} = renderWithContext(<MoocHeader {...defaultFixture.props} />);
+  const itemMoreDiv = container.querySelector(itemMoreSelector);
+  t.truthy(itemMoreDiv);
+  fireEvent.mouseEnter(itemMoreDiv);
+  fireEvent.mouseLeave(itemMoreDiv);
+});
