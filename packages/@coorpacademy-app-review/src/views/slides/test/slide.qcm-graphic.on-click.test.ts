@@ -81,7 +81,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -93,7 +93,7 @@ test('should dispatch EDIT_QCM_GRAPHIC action via the property onClick of a QCM 
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
 
-  const SlideProps = props.stack.slides['0'].answerUI?.model as QcmGraphic;
+  const SlideProps = props.stack?.slides['0'].answerUI?.model as QcmGraphic;
   const onClick = get(['1', 'onClick'], SlideProps.answers);
   onClick();
 });

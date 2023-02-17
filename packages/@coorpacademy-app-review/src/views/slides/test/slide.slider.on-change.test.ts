@@ -81,7 +81,7 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     disabledContent: false,
@@ -94,7 +94,7 @@ test('should dispatch EDIT_SLIDER action via the property onChange of a Slider s
       'En combien d’années la communauté de communes du Thouarsais est-elle passée de zéro à un tiers d’énergies renouvelables ?'
   });
 
-  const SlideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;
+  const SlideProps = props.stack?.slides['0'].answerUI?.model as QuestionRange;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const onChange = get('onChange', SlideProps)!;
   onChange(0.29339261968085106);

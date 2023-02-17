@@ -83,7 +83,7 @@ test('should dispatch EDIT_QCM action via the property onClick of a QCM slide', 
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -95,7 +95,7 @@ test('should dispatch EDIT_QCM action via the property onClick of a QCM slide', 
     questionText: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?"
   });
 
-  const SlideProps = props.stack.slides['0'].answerUI?.model as Qcm;
+  const SlideProps = props.stack?.slides['0'].answerUI?.model as Qcm;
   const onClick = get(['1', 'onClick'], SlideProps.answers);
   onClick();
 });
