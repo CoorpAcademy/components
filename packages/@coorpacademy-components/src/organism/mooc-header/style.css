@@ -217,6 +217,7 @@
   left: 0;
   position: absolute;
   transition: all 0.2s ease-out;
+  display: none;
 }
 
 .activePage .bar {
@@ -227,6 +228,7 @@
 .option:hover  .line {
   height: 40px;
   width: 3px;
+  display: inherit;
 }
 
 .item:hover .bar {
@@ -238,7 +240,7 @@
   composes: options;
 }
 
-.more:hover .optionsGroup {
+.optionsGroup {
   display: block;
 }
 
