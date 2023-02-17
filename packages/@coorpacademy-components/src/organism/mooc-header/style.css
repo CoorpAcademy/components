@@ -145,7 +145,7 @@
 }
 
 .option {
-  display: block;
+  display: flex;  
   padding: 0 10px;
   font-size: 13px;
   color: dark;
@@ -240,7 +240,7 @@
   composes: options;
 }
 
-.optionsGroup {
+.more:hover .optionsGroup {
   display: block;
 }
 

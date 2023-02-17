@@ -412,7 +412,7 @@ class MoocHeader extends React.Component {
               onMouseEnter={this.handleMouseEnter}
               onMouseLeave={this.handleMouseLeave}
               style={{
-                color: primaryColor
+                ..._hoverStyle
               }}
             >
               {moreAriaLabel}
