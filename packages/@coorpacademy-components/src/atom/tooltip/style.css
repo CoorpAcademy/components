@@ -34,10 +34,18 @@
   position: absolute;
   border-radius: 7px;
   background-color: cm_grey_700;
-  right: -75px;
-  bottom: 32px;
   height: auto;
   width: 200px;
+}
+
+.bigIconToolTip {
+  right: -71px;
+  bottom: 31px;
+}
+
+.smallIconToolTip {
+  right: -75px;
+  bottom: 32px;
 }
 
 .toolTip::before {
@@ -88,6 +96,7 @@
   visibility: visible !important;
   opacity: 1 !important;
   left: 5px;
+  max-width: 400px;
 }
 
 /* for keyboard navigation, the position can't be obtained from the mouse */
