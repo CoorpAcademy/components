@@ -4,6 +4,7 @@ import {getOr, keys} from 'lodash/fp';
 import classnames from 'classnames';
 import {ICONS} from '../../util/button-icons';
 import Link from '../link';
+// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
 const getButtonContent = icon => {
@@ -47,7 +48,7 @@ const ButtonLinkIconOnly = props => {
     getSizeStyle(size),
     link && style.link,
     disabled && style.disabled,
-    className
+    style[className]
   );
 
   const handleOnClick = useMemo(() => () => onClick(), [onClick]);

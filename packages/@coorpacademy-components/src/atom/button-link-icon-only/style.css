@@ -91,3 +91,26 @@
   width: 12px;
   height: 12px;
 }
+
+/* ----------------- CM bulk style ------------------------- */
+
+.bulkArrowDown {
+  composes: button;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid cm_grey_200;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 0.5;
+}
+
+.bulkArrowDown .icon {
+  width: 8px;
+  height: 8px;
+}
+
+.bulkArrowUp {
+  composes: bulkArrowDown;
+  transform: rotate(180deg);
+}
