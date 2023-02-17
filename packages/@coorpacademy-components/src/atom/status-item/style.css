@@ -3,6 +3,12 @@
 @value cm_positive_100 from colors;
 @value cm_negative_100 from colors;
 @value white from colors;
+@value positive from colors;
+@value negative from colors;
+@value cm_negative_50 from colors;
+@value cm_green_secondary_200 from colors;
+@value cm_green_secondary_100 from colors;
+@value cm_pink_50 from colors;
 
 .default {
   width: 32px;
@@ -62,4 +68,45 @@
   transform: scale(1.5);
 }
 
+/* ----------------- CM bulk theme ------------------------- */
 
+
+.valid {
+  opacity: 1;
+  width: 24px;
+  height: 24px;
+  background-color: cm_green_secondary_100;
+}
+
+.validIcon {
+  color: cm_green_secondary_200;
+  width: 12px;
+  height: 10px;
+  transition: transform 0.25s ease;
+}
+
+.invalid {
+  opacity: 1;
+  width: 24px;
+  height: 24px;
+  background-color: cm_negative_50;
+}
+
+.invalidIcon {
+  color: cm_negative_100;
+  width: 10px;
+  height: 10px;
+  transition: color 0.25s ease;
+}
+
+.errorsNumber {
+  opacity: 1;
+  width: 24px;
+  height: 24px;
+  background-color: cm_pink_50;
+  color: cm_negative_100;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}

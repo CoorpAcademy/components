@@ -81,8 +81,6 @@
   "mandatory_fields": "*Պարտադիր դաշտեր",
   "something_went_wrong": "Վա՜յ: Ինչ որ բան այնպես չգնաց.",
   "review_header_step_item": {
-    "aria_label": "Հարց {{headerStepValue}}",
-    "current_question": "{{headerStepValue}} հարցը ընթացիկ հարցն է",
     "correct_question": "{{headerStepValue}} հարցը ճիշտ է",
     "incorrect_question": "Հարցը {{headerStepValue}} սխալ է",
     "not_answered_question": "Հարցին {{headerStepValue}} դեռ պատասխանված չէ"

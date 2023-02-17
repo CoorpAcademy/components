@@ -81,8 +81,6 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Vraag {{headerStepValue}}",
-    "current_question": "Vraag {{headerStepValue}} is de huidige vraag",
     "correct_question": "Vraag {{headerStepValue}} is juist",
     "incorrect_question": "Vraag {{headerStepValue}} is onjuist",
     "not_answered_question": "Vraag {{headerStepValue}} is nog niet beantwoord"

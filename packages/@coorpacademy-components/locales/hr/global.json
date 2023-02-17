@@ -81,8 +81,6 @@
   "mandatory_fields": "*Obavezna polja",
   "something_went_wrong": "Ajoj! Nešto je otišlo ukrivo.",
   "review_header_step_item": {
-    "aria_label": "Pitanje {{headerStepValue}}",
-    "current_question": "Pitanje {{headerStepValue}} je trenutno pitanje",
     "correct_question": "Pitanje {{headerStepValue}} je točno",
     "incorrect_question": "Pitanje {{headerStepValue}} je netočno",
     "not_answered_question": "Na pitanje {{headerStepValue}} još nije odgovoreno"

@@ -81,8 +81,6 @@
   "mandatory_fields": "* Mga patlang na ipinag-uutos",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Tanong {{headerStepValue}}",
-    "current_question": "Tanong {{headerStepValue}} ang kasalukuyang tanong",
     "correct_question": "Tama ang tanong na {{headerStepValue}}",
     "incorrect_question": "Ang tanong na {{headerStepValue}} ay hindi tama",
     "not_answered_question": "Ang tanong na {{headerStepValue}} ay hindi pa nasasagot"

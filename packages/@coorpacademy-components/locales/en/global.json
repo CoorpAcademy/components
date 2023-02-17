@@ -81,10 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "aria_label": "Question {{headerStepValue}}",
-    "current_question": "Question {{headerStepValue}} is the current question",
-    "correct_question": "Question {{headerStepValue}} is correct",
-    "incorrect_question": "Question {{headerStepValue}} is incorrect",
-    "not_answered_question": "Question {{headerStepValue}} is not answered yet"
+    "correct_question": "{{current}}question {{headerStepValue}} is correct",
+    "incorrect_question": "{{current}}question {{headerStepValue}} is incorrect",
+    "not_answered_question": "{{current}}question {{headerStepValue}} is not answered yet"
+  },
+  "bulk_import": {
+    "errors_number": "bulk import errors number is {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm file is valid",
+    "invalid_scorm": "scorm file is not valid"
   }
 }

@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 
-import ReviewHeaderStepItemPropTypes, {
-  HeaderStepItemProps
-} from '../../atom/review-header-step-item/types';
+import ReviewHeaderStepItemPropTypes, {StatusItemProps} from '../../atom/status-item/types';
 
 const propTypes = {
   steps: PropTypes.arrayOf(PropTypes.shape(ReviewHeaderStepItemPropTypes))
@@ -11,5 +9,5 @@ const propTypes = {
 export default propTypes;
 
 export type ReviewHeaderStepsProps = {
-  steps: HeaderStepItemProps[];
+  steps: StatusItemProps[];
 };
