@@ -1,6 +1,7 @@
 import React, {useCallback, useMemo, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {v5 as uuidV5} from 'uuid';
+import has from 'lodash/fp/has';
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
   NovaCompositionCoorpacademyInformationIcon as InformationIcon
@@ -46,7 +47,7 @@ const BattleOpponent = (
   const handleMouseOver = useCallback(() => {
     mouseLeaveTimer && clearTimeout(mouseLeaveTimer);
     // @ts-expect-error (error: focus does not exists on type never)
-    buttonRef.current.focus();
+    /* istanbul ignore next */ has(['current', 'focus'], buttonRef) && buttonRef.current.focus();
     setToolTipIsVisible(true);
   }, [mouseLeaveTimer]);
 
@@ -55,7 +56,7 @@ const BattleOpponent = (
       setTimeout(() => {
         setToolTipIsVisible(false);
         // @ts-expect-error (error: blur does not exists on type never)
-        buttonRef?.current?.blur();
+        /* istanbul ignore next */ has(['current', 'blur'], buttonRef) && buttonRef.current.blur();
       }, 500) as unknown as number
     );
   }, []);
