@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "11.11.3",
+  "version": "11.11.4",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -56,7 +56,7 @@
     "Soualmi Djamel <djamel.soualmi@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "4.1.3",
+    "@coorpacademy/nova-icons": "4.1.4",
     "@coorpacademy/react-native-animation": "1.0.3",
     "@jwplayer/jwplayer-react": "^1.1.0",
     "@types/react": "^17.0.50",
