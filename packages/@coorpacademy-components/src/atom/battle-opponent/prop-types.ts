@@ -6,7 +6,8 @@ const propTypes = {
   userAvatarSrc: PropTypes.string,
   onClick: PropTypes.func,
   displayName: PropTypes.string,
-  tooltipText: PropTypes.string
+  tooltipText: PropTypes.string,
+  'aria-label': PropTypes.string
 };
 
 export type BattleOpponentProps = {
@@ -16,6 +17,7 @@ export type BattleOpponentProps = {
   onClick?: () => void;
   displayName: string;
   tooltipText?: string;
+  'aria-label'?: string;
 };
 
 export default propTypes;

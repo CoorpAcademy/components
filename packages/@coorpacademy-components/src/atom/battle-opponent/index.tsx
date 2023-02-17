@@ -19,7 +19,8 @@ const BattleOpponent = (
     userAvatarSrc,
     onClick,
     displayName,
-    tooltipText
+    tooltipText,
+    'aria-label': ariaLabel
   }: BattleOpponentProps,
   legacyContext: WebContextValues
 ) => {
@@ -107,6 +108,7 @@ const BattleOpponent = (
             data-for={battleOpponentInfoId}
             data-tooltip-place="left"
             data-tip={isAlreadyEngaged}
+            aria-label={ariaLabel}
           >
             <InformationIcon className={style.informationIcon} width={20} height={20} />
           </button>
