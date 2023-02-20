@@ -81,8 +81,13 @@
   "mandatory_fields": "*Povinné polia",
   "something_went_wrong": "Och! Niečo sa pokazilo.",
   "review_header_step_item": {
-    "correct_question": "Otázka {{headerStepValue}} je správna",
-    "incorrect_question": "Otázka {{headerStepValue}} je nesprávna",
-    "not_answered_question": "Otázka {{headerStepValue}} zatiaľ nie je zodpovedaná"
+    "correct_question": "{{current}}otázka {{headerStepValue}} je správna",
+    "incorrect_question": "{{current}}otázka {{headerStepValue}} je nesprávna",
+    "not_answered_question": "{{current}}otázka {{headerStepValue}} ešte nie je zodpovedaná"
+  },
+  "bulk_import": {
+    "errors_number": "počet chýb hromadného importu je {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm súbor je platný",
+    "invalid_scorm": "scorm súbor je neplatný"
   }
 }
