@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Vraag {{headerStepValue}} is juist",
-    "incorrect_question": "Vraag {{headerStepValue}} is onjuist",
-    "not_answered_question": "Vraag {{headerStepValue}} is nog niet beantwoord"
+    "correct_question": "{{current}}vraag {{headerStepValue}} is correct",
+    "incorrect_question": "{{current}}vraag {{headerStepValue}} is niet correct",
+    "not_answered_question": "{{current}}vraag {{headerStepValue}} is nog niet beantwoord."
+  },
+  "bulk_import": {
+    "errors_number": "bulk import fouten aantal is {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm-bestand is geldig",
+    "invalid_scorm": "scorm-bestand is niet geldig"
   }
 }
