@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "질문 {{headerStepValue}}이 맞습니다.",
-    "incorrect_question": "질문 {{headerStepValue}}이 올바르지 않습니다.",
-    "not_answered_question": "질문 {{headerStepValue}}은 아직 답변되지 않았습니다."
+    "correct_question": "{{current}}질문 {{headerStepValue}}이(가) 올바르지 않습니다",
+    "incorrect_question": "{{current}}질문 {{headerStepValue}}이(가) 올바르지 않습니다",
+    "not_answered_question": "{{current}}질문 {{headerStepValue}}의 답변이 아직 완료되지 않았습니다"
+  },
+  "bulk_import": {
+    "errors_number": "벌크 가져오기 에러 번호는 {{bulkImportErrorsNumber}}입니다",
+    "valid_scorm": "scorm 파일이 유효하지 않습니다",
+    "invalid_scorm": "scorm 파일이 유효하지 않습니다"
   }
 }
