@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "问题{{headerStepValue}}是正确的",
-    "incorrect_question": "问题 {{headerStepValue}} 不正确",
-    "not_answered_question": "问题 {{headerStepValue}} 尚未回答"
+    "correct_question": "{{current}}问题 {{headerStepValue}} 正确",
+    "incorrect_question": "{{current}}问题 {{headerStepValue}} 不正确",
+    "not_answered_question": "{{current}}问题 {{headerStepValue}} 尚未回答"
+  },
+  "bulk_import": {
+    "errors_number": "批量导入错误数是 {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm 文件有效",
+    "invalid_scorm": "scorm 文件无效"
   }
 }
