@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Az {{headerStepValue}} kérdés helyes",
-    "incorrect_question": "Az {{headerStepValue}} kérdés helytelen",
-    "not_answered_question": "Az {{headerStepValue}} kérdésre még nincs válasz"
+    "correct_question": "{{current}}kérdés {{headerStepValue}} helyes",
+    "incorrect_question": "{{current}}kérdés {{headerStepValue}} helytelen",
+    "not_answered_question": "{{current}}kérdés {{headerStepValue}} még nincs megválaszolva"
+  },
+  "bulk_import": {
+    "errors_number": "tömeges importálási hibák száma {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm fájl érvényes",
+    "invalid_scorm": "scorm fájl nem érvényes"
   }
 }
