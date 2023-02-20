@@ -81,8 +81,13 @@
   "mandatory_fields": "*Obavezna polja",
   "something_went_wrong": "Ajoj! Nešto je otišlo ukrivo.",
   "review_header_step_item": {
-    "correct_question": "Pitanje {{headerStepValue}} je točno",
-    "incorrect_question": "Pitanje {{headerStepValue}} je netočno",
-    "not_answered_question": "Na pitanje {{headerStepValue}} još nije odgovoreno"
+    "correct_question": "{{current}}pitanje {{headerStepValue}} je točno",
+    "incorrect_question": "{{current}}pitanje {{headerStepValue}} je netočno",
+    "not_answered_question": "Na {{current}}pitanje {{headerStepValue}} još nije odgovoreno"
+  },
+  "bulk_import": {
+    "errors_number": "broj grešaka masovnog uvoza je {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm datoteka je ispravna",
+    "invalid_scorm": "scorm datoteka nije ispravna"
   }
 }
