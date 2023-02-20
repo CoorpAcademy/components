@@ -81,8 +81,13 @@
   "mandatory_fields": "* Mga patlang na ipinag-uutos",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Tama ang tanong na {{headerStepValue}}",
-    "incorrect_question": "Ang tanong na {{headerStepValue}} ay hindi tama",
-    "not_answered_question": "Ang tanong na {{headerStepValue}} ay hindi pa nasasagot"
+    "correct_question": "Tama ang {{current}}tanong {{headerStepValue}}",
+    "incorrect_question": "Mali ang {{current}}tanong {{headerStepValue}}",
+    "not_answered_question": "Hinidi pa nasasagot ang {{current}}tanong {{headerStepValue}}"
+  },
+  "bulk_import": {
+    "errors_number": "Ang bilang ng maramihang error sa pag-import ay {{bulkImportErrorsNumber}}",
+    "valid_scorm": "balido ang scorm file",
+    "invalid_scorm": "Hindi balido ang scorm file"
   }
 }
