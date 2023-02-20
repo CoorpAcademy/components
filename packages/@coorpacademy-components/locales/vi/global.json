@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Câu {{headerStepValue}} đúng không",
-    "incorrect_question": "Câu {{headerStepValue}} sai",
-    "not_answered_question": "Câu hỏi {{headerStepValue}} chưa có câu trả lời"
+    "correct_question": "câu hỏi{{current}} {{headerStepValue}} là chính xác",
+    "incorrect_question": "câu hỏi{{current}} {{headerStepValue}} là sai",
+    "not_answered_question": "câu hỏi{{current}} {{headerStepValue}} chưa được trả lời"
+  },
+  "bulk_import": {
+    "errors_number": "số lỗi nhập hàng loạt là {{bulkImportErrorsNumber}}",
+    "valid_scorm": "tập tin scorm là hợp lệ",
+    "invalid_scorm": "tập tin scorm là không hợp lệ"
   }
 }
