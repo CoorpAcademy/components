@@ -5,25 +5,13 @@ export const createQcmSlide = (
   medias?: SlideFromAPI['question']['medias']
 ): SlideFromAPI => ({
   question: {
-    medias: medias || [
-      {
-        type: 'audio',
-        src: [
-          {
-            mimeType: 'audio/acc',
-            mediaUrl:
-              '//static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac',
-            _id: '590b9be24f7b862e0046e577'
-          }
-        ]
-      }
-    ],
     content: {
       media: {
         src: [],
         posters: [],
         subtitles: []
       },
+      template: 'All of the 7-S elements are {{sel26453}} .',
       choices: [
         {
           media: {
@@ -31,64 +19,38 @@ export const createQcmSlide = (
             posters: [],
             subtitles: []
           },
-          items: [],
-          _id: '62c853412d0f9b088718e759',
-          label: 'Le créateur peut fixer un pourcentage pour chaque transaction future',
-          value: 'sli_N1XACJobn.choice_4JjaSesZh',
-          id: '62c853412d0f9b088718e759'
-        },
-        {
-          media: {
-            src: [],
-            posters: [],
-            subtitles: []
-          },
-          items: [],
-          _id: '62c853412d0f9b088718e75a',
-          label:
-            "Pour chaque transaction il existe un pourcentage fixe déterminé par le droit d'auteur du pays où se tient la vente",
-          value: 'sli_N1XACJobn.choice_Ny78UlsWh',
-          id: '62c853412d0f9b088718e75a'
-        },
-        {
-          media: {
-            src: [],
-            posters: [],
-            subtitles: []
-          },
-          items: [],
-          _id: '62c853412d0f9b088718e75b',
-          label:
-            "Seule la galerie ou la plateforme peut toucher une commission sur la vente d'un NFT",
-          value: 'sli_N1XACJobn.choice_Eypt8esW2',
-          id: '62c853412d0f9b088718e75b'
-        },
-        {
-          media: {
-            src: [],
-            posters: [],
-            subtitles: []
-          },
-          items: [],
-          _id: '62c853412d0f9b088718e75c',
-          label: "Les NFT payés en ETH ne peuvent pas être soumis au paiement d'une commission",
-          value: 'sli_N1XACJobn.choice_VyS3LxjZh',
-          id: '62c853412d0f9b088718e75c'
+          name: 'sel26453',
+          type: 'select',
+          items: [
+            {
+              text: 'interdependent ',
+              value: 'sli_N1YPCUx-3.choice_Vygz3CIgdn',
+              _id: '63ee974b0284f29dc3f4fea9'
+            },
+            {
+              text: 'independent',
+              value: 'sli_N1YPCUx-3.choice_EyZf20Ugd3',
+              _id: '63ee974b0284f29dc3f4feaa'
+            }
+          ],
+          _id: '63ee974b0284f29dc3f4fea8',
+          id: '63ee974b0284f29dc3f4fea8'
         }
       ],
-      answers: [['Le créateur peut fixer un pourcentage pour chaque transaction future']]
+      answers: [['interdependent ']]
     },
-    type: 'qcm',
-    header: "Après la vente d'un NFT, son créateur peut-il toucher de l'argent ?",
-    explanation: 'Sélectionnez la bonne réponse.'
+    type: 'template',
+    header: 'What is the relationship between the 7-S elements in McKinsey’s model?',
+    explanation: 'Select the right answer in the drop-down menu.',
+    medias: medias || []
   },
-  klf: 'Si vous êtes le créateur d’un NFT, vous pouvez choisir le pourcentage de commission pour chaque transaction de votre NFT.  Certains choisissent de ne rien toucher pour fluidifier le marché.',
-  tips: 'En 2021, le média en ligne Numerama a créé un NFT vendu aux enchères sur OpenSea. Sur cette plateforme, il est obligatoire de mettre un prix de réserve, autrement dit un prix minimum au-dessous duquel la vente ne sera pas automatiquement acceptée. Sur OpenSea il ne peut être inférieur à 1 ETH. Si le prix de réserve est atteint, pas de problème, les "gas fees" (les frais de gaz) sont couverts par OpenSea. Mais, si ce n’est pas le cas, c’est au vendeur de s’en acquitter. <br/>Le NFT en question est parti à 0,021 ETH, soit 40€ au cours de l\'époque, un prix inférieur au prix de réserve. Numerama a dû acquitter des frais de gaz, et payer 190 €. <br/>Avec les NFT, on ne gagne pas à tous les coups.',
-  universalRef,
-  hasClue: true,
-  _id: universalRef,
+  klf: 'All of the 7-S elements are interdependent. The number one goal of McKinsey’s 7-S model is to maintain alignment of these elements during the change processes. Change to one element may cause a change in others to properly realign them.',
+  tips: 'McKinsey & Company is a management consulting company founded in 1926. It is now one of the largest consulting firm in the world.',
+  hasClue: false,
   parentContentTitle: {
-    title: 'Developing the review app',
+    title: 'Agility In Times Of Change',
     type: 'course'
-  }
+  },
+  universalRef,
+  _id: universalRef
 });

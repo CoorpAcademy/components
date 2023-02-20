@@ -11,35 +11,79 @@ export const createFreeTextSlide = (
         posters: [],
         subtitles: []
       },
-      label: '',
-      placeholder: 'Type here',
-      id: 'sli_VJYjJnJhg.choice_1',
-      answers: [['Benchmark']]
+      template: 'The first talk of remote working started in the {{sel69354}} {{sel11368}}.',
+      choices: [
+        {
+          media: {
+            src: [],
+            posters: [],
+            subtitles: []
+          },
+          _id: '63ee97940284f29dc3f6b78c',
+          id: '63ee97940284f29dc3f6b78c',
+          name: 'sel69354',
+          type: 'select',
+          items: [
+            {
+              text: '1950s',
+              value: 'sli_41IlNtPvK.choice_NklkdHKwwt',
+              _id: '63ee97940284f29dc3f6b78d'
+            },
+            {
+              text: '1970s',
+              value: 'sli_41IlNtPvK.choice_E1~y-SFDDF',
+              _id: '63ee97940284f29dc3f6b78e'
+            },
+            {
+              text: '1990s',
+              value: 'sli_41IlNtPvK.choice_NkJKrYPDF',
+              _id: '63ee97940284f29dc3f6b78f'
+            }
+          ]
+        },
+        {
+          media: {
+            src: [],
+            posters: [],
+            subtitles: []
+          },
+          name: 'sel11368',
+          type: 'select',
+          items: [
+            {
+              text: 'in France',
+              value: 'sli_41IlNtPvK.choice_VJgBuBtwPY',
+              _id: '63ee97940284f29dc3f6b791'
+            },
+            {
+              text: 'in Japan',
+              value: 'sli_41IlNtPvK.choice_V1WHuSFDvF',
+              _id: '63ee97940284f29dc3f6b792'
+            },
+            {
+              text: 'in the USA',
+              value: 'sli_41IlNtPvK.choice_N1LcHKDwF',
+              _id: '63ee97940284f29dc3f6b793'
+            }
+          ],
+          _id: '63ee97940284f29dc3f6b790',
+          id: '63ee97940284f29dc3f6b790'
+        }
+      ],
+      answers: [['1950s', 'in the USA']]
     },
-    type: 'basic',
-    header:
-      'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?',
-    explanation: 'Type your answer.',
-    medias: medias || [
-      {
-        type: 'video',
-        src: [
-          {
-            _id: 'free-text',
-            mediaRef: 'med_free_text',
-            mimeType: 'application/jwplayer',
-            videoId: '489S0B87'
-          }
-        ]
-      }
-    ]
+    type: 'template',
+    header: 'When and where did remote working take its first steps?',
+    explanation: 'Select the correct answers from the drop-down menus.',
+    medias: medias || []
   },
-  klf: 'To negotiate your salary when being hired, you have to establish a benchmark beforehand. In other words, you should assess the salary to which you aspire by enquiring about the remuneration paid in the same industry, the same region and the same position.',
-  tips: 'According to Insee, Paris salaries are 20-25% higher compared with those of the provinces in 2015.',
-  universalRef,
-  _id: universalRef,
+  klf: 'Remote working took its first steps in the 1950s in the USA. Since then, its legal framework has never ceased to evolve.',
+  tips: 'In the United States, remote working has been a subject of study since the 1950s, and the first realistic and promising results were obtained in the 1970s, in particular within the American Telephone & Telegraph Company.',
+  hasClue: true,
   parentContentTitle: {
-    title: 'Developing the review app',
+    title: 'Remote Working: From Theory to Best Practices',
     type: 'course'
-  }
+  },
+  universalRef,
+  _id: universalRef
 });
