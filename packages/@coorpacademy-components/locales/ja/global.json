@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "問題 {{headerStepValue}} は正解です",
-    "incorrect_question": "質問 {{headerStepValue}} は不正解です",
-    "not_answered_question": "質問 {{headerStepValue}} はまだ回答されていません"
+    "correct_question": "{{current}} の質問 {{headerStepValue}} は正解です",
+    "incorrect_question": "{{current}} の質問 {{headerStepValue}} は正しくありません",
+    "not_answered_question": "{{current}} の質問 {{headerStepValue}} はまだ回答されていません"
+  },
+  "bulk_import": {
+    "errors_number": "一括インポートエラー 数は {{bulkImportErrorsNumber}} です",
+    "valid_scorm": "SCORMファイルは有効です",
+    "invalid_scorm": "SCORMファイルが有効ではありません"
   }
 }
