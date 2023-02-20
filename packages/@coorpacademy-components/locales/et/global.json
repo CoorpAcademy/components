@@ -81,8 +81,13 @@
   "mandatory_fields": "*Kohustuslikud väljad",
   "something_went_wrong": "Oih! Midagi läks viltu.",
   "review_header_step_item": {
-    "correct_question": "Küsimus {{headerStepValue}} on õige",
-    "incorrect_question": "Küsimus {{headerStepValue}} on vale",
-    "not_answered_question": "Küsimusele {{headerStepValue}} pole veel vastust"
+    "correct_question": "{{current}}küsimus {{headerStepValue}} on õige",
+    "incorrect_question": "{{current}}küsimus {{headerStepValue}} ei ole õige",
+    "not_answered_question": "{{current}}küsimus {{headerStepValue}} ei ole veel vastatud"
+  },
+  "bulk_import": {
+    "errors_number": "kogu impordi vigade arv on {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scormi fail on kehtiv",
+    "invalid_scorm": "scormi fail ei ole kehtiv"
   }
 }
