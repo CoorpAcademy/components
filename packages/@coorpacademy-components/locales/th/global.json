@@ -81,8 +81,13 @@
   "mandatory_fields": "*ข้อมูลที่จำเป็นต้องกรอก",
   "something_went_wrong": "อ้าว! มีสิ่งผิดปกติ",
   "review_header_step_item": {
-    "correct_question": "คำถามข้อที่ {{headerStepValue}} ถูกต้อง",
-    "incorrect_question": "คำถามข้อที่ {{headerStepValue}} ไม่ถูกต้อง",
-    "not_answered_question": "คำถามข้อที่ {{headerStepValue}} ยังไม่ได้ตอบ"
+    "correct_question": "{{headerStepValue}} คำถาม {{current}} ถูกต้อง",
+    "incorrect_question": "{{headerStepValue}} คำถาม {{current}} ไม่ถูกต้อง",
+    "not_answered_question": "{{headerStepValue}} คำถาม {{current}} ยังไม่ได้รับคำตอบ"
+  },
+  "bulk_import": {
+    "errors_number": "จำนวนข้อผิดพลาดในการนําเข้าจํานวนมากคือ {{bulkImportErrorsNumber}}",
+    "valid_scorm": "ไฟล์ scorm ถูกต้อง",
+    "invalid_scorm": "ไฟล์ scorm ไม่ถูกต้อง"
   }
 }
