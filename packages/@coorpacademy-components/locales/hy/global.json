@@ -81,8 +81,13 @@
   "mandatory_fields": "*Պարտադիր դաշտեր",
   "something_went_wrong": "Վա՜յ: Ինչ որ բան այնպես չգնաց.",
   "review_header_step_item": {
-    "correct_question": "{{headerStepValue}} հարցը ճիշտ է",
-    "incorrect_question": "Հարցը {{headerStepValue}} սխալ է",
-    "not_answered_question": "Հարցին {{headerStepValue}} դեռ պատասխանված չէ"
+    "correct_question": "{{current}}հարցը {{headerStepValue}} ճիշտ է",
+    "incorrect_question": "{{current}}հարցը {{headerStepValue}} սխալ է",
+    "not_answered_question": "{{current}}հարցը {{headerStepValue}} դեռ պատասխանված չէ"
+  },
+  "bulk_import": {
+    "errors_number": "Զանգվածային ներմուծման սխալների համարը {{bulkImportErrorsNumber}} է",
+    "valid_scorm": "scorm ֆայլը վավեր է",
+    "invalid_scorm": "scorm ֆայլը վավեր չէ"
   }
 }
