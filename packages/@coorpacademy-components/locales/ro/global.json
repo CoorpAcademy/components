@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Întrebarea {{headerStepValue}} este corectă",
-    "incorrect_question": "Întrebarea {{headerStepValue}} este incorectă",
-    "not_answered_question": "Întrebarea {{headerStepValue}} nu a primit încă răspuns"
+    "correct_question": "{{current}} întrebarea {{headerStepValue}} este corectă",
+    "incorrect_question": "{{current}}întrebarea {{headerStepValue}} este incorectă",
+    "not_answered_question": "{{current}}întrebarea {{headerStepValue}} nu a primit încă un răspuns"
+  },
+  "bulk_import": {
+    "errors_number": "numărul de erori de import în masă este {{bulkImportErrorsNumber}}",
+    "valid_scorm": "fișierul scorm este valid",
+    "invalid_scorm": "fișierul scorm nu este valid"
   }
 }
