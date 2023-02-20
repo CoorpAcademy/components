@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Frage {{headerStepValue}} ist richtig",
-    "incorrect_question": "Frage {{headerStepValue}} ist falsch",
-    "not_answered_question": "Frage {{headerStepValue}} ist noch nicht beantwortet"
+    "correct_question": "{{current}}Frage {{headerStepValue}} ist richtig",
+    "incorrect_question": "{{current}}Frage {{headerStepValue}} ist nicht richtig",
+    "not_answered_question": "{{current}}Frage {{headerStepValue}} wurde noch nicht beantwortet"
+  },
+  "bulk_import": {
+    "errors_number": "Massenimport-Fehlernummer ist {{bulkImportErrorsNumber}}",
+    "valid_scorm": "Scorm-Datei ist gültig",
+    "invalid_scorm": "Scorm-Datei ist ungültig"
   }
 }
