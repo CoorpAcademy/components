@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Питання {{headerStepValue}} правильне",
-    "incorrect_question": "Питання {{headerStepValue}} некоректне",
-    "not_answered_question": "На запитання {{headerStepValue}} ще немає відповіді"
+    "correct_question": "{{current}}питання {{headerStepValue}} є павильним",
+    "incorrect_question": "{{current}}питання {{headerStepValue}} є неправильним",
+    "not_answered_question": "На {{current}}питання {{headerStepValue}} ще немає відповіді"
+  },
+  "bulk_import": {
+    "errors_number": "кількість помилок масового імпорту: {{bulkImportErrorsNumber}}",
+    "valid_scorm": "SCORM-файл є дійсним",
+    "invalid_scorm": "SCORM-файл є недійсним"
   }
 }
