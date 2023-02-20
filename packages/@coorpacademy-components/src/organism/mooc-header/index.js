@@ -130,7 +130,8 @@ class MoocHeader extends React.Component {
       isSettingsOpen: false,
       isMenuOpen: false,
       isFocus: false,
-      isToolTipOpen: false
+      isToolTipOpen: false,
+      hovered: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -260,6 +261,18 @@ class MoocHeader extends React.Component {
     }
   }
 
+  handleMouseEnter = () => {
+    this.setState({
+      hovered: true
+    });
+  };
+
+  handleMouseLeave = () => {
+    this.setState({
+      hovered: false
+    });
+  };
+
   render() {
     if (isEmpty(this.props)) return null;
     const {
@@ -373,15 +386,35 @@ class MoocHeader extends React.Component {
             }}
           >
             {item.title}
+            <span
+              className={style.line}
+              style={{
+                backgroundColor: primaryColor
+              }}
+            />
           </Link>
         );
       });
-
+      const {hovered} = this.state;
+      const _hoverStyle = hovered
+        ? {
+            color: primaryColor
+          }
+        : null;
       pagesView = (
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
           <div className={style.more}>
-            <div className={style.currentOption} aria-haspopup="true" data-name="item-more">
+            <div
+              className={style.currentOption}
+              aria-haspopup="true"
+              data-name="item-more"
+              onMouseEnter={this.handleMouseEnter}
+              onMouseLeave={this.handleMouseLeave}
+              style={{
+                ..._hoverStyle
+              }}
+            >
               {moreAriaLabel}
               <ArrowDown
                 style={{color: mediumColor}}
@@ -389,6 +422,12 @@ class MoocHeader extends React.Component {
                 aria-label={moreAriaLabel}
               />
             </div>
+            <span
+              className={style.bar}
+              style={{
+                backgroundColor: primaryColor
+              }}
+            />
             <div className={style.optionsGroup}>{optionsView}</div>
           </div>
         </div>
