@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "{{headerStepValue}} sorusu doğru",
-    "incorrect_question": "{{headerStepValue}} sorusu yanlış",
-    "not_answered_question": "{{headerStepValue}} sorusu henüz cevaplanmadı"
+    "correct_question": "{{current}}soru {{headerStepValue}} doğru",
+    "incorrect_question": "{{current}}soru {{headerStepValue}} hatalı",
+    "not_answered_question": "{{current}}soru {{headerStepValue}} henüz cevaplanmadı"
+  },
+  "bulk_import": {
+    "errors_number": "toplu içe aktarma hata sayısı {{bulkImportErrorsNumber}}",
+    "valid_scorm": "scorm dosyası geçerli",
+    "invalid_scorm": "scorm dosyası geçersiz"
   }
 }
