@@ -81,8 +81,13 @@
   "mandatory_fields": "*Mandatory fields",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Otázka {{headerStepValue}} je správná",
-    "incorrect_question": "Otázka {{headerStepValue}} je nesprávná",
-    "not_answered_question": "Otázka {{headerStepValue}} zatím není zodpovězena"
+    "correct_question": "{{current}} otázka {{headerStepValue}} je správná",
+    "incorrect_question": "{{current}} otázka {{headerStepValue}} je nesprávná",
+    "not_answered_question": "{{current}} otázka {{headerStepValue}} není zatím zodpovězena"
+  },
+  "bulk_import": {
+    "errors_number": "počet chyb hromadného importu je {{bulkImportErrorsNumber}}",
+    "valid_scorm": "soubor scorm je platný",
+    "invalid_scorm": "soubor scorm je neplatný"
   }
 }
