@@ -29,7 +29,6 @@ const PlayerReview = ({header, stack, congrats, quitPopin}) => {
         <ReviewHeader {...header} />
       </div>
       {isNil(stack) ? null : <StackedSlides {...stack} />}
-
       {isNil(congrats) ? null : (
         <div className={style.congrats} data-testid="congrats-container">
           <ReviewCongrats {...congrats} />
