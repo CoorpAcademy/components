@@ -81,8 +81,13 @@
   "mandatory_fields": "*Обязательные поля",
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_header_step_item": {
-    "correct_question": "Вопрос {{headerStepValue}} правильный",
-    "incorrect_question": "Вопрос {{headerStepValue}} неверен",
-    "not_answered_question": "На вопрос {{headerStepValue}} пока нет ответа"
+    "correct_question": "{{current}}ответ на вопрос {{headerStepValue}} верный",
+    "incorrect_question": "{{current}}ответ на вопрос {{headerStepValue}} неверный",
+    "not_answered_question": "пока еще нет ответа на {{current}}вопрос {{headerStepValue}}"
+  },
+  "bulk_import": {
+    "errors_number": "количество ошибок массового импорта равно {{bulkImportErrorsNumber}}",
+    "valid_scorm": "файл scorm действителен",
+    "invalid_scorm": "файл scorm недействителен"
   }
 }
