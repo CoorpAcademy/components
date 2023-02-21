@@ -15,8 +15,8 @@ const convertType = (modelType: AnswerProps['model']['type']): QuestionType => {
 };
 
 const convertToChoices = (answers: AnswerProps['model']['answers'] = []): Choice[] =>
-  answers.map((answer, index) => ({
-    _id: `${index}`,
+  answers.map(answer => ({
+    _id: `${answer.name}`,
     label: answer.title,
     value: answer.title,
     onPress: answer.onClick || answer.onChange,
