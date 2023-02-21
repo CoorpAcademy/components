@@ -298,7 +298,7 @@ test('should create props when first slide is on the state', t => {
     correctionPopinProps: undefined,
     endReview: false
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -310,8 +310,8 @@ test('should create props when first slide is on the state', t => {
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
-  t.is(props.stack.validateButton.disabled, true);
-  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+  t.is(props.stack?.validateButton.disabled, true);
+  t.deepEqual(omit('model.onChange', props.stack?.slides['0'].answerUI), {
     help: 'Type your answer.',
     model: {
       placeholder: 'Type here',
@@ -320,7 +320,7 @@ test('should create props when first slide is on the state', t => {
     },
     media: undefined
   });
-  t.deepEqual(omit(['0'], props.stack.slides), {
+  t.deepEqual(omit(['0'], props.stack?.slides), {
     '1': {
       position: 1,
       loading: true
@@ -413,7 +413,7 @@ test('should create props when slide is on the state and user has selected answe
     correctionPopinProps: undefined,
     endReview: false
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -425,8 +425,8 @@ test('should create props when slide is on the state and user has selected answe
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
-  t.is(props.stack.validateButton.disabled, false);
-  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+  t.is(props.stack?.validateButton.disabled, false);
+  t.deepEqual(omit('model.onChange', props.stack?.slides['0'].answerUI), {
     help: 'Type your answer.',
     model: {
       placeholder: 'Type here',
@@ -435,7 +435,7 @@ test('should create props when slide is on the state and user has selected answe
     },
     media: undefined
   });
-  t.deepEqual(omit(['0'], props.stack.slides), {
+  t.deepEqual(omit(['0'], props.stack?.slides), {
     '1': {
       position: 1,
       loading: true
@@ -535,7 +535,7 @@ test('should verify props when first slide was answered correctly and next slide
     correctionPopinProps: undefined,
     endReview: false
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -547,7 +547,7 @@ test('should verify props when first slide was answered correctly and next slide
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
-  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+  t.deepEqual(omit('model.onChange', props.stack?.slides['0'].answerUI), {
     help: 'Type your answer.',
     model: {
       placeholder: 'Type here',
@@ -556,8 +556,8 @@ test('should verify props when first slide was answered correctly and next slide
     },
     media: undefined
   });
-  t.is(props.stack.validateButton.disabled, true);
-  t.deepEqual(omit(['0'], props.stack.slides), {
+  t.is(props.stack?.validateButton.disabled, true);
+  t.deepEqual(omit(['0'], props.stack?.slides), {
     '1': {
       position: 1,
       loading: true
@@ -737,8 +737,8 @@ test('should verify props when first slide was answered, next slide is fetched &
       }
     ]
   });
-  t.is(props.stack.endReview, false);
-  t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
+  t.is(props.stack?.endReview, false);
+  t.deepEqual(omit('next.onClick', props.stack?.correctionPopinProps), {
     resultLabel: '__Correct Answer',
     information: {
       label: '__KLF',
@@ -752,7 +752,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     },
     type: 'right'
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
@@ -764,7 +764,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
-  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+  t.deepEqual(omit('model.onChange', props.stack?.slides['0'].answerUI), {
     help: 'Type your answer.',
     model: {
       placeholder: 'Type here',
@@ -773,7 +773,7 @@ test('should verify props when first slide was answered, next slide is fetched &
     },
     media: undefined
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['1']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['1']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -784,8 +784,8 @@ test('should verify props when first slide was answered, next slide is fetched &
       '__Content Parent Title{"contentTitle":"Developing the review app","contentType":"course"}',
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
-  t.is(props.stack.validateButton.disabled, true);
-  t.deepEqual(omit(['0', '1'], props.stack.slides), {
+  t.is(props.stack?.validateButton.disabled, true);
+  t.deepEqual(omit(['0', '1'], props.stack?.slides), {
     '2': {
       position: 2,
       loading: true
@@ -879,8 +879,8 @@ test('should verify props when first slide was answered incorrectly, next slide 
       }
     ]
   });
-  t.is(props.stack.endReview, false);
-  t.deepEqual(omit('next.onClick', props.stack.correctionPopinProps), {
+  t.is(props.stack?.endReview, false);
+  t.deepEqual(omit('next.onClick', props.stack?.correctionPopinProps), {
     resultLabel: '__Wrong Answer',
     information: {
       label: '__Correct Answer',
@@ -897,7 +897,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     },
     type: 'wrong'
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: true,
     showCorrectionPopin: true,
@@ -909,7 +909,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     questionText:
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
-  t.deepEqual(omit('model.onChange', props.stack.slides['0'].answerUI), {
+  t.deepEqual(omit('model.onChange', props.stack?.slides['0'].answerUI), {
     help: 'Type your answer.',
     model: {
       placeholder: 'Type here',
@@ -918,7 +918,7 @@ test('should verify props when first slide was answered incorrectly, next slide 
     },
     media: undefined
   });
-  t.deepEqual(omit('answerUI', props.stack.slides['1']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['1']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -929,8 +929,8 @@ test('should verify props when first slide was answered incorrectly, next slide 
       '__Content Parent Title{"contentTitle":"Developing the review app","contentType":"course"}',
     questionText: 'Quels sont les 4 piliers de l’apprentissage ?'
   });
-  t.is(props.stack.validateButton.disabled, true);
-  t.deepEqual(omit(['0', '1'], props.stack.slides), {
+  t.is(props.stack?.validateButton.disabled, true);
+  t.deepEqual(omit(['0', '1'], props.stack?.slides), {
     '2': {
       position: 2,
       loading: true
@@ -1030,27 +1030,27 @@ test('should verify props when currentSlideRef has changed to nextContent of pro
   });
 
   const propsToCheck = ['loading', 'animateCorrectionPopin', 'animationType', 'position'];
-  t.deepEqual(pick(propsToCheck, props.stack.slides[0]), {
+  t.deepEqual(pick(propsToCheck, props.stack?.slides[0]), {
     loading: false,
     animateCorrectionPopin: false,
     animationType: 'unstack',
     position: 0
   });
-  t.deepEqual(pick(propsToCheck, props.stack.slides[1]), {
+  t.deepEqual(pick(propsToCheck, props.stack?.slides[1]), {
     loading: false,
     animateCorrectionPopin: false,
     animationType: undefined,
     position: 0
   });
-  t.deepEqual(pick(propsToCheck, props.stack.slides[2]), {
+  t.deepEqual(pick(propsToCheck, props.stack?.slides[2]), {
     loading: true,
     position: 1
   });
-  t.deepEqual(pick(propsToCheck, props.stack.slides[3]), {
+  t.deepEqual(pick(propsToCheck, props.stack?.slides[3]), {
     loading: true,
     position: 2
   });
-  t.deepEqual(pick(propsToCheck, props.stack.slides[4]), {
+  t.deepEqual(pick(propsToCheck, props.stack?.slides[4]), {
     loading: true,
     position: 3
   });
@@ -1170,7 +1170,7 @@ test('should verify props when progression is in success, showing last correctio
     ]
   });
 
-  t.deepEqual(omit(['next.onClick'], props.stack.correctionPopinProps), {
+  t.deepEqual(omit(['next.onClick'], props.stack?.correctionPopinProps), {
     information: {
       label: '__KLF',
       message:
@@ -1265,7 +1265,7 @@ test('should verify props showing congrats', t => {
 
   const props = mapStateToSlidesProps(state, identity, connectedOptions);
   const congrats = props.congrats as ReviewCongratsProps;
-  t.true(props.stack.endReview);
+  t.true(props.stack?.endReview);
   t.is(congrats.title, '__Congratulations!');
   t.is(
     congrats.animationLottie.animationSrc,

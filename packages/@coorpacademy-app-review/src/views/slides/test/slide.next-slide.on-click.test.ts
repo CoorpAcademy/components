@@ -89,7 +89,7 @@ test('correction popin actions after click', async t => {
 
   const {dispatch, getState} = createTestStore(t, state, {}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
+  const correctionPopin = props.stack?.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
   const updatedState = getState();
@@ -229,7 +229,7 @@ test('correction popin actions after click when progression is finished', async 
   const {dispatch, getState} = createTestStore(t, state, {}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
   t.is(props.congrats, undefined);
-  const correctionPopin = props.stack.correctionPopinProps as ReviewCorrectionPopinProps;
+  const correctionPopin = props.stack?.correctionPopinProps as ReviewCorrectionPopinProps;
   await correctionPopin.next.onClick();
 
   await checkStatePositionsAndSuccessExitNode(t, getState);

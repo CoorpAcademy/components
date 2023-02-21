@@ -81,8 +81,8 @@ test('should dispatch EDIT_SLIDER action via the property onSliderChange of a Sl
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
 
-  const slideProps = props.stack.slides['0'].answerUI?.model as QuestionRange;
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  const slideProps = props.stack?.slides['0'].answerUI?.model as QuestionRange;
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,

@@ -147,7 +147,7 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -160,8 +160,8 @@ test('should dispatch EDIT_BASIC action via the property onChange of a Free Text
       'Which term is used to describe the act of asking what the usual salary is for the position you are applying for?'
   });
 
-  const slideProps = props.stack.slides['0'].answerUI?.model;
+  const slideProps = props.stack?.slides['0'].answerUI?.model;
   slideProps?.onChange && (await slideProps.onChange('My Answer'));
-  await props.stack.validateButton.onClick();
+  await props.stack?.validateButton.onClick();
   await sleep(10);
 });

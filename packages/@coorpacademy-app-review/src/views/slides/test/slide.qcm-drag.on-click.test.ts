@@ -82,7 +82,7 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -94,7 +94,7 @@ test('should dispatch EDIT_QCM_DRAG action via the property onClick of a QCM Dra
     questionText: "Remettez dans l'ordre les quatre étapes du burn out."
   });
 
-  const SlideProps = props.stack.slides['0'].answerUI?.model as QcmDrag;
+  const SlideProps = props.stack?.slides['0'].answerUI?.model as QcmDrag;
   const onClick = get(['0', 'onClick'], SlideProps.answers);
   onClick();
 });

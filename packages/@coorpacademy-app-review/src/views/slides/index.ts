@@ -468,26 +468,28 @@ export const mapStateToSlidesProps = (
       steps: buildStepItems(state),
       hiddenSteps: showCongrats
     },
-    stack: {
-      slides: buildStackSlides(state, dispatch, options),
-      validateButton: {
-        label: translate('Validate'),
-        disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
-        onClick: (): void => {
-          dispatch(postAnswer);
+    stack: state.data.progression
+      ? {
+          slides: buildStackSlides(state, dispatch, options),
+          validateButton: {
+            label: translate('Validate'),
+            disabled: !get(['ui', 'slide', currentSlideRef, 'validateButton'], state),
+            onClick: (): void => {
+              dispatch(postAnswer);
+            }
+          },
+          correctionPopinProps:
+            correction &&
+            getCorrectionPopinProps(dispatch)(
+              isCorrect,
+              correction.correctAnswer,
+              klf,
+              translate,
+              endReview
+            ),
+          endReview: endReview && state.ui.showCongrats
         }
-      },
-      correctionPopinProps:
-        correction &&
-        getCorrectionPopinProps(dispatch)(
-          isCorrect,
-          correction.correctAnswer,
-          klf,
-          translate,
-          endReview
-        ),
-      endReview: endReview && state.ui.showCongrats
-    },
+      : null,
     backgroundImage,
     congrats: buildCongratsProps(state, dispatch, options),
     quitPopin: showQuitPopin

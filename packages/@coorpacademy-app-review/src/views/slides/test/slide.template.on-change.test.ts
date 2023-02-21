@@ -79,7 +79,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   const {dispatch, getState} = createTestStore(t, initialState, {}, expectedActions);
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -91,7 +91,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     questionText: 'Complétez la phrase ci-dessous.'
   });
 
-  const slideProps = props.stack.slides['0'].answerUI?.model as Template;
+  const slideProps = props.stack?.slides['0'].answerUI?.model as Template;
   const onChangeText = get(['1', 'onChange'], slideProps.answers);
   onChangeText('test');
   const onChangeSelect = get(['0', 'onChange'], slideProps.answers);
@@ -112,7 +112,7 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
   );
 
   const props = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  t.deepEqual(omit('answerUI', props.stack.slides['0']), {
+  t.deepEqual(omit('answerUI', props.stack?.slides['0']), {
     animationType: undefined,
     animateCorrectionPopin: false,
     showCorrectionPopin: false,
@@ -124,14 +124,14 @@ test('should dispatch EDIT_TEMPLATE action via the property onChange of a Templa
     questionText: 'Complétez la phrase ci-dessous.'
   });
 
-  const slideProps = props.stack.slides['0'].answerUI?.model as Template;
+  const slideProps = props.stack?.slides['0'].answerUI?.model as Template;
   const textAnswerProps = slideProps.answers[1] as TextTemplate;
   t.is(textAnswerProps.value, 'Test');
   const onChangeText = get(['1', 'onChange'], slideProps.answers);
   onChangeText('');
 
   const newProps = mapStateToSlidesProps(getState(), dispatch, connectedOptions);
-  const slidePropsAfterOnChange = newProps.stack.slides['0'].answerUI?.model as Template;
+  const slidePropsAfterOnChange = newProps.stack?.slides['0'].answerUI?.model as Template;
   const textAnswerPropsAfterOnChange = slidePropsAfterOnChange.answers[1] as TextTemplate;
   t.is(textAnswerPropsAfterOnChange.value, '');
 });
