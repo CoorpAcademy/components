@@ -34,6 +34,11 @@ const configurations: Array<Config> = [
     version: '4',
     lives: 5,
     starsPerCorrectAnswer: 8
+  }),
+  // V5: Double stars engine
+  assign(CURRENT_BASE_VERSION, {
+    version: '5',
+    starsPerCorrectAnswer: 8
   })
 ];
 
