@@ -199,7 +199,12 @@ const EngineStars = (props, legacyContext) => {
       >
         <p data-name="star-counter">{stars}</p>
         <span>
-          <StarIcon className={style.iconStar} color={active ? primary : dark} />
+          <StarIcon
+            className={style.iconStar}
+            style={{
+              color: active ? primary : dark
+            }}
+          />
         </span>
       </div>
       <div className={style.scoreTitle}>{title}</div>
