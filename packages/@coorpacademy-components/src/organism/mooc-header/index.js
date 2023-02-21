@@ -574,7 +574,7 @@ class MoocHeader extends React.Component {
             selectProps.title = '';
             selectProps.theme = 'header';
             selectProps.onChange = options.onChange;
-
+            selectProps.className = style.languageSelect;
             settingView = (
               <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
                 <span className={style.label}>{title}</span>
@@ -596,10 +596,10 @@ class MoocHeader extends React.Component {
                 key={settingName}
                 aria-label={ariaLabel || title}
               >
+                <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
                 <span id={`title-id-${settingName}`} className={style.label}>
                   {title}
                 </span>
-                <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
               </div>
             );
             break;

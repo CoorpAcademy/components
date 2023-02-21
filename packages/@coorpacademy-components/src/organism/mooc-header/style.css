@@ -477,7 +477,17 @@
   height: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
+}
+
+.languageSelect {
+  width: 98%;
+}
+
+.setting:nth-child(1) {
+  flex-direction: column;
+  height: 60px;
+  align-items: baseline;
 }
 
 .setting .label {

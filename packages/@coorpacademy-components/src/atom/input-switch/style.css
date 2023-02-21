@@ -2,7 +2,6 @@
 @value orange from colors;
 @value medium from colors;
 @value white from colors;
-@value positive from colors;
 @value light from colors;
 @value dark from colors;
 @value cm_grey_200 from colors;
@@ -31,7 +30,7 @@
 }
 
 .default label {
-  height: 30px;
+  height: 24px;
   position: relative;
   flex-grow: 0;
   display: block;
@@ -44,11 +43,11 @@
 
 .default label::after {
   position: absolute;
-  left: 1px;
-  top: 1px;
+  left: 2px;
+  top: 2px;
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   border-radius: 100px;
   background: white;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -58,11 +57,11 @@
 
 .modified label::after {
   position: absolute;
-  left: 1px;
-  top: 1px;
+  left: 2px;
+  top: 2px;
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   border-radius: 100px;
   background: orange;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -79,11 +78,11 @@
 }
 
 .checkbox:checked ~ label {
-  background: positive;
+  background: cm_primary_blue;
 }
 
 .default input:checked ~ label::after {
-  left: 23px;
+  left: 30px;
 }
 
 .checkbox:disabled ~ label {
