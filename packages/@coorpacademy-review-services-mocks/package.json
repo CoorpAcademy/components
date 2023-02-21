@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/review-services-mocks",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "Mocks with services for sandboxes using app-review",
   "engines": {
     "node": ">=16.15.0"
@@ -34,7 +34,7 @@
   "module": "es/index.js",
   "dependencies": {
     "@coorpacademy/components": "11.11.8",
-    "@coorpacademy/progression-engine": "11.5.3",
+    "@coorpacademy/progression-engine": "11.6.0",
     "@coorpacademy/review-services": "1.4.1"
   },
   "peerDependencies": {
