@@ -15,7 +15,7 @@ const fixture: Fixture = {
         ]
       }
     ],
-    descriptionId: 'description-id'
+    ariaDescribedby: 'description-id'
   }
 };
 export default fixture;

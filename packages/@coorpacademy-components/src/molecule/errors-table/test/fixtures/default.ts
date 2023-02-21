@@ -12,7 +12,7 @@ const fixture: Fixture = {
         fields: ['Description', 'should not be empty']
       }
     ],
-    descriptionId: 'description-id'
+    ariaDescribedby: 'description-id'
   }
 };
 export default fixture;

@@ -11,7 +11,7 @@ const rowProptypes = PropTypes.shape({
 export const propTypes = {
   columns: PropTypes.arrayOf(columnProptypes),
   rows: PropTypes.arrayOf(rowProptypes),
-  descriptionId: PropTypes.string
+  ariaDescribedby: PropTypes.string
 };
 
 export type Column = {title: string};
@@ -22,5 +22,5 @@ export type Rows = Row[];
 export type Props = {
   columns: Columns;
   rows: Rows;
-  descriptionId?: string;
+  ariaDescribedby?: string;
 };
