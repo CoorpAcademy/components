@@ -10,14 +10,18 @@ const ErrorsTable = (props: Props) => {
   const headerRow = columns.map((column, cIndex) => {
     const {title} = column;
     return (
-      <th key={`${title}-${cIndex + 1}`} role="columnheader">
+      <th
+        className={classnames(style[`header-${cIndex + 1}`])}
+        key={`${title}-${cIndex + 1}`}
+        role="columnheader"
+      >
         <div>{title}</div>
       </th>
     );
   });
 
   const headerView = [
-    <th key="header">
+    <th className={classnames(style[`header-0`])} key="header">
       <div> {''}</div>
     </th>
   ].concat(headerRow);
@@ -27,13 +31,16 @@ const ErrorsTable = (props: Props) => {
 
     const bodyRow = fields.map((field: string, fIndex: number) => {
       return (
-        <td className={classnames(style[`col-${fIndex + 1}`])} key={`${field}-${fIndex}`}>
+        <td
+          className={classnames(style.col, style[`col-${fIndex + 1}`])}
+          key={`${field}-${fIndex}`}
+        >
           {field || ''}
         </td>
       );
     });
     bodyRow.unshift(
-      <td className={classnames(style[`col-0`])} key="header">
+      <td className={classnames(style.col, style[`col-0`])} key="header">
         {index + 1}
       </td>
     );
@@ -46,7 +53,7 @@ const ErrorsTable = (props: Props) => {
       {...(ariaDescribedby ? {'aria-describedby': ariaDescribedby} : {})}
       className={style.table}
     >
-      <thead>
+      <thead className={style.thead}>
         <tr>{headerView}</tr>
       </thead>
       <tbody>{bodyView}</tbody>

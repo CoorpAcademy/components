@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.table thead {
+.table .thead {
   background-color: xtraLightGrey;
   font-weight: 600;
   font-size: 14px;
@@ -26,7 +26,7 @@
   text-align: left; 
 }
 
-.table td {
+.table .col {
   text-align: left; 
   padding-top: 8px;
   padding-bottom: 8px;
@@ -36,6 +36,14 @@
   line-height: 16px;
   color: cm_grey_700;
   border-top: 1px solid light;
+}
+
+.table .header-0 {
+  width: 57px;
+}
+
+.table .header-1 {
+  width: 182px;
 }
 
 .table .col-2 {
