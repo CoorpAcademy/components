@@ -37,7 +37,7 @@ test('template question › should handle onItemInputChange', t => {
   );
 
   const {getByTestId} = render(component);
-  const text = getByTestId(`question-part-inp1-text`);
+  const text = getByTestId('question-part-inp1-text');
 
   fireEvent(text, 'onChange', TEST_VALUE);
 
