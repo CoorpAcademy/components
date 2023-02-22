@@ -35,9 +35,7 @@
   "dependencies": {
     "@coorpacademy/components": "11.11.9",
     "@coorpacademy/progression-engine": "11.6.0",
-    "@coorpacademy/review-services": "1.4.1"
-  },
-  "peerDependencies": {
+    "@coorpacademy/review-services": "1.4.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
