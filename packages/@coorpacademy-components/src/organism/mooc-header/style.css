@@ -485,7 +485,7 @@
   height: 30px;
 }
 
-.setting:nth-child(-n+2) {
+.selectBoxes {
   flex-direction: column;
   height: 60px;
   align-items: baseline;
