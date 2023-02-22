@@ -482,6 +482,7 @@
 
 .languageSelect {
   width: 98%;
+  height: 30px;
 }
 
 .setting:nth-child(1) {
