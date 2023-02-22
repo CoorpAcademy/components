@@ -41,7 +41,7 @@ import {fetchSkill} from './fetch-skill';
 export const getServices = (locale: string | void): Services => ({
   fetchCorrection: fetchCorrection(locale),
   fetchRank,
-  fetchSkill,
+  fetchSkill: fetchSkill(locale),
   fetchSkills,
   fetchSlide,
   fetchSlidesToReviewBySkillRef,

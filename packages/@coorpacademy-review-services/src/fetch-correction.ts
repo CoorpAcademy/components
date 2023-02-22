@@ -3,11 +3,7 @@ import decode from 'jwt-decode';
 
 import {CorrectionFromAPI, JWT} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
-
-const buildURL = (url: string, locale: string | void): string => {
-  if (!locale) return url;
-  return `${url}?lang=${locale}`;
-};
+import {buildURL} from './tools';
 
 export const fetchCorrection =
   (locale: string | void) =>
