@@ -38,8 +38,8 @@ import {postAnswer} from './post-answer';
 import {postProgression} from './post-progression';
 import {fetchSkill} from './fetch-skill';
 
-export const getServices = (): Services => ({
-  fetchCorrection,
+export const getServices = (locale: string | void): Services => ({
+  fetchCorrection: fetchCorrection(locale),
   fetchRank,
   fetchSkill,
   fetchSkills,
