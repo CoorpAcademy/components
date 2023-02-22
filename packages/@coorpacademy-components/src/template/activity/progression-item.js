@@ -98,6 +98,7 @@ const ProgressionItem = (props, legacyContext) => {
 
         <div
           data-name="activityStars"
+          role="progressbar"
           className={style.stars}
           style={{
             color: primary
