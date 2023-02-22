@@ -8,4 +8,8 @@ export const propTypes = {
 
 export type Status = 'inProgress' | 'fail' | 'success';
 
-export type Props = PropTypes.InferProps<typeof propTypes>;
+export type Props = {
+  'data-name': string;
+  status: Status;
+  progress: number;
+};

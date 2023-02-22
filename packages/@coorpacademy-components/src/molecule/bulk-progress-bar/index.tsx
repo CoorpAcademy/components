@@ -13,16 +13,21 @@ const STATUS = {
   fail: 'fail'
 };
 
-const renderStatusIcon = (status: string, progress: number) => {
+const renderStatusIcon = (status: Status, progress: number) => {
   if (status === STATUS.inProgress)
     return <div role="status" className={style.progressText}>{`${progress} %`}</div>;
   return <StatusItem icon={status === STATUS.fail ? 'invalid' : 'valid'} />;
 };
 
 const resolveProgressBarColor = (status: Status) => {
-  if (status === STATUS.fail) return cm_negative_100;
-  else if (status === STATUS.inProgress) return cm_primary_blue;
-  else return cm_positive_100;
+  switch (status) {
+    case STATUS.fail:
+      return cm_negative_100;
+    case STATUS.inProgress:
+      return cm_primary_blue;
+    default:
+      return cm_positive_100;
+  }
 };
 
 const BulkProgressBar = (props: Props) => {
