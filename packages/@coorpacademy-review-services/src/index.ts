@@ -42,7 +42,7 @@ export const getServices = (locale: string | void): Services => ({
   fetchCorrection: fetchCorrection(locale),
   fetchRank,
   fetchSkill: fetchSkill(locale),
-  fetchSkills,
+  fetchSkills: fetchSkills(locale),
   fetchSlide,
   fetchSlidesToReviewBySkillRef,
   postAnswer,
