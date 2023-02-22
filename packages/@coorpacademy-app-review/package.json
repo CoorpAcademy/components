@@ -43,12 +43,12 @@
     "@coorpacademy/translate": "6.2.0",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
     "react-redux": "^7.2.9",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1"
   },
   "peerDependencies": {
-    "lodash": "^4.17.21",
     "react": "^17.0.2"
   },
   "devDependencies": {
