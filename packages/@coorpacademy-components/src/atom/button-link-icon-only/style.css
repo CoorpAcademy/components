@@ -114,3 +114,7 @@
   composes: bulkArrowDown;
   transform: rotate(180deg);
 }
+
+.bulkBulletButton{
+  background-color: white;
+}

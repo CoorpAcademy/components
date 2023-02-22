@@ -23,6 +23,7 @@ import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
 import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
 import UploadingFileProgress from '../../../molecule/uploading-file-progress';
+import ExpandibleErrorsTable from '../../../molecule/expandible-errors-table';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -170,6 +171,7 @@ const buildContentView = content => {
     case 'home':
       return <BrandDashboard {...content} />;
     case 'wizard':
+    case 'expandible-errors-table':
       return <WizardContents {...content} />;
     case 'empty-state-dashboard':
       return <EmptyStateDashboard {...content} />;
@@ -311,6 +313,15 @@ BrandUpdate.propTypes = {
       ...UploadingFileProgress.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['uploading-file-progress'])
+    }),
+    PropTypes.shape({
+      ...WizardContents.propTypes,
+      content: PropTypes.shape({
+        ...ExpandibleErrorsTable.propTypes,
+        ...WizardContents.propTypes.content.propTypes
+      }),
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['expandible-errors-table'])
     })
   ]),
   documentation: PropTypes.shape({
