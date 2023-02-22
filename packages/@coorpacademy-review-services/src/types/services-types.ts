@@ -164,7 +164,7 @@ export type SlideFromAPI = {
   hasClue?: boolean;
   parentContentTitle: {
     title: string;
-    type: 'chapter' | 'course';
+    type: string;
   };
 };
 

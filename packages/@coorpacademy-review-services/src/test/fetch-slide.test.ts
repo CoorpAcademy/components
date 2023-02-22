@@ -78,10 +78,65 @@ const qcmDragSlide: SlideFromAPI = {
   }
 };
 
+const enQcmDragSlide: SlideFromAPI = {
+  question: {
+    content: {
+      media: {src: [], posters: [], subtitles: []},
+      choices: [
+        {
+          media: {src: [], posters: [], subtitles: []},
+          label: 'Crisis',
+          value: 'sli_4yGBq-mCg.choice_4kRL5uQCg',
+          _id: '63ee977c0284f29dc3f620be',
+          items: [],
+          id: '63ee977c0284f29dc3f620be'
+        },
+        {
+          media: {src: [], posters: [], subtitles: []},
+          label: 'Shame and doubt',
+          value: 'sli_4yGBq-mCg.choice_E11v9OXAx',
+          _id: '63ee977c0284f29dc3f620bf',
+          items: [],
+          id: '63ee977c0284f29dc3f620bf'
+        },
+        {
+          media: {src: [], posters: [], subtitles: []},
+          label: 'Cycnicism',
+          value: 'sli_4yGBq-mCg.choice_N1lP9dmRg',
+          _id: '63ee977c0284f29dc3f620c0',
+          items: [],
+          id: '63ee977c0284f29dc3f620c0'
+        },
+        {
+          media: {src: [], posters: [], subtitles: []},
+          label: 'Investment',
+          value: 'sli_4yGBq-mCg.choice_Eybw5dQCx',
+          _id: '63ee977c0284f29dc3f620c1',
+          items: [],
+          id: '63ee977c0284f29dc3f620c1'
+        }
+      ],
+      answers: [['Investment', 'Shame and doubt', 'Cycnicism', 'Crisis']]
+    },
+    type: 'qcmDrag',
+    header: 'Put the 4 stages of burn out in order.',
+    explanation: 'Select the answers below in the right order.',
+    medias: []
+  },
+  _id: 'sli_4yGBq-mCg',
+  klf: 'Burnout occurs in 4 stages: The first stage is personal investment (emotional and/or mental investment, sacrifice of private life); second is shame and doubt (first disappointments, signs of fatigue); next comes cynicism (unrecognised efforts); and finally crisis (concentration problems, feeling of uselessness, despair).',
+  tips: 'A concept enshrined in law, work-related interviews focus on helping employees voice their difficulties and build their career.',
+  universalRef: 'sli_4yGBq-mCg',
+  hasClue: true,
+  parentContentTitle: {title: 'Managing stress and emotions', type: 'cours'}
+};
+
 test.before(() => {
   nock('http://localhost:3000')
     .get('/api/v1/slides/sli_123546/parentContentTitle')
-    .reply(200, qcmDragSlide);
+    .reply(200, qcmDragSlide)
+    .get('/api/v1/slides/sli_123546/parentContentTitle?lang=en')
+    .reply(200, enQcmDragSlide);
 });
 
 test.after(() => {
@@ -90,13 +145,19 @@ test.after(() => {
 
 test('should fetch a slide with the parentTitleContent info successfully', async t => {
   const token = process.env.API_TEST_TOKEN || '';
-  const slide = await fetchSlide('sli_123546', token);
+  const slide = await fetchSlide()('sli_123546', token);
   t.deepEqual(qcmDragSlide, slide);
+});
+
+test('should fetch a slide with the parentTitleContent info on a given locale successfully', async t => {
+  const token = process.env.API_TEST_TOKEN || '';
+  const slide = await fetchSlide('en')('sli_123546', token);
+  t.deepEqual(enQcmDragSlide, slide);
 });
 
 test('should reject if a bad token is passed', async t => {
   const badToken = 'token is not a jwt';
-  const error = await t.throwsAsync(() => fetchSlide('sli_123546', badToken));
+  const error = await t.throwsAsync(() => fetchSlide()('sli_123546', badToken));
 
   t.is(
     error?.message,
