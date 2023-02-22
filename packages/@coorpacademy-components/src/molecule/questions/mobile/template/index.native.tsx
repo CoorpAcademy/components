@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {TextStyle, View, ViewStyle} from 'react-native';
 
+import trim from 'lodash/fp/trim';
+
 import Html from '../../../../atom/html/index.native';
 import Select from '../../../../atom/select-modal/index.native';
 import Space from '../../../../atom/space/index.native';
@@ -152,7 +154,7 @@ const Item = (props: ItemProps) => {
 
   return (
     <Html key={id} fontSize={theme.fontSize.regular} testID={id} style={styles.htmlText}>
-      {part.value || ''}
+      {part.value === ' ' ? part.value : trim(part.value || '')}
     </Html>
   );
 };
