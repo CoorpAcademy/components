@@ -139,6 +139,31 @@ export default {
         }
       },
       {
+        title: 'Population',
+        type: 'select',
+        'aria-label': 'select population',
+        options: {
+          onChange: value => console.log(value),
+          values: [
+            {
+              name: 'Pop1',
+              value: 'Pouet',
+              selected: false
+            },
+            {
+              name: 'FGS FR',
+              value: 'Pouet2',
+              selected: true
+            },
+            {
+              name: 'Pop3',
+              value: 'Pouet3',
+              selected: false
+            }
+          ]
+        }
+      },
+      {
         title: 'Mon compte',
         type: 'link',
         'aria-label': 'go to my account',

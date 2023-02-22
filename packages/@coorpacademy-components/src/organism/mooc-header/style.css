@@ -485,10 +485,11 @@
   height: 30px;
 }
 
-.setting:nth-child(1) {
+.setting:nth-child(-n+2) {
   flex-direction: column;
   height: 60px;
   align-items: baseline;
+  margin-top: 10px;
 }
 
 .setting .label {
