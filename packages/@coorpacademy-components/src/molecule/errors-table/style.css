@@ -1,0 +1,64 @@
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
+@value cm_negative_red_200 from colors;
+@value light from colors;
+
+.table {
+  border: 1px solid light;
+  font-family: 'Gilroy';
+  font-style: normal;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.table .thead {
+  background-color: xtraLightGrey;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: cm_grey_400;
+  height: 40px;
+  overflow: hidden;
+  text-align: left; 
+}
+
+.table .col {
+  text-align: left; 
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: relative;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: cm_grey_700;
+  border-top: 1px solid light;
+}
+
+.table .header-0 {
+  width: 57px;
+}
+
+.table .header-1 {
+  width: 182px;
+}
+
+.table .col-2 {
+  color: cm_negative_red_200;
+}
+
+.table .col-1 {
+  width: 182px;
+}
+
+.table .col-0 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  width: 57px;
+  color: cm_grey_400;
+}
