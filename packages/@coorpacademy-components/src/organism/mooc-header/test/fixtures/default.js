@@ -139,15 +139,6 @@ export default {
         }
       },
       {
-        title: 'Mon compte',
-        type: 'link',
-        'aria-label': 'go to my account',
-        options: {
-          target: '_blank',
-          href: 'https://google.fr'
-        }
-      },
-      {
         title: 'Se déconnecter',
         'aria-label': 'logout',
         type: 'link',
