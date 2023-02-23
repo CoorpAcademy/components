@@ -490,6 +490,7 @@
   height: 60px;
   align-items: baseline;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .setting .label {
