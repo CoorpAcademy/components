@@ -480,6 +480,25 @@
   gap: 12px;
 }
 
+.setting:last-child {
+  font-family: 'Gilroy';
+  font-size: 13px;
+  font-weight: 600;
+  color: medium;
+  height: 40px;
+  border-top: 1px solid light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 30px;
+  cursor: pointer;
+}
+
+.setting:last-child:hover {
+  color: dark;
+}
+
 .languageSelect {
   width: 98%;
   height: 30px;
@@ -489,7 +508,7 @@
   flex-direction: column;
   height: 60px;
   align-items: baseline;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 
@@ -510,24 +529,6 @@
   font-weight: 600;
   color: dark;
   text-decoration: none;
-}
-
-.closeSettings {
-  font-family: 'Gilroy';
-  font-size: 13px;
-  font-weight: 600;
-  color: medium;
-  height: 40px;
-  border-top: 1px solid light;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 30px;
-  cursor: pointer;
-}
-
-.closeSettings:hover {
-  color: dark;
 }
 
 .homeIcon {
@@ -836,9 +837,5 @@
   .open .settingsGroup,
   .open .settings {
     width: 100%;
-  }
-
-  .closeSettings {
-    display: none;
   }
 }
