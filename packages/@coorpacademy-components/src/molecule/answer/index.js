@@ -80,7 +80,7 @@ const Answer = props => {
   return (
     <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
-      <form>
+      <form className={style.formWrapper}>
         <Switch model={model} help={help} />
       </form>
     </div>
