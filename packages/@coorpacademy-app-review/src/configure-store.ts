@@ -12,9 +12,10 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
         traceLimit: 25
       })
     : compose;
+  const locale = options.locale;
 
   const thunkOptions: ThunkOptions = {
-    services: options.services || getServices(),
+    services: options.services || getServices(locale),
     callbackOnViewChanged: options.callbackOnViewChanged,
     appendVideoOptions: options.appendVideoOptions
   };
