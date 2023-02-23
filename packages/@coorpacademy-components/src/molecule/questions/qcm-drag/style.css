@@ -142,5 +142,5 @@
   composes: innerHTML from '../../../atom/label/style.css'
 }
 .hiddenCheckbox {
-  opacity: 0;
+  display: none;
 }
