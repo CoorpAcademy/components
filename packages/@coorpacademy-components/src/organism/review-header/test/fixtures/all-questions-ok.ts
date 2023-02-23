@@ -12,7 +12,7 @@ export const defaultHeaderProps = {
     console.log('onQuitClick');
   },
   'aria-label': 'aria-header-wrapper',
-  closeButtonAriaLabel: 'aria-close-button',
+  closeButtonAriaLabel: 'close review slide',
   hiddenSteps: false
 };
 

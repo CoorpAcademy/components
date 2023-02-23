@@ -1,23 +1,17 @@
 import React from 'react';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
-import Provider from '../../atom/provider';
+import Provider, {GetTranslateFromContext, GetSkinFromContext} from '../../atom/provider';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ReviewHeaderSteps from '../../molecule/review-header-steps';
 import style from './style.css';
 import propTypes from './types';
 
-const ReviewHeader = (props, context) => {
-  const {
-    steps,
-    mode,
-    skillName,
-    'aria-label': ariaLabel,
-    closeButtonAriaLabel,
-    onQuitClick,
-    hiddenSteps
-  } = props;
-  const {skin} = context;
+const ReviewHeader = (props, legacyContext) => {
+  const {steps, mode, skillName, 'aria-label': ariaLabel, onQuitClick, hiddenSteps} = props;
+  const translate = GetTranslateFromContext(legacyContext);
+  const skin = GetSkinFromContext(legacyContext);
+  const closeButtonAriaLabel = translate('closeButtonAriaLabel');
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   const buttonProps = {
@@ -67,7 +61,8 @@ const ReviewHeader = (props, context) => {
 ReviewHeader.propTypes = propTypes;
 
 ReviewHeader.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 export default ReviewHeader;

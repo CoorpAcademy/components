@@ -18,7 +18,8 @@ const ButtonContent = props => {
     children,
     type,
     style,
-    'data-name': dataName
+    'data-name': dataName,
+    'aria-label': ariaLabel
   } = props;
   const anchorClassName = (disabled && `${className} ${cssStyle.disabledAnchor}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
@@ -36,6 +37,7 @@ const ButtonContent = props => {
           target={target}
           className={anchorClassName}
           style={style}
+          aria-label={ariaLabel}
         >
           {submitValue || children || 'submit'}
         </Link>
@@ -85,7 +87,8 @@ ButtonContent.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   style: PropTypes.shape({}),
-  'data-name': PropTypes.string
+  'data-name': PropTypes.string,
+  'aria-label': PropTypes.string
 };
 
 const Button = props => {

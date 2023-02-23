@@ -7,7 +7,7 @@ import Answer from '../../molecule/answer';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
-import {GetSkinFromContext} from '../../atom/provider';
+import Provider, {GetSkinFromContext, GetTranslateFromContext} from '../../atom/provider';
 import propTypes from './prop-types';
 import style from './style.css';
 
@@ -71,12 +71,12 @@ CorrectionPopin.propTypes = {
   correctionPopinProps: propTypes.correctionPopinProps
 };
 
-const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
+const ValidateButton = ({slideIndex, validateButton, primarySkinColor, ariaLabel}) => {
   const {label, onClick, disabled} = validateButton;
   const validateButtonProps = {
     type: 'primary',
     label,
-    'aria-label': label,
+    'aria-label': ariaLabel,
     'data-name': `slide-validate-button-${slideIndex}`,
     onClick,
     disabled,
@@ -109,7 +109,8 @@ const ValidateButton = ({slideIndex, validateButton, primarySkinColor}) => {
 ValidateButton.propTypes = {
   slideIndex: PropTypes.string,
   validateButton: propTypes.validateButton,
-  primarySkinColor: PropTypes.string
+  primarySkinColor: PropTypes.string,
+  ariaLabel: PropTypes.string
 };
 
 const QuestionContainer = props => {
@@ -155,10 +156,13 @@ QuestionContainer.propTypes = {
   disableContent: PropTypes.bool
 };
 
-const ReviewSlide = props => {
+const ReviewSlide = (props, legacyContext) => {
   const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
 
   const skin = GetSkinFromContext();
+  const translate = GetTranslateFromContext(legacyContext);
+
+  const validateariaLabel = translate('validateariaLabel');
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {
     loading,
@@ -189,6 +193,7 @@ const ReviewSlide = props => {
             validateButton={validateButton}
             primarySkinColor={primarySkinColor}
             key="validate-button"
+            ariaLabel={validateariaLabel}
           />
           <CorrectionPopin
             correctionPopinProps={correctionPopinProps}
@@ -204,5 +209,10 @@ const ReviewSlide = props => {
 };
 
 ReviewSlide.propTypes = propTypes;
+
+ReviewSlide.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
 
 export default ReviewSlide;
