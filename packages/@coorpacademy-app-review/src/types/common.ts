@@ -32,6 +32,7 @@ export type ConnectedOptions = {
 
 export type AppOptions = ConnectedOptions & {
   token: string;
+  locale?: string;
   skillRef?: string;
   services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
