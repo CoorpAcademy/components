@@ -410,7 +410,6 @@ div.player:hover span.selectSpan {
   height: 35px;
   border: 0;
   width: inherit;
-  background-color: light;
 }
 
 .mooc select {
@@ -552,6 +551,7 @@ div.player:hover span.selectSpan {
   border-radius: 8px;
   padding: 0;
   height: 100%;
+  width: 100%;
   top: 0;
 }
 
