@@ -1,11 +1,21 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ButtonMenu from '../../atom/button-menu';
+// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
 const BulletPointMenuButton = props => {
-  const {disabled = false, buttonAriaLabel, menuAriaLabel, onClick, buttons} = props;
+  const {
+    disabled = false,
+    buttonAriaLabel,
+    menuAriaLabel,
+    onClick,
+    buttons,
+    menuButtonClassName,
+    menuClassName
+  } = props;
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const menuProps = {
@@ -14,7 +24,12 @@ const BulletPointMenuButton = props => {
   };
 
   const menu = (
-    <div className={style.bulletPointMenu} data-name="menu-wrapper" aria-label={menuAriaLabel}>
+    <div
+      // className={menuClassName ? style[menuClassName] : style.bulletPointMenu}
+      className={classnames(style.bulletPointMenu, menuClassName && style[menuClassName])}
+      data-name="menu-wrapper"
+      aria-label={menuAriaLabel}
+    >
       <ButtonMenu {...menuProps} />
     </div>
   );
@@ -24,7 +39,8 @@ const BulletPointMenuButton = props => {
     'data-name': 'bullet-point-button',
     icon: 'bullet-point',
     onClick: handleOnClick,
-    disabled
+    disabled,
+    className: menuButtonClassName
   };
 
   return (
@@ -40,7 +56,9 @@ BulletPointMenuButton.propTypes = {
   buttonAriaLabel: PropTypes.string,
   menuAriaLabel: PropTypes.string,
   buttons: ButtonMenu.propTypes.buttons,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  menuButtonClassName: PropTypes.string,
+  menuClassName: PropTypes.string
 };
 
 export default BulletPointMenuButton;
