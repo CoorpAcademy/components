@@ -111,6 +111,21 @@
 }
 
 .bulkArrowUp {
-  composes: bulkArrowDown;
+  composes: button;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid cm_grey_200;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 0.5;
   transform: rotate(180deg);
+}
+.bulkArrowUp .icon {
+  width: 8px;
+  height: 8px;
+}
+
+.bulkBulletButton{
+  background-color: white;
 }

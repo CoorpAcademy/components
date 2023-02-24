@@ -1,4 +1,6 @@
-export default {
+import {Fixture} from '../../types';
+
+const fixture: Fixture = {
   props: {
     type: 'secondary',
     label: 'Global Analytics',
@@ -17,3 +19,4 @@ export default {
     }
   }
 };
+export default fixture;

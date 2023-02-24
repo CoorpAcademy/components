@@ -1,4 +1,6 @@
-export default {
+import {Fixture} from '../../types';
+
+const fixture: Fixture = {
   props: {
     type: 'text',
     label: 'Button',
@@ -14,3 +16,4 @@ export default {
     }
   }
 };
+export default fixture;

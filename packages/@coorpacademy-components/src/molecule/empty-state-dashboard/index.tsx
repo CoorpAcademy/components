@@ -1,12 +1,14 @@
 import React from 'react';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
-import {Props, propTypes} from './types';
+import {EmptyStateDashboardProps as Props, propTypes} from './types';
 
 const EmptyStateDashboard = ({mainText, subText, imageUrl, buttonLink}: Props) => (
   <div className={style.container}>
     <div>
-      <img className={style.img} src={imageUrl} aria-hidden="true" />
+      {imageUrl && typeof imageUrl === 'string' ? (
+        <img className={style.img} src={imageUrl} aria-hidden="true" />
+      ) : null}
     </div>
     <p className={style.mainText}>{mainText}</p>
     <p className={style.subText}>{subText}</p>

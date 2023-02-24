@@ -23,6 +23,7 @@ import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
 import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
 import UploadingFileProgress from '../../../molecule/uploading-file-progress';
+import ExpandibleActionableTable from '../../../molecule/expandible-actionable-table';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -166,15 +167,19 @@ const buildContentView = content => {
     case 'analytics-dashboards':
       return <BrandAnalytics {...content} />;
     case 'list-content':
+    case 'expandible-actionable-table':
       return <ListItems {...content} />;
     case 'home':
       return <BrandDashboard {...content} />;
     case 'wizard':
+    case 'expandible-table':
       return <WizardContents {...content} />;
     case 'empty-state-dashboard':
       return <EmptyStateDashboard {...content} />;
     case 'uploading-file-progress':
       return <UploadingFileProgress {...content} />;
+    case 'table-pending':
+      return <ExpandibleActionableTable {...content} />;
   }
 };
 
@@ -300,8 +305,7 @@ BrandUpdate.propTypes = {
     PropTypes.shape({
       ...ListItems.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['list-content']),
-      contentType: PropTypes.string
+      type: PropTypes.oneOf(['list-content', 'expandible-actionable-table'])
     }),
     PropTypes.shape({
       ...EmptyStateDashboard.propTypes,
@@ -312,6 +316,20 @@ BrandUpdate.propTypes = {
       ...UploadingFileProgress.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['uploading-file-progress'])
+    }),
+    PropTypes.shape({
+      ...ExpandibleActionableTable.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['table-pending'])
+    }),
+    PropTypes.shape({
+      ...WizardContents.propTypes,
+      content: PropTypes.shape({
+        ...ExpandibleActionableTable.propTypes,
+        ...WizardContents.propTypes.content.propTypes
+      }),
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['expandible-table'])
     })
   ]),
   documentation: PropTypes.shape({

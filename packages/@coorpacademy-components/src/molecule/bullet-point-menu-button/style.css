@@ -53,3 +53,23 @@ button:focus + .bulletPointMenu {
 */
 .bulletPointWrapper > button:focus { pointer-events: none; }
 .bulletPointWrapper > button:not(:focus) { pointer-events: auto; }
+
+/* 
+  bulk theme
+*/
+.bulkBulletPointMenu{
+  min-width: 80px;
+  /* positioning */
+  position: absolute;
+  align-self: flex-end;
+  bottom: 54px;
+  right: 0px;
+  /* elevation shadow */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  z-index: 1;
+  /* round corners */
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: cm_grey_100;
+  width: 142px;
+}

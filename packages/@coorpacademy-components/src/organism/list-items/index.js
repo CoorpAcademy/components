@@ -3,14 +3,34 @@ import PropTypes from 'prop-types';
 import ListItem from '../list-item';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
+import ExpandibleActionableTable from '../../molecule/expandible-actionable-table';
 import style from './style.css';
 
-const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel, contentType}) => {
+const buildListItemsView = (content, ariaLabel) => {
+  const {items, itemType} = content;
   const itemsView = items.map((item, index) => (
     <li key={item.id} className={style.item} data-name={`content-${index}`}>
-      <ListItem {...item} order={index} contentType={contentType} />
+      <ListItem {...item} order={index} contentType={itemType} />
     </li>
   ));
+  return (
+    <ul className={style.list} aria-label={ariaLabel} data-name={'content-list'}>
+      {itemsView}
+    </ul>
+  );
+};
+const buildContentView = (content, ariaLabel) => {
+  const {type} = content;
+  switch (type) {
+    case 'list':
+      return buildListItemsView(content, ariaLabel);
+    case 'expandible-actionable-table':
+      return <ExpandibleActionableTable {...content} />;
+  }
+};
+
+const ListItems = ({title, buttonLink, content, 'aria-label': ariaLabel}) => {
+  const contentView = buildContentView(content, ariaLabel);
 
   return (
     <div>
@@ -22,9 +42,7 @@ const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel, contentTy
           <ButtonLink {...buttonLink} />
         </div>
       </div>
-      <ul className={style.list} aria-label={ariaLabel} data-name={'content-list'}>
-        {itemsView}
-      </ul>
+      {contentView}
     </div>
   );
 };
@@ -33,8 +51,18 @@ ListItems.propTypes = {
   'aria-label': PropTypes.string,
   buttonLink: PropTypes.shape(ButtonLink.propTypes),
   items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
-  title: PropTypes.string,
-  contentType: PropTypes.string
+  content: PropTypes.oneOfType([
+    PropTypes.shape({
+      items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
+      type: PropTypes.oneOf(['list']),
+      itemType: PropTypes.string
+    }),
+    PropTypes.shape({
+      ...ExpandibleActionableTable.propTypes,
+      type: PropTypes.oneOf(['expandible-actionable-table'])
+    })
+  ]),
+  title: PropTypes.string
 };
 
 export default ListItems;

@@ -69,7 +69,7 @@ export default {
     content: {
       ...listItemsCertificationProps,
       type: 'list-content',
-      contentType: 'certification'
+      itemType: 'certification'
     }
   })
 };

@@ -1,10 +1,10 @@
 import React, {useMemo, useCallback} from 'react';
-import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import style from './style.css';
+import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 
-const Button = props => {
+const Button = (props: ButtonProps) => {
   const {'data-name': dataName, disabled, label, onClick, type = 'default'} = props;
   const styleButton = classnames(
     style.button,
@@ -30,21 +30,16 @@ const Button = props => {
   );
 };
 
-Button.propTypes = {
-  'data-name': PropTypes.string,
-  disabled: PropTypes.bool,
-  label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['default', 'dangerous'])
-};
+Button.propTypes = buttonPropTypes;
 
-const ButtonMenu = props => {
+const ButtonMenu = (props: ButtonMenuProps) => {
   const {buttons, 'data-name': dataName} = props;
   const buildButton = useCallback((button, index) => {
     return <Button {...button} key={button.label + index} />;
   }, []);
 
   const buttonList = useMemo(
+    // @ts-expect-error (to avoid using map as any)
     () => map.convert({cap: false})(buildButton, buttons),
     [buttons, buildButton]
   );
@@ -52,9 +47,6 @@ const ButtonMenu = props => {
   return <div data-name={dataName}>{buttonList}</div>;
 };
 
-ButtonMenu.propTypes = {
-  buttons: PropTypes.arrayOf(PropTypes.shape(Button.propTypes)).isRequired,
-  'data-name': PropTypes.string
-};
+ButtonMenu.propTypes = propTypes;
 
 export default ButtonMenu;

@@ -1,4 +1,6 @@
-export default {
+import {Fixture} from '../../types';
+
+const fixture: Fixture = {
   props: {
     type: 'text',
     label: 'Download',
@@ -10,3 +12,4 @@ export default {
     }
   }
 };
+export default fixture;

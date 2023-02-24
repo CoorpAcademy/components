@@ -91,6 +91,7 @@ Link.propTypes = {
   href: PropTypes.string,
   'data-name': PropTypes.string,
   'aria-label': PropTypes.string,
+  title: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   skinHover: PropTypes.bool,
   hoverColor: PropTypes.string,
