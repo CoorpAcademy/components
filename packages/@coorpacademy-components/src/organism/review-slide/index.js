@@ -162,7 +162,7 @@ const ReviewSlide = (props, legacyContext) => {
   const skin = GetSkinFromContext(legacyContext);
   const translate = GetTranslateFromContext(legacyContext);
 
-  const validateariaLabel = translate('validateariaLabel');
+  const validateariaLabel = translate('validate_aria_label');
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
   const {
     loading,

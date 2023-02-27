@@ -11,7 +11,7 @@ const ReviewHeader = (props, legacyContext) => {
   const {steps, mode, skillName, 'aria-label': ariaLabel, onQuitClick, hiddenSteps} = props;
   const translate = GetTranslateFromContext(legacyContext);
   const skin = GetSkinFromContext(legacyContext);
-  const closeButtonAriaLabel = translate('closeButtonAriaLabel');
+  const closeButtonAriaLabel = translate('close_button_ariaLabel');
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   const buttonProps = {
