@@ -60,7 +60,7 @@ export default {
         type: 'select',
         theme: 'filter',
         fieldName: 'cp_them',
-        title: 'Faurecia University | Learning Lab playlists:',
+        title: 'Faurecia University playlists:',
         options: [
           {
             name: 'All',
