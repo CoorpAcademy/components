@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import concat from 'lodash/fp/concat';
@@ -11,7 +11,9 @@ import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
 import keys from 'lodash/fp/keys';
 import map from 'lodash/fp/map';
+import round from 'lodash/fp/round';
 import size from 'lodash/fp/size';
+import truncate from 'lodash/fp/truncate';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationArrowTop as ArrowUp
@@ -72,6 +74,7 @@ const Select = (props, legacyContext) => {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy
   } = props;
+  const [selectWidth, setSelectWidth] = useState(0);
 
   const skin = GetSkinFromContext(legacyContext);
   const title = useMemo(
@@ -102,7 +105,30 @@ const Select = (props, legacyContext) => {
         );
       });
 
-  const titleView = title ? <span className={style.title}>{title} </span> : null;
+  const titleSize = useMemo(() => size(title), [title]);
+  const titleRef = useRef(null);
+
+  useEffect(() => {
+    // when the component gets mounted
+    setSelectWidth(titleRef.current.offsetWidth);
+    // to handle page resize
+    const getwidth = () => {
+      setSelectWidth(titleRef.current.offsetWidth);
+    };
+    window.addEventListener('resize', getwidth);
+    // remove the event listener before the component gets unmounted
+    return () => window.removeEventListener('resize', getwidth);
+  }, []);
+
+  const titleLabel = useMemo(
+    () =>
+      titleSize >= round(selectWidth / 7)
+        ? truncate({length: round(selectWidth / 7)}, title)
+        : title,
+    [selectWidth, title, titleSize]
+  );
+
+  const titleView = title ? <span className={style.title}>{titleLabel}</span> : null;
 
   const selected = useMemo(
     () =>
@@ -178,6 +204,7 @@ const Select = (props, legacyContext) => {
       )}
     >
       <label
+        ref={titleRef}
         data-name="select-wrapper"
         style={{
           ...(shouldUseSkinFontColor && {
