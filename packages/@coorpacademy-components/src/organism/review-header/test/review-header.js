@@ -34,7 +34,7 @@ test('onQuitClick (close button onClick) should be reachable, should match given
   t.true(closeButtonWrapper.at(0).exists());
   const closeButton = headerWrapper.find('[data-name="review-header-close-button"]');
   t.true(closeButton.at(0).exists());
-  t.is(closeButton.at(0).props()['aria-label'], 'aria-close-button');
+  t.is(closeButton.at(0).props()['aria-label'], '__closeButtonAriaLabel');
   closeButton.at(0).simulate('click', {});
   t.true(closeButtonWasClicked);
   t.pass();
