@@ -40,8 +40,8 @@ export default {
       {
         ...selectFilter,
         type: 'select',
-        fieldName: 'Authors',
-        title: 'Authors:',
+        fieldName: 'Faurecia University',
+        title: 'Faurecia University | Learning Lab playlists:',
         options: [
           {
             name: 'Coorpacademy',

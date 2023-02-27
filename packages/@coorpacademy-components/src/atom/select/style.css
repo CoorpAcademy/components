@@ -215,6 +215,7 @@ div.coorpmanager label.selectWrapper {
   background: white;
   text-transform: none;
   text-align: initial;
+  width: 100%;
 }
 
 .filter .title {

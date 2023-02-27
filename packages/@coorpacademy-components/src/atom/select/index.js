@@ -107,6 +107,7 @@ const Select = (props, legacyContext) => {
 
   const titleSize = useMemo(() => size(title), [title]);
   const titleRef = useRef(null);
+  const textLength = round(selectWidth / 7);
 
   useEffect(() => {
     // when the component gets mounted
@@ -121,11 +122,8 @@ const Select = (props, legacyContext) => {
   }, []);
 
   const titleLabel = useMemo(
-    () =>
-      titleSize >= round(selectWidth / 7)
-        ? truncate({length: round(selectWidth / 7)}, title)
-        : title,
-    [selectWidth, title, titleSize]
+    () => (titleSize >= textLength ? truncate({length: textLength}, title) : title),
+    [textLength, title, titleSize]
   );
 
   const titleView = title ? <span className={style.title}>{titleLabel}</span> : null;
@@ -196,6 +194,11 @@ const Select = (props, legacyContext) => {
 
   const isLongLabel = useMemo(() => labelSize >= 65, [labelSize]);
 
+  const selectedOptionLabel = useMemo(
+    () => (labelSize >= textLength ? truncate({length: textLength}, selectedLabel) : selectedLabel),
+    [labelSize, selectedLabel, textLength]
+  );
+
   return (
     <div
       className={classnames(
@@ -230,7 +233,7 @@ const Select = (props, legacyContext) => {
             })
           }}
         >
-          {selectedLabel}
+          {selectedOptionLabel}
         </span>
         <ArrowView
           shouldRender={!multiple}
