@@ -159,7 +159,7 @@ QuestionContainer.propTypes = {
 const ReviewSlide = (props, legacyContext) => {
   const {slide, validateButton, correctionPopinProps, slideIndex = '0'} = props;
 
-  const skin = GetSkinFromContext();
+  const skin = GetSkinFromContext(legacyContext);
   const translate = GetTranslateFromContext(legacyContext);
 
   const validateariaLabel = translate('validateariaLabel');
