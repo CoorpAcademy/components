@@ -34,7 +34,7 @@ test('onClick should be reachable, should match given aria-label', t => {
 
   const buttonLink = cardWrapper.find('[data-name="skill-card-button"]');
   t.true(buttonLink.at(0).exists());
-  t.is(buttonLink.at(0).props()['aria-label'], 'Button aria label');
+  t.is(buttonLink.at(0).props()['aria-label'], 'This is a custom skill, Button aria label');
   buttonLink.at(0).simulate('click', {});
   t.true(buttonWasClicked);
 
@@ -105,7 +105,7 @@ test('should use default aria-labels if aria-label props are not provided', t =>
 
   const buttonLink = cardWrapper.find('[data-name="skill-card-button"] button');
   t.true(buttonLink.at(0).exists());
-  t.is(buttonLink.at(0).props()['aria-label'], 'Revise this skill');
+  t.is(buttonLink.at(0).props()['aria-label'], 'Critical thinking and analysis');
 
   t.pass();
 });

@@ -35,6 +35,7 @@ const ForumComment = (props, context) => {
         onClick={!postDisabled ? onPost : noop}
         disabled={postDisabled}
         submitValue={translate('Post')}
+        aria-label={translate('post_comment_aria_label')}
         style={{
           backgroundColor: postDisabled ? light : primary
         }}

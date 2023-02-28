@@ -49,7 +49,7 @@ const SkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onClick,
-    'aria-label': buttonAriaLabel,
+    'aria-label': buttonAriaLabel ? `${skillTitle}, ${buttonAriaLabel}` : skillTitle,
     label: buttonLabel,
     'data-name': 'skill-card-button'
   };
