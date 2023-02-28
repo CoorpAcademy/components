@@ -6,8 +6,9 @@
 @value light from colors;
 
 .wrapper {
-  overflow-x: auto;
-  padding-bottom: 15px;
+  /* overflow-x: auto;
+  padding-bottom: 15px; */
+  width: 100%;
 }
 
 .table {
@@ -17,8 +18,7 @@
   font-style: normal;
   border-spacing: 0;
   border-radius: 8px;
-  overflow: hidden;
-  width: 100%;
+  max-width: 1089px;
 }
 
 .table .thead {
@@ -28,64 +28,68 @@
   line-height: 24px;
   color: cm_grey_400;
   height: 56px;
-  overflow: hidden;
   text-align: left; 
-}
-
-.table .header-0 {
-  width: 57px;
-}
-
-.table .header-last {
-  display: flex;
-  width: 100%;
-  justify-content: end;
 }
 
 .table .header {
   width: 182px;
   min-width: 182px;
   max-width: 182px;
+  padding-left: 56px;
+  box-sizing: border-box;
+}
+
+.table .header-0 {
+  position: sticky;
+  left: 0;
+  background-color: xtraLightGrey;
+}
+
+.table .header-last {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  position: sticky;
+  right: 0;
 }
 
 .table .col {
   text-align: left; 
   padding-top: 8px;
   padding-bottom: 8px;
-  position: relative;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
   color: cm_grey_700;
   border-top: 1px solid light;
+  padding-left: 56px;
 }
 
 .table .col-0 {
-  text-align: center;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  width: 57px;
-  color: cm_grey_400;
+  position: sticky;
+  left: 0;
+  padding-left: 16px;
+  background-color: white;
 }
+ .table .col-0 > div {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+ }
 
 .table .col-last {
   text-align: left; 
   padding-top: 8px;
   padding-bottom: 8px;
-  position: relative;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
   color: cm_grey_700;
   border-top: 1px solid light;
   display: flex;
-  width: 100%;
   justify-content: end;
-}
-
-.table .upDownIcon{
-  padding-left: 16px;
+  position: sticky;
+  right: 0;
 }
 
 .table .errorRow{

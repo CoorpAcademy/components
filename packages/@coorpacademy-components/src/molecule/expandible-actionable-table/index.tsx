@@ -57,7 +57,11 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
   const headerRow = columns.map((column, cIndex) => {
     const {title} = column;
     return (
-      <th className={style.header} key={`${title}-${cIndex + 1}`} role="columnheader">
+      <th
+        className={classnames(style[`header-${cIndex}`], style.header)}
+        key={`${title}-${cIndex}`}
+        role="columnheader"
+      >
         <div>{title}</div>
       </th>
     );
@@ -68,41 +72,37 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
       <div> {''}</div>
     </th>
   );
-  const headerView = [
-    <th className={style[`header-0`]} key="expand-header">
-      <div> {''}</div>
-    </th>
-  ].concat(headerRow);
+  const headerView = [...headerRow];
 
   const bodyView = rows.map((row, index) => {
     const {fields = []} = row;
-
     const bodyRow = fields.map((field, fIndex) => {
       return (
-        <td className={style.col} key={`${field}-${fIndex}`}>
-          {isString(field) ? (
-            field
-          ) : (
-            <StatusItem icon={get('icon', field)} value={get('value', field)} />
-          )}
+        <td className={classnames(style[`col-${fIndex}`], style.col)} key={`${field}-${fIndex}`}>
+          {
+            // eslint-disable-next-line no-nested-ternary
+            fIndex === 0 && isString(field) ? (
+              <div>
+                <ButtonLinkIconOnly
+                  // eslint-disable-next-line react/jsx-no-bind
+                  onClick={() => handleExpandRow(index)}
+                  data-name="arrowUp-button"
+                  icon="down"
+                  className={expandState[index] ? 'bulkArrowUp' : 'bulkArrowDown'}
+                  aria-label={translate('bulk_import.show_errors')}
+                />
+                <div>{field}</div>
+              </div>
+            ) : isString(field) ? (
+              field
+            ) : (
+              <StatusItem icon={get('icon', field)} value={get('value', field)} />
+            )
+          }
         </td>
       );
     });
 
-    bodyRow.unshift(
-      <td className={classnames(style[`col-0`], style.col)} key="header">
-        <div className={style.upDownIcon}>
-          <ButtonLinkIconOnly
-            // eslint-disable-next-line react/jsx-no-bind
-            onClick={() => handleExpandRow(index)}
-            data-name="arrowUp-button"
-            icon="down"
-            className={expandState[index] ? 'bulkArrowUp' : 'bulkArrowDown'}
-            aria-label={translate('bulk_import.show_errors')}
-          />
-        </div>
-      </td>
-    );
     bodyRow.push(
       <td className={style[`col-last`]} key="actionHeader">
         <BulletPointMenuButton {...bulletPointMenuButton} />
