@@ -19,7 +19,7 @@ test('template question › should handle onItemInputChange', t => {
   const mockedMobileContext = {
     ...mockMobileContext(),
     store: {
-      focusedSelectId: 'foo',
+      focusedSelectId: 'question-part-inp1',
       handleBlur: noop,
       handleFocus: () => noop
     }
@@ -37,7 +37,7 @@ test('template question › should handle onItemInputChange', t => {
   );
 
   const {getByTestId} = render(component);
-  const text = getByTestId('question-part-2-text');
+  const text = getByTestId('question-part-inp1-text');
 
   fireEvent(text, 'onChange', TEST_VALUE);
 

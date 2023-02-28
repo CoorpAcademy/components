@@ -68,7 +68,6 @@ type TemplatePart = {
 type ItemProps = {
   part: TemplatePart;
   choices: Array<TemplateTextChoice | TemplateListOfChoices>;
-  index: number;
   isDisabled?: boolean;
   onInputChange: (item: TemplateTextChoice | TemplateListOfChoices, value: string) => void;
   focusedSelectId: FocusedSelectId;
@@ -80,7 +79,6 @@ type ItemProps = {
 const Item = (props: ItemProps) => {
   const {
     part,
-    index,
     isDisabled = false,
     focusedSelectId,
     choices,
@@ -94,7 +92,7 @@ const Item = (props: ItemProps) => {
   const {theme, translations} = templateContext;
 
   const inputNames = choices.map(choice => choice.name);
-  const id = `question-part-${index + 1}`;
+  const id = `question-part-${part.value}`;
   const isFocused = focusedSelectId === id;
 
   if (part.type === 'answerField' && inputNames.includes(part.value)) {
@@ -156,7 +154,7 @@ const Item = (props: ItemProps) => {
 
   return (
     <Html key={id} fontSize={theme.fontSize.regular} testID={id} style={styles.htmlText}>
-      {trim(part.value || '')}
+      {part.value === ' ' ? part.value : trim(part.value || '')}
     </Html>
   );
 };
@@ -200,12 +198,11 @@ const QuestionTemplate = (props: Props) => {
 
   return (
     <View style={styleSheet.container} testID="question-template">
-      {parts.map((part, id) => (
-        <View key={`question-part-${id}`} style={{flexDirection: 'row'}}>
+      {parts.map(part => (
+        <View key={`question-part-${part.value}`} style={{flexDirection: 'row'}}>
           <Item
             part={part}
             choices={choices}
-            index={id}
             focusedSelectId={focusedSelectId}
             isDisabled={isDisabled}
             handleBlur={handleBlur}
