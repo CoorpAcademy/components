@@ -209,6 +209,7 @@ const Select = (props, legacyContext) => {
       <label
         ref={titleRef}
         data-name="select-wrapper"
+        title={title}
         style={{
           ...(shouldUseSkinFontColor && {
             color
