@@ -701,11 +701,22 @@
 
   .items .item {
     line-height: 40px;
-    padding: 0;
+    padding:  0 0 0 8px ;
   }
 
   .item .bar {
-    display: none;
+    background-color: brand;
+  width: 3px;
+  height: 0;
+  left: 0;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  display: none;
+  }
+  .item:hover .bar {
+    height: 40px;
+    width: 3px;
+    display: inherit;
   }
 
   .items .currentOption {
@@ -725,7 +736,7 @@
   }
 
   .items .option {
-    padding: 0;
+    padding:  0 0 0 8px ;
     line-height: 40px;
   }
 
