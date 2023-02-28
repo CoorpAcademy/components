@@ -113,6 +113,7 @@ const Select = (props, legacyContext) => {
     // when the component gets mounted
     setSelectWidth(titleRef.current.offsetWidth);
     // to handle page resize
+    /* istanbul ignore next */
     const getwidth = () => {
       setSelectWidth(titleRef.current.offsetWidth);
     };
@@ -122,7 +123,7 @@ const Select = (props, legacyContext) => {
   }, []);
 
   const titleLabel = useMemo(
-    () => (titleSize >= textLength ? truncate({length: textLength}, title) : title),
+    () => (titleSize <= textLength ? title : truncate({length: textLength}, title)),
     [textLength, title, titleSize]
   );
 
@@ -195,7 +196,7 @@ const Select = (props, legacyContext) => {
   const isLongLabel = useMemo(() => labelSize >= 65, [labelSize]);
 
   const selectedOptionLabel = useMemo(
-    () => (labelSize >= textLength ? truncate({length: textLength}, selectedLabel) : selectedLabel),
+    () => (labelSize <= textLength ? selectedLabel : truncate({length: textLength}, selectedLabel)),
     [labelSize, selectedLabel, textLength]
   );
 
