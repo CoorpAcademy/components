@@ -34,10 +34,12 @@ const Handle = (props, legacyContext) => {
   const {onPanStart = noop, onPanEnd = noop, onPan = noop, HammerForTesting} = props;
 
   const handle = useRef();
-  const hammer = useMemo(
-    () => HammerForTesting || new Hammer(handle.current),
-    [handle, HammerForTesting]
-  );
+
+  const hammer = useMemo(() => {
+    return HammerForTesting || (handle.current && new Hammer(handle.current));
+    // (we need to mount Hammer when handle.current is rendered and ready)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handle.current, HammerForTesting]);
 
   useEffect(() => {
     if (!hammer) return;
