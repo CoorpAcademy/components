@@ -41,7 +41,7 @@ export default {
         ...selectFilter,
         type: 'select',
         fieldName: 'Authors',
-        title: 'Authors',
+        title: 'Authors:',
         options: [
           {
             name: 'Coorpacademy',
