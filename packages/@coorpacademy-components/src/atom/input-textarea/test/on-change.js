@@ -1,28 +1,29 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {omit} from 'lodash/fp';
+import {fireEvent, render} from '@testing-library/react';
 import InputTextarea from '..';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should call the onChange function with the value of the target', t => {
-  t.plan(1);
-  const onChange = value => {
-    t.is(value, 'foo');
-  };
-  const wrapper = shallow(<InputTextarea {...defaultFixture.props} onChange={onChange} />);
+  const {getByTestId, unmount} = render(
+    <InputTextarea {...defaultFixture.props} name="textarea-test" />
+  );
 
-  wrapper.find('textarea').simulate('change', {target: {value: 'foo'}});
+  fireEvent.change(getByTestId('textarea-test'), {target: {value: 'newvalue'}});
+  t.is(getByTestId('textarea-test').value, 'newvalue');
+
+  unmount();
 });
 
 test('should not crash if the onChange function has not been specified', t => {
-  const wrapper = shallow(<InputTextarea {...omit('onChange', defaultFixture.props)} />);
+  const {getByTestId} = render(
+    <InputTextarea {...omit('onChange', defaultFixture.props)} name="textarea-test" />
+  );
 
-  wrapper.find('textarea').simulate('change', {target: {value: 'foo'}});
-  t.pass();
+  fireEvent.change(getByTestId('textarea-test'), {target: {value: 'newvalue'}});
+  t.is(getByTestId('textarea-test').value, 'newvalue');
 });

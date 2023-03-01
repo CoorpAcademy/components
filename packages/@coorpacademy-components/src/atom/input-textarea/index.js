@@ -71,6 +71,7 @@ const InputTextarea = props => {
           placeholder={placeholder}
           onChange={handleChange}
           disabled={disabled}
+          data-testid={name}
         />
         {errorIconView}
         {validIconView}
