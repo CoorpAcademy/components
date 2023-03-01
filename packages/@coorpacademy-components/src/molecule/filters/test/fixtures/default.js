@@ -42,12 +42,16 @@ export default {
       {
         type: 'select',
         theme: 'filter',
-        fieldName: 'them',
-        title: 'Playlists transverses:',
+        fieldName: 'Faurecia University | Learning Lab playlists:',
+        title: 'Faurecia University | Learning Lab playlists:',
         options: [
           {
-            name: 'All',
-            value: 'ref_all',
+            name:
+              'World Health Organization - Mental Health Policy' +
+              'and Service Development, Michelle Funk and Nathalie Drew',
+            value:
+              'World Health Organization - Mental Health Policy' +
+              'and Service Development, Michelle Funk and Nathalie Drew',
             selected: true
           },
           {name: 'Apprendre en continu', value: 'ref_1234', selected: false},

@@ -77,6 +77,9 @@ div.coorpmanager label.selectWrapper {
   text-transform: none;
   color: dark;
   width: 180px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .selectSpan {
@@ -86,6 +89,8 @@ div.coorpmanager label.selectWrapper {
   white-space: nowrap;
   pointer-events: none;
   height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .default .selectBox {

@@ -102,7 +102,7 @@ const Select = (props, legacyContext) => {
         );
       });
 
-  const titleView = title ? <span className={style.title}>{title} </span> : null;
+  const titleView = title ? <span className={style.title}>{title}</span> : null;
 
   const selected = useMemo(
     () =>
@@ -179,6 +179,7 @@ const Select = (props, legacyContext) => {
     >
       <label
         data-name="select-wrapper"
+        title={title}
         style={{
           ...(shouldUseSkinFontColor && {
             color
