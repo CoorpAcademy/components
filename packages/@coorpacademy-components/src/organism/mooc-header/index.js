@@ -91,7 +91,6 @@ class MoocHeader extends React.Component {
       })
     }),
     'settings-aria-label': PropTypes.string,
-    'close-settings-aria-label': PropTypes.string,
     'active-page-aria-label': PropTypes.string,
     settings: PropTypes.arrayOf(
       PropTypes.shape({
@@ -284,7 +283,6 @@ class MoocHeader extends React.Component {
       search,
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
-      'close-settings-aria-label': closeSettingsAriaLabel,
       'active-page-aria-label': activePageAriaLabel
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
@@ -306,7 +304,6 @@ class MoocHeader extends React.Component {
     let searchFormView = null;
 
     const moreAriaLabel = translate('More');
-    const closeLabel = translate('Close');
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
     const darkColor = get('common.dark', skin);
@@ -576,7 +573,11 @@ class MoocHeader extends React.Component {
             selectProps.onChange = options.onChange;
             selectProps.className = style.languageSelect;
             settingView = (
-              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
+              <div
+                data-name={`setting-${settingName}`}
+                className={classnames(style.setting, style.selectBoxes)}
+                key={settingName}
+              >
                 <span className={style.label}>{title}</span>
                 <Select {...selectProps} aria-label={ariaLabel || title} />
               </div>
@@ -622,13 +623,6 @@ class MoocHeader extends React.Component {
           <div className={isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
             <div data-name="settings" className={style.settingsGroup}>
               {settingsElements}
-            </div>
-            <div
-              className={style.closeSettings}
-              onClick={this.handleSettingsToggle}
-              aria-label={closeSettingsAriaLabel}
-            >
-              {closeLabel}
             </div>
           </div>
         </div>

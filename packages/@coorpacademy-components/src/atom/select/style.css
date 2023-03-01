@@ -552,11 +552,11 @@ div.player:hover span.selectSpan {
 }
 
 .default .selectWrapper select.selectBox {
-  max-width: 280px;
   width: inherit;
   border-radius: 8px;
   padding: 0;
   height: 100%;
+  width: 100%;
   top: 0;
 }
 

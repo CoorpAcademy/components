@@ -4,6 +4,7 @@
 @value white from colors;
 @value light from colors;
 @value dark from colors;
+@value positive from colors;
 @value cm_grey_200 from colors;
 @value black from colors;
 @value cm_primary_blue from colors;
@@ -78,7 +79,7 @@
 }
 
 .checkbox:checked ~ label {
-  background: cm_primary_blue;
+  background: positive;
 }
 
 .default input:checked ~ label::after {

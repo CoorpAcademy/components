@@ -139,25 +139,6 @@ export default {
         }
       },
       {
-        title: 'Mon compte',
-        type: 'link',
-        'aria-label': 'go to my account',
-        options: {
-          target: '_blank',
-          href: 'https://google.fr'
-        }
-      },
-      {
-        title: 'Se déconnecter',
-        'aria-label': 'logout',
-        type: 'link',
-        color: '#f73f52',
-        hoverColor: '#C51023',
-        options: {
-          href: 'https://google.fr'
-        }
-      },
-      {
         title: 'Godmode',
         type: 'switch',
         'aria-label': 'activate godmode',
@@ -173,6 +154,16 @@ export default {
         options: {
           onChange: value => console.log(value),
           value: false
+        }
+      },
+      {
+        title: 'Se déconnecter',
+        'aria-label': 'logout',
+        type: 'link',
+        color: '#f73f52',
+        hoverColor: '#C51023',
+        options: {
+          href: 'https://google.fr'
         }
       }
     ]
