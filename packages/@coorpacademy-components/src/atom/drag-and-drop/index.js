@@ -32,7 +32,9 @@ class DragAndDrop extends React.Component {
     onReset: PropTypes.func,
     error: PropTypes.string,
     buttonAriaLabel: PropTypes.string,
-    errorButtonLabel: PropTypes.string
+    errorButtonLabel: PropTypes.string,
+    pdfButtonLabel: PropTypes.string,
+    pdfButtonAriaLabel: PropTypes.string
   };
 
   constructor(props) {
@@ -73,7 +75,9 @@ class DragAndDrop extends React.Component {
       error = '',
       buttonAriaLabel = '',
       errorButtonLabel = '',
-      disabled = false
+      disabled = false,
+      pdfButtonLabel,
+      pdfButtonAriaLabel
     } = this.props;
     const {dragging} = this.state;
 
@@ -89,6 +93,23 @@ class DragAndDrop extends React.Component {
       previewView = (
         <div className={style.preview}>
           <video controls src={previewContent.src} type="video/*" />
+        </div>
+      );
+    } else if (previewContent && previewContent.type === 'pdf') {
+      previewView = (
+        <div className={style.previewPdf}>
+          <p className={style.previewLabelPdf}>{previewLabel}</p>
+          <Button
+            type="secondary"
+            link={{href: previewContent.src, target: '_blank', download: false}}
+            label={pdfButtonLabel}
+            aria-label={pdfButtonAriaLabel}
+            data-name="default-button-pdf"
+            icon={{
+              position: 'left',
+              type: 'pdf'
+            }}
+          />
         </div>
       );
     } else if (loading) {

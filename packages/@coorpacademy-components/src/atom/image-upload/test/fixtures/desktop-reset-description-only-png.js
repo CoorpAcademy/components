@@ -9,6 +9,6 @@ export default {
       type: 'image',
       src: 'https://static.coorpacademy.com/content/up/raw/batman.png'
     },
-    imageTypes: ['png']
+    imageTypes: ['image/png']
   }
 };

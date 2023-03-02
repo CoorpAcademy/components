@@ -79,21 +79,22 @@ test('SrcPropType should pass when valid source is passed', validMacro, SrcPropT
 test('SrcPropType should throw error when incorrect source is passed', failMacro, SrcPropType, [0]);
 
 test('ImagePropType should pass when correct image type is passed', validMacro, ImagePropType, [
-  'svg+xml',
-  'jpg',
-  'png'
+  'image/svg+xml',
+  'image/jpeg',
+  'image/png',
+  'application/pdf'
 ]);
 
 test(
   'ImagePropType should throw error when incorrect image type is passed: misspelled',
   failMacro,
   ImagePropType,
-  ['sgv+xml']
+  ['image/sgv+xml']
 );
 
 test(
   'ImagePropType should throw error when incorrect image type is passed: not included',
   failMacro,
   ImagePropType,
-  ['pdf', 'another']
+  ['image/pdf', 'another']
 );

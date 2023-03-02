@@ -5,6 +5,6 @@ const {props} = DesktopReset;
 export default {
   props: {
     ...props,
-    imageTypes: ['png', 'jpg', 'svg+xml']
+    imageTypes: ['image/png', 'image/jpeg', 'image/svg+xml']
   }
 };
