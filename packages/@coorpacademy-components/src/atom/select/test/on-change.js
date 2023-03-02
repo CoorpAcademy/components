@@ -1,39 +1,63 @@
 import test from 'ava';
+import {render, fireEvent} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Select from '..';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
+
+document.getSelection = () => {
+  return {
+    removeAllRanges: () => {}
+  };
+};
 
 test('should call onChange with the target value if multiple=false', t => {
-  t.plan(1);
-  const onChange = value => {
-    t.is(value, 'foo');
-  };
-  const wrapper = shallow(<Select {...defaultFixture.props} onChange={onChange} />);
+  t.plan(3);
 
-  wrapper.find('select').simulate('change', {
-    target: {
-      value: 'foo',
-      selectedOptions: []
-    }
-  });
+  const handleChange = e => {
+    t.is(e, 'Pouet4');
+  };
+
+  const {getByTestId, getByRole, unmount} = render(
+    <Select {...defaultFixture.props} onChange={handleChange} />
+  );
+
+  t.is(getByRole('option', {name: 'Pouet2'}).selected, true);
+
+  const select = getByTestId('native-select');
+
+  fireEvent.select(select, {target: {value: 'Pouet4'}});
+
+  t.is(getByRole('option', {name: 'Pouet2'}).selected, false);
+  t.is(getByRole('option', {name: 'Pouet4'}).selected, true);
+
+  unmount();
 });
 
-test("should call onChange with the selected options' target value if multiple=true", t => {
+test("should call onChange with the selected options' target value if multiple=true", async t => {
   t.plan(1);
-  const onChange = value => {
-    t.deepEqual(value, ['foo', 'bar']);
-  };
-  const wrapper = shallow(<Select {...defaultFixture.props} onChange={onChange} multiple />);
 
-  wrapper.find('select').simulate('change', {
-    target: {
-      selectedOptions: [{value: 'foo'}, {value: 'bar'}]
+  const handleChange = e => {
+    t.deepEqual(e, ['Pouet2', 'Pouet3']);
+  };
+
+  const user = userEvent.setup({document});
+
+  const {getByTestId} = render(
+    <Select {...defaultFixture.props} onChange={handleChange} multiple />
+  );
+
+  try {
+    const select = getByTestId('native-select');
+    await user.selectOptions(select, 'Pouet3');
+  } catch (e) {
+    // hitting something like https://github.com/testing-library/user-event/issues/278
+    // RangeError: Maximum call stack size exceeded
+    if (!e.message.includes('Maximum call stack size exceeded')) {
+      throw e;
     }
-  });
+  }
 });
