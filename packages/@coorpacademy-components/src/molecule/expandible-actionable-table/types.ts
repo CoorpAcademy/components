@@ -57,7 +57,7 @@ export type Rows = Row[];
 
 export type Props = {
   columns: Columns;
-  rows: Rows;
+  rows?: Rows;
   ariaDescribedby?: string;
   bulletPointMenuButton: BulletPointMenuButton;
 };

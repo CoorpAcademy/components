@@ -167,6 +167,7 @@ const buildContentView = content => {
     case 'analytics-dashboards':
       return <BrandAnalytics {...content} />;
     case 'list-content':
+    case 'expandible-actionable-table':
       return <ListItems {...content} />;
     case 'home':
       return <BrandDashboard {...content} />;
@@ -302,7 +303,7 @@ BrandUpdate.propTypes = {
     PropTypes.shape({
       ...ListItems.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['list-content'])
+      type: PropTypes.oneOf(['list-content', 'expandible-actionable-table'])
     }),
     PropTypes.shape({
       ...EmptyStateDashboard.propTypes,

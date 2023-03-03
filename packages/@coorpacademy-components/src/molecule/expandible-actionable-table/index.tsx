@@ -1,4 +1,3 @@
-/* eslint-disable css-modules/no-unused-class */
 import React, {useState} from 'react';
 import classnames from 'classnames';
 import {get, isString} from 'lodash/fp';
@@ -12,7 +11,7 @@ import style from './style.css';
 import {ExpandState, Props, propTypes} from './types';
 
 const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContextValues) => {
-  const {columns = [], rows = [], ariaDescribedby, bulletPointMenuButton} = props;
+  const {columns, rows = [], ariaDescribedby, bulletPointMenuButton} = props;
   const translate = GetTranslateFromContext(legacyContext);
 
   /**
@@ -29,7 +28,7 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
   /**
    * This function gets called when show/hide link is clicked.
    */
-  const handleExpandRow = (index: number) => {
+  const handleExpandRow = (index: number) => () => {
     const isRowExpanded = expandedRows.includes(index);
 
     /**
@@ -58,53 +57,53 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
     const {title} = column;
     return (
       <th
-        className={classnames(style[`header-${cIndex}`], style.header)}
+        className={cIndex === 0 ? classnames(style.headerFirst, style.header) : style.header}
         key={`${title}-${cIndex}`}
         role="columnheader"
       >
-        <div>{title}</div>
+        {title}
       </th>
     );
   });
 
-  headerRow.push(
-    <th className={style[`header-last`]} key="action-header">
-      <div> {''}</div>
-    </th>
-  );
+  headerRow.push(<th className={style.headerLast} key="action-header" />);
   const headerView = [...headerRow];
 
   const bodyView = rows.map((row, index) => {
-    const {fields = []} = row;
+    const {fields} = row;
     const bodyRow = fields.map((field, fIndex) => {
+      let cellContent;
+      if (fIndex === 0 && isString(field)) {
+        cellContent = (
+          <div>
+            <ButtonLinkIconOnly
+              onClick={handleExpandRow(index)}
+              data-name={`arrowUp-button-${index}`}
+              icon="down"
+              className={expandState[index] ? 'bulkArrowUp' : 'bulkArrowDown'}
+              aria-label={translate('bulk_import.show_errors')}
+            />
+            <div>{field}</div>
+          </div>
+        );
+      } else if (isString(field)) {
+        cellContent = field;
+      } else {
+        cellContent = <StatusItem icon={get('icon', field)} value={get('value', field)} />;
+      }
+
       return (
-        <td className={classnames(style[`col-${fIndex}`], style.col)} key={`${field}-${fIndex}`}>
-          {
-            // eslint-disable-next-line no-nested-ternary
-            fIndex === 0 && isString(field) ? (
-              <div>
-                <ButtonLinkIconOnly
-                  // eslint-disable-next-line react/jsx-no-bind
-                  onClick={() => handleExpandRow(index)}
-                  data-name="arrowUp-button"
-                  icon="down"
-                  className={expandState[index] ? 'bulkArrowUp' : 'bulkArrowDown'}
-                  aria-label={translate('bulk_import.show_errors')}
-                />
-                <div>{field}</div>
-              </div>
-            ) : isString(field) ? (
-              field
-            ) : (
-              <StatusItem icon={get('icon', field)} value={get('value', field)} />
-            )
-          }
+        <td
+          className={fIndex === 0 ? classnames(style.columnFirst, style.col) : style.col}
+          key={`${field}-${fIndex}`}
+        >
+          {cellContent}
         </td>
       );
     });
 
     bodyRow.push(
-      <td className={style[`col-last`]} key="actionHeader">
+      <td className={style.columnLast} key="actionHeader">
         <BulletPointMenuButton {...bulletPointMenuButton} />
       </td>
     );
@@ -113,10 +112,7 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
       get('expandible-errors-table', row) && expandedRows.includes(index) ? (
         <tr key={`line-${index}-error`}>
           <td className={style.errorRow} colSpan={fields.length + 2}>
-            <ExpandableErrorsTable
-              rows={get('expandible-errors-table.rows', row)}
-              columns={get('expandible-errors-table.columns', row)}
-            />
+            <ExpandableErrorsTable {...get('expandible-errors-table', row)} />
           </td>
         </tr>
       ) : null;
@@ -131,6 +127,7 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
       <table
         {...(ariaDescribedby ? {'aria-describedby': ariaDescribedby} : {})}
         className={style.table}
+        data-name="expandible-actionable-table"
       >
         <thead className={style.thead}>
           <tr>{headerView}</tr>

@@ -6,8 +6,6 @@
 @value light from colors;
 
 .wrapper {
-  /* overflow-x: auto;
-  padding-bottom: 15px; */
   width: 100%;
 }
 
@@ -39,13 +37,13 @@
   box-sizing: border-box;
 }
 
-.table .header-0 {
+.table .headerFirst {
   position: sticky;
   left: 0;
   background-color: xtraLightGrey;
 }
 
-.table .header-last {
+.table .headerLast {
   display: flex;
   width: 100%;
   justify-content: end;
@@ -65,19 +63,19 @@
   padding-left: 56px;
 }
 
-.table .col-0 {
+.table .columnFirst {
   position: sticky;
   left: 0;
   padding-left: 16px;
   background-color: white;
 }
- .table .col-0 > div {
+ .table .columnFirst > div {
   display: flex;
   justify-content: start;
   gap: 10px;
  }
 
-.table .col-last {
+.table .columnLast {
   text-align: left; 
   padding-top: 8px;
   padding-bottom: 8px;

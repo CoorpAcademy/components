@@ -25,7 +25,6 @@ const BulletPointMenuButton = props => {
 
   const menu = (
     <div
-      // className={menuClassName ? style[menuClassName] : style.bulletPointMenu}
       className={classnames(style.bulletPointMenu, menuClassName && style[menuClassName])}
       data-name="menu-wrapper"
       aria-label={menuAriaLabel}

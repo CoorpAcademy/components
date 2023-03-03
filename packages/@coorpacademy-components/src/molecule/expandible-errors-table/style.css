@@ -26,7 +26,7 @@
   text-align: left; 
 }
 
-.table .thead-nested {
+.table .theadNested {
   background-color: xtraLightGrey;
   font-weight: 600;
   font-size: 14px;
@@ -37,13 +37,13 @@
   text-align: left; 
 }
 
-.table .header-0 {
+.table .headerFirst {
   width: 24px;
 }
-.table .header-0-expandible {
+.table .headerFirstExpandible {
   width: 57px;
 }
-.table .header-1 {
+.table .headerSecond {
   width: 182px;
 }
 
@@ -60,7 +60,7 @@
 }
 
 
-.table .col-0 {
+.table .columnFirst {
   text-align: center;
   font-weight: 600;
   font-size: 12px;
@@ -68,7 +68,7 @@
   width: 24px;
   color: cm_grey_400;
 }
-.table .col-0-expandible {
+.table .columnFirstExpandible {
   text-align: center;
   font-weight: 600;
   font-size: 12px;

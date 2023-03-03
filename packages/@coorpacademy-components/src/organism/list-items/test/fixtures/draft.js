@@ -19,6 +19,6 @@ export default {
       'data-name': 'default-button',
       onClick: () => console.log('click')
     },
-    items: listeItems
+    content: {items: listeItems, type: 'list'}
   }
 };

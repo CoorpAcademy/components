@@ -34,5 +34,4 @@ test('should launch onClick', t => {
   t.true(wrapper.find('.bulkArrowDown').at(0).exists());
   t.false(wrapper.find('.bulkArrowUp').at(0).exists());
   t.false(wrapper.find('table').at(1).exists());
-
 });

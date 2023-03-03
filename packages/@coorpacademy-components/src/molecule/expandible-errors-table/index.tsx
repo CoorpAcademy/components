@@ -1,4 +1,3 @@
-/* eslint-disable css-modules/no-unused-class */
 import React, {useState} from 'react';
 import classnames from 'classnames';
 import {get, isString, some} from 'lodash/fp';
@@ -66,7 +65,7 @@ const ExpandableErrorsTable = (props: Props, legacyContext: WebContextValues) =>
     const {title} = column;
     return (
       <th
-        className={style[`header-${cIndex + 1}`]}
+        className={cIndex === 0 ? style.headerSecond : style[`header-${cIndex + 1}`]}
         key={`${title}-${cIndex + 1}`}
         role="columnheader"
       >
@@ -77,7 +76,7 @@ const ExpandableErrorsTable = (props: Props, legacyContext: WebContextValues) =>
 
   const headerView = [
     <th
-      className={isTableExpandible ? style[`header-0-expandible`] : style[`header-0`]}
+      className={isTableExpandible ? style.headerFirstExpandible : style.headerFirst}
       key="header"
     />
   ].concat(headerRow);
@@ -96,7 +95,7 @@ const ExpandableErrorsTable = (props: Props, legacyContext: WebContextValues) =>
     bodyRow.unshift(
       <td
         className={classnames(
-          isTableExpandible ? style[`col-0-expandible`] : style[`col-0`],
+          isTableExpandible ? style.columnFirstExpandible : style.columnFirst,
           style.col
         )}
         key="header"
@@ -137,7 +136,7 @@ const ExpandableErrorsTable = (props: Props, legacyContext: WebContextValues) =>
       {...(ariaDescribedby ? {'aria-describedby': ariaDescribedby} : {})}
       className={style.table}
     >
-      <thead className={nested ? style[`thead-nested`] : style.thead}>
+      <thead className={nested ? style.theadNested : style.thead}>
         <tr>{headerView}</tr>
       </thead>
       <tbody>{bodyView}</tbody>
