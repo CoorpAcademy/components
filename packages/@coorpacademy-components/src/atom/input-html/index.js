@@ -5,11 +5,11 @@ import {
   NovaLineBusinessCircleView as PreviewIcon,
   NovaLineContentEditionPencil2 as PencilIcon
 } from '@coorpacademy/nova-icons';
-import Provider from '../provider';
+import Provider, {GetSkinFromContext} from '../provider';
 import InputPreview from './input-preview';
 import style from './style.css';
 
-const InputHtml = (props, context) => {
+const InputHtml = (props, legacyContext) => {
   const {value = '', onChange = noop} = props;
   const [text, setText] = useState(value);
   const [preview, setPreview] = useState(true);
@@ -31,7 +31,7 @@ const InputHtml = (props, context) => {
     [preview, setPreview]
   );
 
-  const {skin} = context;
+  const skin = GetSkinFromContext(legacyContext);
   const mediumColor = getOr('#999999', 'common.medium', skin);
 
   const {title, placeholder, error, description, disabled} = props;
