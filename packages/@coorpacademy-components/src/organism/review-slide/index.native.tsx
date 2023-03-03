@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 
 import {
   Animated,
@@ -128,7 +128,8 @@ type StyleSheetType = {
 const createQuestionStyle = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     questionHeading: {
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      alignItems: 'center'
     },
     questionOrigin: {
       fontSize: 12,
@@ -158,7 +159,8 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
       width: '100%'
     },
     choicesScrollContent: {
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
+      flex: 1,
       padding: 10
     }
   });
@@ -166,12 +168,19 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
 type QuestionProps = {
   autoplayMedia: boolean;
   answerUI: SlideProps['answerUI'];
+  isKeyboardVisible: boolean;
   questionText: SlideProps['questionText'];
   questionOrigin: SlideProps['parentContentTitle'];
 };
 
 const Question = (props: QuestionProps) => {
-  const {answerUI, questionText, questionOrigin = '', autoplayMedia = false} = props;
+  const {
+    answerUI,
+    questionText,
+    questionOrigin = '',
+    isKeyboardVisible,
+    autoplayMedia = false
+  } = props;
   const {theme} = useTemplateContext();
   const [style, setStyle] = useState<StyleSheetType>();
 
@@ -199,8 +208,16 @@ const Question = (props: QuestionProps) => {
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
       >
-        {hasVideoOrImage ? <MediaView media={answerUI.media} autoplay={autoplayMedia} /> : null}
-        <View style={{marginTop: hasVideoOrImage ? 30 : 0}}>
+        {!isKeyboardVisible && hasVideoOrImage ? (
+          <MediaView media={answerUI.media} autoplay={autoplayMedia} />
+        ) : null}
+        <View
+          style={{
+            minHeight: 100,
+            flex: isKeyboardVisible ? 1 : 0,
+            marginTop: hasVideoOrImage ? 30 : 0
+          }}
+        >
           <Answer {...answerUI} />
         </View>
       </ScrollView>
@@ -213,7 +230,11 @@ type SlideStyle = {
   hiddenBackgroundToLockActions: ViewStyle;
 };
 
-const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
+const createSlideStyle = (
+  num: number,
+  screenWidth: number,
+  isKeyboardVisible: boolean
+): SlideStyle => {
   const slideWidth = screenWidth - 40 - num * 8;
 
   return StyleSheet.create({
@@ -228,7 +249,7 @@ const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
     slide: {
       position: 'absolute',
       left: 20 + num * 4,
-      bottom: 34 + num * 5,
+      bottom: (isKeyboardVisible ? 5 : 34) + num * 5,
       backgroundColor: '#fff', // theme.colors.white
       height: '90%',
       width: slideWidth,
@@ -248,6 +269,22 @@ const createSlideStyle = (num: number, screenWidth: number): SlideStyle => {
 const Slide = (props: ReviewSlideProps) => {
   const {animatedStyle, slide, correctionPopinProps, validateButton, num, slideIndex = '0'} = props;
   const [isValidated, setValidated] = useState<boolean>(false);
+  const [isKeyboardVisible, setKeyboardVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const showListener = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardVisible(true);
+    });
+
+    const hideListener = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardVisible(false);
+    });
+
+    return () => {
+      showListener.remove();
+      hideListener.remove();
+    };
+  }, []);
 
   const handleValidatePress = useCallback(() => {
     Keyboard.dismiss();
@@ -263,7 +300,10 @@ const Slide = (props: ReviewSlideProps) => {
   }, []);
 
   const {width} = useWindowDimensions();
-  const slideStyle = createSlideStyle(num, width);
+  const slideStyle = useMemo(
+    () => createSlideStyle(num, width, isKeyboardVisible),
+    [num, width, isKeyboardVisible]
+  );
   const isFirstSlide = num === 1;
 
   const {
@@ -286,14 +326,17 @@ const Slide = (props: ReviewSlideProps) => {
         questionText={questionText}
         answerUI={answerUI}
         autoplayMedia={isFirstSlide}
+        isKeyboardVisible={isKeyboardVisible}
         key="question-container"
       />
-      <Button
-        disabled={isValidated || validateButton.disabled}
-        submitValue={validateButton.label}
-        onPress={handleValidatePress}
-        testID={`slide-validate-button-${slideIndex}`}
-      />
+      {isKeyboardVisible ? null : (
+        <Button
+          disabled={isValidated || validateButton.disabled}
+          submitValue={validateButton.label}
+          onPress={handleValidatePress}
+          testID={`slide-validate-button-${slideIndex}`}
+        />
+      )}
       {isValidated ? <View style={slideStyle.hiddenBackgroundToLockActions} /> : null}
       {correctionPopinProps ? (
         <CorrectionPopin
