@@ -5,8 +5,10 @@ import style from './input-preview.css';
 
 const InputPreview = (props, context) => {
   const {title, text, placeholder, onChange, disabled, preview, className} = props;
+
   return !preview ? (
     <textarea
+      data-testid="input-preview-textarea"
       className={className}
       name={title}
       value={text}
@@ -16,6 +18,7 @@ const InputPreview = (props, context) => {
     />
   ) : (
     <div
+      data-testid="input-preview"
       className={classnames(style.preview, className)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: text}}

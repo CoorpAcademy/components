@@ -1,98 +1,88 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
-import {noop, getOr, isUndefined} from 'lodash/fp';
+import {noop, getOr} from 'lodash/fp';
 import {
   NovaLineBusinessCircleView as PreviewIcon,
   NovaLineContentEditionPencil2 as PencilIcon
 } from '@coorpacademy/nova-icons';
+import Provider, {GetSkinFromContext} from '../provider';
 import InputPreview from './input-preview';
 import style from './style.css';
 
-class InputHtml extends React.Component {
-  static propTypes = {
-    title: PropTypes.string,
-    placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    value: PropTypes.string,
-    error: PropTypes.string,
-    onChange: PropTypes.func,
-    description: PropTypes.string
-  };
+const InputHtml = (props, legacyContext) => {
+  const {value = '', onChange = noop} = props;
+  const [text, setText] = useState(value);
+  const [preview, setPreview] = useState(true);
 
-  static getDerivedStateFromProps(props, state) {
-    const {value} = props;
+  const handleChange = useCallback(
+    e => {
+      const _value = e.target.value;
+      setText(_value);
+      onChange(_value);
+    },
+    [onChange]
+  );
 
-    if (isUndefined(value)) return null;
+  const handlePreview = useCallback(
+    e => {
+      e.preventDefault();
+      setPreview(!preview);
+    },
+    [preview, setPreview]
+  );
 
-    return {
-      text: value,
-      preview: state.preview
-    };
-  }
+  const skin = GetSkinFromContext(legacyContext);
+  const mediumColor = getOr('#999999', 'common.medium', skin);
 
-  constructor(props, context) {
-    super(props);
-    this.state = {
-      text: getOr('', 'value', props),
-      preview: true
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handlePreview = this.handlePreview.bind(this);
-  }
+  const {title, placeholder, error, description, disabled} = props;
 
-  handleChange(e) {
-    const {onChange = noop} = this.props;
-    const value = e.target.value;
-    this.setState(state => ({
-      text: value,
-      preview: state.preview
-    }));
-    onChange(value);
-  }
+  const className = error ? style.error : style.default;
+  const iconContent = !preview ? (
+    <PreviewIcon style={{color: mediumColor}} height={16} />
+  ) : (
+    <PencilIcon style={{color: mediumColor}} height={16} />
+  );
 
-  handlePreview(e) {
-    e.preventDefault();
-    this.setState(state => ({
-      text: state.text,
-      preview: !state.preview
-    }));
-  }
+  return (
+    <div className={className}>
+      <label>
+        <span className={style.title}>{`${title} `}</span>
+        <div className={style.contentWrapper}>
+          <InputPreview
+            title={title}
+            text={text}
+            placeholder={placeholder}
+            onChange={handleChange}
+            disabled={disabled}
+            preview={preview}
+            className={style.input}
+          />
+        </div>
+        <span
+          data-testid={preview ? 'pencil-icon' : 'preview-icon'}
+          className={style.toggle}
+          onClick={handlePreview}
+        >
+          {iconContent}
+        </span>
+      </label>
+      <div className={style.description}>{description}</div>
+    </div>
+  );
+};
 
-  render() {
-    const {skin} = this.context;
-    const mediumColor = getOr('#999999', 'common.medium', skin);
+InputHtml.propTypes = {
+  title: PropTypes.string,
+  placeholder: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.string,
+  error: PropTypes.string,
+  onChange: PropTypes.func,
+  description: PropTypes.string
+};
 
-    const {title, placeholder, error, description, disabled} = this.props;
-    const {text, preview} = this.state;
+InputHtml.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
-    const className = error ? style.error : style.default;
-    const iconContent = !preview ? (
-      <PreviewIcon style={{color: mediumColor}} height={16} />
-    ) : (
-      <PencilIcon style={{color: mediumColor}} height={16} />
-    );
-    return (
-      <div className={className}>
-        <label>
-          <span className={style.title}>{`${title} `}</span>
-          <div className={style.contentWrapper}>
-            <InputPreview
-              title={title}
-              text={text}
-              placeholder={placeholder}
-              onChange={this.handleChange}
-              disabled={disabled}
-              preview={preview}
-              className={style.input}
-            />
-          </div>
-          <span className={style.toggle} onClick={this.handlePreview}>
-            {iconContent}
-          </span>
-        </label>
-        <div className={style.description}>{description}</div>
-      </div>
-    );
-  }
-}
 export default InputHtml;
