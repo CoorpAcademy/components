@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import {noop} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -8,18 +8,22 @@ const Child = ({child, onAnimationEnd, className, name}) => {
     props: {className: propClassName}
   } = child;
 
-  const handlerAnimationEnd = useMemo(
-    () => () => {
-      return onAnimationEnd(name);
-    },
-    [onAnimationEnd, name]
-  );
+  const handlerAnimationEnd = useCallback(() => {
+    return onAnimationEnd(name);
+  }, [onAnimationEnd, name]);
 
   return React.cloneElement(child, {
     className: classnames(propClassName, className),
     onTransitionEnd: handlerAnimationEnd,
     onAnimationEnd: handlerAnimationEnd
   });
+};
+
+Child.propTypes = {
+  name: PropTypes.string.isRequired,
+  onAnimationEnd: PropTypes.func,
+  animated: PropTypes.bool,
+  className: PropTypes.string
 };
 
 const Transition = props => {
@@ -39,7 +43,8 @@ const Transition = props => {
 Transition.propTypes = {
   name: PropTypes.string.isRequired,
   onAnimationEnd: PropTypes.func,
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Transition;
