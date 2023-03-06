@@ -1,9 +1,10 @@
 import React, {useMemo, useCallback} from 'react';
 import {noop} from 'lodash/fp';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import childPropTypes, {ChildProps} from './child-prop-types';
+import transitionPropTypes, {TransitionProps} from './transition-prop-types';
 
-const Child = ({child, onAnimationEnd, className, name}) => {
+const Child = ({child, onAnimationEnd, className, name}: ChildProps) => {
   const {
     props: {className: propClassName}
   } = child;
@@ -19,14 +20,9 @@ const Child = ({child, onAnimationEnd, className, name}) => {
   });
 };
 
-Child.propTypes = {
-  name: PropTypes.string.isRequired,
-  onAnimationEnd: PropTypes.func,
-  animated: PropTypes.bool,
-  className: PropTypes.string
-};
+Child.propTypes = childPropTypes;
 
-const Transition = props => {
+const Transition = (props: TransitionProps) => {
   const {name, children, className, animated, onAnimationEnd = noop} = props;
 
   const animatedChildren = useMemo(
@@ -40,11 +36,6 @@ const Transition = props => {
   return animated ? animatedChildren : children;
 };
 
-Transition.propTypes = {
-  name: PropTypes.string.isRequired,
-  onAnimationEnd: PropTypes.func,
-  animated: PropTypes.bool,
-  className: PropTypes.string
-};
+Transition.propTypes = transitionPropTypes;
 
 export default Transition;
