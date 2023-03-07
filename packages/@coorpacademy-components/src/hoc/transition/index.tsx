@@ -9,14 +9,14 @@ const Child = ({child, onAnimationEnd, className, name}: ChildProps) => {
     props: {className: propClassName}
   } = child;
 
-  const handlerAnimationEnd = useCallback(() => {
+  const handleAnimationEnd = useCallback(() => {
     return onAnimationEnd(name);
   }, [onAnimationEnd, name]);
 
   return React.cloneElement(child, {
     className: classnames(propClassName, className),
-    onTransitionEnd: handlerAnimationEnd,
-    onAnimationEnd: handlerAnimationEnd
+    onTransitionEnd: handleAnimationEnd,
+    onAnimationEnd: handleAnimationEnd
   });
 };
 
