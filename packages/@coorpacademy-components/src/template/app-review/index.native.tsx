@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, View, BackHandler, Animated} from 'react-native';
+import {StyleSheet, View, BackHandler, Animated, Platform} from 'react-native';
 import {useAnimateProp, useAnimationWaiter} from '@coorpacademy/react-native-animation';
 import Loader from '../../atom/loader/index.native';
 import {AppReviewProps} from './prop-types';
@@ -53,7 +53,7 @@ const AppReview = (props: AppReviewProps) => {
     property: 'opacity',
     fromValue: 0,
     toValue: 1,
-    duration: 1300
+    duration: 1250
   });
 
   const isLoading = viewName === 'loader';
@@ -61,7 +61,9 @@ const AppReview = (props: AppReviewProps) => {
 
   return (
     <View style={styles.rootView}>
-      <Animated.View style={[styles.player, fadePlayerIn.animatedStyle]}>
+      <Animated.View
+        style={[styles.player, Platform.OS === 'ios' ? fadePlayerIn.animatedStyle : null]}
+      >
         {slides ? (
           <Player
             congrats={slides.congrats}
