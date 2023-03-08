@@ -89,5 +89,8 @@
     "errors_number": "toplu içe aktarma hata sayısı {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm dosyası geçerli",
     "invalid_scorm": "scorm dosyası geçersiz"
-  }
+  },
+  "close_button_ariaLabel": "İnceleme slaydını kapat",
+  "post_comment_aria_label": "Yorumunu paylaş",
+  "validate_aria_label": "Cevabınızı doğrulayın ve bir sonraki adıma geçin"
 }
