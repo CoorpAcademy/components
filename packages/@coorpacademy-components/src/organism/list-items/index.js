@@ -5,10 +5,10 @@ import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
-const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel}) => {
+const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel, contentType}) => {
   const itemsView = items.map((item, index) => (
     <li key={item.id} className={style.item} data-name={`content-${index}`}>
-      <ListItem {...item} order={index} />
+      <ListItem {...item} order={index} contentType={contentType} />
     </li>
   ));
 
@@ -33,7 +33,8 @@ ListItems.propTypes = {
   'aria-label': PropTypes.string,
   buttonLink: PropTypes.shape(ButtonLink.propTypes),
   items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
-  title: PropTypes.string
+  title: PropTypes.string,
+  contentType: PropTypes.string
 };
 
 export default ListItems;

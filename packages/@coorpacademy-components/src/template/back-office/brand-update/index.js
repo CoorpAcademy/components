@@ -300,7 +300,8 @@ BrandUpdate.propTypes = {
     PropTypes.shape({
       ...ListItems.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['list-content'])
+      type: PropTypes.oneOf(['list-content']),
+      contentType: PropTypes.string
     }),
     PropTypes.shape({
       ...EmptyStateDashboard.propTypes,
