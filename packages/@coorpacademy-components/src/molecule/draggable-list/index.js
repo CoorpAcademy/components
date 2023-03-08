@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 import Draggable from '../draggable';
 import SetupSection from '../setup-section';
 import CourseSection from '../course-section';
+import ListItem from '../../organism/list-item';
 
-const ITEMS = {'setup-section': SetupSection, 'course-section': CourseSection};
+const ITEMS = {
+  'setup-section': SetupSection,
+  'course-section': CourseSection,
+  'list-item': ListItem
+};
 
 const DraggableList = ({items, onDrop, itemType}) => {
   const [dragTo, setDragTo] = useState(null);
@@ -43,7 +48,7 @@ const DraggableList = ({items, onDrop, itemType}) => {
   );
 
   const Item = ITEMS[itemType];
-  const itemsView = items.map(item => (
+  const itemsView = items.map((item, index) => (
     <Draggable
       key={item.id}
       id={item.id}
@@ -53,14 +58,20 @@ const DraggableList = ({items, onDrop, itemType}) => {
       onDragLeave={dragLeaveHandler}
       onDrop={dropHandler}
     >
-      <Item {...item} key={item.id} />
+      <Item {...item} key={item.id} order={index} />
     </Draggable>
   ));
   return <div>{itemsView}</div>;
 };
 
 DraggableList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
+  items: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape(SetupSection.propTypes),
+      PropTypes.shape(CourseSection.propTypes),
+      PropTypes.shape(ListItem.propTypes)
+    ])
+  ),
   onDrop: PropTypes.func,
   itemType: PropTypes.string
 };

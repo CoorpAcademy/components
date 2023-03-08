@@ -1,5 +1,6 @@
 export default {
   props: {
+    contentType: 'certification',
     id: 'default',
     title: 'Leaders of tomorrow',
     tags: [
@@ -39,7 +40,6 @@ export default {
       onClick: () => console.log('click')
     },
     bulletPointButtonOnClick: () => console.log('click'),
-    order: 0,
     'aria-label': "Certification's order"
   }
 };

@@ -1,6 +1,8 @@
 import React from 'react';
+import findIndex from 'lodash/fp/findIndex';
 import PropTypes from 'prop-types';
 import ListItem from '../list-item';
+import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -8,12 +10,23 @@ import ExpandibleActionableTable from '../../molecule/expandible-actionable-tabl
 import style from './style.css';
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
-  const {items, itemType} = content;
-  const itemsView = items.map((item, index) => (
-    <li key={item.id} className={style.item} data-name={`content-${index}`}>
-      <ListItem {...item} order={index} contentType={itemType} />
-    </li>
-  ));
+  const {items, itemType, onDrop, displayAll} = content;
+  const itemsView =
+    findIndex({type: 'published'}, items[0]?.tags) !== -1 &&
+    itemType === 'certification' &&
+    !displayAll ? (
+      <DraggableList
+        items={items.map(item => ({...item, itemType}))}
+        itemType="list-item"
+        onDrop={onDrop}
+      />
+    ) : (
+      items.map((item, index) => (
+        <li key={item.id} className={style.item} data-name={`content-${index}`}>
+          <ListItem {...item} contentType={itemType} />
+        </li>
+      ))
+    );
   return (
     <ul
       className={!selectMultiple ? style.list : style.listWithSelectMultiple}
@@ -69,7 +82,9 @@ ListItems.propTypes = {
     PropTypes.shape({
       items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
       type: PropTypes.oneOf(['list']),
-      itemType: PropTypes.string
+      itemType: PropTypes.string,
+      onDrop: PropTypes.func,
+      displayAll: PropTypes.bool
     }),
     PropTypes.shape({
       ...ExpandibleActionableTable.propTypes,
