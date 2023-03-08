@@ -89,5 +89,8 @@
     "errors_number": "大量匯入錯誤編號為 {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm 檔有效",
     "invalid_scorm": "scorm 檔無效"
-  }
+  },
+  "close_button_ariaLabel": "關閉檢閱投影片",
+  "post_comment_aria_label": "張貼您的註解",
+  "validate_aria_label": "驗證您的答案並前往下一步"
 }
