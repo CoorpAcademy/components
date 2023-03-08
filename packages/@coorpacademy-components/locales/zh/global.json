@@ -89,5 +89,8 @@
     "errors_number": "批量导入错误数是 {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm 文件有效",
     "invalid_scorm": "scorm 文件无效"
-  }
+  },
+  "close_button_ariaLabel": "关闭审议幻灯片",
+  "post_comment_aria_label": "发布您的评论",
+  "validate_aria_label": "验证您的答案并转到下一步"
 }
