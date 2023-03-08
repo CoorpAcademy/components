@@ -89,5 +89,8 @@
     "errors_number": "numărul de erori de import în masă este {{bulkImportErrorsNumber}}",
     "valid_scorm": "fișierul scorm este valid",
     "invalid_scorm": "fișierul scorm nu este valid"
-  }
+  },
+  "close_button_ariaLabel": "Închideți slide-ul de recenzie",
+  "post_comment_aria_label": "Postează comentariul tău",
+  "validate_aria_label": "Validați-vă răspunsul și treceți la pasul următor"
 }
