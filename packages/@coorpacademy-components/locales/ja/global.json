@@ -89,5 +89,8 @@
     "errors_number": "一括インポートエラー 数は {{bulkImportErrorsNumber}} です",
     "valid_scorm": "SCORMファイルは有効です",
     "invalid_scorm": "SCORMファイルが有効ではありません"
-  }
+  },
+  "close_button_ariaLabel": "レビュースライドを閉じる",
+  "post_comment_aria_label": "コメントを投稿する",
+  "validate_aria_label": "回答が正しいことを確認して次のステップに進んでください"
 }
