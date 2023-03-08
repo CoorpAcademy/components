@@ -89,5 +89,8 @@
     "errors_number": "O número de erros da importação em grupo é {{bulkImportErrorsNumber}}",
     "valid_scorm": "o ficheiro scorm é válido",
     "invalid_scorm": "o ficheiro scorm não é válido "
-  }
+  },
+  "close_button_ariaLabel": "Feche a imagem de revisão",
+  "post_comment_aria_label": "Publique o seu comentário",
+  "validate_aria_label": "Valide a sua resposta e siga para o próximo passo"
 }
