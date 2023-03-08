@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, isEmpty, noop} from 'lodash/fp';
@@ -34,12 +34,16 @@ const Favorite = (
   const primaryColor = get('common.primary', skin);
   const darkColor = get('common.dark', skin);
   const brandColor = get('common.brand', skin);
-  const toolTipView =
-    !isEmpty(removeFavoriteToolTip) && !isEmpty(addFavoriteToolTip) ? (
-      <div className={style.showToolTip}>
-        <span>{favorite ? removeFavoriteToolTip : addFavoriteToolTip}</span>
-      </div>
-    ) : null;
+
+  const toolTipView = useMemo(
+    () =>
+      !isEmpty(removeFavoriteToolTip) && !isEmpty(addFavoriteToolTip) ? (
+        <div className={style.showToolTip}>
+          <span>{favorite ? removeFavoriteToolTip : addFavoriteToolTip}</span>
+        </div>
+      ) : null,
+    [addFavoriteToolTip, favorite, removeFavoriteToolTip]
+  );
 
   return (
     <div className={style.blocFavorite}>
