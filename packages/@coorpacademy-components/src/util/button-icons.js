@@ -15,7 +15,8 @@ import {
   NovaLineLoginKey1 as KlfIcon,
   NovaSolidFilesFoldersFolders as FoldersIcon,
   NovaSolidFilesBasicFileUpload2 as UploadIcon,
-  NovaCompositionNavigationArrowDown as ArrowDown
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaLineFilesOfficeFileOfficePdf as PDF
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -35,5 +36,6 @@ export const ICONS = {
   see: EyeIcon,
   folders: FoldersIcon,
   upload: UploadIcon,
-  down: ArrowDown
+  down: ArrowDown,
+  pdf: PDF
 };

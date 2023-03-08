@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {join, map, pipe, isNil} from 'lodash/fp';
+import {isNil} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
 import {ImagePropType} from '../../util/proptypes';
 import Link from '../button-link';
@@ -18,14 +18,16 @@ const ImageUpload = ({
   onChange,
   onReset = null,
   name,
-  // See ImagePropType for accepted values
   labelLink,
   labelButtonLink,
   hrefLink,
+  // See ImagePropType for accepted values
   imageTypes = ['*'],
   error = '',
   buttonAriaLabel,
-  errorButtonLabel
+  errorButtonLabel,
+  pdfButtonLabel,
+  pdfButtonAriaLabel
 }) => {
   const handleReset = useCallback(
     e => {
@@ -35,11 +37,6 @@ const ImageUpload = ({
     },
     [onReset]
   );
-
-  const acceptedImages = pipe(
-    map(t => `image/${t}`),
-    join(',')
-  )(imageTypes);
 
   const linkCustomStyle = {
     width: '40px',
@@ -61,12 +58,14 @@ const ImageUpload = ({
         disabled={disabled}
         buttonAriaLabel={buttonAriaLabel}
         errorButtonLabel={errorButtonLabel}
+        pdfButtonLabel={pdfButtonLabel}
+        pdfButtonAriaLabel={pdfButtonAriaLabel}
       >
         {(onDragStart, onDragStop) => (
           <input
             type="file"
             name={name}
-            accept={acceptedImages}
+            accept={imageTypes}
             disabled={loading || disabled}
             className={style.input}
             onChange={onChange}

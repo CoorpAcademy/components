@@ -8,8 +8,15 @@ import style from './style.css';
 
 const ListItem = props => {
   let isPublished = false;
-  const {bulletPointMenuButton, buttonLink, tags, title, order, 'aria-label': ariaLabel} = props;
-
+  const {
+    bulletPointMenuButton,
+    buttonLink,
+    tags,
+    title,
+    order,
+    'aria-label': ariaLabel,
+    contentType
+  } = props;
   const tagsView = map.convert({cap: false})((tag, index) => {
     isPublished = tag.type === 'published';
     return (
@@ -20,7 +27,7 @@ const ListItem = props => {
   })(tags);
   return (
     <div className={style.wrapper}>
-      {isPublished ? (
+      {isPublished && contentType === 'certification' ? (
         <div className={style.orderWrapper}>
           <div className={style.order} aria-label={ariaLabel}>
             {order + 1}
@@ -78,7 +85,8 @@ ListItem.propTypes = {
   ),
   title: PropTypes.string.isRequired,
   order: PropTypes.number,
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+  contentType: PropTypes.string
 };
 
 export default ListItem;

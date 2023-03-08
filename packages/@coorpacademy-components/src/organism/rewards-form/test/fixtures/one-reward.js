@@ -1,7 +1,14 @@
-import singleDragAndDrop from '../../../../molecule/drag-and-drop-wrapper/test/fixtures/default';
+import PDFDragAndDrop from '../../../../atom/image-upload/test/fixtures/pdf';
 
 export default {
   props: {
-    items: [{child: {...singleDragAndDrop.props, childType: 'drag-and-drop-wrapper'}}]
+    items: [
+      {
+        child: {
+          list: [{...PDFDragAndDrop.props}],
+          childType: 'drag-and-drop-wrapper'
+        }
+      }
+    ]
   }
 };
