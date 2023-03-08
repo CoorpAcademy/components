@@ -89,5 +89,8 @@
     "errors_number": "Ang bilang ng maramihang error sa pag-import ay {{bulkImportErrorsNumber}}",
     "valid_scorm": "balido ang scorm file",
     "invalid_scorm": "Hindi balido ang scorm file"
-  }
+  },
+  "close_button_ariaLabel": "Isara ang slide sa pag-review",
+  "post_comment_aria_label": "I-post ang iyong komento",
+  "validate_aria_label": "Patunayan ang iyong sagot at pumunta sa susunod na hakbang"
 }
