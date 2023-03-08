@@ -89,5 +89,8 @@
     "errors_number": "Il numero di errori di importazione massiva è {{bulkImportErrorsNumber}}",
     "valid_scorm": "Il file scorm è valido",
     "invalid_scorm": "Il file scorm non è valido"
-  }
+  },
+  "close_button_ariaLabel": "Chiudi la slide di revisione",
+  "post_comment_aria_label": "Pubblica il tuo commento",
+  "validate_aria_label": "Convalida la tua risposta e vai al passaggio successivo"
 }
