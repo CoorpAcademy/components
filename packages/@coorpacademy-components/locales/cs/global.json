@@ -89,5 +89,8 @@
     "errors_number": "počet chyb hromadného importu je {{bulkImportErrorsNumber}}",
     "valid_scorm": "soubor scorm je platný",
     "invalid_scorm": "soubor scorm je neplatný"
-  }
+  },
+  "close_button_ariaLabel": "Zavřít snímek recenze",
+  "post_comment_aria_label": "Zveřejnit komentář",
+  "validate_aria_label": "Ověřte vlastní odpověď a přejděte k dalšímu kroku"
 }
