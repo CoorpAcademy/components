@@ -89,5 +89,8 @@
     "errors_number": "벌크 가져오기 에러 번호는 {{bulkImportErrorsNumber}}입니다",
     "valid_scorm": "scorm 파일이 유효하지 않습니다",
     "invalid_scorm": "scorm 파일이 유효하지 않습니다"
-  }
+  },
+  "close_button_ariaLabel": "리뷰 슬라이드 닫기",
+  "post_comment_aria_label": "의견을 작성하세요",
+  "validate_aria_label": "답변을 검증한 후 다음 단계로 진행하세요"
 }
