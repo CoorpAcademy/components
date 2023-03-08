@@ -89,5 +89,8 @@
     "errors_number": "počet chýb hromadného importu je {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm súbor je platný",
     "invalid_scorm": "scorm súbor je neplatný"
-  }
+  },
+  "close_button_ariaLabel": "Uzavrite recenziu",
+  "post_comment_aria_label": "Uverejnite svoj komentár",
+  "validate_aria_label": "Potvrďte svoju odpoveď a prejdite na ďalší krok"
 }
