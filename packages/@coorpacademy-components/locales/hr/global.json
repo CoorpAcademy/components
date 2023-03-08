@@ -89,5 +89,8 @@
     "errors_number": "broj grešaka masovnog uvoza je {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm datoteka je ispravna",
     "invalid_scorm": "scorm datoteka nije ispravna"
-  }
+  },
+  "close_button_ariaLabel": "Zatvori pregledni slajd",
+  "post_comment_aria_label": "Objavite svoj komentar",
+  "validate_aria_label": "Potvrdite svoj odgovor i idite na sljedeći korak"
 }
