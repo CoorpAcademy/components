@@ -89,5 +89,8 @@
     "errors_number": "tömeges importálási hibák száma {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm fájl érvényes",
     "invalid_scorm": "scorm fájl nem érvényes"
-  }
+  },
+  "close_button_ariaLabel": "Az áttekintő dia bezárása",
+  "post_comment_aria_label": "Írj hozzászólást",
+  "validate_aria_label": "Hitelesítsd válaszodat és ugorj a következő lépésre"
 }
