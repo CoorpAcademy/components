@@ -89,5 +89,8 @@
     "errors_number": "จำนวนข้อผิดพลาดในการนําเข้าจํานวนมากคือ {{bulkImportErrorsNumber}}",
     "valid_scorm": "ไฟล์ scorm ถูกต้อง",
     "invalid_scorm": "ไฟล์ scorm ไม่ถูกต้อง"
-  }
+  },
+  "close_button_ariaLabel": "ปิดสไลด์รีวิว",
+  "post_comment_aria_label": "โพสต์ความคิดเห็นของคุณ",
+  "validate_aria_label": "ตรวจสอบคำตอบของคุณแล้วไปยังขั้นตอนถัดไป"
 }
