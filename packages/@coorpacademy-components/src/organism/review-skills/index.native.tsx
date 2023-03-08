@@ -9,7 +9,7 @@ type ItemProps = {
 };
 
 const style = StyleSheet.create({
-  skills: {paddingBottom: 100}
+  skills: {paddingBottom: 200}
 });
 
 const Item = ({
