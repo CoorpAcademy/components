@@ -89,5 +89,8 @@
     "errors_number": "количество ошибок массового импорта равно {{bulkImportErrorsNumber}}",
     "valid_scorm": "файл scorm действителен",
     "invalid_scorm": "файл scorm недействителен"
-  }
+  },
+  "close_button_ariaLabel": "Закрыть проверку слайда",
+  "post_comment_aria_label": "Опубликуйте свой комментарий",
+  "validate_aria_label": "Проверьте свой ответ и перейдите к следующему шагу"
 }
