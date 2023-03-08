@@ -89,5 +89,8 @@
     "errors_number": "Le nombre d'erreurs d'importation groupée est {{bulkImportErrorsNumber}}",
     "valid_scorm": "le fichier SCORM est valide",
     "invalid_scorm": "Le fichier SCORM n'est pas valide"
-  }
+  },
+  "close_button_ariaLabel": "Fermez la diapositive de révision",
+  "post_comment_aria_label": "Postez votre commentaire",
+  "validate_aria_label": "Validez votre réponse et passez à l'étape suivante"
 }
