@@ -89,5 +89,8 @@
     "errors_number": "bulk import fouten aantal is {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm-bestand is geldig",
     "invalid_scorm": "scorm-bestand is niet geldig"
-  }
+  },
+  "close_button_ariaLabel": "Sluit de beoordelingsdia",
+  "post_comment_aria_label": "Plaats uw reactie",
+  "validate_aria_label": "Valideer uw antwoord en ga naar de volgende stap"
 }
