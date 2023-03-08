@@ -89,5 +89,8 @@
     "errors_number": "Massenimport-Fehlernummer ist {{bulkImportErrorsNumber}}",
     "valid_scorm": "Scorm-Datei ist gültig",
     "invalid_scorm": "Scorm-Datei ist ungültig"
-  }
+  },
+  "close_button_ariaLabel": "Bewertungsfolie schließen",
+  "post_comment_aria_label": "Veröffentlichen Sie Ihren Kommentar",
+  "validate_aria_label": "Bestätigen Sie Ihre Antwort und gehen Sie zum nächsten Schritt"
 }
