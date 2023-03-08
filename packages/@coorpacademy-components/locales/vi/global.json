@@ -89,5 +89,8 @@
     "errors_number": "số lỗi nhập hàng loạt là {{bulkImportErrorsNumber}}",
     "valid_scorm": "tập tin scorm là hợp lệ",
     "invalid_scorm": "tập tin scorm là không hợp lệ"
-  }
+  },
+  "close_button_ariaLabel": "Đóng màn hình đánh giá",
+  "post_comment_aria_label": "Đăng bình luận của bạn",
+  "validate_aria_label": "Xác thực câu trả lời của bạn và sang bước tiếp theo"
 }
