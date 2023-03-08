@@ -89,5 +89,8 @@
     "errors_number": "Զանգվածային ներմուծման սխալների համարը {{bulkImportErrorsNumber}} է",
     "valid_scorm": "scorm ֆայլը վավեր է",
     "invalid_scorm": "scorm ֆայլը վավեր չէ"
-  }
+  },
+  "close_button_ariaLabel": "Փակել վերանայման սլայդը",
+  "post_comment_aria_label": "Տեղադրեք ձեր մեկնաբանությունը",
+  "validate_aria_label": "Հաստատեք ձեր պատասխանը և անցեք հաջորդ քայլին"
 }
