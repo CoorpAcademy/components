@@ -89,5 +89,8 @@
     "errors_number": "kogu impordi vigade arv on {{bulkImportErrorsNumber}}",
     "valid_scorm": "scormi fail on kehtiv",
     "invalid_scorm": "scormi fail ei ole kehtiv"
-  }
+  },
+  "close_button_ariaLabel": "Sulgege ülekordamise slaid",
+  "post_comment_aria_label": "Postitage oma kommentaar",
+  "validate_aria_label": "Kinnitage oma vastus ja minge järgmisse etappi"
 }
