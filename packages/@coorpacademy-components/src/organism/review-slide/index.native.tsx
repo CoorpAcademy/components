@@ -160,7 +160,6 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
     },
     choicesScrollContent: {
       justifyContent: 'space-around',
-      flex: 1,
       padding: 10
     }
   });
@@ -203,7 +202,14 @@ const Question = (props: QuestionProps) => {
       </View>
       <ScrollView
         style={style.choicesScrollView}
-        contentContainerStyle={style.choicesScrollContent}
+        contentContainerStyle={[
+          style.choicesScrollContent,
+          isKeyboardVisible
+            ? {
+                flex: 1
+              }
+            : null
+        ]}
         centerContent
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
@@ -213,7 +219,6 @@ const Question = (props: QuestionProps) => {
         ) : null}
         <View
           style={{
-            minHeight: 100,
             flex: isKeyboardVisible ? 1 : 0,
             marginTop: hasVideoOrImage ? 30 : 0
           }}
