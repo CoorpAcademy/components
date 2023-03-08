@@ -89,5 +89,8 @@
     "errors_number": "Liczba błędów w imporcie zbiorowym: {{bulkImportErrorsNumber}",
     "valid_scorm": "plik scorm jest poprawny",
     "invalid_scorm": "Plik scorm nie jest poprawny"
-  }
+  },
+  "close_button_ariaLabel": "Zamknij slajd recenzji",
+  "post_comment_aria_label": "Opublikuj swój komentarz",
+  "validate_aria_label": "Oceń swoją odpowiedź i przejdź do kolejnego kroku"
 }
