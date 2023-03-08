@@ -159,6 +159,7 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       shadowRadius: 8
     },
     buttonTooltip: {
+      zIndex: 20,
       flexDirection: 'column',
       justifyContent: 'center',
       backgroundColor: theme.colors.white,
@@ -168,7 +169,11 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       position: 'absolute',
       bottom: 4,
       right: -15,
-      zIndex: 20
+      shadowColor: theme.colors.black,
+      shadowOpacity: 0.3,
+      shadowOffset: {width: 0, height: 0},
+      shadowRadius: 8,
+      elevation: 6
     },
     htmlTooltipText: {
       color: theme.colors.text.primary,
@@ -178,6 +183,7 @@ const createStyleSheet = (theme: Theme, type: string): StyleSheetType =>
       textAlign: 'center'
     },
     triangleTooltip: {
+      zIndex: 31,
       width: 0,
       height: 0,
       backgroundColor: 'transparent',
