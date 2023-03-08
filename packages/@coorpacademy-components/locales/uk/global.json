@@ -89,5 +89,8 @@
     "errors_number": "кількість помилок масового імпорту: {{bulkImportErrorsNumber}}",
     "valid_scorm": "SCORM-файл є дійсним",
     "invalid_scorm": "SCORM-файл є недійсним"
-  }
+  },
+  "close_button_ariaLabel": "Закрити слайд перегляду",
+  "post_comment_aria_label": "Опублікуйте ваш коментар",
+  "validate_aria_label": "Підтвердьте свою відповідь і перейдіть до наступного кроку"
 }
