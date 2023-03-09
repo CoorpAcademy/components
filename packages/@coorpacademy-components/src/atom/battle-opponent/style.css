@@ -112,6 +112,18 @@
   align-items: center;
 }
 
+.toolTipWrapper {
+  position: absolute;
+  width: 100%;
+}
+
+.card .tooltipIconContainer + .toolTipWrapper [class*="__react_component_tooltip"]:not([class*="toolTipReact"]) {
+  position: sticky;
+  top: unset !important;
+  left: unset !important;
+  max-width: 75%;
+}
+
 @media mobile {
   .opponent-card {
     width: 100%;

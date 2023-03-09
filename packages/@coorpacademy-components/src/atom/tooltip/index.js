@@ -25,6 +25,10 @@ const ToolTipWrapper = ({
   handleContentMouseOver,
   iconSize
 }) => {
+  const coorpToolTipClasses = classnames(
+    style.toolTip,
+    iconSize === 'big' ? style.bigIconToolTip : style.smallIconToolTip
+  );
   if (!toolTipIsVisible) return null;
   if (anchorId) {
     return (
@@ -42,10 +46,7 @@ const ToolTipWrapper = ({
   } else {
     return (
       <div
-        className={classnames(
-          style.toolTip,
-          iconSize === 'big' ? style.bigIconToolTip : style.smallIconToolTip
-        )}
+        className={coorpToolTipClasses}
         data-testid="tooltip"
         aria-label={closeToolTipInformationTextAriaLabel}
         onMouseOver={handleContentMouseOver}
