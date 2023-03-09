@@ -47,47 +47,29 @@
   color: inherit;
 }
 
-.showToolTip {
-  visibility: hidden;
-  background-color: color(black a(80%));
-  color: #fff;
-  text-align: center;
-  border-radius: 3px;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.8s;
+.favoriteWrapper {
   position: absolute;
-  max-width: 104px;
-  right: 45px;
-  top: 8px;
+  width: 100%;
 }
 
-.showToolTip::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 100%;
-  border: solid 5px ;
-  border-color: transparent transparent transparent color(black a(80%));
+.favoriteWrapper .favorite + [class*="__react_component_tooltip"]:not([class*="toolTipReact"]) {
+  position: sticky;
+  top: unset !important;
+  left: unset !important;
+  transform: translateX(25%);
 }
 
-.blocFavorite:hover .showToolTip {
-  visibility: visible;
-  opacity: 1;
+.favoriteWrapper .favorite + [class*="__react_component_tooltip"] {
+  opacity: 0.95!important;
 }
 
-.showToolTip span {
-  display: block;
-  word-wrap: break-word;
-  padding: 3px 10px 5px;
-  font-family: "Gilroy";
-  font-size: 12px;
-  font-weight: bold;
-}
 
 @media mobile {
   .favorite {
     font-size: 33px;
+  }
+  .favoriteWrapper .favorite + [class*="__react_component_tooltip"]:not([class*="toolTipReact"]) {
+    transform: translateX(10%);
   }
 }
 
