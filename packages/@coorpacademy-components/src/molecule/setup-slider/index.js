@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import SetupSlide from '../setup-slide';
 import Accordion from '../../organism/accordion/toggler';
+import {wrapperStyle} from './style.css';
 
 const SetupSlider = props => {
   const {tabProps = [], slides = []} = props;
@@ -11,7 +12,7 @@ const SetupSlider = props => {
     slides
   );
   return (
-    <div>
+    <div className={wrapperStyle}>
       <Accordion tabProps={tabProps} type={'all'} theme={'setup'}>
         {slidesView}
       </Accordion>
