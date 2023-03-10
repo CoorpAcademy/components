@@ -91,10 +91,12 @@ const Favorite = (
     () =>
       favorite ? (
         <CheckIcon
+          // eslint-disable-next-line css-modules/no-undef-class
           className={style.checkIcon}
           style={{color: brandColor}}
           width={13}
           height={13}
+          data-testid="favorite-check-icon"
           aria-label={ariaLabel.removeFromFavorite}
         />
       ) : (
@@ -103,6 +105,7 @@ const Favorite = (
           style={{color: darkColor}}
           width={13}
           height={13}
+          data-testid="favorite-add-icon"
           aria-label={ariaLabel.addToFavorite}
         />
       ),
@@ -110,14 +113,16 @@ const Favorite = (
   );
 
   return (
-    <div className={style.favoriteWrapper}>
+    <div className={style.favoriteWrapper} data-testid="favorite-wrapper">
       {/* {toolTipView} */}
-      <div
+      <button
         ref={buttonRef}
+        type="button"
         data-for={favoriteButtonAnchorId}
         data-tooltip-place="left"
         data-tip={allowToolTip}
         data-name="favorite"
+        data-testid="favorite-button"
         aria-label={ariaLabel.favorite}
         className={iconWrapperClassName}
         onClick={handleFavoriteClick}
@@ -130,7 +135,7 @@ const Favorite = (
         tabIndex={0}
       >
         {icon}
-      </div>
+      </button>
       <ToolTip
         fontSize={12}
         anchorId={favoriteButtonAnchorId}

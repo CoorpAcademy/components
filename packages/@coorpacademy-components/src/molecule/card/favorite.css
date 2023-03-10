@@ -16,10 +16,11 @@
   z-index: 1;
   font-size: 30px;
   overflow: hidden;
-  line-height: 20px;
+  line-height: 0px;
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
   background-color: #ffffff;
   border-radius: 100%;
+  border: none;
 }
 
 .favorite:hover .moreIcon {
@@ -29,10 +30,6 @@
 .favorite .moreIcon {
   color: color(black a(63%));
   transition: color 0.25s ease-in-out;
-  margin: 6px;
-}
-.favorite .checkIcon {
-  margin: 6px;
 }
 
 .favorite.selected .moreIcon {

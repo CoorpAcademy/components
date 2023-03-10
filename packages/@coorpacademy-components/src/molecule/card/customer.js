@@ -10,7 +10,7 @@ export const THEMES = {
 };
 
 const Customer = props => {
-  const {name, type, coorpOriginal, theme, disabled = false, 'aria-label': ariaLabel} = props;
+  const {name, type, coorpOriginal, theme, disabled, 'aria-label': ariaLabel} = props;
   const className = classnames(
     THEMES[theme],
     style.customer,
