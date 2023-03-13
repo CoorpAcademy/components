@@ -16,8 +16,9 @@
 }
 
 .grid {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .groupGrid {
@@ -51,6 +52,7 @@
 
 .fieldCoorpmanager {
   margin: 0 0 32px 0;
+  width: 100%;
 }
 
 .defaultWidth {
