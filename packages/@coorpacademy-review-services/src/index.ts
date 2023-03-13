@@ -45,7 +45,7 @@ export const getServices = (locale: string | void): Services => ({
   fetchSkills: fetchSkills(locale),
   fetchSlide: fetchSlide(locale),
   fetchSlidesToReviewBySkillRef,
-  postAnswer,
+  postAnswer: postAnswer(locale),
   postProgression
 });
 
