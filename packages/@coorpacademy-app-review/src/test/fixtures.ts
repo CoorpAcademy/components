@@ -18,7 +18,8 @@ const content: ReviewContent = {
 };
 
 const engine: ReviewEngine = {
-  ref: 'review'
+  ref: 'review',
+  version: '1'
 };
 
 export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [

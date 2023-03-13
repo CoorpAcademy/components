@@ -41,7 +41,8 @@ const getContent = (ref: string): ReviewContent => ({
 });
 
 const engine: ReviewEngine = {
-  ref: 'review'
+  ref: 'review',
+  version: '1'
 };
 
 const getSlides = (skillRef: string): SlideFromAPI[] => {

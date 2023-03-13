@@ -20,7 +20,8 @@ const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: SKILL_REF_FOR_DEFAULT_SLIDES},
   engine: {
-    ref: 'review'
+    ref: 'review',
+    version: '1'
   },
   state: {
     allAnswers: [],

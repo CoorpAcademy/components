@@ -33,7 +33,8 @@ const content: ReviewContent = {
 };
 
 const engine: ReviewEngine = {
-  ref: 'review'
+  ref: 'review',
+  version: '1'
 };
 
 const initialState: StoreState = {
@@ -41,9 +42,7 @@ const initialState: StoreState = {
     progression: {
       _id: progressionId,
       content: {type: 'skill', ref: skillRef},
-      engine: {
-        ref: 'review'
-      },
+      engine,
       state: {
         allAnswers: [],
         isCorrect: true,
@@ -98,9 +97,7 @@ test('should dispatch post-answer, fetch-slide and fetch-correction and fetch-st
       ref: SKILL_REF_FOR_DEFAULT_SLIDES,
       type: 'skill'
     },
-    engine: {
-      ref: 'review'
-    },
+    engine,
     state: {
       allAnswers: [
         {

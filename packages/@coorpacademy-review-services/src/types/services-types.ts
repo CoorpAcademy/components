@@ -199,6 +199,7 @@ export type Services = {
 
 export type ReviewEngine = {
   ref: 'review';
+  version: string;
 };
 
 export type ReviewContent = {

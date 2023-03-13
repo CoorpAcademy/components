@@ -24,7 +24,8 @@ const initialState: StoreState = {
         type: 'skill'
       },
       engine: {
-        ref: 'review'
+        ref: 'review',
+        version: '1'
       },
       state: {
         allAnswers: [],
