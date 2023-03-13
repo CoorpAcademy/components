@@ -21,7 +21,7 @@ export type ReceivedProgression = {
 };
 
 export const postProgression =
-  (skillRef: string) =>
+  (skillRef: string, testingSlideRef?: string) =>
   async (
     dispatch: Dispatch,
     getState: () => StoreState,
@@ -31,7 +31,10 @@ export const postProgression =
     const token = get(['data', 'token'], state);
     const action = buildTask({
       types: [POST_PROGRESSION_REQUEST, POST_PROGRESSION_SUCCESS, POST_PROGRESSION_FAILURE],
-      task: () => services.postProgression(skillRef, token)
+      task: () =>
+        testingSlideRef
+          ? services.postSandboxProgression(testingSlideRef, token)
+          : services.postProgression(skillRef, token)
     });
     const response = await dispatch(action);
 

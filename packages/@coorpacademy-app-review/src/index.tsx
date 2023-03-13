@@ -39,10 +39,11 @@ const storeTokenAndCreateProgression = async (
   store.dispatch(storeToken(token));
 
   const skillRef = get('skillRef', options);
+  const testingSlideRef = get('testingSlideRef', options);
 
   if (skillRef) {
     store.dispatch(navigateTo('loader'));
-    await store.dispatch(postProgression(skillRef));
+    await store.dispatch(postProgression(skillRef, testingSlideRef));
     store.dispatch(navigateTo('slides'));
   }
 };

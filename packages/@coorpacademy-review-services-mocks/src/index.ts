@@ -16,6 +16,7 @@ import {
   getConfig,
   updateState
 } from '@coorpacademy/progression-engine';
+import {SandboxProgressionFromAPI} from '@coorpacademy/review-services/lib/types/services-types';
 import {
   freeTextSlide,
   freeTextWithYoutube,
@@ -124,6 +125,26 @@ export const postProgressionResponse = (skillRef: string): ProgressionFromAPI =>
     isCorrect: true,
     nextContent: {
       ref: slideRef(freeTextSlide.universalRef, skillRef),
+      type: 'slide'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+});
+
+export const postSandboxProgressionResponse = (_slideRef: string): SandboxProgressionFromAPI => ({
+  _id: 'sandbox',
+  content: getContent('sandbox'),
+  engine,
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      ref: _slideRef,
       type: 'slide'
     },
     pendingSlides: [],
@@ -328,6 +349,8 @@ export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: (skillRef: string) => Promise.resolve(postProgressionResponse(skillRef)),
+  postSandboxProgression: (_slideRef: string) =>
+    Promise.resolve(postSandboxProgressionResponse(_slideRef)),
   postAnswer: (progression: ProgressionFromAPI, _: string, answer: string[]) =>
     Promise.resolve(getPostAnswer(progression, answer)),
   fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),

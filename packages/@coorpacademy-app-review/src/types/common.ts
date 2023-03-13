@@ -34,6 +34,7 @@ export type AppOptions = ConnectedOptions & {
   token: string;
   locale?: string;
   skillRef?: string;
+  testingSlideRef?: string;
   services?: Services;
   callbackOnViewChanged?: (viewName: ViewName) => void;
   appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
