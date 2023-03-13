@@ -38,7 +38,7 @@ const Favorite = (
   const darkColor = get('common.dark', skin);
   const brandColor = get('common.brand', skin);
 
-  const buttonRef = useRef();
+  const buttonRef = useRef(null);
 
   const allowToolTip = useMemo(
     () => !isEmpty(removeFavoriteToolTip) && !isEmpty(addFavoriteToolTip),
@@ -62,7 +62,7 @@ const Favorite = (
 
   const handleMouseOver = useCallback(() => {
     mouseLeaveTimer && clearTimeout(mouseLeaveTimer);
-    /* istanbul ignore next */ // has(['current', 'focus'], buttonRef) && buttonRef.current.focus();
+    /* istanbul ignore next */ has(['current', 'focus'], buttonRef) && buttonRef.current.focus();
     setToolTipIsVisible(true);
   }, [mouseLeaveTimer]);
 
@@ -114,7 +114,6 @@ const Favorite = (
 
   return (
     <div className={style.favoriteWrapper} data-testid="favorite-wrapper">
-      {/* {toolTipView} */}
       <button
         ref={buttonRef}
         type="button"

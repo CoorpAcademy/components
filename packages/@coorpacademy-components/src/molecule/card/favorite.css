@@ -21,6 +21,7 @@
   background-color: #ffffff;
   border-radius: 100%;
   border: none;
+  padding: 0;
 }
 
 .favorite:hover .moreIcon {
