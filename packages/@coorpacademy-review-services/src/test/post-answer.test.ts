@@ -69,7 +69,7 @@ const result: ProgressionFromAPI = {
 test.before(() => {
   const moocApi = nock('http://localhost:3000');
   moocApi
-    .post('/api/v2/progressions/123456123456/answers', {
+    .post('/api/v2/progressions/123456123456/answers?lang=fr', {
       content: {
         ref: 'sli_NkvrWPFF2',
         type: 'slide'
@@ -85,13 +85,13 @@ test.after(() => {
 
 test('should post the answers successfully', async t => {
   const token = process.env.API_TEST_TOKEN || '';
-  const progression = await postAnswer(initProgression, token, answer);
+  const progression = await postAnswer('fr')(initProgression, token, answer);
   t.deepEqual(result, progression);
 });
 
 test('should reject bad token', async t => {
   const badToken = 'token is not a jwt';
-  const error = await t.throwsAsync(() => postAnswer(initProgression, badToken, answer));
+  const error = await t.throwsAsync(() => postAnswer()(initProgression, badToken, answer));
 
   t.is(
     error?.message,
