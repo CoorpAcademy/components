@@ -5,7 +5,6 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    disabled: undefined,
     type: 'scorm',
     customer: {
       coorpOriginal: false,
