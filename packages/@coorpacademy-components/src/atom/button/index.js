@@ -130,7 +130,7 @@ ButtonContent.propTypes = {
   onMouseLeave: PropTypes.func,
   onMouseOver: PropTypes.func,
   // for ReactTooltip handling
-  buttonRef: PropTypes.string,
+  buttonRef: PropTypes.shape({}),
   'data-for': PropTypes.string,
   'data-tooltip-place': PropTypes.string,
   'data-tip': PropTypes.bool

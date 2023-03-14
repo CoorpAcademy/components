@@ -4,7 +4,7 @@ export default {
     useWrapper: false,
     useButtonTag: true,
     onClick: () => console.log('clear all filter'),
-    buttonRef: '123456879789465123',
+    buttonRef: {current: {}},
     'data-for': '123354654656464',
     'data-tooltip-place': 'left',
     'data-tip': true,
