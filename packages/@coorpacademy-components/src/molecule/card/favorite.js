@@ -9,6 +9,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Provider, {GetSkinFromContext, GetTranslateFromContext} from '../../atom/provider';
 import ToolTip, {toggleStateOnKeyPress} from '../../atom/tooltip';
+import Button from '../../atom/button';
 import style from './favorite.css';
 
 const Favorite = (
@@ -114,8 +115,8 @@ const Favorite = (
 
   return (
     <div className={style.favoriteWrapper} data-testid="favorite-wrapper">
-      <button
-        ref={buttonRef}
+      <Button
+        buttonRef={buttonRef}
         type="button"
         data-for={favoriteButtonAnchorId}
         data-tooltip-place="left"
@@ -123,7 +124,7 @@ const Favorite = (
         data-name="favorite"
         data-testid="favorite-button"
         aria-label={ariaLabel.favorite}
-        className={iconWrapperClassName}
+        buttonContentClassName={iconWrapperClassName}
         onClick={handleFavoriteClick}
         style={{
           color: primaryColor
@@ -132,9 +133,11 @@ const Favorite = (
         onMouseLeave={handleMouseLeave}
         onMouseOver={handleMouseOver}
         tabIndex={0}
+        useButtonTag
+        useWrapper={false}
       >
         {icon}
-      </button>
+      </Button>
       <ToolTip
         fontSize={12}
         anchorId={favoriteButtonAnchorId}
