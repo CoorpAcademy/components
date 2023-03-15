@@ -42,10 +42,16 @@
   justify-content: space-evenly;
 }
 
+.grid .field {
+  margin-right: 20px;
+}
+
 .field {
-  display: flex;
-  margin: 0 32px 64px 0;
-  flex: 1 0 0;
+  margin-bottom: 10px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
 }
 
 
@@ -71,8 +77,8 @@
 .imageUploadContainer {
  display: flex;
  flex-direction: column;
- width: 100%;
- min-width: 230px;
+ height: 300px;
+ width: 360px;
 }
 
 @media desktop {
@@ -81,8 +87,6 @@
   }
 
   .groupGrid .grid {
-    display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     margin-top: 0;
   }
