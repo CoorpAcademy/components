@@ -44,7 +44,7 @@ const ImageUpload = ({
   };
 
   return (
-    <div>
+    <>
       <DragAndDrop
         title={title}
         description={description}
@@ -86,7 +86,7 @@ const ImageUpload = ({
           />
         </div>
       ) : null}
-    </div>
+    </>
   );
 };
 

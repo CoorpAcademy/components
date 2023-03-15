@@ -188,14 +188,17 @@ class DragAndDrop extends React.Component {
       error
     );
 
-    return (
-      <div className={style.wrapper} data-name="drag-and-drop-wrapper">
-        <div className={style.title}>{title}</div>
-        {!isEmpty(previewContent) || loading ? (
+    const buildContent = () => {
+      if (loading) {
+        return previewView;
+      } else if (!isEmpty(previewContent)) {
+        return (
           <div className={classnames(previewContainer, disabled && style.disabled)}>
             {previewView}
           </div>
-        ) : (
+        );
+      } else {
+        return (
           <div
             className={classnames(
               dragging ? style.dragging : inputWrapper,
@@ -216,7 +219,16 @@ class DragAndDrop extends React.Component {
             {button}
             <div>{children(this.handleDragStart, this.handleDragStop)}</div>
           </div>
-        )}
+        );
+      }
+    };
+
+    const content = buildContent();
+
+    return (
+      <div className={style.wrapper} data-name="drag-and-drop-wrapper">
+        <div className={style.title}>{title}</div>
+        {content}
         {error ? (
           <span className={classnames(style.errorMessage, disabled && style.disabled)}>
             {error}
