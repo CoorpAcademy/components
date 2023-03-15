@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import noop from 'lodash/fp/noop';
 import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
 import cssStyle from './style.css';
@@ -14,12 +15,21 @@ const ButtonContent = props => {
     href,
     target,
     onClick,
-    className = cssStyle.button,
+    className,
     children,
     type,
     style,
     'data-name': dataName,
-    'aria-label': ariaLabel
+    'aria-label': ariaLabel,
+    'data-testid': dataTestid,
+    useButtonTag,
+    buttonRef,
+    'data-for': dataFor,
+    'data-tooltip-place': dataTooltipPlace,
+    'data-tip': dataTip,
+    onKeyDown = noop,
+    onMouseLeave = noop,
+    onMouseOver = noop
   } = props;
   const anchorClassName = (disabled && `${className} ${cssStyle.disabledAnchor}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
@@ -57,6 +67,30 @@ const ButtonContent = props => {
         </a>
       );
 
+    case 'button':
+      if (useButtonTag)
+        return (
+          <button
+            ref={buttonRef}
+            type="button"
+            data-for={dataFor}
+            data-tooltip-place={dataTooltipPlace}
+            data-tip={dataTip}
+            data-name={dataName}
+            data-testid={dataTestid}
+            aria-label={ariaLabel.favorite}
+            className={className}
+            onClick={onClick}
+            style={style}
+            onKeyDown={onKeyDown}
+            onMouseLeave={onMouseLeave}
+            onMouseOver={onMouseOver}
+            tabIndex={0}
+          >
+            {children}
+          </button>
+        );
+    // falls through in case type is button BUT no button tag is needed, for retro-compatibility
     default:
       return (
         <input
@@ -83,12 +117,23 @@ ButtonContent.propTypes = {
   download: PropTypes.bool,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   type: PropTypes.string,
-  onClick: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
   style: PropTypes.shape({}),
   'data-name': PropTypes.string,
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+  'data-testid': PropTypes.string,
+  useButtonTag: PropTypes.bool,
+  // event handlers
+  onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  onMouseLeave: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  // for ReactTooltip handling
+  buttonRef: PropTypes.shape({}),
+  'data-for': PropTypes.string,
+  'data-tooltip-place': PropTypes.string,
+  'data-tip': PropTypes.bool
 };
 
 const Button = props => {
@@ -98,42 +143,38 @@ const Button = props => {
     isLinkDisabled,
     type = 'submit',
     children,
-    style
+    useWrapper = true
   } = props;
-  const cNames =
-    (isLinkDisabled && classnames([cssStyle.disabledAnchor, className])) ||
-    classnames([cssStyle.button, className]);
-  return (
-    <div className={cNames}>
-      <ButtonContent
-        {...props}
-        type={type}
-        className={buttonContentClassName ? buttonContentClassName : cssStyle.buttonContent}
-        style={{
-          ...style
-        }}
-      >
+  const buttonWrapperClassNames = useMemo(
+    () =>
+      (isLinkDisabled && classnames([cssStyle.disabledAnchor, className])) ||
+      classnames([cssStyle.button, className]),
+    [className, isLinkDisabled]
+  );
+
+  const contentClassName = useMemo(
+    () => (buttonContentClassName ? buttonContentClassName : cssStyle.buttonContent),
+    [buttonContentClassName]
+  );
+
+  return useWrapper ? (
+    <div className={buttonWrapperClassNames}>
+      <ButtonContent {...props} type={type} className={contentClassName}>
         {children}
       </ButtonContent>
     </div>
+  ) : (
+    <ButtonContent {...props} type={type} className={contentClassName}>
+      {children}
+    </ButtonContent>
   );
 };
 
 Button.propTypes = {
-  color: ColorPropType,
-  submitValue: PropTypes.string,
-  disabled: PropTypes.bool,
   isLinkDisabled: PropTypes.bool,
-  href: PropTypes.string,
-  download: PropTypes.bool,
-  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  type: PropTypes.string,
-  onClick: PropTypes.func,
-  children: PropTypes.node,
-  className: PropTypes.string,
+  useWrapper: PropTypes.bool,
   buttonContentClassName: PropTypes.string,
-  style: PropTypes.shape({}),
-  'data-name': PropTypes.string
+  ...ButtonContent.propTypes
 };
 
 export default Button;

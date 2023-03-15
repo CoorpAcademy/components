@@ -112,15 +112,17 @@ const BattleOpponent = (
           >
             <InformationIcon className={style.informationIcon} width={20} height={20} />
           </button>
-          <ToolTip
-            fontSize={12}
-            anchorId={battleOpponentInfoId}
-            toolTipIsVisible={toolTipIsVisible}
-            TooltipContent={TooltipContent}
-            closeToolTipInformationTextAriaLabel={translate(
-              'Press the escape key to close the information text'
-            )}
-          />
+          <span className={style.toolTipWrapper}>
+            <ToolTip
+              fontSize={12}
+              anchorId={battleOpponentInfoId}
+              toolTipIsVisible={toolTipIsVisible}
+              TooltipContent={TooltipContent}
+              closeToolTipInformationTextAriaLabel={translate(
+                'Press the escape key to close the information text'
+              )}
+            />
+          </span>
         </>
       ) : (
         <ArrowRight className={style.rightArrow} width={16} height={16} />

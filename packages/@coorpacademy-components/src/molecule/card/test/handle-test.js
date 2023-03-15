@@ -24,7 +24,7 @@ test('should call the onFavoriteClick function with click on favorite icon (favo
   const wrapper = mount(<Card {...props} />, {wrappingComponent});
   const favoriteSection = wrapper.find('[data-name="favorite"]');
   t.is(favoriteSection.exists(), true);
-  favoriteSection.simulate('click', clickEvent);
+  favoriteSection.first().simulate('click', clickEvent);
 });
 
 test('should call the onFavoriteClick function with click on favorite icon (favorite: false)', t => {
@@ -38,7 +38,7 @@ test('should call the onFavoriteClick function with click on favorite icon (favo
   const wrapper = mount(<Card {...props} />, {wrappingComponent});
   const favoriteSection = wrapper.find('[data-name="favorite"]');
   t.is(favoriteSection.exists(), true);
-  favoriteSection.simulate('click', clickEvent);
+  favoriteSection.first().simulate('click', clickEvent);
 });
 
 test('should no render favorite section if favorite is not defined on  the props', t => {
@@ -48,7 +48,7 @@ test('should no render favorite section if favorite is not defined on  the props
   t.is(favoriteSection.exists(), false);
 });
 
-test('should no call onClick with locked card', t => {
+test('should not call onClick with locked card', t => {
   t.plan(4);
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = pipe(
@@ -63,10 +63,10 @@ test('should no call onClick with locked card', t => {
   card.simulate('click');
   const favoriteSection = wrapper.find('[data-name="favorite"]');
   t.is(favoriteSection.exists(), true);
-  favoriteSection.simulate('click', clickEvent);
+  favoriteSection.first().simulate('click', clickEvent);
 });
 
-test('should call onClick chith unlocked card', t => {
+test('should call onClick with unlocked card', t => {
   t.plan(7);
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = pipe(
@@ -79,9 +79,9 @@ test('should call onClick chith unlocked card', t => {
   const card = wrapper.find('[data-name="card"]');
   t.is(card.exists(), true);
   card.simulate('click');
-  const favoriteSection = wrapper.find('[data-name="favorite"]');
+  const favoriteSection = wrapper.find('[data-testid="favorite-button"]');
   t.is(favoriteSection.exists(), true);
-  favoriteSection.simulate('click', clickEvent);
+  favoriteSection.first().simulate('click', clickEvent);
 });
 
 test('should show notification', t => {

@@ -11,7 +11,7 @@ import {
 import style from './selectable.css';
 
 const Selectable = props => {
-  const {isSelected, hidden = false, 'aria-label': ariaLabel = {}} = props;
+  const {isSelected, hidden, 'aria-label': ariaLabel = {}} = props;
 
   if (isUndefined(isSelected)) return null;
 
