@@ -82,7 +82,10 @@ class ExternalCourse extends React.Component {
         contentType={contentType}
       />
     );
-
+    // eslint-disable-next-line no-console
+    console.log('complete');
+    // eslint-disable-next-line no-console
+    console.log(complete);
     const completeButton = !isNil(complete) ? (
       <Button
         type="button"

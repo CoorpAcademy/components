@@ -3,7 +3,8 @@ import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
   NovaLineSettingsCookie as Cookie,
-  NovaSolidSpaceMoonRocket as MoonRocket
+  NovaSolidSpaceMoonRocket as MoonRocket,
+  NovaLineStatusCheckCircle1 as CheckCircle1
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
@@ -32,7 +33,8 @@ const CMPopin = props => {
   const logo = {
     AlertDiamond,
     WindowUpload,
-    MoonRocket
+    MoonRocket,
+    CheckCircle1
   };
   const LogoComponent = logo[icon];
 
