@@ -9,6 +9,7 @@ import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
 import Button from '../../atom/button';
 import ExternalContentViewer from '../../molecule/external-content-viewer';
+import CmPopin from '../../molecule/cm-popin';
 import style from './style.css';
 
 const defaultWrapperStyle = {
@@ -38,7 +39,8 @@ class ExternalCourse extends React.Component {
     loading: PropTypes.bool,
     backgroundImageUrl: PropTypes.string,
     contentType: PropTypes.string,
-    mode: PropTypes.string
+    mode: PropTypes.string,
+    closePopin: PropTypes.shape({...CmPopin.propTypes})
   };
 
   static contextTypes = {
