@@ -65,7 +65,8 @@ class ExternalCourse extends React.Component {
       loading,
       backgroundImageUrl,
       contentType,
-      mode = 'default'
+      mode = 'default',
+      closePopin
     } = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
@@ -84,10 +85,6 @@ class ExternalCourse extends React.Component {
         contentType={contentType}
       />
     );
-    // eslint-disable-next-line no-console
-    console.log('complete');
-    // eslint-disable-next-line no-console
-    console.log(complete);
     const completeButton = !isNil(complete) ? (
       <Button
         type="button"
@@ -161,9 +158,16 @@ class ExternalCourse extends React.Component {
         </div>
       ) : null;
 
+    const popin = !isNil(closePopin) ? (
+      <div>
+        <CmPopin {...closePopin} />
+      </div>
+    ) : null;
+
     return (
       <div className={defaultWrapperStyle[mode]}>
         {header}
+        {popin}
         {mainContentSlot}
         {footer}
       </div>
