@@ -40,7 +40,7 @@ const ImageUpload = ({
 
   const linkCustomStyle = {
     width: '40px',
-    color: 'red'
+    color: '#FF541F'
   };
 
   return (

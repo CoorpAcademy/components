@@ -61,6 +61,12 @@ const buildInput = field => {
           <ImageUpload {...field} />
         </div>
       );
+    case 'bulkUpload':
+      return (
+        <div className={style.bulkUploadContainer}>
+          <ImageUpload {...field} />
+        </div>
+      );
     case 'slider':
       return <SetupSlider {...field} />;
     case 'sections':
@@ -97,6 +103,12 @@ const buildField = (field, index) => {
   );
 };
 
+const defineLayoutClass = layout => {
+  if (layout === 'grid') return classNames(style.grid);
+  else if (layout === 'bulkLayout') return classNames(style.layoutBulk);
+  else return classNames(null);
+};
+
 const BrandFormGroup = props => {
   const {
     title,
@@ -107,6 +119,7 @@ const BrandFormGroup = props => {
     subtitleSize = 'standard'
   } = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
+  const layout = defineLayoutClass(fieldsLayout);
 
   return (
     <div
@@ -116,7 +129,7 @@ const BrandFormGroup = props => {
       <div className={style.titleWrapper}>
         <Title title={title} subtitle={subtitle} subtitleSize={subtitleSize} type={'form-group'} />
       </div>
-      <div className={fieldsLayout === 'grid' ? style.grid : null}>{fieldsList}</div>
+      <div className={layout}>{fieldsList}</div>
     </div>
   );
 };
@@ -171,6 +184,10 @@ BrandFormGroup.propTypes = {
       PropTypes.shape({
         ...ImageUpload.propTypes,
         type: PropTypes.oneOf(['image'])
+      }),
+      PropTypes.shape({
+        ...ImageUpload.propTypes,
+        type: PropTypes.oneOf(['bulkImage'])
       }),
       PropTypes.shape({
         ...SetupSlider.propTypes,
