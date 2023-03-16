@@ -60,19 +60,6 @@
   composes: button;
 }
 
-.toolTipContent {
-  padding: 10px;
-  margin: 0;
-  border-radius: 3px;
-  font-family: 'Gilroy';
-  font-size: 12px;
-  width: 270px;
-  background-color: white;
-  border: 1px solid white;
-  color: dark;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 8px 3px 10px rgba(0, 0, 0, 0.23);
-}
-
 .loaderContainer {
   width: 100%;
   height: 50vh;
