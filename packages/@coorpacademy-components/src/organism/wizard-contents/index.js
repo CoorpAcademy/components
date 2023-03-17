@@ -145,7 +145,7 @@ const WizardContents = props => {
             <WizardSummary {...summary} side={'footer'} />
           </div>
         ) : null}
-        <div className={style.actionFooter}>{footerActionView}</div>
+        <div className={currentStyle.actionFooter}>{footerActionView}</div>
       </div>
     </div>
   );

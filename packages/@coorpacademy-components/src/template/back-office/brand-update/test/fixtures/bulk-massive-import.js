@@ -1,4 +1,4 @@
-import MassiveImport from '../../../../../molecule/brand-form-group/test/fixtures/massive-import';
+import bulkWizardContent from '../../../../../organism/wizard-contents/test/fixtures/bulk-massive-import';
 import headerAndMenu from './default';
 
 const {header} = headerAndMenu.props;
@@ -68,12 +68,11 @@ export default {
   props: {
     header,
     items,
+    notifications: [],
     content: {
-      groups: [MassiveImport.props],
-      type: 'form',
-      onSubmit: () => {},
-      submitValue: 'Next step'
-    },
-    contentFixHeight: true
+      ...bulkWizardContent.props,
+      key: 'bulk-import',
+      type: 'wizard'
+    }
   }
 };
