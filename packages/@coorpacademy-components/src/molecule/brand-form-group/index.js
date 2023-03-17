@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {keys, map, snakeCase} from 'lodash/fp';
 import classNames from 'classnames';
@@ -119,7 +119,7 @@ const BrandFormGroup = props => {
     subtitleSize = 'standard'
   } = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
-  const layout = defineLayoutClass(fieldsLayout);
+  const layout = useMemo(() => defineLayoutClass(fieldsLayout), [fieldsLayout]);
 
   return (
     <div
