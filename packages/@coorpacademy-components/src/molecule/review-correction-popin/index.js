@@ -1,37 +1,75 @@
-import React from 'react';
+import React, {useCallback, useMemo} from 'react';
 import classnames from 'classnames';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
 import ButtonLink from '../../atom/button-link';
+import Provider, {GetTranslateFromContext} from '../../atom/provider';
+import Tooltip from '../../atom/tooltip';
 import style from './style.css';
 import propTypes from './prop-types';
 
-const buildKlfButton = klf => {
-  const klfButtonProps = {
-    ...klf,
-    icon: {
-      position: 'left',
-      type: 'key'
-    },
-    type: 'primary'
-  };
+const KlfButton = ({klf}, legacyContext) => {
+  const translate = GetTranslateFromContext(legacyContext);
+  const klfButtonProps = useMemo(
+    () => ({
+      ...klf,
+      icon: {
+        position: 'left',
+        type: 'key'
+      },
+      type: 'primary'
+    }),
+    [klf]
+  );
+
+  const AnchorButton = useCallback(
+    ({onKeyDown}) => (
+      <div className={style.klfButtonContainer}>
+        <ButtonLink {...klfButtonProps} className={style.klfButton} onKeyDown={onKeyDown} />
+      </div>
+    ),
+    [klfButtonProps]
+  );
+
+  const TooltipContent = useCallback(
+    () => (
+      <span
+        className={style.tooltipText}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: klf.tooltip}}
+      />
+    ),
+    [klf.tooltip]
+  );
+
+  const toolTipProps = useMemo(
+    () => ({
+      closeToolTipInformationTextAriaLabel: translate(
+        'Press the escape key to close the information text'
+      ),
+      AnchorElement: AnchorButton,
+      TooltipContent,
+      'aria-label': translate('More details'),
+      tooltipClassName: style.toolTipCustomization
+    }),
+    [AnchorButton, TooltipContent, translate]
+  );
 
   return (
     <div className={style.klfContainer}>
-      <div className={style.klfButtonContainer}>
-        <ButtonLink {...klfButtonProps} className={style.klfButton} />
-      </div>
-      <div className={style.toolTip}>
-        <span
-          className={style.tooltipText}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: klf.tooltip}}
-        />
-      </div>
+      <Tooltip {...toolTipProps} />
     </div>
   );
+};
+
+KlfButton.propTypes = {
+  klf: propTypes.klf
+};
+
+KlfButton.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 const ReviewCorrectionPopin = props => {
@@ -42,7 +80,7 @@ const ReviewCorrectionPopin = props => {
     type: 'primary'
   };
 
-  const cta = type === 'wrong' ? buildKlfButton(klf) : null;
+  const cta = type === 'wrong' ? <KlfButton klf={klf} /> : null;
 
   const ICONS = {
     right: RightIcon,

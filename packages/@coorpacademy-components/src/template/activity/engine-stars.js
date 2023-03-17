@@ -173,6 +173,7 @@ const EngineStars = (props, legacyContext) => {
       onKeyDown={handleKeyPress}
       onMouseLeave={handleMouseLeave}
       onMouseOver={handleMouseOver}
+      aria-label={translate('More details')}
     >
       {disabled ? (
         <ToolTip

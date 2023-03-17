@@ -38,6 +38,7 @@ const ButtonLink = props => {
     'aria-label': ariaLabel,
     link,
     onClick = noop,
+    onKeyDown = noop,
     className,
     customStyle
   } = props;
@@ -55,6 +56,8 @@ const ButtonLink = props => {
   );
 
   const handleOnClick = useCallback(() => onClick(), [onClick]);
+
+  const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
 
   if (link) {
     return (
@@ -76,12 +79,15 @@ const ButtonLink = props => {
     <button
       type="button"
       aria-label={ariaLabel || label}
-      title={ariaLabel || label}
+      // why ??
+      // title={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}
       style={customStyle}
       className={styleButton}
       onClick={handleOnClick}
+      onKeyDown={handleOnKeyDown}
+      tabIndex={0}
     >
       {contentView}
     </button>
@@ -99,6 +105,7 @@ ButtonLink.propTypes = {
     type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
     download: PropTypes.bool,
