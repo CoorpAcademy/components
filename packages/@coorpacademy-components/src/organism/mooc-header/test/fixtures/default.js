@@ -112,6 +112,7 @@ export default {
     'settings-aria-label': 'account settings',
     'close-settings-aria-label': 'close account settings',
     'active-page-aria-label': 'Active page',
+    'group-settings-aria-label': 'Manage settings',
     settings: [
       {
         title: 'Language',

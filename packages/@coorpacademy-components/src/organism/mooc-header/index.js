@@ -92,6 +92,7 @@ class MoocHeader extends React.Component {
     }),
     'settings-aria-label': PropTypes.string,
     'active-page-aria-label': PropTypes.string,
+    'group-settings-aria-label': PropTypes.string,
     settings: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
@@ -283,7 +284,8 @@ class MoocHeader extends React.Component {
       search,
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
-      'active-page-aria-label': activePageAriaLabel
+      'active-page-aria-label': activePageAriaLabel,
+      'group-settings-aria-label': groupAriaLbale
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
     const {translate, skin} = this.context;
@@ -621,7 +623,12 @@ class MoocHeader extends React.Component {
             aria-label={settingsAriaLabel}
           />
           <div className={isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
-            <div data-name="settings" className={style.settingsGroup}>
+            <div
+              data-name="settings"
+              className={style.settingsGroup}
+              role="group"
+              aria-label={groupAriaLbale}
+            >
               {settingsElements}
             </div>
           </div>
