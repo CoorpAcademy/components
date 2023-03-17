@@ -19,7 +19,7 @@ export default {
       }
     ],
     content: {
-      groups: [...form.props],
+      groups: [form.props],
       type: 'form'
     },
     nextStep: {
