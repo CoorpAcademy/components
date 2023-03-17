@@ -54,7 +54,6 @@
   margin-bottom: 0;
 }
 
-
 .fieldCoorpmanager {
   margin: 0 0 32px 0;
 }
@@ -79,6 +78,25 @@
  flex-direction: column;
  height: 300px;
  width: 360px;
+}
+
+.bulkUploadContainer {
+  height: 300px;
+  width: 100%;
+ }
+
+.layoutBulk {
+ display: flex;
+ flex-wrap: nowrap;
+}
+
+.layoutBulk .field {
+  min-width: 360px;
+  width: 100%;
+}
+
+.layoutBulk .field:nth-child(1) {
+  margin: 0px 32px 0 0px;
 }
 
 @media desktop {

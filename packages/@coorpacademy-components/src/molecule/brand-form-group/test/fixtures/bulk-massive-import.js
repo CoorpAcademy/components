@@ -10,21 +10,25 @@ export default {
         description: 'ZIP',
         onChange: () => true,
         title: 'Upload ZIP',
-        type: 'image',
-        buttonAriaLabel: 'Browse file to upload Bulk ZIP'
+        type: 'bulkUpload',
+        buttonAriaLabel: 'Browse file to upload Bulk ZIP',
+        previewContent: {
+          type: 'image',
+          src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491560495763.csv'
+        }
       },
       {
         uploadLabel: 'Browse',
         description: 'CSV',
         onChange: () => true,
         title: 'Upload CSV',
-        type: 'image',
+        type: 'bulkUpload',
         buttonAriaLabel: 'Browse file to upload CSV Bulk Metadata',
         labelButtonLink: 'here',
         labelLink: 'Need the template? Download it',
         hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx'
       }
     ],
-    fieldsLayout: 'grid'
+    fieldsLayout: 'bulkLayout'
   }
 };

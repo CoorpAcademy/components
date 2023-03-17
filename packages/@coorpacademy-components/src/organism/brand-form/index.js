@@ -2,7 +2,6 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionNavigationArrowLeft as ArrowLeft} from '@coorpacademy/nova-icons';
-import ReactTooltip from 'react-tooltip';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
@@ -28,13 +27,6 @@ const buildButtonSection = (
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
     <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
-      <ReactTooltip
-        type="light"
-        effect="solid"
-        className={style.toolTipContent}
-        place={tooltip.place}
-        id="submitButton"
-      />
       <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
     </div>
   ) : null;
