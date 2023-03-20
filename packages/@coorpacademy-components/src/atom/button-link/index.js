@@ -38,8 +38,10 @@ const ButtonLink = props => {
     'aria-label': ariaLabel,
     link,
     onClick = noop,
+    onKeyDown = noop,
     className,
-    customStyle
+    customStyle,
+    useTitle = true
   } = props;
   const contentView = getButtonContent(icon, label);
   const styleButton = classnames(
@@ -56,16 +58,20 @@ const ButtonLink = props => {
 
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
+  const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
+
   if (link) {
     return (
       <Link
         {...link}
+        {...(useTitle && {
+          title: ariaLabel || label
+        })}
         style={customStyle}
         className={styleButton}
         data-name={dataName}
         data-testid={dataTestId}
         aria-label={ariaLabel || label}
-        title={ariaLabel || label}
       >
         {contentView}
       </Link>
@@ -74,14 +80,18 @@ const ButtonLink = props => {
 
   return (
     <button
+      {...(useTitle && {
+        title: ariaLabel || label
+      })}
       type="button"
       aria-label={ariaLabel || label}
-      title={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}
       style={customStyle}
       className={styleButton}
       onClick={handleOnClick}
+      onKeyDown={handleOnKeyDown}
+      tabIndex={0}
     >
       {contentView}
     </button>
@@ -99,6 +109,7 @@ ButtonLink.propTypes = {
     type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
     download: PropTypes.bool,
@@ -106,7 +117,8 @@ ButtonLink.propTypes = {
   }),
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.shape({})
+  customStyle: PropTypes.shape({}),
+  useTitle: PropTypes.bool
 };
 
 export default ButtonLink;

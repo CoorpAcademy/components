@@ -3,6 +3,8 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import isString from 'lodash/fp/isString';
+import has from 'lodash/fp/has';
+import isNil from 'lodash/fp/isNil';
 import keys from 'lodash/fp/keys';
 import {NovaCompositionCoorpacademyInformationIcon as InformationIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
@@ -23,11 +25,15 @@ const ToolTipWrapper = ({
   closeToolTipInformationTextAriaLabel,
   content,
   handleContentMouseOver,
-  iconSize
+  iconSize,
+  tooltipClassName,
+  usesAnchorElement
 }) => {
   const coorpToolTipClasses = classnames(
     style.toolTip,
-    iconSize === 'big' ? style.bigIconToolTip : style.smallIconToolTip
+    tooltipClassName,
+    // eslint-disable-next-line no-nested-ternary
+    usesAnchorElement ? null : iconSize === 'big' ? style.bigIconToolTip : style.smallIconToolTip
   );
   if (!toolTipIsVisible) return null;
   if (anchorId) {
@@ -63,11 +69,14 @@ ToolTipWrapper.propTypes = {
   closeToolTipInformationTextAriaLabel: PropTypes.string.isRequired,
   content: PropTypes.node,
   handleContentMouseOver: PropTypes.func,
-  iconSize: PropTypes.oneOf(keys(IconSizes))
+  iconSize: PropTypes.oneOf(keys(IconSizes)),
+  tooltipClassName: PropTypes.string,
+  usesAnchorElement: PropTypes.bool
 };
 
 export const toggleStateOnKeyPress = (state, setState, ref) => event => {
-  if (event.key === 'Enter') {
+  if (!has('key', event)) return;
+  else if (event.key === 'Enter') {
     if (ref) ref.current.focus();
     event.stopPropagation();
     event.preventDefault();
@@ -87,7 +96,9 @@ const ToolTip = ({
   iconContainerClassName,
   delayHide = 250,
   fontSize = 14,
-  iconSize = 'small'
+  iconSize = 'small',
+  AnchorElement,
+  tooltipClassName
 }) => {
   const isComponent = useMemo(
     () => !isString(TooltipContent) && isValidElement(TooltipContent()),
@@ -126,6 +137,29 @@ const ToolTip = ({
     );
   }, [TooltipContent, fontSize, isComponent]);
 
+  const anchorElement = useMemo(
+    () =>
+      AnchorElement ? (
+        <AnchorElement onKeyDown={handleKeyPress} />
+      ) : (
+        <button
+          type="button"
+          className={classnames([style.tooltipIconContainer, iconContainerClassName])}
+          data-testid={dataTestId}
+          onKeyDown={handleKeyPress}
+          tabIndex={0}
+        >
+          <InformationIcon
+            className={style.informationIcon}
+            width={IconSizes[iconSize]}
+            height={IconSizes[iconSize]}
+            aria-label={ariaLabel}
+          />
+        </button>
+      ),
+    [AnchorElement, ariaLabel, dataTestId, handleKeyPress, iconContainerClassName, iconSize]
+  );
+
   return anchorId ? (
     <ToolTipWrapper
       toolTipIsVisible={_toolTipIsVisible}
@@ -142,20 +176,7 @@ const ToolTip = ({
       onMouseLeave={handleMouseLeave}
       onMouseOver={handleMouseOver}
     >
-      <button
-        type="button"
-        className={classnames([style.tooltipIconContainer, iconContainerClassName])}
-        data-testid={dataTestId}
-        onKeyDown={handleKeyPress}
-        tabIndex={0}
-      >
-        <InformationIcon
-          className={style.informationIcon}
-          width={IconSizes[iconSize]}
-          height={IconSizes[iconSize]}
-          aria-label={ariaLabel}
-        />
-      </button>
+      {anchorElement}
       <ToolTipWrapper
         toolTipIsVisible={toolTipIsVisible}
         anchorId={anchorId}
@@ -164,6 +185,8 @@ const ToolTip = ({
         handleContentMouseOver={handleContentMouseOver}
         fontSize={fontSize}
         iconSize={iconSize}
+        tooltipClassName={tooltipClassName}
+        usesAnchorElement={!isNil(AnchorElement)}
       />
     </div>
   );
@@ -175,6 +198,10 @@ ToolTip.propTypes = {
   'aria-label': PropTypes.string,
   closeToolTipInformationTextAriaLabel: PropTypes.string.isRequired,
   // ---------- Regular Tooltip exclusive --------------
+  // If using an Anchor element w/ the regular Tooltip
+  AnchorElement: PropTypes.func,
+  tooltipClassName: PropTypes.string,
+  //
   iconContainerClassName: PropTypes.string,
   delayHide: PropTypes.number,
   fontSize: PropTypes.oneOf([12, 14]),

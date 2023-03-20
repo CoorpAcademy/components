@@ -56,7 +56,7 @@
   width: 15px;
   height: 15px;
   transform: rotate(-45deg);
-  background-color: cm_grey_700;
+  background-color: inherit;
   position: inherit;
   border-radius: 2px;
   bottom: -5px;

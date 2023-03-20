@@ -4,14 +4,12 @@ export default {
     label: 'Go to google',
     'data-name': 'default-button',
     'data-testid': 'default-button',
-    'aria-label': 'aria button',
     onClick: () => {
       console.log('Click on link');
       return;
     },
     link: {
       href: 'https://www.google.com'
-    },
-    useTitle: false
+    }
   }
 };

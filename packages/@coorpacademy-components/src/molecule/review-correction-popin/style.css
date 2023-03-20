@@ -137,34 +137,6 @@
   flex: 0 1 auto;
 }
 
-.toolTip {
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.4s;
-  position: absolute;
-  width: 142%;
-  border-radius: 15px;
-  background-color: white;
-  right: 0px;
-  bottom: 55px;
-  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.32));
-}
-
-.toolTip::before {
-  content: '';
-  display: inline-block;
-  visibility: hidden;
-  opacity: 0;
-  width: 15px;
-  height: 15px;
-  transform: rotate(-45deg);
-  transition: opacity 0.4s;
-  background-color: white;
-  position: inherit;
-  bottom: -7px;
-  right: 10%;
-}
-
 .tooltipText {
   display: inline-block;
   margin: 16px;
@@ -182,16 +154,6 @@
   width: calc(55% - 16px);
   margin-right: 16px;
   position: relative;
-}
-
-.klfButtonContainer:hover ~ .toolTip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.klfButtonContainer:hover ~ .toolTip::before {
-  visibility: visible;
-  opacity: 1;
 }
 
 .klfButtonContainer {
@@ -225,6 +187,13 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), #FFFFFF;
 }
 
+.toolTipCustomization {
+  right: 0;
+  bottom: 52px;
+  background-color: white;
+  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.32));
+}
+
 @media tablet {
   .resultLabel {
     display: none;
@@ -248,6 +217,10 @@
 }
 
 @media mobile {
+  .toolTipCustomization {
+    right: 90px;
+  }
+
   .popin {
     width: 100%;
     min-height: 100px;
@@ -304,20 +277,5 @@
 
   .klfButtonContainer {
     margin: 0;
-  }
-
-  .toolTip {
-    width: 106%;
-    right: -3%;
-    top: auto;
-    bottom: 52px;
-  }
-
-  .toolTip::before {
-    right: 50%
-  }
-
-  .tooltipText {
-    max-width: none;
   }
 }
