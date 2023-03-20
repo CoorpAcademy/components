@@ -27,7 +27,12 @@ const KlfButton = ({klf}, legacyContext) => {
   const AnchorButton = useCallback(
     ({onKeyDown}) => (
       <div className={style.klfButtonContainer}>
-        <ButtonLink {...klfButtonProps} className={style.klfButton} onKeyDown={onKeyDown} />
+        <ButtonLink
+          {...klfButtonProps}
+          className={style.klfButton}
+          onKeyDown={onKeyDown}
+          useTitle={false}
+        />
       </div>
     ),
     [klfButtonProps]

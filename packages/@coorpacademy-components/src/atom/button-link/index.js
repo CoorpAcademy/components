@@ -40,7 +40,8 @@ const ButtonLink = props => {
     onClick = noop,
     onKeyDown = noop,
     className,
-    customStyle
+    customStyle,
+    useTitle = true
   } = props;
   const contentView = getButtonContent(icon, label);
   const styleButton = classnames(
@@ -63,12 +64,14 @@ const ButtonLink = props => {
     return (
       <Link
         {...link}
+        {...(useTitle && {
+          title: ariaLabel || label
+        })}
         style={customStyle}
         className={styleButton}
         data-name={dataName}
         data-testid={dataTestId}
         aria-label={ariaLabel || label}
-        title={ariaLabel || label}
       >
         {contentView}
       </Link>
@@ -77,10 +80,11 @@ const ButtonLink = props => {
 
   return (
     <button
+      {...(useTitle && {
+        title: ariaLabel || label
+      })}
       type="button"
       aria-label={ariaLabel || label}
-      // why ??
-      // title={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}
       style={customStyle}
@@ -113,7 +117,8 @@ ButtonLink.propTypes = {
   }),
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.shape({})
+  customStyle: PropTypes.shape({}),
+  useTitle: PropTypes.bool
 };
 
 export default ButtonLink;

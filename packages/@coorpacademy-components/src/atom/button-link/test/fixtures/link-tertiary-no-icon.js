@@ -11,6 +11,7 @@ export default {
     },
     link: {
       href: 'https://www.google.com'
-    }
+    },
+    useTitle: false
   }
 };
