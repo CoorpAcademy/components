@@ -150,6 +150,11 @@
   margin-top: 0px;
 }
 
+.descriptionText, .content, .message {
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
 .cookieTitleContainer {
   align-items: center;
   display: flex;
@@ -298,7 +303,7 @@ a {
   }
 
   .titleContainer {
-    width: 85%;
+    width: 100%;
   }
 
   .popinCookie {
@@ -342,7 +347,12 @@ a {
     }
 
     .titleContainer {
-      width: 85%;
+      width: 100%;
+    }
+
+    .content, .message, .descriptionText {
+      margin-left: 16px;
+      margin-right: 16px;
     }
   }
 }
@@ -355,7 +365,6 @@ button {
 }
 
 _:-ms-fullscreen,
-.descriptionText,
 .buttonContainer {
   width: 85%;
 }
