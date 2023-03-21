@@ -1,4 +1,6 @@
-export default {
+import {Fixture} from '../../types';
+
+export const fixture: Fixture = {
   props: {
     type: 'dangerous',
     label: 'Delete',
@@ -7,3 +9,4 @@ export default {
     onClick: () => console.log('click')
   }
 };
+export default fixture;

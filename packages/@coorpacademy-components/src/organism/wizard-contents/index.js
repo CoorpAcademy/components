@@ -11,6 +11,7 @@ import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
 import CourseSections from '../../molecule/course-sections';
 import RewardsForm from '../rewards-form';
+import ExpandibleActionableErrorsTable from '../../molecule/expandible-actionable-table';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
@@ -52,6 +53,8 @@ const buildForm = content => {
       return <CourseSections {...content} />;
     case 'rewards':
       return <RewardsForm {...content} />;
+    case 'expandible-table':
+      return <ExpandibleActionableErrorsTable {...content} />;
   }
 };
 
@@ -185,6 +188,10 @@ WizardContents.propTypes = {
     PropTypes.shape({
       ...RewardsForm.propTypes,
       type: PropTypes.oneOf(['rewards'])
+    }),
+    PropTypes.shape({
+      ...ExpandibleActionableErrorsTable.propTypes,
+      type: PropTypes.oneOf(['expandible-table'])
     })
   ]),
   previousStep: PropTypes.shape({

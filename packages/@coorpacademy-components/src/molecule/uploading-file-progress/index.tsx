@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import style from './style.css';
-import {Props, propTypes} from './types';
+import {UploadingFileProgressProps as Props, propTypes} from './types';
 
 const UploadingFileProgress = ({
   mainText,

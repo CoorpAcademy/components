@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {ButtonLinkProps} from '../../atom/button-link/types';
 import Picture from '../../atom/picture';
 
 export const propTypes = {
@@ -16,6 +17,13 @@ export const propTypes = {
     }),
     onClick: PropTypes.func
   })
+};
+
+export type EmptyStateDashboardProps = {
+  mainText: string;
+  subText: string;
+  imageUrl: PropTypes.InferProps<typeof Picture.propTypes.src>;
+  buttonLink: ButtonLinkProps;
 };
 
 export type Props = PropTypes.InferProps<typeof propTypes>;

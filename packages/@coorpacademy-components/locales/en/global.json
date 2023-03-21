@@ -89,7 +89,8 @@
   "bulk_import": {
     "errors_number": "bulk import errors number is {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm file is valid",
-    "invalid_scorm": "scorm file is not valid"
+    "invalid_scorm": "scorm file is not valid",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Close review slide",
   "post_comment_aria_label": "Post your comment",

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import {ButtonLinkProps} from '../../atom/button-link/types';
 import Picture from '../../atom/picture';
 
 export const propTypes = {
@@ -30,4 +31,11 @@ export const propTypes = {
   })
 };
 
-export type Props = PropTypes.InferProps<typeof propTypes>;
+export type UploadingFileProgressProps = {
+  mainText?: string;
+  subText?: string;
+  imageUrl?: PropTypes.InferProps<typeof Picture.propTypes.src>;
+  progressionValue?: number;
+  leftButtonLink?: ButtonLinkProps;
+  rightButtonLink?: ButtonLinkProps;
+};

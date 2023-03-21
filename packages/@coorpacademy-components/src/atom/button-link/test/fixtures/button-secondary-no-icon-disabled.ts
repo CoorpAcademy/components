@@ -1,4 +1,6 @@
-export default {
+import {Fixture} from '../../types';
+
+const fixture: Fixture = {
   props: {
     type: 'secondary',
     label: 'See my platform',
@@ -8,3 +10,4 @@ export default {
     disabled: true
   }
 };
+export default fixture;

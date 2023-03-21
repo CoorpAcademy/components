@@ -1,4 +1,4 @@
-import {Props} from '../../types';
+import {UploadingFileProgressProps as Props} from '../../types';
 
 type Fixture = {props: Props};
 const fixture: Fixture = {
@@ -10,15 +10,15 @@ const fixture: Fixture = {
     leftButtonLink: {
       type: 'secondary',
       label: 'Create New Import',
-      ariaLabel: 'Create New Import',
-      dataName: 'default-button',
+      'aria-label': 'Create New Import',
+      'data-name': 'default-button',
       onClick: () => console.log('click')
     },
     rightButtonLink: {
       type: 'primary',
       label: 'Go to Dashboard',
-      ariaLabel: 'Go to Dashboard',
-      dataName: 'default-button',
+      'aria-label': 'Go to Dashboard',
+      'data-name': 'default-button',
       onClick: () => console.log('click')
     }
   }

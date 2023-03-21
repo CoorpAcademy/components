@@ -22,6 +22,6 @@ export default {
       'data-name': 'default-button',
       onClick: () => console.log('click')
     },
-    items: [...listePublishedItems, propsRevised]
+    content: {items: [...listePublishedItems, propsRevised], type: 'list'}
   }
 };

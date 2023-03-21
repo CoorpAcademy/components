@@ -1,0 +1,134 @@
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
+@value cm_negative_red_200 from colors;
+@value light from colors;
+
+.wrapper {
+  width: 100%;
+}
+
+.table {
+  table-layout: fixed;  
+  border: 1px solid light;
+  font-family: 'Gilroy';
+  font-style: normal;
+  border-spacing: 0;
+  border-radius: 8px;
+  max-width: 1089px;
+  min-width: 1089px;
+}
+
+.thead {
+  background-color: xtraLightGrey;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: cm_grey_400;
+  height: 56px;
+  text-align: left; 
+}
+
+.theadNested {
+  background-color: xtraLightGrey;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: cm_grey_400;
+  height: 40px;
+  text-align: left; 
+}
+
+.header {
+  width: 276px;
+  padding-left: 56px;
+  box-sizing: border-box;
+  background-color: xtraLightGrey;
+}
+
+.headerFirstSticky {
+  position: sticky;
+  left: 0;
+  background-color: xtraLightGrey;
+}
+
+.headerFirst {
+  background-color: xtraLightGrey;
+}
+
+.headerLastSticky {
+  position: sticky;
+  right: 0;
+  background-color: xtraLightGrey;
+}
+
+.headerLast {
+  background-color: xtraLightGrey;
+}
+
+.col {
+  text-align: left; 
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: cm_grey_700;
+  border-top: 1px solid light;
+  padding-left: 56px;
+  max-width: 364px;
+}
+
+.columnFirst {
+  padding-left: 16px;
+  background-color: white;
+}
+
+.columnFirst .columFirstWrapper,
+.columnFirstSticky .columFirstWrapper {
+  display: flex;
+  justify-content: start;
+  gap: 16px;
+}
+
+.columnFirst .columFirstWrapper .expandButtonWrapper,
+.columnFirstSticky .columFirstWrapper .expandButtonWrapper {
+  min-width: 24px;
+}
+
+.columnFirstSticky {
+  position: sticky;
+  left: 0;
+  padding-left: 16px;
+  background-color: white;
+}
+
+.columnLast {
+  text-align: left; 
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 600; 
+  font-size: 14px;
+  line-height: 20px;
+  color: cm_grey_700;
+  border-top: 1px solid light;
+  display: flex;
+  justify-content: end;
+}
+
+.columnLastSticky {
+  composes: columnLast;
+  position: sticky;
+  right: 0;
+ }
+
+.inspectButton{
+  padding-right: 20px;
+  background-color: white;
+}
+
+.nestedRowCellule{
+padding: 10px;
+border-top: 1px solid light;  
+}

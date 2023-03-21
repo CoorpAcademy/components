@@ -1,14 +1,15 @@
 import React, {useCallback} from 'react';
-import PropTypes from 'prop-types';
-import {getOr, keys, noop} from 'lodash/fp';
+import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
 import {ICONS} from '../../util/button-icons';
+import propTypes, {ButtonLinkProps, IconType} from './types';
+// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
-const getButtonContent = (icon, label) => {
-  const {type, position} = icon;
-  const Icon = getOr(null, type, ICONS);
+const getButtonContent = (icon?: IconType, label?: string) => {
+  const {type, position} = icon || {type: '', position: ''};
+  const Icon = type && ICONS[type];
 
   if (!Icon) {
     return (
@@ -27,12 +28,12 @@ const getButtonContent = (icon, label) => {
   );
 };
 
-const ButtonLink = props => {
+const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
     label,
     disabled,
-    icon = {},
+    icon,
     'data-name': dataName,
     'data-testid': dataTestId = 'button-link',
     'aria-label': ariaLabel,
@@ -45,7 +46,7 @@ const ButtonLink = props => {
   } = props;
   const contentView = getButtonContent(icon, label);
   const styleButton = classnames(
-    className,
+    style[`${className}`],
     style.button,
     type === 'primary' && style.primary,
     type === 'secondary' && style.secondary,
@@ -98,27 +99,6 @@ const ButtonLink = props => {
   );
 };
 
-ButtonLink.propTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
-  label: PropTypes.string,
-  'aria-label': PropTypes.string,
-  'data-name': PropTypes.string,
-  'data-testid': PropTypes.string,
-  icon: PropTypes.shape({
-    position: PropTypes.oneOf(['right', 'left']),
-    type: PropTypes.oneOf(keys(ICONS))
-  }),
-  onClick: PropTypes.func,
-  onKeyDown: PropTypes.func,
-  link: PropTypes.shape({
-    href: PropTypes.string,
-    download: PropTypes.bool,
-    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
-  }),
-  disabled: PropTypes.bool,
-  className: PropTypes.string,
-  customStyle: PropTypes.shape({}),
-  useTitle: PropTypes.bool
-};
+ButtonLink.propTypes = propTypes;
 
 export default ButtonLink;
