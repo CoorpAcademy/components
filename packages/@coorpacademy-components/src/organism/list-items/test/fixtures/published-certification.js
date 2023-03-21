@@ -22,6 +22,33 @@ export default {
       'data-name': 'default-button',
       onClick: () => console.log('click')
     },
+    selectMultiple: {
+      theme: 'coorpmanager',
+      placeholder: 'Select language(s)',
+      title: 'Population',
+      description: 'You should select a language',
+      disabled: false,
+      error: '',
+      options: [
+        {
+          value: 'pop-1',
+          name: 'Capgemini',
+          selected: true
+        },
+        {
+          value: 'pop-2',
+          name: 'Student',
+          selected: false
+        },
+        {
+          value: 'pop-3',
+          name: 'Student Edhec',
+          selected: false
+        }
+      ],
+      onChange: value => console.log('onChange', value),
+      onError: () => true
+    },
     content: {items: [...listePublishedItems, propsRevised], type: 'list'}
   }
 };

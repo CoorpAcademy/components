@@ -12,6 +12,12 @@
   padding: 0 24px;
   margin-bottom: 24px;
 }
+.actionsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
 
 .title {
   font-family: Gilroy;
@@ -26,6 +32,10 @@
 
 .buttonCreate {
   width: 194px;
+}
+
+.selectMultiple {
+  width: 291px;
 }
 
 .item {
