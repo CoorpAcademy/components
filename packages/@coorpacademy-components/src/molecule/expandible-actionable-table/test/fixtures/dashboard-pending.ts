@@ -6,10 +6,10 @@ import {defaultProps as inProgessBulkProgressBarProps} from '../../../bulk-progr
 const buttonLinkProps: LastField = {
   customStyle: {
     color: '#0061FF',
-    'font-family': 'Gilroy',
-    'font-style': 'normal',
-    'font-weight': 600,
-    'font-size': '14px'
+    fontFamily: 'Gilroy',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: '14px'
   },
   label: 'Inspect',
   'data-name': 'default-button',
