@@ -216,12 +216,13 @@ const KlfButton = ({
     property: 'opacity',
     fromValue: 0,
     toValue: 1,
+    duration: 250,
     easing: Easing.bezier(0.25, 1, 0.5, 1)
   });
 
   const handlePressKey = useCallback(() => {
     setDisplayTooltip(!displayTooltip);
-    !displayTooltip ? fadeIn.start() : fadeIn.revert();
+    !displayTooltip ? fadeIn.start() : fadeIn.reset();
   }, [displayTooltip, fadeIn]);
 
   const {

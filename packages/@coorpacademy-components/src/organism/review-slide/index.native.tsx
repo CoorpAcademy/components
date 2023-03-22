@@ -118,9 +118,12 @@ const CorrectionPopin = ({
 
 type StyleSheetType = {
   questionHeading: ViewStyle;
-  questionOrigin: ViewStyle;
+  questionOriginContainer: ViewStyle;
+  questionOrigin: TextStyle;
+  questionTextContainer: ViewStyle;
   questionText: TextStyle;
-  questionHelp: ViewStyle;
+  questionHelpContainer: ViewStyle;
+  questionHelp: TextStyle;
   choicesScrollView: ViewStyle;
   choicesScrollContent: ViewStyle;
 };
@@ -131,20 +134,28 @@ const createQuestionStyle = (theme: Theme): StyleSheetType =>
       justifyContent: 'space-between',
       alignItems: 'center'
     },
+    questionOriginContainer: {
+      marginBottom: theme.spacing.tiny,
+      marginTop: theme.spacing.small
+    },
     questionOrigin: {
       fontSize: 12,
       lineHeight: 16,
       color: theme.colors.text.primary,
-      marginBottom: theme.spacing.tiny,
-      marginTop: theme.spacing.small,
+      textAlign: 'center'
+    },
+    questionTextContainer: {
+      marginVertical: 4,
       textAlign: 'center'
     },
     questionText: {
       fontSize: 16,
       lineHeight: 22,
       fontWeight: '700',
-      color: theme.colors.text.primary,
-      textAlign: 'center'
+      color: theme.colors.text.primary
+    },
+    questionHelpContainer: {
+      marginVertical: 4
     },
     questionHelp: {
       fontSize: 12,
@@ -197,9 +208,19 @@ const Question = (props: QuestionProps) => {
   return (
     <>
       <View style={style.questionHeading}>
-        <Html style={style.questionOrigin}>{questionOrigin}</Html>
-        <Html style={style.questionText}>{questionText}</Html>
-        <Html style={style.questionHelp}>{get('help', answerUI)}</Html>
+        <View style={style.questionOriginContainer}>
+          <Html style={style.questionOrigin} isTextCentered>
+            {questionOrigin}
+          </Html>
+        </View>
+        <View style={style.questionTextContainer}>
+          <Html style={style.questionText} isTextCentered>
+            {questionText}
+          </Html>
+        </View>
+        <View style={style.questionHelpContainer}>
+          <Html style={style.questionHelp}>{get('help', answerUI)}</Html>
+        </View>
       </View>
       <ScrollView
         style={style.choicesScrollView}
