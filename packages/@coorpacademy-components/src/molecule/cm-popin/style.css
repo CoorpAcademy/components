@@ -47,7 +47,7 @@
 
 .popin {
   overflow: auto;
-  width: 500px;
+  width: 434px;
   flex-grow: 0;
   margin: 16px;
   padding: 16px 16px 20px 16px;
@@ -114,13 +114,15 @@
 
 .button {
   min-width: max-content;
-  width: 160px;
+  width: 161px;
   padding: 8px;
 }
 
 .largeButton {
   width: 100%;
   padding: 8px;
+  margin-left: 48px;
+  margin-right: 48px;
 }
 
 .icon {
@@ -327,33 +329,42 @@ a {
     padding: 24px 24px 0px 24px
   }
 
-  @media mobile {
-    .popin {
-      position: fixed;
-    }
+  .descriptionText, .content, .message {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}
 
-    .popin {
-      width: 80%;
-    }
+@media mobile {
+  .popin {
+    position: fixed;
+  }
 
-    .buttonContainer {
-      display: flex;
-      margin: 48px 24px 32px 24px;
-      width: 85%;
-    }
-    
-    .button {
-      width: 100%;
-    }
+  .popin {
+    width: 80%;
+  }
 
-    .titleContainer {
-      width: 100%;
-    }
+  .buttonContainer {
+    display: flex;
+    margin: 48px 24px 32px 24px;
+    width: 85%;
+  }
+  
+  .button {
+    width: 100%;
+  }
 
-    .content, .message, .descriptionText {
-      margin-left: 16px;
-      margin-right: 16px;
-    }
+  .titleContainer {
+    width: 100%;
+  }
+
+  .content, .message, .descriptionText {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+  .largeButton { 
+    margin-left: 32px;
+    margin-right: 32px;
   }
 }
 
