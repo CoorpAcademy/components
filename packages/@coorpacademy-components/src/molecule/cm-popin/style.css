@@ -286,17 +286,13 @@ a {
 
 @media tablet {
   .popin {
-    position: fixed;
-  }
-
-  .popin {
     width: 80%;
   }
 
   .buttonContainer {
     display: flex;
     flex-wrap: wrap-reverse;
-    margin: 48px 24px 32px 24px;
+    margin: 12px 24px 32px 24px;
     width: 85%;
   }
   
@@ -346,7 +342,7 @@ a {
 
   .buttonContainer {
     display: flex;
-    margin: 48px 24px 32px 24px;
+    margin: 12px 24px 32px 24px;
     width: 85%;
   }
   
