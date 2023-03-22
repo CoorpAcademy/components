@@ -32,6 +32,7 @@ import _NovaCompositionCoorpacademyCoorpApp from './components/nova-composition/
 import _NovaCompositionCoorpacademyCoorpLogo from './components/nova-composition/coorpacademy/coorp-logo';
 import _NovaCompositionCoorpacademyDashboard from './components/nova-composition/coorpacademy/dashboard';
 import _NovaCompositionCoorpacademyDraft from './components/nova-composition/coorpacademy/draft';
+import _NovaCompositionCoorpacademyDumbbell from './components/nova-composition/coorpacademy/dumbbell';
 import _NovaCompositionCoorpacademyEditorialization from './components/nova-composition/coorpacademy/editorialization';
 import _NovaCompositionCoorpacademyEmptyStateHomeRevision from './components/nova-composition/coorpacademy/empty-state-home-revision';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
@@ -250,6 +251,7 @@ export const NovaCompositionCoorpacademyCoorpApp: Icon = _NovaCompositionCoorpac
 export const NovaCompositionCoorpacademyCoorpLogo: Icon = _NovaCompositionCoorpacademyCoorpLogo;
 export const NovaCompositionCoorpacademyDashboard: Icon = _NovaCompositionCoorpacademyDashboard;
 export const NovaCompositionCoorpacademyDraft: Icon = _NovaCompositionCoorpacademyDraft;
+export const NovaCompositionCoorpacademyDumbbell: Icon = _NovaCompositionCoorpacademyDumbbell;
 export const NovaCompositionCoorpacademyEditorialization: Icon =
   _NovaCompositionCoorpacademyEditorialization;
 export const NovaCompositionCoorpacademyEmptyStateHomeRevision: Icon =

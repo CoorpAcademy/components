@@ -28,6 +28,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/animation.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/content-creation.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/dashboard.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/dumbbell.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/editorialization.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/type-eye.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/open-in-new-tab.svg')},
