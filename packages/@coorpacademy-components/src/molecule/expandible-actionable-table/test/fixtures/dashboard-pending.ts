@@ -4,7 +4,13 @@ import {defaultProps as failBulkProgressBarProps} from '../../../bulk-progress-b
 import {defaultProps as inProgessBulkProgressBarProps} from '../../../bulk-progress-bar/test/fixtures/in-progress';
 
 const buttonLinkProps: LastField = {
-  className: 'bulkInspectButton',
+  customStyle: {
+    color: '#0061FF',
+    'font-family': 'Gilroy',
+    'font-style': 'normal',
+    'font-weight': 600,
+    'font-size': '14px'
+  },
   label: 'Inspect',
   'data-name': 'default-button',
   'aria-label': 'aria button',
