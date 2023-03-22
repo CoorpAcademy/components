@@ -119,10 +119,8 @@
 }
 
 .largeButton {
-  width: 100%;
+  width: 75%;
   padding: 8px;
-  margin-left: 48px;
-  margin-right: 48px;
 }
 
 .icon {
@@ -296,11 +294,7 @@ a {
     width: 85%;
   }
   
-  .button {
-    width: 100%;
-  }
-
-  .titleContainer {
+  .largeButton, .button , .titleContainer {
     width: 100%;
   }
 
@@ -319,7 +313,7 @@ a {
   }
 
   .popinCookie .largeButton {
-    padding: 8px 0px 0px 0px
+    padding: 8px 0px 0px 0px;
   }
   .popinCookie .message {
     padding: 24px 24px 0px 24px
