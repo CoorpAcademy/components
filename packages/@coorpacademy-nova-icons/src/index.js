@@ -130,6 +130,7 @@ import _NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/r
 import _NovaLineSelectionCursorsCursorArrowTarget from './components/nova-line/selection-cursors/cursor-arrow-target';
 import _NovaLineSettingsCookie from './components/nova-line/settings/cookie';
 import _NovaLineSpaceRingPlanet from './components/nova-line/space/ring-planet';
+import _NovaLineSportSportDumbbell2 from './components/nova-line/sport/sport-dumbbell-2';
 import _NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
 import _NovaLineStatusClose from './components/nova-line/status/close';
 import _NovaLineStatusCloseCircle from './components/nova-line/status/close-circle';
@@ -364,6 +365,7 @@ export const NovaLineSelectionCursorsCursorArrowTarget: Icon =
   _NovaLineSelectionCursorsCursorArrowTarget;
 export const NovaLineSettingsCookie: Icon = _NovaLineSettingsCookie;
 export const NovaLineSpaceRingPlanet: Icon = _NovaLineSpaceRingPlanet;
+export const NovaLineSportSportDumbbell2: Icon = _NovaLineSportSportDumbbell2;
 export const NovaLineStatusCheckCircle1: Icon = _NovaLineStatusCheckCircle1;
 export const NovaLineStatusClose: Icon = _NovaLineStatusClose;
 export const NovaLineStatusCloseCircle: Icon = _NovaLineStatusCloseCircle;
