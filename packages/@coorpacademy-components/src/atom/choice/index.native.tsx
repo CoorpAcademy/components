@@ -177,7 +177,9 @@ const Choice = ({
 
         {children ? (
           <View style={textWrapperStyle}>
-            <Html style={textStyle}>{children}</Html>
+            <Html style={textStyle} isTextCentered>
+              {children}
+            </Html>
           </View>
         ) : null}
       </View>
