@@ -46,7 +46,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
   } = props;
   const contentView = getButtonContent(icon, label);
   const styleButton = classnames(
-    style[`${className}`],
+    className,
     style.button,
     type === 'primary' && style.primary,
     type === 'secondary' && style.secondary,

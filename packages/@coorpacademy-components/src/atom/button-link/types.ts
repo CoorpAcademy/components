@@ -43,7 +43,7 @@ export type ButtonLinkProps = {
   };
   disabled?: boolean;
   className?: string;
-  customStyle?: Record<string, never>;
+  customStyle?: Record<string, unknown>;
   useTitle?: boolean;
 };
 

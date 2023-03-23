@@ -94,12 +94,3 @@
   border-radius: 0px;
   height: auto;
 }
-
-/* bulk inspect button style */
-.bulkInspectButton {
-  font-family: 'Gilroy';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  color: cm_primary_blue;
-}
