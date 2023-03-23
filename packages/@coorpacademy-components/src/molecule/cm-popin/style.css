@@ -285,6 +285,7 @@ a {
 @media tablet {
   .popin {
     width: 80%;
+    overflow: hidden;
   }
 
   .buttonContainer {
@@ -333,6 +334,7 @@ a {
   .popin {
     /* width: 350px; */
     width: 80%;
+    overflow: hidden;
   }
 
   .buttonContainer {
