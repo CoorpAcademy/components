@@ -1,100 +1,22 @@
-import React, {useCallback, useMemo, useState, useRef} from 'react';
+import React, {useCallback, useMemo, useState, useEffect, FormEvent} from 'react';
 import classnames from 'classnames';
-import get from 'lodash/fp/get';
-import has from 'lodash/fp/has';
+import getOr from 'lodash/fp/getOr';
 import isEqual from 'lodash/fp/isEqual';
-import mapKeys from 'lodash/fp/mapKeys';
-import mapValues from 'lodash/fp/mapValues';
 import noop from 'lodash/fp/noop';
 import size from 'lodash/fp/size';
-import isEmpty from 'lodash/fp/isEmpty';
-import {
-  NovaCompositionNavigationArrowRight as ArrowRight,
-  NovaCompositionCoorpacademyInformationIcon as InformationIcon
-} from '@coorpacademy/nova-icons';
-import ToolTip, {toggleStateOnKeyPress} from '../tooltip';
-import Provider, {GetTranslateFromContext} from '../provider';
-import {WebContextValues} from '../provider/web-context';
-import propTypes, {FormTextInputProps} from './prop-types';
+// import {
+//   NovaCompositionNavigationArrowRight as ArrowRight,
+//   NovaCompositionCoorpacademyInformationIcon as InformationIcon
+// } from '@coorpacademy/nova-icons';
+// import Provider, {GetTranslateFromContext} from '../provider';
+import propTypes, {FieldValue, FormTextInputProps, TextInput} from './prop-types';
 import style from './style.css';
 
-// @ts-expect-error (Property 'convert' does not exist on type 'LodashMapValues'.ts(2339))
-const mapValuesWithKeys = mapValues.convert({cap: false});
-
-// @ts-expect-error (Property 'convert' does not exist on type 'LodashMapKeys'.ts(2339))
-const mapKeysWithKeys = mapKeys.convert({cap: false});
-
-type PasswordRulesConfig = {
-  minLength: number;
-};
-
-const testRegex = (regex: RegExp) => {
-  return regex.test.bind(regex);
-};
-
-const tests = {
-  minLength: (password: string, passwordRules: PasswordRulesConfig) => {
-    return size(password) >= passwordRules.minLength;
-  },
-  upper: testRegex(/[A-Z]/),
-  lower: testRegex(/[a-z]/),
-  number: testRegex(/\d/),
-  special: testRegex(/[^\dA-Za-z]/)
-};
-
-const checkStrength =
-  (passwordRules: PasswordRulesConfig) =>
-  (password = '') => {
-    return mapValuesWithKeys(
-      (rule: PasswordRulesConfig[keyof PasswordRulesConfig], key: keyof PasswordRulesConfig) => {
-        return !rule || tests[key](password, passwordRules);
-      },
-      passwordRules
-    );
-  };
-
-type FieldValue = string | number;
-
-// passwordStrengthRules
-const passwordStrength = (scope, elem, attrs, ngModel) => {
-  // if (!ngModel) return;
-
-  const rules = get('config.passwordStrength', scope);
-  const _checkStrength = checkStrength(rules);
-
-  function validate() {
-    const password = ngModel.$viewValue;
-    const validation = _checkStrength(password);
-
-    mapKeysWithKeys((value: FieldValue, key: string) => {
-      ngModel.$setValidity(key, value);
-    }, validation);
-  }
-
-  scope.$watch(attrs.ngModel, validate);
-};
-
 const validate = (fieldValue: FieldValue, fieldEqualsValue: FieldValue) => {
-  // values
-  const val1 = ngModel.$viewValue;
-  const val2 = attrs.equals;
-
-  // set validity
-  ngModel.$setValidity('equals', val1 === val2);
   return isEqual(fieldValue, fieldEqualsValue);
 };
 
-const equals = (fieldValue: FieldValue, fieldEqualsValue: FieldValue) => {
-  // watch own value and re-validate on change
-  scope.$watch(attrs.ngModel, function () {
-    validate(fieldValue);
-  });
-
-  // observe the other value and re-validate on change
-  attrs.$observe('equals', function (val) {
-    validate();
-  });
-};
+const DEFAULT_MIN_LENGTH = 8;
 
 // autocorrect="off"
 // autocapitalize="none"
@@ -102,62 +24,90 @@ const equals = (fieldValue: FieldValue, fieldEqualsValue: FieldValue) => {
 const FormTextInput = ({
   'aria-label': ariaLabel,
   autocomplete,
-  className,
-  id,
-  isOnError,
+  'data-testid': dataTestid = 'form-text-input',
+  disabled,
+  hint,
+  inputClassName,
+  isRequired,
+  label,
   maxlength = 150,
+  name,
   onChange = noop,
+  passwordRules,
   placeholder,
-  type = 'default'
+  type = 'default',
+  value,
+  wrapperClassName
 }: FormTextInputProps) => {
-  // data-testid="battle-opponent-wrapper"
-  // on Change get old value
-  const [oldValue, setOldValue] = useState<FieldValue>(Number.NaN);
-  const [actualValue, setNewValue] = useState<FieldValue>(Number.NaN);
+  const [newValue, setNewValue] = useState<FieldValue>(value);
 
   const [isValid, setIsValid] = useState<boolean>();
 
-  const handleInputChange = (event) => {
-    const newValue = event.target.value;
-    setOldValue(actualValue);
-    setNewValue(prevValue => {
-      const isNewValueValid = validate(prevValue, newValue);
+  const isDefaultType = useMemo(() => !type || type === TextInput.default, [type]);
 
-      setIsValid(isNewValueValid);
-      // eslint-disable-next-line no-console
-      console.log('hey -validate- here', prevValue);
-      return newValue;
-    });
-  };
+  const isPasswordInput = useMemo(
+    () => type === TextInput.password || type === TextInput.passwordConfirmation,
+    [type]
+  );
+
+  const isEmailInput = useMemo(() => type === TextInput.email, [type]);
+
+  const handleInputChange = useCallback(
+    (event: FormEvent<HTMLInputElement>) => {
+      const newInput: FieldValue = (event.target as HTMLInputElement).value;
+      setNewValue(prevValue => {
+        const isNewValueValid = validate(prevValue, newInput);
+
+        setIsValid(
+          isPasswordInput
+            ? size(newInput) >= getOr(DEFAULT_MIN_LENGTH, ['minLength'], passwordRules)
+            : isNewValueValid
+        );
+        return newInput;
+      });
+      // onChange(newInput, isValid);
+    },
+    [isPasswordInput, passwordRules]
+  );
+
+  useEffect(() => {
+    onChange(newValue, isValid);
+    return;
+  }, [isValid, newValue, onChange]);
 
   // watch over model: form[field.model], if changes (onInput - handleChange), re-validate
   // handleChange should update Angular's model & equals value, inside onChange
+  // value and model should come from the outside
 
+  const fieldLabel = useMemo(() => `${label} ${isRequired ? '*' : ''}`, [isRequired, label]);
+
+  // pb needs isOnError
   return (
-    <label>
-      <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
-        {propsTitle}
-        {toolTipView}
-      </span>
-
+    <div className={classnames(style.wrapper, wrapperClassName)}>
+      {/* className="Signup__form__label" */}
+      <label className={style.formLabel} htmlFor={name}>
+        {fieldLabel}
+      </label>
       <input
-        type="text"
-        name={propsTitle}
-        className={style.input}
-        placeholder={placeholder}
-        defaultValue={defaultValue}
-        autoComplete={'off'}
-        value={value}
-        onInput={handleChange}
-        disabled={disabled}
-        onChange={noop}
-        data-name={dataName}
+        {...(!isPasswordInput && !isEmailInput && {maxLength: maxlength})}
+        {...(isEmailInput && {autocapitalize: 'none'})}
+        type={isDefaultType ? 'text' : type}
         aria-label={ariaLabel}
+        autoComplete={autocomplete}
+        autoCorrect={'off'}
+        className={classnames(style.textInput, inputClassName)}
+        data-testid={dataTestid}
+        disabled={disabled}
+        id={name}
+        name={name}
+        onInput={handleInputChange}
+        placeholder={placeholder}
+        value={value}
       />
-      {errorIconView}
-      {validIconView}
-      {hintView}
-    </label>
+      <div className={style.hintWrapper}>
+        <span className={style.hint}>{hint}</span>
+      </div>
+    </div>
   );
 };
 
