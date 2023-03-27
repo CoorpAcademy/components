@@ -2,6 +2,7 @@ import React, {useCallback, useMemo, useState, useRef} from 'react';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
+import isEqual from 'lodash/fp/isEqual';
 import mapKeys from 'lodash/fp/mapKeys';
 import mapValues from 'lodash/fp/mapValues';
 import noop from 'lodash/fp/noop';
@@ -73,19 +74,20 @@ const passwordStrength = (scope, elem, attrs, ngModel) => {
   scope.$watch(attrs.ngModel, validate);
 };
 
-const validate = () => {
+const validate = (fieldValue: FieldValue, fieldEqualsValue: FieldValue) => {
   // values
   const val1 = ngModel.$viewValue;
   const val2 = attrs.equals;
 
   // set validity
   ngModel.$setValidity('equals', val1 === val2);
+  return isEqual(fieldValue, fieldEqualsValue);
 };
 
 const equals = (fieldValue: FieldValue, fieldEqualsValue: FieldValue) => {
   // watch own value and re-validate on change
   scope.$watch(attrs.ngModel, function () {
-    validate();
+    validate(fieldValue);
   });
 
   // observe the other value and re-validate on change
@@ -103,26 +105,33 @@ const FormTextInput = ({
   className,
   id,
   isOnError,
-  maxlength=150,
+  maxlength = 150,
   onChange = noop,
   placeholder,
   type = 'default'
 }: FormTextInputProps) => {
   // data-testid="battle-opponent-wrapper"
   // on Change get old value
-  const [oldValue, setOldValue] = useState<FieldValue>("");
-  const [newValue, setNewValue] = useState<FieldValue>("");
+  const [oldValue, setOldValue] = useState<FieldValue>(Number.NaN);
+  const [actualValue, setNewValue] = useState<FieldValue>(Number.NaN);
+
+  const [isValid, setIsValid] = useState<boolean>();
 
   const handleInputChange = (event) => {
     const newValue = event.target.value;
-    setOldValue(newValue);
-    setNewValue((prevValue) => {
+    setOldValue(actualValue);
+    setNewValue(prevValue => {
+      const isNewValueValid = validate(prevValue, newValue);
 
+      setIsValid(isNewValueValid);
       // eslint-disable-next-line no-console
       console.log('hey -validate- here', prevValue);
       return newValue;
     });
   };
+
+  // watch over model: form[field.model], if changes (onInput - handleChange), re-validate
+  // handleChange should update Angular's model & equals value, inside onChange
 
   return (
     <label>

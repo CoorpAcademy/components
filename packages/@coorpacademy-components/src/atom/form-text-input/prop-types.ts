@@ -19,7 +19,8 @@ const propTypes = {
     'language',
     'country',
     'default'
-  ])
+  ]),
+  value: PropTypes.string
 };
 
 type FormTextInputType =
@@ -43,6 +44,7 @@ export type FormTextInputProps = {
   onChange: (value: string) => void;
   placeholder: string;
   type: FormTextInputType;
+  value: string;
 };
 
 export default propTypes;
