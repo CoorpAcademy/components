@@ -292,7 +292,6 @@ a {
     display: flex;
     flex-wrap: wrap-reverse;
     margin: 12px 24px 32px 24px;
-    width: 85%;
   }
   
   .largeButton, .button , .titleContainer {
@@ -332,7 +331,6 @@ a {
   }
 
   .popin {
-    /* width: 350px; */
     width: 80%;
     overflow: hidden;
   }
@@ -340,7 +338,6 @@ a {
   .buttonContainer {
     display: flex;
     margin: 12px 16px 32px 16px;
-    /* width: 85%; */
   }
   
   .button {
