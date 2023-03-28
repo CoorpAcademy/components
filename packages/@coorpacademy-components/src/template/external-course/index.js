@@ -158,11 +158,7 @@ class ExternalCourse extends React.Component {
         </div>
       ) : null;
 
-    const popin = !isNil(closePopin) ? (
-      <div>
-        <CmPopin {...closePopin} />
-      </div>
-    ) : null;
+    const popin = !isNil(closePopin) ? <CmPopin {...closePopin} /> : null;
 
     return (
       <div className={defaultWrapperStyle[mode]}>
