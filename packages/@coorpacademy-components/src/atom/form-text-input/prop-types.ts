@@ -1,10 +1,24 @@
 import PropTypes from 'prop-types';
+import keys from 'lodash/fp/keys';
+
+export const TextInput = {
+  country: 'country',
+  email: 'email',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  language: 'language',
+  login: 'login',
+  password: 'password',
+  passwordConfirmation: 'passwordConfirmation',
+  default: 'default'
+} as const;
 
 const propTypes = {
   'aria-label': PropTypes.string,
   autocomplete: PropTypes.string,
   'data-testid': PropTypes.string,
   disabled: PropTypes.bool,
+  equals: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   hint: PropTypes.string,
   inputClassName: PropTypes.string,
   isRequired: PropTypes.bool,
@@ -16,43 +30,10 @@ const propTypes = {
     minLength: PropTypes.number
   }),
   placeholder: PropTypes.string,
-  type: PropTypes.oneOf([
-    'email',
-    'password',
-    'firstName',
-    'lastName',
-    'login',
-    'passwordConfirmation',
-    'language',
-    'country',
-    'default'
-  ]),
-  value: PropTypes.string,
+  type: PropTypes.oneOf(keys(TextInput)),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   wrapperClassName: PropTypes.string
 };
-
-export const TextInput = {
-  email: 'email',
-  password: 'password',
-  firstName: 'firstName',
-  lastName: 'lastName',
-  login: 'login',
-  passwordConfirmation: 'passwordConfirmation',
-  language: 'language',
-  country: 'country',
-  default: 'default'
-} as const;
-
-// type FormTextInputType =
-//   | 'email'
-//   | 'password'
-//   | 'firstName'
-//   | 'lastName'
-//   | 'login'
-//   | 'passwordConfirmation'
-//   | 'language'
-//   | 'country'
-//   | 'default';
 
 type TextInputType = keyof typeof TextInput;
 
@@ -64,20 +45,21 @@ export type PasswordRulesConfig = {
 
 export type FormTextInputProps = {
   'aria-label'?: string;
-  autocomplete: string;
+  autocomplete?: string;
   'data-testid'?: string;
   disabled?: boolean;
+  equals?: FieldValue;
   hint?: string;
   inputClassName?: string | null;
-  isRequired: boolean;
+  isRequired?: boolean;
   label: string;
   maxlength?: number;
   name: string;
-  onChange: (value: FieldValue, isValid?: boolean) => void;
+  onChange?: (value: FieldValue, isValid?: boolean) => void;
   passwordRules?: PasswordRulesConfig;
   placeholder?: string;
-  type: TextInputType;
-  value: string;
+  type?: TextInputType;
+  value: FieldValue;
   wrapperClassName?: string | null;
 };
 

@@ -1,6 +1,7 @@
 import React, {useCallback, useMemo, useState, useEffect, FormEvent} from 'react';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
+import isEmpty from 'lodash/fp/isEmpty';
 import isEqual from 'lodash/fp/isEqual';
 import noop from 'lodash/fp/noop';
 import size from 'lodash/fp/size';
@@ -16,7 +17,16 @@ const validate = (fieldValue: FieldValue, fieldEqualsValue: FieldValue) => {
   return isEqual(fieldValue, fieldEqualsValue);
 };
 
+const VALID_EMAIL_PATTERN =
+  /[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+const validatePattern = (fieldValue: string, pattern: RegExp) => {
+  return pattern.test(fieldValue);
+};
+
 const DEFAULT_MIN_LENGTH = 8;
+
+const isEqualsDefined = (equals: FieldValue | undefined): equals is FieldValue => !isEmpty(equals);
 
 // autocorrect="off"
 // autocapitalize="none"
@@ -37,11 +47,12 @@ const FormTextInput = ({
   placeholder,
   type = 'default',
   value,
+  equals,
   wrapperClassName
 }: FormTextInputProps) => {
   const [newValue, setNewValue] = useState<FieldValue>(value);
 
-  const [isValid, setIsValid] = useState<boolean>();
+  const [isValid, setIsValid] = useState<boolean>(true);
 
   const isDefaultType = useMemo(() => !type || type === TextInput.default, [type]);
 
@@ -55,19 +66,19 @@ const FormTextInput = ({
   const handleInputChange = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
       const newInput: FieldValue = (event.target as HTMLInputElement).value;
-      setNewValue(prevValue => {
-        const isNewValueValid = validate(prevValue, newInput);
+      setNewValue(() => {
+        const isNewValueValid = !isEqualsDefined(equals) || validate(newInput, equals);
+        const validPattern = !isEmailInput || validatePattern(newInput, VALID_EMAIL_PATTERN);
+        const passwordLengthCheck =
+          !isPasswordInput ||
+          size(newInput) >= getOr(DEFAULT_MIN_LENGTH, ['minLength'], passwordRules);
 
-        setIsValid(
-          isPasswordInput
-            ? size(newInput) >= getOr(DEFAULT_MIN_LENGTH, ['minLength'], passwordRules)
-            : isNewValueValid
-        );
+        setIsValid(passwordLengthCheck && isNewValueValid && validPattern);
+
         return newInput;
       });
-      // onChange(newInput, isValid);
     },
-    [isPasswordInput, passwordRules]
+    [equals, isEmailInput, isPasswordInput, passwordRules]
   );
 
   useEffect(() => {
@@ -90,10 +101,12 @@ const FormTextInput = ({
       </label>
       <input
         {...(!isPasswordInput && !isEmailInput && {maxLength: maxlength})}
-        {...(isEmailInput && {autocapitalize: 'none'})}
+        {...(isEmailInput && {autoCapitalize: 'none'})}
+        {...(isRequired && {required: true})}
+        {...(!isValid && {'aria-invalid': true})}
         type={isDefaultType ? 'text' : type}
         aria-label={ariaLabel}
-        autoComplete={autocomplete}
+        autoComplete={isDefaultType ? 'on' : autocomplete}
         autoCorrect={'off'}
         className={classnames(style.textInput, inputClassName)}
         data-testid={dataTestid}
