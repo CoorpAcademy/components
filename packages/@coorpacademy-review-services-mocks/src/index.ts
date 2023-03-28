@@ -162,9 +162,12 @@ export const postProgressionResponse = (skillRef: string): ProgressionFromAPI =>
   }
 });
 
-export const postSandboxProgressionResponse = (_slideRef: string): ProgressionFromAPI => ({
+export const postSandboxProgressionResponse = (
+  _slideRef: string,
+  skillRef: string
+): ProgressionFromAPI => ({
   _id: 'sandbox',
-  content: getContent('sandbox'),
+  content: getContent(skillRef),
   engine,
   state: {
     allAnswers: [],
@@ -375,8 +378,8 @@ export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: (skillRef: string) => Promise.resolve(postProgressionResponse(skillRef)),
-  postSandboxProgression: (_slideRef: string) =>
-    Promise.resolve(postSandboxProgressionResponse(_slideRef)),
+  postSandboxProgression: (_slideRef: string, skillRef: string) =>
+    Promise.resolve(postSandboxProgressionResponse(_slideRef, skillRef)),
   postAnswer: (progression: ProgressionFromAPI, _: string, answer: string[]) =>
     Promise.resolve(getPostAnswer(progression, answer)),
   fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),

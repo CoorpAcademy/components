@@ -33,7 +33,7 @@ export const postProgression =
       types: [POST_PROGRESSION_REQUEST, POST_PROGRESSION_SUCCESS, POST_PROGRESSION_FAILURE],
       task: () =>
         testingSlideRef
-          ? services.postSandboxProgression(testingSlideRef, token)
+          ? services.postSandboxProgression(testingSlideRef, skillRef, token)
           : services.postProgression(skillRef, token)
     });
     const response = await dispatch(action);

@@ -151,7 +151,7 @@ test('should use postSandboxProgression when testingSlideRef is specified', asyn
     postSandboxProgression: Services['postSandboxProgression'];
     fetchSlide: Services['fetchSlide'];
   } = {
-    postSandboxProgression: (slideRef, token) => {
+    postSandboxProgression: (slideRef, skillRef, token) => {
       t.is(token, '1234');
       t.is(slideRef, testingSlideRef);
       return Promise.resolve(progression as ProgressionFromAPI);

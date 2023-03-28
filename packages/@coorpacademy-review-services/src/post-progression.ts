@@ -29,6 +29,7 @@ export const postProgression = async (
 
 export const postSandboxProgression = async (
   slideRef: string,
+  skillRef: string,
   token: string
 ): Promise<ProgressionFromAPI> => {
   const {host}: JWT = decode(token);
@@ -37,7 +38,8 @@ export const postSandboxProgression = async (
     headers: {authorization: token, 'content-type': 'application/json'},
     body: JSON.stringify({
       engineRef: 'review',
-      slideId: slideRef
+      slideId: slideRef,
+      skillRef
     })
   });
 
