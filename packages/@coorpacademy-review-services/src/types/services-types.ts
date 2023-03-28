@@ -177,7 +177,7 @@ export type Services = {
   fetchSkills(token: string): Promise<SkillToReview[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
-  postSandboxProgression(slideRef: string, token: string): Promise<SandboxProgressionFromAPI>;
+  postSandboxProgression(slideRef: string, token: string): Promise<ProgressionFromAPI>;
   postAnswer(
     progression: ProgressionFromAPI,
     token: string,
@@ -212,10 +212,6 @@ export type ProgressionFromAPI = {
   content: ReviewContent;
   engine: ReviewEngine;
   state: ProgressionState;
-};
-
-export type SandboxProgressionFromAPI = ProgressionFromAPI & {
-  _id: 'sandbox';
 };
 
 export type SlideContent = {

@@ -1,7 +1,7 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
 
-import {JWT, ProgressionFromAPI, SandboxProgressionFromAPI} from './types/services-types';
+import {JWT, ProgressionFromAPI} from './types/services-types';
 import {toJSON} from './tools/fetch-responses';
 
 export const postProgression = async (
@@ -30,7 +30,7 @@ export const postProgression = async (
 export const postSandboxProgression = async (
   slideRef: string,
   token: string
-): Promise<SandboxProgressionFromAPI> => {
+): Promise<ProgressionFromAPI> => {
   const {host}: JWT = decode(token);
   const response = await crossFetch(`${host}/api/v2/progressions/sandbox`, {
     method: 'post',
@@ -41,5 +41,5 @@ export const postSandboxProgression = async (
     })
   });
 
-  return toJSON<SandboxProgressionFromAPI>(response);
+  return toJSON<ProgressionFromAPI>(response);
 };

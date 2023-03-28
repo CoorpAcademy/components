@@ -1,17 +1,18 @@
 import test from 'ava';
 import nock from 'nock';
-import type {SandboxProgressionFromAPI} from '../types/services-types';
 import {postSandboxProgression} from '../post-progression';
+import type {ProgressionFromAPI} from '..';
 
 const testingSlideRef = '__testingSlideRef';
-const result: SandboxProgressionFromAPI = {
+const result: ProgressionFromAPI = {
   _id: 'sandbox',
   content: {
     ref: '_skill-ref',
     type: 'skill'
   },
   engine: {
-    ref: 'review'
+    ref: 'review',
+    version: '1'
   },
   state: {
     allAnswers: [],

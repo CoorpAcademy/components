@@ -16,7 +16,6 @@ import {
   getConfig,
   updateState
 } from '@coorpacademy/progression-engine';
-import {SandboxProgressionFromAPI} from '@coorpacademy/review-services/lib/types/services-types';
 import {
   freeTextSlide,
   freeTextWithYoutube,
@@ -117,6 +116,32 @@ const fetchRankResponse = {
   rank: 93
 };
 
+export const createMockProgression = (_id: string, _slideRef: string): ProgressionFromAPI => ({
+  _id,
+  content: {
+    ref: '_skill-ref',
+    type: 'skill'
+  },
+  engine: {
+    ref: 'review',
+    version: '1'
+  },
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      ref: _slideRef,
+      type: 'slide'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+});
+
 export const postProgressionResponse = (skillRef: string): ProgressionFromAPI => ({
   _id: '62b1d1087aa12f00253f40ee',
   content: getContent(skillRef),
@@ -137,7 +162,7 @@ export const postProgressionResponse = (skillRef: string): ProgressionFromAPI =>
   }
 });
 
-export const postSandboxProgressionResponse = (_slideRef: string): SandboxProgressionFromAPI => ({
+export const postSandboxProgressionResponse = (_slideRef: string): ProgressionFromAPI => ({
   _id: 'sandbox',
   content: getContent('sandbox'),
   engine,

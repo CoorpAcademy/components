@@ -1,7 +1,9 @@
 import test from 'ava';
 import type {ProgressionFromAPI, Services} from '@coorpacademy/review-services';
-import {SKILL_REF_FOR_DEFAULT_SLIDES} from '@coorpacademy/review-services-mocks';
-import {SandboxProgressionFromAPI} from '@coorpacademy/review-services/lib/types/services-types';
+import {
+  createMockProgression,
+  SKILL_REF_FOR_DEFAULT_SLIDES
+} from '@coorpacademy/review-services-mocks';
 import {
   postProgression,
   POST_PROGRESSION_REQUEST,
@@ -54,35 +56,6 @@ const VIDEO_PROPS = {
     }
   ]
 };
-
-const createMockProgression = (
-  _id: string,
-  slideRef: string
-): ProgressionFromAPI | SandboxProgressionFromAPI => ({
-  _id,
-  content: {
-    ref: '_skill-ref',
-    type: 'skill'
-  },
-  engine: {
-    ref: 'review',
-    version: '1'
-  },
-  state: {
-    allAnswers: [],
-    isCorrect: true,
-    nextContent: {
-      ref: slideRef,
-      type: 'slide'
-    },
-    pendingSlides: [],
-    slides: [],
-    step: {
-      current: 1
-    },
-    stars: 0
-  }
-});
 
 test('should dispatch POST_PROGRESSION_SUCCESS and SLIDE_FETCH_REQUEST actions when postProgression returns a progression', async t => {
   t.plan(12);
@@ -181,7 +154,7 @@ test('should use postSandboxProgression when testingSlideRef is specified', asyn
     postSandboxProgression: (slideRef, token) => {
       t.is(token, '1234');
       t.is(slideRef, testingSlideRef);
-      return Promise.resolve(progression as SandboxProgressionFromAPI);
+      return Promise.resolve(progression as ProgressionFromAPI);
     },
     fetchSlide: (slideRef, token) => {
       t.is(token, '1234');
