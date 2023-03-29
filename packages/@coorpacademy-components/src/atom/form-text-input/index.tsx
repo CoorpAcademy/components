@@ -86,16 +86,15 @@ const FormTextInput = ({
     return;
   }, [isValid, newValue, onChange]);
 
-  // watch over model: form[field.model], if changes (onInput - handleChange), re-validate
-  // handleChange should update Angular's model & equals value, inside onChange
-  // value and model should come from the outside
-
   const fieldLabel = useMemo(() => `${label} ${isRequired ? '*' : ''}`, [isRequired, label]);
 
-  // pb needs isOnError
+  const errorStyle = useMemo(
+    () => (isValid ? undefined : {border: '2px solid rgb(247, 63, 82)'}),
+    [isValid]
+  );
+
   return (
     <div className={classnames(style.wrapper, wrapperClassName)}>
-      {/* className="Signup__form__label" */}
       <label className={style.formLabel} htmlFor={name}>
         {fieldLabel}
       </label>
@@ -116,6 +115,7 @@ const FormTextInput = ({
         onInput={handleInputChange}
         placeholder={placeholder}
         value={value}
+        style={errorStyle}
       />
       <div className={style.hintWrapper}>
         <span className={style.hint}>{hint}</span>
