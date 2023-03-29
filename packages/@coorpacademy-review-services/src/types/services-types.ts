@@ -177,6 +177,11 @@ export type Services = {
   fetchSkills(token: string): Promise<SkillToReview[]>;
   fetchSlide(slideRef: string, token: string): Promise<SlideFromAPI | void>;
   postProgression(skillRef: string, token: string): Promise<ProgressionFromAPI>;
+  postSandboxProgression(
+    slideRef: string,
+    skillRef: string,
+    token: string
+  ): Promise<ProgressionFromAPI>;
   postAnswer(
     progression: ProgressionFromAPI,
     token: string,
@@ -198,6 +203,7 @@ export type Services = {
 
 export type ReviewEngine = {
   ref: 'review';
+  version: string;
 };
 
 export type ReviewContent = {

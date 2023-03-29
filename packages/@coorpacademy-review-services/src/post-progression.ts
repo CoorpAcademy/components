@@ -26,3 +26,22 @@ export const postProgression = async (
 
   return toJSON<ProgressionFromAPI>(response);
 };
+
+export const postSandboxProgression = async (
+  slideRef: string,
+  skillRef: string,
+  token: string
+): Promise<ProgressionFromAPI> => {
+  const {host}: JWT = decode(token);
+  const response = await crossFetch(`${host}/api/v2/progressions/sandbox`, {
+    method: 'post',
+    headers: {authorization: token, 'content-type': 'application/json'},
+    body: JSON.stringify({
+      engineRef: 'review',
+      slideId: slideRef,
+      skillRef
+    })
+  });
+
+  return toJSON<ProgressionFromAPI>(response);
+};

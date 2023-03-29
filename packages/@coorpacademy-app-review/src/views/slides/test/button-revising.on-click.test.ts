@@ -150,7 +150,8 @@ test('should dispatch POST_PROGRESSION_REQUEST action via the property onclick o
       type: 'skill'
     },
     engine: {
-      ref: 'review'
+      ref: 'review',
+      version: '1'
     },
     state: {
       allAnswers: [],

@@ -35,7 +35,7 @@ import {fetchSkills} from './fetch-skills';
 import {fetchSlide} from './fetch-slide';
 import {fetchSlidesToReviewBySkillRef} from './fetch-slides-to-review-by-skill-ref';
 import {postAnswer} from './post-answer';
-import {postProgression} from './post-progression';
+import {postProgression, postSandboxProgression} from './post-progression';
 import {fetchSkill} from './fetch-skill';
 
 export const getServices = (locale: string | void): Services => ({
@@ -46,7 +46,8 @@ export const getServices = (locale: string | void): Services => ({
   fetchSlide: fetchSlide(locale),
   fetchSlidesToReviewBySkillRef,
   postAnswer: postAnswer(locale),
-  postProgression
+  postProgression,
+  postSandboxProgression
 });
 
 export type Config = _Config;

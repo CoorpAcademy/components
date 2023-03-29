@@ -19,7 +19,8 @@ const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: '_skill-ref'},
   engine: {
-    ref: 'review'
+    ref: 'review',
+    version: '1'
   },
   state: {
     allAnswers: [],

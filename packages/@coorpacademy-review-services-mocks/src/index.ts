@@ -40,7 +40,8 @@ const getContent = (ref: string): ReviewContent => ({
 });
 
 const engine: ReviewEngine = {
-  ref: 'review'
+  ref: 'review',
+  version: '1'
 };
 
 const getSlides = (skillRef: string): SlideFromAPI[] => {
@@ -115,6 +116,32 @@ const fetchRankResponse = {
   rank: 93
 };
 
+export const createMockProgression = (_id: string, _slideRef: string): ProgressionFromAPI => ({
+  _id,
+  content: {
+    ref: '_skill-ref',
+    type: 'skill'
+  },
+  engine: {
+    ref: 'review',
+    version: '1'
+  },
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      ref: _slideRef,
+      type: 'slide'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+});
+
 export const postProgressionResponse = (skillRef: string): ProgressionFromAPI => ({
   _id: '62b1d1087aa12f00253f40ee',
   content: getContent(skillRef),
@@ -124,6 +151,29 @@ export const postProgressionResponse = (skillRef: string): ProgressionFromAPI =>
     isCorrect: true,
     nextContent: {
       ref: slideRef(freeTextSlide.universalRef, skillRef),
+      type: 'slide'
+    },
+    pendingSlides: [],
+    slides: [],
+    step: {
+      current: 1
+    },
+    stars: 0
+  }
+});
+
+export const postSandboxProgressionResponse = (
+  _slideRef: string,
+  skillRef: string
+): ProgressionFromAPI => ({
+  _id: 'sandbox',
+  content: getContent(skillRef),
+  engine,
+  state: {
+    allAnswers: [],
+    isCorrect: true,
+    nextContent: {
+      ref: _slideRef,
       type: 'slide'
     },
     pendingSlides: [],
@@ -328,6 +378,8 @@ export const services: Services = {
   fetchSkills: () => Promise.resolve(fetchSkillsResponse),
   fetchSlide: ref => Promise.resolve({...getSlideFixture(ref), universalRef: ref, _id: ref}),
   postProgression: (skillRef: string) => Promise.resolve(postProgressionResponse(skillRef)),
+  postSandboxProgression: (_slideRef: string, skillRef: string) =>
+    Promise.resolve(postSandboxProgressionResponse(_slideRef, skillRef)),
   postAnswer: (progression: ProgressionFromAPI, _: string, answer: string[]) =>
     Promise.resolve(getPostAnswer(progression, answer)),
   fetchCorrection: ref => Promise.resolve(getChoicesCorrection(ref)),
