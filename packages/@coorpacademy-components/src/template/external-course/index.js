@@ -37,15 +37,6 @@ const ExternalCourse = (props, context) => {
   const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
   const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
-  const handleOnClick = useCallback(field => {
-    const {onClick = noop} = field;
-    return e => {
-      e.stopPropagation();
-      e.preventDefault();
-      return onClick(e);
-    };
-  }, []);
-
   const mainContentSlot = useMemo(() => {
     return loading ? (
       <div className={style.loader}>
@@ -60,6 +51,15 @@ const ExternalCourse = (props, context) => {
       />
     );
   }, [loading, url, mode, contentType, backgroundImageUrl]);
+
+  const handleOnClick = useCallback(field => {
+    const onClick = getOr(noop, ['onClick'], field);
+    return e => {
+      e.stopPropagation();
+      e.preventDefault();
+      return onClick(e);
+    };
+  }, []);
 
   const completeButton = useMemo(() => {
     return !isNil(complete) ? (
@@ -78,6 +78,7 @@ const ExternalCourse = (props, context) => {
           complete.disabled || loading ? style.disabled : null,
           loading ? style.loading : null
         )}
+        data-testid="complete-button"
       />
     ) : null;
   }, [complete, loading, primary, handleOnClick]);
@@ -91,7 +92,7 @@ const ExternalCourse = (props, context) => {
         </div>
       </div>
     ) : null;
-  }, [warning, handleOnClick]);
+  }, [handleOnClick, warning]);
 
   const quitButton = useMemo(() => {
     return !isNil(quit) ? (
@@ -122,7 +123,7 @@ const ExternalCourse = (props, context) => {
   }, [name, IconColor]);
 
   const header = useMemo(() => {
-    !isNil(quit) || !isEmpty(name) ? (
+    return !isNil(quit) || !isEmpty(name) ? (
       <div className={style.header}>
         {quitButton}
         {titleSection}
@@ -132,7 +133,7 @@ const ExternalCourse = (props, context) => {
   }, [name, titleSection, quit, quitButton]);
 
   const footer = useMemo(() => {
-    !isNil(warning) || !isNil(complete) ? (
+    return !isNil(warning) || !isNil(complete) ? (
       <div className={style.footer}>
         {warningButton}
         {completeButton}
