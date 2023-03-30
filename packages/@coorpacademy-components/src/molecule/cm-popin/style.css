@@ -147,12 +147,11 @@
   color: cm_grey_500;
   font-style: normal;
   white-space: pre-line;
-  margin-top: 0px;
+  margin: 0px 32px;
 }
 
-.descriptionText, .content, .message {
-  margin-left: 32px;
-  margin-right: 32px;
+.content {
+  margin: 20px 32px;
 }
 
 .cookieTitleContainer {
@@ -307,7 +306,7 @@ a {
     overflow-x: hidden;
     overflow-y: auto;
   }
-  .popinCookie .button{
+  .popinCookie .button {
     width: 100%;
     padding: 0px 0px 8px 0px
   }
@@ -318,10 +317,14 @@ a {
   .popinCookie .message {
     padding: 24px 24px 0px 24px
   }
-
-  .descriptionText, .content, .message {
-    margin-left: 16px;
-    margin-right: 16px;
+  .descriptionText {
+    margin: 0px 16px;
+  }
+  .content {
+    margin: 20px 16px;
+  }
+  .message { 
+    padding: 40px 16px 0px;
   }
 }
 
@@ -346,17 +349,23 @@ a {
 
   .titleContainer {
     width: 100%;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin: 0px 16px;
   }
 
-  .content, .message, .descriptionText {
-    margin-left: 16px;
-    margin-right: 16px;
+  .descriptionText {
+    margin: 0px 16px;
   }
+
+  .content {
+    margin: 16px 32px;
+  }
+  
   .largeButton { 
-    margin-left: 32px;
-    margin-right: 32px;
+    margin: 0px 32px;
+  }
+
+  .message { 
+    padding: 40px 16px 0px;
   }
 }
 
