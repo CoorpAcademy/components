@@ -48,6 +48,7 @@ const ButtonContent = props => {
           className={anchorClassName}
           style={style}
           aria-label={ariaLabel}
+          data-testid={dataTestid}
         >
           {submitValue || children || 'submit'}
         </Link>
@@ -62,6 +63,7 @@ const ButtonContent = props => {
           className={anchorClassName}
           onClick={anchorOnClick}
           style={style}
+          data-testid={dataTestid}
         >
           {submitValue || children}
         </a>
@@ -91,7 +93,7 @@ const ButtonContent = props => {
           </button>
         );
     // falls through in case type is button BUT no button tag is needed, for retro-compatibility
-    default:
+    default: {
       return (
         <input
           data-name={dataName}
@@ -100,12 +102,14 @@ const ButtonContent = props => {
           disabled={disabled}
           onClick={onClick}
           className={inputClassName}
+          data-testid={dataTestid}
           style={{
             color,
             ...style
           }}
         />
       );
+    }
   }
 };
 
