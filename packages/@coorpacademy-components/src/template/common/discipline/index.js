@@ -38,8 +38,7 @@ const Discipline = (props, context) => {
     removeFromMyListText,
     disableShare = false,
     disableAddToMyList = false,
-    lastUpdated,
-    invertedLanguage = false
+    lastUpdated
   } = props;
 
   const authorSection = isEmpty(authors) ? null : (
@@ -72,7 +71,6 @@ const Discipline = (props, context) => {
         title={title}
         description={description}
         lastUpdated={lastUpdated}
-        invertedLanguage={invertedLanguage}
       />
     </div>
   );

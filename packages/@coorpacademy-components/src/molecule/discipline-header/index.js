@@ -32,8 +32,7 @@ class DisciplineHeader extends React.Component {
     description: PropTypes.string,
     image: Preview.propTypes.image,
     video: Preview.propTypes.video,
-    lastUpdated: PropTypes.string,
-    invertedLanguage: PropTypes.bool
+    lastUpdated: PropTypes.string
   };
 
   static contextTypes = {
@@ -61,7 +60,7 @@ class DisciplineHeader extends React.Component {
   }
 
   render() {
-    const {image, title, description, video, lastUpdated, invertedLanguage} = this.props;
+    const {image, title, description, video, lastUpdated} = this.props;
     const {fullDisplay, offsetHeightShowMore} = this.state;
     const {translate} = this.context;
     const maxHeightCourseInfos = 209;
@@ -92,26 +91,24 @@ class DisciplineHeader extends React.Component {
               ref={this.setHandle}
             />
           </div>
-          <div className={invertedLanguage ? style.invertedLanguage : null}>
-            <div className={courseSeeMoreButtonStyle} onClick={this.handleToggleDisplay}>
-              {toggleLabel}
-            </div>
-            {lastUpdated ? (
-              <div
-                className={classnames(
-                  style.lastUpdatedWrapper,
-                  shortCourseText ? style.lastUpdatedWrapperShort : null
-                )}
-              >
-                <SyncIcon className={style.syncIcon} />
-                <div
-                  className={classnames(style.lastUpdatedText, style.innerHTML)}
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{__html: lastUpdated}}
-                />
-              </div>
-            ) : null}
+          <div className={courseSeeMoreButtonStyle} onClick={this.handleToggleDisplay}>
+            {toggleLabel}
           </div>
+          {lastUpdated ? (
+            <div
+              className={classnames(
+                style.lastUpdatedWrapper,
+                shortCourseText ? style.lastUpdatedWrapperShort : null
+              )}
+            >
+              <SyncIcon className={style.syncIcon} />
+              <div
+                className={classnames(style.lastUpdatedText, style.innerHTML)}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{__html: lastUpdated}}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     );

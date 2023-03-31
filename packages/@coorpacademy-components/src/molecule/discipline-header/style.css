@@ -87,16 +87,11 @@
   color: #536E7A;  
 }
 
-.invertedLanguage {
-  float: right;
-  text-align: right;
-  align-items: right;
-}
-
 .syncIcon {
   height: 13px;
   color: #536E7A;
   margin-right: 3px;
+  align-items: center;
 }
 
 .showMore {

@@ -41,7 +41,6 @@ export default {
     shareText: 'Share this',
     shareSuccessWording: 'Success',
     shareErrorWording: 'Error',
-    lastUpdated: '<p align="right"> 03/2023</p>',
-    invertedLanguage: true
+    lastUpdated: '<p align="right"> 03/2023</p>'
   }
 };
