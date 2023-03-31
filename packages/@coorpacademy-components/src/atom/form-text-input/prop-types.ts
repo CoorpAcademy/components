@@ -26,9 +26,7 @@ const propTypes = {
   maxlength: PropTypes.number,
   name: PropTypes.string,
   onChange: PropTypes.func,
-  passwordRules: PropTypes.shape({
-    minLength: PropTypes.number
-  }),
+  passwordValidator: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(keys(TextInput)),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -38,10 +36,6 @@ const propTypes = {
 type TextInputType = keyof typeof TextInput;
 
 export type FieldValue = string | number;
-
-export type PasswordRulesConfig = {
-  minLength: number;
-};
 
 export type FormTextInputProps = {
   'aria-label'?: string;
@@ -56,7 +50,7 @@ export type FormTextInputProps = {
   maxlength?: number;
   name: string;
   onChange?: (value: FieldValue, isValid?: boolean) => void;
-  passwordRules?: PasswordRulesConfig;
+  passwordValidator?: (password: string) => boolean;
   placeholder?: string;
   type?: TextInputType;
   value: FieldValue;

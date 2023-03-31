@@ -6,6 +6,7 @@ import FormTextInput from '..';
 import {FieldValue, FormTextInputProps} from '../prop-types';
 import emailFixture from './fixtures/email';
 import passwordConfirmationFixture from './fixtures/password-confirmation';
+import passwordIncompleteFixture from './fixtures/password-no-validator-fail';
 
 browserEnv();
 
@@ -98,6 +99,58 @@ test('should trigger handleInputChange and validate (with length) for password c
 
   // valid equals
   t.false(onError);
+
+  t.pass();
+});
+
+test('should trigger handleInputChange and not validate for password input when no validator function is provided', t => {
+  t.plan(14);
+
+  let value: FieldValue = passwordIncompleteFixture.props.value;
+
+  let onError = false;
+
+  const props: FormTextInputProps = {
+    ...passwordIncompleteFixture.props,
+    'data-testid': 'password-testid-change',
+    onChange: (newVal, isValid) => {
+      value = newVal;
+      onError = !isValid;
+      t.pass();
+    }
+  };
+
+  const {container} = render(<FormTextInput {...props} />);
+
+  const input = container.querySelector(`[data-testid="${props['data-testid']}"]`);
+  t.truthy(input);
+
+  t.is(value, '1234567890what-a-password');
+
+  t.false(onError);
+
+  fireEvent.input(input as Element, {target: {value: 'fail'}});
+
+  // invalid length
+  t.is(value, 'fail');
+
+  t.true(onError);
+
+  fireEvent.input(input as Element, {target: {value: 'some-ok-password'}});
+
+  // valid length
+  t.is(value, 'some-ok-password');
+
+  // but invalid equals
+  t.true(onError);
+
+  fireEvent.input(input as Element, {target: {value: '1234567890what-a-password'}});
+
+  // valid length
+  t.is(value, '1234567890what-a-password');
+
+  // valid equals but no validator function for the password was provided, defaults to false
+  t.true(onError);
 
   t.pass();
 });

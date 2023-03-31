@@ -10,7 +10,6 @@ const fixture: {props: FormTextInputProps} = {
     label: 'Password',
     name: 'password',
     onChange: () => console.log('FormTextInput onChange'),
-    passwordValidator: password => !!password,
     type: 'password',
     value: '1234567890what-a-password'
   }

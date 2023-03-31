@@ -1,3 +1,4 @@
+import size from 'lodash/fp/size';
 import {FormTextInputProps} from '../../prop-types';
 
 const fixture: {props: FormTextInputProps} = {
@@ -10,6 +11,7 @@ const fixture: {props: FormTextInputProps} = {
     isRequired: true,
     label: 'Password Confirmation',
     name: 'passwordConfirmation',
+    passwordValidator: password => size(password) >= 8,
     onChange: () => console.log('FormTextInput onChange'),
     type: 'passwordConfirmation',
     value: '1234567890what-a-password'

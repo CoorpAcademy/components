@@ -1,15 +1,8 @@
 import React, {useCallback, useMemo, useState, useEffect, FormEvent} from 'react';
 import classnames from 'classnames';
-import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import isEqual from 'lodash/fp/isEqual';
 import noop from 'lodash/fp/noop';
-import size from 'lodash/fp/size';
-// import {
-//   NovaCompositionNavigationArrowRight as ArrowRight,
-//   NovaCompositionCoorpacademyInformationIcon as InformationIcon
-// } from '@coorpacademy/nova-icons';
-// import Provider, {GetTranslateFromContext} from '../provider';
 import propTypes, {FieldValue, FormTextInputProps, TextInput} from './prop-types';
 import style from './style.css';
 
@@ -24,13 +17,10 @@ const validatePattern = (fieldValue: string, pattern: RegExp) => {
   return pattern.test(fieldValue);
 };
 
-const DEFAULT_MIN_LENGTH = 8;
+const DEFAULT_MAX_LENGTH = 150;
 
 const isEqualsDefined = (equals: FieldValue | undefined): equals is FieldValue => !isEmpty(equals);
 
-// autocorrect="off"
-// autocapitalize="none"
-// ng-pattern="/[a-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/"
 const FormTextInput = ({
   'aria-label': ariaLabel,
   autocomplete,
@@ -40,10 +30,10 @@ const FormTextInput = ({
   inputClassName,
   isRequired,
   label,
-  maxlength = 150,
+  maxlength = DEFAULT_MAX_LENGTH,
   name,
   onChange = noop,
-  passwordRules,
+  passwordValidator = () => false,
   placeholder,
   type = 'default',
   value,
@@ -69,16 +59,14 @@ const FormTextInput = ({
       setNewValue(() => {
         const isNewValueValid = !isEqualsDefined(equals) || validate(newInput, equals);
         const validPattern = !isEmailInput || validatePattern(newInput, VALID_EMAIL_PATTERN);
-        const passwordLengthCheck =
-          !isPasswordInput ||
-          size(newInput) >= getOr(DEFAULT_MIN_LENGTH, ['minLength'], passwordRules);
+        const isPasswordCompliant = !isPasswordInput || passwordValidator(newInput);
 
-        setIsValid(passwordLengthCheck && isNewValueValid && validPattern);
+        setIsValid(isPasswordCompliant && isNewValueValid && validPattern);
 
         return newInput;
       });
     },
-    [equals, isEmailInput, isPasswordInput, passwordRules]
+    [equals, isEmailInput, isPasswordInput, passwordValidator]
   );
 
   useEffect(() => {
