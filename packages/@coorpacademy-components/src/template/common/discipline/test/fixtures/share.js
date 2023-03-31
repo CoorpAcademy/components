@@ -42,6 +42,7 @@ export default {
     favorite: true,
     onFavoriteClick: cb => cb(),
     addToMyListText: 'Added to your list',
-    removeFromMyListText: 'Removed from your list'
+    removeFromMyListText: 'Removed from your list',
+    lastUpdated: 'Last update on 03/2023'
   }
 };

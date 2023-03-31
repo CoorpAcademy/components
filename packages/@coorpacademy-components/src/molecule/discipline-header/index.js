@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import classnames from 'classnames';
+import {NovaSolidSynchronizeSynchronize3 as SyncIcon} from '@coorpacademy/nova-icons';
 import VideoPlayer from '../video-player';
 import Picture from '../../atom/picture';
 import style from './style.css';
@@ -30,7 +31,9 @@ class DisciplineHeader extends React.Component {
     title: PropTypes.string,
     description: PropTypes.string,
     image: Preview.propTypes.image,
-    video: Preview.propTypes.video
+    video: Preview.propTypes.video,
+    lastUpdated: PropTypes.string,
+    invertedLanguage: PropTypes.bool
   };
 
   static contextTypes = {
@@ -58,30 +61,30 @@ class DisciplineHeader extends React.Component {
   }
 
   render() {
-    const {image, title, description, video} = this.props;
+    const {image, title, description, video, lastUpdated, invertedLanguage} = this.props;
     const {fullDisplay, offsetHeightShowMore} = this.state;
     const {translate} = this.context;
-    const maxHeightDescription = 219;
-
+    const maxHeightCourseInfos = 209;
+    const hasMediaContent = image || video;
     const toggleLabel = fullDisplay ? translate('See less') : translate('Show more');
-    const descritpionViewStyle =
-      offsetHeightShowMore <= maxHeightDescription ? style.showMoreHidden : style.showMore;
+    const shortCourseText = offsetHeightShowMore <= maxHeightCourseInfos;
+    const courseSeeMoreButtonStyle = shortCourseText ? style.showMoreHidden : style.showMore;
 
     return (
       <div data-name="disciplineHeader" className={style.wrapper}>
-        {image || video ? (
+        {hasMediaContent ? (
           <div className={style.imgWrapper}>
             <Preview image={image} video={video} />
           </div>
         ) : null}
         <div className={style.courseWrapper}>
-          <div
-            data-name="title"
-            className={classnames(style.title, style.innerHTML)}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: title}}
-          />
-          <div className={fullDisplay ? style.desc : style.shortDesc}>
+          <div className={fullDisplay ? style.courseTextWrapperFull : style.courseTextWrapperShort}>
+            <div
+              data-name="title"
+              className={classnames(style.title, style.innerHTML)}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: title}}
+            />
             <div
               className={style.innerHTML}
               // eslint-disable-next-line react/no-danger
@@ -89,8 +92,25 @@ class DisciplineHeader extends React.Component {
               ref={this.setHandle}
             />
           </div>
-          <div className={descritpionViewStyle} onClick={this.handleToggleDisplay}>
-            {toggleLabel}
+          <div className={invertedLanguage ? style.invertedLanguage : null}>
+            <div className={courseSeeMoreButtonStyle} onClick={this.handleToggleDisplay}>
+              {toggleLabel}
+            </div>
+            {lastUpdated ? (
+              <div
+                className={classnames(
+                  style.lastUpdatedWrapper,
+                  shortCourseText ? style.lastUpdatedWrapperShort : null
+                )}
+              >
+                <SyncIcon className={style.syncIcon} />
+                <div
+                  className={classnames(style.lastUpdatedText, style.innerHTML)}
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{__html: lastUpdated}}
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

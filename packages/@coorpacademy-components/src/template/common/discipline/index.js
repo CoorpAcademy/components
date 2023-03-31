@@ -37,7 +37,9 @@ const Discipline = (props, context) => {
     addToMyListText,
     removeFromMyListText,
     disableShare = false,
-    disableAddToMyList = false
+    disableAddToMyList = false,
+    lastUpdated,
+    invertedLanguage = false
   } = props;
 
   const authorSection = isEmpty(authors) ? null : (
@@ -64,7 +66,14 @@ const Discipline = (props, context) => {
 
   const disciplineHeader = (
     <div className={style.header}>
-      <DisciplineHeader image={image} video={video} title={title} description={description} />
+      <DisciplineHeader
+        image={image}
+        video={video}
+        title={title}
+        description={description}
+        lastUpdated={lastUpdated}
+        invertedLanguage={invertedLanguage}
+      />
     </div>
   );
 

@@ -194,6 +194,7 @@ import _NovaSolidSpaceSpaceRocket from './components/nova-solid/space/space-rock
 import _NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
 import _NovaSolidStatusClose from './components/nova-solid/status/close';
 import _NovaSolidStatusValidate from './components/nova-solid/status/validate';
+import _NovaSolidSynchronizeSynchronize3 from './components/nova-solid/synchronize/synchronize-3';
 import _NovaSolidTimeAlarm from './components/nova-solid/time/alarm';
 import _NovaSolidUsersActionsUser from './components/nova-solid/users-actions/user';
 import _NovaSolidUsersUserShield1 from './components/nova-solid/users/user-shield-1';
@@ -436,6 +437,7 @@ export const NovaSolidSpaceSpaceRocket: Icon = _NovaSolidSpaceSpaceRocket;
 export const NovaSolidStatusCheckCircle2: Icon = _NovaSolidStatusCheckCircle2;
 export const NovaSolidStatusClose: Icon = _NovaSolidStatusClose;
 export const NovaSolidStatusValidate: Icon = _NovaSolidStatusValidate;
+export const NovaSolidSynchronizeSynchronize3: Icon = _NovaSolidSynchronizeSynchronize3;
 export const NovaSolidTimeAlarm: Icon = _NovaSolidTimeAlarm;
 export const NovaSolidUsersActionsUser: Icon = _NovaSolidUsersActionsUser;
 export const NovaSolidUsersUserShield1: Icon = _NovaSolidUsersUserShield1;

@@ -10,7 +10,7 @@ const thread = Thread.props;
 
 const threads = [thread].map(update('id', () => uniqueId()));
 
-const {title, description, video, image} = disciplineHeader.props;
+const {title, description, video, image, lastUpdated} = disciplineHeader.props;
 const {start, buy, startLabel, buyLabel} = disciplineCTA.props;
 const {authors} = disciplinePartners.props;
 const {content, levels} = disciplineScope.props;
@@ -26,6 +26,7 @@ export default {
     description,
     image,
     video,
+    lastUpdated,
     authors: [head(authors)],
     changeLevel: () => true,
     level: {
