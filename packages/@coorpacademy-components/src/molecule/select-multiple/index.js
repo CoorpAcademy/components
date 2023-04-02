@@ -55,11 +55,7 @@ const CMMultipleView = ({multiple, choice, onChange}) => {
       />
     </div>
   ) : (
-    <span
-      className={style.item}
-      title={choice.name}
-      data-name={`${choice.name}-language`}
-    >
+    <span className={style.item} title={choice.name} data-name={`${choice.name}-language`}>
       {choice.name}
     </span>
   );
@@ -113,7 +109,6 @@ const SelectMultiple = (
       // we return all selected choices
       if (multiple) {
         setChoices(choice);
-        console.log('selected choice', choice);
         return onChange(getChoices());
       }
       updateIsOpened(false);
