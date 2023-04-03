@@ -1,6 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
-import {NovaCompositionCoorpacademyLogoCoorp as LogoCoorp} from '@coorpacademy/nova-icons';
+import LinearGradient from 'react-native-linear-gradient';
+import {
+  NovaCompositionCoorpacademyLogoCoorp as LogoCoorp,
+  NovaCompositionCoorpacademyQrCode as QrCodeIcon,
+  NovaCompositionCoorpacademyEmail as MailIcon
+} from '@coorpacademy/nova-icons';
 import Touchable from '../../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../app-review/template-context';
 import {Theme} from '../../../variables/theme.native';
@@ -9,17 +14,25 @@ type StyleSheetType = {
   wrapper: ViewStyle;
   logo: ViewStyle;
   content: ViewStyle;
+  gradient: ViewStyle;
+  gradient2: ViewStyle;
   title: TextStyle;
   description: TextStyle;
   actions: ViewStyle;
   buttons: ViewStyle;
   button: ViewStyle;
+  qrCodeIcon: ViewStyle;
+  mailIcon: ViewStyle;
   ctaQRCode: ViewStyle;
+  ctaQRCodeText: TextStyle;
   ctaReceiveMail: ViewStyle;
+  ctaReceiveMailText: TextStyle;
   help: ViewStyle;
+  titleHelp: TextStyle;
+  ctaHelp: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme) =>
+const createStyleSheet = (theme: Theme): StyleSheetType =>
   StyleSheet.create({
     wrapper: {
       top: 0,
@@ -34,6 +47,24 @@ const createStyleSheet = (theme: Theme) =>
     content: {
       width: '100%',
       alignItems: 'flex-start'
+    },
+    gradient: {
+      position: 'absolute',
+      top: -100,
+      bottom: 0,
+      left: -180,
+      right: 0,
+      opacity: 1,
+      transform: [{rotate: '35deg'}]
+    },
+    gradient2: {
+      position: 'absolute',
+      top: -80,
+      bottom: 0,
+      left: 0,
+      right: -200,
+      opacity: 0.5,
+      transform: [{rotate: '-35deg'}]
     },
     logo: {
       padding: 100
@@ -60,6 +91,8 @@ const createStyleSheet = (theme: Theme) =>
       paddingVertical: 12,
       marginVertical: 4,
       width: '100%',
+      flexDirection: 'row',
+      justifyContent: 'center',
       borderRadius: 12,
       alignItems: 'center',
       overflow: 'hidden'
@@ -67,16 +100,44 @@ const createStyleSheet = (theme: Theme) =>
     ctaQRCode: {
       backgroundColor: theme.colors.cta
     },
+    ctaQRCodeText: {
+      marginLeft: 8,
+      color: '#fff',
+      fontWeight: '700',
+      fontSize: 14,
+      lineHeight: 24
+    },
+    qrCodeIcon: {
+      fill: '#fff',
+      height: 14,
+      width: 14
+    },
     ctaReceiveMail: {
       backgroundColor: '#eaeaeb'
+    },
+    ctaReceiveMailText: {
+      marginLeft: 8,
+      color: '#1D1D2B',
+      fontWeight: '700',
+      fontSize: 14,
+      lineHeight: 24
+    },
+    mailIcon: {
+      fill: '#1D1D2B',
+      height: 12,
+      width: 16
     },
     help: {
       flexDirection: 'row',
       justifyContent: 'center'
     },
+    titleHelp: {
+      color: '#9999A8'
+    },
     ctaHelp: {
       marginLeft: 5,
-      textDecorationLine: 'underline'
+      textDecorationLine: 'underline',
+      color: '#9999A8'
     }
   });
 
@@ -111,6 +172,16 @@ const Welcome = (props: Props) => {
 
   return (
     <View style={styleSheet.wrapper} testID="welcome">
+      <LinearGradient
+        colors={['#0061FF', '#fff']}
+        locations={[0, 0.3]}
+        style={styleSheet.gradient}
+      />
+      <LinearGradient
+        colors={['#2199AB', '#fff']}
+        locations={[0, 0.3]}
+        style={styleSheet.gradient2}
+      />
       <Touchable onLongPress={onDemoPress} style={styleSheet.logo}>
         <LogoCoorp fill={theme.colors.cta} width={77} height={75} />
       </Touchable>
@@ -124,17 +195,19 @@ const Welcome = (props: Props) => {
               style={[styleSheet.button, styleSheet.ctaQRCode]}
               onPress={onDesktopButtonPress}
             >
-              <Text> {locales.ctaQRCode} </Text>
+              <QrCodeIcon style={styleSheet.qrCodeIcon} />
+              <Text style={styleSheet.ctaQRCodeText}>{locales.ctaQRCode}</Text>
             </Touchable>
             <Touchable
               style={[styleSheet.button, styleSheet.ctaReceiveMail]}
               onPress={onMobileButtonPress}
             >
-              <Text>{locales.ctaReceiveMail}</Text>
+              <MailIcon style={styleSheet.mailIcon} />
+              <Text style={styleSheet.ctaReceiveMailText}>{locales.ctaReceiveMail}</Text>
             </Touchable>
           </View>
           <Touchable onPress={onHelpPress} style={styleSheet.help}>
-            <Text>{locales.titleHelp}</Text>
+            <Text style={styleSheet.titleHelp}>{locales.titleHelp}</Text>
             <Text style={styleSheet.ctaHelp}>{locales.ctaHelp}</Text>
           </Touchable>
         </View>

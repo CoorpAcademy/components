@@ -34,6 +34,7 @@ import _NovaCompositionCoorpacademyDashboard from './components/nova-composition
 import _NovaCompositionCoorpacademyDraft from './components/nova-composition/coorpacademy/draft';
 import _NovaCompositionCoorpacademyDumbbell from './components/nova-composition/coorpacademy/dumbbell';
 import _NovaCompositionCoorpacademyEditorialization from './components/nova-composition/coorpacademy/editorialization';
+import _NovaCompositionCoorpacademyEmail from './components/nova-composition/coorpacademy/email';
 import _NovaCompositionCoorpacademyEmptyStateHomeRevision from './components/nova-composition/coorpacademy/empty-state-home-revision';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
 import _NovaCompositionCoorpacademyFacebook from './components/nova-composition/coorpacademy/facebook';
@@ -163,7 +164,6 @@ import _NovaSolidDataTransferDataUpload11 from './components/nova-solid/data-tra
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
 import _NovaSolidDesignPaintBrush2 from './components/nova-solid/design/paint-brush-2';
 import _NovaSolidEmailAtSign from './components/nova-solid/email/at-sign';
-import _NovaSolidEmailEmailEnvelope from './components/nova-solid/email/email-envelope';
 import _NovaSolidFilesBasicFileBlock2 from './components/nova-solid/files-basic/file-block-2';
 import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic/file-upload-2';
 import _NovaSolidFilesFoldersFolders from './components/nova-solid/files-folders/folders';
@@ -257,6 +257,7 @@ export const NovaCompositionCoorpacademyDraft: Icon = _NovaCompositionCoorpacade
 export const NovaCompositionCoorpacademyDumbbell: Icon = _NovaCompositionCoorpacademyDumbbell;
 export const NovaCompositionCoorpacademyEditorialization: Icon =
   _NovaCompositionCoorpacademyEditorialization;
+export const NovaCompositionCoorpacademyEmail: Icon = _NovaCompositionCoorpacademyEmail;
 export const NovaCompositionCoorpacademyEmptyStateHomeRevision: Icon =
   _NovaCompositionCoorpacademyEmptyStateHomeRevision;
 export const NovaCompositionCoorpacademyEye: Icon = _NovaCompositionCoorpacademyEye;
@@ -403,7 +404,6 @@ export const NovaSolidDataTransferDataUpload11: Icon = _NovaSolidDataTransferDat
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
 export const NovaSolidDesignPaintBrush2: Icon = _NovaSolidDesignPaintBrush2;
 export const NovaSolidEmailAtSign: Icon = _NovaSolidEmailAtSign;
-export const NovaSolidEmailEmailEnvelope: Icon = _NovaSolidEmailEmailEnvelope;
 export const NovaSolidFilesBasicFileBlock2: Icon = _NovaSolidFilesBasicFileBlock2;
 export const NovaSolidFilesBasicFileUpload2: Icon = _NovaSolidFilesBasicFileUpload2;
 export const NovaSolidFilesFoldersFolders: Icon = _NovaSolidFilesFoldersFolders;
