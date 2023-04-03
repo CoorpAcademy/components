@@ -20,9 +20,9 @@
     "update": "update-node"
   },
   "engines": {
-    "node": "^16.19.1",
+    "node": "^16.20.0",
     "yarn": "^1.12.3",
-    "npm": "^8.19.3"
+    "npm": "^8.19.4"
   },
   "workspaces": [
     "packages/*"
