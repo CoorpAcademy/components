@@ -45,7 +45,7 @@
   color: dark;
 }
 
-.desc {
+.courseTextWrapperFull {
   font-family: "Gilroy";
   font-size: 15px;
   color: black;
@@ -53,14 +53,14 @@
   line-height: 22px;
 }
 
-.desc a {
+.courseTextWrapperFull a {
   font-family: Gilroy;
   font-weight: 600;
   color: brand;
   text-decoration: none;
 }
 
-.desc a:hover {
+.courseTextWrapperFull a:hover {
   text-decoration: underline;
 }
 
@@ -68,10 +68,35 @@
   display: none;
 }
 
+.lastUpdatedWrapperShort {
+ height: 28px;
+ align-items: flex-end; 
+}
+
+.lastUpdatedWrapper {
+  display: flex;
+  margin-top: 8px;
+}
+
+.lastUpdatedText {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  color: #536E7A;  
+}
+
+.syncIcon {
+  height: 13px;
+  color: #536E7A;
+  margin-right: 3px;
+  align-items: center;
+}
+
 .showMore {
   display: block;
   font-size: 14px;
-  margin: 0 14px 0 0;
   transition: all time ease-in-out;
   cursor: pointer;
   order: 1;
@@ -85,9 +110,9 @@
   opacity: 0.8;
 }
 
-.shortDesc {
-  composes: desc;
-  height: 200px;
+.courseTextWrapperShort {
+  composes: courseTextWrapperFull;
+  height: 213px;
   overflow: hidden;
 }
 
@@ -106,6 +131,7 @@
     margin-top: 20px;
     padding-left: 0;
   }
+
 }
 
 .innerHTML {

@@ -44,6 +44,7 @@ export default {
     addToMyListText: 'Added to your list',
     removeFromMyListText: 'Removed from your list',
     disableAddToMyList: false,
-    disableShare: false
+    disableShare: false,
+    lastUpdated: 'Last update on 03/2023'
   }
 };

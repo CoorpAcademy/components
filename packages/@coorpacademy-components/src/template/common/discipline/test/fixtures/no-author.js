@@ -23,6 +23,7 @@ export default {
     shareWording: 'Share',
     shareText: 'Share this',
     shareSuccessWording: 'Success',
-    shareErrorWording: 'Error'
+    shareErrorWording: 'Error',
+    lastUpdated: 'Last update on 03/2023'
   }
 };

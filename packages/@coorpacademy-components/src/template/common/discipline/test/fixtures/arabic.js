@@ -40,6 +40,7 @@ export default {
     shareWording: 'Share',
     shareText: 'Share this',
     shareSuccessWording: 'Success',
-    shareErrorWording: 'Error'
+    shareErrorWording: 'Error',
+    lastUpdated: '<p align="right"> 03/2023</p>'
   }
 };

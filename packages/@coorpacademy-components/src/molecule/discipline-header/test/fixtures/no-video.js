@@ -6,6 +6,7 @@ export default {
     image: {
       '1x': 'https://placehold.it/380x250/1d1d1d',
       '2x': 'https://placehold.it/760x500/1d1d1d'
-    }
+    },
+    lastUpdated: 'Last update on 03/2023'
   }
 };
