@@ -22,6 +22,7 @@ const propTypes = {
   hint: PropTypes.string,
   inputClassName: PropTypes.string,
   isRequired: PropTypes.bool,
+  isValid: PropTypes.bool,
   label: PropTypes.string,
   maxlength: PropTypes.number,
   name: PropTypes.string,
@@ -46,6 +47,7 @@ export type FormTextInputProps = {
   hint?: string;
   inputClassName?: string | null;
   isRequired?: boolean;
+  isValid?: boolean;
   label: string;
   maxlength?: number;
   name: string;

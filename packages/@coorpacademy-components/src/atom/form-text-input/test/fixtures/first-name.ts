@@ -10,7 +10,8 @@ const fixture: {props: FormTextInputProps} = {
     name: 'firstName',
     placeholder: 'firstName',
     type: 'firstName',
-    value: 'Phineas'
+    value: 'Phineas',
+    isValid: true
   }
 };
 

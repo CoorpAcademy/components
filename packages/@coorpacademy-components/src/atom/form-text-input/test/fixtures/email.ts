@@ -10,7 +10,8 @@ const fixture: {props: FormTextInputProps} = {
     onChange: () => console.log('FormTextInput onChange'),
     // placeholder: '',
     type: 'email',
-    value: 'phyneas@summer.com'
+    value: 'phyneas@summer.com',
+    isValid: true
   }
 };
 

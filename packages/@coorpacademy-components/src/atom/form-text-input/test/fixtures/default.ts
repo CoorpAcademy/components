@@ -7,7 +7,8 @@ const fixture: {props: FormTextInputProps} = {
     label: 'Default',
     name: 'default',
     placeholder: 'default',
-    value: 'default'
+    value: 'default',
+    isValid: false
   }
 };
 

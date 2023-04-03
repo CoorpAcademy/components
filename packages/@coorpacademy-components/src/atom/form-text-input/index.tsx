@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState, useEffect, FormEvent} from 'react';
+import React, {useCallback, useMemo, FormEvent} from 'react';
 import classnames from 'classnames';
 import isEmpty from 'lodash/fp/isEmpty';
 import isEqual from 'lodash/fp/isEqual';
@@ -29,6 +29,7 @@ const FormTextInput = ({
   hint,
   inputClassName,
   isRequired,
+  isValid,
   label,
   maxlength = DEFAULT_MAX_LENGTH,
   name,
@@ -40,10 +41,6 @@ const FormTextInput = ({
   equals,
   wrapperClassName
 }: FormTextInputProps) => {
-  const [newValue, setNewValue] = useState<FieldValue>(value);
-
-  const [isValid, setIsValid] = useState<boolean>(true);
-
   const isDefaultType = useMemo(() => !type || type === TextInput.default, [type]);
 
   const isPasswordInput = useMemo(
@@ -56,23 +53,16 @@ const FormTextInput = ({
   const handleInputChange = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
       const newInput: FieldValue = (event.target as HTMLInputElement).value;
-      setNewValue(() => {
-        const isNewValueValid = !isEqualsDefined(equals) || validate(newInput, equals);
-        const validPattern = !isEmailInput || validatePattern(newInput, VALID_EMAIL_PATTERN);
-        const isPasswordCompliant = !isPasswordInput || passwordValidator(newInput);
+      const isNewValueValid = !isEqualsDefined(equals) || validate(newInput, equals);
+      const validPattern = !isEmailInput || validatePattern(newInput, VALID_EMAIL_PATTERN);
+      const isPasswordCompliant = !isPasswordInput || passwordValidator(newInput);
 
-        setIsValid(isPasswordCompliant && isNewValueValid && validPattern);
+      const checkResult = isPasswordCompliant && isNewValueValid && validPattern;
 
-        return newInput;
-      });
+      onChange(newInput, checkResult);
     },
-    [equals, isEmailInput, isPasswordInput, passwordValidator]
+    [equals, isEmailInput, isPasswordInput, onChange, passwordValidator]
   );
-
-  useEffect(() => {
-    onChange(newValue, isValid);
-    return;
-  }, [isValid, newValue, onChange]);
 
   const fieldLabel = useMemo(() => `${label} ${isRequired ? '*' : ''}`, [isRequired, label]);
 

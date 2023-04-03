@@ -14,7 +14,8 @@ const fixture: {props: FormTextInputProps} = {
     passwordValidator: password => size(password) >= 8,
     onChange: () => console.log('FormTextInput onChange'),
     type: 'passwordConfirmation',
-    value: '1234567890what-a-password'
+    value: '1234567890what-a-password',
+    isValid: true
   }
 };
 
