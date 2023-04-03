@@ -7,7 +7,7 @@ import SelectMultiple from '../../molecule/select-multiple';
 import ExpandibleActionableTable from '../../molecule/expandible-actionable-table';
 import style from './style.css';
 
-const buildListItemsView = (content, ariaLabel) => {
+const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   const {items, itemType} = content;
   const itemsView = items.map((item, index) => (
     <li key={item.id} className={style.item} data-name={`content-${index}`}>
@@ -15,23 +15,27 @@ const buildListItemsView = (content, ariaLabel) => {
     </li>
   ));
   return (
-    <ul className={style.list} aria-label={ariaLabel} data-name={'content-list'}>
+    <ul
+      className={!selectMultiple ? style.list : style.listWithSelectMultiple}
+      aria-label={ariaLabel}
+      data-name={'content-list'}
+    >
       {itemsView}
     </ul>
   );
 };
-const buildContentView = (content, ariaLabel) => {
+const buildContentView = (content, ariaLabel, selectMultiple) => {
   const {type} = content;
   switch (type) {
     case 'list':
-      return buildListItemsView(content, ariaLabel);
+      return buildListItemsView(content, ariaLabel, selectMultiple);
     case 'expandible-actionable-table':
       return <ExpandibleActionableTable {...content} />;
   }
 };
 
 const ListItems = ({title, buttonLink, selectMultiple, content, 'aria-label': ariaLabel}) => {
-  const contentView = buildContentView(content, ariaLabel);
+  const contentView = buildContentView(content, ariaLabel, selectMultiple);
 
   return (
     <div>
