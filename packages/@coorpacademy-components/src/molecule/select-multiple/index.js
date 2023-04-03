@@ -134,7 +134,7 @@ const SelectMultiple = (
       <li
         key={i}
         className={style.choice}
-        onClick={isCMTheme && !multiple && (() => handleChange({...choice, i}))}
+        onClick={(isCMTheme && !multiple) ? (() => handleChange({...choice, i})) : null}
       >
         {isCMTheme ? (
           <CMMultipleView multiple={multiple} choice={{...choice, i}} onChange={handleChange} />
