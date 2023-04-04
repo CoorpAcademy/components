@@ -1,52 +1,61 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
+import delay from 'delay';
 import {set, replace} from 'lodash/fp';
-import {mount, shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {fireEvent} from '@testing-library/react';
+import {renderWithContext} from '../../../util/render-with-context';
 import style from '../style.css';
 import ExternalCourse from '..';
-import fixture from './fixtures/default';
+import fixture from './fixtures/article';
+import fixturePodcastNoBackground from './fixtures/podcast-no-background';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
-test('should call complete onClick', t => {
-  t.plan(4);
+test('should call complete onClick', async t => {
+  t.plan(2);
 
-  const completeCtaStyle = `.${replace(' ', '.', style.completeCta)}`;
+  const completeCtaStyle = '[data-testid="complete-button"]';
 
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = set('complete.onClick', e => t.pass(), fixture.props);
+  const props = set(
+    'complete.onClick',
+    e => {
+      t.pass();
+      return e;
+    },
+    fixture.props
+  );
 
-  const wrapper = shallow(<ExternalCourse {...props} />);
-
-  t.is(wrapper.find(completeCtaStyle).exists(), true);
-  wrapper.find(completeCtaStyle).simulate('click', clickEvent);
+  const {container} = renderWithContext(<ExternalCourse {...props} />);
+  await delay(200);
+  const cta = container.querySelector(completeCtaStyle);
+  t.truthy(cta);
+  fireEvent.click(cta, {defaultPrevented: true});
 });
 
 test('should call quit onClick', t => {
-  t.plan(4);
+  t.plan(2);
 
   const quitCtaStyle = `.${replace(' ', '.', style.quitCta)}`;
 
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = set('quit.onClick', e => t.pass(), fixture.props);
-  const wrapper = mount(<ExternalCourse {...props} />);
+  const {container} = renderWithContext(<ExternalCourse {...props} />);
 
-  t.is(wrapper.find(quitCtaStyle).exists(), true);
-  wrapper.find(quitCtaStyle).simulate('click', clickEvent);
+  t.truthy(container.querySelector(quitCtaStyle));
+
+  const cta = container.querySelector(quitCtaStyle);
+  fireEvent.click(cta, {defaultPrevented: true});
 });
 
 test('should call warning onClick', t => {
-  t.plan(4);
+  t.plan(2);
 
   const linkStyle = `.${replace(' ', '.', style.link)}`;
 
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = set('warning.onClick', e => t.pass(), fixture.props);
-  const wrapper = shallow(<ExternalCourse {...props} />);
+  const props = set('warning.onClick', e => t.pass(), fixturePodcastNoBackground.props);
+  const {container} = renderWithContext(<ExternalCourse {...props} />);
 
-  t.is(wrapper.find(linkStyle).exists(), true);
-  wrapper.find(linkStyle).simulate('click', clickEvent);
+  t.truthy(container.querySelector(linkStyle));
+  const cta = container.querySelector(linkStyle);
+  fireEvent.click(cta, {defaultPrevented: true});
 });

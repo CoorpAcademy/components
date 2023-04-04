@@ -24,7 +24,7 @@
 }
 
 .defaultCockpit{
-  composes:default;
+  composes: default;
   height: 100%;
 }
 

@@ -7,26 +7,26 @@ type Fixture = {
 
 const fixture: Fixture = {
   props: {
-    content: 'Tu nous quittes déjà ?',
-    icon: 'MoonRocket',
+    content: 'Vous êtes sur le point de quitter ce cours sans le valider',
+    icon: 'CheckCircle1',
     mode: 'alert',
-    descriptionText: `Tu vas t'en sortir ! Si tu arrêtes maintenant, tu vas perdre ta progression.`,
+    descriptionText: `Souhaitez-vous marquer ce cours comme terminé ou poursuivre ce cours plus tard.`,
     firstButton: {
-      label: `Arrêter ma session`,
+      label: `Je poursuivrai plus tard`,
       type: 'tertiary',
       customStyle: {
         color: '#ED3436'
       },
-      'aria-label': 'Stop session',
+      'aria-label': 'Continue later',
       handleOnclick: noop
     },
     secondButton: {
-      label: `Continuer d'apprendre`,
+      label: `J'ai terminé ce cours`,
       type: 'primary',
       customStyle: {
         backgroundColor: '#0061FF'
       },
-      'aria-label': 'Continue review',
+      'aria-label': `End session`,
       handleOnclick: noop
     }
   }

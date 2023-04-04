@@ -47,7 +47,7 @@
 
 .popin {
   overflow: auto;
-  width: 500px;
+  width: 434px;
   flex-grow: 0;
   margin: 16px;
   padding: 16px 16px 20px 16px;
@@ -114,12 +114,12 @@
 
 .button {
   min-width: max-content;
-  width: 160px;
+  width: 161px;
   padding: 8px;
 }
 
 .largeButton {
-  width: 100%;
+  width: 75%;
   padding: 8px;
 }
 
@@ -147,7 +147,11 @@
   color: cm_grey_500;
   font-style: normal;
   white-space: pre-line;
-  margin-top: 0px;
+  margin: 0px 32px;
+}
+
+.content {
+  margin: 20px 32px;
 }
 
 .cookieTitleContainer {
@@ -279,26 +283,18 @@ a {
 
 @media tablet {
   .popin {
-    position: fixed;
-  }
-
-  .popin {
     width: 80%;
+    overflow: hidden;
   }
 
   .buttonContainer {
     display: flex;
     flex-wrap: wrap-reverse;
-    margin: 48px 24px 32px 24px;
-    width: 85%;
+    margin: 12px 24px 32px 24px;
   }
   
-  .button {
+  .largeButton, .button , .titleContainer {
     width: 100%;
-  }
-
-  .titleContainer {
-    width: 85%;
   }
 
   .popinCookie {
@@ -310,40 +306,66 @@ a {
     overflow-x: hidden;
     overflow-y: auto;
   }
-  .popinCookie .button{
+  .popinCookie .button {
     width: 100%;
     padding: 0px 0px 8px 0px
   }
 
   .popinCookie .largeButton {
-    padding: 8px 0px 0px 0px
+    padding: 8px 0px 0px 0px;
   }
   .popinCookie .message {
     padding: 24px 24px 0px 24px
   }
+  .descriptionText {
+    margin: 0px 16px;
+  }
+  .content {
+    margin: 20px 16px;
+  }
+  .message { 
+    padding: 40px 16px 0px;
+  }
+}
 
-  @media mobile {
-    .popin {
-      position: fixed;
-    }
+@media mobile {
+  .background {
+    padding: 0;
+  }
 
-    .popin {
-      width: 80%;
-    }
+  .popin {
+    width: 80%;
+    overflow: hidden;
+  }
 
-    .buttonContainer {
-      display: flex;
-      margin: 48px 24px 32px 24px;
-      width: 85%;
-    }
-    
-    .button {
-      width: 100%;
-    }
+  .buttonContainer {
+    display: flex;
+    margin: 12px 16px 32px 16px;
+  }
+  
+  .button {
+    width: 100%;
+  }
 
-    .titleContainer {
-      width: 85%;
-    }
+  .titleContainer {
+    width: 100%;
+    margin: 0px 16px;
+  }
+
+  .descriptionText {
+    margin: 0px 16px;
+  }
+
+  .content {
+    margin: 16px 32px;
+  }
+  
+  .largeButton { 
+    margin: 0px 32px;
+  }
+
+  .message { 
+    padding: 40px 16px 0px;
   }
 }
 
@@ -355,7 +377,6 @@ button {
 }
 
 _:-ms-fullscreen,
-.descriptionText,
 .buttonContainer {
   width: 85%;
 }

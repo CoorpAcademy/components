@@ -3,7 +3,8 @@ import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
   NovaLineSettingsCookie as Cookie,
-  NovaSolidSpaceMoonRocket as MoonRocket
+  NovaSolidSpaceMoonRocket as MoonRocket,
+  NovaLineStatusCheckCircle1 as CheckCircle1
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
@@ -32,7 +33,8 @@ const CMPopin = props => {
   const logo = {
     AlertDiamond,
     WindowUpload,
-    MoonRocket
+    MoonRocket,
+    CheckCircle1
   };
   const LogoComponent = logo[icon];
 
@@ -148,44 +150,46 @@ const CMPopin = props => {
         </div>
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
         {renderBtnSwitch()}
-        <div className={style.buttonContainer}>
-          {firstButton ? (
-            <div className={firstButton.largeButton ? style.largeButton : style.button}>
-              <Cta
-                label={firstButton.label}
-                onClick={firstButton.handleOnclick}
-                data-name={'cm-popin-cta'}
-                aria-label={firstButton['aria-label']}
-                type={firstButton.type}
-                customStyle={firstButton.customStyle}
-              />
-            </div>
-          ) : null}
-          {secondButton ? (
-            <div className={secondButton.largeButton ? style.largeButton : style.button}>
-              <Cta
-                label={secondButton.label}
-                onClick={secondButton.handleOnclick}
-                data-name={`cm-popin-cta-${secondButton.type}`}
-                aria-label={secondButton['aria-label']}
-                type={secondButton.type}
-                customStyle={secondButton.customStyle}
-              />
-            </div>
-          ) : null}
-          {thirdButton ? (
-            <div className={thirdButton.largeButton ? style.largeButton : style.button}>
-              <Cta
-                label={thirdButton.label}
-                onClick={thirdButton.handleOnclick}
-                data-name={`cm-popin-cta-${thirdButton.type}`}
-                aria-label={thirdButton['aria-label']}
-                type={thirdButton.type}
-                customStyle={thirdButton.customStyle}
-              />
-            </div>
-          ) : null}
-        </div>
+        {firstButton || secondButton || thirdButton ? (
+          <div className={style.buttonContainer}>
+            {firstButton ? (
+              <div className={firstButton.largeButton ? style.largeButton : style.button}>
+                <Cta
+                  label={firstButton.label}
+                  onClick={firstButton.handleOnclick}
+                  data-name={'cm-popin-cta'}
+                  aria-label={firstButton['aria-label']}
+                  type={firstButton.type}
+                  customStyle={firstButton.customStyle}
+                />
+              </div>
+            ) : null}
+            {secondButton ? (
+              <div className={secondButton.largeButton ? style.largeButton : style.button}>
+                <Cta
+                  label={secondButton.label}
+                  onClick={secondButton.handleOnclick}
+                  data-name={`cm-popin-cta-${secondButton.type}`}
+                  aria-label={secondButton['aria-label']}
+                  type={secondButton.type}
+                  customStyle={secondButton.customStyle}
+                />
+              </div>
+            ) : null}
+            {thirdButton ? (
+              <div className={thirdButton.largeButton ? style.largeButton : style.button}>
+                <Cta
+                  label={thirdButton.label}
+                  onClick={thirdButton.handleOnclick}
+                  data-name={`cm-popin-cta-${thirdButton.type}`}
+                  aria-label={thirdButton['aria-label']}
+                  type={thirdButton.type}
+                  customStyle={thirdButton.customStyle}
+                />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </div>
   );
