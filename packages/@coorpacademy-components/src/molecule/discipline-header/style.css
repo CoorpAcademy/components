@@ -69,7 +69,7 @@
 }
 
 .lastUpdatedWrapperShort {
- height: 28px;
+ height: 31px;
  align-items: flex-end; 
 }
 
@@ -92,6 +92,7 @@
   color: #536E7A;
   margin-right: 3px;
   align-items: center;
+  padding-bottom: 1px;
 }
 
 .showMore {
