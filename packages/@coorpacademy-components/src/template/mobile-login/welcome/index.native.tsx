@@ -141,7 +141,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     }
   });
 
-type Props = {
+export type Props = {
   onDemoPress: () => void;
   onDesktopButtonPress: () => void;
   onHelpPress: () => void;
