@@ -47,6 +47,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/clock-time.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/clue.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/cog.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/logo-coorp.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/nav-bar.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/nav-bar.svg')},
   {
     filePath: path.resolve(
@@ -69,6 +71,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/coorp-logo.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/microphone.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/article.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/email.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/video.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/warn.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/facebook.svg')},
@@ -77,6 +80,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/linkedin.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/mail.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/pinterest.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/qr-code.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/twitter.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/vimeo.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/youtube.svg')},
