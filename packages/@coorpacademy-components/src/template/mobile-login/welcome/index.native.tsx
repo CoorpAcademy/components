@@ -1,19 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {Animated, StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   NovaCompositionCoorpacademyLogoCoorp as LogoCoorp,
   NovaCompositionCoorpacademyQrCode as QrCodeIcon,
   NovaCompositionCoorpacademyEmail as MailIcon
 } from '@coorpacademy/nova-icons';
+import {useAnimateProp, useTranslateY} from '@coorpacademy/react-native-animation';
 import Touchable from '../../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../app-review/template-context';
 import {Theme} from '../../../variables/theme.native';
 
 type StyleSheetType = {
   wrapper: ViewStyle;
+  animatedLogoWrapper: ViewStyle;
+  animatedLogo: ViewStyle;
   logo: ViewStyle;
+  logoBG: ViewStyle;
   content: ViewStyle;
+  gradients: ViewStyle;
   gradient: ViewStyle;
   gradient2: ViewStyle;
   title: TextStyle;
@@ -48,26 +53,48 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: '100%',
       alignItems: 'flex-start'
     },
+    gradients: {
+      position: 'absolute',
+      top: 400,
+      bottom: 400,
+      left: 0,
+      right: 0,
+      flex: 1
+    },
     gradient: {
       position: 'absolute',
-      top: -100,
+      top: -730,
       bottom: 0,
-      left: -180,
-      right: 0,
+      left: -380,
+      right: -380,
       opacity: 1,
       transform: [{rotate: '35deg'}]
     },
     gradient2: {
       position: 'absolute',
-      top: -80,
-      bottom: 0,
-      left: 0,
-      right: -200,
-      opacity: 0.5,
+      top: -630,
+      bottom: -200,
+      left: -300,
+      right: -400,
+      opacity: 0.6,
       transform: [{rotate: '-35deg'}]
+    },
+    animatedLogoWrapper: {
+      alignItems: 'center'
+    },
+    animatedLogo: {
+      position: 'absolute',
+      width: 77,
+      height: 100
     },
     logo: {
       padding: 100
+    },
+    logoBG: {
+      backgroundColor: '#fff',
+      top: 20,
+      width: 60,
+      height: 60
     },
     title: {
       fontWeight: '600',
@@ -161,31 +188,106 @@ const Welcome = (props: Props) => {
   const {theme} = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
+  const translateGradients = useTranslateY({
+    fromValue: 0,
+    toValue: -200,
+    duration: 300,
+    delay: 750
+  });
+
+  const translateContent = useTranslateY({
+    fromValue: 170,
+    toValue: 0,
+    duration: 450,
+    delay: 750
+  });
+
+  const fadeInContent = useAnimateProp({
+    property: 'opacity',
+    fromValue: 0,
+    toValue: 1,
+    duration: 650,
+    delay: 750
+  });
+
+  const fadeOutStartLogo = useAnimateProp({
+    property: 'opacity',
+    fromValue: 1,
+    toValue: 0,
+    duration: 450,
+    delay: 1000
+  });
+
+  const fadeInFinalLogo = useAnimateProp({
+    property: 'opacity',
+    fromValue: 0,
+    toValue: 1,
+    duration: 250,
+    delay: 900
+  });
+
+  const scaleAnim = useRef<Animated.Value>(new Animated.Value(0)).current;
+  const interpolateScale = scaleAnim.interpolate({
+    inputRange: [0, 0.4, 0.5, 0.6, 1],
+    outputRange: [1, 1.7, 1.7, 1.7, 1]
+  });
+
   useEffect(() => {
     const _stylesheet = createStyleSheet(theme);
     setStylesheet(_stylesheet);
   }, [theme]);
 
+  useEffect(() => {
+    fadeInContent.start();
+    fadeInFinalLogo.start();
+    fadeOutStartLogo.start();
+    translateContent.start();
+    translateGradients.start();
+
+    const animatedScale = Animated.timing(scaleAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true
+    });
+
+    animatedScale.start();
+
+    // on mount only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   if (!styleSheet) {
     return null;
   }
-
   return (
-    <View style={styleSheet.wrapper} testID="welcome">
-      <LinearGradient
-        colors={['#0061FF', '#fff']}
-        locations={[0, 0.3]}
-        style={styleSheet.gradient}
-      />
-      <LinearGradient
-        colors={['#2199AB', '#fff']}
-        locations={[0, 0.3]}
-        style={styleSheet.gradient2}
-      />
+    <Animated.View style={[styleSheet.wrapper, translateContent.animatedStyle]} testID="welcome">
+      <Animated.View style={[styleSheet.gradients, translateGradients.animatedStyle]}>
+        <LinearGradient
+          colors={['#0061FF', '#fff']}
+          locations={[0, 0.95]}
+          style={styleSheet.gradient}
+        />
+        <LinearGradient
+          colors={['#2199AB', '#fff']}
+          locations={[0, 0.95]}
+          style={styleSheet.gradient2}
+        />
+      </Animated.View>
+
       <Touchable onLongPress={onDemoPress} style={styleSheet.logo}>
-        <LogoCoorp fill={theme.colors.cta} width={77} height={75} />
+        <Animated.View
+          style={[styleSheet.animatedLogoWrapper, {transform: [{scale: interpolateScale}]}]}
+        >
+          <Animated.View style={[styleSheet.logoBG, fadeInFinalLogo.animatedStyle]} />
+          <Animated.View style={[styleSheet.animatedLogo, fadeInFinalLogo.animatedStyle]}>
+            <LogoCoorp fill="#0061FF" />
+          </Animated.View>
+          <Animated.View style={[styleSheet.animatedLogo, fadeOutStartLogo.animatedStyle]}>
+            <LogoCoorp fill="#fff" />
+          </Animated.View>
+        </Animated.View>
       </Touchable>
-      <View style={styleSheet.content}>
+      <Animated.View style={[styleSheet.content, fadeInContent.animatedStyle]}>
         <Text style={styleSheet.title}>{locales.title}</Text>
         <Text style={styleSheet.description}>{locales.description}</Text>
 
@@ -211,8 +313,8 @@ const Welcome = (props: Props) => {
             <Text style={styleSheet.ctaHelp}>{locales.ctaHelp}</Text>
           </Touchable>
         </View>
-      </View>
-    </View>
+      </Animated.View>
+    </Animated.View>
   );
 };
 
