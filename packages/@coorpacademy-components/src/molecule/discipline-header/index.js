@@ -43,7 +43,7 @@ class DisciplineHeader extends React.Component {
     super(props);
     this.state = {
       fullDisplay: false,
-      offsetHeightShowMore: 0
+      scrollHeightShowMore: 0
     };
     this.handleToggleDisplay = this.handleToggleDisplay.bind(this);
     this.setHandle = this.setHandle.bind(this);
@@ -56,17 +56,17 @@ class DisciplineHeader extends React.Component {
   }
 
   setHandle(el) {
-    this.setState({offsetHeightShowMore: getOr(0, 'offsetHeight', el)});
+    this.setState({scrollHeightShowMore: getOr(0, 'scrollHeight', el)});
   }
 
   render() {
     const {image, title, description, video, lastUpdated} = this.props;
-    const {fullDisplay, offsetHeightShowMore} = this.state;
+    const {fullDisplay, scrollHeightShowMore} = this.state;
     const {translate} = this.context;
-    const maxHeightCourseInfos = 209;
+    const maxHeightCourseInfos = 215;
     const hasMediaContent = image || video;
     const toggleLabel = fullDisplay ? translate('See less') : translate('Show more');
-    const shortCourseText = offsetHeightShowMore <= maxHeightCourseInfos;
+    const shortCourseText = scrollHeightShowMore <= maxHeightCourseInfos;
     const courseSeeMoreButtonStyle = shortCourseText ? style.showMoreHidden : style.showMore;
 
     return (
@@ -77,7 +77,10 @@ class DisciplineHeader extends React.Component {
           </div>
         ) : null}
         <div className={style.courseWrapper}>
-          <div className={fullDisplay ? style.courseTextWrapperFull : style.courseTextWrapperShort}>
+          <div
+            className={fullDisplay ? style.courseTextWrapperFull : style.courseTextWrapperShort}
+            ref={this.setHandle}
+          >
             <div
               data-name="title"
               className={classnames(style.title, style.innerHTML)}
@@ -88,7 +91,6 @@ class DisciplineHeader extends React.Component {
               className={style.innerHTML}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: description}}
-              ref={this.setHandle}
             />
           </div>
           <div className={courseSeeMoreButtonStyle} onClick={this.handleToggleDisplay}>
