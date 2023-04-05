@@ -31,8 +31,9 @@
 }
 
 .courseWrapper {
-  display: inline-block;
+  display: flex;
   vertical-align: top;
+  flex-direction: column;
   padding-left: 30px;
 }
 
@@ -69,13 +70,12 @@
 }
 
 .lastUpdatedWrapperShort {
- height: 31px;
- align-items: flex-end; 
+ margin-top: auto;
 }
 
 .lastUpdatedWrapper {
   display: flex;
-  margin-top: 8px;
+  padding-top: 6px;
 }
 
 .lastUpdatedText {
@@ -100,11 +100,11 @@
   font-size: 14px;
   transition: all time ease-in-out;
   cursor: pointer;
-  order: 1;
   font-family: Gilroy;
   font-weight: bold;
   text-align: left;
   color: brand;
+  padding-top: 2px;
 }
 
 .showMore:hover {
