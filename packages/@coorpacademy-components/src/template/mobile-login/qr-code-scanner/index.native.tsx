@@ -61,6 +61,7 @@ const targetStyle = StyleSheet.create({
 
 const explanationsStyle = StyleSheet.create({
   explanations: {
+    position: 'absolute',
     width: '100%',
     height: 300,
     bottom: 0,
@@ -171,8 +172,30 @@ const Target = () => {
 
 const Explanations = (props: {locales: Props['locales']; onHelpPress: Props['onHelpPress']}) => {
   const {locales, onHelpPress} = props;
+
+  const animationRef = useRef<Animated.Value>(new Animated.Value(0)).current;
+  const animateBottom = animationRef.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-300, 0]
+  });
+
+  useEffect(() => {
+    const animation = Animated.timing(animationRef, {
+      toValue: 1,
+      duration: 700,
+      delay: 400,
+      easing: Easing.out(Easing.sin),
+      useNativeDriver: false
+    });
+
+    animation.start();
+
+    // on mount only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <View style={explanationsStyle.explanations}>
+    <Animated.View style={[explanationsStyle.explanations, {bottom: animateBottom}]}>
       <View style={explanationsStyle.titleWrapper}>
         <QrCodeIcon style={explanationsStyle.qrCodeIcon} />
         <Text style={explanationsStyle.titleText}>{locales.title}</Text>
@@ -190,7 +213,7 @@ const Explanations = (props: {locales: Props['locales']; onHelpPress: Props['onH
         <Text style={explanationsStyle.titleHelp}>{locales.titleHelp}</Text>
         <Text style={explanationsStyle.ctaHelp}>{locales.ctaHelp}</Text>
       </Touchable>
-    </View>
+    </Animated.View>
   );
 };
 
