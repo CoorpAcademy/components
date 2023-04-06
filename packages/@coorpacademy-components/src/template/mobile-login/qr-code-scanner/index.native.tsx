@@ -26,11 +26,63 @@ const BORDER_RADIUS = 8;
 
 const LINE_WIDTH = 7;
 
-const targetStyle = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%'
   },
+  camera: {
+    width: '100%',
+    height: '100%'
+  },
+  blurs: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    opacity: 0.6
+  },
+  blurTop: {
+    position: 'absolute',
+    backgroundColor: '#000',
+    width: '100%',
+    height: '35%',
+    transform: [{translateY: -HEIGHT / 2 + LINE_WIDTH / 2}]
+  },
+  blurBottom: {
+    position: 'absolute',
+    backgroundColor: '#000',
+    width: '100%',
+    height: '65%',
+    bottom: 0,
+    transform: [{translateY: HEIGHT / 2 - LINE_WIDTH / 2}]
+  },
+  blurLeft: {
+    position: 'absolute',
+    backgroundColor: '#000',
+    width: '50%',
+    height: HEIGHT - LINE_WIDTH,
+    left: 0,
+    top: '35%',
+    transform: [
+      {translateX: -WIDTH / 2 + LINE_WIDTH / 2},
+      {translateY: -HEIGHT / 2 + LINE_WIDTH / 2}
+    ]
+  },
+  blurRight: {
+    position: 'absolute',
+    backgroundColor: '#000',
+    width: '50%',
+    height: HEIGHT - LINE_WIDTH,
+    right: 0,
+    top: '35%',
+    transform: [
+      {translateX: WIDTH / 2 - LINE_WIDTH / 2},
+      {translateY: -HEIGHT / 2 + LINE_WIDTH / 2}
+    ]
+  }
+});
+
+const targetStyle = StyleSheet.create({
   target: {
     width: HEIGHT,
     height: WIDTH,
@@ -52,10 +104,6 @@ const targetStyle = StyleSheet.create({
     left: 0,
     backgroundColor: COLOR,
     borderRadius: BORDER_RADIUS
-  },
-  camera: {
-    width: '100%',
-    height: '100%'
   }
 });
 
@@ -146,7 +194,6 @@ const Target = () => {
     });
 
     animation.start();
-
     // on mount only
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -182,7 +229,7 @@ const Explanations = (props: {locales: Props['locales']; onHelpPress: Props['onH
   useEffect(() => {
     const animation = Animated.timing(animationRef, {
       toValue: 1,
-      duration: 700,
+      duration: 600,
       delay: 400,
       easing: Easing.out(Easing.sin),
       useNativeDriver: false
@@ -226,16 +273,43 @@ const QRCodeScanner = (props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const blurRef = useRef<Animated.Value>(new Animated.Value(0)).current;
+  const blurOpacity = blurRef.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 0.7]
+  });
+
+  useEffect(() => {
+    const animation = Animated.timing(blurRef, {
+      toValue: 1,
+      duration: 800,
+      delay: 600,
+      easing: Easing.out(Easing.sin),
+      useNativeDriver: false
+    });
+
+    animation.start();
+
+    // on mount only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <View style={targetStyle.container} testID="qr-code-scanner">
+    <View style={styles.container} testID="qr-code-scanner">
       {hasPermission ? (
         <QRCodeScannerBase
           fadeIn={false}
           onRead={handleRead}
-          cameraStyle={targetStyle.camera}
+          cameraStyle={styles.camera}
           cameraProps={{captureAudio: false}}
         />
       ) : null}
+      <Animated.View style={[styles.blurs, {opacity: blurOpacity}]}>
+        <View style={styles.blurTop} />
+        <View style={styles.blurBottom} />
+        <View style={styles.blurLeft} />
+        <View style={styles.blurRight} />
+      </Animated.View>
       <Target />
       <Explanations locales={locales} onHelpPress={onHelpPress} />
     </View>
