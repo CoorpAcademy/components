@@ -129,12 +129,14 @@ const SelectMultiple = (
 
   const isCMTheme = theme === 'coorpmanager';
 
+  const handleOnClickOnListElement = choice => () => handleChange(choice);
+
   const lines = map.convert({cap: false})((choice, i) => {
     return (
       <li
         key={i}
         className={style.choice}
-        onClick={(isCMTheme && !multiple) ? (() => handleChange({...choice, i})) : null}
+        onClick={isCMTheme && !multiple ? handleOnClickOnListElement({...choice, i}) : null}
       >
         {isCMTheme ? (
           <CMMultipleView multiple={multiple} choice={{...choice, i}} onChange={handleChange} />
