@@ -1,5 +1,5 @@
-import React, {useCallback} from 'react';
-import {Animated, StyleSheet, Text, View, ViewStyle} from 'react-native';
+import React, {useCallback, useEffect, useRef} from 'react';
+import {Animated, Easing, StyleSheet, Text, View, ViewStyle} from 'react-native';
 
 import QRCodeScannerBase from 'react-native-qrcode-scanner';
 import type {BarCodeReadEvent} from 'react-native-camera';
@@ -46,21 +46,10 @@ const targetStyle = StyleSheet.create({
     width: '35%',
     height: '35%'
   },
-  line1: {
+  stroke: {
     position: 'absolute',
     top: 0,
     left: 0,
-    width: '100%',
-    backgroundColor: COLOR,
-    borderRadius: BORDER_RADIUS,
-    height: LINE_WIDTH
-  },
-  line2: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: '100%',
-    width: LINE_WIDTH,
     backgroundColor: COLOR,
     borderRadius: BORDER_RADIUS
   },
@@ -128,25 +117,57 @@ const explanationsStyle = StyleSheet.create({
   }
 });
 
-const Corner = (props: {position: ViewStyle}) => {
-  const {position} = props;
+const Corner = (props: {position: ViewStyle; lineLength: Animated.AnimatedInterpolation}) => {
+  const {position, lineLength} = props;
 
   return (
     <View style={[targetStyle.square, position]}>
-      <View style={targetStyle.line1} />
-      <View style={targetStyle.line2} />
+      <Animated.View style={[targetStyle.stroke, {height: LINE_WIDTH, width: lineLength}]} />
+      <Animated.View style={[targetStyle.stroke, {width: LINE_WIDTH, height: lineLength}]} />
     </View>
   );
 };
 
-const Target = () => (
-  <View style={targetStyle.target}>
-    <Corner position={{top: 0, left: 0, transform: [{rotate: '0deg'}]}} />
-    <Corner position={{top: 0, right: 0, transform: [{rotate: '90deg'}]}} />
-    <Corner position={{bottom: 0, right: 0, transform: [{rotate: '180deg'}]}} />
-    <Corner position={{bottom: 0, left: 0, transform: [{rotate: '270deg'}]}} />
-  </View>
-);
+const Target = () => {
+  const animationRef = useRef<Animated.Value>(new Animated.Value(0)).current;
+  const lineLength = animationRef.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, WIDTH * 0.35]
+  });
+
+  useEffect(() => {
+    const animation = Animated.timing(animationRef, {
+      toValue: 1,
+      duration: 700,
+      delay: 400,
+      easing: Easing.out(Easing.sin),
+      useNativeDriver: false
+    });
+
+    animation.start();
+
+    // on mount only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <View style={targetStyle.target}>
+      <Corner lineLength={lineLength} position={{top: 0, left: 0, transform: [{rotate: '0deg'}]}} />
+      <Corner
+        lineLength={lineLength}
+        position={{top: 0, right: 0, transform: [{rotate: '90deg'}]}}
+      />
+      <Corner
+        lineLength={lineLength}
+        position={{bottom: 0, right: 0, transform: [{rotate: '180deg'}]}}
+      />
+      <Corner
+        lineLength={lineLength}
+        position={{bottom: 0, left: 0, transform: [{rotate: '270deg'}]}}
+      />
+    </View>
+  );
+};
 
 const Explanations = (props: {locales: Props['locales']; onHelpPress: Props['onHelpPress']}) => {
   const {locales, onHelpPress} = props;
@@ -178,6 +199,8 @@ const QRCodeScanner = (props: Props) => {
 
   const handleRead = useCallback(({data}: BarCodeReadEvent) => {
     onScan(typeof data === 'string' ? data : undefined);
+    // on mount only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
