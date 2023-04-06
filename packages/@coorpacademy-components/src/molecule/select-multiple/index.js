@@ -39,12 +39,9 @@ export const useChoices = options => {
 const CMMultipleView = ({multiple, choice, onChange}) => {
   const handleChange = useCallback(
     checked => {
-      if (!multiple) {
-        return onChange(choice);
-      }
       return onChange({...choice, selected: checked});
     },
-    [onChange, choice, multiple]
+    [onChange, choice]
   );
 
   return multiple ? (
@@ -58,12 +55,7 @@ const CMMultipleView = ({multiple, choice, onChange}) => {
       />
     </div>
   ) : (
-    <span
-      className={style.item}
-      onClick={handleChange}
-      title={choice.name}
-      data-name={`${choice.name}-language`}
-    >
+    <span className={style.item} title={choice.name} data-name={`${choice.name}-language`}>
       {choice.name}
     </span>
   );
@@ -117,7 +109,6 @@ const SelectMultiple = (
       // we return all selected choices
       if (multiple) {
         setChoices(choice);
-
         return onChange(getChoices());
       }
       updateIsOpened(false);
@@ -138,9 +129,15 @@ const SelectMultiple = (
 
   const isCMTheme = theme === 'coorpmanager';
 
+  const handleOnClickOnListElement = choice => () => handleChange(choice);
+
   const lines = map.convert({cap: false})((choice, i) => {
     return (
-      <li key={i} className={style.choice}>
+      <li
+        key={i}
+        className={style.choice}
+        onClick={isCMTheme && !multiple ? handleOnClickOnListElement({...choice, i}) : null}
+      >
         {isCMTheme ? (
           <CMMultipleView multiple={multiple} choice={{...choice, i}} onChange={handleChange} />
         ) : (
