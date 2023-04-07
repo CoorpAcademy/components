@@ -6,13 +6,13 @@ type Fixture = {props: Props};
 const landing: Fixture = {
   props: {
     onDemoPress: noop,
-    onDesktopButtonPress: noop,
+    onQRCodeButtonPress: noop,
     onHelpPress: noop,
-    onMobileButtonPress: noop,
+    onReceiveEmailButtonPress: noop,
     locales: {
       title: 'Welcome!',
       description: 'Enjoy learning new skills on your app anywhere, anytime!',
-      ctaQRCode: 'Scan my QR code',
+      ctaQrCode: 'Scan my QR code',
       ctaReceiveMail: 'Receive an email',
       titleHelp: 'Need help?',
       ctaHelp: 'Contact our support team'
