@@ -111,11 +111,13 @@ const explanationsStyle = StyleSheet.create({
   explanations: {
     position: 'absolute',
     width: '100%',
-    height: 300,
+    height: 260,
     bottom: 0,
     backgroundColor: '#fff',
-    borderRadius: 30,
-    padding: 24
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    paddingHorizontal: 24,
+    paddingVertical: 8
   },
   titleWrapper: {
     flexDirection: 'row',

@@ -28,8 +28,8 @@ type StyleSheetType = {
   button: ViewStyle;
   qrCodeIcon: ViewStyle;
   mailIcon: ViewStyle;
-  ctaQRCode: ViewStyle;
-  ctaQRCodeText: TextStyle;
+  ctaQrCode: ViewStyle;
+  ctaQrCodeText: TextStyle;
   ctaReceiveMail: ViewStyle;
   ctaReceiveMailText: TextStyle;
   help: ViewStyle;
@@ -97,6 +97,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       height: 60
     },
     title: {
+      color: '#1D1D2B',
       fontWeight: '600',
       fontSize: 28,
       lineHeight: 36,
@@ -124,10 +125,10 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       alignItems: 'center',
       overflow: 'hidden'
     },
-    ctaQRCode: {
+    ctaQrCode: {
       backgroundColor: theme.colors.cta
     },
-    ctaQRCodeText: {
+    ctaQrCodeText: {
       marginLeft: 8,
       color: '#fff',
       fontWeight: '700',
@@ -170,13 +171,13 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
 
 export type Props = {
   onDemoPress: () => void;
-  onDesktopButtonPress: () => void;
   onHelpPress: () => void;
-  onMobileButtonPress: () => void;
+  onQRCodeButtonPress: () => void;
+  onReceiveEmailButtonPress: () => void;
   locales: {
     title: string;
     description: string;
-    ctaQRCode: string;
+    ctaQrCode: string;
     ctaReceiveMail: string;
     titleHelp: string;
     ctaHelp: string;
@@ -184,7 +185,7 @@ export type Props = {
 };
 
 const Welcome = (props: Props) => {
-  const {locales, onDemoPress, onDesktopButtonPress, onHelpPress, onMobileButtonPress} = props;
+  const {locales, onDemoPress, onQRCodeButtonPress, onHelpPress, onReceiveEmailButtonPress} = props;
   const {theme} = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
 
@@ -294,15 +295,17 @@ const Welcome = (props: Props) => {
         <View style={styleSheet.actions}>
           <View style={styleSheet.buttons}>
             <Touchable
-              style={[styleSheet.button, styleSheet.ctaQRCode]}
-              onPress={onDesktopButtonPress}
+              style={[styleSheet.button, styleSheet.ctaQrCode]}
+              onPress={onQRCodeButtonPress}
+              testID="qr-code-button"
             >
               <QrCodeIcon style={styleSheet.qrCodeIcon} />
-              <Text style={styleSheet.ctaQRCodeText}>{locales.ctaQRCode}</Text>
+              <Text style={styleSheet.ctaQrCodeText}>{locales.ctaQrCode}</Text>
             </Touchable>
             <Touchable
               style={[styleSheet.button, styleSheet.ctaReceiveMail]}
-              onPress={onMobileButtonPress}
+              onPress={onReceiveEmailButtonPress}
+              testID="receive-email-button"
             >
               <MailIcon style={styleSheet.mailIcon} />
               <Text style={styleSheet.ctaReceiveMailText}>{locales.ctaReceiveMail}</Text>
