@@ -106,6 +106,7 @@ import _NovaCompositionNavigationArrowRight from './components/nova-composition/
 import _NovaCompositionNavigationArrowTop from './components/nova-composition/navigation/arrow-top';
 import _NovaCompositionNavigationBurger from './components/nova-composition/navigation/burger';
 import _NovaCompositionNavigationClose from './components/nova-composition/navigation/close';
+import _NovaCompositionNavigationLeftArrow from './components/nova-composition/navigation/left-arrow';
 import _NovaCompositionNavigationLess from './components/nova-composition/navigation/less';
 import _NovaCompositionNavigationMore from './components/nova-composition/navigation/more';
 import _NovaCompositionNavigationNavBar from './components/nova-composition/navigation/nav-bar';
@@ -343,6 +344,7 @@ export const NovaCompositionNavigationArrowRight: Icon = _NovaCompositionNavigat
 export const NovaCompositionNavigationArrowTop: Icon = _NovaCompositionNavigationArrowTop;
 export const NovaCompositionNavigationBurger: Icon = _NovaCompositionNavigationBurger;
 export const NovaCompositionNavigationClose: Icon = _NovaCompositionNavigationClose;
+export const NovaCompositionNavigationLeftArrow: Icon = _NovaCompositionNavigationLeftArrow;
 export const NovaCompositionNavigationLess: Icon = _NovaCompositionNavigationLess;
 export const NovaCompositionNavigationMore: Icon = _NovaCompositionNavigationMore;
 export const NovaCompositionNavigationNavBar: Icon = _NovaCompositionNavigationNavBar;
