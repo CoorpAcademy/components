@@ -104,6 +104,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       paddingVertical: 8
     },
     description: {
+      color: '#1D1D2B',
+      fontWeight: '500',
       fontSize: 18,
       lineHeight: 24,
       paddingVertical: 8
