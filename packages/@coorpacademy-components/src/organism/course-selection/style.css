@@ -17,6 +17,7 @@
 .search {
   width: 41%;
   margin-right: 16px;
+  min-width: 91px;
 }
 
 .contentFilter {
