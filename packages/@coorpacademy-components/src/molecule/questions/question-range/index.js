@@ -17,7 +17,7 @@ const QuestionRange = (props, legacyContext) => {
   };
 
   return (
-    <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+    <div className={style.wrapper} role="group" aria-label={groupAriaLabel} title={groupAriaLabel}>
       <span
         style={titleStyle}
         className={classnames(style.title, style.innerHTML)}

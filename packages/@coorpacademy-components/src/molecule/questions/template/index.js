@@ -45,6 +45,7 @@ const Template = ({template, answers, groupAriaLabel}) => {
       className={style.wrapper}
       role="group"
       aria-label={groupAriaLabel}
+      title={groupAriaLabel}
     >
       {templateCompose}
     </div>

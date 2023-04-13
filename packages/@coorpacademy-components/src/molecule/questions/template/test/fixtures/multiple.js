@@ -15,6 +15,7 @@ export default {
         type: 'select',
         name: 'sel31192',
         label: ' ',
+        'aria-label': 'Select the correct answer',
         onChange: value => console.log(value),
         options: [
           {
@@ -34,6 +35,7 @@ export default {
         type: 'select',
         name: 'sel31193',
         label: ' ',
+        'aria-label': 'Select the correct answer',
         onChange: value => console.log(value),
         options: [
           {
@@ -52,6 +54,7 @@ export default {
         type: 'select',
         name: 'sel31194',
         label: ' ',
+        'aria-label': 'Select the correct answer',
         onChange: value => console.log(value),
         options: [
           {
@@ -66,6 +69,7 @@ export default {
           }
         ]
       }
-    ]
+    ],
+    groupAriaLabel: 'Answer the question'
   }
 };

@@ -170,7 +170,8 @@ const templateSelectProps = (
       const newAnswers = updateTemplateAnswer(text, answers, index, maxLength);
       dispatch(editAnswer(newAnswers));
     },
-    options: isEmpty(answer) ? concat([temporaryOption], selectOptions) : selectOptions
+    options: isEmpty(answer) ? concat([temporaryOption], selectOptions) : selectOptions,
+    'aria-label': translate('Select an answer')
   };
 };
 

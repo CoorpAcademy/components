@@ -15,6 +15,7 @@ export default {
         theme: 'template',
         name: 'sel31191',
         label: ' ',
+        'aria-label': 'Select the correct answer',
         onChange: value => console.log(value),
         options: [
           {
