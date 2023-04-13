@@ -1,10 +1,11 @@
 import React, {useCallback, useEffect, useRef} from 'react';
-import {Animated, Easing, StyleSheet, Text, View, ViewStyle} from 'react-native';
+import {Animated, Easing, StyleSheet, View, ViewStyle} from 'react-native';
 
 import QRCodeScannerBase from 'react-native-qrcode-scanner';
 import type {BarCodeReadEvent} from 'react-native-camera';
 import {NovaCompositionCoorpacademyQrCode as QrCodeIcon} from '@coorpacademy/nova-icons';
 import Touchable from '../../../hoc/touchable/index.native';
+import Text from '../../../atom/text/index.native';
 
 export interface Props {
   hasPermission: boolean;
@@ -111,13 +112,13 @@ const explanationsStyle = StyleSheet.create({
   explanations: {
     position: 'absolute',
     width: '100%',
-    height: 260,
     bottom: 0,
     backgroundColor: '#fff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingHorizontal: 24,
-    paddingVertical: 8
+    paddingTop: 8,
+    paddingBottom: 30
   },
   titleWrapper: {
     flexDirection: 'row',
@@ -134,9 +135,9 @@ const explanationsStyle = StyleSheet.create({
     fontWeight: '600',
     color: '#1D1D2B',
     fontSize: 21,
-    lineHeight: 30,
+    lineHeight: 24,
     letterSpacing: 0.5,
-    marginLeft: 5
+    marginLeft: 7
   },
   line: {
     flexDirection: 'row',
