@@ -81,6 +81,7 @@ import _NovaCompositionCoorpacademySchoolGraduation from './components/nova-comp
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
 import _NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
 import _NovaCompositionCoorpacademySearchThin from './components/nova-composition/coorpacademy/search-thin';
+import _NovaCompositionCoorpacademySendEmail from './components/nova-composition/coorpacademy/send-email';
 import _NovaCompositionCoorpacademySettings from './components/nova-composition/coorpacademy/settings';
 import _NovaCompositionCoorpacademyShare from './components/nova-composition/coorpacademy/share';
 import _NovaCompositionCoorpacademySmallFlashLeft from './components/nova-composition/coorpacademy/small-flash-left';
@@ -314,6 +315,7 @@ export const NovaCompositionCoorpacademySchoolGraduation: Icon =
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
 export const NovaCompositionCoorpacademySearch: Icon = _NovaCompositionCoorpacademySearch;
 export const NovaCompositionCoorpacademySearchThin: Icon = _NovaCompositionCoorpacademySearchThin;
+export const NovaCompositionCoorpacademySendEmail: Icon = _NovaCompositionCoorpacademySendEmail;
 export const NovaCompositionCoorpacademySettings: Icon = _NovaCompositionCoorpacademySettings;
 export const NovaCompositionCoorpacademyShare: Icon = _NovaCompositionCoorpacademyShare;
 export const NovaCompositionCoorpacademySmallFlashLeft: Icon =
