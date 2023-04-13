@@ -1,18 +1,19 @@
-import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {Animated, Easing, StyleSheet, Text, TextInput, View} from 'react-native';
 import {
   NovaCompositionNavigationLeftArrow as ArrowIcon,
-  NovaCompositionCoorpacademyEmail as MailIcon
+  NovaCompositionCoorpacademyEmail as MailIcon,
+  NovaCompositionCoorpacademySendEmail as SendIcon
 } from '@coorpacademy/nova-icons';
 
 import Touchable from '../../../hoc/touchable/index.native';
+import useMobileKeyboardVisibility from '../../../util/use-mobile-keyboard-visibility';
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
     flex: 1,
-    justifyContent: 'space-between',
     alignItems: 'flex-start',
     paddingVertical: 50,
     paddingHorizontal: 24
@@ -87,46 +88,111 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40
   },
   ctaWrapper: {
-    width: '100%',
-    paddingHorizontal: 50
+    width: '100%'
   },
   ctaButton: {
-    backgroundColor: '#0061ff',
-    borderRadius: 16,
+    borderRadius: 12,
     paddingHorizontal: 50,
-    paddingVertical: 20,
+    paddingVertical: 16,
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 30
+  },
+  sendIcon: {
+    fill: '#fff',
+    width: 16,
+    height: 16,
+    marginRight: 8
   },
   ctaText: {
-    color: '#e3e3e3'
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 15,
+    lineHeight: 24
   }
 });
 
-const ReceiveEmail = props => {
+const enabledColor = '#0061ff';
+const disabledColor = '#9999A8';
+const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
+export type Props = {
+  locales: {
+    title: string;
+    explanation: string;
+    subtitle: string;
+    cta: string;
+  };
+  onClose: () => void;
+};
+
+const ReceiveEmail = (props: Props) => {
   const {locales, onClose} = props;
 
+  const [isValid, setValid] = useState<boolean>(false);
+  const isKeyboardVisible = useMobileKeyboardVisibility();
+
+  const handleChangeText = useCallback(value => {
+    setValid(emailRegex.test(value));
+  }, []);
+
+  const animationRef = useRef<Animated.Value>(new Animated.Value(0)).current;
+  const animatedOpacity = animationRef.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1]
+  });
+
+  useEffect(() => {
+    const animation = Animated.timing(animationRef, {
+      toValue: isValid ? 1 : 0,
+      duration: 250,
+      easing: Easing.out(Easing.sin),
+      useNativeDriver: false
+    });
+
+    animation.start();
+  }, [animationRef, isValid]);
+
   return (
-    <View style={styles.container} testID="receive-email">
+    <View
+      style={[
+        styles.container,
+        {justifyContent: isKeyboardVisible ? 'flex-start' : 'space-between'}
+      ]}
+      testID="receive-email"
+    >
       <View style={styles.contentWrapper}>
         <Touchable style={styles.backButton} onPress={onClose}>
           <ArrowIcon style={styles.arrowIcon} />
         </Touchable>
-        <View style={styles.mailIconWrapper}>
-          <MailIcon style={styles.mailIcon} />
-        </View>
+        {isKeyboardVisible ? null : (
+          <View style={styles.mailIconWrapper}>
+            <MailIcon style={styles.mailIcon} />
+          </View>
+        )}
         <Text style={styles.title}>{locales.title}</Text>
         <Text style={styles.explanation}>{locales.explanation}</Text>
         <Text style={styles.subtitle}>{locales.subtitle}</Text>
-        <TextInput style={styles.textInput} placeholder="john.doe@company.com" />
+        <TextInput
+          style={styles.textInput}
+          placeholder="john.doe@company.com"
+          placeholderTextColor={disabledColor}
+          onChangeText={handleChangeText}
+        />
         <MailIcon style={styles.innerMailIcon} />
       </View>
 
-      <View style={styles.ctaWrapper}>
-        <Touchable style={styles.ctaButton} onPress={onClose}>
+      <Animated.View style={[styles.ctaWrapper, {opacity: animatedOpacity}]}>
+        <Touchable
+          disabled={!isValid}
+          style={[styles.ctaButton, {backgroundColor: isValid ? enabledColor : disabledColor}]}
+          onPress={onClose}
+        >
+          <SendIcon style={styles.sendIcon} />
           <Text style={styles.ctaText}>{locales.cta}</Text>
         </Touchable>
-      </View>
+      </Animated.View>
     </View>
   );
 };

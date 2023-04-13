@@ -24,6 +24,7 @@ import {TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from '../../molecule/answer/prop-typ
 import Video from '../../molecule/video-player-mobile/index.native';
 import {Media} from '../../molecule/questions/types';
 import Html from '../../atom/html/index.native';
+import useMobileKeyboardVisibility from '../../util/use-mobile-keyboard-visibility';
 import {PopinProps, ReviewSlideProps, SlideProps} from './prop-types';
 
 const styles = StyleSheet.create({
@@ -287,22 +288,8 @@ const createSlideStyle = (
 const Slide = (props: ReviewSlideProps) => {
   const {animatedStyle, slide, correctionPopinProps, validateButton, num, slideIndex = '0'} = props;
   const [isValidated, setValidated] = useState<boolean>(false);
-  const [isKeyboardVisible, setKeyboardVisible] = useState<boolean>(false);
 
-  useEffect(() => {
-    const showListener = Keyboard.addListener('keyboardDidShow', () => {
-      setKeyboardVisible(true);
-    });
-
-    const hideListener = Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardVisible(false);
-    });
-
-    return () => {
-      showListener.remove();
-      hideListener.remove();
-    };
-  }, []);
+  const isKeyboardVisible = useMobileKeyboardVisibility();
 
   const handleValidatePress = useCallback(() => {
     Keyboard.dismiss();
