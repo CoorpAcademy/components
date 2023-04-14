@@ -10,9 +10,10 @@ import fixture from './fixtures/video';
 browserEnv();
 
 test('should call the onClick function', t => {
-  t.plan(1);
+  t.plan(2);
   const props = set('onClick', () => t.pass(), fixture.props);
   const {container} = renderWithContext(<ExternalContentButton {...props} />);
-  t.truthy(container);
-  fireEvent.click(container, {defaultPrevented: true});
+  const wrapper = container.querySelector('[data-testid="external-content-button"]') as Element;
+  t.truthy(wrapper);
+  fireEvent.click(wrapper, {defaultPrevented: true});
 });

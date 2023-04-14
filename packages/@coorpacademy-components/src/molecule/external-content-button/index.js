@@ -33,7 +33,11 @@ class ExternalContentButton extends React.Component {
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
     return (
-      <div onClick={this.handleClick} className={style.button}>
+      <div
+        onClick={this.handleClick}
+        className={style.button}
+        data-testid="external-content-button"
+      >
         <div className={style.header} style={{backgroundColor: iconColor}} />
         <div className={style.iconBackground} style={{backgroundColor: iconColor}}>
           <IconType className={style.icon} width={16} height={16} />
