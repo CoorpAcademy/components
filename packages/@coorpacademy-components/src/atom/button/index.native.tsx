@@ -8,7 +8,7 @@ import {Brand} from '../../variables/brand.native';
 
 type StyleSheetType = {
   wrapper: ViewStyle;
-  text: ViewStyle;
+  text: TextStyle;
 };
 
 const createStyle = (theme: Theme, brandTheme: Brand): StyleSheetType =>
@@ -51,6 +51,11 @@ const Button = (props: ButtonProps) => {
 
   if (!styleSheet) return null;
 
+  const _textStyle = {
+    ...styleSheet.text,
+    ...textStyle
+  };
+
   return (
     <Touchable
       testID={testID}
@@ -59,7 +64,7 @@ const Button = (props: ButtonProps) => {
       accessibilityLabel={accessibilityLabel}
       style={[styleSheet.wrapper, style]}
     >
-      <Text style={[styleSheet.text, textStyle]}>{submitValue}</Text>
+      <Text style={_textStyle}>{submitValue}</Text>
     </Touchable>
   );
 };

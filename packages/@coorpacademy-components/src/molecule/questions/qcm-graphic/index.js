@@ -45,11 +45,7 @@ const QCMImage = (props, legacyContext) => {
             }}
           />
           <div data-name="answerText" className={style.titleWrapper}>
-            <div
-              title={title}
-              className={classnames(style.title, style.innerHTML)}
-              // eslint-disable-next-line react/no-danger
-            >
+            <div title={title} className={classnames(style.title, style.innerHTML)}>
               <label htmlFor={checkboxId}>
                 <input
                   id={checkboxId}

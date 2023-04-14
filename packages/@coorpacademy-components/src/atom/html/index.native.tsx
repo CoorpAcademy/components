@@ -9,7 +9,7 @@ import RenderHTML, {
 
 import {HTML_ANCHOR_TEXT_COLOR} from '../../variables/theme.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
-import Text, {DEFAULT_STYLE as DEFAULT_TEXT_STYLE} from '../text/index.native';
+import Text from '../text/index.native';
 
 interface CustomRenderHTMLProps extends RenderHTMLProps {
   baseFontStyle?: TextStyle;
@@ -101,7 +101,7 @@ const Html = (props: Props) => {
   };
 
   let baseFontStyle: TextStyle = useMemo(
-    () => ({...DEFAULT_TEXT_STYLE, fontSize, color: theme.colors.black}),
+    () => ({fontSize, color: theme.colors.black}),
     [fontSize, theme]
   );
 
