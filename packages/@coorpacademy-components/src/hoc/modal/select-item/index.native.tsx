@@ -51,9 +51,13 @@ const ModalSelectItem = (props: Props) => {
 
   const {children, onPress, isSelected, testID} = props;
 
-  const textStyle: TextStyle[] = [styleSheet.text];
+  let textStyle: TextStyle = styleSheet.text;
+
   if (isSelected) {
-    textStyle.push(styleSheet.selectedTextStyle);
+    textStyle = {
+      ...textStyle,
+      ...styleSheet.selectedTextStyle
+    };
   }
 
   return (

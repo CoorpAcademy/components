@@ -122,16 +122,19 @@ const Select = (props: Props) => {
 
   const selectedItem = values.find(item => item.selected);
   const text = (selectedItem && selectedItem.text) || placeholder || null;
-  let textStyles: TextStyle[] = [styleSheet.text];
 
-  if (textStyle) {
-    textStyles = [styleSheet.text, ...textStyle];
-  }
+  let textStyles: TextStyle = {
+    ...styleSheet.text,
+    ...textStyle
+  };
 
   let color;
   if ((selectedItem?.value?.length || 0) > 0) {
     color = brandTheme?.colors?.primary;
-    textStyles.push({color});
+    textStyles = {
+      ...textStyles,
+      color
+    };
   }
 
   return (

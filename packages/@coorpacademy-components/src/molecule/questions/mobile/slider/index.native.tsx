@@ -101,15 +101,20 @@ const QuestionSlider = (props: Props) => {
   useEffect(() => {
     const _stylesheet = createStyleSheet(brandTheme, theme);
     setStylesheet(_stylesheet);
-  }, [theme]);
+  }, [brandTheme, theme]);
 
   if (!styleSheet) {
     return null;
   }
 
+  const textStyle: TextStyle = {
+    ...styleSheet.header,
+    color: brandTheme?.colors?.primary
+  };
+
   return (
     <View style={[styleSheet.container, style]} testID={testID}>
-      <Text style={[styleSheet.header, {color: brandTheme?.colors?.primary}]} testID="slider-value">
+      <Text style={textStyle} testID="slider-value">
         {value}
       </Text>
       <Slider

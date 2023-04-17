@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Animated, StyleSheet, Text, TextStyle, View, ViewStyle} from 'react-native';
+import {Animated, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   NovaCompositionCoorpacademyLogoCoorp as LogoCoorp,
@@ -10,6 +10,7 @@ import {useAnimateProp, useTranslateY} from '@coorpacademy/react-native-animatio
 import Touchable from '../../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../app-review/template-context';
 import {Theme} from '../../../variables/theme.native';
+import Text from '../../../atom/text/index.native';
 
 type StyleSheetType = {
   wrapper: ViewStyle;
@@ -105,8 +106,8 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
     },
     description: {
       color: '#1D1D2B',
-      fontWeight: '500',
-      fontSize: 18,
+      fontWeight: '400',
+      fontSize: 17,
       lineHeight: 24,
       paddingVertical: 8
     },

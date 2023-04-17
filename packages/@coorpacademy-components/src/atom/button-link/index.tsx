@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import Link from '../link';
 import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
-// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
 const getButtonContent = (icon?: IconType, label?: string) => {

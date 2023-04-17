@@ -1,28 +1,17 @@
-import * as React from 'react';
-import {Text as TextBase, Platform, StyleSheet, TextStyle, StyleProp} from 'react-native';
+import React from 'react';
+import {Dimensions, Text as TextBase, TextStyle} from 'react-native';
 
 export type Props = {
   children: React.ReactNode;
-  style?: StyleProp<TextStyle>;
+  style?: TextStyle;
   testID?: string;
   numberOfLines?: number;
   allowFontScaling?: boolean;
   accessibilityLabel?: string;
 };
 
-export const DEFAULT_STYLE = {
-  ...Platform.select({
-    android: {
-      fontFamily: 'Roboto'
-    }
-  })
-};
-
-const styles = StyleSheet.create({
-  text: {
-    ...DEFAULT_STYLE
-  }
-});
+const SCREEN = Dimensions.get('screen');
+const FONT_SCALING = 0.5 * (SCREEN.height / SCREEN.width);
 
 const Text = (props: Props) => {
   const {
@@ -34,10 +23,16 @@ const Text = (props: Props) => {
     accessibilityLabel
   } = props;
 
+  const styleWithScaledFont: TextStyle = {
+    ...style,
+    fontSize: style?.fontSize ? style.fontSize * FONT_SCALING : undefined,
+    lineHeight: style?.lineHeight ? style.lineHeight * FONT_SCALING : undefined
+  };
+
   return (
     <TextBase
       allowFontScaling={allowFontScaling}
-      style={[styles.text, style]}
+      style={styleWithScaledFont}
       testID={testID}
       numberOfLines={numberOfLines}
       accessibilityLabel={accessibilityLabel}
