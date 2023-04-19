@@ -38,6 +38,8 @@ const Choices = ({answers}) => {
             id={checkboxId}
             type="checkbox"
             value={title}
+            title={title}
+            aria-label={title}
             checked={selected}
             onChange={onClick}
             className={style.hiddenCheckbox}

@@ -24,6 +24,7 @@ const QCM = (props, legacyContext) => {
           <div
             data-name="answer"
             aria-label={ariaLabel || title}
+            title={ariaLabel || title}
             className={classnames(longAnswerClass, style.innerHTML, selectedAnswerClass)}
             onClick={onClick}
             style={{
