@@ -184,7 +184,7 @@ const ReceiveEmail = (props: Props) => {
       testID="receive-email"
     >
       <View style={styles.contentWrapper}>
-        <Touchable style={styles.backButton} onPress={onClose}>
+        <Touchable style={styles.backButton} onPress={onClose} testID="close-button">
           <ArrowIcon style={styles.arrowIcon} />
         </Touchable>
         {isKeyboardVisible ? null : (
@@ -207,7 +207,12 @@ const ReceiveEmail = (props: Props) => {
       </View>
 
       <Animated.View style={[styles.ctaWrapper, {backgroundColor: animatedColor}]}>
-        <Touchable disabled={!isValid} style={[styles.ctaButton]} onPress={onSend}>
+        <Touchable
+          disabled={!isValid}
+          style={[styles.ctaButton]}
+          onPress={onSend}
+          testID="send-button"
+        >
           <SendIcon style={styles.sendIcon} />
           <Text style={styles.ctaText}>{locales.cta}</Text>
         </Touchable>

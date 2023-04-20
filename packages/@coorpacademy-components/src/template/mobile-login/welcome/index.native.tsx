@@ -46,7 +46,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       left: 0,
       right: 0,
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'space-around',
       alignItems: 'center',
       paddingHorizontal: 24
     },

@@ -223,7 +223,7 @@ const ConfirmEmailSent = (props: Props) => {
         <Text style={styleSheet.description}>{locales.successDescription}</Text>
       </Animated.View>
 
-      <Touchable style={styleSheet.backButton} onPress={onClose}>
+      <Touchable style={styleSheet.backButton} onPress={onClose} testID="close-button">
         <CloseIcon style={styleSheet.closeIcon} />
       </Touchable>
 
