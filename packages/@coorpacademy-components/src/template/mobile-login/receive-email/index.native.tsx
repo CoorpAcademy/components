@@ -138,10 +138,11 @@ export type Props = {
     cta: string;
   };
   onClose: () => void;
+  onSend: () => void;
 };
 
 const ReceiveEmail = (props: Props) => {
-  const {locales, onClose} = props;
+  const {locales, onClose, onSend} = props;
 
   const [isValid, setValid] = useState<boolean>(false);
   const [isTextInputFocused, setTextInputFocused] = useState<boolean>(false);
@@ -183,7 +184,7 @@ const ReceiveEmail = (props: Props) => {
       testID="receive-email"
     >
       <View style={styles.contentWrapper}>
-        <Touchable style={styles.backButton} onPress={onClose}>
+        <Touchable style={styles.backButton} onPress={onClose} testID="close-button">
           <ArrowIcon style={styles.arrowIcon} />
         </Touchable>
         {isKeyboardVisible ? null : (
@@ -206,7 +207,12 @@ const ReceiveEmail = (props: Props) => {
       </View>
 
       <Animated.View style={[styles.ctaWrapper, {backgroundColor: animatedColor}]}>
-        <Touchable disabled={!isValid} style={[styles.ctaButton]} onPress={onClose}>
+        <Touchable
+          disabled={!isValid}
+          style={[styles.ctaButton]}
+          onPress={onSend}
+          testID="send-button"
+        >
           <SendIcon style={styles.sendIcon} />
           <Text style={styles.ctaText}>{locales.cta}</Text>
         </Touchable>

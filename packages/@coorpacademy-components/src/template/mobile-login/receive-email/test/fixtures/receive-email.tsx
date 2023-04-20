@@ -5,6 +5,7 @@ type Fixture = {props: Props};
 
 const receiveEmail: Fixture = {
   props: {
+    onSend: noop,
     onClose: noop,
     locales: {
       title: 'Receive a magic link by email',
