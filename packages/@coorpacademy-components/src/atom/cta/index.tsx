@@ -1,14 +1,16 @@
 import React, {useCallback, useState} from 'react';
 import {convert} from 'css-color-function';
-import PropTypes from 'prop-types';
 import {get, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import {NovaCompositionCoorpacademyLogout as LogoutIcon} from '@coorpacademy/nova-icons';
-import Provider from '../provider';
 import Link from '../link';
+import type {WebContextValues} from '../provider/web-context';
 import style from './style.css';
+import * as propTypes from './prop-types';
+import {contextTypes} from './prop-types';
+import type {CTAProps} from './prop-types';
 
-const CTA = (props, legacyContext) => {
+const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
   const {skin} = legacyContext;
   const {
     'aria-label': ariaLabel,
@@ -113,27 +115,8 @@ const CTA = (props, legacyContext) => {
   );
 };
 
-CTA.propTypes = {
-  'aria-label': Link.propTypes['aria-label'],
-  submitValue: Link.propTypes.children,
-  href: Link.propTypes.href,
-  onClick: Link.propTypes.onClick,
-  target: Link.propTypes.target,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  light: PropTypes.bool,
-  secondary: PropTypes.bool,
-  small: PropTypes.bool,
-  className: PropTypes.string,
-  logout: PropTypes.bool,
-  rectangular: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  certificationButton: PropTypes.bool,
-  useButtonTag: Link.propTypes.useButtonTag
-};
+CTA.propTypes = propTypes;
 
-CTA.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
+CTA.contextTypes = contextTypes;
 
 export default CTA;
