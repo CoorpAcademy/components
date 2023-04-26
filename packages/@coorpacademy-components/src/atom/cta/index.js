@@ -25,7 +25,8 @@ const CTA = (props, legacyContext) => {
     logout = false,
     rectangular = false,
     fullWidth = false,
-    certificationButton = false
+    certificationButton = false,
+    useButtonTag = false
   } = props;
   const [hovered, setHovered] = useState(false);
 
@@ -98,6 +99,7 @@ const CTA = (props, legacyContext) => {
       data-name={ctaName || 'cta'}
       style={getStyle()}
       aria-label={ariaLabel}
+      useButtonTag={useButtonTag}
     >
       {logout ? (
         <div className={style.logoutWrapper} data-name="cta-logout-label">
@@ -126,7 +128,8 @@ CTA.propTypes = {
   logout: PropTypes.bool,
   rectangular: PropTypes.bool,
   fullWidth: PropTypes.bool,
-  certificationButton: PropTypes.bool
+  certificationButton: PropTypes.bool,
+  useButtonTag: Link.propTypes.useButtonTag
 };
 
 CTA.contextTypes = {
