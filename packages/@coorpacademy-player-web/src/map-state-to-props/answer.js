@@ -143,7 +143,8 @@ const templateSelectProps = (options, store) => {
         updateTemplateAnswer(answers, index, maxLength),
         editAnswerAction_(state, slide)
       ),
-      options: isEmpty(answer) ? [temporaryOption].concat(selectOptions) : selectOptions
+      options: isEmpty(answer) ? [temporaryOption].concat(selectOptions) : selectOptions,
+      'aria-label': translate('Select an answer')
     };
   };
 };

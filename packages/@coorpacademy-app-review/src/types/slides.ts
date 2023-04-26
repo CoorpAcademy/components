@@ -84,6 +84,7 @@ export type SelectionTemplate = {
   name: string;
   onChange?: Function;
   options?: DropDownOption[];
+  'aria-label': string;
 };
 
 export type Template = {

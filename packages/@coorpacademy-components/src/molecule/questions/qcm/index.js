@@ -24,6 +24,7 @@ const QCM = (props, legacyContext) => {
           <div
             data-name="answer"
             aria-label={ariaLabel || title}
+            title={ariaLabel || title}
             className={classnames(longAnswerClass, style.innerHTML, selectedAnswerClass)}
             onClick={onClick}
             style={{
@@ -52,7 +53,13 @@ const QCM = (props, legacyContext) => {
   );
 
   return (
-    <div data-name="qcm" className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+    <div
+      data-name="qcm"
+      className={style.wrapper}
+      role="group"
+      aria-label={groupAriaLabel}
+      title={groupAriaLabel}
+    >
       {answersViews}
     </div>
   );

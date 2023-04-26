@@ -38,6 +38,8 @@ const Choices = ({answers}) => {
             id={checkboxId}
             type="checkbox"
             value={title}
+            title={title}
+            aria-label={title}
             checked={selected}
             onChange={onClick}
             className={style.hiddenCheckbox}
@@ -112,7 +114,7 @@ const QcmDrag = ({answers, help, groupAriaLabel}, legacyContext) => {
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   return (
-    <div className={style.wrapper} role="group" aria-label={groupAriaLabel}>
+    <div className={style.wrapper} role="group" aria-label={groupAriaLabel} title={groupAriaLabel}>
       <SelectedAnswerSections answers={answers} help={help} backgroundColor={primarySkinColor} />
       <div data-name="qcm-drag-answers" className={style.answers}>
         <Choices answers={answers} />

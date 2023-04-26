@@ -62,7 +62,7 @@ test('should create edited qcm props', t => {
 });
 
 test('should create edited template props', t => {
-  t.plan(23);
+  t.plan(24);
 
   const state = {
     ui: {
@@ -89,6 +89,7 @@ test('should create edited template props', t => {
   t.true(isFunction(props.answers[0].onChange));
   t.is(props.answers[1].type, 'select');
   t.is(props.answers[1].name, 'sel31191');
+  t.is(props.answers[1]['aria-label'], '__Select an answer');
   t.true(isFunction(props.answers[1].onChange));
   const selectOptions = props.answers[1].options;
   t.true(Array.isArray(selectOptions));

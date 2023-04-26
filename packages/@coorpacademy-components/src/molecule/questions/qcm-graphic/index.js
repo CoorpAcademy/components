@@ -40,6 +40,7 @@ const QCMImage = (props, legacyContext) => {
             className={style.imageWrapper}
             data-name="answerImage"
             aria-label={ariaLabel || title}
+            title={ariaLabel || title}
             style={{
               backgroundImage: `url(${image})`
             }}
@@ -51,6 +52,8 @@ const QCMImage = (props, legacyContext) => {
                   id={checkboxId}
                   type="checkbox"
                   value={title}
+                  title={title}
+                  aria-label={title}
                   checked={selected}
                   onChange={onClick}
                   className={style.hiddenCheckbox}
@@ -70,6 +73,7 @@ const QCMImage = (props, legacyContext) => {
       className={style.wrapper}
       role="group"
       aria-label={groupAriaLabel}
+      title={groupAriaLabel}
     >
       {answersViews}
     </div>

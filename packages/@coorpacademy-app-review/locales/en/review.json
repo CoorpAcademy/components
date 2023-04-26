@@ -19,6 +19,7 @@
     "Continue": "Continue",
     "Type here": "Type here",
     "Select an answer": "Select an answer",
+    "answer_the_question": "Answer the question",
     "presentation": {
       "aria_label": "Review Presentation Container",
       "title": "What is<br/>Revision Mode ?",

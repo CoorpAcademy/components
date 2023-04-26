@@ -38,6 +38,7 @@ const FreeText = (props, legacyContext) => {
         data-name="free-text-input"
         type="text"
         aria-label={ariaLabel || value || placeholder}
+        title={ariaLabel || value || placeholder}
         className={style.freeText}
         placeholder={placeholder}
         value={value}

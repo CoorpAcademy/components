@@ -132,7 +132,8 @@ export const templateUISlide: Partial<ReviewSlide> = {
               validOption: true,
               selected: false
             }
-          ]
+          ],
+          'aria-label': 'Select an answer'
         },
         {
           type: 'text',
@@ -171,7 +172,8 @@ export const templateUISlide: Partial<ReviewSlide> = {
               validOption: true,
               selected: false
             }
-          ]
+          ],
+          'aria-label': 'Select an answer'
         }
       ]
     }
