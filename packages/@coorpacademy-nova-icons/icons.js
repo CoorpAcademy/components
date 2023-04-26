@@ -159,6 +159,15 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/circle-view.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/close-circle.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/close.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/mobile-phone.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/binoculars.1.svg')},
+  {
+    filePath: path.resolve(
+      './third-party/nova-line.iconjar/icons/chat-bubble-circle-question-mark.svg'
+    )
+  },
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/network-alert.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/content-book.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/computer-screen-1.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/cursor-arrow-target.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/file-office-pdf.svg')},

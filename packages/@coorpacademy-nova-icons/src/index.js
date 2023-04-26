@@ -119,6 +119,7 @@ import _NovaLineBookmarksTagsBookmark5 from './components/nova-line/bookmarks-ta
 import _NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import _NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
 import _NovaLineContentEditionBin from './components/nova-line/content-edition/bin';
+import _NovaLineContentEditionContentBook from './components/nova-line/content-edition/content-book';
 import _NovaLineContentEditionHide from './components/nova-line/content-edition/hide';
 import _NovaLineContentEditionLinkBroken from './components/nova-line/content-edition/link-broken';
 import _NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
@@ -128,10 +129,14 @@ import _NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-li
 import _NovaLineInterfaceFeedbackInterfaceQuestionMark from './components/nova-line/interface-feedback/interface-question-mark';
 import _NovaLineLeisureLeisurePartyPopper from './components/nova-line/leisure/leisure-party-popper';
 import _NovaLineLoginKey1 from './components/nova-line/login/key-1';
+import _NovaLineMessagesChatChatBubbleCircleQuestionMark from './components/nova-line/messages-chat/chat-bubble-circle-question-mark';
 import _NovaLineMobilephoneMobilePhoneBroken from './components/nova-line/mobilephone/mobile-phone-broken';
 import _NovaLineMobilephoneMobilePhoneClose1 from './components/nova-line/mobilephone/mobile-phone-close-1';
 import _NovaLineMobilephoneQrCode1 from './components/nova-line/mobilephone/qr-code.1';
+import _NovaLineNetworkNetworkAlert from './components/nova-line/network/network-alert';
 import _NovaLineNetworkNetworkMobile from './components/nova-line/network/network-mobile';
+import _NovaLineObjectsBinoculars1 from './components/nova-line/objects/binoculars.1';
+import _NovaLinePhoneMobilePhone from './components/nova-line/phone/mobile-phone';
 import _NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/remove-circle-1';
 import _NovaLineSelectionCursorsCursorArrowTarget from './components/nova-line/selection-cursors/cursor-arrow-target';
 import _NovaLineSettingsCookie from './components/nova-line/settings/cookie';
@@ -358,6 +363,7 @@ export const NovaLineBookmarksTagsBookmark5: Icon = _NovaLineBookmarksTagsBookma
 export const NovaLineBusinessCircleView: Icon = _NovaLineBusinessCircleView;
 export const NovaLineComputersComputerScreen1: Icon = _NovaLineComputersComputerScreen1;
 export const NovaLineContentEditionBin: Icon = _NovaLineContentEditionBin;
+export const NovaLineContentEditionContentBook: Icon = _NovaLineContentEditionContentBook;
 export const NovaLineContentEditionHide: Icon = _NovaLineContentEditionHide;
 export const NovaLineContentEditionLinkBroken: Icon = _NovaLineContentEditionLinkBroken;
 export const NovaLineContentEditionPencil2: Icon = _NovaLineContentEditionPencil2;
@@ -369,10 +375,15 @@ export const NovaLineInterfaceFeedbackInterfaceQuestionMark: Icon =
   _NovaLineInterfaceFeedbackInterfaceQuestionMark;
 export const NovaLineLeisureLeisurePartyPopper: Icon = _NovaLineLeisureLeisurePartyPopper;
 export const NovaLineLoginKey1: Icon = _NovaLineLoginKey1;
+export const NovaLineMessagesChatChatBubbleCircleQuestionMark: Icon =
+  _NovaLineMessagesChatChatBubbleCircleQuestionMark;
 export const NovaLineMobilephoneMobilePhoneBroken: Icon = _NovaLineMobilephoneMobilePhoneBroken;
 export const NovaLineMobilephoneMobilePhoneClose1: Icon = _NovaLineMobilephoneMobilePhoneClose1;
 export const NovaLineMobilephoneQrCode1: Icon = _NovaLineMobilephoneQrCode1;
+export const NovaLineNetworkNetworkAlert: Icon = _NovaLineNetworkNetworkAlert;
 export const NovaLineNetworkNetworkMobile: Icon = _NovaLineNetworkNetworkMobile;
+export const NovaLineObjectsBinoculars1: Icon = _NovaLineObjectsBinoculars1;
+export const NovaLinePhoneMobilePhone: Icon = _NovaLinePhoneMobilePhone;
 export const NovaLineRemoveAddRemoveCircle1: Icon = _NovaLineRemoveAddRemoveCircle1;
 export const NovaLineSelectionCursorsCursorArrowTarget: Icon =
   _NovaLineSelectionCursorsCursorArrowTarget;
