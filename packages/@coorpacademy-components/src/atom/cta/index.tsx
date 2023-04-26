@@ -5,9 +5,9 @@ import classnames from 'classnames';
 import {NovaCompositionCoorpacademyLogout as LogoutIcon} from '@coorpacademy/nova-icons';
 import Link from '../link';
 import type {WebContextValues} from '../provider/web-context';
+import Provider from '../provider';
 import style from './style.css';
-import * as propTypes from './prop-types';
-import {contextTypes} from './prop-types';
+import propTypes from './prop-types';
 import type {CTAProps} from './prop-types';
 
 const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
@@ -117,6 +117,8 @@ const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
 
 CTA.propTypes = propTypes;
 
-CTA.contextTypes = contextTypes;
+CTA.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 export default CTA;

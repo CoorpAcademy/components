@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Link from '../link';
-import Provider from '../provider';
 
 const propTypes = {
   'aria-label': Link.propTypes['aria-label'],
@@ -19,10 +18,6 @@ const propTypes = {
   fullWidth: PropTypes.bool,
   certificationButton: PropTypes.bool,
   useButtonTag: Link.propTypes.useButtonTag
-};
-
-export const contextTypes = {
-  skin: Provider.childContextTypes.skin
 };
 
 export type CTAProps = {
