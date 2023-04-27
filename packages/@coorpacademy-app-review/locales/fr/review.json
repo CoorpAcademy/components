@@ -19,6 +19,7 @@
     "Continue": "Continuer ",
     "Type here": "Saisir ici",
     "Select an answer": "Sélectionner une réponse ",
+    "answer_the_question": "Répondre à la question",
     "presentation": {
       "aria_label": "Revoir le conteneur de présentation",
       "title": "Qu'est-ce que le mode<br/>Révision ?",
