@@ -19,6 +19,7 @@
     "Continue": "続行する",
     "Type here": "ここに入力する",
     "Select an answer": "回答を選択する",
+    "answer_the_question": "質問に答えて",
     "presentation": {
       "aria_label": "プレゼンテーションコンテナの確認",
       "title": "<br/>リビジョンモードとは？",
