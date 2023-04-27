@@ -19,6 +19,7 @@
     "Continue": "Jätka",
     "Type here": "Sisestage siia",
     "Select an answer": "Valige vastus",
+    "answer_the_question": "Vasta küsimusele",
     "presentation": {
       "aria_label": "Arvustage esitluskonteiner",
       "title": "Mis on<br/> Revisjonirežiim?",
