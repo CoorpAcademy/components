@@ -123,12 +123,14 @@ test('should display slide', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
+    'aria-label': '__Validate. __Submit your Answer',
     submitValue: '__Validate',
     disabled: true,
     name: 'validateAnswerCTA',
     light: false,
     small: false,
-    secondary: false
+    secondary: false,
+    useButtonTag: true
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Saisissez votre réponse.');
@@ -178,12 +180,14 @@ test('should disable lesson button if slide has no lessons', async t => {
 
   t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
   t.deepEqual(omit('onClick', playerProps.cta), {
+    'aria-label': '__Validate. __Submit your Answer',
     submitValue: '__Validate',
     disabled: true,
     name: 'validateAnswerCTA',
     light: false,
     small: false,
-    secondary: false
+    secondary: false,
+    useButtonTag: true
   });
   await t.notThrows(playerProps.cta.onClick);
   t.is(playerProps.help, 'Saisissez votre réponse.');

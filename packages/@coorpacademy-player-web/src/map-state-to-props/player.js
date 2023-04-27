@@ -112,12 +112,14 @@ const playerProps = (options, store) => {
 
     const ctaButtonValidate = {
       submitValue: translate('Validate'),
+      'aria-label': `${translate('Validate')}. ${translate('Submit your Answer')}`,
       onClick: clickCTAHandler,
       light: false,
       small: false,
       name: 'validateAnswerCTA',
       secondary: false,
-      disabled: isQuestionCtaDisabled(state)
+      disabled: isQuestionCtaDisabled(state),
+      useButtonTag: true
     };
 
     const ctaButtonBackToQuestion = {

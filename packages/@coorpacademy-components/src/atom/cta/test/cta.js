@@ -58,6 +58,7 @@ test("The hover action should not change the cta's (Link wrapper) style when the
   t.deepEqual(cta.style._values, {});
 
   fireEvent.mouseOver(logout);
+  fireEvent.mouseEnter(logout);
   t.deepEqual(cta.style._values, {});
 
   fireEvent.mouseLeave(logout);

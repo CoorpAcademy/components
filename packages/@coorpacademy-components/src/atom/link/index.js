@@ -13,6 +13,7 @@ const Link = (props, legacyContext) => {
     hoverColor = getOr('#00B0FF', 'common.primary', skin),
     'data-name': dataName = 'link',
     'aria-label': ariaLabel,
+    useButtonTag = false,
     ...linKElementProps
   } = props;
   const {
@@ -51,37 +52,63 @@ const Link = (props, legacyContext) => {
     [download, navigate, onClick]
   );
 
-  const _style =
-    href || onClick
-      ? null
-      : {
-          pointerEvents: 'none'
-        };
-  const _hoverStyle =
-    skinHover && hovered
-      ? {
-          color: hoverColor
-        }
-      : null;
+  const _style = useMemo(
+    () =>
+      href || onClick
+        ? null
+        : {
+            pointerEvents: 'none'
+          },
+    [href, onClick]
+  );
+  const _hoverStyle = useMemo(
+    () =>
+      skinHover && hovered
+        ? {
+            color: hoverColor
+          }
+        : null,
+    [hoverColor, hovered, skinHover]
+  );
 
-  return (
-    <a
-      {...linKElementProps}
-      data-name={dataName}
-      aria-label={ariaLabel}
-      href={href ? createHref(href) : undefined}
-      onClick={handleOnClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      className={className}
-      style={{
+  const _props = useMemo(
+    () => ({
+      ...linKElementProps,
+      'data-name': dataName,
+      'aria-label': ariaLabel,
+      href: href ? createHref(href) : undefined,
+      onClick: handleOnClick,
+      onMouseEnter: handleMouseEnter,
+      onMouseLeave: handleMouseLeave,
+      className,
+      style: {
         ...propsStyle,
         ..._style,
         ..._hoverStyle
-      }}
-    >
+      }
+    }),
+    [
+      _hoverStyle,
+      _style,
+      ariaLabel,
+      className,
+      createHref,
+      dataName,
+      handleMouseEnter,
+      handleMouseLeave,
+      handleOnClick,
+      href,
+      linKElementProps,
+      propsStyle
+    ]
+  );
+
+  return useButtonTag ? (
+    <button {..._props} type="button">
       {children}
-    </a>
+    </button>
+  ) : (
+    <a {..._props}>{children}</a>
   );
 };
 
@@ -99,6 +126,7 @@ Link.propTypes = {
   onClick: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
+  useButtonTag: PropTypes.bool,
   style: PropTypes.shape({})
 };
 
