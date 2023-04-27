@@ -19,6 +19,7 @@
     "Continue": "Продолжить",
     "Type here": "Напишите здесь",
     "Select an answer": "Выберите ответ",
+    "answer_the_question": "Ответ на вопрос",
     "presentation": {
       "aria_label": "Контейнер для повторения презентации",
       "title": "Что такое<br/>режим повторения?",
