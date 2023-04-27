@@ -19,6 +19,7 @@
     "Continue": "Continuar",
     "Type here": "Escriba aquí",
     "Select an answer": "Seleccione una respuesta",
+    "answer_the_question": "responde la pregunta",
     "presentation": {
       "aria_label": "Revisar contenedor de presentación",
       "title": "¿Qué es el <br/>Modo revisión?",
