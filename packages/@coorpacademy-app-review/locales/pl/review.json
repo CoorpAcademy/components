@@ -19,6 +19,7 @@
     "Continue": "Anuluj",
     "Type here": "Wpisz tutaj",
     "Select an answer": "Wybierz odpowiedź",
+    "answer_the_question": "Odpowiedz na pytanie",
     "presentation": {
       "aria_label": "Kontener prezentacji utrwalania",
       "title": "Czym jest<br/>tryb utrwalania?",
