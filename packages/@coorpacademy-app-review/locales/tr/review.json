@@ -19,6 +19,7 @@
     "Continue": "Devam et",
     "Type here": "Buraya yaz",
     "Select an answer": "Bir cevap seç",
+    "answer_the_question": "soruyu cevapla",
     "presentation": {
       "aria_label": "Sunum Kapsayıcısını İncele",
       "title": "Tekrar Modu <br/>nedir?",
