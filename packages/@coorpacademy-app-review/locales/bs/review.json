@@ -19,6 +19,7 @@
     "Continue": "Nastavi",
     "Type here": "Unesite ovdje",
     "Select an answer": "Odaberite odgovor",
+    "answer_the_question": "Odgovori na pitanje",
     "presentation": {
       "aria_label": "Pregledajte Presentation Container",
       "title": "Šta je<br/> Revision Mode ?",
