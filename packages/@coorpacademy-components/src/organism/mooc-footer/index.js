@@ -118,10 +118,10 @@ function MoocFooter(props) {
   const sections = !isEmpty(siteMapSections)
     ? siteMapSections.map((section, index) => {
         return (
-          <div key={index} className={style.sectionWrapper}>
+          <nav key={index} className={style.sectionWrapper}>
             <p className={style.sectionTitle}>{section.title}</p>
             {renderPagesFromSection(section.pages)}
-          </div>
+          </nav>
         );
       })
     : null;
