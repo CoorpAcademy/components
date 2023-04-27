@@ -19,6 +19,7 @@
     "Continue": "继续",
     "Type here": "在此输入",
     "Select an answer": "选择一个答案",
+    "answer_the_question": "回答问题",
     "presentation": {
       "aria_label": "复习演示容器",
       "title": "<br/>温习模式是什么？",
