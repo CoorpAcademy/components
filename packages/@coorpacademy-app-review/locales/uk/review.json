@@ -19,6 +19,7 @@
     "Continue": "Продовжити",
     "Type here": "Друкуйте тут",
     "Select an answer": "Обрати відповідь",
+    "answer_the_question": "Відповідай на питання",
     "presentation": {
       "aria_label": "Контейнер з презентацією перегляду",
       "title": "Що таке <br/>Режим перегляду?",
