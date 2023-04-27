@@ -19,6 +19,7 @@
     "Continue": "Folytatás",
     "Type here": "Gépeljen ide",
     "Select an answer": "Válasszon egy választ",
+    "answer_the_question": "Válaszold meg a kérdést",
     "presentation": {
       "aria_label": "Prezentációs konténer áttekintése",
       "title": "Mi az a <br/> Áttekintés mód?",
