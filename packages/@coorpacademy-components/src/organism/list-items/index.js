@@ -16,7 +16,7 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     itemType === 'certification' &&
     !displayAll ? (
       <DraggableList
-        items={items.map(item => ({...item, itemType}))}
+        items={items.map(item => ({...item, contentType: itemType}))}
         itemType="list-item"
         onDrop={onDrop}
       />
@@ -77,7 +77,6 @@ ListItems.propTypes = {
   'aria-label': PropTypes.string,
   buttonLink: PropTypes.shape(ButtonLink.propTypes),
   selectMultiple: PropTypes.shape(SelectMultiple.propTypes),
-  items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
   content: PropTypes.oneOfType([
     PropTypes.shape({
       items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
