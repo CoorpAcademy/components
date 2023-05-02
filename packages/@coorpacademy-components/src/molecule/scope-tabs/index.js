@@ -37,8 +37,7 @@ Tab.propTypes = {
 
 const ScopeTabs = (props, context) => {
   const {onClick, selected = 0, levels = []} = props;
-
-  return (
+  return levels.length > 0 ? (
     <nav>
       <ul data-name="scopeTabs" className={style.tabs}>
         {levels.map((level, index) => (
@@ -46,7 +45,7 @@ const ScopeTabs = (props, context) => {
         ))}
       </ul>
     </nav>
-  );
+  ) : null;
 };
 
 ScopeTabs.propTypes = {
