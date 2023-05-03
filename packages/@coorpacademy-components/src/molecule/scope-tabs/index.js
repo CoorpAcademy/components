@@ -37,14 +37,15 @@ Tab.propTypes = {
 
 const ScopeTabs = (props, context) => {
   const {onClick, selected = 0, levels = []} = props;
-
-  return (
-    <ul data-name="scopeTabs" className={style.tabs}>
-      {levels.map((level, index) => (
-        <Tab key={index} index={index} level={level} onClick={onClick} selected={selected} />
-      ))}
-    </ul>
-  );
+  return levels.length > 1 ? (
+    <nav>
+      <ul data-name="scopeTabs" className={style.tabs}>
+        {levels.map((level, index) => (
+          <Tab key={index} index={index} level={level} onClick={onClick} selected={selected} />
+        ))}
+      </ul>
+    </nav>
+  ) : null;
 };
 
 ScopeTabs.propTypes = {

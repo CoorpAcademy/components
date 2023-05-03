@@ -140,9 +140,9 @@ const SlidesFooter = props => {
   });
 
   return (
-    <div data-name="slidesFooter" className={style.wrapper}>
+    <nav data-name="slidesFooter" className={style.wrapper}>
       {Buttons}
-    </div>
+    </nav>
   );
 };
 
