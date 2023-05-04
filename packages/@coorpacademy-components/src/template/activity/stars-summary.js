@@ -96,14 +96,15 @@ const StarsSummary = (props, legacyContext) => {
 
   const rightArrowView =
     totalItems > 6 && firstItemIndex < totalItems - 6 ? (
-      <div
+      <button
         className={style.circle}
         onClick={handleOnRight}
         data-name="right-arrow"
         data-testid="stars-summary-right-arrow"
+        type="button"
       >
         <ArrowRight style={{color: dark}} className={style.right} width={10} height={10} />
-      </div>
+      </button>
     ) : null;
 
   return (
