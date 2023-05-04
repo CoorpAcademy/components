@@ -1,10 +1,11 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value colors: "../../variables/colors.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
-@value medium from colors;
+@value colors: "../../variables/colors.css";
 @value light from colors;
 @value lightMediumGray from colors;
+@value medium from colors;
+@value transparent from colors;
 @value white from colors;
 
 .hidden {
@@ -99,7 +100,6 @@
     width: fit-content;
     position: relative;
     top: -165px;
-    z-index: 10;
     float: left;
 }
 
@@ -122,6 +122,8 @@
     cursor: pointer;
     line-height: 0;
     margin-left: 5px;
+    padding: 0;
+    background: transparent;
 }
 
 .arrow {
