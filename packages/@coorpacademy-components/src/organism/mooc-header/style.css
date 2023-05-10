@@ -26,8 +26,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
-  /* in order to avoid z-index clashes with other components*/
-  z-index: 9000;
   background-color: white;
 }
 
