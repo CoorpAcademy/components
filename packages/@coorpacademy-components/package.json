@@ -163,5 +163,9 @@
     "typescript": "^4.8.3",
     "webpack": "^5.74.0"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "browserslist": [
+    "last 2 versions",
+    "IE 11"
+  ]
 }

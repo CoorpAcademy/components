@@ -178,6 +178,7 @@ const Select = (props, legacyContext) => {
       )}
     >
       <label
+        data-testid="select-wrapper"
         data-name="select-wrapper"
         title={title}
         style={{
@@ -189,6 +190,7 @@ const Select = (props, legacyContext) => {
       >
         {titleView}
         <span
+          data-testid="select-span"
           data-name="select-span"
           className={classnames(
             style.selectSpan,
