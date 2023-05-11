@@ -1,14 +1,12 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import {identity} from 'lodash/fp';
+import {fireEvent, queryByTestId} from '@testing-library/react';
 import Discipline from '..';
+import {renderWithContext} from '../../../../util/render-with-context';
 import fixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should show feedback when user click add to my list button', t => {
   t.plan(4);
@@ -16,17 +14,16 @@ test('should show feedback when user click add to my list button', t => {
     t.pass();
     cb();
   };
-  const context = {translate: identity};
-  const wrapper = mount(<Discipline {...fixture.props} onFavoriteClick={onFavoriteClick} />, {
-    context
-  });
-  let addToMyListFeedback = wrapper.find('[data-name="add-to-my-list-feedback"]');
-  t.false(addToMyListFeedback.exists());
 
-  const addToMyListButton = wrapper.find('[data-name="add-to-my-list-button"]');
-  t.true(addToMyListButton.exists());
-  addToMyListButton.at(0).simulate('click');
+  const {getByTestId, getAllByTestId, container} = renderWithContext(
+    <Discipline {...fixture.props} onFavoriteClick={onFavoriteClick} />
+  );
 
-  addToMyListFeedback = wrapper.find('[data-name="add-to-my-list-feedback"]');
-  t.true(addToMyListFeedback.exists());
+  t.falsy(queryByTestId(container, 'add-to-my-list-feedback'));
+
+  const addToMyListButton = getAllByTestId('add-to-my-list-button')[0];
+  t.truthy(addToMyListButton);
+  fireEvent.click(addToMyListButton, {defaultPrevented: true});
+
+  t.truthy(getByTestId('add-to-my-list-feedback'));
 });
