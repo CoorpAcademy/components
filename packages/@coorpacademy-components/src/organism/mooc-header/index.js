@@ -717,14 +717,14 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           {searchFormView}
-          <nav
+          <div
             className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
             data-name="menu-wrapper"
           >
             {pagesView}
             {userView || linksView}
             {settingsView}
-          </nav>
+          </div>
         </div>
       </header>
     );
