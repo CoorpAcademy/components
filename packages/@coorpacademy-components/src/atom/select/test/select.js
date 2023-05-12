@@ -1,28 +1,45 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
 import cloneDeep from 'lodash/fp/cloneDeep';
 import noop from 'lodash/fp/noop';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {fireEvent, render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Select from '..';
 import playerFixture from './fixtures/player';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
+
+// setup document mocking for userEvent
+document.getSelection = () => {
+  return {
+    addRange: () => {},
+    removeAllRanges: () => {}
+  };
+};
+
+document.createRange = () => ({
+  setStart: () => {},
+  setEnd: () => {},
+  cloneRange: () => {},
+  commonAncestorContainer: {
+    nodeName: 'BODY',
+    ownerDocument: document
+  }
+});
 
 test('classnames: should pass the styles pertinent to a player theme, text color: use skin color (selected, valid option, player)', t => {
-  const wrapper = mount(<Select {...playerFixture.props} onChange={noop} />);
-  const selectWrapper = wrapper.find('[data-name="select-wrapper"]');
-  t.true(selectWrapper.at(0).exists());
+  const {getByTestId, unmount} = render(<Select {...playerFixture.props} onChange={noop} />);
+  const selectWrapper = getByTestId('select-wrapper');
+  t.truthy(selectWrapper);
   // should use skin color
-  t.deepEqual(selectWrapper.at(0).props().style, {
-    color: '#00B0FF'
-  });
-  const selectSpan = selectWrapper.at(0).find('[data-name="select-span"]');
-  t.true(selectSpan.at(0).exists());
-  t.is(selectSpan.at(0).props().className, 'select__selectSpan select__noLabelCommon');
+  t.is(window.getComputedStyle(selectWrapper)._values.color, 'rgb(0, 176, 255)');
+  const selectSpan = getByTestId('select-span');
+  t.truthy(selectSpan);
+  t.is(selectSpan.className, 'select__selectSpan select__noLabelCommon');
+
+  unmount(); // to allow rendering on next test
 });
 
 test('text color: should not use skin color (selected, invalid option, player), long label', t => {
@@ -33,41 +50,54 @@ test('text color: should not use skin color (selected, invalid option, player), 
     selected: true,
     validOption: false
   };
-  const wrapper = mount(<Select {...withInvalid} onChange={noop} />);
-  const selectWrapper = wrapper.find('[data-name="select-wrapper"]');
-  t.true(selectWrapper.at(0).exists());
+  const {getByTestId, unmount} = render(<Select {...withInvalid} onChange={noop} />);
+  const selectWrapper = getByTestId('select-wrapper');
+  t.truthy(selectWrapper);
   // should not use skin color
-  t.deepEqual(selectWrapper.at(0).props().style, {});
-  const selectSpan = selectWrapper.at(0).find('[data-name="select-span"]');
-  t.true(selectSpan.at(0).exists());
-  t.is(
-    selectSpan.at(0).props().className,
-    'select__selectSpan select__noLabelCommon select__longLabel'
-  );
+  t.is(window.getComputedStyle(selectWrapper)._values.color, undefined);
+
+  const selectSpan = getByTestId('select-span');
+  t.truthy(selectSpan);
+  t.is(selectSpan.className, 'select__selectSpan select__noLabelCommon select__longLabel');
+
+  unmount(); // to allow rendering on next test
 });
 
-test('after onClick, arrow up icon should be shown, then arrow down on blur/mouse leave', t => {
-  const wrapper = mount(<Select {...defaultFixture.props} />);
+test('after onClick, arrow up icon should be shown, then arrow down on blur/mouse leave', async t => {
+  const {getByTestId} = render(<Select {...defaultFixture.props} />);
 
-  const nativeSelect = wrapper.find('[data-testid="native-select"]');
+  const user = userEvent.setup({document});
+  const nativeSelect = getByTestId('native-select');
 
-  nativeSelect.simulate('click', {});
+  try {
+    await user.selectOptions(nativeSelect, 'Pouet3');
+  } catch (e) {
+    // hitting something like https://github.com/testing-library/user-event/issues/278
+    // RangeError: Maximum call stack size exceeded
+    // BUT the select was successful
+    if (!e.message.includes('Maximum call stack size exceeded')) {
+      throw e;
+    }
+  }
 
-  const arrowUp = wrapper.find('[data-testid="select-arrow-up-icon"]');
+  t.truthy(getByTestId('select-arrow-up-icon'));
 
-  const arrowDown = wrapper.find('[data-testid="select-arrow-down-icon"]');
+  fireEvent.mouseLeave(nativeSelect);
+  t.truthy(getByTestId('select-arrow-down-icon'));
 
-  t.truthy(arrowUp);
+  try {
+    await user.selectOptions(nativeSelect, 'Pouet3');
+  } catch (e) {
+    // hitting something like https://github.com/testing-library/user-event/issues/278
+    // RangeError: Maximum call stack size exceeded
+    // BUT the select was successful
+    if (!e.message.includes('Maximum call stack size exceeded')) {
+      throw e;
+    }
+  }
 
-  nativeSelect.simulate('mouseleave', {});
+  t.truthy(getByTestId('select-arrow-up-icon'));
 
-  t.truthy(arrowDown);
-
-  nativeSelect.simulate('click', {});
-
-  t.truthy(arrowUp);
-
-  nativeSelect.simulate('blur', {});
-
-  t.truthy(arrowDown);
+  fireEvent.blur(nativeSelect);
+  t.truthy(getByTestId('select-arrow-down-icon'));
 });

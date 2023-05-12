@@ -56,6 +56,7 @@ test("should call onChange with the selected options' target value if multiple=t
   } catch (e) {
     // hitting something like https://github.com/testing-library/user-event/issues/278
     // RangeError: Maximum call stack size exceeded
+    // BUT the select was successful
     if (!e.message.includes('Maximum call stack size exceeded')) {
       throw e;
     }
