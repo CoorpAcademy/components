@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import {render} from 'react-dom';
 import isNil from 'lodash/fp/isNil';
@@ -32,7 +33,6 @@ const translate: Translate = (key: string, data?: Record<string, string>): strin
       ...localesComponents
     })(key, data);
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error(err);
     return createTranslate({
       [key]: key
@@ -45,7 +45,6 @@ const isContainerAvailable = (options: SandboxOptions): boolean =>
 
 const createSandbox = (options: SandboxOptions): void => {
   if (!isContainerAvailable(options)) {
-    // eslint-disable-next-line no-console
     console.error('[AppReview sandbox] Requires a container.');
   } else {
     const container = document.getElementById(options.container);
@@ -59,7 +58,13 @@ const createSandbox = (options: SandboxOptions): void => {
         location.reload();
       },
       skin,
-      appendVideoOptions
+      appendVideoOptions,
+      onStartProgression: progression => {
+        console.log('GTM onStartProgression', progression);
+      },
+      onEndProgression: progression => {
+        console.log('GTM onEndProgression', progression);
+      }
     };
     render(
       <WebContext translate={identity} skin={skin}>

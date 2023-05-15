@@ -17,7 +17,9 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
   const thunkOptions: ThunkOptions = {
     services: options.services || getServices(locale),
     callbackOnViewChanged: options.callbackOnViewChanged,
-    appendVideoOptions: options.appendVideoOptions
+    appendVideoOptions: options.appendVideoOptions,
+    onStartProgression: options.onStartProgression,
+    onEndProgression: options.onEndProgression
   };
 
   const thunkMiddleware = thunk.withExtraArgument(thunkOptions);
