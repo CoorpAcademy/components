@@ -23,7 +23,13 @@ import {skin} from './fixtures/skin';
 import {freeTextSlide} from './fixtures/free-text';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skin,
+  onStartProgression: identity,
+  onEndProgression: identity
+};
 const progression: ProgressionFromAPI = {
   _id: '123456789123',
   content: {type: 'skill', ref: SKILL_REF_FOR_DEFAULT_SLIDES},

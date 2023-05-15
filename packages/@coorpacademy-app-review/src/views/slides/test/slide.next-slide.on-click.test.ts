@@ -31,7 +31,13 @@ import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 import {templateSlide} from './fixtures/template';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skin,
+  onStartProgression: identity,
+  onEndProgression: identity
+};
 
 test('correction popin actions after click', async t => {
   const state: StoreState = {

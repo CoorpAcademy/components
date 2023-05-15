@@ -24,7 +24,13 @@ import {freeTextSlide} from './fixtures/free-text';
 import {qcmSlide} from './fixtures/qcm';
 import {qcmGraphicSlide} from './fixtures/qcm-graphic';
 
-const connectedOptions = {translate, onQuitClick: identity, skin};
+const connectedOptions = {
+  translate,
+  onQuitClick: identity,
+  skin,
+  onStartProgression: identity,
+  onEndProgression: identity
+};
 const connectedOptionsForMobile = {
   ...connectedOptions,
   backgroundImage: 1
