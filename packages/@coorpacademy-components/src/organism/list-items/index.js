@@ -10,11 +10,11 @@ import ExpandibleActionableTable from '../../molecule/expandible-actionable-tabl
 import style from './style.css';
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
-  const {items, itemType, onDrop, withSystemAll} = content;
+  const {items, itemType, onDrop, isDraggable = false} = content;
   const itemsView =
     findIndex({type: 'published'}, items[0]?.tags) !== -1 &&
     itemType === 'certification' &&
-    !withSystemAll ? (
+    isDraggable ? (
       <DraggableList
         items={items.map(item => ({...item, contentType: itemType}))}
         itemType="list-item"
@@ -23,7 +23,7 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     ) : (
       items.map((item, index) => (
         <li key={item.id} className={style.item} data-name={`content-${index}`}>
-          <ListItem {...item} contentType={itemType} />
+          <ListItem {...item} order={null} contentType={itemType} />
         </li>
       ))
     );
@@ -83,7 +83,7 @@ ListItems.propTypes = {
       type: PropTypes.oneOf(['list']),
       itemType: PropTypes.string,
       onDrop: PropTypes.func,
-      withSystemAll: PropTypes.bool
+      isDraggable: PropTypes.bool
     }),
     PropTypes.shape({
       ...ExpandibleActionableTable.propTypes,
