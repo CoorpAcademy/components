@@ -59,8 +59,6 @@ const appOptions: AppOptions = {
   services,
   onQuitClick: identity,
   translate: identity,
-  onStartProgression: identity,
-  onEndProgression: identity,
   skin: {
     common: {
       primary: '#248e59'

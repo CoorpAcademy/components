@@ -54,18 +54,14 @@ test('should dispatch OPEN_POPIN action after a click on close button in header'
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: identity,
-    skin,
-    onStartProgression: identity,
-    onEndProgression: identity
+    skin
   });
   t.is(props.quitPopin, undefined);
   await props.header.onQuitClick();
   const updatedProps = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: identity,
-    skin,
-    onStartProgression: identity,
-    onEndProgression: identity
+    skin
   });
   t.not(updatedProps.quitPopin, undefined);
   t.pass();
@@ -155,9 +151,7 @@ test('should dispatch onQuitClick function after a click on close button in head
   const props = mapStateToSlidesProps(getState(), dispatch, {
     translate,
     onQuitClick: () => t.pass(),
-    skin,
-    onStartProgression: identity,
-    onEndProgression: identity
+    skin
   });
 
   await props.header.onQuitClick();

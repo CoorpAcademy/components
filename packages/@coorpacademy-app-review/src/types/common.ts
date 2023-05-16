@@ -26,8 +26,8 @@ export type VideoPropsForPlayer = {
 export type ConnectedOptions = {
   translate: Translate;
   onQuitClick: () => void;
-  onStartProgression: (progression: ProgressionFromAPI) => void;
-  onEndProgression: (progression: ProgressionFromAPI) => void;
+  onStartProgression?: (progression: ProgressionFromAPI) => void;
+  onEndProgression?: (progression: ProgressionFromAPI) => void;
   skin?: Skin;
   backgroundImage?: number; // in this case, the image source is a number : https://reactnative.dev/docs/image#imagesource
 };
@@ -42,10 +42,9 @@ export type AppOptions = ConnectedOptions & {
   appendVideoOptions: (media: VideoMedia) => Promise<VideoPropsForPlayer>;
 };
 
-export type ThunkOptions = Pick<
-  AppOptions,
-  'callbackOnViewChanged' | 'appendVideoOptions' | 'onStartProgression' | 'onEndProgression'
-> & {
+export type ThunkOptions = Pick<AppOptions, 'callbackOnViewChanged' | 'appendVideoOptions'> & {
+  onStartProgression: (progression: ProgressionFromAPI) => void;
+  onEndProgression: (progression: ProgressionFromAPI) => void;
   services: Services;
 };
 
