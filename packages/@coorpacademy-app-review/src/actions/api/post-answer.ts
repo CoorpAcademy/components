@@ -26,7 +26,7 @@ export type PostAnswerSuccessAction = {
 export const postAnswer = async (
   dispatch: Dispatch,
   getState: () => StoreState,
-  {services}: ThunkOptions
+  {services, onEndProgression}: ThunkOptions
 ): Promise<void> => {
   const state = getState();
   const currentSlideRef = get(['ui', 'currentSlideRef'], state);
@@ -42,13 +42,14 @@ export const postAnswer = async (
   });
   const response = await dispatch(action);
   if (response.type === POST_ANSWER_SUCCESS) {
-    const updatedProgression = response.payload;
+    const updatedProgression = response.payload as ProgressionFromAPI;
     const slideRef = updatedProgression.state.nextContent.ref;
     if (slideRef !== 'successExitNode') {
       await dispatch(fetchSlide(slideRef));
       await dispatch(fetchCorrection);
       await dispatch(fetchStartRank);
     } else {
+      onEndProgression(updatedProgression);
       await dispatch(fetchCorrection);
     }
   }

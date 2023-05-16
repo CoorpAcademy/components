@@ -1,6 +1,7 @@
 import {AnyAction, applyMiddleware, compose, createStore, Store} from 'redux';
 import thunk from 'redux-thunk';
 import {getServices} from '@coorpacademy/review-services';
+import {identity} from 'lodash/fp';
 import rootReducer, {StoreState} from './reducers';
 import type {ThunkOptions, AppOptions} from './types/common';
 
@@ -17,7 +18,9 @@ export default function configureStore(options: AppOptions): Store<StoreState, A
   const thunkOptions: ThunkOptions = {
     services: options.services || getServices(locale),
     callbackOnViewChanged: options.callbackOnViewChanged,
-    appendVideoOptions: options.appendVideoOptions
+    appendVideoOptions: options.appendVideoOptions,
+    onStartProgression: options.onStartProgression || identity,
+    onEndProgression: options.onEndProgression || identity
   };
 
   const thunkMiddleware = thunk.withExtraArgument(thunkOptions);

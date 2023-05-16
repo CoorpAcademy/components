@@ -1,6 +1,7 @@
 import type {ExecutionContext} from 'ava';
 import constant from 'lodash/fp/constant';
 import isEqual from 'lodash/fp/isEqual';
+import identity from 'lodash/fp/identity';
 import {AnyAction, applyMiddleware, compose, createStore, Dispatch, Middleware, Store} from 'redux';
 import thunk from 'redux-thunk';
 import type {Services} from '@coorpacademy/review-services';
@@ -48,6 +49,11 @@ export const createTestStore = (
     ...servicesOverrides
   };
 
-  const thunkOptions = {services, appendVideoOptions};
+  const thunkOptions = {
+    services,
+    appendVideoOptions,
+    onStartProgression: identity,
+    onEndProgression: identity
+  };
   return createTestStoreWithThunkOptions(t, initialState, thunkOptions, actions);
 };

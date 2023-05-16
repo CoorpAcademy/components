@@ -25,7 +25,7 @@ export const postProgression =
   async (
     dispatch: Dispatch,
     getState: () => StoreState,
-    {services}: ThunkOptions
+    {services, onStartProgression}: ThunkOptions
   ): Promise<void> => {
     const state = getState();
     const token = get(['data', 'token'], state);
@@ -39,8 +39,9 @@ export const postProgression =
     const response = await dispatch(action);
 
     if (response.type === POST_PROGRESSION_SUCCESS) {
-      const progression = response.payload;
+      const progression = response.payload as ProgressionFromAPI;
       const slideRef = progression.state.nextContent.ref;
+      onStartProgression(progression);
       await dispatch(fetchSlide(slideRef));
       await dispatch(fetchSkill(skillRef));
     }
