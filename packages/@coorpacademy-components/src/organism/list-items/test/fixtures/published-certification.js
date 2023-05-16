@@ -53,7 +53,7 @@ export default {
       items: [...listePublishedItems, propsRevised],
       type: 'list',
       itemType: 'certification',
-      isDraggable: true,
+      isDraggable: false,
       onDrop: (dragged, dropped) => {
         console.log({dragged, dropped});
       }

@@ -1,5 +1,4 @@
 import React from 'react';
-import findIndex from 'lodash/fp/findIndex';
 import PropTypes from 'prop-types';
 import ListItem from '../list-item';
 import DraggableList from '../../molecule/draggable-list';
@@ -12,10 +11,7 @@ import style from './style.css';
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   const {items, itemType, onDrop, isDraggable = false} = content;
   const itemsView =
-    findIndex({type: 'published'}, items[0]?.tags) !== -1 &&
-    itemType === 'certification' &&
-    isDraggable &&
-    items.length > 1 ? (
+    isDraggable && items.length > 1 ? (
       <DraggableList
         items={items.map(item => ({...item, contentType: itemType}))}
         itemType="list-item"
