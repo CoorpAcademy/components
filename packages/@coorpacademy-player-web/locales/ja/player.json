@@ -46,6 +46,7 @@
   "Type here": "ここに入力します",
   "Unlock next level": "新たにアンロックしました<br><b>{{levelName}}レベル</b>",
   "Validate": "回答",
+  "Submit your Answer": "回答を送信してください",
   "Wrong answer": "不正解",
   "You are out of lives!": "ライフがなくなりました。",
   "Your answer_": "あなたの答え：",
