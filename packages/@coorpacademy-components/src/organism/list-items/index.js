@@ -14,7 +14,8 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   const itemsView =
     findIndex({type: 'published'}, items[0]?.tags) !== -1 &&
     itemType === 'certification' &&
-    isDraggable ? (
+    isDraggable &&
+    items.length > 1 ? (
       <DraggableList
         items={items.map(item => ({...item, contentType: itemType}))}
         itemType="list-item"
