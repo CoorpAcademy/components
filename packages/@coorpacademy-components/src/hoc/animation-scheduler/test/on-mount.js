@@ -1,14 +1,12 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
+import {render} from '@testing-library/react';
 import PropTypes from 'prop-types';
-import {mount, shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {noop} from 'lodash/fp';
 import AnimationScheduler, {AnimationAdapter} from '..';
 
 browserEnv({pretendToBeVisual: true});
-configure({adapter: new Adapter()});
 
 const nextFrame = () => new Promise(requestAnimationFrame);
 
@@ -40,8 +38,8 @@ class AnimatedComponent extends React.Component {
 }
 
 test('should schedule multi', t => {
-  const wrapper = mount(
-    <AnimationScheduler>
+  const Multi = ({animated}) => (
+    <AnimationScheduler animated={animated}>
       <li>
         <AnimationAdapter name="first">
           <AnimatedComponent />
@@ -53,19 +51,19 @@ test('should schedule multi', t => {
     </AnimationScheduler>
   );
 
-  t.is(wrapper.html(), '<li><ul>false</ul><ul>false</ul></li>');
+  Multi.propTypes = {animated: PropTypes.bool};
+  const {container, rerender} = render(<Multi />);
 
-  wrapper.setProps({
-    animated: true
-  });
-  wrapper.update();
+  t.is(container.innerHTML, '<li><ul>false</ul><ul>false</ul></li>');
 
-  t.is(wrapper.html(), '<li><ul>true</ul><ul>true</ul></li>');
+  rerender(<Multi animated />);
+
+  t.is(container.innerHTML, '<li><ul>true</ul><ul>true</ul></li>');
 });
 
 test('should wait dependencies before start', async t => {
-  const wrapper = mount(
-    <AnimationScheduler>
+  const Multi = ({animated}) => (
+    <AnimationScheduler animated={animated}>
       <li>
         <AnimationAdapter name="first">
           <AnimatedComponent />
@@ -83,35 +81,30 @@ test('should wait dependencies before start', async t => {
     </AnimationScheduler>
   );
 
-  t.is(wrapper.html(), '<li><ul>false</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
+  Multi.propTypes = {animated: PropTypes.bool};
 
-  wrapper.setProps({
-    animated: true
-  });
-  wrapper.update();
+  const {container, rerender} = render(<Multi />);
+  t.is(container.innerHTML, '<li><ul>false</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
 
-  t.is(wrapper.html(), '<li><ul>true</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
-
-  await nextFrame();
-  wrapper.update();
-
-  t.is(wrapper.html(), '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>false</ul></li>');
+  rerender(<Multi animated />);
+  t.is(container.innerHTML, '<li><ul>true</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
 
   await nextFrame();
-  wrapper.update();
+  t.is(container.innerHTML, '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>false</ul></li>');
 
-  t.is(wrapper.html(), '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>true</ul></li>');
+  await nextFrame();
+  t.is(container.innerHTML, '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>true</ul></li>');
 });
 
 test('should ignore text child', t => {
-  const wrapper = mount(<AnimationScheduler>foo</AnimationScheduler>);
-  t.is(wrapper.text(), 'foo');
+  const {container} = render(<AnimationScheduler>foo</AnimationScheduler>);
+  t.is(container.innerHTML, 'foo');
 });
 
 test('AnimationAdapter should call onAnimationEnd', t => {
   return t.notThrowsAsync(
     new Promise(resolve => {
-      mount(
+      render(
         <AnimationScheduler animated>
           <AnimationAdapter name="animation" onAnimationEnd={resolve}>
             <AnimatedComponent />
@@ -124,7 +117,7 @@ test('AnimationAdapter should call onAnimationEnd', t => {
 
 test('AnimationAdapter should accept name property', t => {
   return t.notThrows(() =>
-    shallow(
+    render(
       <AnimationAdapter name="animation">
         <AnimatedComponent />
       </AnimationAdapter>
