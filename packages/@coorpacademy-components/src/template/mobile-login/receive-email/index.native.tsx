@@ -138,18 +138,24 @@ export type Props = {
     cta: string;
   };
   onClose: () => void;
-  onSend: () => void;
+  onSend: (email: string) => void;
 };
 
 const ReceiveEmail = (props: Props) => {
   const {locales, onClose, onSend} = props;
 
+  const [email, setEmail] = useState<string>('');
   const [isValid, setValid] = useState<boolean>(false);
   const [isTextInputFocused, setTextInputFocused] = useState<boolean>(false);
   const isKeyboardVisible = useMobileKeyboardVisibility();
 
+  const handleSend = useCallback(() => {
+    onSend(email);
+  }, [email, onSend]);
+
   const handleChangeText = useCallback(value => {
     setValid(emailRegex.test(value));
+    setEmail(value);
   }, []);
 
   const handleTextInputFocus = useCallback(() => {
@@ -210,7 +216,7 @@ const ReceiveEmail = (props: Props) => {
         <Touchable
           disabled={!isValid}
           style={[styles.ctaButton]}
-          onPress={onSend}
+          onPress={handleSend}
           testID="send-button"
         >
           <SendIcon style={styles.sendIcon} />
