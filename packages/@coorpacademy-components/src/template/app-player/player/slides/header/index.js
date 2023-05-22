@@ -19,7 +19,7 @@ const SlidesHeader = (props = {}, context = undefined) => {
       {type === HEADER_TYPE.LEARNER ? (
         <Learner content={content} subcontent={subcontent} mode={mode} />
       ) : null}
-      {type === HEADER_TYPE.MICROLEARNING ? <Microlearning content={content} /> : null}
+      {type === HEADER_TYPE.MICROLEARNING ? <Microlearning content={content} mode={mode} /> : null}
       {lives ? <Lives count={lives.count} /> : null}
     </div>
   );
