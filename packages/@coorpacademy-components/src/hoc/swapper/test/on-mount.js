@@ -1,12 +1,10 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render} from '@testing-library/react';
 import Swapper, {safeCancelAnimationFrame} from '..';
 
 browserEnv({pretendToBeVisual: true});
-configure({adapter: new Adapter()});
 
 const nextFrame = () => new Promise(requestAnimationFrame);
 
@@ -34,30 +32,13 @@ test('should cancel animation frame callback', async t => {
 });
 
 test('should not apply new props before next frame', t => {
-  const wrapper = mount(<TestApp />);
-  const props = wrapper.find('div').props();
-
-  wrapper.unmount();
-
-  t.deepEqual(props, {
-    'data-name': 'test',
-    'data-selected': true,
-    'data-more': 42
-  });
+  const {unmount, container} = render(<TestApp />);
+  t.is(container.innerHTML, '<div data-selected="true" data-name="test" data-more="42"></div>');
+  unmount();
 });
 
 test('should apply new props after next frame', async t => {
-  const wrapper = mount(<TestApp />);
-
+  const {container} = render(<TestApp />);
   await nextFrame();
-  wrapper.update();
-
-  const props = wrapper.find('div').props();
-
-  wrapper.unmount();
-
-  return t.deepEqual(props, {
-    'data-name': 'test',
-    'data-selected': false
-  });
+  t.is(container.innerHTML, '<div data-selected="false" data-name="test"></div>');
 });
