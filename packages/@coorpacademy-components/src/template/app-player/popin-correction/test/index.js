@@ -1,13 +1,11 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render} from '@testing-library/react';
 import PopinCorrection from '..';
 import correctClosed from './fixtures/correct-closed';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should open with transition', async t => {
   t.plan(1);
@@ -21,6 +19,6 @@ test('should open with transition', async t => {
     };
     const context = {skin: {}};
 
-    shallow(<PopinCorrection {...props} />, context);
+    render(<PopinCorrection {...props} />, context);
   });
 });
