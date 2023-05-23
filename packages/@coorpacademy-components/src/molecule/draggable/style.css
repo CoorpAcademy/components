@@ -13,15 +13,18 @@
   background: transparent;
   margin: 8px 0;
   border-radius: 7px;
-  transform:translate(0,0);
+  transform: translate(0, 0);
   z-index: 0;
 }
-.draggable:hover{
+
+.draggable:hover {
   background: rgba(0, 0, 0, 0.3);
 }
-.draggable:active{
+
+.draggable:active {
   background: transparent;
 }
+
 .draggable:before {
   content: '.';
   position: absolute;
@@ -32,9 +35,10 @@
   font-size: 25px;
   color: medium;
   pointer-events: none;
-  text-shadow: 0 0 medium,    0 5px medium,    0 10px medium,    0 15px medium,
-            5px 0 medium ,   5px 5px medium,  5px 10px medium,  5px 15px medium;
+  text-shadow: 0 0 medium, 0 5px medium, 0 10px medium, 0 15px medium,
+    5px 0 medium, 5px 5px medium, 5px 10px medium, 5px 15px medium;
 }
+
 .dragging {
   background: rgba(0, 0, 0, 0.1);
 }

@@ -1,7 +1,7 @@
 import publishedItem from '../../../list-item/test/fixtures/published';
 import revisedItem from '../../../list-item/test/fixtures/revised';
 
-const propsRevised = {...revisedItem.props};
+const propsRevised = {...revisedItem.props, order: 0};
 
 const ids = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
 const listePublishedItems = ids.map(id => {
@@ -53,7 +53,7 @@ export default {
       items: [...listePublishedItems, propsRevised],
       type: 'list',
       itemType: 'certification',
-      isDraggable: false,
+      isDraggable: true,
       onDrop: (dragged, dropped) => {
         console.log({dragged, dropped});
       }

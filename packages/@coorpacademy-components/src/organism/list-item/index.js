@@ -29,9 +29,11 @@ const ListItem = props => {
     <div className={style.wrapper}>
       {isPublished && contentType === 'certification' ? (
         <div className={style.orderWrapper}>
-          <div className={style.order} aria-label={ariaLabel}>
-            {order + 1}
-          </div>
+          {order !== null && order !== undefined ? (
+            <div className={style.order} aria-label={ariaLabel}>
+              {order + 1}
+            </div>
+          ) : null}
           <div className={style.title} title={title}>
             {title}
           </div>
@@ -86,7 +88,8 @@ ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   order: PropTypes.number,
   'aria-label': PropTypes.string,
-  contentType: PropTypes.string
+  contentType: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default ListItem;

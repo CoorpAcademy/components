@@ -1,5 +1,6 @@
 export default {
   props: {
+    contentType: 'certification',
     id: 'default',
     title: 'Leaders of tomorrow',
     tags: [

@@ -33,10 +33,10 @@
     font-family: Gilroy;
     font-size: 16px;
     font-weight: bold;
-    overflow:hidden;
-    white-space:nowrap;
-    display:inline-block;
-    text-overflow:ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
     width: 100%;
 }
 
@@ -59,5 +59,3 @@
     min-height: 56px;
     min-width: 56px;
 }
-
-
