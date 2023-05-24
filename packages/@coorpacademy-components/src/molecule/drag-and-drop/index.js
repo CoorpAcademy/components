@@ -45,7 +45,7 @@ export const DragAndDrop = (props, context) => {
   const loading = state === 'loading';
   return (
     <div>
-      <span onClick={handleBack} className={style.back}>
+      <span onClick={handleBack} className={style.back} data-testid="back">
         <ArrowLeft width={12} height={12} className={style.arrow} />
         {backLabel}
       </span>
@@ -83,7 +83,7 @@ export const DragAndDrop = (props, context) => {
           const disableFileInput = state === 'success';
 
           return (
-            <div {...getRootProps()} className={style.wrapper}>
+            <div {...getRootProps()} data-testid="drop-zone" className={style.wrapper}>
               <input {...getInputProps()} disabled={disableFileInput} />
               {getView()}
               {isDragActive || loading ? (

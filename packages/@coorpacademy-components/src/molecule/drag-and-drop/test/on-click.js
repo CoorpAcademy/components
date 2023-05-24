@@ -1,46 +1,66 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {replace} from 'lodash/fp';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import {wrappingComponent} from '../../../test/helpers/render-component';
-import style from '../style.css';
-import uploadReportStyle from '../upload-report.css';
+import {createEvent, fireEvent} from '@testing-library/react';
+import {context} from '../../../test/helpers/render-component';
 import DragDrop from '..';
+import {renderWithContext} from '../../../util/render-with-context';
 import readyFixture from './fixtures/ready';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should call the onBack function', t => {
-  t.plan(4);
+  t.plan(2);
 
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
+  const outerClick = () => {
+    // this allows to check if stopPropagation() has been properly called.
+    // if stopPropagation() was not called, this would be called.
+    t.fail();
+  };
+
   const props = {
     ...readyFixture.props,
     onBack: () => t.pass()
   };
-  const backStyle = `.${replace(' ', '.', style.back)}`;
-  const wrapper = mount(<DragDrop {...props} />, {wrappingComponent});
+  const {getByTestId, unmount} = renderWithContext(
+    <div onClick={outerClick}>
+      <DragDrop {...props} />
+    </div>,
+    {context}
+  );
 
-  t.is(wrapper.find(backStyle).exists(), true);
+  const back = getByTestId('back');
+  const clickEvent = createEvent.click(back);
+  fireEvent(back, clickEvent);
 
-  wrapper.find(backStyle).simulate('click', clickEvent);
+  t.is(clickEvent.defaultPrevented, true);
+  unmount();
 });
 
 test('should call the onDelete function', t => {
-  t.plan(7);
+  t.plan(2);
 
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
+  const outerClick = () => {
+    // this allows to check if stopPropagation() has been properly called.
+    // if stopPropagation() was not called, this would be called.
+    t.fail();
+  };
+
   const props = {
     ...readyFixture.props,
     onDelete: () => t.pass()
   };
-  const deleteButtonStyle = `.${replace(' ', '.', uploadReportStyle.trashIcon)}`;
-  const wrapper = mount(<DragDrop {...props} />, {wrappingComponent});
 
-  t.is(wrapper.find(deleteButtonStyle).exists(), true);
+  const {getByTestId} = renderWithContext(
+    <div onClick={outerClick}>
+      <DragDrop {...props} />
+    </div>,
+    {context}
+  );
 
-  wrapper.find(deleteButtonStyle).simulate('click', clickEvent);
+  const trashIcon = getByTestId('trash-icon');
+  const clickEvent = createEvent.click(trashIcon);
+  fireEvent(trashIcon, clickEvent);
+
+  t.is(clickEvent.defaultPrevented, true);
 });

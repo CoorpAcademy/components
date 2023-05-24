@@ -67,6 +67,7 @@ class Audio extends React.Component {
           autoPlay=""
           onPlay={this.handlePlay}
           name="media"
+          data-testid="audio"
           data-name="audio"
           preload="auto"
         >
