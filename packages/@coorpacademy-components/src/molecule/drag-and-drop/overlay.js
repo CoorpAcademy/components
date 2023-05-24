@@ -21,7 +21,11 @@ export const Overlay = ({description, isLoading, iconColor}) => {
     </React.Fragment>
   );
 
-  return <div className={style.overlay}>{isLoading ? <Loader /> : dropOverlay}</div>;
+  return (
+    <div className={style.overlay} data-testid="overlay">
+      {isLoading ? <Loader /> : dropOverlay}
+    </div>
+  );
 };
 
 export default Overlay;

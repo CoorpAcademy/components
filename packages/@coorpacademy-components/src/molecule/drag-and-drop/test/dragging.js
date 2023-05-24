@@ -1,47 +1,41 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import {replace} from 'lodash/fp';
-import {Overlay} from '../overlay';
-import style from '../style.css';
+import {fireEvent} from '@testing-library/react';
 import DragDrop from '..';
+import {renderWithContext} from '../../../util/render-with-context';
 import Default from './fixtures/default';
 
 browserEnv();
 
-configure({adapter: new Adapter()});
-
-// For further information  about flushPromises
-// Important: react-dropzone makes its drag'n'drop callbacks asynchronous to enable promise based getDataTransfer functions.
-// In order to properly test this, you may want to utilize a helper function to run all promises like this:
-// see : https://github.com/react-dropzone/react-dropzone/tree/v9.0.0
-// This test is heavily inspired by this https://github.com/react-dropzone/react-dropzone/blob/v9.0.0/src/index.spec.js#L853
-
-const flushPromises = wrapper =>
-  new Promise(resolve => {
-    global.setImmediate(() => {
-      wrapper.update();
-      resolve(wrapper);
-    });
-  });
-
 const context = {
   skin: {
     common: {
-      primary: '#FF7043'
+      primary: 'rgb(255, 112, 67)'
     }
   }
 };
 
 test('should show the overlay when a file is dragged', async t => {
-  const component = mount(<DragDrop {...Default.props} />, {context});
-  const wrapperStyle = `.${replace(' ', '.', style.wrapper)}`;
-  const wrapper = component.find(wrapperStyle);
-  t.is(wrapper.exists(), true);
-  wrapper.simulate('dragEnter');
-  const updatedDropzone = await flushPromises(component);
+  t.plan(3);
 
-  t.true(updatedDropzone.exists(Overlay));
+  const {getByTestId, rerender, container} = renderWithContext(<DragDrop {...Default.props} />, {
+    context
+  });
+
+  const cta = container.querySelector(`[data-name="cta"]`);
+  t.is(cta.style.backgroundColor, context.skin.common.primary);
+
+  const dropZone = getByTestId('drop-zone');
+  fireEvent.dragEnter(dropZone);
+
+  try {
+    getByTestId('overlay');
+  } catch (e) {
+    t.pass();
+  }
+
+  await rerender(<DragDrop {...Default.props} />);
+  const overlay = getByTestId('overlay');
+  t.truthy(overlay);
 });

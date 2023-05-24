@@ -102,7 +102,11 @@ export const UploadReport = ({
   const iconColor = EXTERNAL_CONTENT_ICONS[contentType].color;
   const buildField = (field, index) => <InputText {...field} key={index} theme={'cockpit'} />;
   const deleteView = onDelete ? (
-    <div onClick={handleDelete} className={classnames(style.actionIcon, style.trashIcon)}>
+    <div
+      data-testid="trash-icon"
+      onClick={handleDelete}
+      className={classnames(style.actionIcon, style.trashIcon)}
+    >
       <TrashIcon width={20} height={20} />
     </div>
   ) : null;
