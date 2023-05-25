@@ -5,33 +5,47 @@ import {NovaCompositionNavigationArrowLeft as BackIcon} from '@coorpacademy/nova
 import Link from '../../../../../atom/link';
 import style from './microlearning.css';
 
-const Content = ({onClick, title}, context) => (
-  <Link onClick={onClick} className={style.content}>
-    <BackIcon className={style.backIcon} />
+const Content = ({onClick, title, mode}, context) => {
+  const content = (
     <div
       data-name="contentTitle"
       className={classnames(style.contentTitle, style.innerHTML)}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{__html: title}}
     />
-  </Link>
-);
+  );
+  if (mode === 'scorm')
+    return (
+      <div className={style.contentScorm}>
+        <div className={style.backIcon} />
+        {content}
+      </div>
+    );
+  return (
+    <Link onClick={onClick} className={style.content}>
+      <BackIcon className={style.backIcon} />
+      {content}
+    </Link>
+  );
+};
 
 Content.propTypes = {
   onClick: Link.propTypes.onClick,
-  title: PropTypes.node
+  title: PropTypes.node,
+  mode: PropTypes.string
 };
 
 const MicrolearningHeader = (props, context) => {
-  const {content} = props;
-  return <Content {...content} />;
+  const {content, mode} = props;
+  return <Content {...content} mode={mode} />;
 };
 
 MicrolearningHeader.propTypes = {
   content: PropTypes.shape({
     onClick: Link.propTypes.onClick,
     title: PropTypes.string.isRequired
-  })
+  }),
+  mode: PropTypes.string
 };
 
 export default MicrolearningHeader;

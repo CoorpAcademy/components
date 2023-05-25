@@ -21,6 +21,16 @@
   stroke: medium;
 }
 
+.contentScorm {
+  composes: content;
+  cursor: default;
+}
+
+.contentScorm:hover {
+  color: dark;
+  stroke: dark;
+}
+
 .backIcon {
   composes: backIcon from './style.css';
   color: inherit;
