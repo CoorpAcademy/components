@@ -41,6 +41,7 @@ const Draggable = props => {
   return (
     <div
       className={classnames(dragging ? style.dragging : null, style.draggable)}
+      data-testid={`draggable-${id}`}
       onDragStart={dragStartHandler}
       onDragOver={dragOverHandler}
       onDragLeave={dragLeaveHandler}
