@@ -1,19 +1,24 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
 import {set} from 'lodash/fp';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import {wrappingComponent} from '../../../test/helpers/render-component';
+import {createEvent, fireEvent} from '@testing-library/react';
+import {context} from '../../../test/helpers/render-component';
 import SetupSections from '..';
-import style from '../../draggable/style.css';
+import {renderWithContext} from '../../../util/render-with-context';
 import fixtures from './fixtures/dashboard-sections';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should trigger onDrop handler', t => {
-  t.plan(7);
+  t.plan(4);
+
+  const outerDragStart = () => {
+    // this allows to check if stopPropagation() has been properly called.
+    // if stopPropagation() was not called, this would be called.
+    // testing dragStartBoutique event below 👇
+    t.fail();
+  };
 
   const elementToDrag = fixtures.props.items[0].id;
   const elementToDrop = fixtures.props.items[2].id;
@@ -23,61 +28,71 @@ test('should trigger onDrop handler', t => {
     t.is(dragged, elementToDrag);
   };
 
-  const wrapper = mount(<SetupSections {...fixtures.props} onDrop={dropHandler} />, {
-    wrappingComponent
-  });
+  const {getByTestId, unmount} = renderWithContext(
+    <div onDragStart={outerDragStart}>
+      <SetupSections {...fixtures.props} onDrop={dropHandler} />
+    </div>,
+    {context, useLegacyProvider: true}
+  );
 
-  const dragStartEvent = {preventDefault: () => t.pass()};
-  const dragOverEvent = {preventDefault: () => t.pass()};
-  const dragLeaveEvent = {preventDefault: () => t.pass()};
-  const dropEvent = {preventDefault: () => t.pass()};
+  const draggableBoutique = getByTestId('draggable-analytics-boutique');
+  const draggableRegion = getByTestId('draggable-analytics-region');
 
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragStart', dragStartEvent);
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragLeave', dragLeaveEvent);
-  wrapper.find(`.${style.draggable}`).at(2).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.draggable}`).at(2).simulate('drop', dropEvent);
+  const dragStartBoutique = createEvent.dragStart(draggableBoutique);
+  const dragOverBoutique = createEvent.dragOver(draggableBoutique);
+
+  fireEvent(draggableBoutique, dragStartBoutique);
+  fireEvent(draggableBoutique, dragOverBoutique);
+  t.is(dragOverBoutique.defaultPrevented, true);
+
+  const dragOverRegion = createEvent.dragOver(draggableRegion);
+  fireEvent(draggableRegion, dragOverRegion);
+  t.is(dragOverRegion.defaultPrevented, true);
+
+  fireEvent.drop(draggableRegion);
+  unmount();
 });
 
 test('should skip drop event if dragStart is not called', t => {
-  t.plan(1);
-
   const dropHandler = (dragged, dropped) => {
     t.fail();
   };
 
-  const wrapper = mount(<SetupSections {...fixtures.props} onDrop={dropHandler} />, {
-    wrappingComponent
-  });
+  const {getByTestId, unmount} = renderWithContext(
+    <SetupSections {...fixtures.props} onDrop={dropHandler} />,
+    {context, useLegacyProvider: true}
+  );
 
-  const dropEvent = {preventDefault: () => t.pass()};
-  wrapper.find(`.${style.draggable}`).at(2).simulate('drop', dropEvent);
+  const draggableRegion = getByTestId('draggable-analytics-region');
+  const dropEvent = createEvent.drop(draggableRegion);
+  fireEvent(draggableRegion, dropEvent);
+  t.is(dropEvent.defaultPrevented, true);
+  unmount();
 });
 
 test('should skip dragStart event if section id is not defined', t => {
-  t.plan(0);
-
   const dropHandler = (dragged, dropped) => {
     t.fail();
   };
 
-  const wrapper = mount(
+  const {getByTestId} = renderWithContext(
     <SetupSections {...set('items.0.id', '', fixtures.props)} onDrop={dropHandler} />,
-    {
-      wrappingComponent
-    }
+    {context, useLegacyProvider: true}
   );
 
-  const dragStartEvent = {preventDefault: () => {}};
-  const dragOverEvent = {preventDefault: () => {}};
-  const dragLeaveEvent = {preventDefault: () => {}};
-  const dropEvent = {preventDefault: () => {}};
+  const draggableBoutique = getByTestId('draggable-');
+  const draggableRegion = getByTestId('draggable-analytics-region');
 
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragStart', dragStartEvent);
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.draggable}`).at(0).simulate('dragLeave', dragLeaveEvent);
-  wrapper.find(`.${style.draggable}`).at(2).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.draggable}`).at(2).simulate('drop', dropEvent);
+  const dragStartBoutique = createEvent.dragStart(draggableBoutique);
+  const dragOverBoutique = createEvent.dragOver(draggableBoutique);
+
+  fireEvent(draggableBoutique, dragStartBoutique);
+  fireEvent(draggableBoutique, dragOverBoutique);
+  t.is(dragOverBoutique.defaultPrevented, true);
+
+  const dragOverRegion = createEvent.dragOver(draggableRegion);
+  fireEvent(draggableRegion, dragOverRegion);
+  t.is(dragOverRegion.defaultPrevented, true);
+
+  fireEvent.drop(draggableRegion);
 });
