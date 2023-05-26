@@ -199,6 +199,7 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
       <table
         {...(ariaDescribedby ? {'aria-describedby': ariaDescribedby} : {})}
         className={style.table}
+        data-testid="expandible-actionable-table"
         data-name="expandible-actionable-table"
       >
         <thead className={isNestedTable ? style.theadNested : style.thead}>

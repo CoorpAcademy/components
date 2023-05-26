@@ -72,6 +72,7 @@ const ButtonLinkIconOnly = props => {
       type="button"
       aria-label={ariaLabel}
       data-name={dataName}
+      data-testid={`button-${dataName}-${className}`}
       title={ariaLabel}
       className={styleButton}
       onClick={handleOnClick}
