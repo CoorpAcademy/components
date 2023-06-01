@@ -74,7 +74,13 @@ const InputSwitch = props => {
             className={style.checkbox}
             aria-labelledby={ariaLabelledBy}
           />
-          <label htmlFor={idSwitch} data-name="input-switch-label" tabIndex={0} />
+          <label
+            htmlFor={idSwitch}
+            data-name="input-switch-label"
+            tabIndex={0}
+            aria-label={ariaLabel}
+            title={ariaLabel}
+          />
         </div>
       </div>
       <div className={!details ? style.alignedTextContainer : null}>

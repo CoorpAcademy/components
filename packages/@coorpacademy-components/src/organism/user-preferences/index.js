@@ -12,7 +12,7 @@ const Settings = (props, legacyContext) => {
   const {label, description, moreInfoAriaLabel, ...settings} = props;
   return (
     <div className={style.settings}>
-      <InputSwitch {...settings} />
+      <InputSwitch {...{...settings, 'aria-label': label}} />
       <span className={style.label} tabIndex={0}>
         {label}
       </span>
