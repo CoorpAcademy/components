@@ -53,8 +53,8 @@ const ForumComment = (props, context) => {
         {avatarView}
         <div className={style.comment}>
           <textarea
-            placeholder={translate('Write something here')}
-            title={translate('Write something here')}
+            placeholder={translate('comment_aria_label')}
+            title={translate('comment_aria_label')}
             aria-label={translate('comment_aria_label')}
             value={value}
             onChange={onChange}
