@@ -2,9 +2,14 @@ import React, {useMemo} from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {noop, isNil} from 'lodash/fp';
+import {noop, isNil, isEmpty, keys} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
+
+const themeStyle = {
+  coorpmanager: style.coorpmanager,
+  default: style.default
+};
 
 const renderSuggestion = suggestion => <span>{suggestion.name}</span>;
 
@@ -22,9 +27,12 @@ const Autocomplete = props => {
     onClear = noop,
     onBlur = noop,
     onSuggestionSelected = noop,
-    title: propsTitle
+    title: propsTitle,
+    theme = 'default',
+    'aria-label': ariaLabel = 'Input Text'
   } = props;
 
+  const mainClass = themeStyle[theme];
   const title = `${propsTitle}${required ? ' *' : ''}`;
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
@@ -44,14 +52,15 @@ const Autocomplete = props => {
     placeholder,
     value,
     onChange: handleChange,
-    onBlur: handleBlur
+    onBlur: handleBlur,
+    ariaLabel
   };
 
   return (
-    <div className={classnames(className, isNil(title) && style.isNoTitle)}>
+    <div className={classnames(mainClass, className, isNil(title) && style.isNoTitle)}>
       <label>
-        <span className={style.title}>{title}</span>
-        <div>
+        <span className={classnames(style.title, isEmpty(value) && style.noValue)}>{title}</span>
+        <div className={style.inputContainer}>
           <Autosuggest
             theme={{
               container: style.container,
@@ -92,6 +101,8 @@ Autocomplete.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     })
   ),
+  theme: PropTypes.oneOf(keys(themeStyle)),
+  'aria-label': PropTypes.string,
   onChange: PropTypes.func,
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
