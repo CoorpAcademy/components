@@ -160,7 +160,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/close-circle.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/close.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/mobile-phone.svg')},
-  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/binoculars.1.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/binoculars.svg')},
   {
     filePath: path.resolve(
       './third-party/nova-line.iconjar/icons/chat-bubble-circle-question-mark.svg'

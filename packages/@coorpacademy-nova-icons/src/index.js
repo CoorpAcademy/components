@@ -135,7 +135,7 @@ import _NovaLineMobilephoneMobilePhoneClose1 from './components/nova-line/mobile
 import _NovaLineMobilephoneQrCode1 from './components/nova-line/mobilephone/qr-code.1';
 import _NovaLineNetworkNetworkAlert from './components/nova-line/network/network-alert';
 import _NovaLineNetworkNetworkMobile from './components/nova-line/network/network-mobile';
-import _NovaLineObjectsBinoculars1 from './components/nova-line/objects/binoculars.1';
+import _NovaLineObjectsBinoculars from './components/nova-line/objects/binoculars';
 import _NovaLinePhoneMobilePhone from './components/nova-line/phone/mobile-phone';
 import _NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/remove-circle-1';
 import _NovaLineSelectionCursorsCursorArrowTarget from './components/nova-line/selection-cursors/cursor-arrow-target';
@@ -382,7 +382,7 @@ export const NovaLineMobilephoneMobilePhoneClose1: Icon = _NovaLineMobilephoneMo
 export const NovaLineMobilephoneQrCode1: Icon = _NovaLineMobilephoneQrCode1;
 export const NovaLineNetworkNetworkAlert: Icon = _NovaLineNetworkNetworkAlert;
 export const NovaLineNetworkNetworkMobile: Icon = _NovaLineNetworkNetworkMobile;
-export const NovaLineObjectsBinoculars1: Icon = _NovaLineObjectsBinoculars1;
+export const NovaLineObjectsBinoculars: Icon = _NovaLineObjectsBinoculars;
 export const NovaLinePhoneMobilePhone: Icon = _NovaLinePhoneMobilePhone;
 export const NovaLineRemoveAddRemoveCircle1: Icon = _NovaLineRemoveAddRemoveCircle1;
 export const NovaLineSelectionCursorsCursorArrowTarget: Icon =
