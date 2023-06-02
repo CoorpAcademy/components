@@ -11,11 +11,8 @@ browserEnv();
 test('should call onClick on go1Banner', t => {
   t.plan(2);
   const props = set('onClick', () => t.pass(), defaultFixture.props);
-
   const {container} = render(<Go1Banner {...props} />);
-
   const go1BannerCta = container.querySelector('[data-name="go1-banner"] a');
   t.truthy(go1BannerCta);
-
   fireEvent.click(go1BannerCta as Element);
 });
