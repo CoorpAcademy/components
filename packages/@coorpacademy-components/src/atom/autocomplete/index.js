@@ -3,6 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {noop, isNil, isEmpty, keys} from 'lodash/fp';
+import {NovaSolidStatusClose as ErrorIcon} from '@coorpacademy/nova-icons';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -56,6 +57,17 @@ const Autocomplete = props => {
     ariaLabel
   };
 
+  const errorIconView =
+    theme === 'coorpmanager' && error ? <ErrorIcon className={style.leftIcon} /> : null;
+
+  const errorText =
+    theme === 'coorpmanager' && error ? (
+      <div
+        className={style.errorText}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: 'error'}}
+      />
+    ) : null;
   return (
     <div className={classnames(mainClass, className, isNil(title) && style.isNoTitle)}>
       <label>
@@ -80,6 +92,8 @@ const Autocomplete = props => {
             focusInputOnSuggestionClick={false}
             onSuggestionSelected={handleSuggestionsSelected}
           />
+          {errorIconView}
+          {errorText}
         </div>
       </label>
       <div className={style.description}>{description}</div>

@@ -5,6 +5,8 @@
 @value dark from colors;
 @value medium from colors;
 @value white from colors;
+@value cm_positive_100 from colors;
+@value cm_negative_100 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_150 from colors;
 @value cm_grey_400 from colors;
@@ -241,3 +243,29 @@
   background-color: cm_grey_150;
 }
 
+.coorpmanager.error .leftIcon {
+  background-color: cm_negative_100;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 17px;
+  top: 14px;
+}
+
+.coorpmanager .errorText {
+  flex-grow: 0;
+  opacity: 0.5;
+  font-family: Gilroy;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  padding-top: 8px;
+  color: cm_negative_100;
+}
