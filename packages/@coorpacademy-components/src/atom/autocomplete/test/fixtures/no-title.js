@@ -1,11 +1,9 @@
 export default {
   props: {
-    title: 'Population',
     placeholder: "Type 'c'",
     value: '',
     description: '',
     required: false,
-
     onChange: value => {
       console.log(`onChange ${value}`);
     },

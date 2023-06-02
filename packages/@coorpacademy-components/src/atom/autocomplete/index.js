@@ -69,7 +69,7 @@ const Autocomplete = props => {
       />
     ) : null;
   return (
-    <div className={classnames(mainClass, className, isNil(title) && style.isNoTitle)}>
+    <div className={classnames(mainClass, className, isNil(propsTitle) && style.isNoTitle)}>
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>{title}</span>
         <div className={style.inputContainer}>
