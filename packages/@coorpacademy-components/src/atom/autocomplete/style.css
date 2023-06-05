@@ -135,7 +135,6 @@
     background-color: #ddd;
 }
 
-
 /******************************* coorpmanager theme ***************************************/
 
 .coorpmanager {
@@ -155,7 +154,6 @@
   align-items: flex-start;
   flex-direction: column;
   position: relative;
-
 }
 
 .coorpmanager .title {

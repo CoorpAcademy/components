@@ -13,7 +13,7 @@ const themeStyle = {
   default: style.default
 };
 
-const renderSuggestion = suggestion => <span data-testid={suggestion.name}>{suggestion.name}</span>;
+const renderSuggestion = suggestion => <span>{suggestion.name}</span>;
 
 const Autocomplete = (props, context) => {
   const {
@@ -49,11 +49,9 @@ const Autocomplete = (props, context) => {
     [onBlur]
   );
   const handleSuggestionsFetchRequested = useCallback(e => onFetch(e), [onFetch]);
-
   const handleSuggestionsClearRequested = useCallback(e => onClear(e), [onClear]);
   const handleSuggestionsSelected = useCallback(
     (e, data) => onSuggestionSelected(data),
-
     [onSuggestionSelected]
   );
 
