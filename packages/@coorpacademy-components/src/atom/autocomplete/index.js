@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import {noop, isNil, isEmpty, keys} from 'lodash/fp';
 import {NovaSolidStatusClose as ErrorIcon} from '@coorpacademy/nova-icons';
 import getClassState from '../../util/get-class-state';
+import Provider from '../provider';
 import style from './style.css';
 
 const themeStyle = {
@@ -14,7 +15,7 @@ const themeStyle = {
 
 const renderSuggestion = suggestion => <span data-testid={suggestion.name}>{suggestion.name}</span>;
 
-const Autocomplete = props => {
+const Autocomplete = (props, context) => {
   const {
     placeholder = '',
     value,
@@ -32,8 +33,9 @@ const Autocomplete = props => {
     theme = 'default'
   } = props;
 
+  const {translate} = context;
   const mainClass = themeStyle[theme];
-  const title = `${propsTitle}${required ? ' *' : ''}`;
+  const title = `${propsTitle}${required ? '*' : ''}`;
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
   const handleChange = useCallback(
@@ -47,9 +49,11 @@ const Autocomplete = props => {
     [onBlur]
   );
   const handleSuggestionsFetchRequested = useCallback(e => onFetch(e), [onFetch]);
+
   const handleSuggestionsClearRequested = useCallback(e => onClear(e), [onClear]);
   const handleSuggestionsSelected = useCallback(
     (e, data) => onSuggestionSelected(data),
+
     [onSuggestionSelected]
   );
 
@@ -70,7 +74,7 @@ const Autocomplete = props => {
       <div
         className={style.errorText}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: 'error'}}
+        dangerouslySetInnerHTML={{__html: translate('Please select a value')}}
       />
     ) : null;
   return (
@@ -126,6 +130,10 @@ Autocomplete.propTypes = {
   onClear: PropTypes.func,
   onBlur: PropTypes.func,
   onSuggestionSelected: PropTypes.func
+};
+
+Autocomplete.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 export default Autocomplete;
