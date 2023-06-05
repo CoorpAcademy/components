@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -12,7 +12,7 @@ const themeStyle = {
   default: style.default
 };
 
-const renderSuggestion = suggestion => <span>{suggestion.name}</span>;
+const renderSuggestion = suggestion => <span data-testid={suggestion.name}>{suggestion.name}</span>;
 
 const Autocomplete = props => {
   const {
@@ -29,32 +29,37 @@ const Autocomplete = props => {
     onBlur = noop,
     onSuggestionSelected = noop,
     title: propsTitle,
-    theme = 'default',
-    'aria-label': ariaLabel = 'Input Text'
+    theme = 'default'
   } = props;
 
   const mainClass = themeStyle[theme];
   const title = `${propsTitle}${required ? ' *' : ''}`;
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
-  const handleChange = useMemo(() => e => onChange(e), [onChange]);
-  const handleBlur = useMemo(
-    () => (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
+  const handleChange = useCallback(
+    e => {
+      onChange(e);
+    },
+    [onChange]
+  );
+  const handleBlur = useCallback(
+    (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
     [onBlur]
   );
-  const handleSuggestionsFetchRequested = useMemo(() => e => onFetch(e), [onFetch]);
-  const handleSuggestionsClearRequested = useMemo(() => e => onClear(e), [onClear]);
-  const handleSuggestionsSelected = useMemo(
-    () => (e, data) => onSuggestionSelected(data),
+  const handleSuggestionsFetchRequested = useCallback(e => onFetch(e), [onFetch]);
+  const handleSuggestionsClearRequested = useCallback(e => onClear(e), [onClear]);
+  const handleSuggestionsSelected = useCallback(
+    (e, data) => onSuggestionSelected(data),
     [onSuggestionSelected]
   );
 
   const inputProps = {
     placeholder,
     value,
-    onChange: handleChange,
+    onChange: noop,
     onBlur: handleBlur,
-    ariaLabel
+    onInput: handleChange,
+    'data-testid': 'autocomplete-input'
   };
 
   const errorIconView =
@@ -116,7 +121,6 @@ Autocomplete.propTypes = {
     })
   ),
   theme: PropTypes.oneOf(keys(themeStyle)),
-  'aria-label': PropTypes.string,
   onChange: PropTypes.func,
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
