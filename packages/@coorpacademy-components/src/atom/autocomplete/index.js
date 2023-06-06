@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -7,7 +7,7 @@ import {NovaSolidStatusClose as ErrorIcon} from '@coorpacademy/nova-icons';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
-const themeStyle = {
+const THEME_STYLE = {
   coorpmanager: style.coorpmanager,
   default: style.default
 };
@@ -33,9 +33,12 @@ const Autocomplete = props => {
     theme = 'default'
   } = props;
 
-  const mainClass = themeStyle[theme];
-  const title = `${propsTitle}${required ? '*' : ''}`;
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const mainClass = THEME_STYLE[theme];
+  const title = useMemo(() => `${propsTitle}${required ? '*' : ''}`, [propsTitle, required]);
+  const className = useMemo(
+    () => getClassState(style.default, style.modified, style.error, modified, error),
+    [modified, error]
+  );
 
   const handleChange = useCallback(
     e => {
@@ -122,7 +125,7 @@ Autocomplete.propTypes = {
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     })
   ),
-  theme: PropTypes.oneOf(keys(themeStyle)),
+  theme: PropTypes.oneOf(keys(THEME_STYLE)),
   onChange: PropTypes.func,
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
