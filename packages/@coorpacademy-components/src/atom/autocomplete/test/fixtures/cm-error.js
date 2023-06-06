@@ -5,6 +5,7 @@ const {props} = CmDefault;
 
 export default {
   props: defaultsDeep(props, {
-    error: true
+    error: true,
+    errorMessage: 'Please select a value'
   })
 };
