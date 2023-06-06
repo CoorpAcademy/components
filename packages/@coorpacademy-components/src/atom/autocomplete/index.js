@@ -24,7 +24,7 @@ const Autocomplete = props => {
     error = false,
     errorMessage,
     suggestions = [],
-    onChange = noop,
+    onInput = noop,
     onFetch = noop,
     onClear = noop,
     onBlur = noop,
@@ -40,11 +40,11 @@ const Autocomplete = props => {
     [modified, error]
   );
 
-  const handleChange = useCallback(
+  const handleInput = useCallback(
     e => {
-      onChange(e);
+      onInput(e);
     },
-    [onChange]
+    [onInput]
   );
   const handleBlur = useCallback(
     (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
@@ -62,7 +62,7 @@ const Autocomplete = props => {
     value,
     onChange: noop,
     onBlur: handleBlur,
-    onInput: handleChange,
+    onInput: handleInput,
     'data-testid': 'autocomplete-input'
   };
 
@@ -126,7 +126,7 @@ Autocomplete.propTypes = {
     })
   ),
   theme: PropTypes.oneOf(keys(THEME_STYLE)),
-  onChange: PropTypes.func,
+  onInput: PropTypes.func,
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
   onBlur: PropTypes.func,

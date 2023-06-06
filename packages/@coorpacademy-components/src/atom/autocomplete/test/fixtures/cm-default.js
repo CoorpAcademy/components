@@ -6,8 +6,8 @@ export default {
     description: '',
     required: false,
     theme: 'coorpmanager',
-    onChange: value => {
-      console.log(`onChange ${value}`);
+    onInput: value => {
+      console.log(`onInput ${value}`);
     },
     onFetch: ({value}) => {
       console.log(`onFetch ${value}`);

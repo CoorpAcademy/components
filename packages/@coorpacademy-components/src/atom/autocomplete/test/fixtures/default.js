@@ -5,8 +5,8 @@ export default {
     value: '',
     description: '',
     required: false,
-    onChange: value => {
-      console.log(`onChange ${value}`);
+    onInput: value => {
+      console.log(`onInput ${value}`);
     },
     onFetch: ({value}) => {
       console.log(`onFetch ${value}`);

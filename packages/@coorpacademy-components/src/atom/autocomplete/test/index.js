@@ -7,10 +7,10 @@ import defaultFixture from './fixtures/default';
 
 browserEnv();
 
-test('should call the onChange and onClear functions with the new value of the input', t => {
+test('should call the onInput and onClear functions with the new value of the input', t => {
   t.plan(3);
 
-  const onChange = e => {
+  const onInput = e => {
     t.is(e.target.value, 'Foo');
   };
 
@@ -21,7 +21,7 @@ test('should call the onChange and onClear functions with the new value of the i
   const inputProps = {
     placeholder: '',
     value: '',
-    onChange,
+    onInput,
     'data-testid': 'autocomplete-input'
   };
 
