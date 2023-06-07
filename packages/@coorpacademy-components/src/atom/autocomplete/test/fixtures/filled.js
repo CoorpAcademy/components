@@ -25,9 +25,9 @@ export default {
         value: 2007
       }
     ],
-    onChange: e => {
+    onInput: e => {
       const value = e.target.value;
-      console.log(`onChange ${value}`, e);
+      console.log(`onInput ${value}`, e);
     },
     onFetch: e => {
       const {value} = e;

@@ -1,10 +1,16 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {noop, isNil} from 'lodash/fp';
+import {noop, isNil, isEmpty, keys} from 'lodash/fp';
+import {NovaSolidStatusClose as ErrorIcon} from '@coorpacademy/nova-icons';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
+
+const THEME_STYLE = {
+  coorpmanager: style.coorpmanager,
+  default: style.default
+};
 
 const renderSuggestion = suggestion => <span>{suggestion.name}</span>;
 
@@ -16,42 +22,66 @@ const Autocomplete = props => {
     required,
     modified = false,
     error = false,
+    errorMessage,
     suggestions = [],
-    onChange = noop,
+    onInput = noop,
     onFetch = noop,
     onClear = noop,
     onBlur = noop,
     onSuggestionSelected = noop,
-    title: propsTitle
+    title: propsTitle,
+    theme = 'default'
   } = props;
 
-  const title = `${propsTitle}${required ? ' *' : ''}`;
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const mainClass = THEME_STYLE[theme];
+  const title = useMemo(() => `${propsTitle}${required ? '*' : ''}`, [propsTitle, required]);
+  const className = useMemo(
+    () => getClassState(style.default, style.modified, style.error, modified, error),
+    [modified, error]
+  );
 
-  const handleChange = useMemo(() => e => onChange(e), [onChange]);
-  const handleBlur = useMemo(
-    () => (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
+  const handleInput = useCallback(
+    e => {
+      onInput(e);
+    },
+    [onInput]
+  );
+  const handleBlur = useCallback(
+    (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
     [onBlur]
   );
-  const handleSuggestionsFetchRequested = useMemo(() => e => onFetch(e), [onFetch]);
-  const handleSuggestionsClearRequested = useMemo(() => e => onClear(e), [onClear]);
-  const handleSuggestionsSelected = useMemo(
-    () => (e, data) => onSuggestionSelected(data),
+  const handleSuggestionsFetchRequested = useCallback(e => onFetch(e), [onFetch]);
+  const handleSuggestionsClearRequested = useCallback(e => onClear(e), [onClear]);
+  const handleSuggestionsSelected = useCallback(
+    (e, data) => onSuggestionSelected(data),
     [onSuggestionSelected]
   );
 
   const inputProps = {
     placeholder,
     value,
-    onChange: handleChange,
-    onBlur: handleBlur
+    onChange: noop,
+    onBlur: handleBlur,
+    onInput: handleInput,
+    'data-testid': 'autocomplete-input'
   };
 
+  const errorIconView =
+    theme === 'coorpmanager' && error ? <ErrorIcon className={style.leftIcon} /> : null;
+
+  const errorText =
+    theme === 'coorpmanager' && error ? (
+      <div
+        className={style.errorText}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: errorMessage}}
+      />
+    ) : null;
   return (
-    <div className={classnames(className, isNil(title) && style.isNoTitle)}>
+    <div className={classnames(mainClass, className, isNil(propsTitle) && style.isNoTitle)}>
       <label>
-        <span className={style.title}>{title}</span>
-        <div>
+        <span className={classnames(style.title, isEmpty(value) && style.noValue)}>{title}</span>
+        <div className={style.inputContainer}>
           <Autosuggest
             theme={{
               container: style.container,
@@ -71,6 +101,8 @@ const Autocomplete = props => {
             focusInputOnSuggestionClick={false}
             onSuggestionSelected={handleSuggestionsSelected}
           />
+          {errorIconView}
+          {errorText}
         </div>
       </label>
       <div className={style.description}>{description}</div>
@@ -86,13 +118,15 @@ Autocomplete.propTypes = {
   required: PropTypes.bool,
   modified: PropTypes.bool,
   error: PropTypes.bool,
+  errorMessage: PropTypes.string,
   suggestions: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
       value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     })
   ),
-  onChange: PropTypes.func,
+  theme: PropTypes.oneOf(keys(THEME_STYLE)),
+  onInput: PropTypes.func,
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
   onBlur: PropTypes.func,

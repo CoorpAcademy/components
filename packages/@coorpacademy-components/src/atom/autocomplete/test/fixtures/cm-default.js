@@ -5,6 +5,7 @@ export default {
     value: '',
     description: '',
     required: false,
+    theme: 'coorpmanager',
     onInput: value => {
       console.log(`onInput ${value}`);
     },

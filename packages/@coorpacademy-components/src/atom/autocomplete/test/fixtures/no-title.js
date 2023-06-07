@@ -1,6 +1,5 @@
 export default {
   props: {
-    title: 'Population',
     placeholder: "Type 'c'",
     value: '',
     description: '',
