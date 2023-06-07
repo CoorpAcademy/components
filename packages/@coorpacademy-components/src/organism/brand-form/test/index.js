@@ -1,13 +1,11 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render, fireEvent} from '@testing-library/react';
 import {once} from 'lodash/fp';
 import BrandForm from '..';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should submit form', t => {
   t.plan(2);
@@ -19,10 +17,12 @@ test('should submit form', t => {
     submitValue: 'save',
     isModified: true
   };
-  const wrapper = mount(<BrandForm {...props} />);
-  t.is(wrapper.find('input[type="submit"]').length, 1);
-  wrapper.find('input[type="submit"]').simulate('submit');
+  const {container} = render(<BrandForm {...props} />);
+  const inputSubmit = container.querySelector('input[type="submit"]');
+  t.truthy(inputSubmit);
+  fireEvent.click(inputSubmit);
 });
+
 test('should reset form', t => {
   t.plan(2);
   const props = {
@@ -33,7 +33,38 @@ test('should reset form', t => {
     resetValue: 'reset',
     isModified: true
   };
-  const wrapper = mount(<BrandForm {...props} />);
-  t.is(wrapper.find('input[type="reset"]').length, 1);
-  wrapper.find('input[type="reset"]').simulate('reset');
+  const {container} = render(<BrandForm {...props} />);
+  const inputReset = container.querySelector('input[type="reset"]');
+  t.truthy(inputReset);
+  fireEvent.click(inputReset);
+});
+
+test('should not build any button if there are no values onSubmit or onReset', t => {
+  t.plan(2);
+  const props = {
+    groups: [],
+    isModified: true
+  };
+  const {container} = render(<BrandForm {...props} />);
+  const inputReset = container.querySelector('input[type="reset"]');
+  t.falsy(inputReset);
+  const inputSubmit = container.querySelector('input[type="submit"]');
+  t.falsy(inputSubmit);
+});
+
+test('should submit form with a specific button for "Massive Battle" form', t => {
+  t.plan(2);
+  const props = {
+    groups: [{fields: []}],
+    onSubmit: once(() => {
+      t.pass();
+    }),
+    submitValue: 'Save changes',
+    isModified: true,
+    type: 'massive battle'
+  };
+  const {container} = render(<BrandForm {...props} />);
+  const buttonSubmit = container.querySelector('[data-name="submit-button"]');
+  t.truthy(buttonSubmit);
+  fireEvent.click(buttonSubmit);
 });

@@ -5,6 +5,7 @@ import {NovaCompositionNavigationArrowLeft as ArrowLeft} from '@coorpacademy/nov
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
+import ButtonLink from '../../atom/button-link';
 import Link from '../../atom/link';
 import Loader from '../../atom/loader';
 import style from './style.css';
@@ -18,7 +19,8 @@ const buildButtonSection = (
   disabled,
   isModified,
   isPending,
-  darkColor
+  darkColor,
+  type
 ) => {
   if (!onSubmit && !onReset) {
     return null;
@@ -27,7 +29,18 @@ const buildButtonSection = (
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
     <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
-      <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
+      {type === 'massive battle' ? (
+        <ButtonLink
+          type="primary"
+          label={submitValue}
+          disabled={disabledSubmit}
+          data-name="submit-button"
+          buttonType="submit"
+          onSubmit={onSubmit}
+        />
+      ) : (
+        <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
+      )}
     </div>
   ) : null;
 
@@ -46,8 +59,7 @@ const buildButtonSection = (
     </div>
   );
 };
-
-function BrandForm(props, context) {
+const BrandForm = (props, context) => {
   const {
     groups,
     disabled,
@@ -59,7 +71,8 @@ function BrandForm(props, context) {
     resetValue,
     back,
     tooltip,
-    isLoading
+    isLoading,
+    type
   } = props;
   const {skin} = context;
   const darkColor = get('common.dark', skin);
@@ -90,7 +103,8 @@ function BrandForm(props, context) {
     disabled,
     isModified,
     isPending,
-    darkColor
+    darkColor,
+    type
   );
 
   const handleSubmit = useMemo(
@@ -124,7 +138,7 @@ function BrandForm(props, context) {
       )}
     </div>
   );
-}
+};
 
 BrandForm.contextTypes = {
   skin: Provider.childContextTypes.skin
@@ -154,7 +168,8 @@ BrandForm.propTypes = {
     title: PropTypes.string,
     place: PropTypes.string
   }),
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  type: PropTypes.string
 };
 
 export default BrandForm;
