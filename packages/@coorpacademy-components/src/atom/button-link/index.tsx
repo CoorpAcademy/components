@@ -30,6 +30,7 @@ const getButtonContent = (icon?: IconType, label?: string) => {
 const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
+    buttonType = 'button',
     label,
     disabled,
     icon,
@@ -39,6 +40,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     link,
     onClick = noop,
     onKeyDown = noop,
+    onSubmit = noop,
     className,
     customStyle,
     useTitle = true
@@ -57,6 +59,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
   );
 
   const handleOnClick = useCallback(() => onClick(), [onClick]);
+
+  const handleOnSubmit = useCallback(() => onSubmit(), [onSubmit]);
 
   const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
 
@@ -83,7 +87,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       {...(useTitle && {
         title: ariaLabel || label
       })}
-      type="button"
+      type={buttonType === 'button' ? 'button' : 'submit'}
       aria-label={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}
@@ -92,6 +96,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
       tabIndex={0}
+      onSubmit={handleOnSubmit}
     >
       {contentView}
     </button>

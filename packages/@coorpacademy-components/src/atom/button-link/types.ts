@@ -13,6 +13,7 @@ const propTypes = {
     type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
+  onSubmit: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
     download: PropTypes.bool,
@@ -20,7 +21,8 @@ const propTypes = {
   }),
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.shape({})
+  customStyle: PropTypes.shape({}),
+  buttonType: PropTypes.string
 };
 
 export type IconType = {
@@ -36,6 +38,7 @@ export type ButtonLinkProps = {
   icon?: IconType;
   onClick?: () => void;
   onKeyDown?: () => void;
+  onSubmit?: () => void;
   link?: {
     href?: string;
     download?: boolean;
@@ -45,6 +48,7 @@ export type ButtonLinkProps = {
   className?: string;
   customStyle?: Record<string, unknown>;
   useTitle?: boolean;
+  buttonType?: string;
 };
 
 export type Fixture = {props: ButtonLinkProps};
