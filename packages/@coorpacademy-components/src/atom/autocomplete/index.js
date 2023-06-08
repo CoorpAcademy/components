@@ -3,7 +3,10 @@ import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {noop, isNil, isEmpty, keys} from 'lodash/fp';
-import {NovaSolidStatusClose as ErrorIcon} from '@coorpacademy/nova-icons';
+import {
+  NovaSolidStatusClose as ErrorIcon,
+  NovaCompositionCoorpacademyInformationIcon as InfoIcon
+} from '@coorpacademy/nova-icons';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -66,6 +69,19 @@ const Autocomplete = props => {
     'data-testid': 'autocomplete-input'
   };
 
+  const descriptionView =
+    description && theme !== 'coorpmanager' ? (
+      <div className={style.description}>{description}</div>
+    ) : null;
+
+  const toolTipView =
+    description && theme === 'coorpmanager' ? (
+      <div className={style.infoIconWrapper}>
+        <InfoIcon className={style.infoIcon} />
+        <div className={style.descriptionLabel}>{description}</div>
+      </div>
+    ) : null;
+
   const errorIconView =
     theme === 'coorpmanager' && error ? <ErrorIcon className={style.leftIcon} /> : null;
 
@@ -80,7 +96,10 @@ const Autocomplete = props => {
   return (
     <div className={classnames(mainClass, className, isNil(propsTitle) && style.isNoTitle)}>
       <label>
-        <span className={classnames(style.title, isEmpty(value) && style.noValue)}>{title}</span>
+        <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
+          {title}
+          {toolTipView}
+        </span>
         <div className={style.inputContainer}>
           <Autosuggest
             theme={{
@@ -105,7 +124,7 @@ const Autocomplete = props => {
           {errorText}
         </div>
       </label>
-      <div className={style.description}>{description}</div>
+      {descriptionView}
     </div>
   );
 };
