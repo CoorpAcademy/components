@@ -52,7 +52,7 @@ test('should not build any button if there are no values onSubmit or onReset', t
   t.falsy(inputSubmit);
 });
 
-test('should submit form with a specific button for "Massive Battle" form', t => {
+test('should submit form with a specific button for "Coorpmanager" theme', t => {
   t.plan(2);
   const props = {
     groups: [{fields: []}],
@@ -61,10 +61,10 @@ test('should submit form with a specific button for "Massive Battle" form', t =>
     }),
     submitValue: 'Save changes',
     isModified: true,
-    type: 'massive battle'
+    theme: 'cm'
   };
   const {container} = render(<BrandForm {...props} />);
-  const buttonSubmit = container.querySelector('[data-name="submit-button"]');
-  t.truthy(buttonSubmit);
-  fireEvent.click(buttonSubmit);
+  const inputSubmit = container.querySelector('[data-testid="submit-button"]');
+  t.truthy(inputSubmit);
+  fireEvent.click(inputSubmit);
 });

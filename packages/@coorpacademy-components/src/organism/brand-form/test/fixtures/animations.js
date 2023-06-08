@@ -9,6 +9,6 @@ export default {
       console.log('Send a massive battle');
     },
     submitValue: 'Send a massive battle',
-    type: 'massive battle'
+    theme: 'cm'
   }
 };

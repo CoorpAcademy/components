@@ -20,7 +20,7 @@ const buildButtonSection = (
   isModified,
   isPending,
   darkColor,
-  type
+  theme
 ) => {
   if (!onSubmit && !onReset) {
     return null;
@@ -29,14 +29,14 @@ const buildButtonSection = (
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
     <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
-      {type === 'massive battle' ? (
+      {theme === 'cm' ? (
         <ButtonLink
           type="primary"
           label={submitValue}
           disabled={disabledSubmit}
-          data-name="submit-button"
+          data-testid="submit-button"
           buttonType="submit"
-          onSubmit={onSubmit}
+          onClick={onSubmit}
         />
       ) : (
         <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
@@ -72,7 +72,7 @@ const BrandForm = (props, context) => {
     back,
     tooltip,
     isLoading,
-    type
+    theme
   } = props;
   const {skin} = context;
   const darkColor = get('common.dark', skin);
@@ -104,7 +104,7 @@ const BrandForm = (props, context) => {
     isModified,
     isPending,
     darkColor,
-    type
+    theme
   );
 
   const handleSubmit = useMemo(
@@ -169,7 +169,7 @@ BrandForm.propTypes = {
     place: PropTypes.string
   }),
   isLoading: PropTypes.bool,
-  type: PropTypes.string
+  theme: PropTypes.string
 };
 
 export default BrandForm;
