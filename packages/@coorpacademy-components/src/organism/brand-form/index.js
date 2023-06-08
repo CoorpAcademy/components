@@ -29,7 +29,7 @@ const buildButtonSection = (
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
     <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
-      {theme === 'cm' ? (
+      {theme === 'coorpmanager' ? (
         <ButtonLink
           type="primary"
           label={submitValue}

@@ -9,6 +9,6 @@ export default {
       console.log('Send a massive battle');
     },
     submitValue: 'Send a massive battle',
-    theme: 'cm'
+    theme: 'coorpmanager'
   }
 };

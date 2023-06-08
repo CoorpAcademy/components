@@ -61,7 +61,7 @@ test('should submit form with a specific button for "Coorpmanager" theme', t => 
     }),
     submitValue: 'Save changes',
     isModified: true,
-    theme: 'cm'
+    theme: 'coorpmanager'
   };
   const {container} = render(<BrandForm {...props} />);
   const inputSubmit = container.querySelector('[data-testid="submit-button"]');
