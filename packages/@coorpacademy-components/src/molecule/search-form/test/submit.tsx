@@ -1,23 +1,23 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render, fireEvent} from '@testing-library/react';
 import SearchForm from '..';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 test('should call onSubmit when user want to submit form', t => {
   t.plan(2);
 
   const onSubmit = () => t.pass();
-  const wrapper = shallow(
+  const {container} = render(
     <SearchForm
       onSubmit={onSubmit}
       search={{placeholder: 'say your name', value: 'my name is murph'}}
     />
   );
 
-  wrapper.find('form').simulate('submit', {preventDefault: () => t.pass()});
+  const searchForm = container.querySelector('[data-name="searchForm"]');
+  t.truthy(searchForm);
+  fireEvent.submit(searchForm as Element);
 });
