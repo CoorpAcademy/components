@@ -59,17 +59,17 @@
     padding: 16px 24px; 
     border-radius: 5px;
     border-radius: 5px;
-    animation: fadeIn 1800ms;
+    animation: fadeIn 4000ms;
+    animation-delay: 300ms;
     animation-direction: alternate;
     animation-iteration-count: 2;
     animation-fill-mode: both;
-    animation-timing-function: ease-in;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10000;
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 .button{
