@@ -194,6 +194,13 @@
   top: 7px;
 }
 
+.coorpmanager:focus-within .title.noValue .infoIcon {
+  width: 8px;
+  height: 8px;
+  line-height: 12px;
+  color: cm_grey_400;
+}
+
 .coorpmanager .title.noValue .infoIcon {
   height: 10px;
   width: 10px;
@@ -325,14 +332,16 @@
   text-align: center;
   color: white;
   padding: 8px 16px;
-  max-width: 200px;
+  max-width: 348px;
+  width: max-content;
   position: absolute;
   left: -24px;
   z-index: 3;
   bottom: 5px;
-  width: max-content;
   visibility: hidden;
-  opacity: 0s
+  opacity: 0;
+  overflow-wrap: break-word;
+  white-space: break-spaces;
 }
 
 .coorpmanager .descriptionLabel::after{
