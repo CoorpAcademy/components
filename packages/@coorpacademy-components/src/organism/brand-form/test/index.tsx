@@ -20,7 +20,7 @@ test('should submit form', t => {
   const {container} = render(<BrandForm {...props} />);
   const inputSubmit = container.querySelector('input[type="submit"]');
   t.truthy(inputSubmit);
-  fireEvent.click(inputSubmit);
+  fireEvent.click(inputSubmit as Element);
 });
 
 test('should reset form', t => {
@@ -36,7 +36,7 @@ test('should reset form', t => {
   const {container} = render(<BrandForm {...props} />);
   const inputReset = container.querySelector('input[type="reset"]');
   t.truthy(inputReset);
-  fireEvent.click(inputReset);
+  fireEvent.click(inputReset as Element);
 });
 
 test('should not build any button if there are no values onSubmit or onReset', t => {
@@ -66,5 +66,5 @@ test('should submit form with a specific button for "Coorpmanager" theme', t => 
   const {container} = render(<BrandForm {...props} />);
   const inputSubmit = container.querySelector('[data-testid="submit-button"]');
   t.truthy(inputSubmit);
-  fireEvent.click(inputSubmit);
+  fireEvent.click(inputSubmit as Element);
 });
