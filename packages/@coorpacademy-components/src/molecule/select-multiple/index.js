@@ -37,12 +37,9 @@ export const useChoices = options => {
 };
 
 const CMMultipleView = ({multiple, choice, onChange}) => {
-  const handleChange = useCallback(
-    checked => {
-      return onChange({...choice, selected: checked});
-    },
-    [onChange, choice]
-  );
+  const handleChange = useCallback(() => {
+    return onChange(choice);
+  }, [onChange, choice]);
 
   return multiple ? (
     <div className={style.item}>
