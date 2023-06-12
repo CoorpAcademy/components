@@ -1,0 +1,106 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+@value colors: "../../../variables/colors.css";
+@value cm_grey_50 from colors;
+@value white from colors;
+
+.wrapper {
+  background-color: cm_grey_50;
+}
+
+.hero {
+  height: 228px;
+  width: 100%;
+}
+
+.container {
+  margin: 40px auto;
+  padding: 0px 40px;
+}
+
+.privacyPolicyContact{
+  width: 100%;
+  height: 86px;
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-family: Gilroy;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0px 0px 8px 0px;
+}
+
+.description {
+  font-family: Gilroy;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0px 0px 40px 0px;
+}
+
+.card {
+  max-width: 428px;
+  min-width: 268px;
+  width: calc(33% - 24px);
+  margin: 0 24px 24px 0;background-color: white;
+  border-radius: 8px;
+}
+
+.group {
+  width: 100%;
+  display: flex;
+  overflow-y: inherit;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media tablet {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    padding: 0px;
+  }
+  .card {
+    max-width: 428px;
+    min-width: 277px;
+    width: calc(50% - 24px);
+    margin: 0 24px 24px 0;
+  }
+  
+}
+
+@media mobile {
+  .hero {
+    height: 264px;
+    width: 100%;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 24px;
+    padding: 0px;
+  }
+  .card {
+    max-width: 428px;
+    min-width: 277px;
+    width: 100%;
+    margin: 0 24px 24px 0;
+  }
+
+  .privacyPolicyContact{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+  }
+  
+}

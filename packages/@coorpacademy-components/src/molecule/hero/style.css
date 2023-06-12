@@ -156,3 +156,45 @@
     opacity: 0;
   }
 }
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  padding: 0 40px;
+  width: 100%;
+  box-sizing: border-box;
+  color: white;
+  align-self: center;
+}
+
+.title {
+  font-family: Gilroy;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0px;
+  text-align: center;  
+  overflow: hidden;
+  user-select: none;
+  margin: 0;
+  align-self: center;
+}
+
+.description {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 18px;
+  font-family: Gilroy;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0px;
+  overflow: hidden;
+  user-select: none;
+  max-width: 650px;
+  padding: 0;
+  margin: 0;
+  align-self: center;
+}

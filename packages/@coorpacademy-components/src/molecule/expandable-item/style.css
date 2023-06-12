@@ -1,0 +1,129 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value cm_primary_blue from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_600 from colors;
+@value cm_grey_800 from colors;
+@value cm_grey_700 from colors;
+@value white from colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  gap: 16px;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 24px;
+  gap: 16px;
+}
+
+.expendedContainer {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  gap: 16px;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.expendedHeader {
+  padding: 24px 24px 0px 24px;
+}
+
+.title {
+  font-family: Gilroy;
+  color: cm_grey_700;
+  margin: 0;
+  font-weight: inherit;
+  font-family: Gilroy;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  width: 14px;
+  left: 5px;
+  top: 9px;
+  border-radius: 0px;
+  color: cm_grey_500;
+  flex-shrink: 0;
+  min-width: 16px;
+  flex-basis: 16px;
+}
+
+.expendedIcon {
+  transform: rotateZ(180deg);
+}
+
+.linkIcon {
+  transform: rotateZ(270deg);
+}
+
+.content {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding: 0px 40px 32px 40px;
+}
+
+.image {
+  width: 100%;
+}
+
+@media mobile {
+  .container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    gap: 16px;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+  }
+  .header {
+    display: flex;
+    flex-direction: row;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 40px;
+    height: max-content;
+  }
+}

@@ -1,12 +1,13 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value white from colors;
+@value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
 @value cm_tablet from breakpoints;
 
 .quickAccess {
   height: 273px;
   cursor: pointer;
-  position: relative;
 }
 
 .link {
@@ -14,9 +15,12 @@
 }
 
 .content {
-  height: 100%;
+  height: 225px;
   border-radius: 8px;
   transition: all 0.5s linear;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .content:hover {
@@ -27,53 +31,56 @@
   font-family: 'Gilroy';
   font-weight: 600;
   font-style: normal;
-  font-size: 20px;
-  line-height: 28px;
-  top: 84px;
-  left: 24px;
-  position: absolute;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 16px;
 }
 
 .description {
   font-family: 'Gilroy';
   font-weight: 500;
   font-style: normal;
-  font-size: 16px;
-  line-height: 22px;
-  position: absolute;
-  top: 120px;
-  padding-left: 24px;
-  padding-right: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 8px 0px 16px 0px;
 }
 
 .iconWrapper {
   width: 44px;
   height: 44px;
-  position: absolute;
   border-radius: 8px;
 }
 
 .iconFeatureWrapper {
   composes: iconWrapper;
-  top: 24px;
-  left: 24px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .iconFeature {
   color: white;
   width: 20px;
   height: 20px;
-  position: relative;
-  top: 12px;
-  left: 12px;
+}
+
+.cta {
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  flex: 1;
 }
 
 .iconGotoWrapper {
   composes: iconWrapper;
-  bottom: 16px;
-  right: 16px;
   line-height: 0;
   background-color: white;
+}
+
+.hoverMooc {
+  composes: iconWrapper;
+  background-color: cm_primary_blue;
 }
 
 .hover {
@@ -87,6 +94,10 @@
 
 .iconGotoWrapper .hover{
   background: white;
+}
+
+.hoverMooc:hover{
+  background-color: cm_blue_600;
 }
 
 .iconGoto {
