@@ -102,7 +102,6 @@ const SelectMultiple = (
 
   const handleChange = useCallback(
     choice => {
-      console.log('--->', choice);
       // if multiple prop is turned on
       // we return all selected choices
       if (multiple) {

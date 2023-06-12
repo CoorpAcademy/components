@@ -23,6 +23,6 @@ export default {
         selected: false
       }
     ],
-    onChange: value => console.log('onChange', value)
+    onChange: () => true
   }
 };
