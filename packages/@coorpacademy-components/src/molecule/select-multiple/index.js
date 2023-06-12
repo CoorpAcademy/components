@@ -20,21 +20,21 @@ const themeStyle = {
   coorpmanager: style.coorpmanager
 };
 
-// export const useChoices = options => {
-//   const choicesRef = {current: options};
+export const useChoices = options => {
+  const choicesRef = {current: options};
 
-//   const getChoices = () => {
-//     return choicesRef.current;
-//   };
+  const getChoices = () => {
+    return choicesRef.current;
+  };
 
-//   const setChoices = choice => {
-//     const choices = set(`[${choice.i}].selected`, !choice.selected, getChoices());
+  const setChoices = choice => {
+    const choices = set(`[${choice.i}].selected`, !choice.selected, getChoices());
 
-//     choicesRef.current = choices.filter(c => c.selected);
-//   };
+    choicesRef.current = choices.filter(c => c.selected);
+  };
 
-//   return [getChoices, setChoices];
-// };
+  return [getChoices, setChoices];
+};
 
 const CMMultipleView = ({multiple, choice, onChange}) => {
   const handleChange = useCallback(
@@ -79,7 +79,7 @@ const SelectMultiple = (
   {skin}
 ) => {
   const [isOpened, updateIsOpened] = useState(false);
-  // const [getChoices, setChoices] = useChoices(options);
+  const [getChoices, setChoices] = useChoices(options);
   const nodeRef = useRef(null);
 
   const defaultColor = get('common.primary', skin);
@@ -105,10 +105,17 @@ const SelectMultiple = (
 
   const handleChange = useCallback(
     choice => {
+      console.log('--->', choice);
+      // if multiple prop is turned on
+      // we return all selected choices
+      if (multiple) {
+        setChoices(choice);
+        return onChange(getChoices());
+      }
       updateIsOpened(false);
       return onChange(choice);
     },
-    [onChange]
+    [multiple, onChange, setChoices, getChoices]
   );
 
   useEffect(() => {
