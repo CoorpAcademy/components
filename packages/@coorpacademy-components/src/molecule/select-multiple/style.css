@@ -296,14 +296,6 @@
   color: cm_grey_400;
 }
 
-.coorpmanager .select .title.noValue.active,
-.coorpmanager .select .title.titleWithSelection {
-  width: max-content;
-  height: 8px;
-  line-height: 12px;
-  color: cm_grey_400;
-}
-
 .coorpmanager .arrow:hover {
   background-color: cm_grey_200;
 }
@@ -327,8 +319,8 @@
 
 .coorpmanager .infoIcon {
   cursor: pointer;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   margin: 4px 4px 0 4px;
   line-height: 16px;
   color: cm_grey_400;
@@ -343,6 +335,8 @@
 .coorpmanager .select .title.titleWithSelection .infoIcon {
   color: cm_grey_400;
   margin: 0 4px 0 4px;
+  width: 8px;
+  height: 8px;
 }
 
 .coorpmanager .infoIconWrapper:hover .descriptionLabel {
@@ -369,9 +363,9 @@
   max-width: 348px;
   width: max-content;
   position: absolute;
-  left: -24px;
+  left: -19px;
   z-index: 3;
-  bottom: 5px;
+  bottom: 17px;
   visibility: hidden;
   opacity: 0;
   overflow-wrap: break-word;
