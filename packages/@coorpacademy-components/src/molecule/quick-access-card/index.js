@@ -11,7 +11,12 @@ import {
   NovaSolidApplicationsWindowApplication5 as CmsIcon,
   NovaSolidBusinessBusinessGraphLine2 as AnalyticsIcon,
   NovaCompositionNavigationArrowRight as ActionIcon,
-  NovaCompositionCoorpacademyOpenInNewTab as NewTabIcon
+  NovaCompositionCoorpacademyOpenInNewTab as NewTabIcon,
+  NovaLinePhoneMobilePhone as MobilePhone,
+  NovaLineMessagesChatChatBubbleCircleQuestionMark as ChatBubbleCircleQuestionMark,
+  NovaLineNetworkNetworkAlert as NetworkAlert,
+  NovaLineObjectsBinoculars as Binoculaire,
+  NovaLineContentEditionContentBook as ContentBook
 } from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import style from './style.css';
@@ -36,6 +41,16 @@ const getIcon = feature => {
       return CockpitIcon;
     case 'analytics':
       return AnalyticsIcon;
+    case 'binoculaire':
+      return Binoculaire;
+    case 'book':
+      return ContentBook;
+    case 'network':
+      return NetworkAlert;
+    case 'chat-bubble-question':
+      return ChatBubbleCircleQuestionMark;
+    case 'mobile-phone':
+      return MobilePhone;
     default:
       return CockpitIcon;
   }
@@ -46,31 +61,66 @@ const getBackgroudRadialColors = feature => {
     case 'manage_users':
     case 'upload_users':
       return {
-        iconColor: '#2EC1D6',
-        degrees: '187'
+        iconBackgroundColor: '#2EC1D6',
+        degrees: '187',
+        iconColor: null
       };
     case 'look_and_feel':
     case 'dashboard':
       return {
-        iconColor: '#18BB98',
-        degrees: '167'
+        iconBackgroundColor: '#18BB98',
+        degrees: '167',
+        iconColor: null
       };
     case 'cockpit':
       return {
-        iconColor: '#FF7043',
-        degrees: '14'
+        iconBackgroundColor: '#FF7043',
+        degrees: '14',
+        iconColor: null
       };
     case 'manage_email':
     case 'massive_battle':
     case 'cms':
       return {
-        iconColor: '#7340FF',
-        degrees: '256'
+        iconBackgroundColor: '#7340FF',
+        degrees: '256',
+        iconColor: null
       };
     case 'analytics':
       return {
-        iconColor: '#FF4040',
+        iconBackgroundColor: '#FF4040',
+        degrees: '0',
+        iconColor: null
+      };
+    case 'binoculaire':
+      return {
+        iconBackgroundColor: '#FFEFEB',
+        iconColor: '#FF541F',
         degrees: '0'
+      };
+    case 'book':
+      return {
+        iconBackgroundColor: '#F1F6FE',
+        degrees: '0',
+        iconColor: '#0061FF'
+      };
+    case 'network':
+      return {
+        iconBackgroundColor: '#FFE5E6',
+        iconColor: '#FF0A0A',
+        degrees: '0'
+      };
+    case 'chat-bubble-question':
+      return {
+        iconBackgroundColor: '#E8FCF8',
+        iconColor: '#16AC8C',
+        degrees: '0'
+      };
+    case 'mobile-phone':
+      return {
+        iconBackgroundColor: '#F4F0FF',
+        degrees: '0',
+        iconColor: '#5C21FF'
       };
     default:
       return null;
@@ -78,8 +128,8 @@ const getBackgroudRadialColors = feature => {
 };
 
 const QuickAccessCard = (props, context) => {
-  const {title, description, feature, href, openInNewTab = false} = props;
-  const {iconColor, degrees} = getBackgroudRadialColors(feature);
+  const {title, description, feature, href, openInNewTab = false, isMoocCard = false} = props;
+  const {iconBackgroundColor, degrees, iconColor} = getBackgroudRadialColors(feature);
   const Icon = getIcon(feature);
   const newTabOnClick = openInNewTab ? <NewTabIcon className={style.newTabIcon} /> : null;
 
@@ -87,8 +137,10 @@ const QuickAccessCard = (props, context) => {
     <div data-name="quick-access-card" data-type={feature} className={style.quickAccess}>
       <Link href={href} target={openInNewTab ? '_blank' : '_self'} className={style.link}>
         <div
-          style={{
-            background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
+          style={
+            !isMoocCard
+              ? {
+                  background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
             hsl(${degrees}deg 68% 40% / 20%) 0%, 
             hsl(${degrees}deg 68% 40% / 0%) 100%), 
           radial-gradient(113.85% 103.46% at 93.27% 7.88%,
@@ -98,35 +150,43 @@ const QuickAccessCard = (props, context) => {
             hsl(${degrees}deg 87% 91%) 0%, 
             hsl(${degrees}deg 87% 91% / 0%) 100%), 
           #FAFAFA`
-          }}
+                }
+              : null
+          }
           className={style.content}
         >
           <div
             className={style.iconFeatureWrapper}
             style={{
-              backgroundColor: iconColor
+              backgroundColor: iconBackgroundColor
             }}
           >
-            <Icon className={style.iconFeature} />
+            <Icon className={style.iconFeature} style={{color: iconColor}} />
           </div>
           <div className={style.title}>
             {title}
             {newTabOnClick}
           </div>
           <div className={style.description}>{description}</div>
-          <div
-            className={style.iconGotoWrapper}
-            style={{
-              backgroundColor: iconColor
-            }}
-          >
+          <div className={style.cta}>
             <div
-              className={style.hover}
-              style={{
-                color: iconColor
-              }}
+              className={!isMoocCard ? style.iconGotoWrapper : null}
+              style={
+                !isMoocCard
+                  ? {
+                      backgroundColor: iconBackgroundColor
+                    }
+                  : null
+              }
             >
-              <ActionIcon className={style.iconGoto} />
+              <div
+                className={isMoocCard ? style.hoverMooc : style.hover}
+                style={{
+                  color: isMoocCard ? '#FFFFFF' : iconBackgroundColor
+                }}
+              >
+                <ActionIcon className={style.iconGoto} />
+              </div>
             </div>
           </div>
         </div>
@@ -140,6 +200,7 @@ QuickAccessCard.propTypes = {
   description: PropTypes.string,
   href: PropTypes.string,
   openInNewTab: PropTypes.bool,
+  isMoocCard: PropTypes.bool,
   feature: PropTypes.oneOf([
     'analytics',
     'cms',
@@ -149,7 +210,12 @@ QuickAccessCard.propTypes = {
     'dashboard',
     'look_and_feel',
     'manage_users',
-    'upload_users'
+    'upload_users',
+    'binoculaire',
+    'book',
+    'network',
+    'chat-bubble-question',
+    'mobile-phone'
   ])
 };
 

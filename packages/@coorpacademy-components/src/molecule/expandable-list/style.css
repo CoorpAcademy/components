@@ -1,0 +1,20 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value cm_primary_blue from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_800 from colors;
+
+.list {
+  list-style: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}

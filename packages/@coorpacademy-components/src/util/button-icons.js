@@ -16,6 +16,7 @@ import {
   NovaSolidFilesFoldersFolders as FoldersIcon,
   NovaSolidFilesBasicFileUpload2 as UploadIcon,
   NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionNavigationArrowLeft as ArrowLeft,
   NovaLineFilesOfficeFileOfficePdf as PDF
 } from '@coorpacademy/nova-icons';
 
@@ -37,5 +38,6 @@ export const ICONS = {
   folders: FoldersIcon,
   upload: UploadIcon,
   down: ArrowDown,
-  pdf: PDF
+  pdf: PDF,
+  back: ArrowLeft
 };
