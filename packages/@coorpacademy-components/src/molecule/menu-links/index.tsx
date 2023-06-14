@@ -33,7 +33,7 @@ const MenuLinks = ({
   const handleOnclickShowMore = () => setIsOpen(!isOpen);
 
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
       <ul className={styles.list} data-name="menu-links">
         {itemsToDisplay.map((item, index) => {
@@ -95,7 +95,7 @@ const MenuLinks = ({
           </li>
         ) : null}
       </ul>
-    </div>
+    </nav>
   );
 };
 
