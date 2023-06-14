@@ -10,6 +10,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -18,6 +19,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -26,6 +28,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -34,6 +37,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -42,6 +46,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -50,6 +55,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -58,6 +64,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       },
       {
@@ -66,6 +73,7 @@ const fixture: Fixture = {
         isExpended: false,
         isLink: true,
         content: '',
+        ariaLabel: 'Go to articles page',
         onClick: () => console.log('onClick')
       }
     ]

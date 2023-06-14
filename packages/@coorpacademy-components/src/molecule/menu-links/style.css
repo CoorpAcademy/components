@@ -25,6 +25,7 @@
 .link {
   text-decoration: none;
   color: cm_grey_700;
+  flex: 1;
 }
 
 .title {
@@ -68,9 +69,9 @@
 
 .flexContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
+  justify-content: space-between;
 }
 .border {
   width: 4px;
@@ -117,7 +118,7 @@
 }
 
 .selectedItem:hover {
-  text-decoration-color: cm_primary_blue!important;
+  text-decoration-color: cm_primary_blue;
   color: cm_primary_blue;
 }
 .showMoreIcon {

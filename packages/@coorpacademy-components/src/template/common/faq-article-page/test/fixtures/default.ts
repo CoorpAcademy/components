@@ -34,7 +34,10 @@ const fixture: Fixture = {
     ],
     privacyPolicyContact: PrivacyPolicyContact.props,
     backButtonText: 'Retour aux guides',
-    backButton: back.props
+    backButton: {
+      ...back.props,
+      link: {}
+    }
   }
 };
 export default fixture;

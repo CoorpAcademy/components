@@ -33,7 +33,7 @@ const MenuLinks = ({
   const handleOnclickShowMore = () => setIsOpen(!isOpen);
 
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
       <ul className={styles.list} data-name="menu-links">
         {itemsToDisplay.map((item, index) => {
@@ -69,13 +69,13 @@ const MenuLinks = ({
                     )}
                   />
                 ) : null}
-                {withScroll ? (
-                  <a className={styles.link} href={`#menu-link-item-${index}`}>
-                    {Item}
-                  </a>
-                ) : (
-                  Item
-                )}
+                <a
+                  className={styles.link}
+                  href={withScroll ? `#menu-link-item-${index}` : undefined}
+                  aria-label={item.ariaLabel}
+                >
+                  {Item}
+                </a>
               </div>
             </li>
           );
@@ -95,7 +95,7 @@ const MenuLinks = ({
           </li>
         ) : null}
       </ul>
-    </div>
+    </nav>
   );
 };
 
