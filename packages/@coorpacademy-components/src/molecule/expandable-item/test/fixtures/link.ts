@@ -7,6 +7,7 @@ const fixture: Fixture = {
     icon: 'arrow',
     isExpended: false,
     isLink: true,
+    ariaLabel: 'Go to articles page',
     content: '',
     onClick: () => console.log('onClick')
   }

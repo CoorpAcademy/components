@@ -19,7 +19,10 @@ export const propTypes = {
     'data-name': PropTypes.string,
     'aria-label': PropTypes.string,
     icon: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    link: PropTypes.shape({
+      href: PropTypes.string
+    })
   }),
   privacyPolicyContact: PropTypes.shape(ContactPropTypes)
 };
@@ -36,6 +39,9 @@ export type Props = {
     'data-name': string;
     'aria-label': string;
     icon: string;
+    link: {
+      href?: string;
+    };
     onClick: () => void;
   };
 };

@@ -10,8 +10,8 @@ export const ICONS = {
 const PrivacyPolicyContact = ({title, content}: Props) => {
   return (
     <div className={styles.container}>
-      <h3
-        className={styles.title}
+      <div
+        classNظame={styles.title}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: title}}
       />

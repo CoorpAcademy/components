@@ -7,7 +7,8 @@ export const propTypes = {
   isLink: PropTypes.bool,
   content: PropTypes.string,
   image: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  ariaLabel: PropTypes.string
 };
 
 export type Props = {
@@ -15,6 +16,7 @@ export type Props = {
   icon: 'arrow';
   isExpended: boolean;
   content: string;
+  ariaLabel? : string;
   isLink?: boolean;
   image?: string;
   onClick: () => void;

@@ -69,13 +69,13 @@ const MenuLinks = ({
                     )}
                   />
                 ) : null}
-                {withScroll ? (
-                  <a className={styles.link} href={`#menu-link-item-${index}`}>
-                    {Item}
-                  </a>
-                ) : (
-                  Item
-                )}
+                <a
+                  className={styles.link}
+                  href={withScroll ? `#menu-link-item-${index}` : undefined}
+                  aria-label={item.ariaLabel}
+                >
+                  {Item}
+                </a>
               </div>
             </li>
           );

@@ -14,7 +14,8 @@ export const propTypes = {
     PropTypes.shape({
       text: PropTypes.string,
       isSelected: PropTypes.bool,
-      handleOnclick: PropTypes.func
+      handleOnclick: PropTypes.func,
+      ariaLabel: PropTypes.string
     })
   )
 };
@@ -22,6 +23,7 @@ export const propTypes = {
 export type Item = {
   text: string;
   isSelected?: boolean;
+  ariaLabel?: string;
   handleOnclick: () => void;
   icon?: IconsType;
 };
