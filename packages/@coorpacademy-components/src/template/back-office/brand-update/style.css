@@ -95,8 +95,9 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  top: 124px;
+  top: 94px;
   position: relative;
+  padding-top: 30px;
 }
 
 .contentWithNotifications {

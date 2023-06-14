@@ -21,6 +21,7 @@ export default {
     ],
     content: {
       type: 'form',
+      theme: 'coorpmanager',
       groups,
       onSubmit: () => {},
       submitValue: 'Send a massive battle',
