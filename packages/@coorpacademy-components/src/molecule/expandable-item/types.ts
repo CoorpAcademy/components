@@ -16,7 +16,7 @@ export type Props = {
   icon: 'arrow';
   isExpended: boolean;
   content: string;
-  ariaLabel? : string;
+  ariaLabel?: string;
   isLink?: boolean;
   image?: string;
   onClick: () => void;
