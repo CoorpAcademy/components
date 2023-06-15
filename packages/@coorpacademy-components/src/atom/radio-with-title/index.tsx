@@ -15,15 +15,15 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
     'aria-label': ariaLabel
   } = props;
 
-  const idCheckbox = uniqueId('input-radio-');
+  const idRadio = uniqueId('input-radio-');
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   return (
     <div className={style.container}>
-      <label htmlFor={idCheckbox}>
+      <label htmlFor={idRadio}>
         <input
           type="radio"
-          id={idCheckbox}
+          id={idRadio}
           name={name}
           onChange={handleChange}
           checked={checked}
