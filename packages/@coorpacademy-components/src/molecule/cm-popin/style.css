@@ -46,8 +46,7 @@
 }
 
 .popin {
-  overflow: auto;
-  width: 434px;
+  width: fit-content;
   flex-grow: 0;
   margin: 16px;
   padding: 16px 16px 20px 16px;
