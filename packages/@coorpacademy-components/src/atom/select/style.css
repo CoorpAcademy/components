@@ -85,7 +85,7 @@ div.coorpmanager label.selectWrapper {
 .selectSpan {
   display: none;
   position: relative;
-  z-index: 10;
+  z-index: 1;
   white-space: nowrap;
   pointer-events: none;
   height: 18px;
@@ -167,7 +167,7 @@ div.coorpmanager label.selectWrapper {
   pointer-events: none;
   width: 12px;
   height: 12px;
-  z-index: 11;
+  z-index: 2;
 }
 
 .selectedArrow {
