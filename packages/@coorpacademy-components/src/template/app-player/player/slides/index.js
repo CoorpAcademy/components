@@ -298,7 +298,18 @@ const ValidateButton = ({cta}) => {
   if (!cta) {
     return null;
   }
-
+  const {disabled} = cta;
+  useEffect(() => {
+    const keyDownHandler = event => {
+      if (event.key === 'Enter' || (event.key === ' ' && disabled)) {
+        event.preventDefault();
+      }
+    };
+    document.addEventListener('keydown', keyDownHandler);
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [disabled]);
   return (
     <div className={style.ctaWrapper}>
       <Cta {...cta} className={style.cta} />
