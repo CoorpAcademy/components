@@ -295,11 +295,11 @@ Help.propTypes = {
 };
 
 const ValidateButton = ({cta}) => {
-  if (!cta) {
-    return null;
-  }
   const {disabled} = cta;
+
   useEffect(() => {
+    if (!cta) return;
+
     const keyDownHandler = event => {
       if (event.key === 'Enter' || (event.key === ' ' && disabled)) {
         event.preventDefault();
@@ -309,7 +309,11 @@ const ValidateButton = ({cta}) => {
     return () => {
       document.removeEventListener('keydown', keyDownHandler);
     };
-  }, [disabled]);
+  }, [disabled, cta]);
+
+  if (!cta) {
+    return null;
+  }
   return (
     <div className={style.ctaWrapper}>
       <Cta {...cta} className={style.cta} />
