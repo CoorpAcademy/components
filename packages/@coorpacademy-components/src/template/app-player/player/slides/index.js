@@ -1,14 +1,25 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, find, get, getOr, keys, omit, identity, max, pipe, split} from 'lodash/fp';
+import {
+  compact,
+  find,
+  get,
+  getOr,
+  keys,
+  omit,
+  identity,
+  max,
+  pipe,
+  split,
+  isEmpty
+} from 'lodash/fp';
 import {ColorPropType, SrcPropType} from '../../../../util/proptypes';
 import Cta from '../../../../atom/cta';
 import Picture from '../../../../atom/picture';
 import Provider from '../../../../atom/provider';
 import Clue from '../../../../atom/clue';
 import Answer from '../../../../molecule/answer';
-import Loader from '../../../../atom/loader';
 import Swapper from '../../../../hoc/swapper';
 import VideoPlayer from '../../../../molecule/video-player';
 import PDF from '../../../../molecule/pdf';
@@ -294,11 +305,11 @@ Help.propTypes = {
   help: PropTypes.string
 };
 
-const ValidateButton = ({cta}) => {
+const ValidateButton = ({cta = {}}) => {
   const {disabled} = cta;
 
   useEffect(() => {
-    if (!cta) return;
+    if (isEmpty(cta)) return;
 
     const keyDownHandler = event => {
       if (event.key === 'Enter' || (event.key === ' ' && disabled)) {
@@ -311,7 +322,7 @@ const ValidateButton = ({cta}) => {
     };
   }, [disabled, cta]);
 
-  if (!cta) {
+  if (isEmpty(cta)) {
     return null;
   }
   return (
@@ -373,15 +384,16 @@ ContentLayout.propTypes = {
  */
 
 const LoadingLayout = ({popinError}) => (
-  <div className={style.loading}>{popinError ? <CMPopin {...popinError} /> : <Loader />}</div>
+  <div className={style.loading}>{<CMPopin {...popinError} />}</div>
 );
 
 LoadingLayout.propTypes = {
   popinError: PropTypes.shape(CMPopin.propTypes)
 };
 
-const LoadedLayout = ({question, step, ...props}) =>
-  question ? <ContentLayout {...props} question={question} /> : <LoadingLayout {...props} />;
+const LoadedLayout = ({question, step, ...props}) => {
+  return question ? <ContentLayout {...props} question={question} /> : <LoadingLayout {...props} />;
+};
 
 LoadedLayout.propTypes = {
   ...ContentLayout.propTypes,
