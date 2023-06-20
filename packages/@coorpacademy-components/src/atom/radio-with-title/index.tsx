@@ -1,7 +1,7 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
-import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
+import {NovaSolidVideosVideoControlRecord as RadioIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
 import {RadioWithTitleProps} from './types';
 
@@ -14,9 +14,16 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
     'data-name': dataName,
     'aria-label': ariaLabel
   } = props;
+  const [_checked, setChecked] = useState(checked);
 
   const idRadio = uniqueId('input-radio-');
-  const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
+  const handleChange = useCallback(
+    e => {
+      onChange(e.target.checked);
+      setChecked(!_checked);
+    },
+    [_checked, onChange]
+  );
 
   return (
     <div className={style.container}>
@@ -32,7 +39,7 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           aria-label={ariaLabel}
         />
         <div className={style.label}>
-          <CheckIcon className={style.icon} />
+          <RadioIcon className={style.icon} />
         </div>
       </label>
       <span className={style.title}>{title}</span>
