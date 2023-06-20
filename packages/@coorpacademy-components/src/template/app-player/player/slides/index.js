@@ -20,6 +20,7 @@ import Picture from '../../../../atom/picture';
 import Provider from '../../../../atom/provider';
 import Clue from '../../../../atom/clue';
 import Answer from '../../../../molecule/answer';
+import Loader from '../../../../atom/loader';
 import Swapper from '../../../../hoc/swapper';
 import VideoPlayer from '../../../../molecule/video-player';
 import PDF from '../../../../molecule/pdf';
@@ -384,7 +385,7 @@ ContentLayout.propTypes = {
  */
 
 const LoadingLayout = ({popinError}) => (
-  <div className={style.loading}>{<CMPopin {...popinError} />}</div>
+  <div className={style.loading}>{popinError ? <CMPopin {...popinError} /> : <Loader />}</div>
 );
 
 LoadingLayout.propTypes = {
