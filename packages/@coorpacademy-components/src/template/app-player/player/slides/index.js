@@ -1,7 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, find, get, getOr, keys, omit, identity, max, pipe, split} from 'lodash/fp';
+import {
+  compact,
+  find,
+  get,
+  getOr,
+  keys,
+  omit,
+  identity,
+  max,
+  pipe,
+  split,
+  isEmpty
+} from 'lodash/fp';
 import {ColorPropType, SrcPropType} from '../../../../util/proptypes';
 import Cta from '../../../../atom/cta';
 import Picture from '../../../../atom/picture';
@@ -294,11 +306,26 @@ Help.propTypes = {
   help: PropTypes.string
 };
 
-const ValidateButton = ({cta}) => {
-  if (!cta) {
+const ValidateButton = ({cta = {}}) => {
+  const {disabled} = cta;
+
+  useEffect(() => {
+    if (isEmpty(cta)) return;
+
+    const keyDownHandler = event => {
+      if (event.key === 'Enter' || (event.key === ' ' && disabled)) {
+        event.preventDefault();
+      }
+    };
+    document.addEventListener('keydown', keyDownHandler);
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [disabled, cta]);
+
+  if (isEmpty(cta)) {
     return null;
   }
-
   return (
     <div className={style.ctaWrapper}>
       <Cta {...cta} className={style.cta} />
@@ -365,8 +392,9 @@ LoadingLayout.propTypes = {
   popinError: PropTypes.shape(CMPopin.propTypes)
 };
 
-const LoadedLayout = ({question, step, ...props}) =>
-  question ? <ContentLayout {...props} question={question} /> : <LoadingLayout {...props} />;
+const LoadedLayout = ({question, step, ...props}) => {
+  return question ? <ContentLayout {...props} question={question} /> : <LoadingLayout {...props} />;
+};
 
 LoadedLayout.propTypes = {
   ...ContentLayout.propTypes,
