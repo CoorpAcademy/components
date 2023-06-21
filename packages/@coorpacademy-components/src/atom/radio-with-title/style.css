@@ -12,8 +12,13 @@
   align-content: flex-start;
 }
 
-.container input {
-  margin-right: 18px;
+.radio {
+  appearance: none;
   width: 24px;
   height: 24px;
+  border-radius: 27px;
+  background: cm_grey_100;
+  border: 1px solid cm_grey_200;
 }
+
+

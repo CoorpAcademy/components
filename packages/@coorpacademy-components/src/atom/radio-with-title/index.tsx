@@ -33,7 +33,7 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           name={name}
           onChange={handleChange}
           checked={checked}
-          // className={style.radio}
+          className={style.radio}
           data-name={dataName}
           aria-label={ariaLabel}
         />
