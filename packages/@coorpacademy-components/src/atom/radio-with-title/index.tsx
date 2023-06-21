@@ -1,7 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
-import {NovaSolidVideosVideoControlRecord as RadioIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
 import {RadioWithTitleProps} from './types';
 
@@ -34,15 +33,12 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           name={name}
           onChange={handleChange}
           checked={checked}
-          className={style.checkbox}
+          // className={style.radio}
           data-name={dataName}
           aria-label={ariaLabel}
         />
-        <div className={style.label}>
-          <RadioIcon className={style.icon} />
-        </div>
+        <span>{title}</span>
       </label>
-      <span className={style.title}>{title}</span>
     </div>
   );
 };

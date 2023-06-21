@@ -13,48 +13,7 @@
 }
 
 .container input {
-  display: none;
-}
-
-.icon {
-  display: none;
-  width: 16px;
-  height: 14px;
-  color: white;
-}
-
-.container .title {
-  font-family: "Gilroy";
-  font-weight: bold;
-  font-size: 18px;
-  color: dark;
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  color: black;
-}
-
-.container .label {
-  border: solid 1px cm_grey_200;
-  background-color: cm_grey_100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-right: 18px;
   width: 24px;
   height: 24px;
-  border-radius: 5px;
-  font-size: 14px;
-  color: dark;
-  margin-right: 8px;
-  position: relative;
-}
-
-.checkbox:checked + .label {
-  border: solid 1px cm_primary_blue;
-  background-color: cm_primary_blue;
-}
-
-.checkbox:checked + .label .icon {
-  display: flex;
 }
