@@ -37,7 +37,7 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           data-name={dataName}
           aria-label={ariaLabel}
         />
-        <span>{title}</span>
+        <span className={style.title}>{title}</span>
       </label>
     </div>
   );

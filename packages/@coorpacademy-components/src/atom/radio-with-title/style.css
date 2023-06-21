@@ -30,4 +30,16 @@
   transition: box-shadow 0.5s linear;
 }
 
+.title {
+  font-family: "Gilroy";
+  font-weight: 700;
+  font-size: 14px;
+  color: dark;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: black;
+}
+
 
