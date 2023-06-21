@@ -12,6 +12,10 @@
   align-content: flex-start;
 }
 
+.container label {
+  display: flex;
+}
+
 .radio {
   appearance: none;
   width: 24px;
