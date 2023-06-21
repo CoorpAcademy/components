@@ -1,5 +1,8 @@
+import PropTypes from 'prop-types';
+import Title from '../title';
+
 export type RadioWithTitleProps = {
-  title: string;
+  title: PropTypes.InferProps<typeof Title.propTypes>;
   name: string;
   checked: boolean;
   onChange: () => void;

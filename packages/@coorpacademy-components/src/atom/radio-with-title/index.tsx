@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
+import Title from '../title';
 import style from './style.css';
 import {RadioWithTitleProps} from './types';
 
@@ -37,7 +38,9 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           data-name={dataName}
           aria-label={ariaLabel}
         />
-        <span className={style.title}>{title}</span>
+        <span className={style.title}>
+          <Title {...title} />
+        </span>
       </label>
     </div>
   );
