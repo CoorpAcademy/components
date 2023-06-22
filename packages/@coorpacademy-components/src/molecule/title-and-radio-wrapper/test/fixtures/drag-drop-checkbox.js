@@ -1,4 +1,4 @@
-import DragDrop from '../../../drag-and-drop-wrapper/test/fixtures/default';
+import DragDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
 
 import defaultFixtures from './default';
 

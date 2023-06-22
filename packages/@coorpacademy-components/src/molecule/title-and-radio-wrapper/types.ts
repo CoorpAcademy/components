@@ -1,6 +1,6 @@
 import SelectMultiple from '../select-multiple';
 import {RadioWithTitleProps} from '../../atom/radio-with-title/types';
-import {DragAndDrop} from '../drag-and-drop';
+import DragAndDrop from '../drag-and-drop-wrapper';
 
 export const SelectMultipleChildTypeProps = {
   ...SelectMultiple.propTypes,
