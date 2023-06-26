@@ -48,6 +48,17 @@
   user-select: none;
 }
 
+.switchContainer {
+  display: flex;
+}
+
+.switchTitle {
+  composes: title;
+  display: flex;
+  padding-top: 26px;
+  padding-left: 8px;
+}
+
 .timerSubtitle {
   border-radius: 25px;
   color: dark;
@@ -71,7 +82,7 @@
 }
 
 .toggle {
-  padding-top: 10px;
+  padding-top: 24px;
 }
 
 @media tablet {
