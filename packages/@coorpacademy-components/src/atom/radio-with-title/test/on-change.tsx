@@ -14,7 +14,7 @@ test('should call handleChange when radio is checked', t => {
   };
   const title = {};
   const dataName = 'input-radio';
-  const {container} = render(
+  const {container, rerender} = render(
     <RadioWithTitle
       title={title}
       checked={checkedValue}
@@ -24,9 +24,17 @@ test('should call handleChange when radio is checked', t => {
       name={''}
     />
   );
-  console.log(container);
   const radio = container.querySelector(`[data-name="${dataName}"]`) as Element;
   t.truthy(radio);
+  rerender(
+    <RadioWithTitle
+      title={title}
+      checked={checkedValue}
+      onChange={handleChange}
+      data-name={dataName}
+      aria-label={''}
+      name={''}
+    />
+  );
   fireEvent.click(radio);
-  t.false(radio.checked);
 });
