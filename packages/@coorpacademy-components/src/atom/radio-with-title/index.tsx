@@ -47,7 +47,7 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
 };
 
 RadioWithTitle.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.shape(Title.propTypes),
   name: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
