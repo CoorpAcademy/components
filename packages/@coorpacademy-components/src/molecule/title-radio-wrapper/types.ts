@@ -5,7 +5,7 @@ import SelectMultiple from '../select-multiple';
 
 export type TitleRadioWrapperProps = {
   radioWithTitle: PropTypes.InferProps<typeof RadioWithTitle.propTypes>;
-  fields: {
+  field: {
     item:
       | PropTypes.InferProps<typeof DragAndDrop.propTypes>
       | PropTypes.InferProps<typeof SelectMultiple.propTypes>;
