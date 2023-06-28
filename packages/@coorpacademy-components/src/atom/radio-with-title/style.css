@@ -1,0 +1,49 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value dark from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_100 from colors;
+@value black from colors;
+@value cm_primary_blue from colors;
+
+.container {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.container label {
+  display: flex;
+}
+
+.radio {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 27px;
+  background: cm_grey_100;
+  border: 1px solid cm_grey_200;
+  margin-right: 16px;
+}
+
+.radio:checked {
+  appearance: none;
+  box-shadow: inset 0 0 0 0.5em cm_primary_blue;
+  border: none;
+  background: white;
+  transition: box-shadow 0.5s linear;
+}
+
+.title {
+  font-family: "Gilroy";
+  font-weight: 700;
+  font-size: 14px;
+  color: dark;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: black;
+}
+
+
