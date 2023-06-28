@@ -44,13 +44,18 @@ const FiltersWapper = (props, context) => {
         );
       case 'switch':
         return (
-          <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
-            <p id={`title-id-${idx}`} className={style.title}>
-              {filter.title}
-            </p>
+          <div
+            data-name="choice"
+            data-filter-type={fieldName}
+            className={classnames(style.choice, style.switchContainer)}
+            key={idx}
+          >
             <div className={style.toggle}>
               <InputSwitch {...filter.display} aria-labelledby={`title-id-${idx}`} />
             </div>
+            <label id={`title-id-${idx}`} className={style.switchTitle}>
+              {filter.title}
+            </label>
           </div>
         );
       default:
