@@ -17,6 +17,6 @@ export type TitleRadioWrapperProps = {
   radioWithTitle: RadioWithTitleProps;
   field: {
     item: typeof DragAndDrop.propTypes | typeof SelectMultiple.propTypes;
-    childType: 'select-multiple' | 'drag-and-drop';
+    childType: 'selectMultiple' | 'drag-and-drop';
   };
 };
