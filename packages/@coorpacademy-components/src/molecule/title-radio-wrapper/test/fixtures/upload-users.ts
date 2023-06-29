@@ -1,4 +1,4 @@
-import DragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
+// import DragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
 
 export default {
   props: {
@@ -10,7 +10,12 @@ export default {
       }
     },
     field: {
-      item: {...DragAndDrop.props},
+      item: {
+        title: 'Drag & drop here',
+        description: 'JPG or PNG, smaller than 5mb',
+        uploadLabel: 'Browse',
+        previewLabel: 'File Preview'
+      },
       childType: 'drag-and-drop'
     }
   }
