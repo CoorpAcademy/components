@@ -2,19 +2,25 @@ import PropTypes from 'prop-types';
 import Title from '../title';
 
 export const propTypes = {
-  title: PropTypes.shape(Title.propTypes),
+  title: PropTypes.shape(Title.propTypes).isRequired,
   name: PropTypes.string,
-  checked: PropTypes.bool,
-  onchange: PropTypes.func,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string
 };
 
 export type RadioWithTitleProps = {
-  title: PropTypes.InferProps<typeof Title.propTypes>;
-  name: string;
+  title: {
+    title: string;
+    subtitle: string;
+    type: 'page' | 'form-group';
+    'data-name': string;
+    subtitleSize: string;
+  };
+  name?: string;
   checked: boolean;
-  onChange: () => void;
+  onChange?: () => void;
   'aria-label': string;
-  'data-name': string;
+  'data-name'?: string;
 };
