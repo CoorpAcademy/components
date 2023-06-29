@@ -12,7 +12,7 @@ test('should call handleChange when radio is checked', t => {
     checkedValue = !checkedValue;
     t.pass();
   };
-  const title = {};
+  const title = {title: '', subtitle: '', type: 'form-group', 'data-name': '', subtitleSize: ''};
   const dataName = 'input-radio';
   const {container, rerender} = render(
     <RadioWithTitle

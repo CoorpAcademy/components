@@ -14,7 +14,7 @@ export type RadioWithTitleProps = {
   title: {
     title: string;
     subtitle: string;
-    type: 'page' | 'form-group';
+    type: string;
     'data-name': string;
     subtitleSize: string;
   };
