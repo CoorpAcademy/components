@@ -4,7 +4,7 @@ import Title from '../title';
 export const propTypes = {
   title: PropTypes.shape(Title.propTypes).isRequired,
   name: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
+  checked: PropTypes.bool,
   onChange: PropTypes.func,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string
