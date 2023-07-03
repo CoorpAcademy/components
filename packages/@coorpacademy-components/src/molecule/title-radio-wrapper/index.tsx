@@ -3,6 +3,7 @@ import RadioWithTitle from '../../atom/radio-with-title';
 import DragAndDrop from '../../atom/drag-and-drop';
 import SelectMultiple from '../select-multiple';
 import propTypes, {TitleRadioWrapperProps} from './types';
+import style from './style.css';
 
 const buildInput = (childType: string, field: any) => {
   switch (childType) {
@@ -16,9 +17,9 @@ const buildInput = (childType: string, field: any) => {
 const TitleRadioWrapper = (props: TitleRadioWrapperProps) => {
   const {radioWithTitle, field, childType} = props;
   return (
-    <div>
+    <div className={style.container}>
       <div>{radioWithTitle ? <RadioWithTitle {...radioWithTitle} /> : null}</div>
-      <div>{buildInput(childType, field)}</div>
+      <div className={style.field}>{buildInput(childType, field)}</div>
     </div>
   );
 };

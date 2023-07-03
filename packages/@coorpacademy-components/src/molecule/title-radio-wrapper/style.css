@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.field {
+    margin-left: 40px;
+    width: 40%;
+}
