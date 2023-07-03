@@ -5,7 +5,7 @@ import {RadioWithTitleProps} from '../../atom/radio-with-title/types';
 import SelectMultiple from '../select-multiple';
 
 const propTypes = {
-  radioWithTitle: PropTypes.shape(RadioWithTitle.propTypes).isRequired,
+  radioWithTitle: PropTypes.shape(RadioWithTitle.propTypes),
   field: PropTypes.oneOfType([
     PropTypes.shape(SelectMultiple.propTypes).isRequired,
     PropTypes.shape(DragAndDrop.propTypes)
