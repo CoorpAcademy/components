@@ -7,7 +7,7 @@ import SelectMultiple from '../select-multiple';
 const propTypes = {
   radioWithTitle: PropTypes.shape(RadioWithTitle.propTypes),
   field: PropTypes.oneOfType([
-    PropTypes.shape(SelectMultiple.propTypes).isRequired,
+    PropTypes.shape(SelectMultiple.propTypes),
     PropTypes.shape(DragAndDrop.propTypes)
   ]),
   childType: PropTypes.oneOf(['selectMultiple', 'drag-and-drop'])

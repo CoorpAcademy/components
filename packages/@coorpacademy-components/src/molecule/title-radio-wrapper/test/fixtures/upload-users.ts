@@ -1,5 +1,3 @@
-// import DragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
-
 export default {
   props: {
     radioWithTitle: {
