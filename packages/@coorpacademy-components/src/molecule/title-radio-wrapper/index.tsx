@@ -18,7 +18,7 @@ const TitleRadioWrapper = (props: TitleRadioWrapperProps) => {
   const {radioWithTitle, field, childType} = props;
   return (
     <div className={style.container}>
-      <div>{radioWithTitle ? <RadioWithTitle {...radioWithTitle} /> : null}</div>
+      {radioWithTitle ? <RadioWithTitle {...radioWithTitle} /> : null}
       <div className={style.field}>{buildInput(childType, field)}</div>
     </div>
   );
