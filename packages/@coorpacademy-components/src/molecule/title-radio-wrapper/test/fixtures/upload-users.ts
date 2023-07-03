@@ -10,13 +10,10 @@ export default {
       }
     },
     field: {
-      item: {
-        title: 'Drag & drop here',
-        description: 'JPG or PNG, smaller than 5mb',
-        uploadLabel: 'Browse',
-        previewLabel: 'File Preview'
-      },
-      childType: 'drag-and-drop'
-    }
+      description: 'JPG or PNG, smaller than 5mb',
+      uploadLabel: 'Browse',
+      previewLabel: 'File Preview'
+    },
+    childType: 'drag-and-drop'
   }
 };

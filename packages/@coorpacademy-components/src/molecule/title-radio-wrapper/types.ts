@@ -6,17 +6,14 @@ import SelectMultiple from '../select-multiple';
 
 export const propTypes = {
   radioWithTitle: PropTypes.shape(RadioWithTitle.propTypes).isRequired,
-  field: {
-    item: PropTypes.oneOfType([
-      PropTypes.shape(SelectMultiple.propTypes),
-      PropTypes.shape(DragAndDrop.propTypes)
-    ])
-  }
+  field: PropTypes.oneOfType([
+    PropTypes.shape(SelectMultiple.propTypes),
+    PropTypes.shape(DragAndDrop.propTypes)
+  ]),
+  childType: PropTypes.oneOf(['selectMultiple', 'drag-and-drop'])
 };
 export type TitleRadioWrapperProps = {
   radioWithTitle: RadioWithTitleProps;
-  field: {
-    item: typeof DragAndDrop.propTypes | typeof SelectMultiple.propTypes;
-    childType: 'selectMultiple' | 'drag-and-drop';
-  };
+  field: typeof DragAndDrop.propTypes | typeof SelectMultiple.propTypes;
+  childType: 'selectMultiple' | 'drag-and-drop';
 };

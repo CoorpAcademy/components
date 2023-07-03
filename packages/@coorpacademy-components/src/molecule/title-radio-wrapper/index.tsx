@@ -5,14 +5,14 @@ import SelectMultiple from '../select-multiple';
 import {propTypes, TitleRadioWrapperProps} from './types';
 
 const TitleRadioWrapper = (props: TitleRadioWrapperProps) => {
-  const {radioWithTitle, field} = props;
+  const {radioWithTitle, field, childType} = props;
   // eslint-disable-next-line no-console
   console.log(props);
   return (
     <div>
       <div>{radioWithTitle ? <RadioWithTitle {...radioWithTitle} /> : null}</div>
       <div>
-        {field.childType === 'selectMultiple' ? (
+        {childType === 'selectMultiple' ? (
           <SelectMultiple {...field} />
         ) : (
           <DragAndDrop {...field} />
