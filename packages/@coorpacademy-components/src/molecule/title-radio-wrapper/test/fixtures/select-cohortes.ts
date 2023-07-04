@@ -41,6 +41,6 @@ export default {
       onChange: (value: any) => console.log('onChange', value),
       onError: () => true
     },
-    childType: 'selectMultiple'
+    childType: 'select-multiple'
   }
 };

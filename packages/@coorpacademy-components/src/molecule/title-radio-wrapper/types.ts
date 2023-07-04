@@ -10,13 +10,13 @@ const propTypes = {
     PropTypes.shape(SelectMultiple.propTypes),
     PropTypes.shape(DragAndDrop.propTypes)
   ]),
-  childType: PropTypes.oneOf(['selectMultiple', 'drag-and-drop'])
+  childType: PropTypes.oneOf(['select-multiple', 'drag-and-drop'])
 };
 
 export type TitleRadioWrapperProps = {
   radioWithTitle: RadioWithTitleProps;
   field: typeof SelectMultiple.propTypes | typeof DragAndDrop.propTypes;
-  childType: 'selectMultiple' | 'drag-and-drop';
+  childType: 'select-multiple' | 'drag-and-drop';
 };
 
 export default propTypes;

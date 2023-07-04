@@ -7,7 +7,7 @@ import style from './style.css';
 
 const buildInput = (childType: string, field: any) => {
   switch (childType) {
-    case 'selectMultiple':
+    case 'select-multiple':
       return <SelectMultiple {...field} />;
     default:
       return <DragAndDrop {...field} />;
