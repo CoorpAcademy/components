@@ -2,16 +2,17 @@ import React from 'react';
 import TitleRadioWrapper from '../../molecule/title-radio-wrapper';
 import {TitleRadioWrapperProps} from '../../molecule/title-radio-wrapper/types';
 import {SelectPopulationProps} from './types';
+import style from './style.css';
 
 const SelectPopulation = (props: SelectPopulationProps) => {
   const {items} = props;
   // eslint-disable-next-line no-console
   console.log(items);
   return (
-    <ul>
+    <ul className={style.container}>
       {items.map((item: TitleRadioWrapperProps, key: number) => {
         return (
-          <li key={key}>
+          <li key={key} className={style.item}>
             <TitleRadioWrapper {...item} />
           </li>
         );
