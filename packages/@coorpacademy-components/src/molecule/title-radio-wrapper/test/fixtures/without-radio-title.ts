@@ -5,6 +5,6 @@ export default {
       uploadLabel: 'Browse',
       previewLabel: 'File Preview'
     },
-    childType: 'drag-and-drop'
+    childType: 'massive-upload'
   }
 };

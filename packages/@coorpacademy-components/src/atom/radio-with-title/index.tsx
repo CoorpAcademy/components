@@ -1,18 +1,11 @@
 import React, {useCallback} from 'react';
-import {noop, uniqueId} from 'lodash/fp';
+import {uniqueId} from 'lodash/fp';
 import Title from '../title';
 import style from './style.css';
 import {propTypes, RadioWithTitleProps} from './types';
 
 const RadioWithTitle = (props: RadioWithTitleProps) => {
-  const {
-    title,
-    name,
-    checked,
-    onChange = noop,
-    'data-name': dataName,
-    'aria-label': ariaLabel
-  } = props;
+  const {title, name, checked, onChange, 'data-name': dataName, 'aria-label': ariaLabel} = props;
   const idRadio = uniqueId('input-radio-');
   const handleChange = useCallback(e => onChange(e.target.checked), [onChange]);
 

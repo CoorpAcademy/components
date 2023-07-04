@@ -1,17 +1,16 @@
 import React from 'react';
 import RadioWithTitle from '../../atom/radio-with-title';
-import DragAndDrop from '../../atom/drag-and-drop';
 import SelectMultiple from '../select-multiple';
+import ImageUpload from '../../atom/image-upload';
 import propTypes, {TitleRadioWrapperProps} from './types';
 import style from './style.css';
 
 const buildInput = (childType: string, field: any) => {
-  switch (childType) {
-    case 'select-multiple':
-      return <SelectMultiple {...field} />;
-    default:
-      return <DragAndDrop {...field} />;
-  }
+  return childType === 'select-multiple' ? (
+    <SelectMultiple {...field} />
+  ) : (
+    <ImageUpload {...field} />
+  );
 };
 
 const TitleRadioWrapper = (props: TitleRadioWrapperProps) => {
