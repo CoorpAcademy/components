@@ -17,6 +17,7 @@ import InputTextarea from '../../atom/input-textarea';
 import InputHTML from '../../atom/input-html';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
+import SelectPopulation from '../../organism/select-population';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
 import Title from '../../atom/title';
@@ -86,6 +87,8 @@ const buildInput = field => {
       return <Roles {...field} />;
     case 'titleAndCheckBoxWrapper':
       return <TitleAndCheckBoxWrapper {...field} />;
+    case 'populationSelect':
+      return <SelectPopulation {...field} />;
     default:
       return <InputText {...field} />;
   }
@@ -227,7 +230,11 @@ BrandFormGroup.propTypes = {
         ...Roles.propTypes,
         type: PropTypes.oneOf(['roles'])
       }),
-      PropTypes.shape(InputText.propTypes)
+      PropTypes.shape(InputText.propTypes),
+      PropTypes.shape({
+        type: PropTypes.string,
+        ...SelectPopulation.propTypes
+      })
     ])
   )
 };
