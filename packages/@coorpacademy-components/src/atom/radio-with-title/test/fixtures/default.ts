@@ -6,6 +6,8 @@ export default {
       subtitle: 'in the drop-down list'
     },
     checked: false,
-    onChange: (): void => console.log('onChange')
+    onChange: (value: boolean) => {
+      console.log('on change', value);
+    }
   }
 };

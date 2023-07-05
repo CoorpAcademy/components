@@ -6,6 +6,7 @@ export default {
         title: 'Upload a list of specific users',
         subtitle: 'Using an Excel file (mandatory column: email address'
       },
+      checked: false,
       onChange: (value: boolean) => {
         console.log('on change', value);
       }
