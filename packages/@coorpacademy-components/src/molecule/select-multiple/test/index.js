@@ -2,13 +2,11 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import flatten from 'lodash/fp/flatten';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {fireEvent, render} from '@testing-library/react';
 import SelectMultiple, {useChoices} from '..';
 import defaultFixture from './fixtures/checked';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 const setup = options => {
   const returnVal = [];
@@ -17,31 +15,29 @@ const setup = options => {
     return null;
   };
 
-  mount(<TestComponent />);
+  render(<TestComponent />);
   return flatten(returnVal);
 };
 
 test('should select array of choices when props.multiple is set', t => {
-  t.plan(2);
+  t.plan(3);
   const props = {
     ...defaultFixture.props,
     multiple: true,
     onChange: choices => {
-      t.true(Array.isArray(choices), 'dffdff');
+      t.true(Array.isArray(choices));
       t.pass();
     }
   };
 
-  const wrapper = mount(<SelectMultiple {...props} />);
-
-  wrapper.update();
-
-  const checkbox = wrapper.find('[checked=false]').first();
-
-  checkbox.simulate('change', {props});
+  const {container} = render(<SelectMultiple {...props} />);
+  const checkbox = container.querySelector('[data-name="Digital"]');
+  t.truthy(checkbox);
+  fireEvent.click(checkbox);
 });
 
 test('should return choices (getter)', t => {
+  t.plan(1);
   const props = {...defaultFixture.props};
   const [getChoices] = setup(props.options);
 
@@ -49,6 +45,7 @@ test('should return choices (getter)', t => {
 });
 
 test('should set current choice (setter)', t => {
+  t.plan(2);
   const props = {...defaultFixture.props};
   const [getChoices, setChoices] = setup(props.options);
   const choices = getChoices();
