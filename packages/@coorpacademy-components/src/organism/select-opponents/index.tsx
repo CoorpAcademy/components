@@ -1,7 +1,7 @@
 import React from 'react';
 import TitleRadioWrapper from '../../molecule/title-radio-wrapper';
 import {TitleRadioWrapperProps} from '../../molecule/title-radio-wrapper/types';
-import {SelectOpponentsProps} from './types';
+import propTypes, {SelectOpponentsProps} from './types';
 import style from './style.css';
 
 const SelectOpponents = (props: SelectOpponentsProps) => {
@@ -18,4 +18,7 @@ const SelectOpponents = (props: SelectOpponentsProps) => {
     </ul>
   );
 };
+
+SelectOpponents.propTypes = propTypes;
+
 export default SelectOpponents;
