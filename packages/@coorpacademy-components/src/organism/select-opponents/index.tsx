@@ -1,10 +1,10 @@
 import React from 'react';
 import TitleRadioWrapper from '../../molecule/title-radio-wrapper';
 import {TitleRadioWrapperProps} from '../../molecule/title-radio-wrapper/types';
-import {SSelectOpponentsProps} from './types';
+import {SelectOpponentsProps} from './types';
 import style from './style.css';
 
-const SelectOpponents = (props: SSelectOpponentsProps) => {
+const SelectOpponents = (props: SelectOpponentsProps) => {
   const {items} = props;
   return (
     <ul className={style.container}>
