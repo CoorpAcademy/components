@@ -1,10 +1,10 @@
 import React from 'react';
 import TitleRadioWrapper from '../../molecule/title-radio-wrapper';
 import {TitleRadioWrapperProps} from '../../molecule/title-radio-wrapper/types';
-import {SelectPopulationProps} from './types';
+import {SSelectOpponentsProps} from './types';
 import style from './style.css';
 
-const SelectPopulation = (props: SelectPopulationProps) => {
+const SelectOpponents = (props: SSelectOpponentsProps) => {
   const {items} = props;
   return (
     <ul className={style.container}>
@@ -18,4 +18,4 @@ const SelectPopulation = (props: SelectPopulationProps) => {
     </ul>
   );
 };
-export default SelectPopulation;
+export default SelectOpponents;

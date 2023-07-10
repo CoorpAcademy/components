@@ -1,5 +1,5 @@
 import {TitleRadioWrapperProps} from '../../molecule/title-radio-wrapper/types';
 
-export type SelectPopulationProps = {
+export type SSelectOpponentsProps = {
   items: TitleRadioWrapperProps[];
 };
