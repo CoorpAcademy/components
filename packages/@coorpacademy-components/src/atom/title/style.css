@@ -53,7 +53,7 @@
 
 
 .smallSubtitleFormGroup{
-    composes: subtitleWithMargin;
+    composes: subtitleFormGroup;
     max-width: 450px
 }
 
