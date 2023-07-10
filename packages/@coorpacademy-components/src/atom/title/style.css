@@ -20,14 +20,23 @@
     font-size: 18px;
 }
 
+.smallTitleFormGroup {
+    composes: title;
+    font-size: 14px;
+}
+
 .subtitle {
-    margin: 8px 0 0;
     font-family: Gilroy;
     font-style: normal;   
 }
 
+.subtitleWithMargin {
+  composes: subtitle;
+  margin: 8px 0 0;
+}
+
 .subtitlePage {
-    composes: subtitle;
+    composes: subtitleWithMargin;
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
@@ -35,7 +44,7 @@
 }
 
 .subtitleFormGroup {
-    composes: subtitle;
+    composes: subtitleWithMargin;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -44,6 +53,15 @@
 
 
 .smallSubtitleFormGroup{
-    composes: subtitleFormGroup;
+    composes: subtitleWithMargin;
     max-width: 450px
 }
+
+.extraSmallSubtitleFormGroup{
+    composes: subtitle;
+    font-size: 12px;
+    color: cm_grey_400;
+    line-height: 16px;
+    font-weight: normal;
+}
+
