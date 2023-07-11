@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
-const getTitleStype = (type, size) => {
+const getTitleStyle = (type, size) => {
   switch (type) {
     case 'page':
       return style.titlePage;
@@ -16,7 +16,7 @@ const getTitleStype = (type, size) => {
   }
 };
 
-const getSubtitleStype = (type, size) => {
+const getSubtitleStyle = (type, size) => {
   switch (type) {
     case 'page':
       return style.subtitlePage;
@@ -41,8 +41,8 @@ const Title = props => {
     titleSize = 'standard',
     subtitleSize = 'standard'
   } = props;
-  const titleStyle = getTitleStype(type, titleSize);
-  const subtitleStyle = getSubtitleStype(type, subtitleSize);
+  const titleStyle = getTitleStyle(type, titleSize);
+  const subtitleStyle = getSubtitleStyle(type, subtitleSize);
 
   const subtitleSection = subtitle ? <div className={subtitleStyle}>{subtitle}</div> : null;
 
@@ -61,7 +61,7 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
-  titleSize: PropTypes.string,
-  subtitleSize: PropTypes.string
+  titleSize: PropTypes.oneOf(['standard', 'small']),
+  subtitleSize: PropTypes.oneOf(['standard', 'small', 'extra-small'])
 };
 export default Title;

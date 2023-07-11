@@ -14,7 +14,7 @@ const SelectOpponents = (props: SelectOpponentsProps) => {
     <ul className={style.container}>
       {mapWithIndex((item: TitleRadioWrapperProps, key: number) => {
         return (
-          <li key={key} className={style.item}>
+          <li key={`select-opponents-item-${key}`} className={style.item}>
             <TitleRadioWrapper {...item} />
           </li>
         );
