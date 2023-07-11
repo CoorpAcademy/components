@@ -20,6 +20,11 @@
     font-size: 18px;
 }
 
+.mediumTitleFormGroup {
+    composes: title;
+    font-size: 16px;
+}
+
 .smallTitleFormGroup {
     composes: title;
     font-size: 14px;
@@ -51,10 +56,14 @@
     color: cm_grey_400;
 }
 
-
 .smallSubtitleFormGroup{
     composes: subtitleFormGroup;
     max-width: 450px
+}
+
+.smallSubtitleFormGroupWithoutMargin{
+    composes: smallSubtitleFormGroup;
+    margin: 0;  
 }
 
 .extraSmallSubtitleFormGroup{
