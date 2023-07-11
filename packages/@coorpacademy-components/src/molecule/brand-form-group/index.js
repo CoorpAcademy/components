@@ -23,6 +23,7 @@ import Title from '../../atom/title';
 import Roles from '../coorp-manager-roles';
 import TitleAndCheckBoxWrapper from '../title-and-checkbox-wrapper';
 import ButtonLink from '../../atom/button-link';
+import TitleAndInput from '../../organism/title-and-input';
 import style from './style.css';
 
 const inputContainerStyle = {
@@ -86,6 +87,8 @@ const buildInput = field => {
       return <Roles {...field} />;
     case 'titleAndCheckBoxWrapper':
       return <TitleAndCheckBoxWrapper {...field} />;
+    case 'titleAndInput':
+      return <TitleAndInput {...field} />;
     default:
       return <InputText {...field} />;
   }
@@ -93,11 +96,12 @@ const buildInput = field => {
 
 const buildField = (field, index) => {
   const input = buildInput(field);
-  const {theme, size = 'default'} = field;
+  const {theme, size = 'default'} = field.type === 'titleAndInput' ? field.field : field;
   const styleInput = theme === 'coorpmanager' ? inputContainerStyle[size] : style.field;
+  const styleField = field.type === 'titleAndInput' ? style.fieldMassiveBattle : styleInput;
 
   return (
-    <div className={styleInput} key={index}>
+    <div className={styleField} key={index}>
       {input}
     </div>
   );
@@ -227,7 +231,11 @@ BrandFormGroup.propTypes = {
         ...Roles.propTypes,
         type: PropTypes.oneOf(['roles'])
       }),
-      PropTypes.shape(InputText.propTypes)
+      PropTypes.shape(InputText.propTypes),
+      PropTypes.shape({
+        ...TitleAndInput.propTypes,
+        type: PropTypes.oneOf(['titleAndInput'])
+      })
     ])
   )
 };
