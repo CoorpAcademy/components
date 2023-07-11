@@ -23,7 +23,8 @@ export default {
         field: {
           ...TitleAndAutocomplete.props.field,
           title: 'Choose a course'
-        }
+        },
+        childType: 'autoComplete'
       },
       {
         type: 'titleAndInput',
@@ -34,7 +35,6 @@ export default {
         },
         field: {
           title: 'Difficulty level',
-          type: 'selectMultiple',
           description: 'Level of difficulty (if it is easy, the population is more likely to win)',
           required: true,
           multiple: false,
@@ -58,7 +58,8 @@ export default {
           ],
           onChange: value => console.log('onChange', value),
           onError: () => true
-        }
+        },
+        childType: 'selectMultiple'
       }
     ]
   }

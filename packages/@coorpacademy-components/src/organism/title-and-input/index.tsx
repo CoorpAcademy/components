@@ -7,10 +7,8 @@ import SelectOpponents from '../select-opponents';
 import propTypes, {TitleAndInputProps} from './types';
 import style from './style.css';
 
-const buildInput = (field: any) => {
-  const {type} = field;
-
-  switch (type) {
+const buildInput = (childType: string, field: any) => {
+  switch (childType) {
     case 'autoComplete':
       return <Autocomplete {...field} />;
     case 'selectMultiple':
@@ -21,8 +19,8 @@ const buildInput = (field: any) => {
 };
 
 const TitleAndInput = (props: TitleAndInputProps) => {
-  const {title, field} = props;
-  const input = buildInput(field);
+  const {title, field, childType} = props;
+  const input = buildInput(childType, field);
   const styleInput = has('items', field) ? style.selectOpponentContainer : style.inputContainer;
   return (
     <div>

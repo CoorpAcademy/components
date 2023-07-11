@@ -8,9 +8,8 @@ export default {
       subtitle: 'If it is easy, the population is more likely to win'
     },
     field: {
-      ...SelectMultiple.props,
-      type: 'selectMultiple'
+      ...SelectMultiple.props
     },
-    type: 'titleAndInput'
+    childType: 'selectMultiple'
   }
 };

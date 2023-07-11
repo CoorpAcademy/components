@@ -8,9 +8,8 @@ export default {
       subtitle: 'Define the user who will send the battle'
     },
     field: {
-      ...Autocomplete.props,
-      type: 'autoComplete'
+      ...Autocomplete.props
     },
-    type: 'titleAndInput'
+    childType: 'autoComplete'
   }
 };

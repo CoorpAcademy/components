@@ -6,16 +6,15 @@ import SelectOpponents from '../select-opponents';
 import {SelectOpponentsProps} from '../select-opponents/types';
 
 const propTypes = {
-  type: PropTypes.string.isRequired,
   title: PropTypes.shape(Title.propTypes).isRequired,
   field: PropTypes.oneOfType([
     PropTypes.shape(Autocomplete.propTypes),
     PropTypes.shape(SelectMultiple.propTypes),
     PropTypes.shape(SelectOpponents.propTypes)
-  ])
+  ]),
+  childType: PropTypes.oneOf(['autoComplete', 'selectMultiple', 'selectOpponents']).isRequired
 };
 export type TitleAndInputProps = {
-  type: string;
   title: {
     title: string;
     subtitle: string;
@@ -23,6 +22,7 @@ export type TitleAndInputProps = {
     'data-name': string;
   };
   field: typeof SelectMultiple.propTypes | typeof Autocomplete.propTypes | SelectOpponentsProps;
+  childType: string;
 };
 
 export default propTypes;

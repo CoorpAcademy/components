@@ -10,6 +10,6 @@ export default {
     field: {
       ...SelectOpponents.props
     },
-    type: 'titleAndInput'
+    childType: 'selectOpponents'
   }
 };
