@@ -23,7 +23,7 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           aria-label={ariaLabel}
         />
         <span className={style.title}>
-          <Title {...title} />
+          <Title {...title} titleSize={'small'} subtitleSize={'extra-small'} />
         </span>
       </label>
     </div>

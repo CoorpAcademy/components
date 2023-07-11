@@ -2,16 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
-const getTitleStype = type => {
+const getTitleStyle = (type, size) => {
   switch (type) {
     case 'page':
       return style.titlePage;
     case 'form-group':
-      return style.titleFormGroup;
+      switch (size) {
+        case 'standard':
+          return style.titleFormGroup;
+        case 'small':
+          return style.smallTitleFormGroup;
+      }
   }
 };
 
-const getSubtitleStype = (type, size) => {
+const getSubtitleStyle = (type, size) => {
   switch (type) {
     case 'page':
       return style.subtitlePage;
@@ -21,14 +26,23 @@ const getSubtitleStype = (type, size) => {
           return style.subtitleFormGroup;
         case 'small':
           return style.smallSubtitleFormGroup;
+        case 'extra-small':
+          return style.extraSmallSubtitleFormGroup;
       }
   }
 };
 
 const Title = props => {
-  const {title, subtitle, type, 'data-name': dataName, subtitleSize = 'standard'} = props;
-  const titleStyle = getTitleStype(type);
-  const subtitleStyle = getSubtitleStype(type, subtitleSize);
+  const {
+    title,
+    subtitle,
+    type,
+    'data-name': dataName,
+    titleSize = 'standard',
+    subtitleSize = 'standard'
+  } = props;
+  const titleStyle = getTitleStyle(type, titleSize);
+  const subtitleStyle = getSubtitleStyle(type, subtitleSize);
 
   const subtitleSection = subtitle ? <div className={subtitleStyle}>{subtitle}</div> : null;
 
@@ -47,6 +61,7 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
-  subtitleSize: PropTypes.string
+  titleSize: PropTypes.oneOf(['standard', 'small']),
+  subtitleSize: PropTypes.oneOf(['standard', 'small', 'extra-small'])
 };
 export default Title;

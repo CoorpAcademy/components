@@ -1,15 +1,8 @@
+import radioWithTitle from '../../../../atom/radio-with-title/test/fixtures/default';
+
 export default {
   props: {
-    radioWithTitle: {
-      title: {
-        type: 'form-group',
-        title: 'Select one or several cohortes',
-        subtitle: 'in the drop-down list'
-      },
-      onChange: (value: boolean) => {
-        console.log('on change', value);
-      }
-    },
+    radioWithTitle: {...radioWithTitle.props},
     field: {
       theme: 'coorpmanager',
       placeholder: 'Select cohorte(s)',

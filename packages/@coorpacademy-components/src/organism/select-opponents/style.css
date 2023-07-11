@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.item {
+    list-style-type: none;
+}

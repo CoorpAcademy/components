@@ -4,8 +4,9 @@ export default {
       title: {
         type: 'form-group',
         title: 'Upload a list of specific users',
-        subtitle: 'Using an Excel file (mandatory column: email address'
+        subtitle: 'Using an Excel file (mandatory column: email address)'
       },
+      checked: false,
       onChange: (value: boolean) => {
         console.log('on change', value);
       }
