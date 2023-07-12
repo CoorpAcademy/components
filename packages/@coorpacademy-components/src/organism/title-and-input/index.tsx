@@ -21,7 +21,7 @@ const TitleAndInput = (props: TitleAndInputProps) => {
   const {title, field, childType} = props;
   const input = buildInput(childType, field);
   const styleInput =
-    childType === 'selectOpponents' ? style.selectOpponentContainer : style.inputContainer;
+    childType === 'selectOpponents' ? style.selectOpponentsContainer : style.inputContainer;
   return (
     <div>
       <Title
