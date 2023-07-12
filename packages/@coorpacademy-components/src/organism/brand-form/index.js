@@ -52,7 +52,7 @@ const buildButtonSection = (
   const cancelBackground = {backgroundColor: darkColor};
 
   const resetButton = onReset ? (
-    <div className={massiveBattleForm ? style.massiveBattleButton : style.resetButton}>
+    <div className={style.resetButton}>
       <Button type="reset" submitValue={resetValue} style={cancelBackground} />
     </div>
   ) : null;
