@@ -81,7 +81,7 @@ const BrandForm = (props, context) => {
   } = props;
   const {skin} = context;
   const darkColor = get('common.dark', skin);
-  const massiveBattleForm = groups[0].fields[0].type === 'titleAndInput';
+  const massiveBattleForm = groups[0]?.fields[0]?.type === 'titleAndInput';
   const backView = back ? (
     <p className={style.back}>
       <ArrowLeft style={{color: darkColor}} className={style.arrowBack} />
