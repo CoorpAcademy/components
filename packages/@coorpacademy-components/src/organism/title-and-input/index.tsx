@@ -12,7 +12,7 @@ const buildInput = (childType: string, field: any) => {
       return <Autocomplete {...field} />;
     case 'selectMultiple':
       return <SelectMultiple {...field} />;
-    default:
+    case 'selectOpponents':
       return <SelectOpponents {...field} />;
   }
 };
