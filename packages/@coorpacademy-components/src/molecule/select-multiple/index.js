@@ -162,7 +162,7 @@ const SelectMultiple = (
       )}
     >
       {title}
-      {isCMTheme ? (
+      {description && isCMTheme ? (
         <div className={style.infoIconWrapper}>
           <InfoIcon className={style.infoIcon} />
           <div className={style.descriptionLabel}>{description}</div>
