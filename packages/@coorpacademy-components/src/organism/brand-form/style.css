@@ -60,6 +60,11 @@
   composes: button;
 }
 
+.massiveBattleButton {
+  composes: button;
+  margin-bottom: 40px;
+}
+
 .loaderContainer {
   width: 100%;
   height: 50vh;
