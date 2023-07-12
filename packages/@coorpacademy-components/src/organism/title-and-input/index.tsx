@@ -6,7 +6,10 @@ import SelectOpponents from '../select-opponents';
 import propTypes, {TitleAndInputProps} from './types';
 import style from './style.css';
 
-const buildInput = (childType: string, field: any) => {
+const buildInput = (
+  childType: TitleAndInputProps['childType'],
+  field: TitleAndInputProps['field']
+) => {
   switch (childType) {
     case 'autoComplete':
       return <Autocomplete {...field} />;

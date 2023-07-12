@@ -21,7 +21,10 @@ export type TitleAndInputProps = {
     type: string;
     'data-name': string;
   };
-  field: typeof SelectMultiple.propTypes | typeof Autocomplete.propTypes | SelectOpponentsProps;
+  field:
+    | React.ComponentProps<typeof SelectMultiple>
+    | React.ComponentProps<typeof Autocomplete>
+    | SelectOpponentsProps;
   childType: string;
 };
 
