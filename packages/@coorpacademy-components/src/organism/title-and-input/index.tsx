@@ -1,5 +1,4 @@
 import React from 'react';
-import has from 'lodash/fp/has';
 import Title from '../../atom/title';
 import Autocomplete from '../../atom/autocomplete';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -21,7 +20,8 @@ const buildInput = (childType: string, field: any) => {
 const TitleAndInput = (props: TitleAndInputProps) => {
   const {title, field, childType} = props;
   const input = buildInput(childType, field);
-  const styleInput = has('items', field) ? style.selectOpponentContainer : style.inputContainer;
+  const styleInput =
+    childType === 'selectOpponents' ? style.selectOpponentContainer : style.inputContainer;
   return (
     <div>
       <Title
