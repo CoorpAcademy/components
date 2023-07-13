@@ -73,6 +73,10 @@
   width: 100%;
 }
 
+.fieldMassiveBattle {
+  margin: 0 0 48px 0;
+}
+
 .imageUploadContainer {
  display: flex;
  flex-direction: column;

@@ -20,7 +20,8 @@ const buildButtonSection = (
   isModified,
   isPending,
   darkColor,
-  theme
+  theme,
+  massiveBattleForm
 ) => {
   if (!onSubmit && !onReset) {
     return null;
@@ -28,7 +29,11 @@ const buildButtonSection = (
 
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
-    <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
+    <div
+      data-tip={tooltip.title}
+      data-for="submitButton"
+      className={massiveBattleForm ? style.massiveBattleButton : style.saveButton}
+    >
       {theme === 'coorpmanager' ? (
         <ButtonLink
           type="primary"
@@ -76,7 +81,7 @@ const BrandForm = (props, context) => {
   } = props;
   const {skin} = context;
   const darkColor = get('common.dark', skin);
-
+  const massiveBattleForm = groups[0]?.fields[0]?.type === 'titleAndInput';
   const backView = back ? (
     <p className={style.back}>
       <ArrowLeft style={{color: darkColor}} className={style.arrowBack} />
@@ -104,7 +109,8 @@ const BrandForm = (props, context) => {
     isModified,
     isPending,
     darkColor,
-    theme
+    theme,
+    massiveBattleForm
   );
 
   const handleSubmit = useMemo(
