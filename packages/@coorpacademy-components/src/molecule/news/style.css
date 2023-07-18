@@ -25,13 +25,13 @@
   flex: 0 0 450px;
   display: flex;
   align-items: center;
-  flex: 1;
+  flex: 3;
 }
 
 .linkImage {
   height: 100%;
   display: flex;
-  flex: 1;
+  flex: 3;
   align-items: center;
 }
 
@@ -49,7 +49,7 @@
   flex-direction: column;
   justify-content: space-around;
   min-width: 0;
-  flex: 2;
+  flex: 4;
   display: flex;
 }
 
@@ -111,14 +111,14 @@
   }
 
   .image {
-    flex: 1;
+    flex: 3;
   }
 
   .infos {
     padding: 30px;
     position: relative;
     justify-content: flex-start;
-    flex: 2;
+    flex: 4;
     display: flex;
   }
 
@@ -149,14 +149,14 @@
   }
 
   .image {
-    flex: 1;
+    flex: 3;
     height: 100px;
   }
 
   .infos {
     padding: 15px;
     justify-content: center;
-    flex: 2;
+    flex: 4;
     display: flex;
   }
 
