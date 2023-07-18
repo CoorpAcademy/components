@@ -16,6 +16,7 @@
   border: 1px solid light;
   box-sizing: border-box;
   overflow: hidden;
+  display: flex;
 }
 
 .image {
@@ -24,11 +25,13 @@
   flex: 0 0 450px;
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 .linkImage {
   height: 100%;
   display: flex;
+  flex: 1;
   align-items: center;
 }
 
@@ -46,6 +49,8 @@
   flex-direction: column;
   justify-content: space-around;
   min-width: 0;
+  flex: 2;
+  display: flex;
 }
 
 .title {
@@ -102,16 +107,19 @@
 @media tablet {
   .news {
     height: 150px;
+    display: flex;
   }
 
   .image {
-    flex: 0 0 250px;
+    flex: 1;
   }
 
   .infos {
     padding: 30px;
     position: relative;
     justify-content: flex-start;
+    flex: 2;
+    display: flex;
   }
 
   .author {
@@ -137,16 +145,19 @@
     cursor: pointer;
     height: 100px;
     border: 1px solid light;
+    display: flex;
   }
 
   .image {
-    flex: 0 0 100px;
+    flex: 1;
     height: 100px;
   }
 
   .infos {
     padding: 15px;
     justify-content: center;
+    flex: 2;
+    display: flex;
   }
 
   .title {
