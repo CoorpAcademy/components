@@ -67,6 +67,7 @@ import _NovaCompositionCoorpacademyMap from './components/nova-composition/coorp
 import _NovaCompositionCoorpacademyMicrophone from './components/nova-composition/coorpacademy/microphone';
 import _NovaCompositionCoorpacademyNext from './components/nova-composition/coorpacademy/next';
 import _NovaCompositionCoorpacademyOpenInNewTab from './components/nova-composition/coorpacademy/open-in-new-tab';
+import _NovaCompositionCoorpacademyPadlock from './components/nova-composition/coorpacademy/padlock';
 import _NovaCompositionCoorpacademyPictures from './components/nova-composition/coorpacademy/pictures';
 import _NovaCompositionCoorpacademyPinterest from './components/nova-composition/coorpacademy/pinterest';
 import _NovaCompositionCoorpacademyPlacesHome24 from './components/nova-composition/coorpacademy/places-home-24';
@@ -305,6 +306,7 @@ export const NovaCompositionCoorpacademyMicrophone: Icon = _NovaCompositionCoorp
 export const NovaCompositionCoorpacademyNext: Icon = _NovaCompositionCoorpacademyNext;
 export const NovaCompositionCoorpacademyOpenInNewTab: Icon =
   _NovaCompositionCoorpacademyOpenInNewTab;
+export const NovaCompositionCoorpacademyPadlock: Icon = _NovaCompositionCoorpacademyPadlock;
 export const NovaCompositionCoorpacademyPictures: Icon = _NovaCompositionCoorpacademyPictures;
 export const NovaCompositionCoorpacademyPinterest: Icon = _NovaCompositionCoorpacademyPinterest;
 export const NovaCompositionCoorpacademyPlacesHome24: Icon =
