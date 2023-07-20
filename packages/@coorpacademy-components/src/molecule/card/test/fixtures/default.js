@@ -18,6 +18,7 @@ export default {
       coorpOriginal: true,
       name: 'Decathlon creation'
     },
+    disabledContent: 'This course is locked. Learn more',
     onClick: () => console.log('click everywhere'),
     onFavoriteClick: () => console.log('click Favorite'),
     'aria-label': 'course card',
