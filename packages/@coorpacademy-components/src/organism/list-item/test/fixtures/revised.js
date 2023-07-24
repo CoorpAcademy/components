@@ -6,11 +6,11 @@ export default {
     tags: [
       {
         label: 'Ongoing changes',
-        type: 'revised'
+        type: 'progress'
       },
       {
         label: 'Published',
-        type: 'published'
+        type: 'success'
       }
     ],
 

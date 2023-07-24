@@ -1,6 +1,6 @@
 export default {
   props: {
     label: 'Published',
-    type: 'published'
+    type: 'success'
   }
 };
