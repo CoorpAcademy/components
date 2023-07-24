@@ -5,7 +5,7 @@ export default {
     tags: [
       {
         label: 'Draft',
-        type: 'draft'
+        type: 'progress'
       }
     ],
     bulletPointMenuButton: {

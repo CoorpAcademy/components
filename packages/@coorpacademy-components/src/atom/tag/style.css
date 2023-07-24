@@ -2,6 +2,7 @@
 @value white from colors;
 @value cm_yellow_200 from colors;
 @value cm_positive_100 from colors;
+@value cm_negative_100 from colors;
 @value cm_orange_700 from colors;
 @value black from colors;
 
@@ -19,23 +20,25 @@
     color: black;
 }
 
-.revised {
+.progress {
     composes: tag;
     background-color: color(cm_yellow_200 a(15%));
     color: cm_yellow_200;
 }
 
-.draft {
-   composes: revised;
-}
-
-.published {
+.success {
     composes: tag;
     background-color: color(cm_positive_100 a(15%));
     color: cm_positive_100;
 }
 
-.archived {
+.failure {
+    composes: tag;
+    background-color: color(cm_negative_100 a(15%));
+    color: cm_negative_100;
+}
+
+.warning {
     composes: tag;
     background-color: color(cm_orange_700 a(15%));
     color: cm_orange_700;

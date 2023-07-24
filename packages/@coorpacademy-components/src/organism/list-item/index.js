@@ -18,7 +18,7 @@ const ListItem = props => {
     contentType
   } = props;
   const tagsView = map.convert({cap: false})((tag, index) => {
-    isPublished = tag.type === 'published';
+    isPublished = tag.type === 'success';
     return (
       <div key={index} className={style.tag}>
         <Tag {...tag} />
@@ -82,7 +82,7 @@ ListItem.propTypes = {
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-      type: PropTypes.oneOf(['published', 'draft', 'archived', 'revised', 'default'])
+      type: PropTypes.oneOf(['success', 'failure', 'warning', 'progress', 'default'])
     })
   ),
   title: PropTypes.string.isRequired,
