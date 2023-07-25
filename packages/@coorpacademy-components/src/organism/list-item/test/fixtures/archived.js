@@ -5,7 +5,7 @@ export default {
     tags: [
       {
         label: 'Archived',
-        type: 'archived'
+        type: 'warning'
       }
     ],
     bulletPointMenuButton: {

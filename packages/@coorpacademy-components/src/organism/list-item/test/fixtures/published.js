@@ -6,7 +6,7 @@ export default {
     tags: [
       {
         label: 'Published',
-        type: 'published'
+        type: 'success'
       }
     ],
     bulletPointMenuButton: {
