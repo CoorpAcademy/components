@@ -10,7 +10,7 @@
 @value white from colors;
 
 .default[disabled] {
-  pointer-events: none;
+  /* pointer-events: none; */
   cursor: inherit;
 }
 
@@ -194,8 +194,14 @@
   z-index: 1;
 }
 
-.lockIcon {
-  font-size: 40px;
+.lockWrapper:hover .lockIcon {
+  background-color: #B81400;
+  color: white;
+}
+
+.lockWrapper:hover span {
+  font-weight: 600;
+  width: 150px;
 }
 
 .lockContent {
@@ -213,6 +219,14 @@
   font-family: 'Gilroy';
   font-size: 14px;
   line-height: 20px;
+}
+
+.lockIcon {
+  width: 48px;
+  background-color: #FCDADA;
+  align-self: center;
+  border-radius: 16px;
+  color: #B81400;
 }
 
 .imageWrapper {
