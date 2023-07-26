@@ -16,7 +16,11 @@ const STATUS = {
 const renderStatusIcon = (status: Status, progress: number) => {
   if (status === STATUS.inProgress)
     return <div role="status" className={style.progressText}>{`${progress} %`}</div>;
-  return <StatusItem icon={status === STATUS.fail ? 'invalid' : 'valid'} />;
+  return (
+    <div className={style.statusItemWrapper}>
+      <StatusItem icon={status === STATUS.fail ? 'invalid' : 'valid'} />
+    </div>
+  );
 };
 
 const resolveProgressBarColor = (status: Status) => {

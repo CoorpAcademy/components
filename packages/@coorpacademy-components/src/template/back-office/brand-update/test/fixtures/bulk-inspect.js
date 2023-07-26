@@ -1,4 +1,4 @@
-import BulkInspect from '../../../../../molecule/expandible-actionable-table/test/fixtures/inspect-valid-invalid';
+import WizardContents from '../../../../../organism/wizard-contents/test/fixtures/bulk-inspect';
 import headerAndMenu from './default';
 
 const {header} = headerAndMenu.props;
@@ -64,29 +64,11 @@ const items = [
   }
 ];
 
-const contentSteps = [
-  {
-    title: 'Import',
-    done: true
-  },
-  {
-    title: 'Inspect',
-    done: false,
-    current: true
-  }
-];
-const wizardHeader = {
-  title: 'Massive Import',
-  onClick: function onClick() {
-    return console.log('Close');
-  }
-};
-
 const notifications = [
   {
     type: 'warning',
     message:
-      '1 file out of 3 failed, you can still save the rest of the content. The files in error will be ignored. You will be able to correct them via a subsequent re-upload',
+      '1 file out of 4 failed, you can still save the rest of the content. The files in error will be ignored. You will be able to correct them via a subsequent re-upload',
     firstCTALabel: 'Download report',
     firstCTA: function firstCTA() {
       return console.log('first cta');
@@ -99,12 +81,7 @@ export default {
     header,
     items,
     content: {
-      content: {
-        type: 'expandible-table',
-        ...BulkInspect.props
-      },
-      steps: contentSteps,
-      wizardHeader,
+      ...WizardContents.props,
       key: 'expandible-table',
       type: 'expandible-table'
     },

@@ -49,7 +49,9 @@ export const propTypes = {
       componentType: PropTypes.oneOf(['menu'])
     })
   ]),
-  isNestedTable: PropTypes.bool
+  isNestedTable: PropTypes.bool,
+  emptyStateFirstMessage: PropTypes.string,
+  emptyStateSecondMessage: PropTypes.string
 };
 
 export type Field =
@@ -96,6 +98,8 @@ export type Props = {
   ariaDescribedby?: string;
   lastField?: LastField;
   isNestedTable?: boolean;
+  emptyStateFistMessage?: string;
+  emptyStateSecondMessage?: string;
 };
 
 export type ExpandState = {[key: number]: boolean};

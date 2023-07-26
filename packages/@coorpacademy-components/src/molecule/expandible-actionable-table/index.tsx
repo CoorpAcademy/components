@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import classnames from 'classnames';
-import {get, isString, size, includes} from 'lodash/fp';
+import {get, isString, size, includes, isEmpty} from 'lodash/fp';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import StatusItem from '../../atom/status-item';
 import BulkProgressBar from '../bulk-progress-bar';
@@ -9,6 +9,7 @@ import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import BulletPointMenuButton from '../bullet-point-menu-button';
 import ButtonLink from '../../atom/button-link';
 import ErrorsTable from '../errors-table';
+import EmptyStateBulkInspect from '../../atom/empty-state-bulk-inspect';
 import style from './style.css';
 import {ExpandState, Field, LastField, NestedRow, Props, propTypes} from './types';
 
@@ -17,7 +18,11 @@ const buildField = (field: Field) => {
   const {componentType} = field;
   switch (componentType) {
     case 'status':
-      return <StatusItem {...field} />;
+      return (
+        <div className={style.statusItemWrapper}>
+          <StatusItem {...field} />
+        </div>
+      );
     case 'progress-bar':
       return <BulkProgressBar {...field} />;
   }
@@ -52,8 +57,11 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
     stickyLastColumn = false,
     ariaDescribedby,
     columnWidth = `${100 / size(columns)}%`,
-    isNestedTable = false
+    isNestedTable = false,
+    emptyStateFistMessage = '',
+    emptyStateSecondMessage = ''
   } = props;
+
   const translate = GetTranslateFromContext(legacyContext);
 
   /**
@@ -66,6 +74,16 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
    * State variable to keep track which row is currently expanded.
    */
   const [expandState, setExpandState] = useState<ExpandState>({});
+
+  if (isEmpty(columns))
+    return (
+      <div className={style.wrapper}>
+        <EmptyStateBulkInspect
+          firstMessage={emptyStateFistMessage}
+          secondMessage={emptyStateSecondMessage}
+        />
+      </div>
+    );
 
   /**
    * This function gets called when show/hide link is clicked.
