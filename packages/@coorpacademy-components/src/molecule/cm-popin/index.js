@@ -10,6 +10,7 @@ import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
+import Title from '../../atom/title';
 import style from './style.css';
 import propTypes from './types';
 
@@ -45,7 +46,12 @@ const CMPopin = props => {
       }
     : null;
   const renderHeader = () => {
-    if (header) return <img className={style.headerBackground} src={header} />;
+    if (header) {
+      if (header.title) {
+        return <Title {...header.title} />;
+      }
+      return <img className={style.headerBackground} src={header} />;
+    }
     if (mode === 'cookie')
       return (
         <div className={style.cookieHeader}>
