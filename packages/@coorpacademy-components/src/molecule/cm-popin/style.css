@@ -132,11 +132,24 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  border-bottom: 1px solid cm_grey_100;
 }
 
 .popinHeader button {
   position: absolute;
 }
+
+.headerContent {
+  display: flex;
+  width: 612px;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.lockIcon {
+  height: 48px;
+}
+
 .descriptionText {
   text-align: center;
   font-family: Gilroy;
