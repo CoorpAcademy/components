@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 import Cta from '../../atom/button-link';
 import InputSwitch from '../../atom/input-switch';
+import Title from '../../atom/title';
 
 const propTypes = {
   content: PropTypes.string,
   mode: PropTypes.oneOf(['alert', 'information', 'cookie']),
-  header: PropTypes.string,
+  header: PropTypes.shape({
+    title: PropTypes.shape(Title.propTypes),
+    icon: PropTypes.string,
+    backgroundImage: PropTypes.string
+  }),
   firstButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
@@ -36,7 +41,17 @@ const propTypes = {
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
-  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
+  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes)),
+  items: PropTypes.shape({
+    type: PropTypes.string,
+    list: PropTypes.oneOfType([PropTypes.shape(CardsGrid.propTypes)])
+  })
+};
+
+type PopinHeaderProps = {
+  title: typeof Title.propTypes;
+  backgroundImage: string;
+  icon: string;
 };
 
 export type QuitPopinButton = {
@@ -54,6 +69,7 @@ export type CMPopinProps = {
   content: string;
   icon: string;
   mode: string;
+  popinHeader?: PopinHeaderProps;
   descriptionText: string;
   firstButton?: QuitPopinButton;
   secondButton?: QuitPopinButton;
