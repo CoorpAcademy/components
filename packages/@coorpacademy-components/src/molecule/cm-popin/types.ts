@@ -41,11 +41,7 @@ const propTypes = {
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
-  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes)),
-  items: PropTypes.shape({
-    type: PropTypes.string,
-    list: PropTypes.oneOfType([PropTypes.shape(CardsGrid.propTypes)])
-  })
+  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
 };
 
 type PopinHeaderProps = {

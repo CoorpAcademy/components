@@ -4,6 +4,7 @@ import {
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
   NovaLineSettingsCookie as Cookie,
   NovaSolidSpaceMoonRocket as MoonRocket,
+  NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaLineStatusCheckCircle1 as CheckCircle1
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
@@ -48,7 +49,12 @@ const CMPopin = props => {
   const renderHeader = () => {
     if (header) {
       if (header.title) {
-        return <Title {...header.title} />;
+        return (
+          <div className={style.headerContent}>
+            <LockIcon className={style.lockIcon} />
+            <Title {...header.title} />
+          </div>
+        );
       }
       return <img className={style.headerBackground} src={header} />;
     }
