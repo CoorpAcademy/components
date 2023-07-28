@@ -10,12 +10,14 @@ import InputSwitch from '../../atom/input-switch';
 import ImageUpload from '../../atom/image-upload';
 import SetupCohortItem from '../setup-cohort-item';
 import MessagePopin from '../message-popin';
+import BrandDownloadBox from '../brand-download-box';
 import style from './style.css';
 
 const SetupSlide = props => {
   const {fields} = props;
   const buildInput = field => {
     const {type} = field;
+    console.log('TCL ------>  ~ buildInput slide ~ type:', type);
     switch (type) {
       case 'switch':
         return <InputSwitch {...field} />;
@@ -37,6 +39,10 @@ const SetupSlide = props => {
         return <InputReadonly {...field} />;
       case 'doublestep':
         return <InputDoublestep {...field} />;
+      case 'downloadbox':
+        return <BrandDownloadBox {...field} />;
+      case 'slider':
+        return;
       default:
         return <InputText {...field} />;
     }
@@ -95,7 +101,11 @@ SetupSlide.propTypes = {
         ...MessagePopin.propTypes,
         type: PropTypes.oneOf(['alert'])
       }),
-      PropTypes.shape(InputText.propTypes)
+      PropTypes.shape(InputText.propTypes),
+      PropTypes.shape({
+        ...BrandDownloadBox.propTypes,
+        type: PropTypes.oneOf(['downloadbox'])
+      })
     ])
   )
 };

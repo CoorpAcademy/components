@@ -1,3 +1,24 @@
 .wrapperStyle {
     width: 100%;
 }
+
+.wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+  }
+
+.field {
+    margin-bottom: 20px;
+  }
+  
+  .field:last-child {
+    margin-bottom: 0;
+  }
+
+.imageUploadContainer {
+    height: 350px;
+    width: 460px;
+  }
+  

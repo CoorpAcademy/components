@@ -1,16 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
-import SetupSlide from '../setup-slide';
 import Accordion from '../../organism/accordion/toggler';
+import Select from '../../atom/select';
+import InputReadonly from '../../atom/input-readonly';
+import InputText from '../../atom/input-text';
+import InputCheckbox from '../../atom/input-checkbox';
+import InputDoublestep from '../../atom/input-doublestep';
+import InputSwitch from '../../atom/input-switch';
+import ImageUpload from '../../atom/image-upload';
+import SetupCohortItem from '../setup-cohort-item';
+import MessagePopin from '../message-popin';
+import BrandDownloadBox from '../brand-download-box';
+import SetupSlide from '../setup-slide';
 import style from './style.css';
 
 const SetupSlider = props => {
   const {tabProps = [], slides = []} = props;
-  const slidesView = map.convert({cap: false})(
-    (slide, key) => <SetupSlide {...slide} key={key} />,
-    slides
-  );
+  const buildSlides = slides_ => {
+    return map.convert({cap: false})((slide, key) => {
+      const buildInput = field => {
+        const {type} = field;
+        console.log('TCL ------>  ~ buildInput ~ tab:', field?.tabProps);
+        switch (type) {
+          case 'switch':
+            return <InputSwitch {...field} />;
+          case 'select':
+            return <Select {...field} theme={'coorpmanager'} />;
+          case 'checkbox':
+            return <InputCheckbox {...field} />;
+          case 'image':
+            return (
+              <div className={style.imageUploadContainer}>
+                <ImageUpload {...field} />
+              </div>
+            );
+          case 'splitForm':
+            return <SetupCohortItem field={field} />;
+          case 'alert':
+            return <MessagePopin header={field.title} content={field.subtitle} />;
+          case 'readonly':
+            return <InputReadonly {...field} />;
+          case 'doublestep':
+            return <InputDoublestep {...field} />;
+          case 'downloadbox':
+            return <BrandDownloadBox {...field} />;
+          case 'slider':
+            return (
+              <Accordion tabProps={field.tabProps} type={'all'} theme={'setup'}>
+                {buildSlides(field.slides)}
+              </Accordion>
+            );
+          default:
+            return <InputText {...field} />;
+        }
+      };
+
+      const buildField = (field, index) => {
+        const input = buildInput(field);
+        return (
+          <div className={style.field} key={index}>
+            {input}
+          </div>
+        );
+      };
+
+      const fieldsList = map.convert({cap: false})(buildField, slide.fields);
+
+      return (
+        <div className={style.wrapper} key={key}>
+          {fieldsList}
+        </div>
+      );
+    }, slides_);
+  };
+
+  const slidesView = buildSlides(slides);
+
   return (
     <div className={style.wrapperStyle}>
       <Accordion tabProps={tabProps} type={'all'} theme={'setup'}>
