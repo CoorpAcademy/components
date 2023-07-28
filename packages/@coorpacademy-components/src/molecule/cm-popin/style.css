@@ -140,11 +140,14 @@
 
 .headerContent {
   display: flex;
-  width: 612px;
-  height: 96px;
+  width: 100%;
   gap: 16px;
-  /* margin-bottom: 12px; */
+  padding: 8px;
   border-bottom: 1px solid cm_grey_100;
+}
+
+.headerTitle {
+  margin-bottom: 18px;
 }
 
 .lockIcon {
@@ -295,8 +298,9 @@ a {
 }
 
 .itemsContainer {
-  margin-left: 24px;
-  /* margin-right: 24px; */
+  margin: 24px;
+  height: 369px;
+  overflow-y: auto;
 }
 
 @media tablet {
