@@ -54,7 +54,9 @@ const CMPopin = props => {
         return (
           <div className={style.headerContent}>
             <LockIcon className={style.lockIcon} />
-            <Title {...header.title} />
+            <div className={style.headerTitle}>
+              <Title {...header.title} />
+            </div>
           </div>
         );
       }
@@ -136,32 +138,34 @@ const CMPopin = props => {
             />
           ) : null}
         </header>
-        <div
-          className={
-            mode === 'cookie' || mode === 'information'
-              ? style.cookieTitleContainer
-              : style.titleContainer
-          }
-        >
-          <div className={style.contentSection}>
-            {LogoComponent ? <LogoComponent className={style.icon} /> : null}
-            {content ? (
+        {mode !== 'items' ? (
+          <div
+            className={
+              mode === 'cookie' || mode === 'information'
+                ? style.cookieTitleContainer
+                : style.titleContainer
+            }
+          >
+            <div className={style.contentSection}>
+              {LogoComponent ? <LogoComponent className={style.icon} /> : null}
+              {content ? (
+                <p
+                  className={mode === 'alert' ? style.content : style.message}
+                  data-name={'cm-popin-content'}
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{__html: content}}
+                />
+              ) : null}
+            </div>
+            {descriptionText ? (
               <p
-                className={mode === 'alert' ? style.content : style.message}
-                data-name={'cm-popin-content'}
+                className={style.descriptionText}
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{__html: content}}
+                dangerouslySetInnerHTML={{__html: descriptionText}}
               />
             ) : null}
           </div>
-          {descriptionText ? (
-            <p
-              className={style.descriptionText}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: descriptionText}}
-            />
-          ) : null}
-        </div>
+        ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
         {renderBtnSwitch()}
         {firstButton || secondButton || thirdButton ? (
@@ -206,7 +210,7 @@ const CMPopin = props => {
         ) : null}
         {items ? (
           <div className={style.itemsContainer}>
-            <CardsGrid {...items} />;
+            <CardsGrid {...items} />
           </div>
         ) : null}
       </div>
