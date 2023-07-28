@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Cta from '../../atom/button-link';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
+import CardsGrid from '../../organism/cards-grid';
 
 const propTypes = {
   content: PropTypes.string,
@@ -41,7 +42,11 @@ const propTypes = {
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
-  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes))
+  listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes)),
+  items: PropTypes.shape({
+    type: PropTypes.string,
+    list: PropTypes.shape(CardsGrid.propTypes)
+  })
 };
 
 type PopinHeaderProps = {
@@ -69,6 +74,10 @@ export type CMPopinProps = {
   descriptionText: string;
   firstButton?: QuitPopinButton;
   secondButton?: QuitPopinButton;
+  items?: {
+    type: string;
+    list: PropTypes.InferProps<typeof CardsGrid.propTypes>;
+  };
 };
 
 export default propTypes;

@@ -1,3 +1,5 @@
+import CardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
+
 export default {
   props: {
     header: {
@@ -10,6 +12,10 @@ export default {
       icon: ''
     },
     onClose: () => console.log('close'),
-    mode: 'items'
+    mode: 'items',
+    items: {
+      type: 'content',
+      list: CardsGrid.props.list
+    }
   }
 };
