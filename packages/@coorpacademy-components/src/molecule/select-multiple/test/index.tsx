@@ -4,19 +4,22 @@ import flatten from 'lodash/fp/flatten';
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react';
 import SelectMultiple, {useChoices} from '..';
+import TitledCheckbox from '../../titled-checkbox';
 import defaultFixture from './fixtures/checked';
 
 browserEnv();
 
-const setup = options => {
-  const returnVal = [];
+type SetupReturnType = [() => Record<string, unknown>[], (choice: unknown) => void];
+
+const setup = (options: {name: string; value: string; selected: boolean}[]) => {
+  const returnVal: SetupReturnType | unknown[] = [];
   const TestComponent = () => {
-    returnVal.push(useChoices(options));
+    returnVal.push(useChoices(options) as SetupReturnType);
     return null;
   };
 
   render(<TestComponent />);
-  return flatten(returnVal);
+  return flatten(returnVal) as SetupReturnType;
 };
 
 test('should select array of choices when props.multiple is set', t => {
@@ -24,14 +27,14 @@ test('should select array of choices when props.multiple is set', t => {
   const props = {
     ...defaultFixture.props,
     multiple: true,
-    onChange: choices => {
+    onChange: (choices: typeof TitledCheckbox.propTypes.choice[]) => {
       t.true(Array.isArray(choices));
       t.pass();
     }
   };
 
   const {container} = render(<SelectMultiple {...props} />);
-  const checkbox = container.querySelector('[data-name="Digital"]');
+  const checkbox = container.querySelector('[data-name="Digital"]') as Element;
   t.truthy(checkbox);
   fireEvent.click(checkbox);
 });
