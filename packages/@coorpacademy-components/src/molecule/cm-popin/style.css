@@ -141,8 +141,9 @@
 .headerContent {
   display: flex;
   width: 612px;
+  height: 96px;
   gap: 16px;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   border-bottom: 1px solid cm_grey_100;
 }
 
@@ -291,6 +292,11 @@ a {
 }
 .popinCookie .largeButton {
   padding: 0px 8px 0px 0px
+}
+
+.itemsContainer {
+  margin-left: 24px;
+  /* margin-right: 24px; */
 }
 
 @media tablet {

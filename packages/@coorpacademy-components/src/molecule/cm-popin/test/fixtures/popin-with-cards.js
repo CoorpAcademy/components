@@ -1,4 +1,4 @@
-import CardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
+import CardsGrid from '../../../../organism/cards-grid/test/fixtures/many';
 
 export default {
   props: {

@@ -12,6 +12,7 @@ import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
+import CardsGrid from '../../organism/cards-grid';
 import style from './style.css';
 import propTypes from './types';
 
@@ -29,7 +30,8 @@ const CMPopin = props => {
     thirdButton,
     cookieTitle,
     descriptionBtnTxt,
-    listBtnSwicth
+    listBtnSwicth,
+    items
   } = props;
 
   const logo = {
@@ -200,6 +202,11 @@ const CMPopin = props => {
                 />
               </div>
             ) : null}
+          </div>
+        ) : null}
+        {items ? (
+          <div className={style.itemsContainer}>
+            <CardsGrid {...items} />;
           </div>
         ) : null}
       </div>
