@@ -36,11 +36,14 @@ export default {
       {
         title: 'Allo',
         type: 'link',
-        selected: true
+        selected: true,
+        activeIcon: true,
+        setChildrenAsHtml: false
       },
       {
         title: 'Papa',
-        type: 'link'
+        type: 'link',
+        setChildrenAsHtml: false
       },
       {
         title: 'Tango',
