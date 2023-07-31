@@ -46,8 +46,10 @@ export default {
         setChildrenAsHtml: false
       },
       {
-        title: 'Tango',
-        type: 'link'
+        title: "Oué les limites de tailles de news c'est cool",
+        type: 'link',
+        activeIcon: true,
+        setChildrenAsHtml: false
       },
       {
         title: 'Charlie',

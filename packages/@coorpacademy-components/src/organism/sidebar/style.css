@@ -118,8 +118,10 @@
 }
 
 .activeIcon {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   padding-right: 4px;
   color: cm_green_200;
 }
