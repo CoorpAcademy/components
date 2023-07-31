@@ -2,46 +2,45 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import flatten from 'lodash/fp/flatten';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {fireEvent, render} from '@testing-library/react';
 import SelectMultiple, {useChoices} from '..';
+import TitledCheckbox from '../../titled-checkbox';
 import defaultFixture from './fixtures/checked';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
-const setup = options => {
-  const returnVal = [];
+type SetupReturnType = [() => Record<string, unknown>[], (choice: unknown) => void];
+
+const setup = (options: {name: string; value: string; selected: boolean}[]) => {
+  const returnVal: SetupReturnType | unknown[] = [];
   const TestComponent = () => {
-    returnVal.push(useChoices(options));
+    returnVal.push(useChoices(options) as SetupReturnType);
     return null;
   };
 
-  mount(<TestComponent />);
-  return flatten(returnVal);
+  render(<TestComponent />);
+  return flatten(returnVal) as SetupReturnType;
 };
 
 test('should select array of choices when props.multiple is set', t => {
-  t.plan(2);
+  t.plan(3);
   const props = {
     ...defaultFixture.props,
     multiple: true,
-    onChange: choices => {
-      t.true(Array.isArray(choices), 'dffdff');
+    onChange: (choices: typeof TitledCheckbox.propTypes.choice[]) => {
+      t.true(Array.isArray(choices));
       t.pass();
     }
   };
 
-  const wrapper = mount(<SelectMultiple {...props} />);
-
-  wrapper.update();
-
-  const checkbox = wrapper.find('[checked=false]').first();
-
-  checkbox.simulate('change', {props});
+  const {container} = render(<SelectMultiple {...props} />);
+  const checkbox = container.querySelector('[data-name="Digital"]') as Element;
+  t.truthy(checkbox);
+  fireEvent.click(checkbox);
 });
 
 test('should return choices (getter)', t => {
+  t.plan(1);
   const props = {...defaultFixture.props};
   const [getChoices] = setup(props.options);
 
@@ -49,6 +48,7 @@ test('should return choices (getter)', t => {
 });
 
 test('should set current choice (setter)', t => {
+  t.plan(2);
   const props = {...defaultFixture.props};
   const [getChoices, setChoices] = setup(props.options);
   const choices = getChoices();
