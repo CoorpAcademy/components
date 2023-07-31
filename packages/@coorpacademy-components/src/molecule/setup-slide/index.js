@@ -17,7 +17,6 @@ const SetupSlide = props => {
   const {fields} = props;
   const buildInput = field => {
     const {type} = field;
-    console.log('TCL ------>  ~ buildInput slide ~ type:', type);
     switch (type) {
       case 'switch':
         return <InputSwitch {...field} />;
