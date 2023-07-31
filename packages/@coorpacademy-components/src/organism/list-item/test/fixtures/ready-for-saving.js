@@ -1,26 +1,36 @@
 export default {
   props: {
-    contentType: 'certification',
     id: 'default',
+    status: 'saved',
     data: {
-      title: 'Leaders of tomorrow'
+      title: 'Leaders of tomorrow',
+      dataColumns: [
+        {label: '24/10/2022', className: 'cell'},
+        {label: '56 files', className: 'cell'},
+        {label: 'Ready for Saving', type: 'success', className: 'cell'}
+      ]
     },
     settings: {
-      tags: [
-        {
-          label: 'Published',
-          type: 'success'
-        }
-      ],
       buttonLinks: {
         buttonLink: {
-          type: 'secondary',
-          label: 'Edit',
+          type: 'primary',
+          label: 'Save import',
           ariaLabel: 'aria button',
           dataName: 'default-button',
           icon: {
             position: 'left',
-            type: 'edit'
+            type: 'save'
+          },
+          onClick: () => console.log('click')
+        },
+        buttonLinkIcon: {
+          size: 'default',
+          icon: 'see',
+          'data-name': 'default-button',
+          'aria-label': 'aria button',
+          link: {
+            href: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx',
+            download: true
           },
           onClick: () => console.log('click')
         },
@@ -30,13 +40,13 @@ export default {
           buttons: [
             {
               'data-name': 'CP-archive-button',
-              label: 'Archive',
+              label: 'Download files',
               type: 'default',
               onClick: () => console.log('click')
             },
             {
               'data-name': 'CP-delete-button',
-              label: 'Delete',
+              label: 'Delete import',
               type: 'dangerous',
               onClick: () => console.log('click')
             }

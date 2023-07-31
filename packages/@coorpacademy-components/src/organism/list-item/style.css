@@ -5,6 +5,7 @@
 @value cm_grey_900 from colors;
 @value primaryAdd1 from colors;
 @value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 
 .wrapper {
   align-items: center;
@@ -16,11 +17,17 @@
   justify-content: space-between;
   padding: 0 24px;
   width: 100%;
+  gap: 24px;
 }
 
 .title {
   color: cm_grey_900;
   flex-grow: 0;
+  display: flex;
+  height: 56px;
+  align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
   font-family: Gilroy;
   font-size: 16px;
   font-stretch: normal;
@@ -33,7 +40,6 @@
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
-
 }
 
 .settings {
@@ -47,10 +53,33 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.cell {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  gap: 16px;
+  flex: 1 0 0;
+  color: cm_grey_500;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.save {
+  margin: 0 16px 0 0;
+  min-width: 147px;
+}
 
 .edit {
   margin: 0 16px 0 0;
   min-width: 93px;
+}
+.see {
+  margin: 0 16px 0 0;
+  /* min-width: 93px; */
 }
 
 .order {
@@ -65,7 +94,7 @@
   margin: 0 16px 0 0;
 }
 
-.orderWrapper {
+.dataColumnsWrapper {
   align-items: center;
   display: flex;
   width: 100%;

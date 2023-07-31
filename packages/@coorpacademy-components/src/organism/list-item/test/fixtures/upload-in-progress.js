@@ -1,32 +1,33 @@
 export default {
   props: {
-    contentType: 'certification',
     id: 'default',
+    status: 'saved',
     data: {
-      title: 'Leaders of tomorrow'
+      title: 'Leaders of tomorrow',
+      dataColumns: [
+        {label: '24/10/2022', className: 'cell'},
+        {label: '-', className: 'cell'},
+        {label: 'Upload In Progress', type: 'progress', className: 'cell'}
+      ]
     },
     settings: {
-      tags: [
-        {
-          label: 'Published',
-          type: 'success'
-        }
-      ],
       buttonLinks: {
         buttonLink: {
           type: 'secondary',
-          label: 'Edit',
+          label: 'Inspect',
           ariaLabel: 'aria button',
           dataName: 'default-button',
           icon: {
             position: 'left',
-            type: 'edit'
+            type: 'see'
           },
-          onClick: () => console.log('click')
+          onClick: () => console.log('click'),
+          disabled: true
         },
         bulletPointMenuButton: {
           buttonAriaLabel: 'aria button',
           menuAriaLabel: 'aria menu',
+          disabled: true,
           buttons: [
             {
               'data-name': 'CP-archive-button',

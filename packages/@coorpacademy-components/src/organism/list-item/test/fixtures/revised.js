@@ -2,47 +2,52 @@ export default {
   props: {
     contentType: 'certification',
     id: 'default',
-    title: 'Leaders of tomorrow',
-    tags: [
-      {
-        label: 'Ongoing changes',
-        type: 'progress'
-      },
-      {
-        label: 'Published',
-        type: 'success'
-      }
-    ],
-
-    buttonLink: {
-      type: 'secondary',
-      label: 'Edit',
-      ariaLabel: 'aria button',
-      dataName: 'default-button',
-      icon: {
-        position: 'left',
-        type: 'edit'
-      },
-      onClick: () => console.log('click')
+    data: {
+      title: 'Leaders of tomorrow'
     },
-    bulletPointMenuButton: {
-      buttonAriaLabel: 'aria button',
-      menuAriaLabel: 'aria menu',
-      buttons: [
+    settings: {
+      tags: [
         {
-          'data-name': 'CP-publish-button',
-          label: 'Publish',
-          type: 'default',
-          onClick: () => console.log('click')
+          label: 'Ongoing changes',
+          type: 'progress'
         },
         {
-          'data-name': 'CP-delete-button',
-          label: 'Delete',
-          type: 'dangerous',
-          onClick: () => console.log('click')
+          label: 'Published',
+          type: 'success'
         }
       ],
-      onClick: () => console.log('click')
+      buttonLinks: {
+        buttonLink: {
+          type: 'secondary',
+          label: 'Edit',
+          ariaLabel: 'aria button',
+          dataName: 'default-button',
+          icon: {
+            position: 'left',
+            type: 'edit'
+          },
+          onClick: () => console.log('click')
+        },
+        bulletPointMenuButton: {
+          buttonAriaLabel: 'aria button',
+          menuAriaLabel: 'aria menu',
+          buttons: [
+            {
+              'data-name': 'CP-publish-button',
+              label: 'Publish',
+              type: 'default',
+              onClick: () => console.log('click')
+            },
+            {
+              'data-name': 'CP-delete-button',
+              label: 'Delete',
+              type: 'dangerous',
+              onClick: () => console.log('click')
+            }
+          ],
+          onClick: () => console.log('click')
+        }
+      }
     }
   }
 };
