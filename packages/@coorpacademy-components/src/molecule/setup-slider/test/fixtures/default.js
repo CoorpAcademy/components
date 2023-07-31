@@ -54,8 +54,7 @@ const withUploadImageProps = {
     }
   ]
 };
-
-const {props: withoutImage} = withoutUploadImage;
+const withoutUploadImageProps = withoutUploadImage.props.slides[0];
 
 export default {
   props: {
@@ -70,6 +69,6 @@ export default {
         title: '3'
       }
     ],
-    slides: [withUploadImageProps, withoutImage, withoutImage]
+    slides: [withUploadImageProps, withoutUploadImageProps, withoutUploadImageProps]
   }
 };

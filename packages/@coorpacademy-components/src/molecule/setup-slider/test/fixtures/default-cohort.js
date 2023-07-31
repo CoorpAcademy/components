@@ -2,9 +2,9 @@ import CohortMessage from './alert-message';
 import CohortItem from './cohort';
 import CohortItemCreate from './create-new-cohort';
 
-const propsCohort = CohortItem.props.slides;
-const propsCreate = CohortItemCreate.props.slides;
-const propsMessage = CohortMessage.props.slides;
+const propsCohort = CohortItem.props.slides[0];
+const propsCreate = CohortItemCreate.props.slides[0];
+const propsMessage = CohortMessage.props.slides[0];
 export default {
   props: {
     tabProps: [
