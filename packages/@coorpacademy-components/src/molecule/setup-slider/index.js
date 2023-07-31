@@ -12,7 +12,7 @@ import ImageUpload from '../../atom/image-upload';
 import SetupCohortItem from '../setup-cohort-item';
 import MessagePopin from '../message-popin';
 import BrandDownloadBox from '../brand-download-box';
-import SetupSlide from '../setup-slide';
+import Title from '../../atom/title';
 import style from './style.css';
 
 const SetupSlider = props => {
@@ -21,7 +21,6 @@ const SetupSlider = props => {
     return map.convert({cap: false})((slide, key) => {
       const buildInput = field => {
         const {type} = field;
-        console.log('TCL ------>  ~ buildInput ~ tab:', field?.tabProps);
         switch (type) {
           case 'switch':
             return <InputSwitch {...field} />;
@@ -45,6 +44,8 @@ const SetupSlider = props => {
             return <InputDoublestep {...field} />;
           case 'downloadbox':
             return <BrandDownloadBox {...field} />;
+          case 'form-group':
+            return <Title {...field} />;
           case 'slider':
             return (
               <Accordion tabProps={field.tabProps} type={'all'} theme={'setup'}>
@@ -86,9 +87,59 @@ const SetupSlider = props => {
   );
 };
 
-SetupSlider.propTypes = {
+const SlidePropTypes = PropTypes.shape({
+  fields: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        ...SetupSlider.propTypes,
+        type: PropTypes.oneOf(['slider'])
+      }),
+      PropTypes.shape({
+        ...InputSwitch.propTypes,
+        type: PropTypes.oneOf(['switch'])
+      }),
+      PropTypes.shape({
+        ...Select.propTypes,
+        type: PropTypes.oneOf(['select'])
+      }),
+      PropTypes.shape({
+        ...InputCheckbox.propTypes,
+        type: PropTypes.oneOf(['checkbox'])
+      }),
+      PropTypes.shape({
+        ...ImageUpload.propTypes,
+        type: PropTypes.oneOf(['image'])
+      }),
+      PropTypes.shape({
+        ...InputReadonly.propTypes,
+        type: PropTypes.oneOf(['readonly'])
+      }),
+      PropTypes.shape({
+        ...InputDoublestep.propTypes,
+        type: PropTypes.oneOf(['doublestep'])
+      }),
+      PropTypes.shape({
+        ...SetupCohortItem.propTypes,
+        type: PropTypes.oneOf(['splitForm'])
+      }),
+      PropTypes.shape({
+        ...MessagePopin.propTypes,
+        type: PropTypes.oneOf(['alert'])
+      }),
+      PropTypes.shape(InputText.propTypes),
+      PropTypes.shape({
+        ...BrandDownloadBox.propTypes,
+        type: PropTypes.oneOf(['downloadbox'])
+      })
+    ])
+  )
+});
+
+const SetupSliderPropTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.propTypes)),
-  slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes))
+  slides: PropTypes.arrayOf(SlidePropTypes)
 };
+
+SetupSlider.propTypes = SetupSliderPropTypes;
 
 export default SetupSlider;
