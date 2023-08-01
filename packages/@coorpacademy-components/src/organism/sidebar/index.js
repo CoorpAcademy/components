@@ -117,7 +117,8 @@ export const LinkItem = ({
     style.linkItem,
     style.innerHTML,
     {[style.uppercase]: uppercase},
-    styles
+    styles,
+    !activeIcon && setChildrenAsHtml ? style.itemWithoutIcon : null
   );
   const borderStyle = {borderLeftColor: selected ? color : null};
 
@@ -142,11 +143,7 @@ export const LinkItem = ({
         />
       ) : (
         <li className={classNames} style={borderStyle}>
-          {activeIcon ? (
-            <ActiveIcon className={style.activeIcon} />
-          ) : (
-            <div className={style.activeIcon} />
-          )}
+          {activeIcon ? <ActiveIcon className={style.activeIcon} /> : null}
           {title}
           {children}
         </li>

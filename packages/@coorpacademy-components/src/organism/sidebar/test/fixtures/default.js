@@ -43,7 +43,7 @@ export default {
       {
         title: 'Papa',
         type: 'link',
-        setChildrenAsHtml: false
+        setChildrenAsHtml: true
       },
       {
         title: "Oué les limites de tailles de news c'est cool",

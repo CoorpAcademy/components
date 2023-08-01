@@ -125,3 +125,7 @@
   padding-right: 12px;
   color: cm_green_200;
 }
+
+.itemWithoutIcon {
+  padding-left: 43px;
+}
