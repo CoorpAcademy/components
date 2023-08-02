@@ -28,24 +28,12 @@ export default {
           buttonAriaLabel: 'aria button',
           menuAriaLabel: 'aria menu',
           disabled: true,
-          buttons: [
-            {
-              'data-name': 'CP-archive-button',
-              label: 'Archive',
-              type: 'default',
-              onClick: () => console.log('click')
-            },
-            {
-              'data-name': 'CP-delete-button',
-              label: 'Delete',
-              type: 'dangerous',
-              onClick: () => console.log('click')
-            }
-          ],
+          buttons: [],
           onClick: () => console.log('click')
         }
       }
     },
+    isBulkStyle: true,
     'aria-label': "Certification's order"
   }
 };

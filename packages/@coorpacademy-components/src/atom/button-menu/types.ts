@@ -21,12 +21,14 @@ export type ButtonProps = {
   label: string;
   onClick: () => void;
   type?: 'default' | 'dangerous';
+  leftJustify?: boolean;
 };
 
 export type ButtonMenuProps = {
   buttons: ButtonProps[];
   'data-name'?: string;
   'aria-label'?: string;
+  leftJustify?: boolean;
 };
 
 export type ButtonMenuPropsFixture = {props: ButtonMenuProps};

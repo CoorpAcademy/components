@@ -20,6 +20,10 @@
   user-select: none;
 }
 
+.leftJustify {
+  justify-content: flex-start;
+}
+
 .disabled {
   opacity: 0.1;
   pointer-events: none;

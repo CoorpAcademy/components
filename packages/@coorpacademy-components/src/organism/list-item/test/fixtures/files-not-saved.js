@@ -6,7 +6,7 @@ export default {
       title: 'Leaders of tomorrow',
       dataColumns: [
         {label: '24/10/2022', className: 'cell'},
-        {label: '-', className: 'cell'},
+        {label: '231 files', className: 'cell'},
         {label: '2 files not saved', type: 'progress', className: 'cell'}
       ]
     },
@@ -38,18 +38,14 @@ export default {
               label: 'Download files',
               type: 'default',
               onClick: () => console.log('click')
-            },
-            {
-              'data-name': 'CP-delete-button',
-              label: 'Delete import',
-              type: 'dangerous',
-              onClick: () => console.log('click')
             }
           ],
+          isBulkMenu: true,
           onClick: () => console.log('click')
         }
       }
     },
+    isBulkStyle: true,
     'aria-label': "Certification's order"
   }
 };

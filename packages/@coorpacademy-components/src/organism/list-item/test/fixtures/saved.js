@@ -7,7 +7,7 @@ export default {
       dataColumns: [
         {label: '24/10/2022', className: 'cell'},
         {label: '56 files', className: 'cell'},
-        {label: '2 files failed', type: 'warning', className: 'cell'}
+        {label: 'saved', type: 'success', className: 'cell'}
       ]
     },
     settings: {
@@ -29,20 +29,8 @@ export default {
           buttons: [
             {
               'data-name': 'CP-archive-button',
-              label: 'Download report',
-              type: 'default',
-              onClick: () => console.log('click')
-            },
-            {
-              'data-name': 'CP-archive-button',
               label: 'Download files',
               type: 'default',
-              onClick: () => console.log('click')
-            },
-            {
-              'data-name': 'CP-delete-button',
-              label: 'Delete import',
-              type: 'dangerous',
               onClick: () => console.log('click')
             }
           ],

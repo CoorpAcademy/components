@@ -54,3 +54,44 @@
   padding: 0;
   min-height: 200px;
 }
+
+.tableHeaderWrapper {
+  display: grid;
+  grid-template-columns: 70% auto; 
+  padding: 8px 16px;
+  align-items: center;
+  gap: 24px;
+  border-radius: 7px;
+  padding: 8px 16px;
+}
+
+
+.tableHeaderItem {
+  display: flex;
+  gap: 16px;
+  flex: 1 0 0;
+  overflow: hidden;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--font-font-color-tertiary, #9999A8);
+  text-overflow: ellipsis;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.dataColumnsWrapper {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  margin-left: 24px;
+}
+
+.settings {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}

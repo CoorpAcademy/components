@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {map, concat} from 'lodash/fp';
+import classnames from 'classnames';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
@@ -9,7 +10,7 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
-  const {data, settings, order, 'aria-label': ariaLabel, contentType} = props;
+  const {data, settings, order, 'aria-label': ariaLabel, contentType, isBulkStyle = false} = props;
   const {title, dataColumns} = data;
   const {buttonLinks, tags} = settings;
   const {buttonLink, buttonLinkIcon, bulletPointMenuButton} = buttonLinks;
@@ -52,7 +53,7 @@ const ListItem = props => {
     ) : null;
 
   return (
-    <div className={style.wrapper}>
+    <div className={classnames(style.wrapper, isBulkStyle && style.gridLayout)}>
       <div className={style.dataColumnsWrapper}>
         {isPublished && contentType === 'certification' ? orderView : null}
         {dataColumnsView}
@@ -60,13 +61,16 @@ const ListItem = props => {
 
       <div className={style.settings}>
         {tagsView}
-        <div className={buttonLinkType ? style[buttonLinkType] : style.edit}>
-          {buttonLink ? <ButtonLink {...buttonLink} /> : null}
-        </div>
-        <div className={style.see}>
-          {buttonLinkIcon ? <ButtonLinkIconOnly {...buttonLinkIcon} /> : null}
-        </div>
-
+        {buttonLink ? (
+          <div className={buttonLinkType ? style[buttonLinkType] : style.edit}>
+            <ButtonLink {...buttonLink} />
+          </div>
+        ) : null}
+        {buttonLinkIcon ? (
+          <div className={style.see}>
+            <ButtonLinkIconOnly {...buttonLinkIcon} />
+          </div>
+        ) : null}
         <BulletPointMenuButton {...bulletPointMenuButton} />
       </div>
     </div>
@@ -132,6 +136,7 @@ ListItem.propTypes = {
       })
     )
   }),
+  isBulkStyle: PropTypes.bool,
   order: PropTypes.number,
   'aria-label': PropTypes.string,
   contentType: PropTypes.string,

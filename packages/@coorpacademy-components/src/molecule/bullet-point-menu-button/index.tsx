@@ -19,7 +19,8 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
 
   const menuProps = {
     'data-name': 'button-menu',
-    buttons
+    buttons,
+    leftJustify: isBulkMenu
   };
 
   const menu = (

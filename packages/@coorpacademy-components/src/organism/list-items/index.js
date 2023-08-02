@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isNil from 'lodash/fp/isNil';
+import isEmpty from 'lodash/fp/isEmpty';
 import ListItem from '../list-item';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
@@ -9,7 +11,7 @@ import ExpandibleActionableTable from '../../molecule/expandible-actionable-tabl
 import style from './style.css';
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
-  const {items, itemType, onDrop, isDraggable = false} = content;
+  const {items, itemType, onDrop, isDraggable = false, tableHeader} = content;
   const itemsView =
     isDraggable && items.length > 1 ? (
       <DraggableList
@@ -24,14 +26,34 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
         </li>
       ))
     );
+  const tableHeaderView =
+    !isNil(tableHeader) && !isEmpty(tableHeader) ? (
+      <div className={style.tableHeaderWrapper}>
+        <div className={style.dataColumnsWrapper}>
+          {tableHeader.map((tableHeaderItem, index) => (
+            <div
+              key={`tableHeadeColumn-key-${index}`}
+              className={style.tableHeaderItem}
+              data-name={`tableHeader-${index}`}
+            >
+              {tableHeaderItem}
+            </div>
+          ))}
+        </div>
+        <div className={style.settings}>{''}</div>
+      </div>
+    ) : null;
   return (
-    <ul
-      className={!selectMultiple ? style.list : style.listWithSelectMultiple}
-      aria-label={ariaLabel}
-      data-name={'content-list'}
-    >
-      {itemsView}
-    </ul>
+    <div>
+      {tableHeaderView}
+      <ul
+        className={!selectMultiple ? style.list : style.listWithSelectMultiple}
+        aria-label={ariaLabel}
+        data-name={'content-list'}
+      >
+        {itemsView}
+      </ul>
+    </div>
   );
 };
 const buildContentView = (content, ariaLabel, selectMultiple) => {
@@ -80,7 +102,8 @@ ListItems.propTypes = {
       type: PropTypes.oneOf(['list']),
       itemType: PropTypes.string,
       onDrop: PropTypes.func,
-      isDraggable: PropTypes.bool
+      isDraggable: PropTypes.bool,
+      tableHeader: PropTypes.arrayOf(PropTypes.string)
     }),
     PropTypes.shape({
       ...ExpandibleActionableTable.propTypes,

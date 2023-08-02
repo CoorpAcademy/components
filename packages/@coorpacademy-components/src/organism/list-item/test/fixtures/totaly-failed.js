@@ -46,10 +46,12 @@ export default {
               onClick: () => console.log('click')
             }
           ],
+          isBulkMenu: true,
           onClick: () => console.log('click')
         }
       }
     },
+    isBulkStyle: true,
     'aria-label': "Certification's order"
   }
 };

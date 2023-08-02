@@ -18,6 +18,12 @@
   padding: 0 24px;
   width: 100%;
   gap: 24px;
+
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 70% auto; 
 }
 
 .title {
@@ -35,7 +41,6 @@
   font-weight: bold;
   line-height: 1.38;
   letter-spacing: normal;
-  margin-right: 24px;
   overflow: hidden;
   text-align: left;
   text-overflow: ellipsis;
