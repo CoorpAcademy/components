@@ -27,6 +27,11 @@ const groups = [
             fields: [
               {
                 title: '1. Download Coorpacademy’s Service Provider (SP) Metadata',
+                subtitle: '',
+                type: 'form-group'
+              },
+              {
+                title: 'Download our SAML Service Provider Assertion (metadata)',
                 type: 'downloadbox',
                 description:
                   'This is the information your company needs to configure Coorpacademy as a service provider accepted by your IdP',
@@ -44,6 +49,12 @@ const groups = [
                 title: '3. Export metadata from your Identity Provider (IdP)',
                 subtitle:
                   'Get the metadata that Coorpacademy can use to connect to your IdP. Follow your IdP’s instructions for exporting a SAML metadata file.',
+                type: 'form-group'
+              },
+              {
+                title: '4. Upload Your Company’s Identity Provider (IdP) Information',
+                subtitle:
+                  'This is the information Coorpacademy needs to connect to your IdP as a Service Provider',
                 type: 'form-group'
               },
               {
@@ -67,6 +78,12 @@ const groups = [
                   'This is the certificate (public key) that allows your IdP to connect to Coorpacademy',
                 error: 'error',
                 modified: true
+              },
+              {
+                title: '5. User Attribute Mapping',
+                subtitle:
+                  'Match Coorpacademy’s attributes to your company’s. These are the names under which the attributes are stored in your database. If an attribute is left blank, it will not be matched.',
+                type: 'form-group'
               },
               {
                 type: 'slider',
@@ -291,6 +308,11 @@ const groups = [
                 ]
               },
               {
+                title: '6. Activate SSO',
+                subtitle: '',
+                type: 'form-group'
+              },
+              {
                 title: 'Activate',
                 type: 'switch',
                 value: false,
@@ -303,6 +325,11 @@ const groups = [
                   'Turn this setting on to make the SSO connection the default way to access the platform, rather than the traditional Coorpacademy-specific login',
                 value: false,
                 modified: false
+              },
+              {
+                title: 'Advanced Options',
+                subtitle: '',
+                type: 'form-group'
               },
               {
                 title: 'Logout url',
