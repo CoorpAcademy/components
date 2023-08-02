@@ -1,3 +1,7 @@
+import Download from '../../../../molecule/brand-download-box/test/fixtures/sso';
+import Upload from '../../../../molecule/brand-upload-box/test/fixtures/sso';
+import Connection from '../../../../atom/button/test/fixtures/sso';
+
 const groups = [
   {
     title: 'Add an SSO configuration',
@@ -25,6 +29,37 @@ const groups = [
         slides: [
           {
             fields: [
+              // for coverage...
+              {
+                title: '1. Download Coorpacademy’s Service Provider (SP) Metadata',
+                fields: [
+                  {
+                    ...Download.props,
+                    type: 'downloadbox'
+                  }
+                ]
+              },
+              {
+                title: 'Or Upload your Company’s Identity Provider (Idp)',
+                subtitle:
+                  'This is the information Coorpacademy needs to connect to your IdP as a Service Provider',
+                fields: [
+                  {
+                    ...Upload.props,
+                    type: 'uploadbox'
+                  }
+                ]
+              },
+              {
+                title: '5. Test your connection',
+                fields: [
+                  {
+                    ...Connection.props,
+                    type: 'button'
+                  }
+                ]
+              },
+              //
               {
                 title: '1. Download Coorpacademy’s Service Provider (SP) Metadata',
                 subtitle: '',
