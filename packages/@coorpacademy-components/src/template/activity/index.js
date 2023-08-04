@@ -101,6 +101,7 @@ const Progression = (props, legacyContext) => {
           backgroundColor: primary
         }}
         className={style.cta}
+        data-testid="button-link-recommendation"
       />
     </div>
   ) : null;
