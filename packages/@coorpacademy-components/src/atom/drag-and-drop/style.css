@@ -103,6 +103,34 @@ video {
   max-width: 90%;
   white-space: nowrap;
 }
+
+.previewXlsxContainer {
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.previewXlsx {
+background-color: #E5E5E5;
+border-radius: 5px;
+width: 50%;
+height: 70%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 35px;
+}
+
+.iconFile {
+  height: 25%;
+  width: 25%;
+  color: #C5C5C9;
+}
 .infosContainer {
   width: 100%;
   height: 100%;
@@ -172,7 +200,7 @@ video {
   align-items: center;
   justify-content: space-between;
   margin-top: 16px;
-  padding: 8px 14px 8px 1px;
+  padding: 8px 14px 8px 8px;
   font-size: 12px;
   font-weight: 400;
   position: relative;
@@ -190,6 +218,7 @@ video {
   cursor: pointer;
   color: cm_grey_400;
   margin-left: 6px;
+  margin-right: 8px;
   height: 15px;
   width: 15px;
   position: absolute;
