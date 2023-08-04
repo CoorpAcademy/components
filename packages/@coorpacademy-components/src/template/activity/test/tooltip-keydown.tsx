@@ -20,13 +20,15 @@ test('should hide and show toolTip depending on key press event', async t => {
   const {container} = renderWithContext(<StarsSummary {...props} />);
 
   const reactToolTipContent =
-    '[data-testid="engine-stars-microlearning"] div [data-testid="react-tooltip-content"]';
+    '[data-testid="engine-stars-microlearning"] div [data-testid="react-tooltip-content"]' as string;
 
-  const microlearningButton = container.querySelector('[data-testid="engine-stars-microlearning"]');
+  const microlearningButton = container.querySelector(
+    '[data-testid="engine-stars-microlearning"]'
+  ) as Element;
   t.truthy(microlearningButton);
 
   fireEvent.mouseEnter(microlearningButton);
-  let reactToolTip = container.querySelector(reactToolTipContent);
+  let reactToolTip = container.querySelector(reactToolTipContent) as Element;
   t.truthy(reactToolTip);
 
   fireEvent.mouseOver(reactToolTip);
@@ -34,23 +36,23 @@ test('should hide and show toolTip depending on key press event', async t => {
   fireEvent.mouseLeave(microlearningButton);
   await delay(500);
 
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = container.querySelector(reactToolTipContent) as Element;
   t.falsy(reactToolTip);
 
   fireEvent.mouseEnter(microlearningButton);
   fireEvent.keyDown(microlearningButton, {key: 'Escape'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = container.querySelector(reactToolTipContent) as Element;
   t.falsy(reactToolTip);
 
   fireEvent.keyDown(microlearningButton, {key: 'A'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = container.querySelector(reactToolTipContent) as Element;
   t.falsy(reactToolTip);
 
   fireEvent.keyDown(microlearningButton, {key: 'Enter'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = container.querySelector(reactToolTipContent) as Element;
   t.truthy(reactToolTip);
 
   fireEvent.keyDown(microlearningButton, {key: 'Tab'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = container.querySelector(reactToolTipContent) as Element;
   t.falsy(reactToolTip);
 });
