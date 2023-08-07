@@ -42,8 +42,7 @@
 }
 
 .defaultLeft {
-  background-color: cm_grey_100;
-  color: cm_grey_900;
+  composes: default;
   justify-content: flex-start;
 }
 
@@ -57,7 +56,6 @@
 }
 
 .dangerousLeft {
-  composes: default;
-  color: cm_negative_100;
+  composes: dangerous;
   justify-content: flex-start;
 }

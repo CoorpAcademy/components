@@ -5,7 +5,7 @@ export const buttonPropTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['default', 'dangerous'])
+  type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft'])
 };
 
 const propTypes = {

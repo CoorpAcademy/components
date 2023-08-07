@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map, concat} from 'lodash/fp';
+import {map} from 'lodash/fp';
 import classnames from 'classnames';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -32,20 +32,13 @@ const ListItem = ({
     );
   })(tags);
 
-  const dataColumnsView = concat(
-    [
-      <div key="titleKey" className={style.title} title={title}>
-        {title}
+  const dataColumnsView = map.convert({cap: false})((dataColumn, index) => {
+    return (
+      <div key={index} className={style[dataColumn.className]}>
+        {dataColumn.type ? <Tag {...dataColumn} /> : dataColumn.label}
       </div>
-    ],
-    map.convert({cap: false})((dataColumn, index) => {
-      return (
-        <div key={index} className={style[dataColumn.className]}>
-          {dataColumn.type ? <Tag {...dataColumn} /> : dataColumn.label}
-        </div>
-      );
-    })(dataColumns)
-  );
+    );
+  })(dataColumns);
 
   const orderView =
     order !== null && order !== undefined ? (
@@ -58,6 +51,9 @@ const ListItem = ({
     <div className={classnames(style.wrapper, isBulkStyle && style.gridLayout)}>
       <div className={style.dataColumnsWrapper}>
         {isPublished && contentType === 'certification' ? orderView : null}
+        <div className={style.title} title={title}>
+          {title}
+        </div>
         {dataColumnsView}
       </div>
 
