@@ -1,5 +1,5 @@
 import SelectCohortes from '../../../../molecule/title-radio-wrapper/test/fixtures/select-cohortes';
-import UploadUsers from '../../../../molecule/title-radio-wrapper/test/fixtures/upload-users';
+import UploadOpponents from '../../../../molecule/title-radio-wrapper/test/fixtures/upload-validated-opponents';
 
 export default {
   props: {
@@ -8,7 +8,7 @@ export default {
         ...SelectCohortes.props
       },
       {
-        ...UploadUsers.props
+        ...UploadOpponents.props
       }
     ]
   }
