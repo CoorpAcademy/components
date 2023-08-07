@@ -2,58 +2,52 @@ export default {
   props: {
     contentType: 'certification',
     id: 'default',
-    data: {
-      title: 'Leaders of tomorrow'
+    title: 'Leaders of tomorrow',
+    tags: [
+      {
+        label: 'Ongoing changes',
+        type: 'progress'
+      },
+      {
+        label: 'Published',
+        type: 'success'
+      }
+    ],
+    buttonLink: {
+      type: 'secondary',
+      label: 'Edit',
+      ariaLabel: 'aria button',
+      dataName: 'default-button',
+      icon: {
+        position: 'left',
+        type: 'edit'
+      },
+      onClick: () => console.log('click'),
+      customStyle: {
+        paddingTop: '12px',
+        paddingRight: '24px',
+        paddingBottom: '12px',
+        paddingLeft: '24px'
+      }
     },
-    settings: {
-      tags: [
+    bulletPointMenuButton: {
+      buttonAriaLabel: 'aria button',
+      menuAriaLabel: 'aria menu',
+      buttons: [
         {
-          label: 'Ongoing changes',
-          type: 'progress'
+          'data-name': 'CP-publish-button',
+          label: 'Publish',
+          type: 'default',
+          onClick: () => console.log('click')
         },
         {
-          label: 'Published',
-          type: 'success'
-        }
-      ],
-      buttonLinks: {
-        buttonLink: {
-          type: 'secondary',
-          label: 'Edit',
-          ariaLabel: 'aria button',
-          dataName: 'default-button',
-          icon: {
-            position: 'left',
-            type: 'edit'
-          },
-          onClick: () => console.log('click'),
-          customStyle: {
-            paddingTop: '12px',
-            paddingRight: '24px',
-            paddingBottom: '12px',
-            paddingLeft: '24px'
-          }
-        },
-        bulletPointMenuButton: {
-          buttonAriaLabel: 'aria button',
-          menuAriaLabel: 'aria menu',
-          buttons: [
-            {
-              'data-name': 'CP-publish-button',
-              label: 'Publish',
-              type: 'default',
-              onClick: () => console.log('click')
-            },
-            {
-              'data-name': 'CP-delete-button',
-              label: 'Delete',
-              type: 'dangerous',
-              onClick: () => console.log('click')
-            }
-          ],
+          'data-name': 'CP-delete-button',
+          label: 'Delete',
+          type: 'dangerous',
           onClick: () => console.log('click')
         }
-      }
+      ],
+      onClick: () => console.log('click')
     }
   }
 };
