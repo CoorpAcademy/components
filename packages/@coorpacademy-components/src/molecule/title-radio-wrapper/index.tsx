@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmpty from 'lodash/fp/isEmpty';
 import RadioWithTitle from '../../atom/radio-with-title';
 import SelectMultiple from '../select-multiple';
 import ImageUpload from '../../atom/image-upload';
@@ -9,7 +10,9 @@ const buildInput = (childType: string, field: any) => {
   return childType === 'select-multiple' ? (
     <SelectMultiple {...field} />
   ) : (
-    <ImageUpload {...field} />
+    <div className={field.loading || isEmpty(field.previewContent) ? style.containerUpload : ''}>
+      <ImageUpload {...field} />
+    </div>
   );
 };
 
