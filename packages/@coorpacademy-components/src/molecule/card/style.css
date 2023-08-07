@@ -8,9 +8,10 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
+@value cm_negative_200 from colors;
+@value negative_100 from colors;
 
 .default[disabled] {
-  pointer-events: none;
   cursor: inherit;
 }
 
@@ -194,8 +195,14 @@
   z-index: 1;
 }
 
-.lockIcon {
-  font-size: 40px;
+.lockWrapper:hover .lockIcon {
+  background-color: cm_negative_200;
+  color: white;
+}
+
+.lockWrapper:hover span {
+  font-weight: 600;
+  width: 150px;
 }
 
 .lockContent {
@@ -213,6 +220,14 @@
   font-family: 'Gilroy';
   font-size: 14px;
   line-height: 20px;
+}
+
+.lockIcon {
+  width: 48px;
+  background-color: negative_100;
+  align-self: center;
+  border-radius: 16px;
+  color: cm_negative_200;
 }
 
 .imageWrapper {
