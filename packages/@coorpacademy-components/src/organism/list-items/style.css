@@ -3,6 +3,7 @@
 @value colors: "../../variables/colors.css";
 @value medium from colors;
 @value xtraLightGrey from colors;
+@value cm_grey_400 from colors;
 @value dark from colors;
 
 .header {

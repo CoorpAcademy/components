@@ -20,10 +20,6 @@
   user-select: none;
 }
 
-.leftJustify {
-  justify-content: flex-start;
-}
-
 .disabled {
   opacity: 0.1;
   pointer-events: none;
@@ -45,6 +41,12 @@
   color: cm_grey_900;
 }
 
+.defaultLeft {
+  background-color: cm_grey_100;
+  color: cm_grey_900;
+  justify-content: flex-start;
+}
+
 .default:hover {
   background-color: cm_grey_200;
 }
@@ -52,4 +54,10 @@
 .dangerous {
   composes: default;
   color: cm_negative_100;
+}
+
+.dangerousLeft {
+  composes: default;
+  color: cm_negative_100;
+  justify-content: flex-start;
 }

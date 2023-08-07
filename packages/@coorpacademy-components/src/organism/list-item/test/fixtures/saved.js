@@ -7,7 +7,7 @@ export default {
       dataColumns: [
         {label: '24/10/2022', className: 'cell'},
         {label: '56 files', className: 'cell'},
-        {label: 'saved', type: 'success', className: 'cell'}
+        {label: 'Saved', type: 'success', className: 'cell'}
       ]
     },
     settings: {
@@ -21,7 +21,13 @@ export default {
             position: 'left',
             type: 'see'
           },
-          onClick: () => console.log('click')
+          onClick: () => console.log('click'),
+          customStyle: {
+            paddingTop: '12px',
+            paddingRight: '24px',
+            paddingBottom: '12px',
+            paddingLeft: '24px'
+          }
         },
         bulletPointMenuButton: {
           buttonAriaLabel: 'aria button',
@@ -30,7 +36,7 @@ export default {
             {
               'data-name': 'CP-archive-button',
               label: 'Download files',
-              type: 'default',
+              type: 'defaultLeft',
               onClick: () => console.log('click')
             }
           ],

@@ -21,7 +21,13 @@ export default {
             position: 'left',
             type: 'see'
           },
-          onClick: () => console.log('click')
+          onClick: () => console.log('click'),
+          customStyle: {
+            paddingTop: '12px',
+            paddingRight: '24px',
+            paddingBottom: '12px',
+            paddingLeft: '24px'
+          }
         },
         bulletPointMenuButton: {
           buttonAriaLabel: 'aria button',
@@ -30,19 +36,19 @@ export default {
             {
               'data-name': 'CP-archive-button',
               label: 'Download report',
-              type: 'default',
+              type: 'defaultLeft',
               onClick: () => console.log('click')
             },
             {
               'data-name': 'CP-archive-button',
               label: 'Download files',
-              type: 'default',
+              type: 'defaultLeft',
               onClick: () => console.log('click')
             },
             {
               'data-name': 'CP-delete-button',
               label: 'Delete import',
-              type: 'dangerous',
+              type: 'dangerousLeft',
               onClick: () => console.log('click')
             }
           ],

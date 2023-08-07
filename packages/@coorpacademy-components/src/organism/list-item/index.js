@@ -9,14 +9,18 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
-const ListItem = props => {
-  const {data, settings, order, 'aria-label': ariaLabel, contentType, isBulkStyle = false} = props;
+const ListItem = ({
+  data,
+  settings,
+  order,
+  'aria-label': ariaLabel,
+  contentType,
+  isBulkStyle = false
+}) => {
   const {title, dataColumns} = data;
   const {buttonLinks, tags} = settings;
   const {buttonLink, buttonLinkIcon, bulletPointMenuButton} = buttonLinks;
-  const {
-    icon: {type: buttonLinkType}
-  } = buttonLink;
+
   let isPublished = false;
 
   const tagsView = map.convert({cap: false})((tag, index) => {
@@ -28,14 +32,12 @@ const ListItem = props => {
     );
   })(tags);
 
-  const titleView = (
-    <div key="titleKey" className={style.title} title={title}>
-      {title}
-    </div>
-  );
-
   const dataColumnsView = concat(
-    [titleView],
+    [
+      <div key="titleKey" className={style.title} title={title}>
+        {title}
+      </div>
+    ],
     map.convert({cap: false})((dataColumn, index) => {
       return (
         <div key={index} className={style[dataColumn.className]}>
@@ -62,12 +64,12 @@ const ListItem = props => {
       <div className={style.settings}>
         {tagsView}
         {buttonLink ? (
-          <div className={buttonLinkType ? style[buttonLinkType] : style.edit}>
+          <div className={style.buttonLink}>
             <ButtonLink {...buttonLink} />
           </div>
         ) : null}
         {buttonLinkIcon ? (
-          <div className={style.see}>
+          <div className={style.buttonLink}>
             <ButtonLinkIconOnly {...buttonLinkIcon} />
           </div>
         ) : null}

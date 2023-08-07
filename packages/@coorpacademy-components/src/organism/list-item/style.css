@@ -18,7 +18,6 @@
   padding: 0 24px;
   width: 100%;
   gap: 24px;
-
 }
 
 .gridLayout {
@@ -73,18 +72,8 @@
   white-space: nowrap;
 }
 
-.save {
+.buttonLink {
   margin: 0 16px 0 0;
-  min-width: 147px;
-}
-
-.edit {
-  margin: 0 16px 0 0;
-  min-width: 93px;
-}
-.see {
-  margin: 0 16px 0 0;
-  /* min-width: 93px; */
 }
 
 .order {

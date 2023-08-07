@@ -20,15 +20,13 @@ export type ButtonProps = {
   disabled?: boolean;
   label: string;
   onClick: () => void;
-  type?: 'default' | 'dangerous';
-  leftJustify?: boolean;
+  type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
 };
 
 export type ButtonMenuProps = {
   buttons: ButtonProps[];
   'data-name'?: string;
   'aria-label'?: string;
-  leftJustify?: boolean;
 };
 
 export type ButtonMenuPropsFixture = {props: ButtonMenuProps};

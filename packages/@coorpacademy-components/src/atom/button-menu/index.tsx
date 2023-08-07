@@ -5,20 +5,14 @@ import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 
 const Button = (props: ButtonProps) => {
-  const {
-    'data-name': dataName,
-    disabled,
-    label,
-    onClick,
-    type = 'default',
-    leftJustify = false
-  } = props;
+  const {'data-name': dataName, disabled, label, onClick, type = 'default'} = props;
   const styleButton = classnames(
     style.button,
     type === 'default' && style.default,
+    type === 'defaultLeft' && style.defaultLeft,
     type === 'dangerous' && style.dangerous,
-    disabled && style.disabled,
-    leftJustify && style.leftJustify
+    type === 'dangerousLeft' && style.dangerousLeft,
+    disabled && style.disabled
   );
 
   const handleOnClick = useCallback(() => onClick(), [onClick]);
@@ -41,13 +35,10 @@ const Button = (props: ButtonProps) => {
 Button.propTypes = buttonPropTypes;
 
 const ButtonMenu = (props: ButtonMenuProps) => {
-  const {buttons, 'data-name': dataName, leftJustify = false} = props;
-  const buildButton = useCallback(
-    (button: ButtonProps, index) => {
-      return <Button {...button} key={button.label + index} leftJustify={leftJustify} />;
-    },
-    [leftJustify]
-  );
+  const {buttons, 'data-name': dataName} = props;
+  const buildButton = useCallback((button: ButtonProps, index) => {
+    return <Button {...button} key={button.label + index} />;
+  }, []);
 
   const buttonList = useMemo(
     // @ts-expect-error (to avoid using map as any)

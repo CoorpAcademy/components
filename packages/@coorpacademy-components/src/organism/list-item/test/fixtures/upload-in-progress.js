@@ -22,6 +22,12 @@ export default {
             type: 'see'
           },
           onClick: () => console.log('click'),
+          customStyle: {
+            paddingTop: '12px',
+            paddingRight: '24px',
+            paddingBottom: '12px',
+            paddingLeft: '24px'
+          },
           disabled: true
         },
         bulletPointMenuButton: {
