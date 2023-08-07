@@ -4,7 +4,8 @@ import {uniqueId, constant, isEmpty} from 'lodash/fp';
 import {
   NovaSolidStatusClose as Close,
   NovaSolidFilesBasicFileUpload2 as FileUploadIcon,
-  NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon
+  NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon,
+  NovaSolidFilesBasicFileLines as FileLinesIcon
 } from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
 import Loader from '../loader';
@@ -116,7 +117,7 @@ class DragAndDrop extends React.Component {
       previewView = (
         <div className={style.previewXlsxContainer}>
           <div className={style.previewXlsx}>
-            <FileUploadBlockedIcon className={style.iconFile} />
+            <FileLinesIcon className={style.iconFile} />
           </div>
         </div>
       );
