@@ -8,9 +8,10 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
+@value cm_negative_200 from colors;
+@value negative_100 from colors;
 
 .default[disabled] {
-  /* pointer-events: none; */
   cursor: inherit;
 }
 
@@ -195,7 +196,7 @@
 }
 
 .lockWrapper:hover .lockIcon {
-  background-color: #B81400;
+  background-color: cm_negative_200;
   color: white;
 }
 
@@ -223,10 +224,10 @@
 
 .lockIcon {
   width: 48px;
-  background-color: #FCDADA;
+  background-color: negative_100;
   align-self: center;
   border-radius: 16px;
-  color: #B81400;
+  color: cm_negative_200;
 }
 
 .imageWrapper {
