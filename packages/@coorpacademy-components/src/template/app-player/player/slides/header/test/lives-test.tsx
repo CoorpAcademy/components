@@ -1,33 +1,40 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {render} from '@testing-library/react';
 import Header from '..';
 import withLivesFixture from './fixtures/learner';
 import adaptiveFixture from './fixtures/adaptive';
 import infiniteLivesFixture from './fixtures/infinite-lives';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
-const livesVisible = (t, Component, fixture) => {
+const livesVisible = (t: any, Component: any, fixture: any) => {
   const {lives} = fixture.props;
+  const shouldDisplayLives = lives !== undefined && lives !== null && lives.count !== null;
 
-  t.true(fixture.props !== undefined, `${lives ? 'should' : 'should not'} display lives icon`);
+  t.not(
+    fixture.props,
+    undefined,
+    `${shouldDisplayLives ? 'should' : 'should not'} display lives icon`
+  );
 
-  const wrapper = mount(<Component {...fixture.props} />);
-  const element = wrapper.find('[data-name="life"]');
-
-  t.is(element.length, lives && lives.count !== null ? 1 : 0);
+  const {container} = render(<Component {...fixture.props} />);
+  const element = container.querySelector('[data-name="life"]');
+  t.is(element !== null, shouldDisplayLives);
 };
 
 test('with lives', t => {
+  t.plan(2);
   livesVisible(t, Header, withLivesFixture);
 });
+
 test('with adaptive content', t => {
+  t.plan(2);
   livesVisible(t, Header, adaptiveFixture);
 });
+
 test('with infinite lives', t => {
+  t.plan(2);
   livesVisible(t, Header, infiniteLivesFixture);
 });
