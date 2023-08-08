@@ -60,7 +60,7 @@ const CMPopin = props => {
           </div>
         );
       }
-      return <img className={style.headerBackground} src={header} />;
+      return <img className={style.headerBackground} src={header.backgroundImage} />;
     }
     if (mode === 'cookie')
       return (
