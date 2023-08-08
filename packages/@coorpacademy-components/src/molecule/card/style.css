@@ -163,7 +163,7 @@
 }
 
 .default[disabled] .imageWrapper {
-  opacity: 0.8;
+  opacity: 0.4;
 }
 
 .lockWrapper {
@@ -186,33 +186,12 @@
   bottom: 0;
   content: '';
   opacity: 0.4;
-  background: linear-gradient(
-    to bottom, 
-     black 50%
-  );
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  background: black;
 }
 
 .lockIcon {
   font-size: 40px;
-}
-
-.lockContent {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  z-index: 2;
-}
-
-.lockContent span {
-  width: 134px;
-  height: 40px;
-  color: white;
-  text-align: center;
-  font-family: 'Gilroy';
-  font-size: 14px;
-  line-height: 20px;
+  z-index: 1;
 }
 
 .imageWrapper {
