@@ -22,6 +22,7 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value cm_grey_75 from colors;
+@value negative_100 from colors;
 
 .background {
   top: 0px;
@@ -152,6 +153,9 @@
 
 .lockIcon {
   height: 48px;
+  background-color: negative_100;
+  border-radius: 16px;
+  color: cm_negative_200;
 }
 
 .descriptionText {

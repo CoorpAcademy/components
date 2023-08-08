@@ -1,4 +1,4 @@
-import CardsGrid from '../../../../organism/cards-grid/test/fixtures/many';
+import CardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
 
 export default {
   props: {
@@ -9,7 +9,7 @@ export default {
         type: 'form-group',
         subtitleSize: 'small-without-margin'
       },
-      icon: ''
+      headerIcon: 'lockedContent'
     },
     onClose: () => console.log('close'),
     mode: 'items',

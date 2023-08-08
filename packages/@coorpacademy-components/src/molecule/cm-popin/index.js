@@ -16,6 +16,10 @@ import CardsGrid from '../../organism/cards-grid';
 import style from './style.css';
 import propTypes from './types';
 
+const IconType = {
+  lockedContent: <LockIcon className={style.lockIcon} />
+};
+
 const CMPopin = props => {
   const {
     content,
@@ -49,17 +53,19 @@ const CMPopin = props => {
     : null;
   const renderHeader = () => {
     if (header) {
-      if (header.title) {
+      const {title, headerIcon, backgroundImage} = header;
+      const TopTitleIcon = IconType[headerIcon];
+      if (title) {
         return (
           <div className={style.headerContent}>
-            <LockIcon className={style.lockIcon} />
+            {TopTitleIcon}
             <div className={style.headerTitle}>
-              <Title {...header.title} />
+              <Title {...title} />
             </div>
           </div>
         );
       }
-      return <img className={style.headerBackground} src={header.backgroundImage} />;
+      return <img className={style.headerBackground} src={backgroundImage} />;
     }
     if (mode === 'cookie')
       return (
