@@ -18,27 +18,14 @@ const PictureBackground = props => {
   const pictureView = isObject(src) ? (
     <div className={cssStyle.deviceView}>
       <div className={cssStyle.mobileContainer}>
-        <div
-          className={classnames(cssStyle.picture, bgStyle)}
-          style={{
-            backgroundImage: `url(${mobile})`
-          }}
-        />
+        <img className={classnames(cssStyle.picture, bgStyle)} src={mobile} />
       </div>
       <div className={cssStyle.desktopContainer}>
-        <div
-          className={classnames(cssStyle.picture, bgStyle)}
-          style={{
-            backgroundImage: `url(${desktop})`
-          }}
-        />
+        <img className={classnames(cssStyle.picture, bgStyle)} src={desktop} />
       </div>
     </div>
   ) : (
-    <div
-      className={classnames(cssStyle.default, bgStyle)}
-      style={{backgroundImage: `url(${src})`}}
-    />
+    <img className={classnames(cssStyle.default, bgStyle)} src={src} />
   );
 
   return (
