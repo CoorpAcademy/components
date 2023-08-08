@@ -12,7 +12,7 @@ export default {
       }
     },
     field: {
-      description: 'JPG or PNG, smaller than 5mb',
+      description: 'XLSX or XLS, smaller than 5mb',
       uploadLabel: 'Browse',
       previewLabel: 'File Preview',
       labelButtonLink: 'here',
