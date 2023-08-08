@@ -15,7 +15,7 @@ export default {
     mode: 'items',
     items: {
       type: 'content',
-      list: CardsGrid.props.list
+      list: CardsGrid.props
     }
   }
 };

@@ -33,7 +33,6 @@ const CMPopin = props => {
     listBtnSwicth,
     items
   } = props;
-
   const logo = {
     AlertDiamond,
     WindowUpload,
@@ -118,6 +117,10 @@ const CMPopin = props => {
         </div>
       );
     })(listBtnSwicth);
+  };
+  const renderItems = () => {
+    const {type, list} = items;
+    return type === 'content' ? <CardsGrid {...list} /> : null;
   };
   return (
     <div
@@ -208,11 +211,7 @@ const CMPopin = props => {
             ) : null}
           </div>
         ) : null}
-        {items ? (
-          <div className={style.itemsContainer}>
-            <CardsGrid {...items} />
-          </div>
-        ) : null}
+        {items ? <div className={style.itemsContainer}>{renderItems()}</div> : null}
       </div>
     </div>
   );
