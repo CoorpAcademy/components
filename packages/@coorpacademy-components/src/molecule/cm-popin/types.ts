@@ -9,7 +9,7 @@ const propTypes = {
   mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items']),
   header: PropTypes.shape({
     title: PropTypes.shape(Title.propTypes),
-    icon: PropTypes.string,
+    headerIcon: PropTypes.string,
     backgroundImage: PropTypes.string
   }),
   firstButton: PropTypes.shape({
@@ -52,7 +52,7 @@ const propTypes = {
 type PopinHeaderProps = {
   title: typeof Title.propTypes;
   backgroundImage: string;
-  icon: string;
+  headerIcon: string;
 };
 
 export type QuitPopinButton = {
