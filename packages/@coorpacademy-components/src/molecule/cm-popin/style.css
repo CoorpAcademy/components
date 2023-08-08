@@ -143,11 +143,11 @@
   width: 100%;
   gap: 16px;
   padding: 8px;
-  border-bottom: 1px solid cm_grey_100;
 }
 
 .headerTitle {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  padding: 2px 0px 2px;
 }
 
 .lockIcon {
@@ -298,9 +298,11 @@ a {
 }
 
 .itemsContainer {
-  margin: 24px;
   height: 369px;
   overflow-y: auto;
+  padding: inherit;
+  width: 100%;
+  border-top: 1px solid cm_grey_100;
 }
 
 @media tablet {

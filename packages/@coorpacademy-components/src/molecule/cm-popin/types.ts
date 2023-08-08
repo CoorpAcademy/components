@@ -6,7 +6,7 @@ import CardsGrid from '../../organism/cards-grid';
 
 const propTypes = {
   content: PropTypes.string,
-  mode: PropTypes.oneOf(['alert', 'information', 'cookie']),
+  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items']),
   header: PropTypes.shape({
     title: PropTypes.shape(Title.propTypes),
     icon: PropTypes.string,
