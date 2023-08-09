@@ -104,33 +104,8 @@ video {
   white-space: nowrap;
 }
 
-.previewXlsxContainer {
-  padding: 16px;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
-.previewXlsx {
-background-color: #E5E5E5;
-border-radius: 5px;
-width: 38%;
-height: 70%;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 34px;
-}
 
-.iconFile {
-  height: 24%;
-  width: 24%;
-  color: #C5C5C9;
-}
 .infosContainer {
   width: 100%;
   height: 100%;
@@ -255,7 +230,7 @@ padding: 34px;
   max-width: 30px;
   max-height: 30px;
   height: 20%;
-  width: 20%;;
+  width: 20%;
   transition: all 0.2s cubic-bezier(0.47, 1.04, 0.46, 2.16);
 }
 
@@ -306,4 +281,29 @@ padding: 34px;
   color: cm_negative_100;
   font-size: 12px;
   margin-top: 8px;
+}
+
+.previewXlsxContainer {
+  composes: preview;
+  background-color: transparent;
+}
+
+.previewXlsx {
+  background-color: #E5E5E5;
+  border-radius: 5px;
+  width: 38%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 34px;
+}
+
+.iconFile {
+  composes: icon;
+  max-width: 32px;
+  max-height: 32px;
+  height: 25%;
+  width: 25%;
+  color: #C5C5C9;
 }
