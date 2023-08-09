@@ -9,8 +9,8 @@ const ReviewHeaderSteps = props => {
 
   const items = map.convert({cap: false})(
     (step, index) => (
-      <div className={style.statusItemContainer}>
-        <StatusItem {...step} key={index} />
+      <div className={style.statusItemContainer} key={index}>
+        <StatusItem {...step} />
       </div>
     ),
     steps
