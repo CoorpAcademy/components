@@ -113,7 +113,7 @@ class DragAndDrop extends React.Component {
           />
         </div>
       );
-    } else if (previewContent && previewContent.type === 'xlsx' && !loading) {
+    } else if (previewContent && previewContent.type === 'xlsx') {
       previewView = (
         <div className={style.previewXlsxContainer}>
           <div className={style.previewXlsx}>
