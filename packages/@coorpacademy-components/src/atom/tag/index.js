@@ -5,10 +5,10 @@ import style from './style.css';
 
 const TAG_STYLES = {
   default: style.default,
-  published: style.published,
-  revised: style.revised,
-  archived: style.archived,
-  draft: style.draft
+  success: style.success,
+  failure: style.failure,
+  warning: style.warning,
+  progress: style.progress
 };
 
 const Tag = props => {

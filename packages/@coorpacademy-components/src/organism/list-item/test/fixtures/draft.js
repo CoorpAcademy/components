@@ -5,9 +5,26 @@ export default {
     tags: [
       {
         label: 'Draft',
-        type: 'draft'
+        type: 'progress'
       }
     ],
+    buttonLink: {
+      type: 'secondary',
+      label: 'Edit',
+      ariaLabel: 'aria button',
+      dataName: 'default-button',
+      icon: {
+        position: 'left',
+        type: 'edit'
+      },
+      onClick: () => console.log('click'),
+      customStyle: {
+        paddingTop: '12px',
+        paddingRight: '24px',
+        paddingBottom: '12px',
+        paddingLeft: '24px'
+      }
+    },
     bulletPointMenuButton: {
       buttonAriaLabel: 'aria button',
       menuAriaLabel: 'aria menu',
@@ -26,18 +43,6 @@ export default {
         }
       ],
       onClick: () => console.log('click')
-    },
-    buttonLink: {
-      type: 'secondary',
-      label: 'Edit',
-      ariaLabel: 'aria button',
-      dataName: 'default-button',
-      icon: {
-        position: 'left',
-        type: 'edit'
-      },
-      onClick: () => console.log('click')
-    },
-    bulletPointButtonOnClick: () => console.log('click')
+    }
   }
 };

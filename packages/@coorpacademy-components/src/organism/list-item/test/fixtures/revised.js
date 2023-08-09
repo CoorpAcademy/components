@@ -6,14 +6,13 @@ export default {
     tags: [
       {
         label: 'Ongoing changes',
-        type: 'revised'
+        type: 'progress'
       },
       {
         label: 'Published',
-        type: 'published'
+        type: 'success'
       }
     ],
-
     buttonLink: {
       type: 'secondary',
       label: 'Edit',
@@ -23,7 +22,13 @@ export default {
         position: 'left',
         type: 'edit'
       },
-      onClick: () => console.log('click')
+      onClick: () => console.log('click'),
+      customStyle: {
+        paddingTop: '12px',
+        paddingRight: '24px',
+        paddingBottom: '12px',
+        paddingLeft: '24px'
+      }
     },
     bulletPointMenuButton: {
       buttonAriaLabel: 'aria button',

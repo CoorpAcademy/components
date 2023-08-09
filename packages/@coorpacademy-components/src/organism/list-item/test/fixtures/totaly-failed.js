@@ -1,21 +1,21 @@
 export default {
   props: {
     id: 'default',
+    status: 'saved',
     title: 'Leaders of tomorrow',
-    tags: [
-      {
-        label: 'Archived',
-        type: 'warning'
-      }
+    dataColumns: [
+      {label: '24/10/2022', className: 'cell'},
+      {label: '56 files', className: 'cell'},
+      {label: '56 files failed', type: 'failure', className: 'cell'}
     ],
     buttonLink: {
       type: 'secondary',
-      label: 'Edit',
+      label: 'Inspect',
       ariaLabel: 'aria button',
       dataName: 'default-button',
       icon: {
         position: 'left',
-        type: 'edit'
+        type: 'see'
       },
       onClick: () => console.log('click'),
       customStyle: {
@@ -30,19 +30,28 @@ export default {
       menuAriaLabel: 'aria menu',
       buttons: [
         {
-          'data-name': 'CP-publish-button',
-          label: 'Publish',
-          type: 'default',
+          'data-name': 'CP-archive-button',
+          label: 'Download report',
+          type: 'defaultLeft',
+          onClick: () => console.log('click')
+        },
+        {
+          'data-name': 'CP-archive-button',
+          label: 'Download files',
+          type: 'defaultLeft',
           onClick: () => console.log('click')
         },
         {
           'data-name': 'CP-delete-button',
-          label: 'Delete',
-          type: 'dangerous',
+          label: 'Delete import',
+          type: 'dangerousLeft',
           onClick: () => console.log('click')
         }
       ],
+      isBulkMenu: true,
       onClick: () => console.log('click')
-    }
+    },
+    isBulkStyle: true,
+    'aria-label': "Certification's order"
   }
 };

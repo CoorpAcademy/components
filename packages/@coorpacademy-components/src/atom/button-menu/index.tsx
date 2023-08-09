@@ -9,7 +9,9 @@ const Button = (props: ButtonProps) => {
   const styleButton = classnames(
     style.button,
     type === 'default' && style.default,
+    type === 'defaultLeft' && style.defaultLeft,
     type === 'dangerous' && style.dangerous,
+    type === 'dangerousLeft' && style.dangerousLeft,
     disabled && style.disabled
   );
 
@@ -34,7 +36,7 @@ Button.propTypes = buttonPropTypes;
 
 const ButtonMenu = (props: ButtonMenuProps) => {
   const {buttons, 'data-name': dataName} = props;
-  const buildButton = useCallback((button, index) => {
+  const buildButton = useCallback((button: ButtonProps, index) => {
     return <Button {...button} key={button.label + index} />;
   }, []);
 
