@@ -40,17 +40,9 @@
   display: none;
 }
 
-.desktopContainer {
-  display: block;
-}
-
 @media desktop {
   .mobileContainer {
     display: none;
-  }
-
-  .desktopContainer {
-    display: block;
   }
 }
 
