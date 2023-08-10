@@ -9,7 +9,7 @@ import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import BulletPointMenuButton from '../bullet-point-menu-button';
 import ButtonLink from '../../atom/button-link';
 import ErrorsTable from '../errors-table';
-import EmptyStateBulkInspect from '../../atom/empty-state-bulk-inspect';
+import EmptySearchResult from '../../atom/empty-search-result';
 import style from './style.css';
 import {ExpandState, Field, LastField, NestedRow, Props, propTypes} from './types';
 
@@ -78,9 +78,10 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
   if (isEmpty(columns))
     return (
       <div className={style.wrapper}>
-        <EmptyStateBulkInspect
+        <EmptySearchResult
           firstMessage={emptyStateFistMessage}
           secondMessage={emptyStateSecondMessage}
+          isBulk
         />
       </div>
     );
