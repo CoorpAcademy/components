@@ -176,6 +176,7 @@ const CMPopin = props => {
           </div>
         ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
+        {items ? <div className={style.itemsContainer}>{renderItems()}</div> : null}
         {renderBtnSwitch()}
         {firstButton || secondButton || thirdButton ? (
           <div className={style.buttonContainer}>
@@ -217,7 +218,6 @@ const CMPopin = props => {
             ) : null}
           </div>
         ) : null}
-        {items ? <div className={style.itemsContainer}>{renderItems()}</div> : null}
       </div>
     </div>
   );
