@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isUndefined, snakeCase} from 'lodash/fp';
+import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
 import StatusItem from '../../atom/status-item';
 import style from './style.css';
