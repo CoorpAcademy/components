@@ -43,6 +43,13 @@
   padding-bottom: 20px;
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50px;
+  width: 50px;
+}
 
 @media desktop {
   .wrapper {

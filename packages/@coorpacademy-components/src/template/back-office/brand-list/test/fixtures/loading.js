@@ -2,6 +2,7 @@ import Header from '../../../../../organism/setup-header/test/fixtures/default';
 
 export default {
   props: {
+    isLoading: true,
     header: Header.props,
     brands: [],
     search: {
