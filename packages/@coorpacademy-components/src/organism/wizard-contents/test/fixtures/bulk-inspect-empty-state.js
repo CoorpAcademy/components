@@ -34,6 +34,12 @@ export default {
           position: 'left',
           type: 'bin'
         },
+        customStyle: {
+          paddingTop: '12px',
+          paddingRight: '24px',
+          paddingBottom: '12px',
+          paddingLeft: '24px'
+        },
         onClick: () => console.log('click')
       },
       secondButtonLink: {
@@ -44,6 +50,12 @@ export default {
         icon: {
           position: 'left',
           type: 'save'
+        },
+        customStyle: {
+          paddingTop: '12px',
+          paddingRight: '24px',
+          paddingBottom: '12px',
+          paddingLeft: '24px'
         },
         onClick: () => console.log('click')
       }

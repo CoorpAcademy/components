@@ -19,7 +19,7 @@ const Tab = ({tab, index, isLightTab}) => {
       onClick={onClick}
     >
       <Link href={href}>{title}</Link>
-      {!isUndefined(status) ? (
+      {status ? (
         <div className={style.statusItemWrapper}>
           <StatusItem icon="no-answer" value={status} selected={selected} />
         </div>

@@ -52,7 +52,6 @@
 .rightIcon {
   color: white;
   width: 37.5%;
-  height: 31.25%;
   transition: transform 0.25s ease;
 }
 
@@ -63,7 +62,6 @@
 .wrongIcon {
   color: white;
   width: 31.25%;
-  height: 31.25%;
   transition: color 0.25s ease;
 }
 
@@ -83,7 +81,6 @@
 .validIcon {
   color: cm_green_secondary_200;
   width: 50%;
-  height: 41.67%;
   transition: transform 0.25s ease;
 }
 
@@ -96,7 +93,6 @@
 .invalidIcon {
   color: cm_negative_100;
   width: 41.67%;
-  height: 41.67%;
   transition: color 0.25s ease;
 }
 

@@ -93,7 +93,7 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
 };
 
 const StatusItem = (props: StatusItemProps) => {
-  const {icon, current, selected, customStyle = {}} = props;
+  const {icon, current, selected} = props;
   return (
     <div
       className={classnames(
@@ -107,7 +107,6 @@ const StatusItem = (props: StatusItemProps) => {
         selected && style.selected
       )}
       data-name="status-item"
-      style={customStyle}
     >
       <Content {...props} />
     </div>
