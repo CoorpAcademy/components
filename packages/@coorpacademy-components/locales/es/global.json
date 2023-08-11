@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Gana {{count}} estrellas adicionales en este capítulo la primera vez que veas una lección.",
   "media_stars_to_win": "Gana {{count}} estrellas adicionales en este capítulo la primera vez que veas una lección.",
   "More": "Más",
+  "More details": "More details",
   "New media": "Nueva lección",
   "No Selected Dashboard": "No se ha seleccionado un panel",
   "No status": "Sin Estado",
@@ -74,8 +75,7 @@
   "Validated": "Validado",
   "Video Loading Error": "Se ha producido un error al cargar el vídeo, se ruega volver a probar.",
   "Wait_creation": "La plataforma se está creando. Esto puede tardar varios segundos. Por favor, espera...",
-  "Write something here": "Escribe algo aquí",
-  "comment_aria_label": "añada su comentario",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Aplicar",
   "zuora_discount_code": "Código promocional",
   "mandatory_fields": "*Mandatory fields",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "El número de errores de la importación masiva es de {{bulkImportErrorsNumber}}",
     "valid_scorm": "el archivo scorm es válido",
-    "invalid_scorm": "el archivo scorm no es válido"
+    "invalid_scorm": "el archivo scorm no es válido",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Cerrar pantalla de reseña",
   "post_comment_aria_label": "Publique su comentario",
-  "validate_aria_label": "Valide su respuesta y vaya al paso siguiente"
+  "validate_aria_label": "Valide su respuesta y vaya al paso siguiente",
+  "stars": "estrellas"
 }
