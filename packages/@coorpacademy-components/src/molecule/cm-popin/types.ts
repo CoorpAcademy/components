@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Cta from '../../atom/button-link';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
+import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
 
 const propTypes = {
@@ -50,7 +51,7 @@ const propTypes = {
 };
 
 type PopinHeaderProps = {
-  title: typeof Title.propTypes;
+  title: TitleProps;
   backgroundImage: string;
   headerIcon: string;
 };
