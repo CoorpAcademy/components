@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "รับดาวเพิ่ม {{count}} ดวงในบทนี้เมื่อคุณดูบทเรียนเป็นครั้งแรก!",
   "media_stars_to_win": "รับดาวเพิ่ม {{count}} ดวงในบทนี้เมื่อคุณดูบทเรียนเป็นครั้งแรก!",
   "More": "เพิ่มเติม",
+  "More details": "More details",
   "New media": "บทเรียนใหม่",
   "No Selected Dashboard": "ไม่ได้เลือกแดชบอร์ด",
   "No status": "ไม่มีสถานะ",
@@ -74,8 +75,7 @@
   "Validated": "ตรวจสอบความถูกต้องแล้ว",
   "Video Loading Error": "เกิดข้อผิดพลาดขณะกำลังโหลดวิดีโอ โปรดลองใหม่อีกครั้ง",
   "Wait_creation": "กำลังสร้างแพลตฟอร์มอยู่ การดำเนินการนี้อาจใช้เวลาหลายวินาที โปรดรอสักครู่...",
-  "Write something here": "เขียนอะไรที่นี่หน่อย",
-  "comment_aria_label": "เพิ่มความคิดเห็นของคุณ",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "สมัคร",
   "zuora_discount_code": "รหัสส่งเสริมการขาย",
   "mandatory_fields": "*ข้อมูลที่จำเป็นต้องกรอก",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "จำนวนข้อผิดพลาดในการนําเข้าจํานวนมากคือ {{bulkImportErrorsNumber}}",
     "valid_scorm": "ไฟล์ scorm ถูกต้อง",
-    "invalid_scorm": "ไฟล์ scorm ไม่ถูกต้อง"
+    "invalid_scorm": "ไฟล์ scorm ไม่ถูกต้อง",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "ปิดสไลด์รีวิว",
   "post_comment_aria_label": "โพสต์ความคิดเห็นของคุณ",
-  "validate_aria_label": "ตรวจสอบคำตอบของคุณแล้วไปยังขั้นตอนถัดไป"
+  "validate_aria_label": "ตรวจสอบคำตอบของคุณแล้วไปยังขั้นตอนถัดไป",
+  "stars": "ดาว"
 }
