@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Gagnez {{count}} étoiles supplémentaires par chapitre en consultant la leçon !",
   "media_stars_to_win": "Gagnez {{count}} étoile supplémentaire par chapitre en consultant la leçon !",
   "More": "Plus",
+  "More details": "More details",
   "New media": "Nouvelle leçon",
   "No Selected Dashboard": "Aucun tableau de bord sélectionné",
   "No status": "Pas de statut",
@@ -74,8 +75,7 @@
   "Validated": "Validée",
   "Video Loading Error": "Une erreur est survenue lors du chargement de la vidéo. Pouvez-vous vérifier votre connection internet et réessayer ?",
   "Wait_creation": "La plateforme est en cours de création. Cela peut prendre plusieurs secondes. Veuillez patienter...",
-  "Write something here": "Écrire ici",
-  "comment_aria_label": "Ajoutez votre commentaire",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Appliquer",
   "zuora_discount_code": "Code promo",
   "mandatory_fields": "* Champs obligatoires",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "Le nombre d'erreurs d'importation groupée est {{bulkImportErrorsNumber}}",
     "valid_scorm": "le fichier SCORM est valide",
-    "invalid_scorm": "Le fichier SCORM n'est pas valide"
+    "invalid_scorm": "Le fichier SCORM n'est pas valide",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Fermez la diapositive de révision",
   "post_comment_aria_label": "Postez votre commentaire",
-  "validate_aria_label": "Validez votre réponse et passez à l'étape suivante"
+  "validate_aria_label": "Validez votre réponse et passez à l'étape suivante",
+  "stars": "étoiles"
 }
