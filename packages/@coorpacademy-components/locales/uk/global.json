@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Вигравайте {{count}} додаткових зірок за перший перегляд уроку в цьому розділі!",
   "media_stars_to_win": "Вигравайте {{count}} додаткову зірку за перший перегляд уроку в цьому розділі!",
   "More": "Більше",
+  "More details": "More details",
   "New media": "Новий урок",
   "No Selected Dashboard": "Панель інструментів не вибрано",
   "No status": "Без статусу",
@@ -74,8 +75,7 @@
   "Validated": "Підтверджено",
   "Video Loading Error": "Під час завантаження відео сталася помилка. Повторіть ще раз.",
   "Wait_creation": "Платформу створено. Це може забрати кілька секунд. Почекайте, будь ласка...",
-  "Write something here": "Напишіть щось тут",
-  "comment_aria_label": "додати свій коментар",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Застосувати",
   "zuora_discount_code": "Промокод",
   "mandatory_fields": "*Mandatory fields",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "кількість помилок масового імпорту: {{bulkImportErrorsNumber}}",
     "valid_scorm": "SCORM-файл є дійсним",
-    "invalid_scorm": "SCORM-файл є недійсним"
+    "invalid_scorm": "SCORM-файл є недійсним",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Закрити слайд перегляду",
   "post_comment_aria_label": "Опублікуйте ваш коментар",
-  "validate_aria_label": "Підтвердьте свою відповідь і перейдіть до наступного кроку"
+  "validate_aria_label": "Підтвердьте свою відповідь і перейдіть до наступного кроку",
+  "stars": "зірки"
 }
