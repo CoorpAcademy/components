@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "在这一章，当你首次阅读一节课的时候可以赢得 {{count}}额外的星星！",
   "media_stars_to_win": "在这一章，当你首次阅读一节课的时候可以赢得 {{count}}额外的星星！",
   "More": "更多",
+  "More details": "More details",
   "New media": "新课",
   "No Selected Dashboard": "没有被选中的仪表盘",
   "No status": "无状态",
@@ -74,8 +75,7 @@
   "Validated": "已验证",
   "Video Loading Error": "加载视频时出错，请重试。",
   "Wait_creation": "该平台正在被创建中。订阅这可能需要几秒。请等待……",
-  "Write something here": "在这里填写内容",
-  "comment_aria_label": "添加您的评论",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "应用",
   "zuora_discount_code": "促销码",
   "mandatory_fields": "*Mandatory fields",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "批量导入错误数是 {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm 文件有效",
-    "invalid_scorm": "scorm 文件无效"
+    "invalid_scorm": "scorm 文件无效",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "关闭审议幻灯片",
   "post_comment_aria_label": "发布您的评论",
-  "validate_aria_label": "验证您的答案并转到下一步"
+  "validate_aria_label": "验证您的答案并转到下一步",
+  "stars": "星星"
 }
