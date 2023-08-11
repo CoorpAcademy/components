@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Zdobądź {{count}} dodatkowe gwiazdki w każdym rozdziale za obejrzenie filmiku z lekcją!",
   "media_stars_to_win": "Zdobądź {{count}} dodatkowe gwiazdki w każdym rozdziale za obejrzenie filmiku z lekcją!",
   "More": "Więcej",
+  "More details": "More details",
   "New media": "Nowa lekcja",
   "No Selected Dashboard": "Nie wybrano pulpitu nawigacyjnego",
   "No status": "Brak statusu",
@@ -74,8 +75,7 @@
   "Validated": "Zatwierdzony",
   "Video Loading Error": "Wystąpił błąd podczas ładowania filmu, spróbuj ponownie.",
   "Wait_creation": "Platforma jest w trakcie tworzenia. Może to potrwać kilkanaście sekund. Proszcę czekać...",
-  "Write something here": "Wpisz tutaj coś",
-  "comment_aria_label": "Dodaj swój komentarz",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Zastosuj",
   "zuora_discount_code": "Kod promocyjny",
   "mandatory_fields": "*Mandatory fields",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "Liczba błędów w imporcie zbiorowym: {{bulkImportErrorsNumber}",
     "valid_scorm": "plik scorm jest poprawny",
-    "invalid_scorm": "Plik scorm nie jest poprawny"
+    "invalid_scorm": "Plik scorm nie jest poprawny",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Zamknij slajd recenzji",
   "post_comment_aria_label": "Opublikuj swój komentarz",
-  "validate_aria_label": "Oceń swoją odpowiedź i przejdź do kolejnego kroku"
+  "validate_aria_label": "Oceń swoją odpowiedź i przejdź do kolejnego kroku",
+  "stars": "gwiazdy"
 }
