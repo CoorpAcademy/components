@@ -19,6 +19,7 @@
     "Continue": "Lanjutkan",
     "Type here": "Ketik di sini",
     "Select an answer": "Pilih satu jawaban",
+    "answer_the_question": "Answer the question",
     "presentation": {
       "aria_label": "Tinjau Wadah Presentasi",
       "title": "Apa itu<br/>Mode Revisi?",
@@ -53,5 +54,8 @@
     "no_skills": {
       "title": "Anda belum memiliki keterampilan untuk merevisi",
       "text": "Pertama, Anda harus menyelesaikan kursus sebelum Anda dapat mengulas keterampilan yang berbeda."
-    }      
+    },
+    "Acquired stars animation": "Mengakuisisi animasi bintang",
+    "New rank animation": "New rank animation",
+    "Congratulations confetti animation": "Congratulations confetti animation"
 }
