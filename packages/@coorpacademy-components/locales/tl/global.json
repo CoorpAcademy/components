@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Manalo ng {{count}} karagdagang mga star sa kabanatang ito sa unang pagkakataon na tingnan mo ang isang lesson! ",
   "media_stars_to_win": "Manalo ng {{count}} karagdagang mga star sa kabanatang ito sa unang pagkakataon na tingnan mo ang isang lesson!",
   "More": "More",
+  "More details": "More details",
   "New media": "Bagong lesson",
   "No Selected Dashboard": "Walang Napiling Dashboard",
   "No status": "Walang estado",
@@ -74,8 +75,7 @@
   "Validated": "Na-verify",
   "Video Loading Error": "May naganap na error habang naglo-load ng video, mangyaring subukang muli.",
   "Wait_creation": "Ang platform ay nilikha. Maaaring tumagal ito ng ilang segundo. Mangyaring maghintay ...",
-  "Write something here": "Magsulat dito",
-  "comment_aria_label": "idagdag ang iyong komento",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Mag-apply",
   "zuora_discount_code": "Promo code",
   "mandatory_fields": "* Mga patlang na ipinag-uutos",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "Ang bilang ng maramihang error sa pag-import ay {{bulkImportErrorsNumber}}",
     "valid_scorm": "balido ang scorm file",
-    "invalid_scorm": "Hindi balido ang scorm file"
+    "invalid_scorm": "Hindi balido ang scorm file",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Isara ang slide sa pag-review",
   "post_comment_aria_label": "I-post ang iyong komento",
-  "validate_aria_label": "Patunayan ang iyong sagot at pumunta sa susunod na hakbang"
+  "validate_aria_label": "Patunayan ang iyong sagot at pumunta sa susunod na hakbang",
+  "stars": "mga bituin"
 }
