@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Câștigați {{count}} stele în plus prima oară când urmăriți o lecție din acest capitol!",
   "media_stars_to_win": "Câștigați {{count}} stele în plus prima oară când urmăriți o lecție din acest capitol!",
   "More": "Mai multe",
+  "More details": "More details",
   "New media": "Lecție nouă",
   "No Selected Dashboard": "Nu ați selectat niciun tablou de bord",
   "No status": "Fara status",
@@ -74,8 +75,7 @@
   "Validated": "Validat",
   "Video Loading Error": "S-a produs o eroare în timpul încărcării materialului video. Vă rugăm să încercați din nou.",
   "Wait_creation": "Se creează platforma. Poate dura câteva secunde. Vă rugăm, așteptați...",
-  "Write something here": "Scrieți ceva aici",
-  "comment_aria_label": "adauga comentariul tau",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Aplică",
   "zuora_discount_code": "Cod promoțional",
   "mandatory_fields": "*Mandatory fields",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "numărul de erori de import în masă este {{bulkImportErrorsNumber}}",
     "valid_scorm": "fișierul scorm este valid",
-    "invalid_scorm": "fișierul scorm nu este valid"
+    "invalid_scorm": "fișierul scorm nu este valid",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Închideți slide-ul de recenzie",
   "post_comment_aria_label": "Postează comentariul tău",
-  "validate_aria_label": "Validați-vă răspunsul și treceți la pasul următor"
+  "validate_aria_label": "Validați-vă răspunsul și treceți la pasul următor",
+  "stars": "stele"
 }
