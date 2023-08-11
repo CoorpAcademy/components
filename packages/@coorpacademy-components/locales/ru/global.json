@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Выиграйте {{count}} дополнительных звезд в этой главе при первом просмотре урока!",
   "media_stars_to_win": "Выиграйте {{count}} дополнительную звезду в этой главе при первом просмотре урока!",
   "More": "Еще",
+  "More details": "More details",
   "New media": "Новый урок",
   "No Selected Dashboard": "Нет выбранной панели управления",
   "No status": "Нет положения",
@@ -74,8 +75,7 @@
   "Validated": "Подтверждено",
   "Video Loading Error": "Произошла ошибка при загрузке видео, попробуйте еще раз.",
   "Wait_creation": "Платформа в процессе создания. Это может занять несколько секунд. Пожалуйста, подождите...",
-  "Write something here": "Напишите здесь что-нибудь",
-  "comment_aria_label": "добавить свой комментарий",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Применить",
   "zuora_discount_code": "Промо-код",
   "mandatory_fields": "*Обязательные поля",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "количество ошибок массового импорта равно {{bulkImportErrorsNumber}}",
     "valid_scorm": "файл scorm действителен",
-    "invalid_scorm": "файл scorm недействителен"
+    "invalid_scorm": "файл scorm недействителен",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Закрыть проверку слайда",
   "post_comment_aria_label": "Опубликуйте свой комментарий",
-  "validate_aria_label": "Проверьте свой ответ и перейдите к следующему шагу"
+  "validate_aria_label": "Проверьте свой ответ и перейдите к следующему шагу",
+  "stars": "звезды"
 }
