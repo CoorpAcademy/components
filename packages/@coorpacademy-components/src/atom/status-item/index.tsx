@@ -93,7 +93,7 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
 };
 
 const StatusItem = (props: StatusItemProps) => {
-  const {icon, current} = props;
+  const {icon, current, selected} = props;
   return (
     <div
       className={classnames(
@@ -103,7 +103,8 @@ const StatusItem = (props: StatusItemProps) => {
         current && style.current,
         icon === 'valid' && style.valid,
         icon === 'invalid' && style.invalid,
-        icon === 'errors-number' && style.errorsNumber
+        icon === 'errors-number' && style.errorsNumber,
+        selected && style.selected
       )}
       data-name="status-item"
     >

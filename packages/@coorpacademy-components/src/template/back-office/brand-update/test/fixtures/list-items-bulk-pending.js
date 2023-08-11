@@ -1,8 +1,11 @@
-import WizardContents from '../../../../../organism/wizard-contents/test/fixtures/bulk-inspect';
-import headerAndMenu from './default';
+import {defaultsDeep, cloneDeep} from 'lodash/fp';
+import listItemsImportsPending from '../../../../../organism/list-items/test/fixtures/imports-pending';
+import Default from './default';
 
-const {header} = headerAndMenu.props;
-const items = [
+const props = cloneDeep(Default.props);
+const listItemsImportsPendingProps = listItemsImportsPending.props;
+
+props.items = [
   {
     title: 'My Dashboard',
     key: 'dashboard',
@@ -36,7 +39,40 @@ const items = [
     type: 'collapsibleTab',
     tabs: [
       {title: 'Go to Cockpit', href: '#/cockpit', selected: false, type: 'iconLink'},
-      {title: 'Bulk Import', href: '#/external-content', selected: true}
+      {
+        title: 'Bulk Import',
+        href: '#/external-content',
+        selected: true,
+        subTabs: [
+          {
+            title: 'Saved',
+            href: '#/external-content/saved',
+            name: 'saved-imports',
+            permissions: ['list-saved-imports'],
+            selected: false,
+            status: '2',
+            type: 'simpleTab'
+          },
+          {
+            title: 'Pending',
+            href: '#/external-content/pending',
+            name: 'pending-imports',
+            permissions: ['list-pending-imports'],
+            selected: true,
+            status: '2',
+            type: 'simpleTab'
+          },
+          {
+            title: 'Queued',
+            href: '#/external-content/pending',
+            name: 'pending-imports',
+            permissions: ['list-pending-imports'],
+            selected: false,
+            status: '1',
+            type: 'simpleTab'
+          }
+        ]
+      }
     ]
   },
   {
@@ -64,28 +100,12 @@ const items = [
   }
 ];
 
-const notifications = [
-  {
-    type: 'warning',
-    message:
-      '1 file out of 4 failed, you can still save the rest of the content. The files in error will be ignored. You will be able to correct them via a subsequent re-upload',
-    firstCTALabel: 'Download report',
-    firstCTA: function firstCTA() {
-      return console.log('first cta');
-    }
-  }
-];
-
 export default {
-  props: {
-    header,
-    items,
+  props: defaultsDeep(props, {
     content: {
-      ...WizardContents.props,
-      key: 'expandible-table',
-      type: 'expandible-table'
-    },
-    notifications,
-    contentFixHeight: true
-  }
+      ...listItemsImportsPendingProps,
+      type: 'list-content',
+      itemType: 'certification'
+    }
+  })
 };

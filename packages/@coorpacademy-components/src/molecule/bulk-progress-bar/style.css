@@ -30,3 +30,8 @@
   white-space: nowrap;
   color: cm_grey_400;
 }
+
+.statusItemWrapper {
+  width: 24px;
+  height: 24px;
+}
