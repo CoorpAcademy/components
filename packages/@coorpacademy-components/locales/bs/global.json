@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
   "media_stars_to_win": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
   "More": "Više",
+  "More details": "More details",
   "New media": "Nova lekcija",
   "No Selected Dashboard": "Nema izabrane kontrolne table",
   "No status": "NEMA STATUS",
@@ -74,8 +75,7 @@
   "Validated": "Provjereno",
   "Video Loading Error": "Pojavila se greška prilikom učitavanja videa. Molimo pokušajte ponovo.",
   "Wait_creation": "Platforma se priprema. Ovo može potrajati nekoliko sekundi, molimo vas sačekajte ...",
-  "Write something here": "Napiši nešto ovdje.",
-  "comment_aria_label": "dodajte svoj komentar",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Primijeni",
   "zuora_discount_code": "Promotivni kod",
   "mandatory_fields": "* Obavezna polja",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "broj grešaka masovnog uvoza je {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm datoteka je važeća",
-    "invalid_scorm": "scorm datoteka nije važeća"
+    "invalid_scorm": "scorm datoteka nije važeća",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Zatvorite slajd za recenziju",
   "post_comment_aria_label": "Objavite svoj komentar",
-  "validate_aria_label": "Potvrdite svoj odgovor i idite na sljedeći korak"
+  "validate_aria_label": "Potvrdite svoj odgovor i idite na sljedeći korak",
+  "stars": "zvijezde"
 }
