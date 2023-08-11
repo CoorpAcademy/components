@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Võida selles peatükis õppetunni esmakordsel vaatamisel  {{count}} lisatähepunkti!",
   "media_stars_to_win": "Võida selles peatükis õppetunni esmakordsel vaatamisel  {{count}} lisatähepunkt!",
   "More": "Lisaks",
+  "More details": "More details",
   "New media": "Uus õppetund",
   "No Selected Dashboard": "Ühtegi töölauda pole valitud",
   "No status": "Staatuseta",
@@ -74,8 +75,7 @@
   "Validated": "Valideeritud",
   "Video Loading Error": "Video laadimisel esines viga, palun proovige uuesti.",
   "Wait_creation": "Platvormi luuakse. See võib võtta mõne hetke. Palun oodake...",
-  "Write something here": "Kirjuta siia midagi",
-  "comment_aria_label": "lisa oma kommentaar",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Rakenda",
   "zuora_discount_code": "Promo code",
   "mandatory_fields": "*Kohustuslikud väljad",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "kogu impordi vigade arv on {{bulkImportErrorsNumber}}",
     "valid_scorm": "scormi fail on kehtiv",
-    "invalid_scorm": "scormi fail ei ole kehtiv"
+    "invalid_scorm": "scormi fail ei ole kehtiv",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Sulgege ülekordamise slaid",
   "post_comment_aria_label": "Postitage oma kommentaar",
-  "validate_aria_label": "Kinnitage oma vastus ja minge järgmisse etappi"
+  "validate_aria_label": "Kinnitage oma vastus ja minge järgmisse etappi",
+  "stars": "tähed"
 }
