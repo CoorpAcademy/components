@@ -30,6 +30,7 @@
   "media_stars_to_win_plural": "Win {{count}} extra sterren in dit hoofdstuk de eerste keer dat je een les bekijkt!",
   "media_stars_to_win": "Win {{count}} extra ster in dit hoofdstuk de eerste keer dat je een les bekijkt!",
   "More": "Meer",
+  "More details": "More details",
   "New media": "Nieuwe les",
   "No Selected Dashboard": "Geen dashboard geselecteerd",
   "No status": "Geen status",
@@ -74,8 +75,7 @@
   "Validated": "Validated",
   "Video Loading Error": "Er is een fout opgetreden bij het laden van de video. Probeer het alsjeblieft opnieuw.",
   "Wait_creation": "Het platform wordt aangemaakt. Dit kan enkele seconden duren. Even geduld a.u.b...",
-  "Write something here": "U kunt hier iets schrijven",
-  "comment_aria_label": "voeg je reactie toe",
+  "comment_aria_label": "Add your comment",
   "zuora_discount_code_submit": "Toepassen",
   "zuora_discount_code": "Promo-code",
   "mandatory_fields": "*Mandatory fields",
@@ -88,9 +88,11 @@
   "bulk_import": {
     "errors_number": "bulk import fouten aantal is {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm-bestand is geldig",
-    "invalid_scorm": "scorm-bestand is niet geldig"
+    "invalid_scorm": "scorm-bestand is niet geldig",
+    "show_errors": "show errors"
   },
   "close_button_ariaLabel": "Sluit de beoordelingsdia",
   "post_comment_aria_label": "Plaats uw reactie",
-  "validate_aria_label": "Valideer uw antwoord en ga naar de volgende stap"
+  "validate_aria_label": "Valideer uw antwoord en ga naar de volgende stap",
+  "stars": "sterren"
 }
