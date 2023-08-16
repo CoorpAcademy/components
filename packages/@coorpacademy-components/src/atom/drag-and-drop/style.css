@@ -287,7 +287,7 @@ video {
 }
 
 .previewXlsx {
-  background-color: #E5E5E5;
+  background-color: cm_grey_100;
   border-radius: 5px;
   width: 38%;
   height: 70%;
@@ -303,5 +303,5 @@ video {
   max-height: 32px;
   height: 25%;
   width: 25%;
-  color: #C5C5C9;
+  color: cm_grey_300;
 }
