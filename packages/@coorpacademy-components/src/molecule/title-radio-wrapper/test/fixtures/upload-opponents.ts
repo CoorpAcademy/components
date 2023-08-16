@@ -12,12 +12,14 @@ export default {
       }
     },
     field: {
-      description: 'JPG or PNG, smaller than 5mb',
+      description: 'XLSX or XLS, smaller than 5mb',
       uploadLabel: 'Browse',
       previewLabel: 'File Preview',
       labelButtonLink: 'here',
       labelLink: 'Need the template? Download it',
-      hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx'
+      hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx',
+      previewContent: {},
+      loading: false
     },
     childType: 'massive-upload'
   }

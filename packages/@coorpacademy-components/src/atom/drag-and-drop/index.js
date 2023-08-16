@@ -4,7 +4,8 @@ import {uniqueId, constant, isEmpty} from 'lodash/fp';
 import {
   NovaSolidStatusClose as Close,
   NovaSolidFilesBasicFileUpload2 as FileUploadIcon,
-  NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon
+  NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon,
+  NovaSolidFilesBasicFileLines as FileLinesIcon
 } from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
 import Loader from '../loader';
@@ -110,6 +111,14 @@ class DragAndDrop extends React.Component {
               type: 'pdf'
             }}
           />
+        </div>
+      );
+    } else if (previewContent && previewContent.type === 'xlsx') {
+      previewView = (
+        <div className={style.previewXlsxContainer}>
+          <div className={style.previewXlsx}>
+            <FileLinesIcon className={style.iconFile} />
+          </div>
         </div>
       );
     } else if (loading) {

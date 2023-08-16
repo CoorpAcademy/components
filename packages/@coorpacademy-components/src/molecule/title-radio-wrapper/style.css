@@ -1,10 +1,20 @@
 .container {
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.containerUpload {
+  composes: container;
+  margin-bottom: 60px ;
+
 }
 
 .field {
-    margin-left: 40px;
-    max-width: 300px;
+  margin-left: 40px;
+  max-width: 300px;
+}
+
+.containerImageUpload {
+  height: 140px;
 }
