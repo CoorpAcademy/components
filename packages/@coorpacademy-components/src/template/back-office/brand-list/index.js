@@ -7,10 +7,11 @@ import Search from '../../../atom/input-search';
 import Select from '../../../molecule/select-multiple';
 import RadioGroup from '../../../atom/radio-group';
 import Layout from '../layout';
+import Loader from '../../../atom/loader';
 import style from './style.css';
 
 const BrandList = Layout(props => {
-  const {brands = [], create, search: {select, ...search} = {}, filter} = props;
+  const {brands = [], create, search: {select, ...search} = {}, filter, isLoading} = props;
 
   const brandCards = brands.map((brand, index) => {
     return (
@@ -45,9 +46,15 @@ const BrandList = Layout(props => {
           </div>
         ) : null}
       </div>
-      <div className={style.wrapper}>
-        <GridList>{brandCards}</GridList>
-      </div>
+      {isLoading ? (
+        <div className={style.loader}>
+          <Loader theme="coorpmanager" />
+        </div>
+      ) : (
+        <div className={style.wrapper}>
+          <GridList>{brandCards}</GridList>
+        </div>
+      )}
     </div>
   );
 });
@@ -56,7 +63,8 @@ BrandList.propTypes = {
   brands: PropTypes.arrayOf(PropTypes.shape(BrandCard.propTypes)),
   filter: PropTypes.shape(RadioGroup.propTypes),
   search: PropTypes.shape(Search.propTypes),
-  create: PropTypes.shape(BrandCardCreate.propTypes)
+  create: PropTypes.shape(BrandCardCreate.propTypes),
+  isLoading: PropTypes.bool
 };
 
 export default BrandList;
