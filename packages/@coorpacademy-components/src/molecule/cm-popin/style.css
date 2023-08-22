@@ -22,6 +22,7 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value cm_grey_75 from colors;
+@value negative_100 from colors;
 
 .background {
   top: 0px;
@@ -137,6 +138,26 @@
 .popinHeader button {
   position: absolute;
 }
+
+.headerContent {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+  padding: 8px;
+}
+
+.headerTitle {
+  margin-bottom: 16px;
+  padding: 2px 0px 2px;
+}
+
+.lockIcon {
+  height: 48px;
+  background-color: negative_100;
+  border-radius: 16px;
+  color: cm_negative_200;
+}
+
 .descriptionText {
   text-align: center;
   font-family: Gilroy;
@@ -278,6 +299,14 @@ a {
 }
 .popinCookie .largeButton {
   padding: 0px 8px 0px 0px
+}
+
+.itemsContainer {
+  height: 369px;
+  overflow-y: auto;
+  padding: inherit;
+  width: 100%;
+  border-top: 1px solid cm_grey_100;
 }
 
 @media tablet {
