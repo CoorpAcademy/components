@@ -4,14 +4,21 @@ import {
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
   NovaLineSettingsCookie as Cookie,
   NovaSolidSpaceMoonRocket as MoonRocket,
+  NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaLineStatusCheckCircle1 as CheckCircle1
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
+import Title from '../../atom/title';
+import CardsGrid from '../../organism/cards-grid';
 import style from './style.css';
 import propTypes from './types';
+
+const IconType = {
+  lockedContent: <LockIcon className={style.lockIcon} />
+};
 
 const CMPopin = props => {
   const {
@@ -27,9 +34,9 @@ const CMPopin = props => {
     thirdButton,
     cookieTitle,
     descriptionBtnTxt,
-    listBtnSwicth
+    listBtnSwicth,
+    items
   } = props;
-
   const logo = {
     AlertDiamond,
     WindowUpload,
@@ -45,7 +52,21 @@ const CMPopin = props => {
       }
     : null;
   const renderHeader = () => {
-    if (header) return <img className={style.headerBackground} src={header} />;
+    if (header) {
+      const {title, headerIcon, backgroundImage} = header;
+      const TopTitleIcon = IconType[headerIcon];
+      if (title) {
+        return (
+          <div className={style.headerContent}>
+            {TopTitleIcon}
+            <div className={style.headerTitle}>
+              <Title {...title} />
+            </div>
+          </div>
+        );
+      }
+      return <img className={style.headerBackground} src={backgroundImage} />;
+    }
     if (mode === 'cookie')
       return (
         <div className={style.cookieHeader}>
@@ -103,6 +124,10 @@ const CMPopin = props => {
       );
     })(listBtnSwicth);
   };
+  const renderItems = () => {
+    const {type, list} = items;
+    return type === 'content' ? <CardsGrid {...list} /> : null;
+  };
   return (
     <div
       className={mode !== 'cookie' ? style.background : null}
@@ -122,33 +147,36 @@ const CMPopin = props => {
             />
           ) : null}
         </header>
-        <div
-          className={
-            mode === 'cookie' || mode === 'information'
-              ? style.cookieTitleContainer
-              : style.titleContainer
-          }
-        >
-          <div className={style.contentSection}>
-            {LogoComponent ? <LogoComponent className={style.icon} /> : null}
-            {content ? (
+        {mode !== 'items' ? (
+          <div
+            className={
+              mode === 'cookie' || mode === 'information'
+                ? style.cookieTitleContainer
+                : style.titleContainer
+            }
+          >
+            <div className={style.contentSection}>
+              {LogoComponent ? <LogoComponent className={style.icon} /> : null}
+              {content ? (
+                <p
+                  className={mode === 'alert' ? style.content : style.message}
+                  data-name={'cm-popin-content'}
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{__html: content}}
+                />
+              ) : null}
+            </div>
+            {descriptionText ? (
               <p
-                className={mode === 'alert' ? style.content : style.message}
-                data-name={'cm-popin-content'}
+                className={style.descriptionText}
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{__html: content}}
+                dangerouslySetInnerHTML={{__html: descriptionText}}
               />
             ) : null}
           </div>
-          {descriptionText ? (
-            <p
-              className={style.descriptionText}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: descriptionText}}
-            />
-          ) : null}
-        </div>
+        ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
+        {items ? <div className={style.itemsContainer}>{renderItems()}</div> : null}
         {renderBtnSwitch()}
         {firstButton || secondButton || thirdButton ? (
           <div className={style.buttonContainer}>
