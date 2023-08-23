@@ -12,10 +12,6 @@
   width: 100%;
 }
 
-.popinWithCards {
-  z-index: 5;
-}
-
 @media tablet {
   .hero {
     height: 200px;
