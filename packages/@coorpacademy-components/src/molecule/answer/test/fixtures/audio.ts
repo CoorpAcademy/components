@@ -16,7 +16,8 @@ const fixture: Fixture = {
       mediaUrl:
         'https://static.coorpacademy.com/content/CoorpAcademy/content-bnpp/cockpit-letsgetdigital-migration/raw/sample-1618502603227.aac'
     },
-    help: ''
+    help: '',
+    question: 'This is the question'
   }
 };
 

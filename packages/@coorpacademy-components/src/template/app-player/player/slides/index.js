@@ -159,7 +159,7 @@ ReviewLesson.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-const AnswerContent = ({answerType, help}) => <Answer {...answerType} help={help} />;
+const AnswerContent = ({answerType, help, question}) => <Answer {...answerType} question={question} help={help} />;
 
 AnswerContent.propTypes = {
   answerType: PropTypes.shape(Answer.propTypes),

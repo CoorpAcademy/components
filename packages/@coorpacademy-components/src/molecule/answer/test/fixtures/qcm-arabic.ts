@@ -17,7 +17,8 @@ const fixture: Fixture = {
       type: 'img',
       url: 'https://user-images.githubusercontent.com/7602475/28273504-db1da18a-6b0e-11e7-97cd-b2e307fc51c7.png'
     },
-    help: ''
+    help: '',
+    question: 'This is the question'
   }
 };
 

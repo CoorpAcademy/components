@@ -13,7 +13,8 @@ const fixture: Fixture = {
       ...answerProps,
       type: 'qcmDrag'
     },
-    help: 'Help text will appear here'
+    help: 'Help text will appear here',
+    question: 'This is the question'
   }
 };
 

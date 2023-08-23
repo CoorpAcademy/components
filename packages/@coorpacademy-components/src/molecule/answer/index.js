@@ -44,24 +44,23 @@ const MediaView = ({media}) => {
 
 MediaView.propTypes = MediaViewPropTypes;
 
-const Switch = ({model, help}, legacyContext) => {
+const Switch = ({model, help, question}, legacyContext) => {
   const {type} = model;
-  const translate = GetTranslateFromContext(legacyContext);
   switch (type) {
     case 'qcmDrag':
-      return <QcmDrag {...model} help={help} groupAriaLabel={translate('answer_the_question')} />;
+      return <QcmDrag {...model} help={help} groupAriaLabel={question} />;
     case 'qcm':
-      return <Qcm {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return <Qcm {...model} groupAriaLabel={question} />;
     case 'qcmGraphic':
-      return <QcmGraphic {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return <QcmGraphic {...model} groupAriaLabel={question} />;
     case 'freeText':
       return <FreeText {...model} />;
     case 'dropDown':
-      return <DropDown {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return <DropDown {...model} groupAriaLabel={question} />;
     case 'slider':
-      return <QuestionRange {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return <QuestionRange {...model} groupAriaLabel={question} />;
     case 'template':
-      return <Template {...model} groupAriaLabel={translate('answer_the_question')} />;
+      return <Template {...model} groupAriaLabel={question} />;
   }
 };
 
@@ -75,13 +74,13 @@ Switch.contextTypes = {
 };
 
 const Answer = props => {
-  const {model, media, help} = props;
+  const {model, media, help, question} = props;
 
   return (
     <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
       <form className={style.formWrapper}>
-        <Switch model={model} help={help} />
+        <Switch model={model} question={question} help={help} />
       </form>
     </div>
   );

@@ -28,6 +28,7 @@ const fixture: Fixture = {
       answers
     },
     help: '',
+    question: 'This is the question',
     media: {
       type: 'img',
       url: 'https://api-staging.coorpacademy.com/api-service/medias?h=400&w=400&q=90&url=https://static.coorpacademy.com/content/CoorpAcademy/content-global-exam/cockpit-global-exam/default/global-exam-profesional-exchanges-light-1589383172179.jpg'

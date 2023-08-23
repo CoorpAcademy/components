@@ -31,7 +31,8 @@ const fixture: Fixture = {
       onResume: () => console.log('resume'),
       onEnded: () => console.log('end')
     },
-    help: ''
+    help: '',
+    question: 'This is the question'
   }
 };
 
