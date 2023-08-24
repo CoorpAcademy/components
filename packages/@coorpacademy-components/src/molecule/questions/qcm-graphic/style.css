@@ -13,7 +13,6 @@
   justify-content: center;
   padding-bottom: 5px;
   width: 100%;
-  border: 0;
 }
 
 .answer {
@@ -117,7 +116,6 @@
     align-items: center;
     width: 100%;
     padding-bottom: 0;
-    border: 0;
   }
 
   .answer {

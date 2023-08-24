@@ -68,7 +68,7 @@ const QCMImage = (props, legacyContext) => {
   });
 
   return (
-    <fieldset
+    <div
       data-name="qcm-graphic-wrapper"
       className={style.wrapper}
       role="group"
@@ -76,7 +76,7 @@ const QCMImage = (props, legacyContext) => {
       title={groupAriaLabel}
     >
       {answersViews}
-    </fieldset>
+    </div>
   );
 };
 
