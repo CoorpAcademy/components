@@ -10,7 +10,7 @@ const viewStyle = {
 };
 
 const PictureBackground = props => {
-  const {src, view, style} = props;
+  const {src, view, style, alt = ''} = props;
   const mobile = src.mobile;
   const desktop = src.desktop;
   const bgStyle = viewStyle[view];
@@ -18,14 +18,14 @@ const PictureBackground = props => {
   const pictureView = isObject(src) ? (
     <div className={cssStyle.deviceView}>
       <div className={cssStyle.mobileContainer}>
-        <img className={classnames(cssStyle.picture, bgStyle)} src={mobile} />
+        <img className={classnames(cssStyle.picture, bgStyle)} src={mobile} alt={alt} />
       </div>
       <div className={cssStyle.desktopContainer}>
-        <img className={classnames(cssStyle.picture, bgStyle)} src={desktop} />
+        <img className={classnames(cssStyle.picture, bgStyle)} src={desktop} alt={alt} />
       </div>
     </div>
   ) : (
-    <img className={classnames(cssStyle.default, bgStyle)} src={src} />
+    <img className={classnames(cssStyle.default, bgStyle)} src={src} alt={alt} />
   );
 
   return (
@@ -38,7 +38,8 @@ const PictureBackground = props => {
 PictureBackground.propTypes = {
   view: PropTypes.oneOf(keys(viewStyle)),
   src: PropTypes.oneOfType([PropTypes.objectOf(PropTypes.string), PropTypes.string.isRequired]),
-  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  alt: PropTypes.string
 };
 
 export default PictureBackground;
