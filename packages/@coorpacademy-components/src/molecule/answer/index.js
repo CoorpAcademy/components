@@ -44,7 +44,7 @@ const MediaView = ({media}) => {
 
 MediaView.propTypes = MediaViewPropTypes;
 
-const Switch = ({model, help, question}, legacyContext) => {
+const Switch = ({model, help, question}) => {
   const {type} = model;
   switch (type) {
     case 'qcmDrag':
@@ -66,7 +66,8 @@ const Switch = ({model, help, question}, legacyContext) => {
 
 Switch.propTypes = {
   model: propTypes.model,
-  help: propTypes.help
+  help: propTypes.help,
+  question: propTypes.question
 };
 
 Switch.contextTypes = {
