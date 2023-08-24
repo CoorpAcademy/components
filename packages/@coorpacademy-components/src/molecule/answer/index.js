@@ -9,7 +9,7 @@ import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
 import Audio from '../audio';
-import Provider, {GetTranslateFromContext} from '../../atom/provider';
+import Provider from '../../atom/provider';
 import style from './style.css';
 import propTypes, {MediaViewPropTypes, TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from './prop-types';
 
