@@ -128,7 +128,7 @@ const QuestionContainer = props => {
         dangerouslySetInnerHTML={{__html: get('help', answerUI)}}
       />
       <div key="answer-container" className={style.answerContainer}>
-        <Answer {...answerUI} key="answer" />
+        <Answer {...answerUI} question={questionText} key="answer" />
       </div>
     </div>
   );

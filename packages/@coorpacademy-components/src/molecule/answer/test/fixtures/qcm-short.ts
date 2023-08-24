@@ -18,7 +18,8 @@ const fixture: Fixture = {
       type: 'img',
       url: 'https://static.coorpacademy.com/content/CoorpAcademy/content-chanel/cockpit-ilearnchanel/default/19-1477921258654.jpg'
     },
-    help: ''
+    help: '',
+    question: 'This is the question'
   }
 };
 

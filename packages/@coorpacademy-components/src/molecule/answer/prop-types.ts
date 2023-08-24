@@ -60,6 +60,7 @@ const propTypes = {
     answer: PropTypes.arrayOf(AnswerPropTypes)
   }).isRequired,
   help: PropTypes.string,
+  question: PropTypes.string,
   media: MediaViewPropTypes.media
 };
 
@@ -94,7 +95,7 @@ export type AnswerProps = {
     title?: string;
   };
   help: string;
-
+  question: string;
   media?: Media;
 };
 

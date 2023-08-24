@@ -13,7 +13,8 @@ const fixture: Fixture = {
       ...answerProps,
       type: 'qcmGraphic'
     },
-    help: ''
+    help: '',
+    question: 'This is the question'
   }
 };
 

@@ -14,7 +14,8 @@ const fixture: Fixture = {
       ...answerProps,
       type: 'slider'
     },
-    help: ''
+    help: '',
+    question: 'This is the question'
   }
 };
 
