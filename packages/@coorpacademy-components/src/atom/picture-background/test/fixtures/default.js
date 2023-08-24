@@ -9,6 +9,7 @@ export default {
       height: '300px',
       position: 'absolute'
     },
-    view: 'cover'
+    view: 'cover',
+    alt: 'this is textual alternative'
   }
 };
