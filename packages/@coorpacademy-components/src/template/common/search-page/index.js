@@ -6,6 +6,7 @@ import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
 import CardsGrid from '../../../organism/cards-grid';
 import CardsList from '../../../molecule/dashboard/cards-list';
+import CMPopin from '../../../molecule/cm-popin';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
@@ -19,7 +20,8 @@ const SearchPage = (props, context) => {
     moreSortAriaLabel,
     moreFilterAriaLabel,
     filterGroupAriaLabel,
-    sortAriaLabel
+    sortAriaLabel,
+    popinWithCards
   } = props;
 
   const {skin} = context;
@@ -60,6 +62,11 @@ const SearchPage = (props, context) => {
         </div>
         {cardsView}
       </div>
+      {popinWithCards ? (
+        <div className={style.popinWithCards}>
+          <CMPopin {...popinWithCards} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -78,7 +85,8 @@ SearchPage.propTypes = {
   moreSortAriaLabel: PropTypes.string,
   moreFilterAriaLabel: PropTypes.string,
   filterGroupAriaLabel: PropTypes.string,
-  sortAriaLabel: PropTypes.string
+  sortAriaLabel: PropTypes.string,
+  popinWithCards: PropTypes.shape(CMPopin.propTypes)
 };
 
 export default SearchPage;
