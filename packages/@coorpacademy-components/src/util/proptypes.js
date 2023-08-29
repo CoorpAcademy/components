@@ -24,7 +24,7 @@ export const ImagePropType = (propValue, key, componentName) => {
   )
     return;
   return new Error(
-    `Invalid prop value: ${propValue[key]}, at component: ${componentName}. Expected a valid image type: image/jpeg, image/png, image/svg+xml or application/pdf.`
+    `Invalid prop value: ${propValue[key]}, at component: ${componentName}. Expected a valid image type: image/jpeg, image/png, image/* image/svg+xml or application/pdf.`
   );
 };
 
