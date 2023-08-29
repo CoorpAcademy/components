@@ -2,8 +2,8 @@ import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {isNil} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
-import {ImagePropType} from '../../util/proptypes';
 import Link from '../button-link';
+import {ImagePropType} from '../../util/proptypes';
 import style from './style.css';
 
 const ImageUpload = ({
@@ -21,8 +21,7 @@ const ImageUpload = ({
   labelLink,
   labelButtonLink,
   hrefLink,
-  // See ImagePropType for accepted values
-  imageTypes = ['*'],
+  imageTypes = 'image/*',
   error = '',
   buttonAriaLabel,
   errorButtonLabel,
@@ -95,7 +94,7 @@ ImageUpload.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
-  imageTypes: PropTypes.arrayOf(ImagePropType),
+  imageTypes: ImagePropType,
   error: PropTypes.string,
   buttonAriaLabel: PropTypes.string,
   errorButtonLabel: PropTypes.string,
