@@ -82,7 +82,8 @@ test('ImagePropType should pass when correct image type is passed', validMacro, 
   'image/svg+xml',
   'image/jpeg',
   'image/png',
-  'application/pdf'
+  'application/pdf',
+  'image/*'
 ]);
 
 test(

@@ -9,6 +9,7 @@ export default {
       src: 'https://static.coorpacademy.com/content/digital/raw/meta_inc-1677774948417._logo-1-1677774948417.pdf'
     },
     pdfButtonLabel: 'Open PDF',
-    pdfButtonAriaLabel: 'Open PDF'
+    pdfButtonAriaLabel: 'Open PDF',
+    imageTypes: 'image/*'
   }
 };

@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
+import split from 'lodash/fp/split';
+import trim from 'lodash/fp/trim';
 import includes from 'lodash/fp/includes';
+import every from 'lodash/fp/every';
 import stringMatching from 'extended-proptypes/lib/validators/stringMatching';
 
 import _ColorPropType from 'extended-proptypes/lib/validators/color';
@@ -14,11 +17,24 @@ export const PathPropType = stringMatching(PATH_REGEXP);
 
 export const SrcPropType = PropTypes.oneOfType([UrlPropType, PathPropType]);
 
-export const ImagePropType = (propValue, key, componentName) => {
-  if (includes(propValue[key], ['image/jpeg', 'image/png', 'image/svg+xml', 'application/pdf']))
-    return;
+export const ImagePropType = (props, propName, componentName) => {
+  const validImageTypes = [
+    'image/jpeg',
+    'image/png',
+    'image/svg+xml',
+    'image/*',
+    'application/pdf'
+  ];
+
+  const propValue = props[propName];
+  if (!propValue) return new Error(`Missing prop: ${propName} at component: ${componentName}`);
+
+  const imageTypes = split(',', propValue);
+  const isValid = every(type => includes(trim(type), validImageTypes), imageTypes);
+  if (isValid) return null;
+
   return new Error(
-    `Invalid prop value: ${propValue[key]}, at component: ${componentName}. Expected a valid image type: image/jpeg, image/png, image/svg+xml or application/pdf.`
+    `Invalid prop value: ${propValue}, at component: ${componentName}. Expected a valid image type: image/jpeg, image/png, image/* image/svg+xml or application/pdf.`
   );
 };
 
