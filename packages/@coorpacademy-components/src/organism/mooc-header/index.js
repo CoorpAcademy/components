@@ -690,6 +690,7 @@ class MoocHeader extends React.Component {
             <Link
               className={style.logo}
               data-name="logo"
+              id="logo"
               href={logo.href}
               onKeyDown={this.handleKeyPress}
               tabIndex={0}
