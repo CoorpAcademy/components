@@ -153,8 +153,11 @@
 
 .lockIcon {
   height: 48px;
+  width: 48px;
   background-color: negative_100;
   border-radius: 16px;
+  min-width: 48px;
+  min-height: 48px;
   color: cm_negative_200;
 }
 
