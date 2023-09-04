@@ -52,7 +52,7 @@
 
 .popinWithCards {
   position: relative;
-  z-index: 6;
+  z-index: 7;
 }
 
 @media mobile {

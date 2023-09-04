@@ -62,7 +62,11 @@ const Dashboard = props => {
     <div className={style.wrapper} data-name="dashboard">
       {sectionsList}
       {cookie ? <CMPopin {...cookie} /> : null}
-      {popinWithCards ? <CMPopin {...popinWithCards} /> : null}
+      {popinWithCards ? (
+        <div className={style.popinWithCards}>
+          <CMPopin {...popinWithCards} />
+        </div>
+      ) : null}
     </div>
   );
 };
