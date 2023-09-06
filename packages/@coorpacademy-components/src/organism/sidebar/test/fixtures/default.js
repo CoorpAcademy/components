@@ -36,15 +36,20 @@ export default {
       {
         title: 'Allo',
         type: 'link',
-        selected: true
+        selected: true,
+        activeIcon: true,
+        setChildrenAsHtml: false
       },
       {
         title: 'Papa',
-        type: 'link'
+        type: 'link',
+        setChildrenAsHtml: true
       },
       {
-        title: 'Tango',
-        type: 'link'
+        title: "Oué les limites de tailles de news c'est cool",
+        type: 'link',
+        activeIcon: true,
+        setChildrenAsHtml: false
       },
       {
         title: 'Charlie',
