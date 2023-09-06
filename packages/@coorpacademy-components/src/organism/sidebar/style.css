@@ -12,6 +12,7 @@
 @value cm_grey_500 from colors;
 @value medium from colors;
 @value transparent from colors;
+@value cm_green_200 from colors;
 
 .sidebar {
   color: dark;
@@ -114,4 +115,17 @@
 
 .innerHTML {
   composes: innerHTML from '../../atom/label/style.css'
+}
+
+.activeIcon {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  padding-right: 12px;
+  color: cm_green_200;
+}
+
+.itemWithoutIcon {
+  padding-left: 43px;
 }

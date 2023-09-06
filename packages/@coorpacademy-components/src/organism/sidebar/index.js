@@ -2,7 +2,11 @@ import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {noop, getOr, defaults} from 'lodash/fp';
-import {NovaCompositionCoorpacademyOpenInNewTab} from '@coorpacademy/nova-icons';
+import {
+  NovaCompositionCoorpacademyOpenInNewTab,
+  NovaSolidStatusCheckCircle2 as ActiveIcon
+} from '@coorpacademy/nova-icons';
+
 import Link from '../../atom/link';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
@@ -99,7 +103,8 @@ export const LinkItem = ({
   styles,
   children,
   setChildrenAsHtml = true,
-  target = '_self'
+  target = '_self',
+  activeIcon = false
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -112,7 +117,8 @@ export const LinkItem = ({
     style.linkItem,
     style.innerHTML,
     {[style.uppercase]: uppercase},
-    styles
+    styles,
+    !activeIcon && setChildrenAsHtml ? style.itemWithoutIcon : null
   );
   const borderStyle = {borderLeftColor: selected ? color : null};
 
@@ -137,6 +143,7 @@ export const LinkItem = ({
         />
       ) : (
         <li className={classNames} style={borderStyle}>
+          {activeIcon ? <ActiveIcon className={style.activeIcon} /> : null}
           {title}
           {children}
         </li>
@@ -155,7 +162,8 @@ LinkItem.propTypes = {
   onClick: PropTypes.func,
   uppercase: PropTypes.bool,
   setChildrenAsHtml: PropTypes.bool,
-  target: PropTypes.string
+  target: PropTypes.string,
+  activeIcon: PropTypes.bool
 };
 
 export const IconLinkItem = ({
