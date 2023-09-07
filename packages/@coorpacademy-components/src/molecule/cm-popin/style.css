@@ -307,7 +307,6 @@ a {
 .itemsContainer {
   height: 369px;
   overflow-y: auto;
-  padding: inherit;
   width: 100%;
   border-top: 1px solid cm_grey_100;
 }

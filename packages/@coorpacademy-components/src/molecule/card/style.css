@@ -195,6 +195,10 @@
   z-index: 1;
 }
 
+.lockWrapper:hover {
+  cursor: pointer;
+}
+
 .lockWrapper:hover .lockIcon {
   background-color: cm_negative_200;
   color: white;
