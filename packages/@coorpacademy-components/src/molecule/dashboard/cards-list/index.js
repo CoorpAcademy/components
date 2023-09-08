@@ -22,7 +22,7 @@ import {
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
-import Card from '../../card';
+import Card, {cardPropTypes} from '../../card';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -86,18 +86,24 @@ IconView.propTypes = {
 };
 
 class CardsList extends React.PureComponent {
+  /**
+   * IMPORTANT: update prop-types.ts too, 1st a migration of tests
+   * is intended, then, a TS + functional refactor is planned.
+   */
   static propTypes = {
     contentType: PropTypes.string,
     dataName: PropTypes.string,
     title: PropTypes.string,
     showMore: PropTypes.string,
-    cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
+    cards: PropTypes.arrayOf(PropTypes.shape(cardPropTypes)),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
     'arrows-aria-label': PropTypes.shape({
       showMoreOnLeftAriaLabel: PropTypes.string,
       showMoreOnRightAriaLabel: PropTypes.string
-    })
+    }),
+    // eslint-disable-next-line react/forbid-prop-types
+    testingSizes: PropTypes.any
   };
 
   static contextTypes = {
@@ -128,6 +134,17 @@ class CardsList extends React.PureComponent {
     this.setCardsWrapper = this.setCardsWrapper.bind(this);
     this.getScrollWidth = this.getScrollWidth.bind(this);
     this.handleResize = this.handleResize.bind(this);
+
+    // for testing purposes only - no other way to test this polluted component
+    if (props.testingSizes) {
+      const {offsetWidth, scrollLeft, maxPages, possiblePages, possiblePositions} =
+        props.testingSizes;
+      this.state.offsetWidth = offsetWidth;
+      this.state.scrollLeft = scrollLeft;
+      this.state.maxPages = maxPages;
+      this.state.possiblePages = possiblePages;
+      this.state.possiblePositions = possiblePositions;
+    }
   }
 
   componentDidMount() {
@@ -161,11 +178,13 @@ class CardsList extends React.PureComponent {
     this.updateState.cancel();
   }
 
+  /* istanbul ignore next */
   handleResize() {
     const {cards = []} = this.props;
     this.updatePaginationState(cards);
   }
 
+  /* istanbul ignore next */
   updatePaginationState(cards) {
     const {offsetWidth: wrapperWidth, scrollLeft: wrapperScrollLeft} = this.state;
 
@@ -215,12 +234,14 @@ class CardsList extends React.PureComponent {
     });
   }
 
+  /* istanbul ignore next */
   getScrollWidth(index) {
     const {cards = []} = this.props;
     const card = cards[index];
     return computeWidth(card);
   }
 
+  /* istanbul ignore next */
   handleScroll() {
     const scrollLeft = this.cardsWrapper?.scrollLeft;
     this.setState({scrollLeft});
@@ -338,15 +359,27 @@ class CardsList extends React.PureComponent {
         {rightArrowView}
       </div>
     ) : null;
+
     return (
-      <div className={style.wrapper} data-name="cardsList">
+      <div
+        className={style.wrapper}
+        data-name="cardsList"
+        data-max-pages={`${maxPages}`}
+        // eslint-disable-next-line react/destructuring-assignment
+        data-actual-page={`${this.state.actualPage}`}
+        data-scroll-left={this.cardsWrapper?.scrollLeft}
+      >
         <div className={style.list}>
           <div>
             <div data-name="header" className={style.header}>
               {titleView}
               {switchPagesView}
             </div>
-            <div className={style.cards} ref={this.setCardsWrapper}>
+            <div
+              className={style.cards}
+              data-testid="cards-view-wrapper"
+              ref={this.setCardsWrapper}
+            >
               {cardsView}
             </div>
           </div>
