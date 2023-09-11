@@ -29,10 +29,6 @@ const checkInternalProp: <T>(
   return t.truthy(element);
 };
 
-test('show more link', t => {
-
-})
-
 // Disclaimer: should be updated once the component is refactored to a functional component,
 // future functions for the useCallbacks should be unit tested, then scrolling and other
 // dom behavior should be e2e tested
