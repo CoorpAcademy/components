@@ -245,7 +245,7 @@ Card.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-Card.propTypes = {
+export const cardPropTypes = {
   badge: PropTypes.string,
   image: PropTypes.string,
   disabled: PropTypes.bool,
@@ -276,4 +276,7 @@ Card.propTypes = {
   'disabled-aria-label': PropTypes.string,
   'card-content-aria-label': CardContentInfo.propTypes['aria-label']
 };
+
+Card.propTypes = cardPropTypes;
+
 export default Card;
