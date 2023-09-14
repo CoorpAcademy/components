@@ -66,15 +66,15 @@
   border-left: solid 3px cm_grey_100;
 }
 
-.notifications {
+.permanentNotifications {
   padding: 0 0 32px 0;
 }
 
-.notification {
+.permanentNotification {
   margin-bottom: 10px;
 }
 
-.notification:last-child {
+.permanentNotification:last-child {
   margin-bottom: 0;
 }
 
