@@ -193,7 +193,7 @@
 }
 
 @media mobile {
-  .notification {
+  .permanentNotification {
     margin: 0 auto;
   }
 }

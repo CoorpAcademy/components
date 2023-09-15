@@ -88,11 +88,11 @@ const buildNotifications = notifications => {
       </div>
     );
   });
-  return !notificationsList.length !== 0 ? (
+  return (
     <div className={!find({temporary: true}, notifications) ? style.permanentNotifications : null}>
       {notificationsList}
     </div>
-  ) : null;
+  );
 };
 
 const buildHeader = header => {
