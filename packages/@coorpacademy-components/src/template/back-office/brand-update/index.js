@@ -83,12 +83,16 @@ const buildNotifications = notifications => {
 
   const notificationsList = notifications.map((notification, index) => {
     return (
-      <div className={style.notification} key={index}>
+      <div className={!notification.temporary ? style.permanentNotification : null} key={index}>
         <Banner {...notification} />
       </div>
     );
   });
-  return <div className={style.notifications}>{notificationsList}</div>;
+  return (
+    <div className={!find({temporary: true}, notifications) ? style.permanentNotifications : null}>
+      {notificationsList}
+    </div>
+  );
 };
 
 const buildHeader = header => {

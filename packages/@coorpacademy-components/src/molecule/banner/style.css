@@ -4,8 +4,10 @@
 @value white from colors;
 @value medium from colors;
 @value cm_positive_100 from colors;
+@value cm_positive_200 from colors;
 @value cm_negative_50 from colors;
 @value cm_negative_200 from colors;
+@value cm_green_secondary_100 from colors;
 @value cm_warning_50 from colors;
 @value cm_yellow_100 from colors;
 @value cm_yellow_200 from colors;
@@ -49,8 +51,8 @@
 }
 
 .banner.success {
-    background-color: color(cm_positive_100 a(15%));
-    color: cm_positive_100;
+    background-color: cm_green_secondary_100;
+    color: cm_positive_200;
 }
 
 .temporaryBanner {
