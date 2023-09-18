@@ -1,53 +1,74 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
+import classnames from 'classnames';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
+import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
+// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
-const ListItem = props => {
+const ListItem = ({
+  buttonLink,
+  buttonLinkIcon,
+  bulletPointMenuButton,
+  tags,
+  title,
+  dataColumns,
+  order,
+  'aria-label': ariaLabel,
+  contentType,
+  isBulkStyle = false
+}) => {
   let isPublished = false;
-  const {
-    bulletPointMenuButton,
-    buttonLink,
-    tags,
-    title,
-    order,
-    'aria-label': ariaLabel,
-    contentType
-  } = props;
+
   const tagsView = map.convert({cap: false})((tag, index) => {
-    isPublished = tag.type === 'published';
+    isPublished = tag.type === 'success';
     return (
       <div key={index} className={style.tag}>
         <Tag {...tag} />
       </div>
     );
   })(tags);
+
+  const dataColumnsView = map.convert({cap: false})((dataColumn, index) => {
+    return (
+      <div key={index} className={style[dataColumn.className]}>
+        {dataColumn.type ? <Tag {...dataColumn} /> : dataColumn.label}
+      </div>
+    );
+  })(dataColumns);
+
+  const orderView =
+    order !== null && order !== undefined ? (
+      <div className={style.order} aria-label={ariaLabel}>
+        {order + 1}
+      </div>
+    ) : null;
+
   return (
-    <div className={style.wrapper}>
-      {isPublished && contentType === 'certification' ? (
-        <div className={style.orderWrapper}>
-          {order !== null && order !== undefined ? (
-            <div className={style.order} aria-label={ariaLabel}>
-              {order + 1}
-            </div>
-          ) : null}
-          <div className={style.title} title={title}>
-            {title}
-          </div>
-        </div>
-      ) : (
+    <div className={classnames(style.wrapper, isBulkStyle && style.gridLayout)}>
+      <div className={style.dataColumnsWrapper}>
+        {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.title} title={title}>
           {title}
         </div>
-      )}
+        {dataColumnsView}
+      </div>
+
       <div className={style.settings}>
         {tagsView}
-        <div className={style.edit}>
-          <ButtonLink {...buttonLink} />
-        </div>
+        {buttonLink ? (
+          <div className={style.buttonLink}>
+            <ButtonLink {...buttonLink} />
+          </div>
+        ) : null}
+        {buttonLinkIcon ? (
+          <div className={style.buttonLink}>
+            <ButtonLinkIconOnly {...buttonLinkIcon} />
+          </div>
+        ) : null}
         <BulletPointMenuButton {...bulletPointMenuButton} />
       </div>
     </div>
@@ -55,6 +76,39 @@ const ListItem = props => {
 };
 
 ListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  dataColumns: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      type: PropTypes.oneOf(['success', 'failure', 'warning', 'progress', 'default']),
+      className: PropTypes.oneOf(['cell', 'title'])
+    })
+  ),
+  buttonLink: PropTypes.shape({
+    type: PropTypes.string,
+    label: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    dataName: PropTypes.string,
+    icon: PropTypes.shape({
+      position: PropTypes.string,
+      type: PropTypes.string
+    }),
+    onClick: PropTypes.func
+  }),
+  buttonLinkIcon: PropTypes.shape({
+    size: PropTypes.oneOf(['default', 'small', 'responsive']),
+    'aria-label': PropTypes.string,
+    'data-name': PropTypes.string,
+    icon: PropTypes.string,
+    onClick: PropTypes.func,
+    link: PropTypes.shape({
+      href: PropTypes.string,
+      download: PropTypes.bool,
+      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+    }),
+    disabled: PropTypes.bool,
+    className: PropTypes.string
+  }),
   bulletPointMenuButton: PropTypes.shape({
     buttonAriaLabel: PropTypes.string,
     menuAriaLabel: PropTypes.string,
@@ -68,24 +122,13 @@ ListItem.propTypes = {
     ),
     onClick: PropTypes.func
   }),
-  buttonLink: PropTypes.shape({
-    type: PropTypes.string,
-    label: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    dataName: PropTypes.string,
-    icon: PropTypes.shape({
-      position: PropTypes.string,
-      type: PropTypes.string
-    }),
-    onClick: PropTypes.func
-  }),
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-      type: PropTypes.oneOf(['published', 'draft', 'archived', 'revised', 'default'])
+      type: PropTypes.oneOf(['success', 'failure', 'warning', 'progress', 'default'])
     })
   ),
-  title: PropTypes.string.isRequired,
+  isBulkStyle: PropTypes.bool,
   order: PropTypes.number,
   'aria-label': PropTypes.string,
   contentType: PropTypes.string,

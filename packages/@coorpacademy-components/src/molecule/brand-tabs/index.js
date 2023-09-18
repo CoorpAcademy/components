@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
+import StatusItem from '../../atom/status-item';
 import style from './style.css';
 
 const Tab = ({tab, index, isLightTab}) => {
-  const {title, href, selected, onClick} = tab;
+  const {title, href, status, selected, onClick} = tab;
   const selectedStyle = isLightTab ? style.selectedlight : style.selected;
   const unselectedStyle = isLightTab ? style.lighttab : style.tab;
   const className = selected ? selectedStyle : unselectedStyle;
@@ -18,6 +19,11 @@ const Tab = ({tab, index, isLightTab}) => {
       onClick={onClick}
     >
       <Link href={href}>{title}</Link>
+      {status ? (
+        <div className={style.statusItemWrapper}>
+          <StatusItem icon="no-answer" value={status} selected={selected} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -25,6 +31,7 @@ Tab.propTypes = {
   tab: PropTypes.shape({
     title: Link.propTypes.children,
     href: Link.propTypes.href,
+    status: PropTypes.string,
     selected: PropTypes.bool,
     onClick: PropTypes.func
   }),

@@ -132,3 +132,8 @@
 padding: 10px;
 border-top: 1px solid light;  
 }
+
+.statusItemWrapper {
+  width: 24px;
+  height: 24px;
+}

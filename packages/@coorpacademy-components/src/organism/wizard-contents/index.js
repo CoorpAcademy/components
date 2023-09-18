@@ -10,11 +10,13 @@ import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
 import CourseSections from '../../molecule/course-sections';
+import BrandTabs from '../../molecule/brand-tabs';
+import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import RewardsForm from '../rewards-form';
 import ExpandibleActionableErrorsTable from '../../molecule/expandible-actionable-table';
 import style from './style.css';
 
-const buildHeader = (wizardHeader, steps) => {
+const buildHeader = (wizardHeader, actions, steps, tabs) => {
   const {title, onClick} = wizardHeader;
 
   const buttonCloseIcon = {
@@ -28,12 +30,30 @@ const buildHeader = (wizardHeader, steps) => {
   return (
     <div>
       <div className={style.header}>
-        <ButtonLinkIconOnly {...buttonCloseIcon} />
-        <div className={style.headerTitle} data-name={'content-title'}>
-          {title}
+        <div className={style.titleWrapper}>
+          <ButtonLinkIconOnly {...buttonCloseIcon} />
+          <div className={style.headerTitle} data-name={'content-title'}>
+            {title}
+          </div>
         </div>
+        {actions ? (
+          <div className={style.actionsWrapper}>
+            <BulletPointMenuButton {...actions.bulletPointMenuButton} />
+            <div className={style.buttonLink}>
+              <ButtonLink {...actions.firstButtonLink} />
+            </div>
+            <div className={style.buttonLink}>
+              <ButtonLink {...actions.secondButtonLink} />
+            </div>
+          </div>
+        ) : null}
       </div>
-      <WizardSteps steps={steps} />
+      {steps ? <WizardSteps steps={steps} /> : null}
+      {tabs ? (
+        <div className={style.tabs}>
+          <BrandTabs type="light" tabs={tabs} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -117,8 +137,9 @@ const THEMES = {
 const getTheme = summary => (summary ? 'summary' : 'no-summary');
 
 const WizardContents = props => {
-  const {isLoading, wizardHeader, steps, summary, content, nextStep, previousStep} = props;
-  const headerView = buildHeader(wizardHeader, steps);
+  const {isLoading, wizardHeader, actions, steps, tabs, summary, content, nextStep, previousStep} =
+    props;
+  const headerView = buildHeader(wizardHeader, actions, steps, tabs);
   const formView = buildForm({...content, isLoading});
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
@@ -160,7 +181,25 @@ WizardContents.propTypes = {
     title: PropTypes.string,
     onClick: PropTypes.func
   }).isRequired,
+  actions: PropTypes.shape({
+    bulletPointMenuButton: PropTypes.shape({
+      buttonAriaLabel: PropTypes.string,
+      menuAriaLabel: PropTypes.string,
+      buttons: PropTypes.arrayOf(
+        PropTypes.shape({
+          'data-name': PropTypes.string,
+          label: PropTypes.string,
+          type: PropTypes.string,
+          onClick: PropTypes.func
+        })
+      ),
+      onClick: PropTypes.func
+    }),
+    firstButtonLink: PropTypes.shape(ButtonLink.propTypes),
+    secondButtonLink: PropTypes.shape(ButtonLink.propTypes)
+  }),
   steps: WizardSteps.propTypes.steps,
+  tabs: BrandTabs.propTypes.tabs,
   summary: PropTypes.shape({
     ...WizardSummary.propTypes
   }),

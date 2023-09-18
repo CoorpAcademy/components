@@ -41,6 +41,11 @@
   color: cm_grey_900;
 }
 
+.defaultLeft {
+  composes: default;
+  justify-content: flex-start;
+}
+
 .default:hover {
   background-color: cm_grey_200;
 }
@@ -48,4 +53,9 @@
 .dangerous {
   composes: default;
   color: cm_negative_100;
+}
+
+.dangerousLeft {
+  composes: dangerous;
+  justify-content: flex-start;
 }

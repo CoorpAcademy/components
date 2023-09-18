@@ -4,7 +4,7 @@ export default {
   props: {
     isLoading: false,
     wizardHeader: {
-      title: 'Massive impoprt',
+      title: 'Massive import',
       onClick: () => console.log('Close')
     },
     steps: [
