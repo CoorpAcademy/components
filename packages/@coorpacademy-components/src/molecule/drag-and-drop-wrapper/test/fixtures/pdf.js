@@ -1,4 +1,4 @@
-import Pdf from '../../../../atom/image-upload/test/fixtures/pdf';
+import Pdf from '../../../../atom/input-file-draggable/test/fixtures/pdf';
 
 export default {
   props: {

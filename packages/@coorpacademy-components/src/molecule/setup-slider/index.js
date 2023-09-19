@@ -8,7 +8,7 @@ import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputDoublestep from '../../atom/input-doublestep';
 import InputSwitch from '../../atom/input-switch';
-import ImageUpload from '../../atom/image-upload';
+import InputFileDraggable from '../../atom/input-file-draggable';
 import SetupCohortItem from '../setup-cohort-item';
 import MessagePopin from '../message-popin';
 import BrandDownloadBox from '../brand-download-box';
@@ -31,7 +31,7 @@ const SetupSlider = props => {
           case 'image':
             return (
               <div className={style.imageUploadContainer}>
-                <ImageUpload {...field} />
+                <InputFileDraggable {...field} />
               </div>
             );
           case 'splitForm':
@@ -107,7 +107,7 @@ const SlidePropTypes = PropTypes.shape({
         type: PropTypes.oneOf(['checkbox'])
       }),
       PropTypes.shape({
-        ...ImageUpload.propTypes,
+        ...InputFileDraggable.propTypes,
         type: PropTypes.oneOf(['image'])
       }),
       PropTypes.shape({

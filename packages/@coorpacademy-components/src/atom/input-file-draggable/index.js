@@ -6,7 +6,7 @@ import Link from '../button-link';
 import {ImagePropType} from '../../util/proptypes';
 import style from './style.css';
 
-const ImageUpload = ({
+const InputFileDraggable = ({
   title,
   description,
   previewLabel,
@@ -26,7 +26,9 @@ const ImageUpload = ({
   buttonAriaLabel,
   errorButtonLabel,
   pdfButtonLabel,
-  pdfButtonAriaLabel
+  pdfButtonAriaLabel,
+  multiple = false,
+  required = false
 }) => {
   const handleReset = useCallback(
     e => {
@@ -71,6 +73,8 @@ const ImageUpload = ({
             onDragEnter={onDragStart}
             onDrop={onDragStop}
             onDragLeave={onDragStop}
+            multiple={multiple}
+            required={required}
           />
         )}
       </DragAndDrop>
@@ -89,7 +93,7 @@ const ImageUpload = ({
   );
 };
 
-ImageUpload.propTypes = {
+InputFileDraggable.propTypes = {
   ...DragAndDrop.propTypes,
   name: PropTypes.string,
   onChange: PropTypes.func,
@@ -102,4 +106,4 @@ ImageUpload.propTypes = {
   hrefLink: PropTypes.string
 };
 
-export default ImageUpload;
+export default InputFileDraggable;

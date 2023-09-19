@@ -1,6 +1,6 @@
 import inputText from '../../../../atom/input-text-with-title/test/fixtures/error';
 import CheckboxWithTitle from '../../../../atom/checkbox-with-title/test/fixtures/checked';
-import PDFDragAndDrop from '../../../../atom/image-upload/test/fixtures/pdf';
+import PDFDragAndDrop from '../../../../atom/input-file-draggable/test/fixtures/pdf';
 import doubleDragAndDrop from '../../../../molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
 
 export default {

@@ -2,7 +2,7 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
-import style from '../../image-upload/style.css';
+import style from '../../input-file-draggable/style.css';
 import DragAndDrop from '..';
 import withChildrenFixtures from './fixtures/with-children';
 

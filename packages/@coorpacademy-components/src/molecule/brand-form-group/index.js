@@ -16,7 +16,7 @@ import Button from '../../atom/button';
 import InputTextarea from '../../atom/input-textarea';
 import InputHTML from '../../atom/input-html';
 import InputDoublestep from '../../atom/input-doublestep';
-import ImageUpload from '../../atom/image-upload';
+import InputFileDraggable from '../../atom/input-file-draggable';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
 import Title from '../../atom/title';
@@ -59,13 +59,13 @@ const buildInput = field => {
     case 'image':
       return (
         <div className={style.imageUploadContainer}>
-          <ImageUpload {...field} />
+          <InputFileDraggable {...field} />
         </div>
       );
     case 'bulkUpload':
       return (
         <div className={style.bulkUploadContainer}>
-          <ImageUpload {...field} />
+          <InputFileDraggable {...field} />
         </div>
       );
     case 'slider':
@@ -186,11 +186,11 @@ BrandFormGroup.propTypes = {
         type: PropTypes.oneOf(['checkbox'])
       }),
       PropTypes.shape({
-        ...ImageUpload.propTypes,
+        ...InputFileDraggable.propTypes,
         type: PropTypes.oneOf(['image'])
       }),
       PropTypes.shape({
-        ...ImageUpload.propTypes,
+        ...InputFileDraggable.propTypes,
         type: PropTypes.oneOf(['bulkImage'])
       }),
       PropTypes.shape({
