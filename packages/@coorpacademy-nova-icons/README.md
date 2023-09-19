@@ -89,4 +89,4 @@ You can use the props supported by [svg](https://developer.mozilla.org/docs/Web/
 
 ## Contributing
 
-Please, run `yarn test` before submitting a pull request.
+Please, run `yarn test` before submitting a pull request..
