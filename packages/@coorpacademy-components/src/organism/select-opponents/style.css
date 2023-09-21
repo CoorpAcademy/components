@@ -8,4 +8,10 @@
 
 .item {
     list-style-type: none;
+    max-width: 300px;
+}
+
+.itemImageUpload {
+    composes: item;
+    margin-left: 40px;
 }
