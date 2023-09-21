@@ -64,6 +64,7 @@ export default {
           hrefLink: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx',
           loading: false,
           disabled: true,
+          imageTypes: 'image/*',
           childType: 'image-upload'
         }
       }
