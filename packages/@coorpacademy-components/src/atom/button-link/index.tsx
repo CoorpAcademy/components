@@ -21,7 +21,7 @@ const getButtonContent = (icon?: IconType, label?: string) => {
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? <Icon className={style.icon} /> : null}
-      <span className={style.label}>{label}</span>
+      {label ? <span className={style.label}>{label}</span> : null}
       {position === 'right' ? <Icon className={style.icon} /> : null}
     </div>
   );

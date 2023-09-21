@@ -4,10 +4,11 @@ import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
+import ListItems from '../../organism/list-items';
 
 const propTypes = {
   content: PropTypes.string,
-  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items']),
+  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items', 'filesDetails']),
   header: PropTypes.shape({
     title: PropTypes.shape(Title.propTypes),
     headerIcon: PropTypes.string,
@@ -42,12 +43,14 @@ const propTypes = {
   backgroundImageUrl: PropTypes.string,
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
+  headerSubtitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
   listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes)),
   items: PropTypes.shape({
     type: PropTypes.string,
     list: PropTypes.shape(CardsGrid.propTypes)
-  })
+  }),
+  filesList: PropTypes.shape(ListItems.propTypes)
 };
 
 type PopinHeaderProps = {

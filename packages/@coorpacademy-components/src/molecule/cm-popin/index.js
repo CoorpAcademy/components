@@ -5,14 +5,18 @@ import {
   NovaLineSettingsCookie as Cookie,
   NovaSolidSpaceMoonRocket as MoonRocket,
   NovaCompositionCoorpacademyPadlock as LockIcon,
-  NovaLineStatusCheckCircle1 as CheckCircle1
+  NovaLineStatusCheckCircle1 as CheckCircle1,
+  NovaSolidFilesBasicFileLines as FileLinesIcon
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
+import isEmpty from 'lodash/fp/isEmpty';
+import classNames from 'classnames';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import CardsGrid from '../../organism/cards-grid';
+import ListItems from '../../organism/list-items';
 import style from './style.css';
 import propTypes from './types';
 
@@ -35,7 +39,9 @@ const CMPopin = props => {
     cookieTitle,
     descriptionBtnTxt,
     listBtnSwicth,
-    items
+    items,
+    headerSubtitle,
+    filesList
   } = props;
   const logo = {
     AlertDiamond,
@@ -51,6 +57,7 @@ const CMPopin = props => {
         backgroundSize: 'cover'
       }
     : null;
+
   const renderHeader = () => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
@@ -76,8 +83,21 @@ const CMPopin = props => {
           <div className={style.cookieTitle}>{cookieTitle}</div>
         </div>
       );
+    if (mode === 'filesDetails')
+      return (
+        <div className={style.filesDetailsHeader}>
+          <div className={style.filesDetailsIconContainer}>
+            <FileLinesIcon className={style.filesDetailsIcon} />
+          </div>
+          <div>
+            <div className={style.filesDetailsTitle}>{cookieTitle}</div>
+            <div className={style.filesDetailsSubtitle}>{headerSubtitle}</div>
+          </div>
+        </div>
+      );
     return null;
   };
+
   const getClassBtnSwitch = (index, btnList) => {
     switch (index) {
       case 0:
@@ -88,6 +108,7 @@ const CMPopin = props => {
         return style.singleSwitchContainer;
     }
   };
+
   const renderBtnSwitch = () => {
     return map.convert({cap: false})((el, index) => {
       const {
@@ -124,17 +145,25 @@ const CMPopin = props => {
       );
     })(listBtnSwicth);
   };
+
   const renderItems = () => {
     const {type, list} = items;
     return type === 'content' ? <CardsGrid {...list} /> : null;
   };
+
+  const wrapperPopinStyle = classNames(
+    mode === 'cookie' && style.popinCookie,
+    mode === 'filesDetails' && style.popinFilesDetails,
+    style.popin
+  );
+
   return (
     <div
       className={mode !== 'cookie' ? style.background : null}
       style={backgroundImageStyle}
       data-name={'cm-popin-container'}
     >
-      <div className={mode === 'cookie' ? style.popinCookie : style.popin}>
+      <div className={wrapperPopinStyle}>
         <header className={style.popinHeader}>
           {renderHeader()}
           {onClose ? (
@@ -182,6 +211,11 @@ const CMPopin = props => {
           </div>
         ) : null}
         {renderBtnSwitch()}
+        {!isEmpty(filesList) ? (
+          <div style={{width: '100%'}}>
+            <ListItems {...filesList} />
+          </div>
+        ) : null}
         {firstButton || secondButton || thirdButton ? (
           <div className={style.buttonContainer}>
             {firstButton ? (

@@ -4,7 +4,7 @@ import {forEach, set, split, map, concat} from 'lodash/fp';
 import {
   ColorPropType,
   HexPropType,
-  ImagePropType,
+  FilesPropType,
   UrlPropType,
   PathPropType,
   SrcPropType
@@ -78,7 +78,7 @@ test('SrcPropType should pass when valid source is passed', validMacro, SrcPropT
 ]);
 test('SrcPropType should throw error when incorrect source is passed', failMacro, SrcPropType, [0]);
 
-test('ImagePropType should pass when correct image type is passed', validMacro, ImagePropType, [
+test('FilesPropType should pass when correct image type is passed', validMacro, FilesPropType, [
   'image/svg+xml',
   'image/jpeg',
   'image/png',
@@ -87,15 +87,15 @@ test('ImagePropType should pass when correct image type is passed', validMacro, 
 ]);
 
 test(
-  'ImagePropType should throw error when incorrect image type is passed: misspelled',
+  'FilesPropType should throw error when incorrect image type is passed: misspelled',
   failMacro,
-  ImagePropType,
+  FilesPropType,
   ['image/sgv+xml']
 );
 
 test(
-  'ImagePropType should throw error when incorrect image type is passed: not included',
+  'FilesPropType should throw error when incorrect image type is passed: not included',
   failMacro,
-  ImagePropType,
+  FilesPropType,
   ['image/pdf', 'another']
 );

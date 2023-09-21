@@ -73,9 +73,11 @@
   line-height: 20px;
   margin: 0;
 }
+
 .message p {
   margin: 10px 0px;
 }
+
 @keyframes popup {
   0% {
     transform: scale(0);
@@ -178,74 +180,12 @@
   margin: 20px 32px;
 }
 
-.cookieTitleContainer {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 .titleContainer {
   padding-top: 40px;
   align-items: center;
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-
-.cookieHeader {
-  width: 100%;
-  background-color: cm_grey_700;
-  padding: 16px 24px;
-  border-radius: 10px 10px 0px 0px;
-  display: flex;
-  align-items: center;
-}
-
-.popinCookie {
-  max-width: 550px;
-  flex-grow: 0;
-  margin: 16px;
-  border-radius: 10px;
-  background-color: cm_grey_50;
-  animation: popup 0.7s;
-  position: fixed;
-  bottom: 32px;
-  left: 32px;
-  z-index: 1000;
-}
-.cookieTitle {
-  font-family: "Gilroy";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 32px;
-  color: white;
-  padding-left: 16px;
-}
-.cookieIcon {
-  height: 20px;
-  width: 20px;
-}
-.cookieIconContainer {
-  width: 39px;
-  height: 39px;
-  border-radius: 8px;
-  background-color: cm_blue_50;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.popinCookie .button  {
-  width: 100%;
-  padding: 0px 8px 0px 0px
-}
-.popinCookie .button span {
-  margin: 0
-}
-
-.popinCookie .message {
-  padding: 24px 24px 40px 24px 
 }
 
 .descriptionBtn {
@@ -262,7 +202,6 @@
   margin-bottom: 24px;
 }
 
-
 .firstBtnSwitchContainer {
   height: 56px;
   background-color: cm_grey_75;
@@ -270,9 +209,11 @@
   display: flex;
   align-items: center;
 }
+
 .firstBtnSwitchContainer div:first-child {
   margin-left: 9px;
 }
+
 .singleSwitchContainer div:first-child {
  margin-left: 9px;
 }
@@ -289,9 +230,78 @@
   width: 100%;
   margin-top: 24px;
 }
+
 a {
   color: cm_primary_blue;
   text-decoration: none;
+}
+
+/* ---------- COOKIES ---------- */
+.popinCookie {
+  max-width: 550px;
+  flex-grow: 0;
+  margin: 16px;
+  border-radius: 10px;
+  background-color: cm_grey_50;
+  animation: popup 0.7s;
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+  z-index: 1000;
+}
+
+.cookieHeader {
+  width: 100%;
+  background-color: cm_grey_700;
+  padding: 16px 24px;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.cookieIconContainer {
+  width: 39px;
+  height: 39px;
+  border-radius: 8px;
+  background-color: cm_blue_50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookieIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.cookieTitle {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: white;
+  padding-left: 16px;
+}
+
+.cookieTitleContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.popinCookie .button  {
+  width: 100%;
+  padding: 0px 8px 0px 0px
+}
+
+.popinCookie .button span {
+  margin: 0
+}
+
+.popinCookie .message {
+  padding: 24px 24px 40px 24px 
 }
 
 .popinCookie .buttonContainer  {
@@ -301,6 +311,7 @@ a {
   padding-left: 24px;
   padding-right: 16px;
 }
+
 .popinCookie .largeButton {
   padding: 0px 8px 0px 0px
 }
@@ -312,6 +323,55 @@ a {
   border-top: 1px solid cm_grey_100;
 }
 
+/* ---------- FILES DETAILS ---------- */
+.popinFilesDetails {
+  width: 70%;
+  min-width: 700px;
+  height: 700px; 
+  flex-grow: 0;
+  margin: 16px;
+  padding: 16px 16px 20px 16px;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  animation: popup 0.7s;
+  overflow: scroll;
+}
+
+.filesDetailsHeader {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-family: "Gilroy";
+  width: 100%;
+  padding: 24px;
+  border-bottom: 1px solid cm_grey_100;
+}
+
+.filesDetailsIconContainer {
+  composes: cookieIconContainer;
+  margin-right: 16px;
+}
+
+.filesDetailsIcon {
+  composes: cookieIcon;
+  color: cm_primary_blue;
+}
+
+.filesDetailsTitle {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.filesDetailsSubtitle {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
 @media tablet {
   .popin {
     width: 80%;

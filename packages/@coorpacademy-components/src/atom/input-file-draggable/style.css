@@ -1,5 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_50 from colors;
+@value cm_grey_300 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 
 .input {
   width: 100%;
@@ -25,4 +28,53 @@
   border-radius: 10px;
   font-family: "Gilroy";
   font-size: 14px;
+}
+
+/* ---------- MULTIPLE FILES ---------- */
+.multipleFilesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 16px;
+  background-color: cm_grey_50;
+  padding: 13px 24px 13px 24px;
+  border-radius: 10px;
+  font-family: "Gilroy";
+  font-size: 14px;
+}
+
+.multipleFilesInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Gilroy";
+}
+
+.filesNumber {
+  composes: multipleFilesInfo;
+  font-weight: 500;
+  color: cm_grey_700;
+}
+
+.seeDetailsButton {
+  composes: multipleFilesInfo;
+  font-weight: 700;
+  color: cm_grey_500;
+}
+
+.icon {
+  min-width: 14px;
+  min-height: 14px;
+  max-width: 30px;
+  max-height: 30px;
+  height: 20%;
+  width: 20%;
+  transition: all 0.2s cubic-bezier(0.47, 1.04, 0.46, 2.16);
+  color: cm_grey_300;
+}
+
+.seeIcon {
+  composes: icon;
+  color: cm_grey_500;
 }

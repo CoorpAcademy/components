@@ -35,7 +35,8 @@ class DragAndDrop extends React.Component {
     buttonAriaLabel: PropTypes.string,
     errorButtonLabel: PropTypes.string,
     pdfButtonLabel: PropTypes.string,
-    pdfButtonAriaLabel: PropTypes.string
+    pdfButtonAriaLabel: PropTypes.string,
+    multiple: PropTypes.bool
   };
 
   constructor(props) {
@@ -78,7 +79,8 @@ class DragAndDrop extends React.Component {
       errorButtonLabel = '',
       disabled = false,
       pdfButtonLabel,
-      pdfButtonAriaLabel
+      pdfButtonAriaLabel,
+      multiple
     } = this.props;
     const {dragging} = this.state;
 
@@ -117,6 +119,14 @@ class DragAndDrop extends React.Component {
       previewView = (
         <div className={style.previewXlsxContainer}>
           <div className={style.previewXlsx}>
+            <FileLinesIcon className={style.iconFile} />
+          </div>
+        </div>
+      );
+    } else if (previewContent && multiple) {
+      previewView = (
+        <div className={style.preview}>
+          <div className={style.multiplePreview}>
             <FileLinesIcon className={style.iconFile} />
           </div>
         </div>
@@ -183,7 +193,7 @@ class DragAndDrop extends React.Component {
     const button = buildButton(dragging, error);
 
     const previewContainer = getClassState(
-      style.previewContainer,
+      multiple ? style.previewContainerMultiple : style.previewContainer,
       style.modifiedPreviewContainer,
       null,
       modified,

@@ -7,6 +7,8 @@ import stringMatching from 'extended-proptypes/lib/validators/stringMatching';
 
 import _ColorPropType from 'extended-proptypes/lib/validators/color';
 import _HexPropType from 'extended-proptypes/lib/validators/hex';
+import isEmpty from 'lodash/fp/isEmpty';
+import head from 'lodash/fp/head';
 
 const URL_REGEXP =
   /^(http(s)?:\/\/.)[-a-zA-Z0-9@:%._\\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)$/;
@@ -17,20 +19,21 @@ export const PathPropType = stringMatching(PATH_REGEXP);
 
 export const SrcPropType = PropTypes.oneOfType([UrlPropType, PathPropType]);
 
-export const ImagePropType = (props, propName, componentName) => {
-  const validImageTypes = [
+export const FilesPropType = (props, propName, componentName) => {
+  const validFilesTypes = [
     'image/jpeg',
     'image/png',
     'image/svg+xml',
     'image/*',
-    'application/pdf'
+    'application/pdf',
+    'application/zip',
+    'text/csv'
   ];
 
   const propValue = props[propName];
-  if (!propValue) return new Error(`Missing prop: ${propName} at component: ${componentName}`);
-
-  const imageTypes = split(',', propValue);
-  const isValid = every(type => includes(trim(type), validImageTypes), imageTypes);
+  const filesTypes = split(',', propValue);
+  const isValid =
+    isEmpty(head(filesTypes)) || every(type => includes(trim(type), validFilesTypes), filesTypes);
   if (isValid) return null;
 
   return new Error(

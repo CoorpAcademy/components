@@ -73,7 +73,11 @@
 }
 
 .buttonLink {
-  margin: 0 16px 0 0;
+  margin-left: 16px;
+}
+
+.bulletPoint {
+  margin-left: 16px;
 }
 
 .order {

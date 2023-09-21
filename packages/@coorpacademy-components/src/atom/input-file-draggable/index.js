@@ -1,9 +1,13 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {isNil} from 'lodash/fp';
+import {
+  NovaSolidFilesBasicFileLines as FileLinesIcon,
+  NovaCompositionCoorpacademyEye as EyeIcon
+} from '@coorpacademy/nova-icons';
 import DragAndDrop from '../drag-and-drop';
 import Link from '../button-link';
-import {ImagePropType} from '../../util/proptypes';
+import {FilesPropType} from '../../util/proptypes';
 import style from './style.css';
 
 const InputFileDraggable = ({
@@ -21,12 +25,13 @@ const InputFileDraggable = ({
   labelLink,
   labelButtonLink,
   hrefLink,
-  imageTypes = 'image/*',
+  filesTypes = '',
   error = '',
   buttonAriaLabel,
   errorButtonLabel,
   pdfButtonLabel,
   pdfButtonAriaLabel,
+  filesNumber = 0,
   multiple = false,
   required = false
 }) => {
@@ -61,12 +66,13 @@ const InputFileDraggable = ({
         errorButtonLabel={errorButtonLabel}
         pdfButtonLabel={pdfButtonLabel}
         pdfButtonAriaLabel={pdfButtonAriaLabel}
+        multiple={multiple}
       >
         {(onDragStart, onDragStop) => (
           <input
             type="file"
             name={name}
-            accept={imageTypes}
+            accept={filesTypes}
             disabled={loading || disabled}
             className={style.input}
             onChange={onChange}
@@ -89,6 +95,18 @@ const InputFileDraggable = ({
           />
         </div>
       ) : null}
+      {multiple && filesNumber > 0 ? (
+        <div className={style.multipleFilesContainer}>
+          <div className={style.filesNumber}>
+            <FileLinesIcon className={style.icon} />
+            <div>{filesNumber} files</div>
+          </div>
+          <div className={style.seeDetailsButton}>
+            <EyeIcon className={style.seeIcon} />
+            <div>See details</div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };
@@ -98,7 +116,7 @@ InputFileDraggable.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
-  imageTypes: ImagePropType,
+  filesTypes: FilesPropType,
   error: PropTypes.string,
   buttonAriaLabel: PropTypes.string,
   errorButtonLabel: PropTypes.string,

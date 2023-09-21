@@ -4,20 +4,9 @@ export default {
   props: {
     isLoading: false,
     wizardHeader: {
-      title: 'Massive import',
+      title: 'New import',
       onClick: () => console.log('Close')
     },
-    steps: [
-      {
-        title: 'Import',
-        current: true,
-        done: false
-      },
-      {
-        title: 'Inspect',
-        done: false
-      }
-    ],
     content: {
       groups: [form.props],
       type: 'form'

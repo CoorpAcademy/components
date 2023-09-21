@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map} from 'lodash/fp';
+import {isEmpty, map} from 'lodash/fp';
 import classnames from 'classnames';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -69,7 +69,11 @@ const ListItem = ({
             <ButtonLinkIconOnly {...buttonLinkIcon} />
           </div>
         ) : null}
-        <BulletPointMenuButton {...bulletPointMenuButton} />
+        {!isEmpty(bulletPointMenuButton) ? (
+          <div className={style.bulletPoint}>
+            <BulletPointMenuButton {...bulletPointMenuButton} />
+          </div>
+        ) : null}
       </div>
     </div>
   );
