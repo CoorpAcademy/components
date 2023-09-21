@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick, keys} from 'lodash/fp';
 import {
-  NovaSolidLoginLocked as LockIcon,
+  NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
 import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
@@ -140,6 +140,7 @@ const Card = memo(function Card(props, context) {
     badgeCategory,
     badgeLabel,
     theme = 'default',
+    disabledContent,
     'aria-label': cardArialabel,
     'background-aria-label': backgroundAriaLabel,
     'favorite-aria-label': favoriteAriaLabel,
@@ -151,7 +152,6 @@ const Card = memo(function Card(props, context) {
   } = props;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
-  const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
     THEMES[theme],
     type === 'chapter' ? style.chapter : style.course,
@@ -160,9 +160,12 @@ const Card = memo(function Card(props, context) {
     empty ? style.empty : null
   );
   const disabled = hidden && (!isSelected || isUndefined(isSelected));
-  const handleClick = useMemo(() => e => !disabled && onClick(e), [disabled, onClick]);
+  const handleClick = useMemo(() => e => onClick(e), [onClick]);
   const lock = disabled ? (
-    <LockIcon className={style.lockIcon} style={{color: whiteColor}} height={40} />
+    <div className={style.lockContent}>
+      <LockIcon className={style.lockIcon} height={48} />
+      <span aria-label={disabledArialabel}>{disabledContent}</span>
+    </div>
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
   const getType = contentType => {
@@ -263,6 +266,7 @@ export const cardPropTypes = {
   badgeCategory: CardContentInfo.propTypes.badgeCategory,
   badgeLabel: CardContentInfo.propTypes.badgeLabel,
   theme: PropTypes.oneOf(keys(THEMES)),
+  disabledContent: PropTypes.string,
   'aria-label': PropTypes.string,
   'background-aria-label': PropTypes.string,
   'favorite-aria-label': Favorite.propTypes['aria-label'],

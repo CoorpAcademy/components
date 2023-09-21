@@ -8,9 +8,10 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
+@value cm_negative_200 from colors;
+@value negative_100 from colors;
 
 .default[disabled] {
-  pointer-events: none;
   cursor: inherit;
 }
 
@@ -163,7 +164,7 @@
 }
 
 .default[disabled] .imageWrapper {
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 .lockWrapper {
@@ -186,12 +187,53 @@
   bottom: 0;
   content: '';
   opacity: 0.4;
-  background: black;
+  background: linear-gradient(
+    to bottom, 
+     black 50%
+  );
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.lockWrapper:hover {
+  cursor: pointer;
+}
+
+.lockWrapper:hover .lockIcon {
+  background-color: cm_negative_200;
+  color: white;
+}
+
+.lockWrapper:hover span {
+  font-weight: 600;
+  width: 150px;
+}
+
+.lockContent {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.lockContent span {
+  width: 134px;
+  height: 40px;
+  color: white;
+  text-align: center;
+  font-family: 'Gilroy';
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .lockIcon {
-  font-size: 40px;
-  z-index: 1;
+  width: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background-color: negative_100;
+  align-self: center;
+  border-radius: 16px;
+  color: cm_negative_200;
 }
 
 .imageWrapper {

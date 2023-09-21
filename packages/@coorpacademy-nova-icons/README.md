@@ -19,6 +19,7 @@ Components bank (react and react-native) based on Nova SVG icons (through [Iconj
 ### Adding an icon - colors & RGAA
 
 #### Colors:
+
 - If you want any path's color to be injected (to be replaced by `currentColor`/`props.color`), set color `#757575`.
 
 ex:
@@ -32,11 +33,12 @@ ex:
     </svg>
 ```
 
-(the last path is going to keep `#4B4C4C` as its color) anything else will remain __as is__
+(the last path is going to keep `#4B4C4C` as its color) anything else will remain **as is**
 
 - You must set `replaceColors` to false (`replaceColors: false`) in ./icons.js _if you don't want_ the original color to be replaced by the script.
 
 ex:
+
 ```javascript
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
@@ -46,12 +48,14 @@ ex:
 
 <br/>
 
-#### RGAA: 
-- if __you want to use an aria-label or alt prop__, you can pass it as a prop directly, this would add __role="img"__ automatically. If __you want an aria-hidden prop__ instead, it will be added automatically if you don't use an `aria-label` or `alt`.
+#### RGAA:
+
+- if **you want to use an aria-label or alt prop**, you can pass it as a prop directly, this would add **role="img"** automatically. If **you want an aria-hidden prop** instead, it will be added automatically if you don't use an `aria-label` or `alt`.
 
 <br/>
 
 ### Adding an icon - final steps
+
 - Drag and drop your SVG file into a collection (in iconJar)
 - Export the new updated iconjar collection (be careful to have the same name when you export, to erase the old one)
 - Add the brand new svg icon's path into `icons.js` file that's in root project (if you're SVG has a color and you want to keep it, you can add the property: `replaceColors: false`)
@@ -63,8 +67,8 @@ ex:
 ## Usage
 
 ```jsx
-import React from 'react';
-import { NovaCompositionCoorpacademyCog } from '@coorpacademy/nova-icons';
+import React from "react";
+import { NovaCompositionCoorpacademyCog } from "@coorpacademy/nova-icons";
 
 const MyComponent = () => (
   <NovaCompositionCoorpacademyCog width={32} height={32} color="#123456" />
@@ -73,7 +77,7 @@ const MyComponent = () => (
 export default MyComponent;
 ```
 
-__Note__: React-Native component will automatically be resolved as [Metro](https://github.com/facebook/metro) supports `.native.js` extension.
+**Note**: React-Native component will automatically be resolved as [Metro](https://github.com/facebook/metro) supports `.native.js` extension.
 
 <br/>
 
@@ -85,4 +89,4 @@ You can use the props supported by [svg](https://developer.mozilla.org/docs/Web/
 
 ## Contributing
 
-Please, run `yarn test` before submitting a pull request.
+Please, run `yarn test` before submitting a pull request..

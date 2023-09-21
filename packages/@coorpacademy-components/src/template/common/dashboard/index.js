@@ -25,6 +25,7 @@ const Dashboard = props => {
     hero,
     welcome,
     cookie,
+    popinWithCards,
     'arrows-aria-label': showMoreOnLeftOrRightAriaLabel
   } = props;
 
@@ -61,6 +62,11 @@ const Dashboard = props => {
     <div className={style.wrapper} data-name="dashboard">
       {sectionsList}
       {cookie ? <CMPopin {...cookie} /> : null}
+      {popinWithCards ? (
+        <div className={style.popinWithCards}>
+          <CMPopin {...popinWithCards} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -78,6 +84,7 @@ Dashboard.propTypes = {
     ])
   ),
   cookie: PropTypes.shape(CMPopin.propTypes),
-  'arrows-aria-label': CardsList.propTypes['arrows-aria-label']
+  'arrows-aria-label': CardsList.propTypes['arrows-aria-label'],
+  popinWithCards: PropTypes.shape(CMPopin.propTypes)
 };
 export default Dashboard;
