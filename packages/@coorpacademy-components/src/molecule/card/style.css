@@ -195,6 +195,10 @@
   z-index: 1;
 }
 
+.lockWrapper:hover {
+  cursor: pointer;
+}
+
 .lockWrapper:hover .lockIcon {
   background-color: cm_negative_200;
   color: white;
@@ -224,6 +228,8 @@
 
 .lockIcon {
   width: 48px;
+  min-width: 48px;
+  min-height: 48px;
   background-color: negative_100;
   align-self: center;
   border-radius: 16px;

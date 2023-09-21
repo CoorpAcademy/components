@@ -46,13 +46,13 @@ test('should no render favorite section if favorite is not defined on the props'
   t.falsy(favoriteSection);
 });
 
-test('should not call onClick with locked card', t => {
-  t.plan(2);
+test('should call onClick with locked card', t => {
+  t.plan(3);
 
   const props = pipe(
     set('favorite', true),
     set('disabled', true),
-    set('onClick', () => t.fail()),
+    set('onClick', () => t.pass()),
     set('onFavoriteClick', () => t.fail())
   )(defaultFixture.props);
 

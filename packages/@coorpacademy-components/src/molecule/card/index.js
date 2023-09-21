@@ -160,7 +160,7 @@ const Card = memo(function Card(props, context) {
     empty ? style.empty : null
   );
   const disabled = hidden && (!isSelected || isUndefined(isSelected));
-  const handleClick = useMemo(() => e => !disabled && onClick(e), [disabled, onClick]);
+  const handleClick = useMemo(() => e => onClick(e), [onClick]);
   const lock = disabled ? (
     <div className={style.lockContent}>
       <LockIcon className={style.lockIcon} height={48} />
