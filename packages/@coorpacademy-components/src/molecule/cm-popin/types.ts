@@ -75,8 +75,8 @@ export type QuitPopinButton = {
 
 export type CMPopinProps = {
   content: string;
-  icon: 'alert' | 'information' | 'cookie' | 'items' | 'list';
-  mode: string;
+  icon: string;
+  mode: 'alert' | 'information' | 'cookie' | 'items' | 'list';
   popinHeader?: PopinHeaderProps;
   descriptionText: string;
   firstButton?: QuitPopinButton;
