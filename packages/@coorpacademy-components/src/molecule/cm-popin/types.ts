@@ -8,7 +8,7 @@ import ListItems from '../../organism/list-items';
 
 const propTypes = {
   content: PropTypes.string,
-  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items', 'filesDetails']),
+  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items', 'list']),
   header: PropTypes.shape({
     title: PropTypes.shape(Title.propTypes),
     headerIcon: PropTypes.string,
@@ -47,8 +47,11 @@ const propTypes = {
   descriptionBtnTxt: PropTypes.string,
   listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes)),
   items: PropTypes.shape({
-    type: PropTypes.string,
-    list: PropTypes.shape(CardsGrid.propTypes)
+    type: PropTypes.oneOf(['content', 'list']),
+    list: PropTypes.oneOfType([
+      PropTypes.shape(CardsGrid.propTypes),
+      PropTypes.shape(ListItems.propTypes)
+    ])
   }),
   filesList: PropTypes.shape(ListItems.propTypes)
 };
@@ -72,15 +75,17 @@ export type QuitPopinButton = {
 
 export type CMPopinProps = {
   content: string;
-  icon: string;
+  icon: 'alert' | 'information' | 'cookie' | 'items' | 'list';
   mode: string;
   popinHeader?: PopinHeaderProps;
   descriptionText: string;
   firstButton?: QuitPopinButton;
   secondButton?: QuitPopinButton;
   items?: {
-    type: string;
-    list: PropTypes.InferProps<typeof CardsGrid.propTypes>;
+    type: 'content' | 'list';
+    list:
+      | PropTypes.InferProps<typeof CardsGrid.propTypes>
+      | PropTypes.InferProps<typeof ListItems.propTypes>;
   };
 };
 

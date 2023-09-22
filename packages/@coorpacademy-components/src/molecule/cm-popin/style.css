@@ -142,25 +142,21 @@
 }
 
 .headerContent {
-  display: flex;
-  width: 100%;
   gap: 16px;
-  padding: 8px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 16px;
+  border-bottom: 1px solid cm_grey_100;
 }
 
-.headerTitle {
-  width: 612px;
-  margin-bottom: 16px;
-  padding: 2px 0px 2px;
-}
 
 .lockIcon {
   height: 48px;
   width: 48px;
   background-color: negative_100;
   border-radius: 16px;
-  min-width: 48px;
-  min-height: 48px;
   color: cm_negative_200;
 }
 
@@ -324,51 +320,31 @@ a {
 }
 
 /* ---------- FILES DETAILS ---------- */
-.popinFilesDetails {
+.popinFilesList {
+  font-family: "Gilroy";
   width: 70%;
   min-width: 700px;
   height: 700px; 
-  flex-grow: 0;
-  margin: 16px;
   padding: 16px 16px 20px 16px;
   border-radius: 20px;
   background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   animation: popup 0.7s;
   overflow: scroll;
 }
 
-.filesDetailsHeader {
+.filesListIconContainer {
+  composes: lockIcon;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  font-family: "Gilroy";
-  width: 100%;
-  padding: 24px;
-  border-bottom: 1px solid cm_grey_100;
-}
-
-.filesDetailsIconContainer {
-  composes: cookieIconContainer;
-  margin-right: 16px;
-}
-
-.filesDetailsIcon {
-  composes: cookieIcon;
+  border-radius: 12px;
+  background-color: cm_blue_50;
   color: cm_primary_blue;
 }
 
-.filesDetailsTitle {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.filesDetailsSubtitle {
-  font-weight: 500;
-  font-size: 14px;
+.filesListIcon {
+  height: 20px;
+  width: 20px;
 }
 
 /* ---------- MEDIA QUERIES ---------- */

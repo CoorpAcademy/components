@@ -21,7 +21,12 @@ import style from './style.css';
 import propTypes from './types';
 
 const IconType = {
-  lockedContent: <LockIcon className={style.lockIcon} />
+  lockedContent: <LockIcon className={style.lockIcon} />,
+  file: (
+    <div className={style.filesListIconContainer}>
+      <FileLinesIcon className={style.filesListIcon} />
+    </div>
+  )
 };
 
 const CMPopin = props => {
@@ -39,9 +44,7 @@ const CMPopin = props => {
     cookieTitle,
     descriptionBtnTxt,
     listBtnSwicth,
-    items,
-    headerSubtitle,
-    filesList
+    items
   } = props;
   const logo = {
     AlertDiamond,
@@ -62,18 +65,22 @@ const CMPopin = props => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
       const TopTitleIcon = IconType[headerIcon];
-      if (title) {
-        return (
-          <div className={style.headerContent}>
-            {TopTitleIcon}
-            <div className={style.headerTitle}>
+
+      return (
+        <>
+          {title ? (
+            <div className={style.headerContent}>
+              {TopTitleIcon}
               <Title {...title} />
             </div>
-          </div>
-        );
-      }
-      return <img className={style.headerBackground} src={backgroundImage} />;
+          ) : null}
+          {backgroundImage ? (
+            <img className={style.headerBackground} src={backgroundImage} />
+          ) : null}
+        </>
+      );
     }
+
     if (mode === 'cookie')
       return (
         <div className={style.cookieHeader}>
@@ -81,18 +88,6 @@ const CMPopin = props => {
             <Cookie className={style.cookieIcon} />
           </div>
           <div className={style.cookieTitle}>{cookieTitle}</div>
-        </div>
-      );
-    if (mode === 'filesDetails')
-      return (
-        <div className={style.filesDetailsHeader}>
-          <div className={style.filesDetailsIconContainer}>
-            <FileLinesIcon className={style.filesDetailsIcon} />
-          </div>
-          <div>
-            <div className={style.filesDetailsTitle}>{cookieTitle}</div>
-            <div className={style.filesDetailsSubtitle}>{headerSubtitle}</div>
-          </div>
         </div>
       );
     return null;
@@ -148,12 +143,27 @@ const CMPopin = props => {
 
   const renderItems = () => {
     const {type, list} = items;
-    return type === 'content' ? <CardsGrid {...list} /> : null;
+    if (isEmpty(list)) return null;
+
+    if (type === 'content')
+      return (
+        <div className={style.itemsContainer} data-name={'cm-popin-cards'}>
+          <CardsGrid {...list} />
+        </div>
+      );
+    if (type === 'list')
+      return (
+        <div style={{width: '100%'}}>
+          <ListItems {...list} />
+        </div>
+      );
+
+    return null;
   };
 
   const wrapperPopinStyle = classNames(
     mode === 'cookie' && style.popinCookie,
-    mode === 'filesDetails' && style.popinFilesDetails,
+    mode === 'list' && style.popinFilesList,
     style.popin
   );
 
@@ -205,17 +215,8 @@ const CMPopin = props => {
           </div>
         ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
-        {items ? (
-          <div className={style.itemsContainer} data-name={'cm-popin-cards'}>
-            {renderItems()}
-          </div>
-        ) : null}
+        {!isEmpty(items) ? renderItems() : null}
         {renderBtnSwitch()}
-        {!isEmpty(filesList) ? (
-          <div style={{width: '100%'}}>
-            <ListItems {...filesList} />
-          </div>
-        ) : null}
         {firstButton || secondButton || thirdButton ? (
           <div className={style.buttonContainer}>
             {firstButton ? (
