@@ -38,6 +38,7 @@ import _NovaCompositionCoorpacademyEmail from './components/nova-composition/coo
 import _NovaCompositionCoorpacademyEmptyStateHomeRevision from './components/nova-composition/coorpacademy/empty-state-home-revision';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
 import _NovaCompositionCoorpacademyFacebook from './components/nova-composition/coorpacademy/facebook';
+import _NovaCompositionCoorpacademyFileZipped from './components/nova-composition/coorpacademy/file-zipped';
 import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
 import _NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
 import _NovaCompositionCoorpacademyGooglePlus from './components/nova-composition/coorpacademy/google-plus';
@@ -272,6 +273,7 @@ export const NovaCompositionCoorpacademyEmptyStateHomeRevision: Icon =
   _NovaCompositionCoorpacademyEmptyStateHomeRevision;
 export const NovaCompositionCoorpacademyEye: Icon = _NovaCompositionCoorpacademyEye;
 export const NovaCompositionCoorpacademyFacebook: Icon = _NovaCompositionCoorpacademyFacebook;
+export const NovaCompositionCoorpacademyFileZipped: Icon = _NovaCompositionCoorpacademyFileZipped;
 export const NovaCompositionCoorpacademyFilterVideo2: Icon =
   _NovaCompositionCoorpacademyFilterVideo2;
 export const NovaCompositionCoorpacademyFunnel: Icon = _NovaCompositionCoorpacademyFunnel;
