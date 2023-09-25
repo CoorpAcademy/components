@@ -52,8 +52,7 @@ const propTypes = {
       PropTypes.shape(CardsGrid.propTypes),
       PropTypes.shape(ListItems.propTypes)
     ])
-  }),
-  filesList: PropTypes.shape(ListItems.propTypes)
+  })
 };
 
 type PopinHeaderProps = {

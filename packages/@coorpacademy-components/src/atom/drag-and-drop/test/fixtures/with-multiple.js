@@ -9,8 +9,6 @@ export default {
       src: '',
       label: 'meta image'
     },
-    pdfButtonLabel: 'See details',
-    pdfButtonAriaLabel: 'See details',
     multiple: true
   }
 };

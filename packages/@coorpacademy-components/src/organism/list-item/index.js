@@ -59,20 +59,10 @@ const ListItem = ({
 
       <div className={style.settings}>
         {tagsView}
-        {buttonLink ? (
-          <div className={style.buttonLink}>
-            <ButtonLink {...buttonLink} />
-          </div>
-        ) : null}
-        {buttonLinkIcon ? (
-          <div className={style.buttonLink}>
-            <ButtonLinkIconOnly {...buttonLinkIcon} />
-          </div>
-        ) : null}
+        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
+        {buttonLinkIcon ? <ButtonLinkIconOnly {...buttonLinkIcon} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
-          <div className={style.bulletPoint}>
-            <BulletPointMenuButton {...bulletPointMenuButton} />
-          </div>
+          <BulletPointMenuButton {...bulletPointMenuButton} />
         ) : null}
       </div>
     </div>

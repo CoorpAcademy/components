@@ -17,10 +17,7 @@ export default {
           src: '',
           label: 'meta image'
         },
-
         buttonAriaLabel: 'Browse file to upload Bulk ZIP',
-        pdfButtonLabel: 'See details',
-        pdfButtonAriaLabel: 'See details',
         multiple: true,
         filesNumber: 94
       },

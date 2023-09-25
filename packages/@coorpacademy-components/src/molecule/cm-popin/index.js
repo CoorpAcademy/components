@@ -22,7 +22,7 @@ import propTypes from './types';
 
 const IconType = {
   lockedContent: <LockIcon className={style.lockIcon} />,
-  file: (
+  zippedFile: (
     <div className={style.filesListIconContainer}>
       <FileLinesIcon className={style.filesListIcon} />
     </div>

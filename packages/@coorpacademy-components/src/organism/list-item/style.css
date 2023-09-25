@@ -50,13 +50,14 @@
   align-items: center;
   display: flex;
   height: 100%;
+  gap: 16px;
 }
 
 .tag {
-  margin: 0 16px 0 0;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .cell {
   display: flex;
   height: 56px;
@@ -70,14 +71,6 @@
   font-weight: 600;
   line-height: 20px;
   white-space: nowrap;
-}
-
-.buttonLink {
-  margin-left: 16px;
-}
-
-.bulletPoint {
-  margin-left: 16px;
 }
 
 .order {
