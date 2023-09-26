@@ -6,7 +6,7 @@ import {
   NovaSolidSpaceMoonRocket as MoonRocket,
   NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaLineStatusCheckCircle1 as CheckCircle1,
-  NovaSolidFilesBasicFileLines as FileLinesIcon
+  NovaCompositionCoorpacademyFileZipped as FileZippedIcon
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
@@ -22,9 +22,9 @@ import propTypes from './types';
 
 const IconType = {
   lockedContent: <LockIcon className={style.lockIcon} />,
-  zippedFile: (
+  fileZipped: (
     <div className={style.filesListIconContainer}>
-      <FileLinesIcon className={style.filesListIcon} />
+      <FileZippedIcon className={style.filesListIcon} />
     </div>
   )
 };

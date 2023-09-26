@@ -10,7 +10,7 @@ export default {
         subtitle: 'See the files you chose to upload',
         type: 'form-group'
       },
-      headerIcon: 'zippedFile'
+      headerIcon: 'fileZipped'
     },
     items: {
       type: 'list',
