@@ -90,6 +90,7 @@ const CMPopin = props => {
           <div className={style.cookieTitle}>{cookieTitle}</div>
         </div>
       );
+
     return null;
   };
 
@@ -153,7 +154,7 @@ const CMPopin = props => {
       );
     if (type === 'list')
       return (
-        <div style={{width: '100%'}}>
+        <div className={style.filesListContainer}>
           <ListItems {...list} />
         </div>
       );
@@ -186,7 +187,7 @@ const CMPopin = props => {
             />
           ) : null}
         </header>
-        {mode !== 'items' ? (
+        {mode !== 'items' && mode !== 'list' ? (
           <div
             className={
               mode === 'cookie' || mode === 'information'

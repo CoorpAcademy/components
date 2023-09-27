@@ -33,7 +33,8 @@ const InputFileDraggable = ({
   pdfButtonAriaLabel,
   filesNumber = 0,
   multiple = false,
-  required = false
+  required = false,
+  onClick
 }) => {
   const handleReset = useCallback(
     e => {
@@ -48,6 +49,14 @@ const InputFileDraggable = ({
     width: '40px',
     color: '#FF541F'
   };
+
+  const onClick_ = useCallback(
+    e => {
+      e.preventDefault();
+      return onClick(e);
+    },
+    [onClick]
+  );
 
   return (
     <>
@@ -101,7 +110,7 @@ const InputFileDraggable = ({
             <FileLinesIcon className={style.icon} />
             <div>{filesNumber} files</div>
           </div>
-          <div className={style.seeDetailsButton}>
+          <div className={style.seeDetailsButton} onClick={onClick_}>
             <EyeIcon className={style.seeIcon} />
             <div>See details</div>
           </div>

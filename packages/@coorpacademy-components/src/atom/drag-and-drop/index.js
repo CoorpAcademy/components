@@ -86,6 +86,13 @@ class DragAndDrop extends React.Component {
 
     let previewView = null;
 
+    const customButtonStyle = {
+      width: 'auto',
+      'max-width': '150px',
+      padding: '12px 24px',
+      'box-sizing': 'border-box'
+    };
+
     if (previewContent && previewContent.type === 'image') {
       previewView = (
         <div className={style.preview}>
@@ -112,6 +119,7 @@ class DragAndDrop extends React.Component {
               position: 'left',
               type: 'pdf'
             }}
+            customStyle={customButtonStyle}
           />
         </div>
       );
@@ -123,7 +131,7 @@ class DragAndDrop extends React.Component {
           </div>
         </div>
       );
-    } else if (previewContent && multiple) {
+    } else if (previewContent && (multiple || previewContent.type === 'csv')) {
       previewView = (
         <div className={style.preview}>
           <div className={style.multiplePreview}>
@@ -154,7 +162,7 @@ class DragAndDrop extends React.Component {
     }
 
     const resetContent =
-      previewContent && previewContent.src ? (
+      previewContent && previewContent.src && !multiple ? (
         <div className={classnames(style.resetUploadWrapper, disabled && style.disabled)}>
           <div className={style.resetSrcLabel}>
             {previewContent.label ? previewContent.label : previewContent.src}
@@ -179,7 +187,8 @@ class DragAndDrop extends React.Component {
         icon: {
           position: 'left',
           type: 'folders'
-        }
+        },
+        customStyle: customButtonStyle
       };
       if (dragging) {
         return null;

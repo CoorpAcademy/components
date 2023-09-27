@@ -323,13 +323,10 @@ a {
 .popinFilesList {
   font-family: "Gilroy";
   width: 70%;
-  min-width: 700px;
-  height: 700px; 
-  padding: 16px 16px 20px 16px;
+  padding: 16px;
   border-radius: 20px;
   background-color: white;
   animation: popup 0.7s;
-  overflow: scroll;
 }
 
 .filesListIconContainer {
@@ -345,6 +342,12 @@ a {
 .filesListIcon {
   height: 20px;
   width: 20px;
+}
+
+.filesListContainer {
+  width: 100%;
+  margin-top: 24px;
+  overflow: scroll;
 }
 
 /* ---------- MEDIA QUERIES ---------- */

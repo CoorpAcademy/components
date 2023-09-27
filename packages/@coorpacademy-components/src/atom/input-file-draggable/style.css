@@ -38,7 +38,7 @@
   text-align: center;
   margin-top: 16px;
   background-color: cm_grey_50;
-  padding: 13px 24px 13px 24px;
+  padding: 16px 24px 16px 24px;
   border-radius: 10px;
   font-family: "Gilroy";
   font-size: 14px;
@@ -61,6 +61,7 @@
   composes: multipleFilesInfo;
   font-weight: 700;
   color: cm_grey_500;
+  cursor: pointer;
 }
 
 .icon {
