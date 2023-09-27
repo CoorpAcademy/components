@@ -88,9 +88,9 @@ class DragAndDrop extends React.Component {
 
     const customButtonStyle = {
       width: 'auto',
-      'max-width': '150px',
+      maxWidth: '150px',
       padding: '12px 24px',
-      'box-sizing': 'border-box'
+      boxSizing: 'border-box'
     };
 
     if (previewContent && previewContent.type === 'image') {
