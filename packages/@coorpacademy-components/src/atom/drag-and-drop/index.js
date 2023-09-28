@@ -131,7 +131,7 @@ class DragAndDrop extends React.Component {
           </div>
         </div>
       );
-    } else if (previewContent && (multiple || previewContent.type === 'csv')) {
+    } else if (previewContent && previewContent.type === 'csv') {
       previewView = (
         <div className={style.preview}>
           <div className={style.multiplePreview}>
