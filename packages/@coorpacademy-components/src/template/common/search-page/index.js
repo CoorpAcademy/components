@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, isEmpty} from 'lodash/fp';
 import Provider from '../../../atom/provider';
@@ -26,7 +26,20 @@ const SearchPage = (props, context) => {
 
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-
+  const nodeRef = useRef(null);
+  const closePopin = useCallback(e => {
+    // eslint-disable-next-line no-console
+    console.log(e.target);
+    if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
+      e.target.style.display = 'none';
+    }
+  }, []);
+  useEffect(() => {
+    document.addEventListener('click', closePopin);
+    return () => {
+      document.removeEventListener('click', closePopin);
+    };
+  }, [closePopin]);
   const recommendationsView = isEmpty(recommendations) ? null : <CardsList {...recommendations} />;
 
   const cardsView = isEmpty(cards.list) ? (
@@ -48,7 +61,7 @@ const SearchPage = (props, context) => {
   );
 
   return (
-    <div>
+    <div ref={nodeRef}>
       <Filters
         {...searchFilters}
         moreSortAriaLabel={moreSortAriaLabel}

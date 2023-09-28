@@ -164,7 +164,11 @@ const Card = memo(function Card(props, context) {
   const lock = disabled ? (
     <div className={style.lockContent}>
       <LockIcon className={style.lockIcon} height={48} />
-      <span aria-label={disabledArialabel}>{disabledContent}</span>
+      <span
+        aria-label={disabledArialabel}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: disabledContent}}
+      />
     </div>
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
