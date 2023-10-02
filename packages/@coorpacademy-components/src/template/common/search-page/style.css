@@ -17,6 +17,10 @@
   background: white;
 }
 
+.hidden {
+  display: none;
+}
+
 .noresults {
   font-family: "Gilroy";
   border-top: solid 1px xtraLightGrey;
