@@ -28,9 +28,7 @@ const SearchPage = (props, context) => {
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const nodeRef = useRef(null);
   const closePopin = useCallback(e => {
-    // popin is present in the DOM
     if (nodeRef && nodeRef.current && nodeRef.current.contains(e.target)) {
-      // e.target.style.display = 'none';
       e.target.className = style.hidden;
     }
   }, []);
