@@ -10,6 +10,6 @@ export default {
     },
     pdfButtonLabel: 'Open PDF',
     pdfButtonAriaLabel: 'Open PDF',
-    imageTypes: 'image/*'
+    filesTypes: 'image/*'
   }
 };

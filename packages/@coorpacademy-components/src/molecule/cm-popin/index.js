@@ -5,19 +5,28 @@ import {
   NovaLineSettingsCookie as Cookie,
   NovaSolidSpaceMoonRocket as MoonRocket,
   NovaCompositionCoorpacademyPadlock as LockIcon,
-  NovaLineStatusCheckCircle1 as CheckCircle1
+  NovaLineStatusCheckCircle1 as CheckCircle1,
+  NovaSolidFilesBasicFileLines as FileLinesIcon
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
+import isEmpty from 'lodash/fp/isEmpty';
+import classNames from 'classnames';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import CardsGrid from '../../organism/cards-grid';
+import ListItems from '../../organism/list-items';
 import style from './style.css';
 import propTypes from './types';
 
 const IconType = {
-  lockedContent: <LockIcon className={style.lockIcon} />
+  lockedContent: <LockIcon className={style.lockIcon} />,
+  fileZipped: (
+    <div className={style.filesListIconContainer}>
+      <FileLinesIcon className={style.filesListIcon} />
+    </div>
+  )
 };
 
 const CMPopin = props => {
@@ -51,22 +60,27 @@ const CMPopin = props => {
         backgroundSize: 'cover'
       }
     : null;
+
   const renderHeader = () => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
       const TopTitleIcon = IconType[headerIcon];
-      if (title) {
-        return (
-          <div className={style.headerContent}>
-            {TopTitleIcon}
-            <div className={style.headerTitle}>
+
+      return (
+        <>
+          {title ? (
+            <div className={style.headerContent}>
+              {TopTitleIcon}
               <Title {...title} />
             </div>
-          </div>
-        );
-      }
-      return <img className={style.headerBackground} src={backgroundImage} />;
+          ) : null}
+          {backgroundImage ? (
+            <img className={style.headerBackground} src={backgroundImage} />
+          ) : null}
+        </>
+      );
     }
+
     if (mode === 'cookie')
       return (
         <div className={style.cookieHeader}>
@@ -76,8 +90,10 @@ const CMPopin = props => {
           <div className={style.cookieTitle}>{cookieTitle}</div>
         </div>
       );
+
     return null;
   };
+
   const getClassBtnSwitch = (index, btnList) => {
     switch (index) {
       case 0:
@@ -88,6 +104,7 @@ const CMPopin = props => {
         return style.singleSwitchContainer;
     }
   };
+
   const renderBtnSwitch = () => {
     return map.convert({cap: false})((el, index) => {
       const {
@@ -124,17 +141,40 @@ const CMPopin = props => {
       );
     })(listBtnSwicth);
   };
+
   const renderItems = () => {
     const {type, list} = items;
-    return type === 'content' ? <CardsGrid {...list} /> : null;
+    if (isEmpty(list)) return null;
+
+    if (type === 'content')
+      return (
+        <div className={style.itemsContainer} data-name={'cm-popin-cards'}>
+          <CardsGrid {...list} />
+        </div>
+      );
+    if (type === 'list')
+      return (
+        <div className={style.filesListContainer}>
+          <ListItems {...list} />
+        </div>
+      );
+
+    return null;
   };
+
+  const wrapperPopinStyle = classNames(
+    mode === 'cookie' && style.popinCookie,
+    mode === 'list' && style.popinFilesList,
+    style.popin
+  );
+
   return (
     <div
       className={mode !== 'cookie' ? style.background : null}
       style={backgroundImageStyle}
       data-name={'cm-popin-container'}
     >
-      <div className={mode === 'cookie' ? style.popinCookie : style.popin}>
+      <div className={wrapperPopinStyle}>
         <header className={style.popinHeader}>
           {renderHeader()}
           {onClose ? (
@@ -147,7 +187,7 @@ const CMPopin = props => {
             />
           ) : null}
         </header>
-        {mode !== 'items' ? (
+        {mode !== 'items' && mode !== 'list' ? (
           <div
             className={
               mode === 'cookie' || mode === 'information'
@@ -176,11 +216,7 @@ const CMPopin = props => {
           </div>
         ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
-        {items ? (
-          <div className={style.itemsContainer} data-name={'cm-popin-cards'}>
-            {renderItems()}
-          </div>
-        ) : null}
+        {!isEmpty(items) ? renderItems() : null}
         {renderBtnSwitch()}
         {firstButton || secondButton || thirdButton ? (
           <div className={style.buttonContainer}>

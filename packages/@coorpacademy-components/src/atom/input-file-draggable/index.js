@@ -1,12 +1,16 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {isNil} from 'lodash/fp';
+import {
+  NovaSolidFilesBasicFileLines as FileLinesIcon,
+  NovaCompositionCoorpacademyEye as EyeIcon
+} from '@coorpacademy/nova-icons';
 import DragAndDrop from '../drag-and-drop';
 import Link from '../button-link';
-import {ImagePropType} from '../../util/proptypes';
+import {FilesPropType} from '../../util/proptypes';
 import style from './style.css';
 
-const ImageUpload = ({
+const InputFileDraggable = ({
   title,
   description,
   previewLabel,
@@ -21,12 +25,16 @@ const ImageUpload = ({
   labelLink,
   labelButtonLink,
   hrefLink,
-  imageTypes = 'image/*',
+  filesTypes = '',
   error = '',
   buttonAriaLabel,
   errorButtonLabel,
   pdfButtonLabel,
-  pdfButtonAriaLabel
+  pdfButtonAriaLabel,
+  filesNumber = 0,
+  multiple = false,
+  required = false,
+  onClick
 }) => {
   const handleReset = useCallback(
     e => {
@@ -41,6 +49,14 @@ const ImageUpload = ({
     width: '40px',
     color: '#FF541F'
   };
+
+  const onClick_ = useCallback(
+    e => {
+      e.preventDefault();
+      return onClick(e);
+    },
+    [onClick]
+  );
 
   return (
     <>
@@ -59,18 +75,21 @@ const ImageUpload = ({
         errorButtonLabel={errorButtonLabel}
         pdfButtonLabel={pdfButtonLabel}
         pdfButtonAriaLabel={pdfButtonAriaLabel}
+        multiple={multiple}
       >
         {(onDragStart, onDragStop) => (
           <input
             type="file"
             name={name}
-            accept={imageTypes}
+            accept={filesTypes}
             disabled={loading || disabled}
             className={style.input}
             onChange={onChange}
             onDragEnter={onDragStart}
             onDrop={onDragStop}
             onDragLeave={onDragStop}
+            multiple={multiple}
+            required={required}
           />
         )}
       </DragAndDrop>
@@ -85,16 +104,28 @@ const ImageUpload = ({
           />
         </div>
       ) : null}
+      {multiple && filesNumber > 0 ? (
+        <div className={style.multipleFilesContainer}>
+          <div className={style.filesNumber}>
+            <FileLinesIcon className={style.icon} />
+            <div>{filesNumber} files</div>
+          </div>
+          <div className={style.seeDetailsButton} onClick={onClick_}>
+            <EyeIcon className={style.seeIcon} />
+            <div>See details</div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };
 
-ImageUpload.propTypes = {
+InputFileDraggable.propTypes = {
   ...DragAndDrop.propTypes,
   name: PropTypes.string,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
-  imageTypes: ImagePropType,
+  filesTypes: FilesPropType,
   error: PropTypes.string,
   buttonAriaLabel: PropTypes.string,
   errorButtonLabel: PropTypes.string,
@@ -102,4 +133,4 @@ ImageUpload.propTypes = {
   hrefLink: PropTypes.string
 };
 
-export default ImageUpload;
+export default InputFileDraggable;

@@ -50,13 +50,14 @@
   align-items: center;
   display: flex;
   height: 100%;
+  gap: 16px;
 }
 
 .tag {
-  margin: 0 16px 0 0;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .cell {
   display: flex;
   height: 56px;
@@ -70,10 +71,6 @@
   font-weight: 600;
   line-height: 20px;
   white-space: nowrap;
-}
-
-.buttonLink {
-  margin: 0 16px 0 0;
 }
 
 .order {
@@ -91,6 +88,5 @@
 .dataColumnsWrapper {
   align-items: center;
   display: flex;
-  width: 100%;
-  margin-left: 24px;
+  max-width: 80%;
 }

@@ -35,7 +35,8 @@ class DragAndDrop extends React.Component {
     buttonAriaLabel: PropTypes.string,
     errorButtonLabel: PropTypes.string,
     pdfButtonLabel: PropTypes.string,
-    pdfButtonAriaLabel: PropTypes.string
+    pdfButtonAriaLabel: PropTypes.string,
+    multiple: PropTypes.bool
   };
 
   constructor(props) {
@@ -78,11 +79,19 @@ class DragAndDrop extends React.Component {
       errorButtonLabel = '',
       disabled = false,
       pdfButtonLabel,
-      pdfButtonAriaLabel
+      pdfButtonAriaLabel,
+      multiple
     } = this.props;
     const {dragging} = this.state;
 
     let previewView = null;
+
+    const customButtonStyle = {
+      width: 'auto',
+      maxWidth: '150px',
+      padding: '12px 24px',
+      boxSizing: 'border-box'
+    };
 
     if (previewContent && previewContent.type === 'image') {
       previewView = (
@@ -110,6 +119,7 @@ class DragAndDrop extends React.Component {
               position: 'left',
               type: 'pdf'
             }}
+            customStyle={customButtonStyle}
           />
         </div>
       );
@@ -117,6 +127,14 @@ class DragAndDrop extends React.Component {
       previewView = (
         <div className={style.previewXlsxContainer}>
           <div className={style.previewXlsx}>
+            <FileLinesIcon className={style.iconFile} />
+          </div>
+        </div>
+      );
+    } else if (previewContent && previewContent.type === 'csv') {
+      previewView = (
+        <div className={style.preview}>
+          <div className={style.multiplePreview}>
             <FileLinesIcon className={style.iconFile} />
           </div>
         </div>
@@ -144,7 +162,7 @@ class DragAndDrop extends React.Component {
     }
 
     const resetContent =
-      previewContent && previewContent.src ? (
+      previewContent && previewContent.src && !multiple ? (
         <div className={classnames(style.resetUploadWrapper, disabled && style.disabled)}>
           <div className={style.resetSrcLabel}>
             {previewContent.label ? previewContent.label : previewContent.src}
@@ -169,7 +187,8 @@ class DragAndDrop extends React.Component {
         icon: {
           position: 'left',
           type: 'folders'
-        }
+        },
+        customStyle: customButtonStyle
       };
       if (dragging) {
         return null;
@@ -183,7 +202,7 @@ class DragAndDrop extends React.Component {
     const button = buildButton(dragging, error);
 
     const previewContainer = getClassState(
-      style.previewContainer,
+      multiple ? style.previewContainerMultiple : style.previewContainer,
       style.modifiedPreviewContainer,
       null,
       modified,

@@ -76,16 +76,17 @@
   align-items: center;
   margin: 0;
   padding: 0;
+  gap: 16px;
 }
 
 .list a {
   cursor: pointer;
   text-decoration: none;
+  padding: 0;
 }
 
 .button {
   min-width: 175px;
-  margin-right: 16px;
   pointer-events: fill;
 }
 
@@ -106,6 +107,7 @@
 }
 
 .logOut {
+  display: flex;
   width: 100px;
   color: negative;
   pointer-events: fill;

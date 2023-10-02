@@ -2,7 +2,7 @@ import React from 'react';
 import isEmpty from 'lodash/fp/isEmpty';
 import RadioWithTitle from '../../atom/radio-with-title';
 import SelectMultiple from '../select-multiple';
-import ImageUpload from '../../atom/image-upload';
+import InputFileDraggable from '../../atom/input-file-draggable';
 import propTypes, {TitleRadioWrapperProps} from './types';
 import style from './style.css';
 
@@ -19,7 +19,7 @@ const buildInput = (childType: string, field: any) => {
     <div
       className={field.loading || isEmpty(field.previewContent) ? style.containerImageUpload : ''}
     >
-      <ImageUpload {...field} />
+      <InputFileDraggable {...field} />
     </div>
   );
 };

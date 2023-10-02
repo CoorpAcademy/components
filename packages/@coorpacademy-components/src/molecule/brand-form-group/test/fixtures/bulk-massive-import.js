@@ -1,21 +1,25 @@
 export default {
   props: {
-    title: 'Massive Import',
+    title: 'Upload your content',
     subtitle:
       'Both files (csv & zip) are required for bulk upload and must match each other (the csv contains the metadata of the content in the zip)',
     subtitleSize: 'small',
     fields: [
       {
-        uploadLabel: 'Browse',
-        description: 'ZIP',
-        onChange: () => true,
         title: 'Upload ZIP',
         type: 'bulkUpload',
-        buttonAriaLabel: 'Browse file to upload Bulk ZIP',
+        onChange: () => true,
+        description: 'Drag and drop component with multiple zip',
+        uploadLabel: 'Upload ZIP',
+        previewLabel: 'See details',
         previewContent: {
-          type: 'image',
-          src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491560495763.csv'
-        }
+          type: 'zip',
+          src: '',
+          label: 'meta image'
+        },
+        buttonAriaLabel: 'Browse file to upload Bulk ZIP',
+        multiple: true,
+        filesNumber: 94
       },
       {
         uploadLabel: 'Browse',

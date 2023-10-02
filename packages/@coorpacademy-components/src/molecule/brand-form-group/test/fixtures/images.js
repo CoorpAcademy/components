@@ -1,6 +1,6 @@
-import Desktop from '../../../../atom/image-upload/test/fixtures/desktop';
-import Mobile from '../../../../atom/image-upload/test/fixtures/mobile';
-import Email from '../../../../atom/image-upload/test/fixtures/email';
+import Desktop from '../../../../atom/input-file-draggable/test/fixtures/desktop';
+import Mobile from '../../../../atom/input-file-draggable/test/fixtures/mobile';
+import Email from '../../../../atom/input-file-draggable/test/fixtures/email';
 
 export default {
   props: {

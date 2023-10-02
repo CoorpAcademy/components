@@ -1,4 +1,4 @@
-import PDFDragAndDrop from '../../../../atom/image-upload/test/fixtures/pdf';
+import PDFDragAndDrop from '../../../../atom/input-file-draggable/test/fixtures/pdf';
 
 export default {
   props: {

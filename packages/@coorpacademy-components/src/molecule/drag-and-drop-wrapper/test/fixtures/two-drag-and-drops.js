@@ -1,7 +1,7 @@
 import firstdDragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
 import secondDragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/clean-and-modified';
 import checkBoxTitle from '../../../../atom/checkbox-with-title/test/fixtures/checked';
-import dragAndDrop from '../../../../atom/image-upload/test/fixtures/default';
+import dragAndDrop from '../../../../atom/input-file-draggable/test/fixtures/default';
 
 export default {
   props: {

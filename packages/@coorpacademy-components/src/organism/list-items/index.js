@@ -56,6 +56,7 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     </div>
   );
 };
+
 const buildContentView = (content, ariaLabel, selectMultiple) => {
   const {type} = content;
   switch (type) {
@@ -82,9 +83,7 @@ const ListItems = ({title, buttonLink, selectMultiple, content, 'aria-label': ar
             </div>
           ) : null}
 
-          <div className={style.buttonCreate}>
-            <ButtonLink {...buttonLink} />
-          </div>
+          <ButtonLink {...buttonLink} />
         </div>
       </div>
       {contentView}

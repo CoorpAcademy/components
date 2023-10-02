@@ -4,10 +4,11 @@ import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
+import ListItems from '../../organism/list-items';
 
 const propTypes = {
   content: PropTypes.string,
-  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items']),
+  mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items', 'list']),
   header: PropTypes.shape({
     title: PropTypes.shape(Title.propTypes),
     headerIcon: PropTypes.string,
@@ -42,11 +43,15 @@ const propTypes = {
   backgroundImageUrl: PropTypes.string,
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
+  headerSubtitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
   listBtnSwicth: PropTypes.arrayOf(PropTypes.shape(InputSwitch.propTypes)),
   items: PropTypes.shape({
-    type: PropTypes.string,
-    list: PropTypes.shape(CardsGrid.propTypes)
+    type: PropTypes.oneOf(['content', 'list']),
+    list: PropTypes.oneOfType([
+      PropTypes.shape(CardsGrid.propTypes),
+      PropTypes.shape(ListItems.propTypes)
+    ])
   })
 };
 
@@ -70,14 +75,16 @@ export type QuitPopinButton = {
 export type CMPopinProps = {
   content: string;
   icon: string;
-  mode: string;
+  mode: 'alert' | 'information' | 'cookie' | 'items' | 'list';
   popinHeader?: PopinHeaderProps;
   descriptionText: string;
   firstButton?: QuitPopinButton;
   secondButton?: QuitPopinButton;
   items?: {
-    type: string;
-    list: PropTypes.InferProps<typeof CardsGrid.propTypes>;
+    type: 'content' | 'list';
+    list:
+      | PropTypes.InferProps<typeof CardsGrid.propTypes>
+      | PropTypes.InferProps<typeof ListItems.propTypes>;
   };
 };
 

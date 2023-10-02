@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map} from 'lodash/fp';
+import {isEmpty, map} from 'lodash/fp';
 import classnames from 'classnames';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -59,17 +59,11 @@ const ListItem = ({
 
       <div className={style.settings}>
         {tagsView}
-        {buttonLink ? (
-          <div className={style.buttonLink}>
-            <ButtonLink {...buttonLink} />
-          </div>
+        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
+        {buttonLinkIcon ? <ButtonLinkIconOnly {...buttonLinkIcon} /> : null}
+        {!isEmpty(bulletPointMenuButton) ? (
+          <BulletPointMenuButton {...bulletPointMenuButton} />
         ) : null}
-        {buttonLinkIcon ? (
-          <div className={style.buttonLink}>
-            <ButtonLinkIconOnly {...buttonLinkIcon} />
-          </div>
-        ) : null}
-        <BulletPointMenuButton {...bulletPointMenuButton} />
       </div>
     </div>
   );
