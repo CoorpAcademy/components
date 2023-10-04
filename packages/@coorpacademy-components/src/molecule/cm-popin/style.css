@@ -158,13 +158,13 @@
 
 .popinItems .headerContent {
   padding: 24px;
+  width: 100%;
 }
 
 .popinItems .popinHeader button {
   margin-top: 12px;
   margin-right: 12px;
 }
-
 
 .lockIcon {
   height: 48px;
@@ -398,6 +398,10 @@ a {
     padding: 0px 0px 8px 0px
   }
 
+  .lockIcon {
+    min-width: 48px;
+  }
+
   .popinCookie .largeButton {
     padding: 8px 0px 0px 0px;
   }
@@ -432,6 +436,10 @@ a {
   
   .button {
     width: 100%;
+  }
+
+  .lockIcon {
+    min-width: 48px;
   }
 
   .titleContainer {
