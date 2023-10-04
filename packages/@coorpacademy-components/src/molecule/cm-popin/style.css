@@ -60,6 +60,11 @@
   animation: popup 0.7s;
 }
 
+.popinItems {
+  padding: 0;
+}
+
+
 .message {
   display: flex;
   flex-direction: column;
@@ -149,6 +154,15 @@
   width: 100%;
   padding-bottom: 16px;
   border-bottom: 1px solid cm_grey_100;
+}
+
+.popinItems .headerContent {
+  padding: 24px 0px 24px 24px;
+}
+
+.popinItems .popinHeader button {
+  margin-top: 12px;
+  margin-right: 12px;
 }
 
 
@@ -316,6 +330,9 @@ a {
   max-height: 369px;
   overflow-y: auto;
   width: 100%;
+  border-top: 1px solid cm_grey_100;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 /* ---------- FILES DETAILS ---------- */

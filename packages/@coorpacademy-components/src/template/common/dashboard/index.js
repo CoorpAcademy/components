@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback, useRef} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Slide from '../../../atom/slide';
 import HeroCard from '../../../molecule/hero';
@@ -28,18 +28,6 @@ const Dashboard = props => {
     popinWithCards,
     'arrows-aria-label': showMoreOnLeftOrRightAriaLabel
   } = props;
-  const nodeRef = useRef(null);
-  const closePopin = useCallback(e => {
-    if (nodeRef && nodeRef.current && nodeRef.current.contains(e.target)) {
-      e.target.className = style.hidden;
-    }
-  }, []);
-  useEffect(() => {
-    document.addEventListener('click', closePopin);
-    return () => {
-      document.removeEventListener('click', closePopin);
-    };
-  }, [closePopin]);
   const buildSectionComponent = section => {
     const {type} = section;
     switch (type) {
@@ -70,7 +58,7 @@ const Dashboard = props => {
     <div key={section.key}>{buildSection(section)}</div>
   ));
   return (
-    <div className={style.wrapper} data-name="dashboard" ref={nodeRef}>
+    <div className={style.wrapper} data-name="dashboard">
       {sectionsList}
       {cookie ? <CMPopin {...cookie} /> : null}
       {popinWithCards ? (
