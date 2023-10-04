@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useEffect} from 'react';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
@@ -61,13 +61,12 @@ const CMPopin = props => {
         backgroundSize: 'cover'
       }
     : null;
-  const [shloudRender, setShouldRendered] = useState(true);
   const nodeRef = useRef(null);
   useEffect(() => {
     if (mode === 'items') {
       const closePopin = e => {
         if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
-          setShouldRendered(false);
+          onClose();
         }
       };
       document.addEventListener('click', closePopin);
@@ -75,7 +74,7 @@ const CMPopin = props => {
         document.removeEventListener('click', closePopin);
       };
     }
-  }, [mode]);
+  }, [mode, onClose]);
   const renderHeader = () => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
@@ -183,7 +182,7 @@ const CMPopin = props => {
     mode === 'items' && style.popinItems,
     style.popin
   );
-  return shloudRender ? (
+  return (
     <div
       className={mode !== 'cookie' ? style.background : null}
       style={backgroundImageStyle}
@@ -275,7 +274,7 @@ const CMPopin = props => {
         ) : null}
       </div>
     </div>
-  ) : null;
+  );
 };
 
 CMPopin.propTypes = propTypes;

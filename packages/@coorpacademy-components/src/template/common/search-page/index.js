@@ -23,7 +23,6 @@ const SearchPage = (props, context) => {
     sortAriaLabel,
     popinWithCards
   } = props;
-
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const nodeRef = useRef(null);
