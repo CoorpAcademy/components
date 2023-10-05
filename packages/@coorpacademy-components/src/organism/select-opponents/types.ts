@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types';
-import TitleAndCheckBoxWrapper from '../../molecule/title-and-checkbox-wrapper';
+import {TitleRadioWrapperProps} from '../../molecule/title-radio-wrapper/types';
+import TitleRadioWrapper from '../../molecule/title-radio-wrapper';
 
 export const propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape(TitleAndCheckBoxWrapper.propTypes))
-};
-
-export type TitleAndCheckBoxWrapperProps = {
-  child: {
-    childType: 'select-multiple' | 'image-upload';
-    [x: string]: unknown;
-  };
-  [x: string]: unknown;
+  items: PropTypes.arrayOf(PropTypes.shape(TitleRadioWrapper.propTypes))
 };
 
 export type SelectOpponentsProps = {
-  items: TitleAndCheckBoxWrapperProps[];
+  items: TitleRadioWrapperProps[];
 };
 
 export default propTypes;
