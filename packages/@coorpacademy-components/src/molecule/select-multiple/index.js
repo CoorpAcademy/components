@@ -96,6 +96,8 @@ const SelectMultiple = (
 
   const closeHandle = useCallback(e => {
     if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
+      // eslint-disable-next-line no-console
+      console.log('closeHandle');
       updateIsOpened(false);
     }
   }, []);

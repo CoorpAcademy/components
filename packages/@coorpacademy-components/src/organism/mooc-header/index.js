@@ -170,6 +170,8 @@ class MoocHeader extends React.Component {
     if (isSettingsOpen) {
       const menu = this.menuSettings;
       if (menu && !menu.contains(clickEvent.target)) {
+        // eslint-disable-next-line no-console
+        console.log('close header settings');
         this.handleSettingsToggle();
       }
     }
