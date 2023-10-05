@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {isUndefined} from 'lodash/fp';
+import InputFileDraggable from '../../atom/input-file-draggable';
 import InputTextWithTitle from '../../atom/input-text-with-title';
+import SelectMultiple from '../select-multiple';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import Title from '../../atom/title';
 import DragAndDropWrapper from '../drag-and-drop-wrapper';
@@ -8,7 +11,9 @@ import style from './style.css';
 
 const CHILD = {
   'input-text': InputTextWithTitle,
-  'drag-and-drop-wrapper': DragAndDropWrapper
+  'drag-and-drop-wrapper': DragAndDropWrapper,
+  'image-upload': InputFileDraggable,
+  'select-multiple': SelectMultiple
 };
 const TitleAndCheckBoxWrapper = props => {
   const {checkboxWithTitle, child, sectionTitle} = props;
@@ -22,7 +27,13 @@ const TitleAndCheckBoxWrapper = props => {
           <Title {...sectionTitle} type={'form-group'} />
         </div>
       ) : null}
-      <div className={checkboxWithTitle || sectionTitle ? style.child : null}>
+      <div
+        className={
+          checkboxWithTitle || (sectionTitle && isUndefined(sectionTitle.removeMargin))
+            ? style.child
+            : null
+        }
+      >
         <Child {...child} />
       </div>
     </div>
@@ -31,7 +42,7 @@ const TitleAndCheckBoxWrapper = props => {
 
 TitleAndCheckBoxWrapper.propTypes = {
   checkboxWithTitle: PropTypes.shape(CheckboxWithTitle.propTypes),
-  sectionTitle: PropTypes.shape(Title.propTypes),
+  sectionTitle: PropTypes.shape({...Title.propTypes, removeMargin: PropTypes.bool}),
   child: PropTypes.oneOfType([
     PropTypes.shape({
       ...InputTextWithTitle.propTypes,
@@ -40,6 +51,14 @@ TitleAndCheckBoxWrapper.propTypes = {
     PropTypes.shape({
       ...DragAndDropWrapper.propTypes,
       childType: PropTypes.oneOf(['drag-and-drop-wrapper'])
+    }),
+    PropTypes.shape({
+      ...InputFileDraggable.propTypes,
+      childType: PropTypes.oneOf(['image-upload'])
+    }),
+    PropTypes.shape({
+      ...SelectMultiple.propTypes,
+      childType: PropTypes.oneOf(['select-multiple'])
     })
   ])
 };
