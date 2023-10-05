@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {isUndefined} from 'lodash/fp';
-import ImageUpload from '../../atom/image-upload';
+import InputFileDraggable from '../../atom/input-file-draggable';
 import InputTextWithTitle from '../../atom/input-text-with-title';
 import SelectMultiple from '../select-multiple';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
@@ -12,7 +12,7 @@ import style from './style.css';
 const CHILD = {
   'input-text': InputTextWithTitle,
   'drag-and-drop-wrapper': DragAndDropWrapper,
-  'image-upload': ImageUpload,
+  'image-upload': InputFileDraggable,
   'select-multiple': SelectMultiple
 };
 const TitleAndCheckBoxWrapper = props => {
@@ -53,7 +53,7 @@ TitleAndCheckBoxWrapper.propTypes = {
       childType: PropTypes.oneOf(['drag-and-drop-wrapper'])
     }),
     PropTypes.shape({
-      ...ImageUpload.propTypes,
+      ...InputFileDraggable.propTypes,
       childType: PropTypes.oneOf(['image-upload'])
     }),
     PropTypes.shape({
