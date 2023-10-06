@@ -5,6 +5,7 @@ import MoocHeader from '../../organism/mooc-header';
 import Cta from '../../atom/cta';
 import Loader from '../../atom/loader';
 import CardsList from '../../molecule/dashboard/cards-list';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
@@ -20,10 +21,9 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
     () => map.convert({cap: false})(buildSection, sections),
     [buildSection, sections]
   );
-
   return isLoading ? (
-    <div className={style.loader}>
-      <Loader data-name="teams-dashboard-loader" />
+    <div className={style.loader} data-name="teams-dashboard-loader">
+      <Loader />
     </div>
   ) : (
     <div
@@ -49,6 +49,11 @@ TeamsDashboard.propTypes = {
   platformLinks: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes)),
   sections: PropTypes.arrayOf(PropTypes.shape(CardsList.propTypes)),
   isLoading: PropTypes.bool
+};
+
+TeamsDashboard.contextTypes = {
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 export default TeamsDashboard;
