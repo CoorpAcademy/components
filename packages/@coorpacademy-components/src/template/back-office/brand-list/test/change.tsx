@@ -44,6 +44,7 @@ test('should only return the right brand', t => {
     onChange: (value: string) => t.is(value, 'digital')
   };
   const {container} = render(
+    // @ts-expect-error (props in js)
     <BrandList brands={brands} search={searchValue} create={create} header={Header.props} />
   );
 

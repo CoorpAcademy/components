@@ -3,7 +3,6 @@ import browserEnv from 'browser-env';
 import {replace} from 'lodash/fp';
 import React from 'react';
 import {fireEvent} from '@testing-library/react';
-
 import {renderWithContext} from '../../../../util/render-with-context';
 import style from '../style.css';
 import Authors from '..';
