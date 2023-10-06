@@ -12,6 +12,8 @@ export const renderWithContext = (component, options = {}) => {
 
   const wrapper = ({children}) => {
     const hasContextTypes = useLegacyProvider || has(['type', 'contextTypes'], children);
+    // eslint-disable-next-line no-console
+    if (!hasContextTypes) console.log('ContextTypes not found, using WebContext');
     return hasContextTypes ? (
       <Provider {...rest} translate={translate}>
         {children}
