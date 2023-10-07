@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, {useRef, useEffect} from 'react';
+import React, {useRef, useEffect, useMemo} from 'react';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
@@ -29,6 +29,8 @@ const IconType = {
     </div>
   )
 };
+// const preventDefault = e => e.preventDefault();
+// const stopPropagation = e => e.stopPropagation();
 
 const CMPopin = props => {
   const {
@@ -61,6 +63,8 @@ const CMPopin = props => {
         backgroundSize: 'cover'
       }
     : null;
+  const handleCloseButton = useMemo(() => () => onClose(), [onClose]);
+
   const nodeRef = useRef(null);
   useEffect(() => {
     if (mode === 'items') {
@@ -70,11 +74,7 @@ const CMPopin = props => {
           console.log('e.target');
           // eslint-disable-next-line no-console
           console.log(e.target);
-          // eslint-disable-next-line no-console
-          console.log('stopPropagation et preventDefault');
-          e.stopPropagation();
-          e.preventDefault();
-          onClose(e);
+          handleCloseButton();
         }
       };
       document.addEventListener('click', closePopin);
@@ -82,7 +82,7 @@ const CMPopin = props => {
         document.removeEventListener('click', closePopin);
       };
     }
-  }, [mode, onClose]);
+  }, [handleCloseButton, mode, onClose]);
   const renderHeader = () => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
@@ -183,7 +183,13 @@ const CMPopin = props => {
 
     return null;
   };
-
+  // const handleCloseButton = useCallback(
+  //   e => {
+  //     e.preventDefault();
+  //     onClose();
+  //   },
+  //   [onClose]
+  // );
   const wrapperPopinStyle = classNames(
     mode === 'cookie' && style.popinCookie,
     mode === 'list' && style.popinFilesList,
@@ -201,7 +207,7 @@ const CMPopin = props => {
           {renderHeader()}
           {onClose ? (
             <ButtonLinkIconOnly
-              onClick={onClose}
+              onClick={handleCloseButton}
               data-name={'close-icon'}
               aria-label={'close-icon'}
               size="small"
