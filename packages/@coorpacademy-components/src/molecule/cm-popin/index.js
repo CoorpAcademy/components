@@ -67,10 +67,14 @@ const CMPopin = props => {
       const closePopin = e => {
         if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
           // eslint-disable-next-line no-console
+          console.log('e.target');
+          // eslint-disable-next-line no-console
+          console.log(e.target);
+          // eslint-disable-next-line no-console
           console.log('stopPropagation et preventDefault');
           e.stopPropagation();
           e.preventDefault();
-          onClose();
+          onClose(e);
         }
       };
       document.addEventListener('click', closePopin);
