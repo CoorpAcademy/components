@@ -12,6 +12,7 @@ import {
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
 import classNames from 'classnames';
+import Provider from '../../atom/provider';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
@@ -64,16 +65,11 @@ const CMPopin = props => {
       }
     : null;
   const handleCloseButton = useMemo(() => () => onClose(), [onClose]);
-
   const nodeRef = useRef(null);
   useEffect(() => {
     if (mode === 'items') {
       const closePopin = e => {
         if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
-          // eslint-disable-next-line no-console
-          console.log('e.target');
-          // eslint-disable-next-line no-console
-          console.log(e.target);
           handleCloseButton();
         }
       };
@@ -292,5 +288,8 @@ const CMPopin = props => {
 };
 
 CMPopin.propTypes = propTypes;
+CMPopin.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default CMPopin;
