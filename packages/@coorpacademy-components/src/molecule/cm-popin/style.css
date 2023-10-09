@@ -142,7 +142,7 @@
   justify-content: flex-end;
 }
 
-.popinHeader button {
+.onCloseButton {
   position: absolute;
 }
 

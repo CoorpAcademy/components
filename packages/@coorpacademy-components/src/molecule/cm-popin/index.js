@@ -66,7 +66,7 @@ const CMPopin = props => {
   useEffect(() => {
     if (mode === 'items') {
       const closePopin = e => {
-        if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
+        if (nodeRef?.current && !nodeRef.current.contains(e.target)) {
           handleCloseButton();
         }
       };
@@ -195,6 +195,7 @@ const CMPopin = props => {
             <ButtonLinkIconOnly
               onClick={handleCloseButton}
               data-name={'close-icon'}
+              className={style.onCloseButton}
               aria-label={'close-icon'}
               size="small"
               icon="close"
