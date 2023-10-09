@@ -1,13 +1,11 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import {fireEvent, render} from '@testing-library/react';
 import BrandList from '..';
 import Header from '../../../../organism/setup-header/test/fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
 
 const brands = [
   {
@@ -38,16 +36,19 @@ const create = {
 };
 
 test('should only return the right brand', t => {
-  t.plan(1);
+  t.plan(2);
 
   const searchValue = {
     value: 'digital',
     placeholder: 'search',
-    onChange: value => t.is(value, 'digital')
+    onChange: (value: string) => t.is(value, 'digital')
   };
-  const wrapper = mount(
+  const {container} = render(
+    // @ts-expect-error (props in js)
     <BrandList brands={brands} search={searchValue} create={create} header={Header.props} />
   );
-  const SearchBar = wrapper.find('div > .layout__contentWrapper').find('div > #search');
-  SearchBar.simulate('input', {target: {value: 'digital'}});
+
+  const searchBar = container.querySelector('[data-name="search-input"]') as Element;
+  t.truthy(searchBar);
+  fireEvent.input(searchBar, {target: {value: 'digital'}});
 });

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../../organism/setup-header';
+import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const createLayout = Template => {
@@ -20,6 +21,11 @@ const createLayout = Template => {
 
   Layout.propTypes = {
     header: PropTypes.shape(Header.propTypes)
+  };
+
+  Layout.contextTypes = {
+    skin: Provider.childContextTypes.skin,
+    translate: Provider.childContextTypes.translate
   };
 
   return Layout;
