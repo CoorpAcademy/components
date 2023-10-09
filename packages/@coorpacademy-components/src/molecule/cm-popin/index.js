@@ -66,7 +66,7 @@ const CMPopin = props => {
   useEffect(() => {
     if (mode === 'items') {
       const closePopin = e => {
-        if (nodeRef?.current && !nodeRef.current.contains(e.target)) {
+        if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
           handleCloseButton();
         }
       };
