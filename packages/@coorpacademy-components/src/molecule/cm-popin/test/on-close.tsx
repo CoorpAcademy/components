@@ -11,7 +11,7 @@ browserEnv();
 test('should call handleClose function on close button', t => {
   t.plan(2);
   const context = {
-    translate: key => key
+    translate: (key: string) => key
   };
   const props = {
     ...PopinCardFixtures.props,
@@ -20,5 +20,5 @@ test('should call handleClose function on close button', t => {
   const {container} = renderWithContext(<CMPopin {...props} />, context);
   const onCloseButton = container.querySelector('[data-name="close-icon"]');
   t.truthy(onCloseButton);
-  fireEvent.click(onCloseButton);
+  fireEvent.click(onCloseButton as Element);
 });

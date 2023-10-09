@@ -76,6 +76,7 @@ export type CMPopinProps = {
   content: string;
   icon: string;
   mode: 'alert' | 'information' | 'cookie' | 'items' | 'list';
+  onClose: () => void;
   popinHeader?: PopinHeaderProps;
   descriptionText: string;
   firstButton?: QuitPopinButton;
