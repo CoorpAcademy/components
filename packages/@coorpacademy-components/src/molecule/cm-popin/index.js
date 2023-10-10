@@ -192,14 +192,15 @@ const CMPopin = props => {
         <header className={style.popinHeader}>
           {renderHeader()}
           {onClose ? (
-            <ButtonLinkIconOnly
-              onClick={handleCloseButton}
-              data-name={'close-icon'}
-              className={style.onCloseButton}
-              aria-label={'close-icon'}
-              size="small"
-              icon="close"
-            />
+            <div className={style.onCloseButton}>
+              <ButtonLinkIconOnly
+                onClick={handleCloseButton}
+                data-name={'close-icon'}
+                aria-label={'close-icon'}
+                size="small"
+                icon="close"
+              />
+            </div>
           ) : null}
         </header>
         {mode !== 'items' && mode !== 'list' ? (

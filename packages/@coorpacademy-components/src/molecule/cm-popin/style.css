@@ -136,14 +136,14 @@
   color: cm_grey_600;
 }
 
+.onCloseButton {
+  position: absolute;
+} 
+
 .popinHeader {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-}
-
-.onCloseButton {
-  position: absolute;
 }
 
 .headerContent {
@@ -161,7 +161,7 @@
   width: 100%;
 }
 
-.popinItems .popinHeader button {
+.popinItems .popinHeader .onCloseButton {
   margin-top: 12px;
   margin-right: 12px;
 }
