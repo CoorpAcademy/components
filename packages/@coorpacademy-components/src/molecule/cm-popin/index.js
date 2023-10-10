@@ -70,9 +70,18 @@ const CMPopin = props => {
           handleCloseButton();
         }
       };
+      const handleKeyDown = e => {
+        if (e?.key === 'Escape') {
+          handleCloseButton();
+        }
+      };
       document.addEventListener('click', closePopin);
+      document.addEventListener('touchstart', closePopin);
+      document.addEventListener('keydown', handleKeyDown);
       return () => {
         document.removeEventListener('click', closePopin);
+        document.removeEventListener('touchstart', closePopin);
+        document.removeEventListener('keydown', handleKeyDown);
       };
     }
   }, [handleCloseButton, mode, onClose]);
