@@ -60,6 +60,11 @@
   animation: popup 0.7s;
 }
 
+.popinItems {
+  padding: 0;
+}
+
+
 .message {
   display: flex;
   flex-direction: column;
@@ -131,14 +136,14 @@
   color: cm_grey_600;
 }
 
+.onCloseButton {
+  position: absolute;
+} 
+
 .popinHeader {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-}
-
-.popinHeader button {
-  position: absolute;
 }
 
 .headerContent {
@@ -151,6 +156,15 @@
   border-bottom: 1px solid cm_grey_100;
 }
 
+.popinItems .headerContent {
+  padding: 24px;
+  width: 100%;
+}
+
+.popinItems .popinHeader .onCloseButton {
+  margin-top: 12px;
+  margin-right: 12px;
+}
 
 .lockIcon {
   height: 48px;
@@ -316,6 +330,9 @@ a {
   max-height: 369px;
   overflow-y: auto;
   width: 100%;
+  border-top: 1px solid cm_grey_100;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 /* ---------- FILES DETAILS ---------- */
@@ -381,6 +398,10 @@ a {
     padding: 0px 0px 8px 0px
   }
 
+  .lockIcon {
+    min-width: 48px;
+  }
+
   .popinCookie .largeButton {
     padding: 8px 0px 0px 0px;
   }
@@ -415,6 +436,10 @@ a {
   
   .button {
     width: 100%;
+  }
+
+  .lockIcon {
+    min-width: 48px;
   }
 
   .titleContainer {

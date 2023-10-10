@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect, useMemo} from 'react';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
@@ -11,6 +11,7 @@ import {
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
 import classNames from 'classnames';
+import Provider from '../../atom/provider';
 import Cta from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import InputSwitch from '../../atom/input-switch';
@@ -60,7 +61,30 @@ const CMPopin = props => {
         backgroundSize: 'cover'
       }
     : null;
-
+  const handleCloseButton = useMemo(() => () => onClose(), [onClose]);
+  const nodeRef = useRef(null);
+  useEffect(() => {
+    if (mode === 'items') {
+      const closePopin = e => {
+        if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
+          handleCloseButton();
+        }
+      };
+      const handleKeyDown = e => {
+        if (e?.key === 'Escape') {
+          handleCloseButton();
+        }
+      };
+      document.addEventListener('click', closePopin);
+      document.addEventListener('touchstart', closePopin);
+      document.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.removeEventListener('click', closePopin);
+        document.removeEventListener('touchstart', closePopin);
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [handleCloseButton, mode, onClose]);
   const renderHeader = () => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
@@ -161,30 +185,31 @@ const CMPopin = props => {
 
     return null;
   };
-
   const wrapperPopinStyle = classNames(
     mode === 'cookie' && style.popinCookie,
     mode === 'list' && style.popinFilesList,
+    mode === 'items' && style.popinItems,
     style.popin
   );
-
   return (
     <div
       className={mode !== 'cookie' ? style.background : null}
       style={backgroundImageStyle}
       data-name={'cm-popin-container'}
     >
-      <div className={wrapperPopinStyle}>
+      <div className={wrapperPopinStyle} ref={nodeRef}>
         <header className={style.popinHeader}>
           {renderHeader()}
           {onClose ? (
-            <ButtonLinkIconOnly
-              onClick={onClose}
-              data-name={'close-icon'}
-              aria-label={'close-icon'}
-              size="small"
-              icon="close"
-            />
+            <div className={style.onCloseButton}>
+              <ButtonLinkIconOnly
+                onClick={handleCloseButton}
+                data-name={'close-icon'}
+                aria-label={'close-icon'}
+                size="small"
+                icon="close"
+              />
+            </div>
           ) : null}
         </header>
         {mode !== 'items' && mode !== 'list' ? (
@@ -264,5 +289,8 @@ const CMPopin = props => {
 };
 
 CMPopin.propTypes = propTypes;
+CMPopin.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default CMPopin;

@@ -206,7 +206,7 @@
 
 .lockWrapper:hover span {
   font-weight: 600;
-  width: 150px;
+  width: 185px;
 }
 
 .lockContent {
@@ -217,7 +217,7 @@
 }
 
 .lockContent span {
-  width: 134px;
+  width: 174px;
   height: 40px;
   color: white;
   text-align: center;

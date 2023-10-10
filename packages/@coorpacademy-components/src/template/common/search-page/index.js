@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, isEmpty} from 'lodash/fp';
 import Provider from '../../../atom/provider';
@@ -23,10 +23,9 @@ const SearchPage = (props, context) => {
     sortAriaLabel,
     popinWithCards
   } = props;
-
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-
+  const nodeRef = useRef(null);
   const recommendationsView = isEmpty(recommendations) ? null : <CardsList {...recommendations} />;
 
   const cardsView = isEmpty(cards.list) ? (
@@ -63,7 +62,7 @@ const SearchPage = (props, context) => {
         {cardsView}
       </div>
       {popinWithCards ? (
-        <div className={style.popinWithCards}>
+        <div className={style.popinWithCards} ref={nodeRef}>
           <CMPopin {...popinWithCards} />
         </div>
       ) : null}

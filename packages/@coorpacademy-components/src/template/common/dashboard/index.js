@@ -28,7 +28,6 @@ const Dashboard = props => {
     popinWithCards,
     'arrows-aria-label': showMoreOnLeftOrRightAriaLabel
   } = props;
-
   const buildSectionComponent = section => {
     const {type} = section;
     switch (type) {
