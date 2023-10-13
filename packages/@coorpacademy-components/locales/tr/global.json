@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "İlk dersinizi görüntülediğinizde bu ünitede {{count}} ek yıldız kazanın!",
   "media_stars_to_win": "Bir dersi ilk kez görüntülediğinizde bu ünitede {{count}} ekstra yıldız kazanın!",
   "More": "Daha fazla",
-  "More details": "More details",
+  "More details": "Daha fazla detay",
   "New media": "Yeni ders",
   "No Selected Dashboard": "Hiçbir Gösterge Paneli Seçilmedi",
   "No status": "Durum yok",
@@ -75,7 +75,7 @@
   "Validated": "Onaylı",
   "Video Loading Error": "Video yüklenirken bir hata meydana geldi, lütfen tekrar deneyin.",
   "Wait_creation": "Platform yaratılıyor. Bu birkaç saniye sürebilir. Lütfen bekleyin...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "yorumunu ekle",
   "zuora_discount_code_submit": "Uygula",
   "zuora_discount_code": "Promosyon kodu",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "toplu içe aktarma hata sayısı {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm dosyası geçerli",
     "invalid_scorm": "scorm dosyası geçersiz",
-    "show_errors": "show errors"
+    "show_errors": "hataları göster"
   },
   "close_button_ariaLabel": "İnceleme slaydını kapat",
   "post_comment_aria_label": "Yorumunu paylaş",
