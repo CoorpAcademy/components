@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Guadagna {{count}} stelle aggiuntive in questo capitolo la prima volta che visualizzi una lezione!",
   "media_stars_to_win": "Guadagna {{count}} stelle aggiuntive in questo capitolo, la prima volta che visualizzi una lezione!",
   "More": "Altro",
-  "More details": "More details",
+  "More details": "Più dettagli",
   "New media": "Nuova lezione",
   "No Selected Dashboard": "Nessuna dashboard selezionata",
   "No status": "Nessuno Stato",
@@ -75,7 +75,7 @@
   "Validated": "Convalidato",
   "Video Loading Error": "Si è verificato un errore durante il caricamento del video, riprova.",
   "Wait_creation": "La piattaforma è in fase di creazione. L'operazione può richiedere diversi secondi. Attendere per favore…",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Aggiungi il tuo commento",
   "zuora_discount_code_submit": "Applica",
   "zuora_discount_code": "Codice promozionale",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "Il numero di errori di importazione massiva è {{bulkImportErrorsNumber}}",
     "valid_scorm": "Il file scorm è valido",
     "invalid_scorm": "Il file scorm non è valido",
-    "show_errors": "show errors"
+    "show_errors": "mostrare errori"
   },
   "close_button_ariaLabel": "Chiudi la slide di revisione",
   "post_comment_aria_label": "Pubblica il tuo commento",
