@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Հաղթեք {{count}} լրացուցիչ աստղեր այս բաժնում, երբ առաջին անգամ դիտեք դասը:",
   "media_stars_to_win": "Հաղթեք {{count}} լրացուցիչ աստղ այս բաժնում, երբ առաջին անգամ դիտեք դասը:",
   "More": "Ավելին",
-  "More details": "More details",
+  "More details": "Ավելի մանրամասն",
   "New media": "Նոր դաս",
   "No Selected Dashboard": "Ընտրված դեշբորդ չկա",
   "No status": "Կարգավիճակ չկա",
@@ -75,7 +75,7 @@
   "Validated": "Վավերացված",
   "Video Loading Error": "Տեսանյութը բեռնելիս խնդիր եղավ, խնդրում ենք նորից փորձել:",
   "Wait_creation": "Հարթակը ստեղծվում է։ Սա կարող է տևել մի քանի վայրկյան: Խնդրում ենք սպասել...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Ավելացրեք ձեր մեկնաբանությունը",
   "zuora_discount_code_submit": "Դիմել",
   "zuora_discount_code": "Պրոմո Կոդ",
   "mandatory_fields": "*Պարտադիր դաշտեր",
@@ -89,7 +89,7 @@
     "errors_number": "Զանգվածային ներմուծման սխալների համարը {{bulkImportErrorsNumber}} է",
     "valid_scorm": "scorm ֆայլը վավեր է",
     "invalid_scorm": "scorm ֆայլը վավեր չէ",
-    "show_errors": "show errors"
+    "show_errors": "ցույց տալ սխալները"
   },
   "close_button_ariaLabel": "Փակել վերանայման սլայդը",
   "post_comment_aria_label": "Տեղադրեք ձեր մեկնաբանությունը",
