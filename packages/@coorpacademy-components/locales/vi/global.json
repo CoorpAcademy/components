@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Giành được thêm {{count}} sao trong chương này khi xem bài học lần đầu tiên!",
   "media_stars_to_win": "Giành được thêm {{count}} sao trong chương này khi xem bài học lần đầu tiên!",
   "More": "Thêm",
-  "More details": "More details",
+  "More details": "Thêm chi tiết",
   "New media": "Bài học mới",
   "No Selected Dashboard": "Không có Trang tổng quan nào được chọn",
   "No status": "Không có trạng thái",
@@ -75,7 +75,7 @@
   "Validated": "Xác thực",
   "Video Loading Error": "Đã xảy ra lỗi trong khi tải video, vui lòng thử lại.",
   "Wait_creation": "Nền tảng đang được tạo. Quá trình này có thể mất vài giây. Vui lòng chờ...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Thêm nhận xét của bạn",
   "zuora_discount_code_submit": "Áp dụng",
   "zuora_discount_code": "Mã khuyến mại",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "số lỗi nhập hàng loạt là {{bulkImportErrorsNumber}}",
     "valid_scorm": "tập tin scorm là hợp lệ",
     "invalid_scorm": "tập tin scorm là không hợp lệ",
-    "show_errors": "show errors"
+    "show_errors": "hiển thị lỗi"
   },
   "close_button_ariaLabel": "Đóng màn hình đánh giá",
   "post_comment_aria_label": "Đăng bình luận của bạn",
