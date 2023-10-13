@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Gewinnen Sie {{count}} zusätzliche Sterne in diesem Kapitel, wenn Sie die Lektion das erste Mal ansehen!",
   "media_stars_to_win": "Gewinnen Sie {{count}} zusätzliche Sterne in diesem Kapitel, wenn Sie die Lektion das erste Mal ansehen!",
   "More": "Mehr",
-  "More details": "More details",
+  "More details": "Mehr Details",
   "New media": "Neue Lektion",
   "No Selected Dashboard": "Kein Dashboard ausgewählt",
   "No status": "Kein Status",
@@ -75,7 +75,7 @@
   "Validated": "Bestätigt",
   "Video Loading Error": "Beim Laden des Videos ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.",
   "Wait_creation": "Die Plattform wird erstellt. Das kann einige Sekunden dauern. Bitte warten Sie...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Füge deinen Kommentar hinzu",
   "zuora_discount_code_submit": "Anwenden",
   "zuora_discount_code": "Promo-Code",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "Massenimport-Fehlernummer ist {{bulkImportErrorsNumber}}",
     "valid_scorm": "Scorm-Datei ist gültig",
     "invalid_scorm": "Scorm-Datei ist ungültig",
-    "show_errors": "show errors"
+    "show_errors": "Fehler anzeigen"
   },
   "close_button_ariaLabel": "Bewertungsfolie schließen",
   "post_comment_aria_label": "Veröffentlichen Sie Ihren Kommentar",
