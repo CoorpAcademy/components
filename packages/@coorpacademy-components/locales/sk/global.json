@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Vyhrajte {{count}} ďalších hviezd v tejto kapitole pri prvom zobrazení hodiny!",
   "media_stars_to_win": "Vyhrajte {{count}} ďalších hviezd v tejto kapitole pri prvom zobrazení hodiny!",
   "More": "Viac",
-  "More details": "More details",
+  "More details": "Viac informácií",
   "New media": "Nová lekcia",
   "No Selected Dashboard": "Nie je vybratý informačný panel",
   "No status": "Bez statusu",
@@ -75,7 +75,7 @@
   "Validated": "Overené",
   "Video Loading Error": "Pri načítaní videa sa vyskytla chyba, skúste to znova.",
   "Wait_creation": "Platforma sa vytvára. Môže to trvať niekoľko sekúnd. Prosím počkajte...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Pridajte svoj komentár",
   "zuora_discount_code_submit": "Aplikovať",
   "zuora_discount_code": "Promo kód",
   "mandatory_fields": "*Povinné polia",
@@ -89,7 +89,7 @@
     "errors_number": "počet chýb hromadného importu je {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm súbor je platný",
     "invalid_scorm": "scorm súbor je neplatný",
-    "show_errors": "show errors"
+    "show_errors": "zobraziť chyby"
   },
   "close_button_ariaLabel": "Uzavrite recenziu",
   "post_comment_aria_label": "Uverejnite svoj komentár",
