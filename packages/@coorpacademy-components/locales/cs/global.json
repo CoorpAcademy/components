@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Získejte další hvězdy ({{count}}) v této kapitole při prvním zobrazení lekce!",
   "media_stars_to_win": "Vyhrajte další hvězdu ({{count}}) v této kapitole při prvním zobrazení lekce!",
   "More": "Více",
-  "More details": "More details",
+  "More details": "Více informací",
   "New media": "Nová lekce",
   "No Selected Dashboard": "Žádný vybraný ovládací panel",
   "No status": "Žádný stav",
@@ -75,7 +75,7 @@
   "Validated": "Ověřeno",
   "Video Loading Error": "Při načítání videa došlo k chybě, zkuste to znovu.",
   "Wait_creation": "Platforma se vytváří Může to trvat několik sekund. Prosím počkejte...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Přidejte svůj komentář",
   "zuora_discount_code_submit": "Použít",
   "zuora_discount_code": "Propagační kód",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "počet chyb hromadného importu je {{bulkImportErrorsNumber}}",
     "valid_scorm": "soubor scorm je platný",
     "invalid_scorm": "soubor scorm je neplatný",
-    "show_errors": "show errors"
+    "show_errors": "zobrazit chyby"
   },
   "close_button_ariaLabel": "Zavřít snímek recenze",
   "post_comment_aria_label": "Zveřejnit komentář",
