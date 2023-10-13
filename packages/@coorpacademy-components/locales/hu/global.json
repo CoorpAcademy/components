@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "Nyerjen további {{count}} csillagot ebben a fejezetben egy lecke először történő megtekintésével!",
   "media_stars_to_win": "Nyerjen további {{count}} csillagot ebben a fejezetben egy lecke először történő megtekintésekor!",
   "More": "Több",
-  "More details": "More details",
+  "More details": "További részletek",
   "New media": "Új lecke",
   "No Selected Dashboard": "Nincs kiválasztott irányítópult",
   "No status": "Nincs státusz",
@@ -75,7 +75,7 @@
   "Validated": "érvényesített",
   "Video Loading Error": "Hiba történt a videó betöltése közben, kérjük, próbálja meg újra.",
   "Wait_creation": "A platform készítése folyamatban van. Ez néhány másodpercet igénybe vehet. Kérjük, várjon...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "Adja hozzá megjegyzését",
   "zuora_discount_code_submit": "Alkalmaz",
   "zuora_discount_code": "Promóciókód",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "tömeges importálási hibák száma {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm fájl érvényes",
     "invalid_scorm": "scorm fájl nem érvényes",
-    "show_errors": "show errors"
+    "show_errors": "hibákat mutatni"
   },
   "close_button_ariaLabel": "Az áttekintő dia bezárása",
   "post_comment_aria_label": "Írj hozzászólást",
