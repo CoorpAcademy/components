@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "もし、はじめてこのレッスンを受けた場合は{{count}}個のスターが追加で獲得できます。",
   "media_stars_to_win": "もし、はじめてこのレッスンを受けた場合は{{count}}個のスターが追加で獲得できます。",
   "More": "その他",
-  "More details": "More details",
+  "More details": "さらに詳しく",
   "New media": "新しいレッスン",
   "No Selected Dashboard": "選択したダッシュ ボードもありません。",
   "No status": "ステタスはありません",
@@ -75,7 +75,7 @@
   "Validated": "検証済み",
   "Video Loading Error": "ビデオの読み込み中にエラーが発生しました。再度お試しください。",
   "Wait_creation": "プラットフォームを作成しています。これは、数秒をかかることができます。お待ちください。。。",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "コメントを追加してください",
   "zuora_discount_code_submit": "適用",
   "zuora_discount_code": "プロモーション コード",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "一括インポートエラー 数は {{bulkImportErrorsNumber}} です",
     "valid_scorm": "SCORMファイルは有効です",
     "invalid_scorm": "SCORMファイルが有効ではありません",
-    "show_errors": "show errors"
+    "show_errors": "エラーを表示する"
   },
   "close_button_ariaLabel": "レビュースライドを閉じる",
   "post_comment_aria_label": "コメントを投稿する",
