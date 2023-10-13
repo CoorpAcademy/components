@@ -30,7 +30,7 @@
   "media_stars_to_win_plural": "귀하가 레슨을 처음 볼 때, 이 장에서 {{count}}개의 추가 스타를 획득하세요!",
   "media_stars_to_win": "귀하가 레슨을 처음 볼 때, 이 장에서 {{count}}개의 추가 스타를 획득하세요!",
   "More": "더 많이",
-  "More details": "More details",
+  "More details": "자세한 내용은",
   "New media": "신규 레슨",
   "No Selected Dashboard": "선택된 대시보드 없음",
   "No status": "상태 없음",
@@ -75,7 +75,7 @@
   "Validated": "검증",
   "Video Loading Error": "비디오를 불러오는 중에 오류가 발생했습니다. 다시 시도하세요.",
   "Wait_creation": "플랫폼이 생성되고 있습니다. 몇 초가 소요될 수 있습니다. 기다려 주세요...",
-  "comment_aria_label": "Add your comment",
+  "comment_aria_label": "귀하의 의견을 추가하세요",
   "zuora_discount_code_submit": "적용",
   "zuora_discount_code": "프로모션 코드",
   "mandatory_fields": "*Mandatory fields",
@@ -89,7 +89,7 @@
     "errors_number": "벌크 가져오기 에러 번호는 {{bulkImportErrorsNumber}}입니다",
     "valid_scorm": "scorm 파일이 유효하지 않습니다",
     "invalid_scorm": "scorm 파일이 유효하지 않습니다",
-    "show_errors": "show errors"
+    "show_errors": "오류 표시"
   },
   "close_button_ariaLabel": "리뷰 슬라이드 닫기",
   "post_comment_aria_label": "의견을 작성하세요",
