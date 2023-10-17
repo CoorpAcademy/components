@@ -6,8 +6,8 @@ export const propTypes = {
   mainText: PropTypes.string,
   subText: PropTypes.string,
   imageUrl: Picture.propTypes.src,
-  progressionValue: PropTypes.number,
-  leftButtonLink: PropTypes.shape({
+  progression: PropTypes.number,
+  firstButtonLink: PropTypes.shape({
     type: PropTypes.string,
     label: PropTypes.string,
     ariaLabel: PropTypes.string,
@@ -18,7 +18,7 @@ export const propTypes = {
     }),
     onClick: PropTypes.func
   }),
-  rightButtonLink: PropTypes.shape({
+  secondButtonLink: PropTypes.shape({
     type: PropTypes.string,
     label: PropTypes.string,
     ariaLabel: PropTypes.string,
@@ -31,11 +31,13 @@ export const propTypes = {
   })
 };
 
-export type UploadingFileProgressProps = {
-  mainText?: string;
-  subText?: string;
+export type BulkInfosProps = {
+  mainText: string;
+  subText: string;
   imageUrl?: PropTypes.InferProps<typeof Picture.propTypes.src>;
-  progressionValue?: number;
-  leftButtonLink?: ButtonLinkProps;
-  rightButtonLink?: ButtonLinkProps;
+  progression?: number;
+  firstButtonLink?: ButtonLinkProps;
+  secondButtonLink?: ButtonLinkProps;
 };
+
+export type Props = PropTypes.InferProps<typeof propTypes>;

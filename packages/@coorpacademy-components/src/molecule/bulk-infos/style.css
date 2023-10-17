@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
+@value cm_grey_500: from colors;
 @value cm_grey_800: from colors;
-@value cm_grey_400: from colors;
 
 
 .container {
@@ -13,26 +13,26 @@
     width: 100%;
 }
 
-.loaderWrapper {
-    position: relative;
-    width: 100%;
+.img {
+    height: 170px;
+    width: 220px;
+}
+
+.header {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border-radius: 7px;
-  }
+}
 
 .loader {
-    margin-bottom: 8px;
-    height: 32px;
-    width: 32px;
-  }
+    height: 40px;
+    width: 40px;
+}
 
 .text {
     font-family: 'Gilroy';
     margin: 0 auto 0 auto;
 }
+
 .mainText {
     composes: text;
     color: cm_grey_800;
@@ -44,31 +44,27 @@
 
 .subText {
     composes: text;
-    color: cm_grey_400;
+    color: cm_grey_500;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     padding-top: 4px;
+    ;
 }
 
-.progressionValue { 
-    color: cm_grey_400;
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .buttonContainer {
     display: flex;
     justify-content: center;
     padding-top: 32px;
-    width: 100%;
 }
 
-.leftButtonLink {
-    width: 152px;
+.button {
+    max-width: 170px;
     height: 44px;
-    margin-left: 0;
-}
-.rightButtonLink {
-    width: 152px;
-    height: 44px;
-    margin-left: 20px;
 }

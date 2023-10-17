@@ -1,4 +1,4 @@
-import UploadingFileProgress from '../../../../../molecule/uploading-file-progress/test/fixtures/default';
+import UploadingFileProgress from '../../../../../molecule/bulk-infos/test/fixtures/progress';
 import headerAndMenu from './default';
 
 const {header} = headerAndMenu.props;
@@ -70,8 +70,8 @@ export default {
     items,
     content: {
       ...UploadingFileProgress.props,
-      key: 'uploading-file-progress',
-      type: 'uploading-file-progress'
+      key: 'bulk-infos',
+      type: 'bulk-infos'
     },
     contentFixHeight: true
   }

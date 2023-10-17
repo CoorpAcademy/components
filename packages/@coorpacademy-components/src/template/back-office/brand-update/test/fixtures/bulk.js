@@ -1,4 +1,4 @@
-import EmptyStateDashboard from '../../../../../molecule/empty-state-dashboard/test/fixtures/default';
+import EmptyStateDashboard from '../../../../../molecule/bulk-infos/test/fixtures/default';
 import headerAndMenu from './default';
 
 const {header} = headerAndMenu.props;
@@ -70,8 +70,8 @@ export default {
     items,
     content: {
       ...EmptyStateDashboard.props,
-      key: 'empty-state-dashboard',
-      type: 'empty-state-dashboard'
+      key: 'bulk-infos',
+      type: 'bulk-infos'
     },
     contentFixHeight: true
   }
