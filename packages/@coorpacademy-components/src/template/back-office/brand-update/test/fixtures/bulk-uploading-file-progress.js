@@ -9,7 +9,7 @@ export default {
     items,
     content: {
       ...UploadingFileProgress.props,
-      key: 'bulk-infos',
+      key: 'upload-progression',
       type: 'wizard'
     },
     contentFixHeight: true

@@ -90,6 +90,7 @@
 }
 
 .form {
+  flex: 1;
   margin: 45px 32px 0 0;
 }
 

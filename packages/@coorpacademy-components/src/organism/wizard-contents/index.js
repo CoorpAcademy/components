@@ -59,7 +59,7 @@ const buildHeader = (wizardHeader, actions, steps, tabs) => {
   );
 };
 
-const buildForm = content => {
+const buildView = content => {
   const {type} = content;
   switch (type) {
     case 'form':
@@ -76,7 +76,7 @@ const buildForm = content => {
       return <RewardsForm {...content} />;
     case 'expandible-table':
       return <ExpandibleActionableErrorsTable {...content} />;
-    case 'bulk-infos':
+    case 'upload-progression':
       return <BulkInfos {...content} />;
   }
 };
@@ -143,7 +143,7 @@ const WizardContents = props => {
   const {isLoading, wizardHeader, actions, steps, tabs, summary, content, nextStep, previousStep} =
     props;
   const headerView = buildHeader(wizardHeader, actions, steps, tabs);
-  const formView = buildForm({...content, isLoading});
+  const view = buildView({...content, isLoading});
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
   const currentStyle = THEMES[getTheme(summary)];
@@ -163,7 +163,7 @@ const WizardContents = props => {
     <div className={currentStyle.container} data-name="content-summary">
       <div className={currentStyle.leftSection}>
         {headerView}
-        <div className={style.form}>{formView}</div>
+        <div className={style.form}>{view}</div>
       </div>
       {summary ? summaryWrapper : null}
       <div className={currentStyle.footer} data-name="footer-section">
@@ -237,7 +237,7 @@ WizardContents.propTypes = {
     }),
     PropTypes.shape({
       ...BulkInfos.propTypes,
-      type: PropTypes.oneOf(['bulk-infos'])
+      type: PropTypes.oneOf(['upload-progression'])
     })
   ]),
   previousStep: PropTypes.shape({

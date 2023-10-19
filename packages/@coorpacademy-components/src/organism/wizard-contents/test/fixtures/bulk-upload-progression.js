@@ -9,8 +9,8 @@ export default {
     },
     content: {
       ...UploadingFileProgress.props,
-      key: 'bulk-infos',
-      type: 'bulk-infos'
+      key: 'upload-progression',
+      type: 'upload-progression'
     }
   }
 };
