@@ -22,7 +22,6 @@ import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
 import ExpandibleActionableTable from '../../../molecule/expandible-actionable-table';
-import BulkInfos from '../../../molecule/bulk-infos';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -177,8 +176,6 @@ const buildContentView = content => {
     case 'wizard':
     case 'expandible-table':
       return <WizardContents {...content} />;
-    case 'bulk-infos':
-      return <BulkInfos {...content} />;
     case 'table-pending':
       return <ExpandibleActionableTable {...content} />;
   }
@@ -307,11 +304,6 @@ BrandUpdate.propTypes = {
       ...ListItems.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['list-content', 'expandible-actionable-table'])
-    }),
-    PropTypes.shape({
-      ...BulkInfos.propTypes,
-      key: PropTypes.string,
-      type: PropTypes.oneOf(['bulk-infos'])
     }),
     PropTypes.shape({
       ...ExpandibleActionableTable.propTypes,

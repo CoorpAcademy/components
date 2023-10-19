@@ -14,6 +14,7 @@ import BrandTabs from '../../molecule/brand-tabs';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import RewardsForm from '../rewards-form';
 import ExpandibleActionableErrorsTable from '../../molecule/expandible-actionable-table';
+import BulkInfos from '../../molecule/bulk-infos';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, actions, steps, tabs) => {
@@ -75,6 +76,8 @@ const buildForm = content => {
       return <RewardsForm {...content} />;
     case 'expandible-table':
       return <ExpandibleActionableErrorsTable {...content} />;
+    case 'bulk-infos':
+      return <BulkInfos {...content} />;
   }
 };
 
@@ -231,6 +234,10 @@ WizardContents.propTypes = {
     PropTypes.shape({
       ...ExpandibleActionableErrorsTable.propTypes,
       type: PropTypes.oneOf(['expandible-table'])
+    }),
+    PropTypes.shape({
+      ...BulkInfos.propTypes,
+      type: PropTypes.oneOf(['bulk-infos'])
     })
   ]),
   previousStep: PropTypes.shape({

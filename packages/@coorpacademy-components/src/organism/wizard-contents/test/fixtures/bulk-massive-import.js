@@ -12,7 +12,7 @@ export default {
       type: 'form'
     },
     nextStep: {
-      label: 'Next step',
+      label: 'Start import',
       onClick: () => console.log('Next Step')
     }
   }

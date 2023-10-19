@@ -26,6 +26,8 @@
 .loader {
     height: 40px;
     width: 40px;
+    position: relative;
+    left: -20px;
 }
 
 .text {
