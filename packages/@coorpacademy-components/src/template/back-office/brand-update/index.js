@@ -38,7 +38,12 @@ const subTabsView = (_subTabs = []) =>
           target={'_blank'}
         />
       ) : (
-        <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
+        <LinkItem
+          {...subTab}
+          styles={getStyle(subTab.selected)}
+          uppercase={false}
+          setChildrenAsHtml={false}
+        />
       )}
     </div>
   ))(_subTabs);
