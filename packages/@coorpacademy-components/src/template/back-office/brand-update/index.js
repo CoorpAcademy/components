@@ -21,9 +21,8 @@ import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
-import EmptyStateDashboard from '../../../molecule/empty-state-dashboard';
-import UploadingFileProgress from '../../../molecule/uploading-file-progress';
 import ExpandibleActionableTable from '../../../molecule/expandible-actionable-table';
+import BulkInfos from '../../../molecule/bulk-infos';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -39,7 +38,12 @@ const subTabsView = (_subTabs = []) =>
           target={'_blank'}
         />
       ) : (
-        <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
+        <LinkItem
+          {...subTab}
+          styles={getStyle(subTab.selected)}
+          uppercase={false}
+          setChildrenAsHtml={false}
+        />
       )}
     </div>
   ))(_subTabs);
@@ -178,10 +182,8 @@ const buildContentView = content => {
     case 'wizard':
     case 'expandible-table':
       return <WizardContents {...content} />;
-    case 'empty-state-dashboard':
-      return <EmptyStateDashboard {...content} />;
-    case 'uploading-file-progress':
-      return <UploadingFileProgress {...content} />;
+    case 'bulk-empty-dashboard':
+      return <BulkInfos {...content} />;
     case 'table-pending':
       return <ExpandibleActionableTable {...content} />;
   }
@@ -312,14 +314,9 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['list-content', 'expandible-actionable-table'])
     }),
     PropTypes.shape({
-      ...EmptyStateDashboard.propTypes,
+      ...BulkInfos.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['empty-state-dashboard'])
-    }),
-    PropTypes.shape({
-      ...UploadingFileProgress.propTypes,
-      key: PropTypes.string,
-      type: PropTypes.oneOf(['uploading-file-progress'])
+      type: PropTypes.oneOf(['bulk-empty-dashboard'])
     }),
     PropTypes.shape({
       ...ExpandibleActionableTable.propTypes,

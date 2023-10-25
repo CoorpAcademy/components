@@ -14,6 +14,7 @@ import BrandTabs from '../../molecule/brand-tabs';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import RewardsForm from '../rewards-form';
 import ExpandibleActionableErrorsTable from '../../molecule/expandible-actionable-table';
+import BulkInfos from '../../molecule/bulk-infos';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, actions, steps, tabs) => {
@@ -58,7 +59,7 @@ const buildHeader = (wizardHeader, actions, steps, tabs) => {
   );
 };
 
-const buildForm = content => {
+const buildView = content => {
   const {type} = content;
   switch (type) {
     case 'form':
@@ -75,6 +76,8 @@ const buildForm = content => {
       return <RewardsForm {...content} />;
     case 'expandible-table':
       return <ExpandibleActionableErrorsTable {...content} />;
+    case 'upload-progression':
+      return <BulkInfos {...content} />;
   }
 };
 
@@ -140,7 +143,7 @@ const WizardContents = props => {
   const {isLoading, wizardHeader, actions, steps, tabs, summary, content, nextStep, previousStep} =
     props;
   const headerView = buildHeader(wizardHeader, actions, steps, tabs);
-  const formView = buildForm({...content, isLoading});
+  const view = buildView({...content, isLoading});
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
   const currentStyle = THEMES[getTheme(summary)];
@@ -160,7 +163,7 @@ const WizardContents = props => {
     <div className={currentStyle.container} data-name="content-summary">
       <div className={currentStyle.leftSection}>
         {headerView}
-        <div className={style.form}>{formView}</div>
+        <div className={style.form}>{view}</div>
       </div>
       {summary ? summaryWrapper : null}
       <div className={currentStyle.footer} data-name="footer-section">
@@ -231,6 +234,10 @@ WizardContents.propTypes = {
     PropTypes.shape({
       ...ExpandibleActionableErrorsTable.propTypes,
       type: PropTypes.oneOf(['expandible-table'])
+    }),
+    PropTypes.shape({
+      ...BulkInfos.propTypes,
+      type: PropTypes.oneOf(['upload-progression'])
     })
   ]),
   previousStep: PropTypes.shape({
