@@ -10,7 +10,7 @@ const replaceLibByEs = pipe(
 );
 
 const generateScopedName = (localName, filepath) => {
-  const hash = createHash('md4');
+  const hash = createHash('sha512');
   hash.update(replaceLibByEs(relative(process.cwd(), filepath)));
   hash.update(localName);
   return `${localName}-${hash.digest('base64').slice(0, 5)}`;

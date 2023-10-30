@@ -5,7 +5,7 @@ import CompressionPlugin from 'compression-webpack-plugin';
 
 export const getLocalIdent = (context, localIdentName, localName) => {
   const {resourcePath} = context;
-  const hash = createHash('md4');
+  const hash = createHash('sha512');
   hash.update(relative(process.cwd(), resourcePath));
   hash.update(localName);
   return `${localName}-${hash.digest('base64').slice(0, 5)}`;
