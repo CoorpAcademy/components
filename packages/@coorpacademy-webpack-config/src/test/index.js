@@ -45,6 +45,6 @@ test('should hash className', t => {
       '',
       'wrapper'
     ),
-    'wrapper-muWhm'
+    'wrapper-QDgbU'
   );
 });
