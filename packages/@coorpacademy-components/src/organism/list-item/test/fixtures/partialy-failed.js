@@ -10,6 +10,23 @@ export default {
     ],
     buttonLink: {
       type: 'secondary',
+      label: 'Save import',
+      ariaLabel: 'aria button',
+      dataName: 'default-button',
+      icon: {
+        position: 'left',
+        type: 'save'
+      },
+      onClick: () => console.log('click'),
+      customStyle: {
+        paddingTop: '12px',
+        paddingRight: '24px',
+        paddingBottom: '12px',
+        paddingLeft: '24px'
+      }
+    },
+    secondButtonLink: {
+      type: 'secondary',
       label: 'Inspect',
       ariaLabel: 'aria button',
       dataName: 'default-button',

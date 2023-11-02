@@ -4,14 +4,13 @@ import {isEmpty, map} from 'lodash/fp';
 import classnames from 'classnames';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
-import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
 const ListItem = ({
   buttonLink,
-  buttonLinkIcon,
+  secondButtonLink,
   bulletPointMenuButton,
   tags,
   title,
@@ -60,7 +59,7 @@ const ListItem = ({
       <div className={style.settings}>
         {tagsView}
         {buttonLink ? <ButtonLink {...buttonLink} /> : null}
-        {buttonLinkIcon ? <ButtonLinkIconOnly {...buttonLinkIcon} /> : null}
+        {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
           <BulletPointMenuButton {...bulletPointMenuButton} />
         ) : null}
@@ -89,19 +88,16 @@ ListItem.propTypes = {
     }),
     onClick: PropTypes.func
   }),
-  buttonLinkIcon: PropTypes.shape({
-    size: PropTypes.oneOf(['default', 'small', 'responsive']),
-    'aria-label': PropTypes.string,
-    'data-name': PropTypes.string,
-    icon: PropTypes.string,
-    onClick: PropTypes.func,
-    link: PropTypes.shape({
-      href: PropTypes.string,
-      download: PropTypes.bool,
-      target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+  secondButtonLink: PropTypes.shape({
+    type: PropTypes.string,
+    label: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    dataName: PropTypes.string,
+    icon: PropTypes.shape({
+      position: PropTypes.string,
+      type: PropTypes.string
     }),
-    disabled: PropTypes.bool,
-    className: PropTypes.string
+    onClick: PropTypes.func
   }),
   bulletPointMenuButton: PropTypes.shape({
     buttonAriaLabel: PropTypes.string,
