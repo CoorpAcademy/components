@@ -17,7 +17,7 @@
   justify-content: space-between;
   padding: 0 24px;
   width: 100%;
-  gap: 24px;
+  /* gap: 54px; */
 }
 
 .gridLayout {
@@ -32,7 +32,6 @@
   display: flex;
   height: 56px;
   align-items: center;
-  gap: 16px;
   flex: 1 0 0;
   font-family: Gilroy;
   font-size: 16px;
@@ -45,6 +44,8 @@
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
+  background-color: white;
+  flex-grow: 2;
 }
 
 .settings {
@@ -66,7 +67,6 @@
   display: flex;
   height: 56px;
   align-items: center;
-  gap: 16px;
   flex: 1 0 0;
   color: cm_grey_500;
   font-family: Gilroy;
@@ -75,6 +75,8 @@
   font-weight: 600;
   line-height: 20px;
   white-space: nowrap;
+  flex-grow: 1;
+  /* background-color: white; */
 }
 
 .order {
@@ -90,7 +92,8 @@
 }
 
 .dataColumnsWrapper {
-  align-items: center;
   display: flex;
-  max-width: 80%;
+  align-items: center;
+  align-content: space-between;
+  background-color: yellow;
 }

@@ -35,6 +35,7 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
               key={`tableHeadeColumn-key-${index}`}
               className={style.tableHeaderItem}
               data-name={`tableHeader-${index}`}
+              style={index === 0 ? {flexGrow: 2, backgroundColor: 'white'} : {flexGrow: 1}}
             >
               {tableHeaderItem}
             </div>
