@@ -22,17 +22,16 @@
 
 .gridLayout {
   display: grid;
-  grid-template-columns: 60% auto; 
+  grid-template-columns: 60% auto;
   background-color: red;
 }
 
 .title {
   color: cm_grey_900;
-  flex-grow: 0;
   display: flex;
   height: 56px;
   align-items: center;
-  flex: 1 0 0;
+  flex: 2 0 0;
   font-family: Gilroy;
   font-size: 16px;
   font-stretch: normal;
@@ -45,7 +44,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   background-color: white;
-  flex-grow: 2;
 }
 
 .settings {
@@ -75,8 +73,6 @@
   font-weight: 600;
   line-height: 20px;
   white-space: nowrap;
-  flex-grow: 1;
-  /* background-color: white; */
 }
 
 .order {
@@ -93,6 +89,7 @@
 
 .dataColumnsWrapper {
   display: flex;
+  width: 100%;
   align-items: center;
   align-content: space-between;
   background-color: yellow;

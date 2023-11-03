@@ -57,7 +57,6 @@
   display: grid;
   grid-template-columns: 60% auto; 
   align-items: center;
-  gap: 24px;
   border-radius: 7px;
   padding: 8px 24px;
   background-color: red;
@@ -84,9 +83,8 @@
   align-items: center;
   display: flex;
   width: 100%;
-  /* align-content: space-between; */
+  align-content: space-between;
   /* margin-left: 24px; */
-  background-color: blue;
 }
 
 .settings {
