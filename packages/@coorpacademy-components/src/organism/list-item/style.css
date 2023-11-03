@@ -17,13 +17,11 @@
   justify-content: space-between;
   padding: 0 24px;
   width: 100%;
-  /* gap: 54px; */
 }
 
 .gridLayout {
   display: grid;
   grid-template-columns: 60% auto;
-  background-color: red;
 }
 
 .title {
@@ -43,7 +41,6 @@
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: white;
 }
 
 .settings {
@@ -53,7 +50,6 @@
   gap: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background-color: yellow;
 }
 
 .tag {
@@ -92,5 +88,4 @@
   width: 100%;
   align-items: center;
   align-content: space-between;
-  background-color: yellow;
 }
