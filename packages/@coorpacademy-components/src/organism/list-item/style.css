@@ -17,22 +17,19 @@
   justify-content: space-between;
   padding: 0 24px;
   width: 100%;
-  gap: 24px;
 }
 
 .gridLayout {
   display: grid;
-  grid-template-columns: 70% auto; 
+  grid-template-columns: 60% auto;
 }
 
 .title {
   color: cm_grey_900;
-  flex-grow: 0;
   display: flex;
   height: 56px;
   align-items: center;
-  gap: 16px;
-  flex: 1 0 0;
+  flex: 2 0 0;
   font-family: Gilroy;
   font-size: 16px;
   font-stretch: normal;
@@ -51,6 +48,8 @@
   display: flex;
   height: 100%;
   gap: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tag {
@@ -62,7 +61,6 @@
   display: flex;
   height: 56px;
   align-items: center;
-  gap: 16px;
   flex: 1 0 0;
   color: cm_grey_500;
   font-family: Gilroy;
@@ -86,7 +84,8 @@
 }
 
 .dataColumnsWrapper {
-  align-items: center;
   display: flex;
-  max-width: 80%;
+  width: 100%;
+  align-items: center;
+  align-content: space-between;
 }

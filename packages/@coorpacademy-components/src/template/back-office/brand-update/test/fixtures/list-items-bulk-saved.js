@@ -54,7 +54,7 @@ props.items = [
             type: 'simpleTab'
           },
           {
-            title: 'Pending',
+            title: 'Action required',
             href: '#/external-content/pending',
             name: 'pending-imports',
             permissions: ['list-pending-imports'],

@@ -55,22 +55,18 @@
 
 .tableHeaderWrapper {
   display: grid;
-  grid-template-columns: 70% auto; 
-  padding: 8px 16px;
+  grid-template-columns: 60% auto; 
   align-items: center;
-  gap: 24px;
   border-radius: 7px;
-  padding: 8px 16px;
+  padding: 8px 24px;
 }
 
 
 .tableHeaderItem {
   display: flex;
-  gap: 16px;
   flex: 1 0 0;
   overflow: hidden;
   align-items: flex-start;
-  gap: 8px;
   flex-shrink: 0;
   color: var(--font-font-color-tertiary, #9999A8);
   text-overflow: ellipsis;
@@ -85,7 +81,7 @@
   align-items: center;
   display: flex;
   width: 100%;
-  margin-left: 24px;
+  align-content: space-between;
 }
 
 .settings {

@@ -26,16 +26,22 @@ export default {
         paddingLeft: '24px'
       }
     },
-    buttonLinkIcon: {
-      size: 'default',
-      icon: 'see',
-      'data-name': 'default-button',
-      'aria-label': 'aria button',
-      link: {
-        href: 'https://setup.coorpacademy.com/assets/templates/import-users-template.xlsx',
-        download: true
+    secondButtonLink: {
+      type: 'secondary',
+      label: 'Inspect',
+      ariaLabel: 'aria button',
+      dataName: 'default-button',
+      icon: {
+        position: 'left',
+        type: 'see'
       },
-      onClick: () => console.log('click')
+      onClick: () => console.log('click'),
+      customStyle: {
+        paddingTop: '12px',
+        paddingRight: '24px',
+        paddingBottom: '12px',
+        paddingLeft: '24px'
+      }
     },
     bulletPointMenuButton: {
       buttonAriaLabel: 'aria button',
