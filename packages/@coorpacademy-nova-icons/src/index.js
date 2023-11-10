@@ -206,6 +206,7 @@ import _NovaSolidSpaceRingPlanet from './components/nova-solid/space/ring-planet
 import _NovaSolidSpaceSpaceRocket from './components/nova-solid/space/space-rocket';
 import _NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
 import _NovaSolidStatusClose from './components/nova-solid/status/close';
+import _NovaSolidStatusRoundedAlert from './components/nova-solid/status/frame-218';
 import _NovaSolidStatusValidate from './components/nova-solid/status/validate';
 import _NovaSolidSynchronizeSynchronize3 from './components/nova-solid/synchronize/synchronize-3';
 import _NovaSolidTimeAlarm from './components/nova-solid/time/alarm';
@@ -463,6 +464,7 @@ export const NovaSolidSpaceRingPlanet: Icon = _NovaSolidSpaceRingPlanet;
 export const NovaSolidSpaceSpaceRocket: Icon = _NovaSolidSpaceSpaceRocket;
 export const NovaSolidStatusCheckCircle2: Icon = _NovaSolidStatusCheckCircle2;
 export const NovaSolidStatusClose: Icon = _NovaSolidStatusClose;
+export const NovaSolidStatusRoundedAlert: Icon = _NovaSolidStatusRoundedAlert;
 export const NovaSolidStatusValidate: Icon = _NovaSolidStatusValidate;
 export const NovaSolidSynchronizeSynchronize3: Icon = _NovaSolidSynchronizeSynchronize3;
 export const NovaSolidTimeAlarm: Icon = _NovaSolidTimeAlarm;
