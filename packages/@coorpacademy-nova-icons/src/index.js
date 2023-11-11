@@ -165,6 +165,7 @@ import _NovaSolidContentContentBookAdd from './components/nova-solid/content/con
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
 import _NovaSolidContentEditionBin from './components/nova-solid/content-edition/bin';
+import _NovaSolidContentEditionDelete1 from './components/nova-solid/content-edition/delete.1';
 import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidContentEditionPencilWrite from './components/nova-solid/content-edition/pencil-write';
@@ -206,7 +207,7 @@ import _NovaSolidSpaceRingPlanet from './components/nova-solid/space/ring-planet
 import _NovaSolidSpaceSpaceRocket from './components/nova-solid/space/space-rocket';
 import _NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
 import _NovaSolidStatusClose from './components/nova-solid/status/close';
-import _NovaSolidStatusRoundedAlert from './components/nova-solid/status/frame-218';
+import _NovaSolidStatusFrame218 from './components/nova-solid/status/frame-218';
 import _NovaSolidStatusValidate from './components/nova-solid/status/validate';
 import _NovaSolidSynchronizeSynchronize3 from './components/nova-solid/synchronize/synchronize-3';
 import _NovaSolidTimeAlarm from './components/nova-solid/time/alarm';
@@ -418,6 +419,7 @@ export const NovaSolidContentContentBookAdd: Icon = _NovaSolidContentContentBook
 export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentViewList;
 export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
 export const NovaSolidContentEditionBin: Icon = _NovaSolidContentEditionBin;
+export const NovaSolidContentEditionDelete1: Icon = _NovaSolidContentEditionDelete1;
 export const NovaSolidContentEditionFlash: Icon = _NovaSolidContentEditionFlash;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidContentEditionPencilWrite: Icon = _NovaSolidContentEditionPencilWrite;
@@ -464,7 +466,7 @@ export const NovaSolidSpaceRingPlanet: Icon = _NovaSolidSpaceRingPlanet;
 export const NovaSolidSpaceSpaceRocket: Icon = _NovaSolidSpaceSpaceRocket;
 export const NovaSolidStatusCheckCircle2: Icon = _NovaSolidStatusCheckCircle2;
 export const NovaSolidStatusClose: Icon = _NovaSolidStatusClose;
-export const NovaSolidStatusRoundedAlert: Icon = _NovaSolidStatusRoundedAlert;
+export const NovaSolidStatusFrame218: Icon = _NovaSolidStatusFrame218;
 export const NovaSolidStatusValidate: Icon = _NovaSolidStatusValidate;
 export const NovaSolidSynchronizeSynchronize3: Icon = _NovaSolidSynchronizeSynchronize3;
 export const NovaSolidTimeAlarm: Icon = _NovaSolidTimeAlarm;
