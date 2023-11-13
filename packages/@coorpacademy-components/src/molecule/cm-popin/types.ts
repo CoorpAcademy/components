@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import {keys} from 'lodash/fp';
 import Cta from '../../atom/button-link';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
+import {ICONS} from '../../util/button-icons';
 
 const propTypes = {
   content: PropTypes.string,
@@ -28,7 +30,11 @@ const propTypes = {
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    customStyle: Cta.propTypes.customStyle
+    customStyle: Cta.propTypes.customStyle,
+    icon: PropTypes.shape({
+      position: PropTypes.oneOf(['right', 'left']),
+      type: PropTypes.oneOf(keys(ICONS))
+    })
   }),
   thirdButton: PropTypes.shape({
     label: PropTypes.string,
