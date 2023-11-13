@@ -6,7 +6,8 @@ import {
   NovaSolidSpaceMoonRocket as MoonRocket,
   NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaLineStatusCheckCircle1 as CheckCircle1,
-  NovaSolidFilesBasicFileLines as FileLinesIcon
+  NovaSolidFilesBasicFileLines as FileLinesIcon,
+  NovaSolidStatusFrame218 as AlertIcon
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
@@ -51,7 +52,8 @@ const CMPopin = props => {
     AlertDiamond,
     WindowUpload,
     MoonRocket,
-    CheckCircle1
+    CheckCircle1,
+    AlertIcon
   };
   const LogoComponent = logo[icon];
 
@@ -266,6 +268,7 @@ const CMPopin = props => {
                   aria-label={secondButton['aria-label']}
                   type={secondButton.type}
                   customStyle={secondButton.customStyle}
+                  icon={secondButton.icon}
                 />
               </div>
             ) : null}
