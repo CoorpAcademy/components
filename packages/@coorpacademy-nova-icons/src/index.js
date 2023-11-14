@@ -165,7 +165,7 @@ import _NovaSolidContentContentBookAdd from './components/nova-solid/content/con
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
 import _NovaSolidContentEditionBin from './components/nova-solid/content-edition/bin';
-import _NovaSolidContentEditionDelete1 from './components/nova-solid/content-edition/delete.1';
+import _NovaSolidContentEditionDelete1 from './components/nova-solid/content-edition/delete-1';
 import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidContentEditionPencilWrite from './components/nova-solid/content-edition/pencil-write';
@@ -180,6 +180,7 @@ import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic
 import _NovaSolidFilesFoldersFolders from './components/nova-solid/files-folders/folders';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import _NovaSolidInterfaceFeedbackInterfaceAlertDiamond from './components/nova-solid/interface-feedback/interface-alert-diamond';
+import _NovaSolidInterfaceFeedbackInterfaceAlertRounded from './components/nova-solid/interface-feedback/interface-alert-rounded';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
 import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-solid/interface-feedback/interface-question-mark';
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
@@ -207,7 +208,6 @@ import _NovaSolidSpaceRingPlanet from './components/nova-solid/space/ring-planet
 import _NovaSolidSpaceSpaceRocket from './components/nova-solid/space/space-rocket';
 import _NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
 import _NovaSolidStatusClose from './components/nova-solid/status/close';
-import _NovaSolidStatusFrame218 from './components/nova-solid/status/frame-218';
 import _NovaSolidStatusValidate from './components/nova-solid/status/validate';
 import _NovaSolidSynchronizeSynchronize3 from './components/nova-solid/synchronize/synchronize-3';
 import _NovaSolidTimeAlarm from './components/nova-solid/time/alarm';
@@ -436,6 +436,8 @@ export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon =
   _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
 export const NovaSolidInterfaceFeedbackInterfaceAlertDiamond: Icon =
   _NovaSolidInterfaceFeedbackInterfaceAlertDiamond;
+export const NovaSolidInterfaceFeedbackInterfaceAlertRounded: Icon =
+  _NovaSolidInterfaceFeedbackInterfaceAlertRounded;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon =
   _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;
 export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon =
@@ -466,7 +468,6 @@ export const NovaSolidSpaceRingPlanet: Icon = _NovaSolidSpaceRingPlanet;
 export const NovaSolidSpaceSpaceRocket: Icon = _NovaSolidSpaceSpaceRocket;
 export const NovaSolidStatusCheckCircle2: Icon = _NovaSolidStatusCheckCircle2;
 export const NovaSolidStatusClose: Icon = _NovaSolidStatusClose;
-export const NovaSolidStatusFrame218: Icon = _NovaSolidStatusFrame218;
 export const NovaSolidStatusValidate: Icon = _NovaSolidStatusValidate;
 export const NovaSolidSynchronizeSynchronize3: Icon = _NovaSolidSynchronizeSynchronize3;
 export const NovaSolidTimeAlarm: Icon = _NovaSolidTimeAlarm;

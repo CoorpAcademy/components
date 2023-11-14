@@ -7,7 +7,7 @@ import {
   NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaLineStatusCheckCircle1 as CheckCircle1,
   NovaSolidFilesBasicFileLines as FileLinesIcon,
-  NovaSolidStatusFrame218 as AlertIcon
+  NovaSolidInterfaceFeedbackInterfaceAlertRounded as AlertIcon
 } from '@coorpacademy/nova-icons';
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
