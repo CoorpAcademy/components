@@ -165,6 +165,7 @@ import _NovaSolidContentContentBookAdd from './components/nova-solid/content/con
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
 import _NovaSolidContentEditionBin from './components/nova-solid/content-edition/bin';
+import _NovaSolidContentEditionDelete1 from './components/nova-solid/content-edition/delete-1';
 import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidContentEditionPencilWrite from './components/nova-solid/content-edition/pencil-write';
@@ -179,6 +180,7 @@ import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic
 import _NovaSolidFilesFoldersFolders from './components/nova-solid/files-folders/folders';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import _NovaSolidInterfaceFeedbackInterfaceAlertDiamond from './components/nova-solid/interface-feedback/interface-alert-diamond';
+import _NovaSolidInterfaceFeedbackInterfaceAlertRounded from './components/nova-solid/interface-feedback/interface-alert-rounded';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
 import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-solid/interface-feedback/interface-question-mark';
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
@@ -417,6 +419,7 @@ export const NovaSolidContentContentBookAdd: Icon = _NovaSolidContentContentBook
 export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentViewList;
 export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
 export const NovaSolidContentEditionBin: Icon = _NovaSolidContentEditionBin;
+export const NovaSolidContentEditionDelete1: Icon = _NovaSolidContentEditionDelete1;
 export const NovaSolidContentEditionFlash: Icon = _NovaSolidContentEditionFlash;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidContentEditionPencilWrite: Icon = _NovaSolidContentEditionPencilWrite;
@@ -433,6 +436,8 @@ export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon =
   _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
 export const NovaSolidInterfaceFeedbackInterfaceAlertDiamond: Icon =
   _NovaSolidInterfaceFeedbackInterfaceAlertDiamond;
+export const NovaSolidInterfaceFeedbackInterfaceAlertRounded: Icon =
+  _NovaSolidInterfaceFeedbackInterfaceAlertRounded;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon =
   _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;
 export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon =

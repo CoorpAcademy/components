@@ -17,7 +17,8 @@ import {
   NovaSolidFilesBasicFileUpload2 as UploadIcon,
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationArrowLeft as ArrowLeft,
-  NovaLineFilesOfficeFileOfficePdf as PDF
+  NovaLineFilesOfficeFileOfficePdf as PDF,
+  NovaSolidContentEditionDelete1 as DeleteIcon
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -39,5 +40,6 @@ export const ICONS = {
   upload: UploadIcon,
   down: ArrowDown,
   pdf: PDF,
-  back: ArrowLeft
+  back: ArrowLeft,
+  delete: DeleteIcon
 };

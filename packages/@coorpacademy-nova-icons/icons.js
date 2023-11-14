@@ -190,6 +190,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/hide.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/sport-dumbbell-2.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/add-1.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/interface-alert-rounded.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/delete-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/add-circle-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/add-circle-2.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/alarm.svg')},
