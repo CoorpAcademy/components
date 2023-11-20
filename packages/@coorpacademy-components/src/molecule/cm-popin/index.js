@@ -19,6 +19,7 @@ import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
+import Link from '../../atom/link';
 import style from './style.css';
 import propTypes from './types';
 
@@ -46,7 +47,8 @@ const CMPopin = props => {
     cookieTitle,
     descriptionBtnTxt,
     listBtnSwicth,
-    items
+    items,
+    link
   } = props;
   const logo = {
     AlertDiamond,
@@ -240,6 +242,7 @@ const CMPopin = props => {
                 dangerouslySetInnerHTML={{__html: descriptionText}}
               />
             ) : null}
+            {link ? <Link {...link} /> : null}
           </div>
         ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
