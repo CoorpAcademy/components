@@ -3,6 +3,7 @@ import {keys} from 'lodash/fp';
 import Cta from '../../atom/button-link';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
+import Link from '../../atom/link';
 import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
@@ -58,7 +59,8 @@ const propTypes = {
       PropTypes.shape(CardsGrid.propTypes),
       PropTypes.shape(ListItems.propTypes)
     ])
-  })
+  }),
+  link: PropTypes.shape(Link.propTypes)
 };
 
 type PopinHeaderProps = {
@@ -93,6 +95,7 @@ export type CMPopinProps = {
       | PropTypes.InferProps<typeof CardsGrid.propTypes>
       | PropTypes.InferProps<typeof ListItems.propTypes>;
   };
+  link?: PropTypes.InferProps<typeof Link.propTypes>;
 };
 
 export default propTypes;
