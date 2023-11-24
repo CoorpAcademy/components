@@ -63,6 +63,7 @@
 .content {
   font-family: 'Gilroy';
   width: 100%;
+  overflow-x: auto;
 }
 
 .author {
