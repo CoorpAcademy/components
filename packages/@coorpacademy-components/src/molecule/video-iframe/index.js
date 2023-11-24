@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
-import {noop} from 'lodash/fp';
+import {noop, includes} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
@@ -23,7 +23,15 @@ const getUrl = ({url, type, id, query = {}, opts = {}}) => {
 
 class VideoIframe extends React.Component {
   static propTypes = {
-    type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki', 'jwplayer', 'omniPlayer', 'h5p']),
+    type: PropTypes.oneOf([
+      'youtube',
+      'uptale',
+      'kontiki',
+      'jwplayer',
+      'omniPlayer',
+      'h5p',
+      'faurecia-vr'
+    ]),
     width: PropTypes.string,
     height: PropTypes.string,
     url: SrcPropType,
@@ -47,18 +55,15 @@ class VideoIframe extends React.Component {
   render() {
     const {type, id, url, autoplay = false, width = '100%', height = '400px'} = this.props;
     const src = getUrl({url, type, id, autoplay});
-
+    const properties = {
+      allow: includes(type, ['faurecia-vr']) ? 'xr-spatial-tracking;fullscreen' : null,
+      allowFullScreen: true,
+      allowvr: includes(type, ['uptale', 'faurecia-vr']) ? 'yes' : null,
+      scrolling: includes(type, ['uptale', 'faurecia-vr']) ? 'no' : null,
+      frameBorder: '0'
+    };
     return (
-      <iframe
-        src={src}
-        width={width}
-        height={height}
-        frameBorder={0}
-        className={style.iframe}
-        allowvr={type === 'uptale' ? 'yes' : null}
-        scrolling={type === 'uptale' ? 'no' : null}
-        allowFullScreen
-      />
+      <iframe {...properties} src={src} width={width} height={height} className={style.iframe} />
     );
   }
 }

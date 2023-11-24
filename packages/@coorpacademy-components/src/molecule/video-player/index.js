@@ -56,6 +56,7 @@ class VideoPlayer extends React.Component {
       case 'application/uptale':
       case 'application/h5p':
       case 'application/omniPlayer':
+      case 'application/faurecia-vr':
         return (
           <VideoIframe
             key={id}

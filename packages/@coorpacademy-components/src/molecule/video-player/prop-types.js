@@ -62,6 +62,7 @@ export default {
     'application/jwplayer',
     'application/omniPlayer',
     'application/h5p',
+    'application/faurecia-vr',
     'video/mp4'
   ]).isRequired
 };
