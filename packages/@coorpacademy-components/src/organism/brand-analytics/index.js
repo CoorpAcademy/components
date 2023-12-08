@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {noop, getOr} from 'lodash/fp';
+import {noop, getOr, has} from 'lodash/fp';
 import Sidebar from '../sidebar';
 import Provider from '../../atom/provider';
 import Loader from '../../template/app-player/loading';
@@ -14,23 +14,23 @@ const Analytics = (props, context) => {
     if (selected) {
       if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
       if (!error) return <Loader />;
-    } else if (!error) {
-      return (
-        <div
-          className={style.dashboardNoSelection}
-          style={{color: getOr('#00B0FF', 'common.primary', skin)}}
-        >
-          {translate('Select a dashboard in the Sidebar')}
-        </div>
-      );
     }
-    return null;
+    if (error) return null;
+
+    return (
+      <div
+        className={style.dashboardNoSelection}
+        style={{color: getOr('#00B0FF', 'common.primary', skin)}}
+      >
+        {translate('Select a dashboard in the Sidebar')}
+      </div>
+    );
   };
   return (
     <div className={style.dashboardSelection}>
-      <h1 className={style.dashboardTitle}>
-        {getOr(translate('No Selected Dashboard'), 'name', selected)}
-      </h1>
+      {has('name', selected) ? (
+        <h1 className={style.noSelectedDashboard}>{translate('No Selected Dashboard')}</h1>
+      ) : null}
       {body()}
     </div>
   );

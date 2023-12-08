@@ -22,11 +22,12 @@
   flex: 1;
 }
 
-.dashboardTitle {
+.noSelectedDashboard {
   font-size: 24px;
   color: dark;
   border: 1px solid light;
   padding: 10px;
+  background-color: lightMediumGray;
   flex-grow: 0;
 }
 
