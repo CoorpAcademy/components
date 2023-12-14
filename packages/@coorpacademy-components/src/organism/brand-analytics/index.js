@@ -28,9 +28,9 @@ const Analytics = (props, context) => {
   };
   return (
     <div className={style.dashboardSelection}>
-      {has('name', selected) ? (
+      {has('name', selected) ? null : (
         <h1 className={style.noSelectedDashboard}>{translate('No Selected Dashboard')}</h1>
-      ) : null}
+      )}
       {body()}
     </div>
   );
