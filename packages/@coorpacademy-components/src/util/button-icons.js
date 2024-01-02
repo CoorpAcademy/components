@@ -20,6 +20,7 @@ import {
   NovaLineFilesOfficeFileOfficePdf as PDF,
   NovaSolidContentEditionDelete1 as DeleteIcon
 } from '@coorpacademy/nova-icons';
+import Loader from '../atom/loader';
 
 export const ICONS = {
   add: AddIcon,
@@ -41,5 +42,6 @@ export const ICONS = {
   down: ArrowDown,
   pdf: PDF,
   back: ArrowLeft,
-  delete: DeleteIcon
+  delete: DeleteIcon,
+  loader: Loader
 };

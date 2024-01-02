@@ -20,9 +20,9 @@ const getButtonContent = (icon?: IconType, label?: string) => {
 
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? <Icon className={style.icon} /> : null}
+      {position === 'left' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
       {label ? <span className={style.label}>{label}</span> : null}
-      {position === 'right' ? <Icon className={style.icon} /> : null}
+      {position === 'right' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
     </div>
   );
 };
