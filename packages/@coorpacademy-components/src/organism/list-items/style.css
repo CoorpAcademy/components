@@ -89,3 +89,17 @@
   display: flex;
   height: 100%;
 }
+
+
+.loader {
+  width: 60px;
+  height: 60px;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+}
