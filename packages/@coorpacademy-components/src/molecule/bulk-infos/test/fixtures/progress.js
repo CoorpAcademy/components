@@ -1,6 +1,6 @@
 export default {
   props: {
-    mainText: 'Your file is downloading...',
+    mainText: 'Your file is uploading...',
     subText:
       'Continue working (or go for a coffee) while your files are being uploading, you will be notified when it is over',
     progression: 0,

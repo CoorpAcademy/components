@@ -1,8 +1,24 @@
 import React from 'react';
+import {NovaSolidStatusCheckCircle2 as CheckIcon} from '@coorpacademy/nova-icons';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import style from './style.css';
 import {BulkInfosProps as Props, propTypes} from './types';
+
+const buildIcon = (progression?: number) => {
+  if (progression === undefined) return null;
+  if (progression === 100)
+    return (
+      <div className={style.icon}>
+        <CheckIcon />
+      </div>
+    );
+  return (
+    <div className={style.loader}>
+      <Loader theme="coorpmanager" />
+    </div>
+  );
+};
 
 const BulkInfos = ({
   mainText,
@@ -17,14 +33,10 @@ const BulkInfos = ({
       {imageUrl && typeof imageUrl === 'string' ? (
         <img className={style.img} src={imageUrl} aria-hidden="true" />
       ) : null}
-      {progression !== undefined ? (
-        <div className={style.loader}>
-          <Loader theme="coorpmanager" />
-        </div>
-      ) : null}
+      {buildIcon(progression)}
     </div>
     <p className={style.mainText}>
-      {`${mainText} ${progression !== undefined ? `${progression}%` : ''}`}
+      {`${mainText} ${progression === undefined || progression === 100 ? '' : `${progression}%`}`}
     </p>
     <p className={style.subText}>{subText}</p>
     <div className={style.buttonsContainer}>
