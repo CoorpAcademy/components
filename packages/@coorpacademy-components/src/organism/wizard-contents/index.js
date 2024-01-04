@@ -39,7 +39,9 @@ const buildHeader = (wizardHeader, actions, steps, tabs) => {
         </div>
         {actions ? (
           <div className={style.actionsWrapper}>
-            <BulletPointMenuButton {...actions.bulletPointMenuButton} />
+            {actions.bulletPointMenuButton ? (
+              <BulletPointMenuButton {...actions.bulletPointMenuButton} />
+            ) : null}
             <div className={style.buttonLink}>
               <ButtonLink {...actions.firstButtonLink} />
             </div>

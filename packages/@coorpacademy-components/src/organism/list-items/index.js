@@ -8,6 +8,7 @@ import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
 import SelectMultiple from '../../molecule/select-multiple';
 import ExpandibleActionableTable from '../../molecule/expandible-actionable-table';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
@@ -72,9 +73,15 @@ const buildContentView = (content, ariaLabel, selectMultiple) => {
   }
 };
 
-const ListItems = ({title, buttonLink, selectMultiple, content, 'aria-label': ariaLabel}) => {
+const ListItems = ({
+  title,
+  buttonLink,
+  selectMultiple,
+  content,
+  'aria-label': ariaLabel,
+  isFetching
+}) => {
   const contentView = buildContentView(content, ariaLabel, selectMultiple);
-
   return (
     <div>
       <div className={style.header}>
@@ -91,7 +98,13 @@ const ListItems = ({title, buttonLink, selectMultiple, content, 'aria-label': ar
           <ButtonLink {...buttonLink} />
         </div>
       </div>
-      {contentView}
+      {isFetching ? (
+        <div className={style.loaderContainer}>
+          <Loader className={style.loader} theme="coorpmanager" />
+        </div>
+      ) : (
+        contentView
+      )}
     </div>
   );
 };
@@ -114,7 +127,8 @@ ListItems.propTypes = {
       type: PropTypes.oneOf(['expandible-actionable-table'])
     })
   ]),
-  title: PropTypes.string
+  title: PropTypes.string,
+  isFetching: PropTypes.bool
 };
 
 export default ListItems;

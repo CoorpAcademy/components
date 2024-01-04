@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_500: from colors;
 @value cm_grey_800: from colors;
+@value cm_green_200: from colors;
 
 
 .container {
@@ -67,6 +68,12 @@
 }
 
 .button {
-    max-width: 170px;
+    min-width: 170px;
     height: 44px;
+}
+
+.icon{
+    color: cm_green_200;
+    height: 50px;
+    width: 50px;
 }
