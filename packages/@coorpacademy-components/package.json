@@ -70,7 +70,7 @@
     "hammerjs": "^2.0.8",
     "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.21",
-    "lottie-web": "^5.9.6",
+    "lottie-web": "5.11.0",
     "postcss": "^8.4.16",
     "postcss-calc": "^8.2.4",
     "postcss-color-function": "^4.1.0",
