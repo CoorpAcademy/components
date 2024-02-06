@@ -19,6 +19,7 @@ const InputFileDraggable = ({
   loading,
   modified,
   disabled = false,
+  disableHoverTooltip = false,
   onChange,
   onReset = null,
   name,
@@ -71,6 +72,7 @@ const InputFileDraggable = ({
         onReset={handleReset}
         error={error}
         disabled={disabled}
+        disableHoverTooltip={disableHoverTooltip}
         buttonAriaLabel={buttonAriaLabel}
         errorButtonLabel={errorButtonLabel}
         pdfButtonLabel={pdfButtonLabel}
@@ -79,6 +81,7 @@ const InputFileDraggable = ({
       >
         {(onDragStart, onDragStop) => (
           <input
+            {...(disableHoverTooltip ? {title: ''} : {})}
             type="file"
             name={name}
             accept={filesTypes}
@@ -122,6 +125,7 @@ const InputFileDraggable = ({
 
 InputFileDraggable.propTypes = {
   ...DragAndDrop.propTypes,
+  disableHoverTooltip: PropTypes.bool,
   name: PropTypes.string,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
