@@ -11,6 +11,7 @@ export default {
         onChange: () => true,
         description: 'Drag and drop component with multiple zip',
         uploadLabel: 'Upload ZIP',
+        disableHoverTooltip: true,
         previewLabel: 'See details',
         previewContent: {
           type: 'zip',
@@ -23,6 +24,7 @@ export default {
       },
       {
         uploadLabel: 'Browse',
+        disableHoverTooltip: true,
         description: 'CSV',
         onChange: () => true,
         title: 'Upload CSV',
