@@ -105,7 +105,7 @@
   color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
   font-size: 14px;
-  max-width: 200px;
+  max-width: 250px;
   cursor: pointer;
   padding-bottom: 6.5px;
   /* because when we have an OnClick event, the component "Link"
