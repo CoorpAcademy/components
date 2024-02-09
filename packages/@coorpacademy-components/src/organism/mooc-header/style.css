@@ -8,6 +8,7 @@
 @value brand from colors;
 @value black from colors;
 @value dark from colors;
+@value cm_grey_200 from colors;
 @value battle from colors;
 @value orangeAdd from colors;
 @value transparent from colors;
@@ -159,10 +160,14 @@
   text-overflow: ellipsis;
 }
 
-.option:hover {
+.option:not(.disabled):hover {
   color: brand;
 }
-
+.option.disabled {
+  cursor: default;
+  color: cm_grey_200;
+  pointer-events: none;
+}
 .menuWrapper {
   display: flex;
   align-items: flex-end;
@@ -195,8 +200,10 @@
   text-decoration: none;
 }
 
-.activePage {
-  composes: item;
+.item.disabled {
+  cursor: default;
+  color: cm_grey_200;
+  pointer-events: none;
 }
 
 .item .bar {
@@ -219,18 +226,18 @@
   display: none;
 }
 
-.activePage .bar {
+.activePage:not(.disabled) .bar {
   left: 0;
   width: 100%;
 }
 
-.option:hover  .line {
+.option:not(.disabled):hover  .line {
   height: 40px;
   width: 3px;
   display: inherit;
 }
 
-.item:hover .bar {
+.item:not(.disabled):hover .bar {
   left: 0;
   width: 100%;
 }
@@ -709,14 +716,14 @@
 
   .item .bar {
     background-color: brand;
-  width: 3px;
-  height: 0;
-  left: 0;
-  position: absolute;
-  transition: all 0.2s ease-out;
-  display: none;
+    width: 3px;
+    height: 0;
+    left: 0;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    display: none;
   }
-  .item:hover .bar {
+  .item:not(.disabled):hover .bar {
     height: 40px;
     width: 3px;
     display: inherit;

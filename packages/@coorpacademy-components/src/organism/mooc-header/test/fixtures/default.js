@@ -55,6 +55,7 @@ export default {
         {
           title: 'Battles',
           href: '#',
+          disabled: true,
           selected: false
         },
         {
@@ -65,6 +66,7 @@ export default {
         {
           title: 'Review',
           href: '#',
+          disabled: true,
           selected: false
         }
       ],
@@ -77,6 +79,7 @@ export default {
         {
           title: 'Médias',
           href: '#',
+          disabled: true,
           selected: false
         },
         {
