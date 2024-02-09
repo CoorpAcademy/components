@@ -328,6 +328,7 @@ class MoocHeader extends React.Component {
             <Link
               href={item.href}
               data-name="item-badge"
+              disabled={item.disabled}
               className={classnames(
                 style.itemBadge,
                 item.selected && style.activePage,
@@ -346,6 +347,7 @@ class MoocHeader extends React.Component {
             key={itemName}
             data-name={`item-${itemName}`}
             href={item.href}
+            disabled={item.disabled}
             className={classnames(
               style.item,
               item.disabled && item.selected && style.activePage,
@@ -383,6 +385,7 @@ class MoocHeader extends React.Component {
           <Link
             href={item.href}
             key={itemName}
+            disabled={item.disabled}
             className={classnames(style.option, item.disabled && style.disabled)}
             data-name={`item-more-${itemName}`}
             target={item.target || null}

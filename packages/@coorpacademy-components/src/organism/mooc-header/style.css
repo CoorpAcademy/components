@@ -166,6 +166,7 @@
 .option.disabled {
   cursor: default;
   color: cm_grey_200;
+  pointer-events: none;
 }
 .menuWrapper {
   display: flex;
@@ -202,6 +203,7 @@
 .item.disabled {
   cursor: default;
   color: cm_grey_200;
+  pointer-events: none;
 }
 
 .item .bar {
