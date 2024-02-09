@@ -46,6 +46,7 @@ class MoocHeader extends React.Component {
           name: PropTypes.string,
           href: PropTypes.string,
           selected: PropTypes.bool,
+          disabled: PropTypes.bool,
           counter: PropTypes.number,
           'page-count-aria-label': PropTypes.string
         })
@@ -57,6 +58,7 @@ class MoocHeader extends React.Component {
           name: PropTypes.string,
           href: PropTypes.string,
           selected: PropTypes.bool,
+          disabled: PropTypes.bool,
           counter: PropTypes.number
         })
       )
@@ -319,7 +321,6 @@ class MoocHeader extends React.Component {
               color: primaryColor
             }
           : null;
-
         const {'page-count-aria-label': pageCountAriaLabel} = item;
         const itemLabel = item.selected ? `${item.title}. ${activePageAriaLabel}` : item.title;
         const pageBadge =
@@ -327,7 +328,11 @@ class MoocHeader extends React.Component {
             <Link
               href={item.href}
               data-name="item-badge"
-              className={style.itemBadge}
+              className={classnames(
+                style.itemBadge,
+                item.selected && style.activePage,
+                item.disabled && style.disabled
+              )}
               aria-label={pageCountAriaLabel}
             >
               {item.counter}
@@ -341,8 +346,12 @@ class MoocHeader extends React.Component {
             key={itemName}
             data-name={`item-${itemName}`}
             href={item.href}
-            className={item.selected ? style.activePage : style.item}
-            skinHover
+            className={classnames(
+              style.item,
+              item.disabled && item.selected && style.activePage,
+              item.disabled && style.disabled
+            )}
+            skinHover={!item.disabled}
             onClick={this.handleLinkClick}
             target={item.target || null}
             aria-label={itemLabel}
@@ -374,12 +383,12 @@ class MoocHeader extends React.Component {
           <Link
             href={item.href}
             key={itemName}
-            className={style.option}
+            className={classnames(style.option, item.disabled && style.disabled)}
             data-name={`item-more-${itemName}`}
             target={item.target || null}
             aria-label={itemLabel}
             onClick={this.handleLinkClick}
-            skinHover
+            skinHover={!item.disabled}
             style={{
               ...activeColor
             }}
