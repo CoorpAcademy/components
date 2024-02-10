@@ -88,3 +88,11 @@
   align-items: center;
   align-content: space-between;
 }
+
+.hiddenOverflowX {
+  overflow-x: hidden;
+}
+
+.hiddenOverflowX:hover {
+  overflow-x: auto;
+}
