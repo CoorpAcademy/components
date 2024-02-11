@@ -91,6 +91,7 @@
 
 .hiddenOverflowX {
   overflow-x: hidden;
+  margin-right: 5px;
 }
 
 .hiddenOverflowX:hover {
