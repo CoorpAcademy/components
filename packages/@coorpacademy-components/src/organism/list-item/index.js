@@ -18,7 +18,8 @@ const ListItem = ({
   order,
   'aria-label': ariaLabel,
   contentType,
-  isBulkStyle = false
+  isBulkStyle = false,
+  isOverflowHidden = false
 }) => {
   let isPublished = false;
 
@@ -48,7 +49,9 @@ const ListItem = ({
 
   return (
     <div className={classnames(style.wrapper, isBulkStyle && style.gridLayout)}>
-      <div className={style.dataColumnsWrapper}>
+      <div
+        className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}
+      >
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.title} title={title}>
           {title}
@@ -119,6 +122,7 @@ ListItem.propTypes = {
     })
   ),
   isBulkStyle: PropTypes.bool,
+  isOverflowHidden: PropTypes.bool,
   order: PropTypes.number,
   'aria-label': PropTypes.string,
   contentType: PropTypes.string,
