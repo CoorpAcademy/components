@@ -1,0 +1,61 @@
+{
+    "Review Title": "Review Mode",
+    "Content Parent Title": "Från \"{{contentTitle}}\" {{contentType}}",
+    "Validate": "Validera",
+    "Next Question": "Nästa fråga",
+    "KLF": "Viktig punkt",
+    "Correct Answer": "Bra svar",
+    "Wrong Answer": "Wrong Answer",
+    "You have won": "Du har vunnit",
+    "You are now": "Du är nu",
+    "Revise another skill": "Repetera en annan färdighet",
+    "Continue reviewing": "Fortsätt repetera",
+    "Congratulations!": "Grattis!",
+    "aria_label": "Mall för färdighetsrepetition",
+    "Quit Title": "Är du säker på att du vill avsluta?",
+    "Quit Description Text": "Du är på rätt väg! Om du slutar nu går dina framsteg om intet.",
+    "Stop learning": "Avsluta sessionen",
+    "Continue learning": "Fortsätt inlärningen",
+    "Continue": "Fortsätt",
+    "Type here": "Skriv här",
+    "Select an answer": "Välj ett svar",
+    "answer_the_question": "Besvara frågan",
+    "presentation": {
+      "aria_label": "Repetitionspresentationsbehållare",
+      "title": "Vad är<br/>repetitionsläge?",
+      "text": "Försvinner informationen från huvudet så fort den kommer in i det? Det är helt normalt: det går inte att minnas utan att repetera! Fräscha upp minnet i repetitionsläget för att behålla kunskaperna på lång sikt!",
+      "button": "Ok, jag fattar!",
+      "label_list": {
+        "skills": {
+          "text": "Välj 1 färdighet",
+          "tooltip": "Du kan repetera en färdighet åt gången."
+        },
+        "questions": {
+          "text": "Svara på 5 frågor",
+          "tooltip": "Svara rätt på de 5 frågorna för att få godkänt på sessionen i repetitionsläget."
+        },
+        "lifes": { 
+          "text": "Du har oändligt med liv",
+          "tooltip": "Du kan svara så många gånger du vill för att klara sessionen."
+        },
+        "allright": { 
+          "text":  "Få allt rätt",
+          "tooltip": "För att få godkänt på sessionen måste du svara rätt på alla frågor."
+        }
+      }
+    },
+    "list_title": "Färdigheter som du kan repetera",
+    "list_aria_label": "Behållare för färdighetsrepetition",
+    "card": {
+      "aria_label": "Färdighetskort",
+      "text": "{{total}} frågor att repetera",
+      "button_text": "Repetera denna färdighet"
+    },
+    "no_skills": {
+      "title": "Du har ingen färdighet att repetera än",
+      "text": "Du måste slutföra kurserna innan du kan repetera de olika färdigheterna."
+    },
+    "Acquired stars animation": "Animering med mottagna stjärnor",
+    "New rank animation": "Animering av ny ranking",
+    "Congratulations confetti animation": "Animering med gratulationskonfetti"
+}
