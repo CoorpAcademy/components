@@ -1,11 +1,11 @@
 {
-    "Review Title": "Review Mode",
+    "Review Title": "Genomgångsläge",
     "Content Parent Title": "Från \"{{contentTitle}}\" {{contentType}}",
     "Validate": "Validera",
     "Next Question": "Nästa fråga",
     "KLF": "Viktig punkt",
     "Correct Answer": "Bra svar",
-    "Wrong Answer": "Wrong Answer",
+    "Wrong Answer": "Fel svar",
     "You have won": "Du har vunnit",
     "You are now": "Du är nu",
     "Revise another skill": "Repetera en annan färdighet",
