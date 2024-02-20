@@ -1,0 +1,61 @@
+{
+    "Review Title": "Review Mode",
+    "Content Parent Title": "From \"{{contentTitle}}\" {{contentType}}",
+    "Validate": "Validate",
+    "Next Question": "Seuraava kysymys",
+    "KLF": "Pääaihe",
+    "Correct Answer": "Hyvä vastaus",
+    "Wrong Answer": "Väärä vastaus",
+    "You have won": "Olet voittanut",
+    "You are now": "Olet nyt",
+    "Revise another skill": "Tarkista toinen taito",
+    "Continue reviewing": "Jatka tarkistamista",
+    "Congratulations!": "Onnea!",
+    "aria_label": "Tarkista taitojen mallipohja",
+    "Quit Title": "Haluatko varmasti lopettaa?",
+    "Quit Description Text": "Hommat etenevät sinulla hyvin! Jos lopetat nyt, menetät edistymisesi.",
+    "Stop learning": "Päätä istunto",
+    "Continue learning": "Jatka oppimista",
+    "Continue": "Jatka",
+    "Type here": "Kirjoita tähän",
+    "Select an answer": "Valitse vastaus",
+    "answer_the_question": "Vastaa kysymykseen",
+    "presentation": {
+      "aria_label": "Tarkista esitelmien säilytystila",
+      "title": "Mikä on<br/>tarkistustila?",
+      "text": "Häviääkö tieto päästäsi saman tien? Se on täysin normaalia – tieto ilman toistoa ei jää muistiin! Jos haluat pitää tiedot tallessa pitkällä aikavälillä, käytä tarkistustilaa muistin virkistämiseksi.",
+      "button": "Okei, ymmärretty!",
+      "label_list": {
+        "skills": {
+          "text": "Valitse yksi taito",
+          "tooltip": "Voit tarkistaa yhden taidon kerrallaan."
+        },
+        "questions": {
+          "text": "Vastaa viiteen kysymykseen",
+          "tooltip": "Vastaa oikein viiteen kysymykseen vahvistaaksesi tarkistustilaistuntosi."
+        },
+        "lifes": { 
+          "text": "Sinulla on loputtomasti elämiä",
+          "tooltip": "Voit vastata niin monta kertaa kuin haluat, jotta saat suoritettua istuntosi."
+        },
+        "allright": { 
+          "text":  "Saa kaikki oikein",
+          "tooltip": "Sinun on vastattava oikein jokaiseen kysymykseen, jotta saat istuntosi vahvistettua."
+        }
+      }
+    },
+    "list_title": "Taidot, joita voit tarkistaa",
+    "list_aria_label": "Tarkista taitojen säilytystila",
+    "card": {
+      "aria_label": "Taitokortti",
+      "text": "{{total}} tarkistettavaa kysymystä",
+      "button_text": "Tarkista tämä taito"
+    },
+    "no_skills": {
+      "title": "Sinulla ei ole vielä tarkistettavaa taitoa",
+      "text": "Sinun on suoritettava kursseja ennen kuin voit tarkistaa eri taitoja."
+    },
+    "Acquired stars animation": "Sait tähtianimaation",
+    "New rank animation": "Uusi sijoitusanimaatio",
+    "Congratulations confetti animation": "Onnea konfettianimaatiosta"
+}
