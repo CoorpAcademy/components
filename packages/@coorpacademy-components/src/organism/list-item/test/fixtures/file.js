@@ -10,13 +10,7 @@ export default {
         position: 'left',
         type: 'close'
       },
-      onClick: () => console.log('click'),
-      customStyle: {
-        paddingTop: '12px',
-        paddingRight: '24px',
-        paddingBottom: '12px',
-        paddingLeft: '24px'
-      }
+      onClick: () => console.log('click')
     }
   }
 };
