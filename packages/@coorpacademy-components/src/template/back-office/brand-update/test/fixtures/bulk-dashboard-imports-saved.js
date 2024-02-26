@@ -1,5 +1,5 @@
 import {defaultsDeep, cloneDeep} from 'lodash/fp';
-import ExpandibleActionableTable from '../../../../../organism/list-items/test/fixtures/bulk-imports-saved';
+import ExpandibleActionableTable from '../../../../../organism/list-items/test/fixtures/expandible-table';
 import Default from './default';
 
 const props = cloneDeep(Default.props);
