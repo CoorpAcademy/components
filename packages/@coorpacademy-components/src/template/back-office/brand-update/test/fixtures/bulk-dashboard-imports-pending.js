@@ -1,5 +1,5 @@
 import {defaultsDeep, cloneDeep} from 'lodash/fp';
-import bulkPending from '../../../../../molecule/expandible-actionable-table/test/fixtures/dashboard-pending';
+import bulkPending from '../../../../../molecule/expandible-actionable-table/test/fixtures/with-progress-bar';
 
 import Default from './default';
 
