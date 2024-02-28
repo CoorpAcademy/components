@@ -5,7 +5,7 @@ import {identity} from 'lodash/fp';
 import {fireEvent} from '@testing-library/react';
 import ActionableExpandableErrorsTable from '..';
 import {renderWithContext} from '../../../util/render-with-context';
-import defaultFixture from './fixtures/dashboard-saved';
+import defaultFixture from './fixtures/with-expandible';
 
 browserEnv();
 const translate = identity;

@@ -44,11 +44,11 @@ const buildNestedRow = (row: NestedRow) => {
     case 'errors-table':
       return <ErrorsTable {...row} />;
     case 'expandible-errors-table':
-      return <ActionableExpandableErrorsTable {...row} />;
+      return <ActionableExpandableTable {...row} />;
   }
 };
 
-const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContextValues) => {
+const ActionableExpandableTable = (props: Props, legacyContext: WebContextValues) => {
   const {
     columns,
     rows = [],
@@ -230,11 +230,11 @@ const ActionableExpandableErrorsTable = (props: Props, legacyContext: WebContext
   );
 };
 
-ActionableExpandableErrorsTable.contextTypes = {
+ActionableExpandableTable.contextTypes = {
   skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
-ActionableExpandableErrorsTable.propTypes = propTypes;
+ActionableExpandableTable.propTypes = propTypes;
 
-export default ActionableExpandableErrorsTable;
+export default ActionableExpandableTable;

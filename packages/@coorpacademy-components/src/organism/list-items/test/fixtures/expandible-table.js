@@ -1,4 +1,4 @@
-import ExpandibleActionableTable from '../../../../molecule/expandible-actionable-table/test/fixtures/dashboard-saved';
+import ExpandibleActionableTable from '../../../../molecule/expandible-actionable-table/test/fixtures/with-expandible';
 
 const {props: ExpandibleActionableTableProps} = ExpandibleActionableTable;
 
