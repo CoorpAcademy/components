@@ -1,0 +1,202 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value colors: "../../../variables/colors.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value white from colors;
+@value battle_bg from colors;
+@value cm_primary_blue from colors;
+@value cm_blue_700 from colors;
+@value box_shadow_blue_700 from colors;
+@value cm_grey_400 from colors;
+
+.root {
+  display: flex;
+  justify-content: center;
+  padding: 24px 30px;
+  font-family: Gilroy;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: 214px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background: battle_bg;
+  background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
+  background-size: cover;
+  border-radius: 16px;
+}
+
+.container:hover .right, .container:hover .left {
+  animation-play-state: running;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  width: 253.067px;
+  height: 253.067px;
+  transform: rotate(-109.28deg);
+  position: relative;
+  left: -5.639px;
+  top: -60.749px;
+  animation-play-state: paused;
+  animation-name: leftAnimation;
+  animation-duration: 2s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+  animation-timing-function: ease-in-out;
+}
+
+.right {
+  position: relative;
+  /* bottom: -32px; */
+  width: 233.504px;
+  height: 233.504px;
+  transform: rotate(-55.338deg);
+  /* right: 2%; */
+  right: 25.136px;
+  bottom: -28px;
+  animation-play-state: paused;
+  animation-name: rightAnimation;
+  animation-duration: 2s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+  animation-timing-function: ease-in-out;
+}
+
+.image {
+  width: 120%;
+  height: 120%;
+}
+
+.middle {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: Gilroy;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 48px;
+  color: white;
+  display: block;
+}
+
+.subtitle {
+  font-family: Gilroy;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  opacity: 0.9;
+  display: block;
+  color: cm_grey_400;
+  text-align: center;
+}
+
+.cta {
+  margin-top: 22px;
+  max-width: 200px;
+  border-radius: 36px;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  background-color: cm_primary_blue;
+  box-shadow: 0px 0px 32px 0px rgba(0, 97, 255, 0.65);
+}
+
+.cta:hover {
+  background-color: cm_blue_700;
+  box-shadow: 0px 0px 32px 0px box_shadow_blue_700;
+}
+
+@media tablet {
+  .left {
+    width: 170px;
+    height: 100px;
+    top: -67px
+  }
+
+  .right {
+    width: 170px;
+    height: 146px;
+    bottom: -45px;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  .cta {
+    max-width: 175px;
+  }
+}
+
+@media mobile {
+  .container {
+    height: 161px;
+    max-width: 327px;
+  }
+
+  .banner {
+    justify-content: center;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .title {
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .cta {
+    max-width: 150px;
+  }
+}
+
+@keyframes rightAnimation {
+  0% {transform: translate3d(0, 10px, 0);}
+  50% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(0, 10px, 0);}
+}
+
+@keyframes leftAnimation {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(0, 10px, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
