@@ -62,13 +62,11 @@
 
 .right {
   position: relative;
-  /* bottom: -32px; */
   width: 233.504px;
   height: 233.504px;
   transform: rotate(-55.338deg);
-  /* right: 2%; */
   right: 25.136px;
-  bottom: -28px;
+  bottom: -15px;
   animation-play-state: paused;
   animation-name: rightAnimation;
   animation-duration: 2s;
