@@ -6,6 +6,9 @@ import style from './style.css';
 const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
   const {title, subtitle, cta} = props;
 
+  const BOOK_IMG_URL = 'https://static.coorpacademy.com/assets/images/section-item-book.png';
+  const TARGET_IMG_URL = 'https://static.coorpacademy.com/assets/images/section-item-dart.png';
+
   const buttonProps = {
     ...cta,
     type: 'primary'
@@ -16,11 +19,7 @@ const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
       <div className={style.container}>
         <div className={style.banner}>
           <div className={style.left} role="img" aria-label="Left image container">
-            <img
-              className={style.image}
-              src="https://static.coorpacademy.com/site/notebook.png"
-              alt="Note book image"
-            />
+            <img className={style.image} src={BOOK_IMG_URL} alt="Note book image" />
           </div>
           <div className={style.middle}>
             <span
@@ -40,11 +39,7 @@ const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
             <ButtonLink {...buttonProps} className={style.cta} />
           </div>
           <div className={style.right} role="img" aria-label="Right image container">
-            <img
-              className={style.image}
-              src="https://static.coorpacademy.com/site/target.png"
-              alt="Target image"
-            />
+            <img className={style.image} src={TARGET_IMG_URL} alt="Target image" />
           </div>
         </div>
       </div>
