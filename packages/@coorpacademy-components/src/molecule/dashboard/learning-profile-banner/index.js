@@ -1,14 +1,14 @@
+// this is a clone and adapt of the review-banner component (packages/@coorpacademy-components/src/molecule/dashboard/review-banner/index.js)
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
 
+const BOOK_IMG_URL = 'https://static.coorpacademy.com/assets/images/section-item-book.png';
+const TARGET_IMG_URL = 'https://static.coorpacademy.com/assets/images/section-item-dart.png';
+
 const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
   const {title, subtitle, cta} = props;
-
-  const BOOK_IMG_URL = 'https://static.coorpacademy.com/assets/images/section-item-book.png';
-  const TARGET_IMG_URL = 'https://static.coorpacademy.com/assets/images/section-item-dart.png';
-
   const buttonProps = {
     ...cta,
     type: 'primary'
@@ -19,7 +19,7 @@ const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
       <div className={style.container}>
         <div className={style.banner}>
           <div className={style.left} role="img" aria-label="Left image container">
-            <img className={style.image} src={BOOK_IMG_URL} alt="Note book image" />
+            <img className={style.image} src={BOOK_IMG_URL} alt="Notebook image" />
           </div>
           <div className={style.middle}>
             <span
