@@ -2,6 +2,7 @@ const path = require('path');
 const pipe = require('lodash/fp/pipe');
 const set = require('lodash/fp/set');
 const {default: generateConfig} = require('@coorpacademy/webpack-config');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const appName = 'Components';
 
@@ -15,8 +16,17 @@ const output = {
   filename: 'components.js'
 };
 
+const addBundleAnalyzerPlugin = config => {
+  const existingPlugins = config.plugins || [];
+  return {
+    ...config,
+    plugins: [...existingPlugins, new BundleAnalyzerPlugin()]
+  };
+};
+
 module.exports = pipe(
   generateConfig,
   set('entry', entry),
-  set('output', output)
+  set('output', output),
+  addBundleAnalyzerPlugin
 )(process.env.NODE_ENV);
