@@ -4,12 +4,12 @@ export default {
       {
         competency: 'Adaptability and resilience',
         profile_1_value: 15.6
-        // profile_2_value: 20
+        // profile_2_value: 55
       },
       {
         competency: 'Digital culture',
         profile_1_value: 43.8
-        // profile_2_value: 50
+        // profile_2_value: 70
       },
       {
         competency: 'Problem solving',
@@ -19,17 +19,17 @@ export default {
       {
         competency: 'Leadership',
         profile_1_value: 59.1
-        // profile_2_value: 70
+        // profile_2_value: 23
       },
       {
         competency: 'Time management',
         profile_1_value: 34.9
-        // profile_2_value: 40
+        // profile_2_value: 95
       },
       {
         competency: 'Sustainable thinking',
         profile_1_value: 82.3
-        // profile_2_value: 90
+        // profile_2_value: 34
       }
     ],
     keys: ['profile_1_value'],
