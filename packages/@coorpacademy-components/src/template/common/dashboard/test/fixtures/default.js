@@ -5,6 +5,7 @@ import ManyCardsList from '../../../../../molecule/dashboard/cards-list/test/fix
 import NewsList from '../../../../../molecule/dashboard/news-list/test/fixtures/default';
 import StartBattle from '../../../../../molecule/dashboard/start-battle/test/fixtures/default';
 import ReviewBanner from '../../../../../molecule/dashboard/review-banner/test/fixtures/default';
+import LearningProfileBanner from '../../../../../molecule/dashboard/learning-profile-banner/test/fixtures/default';
 
 const requestsProps = BattleRequestList.props;
 const cardsProps = CardsList.props;
@@ -12,6 +13,7 @@ const manyCardsProps = ManyCardsList.props;
 const newsProps = NewsList.props;
 const battleProps = StartBattle.props;
 const reviewProps = ReviewBanner.props;
+const learningProfileProps = LearningProfileBanner.props;
 
 export default {
   props: {
@@ -31,6 +33,10 @@ export default {
       defaultsDeep(cardsProps, {
         type: 'cards',
         key: 'playlist1'
+      }),
+      defaultsDeep(learningProfileProps, {
+        type: 'learningProfile',
+        key: 'learningProfile'
       }),
       defaultsDeep(manyCardsProps, {
         type: 'cards',

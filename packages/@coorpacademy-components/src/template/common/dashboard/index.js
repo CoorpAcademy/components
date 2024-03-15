@@ -8,6 +8,7 @@ import NewsList from '../../../molecule/dashboard/news-list';
 import StartBattle from '../../../molecule/dashboard/start-battle';
 import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
+import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
 import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
@@ -43,6 +44,8 @@ const Dashboard = props => {
         return <StartBattle {...section} />;
       case 'review':
         return <ReviewBanner {...section} />;
+      case 'learningProfile':
+        return <LearningProfileBanner {...section} />;
       default:
         return null;
     }
@@ -79,7 +82,8 @@ Dashboard.propTypes = {
       PropTypes.shape(CardsList.propTypes),
       PropTypes.shape(NewsList.propTypes),
       PropTypes.shape(StartBattle.propTypes),
-      PropTypes.shape(ReviewBanner.propTypes)
+      PropTypes.shape(ReviewBanner.propTypes),
+      PropTypes.shape(LearningProfileBanner.propTypes)
     ])
   ),
   cookie: PropTypes.shape(CMPopin.propTypes),
