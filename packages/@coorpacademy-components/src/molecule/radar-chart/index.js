@@ -29,7 +29,7 @@ const strokeGradientLayer = ({
     })
     .join(' ')} Z`;
 
-  return <path d={pathCommands} fill="none" stroke="url(#strokeGradient)" strokeWidth={2} />;
+  return <path d={pathCommands} fill="none" stroke="url(#strokeGradient)" strokeWidth={6} />;
 };
 
 const createCustomDotLayer = (onClickDot, selectedLabelId) => {
@@ -212,7 +212,7 @@ const CustomRadarChart = ({data, keys, indexBy}) => {
         data={data}
         keys={keys}
         indexBy={indexBy}
-        borderWidth={4}
+        borderWidth={0}
         gridShape="linear"
         gridLabelOffset={30}
         maxValue={100}
