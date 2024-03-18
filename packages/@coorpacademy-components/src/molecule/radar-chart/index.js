@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import {Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer} from 'recharts';
+import {Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tooltip} from 'recharts';
 import {find, findIndex} from 'lodash/fp';
+import classnames from 'classnames';
+import style from './style.css';
 
 const Gradient = () => (
   <defs>
@@ -10,10 +12,6 @@ const Gradient = () => (
       <stop offset="100%" stopColor="#8000FF" />
     </linearGradient>
   </defs>
-);
-
-const OnFocusWrapperStyle = ({x, y}) => (
-  <rect x={x} y={y} width={200} height={70} fill="#e8e8e8" opacity={1} rx={10} ry={10} />
 );
 
 const CustomDot = ({cx, cy, payload: {name}, onDotClick, index, activeDot}) => {
@@ -40,134 +38,75 @@ const CustomDot = ({cx, cy, payload: {name}, onDotClick, index, activeDot}) => {
   return isDotActive ? <circle {...activeDotProps} /> : <circle {...defaultCustomDotProps} />;
 };
 
-const buildCustomTickComponent = ({
-  valueWrapperProps,
-  positionProps,
-  textProps,
-  tspanProps,
-  focusWrapperProps,
-  currentValue,
-  label,
-  textAnchor,
-  isDotActive
-}) => {
-  const defaultTextProps = {
-    ...positionProps,
-    fontSize: 14,
-    fontFamily: 'Gilroy',
-    fontWeight: '600'
-  };
-
-  const defaultValueWrapperProps = {
-    width: 45,
-    height: 24,
-    fill: 'url(#gradient)',
-    opacity: 0.1,
-    rx: 10,
-    ry: 10
-  };
-
-  return (
-    <g>
-      {isDotActive ? OnFocusWrapperStyle(focusWrapperProps) : null}
-      <rect {...defaultValueWrapperProps} {...valueWrapperProps} />
-      <text {...defaultTextProps} {...textProps} textAnchor={textAnchor}>
-        <tspan fill="#0061FF">{currentValue}%</tspan>
-        <tspan {...tspanProps} x={positionProps.x} dy={25}>
-          {label}
-        </tspan>
-      </text>
-    </g>
-  );
-};
-
 const buildCustomTick = (index, x, y, currentValue, label, activeDot) => {
   const isDotActive = activeDot === index;
-  const baseProps = {
-    positionProps: {x, y},
-    currentValue,
-    label,
-    isDotActive
-  };
+
+  const children = ({customStyle}) => (
+    <div
+      className={classnames(style.tickWrapper, isDotActive && style.ticketWrapperFocus)}
+      style={{...customStyle}}
+    >
+      <span className={style.tickValue}>{currentValue}%</span>
+      <span>{label}</span>
+    </div>
+  );
 
   switch (index) {
     case 0:
-      return buildCustomTickComponent({
-        ...baseProps,
-        valueWrapperProps: {
-          x: x - 22.5,
-          y: y - 65
-        },
-        textProps: {
-          dy: -50
-        },
-        focusWrapperProps: {
-          x: x - 100,
-          y: y - 75
-        },
-        textAnchor: 'middle'
-      });
+      return (
+        <g>
+          <foreignObject x={x - 100} y={y - 65} width="200" height="65">
+            {children({customStyle: {alignItems: 'center', margin: 'auto'}})}
+          </foreignObject>
+        </g>
+      );
     case 3:
-      return buildCustomTickComponent({
-        ...baseProps,
-        valueWrapperProps: {
-          x: x - 22.5,
-          y: y + 8
-        },
-        textProps: {
-          dy: 25
-        },
-        focusWrapperProps: {
-          x: x - 100,
-          y
-        },
-        textAnchor: 'middle'
-      });
+      return (
+        <g>
+          <foreignObject x={x - 100} y={y + 10} width="200" height="65">
+            {children({customStyle: {alignItems: 'center', margin: 'auto'}})}
+          </foreignObject>
+        </g>
+      );
     case 1:
     case 2:
-      return buildCustomTickComponent({
-        ...baseProps,
-        valueWrapperProps: {
-          x: x + 20,
-          y: y - 16
-        },
-        textProps: {
-          dx: 25
-        },
-        focusWrapperProps: {
-          x,
-          y: y - 25
-        },
-        tspanProps: {
-          dx: 20
-        },
-        textAnchor: 'start'
-      });
+      return (
+        <g>
+          <foreignObject x={x + 30} y={y - 10} width="200" height="65">
+            {children({customStyle: {alignItems: 'start', marginRigth: 'auto'}})}
+          </foreignObject>
+        </g>
+      );
     case 4:
     case 5:
-      return buildCustomTickComponent({
-        ...baseProps,
-        valueWrapperProps: {
-          x: x - 67.5,
-          y: y - 16
-        },
-        textProps: {
-          dx: -25
-        },
-        tspanProps: {
-          dx: -20
-        },
-        focusWrapperProps: {
-          x: x - 200,
-          y: y - 25
-        },
-        textAnchor: 'end'
-      });
+      return (
+        <g>
+          <foreignObject x={x - 230} y={y - 10} width="200" height="65">
+            {children({customStyle: {alignItems: 'end', marginLeft: 'auto'}})}
+          </foreignObject>
+        </g>
+      );
   }
 };
 
 const RadarChartExample = ({data, onClick}, context) => {
+  const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState(null);
+
+  const getIsMobile = useCallback(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobile_ = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
+    setIsMobile(isMobile_);
+  }, []);
+
+  useEffect(() => {
+    getIsMobile();
+    window.addEventListener('resize', getIsMobile);
+
+    return () => {
+      window.removeEventListener('resize', getIsMobile);
+    };
+  }, [getIsMobile]);
 
   useEffect(() => {
     const handleClick = () => {
@@ -187,6 +126,8 @@ const RadarChartExample = ({data, onClick}, context) => {
   }
 
   function renderCustomTick({x, y, payload, index}) {
+    if (isMobile) return;
+
     const {value: label} = payload;
     const {value: current} = find({subject: label}, data);
 
@@ -212,6 +153,7 @@ const RadarChartExample = ({data, onClick}, context) => {
           dot={<CustomDot onDotClick={handleOnDotClick} activeDot={activeDot} />}
           activeDot={{stroke: '#0061FF', r: 6, strokeWidth: 4, fill: 'white'}}
         />
+        {isMobile ? <Tooltip cursor={false} /> : null}
       </RadarChart>
     </ResponsiveContainer>
   );
@@ -237,11 +179,6 @@ CustomDot.propTypes = {
   onDotClick: PropTypes.func,
   index: PropTypes.number,
   activeDot: PropTypes.number
-};
-
-OnFocusWrapperStyle.propTypes = {
-  x: PropTypes.number,
-  y: PropTypes.number
 };
 
 export default RadarChartExample;

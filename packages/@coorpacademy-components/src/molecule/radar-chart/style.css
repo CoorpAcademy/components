@@ -1,0 +1,28 @@
+
+.tickWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 6px;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Gilroy';
+    font-weight: 600;
+    padding: 0px 12px;
+    box-sizing: border-box;
+}
+
+.ticketWrapperFocus {
+    background-color: #FAFAFA;
+    border-radius: 12px;
+    width: fit-content;
+}
+
+.tickValue {
+    color: #0061FF;
+    background: linear-gradient(to bottom, rgba(0, 97, 255, 0.1), rgba(128, 0, 255, 0.1));
+    padding: 4px;
+    border-radius: 12px;
+}
