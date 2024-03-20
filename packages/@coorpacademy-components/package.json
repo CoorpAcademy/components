@@ -59,6 +59,8 @@
     "@coorpacademy/nova-icons": "4.4.2",
     "@coorpacademy/react-native-animation": "1.0.3",
     "@jwplayer/jwplayer-react": "^1.1.0",
+    "@nivo/core": "^0.85.1",
+    "@nivo/radar": "^0.85.1",
     "@types/react": "^17.0.50",
     "@types/react-dom": "^17.0.17",
     "autoprefixer": "^10.4.12",
@@ -161,7 +163,8 @@
     "stylelint-config-standard": "^28.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.10.1"
   },
   "author": "CoorpAcademy",
   "browserslist": [
