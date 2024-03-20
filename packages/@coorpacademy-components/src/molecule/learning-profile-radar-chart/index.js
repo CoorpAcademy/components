@@ -1,6 +1,14 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import {Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tooltip} from 'recharts';
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  ResponsiveContainer,
+  Tooltip,
+  PolarRadiusAxis
+} from 'recharts';
 import {find, findIndex, get} from 'lodash/fp';
 import classnames from 'classnames';
 import style from './style.css';
@@ -195,6 +203,7 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
         {/* possible to pass gridType="circle" */}
         <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
         <PolarAngleAxis dataKey="subject" tick={renderCustomTick} />
+        <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
         <Radar
           name="dataset-1"
           dataKey="value"
