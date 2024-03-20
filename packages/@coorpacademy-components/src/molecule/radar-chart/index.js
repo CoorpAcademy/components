@@ -1,15 +1,43 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer, Tooltip} from 'recharts';
-import {find, findIndex} from 'lodash/fp';
+import {find, findIndex, get} from 'lodash/fp';
 import classnames from 'classnames';
 import style from './style.css';
 
-const Gradient = () => (
+const customTickStyle = {
+  hexagon: {
+    top: {
+      offset: {x: -100, y: -65},
+      alignItems: 'center',
+      margin: 'auto'
+    },
+    bottom: {
+      offset: {x: -100, y: 10},
+      alignItems: 'center',
+      margin: 'auto'
+    },
+    right: {
+      offset: {x: 30, y: -10},
+      alignItems: 'start',
+      marginRigth: 'auto'
+    },
+    left: {
+      offset: {x: -230, y: -10},
+      alignItems: 'end',
+      marginLeft: 'auto'
+    }
+  }
+  // pentagon: {},
+  // quadrilateral: {},
+  // triangle: {}
+};
+
+const Gradient = ({type}) => (
   <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#0061FF" />
-      <stop offset="100%" stopColor="#8000FF" />
+    <linearGradient id={`${type}-gradient`} x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor="#0062ffff" />
+      <stop offset="100%" stopColor={type === 'fill' ? '#8000ff85' : '#8000FF'} />
     </linearGradient>
   </defs>
 );
@@ -19,7 +47,7 @@ const CustomDot = ({cx, cy, payload: {name}, onDotClick, index, activeDot}) => {
     cx,
     cy,
     r: 8,
-    stroke: 'url(#gradient)',
+    stroke: 'url(#stroke-gradient)',
     strokeWidth: 4,
     strokeOpacity: 0.2,
     fill: 'white',
@@ -34,62 +62,62 @@ const CustomDot = ({cx, cy, payload: {name}, onDotClick, index, activeDot}) => {
     strokeOpacity: 0.5
   };
 
-  const isDotActive = activeDot === index;
-  return isDotActive ? <circle {...activeDotProps} /> : <circle {...defaultCustomDotProps} />;
+  const props = {
+    ...defaultCustomDotProps,
+    ...(activeDot === index && activeDotProps)
+  };
+
+  return <circle {...props} />;
 };
 
-const buildCustomTick = (index, x, y, currentValue, label, activeDot) => {
-  const isDotActive = activeDot === index;
-
-  const children = ({customStyle}) => (
-    <div
-      className={classnames(style.tickWrapper, isDotActive && style.ticketWrapperFocus)}
-      style={{...customStyle}}
-    >
-      <span className={style.tickValue}>{currentValue}%</span>
-      <span>{label}</span>
-    </div>
-  );
-
+const getPosition = index => {
   switch (index) {
     case 0:
-      return (
-        <g>
-          <foreignObject x={x - 100} y={y - 65} width="200" height="65">
-            {children({customStyle: {alignItems: 'center', margin: 'auto'}})}
-          </foreignObject>
-        </g>
-      );
+      return 'top';
     case 3:
-      return (
-        <g>
-          <foreignObject x={x - 100} y={y + 10} width="200" height="65">
-            {children({customStyle: {alignItems: 'center', margin: 'auto'}})}
-          </foreignObject>
-        </g>
-      );
+      return 'bottom';
     case 1:
     case 2:
-      return (
-        <g>
-          <foreignObject x={x + 30} y={y - 10} width="200" height="65">
-            {children({customStyle: {alignItems: 'start', marginRigth: 'auto'}})}
-          </foreignObject>
-        </g>
-      );
+      return 'right';
     case 4:
     case 5:
-      return (
-        <g>
-          <foreignObject x={x - 230} y={y - 10} width="200" height="65">
-            {children({customStyle: {alignItems: 'end', marginLeft: 'auto'}})}
-          </foreignObject>
-        </g>
-      );
+      return 'left';
   }
 };
 
-const RadarChartExample = ({data, onClick}, context) => {
+const getCustomProps = (index, x, y) => {
+  // if type === hexagon
+
+  const position = getPosition(index);
+  const {offset, ...rest} = get(`hexagon.${position}`, customTickStyle);
+
+  return {
+    ...rest,
+    x: x + offset.x,
+    y: y + offset.y
+  };
+};
+
+const buildCustomTick = (index, currentX, currentY, currentValue, label, activeDot) => {
+  const isDotActive = activeDot === index;
+  const {x, y, ...rest} = getCustomProps(index, currentX, currentY);
+
+  return (
+    <g>
+      <foreignObject x={x} y={y} width="200" height="65">
+        <div
+          className={classnames(style.tickWrapper, isDotActive && style.tickeWrapperFocus)}
+          style={{...rest}}
+        >
+          <span className={style.tickValue}>{currentValue}%</span>
+          <span>{label}</span>
+        </div>
+      </foreignObject>
+    </g>
+  );
+};
+
+const LearningProfileRadarChart = ({data, onClick}, context) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState(null);
 
@@ -138,17 +166,19 @@ const RadarChartExample = ({data, onClick}, context) => {
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
         <svg>
-          <Gradient />
+          <Gradient type="fill" />
+          <Gradient type="stroke" />
         </svg>
+        {/* possible to pass gridType="circle" */}
         <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
         <PolarAngleAxis dataKey="subject" tick={renderCustomTick} />
         <Radar
           name="dataset-1"
           dataKey="value"
-          stroke="url(#gradient)"
+          stroke="url(#stroke-gradient)"
           strokeWidth={6}
           strokeOpacity={0.2}
-          fill="url(#gradient)"
+          fill="url(#fill-gradient)"
           fillOpacity={0.2}
           dot={<CustomDot onDotClick={handleOnDotClick} activeDot={activeDot} />}
           activeDot={{stroke: '#0061FF', r: 6, strokeWidth: 4, fill: 'white'}}
@@ -159,7 +189,7 @@ const RadarChartExample = ({data, onClick}, context) => {
   );
 };
 
-RadarChartExample.propTypes = {
+LearningProfileRadarChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       subject: PropTypes.string,
@@ -181,4 +211,8 @@ CustomDot.propTypes = {
   activeDot: PropTypes.number
 };
 
-export default RadarChartExample;
+Gradient.propTypes = {
+  type: PropTypes.string
+};
+
+export default LearningProfileRadarChart;
