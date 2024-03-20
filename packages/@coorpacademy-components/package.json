@@ -20,6 +20,7 @@
     "build:es": "npm run build:es:babel && npm run build:es:types",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
     "build:watch": "npm run build:es -- -w --verbose",
+    "build:stats": "npx webpack --profile --json > dist/stats.json",
     "clean:commonjs": "rm -rf lib",
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
@@ -161,7 +162,8 @@
     "stylelint-config-standard": "^28.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.10.1"
   },
   "author": "CoorpAcademy",
   "browserslist": [

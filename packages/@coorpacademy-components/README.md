@@ -181,3 +181,14 @@ You may need to install these optional libs depending on which native components
 Error when trying to launch the storybook:
 
 Try to delete your ```node_modules```, go to the project's root and launch: ```yarn```
+
+## Generating a Bundle Analyzer Report
+
+To help you understand the content of your webpack bundle and optimize it, we have integrated a new command that generates a webpack bundle analysis report. This feature is powered by `webpack-bundle-analyzer`, which visualizes the size of webpack output files with an interactive zoomable treemap.
+
+### How to Generate the Report
+
+To generate the bundle analyzer report, run the following command in your terminal:
+
+```sh
+npm run build:stats
