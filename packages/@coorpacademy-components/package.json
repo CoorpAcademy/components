@@ -20,7 +20,7 @@
     "build:es": "npm run build:es:babel && npm run build:es:types",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
     "build:watch": "npm run build:es -- -w --verbose",
-    "build:stats": "npx webpack --profile --json > dist/stats.json",
+    "build:stats": "webpack --profile --json > dist/stats.json",
     "clean:commonjs": "rm -rf lib",
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",

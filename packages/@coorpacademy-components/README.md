@@ -184,11 +184,7 @@ Try to delete your ```node_modules```, go to the project's root and launch: ```y
 
 ## Generating a Bundle Analyzer Report
 
-To help you understand the content of your webpack bundle and optimize it, we have integrated a new command that generates a webpack bundle analysis report. This feature is powered by `webpack-bundle-analyzer`, which visualizes the size of webpack output files with an interactive zoomable treemap.
+To check the content of the bundle and optimize it if needed, we set up `webpack-bundle-analyzer`, which generates a bundle analysis report. This visualizes the size of webpack output files with an interactive zoomable treemap.
+To generate it, just run `npm run build:stats`. 
 
-### How to Generate the Report
-
-To generate the bundle analyzer report, run the following command in your terminal:
-
-```sh
-npm run build:stats
+![Webpack Bundle Analyzer Report](./doc/Webpack-Bundle-Analyzer-Report.png)
