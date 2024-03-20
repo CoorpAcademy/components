@@ -14,7 +14,7 @@
     box-sizing: border-box;
 }
 
-.tickeWrapperFocus {
+.tickWrapperFocus {
     background-color: #FAFAFA;
     border-radius: 12px;
     width: fit-content;
@@ -25,4 +25,11 @@
     background: linear-gradient(to bottom, rgba(0, 97, 255, 0.1), rgba(128, 0, 255, 0.1));
     padding: 4px;
     border-radius: 12px;
+}
+
+.tickLabel {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    width: 100%;
 }

@@ -5,34 +5,6 @@ import {find, findIndex, get} from 'lodash/fp';
 import classnames from 'classnames';
 import style from './style.css';
 
-const customTickStyle = {
-  hexagon: {
-    top: {
-      offset: {x: -100, y: -65},
-      alignItems: 'center',
-      margin: 'auto'
-    },
-    bottom: {
-      offset: {x: -100, y: 10},
-      alignItems: 'center',
-      margin: 'auto'
-    },
-    right: {
-      offset: {x: 30, y: -10},
-      alignItems: 'start',
-      marginRigth: 'auto'
-    },
-    left: {
-      offset: {x: -230, y: -10},
-      alignItems: 'end',
-      marginLeft: 'auto'
-    }
-  }
-  // pentagon: {},
-  // quadrilateral: {},
-  // triangle: {}
-};
-
 const Gradient = ({type}) => (
   <defs>
     <linearGradient id={`${type}-gradient`} x1="0%" y1="0%" x2="0%" y2="100%">
@@ -42,8 +14,92 @@ const Gradient = ({type}) => (
   </defs>
 );
 
-const CustomDot = ({cx, cy, payload: {name}, onDotClick, index, activeDot}) => {
-  const defaultCustomDotProps = {
+// TICK_POSITIONS
+const top = {
+  offset: {x: -100, y: -65},
+  alignment: 'center',
+  margin: 'auto'
+};
+
+const bottom = {
+  offset: {x: -100, y: 10},
+  alignment: 'center',
+  margin: 'auto'
+};
+
+const right = {
+  offset: {x: 30, y: -10},
+  alignment: 'start',
+  marginRigth: 'auto'
+};
+
+const left = {
+  offset: {x: -230, y: -10},
+  alignment: 'end',
+  marginLeft: 'auto'
+};
+
+const CHART_TYPES = {
+  hexagon: 'hexagon',
+  pentagon: 'pentagon',
+  quadrilateral: 'quadrilateral',
+  triangle: 'triangle'
+};
+
+const TICK_CUSTOM_STYLE = {
+  [CHART_TYPES.hexagon]: {
+    0: top,
+    1: right,
+    2: right,
+    3: bottom,
+    4: left,
+    5: left
+  },
+  [CHART_TYPES.pentagon]: {
+    0: top,
+    1: right,
+    2: right,
+    3: left,
+    4: left
+  },
+  [CHART_TYPES.quadrilateral]: {
+    0: top,
+    1: right,
+    2: bottom,
+    3: left
+  },
+  [CHART_TYPES.triangle]: {
+    0: top,
+    1: right,
+    2: left
+  }
+};
+
+const buildCustomTick = (index, x, y, currentValue, label, activeDot, chartType) => {
+  const isDotActive = activeDot === index;
+  const {
+    offset: {x: offsetX, y: offsetY},
+    alignment,
+    ...rest
+  } = get([chartType, index], TICK_CUSTOM_STYLE);
+
+  return (
+    <g>
+      <foreignObject x={x + offsetX} y={y + offsetY} width="200" height="65">
+        <div
+          className={classnames(style.tickWrapper, isDotActive && style.tickWrapperFocus)}
+          style={{...rest, alignItems: alignment, textAlign: alignment}}
+        >
+          <span className={style.tickValue}>{currentValue}%</span>
+          <span className={style.tickLabel}>{label}</span>
+        </div>
+      </foreignObject>
+    </g>
+  );
+};
+
+const CustomDot = ({index, cx, cy, payload: {name}, onDotClick, activeDot}) => {
+  const defaultDotProps = {
     cx,
     cy,
     r: 8,
@@ -56,65 +112,18 @@ const CustomDot = ({cx, cy, payload: {name}, onDotClick, index, activeDot}) => {
   };
 
   const activeDotProps = {
-    ...defaultCustomDotProps,
+    ...defaultDotProps,
     r: 12,
     strokeWidth: 6,
     strokeOpacity: 0.5
   };
 
   const props = {
-    ...defaultCustomDotProps,
+    ...defaultDotProps,
     ...(activeDot === index && activeDotProps)
   };
 
   return <circle {...props} />;
-};
-
-const getPosition = index => {
-  switch (index) {
-    case 0:
-      return 'top';
-    case 3:
-      return 'bottom';
-    case 1:
-    case 2:
-      return 'right';
-    case 4:
-    case 5:
-      return 'left';
-  }
-};
-
-const getCustomProps = (index, x, y) => {
-  // if type === hexagon
-
-  const position = getPosition(index);
-  const {offset, ...rest} = get(`hexagon.${position}`, customTickStyle);
-
-  return {
-    ...rest,
-    x: x + offset.x,
-    y: y + offset.y
-  };
-};
-
-const buildCustomTick = (index, currentX, currentY, currentValue, label, activeDot) => {
-  const isDotActive = activeDot === index;
-  const {x, y, ...rest} = getCustomProps(index, currentX, currentY);
-
-  return (
-    <g>
-      <foreignObject x={x} y={y} width="200" height="65">
-        <div
-          className={classnames(style.tickWrapper, isDotActive && style.tickeWrapperFocus)}
-          style={{...rest}}
-        >
-          <span className={style.tickValue}>{currentValue}%</span>
-          <span>{label}</span>
-        </div>
-      </foreignObject>
-    </g>
-  );
 };
 
 const LearningProfileRadarChart = ({data, onClick}, context) => {
@@ -153,13 +162,27 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
     setActiveDot(index);
   }
 
+  const getChartType = useCallback(() => {
+    switch (data.length) {
+      case 3:
+        return CHART_TYPES.triangle;
+      case 4:
+        return CHART_TYPES.quadrilateral;
+      case 5:
+        return CHART_TYPES.pentagon;
+      case 6:
+        return CHART_TYPES.hexagon;
+    }
+  }, [data]);
+  const chartType = getChartType();
+
   function renderCustomTick({x, y, payload, index}) {
     if (isMobile) return;
 
     const {value: label} = payload;
-    const {value: current} = find({subject: label}, data);
+    const {value: currentValue} = find({subject: label}, data);
 
-    return buildCustomTick(index, x, y, current, label, activeDot);
+    return buildCustomTick(index, x, y, currentValue, label, activeDot, chartType);
   }
 
   return (
