@@ -583,7 +583,7 @@ export const getProgressionSteps = (state: State): ProgressionSteps | null => {
   const progression = getCurrentProgression(state);
   const chapter = getCurrentChapter(state);
 
-  if (!progression || !chapter || isContentAdaptive(state)) {
+  if (!progression || !chapter || (chapter && isContentAdaptive(state) && !chapter.nbSlides)) {
     return null;
   }
 

@@ -135,6 +135,7 @@ type Chapter = {|
   bestScore?: number,
   isConditional: boolean,
   time: number,
+  nbSlides?: number,
   version: string
 |};
 

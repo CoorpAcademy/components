@@ -1259,6 +1259,18 @@ test('getProgressionSteps should return null if chapter is adaptive', t => {
   t.is(getProgressionSteps(state), null);
 });
 
+test('getProgressionSteps should get current step and total steps from state with a adaptive course with an overide nbSlides ', t => {
+  const current = 50;
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.nbSlides', nbSlides),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent(true, {step: {current}}));
+
+  t.deepEqual(getProgressionSteps(state), {current, total: nbSlides});
+});
+
 test('getNextContent should return nextChapter if microlearning progression', t => {
   const progression = {
     content: {ref: '1.B1', type: 'chapter'},
