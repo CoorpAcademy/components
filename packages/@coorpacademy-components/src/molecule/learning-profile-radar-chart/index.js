@@ -9,8 +9,9 @@ import {
   Tooltip,
   PolarRadiusAxis
 } from 'recharts';
-import {find, findIndex, get} from 'lodash/fp';
+import {find, findIndex, pipe, keyBy, mapValues, size, getOr} from 'lodash/fp';
 import classnames from 'classnames';
+import {isMobile as isMobile_} from '../../util/check-is-mobile';
 import style from './style.css';
 
 const Gradient = ({type}) => (
@@ -47,49 +48,63 @@ const left = {
   marginLeft: 'auto'
 };
 
-const CHART_TYPES = {
-  hexagon: 'hexagon',
-  pentagon: 'pentagon',
-  quadrilateral: 'quadrilateral',
-  triangle: 'triangle'
-};
-
-const TICK_CUSTOM_STYLE = {
-  [CHART_TYPES.hexagon]: {
-    0: top,
-    1: right,
-    2: right,
-    3: bottom,
-    4: left,
-    5: left
+const CHART_CONFIGS = {
+  triangle: {
+    name: 'triangle',
+    ticks: [top, right, left],
+    sideCount: 3
   },
-  [CHART_TYPES.pentagon]: {
-    0: top,
-    1: right,
-    2: right,
-    3: left,
-    4: left
+  quadrilateral: {
+    name: 'quadrilateral',
+    ticks: [top, right, bottom, left],
+    sideCount: 4
   },
-  [CHART_TYPES.quadrilateral]: {
-    0: top,
-    1: right,
-    2: bottom,
-    3: left
+  pentagon: {
+    name: 'pentagon',
+    ticks: [top, right, right, left, left],
+    sideCount: 5
   },
-  [CHART_TYPES.triangle]: {
-    0: top,
-    1: right,
-    2: left
+  hexagon: {
+    name: 'hexagon',
+    ticks: [top, right, right, bottom, left, left],
+    sideCount: 6
   }
 };
 
-const buildCustomTick = (index, x, y, currentValue, label, activeDot, chartType) => {
+const CUSTOM_DOT_DEFAULT_PROPS = {
+  stroke: 'url(#stroke-gradient)',
+  strokeWidth: 4,
+  strokeOpacity: 0.2,
+  fill: 'white',
+  style: {cursor: 'pointer'},
+  r: 8
+};
+
+const CUSTOM_DOT_ACTIVE_PROPS = {
+  r: 12,
+  strokeWidth: 6,
+  strokeOpacity: 0.5
+};
+
+const CustomDot = ({index, cx, cy, payload: {name}, onDotClick, activeDot}) => (
+  <circle
+    {...{
+      ...CUSTOM_DOT_DEFAULT_PROPS,
+      ...(activeDot === index && CUSTOM_DOT_ACTIVE_PROPS),
+      cx,
+      cy,
+      onClick: () => onDotClick(name)
+    }}
+  />
+);
+
+const buildCustomLabel = (index, x, y, currentValue, label, activeDot, chartType) => {
   const isDotActive = activeDot === index;
   const {
     offset: {x: offsetX, y: offsetY},
     alignment,
     ...rest
-  } = get([chartType, index], TICK_CUSTOM_STYLE);
+  } = CHART_CONFIGS[chartType].ticks[index];
 
   return (
     <g>
@@ -106,42 +121,12 @@ const buildCustomTick = (index, x, y, currentValue, label, activeDot, chartType)
   );
 };
 
-const CustomDot = ({index, cx, cy, payload: {name}, onDotClick, activeDot}) => {
-  const defaultDotProps = {
-    cx,
-    cy,
-    r: 8,
-    stroke: 'url(#stroke-gradient)',
-    strokeWidth: 4,
-    strokeOpacity: 0.2,
-    fill: 'white',
-    onClick: () => onDotClick(name),
-    style: {cursor: 'pointer'}
-  };
-
-  const activeDotProps = {
-    ...defaultDotProps,
-    r: 12,
-    strokeWidth: 6,
-    strokeOpacity: 0.5
-  };
-
-  const props = {
-    ...defaultDotProps,
-    ...(activeDot === index && activeDotProps)
-  };
-
-  return <circle {...props} />;
-};
-
 const LearningProfileRadarChart = ({data, onClick}, context) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState(null);
 
   const getIsMobile = useCallback(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isMobile_ = /iphone|ipad|ipod|android|blackberry|windows phone/g.test(userAgent);
-    setIsMobile(isMobile_);
+    setIsMobile(isMobile_());
   }, []);
 
   useEffect(() => {
@@ -168,29 +153,22 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
   function handleOnDotClick(label) {
     const index = findIndex({subject: label}, data);
     setActiveDot(index);
+    onClick();
   }
 
-  const getChartType = useCallback(() => {
-    switch (data.length) {
-      case 3:
-        return CHART_TYPES.triangle;
-      case 4:
-        return CHART_TYPES.quadrilateral;
-      case 5:
-        return CHART_TYPES.pentagon;
-      case 6:
-        return CHART_TYPES.hexagon;
-    }
-  }, [data]);
+  const getChartType = useCallback(
+    () => pipe(keyBy('sideCount'), mapValues('name'), getOr('hexagon', size(data)))(CHART_CONFIGS),
+    [data]
+  );
   const chartType = getChartType();
 
-  function renderCustomTick({x, y, payload, index}) {
+  function renderCustomLabel({x, y, payload, index}) {
     if (isMobile) return;
 
     const {value: label} = payload;
     const {value: currentValue} = find({subject: label}, data);
 
-    return buildCustomTick(index, x, y, currentValue, label, activeDot, chartType);
+    return buildCustomLabel(index, x, y, currentValue, label, activeDot, chartType);
   }
 
   return (
@@ -202,7 +180,7 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
         </svg>
         {/* possible to pass gridType="circle" */}
         <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
-        <PolarAngleAxis dataKey="subject" tick={renderCustomTick} />
+        <PolarAngleAxis dataKey="subject" tick={renderCustomLabel} />
         <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
         <Radar
           name="dataset-1"
