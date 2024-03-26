@@ -1,3 +1,5 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
 
 .tickWrapper {
     display: flex;
@@ -21,7 +23,7 @@
 }
 
 .tickValue {
-    color: #0061FF;
+    color: cm_primary_blue;
     background: linear-gradient(to bottom, rgba(0, 97, 255, 0.1), rgba(128, 0, 255, 0.1));
     padding: 4px;
     border-radius: 12px;
@@ -32,4 +34,5 @@
     overflow: hidden;
     white-space: normal;
     width: 100%;
+    width: fit-content;
 }

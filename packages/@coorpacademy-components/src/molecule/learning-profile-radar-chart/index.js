@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {
   Radar,
@@ -9,19 +9,43 @@ import {
   Tooltip,
   PolarRadiusAxis
 } from 'recharts';
-import {find, findIndex, pipe, keyBy, mapValues, size, getOr} from 'lodash/fp';
+import {
+  find,
+  pipe,
+  keyBy,
+  mapValues,
+  size,
+  get,
+  getOr,
+  map,
+  toPairs,
+  values,
+  isEmpty,
+  omit,
+  fromPairs
+} from 'lodash/fp';
 import classnames from 'classnames';
 import {isMobile as isMobile_} from '../../util/check-is-mobile';
 import style from './style.css';
 
-const Gradient = ({type}) => (
+const Gradient = ({type, colors: [firstColor, secondColor]}) => (
   <defs>
-    <linearGradient id={`${type}-gradient`} x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stopColor="#0062ffff" />
-      <stop offset="100%" stopColor={type === 'fill' ? '#8000ff85' : '#8000FF'} />
+    <linearGradient id={`gradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stopColor={firstColor} />
+      <stop offset="100%" stopColor={secondColor} />
     </linearGradient>
   </defs>
 );
+
+const buildSvgGradient = (gradient, index) => {
+  const {fill, stroke} = gradient;
+  return (
+    <svg>
+      <Gradient type={`fill-${index}`} colors={fill} />
+      <Gradient type={`stroke-${index}`} colors={stroke} />
+    </svg>
+  );
+};
 
 // TICK_POSITIONS
 const top = {
@@ -72,34 +96,74 @@ const CHART_CONFIGS = {
 };
 
 const CUSTOM_DOT_DEFAULT_PROPS = {
-  stroke: 'url(#stroke-gradient)',
   strokeWidth: 4,
   strokeOpacity: 0.2,
-  fill: 'white',
+  fill: '#fff',
   style: {cursor: 'pointer'},
   r: 8
 };
 
 const CUSTOM_DOT_ACTIVE_PROPS = {
-  r: 12,
+  r: 8,
   strokeWidth: 6,
   strokeOpacity: 0.5
 };
 
-const CustomDot = ({index, cx, cy, payload: {name}, onDotClick, activeDot}) => (
-  <circle
-    {...{
-      ...CUSTOM_DOT_DEFAULT_PROPS,
-      ...(activeDot === index && CUSTOM_DOT_ACTIVE_PROPS),
-      cx,
-      cy,
-      onClick: () => onDotClick(name)
-    }}
-  />
-);
+const RADAR_DEFAULT_PROPS = {
+  strokeWidth: 6,
+  strokeOpacity: 0.2,
+  fillOpacity: 0.2
+};
 
-const buildCustomLabel = (index, x, y, currentValue, label, activeDot, chartType) => {
-  const isDotActive = activeDot === index;
+const CustomDot = ({cx, cy, payload, onDotClick, activeDot, dataKey, stroke}) => {
+  const {value: activeDotValue, label: activeDotLabel} = activeDot;
+  const label = get('payload.subject', payload);
+  const value = get(`payload[${dataKey}]`, payload);
+  const isCurrentDotActive = value === activeDotValue && label === activeDotLabel;
+
+  return (
+    <circle
+      {...{
+        ...CUSTOM_DOT_DEFAULT_PROPS,
+        ...(isCurrentDotActive && CUSTOM_DOT_ACTIVE_PROPS),
+        stroke,
+        cx,
+        cy,
+        onClick: e => {
+          e.stopPropagation();
+          onDotClick(payload.name);
+        }
+      }}
+    />
+  );
+};
+
+const buildRadars = (index, handleOnDotClick, activeDot) => {
+  const datakey = `value${index + 1}`;
+  const dataset = `dataset-${index + 1}`;
+
+  return (
+    <Radar
+      {...RADAR_DEFAULT_PROPS}
+      fill={`url(#gradient-fill-${index})`}
+      stroke={`url(#gradient-stroke-${index})`}
+      key={dataset}
+      name={dataset}
+      dataKey={datakey}
+      dot={
+        <CustomDot
+          onDotClick={handleOnDotClick(datakey)}
+          activeDot={activeDot}
+          dataKey={datakey}
+          stroke={`url(#gradient-stroke-${index})`}
+        />
+      }
+    />
+  );
+};
+
+const buildCustomLabel = (index, x, y, percentagesValues, name, activeDot, chartType, styles) => {
+  const isCurrentDotActive = activeDot.label === name;
   const {
     offset: {x: offsetX, y: offsetY},
     alignment,
@@ -110,20 +174,48 @@ const buildCustomLabel = (index, x, y, currentValue, label, activeDot, chartType
     <g>
       <foreignObject x={x + offsetX} y={y + offsetY} width="200" height="65">
         <div
-          className={classnames(style.tickWrapper, isDotActive && style.tickWrapperFocus)}
-          style={{...rest, alignItems: alignment, textAlign: alignment}}
+          className={classnames(style.tickWrapper, isCurrentDotActive && style.tickWrapperFocus)}
+          style={{
+            ...rest,
+            alignItems: alignment,
+            textAlign: alignment,
+            opacity: !isEmpty(activeDot) && !isCurrentDotActive ? 0.3 : 1
+          }}
         >
-          <span className={style.tickValue}>{currentValue}%</span>
-          <span className={style.tickLabel}>{label}</span>
+          {map.convert({cap: false})(({percentage, label}, i) => {
+            const {color, background} = percentage;
+            const {color: colorLabel} = label;
+            return (
+              <Fragment key={i}>
+                <span className={style.tickValue} style={{color, background}}>
+                  {percentagesValues[i]}
+                </span>
+                <span className={style.tickLabel} style={{color: colorLabel}}>
+                  {name}
+                </span>
+              </Fragment>
+            );
+          }, styles)}
         </div>
       </foreignObject>
     </g>
   );
 };
 
-const LearningProfileRadarChart = ({data, onClick}, context) => {
+const formatData = data =>
+  pipe(
+    toPairs,
+    map(([label, values_]) => ({
+      subject: label,
+      ...fromPairs(map.convert({cap: false})((val, i) => [`value${i + 1}`, val])(values_))
+    }))
+  )(data);
+
+const LearningProfileRadarChart = ({data, styles, onClick}, context) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [activeDot, setActiveDot] = useState(null);
+  const [activeDot, setActiveDot] = useState({});
+
+  const formatedData = formatData(data);
 
   const getIsMobile = useCallback(() => {
     setIsMobile(isMobile_());
@@ -140,20 +232,26 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
 
   useEffect(() => {
     const handleClick = () => {
-      setActiveDot(null);
+      setActiveDot({});
     };
 
-    activeDot !== null && window.addEventListener('click', handleClick);
+    !isEmpty(activeDot) && window.addEventListener('click', handleClick);
 
     return () => {
       window.removeEventListener('click', handleClick);
     };
   }, [activeDot]);
 
-  function handleOnDotClick(label) {
-    const index = findIndex({subject: label}, data);
-    setActiveDot(index);
-    onClick();
+  function handleOnDotClick(datakey) {
+    return label => {
+      const payload = find({subject: label}, formatedData);
+      setActiveDot({
+        key: datakey,
+        value: get(datakey, payload),
+        label: get('subject', payload)
+      });
+      onClick();
+    };
   }
 
   const getChartType = useCallback(
@@ -166,33 +264,31 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
     if (isMobile) return;
 
     const {value: label} = payload;
-    const {value: currentValue} = find({subject: label}, data);
+    const currentData = find({subject: label}, formatedData);
+    const percentagesValues = pipe(
+      omit('subject'),
+      mapValues(value => `${value}%`),
+      values
+    )(currentData);
 
-    return buildCustomLabel(index, x, y, currentValue, label, activeDot, chartType);
+    return buildCustomLabel(index, x, y, percentagesValues, label, activeDot, chartType, styles);
   }
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-        <svg>
-          <Gradient type="fill" />
-          <Gradient type="stroke" />
-        </svg>
-        {/* possible to pass gridType="circle" */}
+      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={formatedData}>
+        {map.convert({cap: false})(
+          ({gradient}, i) => (
+            <Fragment key={i}>
+              {buildSvgGradient(gradient, i)}
+              {buildRadars(i, handleOnDotClick, activeDot)}
+            </Fragment>
+          ),
+          styles
+        )}
         <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
         <PolarAngleAxis dataKey="subject" tick={renderCustomLabel} />
         <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
-        <Radar
-          name="dataset-1"
-          dataKey="value"
-          stroke="url(#stroke-gradient)"
-          strokeWidth={6}
-          strokeOpacity={0.2}
-          fill="url(#fill-gradient)"
-          fillOpacity={0.2}
-          dot={<CustomDot onDotClick={handleOnDotClick} activeDot={activeDot} />}
-          activeDot={{stroke: '#0061FF', r: 6, strokeWidth: 4, fill: 'white'}}
-        />
         {isMobile ? <Tooltip cursor={false} /> : null}
       </RadarChart>
     </ResponsiveContainer>
@@ -200,29 +296,49 @@ const LearningProfileRadarChart = ({data, onClick}, context) => {
 };
 
 LearningProfileRadarChart.propTypes = {
-  data: PropTypes.arrayOf(
+  data: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  onClick: PropTypes.func,
+  styles: PropTypes.arrayOf(
     PropTypes.shape({
-      subject: PropTypes.string,
-      value: PropTypes.number,
-      fullMark: PropTypes.number
+      gradient: PropTypes.shape({
+        fill: PropTypes.arrayOf(PropTypes.string),
+        stroke: PropTypes.arrayOf(PropTypes.string)
+      }),
+      percentage: PropTypes.shape({
+        color: PropTypes.string,
+        background: PropTypes.string
+      }),
+      label: PropTypes.shape({
+        color: PropTypes.string
+      })
     })
-  ),
-  onClick: PropTypes.func
+  )
 };
 
 CustomDot.propTypes = {
   cx: PropTypes.number,
   cy: PropTypes.number,
   payload: PropTypes.shape({
+    payload: PropTypes.shape({
+      value: PropTypes.number,
+      subject: PropTypes.string
+    }),
     name: PropTypes.string
   }),
   onDotClick: PropTypes.func,
   index: PropTypes.number,
-  activeDot: PropTypes.number
+  activeDot: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.number,
+    key: PropTypes.string
+  }),
+  dataKey: PropTypes.string,
+  stroke: PropTypes.string
 };
 
 Gradient.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  colors: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default LearningProfileRadarChart;
