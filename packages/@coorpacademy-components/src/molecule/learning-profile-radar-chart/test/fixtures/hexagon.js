@@ -1,39 +1,29 @@
 export default {
   props: {
-    data: [
+    data: {
+      'Adaptability and resilience': [15.6],
+      'Digital culture': [43.8],
+      'Problem solving': [56.4],
+      Leadership: [59.1],
+      'Time management': [34.9],
+      'Sustainable thinking': [82.3]
+    },
+    styles: [
       {
-        subject: 'Adaptability and resilience',
-        value: 15.6,
-        fullMark: 100
-      },
-      {
-        subject: 'Digital culture',
-        value: 43.8,
-        fullMark: 100
-      },
-      {
-        subject: 'Problem solving',
-        value: 56.4,
-        fullMark: 100
-      },
-      {
-        subject: 'Leadership',
-        value: 59.1,
-        fullMark: 100
-      },
-      {
-        subject: 'Time management',
-        value: 34.9,
-        fullMark: 100
-      },
-      {
-        subject: 'Sustainable thinking',
-        value: 82.3,
-        fullMark: 100
+        gradient: {
+          fill: ['#ffdd00ff', '#00ff4085'],
+          stroke: ['#ff9100ff', '#61412f ']
+        },
+        percentage: {
+          color: '#ff8800ff',
+          background:
+            'linear-gradient(to bottom, rgba(133, 242, 234, 0.3), rgba(123, 213, 240, 0.3))'
+        },
+        label: {
+          color: '#ff2f00ff'
+        }
       }
     ],
-    onClick: () => {
-      console.log('on click');
-    }
+    onClick: () => console.log('on click')
   }
 };

@@ -1,24 +1,26 @@
 export default {
   props: {
-    data: [
+    data: {
+      'Adaptability and resilience': [15.6],
+      'Digital culture': [43.8],
+      'Problem solving': [56.4]
+    },
+    styles: [
       {
-        subject: 'Adaptability and resilience',
-        value: 30,
-        fullMark: 100
-      },
-      {
-        subject: 'Digital culture',
-        value: 80,
-        fullMark: 100
-      },
-      {
-        subject: 'Problem solving',
-        value: 50,
-        fullMark: 100
+        gradient: {
+          fill: ['#218442ff', '#60f55585'],
+          stroke: ['#e44e4eff', '#e18310 ']
+        },
+        percentage: {
+          color: '#9f371eff',
+          background:
+            'linear-gradient(to bottom, rgba(202, 219, 219, 0.3), rgba(191, 207, 212, 0.3))'
+        },
+        label: {
+          color: '#020202ff'
+        }
       }
     ],
-    onClick: () => {
-      console.log('on click');
-    }
+    onClick: () => console.log('on click')
   }
 };
