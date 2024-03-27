@@ -1,32 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {byPrefixAndName} from '@awesome.me/kit-ed95a6224e/icons';
+import {fas} from '@fortawesome/pro-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import classNames from 'classnames';
+import toLower from 'lodash/fp/toLower';
+
 import style from './style.css';
 
-const Icon = ({iconPrefix, iconName, iconColor, iconSize, backgroundColor, backgroundSize}) => {
-  const iconWrapperStyle = {backgroundColor, ...backgroundSize};
+library.add(fas);
+
+const getIconSize = size => {
+  let iconSize;
+  switch (toLower(size)) {
+    case 's':
+      iconSize = 'xs';
+      break;
+    case 'xl':
+      iconSize = 'xl';
+      break;
+    default:
+      iconSize = 'lg';
+  }
+  return iconSize;
+};
+
+const Icon = ({iconName, iconColor, size, backgroundColor}) => {
+  const iconWrapperStyle = {backgroundColor};
+
   return (
-    <div className={style.iconWrapper} style={iconWrapperStyle}>
-      <FontAwesomeIcon
-        icon={byPrefixAndName[iconPrefix][iconName]}
-        color={iconColor}
-        size={iconSize}
-      />
+    <div
+      className={classNames({
+        [style.iconWrapper]: true,
+        [style.iconWrapperSmall]: size === 's',
+        [style.iconWrapperMedium]: size === 'm' || size === undefined,
+        [style.iconWrapperXLarge]: size === 'xl'
+      })}
+      style={iconWrapperStyle}
+    >
+      <FontAwesomeIcon icon={`fa-${iconName}`} color={iconColor} size={getIconSize(size)} />
     </div>
   );
 };
 
 Icon.propTypes = {
-  iconPrefix: PropTypes.string.isRequired,
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
-  iconSize: PropTypes.oneOf(['sm', 'lg', 'xl']),
   backgroundColor: PropTypes.string,
-  backgroundSize: PropTypes.shape({
-    width: PropTypes.string,
-    height: PropTypes.string
-  })
+  size: PropTypes.oneOf(['s', 'm', 'xl'])
 };
 
 export default Icon;

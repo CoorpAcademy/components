@@ -1,11 +1,25 @@
 .iconWrapper {
-  width: 32px;
-  height: 32px;
   padding: 8px;
-  /* justify-content: center; */
-  /* align-items: center; */
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.iconWrapperSmall {
+  composes: iconWrapper;
+  width: 32px;
+  height: 32px;
+}
+
+.iconWrapperMedium {
+  composes: iconWrapper;
+  width: 40px;
+  height: 40px;
+}
+
+.iconWrapperXLarge {
+  composes: iconWrapper;
+  width: 48px;
+  height: 48px;
 }
