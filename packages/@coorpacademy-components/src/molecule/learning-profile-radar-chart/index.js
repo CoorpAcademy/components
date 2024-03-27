@@ -22,7 +22,8 @@ import {
   values,
   isEmpty,
   omit,
-  fromPairs
+  fromPairs,
+  times
 } from 'lodash/fp';
 import classnames from 'classnames';
 import {isMobile as isMobile_} from '../../util/check-is-mobile';
@@ -37,15 +38,16 @@ const Gradient = ({type, colors: [firstColor, secondColor]}) => (
   </defs>
 );
 
-const buildSvgGradient = (gradient, index) => {
-  const {fill, stroke} = gradient;
-  return (
-    <svg>
-      <Gradient type={`fill-${index}`} colors={fill} />
-      <Gradient type={`stroke-${index}`} colors={stroke} />
-    </svg>
-  );
-};
+const buildSvgGradient = styles =>
+  map.convert({cap: false})(({gradient}, index) => {
+    const {fill, stroke} = gradient;
+    return (
+      <svg key={`gradient-${index}`}>
+        <Gradient type={`fill-${index}`} colors={fill} />
+        <Gradient type={`stroke-${index}`} colors={stroke} />
+      </svg>
+    );
+  }, styles);
 
 // TICK_POSITIONS
 const top = {
@@ -138,29 +140,30 @@ const CustomDot = ({cx, cy, payload, onDotClick, activeDot, dataKey, stroke}) =>
   );
 };
 
-const buildRadars = (index, handleOnDotClick, activeDot) => {
-  const datakey = `value${index + 1}`;
-  const dataset = `dataset-${index + 1}`;
+const buildRadars = (totalDataset, handleOnDotClick, activeDot) =>
+  times(index => {
+    const datakey = `value${index + 1}`;
+    const dataset = `dataset-${index + 1}`;
 
-  return (
-    <Radar
-      {...RADAR_DEFAULT_PROPS}
-      fill={`url(#gradient-fill-${index})`}
-      stroke={`url(#gradient-stroke-${index})`}
-      key={dataset}
-      name={dataset}
-      dataKey={datakey}
-      dot={
-        <CustomDot
-          onDotClick={handleOnDotClick(datakey)}
-          activeDot={activeDot}
-          dataKey={datakey}
-          stroke={`url(#gradient-stroke-${index})`}
-        />
-      }
-    />
-  );
-};
+    return (
+      <Radar
+        {...RADAR_DEFAULT_PROPS}
+        fill={`url(#gradient-fill-${index})`}
+        stroke={`url(#gradient-stroke-${index})`}
+        key={dataset}
+        name={dataset}
+        dataKey={datakey}
+        dot={
+          <CustomDot
+            onDotClick={handleOnDotClick(datakey)}
+            activeDot={activeDot}
+            dataKey={datakey}
+            stroke={`url(#gradient-stroke-${index})`}
+          />
+        }
+      />
+    );
+  }, totalDataset);
 
 const buildCustomLabel = (index, x, y, percentagesValues, name, activeDot, chartType, styles) => {
   const isCurrentDotActive = activeDot.label === name;
@@ -277,15 +280,8 @@ const LearningProfileRadarChart = ({data, styles, onClick}, context) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadarChart cx="50%" cy="50%" outerRadius="80%" data={formatedData}>
-        {map.convert({cap: false})(
-          ({gradient}, i) => (
-            <Fragment key={i}>
-              {buildSvgGradient(gradient, i)}
-              {buildRadars(i, handleOnDotClick, activeDot)}
-            </Fragment>
-          ),
-          styles
-        )}
+        {buildSvgGradient(styles)}
+        {buildRadars(totalDataset, handleOnDotClick, activeDot)}
         <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
         <PolarAngleAxis dataKey="subject" tick={renderCustomLabel} />
         <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
@@ -297,6 +293,7 @@ const LearningProfileRadarChart = ({data, styles, onClick}, context) => {
 
 LearningProfileRadarChart.propTypes = {
   data: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  totalDataset: PropTypes.number.isRequired,
   onClick: PropTypes.func,
   styles: PropTypes.arrayOf(
     PropTypes.shape({
