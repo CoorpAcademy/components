@@ -1,5 +1,6 @@
 export default {
   props: {
+    totalDataset: 2,
     data: {
       'Adaptability and resilience': [15.6, 5],
       'Digital culture': [43.8, 0.01],
