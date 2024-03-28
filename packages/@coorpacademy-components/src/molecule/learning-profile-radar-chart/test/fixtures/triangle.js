@@ -6,7 +6,7 @@ export default {
       'Digital culture': 43.8,
       'Problem solving': 56.4
     },
-    styles: [
+    colors: [
       {
         gradient: {
           fill: ['#218442ff', '#60f55585'],
