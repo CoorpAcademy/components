@@ -36,3 +36,14 @@
     width: 100%;
     width: fit-content;
 }
+
+.tooltip {
+    position: relative;
+    font-family: 'Gilroy';
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FAFAFA;
+    padding: 4px 8px;
+    border-radius: 8px;
+    width: 100%;
+}

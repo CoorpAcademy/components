@@ -9,7 +9,7 @@ export default {
       'Time management': [34.9, 90, 45],
       'Sustainable thinking': [82.3, 25, 12]
     },
-    styles: [
+    colors: [
       {
         gradient: {
           fill: ['#0062ffff', '#8000ff85'],

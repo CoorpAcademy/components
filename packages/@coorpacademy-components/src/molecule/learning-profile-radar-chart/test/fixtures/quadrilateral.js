@@ -7,7 +7,7 @@ export default {
       'Problem solving': 56.4,
       Leadership: 59.1
     },
-    styles: [
+    colors: [
       {
         gradient: {
           fill: ['#0062ffff', '#8000ff85'],

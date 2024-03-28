@@ -8,7 +8,7 @@ export default {
       Leadership: 59.1,
       'Time management': 34.9
     },
-    styles: [
+    colors: [
       {
         gradient: {
           fill: ['#0062ffff', '#8000ff85'],
