@@ -10,9 +10,12 @@ import get from 'lodash/fp/get';
 
 import style from './style.css';
 
+// FontAwesome documentation for where to find icon names: https://docs.fontawesome.com/web/add-icons/svg-icon-names
+// Search for FontAwesome icons: https://fontawesome.com/search
+
 library.add(fas);
 
-const DEFAULT_SIZE = 'm';
+const DEFAULT_PRESET = 'm';
 const DEFAULT_FA_SIZE = 'lg';
 const DEFAULT_WRAPPER_SIZE = 40;
 
@@ -24,7 +27,7 @@ const COLOR_MAPPING = {
   '#DDD1FF': '#2B00A3'
 };
 
-const SIZE_MAPPING = {
+const SIZE_CONFIGS = {
   s: {
     faSize: 'xs',
     wrapperSize: 32
@@ -39,18 +42,12 @@ const SIZE_MAPPING = {
   }
 };
 
-const FontAwesomeAdaptiveIcon = ({
-  iconName,
-  iconColor,
-  size = DEFAULT_SIZE,
-  backgroundColor,
-  customSize
-}) => {
+const Icon = ({iconName, iconColor, preset = DEFAULT_PRESET, backgroundColor, size}) => {
   const effectiveIconColor = iconColor || get(backgroundColor, COLOR_MAPPING);
 
-  const effectiveSize = customSize
-    ? merge(SIZE_MAPPING[DEFAULT_SIZE], customSize)
-    : getOr(SIZE_MAPPING[DEFAULT_SIZE], toLower(size), SIZE_MAPPING);
+  const effectiveSize = size
+    ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
+    : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
   const iconWrapperStyle = {
     backgroundColor,
@@ -69,12 +66,12 @@ const FontAwesomeAdaptiveIcon = ({
   );
 };
 
-FontAwesomeAdaptiveIcon.propTypes = {
+Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
   backgroundColor: PropTypes.string,
-  size: PropTypes.oneOf(['s', 'm', 'xl']),
-  customSize: PropTypes.shape({
+  preset: PropTypes.oneOf(['s', 'm', 'xl']),
+  size: PropTypes.shape({
     faSize: PropTypes.oneOf([
       '2xs',
       'xs',
@@ -97,4 +94,4 @@ FontAwesomeAdaptiveIcon.propTypes = {
   })
 };
 
-export default FontAwesomeAdaptiveIcon;
+export default Icon;

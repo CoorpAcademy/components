@@ -1,5 +1,5 @@
 export default {
   props: {
-    iconName: 'book-open-cover'
+    iconName: 'circle-question'
   }
 };
