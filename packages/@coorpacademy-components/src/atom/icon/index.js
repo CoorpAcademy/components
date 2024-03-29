@@ -7,6 +7,7 @@ import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
 
+import Color from 'color';
 import style from './style.css';
 
 // FontAwesome documentation for where to find icon names: https://docs.fontawesome.com/web/add-icons/svg-icon-names
@@ -16,7 +17,6 @@ library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const DEFAULT_WRAPPER_SIZE = 40;
-const DEFAULT_ICON_COLOR = 'rgba(0, 0, 0, 0.7)';
 
 const SIZE_CONFIGS = {
   s: {
@@ -32,14 +32,23 @@ const SIZE_CONFIGS = {
     wrapperSize: 48
   }
 };
+const hslObjectToHslString = ({h, s, l}) => `hsl(${h}, ${s}%, ${l}%)`;
 
-const Icon = ({
-  iconName,
-  iconColor = DEFAULT_ICON_COLOR,
-  preset = DEFAULT_PRESET,
-  backgroundColor,
-  size
-}) => {
+const getIconColor = (backgroundColor, defaultColor = 'hsl(0, 0%, 32%)') => {
+  if (!backgroundColor) return defaultColor;
+
+  try {
+    const color = Color(backgroundColor);
+    const adjustedColor = color.lightness(32);
+    return hslObjectToHslString(adjustedColor.hsl());
+  } catch (error) {
+    return defaultColor;
+  }
+};
+
+const Icon = ({iconName, iconColor, backgroundColor, preset = DEFAULT_PRESET, size}) => {
+  const effectiveIconColor = iconColor || getIconColor(backgroundColor);
+
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
@@ -52,7 +61,11 @@ const Icon = ({
 
   return (
     <div className={style.iconWrapper} style={iconWrapperStyle}>
-      <FontAwesomeIcon icon={`fa-${iconName}`} color={iconColor} size={effectiveSize.faSize} />
+      <FontAwesomeIcon
+        icon={`fa-${iconName}`}
+        color={effectiveIconColor}
+        size={effectiveSize.faSize}
+      />
     </div>
   );
 };
