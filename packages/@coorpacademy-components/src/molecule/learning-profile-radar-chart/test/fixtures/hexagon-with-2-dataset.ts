@@ -1,4 +1,7 @@
-export default {
+import {LearningProfileRadarChartPropTypes} from '../../types';
+
+type Fixture = {props: LearningProfileRadarChartPropTypes};
+const fixture: Fixture = {
   props: {
     totalDataset: 2,
     data: {
@@ -35,3 +38,4 @@ export default {
     onClick: () => console.log('on click')
   }
 };
+export default fixture;
