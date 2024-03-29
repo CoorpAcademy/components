@@ -6,7 +6,6 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
-import get from 'lodash/fp/get';
 
 import style from './style.css';
 
@@ -16,24 +15,16 @@ import style from './style.css';
 library.add(fas);
 
 const DEFAULT_PRESET = 'm';
-const DEFAULT_FA_SIZE = 'lg';
 const DEFAULT_WRAPPER_SIZE = 40;
-
-const COLOR_MAPPING = {
-  '#FFDCD1': '#A32700',
-  '#FFF9D1': '#A38300',
-  '#FAD6DE': '#93102F',
-  '#D9F4F7': '#1B7B88',
-  '#DDD1FF': '#2B00A3'
-};
+const DEFAULT_ICON_COLOR = 'rgba(0, 0, 0, 0.7)';
 
 const SIZE_CONFIGS = {
   s: {
-    faSize: 'xs',
+    faSize: 'sm',
     wrapperSize: 32
   },
   m: {
-    faSize: DEFAULT_FA_SIZE,
+    faSize: 'lg',
     wrapperSize: DEFAULT_WRAPPER_SIZE
   },
   xl: {
@@ -42,9 +33,13 @@ const SIZE_CONFIGS = {
   }
 };
 
-const Icon = ({iconName, iconColor, preset = DEFAULT_PRESET, backgroundColor, size}) => {
-  const effectiveIconColor = iconColor || get(backgroundColor, COLOR_MAPPING);
-
+const Icon = ({
+  iconName,
+  iconColor = DEFAULT_ICON_COLOR,
+  preset = DEFAULT_PRESET,
+  backgroundColor,
+  size
+}) => {
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
@@ -57,11 +52,7 @@ const Icon = ({iconName, iconColor, preset = DEFAULT_PRESET, backgroundColor, si
 
   return (
     <div className={style.iconWrapper} style={iconWrapperStyle}>
-      <FontAwesomeIcon
-        icon={`fa-${iconName}`}
-        color={effectiveIconColor}
-        size={effectiveSize.faSize}
-      />
+      <FontAwesomeIcon icon={`fa-${iconName}`} color={iconColor} size={effectiveSize.faSize} />
     </div>
   );
 };
