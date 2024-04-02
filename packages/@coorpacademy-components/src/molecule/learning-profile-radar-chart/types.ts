@@ -140,10 +140,14 @@ export type FormatedColorsType = {
   };
 };
 
-export type FormatedDataType = {subject: string} & Record<string, number | string>;
+export type FormatedDataType = {
+  subject: string;
+} & {
+  [key: string]: number | string;
+};
 
 export type ActiveDotType = {
   key: string;
-  value: number;
+  value: number | string;
   label: string;
 };
