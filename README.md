@@ -26,6 +26,8 @@ If you want to see what theses packages have to look there: :wink:
 yarn
 ```
 
+You might need to source `scripts/setup.sh` to notably to load the fontawesome token.
+
 ### Publish:
 
 [See detailed doc](./doc/publish.md)

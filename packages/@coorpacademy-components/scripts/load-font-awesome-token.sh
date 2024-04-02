@@ -3,7 +3,9 @@ set -e
 
 token_file="tmp/font-awesome-token"
 
-if [ -f "$token_file" ]; then
+if [ -n "$FONTAWESOME_NPM_AUTH_TOKEN" ]; then
+  token=$(echo $FONTAWESOME_NPM_AUTH_TOKEN) # this is notably to load in CI without AWS access
+elif [ -f "$token_file" ]; then
   token=$(cat $token_file)
 else
   mkdir -p tmp
