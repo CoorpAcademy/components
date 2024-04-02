@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 set -e
 
 token_file="tmp/font-awesome-token"
@@ -16,7 +16,7 @@ else
   )
 fi
 
-if [[ $ZSH_EVAL_CONTEXT == "toplevel:file" ]]; then
+if (return 0 2>/dev/null); then
     # if file is sourced, load the var also and print a message about it
     export FONTAWESOME_NPM_AUTH_TOKEN=$(cat $token_file)
     echo "Fontawesome token loaded in FONTAWESOME_NPM_AUTH_TOKEN var"
