@@ -140,7 +140,7 @@ export type FormatedColorsType = {
   };
 };
 
-export type FormatedDataType = {subject: string} & Record<string, number>;
+export type FormatedDataType = {subject: string} & Record<string, number | string>;
 
 export type ActiveDotType = {
   key: string;
