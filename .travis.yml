@@ -7,9 +7,7 @@ node_js:
 cache: npm
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
-  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
-  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
-  - 'yarn config set registry https://registry.npmjs.org/'
+  - source scripts/setup.sh
   - yarn
 
 stages:
