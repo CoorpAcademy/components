@@ -36,24 +36,28 @@ import {
   learningProfileRadarChartPropTypes
 } from './types';
 
-// TICK_POSITIONS
+/* TICK_POSITIONS */
 const top: TickType = {offset: {x: -100, y: -65}, alignment: 'center', margin: 'auto'};
 const bottom: TickType = {offset: {x: -100, y: 10}, alignment: 'center', margin: 'auto'};
 const right: TickType = {offset: {x: 30, y: -10}, alignment: 'start', marginRight: 'auto'};
 const left: TickType = {offset: {x: -230, y: -10}, alignment: 'end', marginLeft: 'auto'};
 
-// CONSTANTS
+/* CONSTANTS */
+const BLACK = '#000000ff';
+const WHITE = '#ffffffff';
+const DEFAULT_MAIN_COLOR = '#0062ffff';
+
 const DEFAULT_COLORS: FormatedColorsType = {
   gradient: {
-    fill: ['#0062ffff', '#0062ffff'],
-    stroke: ['#0062ffff', '#0062ffff ']
+    fill: [DEFAULT_MAIN_COLOR, DEFAULT_MAIN_COLOR],
+    stroke: [DEFAULT_MAIN_COLOR, DEFAULT_MAIN_COLOR]
   },
   percentage: {
-    color: '#000000ff',
-    background: '#ffffff'
+    color: BLACK,
+    background: WHITE
   },
   label: {
-    color: '#000000ff'
+    color: BLACK
   }
 };
 
@@ -80,7 +84,7 @@ const CHART_CONFIGS = {
   }
 } as const;
 
-const CUSTOM_DOT_DEFAULT_PROPS = {
+const DOT_DEFAULT_PROPS = {
   strokeWidth: 4,
   strokeOpacity: 0.2,
   fill: '#fff',
@@ -89,7 +93,7 @@ const CUSTOM_DOT_DEFAULT_PROPS = {
   style: {cursor: 'pointer'}
 } as const;
 
-const CUSTOM_DOT_ACTIVE_PROPS = {
+const DOT_ACTIVE_PROPS = {
   fill: '#fff',
   r: 8,
   strokeWidth: 6,
@@ -102,9 +106,7 @@ const RADAR_DEFAULT_PROPS = {
   fillOpacity: 0.2
 } as const;
 
-const CHART_CONFIGS_BY_SIDE_COUNT = pipe(keyBy('sideCount'), mapValues('name'));
-
-// COMPONENTS
+/* COMPONENTS */
 const Gradient = ({type, colors: [firstColor, secondColor]}: {type: string; colors: string[]}) => (
   <defs>
     <linearGradient id={`gradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
@@ -122,24 +124,19 @@ const CustomTooltip = ({
   active?: boolean;
   payload?: {value: number}[];
   label?: string;
-}) => {
-  if (active && payload && payload.length > 0)
-    return (
-      <div className={style.tooltip}>
-        <p>{label}</p>
-        <p>{payload[0].value}%</p>
-      </div>
-    );
-
-  return null;
-};
+}) =>
+  active && payload && payload.length > 0 ? (
+    <div className={style.tooltip}>
+      <p>{label}</p>
+      <p>{payload[0].value}%</p>
+    </div>
+  ) : null;
 
 const CustomDot = ({
   cx,
   cy,
   payload,
   onDotClick,
-  dataKey,
   stroke,
   activeDot
 }: {
@@ -150,32 +147,23 @@ const CustomDot = ({
   dataKey: string;
   stroke: string;
   activeDot?: ActiveDotType;
-}) => {
-  const activeDotValue = activeDot?.value;
-  const activeDotLabel = activeDot?.label;
-  const label = payload?.payload.subject;
-  const value = payload?.payload[dataKey];
-  // maybe remove value comparison ???
-  const isCurrentDotActive = value === activeDotValue && label === activeDotLabel;
+}) => (
+  <circle
+    {...{
+      ...DOT_DEFAULT_PROPS,
+      ...(payload?.payload.subject === activeDot?.label && DOT_ACTIVE_PROPS),
+      stroke,
+      cx,
+      cy,
+      onClick: e => {
+        e.stopPropagation();
 
-  return (
-    <circle
-      {...{
-        ...CUSTOM_DOT_DEFAULT_PROPS,
-        ...(isCurrentDotActive && CUSTOM_DOT_ACTIVE_PROPS),
-        stroke,
-        cx,
-        cy,
-        onClick: e => {
-          e.stopPropagation();
-
-          if (!payload?.name) return;
-          onDotClick(payload.name);
-        }
-      }}
-    />
-  );
-};
+        if (!payload?.name) return;
+        onDotClick(payload.name);
+      }
+    }}
+  />
+);
 
 const buildRadars = (
   totalDataset: number,
@@ -194,13 +182,13 @@ const buildRadars = (
         key={dataset}
         name={dataset}
         dataKey={datakey}
+        activeDot={{
+          ...DOT_ACTIVE_PROPS,
+          stroke: `url(#gradient-stroke-${index})`
+        }}
         // only on mobile
         // to handle dot style on hover (convert to click)
         // use with the tooltip component
-        activeDot={{
-          ...CUSTOM_DOT_ACTIVE_PROPS,
-          stroke: `url(#gradient-stroke-${index})`
-        }}
         dot={
           <CustomDot
             onDotClick={handleOnDotClick(datakey)}
@@ -269,7 +257,9 @@ const buildCustomLabel = ({
   );
 };
 
-// UTILS
+/* UTILS */
+const CHART_CONFIGS_BY_SIDE_COUNT = pipe(keyBy('sideCount'), mapValues('name'));
+
 const formatValues_: (values_: number | number[]) => Record<string, number> = pipe(
   values_ => flatten([values_]),
   values_ => values_.map((val: number, i: number): [string, number] => [`value${i + 1}`, val]),
@@ -330,11 +320,6 @@ const LearningProfileRadarChart = ({
 
   useEffect(() => {
     setIsMobile_();
-    window.addEventListener('resize', setIsMobile_);
-
-    return () => {
-      window.removeEventListener('resize', setIsMobile_);
-    };
   }, [setIsMobile_]);
 
   useEffect(() => {
