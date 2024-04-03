@@ -35,3 +35,18 @@ test('formatData', t => {
   const res = formatData(data);
   t.deepEqual(res, expected);
 });
+
+test('formatData > {}', t => {
+  const res = formatData({});
+  t.deepEqual(res, []);
+});
+
+test('formatData > {test: 5}', t => {
+  const res = formatData({test: 5});
+  t.deepEqual(res, [
+    {
+      subject: 'test',
+      value1: 5
+    }
+  ]);
+});

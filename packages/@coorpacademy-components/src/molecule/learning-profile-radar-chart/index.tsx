@@ -35,6 +35,8 @@ import {
   learningProfileRadarChartPropTypes
 } from './types';
 
+type CHART_TYPE_TYPE = keyof typeof CHART_CONFIGS;
+
 /* TICK_POSITIONS */
 const top: TickType = {offset: {x: -100, y: -65}, alignment: 'center', margin: 'auto'};
 const bottom: TickType = {offset: {x: -100, y: 10}, alignment: 'center', margin: 'auto'};
@@ -215,7 +217,7 @@ const buildCustomLabel = ({
   y: number;
   percentagesValues: number[];
   label: string;
-  chartType: keyof typeof CHART_CONFIGS;
+  chartType: CHART_TYPE_TYPE;
   formatedColors: FormatedColorsType[];
   activeDot?: ActiveDotType;
 }) => {
@@ -257,9 +259,9 @@ const buildCustomLabel = ({
 };
 
 /* UTILS */
-const CHART_CONFIGS_BY_SIDE_COUNT = pipe(keyBy('sideCount'), mapValues('name'));
+const CHART_CONFIGS_BY_SIDE_COUNT = pipe(keyBy('sideCount'), mapValues('name'))(CHART_CONFIGS);
 
-const formatValues_: (values_: number | number[]) => Record<string, number> = pipe(
+const formatValues: (values_: number | number[]) => Record<string, number> = pipe(
   values_ => flatten([values_]),
   values_ => values_.map((val: number, i: number): [string, number] => [`value${i + 1}`, val]),
   fromPairs
@@ -270,7 +272,7 @@ export const formatData: (data_: LearningProfileRadarChartPropTypes['data']) => 
   pipe(
     toPairs,
     map(([label, values_]: [string, number | number[]]) => ({
-      ...formatValues_(values_),
+      ...formatValues(values_),
       subject: label
     }))
   );
@@ -294,8 +296,8 @@ const LearningProfileRadarChart = ({
     return colors ? Object.assign({}, DEFAULT_COLORS, colors) : DEFAULT_COLORS;
   })(totalDataset);
 
-  const chartType: keyof typeof CHART_CONFIGS = useMemo(
-    () => getOr('hexagon', size(data), CHART_CONFIGS_BY_SIDE_COUNT(CHART_CONFIGS)),
+  const chartType: CHART_TYPE_TYPE = useMemo(
+    () => getOr('hexagon', size(data), CHART_CONFIGS_BY_SIDE_COUNT),
     [data]
   );
 
@@ -317,16 +319,10 @@ const LearningProfileRadarChart = ({
     setIsMobile(isMobile_);
   }, [isMobile_]);
 
-  useEffect(() => {
-    setIsMobile_();
-  }, [setIsMobile_]);
+  useEffect(() => setIsMobile_(), [setIsMobile_]);
 
   useEffect(() => {
-    const handleClick = () => {
-      setActiveDot(prevActiveDot => {
-        if (!isEmpty(prevActiveDot)) return undefined;
-      });
-    };
+    const handleClick = () => setActiveDot(undefined);
 
     !isEmpty(activeDot) && window.addEventListener('click', handleClick);
 
@@ -338,14 +334,14 @@ const LearningProfileRadarChart = ({
   function handleOnDotClick(datakey: string) {
     return (label: string) => {
       const payload = formatedData.find(data_ => data_.subject === label);
-      if (!payload) return;
-
-      setActiveDot({
-        key: datakey,
-        value: payload[datakey],
-        label: payload.subject
-      });
-      onClick();
+      if (payload) {
+        setActiveDot({
+          key: datakey,
+          value: payload[datakey],
+          label: payload.subject
+        });
+        onClick();
+      }
     };
   }
 
