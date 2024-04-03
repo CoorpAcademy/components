@@ -17,6 +17,7 @@ library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const DEFAULT_WRAPPER_SIZE = 40;
+const DEFAULT_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
   s: {
@@ -34,7 +35,7 @@ const SIZE_CONFIGS = {
 };
 const hslObjectToHslString = ({h, s, l}) => `hsl(${h}, ${s}%, ${l}%)`;
 
-const getIconColor = (backgroundColor, defaultColor = 'hsl(0, 0%, 32%)') => {
+const getIconColor = (backgroundColor, defaultColor = DEFAULT_COLOR) => {
   if (!backgroundColor) return defaultColor;
 
   try {
