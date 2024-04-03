@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import {ViewStyle} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Color from 'color';
+import Color from 'colorjs.io';
 
 export type Props = {
   children?: ReactNode;
@@ -24,7 +24,7 @@ const Gradient = ({
 }: Props) => {
   let calculatedColors = colors;
   if (colors.length === 1) {
-    const {r, g, b} = Color(colors[0]).object();
+    const {r, g, b} = new Color(colors[0]);
     calculatedColors =
       transparencyPosition === 'top'
         ? [`rgba(${r}, ${g}, ${b}, 0)`, colors[0], colors[0]]

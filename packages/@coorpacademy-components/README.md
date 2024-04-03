@@ -169,7 +169,7 @@ For more info see the [mobile documentation](https://github.com/CoorpAcademy/mob
 
 You may need to install these optional libs depending on which native components you use:
 
-- `color`
+- `colorjs.io`
 - `react-native-modal`
 - `react-native-render-html`
 - `react-native-linear-gradient`
