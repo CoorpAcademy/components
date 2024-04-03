@@ -28,7 +28,6 @@ import {isMobile as getIsMobile} from '../../util/check-is-mobile';
 import style from './style.css';
 import {
   ActiveDotType,
-  ColorType,
   FormatedColorsType,
   FormatedDataType,
   LearningProfileRadarChartPropTypes,
@@ -287,11 +286,11 @@ const LearningProfileRadarChart = ({
 
   const formatedData = useMemo(() => formatData(data), [data]);
 
-  const formatedColors: FormatedColorsType[] = times(i => {
+  const formatedColors = times(i => {
     const hasColorsProps = !!colorsProps?.length;
     if (!hasColorsProps) return DEFAULT_COLORS;
 
-    const colors: ColorType | undefined = colorsProps[i];
+    const colors = colorsProps[i];
     return colors ? Object.assign({}, DEFAULT_COLORS, colors) : DEFAULT_COLORS;
   })(totalDataset);
 
@@ -311,7 +310,7 @@ const LearningProfileRadarChart = ({
     [formatedColors]
   );
 
-  const {userAgent} = navigator;
+  const userAgent = navigator?.userAgent;
   const isMobile_ = useMemo(() => getIsMobile(userAgent), [userAgent]);
 
   const setIsMobile_ = useCallback(() => {
@@ -395,6 +394,6 @@ const LearningProfileRadarChart = ({
   );
 };
 
-LearningProfileRadarChart.prototype = learningProfileRadarChartPropTypes;
+LearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
 
 export default LearningProfileRadarChart;
