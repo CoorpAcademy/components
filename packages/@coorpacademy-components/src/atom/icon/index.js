@@ -6,8 +6,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
-
-import Color from 'color';
+import Color from 'colorjs.io';
 import style from './style.css';
 
 // FontAwesome documentation for where to find icon names: https://docs.fontawesome.com/web/add-icons/svg-icon-names
@@ -33,15 +32,13 @@ const SIZE_CONFIGS = {
     wrapperSize: 48
   }
 };
-const hslObjectToHslString = ({h, s, l}) => `hsl(${h}, ${s}%, ${l}%)`;
 
 const getIconColor = (backgroundColor, defaultColor = DEFAULT_COLOR) => {
   if (!backgroundColor) return defaultColor;
-
   try {
-    const color = Color(backgroundColor);
-    const adjustedColor = color.lightness(32);
-    return hslObjectToHslString(adjustedColor.hsl());
+    const color = new Color(backgroundColor);
+    color.hsl.l = 32;
+    return color.toString();
   } catch (error) {
     return defaultColor;
   }
