@@ -80,6 +80,7 @@
     "react-autosuggest": "^10.0.2",
     "react-dropzone": "^9.0.0",
     "react-tooltip": "4.5.1",
+    "recharts": "^2.12.2",
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
