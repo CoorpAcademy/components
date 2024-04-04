@@ -126,7 +126,7 @@ const CustomTooltip = ({
   payload?: {value: number}[];
   label?: string;
 }) =>
-  active && payload && payload.length > 0 ? (
+  active && !!payload?.length ? (
     <div className={style.tooltip}>
       <p>{label}</p>
       <p>{payload[0].value}%</p>
@@ -289,8 +289,7 @@ const LearningProfileRadarChart = ({
   const formatedData = useMemo(() => formatData(data), [data]);
 
   const formatedColors = times(i => {
-    const hasColorsProps = !!colorsProps?.length;
-    if (!hasColorsProps) return DEFAULT_COLORS;
+    if (!colorsProps?.length) return DEFAULT_COLORS;
 
     const colors = colorsProps[i];
     return colors ? Object.assign({}, DEFAULT_COLORS, colors) : DEFAULT_COLORS;
@@ -348,7 +347,7 @@ const LearningProfileRadarChart = ({
   function renderCustomLabel({
     x,
     y,
-    payload,
+    payload: {value: label},
     index
   }: {
     x: number;
@@ -356,7 +355,6 @@ const LearningProfileRadarChart = ({
     payload: {value: string};
     index: number;
   }) {
-    const {value: label} = payload;
     const currentData = formatedData.find(({subject}) => subject === label);
     const percentagesValues: number[] = pipe(
       omit('subject'),

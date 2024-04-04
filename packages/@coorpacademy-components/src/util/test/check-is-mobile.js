@@ -5,6 +5,10 @@ test('should return true', t => {
   t.truthy(isMobile('iphone'));
 });
 
-test('should return false', t => {
+test('should return false if useragent is not mobile', t => {
   t.falsy(isMobile('noiphone'));
+});
+
+test('should return false if useragent is undefined', t => {
+  t.falsy(isMobile(undefined));
 });
