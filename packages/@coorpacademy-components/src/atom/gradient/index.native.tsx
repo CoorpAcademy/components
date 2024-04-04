@@ -24,11 +24,14 @@ const Gradient = ({
 }: Props) => {
   let calculatedColors = colors;
   if (colors.length === 1) {
-    const {r, g, b} = new Color(colors[0]);
+    const [raw] = colors;
+    const transparent = new Color(raw).to('srgb');
+    transparent.alpha = 0;
+
     calculatedColors =
       transparencyPosition === 'top'
-        ? [`rgba(${r}, ${g}, ${b}, 0)`, colors[0], colors[0]]
-        : [colors[0], colors[0], `rgba(${r}, ${g}, ${b}, 0)`];
+        ? [transparent.toString(), raw, raw]
+        : [raw, raw, transparent.toString()];
   }
 
   const _style = [];

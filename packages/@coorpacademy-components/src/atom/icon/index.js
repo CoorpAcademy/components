@@ -34,14 +34,9 @@ const SIZE_CONFIGS = {
 };
 
 const getIconColor = (backgroundColor, defaultColor = DEFAULT_COLOR) => {
-  if (!backgroundColor) return defaultColor;
-  try {
-    const color = new Color(backgroundColor);
-    color.hsl.l = 32;
-    return color.toString();
-  } catch (error) {
-    return defaultColor;
-  }
+  return backgroundColor
+    ? new Color(backgroundColor).to('hsl').set({l: 32}).toString()
+    : defaultColor;
 };
 
 const Icon = ({iconName, iconColor, backgroundColor, preset = DEFAULT_PRESET, size}) => {
@@ -96,4 +91,4 @@ Icon.propTypes = {
   })
 };
 
-export default Icon;
+export default React.memo(Icon);
