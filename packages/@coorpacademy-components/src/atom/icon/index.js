@@ -12,6 +12,7 @@ import style from './style.css';
 library.add(fas);
 
 const DEFAULT_PRESET = 'm';
+const ICON_LUMINOSITY = 32;
 const DEFAULT_WRAPPER_SIZE = 40;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
@@ -30,10 +31,8 @@ const SIZE_CONFIGS = {
   }
 };
 
-export const getIconColor = ({backgroundColor, defaultIconColor = DEFAULT_ICON_COLOR} = {}) => {
-  return backgroundColor
-    ? new Color(backgroundColor).to('hsl').set({l: 32}).toString()
-    : defaultIconColor;
+export const getForegroundColor = backgroundColor => {
+  return new Color(backgroundColor).to('hsl').set({l: ICON_LUMINOSITY}).toString();
 };
 
 const Icon = React.memo(function Icon({
@@ -43,7 +42,10 @@ const Icon = React.memo(function Icon({
   preset = DEFAULT_PRESET,
   size
 }) {
-  const effectiveIconColor = iconColor || getIconColor({backgroundColor});
+  const effectiveIconColor =
+    iconColor || backgroundColor
+      ? getForegroundColor(backgroundColor)
+      : DEFAULT_ICON_COLOR;
 
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
