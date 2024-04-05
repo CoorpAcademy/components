@@ -21,7 +21,8 @@ import {
   omit,
   fromPairs,
   times,
-  flatten
+  flatten,
+  findKey
 } from 'lodash/fp';
 import classnames from 'classnames';
 import {isMobile as getIsMobile} from '../../util/check-is-mobile';
@@ -271,18 +272,9 @@ const formatValues: (values_: number | number[]) => Record<string, number> = pip
   fromPairs
 );
 
-/* this convert incoming component data to rechart data structure */
-export const formatData: (data_: LearningProfileRadarChartPropTypes['data']) => FormatedDataType[] =
-  pipe(
-    toPairs,
-    map(([label, values_]: [string, number | number[]]) => ({
-      ...formatValues(values_),
-      subject: label
-    }))
-  );
-
 export const LearningProfileRadarChart = ({
   data,
+  legend,
   totalDataset,
   colors: colorsProps,
   onClick,
@@ -291,8 +283,6 @@ export const LearningProfileRadarChart = ({
 }: LearningProfileRadarChartPropTypes) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
-
-  const formatedData = useMemo(() => formatData(data), [data]);
 
   const formatedColors = times(i => {
     if (!colorsProps?.length) return DEFAULT_COLORS;
@@ -339,13 +329,15 @@ export const LearningProfileRadarChart = ({
   function handleOnDotClick(datakey: string) {
     return (label: string) => {
       const payload = formatedData.find(data_ => data_.subject === label);
-      if (payload) {
+      const skillRef = findKey(val => val === payload?.subject, legend);
+
+      if (payload && skillRef) {
         setActiveDot({
           key: datakey,
           value: payload[datakey],
           label: payload.subject
         });
-        onClick();
+        onClick(skillRef);
       }
     };
   }
@@ -379,6 +371,17 @@ export const LearningProfileRadarChart = ({
       formatedColors
     });
   }
+
+  /* this convert incoming component data to rechart data structure */
+  const formatData: (data_: LearningProfileRadarChartPropTypes['data']) => FormatedDataType[] =
+    pipe(
+      toPairs,
+      map(([ref, values_]: [string, number | number[]]) => ({
+        ...formatValues(values_),
+        subject: legend[ref]
+      }))
+    );
+  const formatedData = useMemo(() => formatData(data), [data]);
 
   return (
     <RadarChart

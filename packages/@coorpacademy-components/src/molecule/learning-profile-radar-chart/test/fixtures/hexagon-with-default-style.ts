@@ -5,14 +5,22 @@ const fixture: Fixture = {
   props: {
     totalDataset: 1,
     data: {
-      'Adaptability and resilience': 15.6,
-      'Digital culture': 43.8,
-      'Problem solving': 56.4,
-      Leadership: 59.1,
-      'Time management': 34.9,
-      'Sustainable thinking': 82.3
+      skillRef1: 15.6,
+      skillRef2: 43.8,
+      skillRef3: 56.4,
+      skillRef4: 59.1,
+      skillRef5: 34.9,
+      skillRef6: 82.3
     },
-    onClick: () => console.log('on dot click')
+    legend: {
+      skillRef1: 'Adaptability and resilience',
+      skillRef2: 'Digital culture',
+      skillRef3: 'Problem solving',
+      skillRef4: 'Leadership',
+      skillRef5: 'Time management',
+      skillRef6: 'Sustainable thinking'
+    },
+    onClick: skillref => console.log(`on dot click on ref: ${skillref}`)
   }
 };
 

@@ -79,10 +79,13 @@ export type ColorType = {
 
 export type LearningProfileRadarChartPropTypes = {
   data: {
-    [key: string]: number | number[];
+    [ref: string]: number | number[];
+  };
+  legend: {
+    [ref: string]: string;
   };
   totalDataset: number;
-  onClick: () => void;
+  onClick: (skillRef: string) => void;
   colors?: ColorType[];
   width?: number;
   height?: number;

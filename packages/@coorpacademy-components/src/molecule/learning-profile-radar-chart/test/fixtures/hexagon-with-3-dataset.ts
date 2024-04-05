@@ -5,12 +5,20 @@ const fixture: Fixture = {
   props: {
     totalDataset: 3,
     data: {
-      'Adaptability and resilience': [15.6, 5, 45],
-      'Digital culture': [43.8, 0.01, 20],
-      'Problem solving': [56.4, 10, 70],
-      Leadership: [59.1, 60, 14],
-      'Time management': [34.9, 90, 45],
-      'Sustainable thinking': [82.3, 25, 12]
+      skillRef1: [15.6, 5, 45],
+      skillRef2: [43.8, 0.01, 20],
+      skillRef3: [56.4, 10, 70],
+      skillRef4: [59.1, 60, 14],
+      skillRef5: [34.9, 90, 45],
+      skillRef6: [82.3, 25, 12]
+    },
+    legend: {
+      skillRef1: 'Adaptability and resilience',
+      skillRef2: 'Digital culture',
+      skillRef3: 'Problem solving',
+      skillRef4: 'Leadership',
+      skillRef5: 'Time management',
+      skillRef6: 'Sustainable thinking'
     },
     colors: [
       {
@@ -50,7 +58,7 @@ const fixture: Fixture = {
         }
       }
     ],
-    onClick: () => console.log('on click')
+    onClick: skillref => console.log(`on dot click on ref: ${skillref}`)
   }
 };
 
