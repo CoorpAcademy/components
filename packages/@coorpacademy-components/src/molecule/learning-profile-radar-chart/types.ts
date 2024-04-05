@@ -21,7 +21,9 @@ export const learningProfileRadarChartPropTypes = {
         color: PropTypes.string
       })
     })
-  )
+  ),
+  width: PropTypes.number,
+  height: PropTypes.number
 };
 
 export const customDotPropTypes = {
@@ -82,6 +84,8 @@ export type LearningProfileRadarChartPropTypes = {
   totalDataset: number;
   onClick: () => void;
   colors?: ColorType[];
+  width?: number;
+  height?: number;
 };
 
 export type CustomDotPropTypes = {

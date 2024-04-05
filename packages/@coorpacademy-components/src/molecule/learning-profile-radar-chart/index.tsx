@@ -139,7 +139,8 @@ const CustomDot = ({
   payload,
   onDotClick,
   stroke,
-  activeDot
+  activeDot,
+  dataName
 }: {
   cx?: number;
   cy?: number;
@@ -148,6 +149,7 @@ const CustomDot = ({
   dataKey: string;
   stroke: string;
   activeDot?: ActiveDotType;
+  dataName: string;
 }) => (
   <circle
     {...{
@@ -161,7 +163,8 @@ const CustomDot = ({
 
         if (!payload?.name) return;
         onDotClick(payload.name);
-      }
+      },
+      'data-name': dataName
     }}
   />
 );
@@ -196,6 +199,7 @@ const buildRadars = (
             activeDot={activeDot}
             dataKey={datakey}
             stroke={`url(#gradient-stroke-${index})`}
+            dataName={dataset}
           />
         }
       />
@@ -277,11 +281,13 @@ export const formatData: (data_: LearningProfileRadarChartPropTypes['data']) => 
     }))
   );
 
-const LearningProfileRadarChart = ({
+export const LearningProfileRadarChart = ({
   data,
   totalDataset,
   colors: colorsProps,
-  onClick
+  onClick,
+  width,
+  height
 }: LearningProfileRadarChartPropTypes) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
@@ -375,19 +381,31 @@ const LearningProfileRadarChart = ({
   }
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={formatedData}>
-        {gradients}
-        {buildRadars(totalDataset, handleOnDotClick, activeDot)}
-        <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
-        <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
-        <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
-        {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}
-      </RadarChart>
-    </ResponsiveContainer>
+    <RadarChart
+      width={width}
+      height={height}
+      cx="50%"
+      cy="50%"
+      outerRadius="80%"
+      data={formatedData}
+    >
+      {gradients}
+      {buildRadars(totalDataset, handleOnDotClick, activeDot)}
+      <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
+      <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
+      <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
+      {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}
+    </RadarChart>
   );
 };
 
-LearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
+const ResponsiveLearningProfileRadarChart = (props: LearningProfileRadarChartPropTypes) => (
+  <ResponsiveContainer width="100%" height="100%">
+    <LearningProfileRadarChart {...props} />
+  </ResponsiveContainer>
+);
 
-export default LearningProfileRadarChart;
+LearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
+ResponsiveLearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
+
+export default ResponsiveLearningProfileRadarChart;
