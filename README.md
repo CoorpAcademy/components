@@ -51,10 +51,6 @@ lerna add dependency-name --scope=package-name
 ### run a specific test file:
 
 ```bash
-lerna run prepare
-```
-
-```bash
 lerna run --scope @coorpacademy/components test:unit -- test/file/path
 # lerna accept globs for packages, ex "@coorpacademy/redux-*"
 ```
