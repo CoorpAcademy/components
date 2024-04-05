@@ -31,9 +31,8 @@ const SIZE_CONFIGS = {
   }
 };
 
-export const getForegroundColor = backgroundColor => {
-  return new Color(backgroundColor).to('hsl').set({l: ICON_LUMINOSITY}).toString();
-};
+export const getForegroundColor = backgroundColor =>
+  new Color(backgroundColor).to('hsl').set({l: ICON_LUMINOSITY}).toString();
 
 const Icon = React.memo(function Icon({
   iconName,
@@ -43,9 +42,7 @@ const Icon = React.memo(function Icon({
   size
 }) {
   const effectiveIconColor =
-    iconColor || backgroundColor
-      ? getForegroundColor(backgroundColor)
-      : DEFAULT_ICON_COLOR;
+    iconColor || backgroundColor ? getForegroundColor(backgroundColor) : DEFAULT_ICON_COLOR;
 
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
