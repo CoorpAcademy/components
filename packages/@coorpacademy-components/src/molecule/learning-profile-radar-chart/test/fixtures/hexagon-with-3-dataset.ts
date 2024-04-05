@@ -19,9 +19,7 @@ const fixture: Fixture = {
           stroke: ['#0062ffff', '#8000FF ']
         },
         percentage: {
-          color: '#ff8800ff',
-          background:
-            'linear-gradient(to bottom, rgba(133, 242, 234, 0.3), rgba(123, 213, 240, 0.3))'
+          color: '#ff8800ff'
         },
         label: {
           color: '#ff2f00ff'
@@ -33,9 +31,7 @@ const fixture: Fixture = {
           stroke: ['#d900ffff', '#ff0026']
         },
         percentage: {
-          color: '#ff8800ff',
-          background:
-            'linear-gradient(to bottom, rgba(133, 242, 234, 0.3), rgba(123, 213, 240, 0.3))'
+          color: '#ff8800ff'
         },
         label: {
           color: '#ff2f00ff'
@@ -47,9 +43,7 @@ const fixture: Fixture = {
           stroke: ['#198dcbff', '#58f0e891']
         },
         percentage: {
-          color: '#198dcbff',
-          background:
-            'linear-gradient(to bottom, rgba(133, 242, 234, 0.3), rgba(123, 213, 240, 0.3))'
+          color: '#198dcbff'
         },
         label: {
           color: '#000000ff'

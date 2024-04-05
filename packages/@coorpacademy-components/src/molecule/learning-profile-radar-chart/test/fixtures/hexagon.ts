@@ -16,12 +16,10 @@ const fixture: Fixture = {
       {
         gradient: {
           fill: ['#ffdd00ff', '#00ff4085'],
-          stroke: ['#ff9100ff', '#61412f ']
+          stroke: ['#ff9100ff', '#61412f']
         },
         percentage: {
-          color: '#ff8800ff',
-          background:
-            'linear-gradient(to bottom, rgba(133, 242, 234, 0.3), rgba(123, 213, 240, 0.3))'
+          color: '#ff8800ff'
         }
       }
     ],

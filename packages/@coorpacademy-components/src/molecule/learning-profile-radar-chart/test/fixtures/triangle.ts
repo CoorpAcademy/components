@@ -13,7 +13,7 @@ const fixture: Fixture = {
       {
         gradient: {
           fill: ['#218442ff', '#60f55585'],
-          stroke: ['#e44e4eff', '#e18310 ']
+          stroke: ['#e44e4eff', '#e18310']
         },
         percentage: {
           color: '#9f371eff',
