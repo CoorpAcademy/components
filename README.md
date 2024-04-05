@@ -40,6 +40,22 @@ Go to the target package, and add the dependency using
 yarn add myPackage
 ```
 
+### install dependencies for a specfic package:
+
+```bash
+lerna add dependency-name --scope=package-name
+```
+
+### run a specific test file:
+
+```bash
+lerna run prepare
+```
+
+```bash
+lerna run --scope package-name test:unit -- test-file-path
+```
+
 You'll need `-W` (aka `--ignore-workspace-root-check`) to install to package root.
 
 ### Unit Tests with eslint and ava:

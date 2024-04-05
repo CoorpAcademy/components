@@ -9,14 +9,11 @@ import getOr from 'lodash/fp/getOr';
 import Color from 'colorjs.io';
 import style from './style.css';
 
-// FontAwesome documentation for where to find icon names: https://docs.fontawesome.com/web/add-icons/svg-icon-names
-// Search for FontAwesome icons: https://fontawesome.com/search
-
 library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const DEFAULT_WRAPPER_SIZE = 40;
-const DEFAULT_COLOR = 'hsl(0, 0%, 32%)';
+export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
   s: {
@@ -33,14 +30,14 @@ const SIZE_CONFIGS = {
   }
 };
 
-const getIconColor = (backgroundColor, defaultColor = DEFAULT_COLOR) => {
+export const getIconColor = ({backgroundColor, defaultIconColor = DEFAULT_ICON_COLOR} = {}) => {
   return backgroundColor
     ? new Color(backgroundColor).to('hsl').set({l: 32}).toString()
-    : defaultColor;
+    : defaultIconColor;
 };
 
 const Icon = ({iconName, iconColor, backgroundColor, preset = DEFAULT_PRESET, size}) => {
-  const effectiveIconColor = iconColor || getIconColor(backgroundColor);
+  const effectiveIconColor = iconColor || getIconColor({backgroundColor});
 
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
