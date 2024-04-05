@@ -36,7 +36,13 @@ export const getIconColor = ({backgroundColor, defaultIconColor = DEFAULT_ICON_C
     : defaultIconColor;
 };
 
-const Icon = ({iconName, iconColor, backgroundColor, preset = DEFAULT_PRESET, size}) => {
+const Icon = React.memo(function Icon({
+  iconName,
+  iconColor,
+  backgroundColor,
+  preset = DEFAULT_PRESET,
+  size
+}) {
   const effectiveIconColor = iconColor || getIconColor({backgroundColor});
 
   const effectiveSize = size
@@ -58,7 +64,7 @@ const Icon = ({iconName, iconColor, backgroundColor, preset = DEFAULT_PRESET, si
       />
     </div>
   );
-};
+});
 
 Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
@@ -88,4 +94,4 @@ Icon.propTypes = {
   })
 };
 
-export default React.memo(Icon);
+export default Icon;
