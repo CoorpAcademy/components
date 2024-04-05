@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value cm_primary_blue from colors;
+@value cm_grey_50 from colors;
 
 .tickWrapper {
     display: flex;
@@ -17,14 +18,12 @@
 }
 
 .tickWrapperFocus {
-    background-color: #FAFAFA;
+    background-color: cm_grey_50;
     border-radius: 12px;
     width: fit-content;
 }
 
 .tickValue {
-    color: cm_primary_blue;
-    background: linear-gradient(to bottom, rgba(0, 97, 255, 0.1), rgba(128, 0, 255, 0.1));
     padding: 4px;
     border-radius: 12px;
 }
@@ -42,7 +41,7 @@
     font-family: 'Gilroy';
     font-weight: 600;
     background-color: rgba(0, 0, 0, 0.8);
-    color: #FAFAFA;
+    color: cm_grey_50;
     padding: 4px 8px;
     border-radius: 8px;
     width: 100%;
