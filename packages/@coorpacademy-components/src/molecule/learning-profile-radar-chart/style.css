@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value cm_primary_blue from colors;
 @value cm_grey_50 from colors;
+@value lightDark from colors;
 
 .tickWrapper {
     display: flex;
@@ -40,7 +41,7 @@
     position: relative;
     font-family: 'Gilroy';
     font-weight: 600;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: lightDark;
     color: cm_grey_50;
     padding: 4px 8px;
     border-radius: 8px;
