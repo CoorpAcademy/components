@@ -15,9 +15,11 @@ const generateStories$ = cwd =>
         concat(
           of(`import React from 'react';`, `import ${title} from '..';`),
           readComponentFixtures$({title, path, type}).pipe(
-            map(
-              ({fixture, fixturePath}) =>
-                `import fixture${fixture} from './${relative(testPath, fixturePath)}';`.replace('\\', '/')
+            map(({fixture, fixturePath}) =>
+              `import fixture${fixture} from './${relative(testPath, fixturePath)}';`.replace(
+                /\\/g,
+                '/'
+              )
             )
           ),
           of(

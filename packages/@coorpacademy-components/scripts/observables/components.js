@@ -1,4 +1,5 @@
 const {relative, join} = require('path');
+const {sep: folderSeparator} = require('path');
 const pipe = require('lodash/fp/pipe');
 const last = require('lodash/fp/last');
 const _join = require('lodash/fp/join');
@@ -11,7 +12,7 @@ const {readComponentFiles$} = require('./component-files');
 const parse = cwd =>
   pipe(
     file => relative(cwd, file),
-    split('\\'),
+    split(folderSeparator),
     slice(0, -1),
     folders => {
       const levels = slice(0, -1)(folders);
