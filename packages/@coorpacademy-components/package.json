@@ -84,6 +84,7 @@
     "react-autosuggest": "^10.0.2",
     "react-dropzone": "^9.0.0",
     "react-tooltip": "4.5.1",
+    "recharts": "^2.12.2",
     "uuid": "^9.0.0"
   },
   "peerDependencies": {
@@ -126,6 +127,7 @@
     "@testing-library/react-native": "^10.1.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/react-native": "~0.68.7",
+    "@types/recharts": "^1.8.29",
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
