@@ -17,7 +17,7 @@ const generateStories$ = cwd =>
           readComponentFixtures$({title, path, type}).pipe(
             map(
               ({fixture, fixturePath}) =>
-                `import fixture${fixture} from './${relative(testPath, fixturePath)}';`
+                `import fixture${fixture} from './${relative(testPath, fixturePath)}';`.replace('\\', '/')
             )
           ),
           of(

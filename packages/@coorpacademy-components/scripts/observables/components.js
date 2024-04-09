@@ -11,7 +11,7 @@ const {readComponentFiles$} = require('./component-files');
 const parse = cwd =>
   pipe(
     file => relative(cwd, file),
-    split('/'),
+    split('\\'),
     slice(0, -1),
     folders => {
       const levels = slice(0, -1)(folders);
