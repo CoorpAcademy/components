@@ -16,6 +16,7 @@
     "publish:beta": "npm run pre:publish && lerna publish --npm-tag beta --exact",
     "publish:canary": "lerna publish --canary --exact patch --no-git-tag-version --no-push",
     "publish:latest": "npm run pre:publish && lerna publish --exact",
+    "preinstall": "export FONTAWESOME_NPM_AUTH_TOKEN=$(packages/@coorpacademy-components/scripts/load-font-awesome-token.sh)",
     "postinstall": "npm run preflow",
     "update": "update-node"
   },

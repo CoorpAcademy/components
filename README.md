@@ -23,8 +23,12 @@ If you want to see what theses packages have to look there: :wink:
 ### Start:
 
 ```bash
+source scripts/setup.sh
 yarn
+yarn prepare # or 'npm run prepare'
 ```
+
+You might need to source `scripts/setup.sh` to notably to load the fontawesome token in the `FONTAWESOME_NPM_AUTH_TOKEN` env variable.
 
 ### Publish:
 
@@ -36,6 +40,19 @@ Go to the target package, and add the dependency using
 
 ```bash
 yarn add myPackage
+```
+
+### install dependencies for a specific package:
+
+```bash
+lerna add dependency-name --scope=package-name
+```
+
+### run a specific test file:
+
+```bash
+lerna run --scope @coorpacademy/components test:unit -- test/file/path
+# lerna accept globs for packages, ex "@coorpacademy/redux-*"
 ```
 
 You'll need `-W` (aka `--ignore-workspace-root-check`) to install to package root.

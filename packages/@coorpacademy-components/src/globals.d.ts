@@ -4,7 +4,6 @@ declare module '@react-native-community/blur';
 declare module '@coorpacademy/translate';
 declare module 'browser-env';
 declare module 'react-native/*';
-declare module 'color';
 declare module 'css-color-function';
 declare module 'classnames';
 declare module '*.css';

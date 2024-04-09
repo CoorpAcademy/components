@@ -21,3 +21,4 @@ packages/@coorpacademy-components/src/**/test/index.stories.tsx
 yarn-error.log
 .flowconfig
 .eslintcache
+tmp
