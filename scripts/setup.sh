@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-TOP_LEVEL_DIR="$(dirname "$(dirname "$(readlink -f -- "$0")")")"
+CURRENT_FOLDER="$(basename $(pwd))"
+if [ "$CURRENT_FOLDER" != "components" ]; then
+  echo "Please run this component repo root"
+  exit 1
+fi
 
 # so far simple shortcut
-source "$TOP_LEVEL_DIR/packages/@coorpacademy-components/scripts/load-font-awesome-token.sh"
+source packages/@coorpacademy-components/scripts/load-font-awesome-token.sh
