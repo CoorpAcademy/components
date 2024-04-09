@@ -272,6 +272,19 @@ const formatValues: (values_: number | number[]) => Record<string, number> = pip
   fromPairs
 );
 
+/* this convert incoming component data to rechart data structure */
+export const formatData: (
+  legend: {[ref: string]: string},
+  data_: LearningProfileRadarChartPropTypes['data']
+) => FormatedDataType[] = (legend, data_) =>
+  pipe(
+    toPairs,
+    map(([ref, values_]: [string, number | number[]]) => ({
+      ...formatValues(values_),
+      subject: legend[ref]
+    }))
+  )(data_);
+
 export const LearningProfileRadarChart = ({
   data,
   legend,
@@ -371,17 +384,7 @@ export const LearningProfileRadarChart = ({
       formatedColors
     });
   }
-
-  /* this convert incoming component data to rechart data structure */
-  const formatData: (data_: LearningProfileRadarChartPropTypes['data']) => FormatedDataType[] =
-    pipe(
-      toPairs,
-      map(([ref, values_]: [string, number | number[]]) => ({
-        ...formatValues(values_),
-        subject: legend[ref]
-      }))
-    );
-  const formatedData = useMemo(() => formatData(data), [data]);
+  const formatedData = useMemo(() => formatData(legend, data), [legend, data]);
 
   return (
     <RadarChart

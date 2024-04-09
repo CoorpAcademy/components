@@ -3,7 +3,7 @@ import {formatData} from '..';
 import {FormatedDataType} from '../types';
 import fixture from './fixtures/hexagon';
 
-const {data} = fixture.props;
+const {data, legend} = fixture.props;
 const expected: FormatedDataType[] = [
   {
     value1: 15.6,
@@ -32,20 +32,20 @@ const expected: FormatedDataType[] = [
 ];
 
 test('formatData', t => {
-  const res = formatData(data);
+  const res = formatData(legend, data);
   t.deepEqual(res, expected);
 });
 
 test('formatData > {}', t => {
-  const res = formatData({});
+  const res = formatData({}, {});
   t.deepEqual(res, []);
 });
 
 test('formatData > {test: 5}', t => {
-  const res = formatData({test: 5});
+  const res = formatData({test: 'nop'}, {test: 5});
   t.deepEqual(res, [
     {
-      subject: 'test',
+      subject: 'nop',
       value1: 5
     }
   ]);
