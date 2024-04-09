@@ -7,10 +7,6 @@ import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
 import {TemplateContext} from '../../template/app-review/template-context';
 
-global.navigator = {
-  userAgent: 'mozilla'
-};
-
 export const context = {
   skin: {
     images: {
