@@ -23,12 +23,12 @@ If you want to see what theses packages have to look there: :wink:
 ### Start:
 
 ```bash
-scripts/setup.sh
+source scripts/setup.sh
 yarn
 yarn prepare # or 'npm run prepare'
 ```
 
-You might need to source `scripts/setup.sh` to notably to load the fontawesome token.
+You might need to source `scripts/setup.sh` to notably to load the fontawesome token in the `FONTAWESOME_NPM_AUTH_TOKEN` env variable.
 
 ### Publish:
 

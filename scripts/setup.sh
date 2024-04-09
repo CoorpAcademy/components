@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+TOP_LEVEL_DIR=$(dirname $(dirname $(readlink -f -- "$0")))
 
 # so far simple shortcut
-source $SCRIPT_DIR/../packages/@coorpacademy-components/scripts/load-font-awesome-token.sh
+source $TOP_LEVEL_DIR/packages/@coorpacademy-components/scripts/load-font-awesome-token.sh
