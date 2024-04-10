@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Chiudi la slide di revisione",
   "post_comment_aria_label": "Pubblica il tuo commento",
   "validate_aria_label": "Convalida la tua risposta e vai al passaggio successivo",
-  "stars": "stelle"
+  "stars": "stelle",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Vota questo corso"
+    }
+  }
 }

@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Close review slide",
   "post_comment_aria_label": "Post your comment",
   "validate_aria_label": "Validate your answer and go to next step",
-  "stars": "stars"
+  "stars": "stars",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
