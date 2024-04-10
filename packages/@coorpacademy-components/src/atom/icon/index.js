@@ -13,13 +13,14 @@ library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const ICON_LUMINOSITY = 32;
-const DEFAULT_WRAPPER_SIZE = 40;
+const DEFAULT_WRAPPER_SIZE = 24;
+const ICON_PADDING = 16;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
   s: {
     faSize: 'sm',
-    wrapperSize: 32
+    wrapperSize: 16
   },
   m: {
     faSize: 'lg',
@@ -27,7 +28,7 @@ const SIZE_CONFIGS = {
   },
   xl: {
     faSize: 'xl',
-    wrapperSize: 48
+    wrapperSize: 32
   }
 };
 
@@ -48,10 +49,13 @@ const Icon = React.memo(function Icon({
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
+  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING;
+
   const iconWrapperStyle = {
     backgroundColor,
-    width: effectiveSize.wrapperSize,
-    height: effectiveSize.wrapperSize
+    width: wrapperSize,
+    height: wrapperSize,
+    padding: ICON_PADDING
   };
 
   return (
