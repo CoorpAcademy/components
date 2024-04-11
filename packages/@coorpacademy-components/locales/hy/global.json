@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Փակել վերանայման սլայդը",
   "post_comment_aria_label": "Տեղադրեք ձեր մեկնաբանությունը",
   "validate_aria_label": "Հաստատեք ձեր պատասխանը և անցեք հաջորդ քայլին",
-  "stars": "աստղեր"
+  "stars": "աստղեր",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
