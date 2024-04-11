@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Закрити слайд перегляду",
   "post_comment_aria_label": "Опублікуйте ваш коментар",
   "validate_aria_label": "Підтвердьте свою відповідь і перейдіть до наступного кроку",
-  "stars": "зірки"
+  "stars": "зірки",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
