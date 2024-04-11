@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Sulgege ülekordamise slaid",
   "post_comment_aria_label": "Postitage oma kommentaar",
   "validate_aria_label": "Kinnitage oma vastus ja minge järgmisse etappi",
-  "stars": "tähed"
+  "stars": "tähed",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
