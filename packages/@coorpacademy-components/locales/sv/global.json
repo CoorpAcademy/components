@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Stäng granskningsbilden",
   "post_comment_aria_label": "Posta din kommentar",
   "validate_aria_label": "Validera ditt svar och gå till nästa steg",
-  "stars": "stjärnor"
+  "stars": "stjärnor",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
