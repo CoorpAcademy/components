@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Az áttekintő dia bezárása",
   "post_comment_aria_label": "Írj hozzászólást",
   "validate_aria_label": "Hitelesítsd válaszodat és ugorj a következő lépésre",
-  "stars": "csillagok"
+  "stars": "csillagok",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
