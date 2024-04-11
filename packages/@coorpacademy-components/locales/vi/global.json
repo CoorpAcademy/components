@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Đóng màn hình đánh giá",
   "post_comment_aria_label": "Đăng bình luận của bạn",
   "validate_aria_label": "Xác thực câu trả lời của bạn và sang bước tiếp theo",
-  "stars": "ngôi sao"
+  "stars": "ngôi sao",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
