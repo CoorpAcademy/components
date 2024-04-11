@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "關閉檢閱投影片",
   "post_comment_aria_label": "張貼您的註解",
   "validate_aria_label": "驗證您的答案並前往下一步",
-  "stars": "星星"
+  "stars": "星星",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
