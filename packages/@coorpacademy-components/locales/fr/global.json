@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Fermez la diapositive de révision",
   "post_comment_aria_label": "Postez votre commentaire",
   "validate_aria_label": "Validez votre réponse et passez à l'étape suivante",
-  "stars": "étoiles"
+  "stars": "étoiles",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Notez ce cours"
+    }
+  }
 }

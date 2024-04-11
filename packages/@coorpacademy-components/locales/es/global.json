@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Cerrar pantalla de reseña",
   "post_comment_aria_label": "Publique su comentario",
   "validate_aria_label": "Valide su respuesta y vaya al paso siguiente",
-  "stars": "estrellas"
+  "stars": "estrellas",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Califica este curso"
+    }
+  }
 }
