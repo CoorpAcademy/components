@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "关闭审议幻灯片",
   "post_comment_aria_label": "发布您的评论",
   "validate_aria_label": "验证您的答案并转到下一步",
-  "stars": "星星"
+  "stars": "星星",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
