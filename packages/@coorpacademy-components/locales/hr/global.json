@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Zatvori pregledni slajd",
   "post_comment_aria_label": "Objavite svoj komentar",
   "validate_aria_label": "Potvrdite svoj odgovor i idite na sljedeći korak",
-  "stars": "zvijezde"
+  "stars": "zvijezde",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
