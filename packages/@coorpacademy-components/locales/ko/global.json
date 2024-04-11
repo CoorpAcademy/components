@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "리뷰 슬라이드 닫기",
   "post_comment_aria_label": "의견을 작성하세요",
   "validate_aria_label": "답변을 검증한 후 다음 단계로 진행하세요",
-  "stars": "별"
+  "stars": "별",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
