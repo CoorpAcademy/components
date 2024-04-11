@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "İnceleme slaydını kapat",
   "post_comment_aria_label": "Yorumunu paylaş",
   "validate_aria_label": "Cevabınızı doğrulayın ve bir sonraki adıma geçin",
-  "stars": "yıldızlar"
+  "stars": "yıldızlar",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
