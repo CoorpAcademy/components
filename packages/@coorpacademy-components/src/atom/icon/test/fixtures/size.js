@@ -4,8 +4,8 @@ export default {
     iconColor: '#1B7B88',
     backgroundColor: '#D9F4F7',
     size: {
-      faSize: '2xs',
-      wrapperSize: 30
+      faSize: 24,
+      wrapperSize: 56
     }
   }
 };

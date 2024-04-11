@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, {number} from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
@@ -13,22 +13,22 @@ library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const ICON_LUMINOSITY = 32;
-const DEFAULT_WRAPPER_SIZE = 24;
-const ICON_PADDING = 16;
+const DEFAULT_WRAPPER_SIZE = 40;
+const ICON_PADDING = 8;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
   s: {
-    faSize: 'sm',
-    wrapperSize: 16
+    faSize: 12,
+    wrapperSize: 32
   },
   m: {
-    faSize: 'lg',
+    faSize: 16,
     wrapperSize: DEFAULT_WRAPPER_SIZE
   },
   xl: {
-    faSize: 'xl',
-    wrapperSize: 32
+    faSize: 20,
+    wrapperSize: 48
   }
 };
 
@@ -49,7 +49,7 @@ const Icon = React.memo(function Icon({
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
-  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING;
+  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
 
   const iconWrapperStyle = {
     backgroundColor,
@@ -63,7 +63,7 @@ const Icon = React.memo(function Icon({
       <FontAwesomeIcon
         icon={`fa-${iconName}`}
         color={effectiveIconColor}
-        size={effectiveSize.faSize}
+        font-size={effectiveSize.faSize}
       />
     </div>
   );
@@ -75,24 +75,7 @@ Icon.propTypes = {
   backgroundColor: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
-    faSize: PropTypes.oneOf([
-      '2xs',
-      'xs',
-      'sm',
-      'lg',
-      'xl',
-      '2xl',
-      '1x',
-      '2x',
-      '3x',
-      '4x',
-      '5x',
-      '6x',
-      '7x',
-      '8x',
-      '9x',
-      '10x'
-    ]),
+    faSize: number,
     wrapperSize: PropTypes.number
   })
 };
