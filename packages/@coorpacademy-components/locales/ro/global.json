@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Închideți slide-ul de recenzie",
   "post_comment_aria_label": "Postează comentariul tău",
   "validate_aria_label": "Validați-vă răspunsul și treceți la pasul următor",
-  "stars": "stele"
+  "stars": "stele",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
