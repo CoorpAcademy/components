@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Feche a imagem de revisão",
   "post_comment_aria_label": "Publique o seu comentário",
   "validate_aria_label": "Valide a sua resposta e siga para o próximo passo",
-  "stars": "estrelas"
+  "stars": "estrelas",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
