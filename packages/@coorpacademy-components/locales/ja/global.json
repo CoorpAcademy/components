@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "レビュースライドを閉じる",
   "post_comment_aria_label": "コメントを投稿する",
   "validate_aria_label": "回答が正しいことを確認して次のステップに進んでください",
-  "stars": "出演者"
+  "stars": "出演者",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
