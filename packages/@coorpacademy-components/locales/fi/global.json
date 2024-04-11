@@ -94,5 +94,10 @@
   "close_button_ariaLabel": "Sulje tarkastusdia",
   "post_comment_aria_label": "Julkaise kommenttisi",
   "validate_aria_label": "Vahvista vastauksesi ja siirry seuraavaan vaiheeseen",
-  "stars": "tähdet"
+  "stars": "tähdet",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course"
+    }
+  }
 }
