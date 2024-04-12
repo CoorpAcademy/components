@@ -172,7 +172,7 @@ const CustomDot = ({
 
 const buildRadars = (
   totalDataset: number,
-  handleOnDotClick: (datakey: string) => (name: string) => void,
+  handleOnDotClick: (name: string) => void,
   activeDot?: ActiveDotType
 ) =>
   times(index => {
@@ -196,11 +196,11 @@ const buildRadars = (
         // use with the tooltip component
         dot={
           <CustomDot
-            onDotClick={handleOnDotClick(datakey)}
+            onDotClick={handleOnDotClick}
             activeDot={activeDot}
             dataKey={datakey}
             stroke={`url(#gradient-stroke-${index})`}
-            dataName={dataset}
+            dataName={`dot-${dataset}`}
           />
         }
       />
@@ -215,7 +215,8 @@ const buildCustomLabel = ({
   label,
   activeDot,
   chartType,
-  formatedColors
+  formatedColors,
+  onClick
 }: {
   index: number;
   x: number;
@@ -225,6 +226,7 @@ const buildCustomLabel = ({
   chartType: CHART_TYPE_TYPE;
   formatedColors: FormatedColorsType[];
   activeDot?: ActiveDotType;
+  onClick: (name: string) => void;
 }) => {
   const isCurrentDotActive = activeDot?.label === label;
   const {
@@ -233,10 +235,17 @@ const buildCustomLabel = ({
     ...rest
   } = CHART_CONFIGS[chartType].ticks[index];
 
+  function onLabelClick(e: React.MouseEvent) {
+    e.stopPropagation();
+    onClick(label);
+  }
+
   return (
     <g>
       <foreignObject x={x + offsetX} y={y + offsetY} width="200" height="65">
         <div
+          data-name={label}
+          onClick={onLabelClick}
           className={classnames(style.tickWrapper, isCurrentDotActive && style.tickWrapperFocus)}
           style={{
             ...rest,
@@ -339,20 +348,22 @@ export const LearningProfileRadarChart = ({
     };
   }, [activeDot]);
 
-  function handleOnDotClick(datakey: string) {
-    return (label: string) => {
-      const payload = formatedData.find(data_ => data_.subject === label);
-      const skillRef = findKey(val => val === payload?.subject, legend);
+  function handleOnDotClick(label: string) {
+    const payload = formatedData.find(({subject}) => subject === label);
+    if (!payload) return;
 
-      if (payload && skillRef) {
-        setActiveDot({
-          key: datakey,
-          value: payload[datakey],
-          label: payload.subject
-        });
-        onClick(skillRef);
-      }
-    };
+    const index = formatedData.indexOf(payload);
+    const datakey = `value${index + 1}`;
+    const skillRef = findKey(val => val === payload?.subject, legend);
+
+    if (skillRef) {
+      setActiveDot({
+        key: datakey,
+        value: payload[datakey],
+        label: payload.subject
+      });
+      onClick(skillRef);
+    }
   }
 
   function renderCustomLabel({
@@ -381,7 +392,8 @@ export const LearningProfileRadarChart = ({
       label,
       activeDot,
       chartType,
-      formatedColors
+      formatedColors,
+      onClick: handleOnDotClick
     });
   }
   const formatedData = useMemo(() => formatData(legend, data), [legend, data]);

@@ -16,11 +16,11 @@ global.ResizeObserver = class MockedResizeObserver {
   disconnect = () => noop(null);
 };
 
-test('should get dot and trigger click', t => {
+test('should get label and trigger click', t => {
   t.plan(2);
-  const props = {...fixture.props, onClick: (ref: string) => t.is(ref, 'skillRef1')};
+  const props = {...fixture.props, onClick: (ref: string) => t.is(ref, 'skillRef3')};
   const {container} = render(<LearningProfileRadarChart {...props} width={100} height={100} />);
-  const dot1 = container.querySelector('[data-name="dot-dataset-1"]');
-  t.truthy(dot1);
-  fireEvent.click(dot1 as Element);
+  const label = container.querySelector('[data-name="Problem solving"]');
+  t.truthy(label);
+  fireEvent.click(label as Element);
 });

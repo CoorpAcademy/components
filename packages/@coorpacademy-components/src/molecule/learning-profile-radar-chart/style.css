@@ -46,4 +46,6 @@
     padding: 4px 8px;
     border-radius: 8px;
     width: 100%;
+    padding: 8px 12px;
+    box-sizing: border-box;
 }
