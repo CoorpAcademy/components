@@ -1,10 +1,10 @@
 .sidePanel {
-display: flex;
-width: 316px;
-flex-direction: column;
-justify-content: center;
-align-items: flex-start;
-gap: 16px;
-align-self: stretch;
+    display: flex;
+    width: 316px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
  }
  

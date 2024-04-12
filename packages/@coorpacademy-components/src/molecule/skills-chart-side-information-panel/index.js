@@ -4,11 +4,16 @@ import {map} from 'lodash/fp';
 import SkillsChartSideInformationItem from '../skills-chart-side-information-item';
 import style from './style.css';
 
-const SkillsChartSideInformationPanel = props => {
-  const {sidePanelItems = []} = props;
-  const sidePanel = map(sidePanelItemProps => {
-    return <SkillsChartSideInformationItem {...sidePanelItemProps} />;
-  }, sidePanelItems);
+const SkillsChartSideInformationPanel = ({sidePanelItems = []}) => {
+  const sidePanel = map(
+    sidePanelItemProps => (
+      <SkillsChartSideInformationItem
+        {...sidePanelItemProps}
+        key={`side-panel-item-${sidePanelItemProps.title}`}
+      />
+    ),
+    sidePanelItems
+  );
   return <div className={style.sidePanel}>{sidePanel}</div>;
 };
 

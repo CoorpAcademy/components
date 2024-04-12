@@ -5,7 +5,7 @@ export default {
   props: {
     title: 'Learning hours',
     value: '28h 6mins',
-    legend: 'focused skills',
+    legend: {prefix: 'on', main: 'focused skills'},
     icon: {...iconProps, preset: 's', backgroundColor: '#FAD6DE'}
   }
 };

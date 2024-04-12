@@ -5,7 +5,7 @@ export default {
   props: {
     title: 'Courses completed',
     value: '165',
-    legend: 'focused skills',
+    legend: {prefix: 'on', main: 'focused skills'},
     icon: {...iconProps, preset: 's'}
   }
 };
