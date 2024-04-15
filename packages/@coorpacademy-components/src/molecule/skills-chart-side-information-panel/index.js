@@ -18,7 +18,7 @@ const SkillsChartSideInformationPanel = ({sidePanelItems = []}) => {
 };
 
 SkillsChartSideInformationPanel.propTypes = {
-  sidePanelItems: PropTypes.arrayOf(SkillsChartSideInformationItem.propTypes)
+  sidePanelItems: PropTypes.arrayOf(PropTypes.shape(SkillsChartSideInformationItem.propTypes))
 };
 
 export default SkillsChartSideInformationPanel;
