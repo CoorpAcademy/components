@@ -23,10 +23,7 @@ SkillsChartSideInformationItem.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
   title: PropTypes.string,
   value: PropTypes.string,
-  legend: PropTypes.shape({
-    prefix: PropTypes.string,
-    main: PropTypes.string
-  })
+  legend: PropTypes.string
 };
 
 export default SkillsChartSideInformationItem;
