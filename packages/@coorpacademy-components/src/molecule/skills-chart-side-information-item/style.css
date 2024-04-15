@@ -1,0 +1,47 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_50 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+
+.InformationElement {
+  border-radius: 12px;
+  background: cm_grey_50;
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  color: cm_grey_500;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  margin-left: 8px;
+}
+
+.value {
+  color: cm_grey_700;
+  font-family: Gilroy;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.legend {
+  color: cm_grey_700;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 20px;
+}
