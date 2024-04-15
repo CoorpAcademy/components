@@ -11,8 +11,10 @@ const SkillsChartSideInformationItem = ({title, value, legend, icon: iconProps})
     </div>
     <div className={style.value}>{value}</div>
     <div className={style.legend}>
-      <span className={style.legendLight}>{legend.prefix}</span>{' '}
-      <span className={style.legendBold}>{legend.main}</span>
+      <span
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: legend}}
+      />
     </div>
   </div>
 );

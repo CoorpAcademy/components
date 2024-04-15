@@ -5,7 +5,7 @@ export default {
   props: {
     title: 'Questions answered',
     value: '12 585',
-    legend: {prefix: 'on', main: 'focused skills'},
+    legend: 'on <b>focused skills</b>',
     icon: {...iconProps, preset: 's', backgroundColor: '#FFDCD1'}
   }
 };
