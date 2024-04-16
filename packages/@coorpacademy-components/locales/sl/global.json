@@ -91,9 +91,9 @@
     "invalid_scorm": "datoteka scorm ni veljavna",
     "show_errors": "pokaži napake"
   },
-  "close_button_ariaLabel": "Close review slide",
-  "post_comment_aria_label": "Post your comment",
-  "validate_aria_label": "Validate your answer and go to next step",
+  "close_button_ariaLabel": "Zapri diapozitiv za pregled",
+  "post_comment_aria_label": "Objavite svoj komentar",
+  "validate_aria_label": "Potrdite svoj odgovor in pojdite na naslednji korak",
   "stars": "zvezde",
   "custom":{
     "digitlearning": {
