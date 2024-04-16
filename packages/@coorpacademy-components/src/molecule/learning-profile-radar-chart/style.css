@@ -38,6 +38,9 @@
 }
 
 .tooltip {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     position: relative;
     font-family: 'Gilroy';
     font-weight: 600;
@@ -48,4 +51,14 @@
     width: 100%;
     padding: 8px 12px;
     box-sizing: border-box;
+}
+
+.tooltipLabel {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.tooltipValue {
+    font-size: 14px;
+    font-weight: 700;
 }
