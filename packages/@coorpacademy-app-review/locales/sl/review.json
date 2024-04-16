@@ -1,0 +1,61 @@
+{
+    "Review Title": "Način pregleda",
+    "Content Parent Title": "Od &quot; {{contentTitle}} &quot; {{contentType}}",
+    "Validate": "Potrdi",
+    "Next Question": "Naslednje vprašanje",
+    "KLF": "Ključna točka",
+    "Correct Answer": "Dober odgovor",
+    "Wrong Answer": "Napačen odgovor",
+    "You have won": "Zmagal si",
+    "You are now": "Zdaj si",
+    "Revise another skill": "Preglejte drugo spretnost",
+    "Continue reviewing": "Nadaljujte s pregledom",
+    "Congratulations!": "čestitke!",
+    "aria_label": "Preglejte predlogo spretnosti",
+    "Quit Title": "Si prepričan, da želiš odnehati ?",
+    "Quit Description Text": "Ste na pravi poti! Če zdaj odnehate, boste izgubili napredek.",
+    "Stop learning": "Končaj sejo",
+    "Continue learning": "Nadaljujte z učenjem",
+    "Continue": "Nadaljuj",
+    "Type here": "Piši tukaj",
+    "Select an answer": "Izberite odgovor",
+    "answer_the_question": "Odgovori na vprašanje",
+    "presentation": {
+      "aria_label": "Pregled predstavitvenega vsebnika",
+      "title": "Kaj je<br/> Način revizije?",
+      "text": "Informacije izginejo iz vaših misli takoj, ko pridejo vanj? To je povsem normalno: brez ponavljanja ni zadrževanja! Če želite dolgoročno ohraniti svoje znanje, uporabite Revizijski način za osvežitev spomina!",
+      "button": "V redu, razumem!",
+      "label_list": {
+        "skills": {
+          "text": "Izberite 1 spretnost",
+          "tooltip": "Pregledujete lahko eno spretnost naenkrat."
+        },
+        "questions": {
+          "text": "Odgovori na 5 vprašanj",
+          "tooltip": "Pravilno odgovorite na 5 vprašanj, da potrdite svojo sejo v načinu revizije."
+        },
+        "lifes": { 
+          "text": "Imate neskončno živo",
+          "tooltip": "Za dokončanje seje lahko odgovorite kolikorkrat želite."
+        },
+        "allright": { 
+          "text":  "Uredi vse",
+          "tooltip": "Za potrditev vaše seje morate dobiti pravilen odgovor na vsako vprašanje."
+        }
+      }
+    },
+    "list_title": "Spretnosti, ki jih lahko pregledate",
+    "list_aria_label": "Pregled Skills Container",
+    "card": {
+      "aria_label": "Kartica spretnosti",
+      "text": "{{total}} vprašanja za pregled",
+      "button_text": "Preglejte to veščino"
+    },
+    "no_skills": {
+      "title": "Nimate še nobene veščine za revidiranje",
+      "text": "Najprej morate opraviti tečaje, preden lahko pregledate različna znanja."
+    },
+    "Acquired stars animation": "Pridobljena animacija zvezd",
+    "New rank animation": "Nova animacija za uvrstitev",
+    "Congratulations confetti animation": "Čestitke, animacija s konfeti"
+}
