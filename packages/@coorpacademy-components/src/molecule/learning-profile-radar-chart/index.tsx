@@ -129,8 +129,8 @@ const CustomTooltip = ({
 }) =>
   active && !!payload?.length ? (
     <div className={style.tooltip}>
-      <p>{label}</p>
-      <p>{payload[0].value}%</p>
+      <span className={style.tooltipLabel}>{label}</span>
+      <span className={style.tooltipValue}>{payload[0].value}%</span>
     </div>
   ) : null;
 
