@@ -6,8 +6,11 @@ import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
-const getButtonContent = (icon?: IconType, label?: string) => {
-  const {type, position} = icon || {type: '', position: ''};
+const getButtonContent = (
+  icon?: IconType & {customStyle?: Record<string, unknown>},
+  label?: string
+) => {
+  const {type, position, customStyle} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
   if (!Icon) {
@@ -20,9 +23,13 @@ const getButtonContent = (icon?: IconType, label?: string) => {
 
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
+      {position === 'left' ? (
+        <Icon className={style.icon} theme="coorpmanager" style={customStyle ?? {}} />
+      ) : null}
       {label ? <span className={style.label}>{label}</span> : null}
-      {position === 'right' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
+      {position === 'right' ? (
+        <Icon className={style.icon} theme="coorpmanager" style={customStyle ?? {}} />
+      ) : null}
     </div>
   );
 };

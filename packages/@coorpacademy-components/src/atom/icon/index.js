@@ -63,7 +63,7 @@ const Icon = React.memo(function Icon({
       <FontAwesomeIcon
         icon={`fa-${iconName}`}
         color={effectiveIconColor}
-        font-size={effectiveSize.faSize}
+        fontSize={effectiveSize.faSize}
       />
     </div>
   );

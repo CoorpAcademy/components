@@ -33,7 +33,7 @@ export type ButtonLinkProps = {
   'aria-label'?: string;
   'data-name'?: string;
   'data-testid'?: string;
-  icon?: IconType;
+  icon?: IconType & {customStyle?: Record<string, unknown>};
   onClick?: () => void;
   onKeyDown?: () => void;
   link?: {

@@ -18,6 +18,8 @@
   "cookies_policy": "Privacy and Cookies Policy.",
   "cookies_title": "How we use cookies:",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Delete",
   "Draft": "Draft",
   "answer_the_question": "Answer the question",
@@ -70,6 +72,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} incl. taxes per month",
   "subscription_promo_code": "You now have a free unlimited access to our catalog until the {{date}}. To keep enjoying it after this date, please subscribe on",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "This message has been removed by its author.",
   "unsubscribe": "Unsubscribe from Coorpacademy",
   "Validated": "Validated",
@@ -95,6 +98,7 @@
   "post_comment_aria_label": "Post your comment",
   "validate_aria_label": "Validate your answer and go to next step",
   "stars": "stars",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Rate this course"
