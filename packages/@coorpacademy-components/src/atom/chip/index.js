@@ -8,18 +8,18 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../provider';
 import style from './style.css';
 
-const SELECTED_STATE_BG_LUMINOSITY = 50;
-const DEFAULT_BACKGROUND_COLOR = '#0051D6';
+const DELTA_LUMINOSITY = 0.08;
+const DEFAULT_BACKGROUND_COLOR = '#0061FF';
 const ICON_SIZE = '12px';
 
-const SkinAwareChips = (props, context) => {
+const Chip = (props, context) => {
   const {text, selected = false, onClick, backgroundColor = DEFAULT_BACKGROUND_COLOR} = props;
   const {skin} = context;
   const skinColor = get('common.primary', skin);
   const selectedBgColor = backgroundColor === 'skin' && skinColor ? skinColor : backgroundColor;
   const hoveredSelectedBgColor = new Color(selectedBgColor)
     .to('hsl')
-    .set({l: SELECTED_STATE_BG_LUMINOSITY})
+    .set({l: l => l * (1 - DELTA_LUMINOSITY)})
     .toString();
 
   const [isHovered, setIsHovered] = useState(false);
@@ -63,15 +63,15 @@ const SkinAwareChips = (props, context) => {
   );
 };
 
-SkinAwareChips.contextTypes = {
+Chip.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-SkinAwareChips.propTypes = {
+Chip.propTypes = {
   text: PropTypes.string,
   selected: PropTypes.bool,
   backgroundColor: PropTypes.string,
   onClick: PropTypes.func
 };
 
-export default SkinAwareChips;
+export default Chip;
