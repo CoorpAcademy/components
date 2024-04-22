@@ -1,14 +1,12 @@
 export const defaultProps = {
   'aria-label': 'Learner Skill Card',
-  skillCourses: 89,
-  skillQuestions: 25,
   skillTitle: 'Critical thinking and analysis',
   skillAriaLabel: 'Skill aria label',
-  completedCourses: 50,
-  buttonReviewLabel: 'Review',
-  buttonReviewAriaLabel: 'Button review aria label',
-  buttonExploreLabel: 'Explore',
-  buttonExploreAriaLabel: 'Button explore aria label',
+  metrics: {
+    skillCourses: 89,
+    skillQuestions: 25,
+    completedCourses: 50
+  },
   onReviewClick: () => console.log('review'),
   onExploreClick: () => console.log('explore')
 };

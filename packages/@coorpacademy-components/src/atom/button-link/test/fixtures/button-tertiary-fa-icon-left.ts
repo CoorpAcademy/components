@@ -8,8 +8,10 @@ const fixture: Fixture = {
     'data-name': 'default-button',
     icon: {
       position: 'left',
-      faIconName: 'eye',
-      faIconSize: 16
+      faIcon: {
+        name: 'eye',
+        size: 16
+      }
     },
     onClick: () => console.log('click')
   }

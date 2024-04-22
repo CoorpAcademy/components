@@ -8,8 +8,10 @@ const fixture: Fixture = {
     'aria-label': 'aria button',
     icon: {
       position: 'right',
-      faIconName: 'analytics',
-      faIconSize: 16
+      faIcon: {
+        name: 'analytics',
+        size: 16
+      }
     },
     onClick: () => {
       console.log('Click on link');

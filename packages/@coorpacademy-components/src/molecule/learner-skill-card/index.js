@@ -10,22 +10,19 @@ import style from './style.css';
 const LearnerSkillCard = (props, context) => {
   const {
     'aria-label': ariaLabel,
-    skillCourses,
-    skillQuestions,
     skillTitle,
     skillAriaLabel,
-    completedCourses,
-    buttonReviewLabel,
-    buttonReviewAriaLabel,
-    buttonExploreLabel,
-    buttonExploreAriaLabel,
+    metrics,
     onReviewClick,
     onExploreClick
   } = props;
+  const {skillCourses, skillQuestions, completedCourses = 0} = metrics;
   const {skin, translate} = context;
   const [hovered, setHovered] = useState(false);
   const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
 
+  const review = translate('Review');
+  const explore = translate('Explore');
   const courses = translate('courses');
   const questions = translate('questions');
   const skillFocus = translate('skill_focus');
@@ -41,8 +38,8 @@ const LearnerSkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onReviewClick,
-    'aria-label': buttonReviewAriaLabel ? `${skillTitle}, ${buttonReviewAriaLabel}` : skillTitle,
-    label: buttonReviewLabel,
+    'aria-label': `${skillTitle}, ${review}`,
+    label: review,
     'data-name': 'learner-skill-card-review-button'
   };
 
@@ -53,21 +50,22 @@ const LearnerSkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onExploreClick,
-    'aria-label': buttonExploreAriaLabel ? `${skillTitle}, ${buttonExploreAriaLabel}` : skillTitle,
-    label: buttonExploreLabel,
+    'aria-label': `${skillTitle}, ${explore}`,
+    label: explore,
     'data-name': 'learner-skill-card-explore-button',
     icon: {
       position: 'left',
-      faIconName: 'compass',
-      faIconBackgroundColor: hovered
-        ? primarySkinColor
-        : convert(`color(${primarySkinColor} a(0.07))`),
-      faIconColor: hovered ? '#FFFFFF' : primarySkinColor,
-      faIconSize: 16
+      faIcon: {
+        name: 'compass',
+        backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
+        color: hovered ? '#FFFFFF' : primarySkinColor,
+        size: 16
+      }
     }
   };
 
-  const completedPercentage = Number.parseInt((completedCourses / skillCourses) * 100);
+  const completedPercentage =
+    skillCourses && Number.parseInt((completedCourses / skillCourses) * 100);
 
   const ProgressBar = useCallback(() => {
     const progressBarColor = '#3EC483';
@@ -75,6 +73,10 @@ const LearnerSkillCard = (props, context) => {
       backgroundColor: progressBarColor,
       width: `${completedPercentage}%`
     };
+
+    if (!skillCourses) {
+      return null;
+    }
 
     return (
       <div className={style.progressWrapper}>
@@ -87,7 +89,7 @@ const LearnerSkillCard = (props, context) => {
         />
       </div>
     );
-  }, [completedPercentage, ariaLabel]);
+  }, [completedPercentage, ariaLabel, skillCourses]);
 
   return (
     <div
@@ -95,14 +97,20 @@ const LearnerSkillCard = (props, context) => {
       data-name="learner-skill-card-wrapper"
       aria-label={ariaLabel}
     >
-      <div className={style.skillCoursesAndQuestionsWrapper}>
-        <div className={style.skillInformation} data-name="skill-courses">
-          <span className={style.skillInformationNumber}>{skillCourses}</span> {courses}
+      {skillCourses || skillQuestions ? (
+        <div className={style.skillCoursesAndQuestionsWrapper}>
+          {skillCourses ? (
+            <div className={style.skillInformation} data-name="skill-courses">
+              <span className={style.skillInformationNumber}>{skillCourses}</span> {courses}
+            </div>
+          ) : null}
+          {skillQuestions ? (
+            <div className={style.skillInformation} data-name="skill-questions">
+              <span className={style.skillInformationNumber}>{skillQuestions}</span> {questions}
+            </div>
+          ) : null}
         </div>
-        <div className={style.skillInformation} data-name="skill-questions">
-          <span className={style.skillInformationNumber}>{skillQuestions}</span> {questions}
-        </div>
-      </div>
+      ) : null}
       <div className={style.skillTitleWrapper}>
         <div
           data-name="skill-title"
@@ -125,13 +133,17 @@ const LearnerSkillCard = (props, context) => {
       </div>
       <ProgressBar />
       <div className={style.progressInformations}>
-        <div className={style.progressInformation} data-name="skill-completed-courses">
-          <span className={style.progressInformationNumber}>{completedCourses}</span>
-          {coursesCompleted}
-        </div>
-        <div className={style.progressInformation} data-name="completed-percentage">
-          <span className={style.progressInformationNumber}>{completedPercentage}%</span>
-        </div>
+        {skillCourses && (
+          <>
+            <div className={style.progressInformation} data-name="skill-completed-courses">
+              <span className={style.progressInformationNumber}>{completedCourses}</span>
+              {coursesCompleted}
+            </div>
+            <div className={style.progressInformation} data-name="completed-percentage">
+              <span className={style.progressInformationNumber}>{completedPercentage}%</span>
+            </div>
+          </>
+        )}
       </div>
       <div className={style.ctaWrapper} data-name="cta-wrapper">
         <ButtonLink {...buttonReviewProps} />
@@ -154,15 +166,13 @@ LearnerSkillCard.contextTypes = {
 
 LearnerSkillCard.propTypes = {
   'aria-label': PropTypes.string,
-  skillCourses: PropTypes.number,
-  skillQuestions: PropTypes.number,
   skillTitle: PropTypes.string,
   skillAriaLabel: PropTypes.string,
-  completedCourses: PropTypes.number,
-  buttonReviewLabel: PropTypes.string,
-  buttonReviewAriaLabel: PropTypes.string,
-  buttonExploreLabel: PropTypes.string,
-  buttonExploreAriaLabel: PropTypes.string,
+  metrics: PropTypes.shape({
+    skillCourses: PropTypes.number,
+    skillQuestions: PropTypes.number,
+    completedCourses: PropTypes.number
+  }),
   onReviewClick: PropTypes.func,
   onExploreClick: PropTypes.func
 };

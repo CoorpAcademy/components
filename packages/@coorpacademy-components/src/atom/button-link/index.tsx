@@ -8,37 +8,35 @@ import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
 const getButtonContent = (icon?: IconType, label?: string) => {
-  const {type, faIconName, faIconColor, faIconBackgroundColor, faIconSize, position, customStyle} =
-    icon || {type: '', position: ''};
+  const {type, faIcon, position} = icon || {type: '', position: ''};
+  const {name, color, backgroundColor, size} = faIcon || {
+    name: '',
+    color: '',
+    backGroundColor: '',
+    size: 0
+  };
   const Icon = type && ICONS[type];
-  const FaIconParsed: any = FaIcon;
 
-  if (faIconName) {
+  const faIconComponent = (
+    <FaIcon
+      {...{
+        iconName: name,
+        iconColor: color,
+        backgroundColor,
+        size: {
+          faSize: size,
+          wrapperSize: size
+        }
+      }}
+    />
+  );
+
+  if (faIcon) {
     return (
       <div className={style.buttonContent}>
-        {position === 'left' ? (
-          <FaIconParsed
-            iconName={faIconName}
-            iconColor={faIconColor}
-            backgroundColor={faIconBackgroundColor}
-            size={{
-              faSize: faIconSize,
-              wrapperSize: faIconSize
-            }}
-          />
-        ) : null}
+        {position === 'left' ? faIconComponent : null}
         {label ? <span className={style.label}>{label}</span> : null}
-        {position === 'right' ? (
-          <FaIconParsed
-            iconName={faIconName}
-            iconColor={faIconColor}
-            backgroundColor={faIconBackgroundColor}
-            size={{
-              faSize: faIconSize,
-              wrapperSize: faIconSize
-            }}
-          />
-        ) : null}
+        {position === 'right' ? faIconComponent : null}
       </div>
     );
   }
@@ -53,13 +51,9 @@ const getButtonContent = (icon?: IconType, label?: string) => {
 
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? (
-        <Icon className={style.icon} theme="coorpmanager" style={customStyle ?? {}} />
-      ) : null}
+      {position === 'left' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
       {label ? <span className={style.label}>{label}</span> : null}
-      {position === 'right' ? (
-        <Icon className={style.icon} theme="coorpmanager" style={customStyle ?? {}} />
-      ) : null}
+      {position === 'right' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
     </div>
   );
 };

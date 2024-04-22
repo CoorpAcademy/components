@@ -23,7 +23,7 @@
   flex-direction: column;
   max-width: 258px;
   width: 100%;
-  min-height: 252px;
+  min-height: 266px;
   box-shadow: 0 4px 16px 0px rgba(0, 0, 0, 0.4);;
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 12px;
@@ -104,10 +104,12 @@
 }
 
 .progressInformations {
+  min-height: 12px;
   margin-bottom: 24px;
 }
 
 .ctaWrapper {
+  margin-top: auto;
   display: flex;
 }
 

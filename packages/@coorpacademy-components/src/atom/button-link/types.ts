@@ -23,14 +23,17 @@ const propTypes = {
   customStyle: PropTypes.shape({})
 };
 
+export type FaIcontype = {
+  name: string;
+  color?: string;
+  backgroundColor?: string;
+  size?: number;
+};
+
 export type IconType = {
   position: 'right' | 'left';
   type?: keyof typeof ICONS;
-  faIconName?: string;
-  faIconColor?: string;
-  faIconBackgroundColor?: string;
-  faIconSize?: number;
-  customStyle?: Record<string, unknown>;
+  faIcon?: FaIcontype;
 };
 export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
