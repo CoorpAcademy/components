@@ -10,7 +10,7 @@ install:
   - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
   - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
   - 'yarn config set registry https://registry.npmjs.org/'
-  - source scripts/setup.sh
+  - source scripts/setup.sh npm-load
   - yarn
 
 stages:
