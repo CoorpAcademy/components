@@ -7,4 +7,4 @@ if [ "$CURRENT_FOLDER" != "components" ]; then
 fi
 
 # so far simple shortcut
-source packages/@coorpacademy-components/scripts/load-font-awesome-token.sh
+source packages/@coorpacademy-components/scripts/load-font-awesome-token.sh $@

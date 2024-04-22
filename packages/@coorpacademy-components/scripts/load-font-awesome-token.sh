@@ -16,7 +16,9 @@ else
   )
 fi
 
-if (return 0 2>/dev/null); then
+if [[ "$1" == "npm-load" ]]; then
+    npm config set //npm.fontawesome.com/:_authToken $token
+elif (return 0 2>/dev/null); then
     # if file is sourced, load the var also and print a message about it
     export FONTAWESOME_NPM_AUTH_TOKEN=$token
     echo "Fontawesome token loaded in FONTAWESOME_NPM_AUTH_TOKEN var"
