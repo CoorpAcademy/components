@@ -2,16 +2,46 @@ import React, {useCallback} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
+import FaIcon from '../icon';
 import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
-const getButtonContent = (
-  icon?: IconType & {customStyle?: Record<string, unknown>},
-  label?: string
-) => {
-  const {type, position, customStyle} = icon || {type: '', position: ''};
+const getButtonContent = (icon?: IconType, label?: string) => {
+  const {type, faIconName, faIconColor, faIconBackgroundColor, faIconSize, position, customStyle} =
+    icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
+  const FaIconParsed: any = FaIcon;
+
+  if (faIconName) {
+    return (
+      <div className={style.buttonContent}>
+        {position === 'left' ? (
+          <FaIconParsed
+            iconName={faIconName}
+            iconColor={faIconColor}
+            backgroundColor={faIconBackgroundColor}
+            size={{
+              faSize: faIconSize,
+              wrapperSize: faIconSize
+            }}
+          />
+        ) : null}
+        {label ? <span className={style.label}>{label}</span> : null}
+        {position === 'right' ? (
+          <FaIconParsed
+            iconName={faIconName}
+            iconColor={faIconColor}
+            backgroundColor={faIconBackgroundColor}
+            size={{
+              faSize: faIconSize,
+              wrapperSize: faIconSize
+            }}
+          />
+        ) : null}
+      </div>
+    );
+  }
 
   if (!Icon) {
     return (

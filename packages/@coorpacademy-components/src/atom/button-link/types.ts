@@ -25,7 +25,12 @@ const propTypes = {
 
 export type IconType = {
   position: 'right' | 'left';
-  type: keyof typeof ICONS;
+  type?: keyof typeof ICONS;
+  faIconName?: string;
+  faIconColor?: string;
+  faIconBackgroundColor?: string;
+  faIconSize?: number;
+  customStyle?: Record<string, unknown>;
 };
 export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
@@ -33,7 +38,7 @@ export type ButtonLinkProps = {
   'aria-label'?: string;
   'data-name'?: string;
   'data-testid'?: string;
-  icon?: IconType & {customStyle?: Record<string, unknown>};
+  icon?: IconType;
   onClick?: () => void;
   onKeyDown?: () => void;
   link?: {

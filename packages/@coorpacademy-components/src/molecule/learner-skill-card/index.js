@@ -58,11 +58,12 @@ const LearnerSkillCard = (props, context) => {
     'data-name': 'learner-skill-card-explore-button',
     icon: {
       position: 'left',
-      type: 'compass',
-      customStyle: {
-        height: 16,
-        width: 16
-      }
+      faIconName: 'compass',
+      faIconBackgroundColor: hovered
+        ? primarySkinColor
+        : convert(`color(${primarySkinColor} a(0.07))`),
+      faIconColor: hovered ? '#FFFFFF' : primarySkinColor,
+      faIconSize: 16
     }
   };
 

@@ -62,7 +62,7 @@ const Icon = React.memo(function Icon({
     <div className={style.iconWrapper} style={iconWrapperStyle}>
       <FontAwesomeIcon
         icon={`fa-${iconName}`}
-        color={effectiveIconColor}
+        color={iconColor ?? effectiveIconColor}
         fontSize={effectiveSize.faSize}
       />
     </div>
