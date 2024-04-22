@@ -97,7 +97,7 @@
   "stars": "별",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Rate this course"
+      "comment_aria_label": "이 강좌를 평가해 주세요"
     }
   }
 }
