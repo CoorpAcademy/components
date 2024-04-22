@@ -6,20 +6,30 @@ import get from 'lodash/fp/get';
 import Color from 'colorjs.io';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../provider';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
-const DELTA_LUMINOSITY = 0.08;
-const DEFAULT_BACKGROUND_COLOR = '#0061FF';
+const LUMINOSITY_DELTA = 0.08;
+const {cm_primary_blue: DEFAULT_BACKGROUND_COLOR} = COLORS;
 const ICON_SIZE = '12px';
 
+export const calculateLuminosity = (l, luminosityDelta = LUMINOSITY_DELTA) =>
+  l * (1 - luminosityDelta);
+
 const Chip = (props, context) => {
-  const {text, selected = false, onClick, backgroundColor = DEFAULT_BACKGROUND_COLOR} = props;
+  const {
+    text,
+    selected = false,
+    customIcon,
+    onClick,
+    backgroundColor = DEFAULT_BACKGROUND_COLOR
+  } = props;
   const {skin} = context;
   const skinColor = get('common.primary', skin);
   const selectedBgColor = backgroundColor === 'skin' && skinColor ? skinColor : backgroundColor;
   const hoveredSelectedBgColor = new Color(selectedBgColor)
     .to('hsl')
-    .set({l: l => l * (1 - DELTA_LUMINOSITY)})
+    .set({l: l => l * (1 - LUMINOSITY_DELTA)})
     .toString();
 
   const [isHovered, setIsHovered] = useState(false);
@@ -35,6 +45,8 @@ const Chip = (props, context) => {
   }, []);
 
   const hoverStyle = isHovered ? {backgroundColor: hoveredSelectedBgColor} : {};
+
+  const defaultIcon = selected ? 'fa-check' : 'fa-plus';
 
   return (
     <div
@@ -56,7 +68,7 @@ const Chip = (props, context) => {
       </div>
       <FontAwesomeIcon
         className={selected ? style.selectedIconWrapper : style.unselectedIconWrapper}
-        icon={selected ? 'fa-check' : 'fa-plus'}
+        icon={customIcon ? `fa-${customIcon}` : defaultIcon}
         font-size={ICON_SIZE}
       />
     </div>
@@ -70,6 +82,7 @@ Chip.contextTypes = {
 Chip.propTypes = {
   text: PropTypes.string,
   selected: PropTypes.bool,
+  customIcon: PropTypes.string,
   backgroundColor: PropTypes.string,
   onClick: PropTypes.func
 };

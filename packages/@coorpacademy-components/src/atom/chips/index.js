@@ -1,4 +1,4 @@
-// This component is a specific version of the generic Chip component, customized for use in CoorpManager.
+// This component is a simpler version of the generic Chip component, in use in CoorpManager.
 
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
