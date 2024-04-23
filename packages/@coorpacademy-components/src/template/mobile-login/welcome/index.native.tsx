@@ -11,6 +11,9 @@ import Touchable from '../../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../app-review/template-context';
 import {Theme} from '../../../variables/theme.native';
 import Text from '../../../atom/text/index.native';
+import {COLORS} from '../../../variables/colors';
+
+const {cm_primary_blue} = COLORS;
 
 type StyleSheetType = {
   wrapper: ViewStyle;
@@ -267,7 +270,7 @@ const Welcome = (props: Props) => {
     <Animated.View style={[styleSheet.wrapper, translateContent.animatedStyle]} testID="welcome">
       <Animated.View style={[styleSheet.gradients, translateGradients.animatedStyle]}>
         <LinearGradient
-          colors={['#0061FF', '#fff']}
+          colors={[cm_primary_blue, '#fff']}
           locations={[0, 0.95]}
           style={styleSheet.gradient}
         />

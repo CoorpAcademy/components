@@ -19,7 +19,10 @@ import {
   NovaLineContentEditionContentBook as ContentBook
 } from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
+
+const {cm_primary_blue} = COLORS;
 
 const getIcon = feature => {
   switch (feature) {
@@ -102,7 +105,7 @@ const getBackgroudRadialColors = feature => {
       return {
         iconBackgroundColor: '#F1F6FE',
         degrees: '0',
-        iconColor: '#0061FF'
+        iconColor: cm_primary_blue
       };
     case 'network':
       return {
