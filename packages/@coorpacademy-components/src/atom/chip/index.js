@@ -73,7 +73,7 @@ const Chip = (props, context) => {
       <FontAwesomeIcon
         className={selected ? style.selectedIconWrapper : style.unselectedIconWrapper}
         icon={customIcon ? `fa-${customIcon}` : defaultIcon}
-        font-size={ICON_SIZE}
+        fontSize={ICON_SIZE}
       />
     </div>
   );
