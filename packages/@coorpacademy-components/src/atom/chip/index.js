@@ -13,8 +13,15 @@ const LUMINOSITY_DELTA = 0.08;
 const {cm_primary_blue: DEFAULT_BACKGROUND_COLOR} = COLORS;
 const ICON_SIZE = '12px';
 
-export const calculateLuminosity = (l, luminosityDelta = LUMINOSITY_DELTA) =>
-  l * (1 - luminosityDelta);
+export const calculateHoveredSelectedBgColor = (
+  selectedBgColor,
+  luminosityDelta = LUMINOSITY_DELTA
+) => {
+  return new Color(selectedBgColor)
+    .to('hsl')
+    .set({l: l => l * (1 - luminosityDelta)})
+    .toString();
+};
 
 const Chip = (props, context) => {
   const {
@@ -27,10 +34,7 @@ const Chip = (props, context) => {
   const {skin} = context;
   const skinColor = get('common.primary', skin);
   const selectedBgColor = backgroundColor === 'skin' && skinColor ? skinColor : backgroundColor;
-  const hoveredSelectedBgColor = new Color(selectedBgColor)
-    .to('hsl')
-    .set({l: l => l * (1 - LUMINOSITY_DELTA)})
-    .toString();
+  const hoveredSelectedBgColor = calculateHoveredSelectedBgColor(selectedBgColor);
 
   const [isHovered, setIsHovered] = useState(false);
 
