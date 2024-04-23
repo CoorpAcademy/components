@@ -43,7 +43,7 @@ const Icon = React.memo(function Icon({
   size
 }) {
   const effectiveIconColor =
-    iconColor || backgroundColor ? getForegroundColor(backgroundColor) : DEFAULT_ICON_COLOR;
+    iconColor || (backgroundColor ? getForegroundColor(backgroundColor) : DEFAULT_ICON_COLOR);
 
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
@@ -62,7 +62,7 @@ const Icon = React.memo(function Icon({
     <div className={style.iconWrapper} style={iconWrapperStyle}>
       <FontAwesomeIcon
         icon={`fa-${iconName}`}
-        color={iconColor ?? effectiveIconColor}
+        color={effectiveIconColor}
         fontSize={effectiveSize.faSize}
       />
     </div>
