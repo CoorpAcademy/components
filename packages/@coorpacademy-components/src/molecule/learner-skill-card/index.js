@@ -21,12 +21,12 @@ const LearnerSkillCard = (props, context) => {
   const [hovered, setHovered] = useState(false);
   const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
 
-  const review = translate('Review');
-  const explore = translate('Explore');
-  const courses = translate('courses');
-  const questions = translate('questions');
-  const skillFocus = translate('skill_focus');
-  const coursesCompleted = translate('courses_completed');
+  const reviewLocale = translate('Review');
+  const exploreLocale = translate('Explore');
+  const coursesLocale = translate('courses');
+  const questionsLocale = translate('questions');
+  const skillFocusLocale = translate('skill_focus');
+  const coursesCompletedLocale = translate('courses_completed');
 
   const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
 
@@ -38,8 +38,8 @@ const LearnerSkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onReviewClick,
-    'aria-label': `${skillTitle}, ${review}`,
-    label: review,
+    'aria-label': `${skillTitle}, ${reviewLocale}`,
+    label: reviewLocale,
     'data-name': 'learner-skill-card-review-button'
   };
 
@@ -50,8 +50,8 @@ const LearnerSkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onExploreClick,
-    'aria-label': `${skillTitle}, ${explore}`,
-    label: explore,
+    'aria-label': `${skillTitle}, ${exploreLocale}`,
+    label: exploreLocale,
     'data-name': 'learner-skill-card-explore-button',
     icon: {
       position: 'left',
@@ -68,15 +68,13 @@ const LearnerSkillCard = (props, context) => {
     skillCourses && Number.parseInt((completedCourses / skillCourses) * 100);
 
   const ProgressBar = useCallback(() => {
+    if (!skillCourses) return null;
+
     const progressBarColor = '#3EC483';
     const inlineProgressValueStyle = {
       backgroundColor: progressBarColor,
       width: `${completedPercentage}%`
     };
-
-    if (!skillCourses) {
-      return null;
-    }
 
     return (
       <div className={style.progressWrapper}>
@@ -101,12 +99,13 @@ const LearnerSkillCard = (props, context) => {
         <div className={style.skillCoursesAndQuestionsWrapper}>
           {skillCourses ? (
             <div className={style.skillInformation} data-name="skill-courses">
-              <span className={style.skillInformationNumber}>{skillCourses}</span> {courses}
+              <span className={style.skillInformationNumber}>{skillCourses}</span> {coursesLocale}
             </div>
           ) : null}
           {skillQuestions ? (
             <div className={style.skillInformation} data-name="skill-questions">
-              <span className={style.skillInformationNumber}>{skillQuestions}</span> {questions}
+              <span className={style.skillInformationNumber}>{skillQuestions}</span>
+              &nbsp;{questionsLocale}
             </div>
           ) : null}
         </div>
@@ -128,7 +127,7 @@ const LearnerSkillCard = (props, context) => {
               wrapperSize: 16
             }}
           />
-          {skillFocus}
+          {skillFocusLocale}
         </div>
       </div>
       <ProgressBar />
@@ -137,7 +136,7 @@ const LearnerSkillCard = (props, context) => {
           <>
             <div className={style.progressInformation} data-name="skill-completed-courses">
               <span className={style.progressInformationNumber}>{completedCourses}</span>
-              {coursesCompleted}
+              {coursesCompletedLocale}
             </div>
             <div className={style.progressInformation} data-name="completed-percentage">
               <span className={style.progressInformationNumber}>{completedPercentage}%</span>

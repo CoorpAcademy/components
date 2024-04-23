@@ -9,15 +9,24 @@ import style from './style.css';
 
 const getButtonContent = (icon?: IconType, label?: string) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
+  const Icon = type && ICONS[type];
+
+  if (!Icon && !faIcon) {
+    return (
+      <div className={style.buttonContent}>
+        <span className={style.label}>{label}</span>
+      </div>
+    );
+  }
+
   const {name, color, backgroundColor, size} = faIcon || {
     name: '',
     color: '',
     backGroundColor: '',
     size: 0
   };
-  const Icon = type && ICONS[type];
 
-  const faIconComponent = (
+  const iconComponent = faIcon ? (
     <FaIcon
       {...{
         iconName: name,
@@ -29,31 +38,15 @@ const getButtonContent = (icon?: IconType, label?: string) => {
         }
       }}
     />
+  ) : (
+    <Icon className={style.icon} theme="coorpmanager" />
   );
-
-  if (faIcon) {
-    return (
-      <div className={style.buttonContent}>
-        {position === 'left' ? faIconComponent : null}
-        {label ? <span className={style.label}>{label}</span> : null}
-        {position === 'right' ? faIconComponent : null}
-      </div>
-    );
-  }
-
-  if (!Icon) {
-    return (
-      <div className={style.buttonContent}>
-        <span className={style.label}>{label}</span>
-      </div>
-    );
-  }
 
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
+      {position === 'left' ? iconComponent : null}
       {label ? <span className={style.label}>{label}</span> : null}
-      {position === 'right' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
+      {position === 'right' ? iconComponent : null}
     </div>
   );
 };
