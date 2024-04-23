@@ -1,12 +1,11 @@
 import React from 'react';
 import ProgressBar from '../progress-bar';
 import StatusItem from '../../atom/status-item';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import {Props, propTypes, Status} from './types';
 
-const cm_negative_100 = '#ed3436';
-const cm_primary_blue = '#0061FF';
-const cm_positive_100 = '#35CC7F';
+const {negative: cm_negative_100, cm_primary_blue, positive: cm_positive_100} = COLORS;
 
 const STATUS = {
   inProgress: 'inProgress',

@@ -2,10 +2,13 @@ import {LastField, Props} from '../../types';
 import {defaultProps as successBulkProgressBarProps} from '../../../bulk-progress-bar/test/fixtures/success';
 import {defaultProps as failBulkProgressBarProps} from '../../../bulk-progress-bar/test/fixtures/fail';
 import {defaultProps as inProgessBulkProgressBarProps} from '../../../bulk-progress-bar/test/fixtures/in-progress';
+import {COLORS} from '../../../../variables/colors';
+
+const {cm_primary_blue} = COLORS;
 
 const buttonLinkProps: LastField = {
   customStyle: {
-    color: '#0061FF',
+    color: cm_primary_blue,
     fontFamily: 'Gilroy',
     fontStyle: 'normal',
     fontWeight: 600,

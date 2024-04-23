@@ -5,6 +5,8 @@ export type SpaceType = 'micro' | 'tiny' | 'small' | 'base' | 'medium' | 'large'
 
 export const HTML_ANCHOR_TEXT_COLOR = '#002BDB';
 
+const {cm_primary_blue} = COLORS;
+
 export type Colors = {
   border: string;
   gray: {
@@ -91,7 +93,7 @@ const defaultTheme: Theme = {
       primary: '#06265B',
       secondary: '#FFFFFF'
     },
-    cta: '#0061FF',
+    cta: cm_primary_blue,
     negative: COLORS.negative,
     positive: COLORS.positive,
     white: '#FFFFFF',

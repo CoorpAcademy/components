@@ -1,7 +1,9 @@
 import test from 'ava';
 import forEach from 'lodash/fp/forEach';
-
+import {COLORS} from '../../variables/colors';
 import {getShadowBoxColorFromPrimary} from '../get-shadow-box-color-from-primary';
+
+const {cm_primary_blue} = COLORS;
 
 test('should return transformed colors', t => {
   t.plan(13);
@@ -20,7 +22,7 @@ test('should return transformed colors', t => {
     yellow: ['#ffca0a', expectedYellow],
     yellowRGB: ['rgb(255, 202, 10)', expectedYellow],
     yellowRGBA: ['rgba(255, 202, 10, 0)', expectedYellow],
-    blue: ['#0061FF', expectedBlue],
+    blue: [cm_primary_blue, expectedBlue],
     blueRGB: ['rgb(0, 97, 255)', expectedBlue],
     blueRGBA: ['rgba(0, 97, 255, 1)', expectedBlue]
   };

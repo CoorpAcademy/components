@@ -1,6 +1,8 @@
 import {noop} from 'lodash/fp';
 import {CMPopinProps} from '../../types';
+import {COLORS} from '../../../../variables/colors';
 
+const {cm_primary_blue} = COLORS;
 type Fixture = {
   props: CMPopinProps;
 };
@@ -24,7 +26,7 @@ const fixture: Fixture = {
       label: `Continuer d'apprendre`,
       type: 'primary',
       customStyle: {
-        backgroundColor: '#0061FF'
+        backgroundColor: cm_primary_blue
       },
       'aria-label': 'Continue review',
       handleOnclick: noop
