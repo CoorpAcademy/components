@@ -19,22 +19,15 @@ const getButtonContent = (icon?: IconType, label?: string) => {
     );
   }
 
-  const {name, color, backgroundColor, size} = faIcon || {
-    name: '',
-    color: '',
-    backGroundColor: '',
-    size: 0
-  };
-
   const iconComponent = faIcon ? (
     <FaIcon
       {...{
-        iconName: name,
-        iconColor: color,
-        backgroundColor,
+        iconName: faIcon.name,
+        iconColor: faIcon.color,
+        backgroundColor: faIcon.backgroundColor,
         size: {
-          faSize: size,
-          wrapperSize: size
+          faSize: faIcon.size,
+          wrapperSize: faIcon.size
         }
       }}
     />
