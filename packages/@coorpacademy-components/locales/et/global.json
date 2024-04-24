@@ -18,10 +18,13 @@
   "cookies_policy": "Privaatsus- ja küpsistepoliitika.",
   "cookies_title": "Kuidas kasutame küpsiseid:",
   "Create a new cohort": "Loo uus grupp",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Kustuta",
   "Draft": "Mustand",
   "answer_the_question": "Vastake küsimusele",
   "Edit": "Muuda",
+  "Explore": "Explore",
   "external_content_article": "DOCUMENTS",
   "external_content_scorm": "ANIMATED RESOURCES",
   "external_content_video": "VIDEOS",
@@ -50,6 +53,7 @@
   "Put back": "Pane tagasi",
   "Reject": "Keeldu",
   "Reload": "Laadi uuesti",
+  "Review": "Review",
   "Review lesson": "Ülevaatustund",
   "secured_payment": "Turvaline server",
   "See clue": "Näita vihjet",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} incl. taxes per month",
   "subscription_promo_code": "You now have a free unlimited access to our catalog until the {{date}}. To keep enjoying it after this date, please subscribe on",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Sõnum on autori poolt eemaldatud.",
   "unsubscribe": "Tühista Coorpacademy tellimus",
   "Validated": "Valideeritud",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Postitage oma kommentaar",
   "validate_aria_label": "Kinnitage oma vastus ja minge järgmisse etappi",
   "stars": "tähed",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Hinda seda kursust"
