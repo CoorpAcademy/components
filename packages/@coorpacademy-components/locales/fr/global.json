@@ -18,10 +18,13 @@
   "cookies_policy": "Politique de Confidentialité et de Cookies.",
   "cookies_title": "Comment nous utilisons les cookies :",
   "Create a new cohort": "Créer une nouvelle cohorte",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Supprimer",
   "Draft": "Brouillon",
   "answer_the_question": "Répondez à la question",
   "Edit": "Modifier",
+  "Explore": "Explore",
   "external_content_article": "DOCUMENTS",
   "external_content_scorm": "RESSOURCES ANIMÉES",
   "external_content_video": "VIDÉOS",
@@ -50,6 +53,7 @@
   "Put back": "Autoriser",
   "Reject": "Rejeter",
   "Reload": "Recharger",
+  "Review": "Review",
   "Review lesson": "Revoir la leçon",
   "secured_payment": "Serveur sécurisé",
   "See clue": "Voir l'indice",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${price}${currency} TTC par mois",
   "subscription_promo_code": "Vous profitez d’un accès gratuit à tout le catalogue jusqu’au {{date}}. Passé cette date, nous vous invitons à souscrire l’abonnement sur",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Ce message a été supprimé par son auteur.",
   "unsubscribe": "Se désabonner de Coorpacademy",
   "Validated": "Validée",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Postez votre commentaire",
   "validate_aria_label": "Validez votre réponse et passez à l'étape suivante",
   "stars": "étoiles",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Notez ce cours"
