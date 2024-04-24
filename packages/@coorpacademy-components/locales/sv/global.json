@@ -18,10 +18,13 @@
   "cookies_policy": "Riktlinje för integritet och cookies.",
   "cookies_title": "Hur vi använder cookies:",
   "Create a new cohort": "Skapa en ny årskull",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Radera",
   "Draft": "Utkast",
   "answer_the_question": "Besvara frågan",
   "Edit": "Redigera",
+  "Explore": "Explore",
   "external_content_article": "DOKUMENT",
   "external_content_scorm": "ANIMERADE RESURSER",
   "external_content_video": "VIDEOR",
@@ -50,6 +53,7 @@
   "Put back": "Lägg tillbaka",
   "Reject": "Förkasta",
   "Reload": "Ladda om",
+  "Review": "Review",
   "Review lesson": "Granska lektion",
   "secured_payment": "Säker server",
   "See clue": "Se ledtråd",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} inkl. skatt per månad",
   "subscription_promo_code": "Du har nu gratis obegränsad tillgång till vår katalog fram till den {{date}}. För att fortsätta använda den efter det här datumet, vänligen prenumerera på ",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Meddelandet har tagits bort av upphovspersonen.",
   "unsubscribe": "Avregistrera dig från Coorpacademy",
   "Validated": "Validerad",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Posta din kommentar",
   "validate_aria_label": "Validera ditt svar och gå till nästa steg",
   "stars": "stjärnor",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Betygsätt denna kurs"
