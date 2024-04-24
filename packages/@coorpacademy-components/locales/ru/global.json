@@ -18,10 +18,13 @@
   "cookies_policy": "Политика конфиденциальности и файлов cookie.",
   "cookies_title": "Как мы используем файлы cookie:",
   "Create a new cohort": "Создать новый сегмент",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Удалить",
   "Draft": "Черновой вариант",
   "answer_the_question": "Ответить на вопрос",
   "Edit": "Редактировать",
+  "Explore": "Explore",
   "external_content_article": "ДОКУМЕНТЫ",
   "external_content_scorm": "АНИМИРОВАННЫЕ РЕСУРСЫ",
   "external_content_video": "ВИДЕО",
@@ -50,6 +53,7 @@
   "Put back": "Отложить",
   "Reject": "Отклонить",
   "Reload": "Перезагрузить",
+  "Review": "Review",
   "Review lesson": "Обзор урока",
   "secured_payment": "Безопасный сервер",
   "See clue": "Смотреть подсказку",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} вкл. налоги в месяц",
   "subscription_promo_code": "Теперь вы располагаете безлимитным доступом к нашему каталогу до {{date}}. Чтобы пользоваться им и после этой даты, оформите подписку на",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Это сообщение было удалено его автором.",
   "unsubscribe": "Отказаться от подписки Coorpacademy",
   "Validated": "Подтверждено",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Опубликуйте свой комментарий",
   "validate_aria_label": "Проверьте свой ответ и перейдите к следующему шагу",
   "stars": "звезды",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Оцените этот курс"
