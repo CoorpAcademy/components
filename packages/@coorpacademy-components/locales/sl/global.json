@@ -18,10 +18,13 @@
   "cookies_policy": "Politika zasebnosti in piškotkov.",
   "cookies_title": "Kako uporabljamo piškotke:",
   "Create a new cohort": "Ustvarite novo kohorto",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Izbriši",
   "Draft": "Osnutek",
   "answer_the_question": "Odgovori na vprašanje",
   "Edit": "Uredi",
+  "Explore": "Explore",
   "external_content_article": "DOKUMENTI",
   "external_content_scorm": "ANIMIRANI VIRI",
   "external_content_video": "VIDEO POSNETKI",
@@ -50,6 +53,7 @@
   "Put back": "Daj nazaj",
   "Reject": "Zavrni",
   "Reload": "Ponovno naloži",
+  "Review": "Review",
   "Review lesson": "Pregled lekcije",
   "secured_payment": "Varen strežnik",
   "See clue": "Glej namig",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "$ {currency} $ {price} vklj. davkov na mesec",
   "subscription_promo_code": "Zdaj imate brezplačen neomejen dostop do našega kataloga do {{date}} . Če želite še naprej uživati po tem datumu, se naročite",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "To sporočilo je odstranil avtor.",
   "unsubscribe": "Odjava iz Coorpacademy",
   "Validated": "Potrjeno",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Objavite svoj komentar",
   "validate_aria_label": "Potrdite svoj odgovor in pojdite na naslednji korak",
   "stars": "zvezde",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Ocenite ta tečaj"
