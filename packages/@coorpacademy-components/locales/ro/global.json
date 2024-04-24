@@ -18,10 +18,13 @@
   "cookies_policy": "Politica de confidențialitate și de utilizare a modulelor cookie",
   "cookies_title": "Cum folosim modulele cookie:",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Ștergere",
   "Draft": "Proiect",
   "answer_the_question": "Răspundeţi la întrebare",
   "Edit": "Editare",
+  "Explore": "Explore",
   "external_content_article": "DOCUMENTE",
   "external_content_scorm": "RESURSE ANIMATE",
   "external_content_video": "VIDEOCLIPURI",
@@ -50,6 +53,7 @@
   "Put back": "Respingeți",
   "Reject": "Refuză",
   "Reload": "Reîncarcă",
+  "Review": "Review",
   "Review lesson": "Recapitulați lecția",
   "secured_payment": "Server securizat",
   "See clue": "Arată indiciul",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} incl. taxe pe lună",
   "subscription_promo_code": "Aveți acces gratuit și nelimitat la catalogul nostru până la data de {{date}}. Dacă doriți să beneficiați de acces și după data respectivă, vă rugăm să vă abonați pe",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Acest mesaj a fost retras de autor.",
   "unsubscribe": "Dezabonare Coorpacademy",
   "Validated": "Validat",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Postează comentariul tău",
   "validate_aria_label": "Validați-vă răspunsul și treceți la pasul următor",
   "stars": "stele",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Evaluează acest curs"
