@@ -18,10 +18,13 @@
   "cookies_policy": "隐私和 cookie 政策。",
   "cookies_title": "我们如何使用 cookies：",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "删除",
   "Draft": "草案",
   "answer_the_question": "回答问题",
   "Edit": "编辑",
+  "Explore": "Explore",
   "external_content_article": "文件",
   "external_content_scorm": "动画资源",
   "external_content_video": "视频",
@@ -50,6 +53,7 @@
   "Put back": "放回",
   "Reject": "拒绝",
   "Reload": "重新加载",
+  "Review": "Review",
   "Review lesson": "复习课程",
   "secured_payment": "安全的服务器",
   "See clue": "查看线索",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy 高级版",
   "subscription_price": "${currency}${price}包括每月税费",
   "subscription_promo_code": "现在你可以尽情访问我们的课程，直到{{date}}。若要在该日期之后继续享用，请订阅",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "该信息已经被作者删除。",
   "unsubscribe": "取消订阅 Coorpacademy",
   "Validated": "已验证",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "发布您的评论",
   "validate_aria_label": "验证您的答案并转到下一步",
   "stars": "星星",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "评价此课程"
