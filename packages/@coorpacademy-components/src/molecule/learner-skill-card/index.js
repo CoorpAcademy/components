@@ -123,7 +123,7 @@ const LearnerSkillCard = (props, context) => {
             iconName="bullseye-arrow"
             backgroundColor="#DDD1FF"
             size={{
-              faSize: 12,
+              faSize: 10,
               wrapperSize: 16
             }}
           />
