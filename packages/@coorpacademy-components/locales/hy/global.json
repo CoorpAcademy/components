@@ -18,10 +18,13 @@
   "cookies_policy": "Գաղտնիության և cookies քաղաքականություն:",
   "cookies_title": "Ինչպես ենք մենք օգտագործում cookies-ը.",
   "Create a new cohort": "Ստեղծել նոր խումբ",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Ջնջել",
   "Draft": "Նախագիծ",
   "answer_the_question": "Պատասխանիր հարցին",
   "Edit": "Խմբագրել",
+  "Explore": "Explore",
   "external_content_article": "ՓԱՍՏԱԹՂԹԵՐ",
   "external_content_scorm": "ԱՆԻՄԱՏ ՌԵՍՈՒՐՍՆԵՐ",
   "external_content_video": "ՏԵՍԱՆՅՈՒԹԵՐ",
@@ -50,6 +53,7 @@
   "Put back": "Հետ դնել",
   "Reject": "Մերժել",
   "Reload": "Վերբեռնել",
+  "Review": "Review",
   "Review lesson": "Վերանայել դասը",
   "secured_payment": "Ապահով սերվեր",
   "See clue": "Տեսնել հուշումը",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} ներառյալ ամսական հարկեր",
   "subscription_promo_code": "Դուք այժմ ունեք անվճար անսահմանափակ մուտք դեպի մեր կատալոգ մինչև {{date}}: Այս ամսաթվից հետո այն վայելելու համար, խնդրում ենք բաժանորդագրվել",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Այս հաղորդագրությունը հեռացվել է դրա հեղինակի կողմից:",
   "unsubscribe": "Դուրս գալ Coorpacademy-ի բաժանորդագրությունից",
   "Validated": "Վավերացված",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Տեղադրեք ձեր մեկնաբանությունը",
   "validate_aria_label": "Հաստատեք ձեր պատասխանը և անցեք հաջորդ քայլին",
   "stars": "աստղեր",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Գնահատեք այս դասընթացը"
