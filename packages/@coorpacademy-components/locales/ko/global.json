@@ -18,10 +18,13 @@
   "cookies_policy": "개인정보 처리방침 및 쿠키 정책.",
   "cookies_title": "당사가 쿠키를 사용하는 방법:",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "삭제",
   "Draft": "초안",
   "answer_the_question": "질분에 답하세요",
   "Edit": "수정",
+  "Explore": "Explore",
   "external_content_article": "문서",
   "external_content_scorm": "애니메이션 리소스",
   "external_content_video": "동영상",
@@ -50,6 +53,7 @@
   "Put back": "연기",
   "Reject": "거부",
   "Reload": "재구동",
+  "Review": "Review",
   "Review lesson": "복습",
   "secured_payment": "안전 서버",
   "See clue": "단서 보기",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} 포함됨. 1개월당 세금",
   "subscription_promo_code": "귀하는 이제 {{date}}까지 당사의 카탈로그에 대한 무제한의 무료 액세스 권한이 있습니다. 이 날짜 이후에 계속 즐기시려면, 구독하세요",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "이 메시지는 작성자에 의해서 삭제되었습니다.",
   "unsubscribe": "Coorpacademy 구독 해지",
   "Validated": "검증",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "의견을 작성하세요",
   "validate_aria_label": "답변을 검증한 후 다음 단계로 진행하세요",
   "stars": "별",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "이 강좌를 평가해 주세요"
