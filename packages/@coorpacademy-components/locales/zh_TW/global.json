@@ -18,10 +18,13 @@
   "cookies_policy": "隱私權和 Cookie 政策。",
   "cookies_title": "我們如何使用 Cookies：",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "刪除",
   "Draft": "草案",
   "answer_the_question": "回答問題",
   "Edit": "編輯",
+  "Explore": "Explore",
   "external_content_article": "檔案",
   "external_content_scorm": "動畫資源",
   "external_content_video": "影片",
@@ -50,6 +53,7 @@
   "Put back": "放回",
   "Reject": "拒絕",
   "Reload": "重新載入",
+  "Review": "Review",
   "Review lesson": "複習功課",
   "secured_payment": "安全伺服器",
   "See clue": "看到線索",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "含 ${currency}${price}每月稅金",
   "subscription_promo_code": "您現在可以免費無限制地造訪我們的目錄，直到{{date}}。如要在此日期之後繼續享用它，請訂閱",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "此訊息已被其作者刪除。",
   "unsubscribe": "取消訂閱 Coorpacademy",
   "Validated": "已驗證",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "張貼您的註解",
   "validate_aria_label": "驗證您的答案並前往下一步",
   "stars": "星星",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "評量本課程"
