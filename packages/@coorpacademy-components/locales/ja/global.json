@@ -18,10 +18,13 @@
   "cookies_policy": "プライバシーとクッキーポリシーをご確認ください。",
   "cookies_title": "クッキーの使用方法：",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "削除",
   "Draft": "ドラフト",
   "answer_the_question": "質問に答える",
   "Edit": "編集",
+  "Explore": "Explore",
   "external_content_article": "ドキュメント",
   "external_content_scorm": "アニメーション化されたリソース",
   "external_content_video": "動画",
@@ -50,6 +53,7 @@
   "Put back": "元に戻す",
   "Reject": "拒否",
   "Reload": "再読み込み",
+  "Review": "Review",
   "Review lesson": "レッスンをレビューする",
   "secured_payment": "セキュリティで保護されたサーバー",
   "See clue": "ヒントをみる ",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy プレミアム",
   "subscription_price": "1 ヶ月あたりの ${currency} ${price} 税込税",
   "subscription_promo_code": "今、{{date}} までカタログに無料の無制限のアクセスがあります。この日付後にそれを楽しんで、するに登録してください。",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "このメッセージは、その著者によって削除されています。",
   "unsubscribe": "Coorpacademy からの退会します。",
   "Validated": "検証済み",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "コメントを投稿する",
   "validate_aria_label": "回答が正しいことを確認して次のステップに進んでください",
   "stars": "出演者",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "このコースを評価する"
