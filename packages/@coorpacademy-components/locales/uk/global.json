@@ -18,10 +18,13 @@
   "cookies_policy": "Політика конфіденційності та використання файлів cookie.",
   "cookies_title": "Як користуватися файлами cookies:",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Видалити",
   "Draft": "Чернетка",
   "answer_the_question": "Дайте відповідь на питання",
   "Edit": "Редагувати",
+  "Explore": "Explore",
   "external_content_article": "ДОКУМЕНТИ",
   "external_content_scorm": "АНІМОВАНІ РЕСУРСИ",
   "external_content_video": "ВІДЕО",
@@ -50,6 +53,7 @@
   "Put back": "Відкласти",
   "Reject": "Відхилити",
   "Reload": "Перезавантажити",
+  "Review": "Review",
   "Review lesson": "Оцінити урок",
   "secured_payment": "Безпечний сервер",
   "See clue": "Переглянути підказку",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} включно податків на місяць",
   "subscription_promo_code": "Тепер у вас безкоштовний необмежений доступ до нашого каталогу до {{date}}. Щоб користуватися ним і після цієї дати, будь ласка підпишіться на",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Це повідомлення було вилучено автором.",
   "unsubscribe": "Скасувати підписку Coorpacademy",
   "Validated": "Підтверджено",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Опублікуйте ваш коментар",
   "validate_aria_label": "Підтвердьте свою відповідь і перейдіть до наступного кроку",
   "stars": "зірки",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Оцініть цей курс"
