@@ -2,15 +2,16 @@ import React, {useCallback} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
+import FaIcon from '../icon';
 import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
 const getButtonContent = (icon?: IconType, label?: string) => {
-  const {type, position} = icon || {type: '', position: ''};
+  const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
-  if (!Icon) {
+  if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
         <span className={style.label}>{label}</span>
@@ -18,11 +19,27 @@ const getButtonContent = (icon?: IconType, label?: string) => {
     );
   }
 
+  const iconComponent = faIcon ? (
+    <FaIcon
+      {...{
+        iconName: faIcon.name,
+        iconColor: faIcon.color,
+        backgroundColor: faIcon.backgroundColor,
+        size: {
+          faSize: faIcon.size,
+          wrapperSize: faIcon.size
+        }
+      }}
+    />
+  ) : (
+    <Icon className={style.icon} theme="coorpmanager" />
+  );
+
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
+      {position === 'left' ? iconComponent : null}
       {label ? <span className={style.label}>{label}</span> : null}
-      {position === 'right' ? <Icon className={style.icon} theme="coorpmanager" /> : null}
+      {position === 'right' ? iconComponent : null}
     </div>
   );
 };
