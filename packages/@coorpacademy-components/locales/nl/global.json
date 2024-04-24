@@ -18,10 +18,13 @@
   "cookies_policy": "Privacy- en cookiesbeleid",
   "cookies_title": "Hoe we cookies gebruiken",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Verwijderen",
   "Draft": "Droogte",
   "answer_the_question": "Beantwoord de vraag",
   "Edit": "Bewerken",
+  "Explore": "Explore",
   "external_content_article": "DOCUMENTEN",
   "external_content_scorm": "GEANIMEERDE BRONNEN",
   "external_content_video": "VIDEO'S",
@@ -50,6 +53,7 @@
   "Put back": "Uitstellen",
   "Reject": "Afwijzen",
   "Reload": "Opnieuw laden",
+  "Review": "Review",
   "Review lesson": "Beoordeel les",
   "secured_payment": "Veilige server",
   "See clue": "Bekijk tip",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} incl. belastingen per maand",
   "subscription_promo_code": "Je hebt nu gratis onbeperkte toegang tot onze catalogus tot {{date}}. Wil je dat dit na die datum zo blijft, verleng dan je abonnement.",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Dit bericht is verwijderd door de auteur ervan.",
   "unsubscribe": "Uitschrijven van Coorpacademy",
   "Validated": "Validated",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Plaats uw reactie",
   "validate_aria_label": "Valideer uw antwoord en ga naar de volgende stap",
   "stars": "sterren",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Beoordeel deze cursus"
