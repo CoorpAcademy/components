@@ -18,10 +18,13 @@
   "cookies_policy": "Richtlinie zu Datenschutz und Cookies",
   "cookies_title": "Wie wir Cookies verwenden:",
   "Create a new cohort": "Create a new cohort",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Löschen",
   "Draft": "Entwurf",
   "answer_the_question": "Beantworten Sie die Frage",
   "Edit": "Bearbeiten",
+  "Explore": "Explore",
   "external_content_article": "DOKUMENTE",
   "external_content_scorm": "ANIMIERTE RESSOURCEN",
   "external_content_video": "VIDEOS",
@@ -50,6 +53,7 @@
   "Put back": "Zurücksetzen",
   "Reject": "Verwerfen",
   "Reload": "Neu laden",
+  "Review": "Review",
   "Review lesson": "Zurück zur Lektion",
   "secured_payment": "Sicherer Server",
   "See clue": "Hinweis öffnen",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} inkl. Steuer monatlich",
   "subscription_promo_code": "Sie haben jetzt einen kostenlosen unbegrenzten Zugang zu unserem Katalog bis {{date}}. Um es nach diesem Datum zu behalten, melden Sie sich bitte an",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Diese Nachricht wurde von seinem Urheber gelöscht.",
   "unsubscribe": "Bei Coorpacademy abmelden",
   "Validated": "Bestätigt",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Veröffentlichen Sie Ihren Kommentar",
   "validate_aria_label": "Bestätigen Sie Ihre Antwort und gehen Sie zum nächsten Schritt",
   "stars": "Sterne",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Bewerten Sie diesen Kurs"
