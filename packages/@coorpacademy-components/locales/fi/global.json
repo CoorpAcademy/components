@@ -18,10 +18,13 @@
   "cookies_policy": "Tietosuoja- ja evästekäytäntö.",
   "cookies_title": "Miten käytämme evästeitä:",
   "Create a new cohort": "Luo uusi kohortti",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Poista",
   "Draft": "Luonnos",
   "answer_the_question": "Vastaa kysymykseen",
   "Edit": "Muokkaa",
+  "Explore": "Explore",
   "external_content_article": "ASIAKIRJAT",
   "external_content_scorm": "ANIMOIDUT RESURSSIT",
   "external_content_video": "VIDEOT",
@@ -50,6 +53,7 @@
   "Put back": "Pane takaisin",
   "Reject": "Hylkää",
   "Reload": "Lataa uudelleen",
+  "Review": "Review",
   "Review lesson": "Katso oppitunti uudelleen",
   "secured_payment": "Turvallinen palvelin",
   "See clue": "Näytä vihje",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${price} ${currency} kuukaudessa sisältäen verot",
   "subscription_promo_code": "Sinulla on nyt luettelomme ilmainen ja rajoittamaton käyttöoikeus {{date}} asti. Jos haluat jatkaa sen käyttämistä kyseisen päivän jälkeen, tilaa",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Tekijä on poistanut tämän viestin.",
   "unsubscribe": "Peruuta Coorpacademyn tilaus",
   "Validated": "Vahvistettu",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Julkaise kommenttisi",
   "validate_aria_label": "Vahvista vastauksesi ja siirry seuraavaan vaiheeseen",
   "stars": "tähdet",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Arvioi tämä kurssi"
