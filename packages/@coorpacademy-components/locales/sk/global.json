@@ -18,10 +18,13 @@
   "cookies_policy": "Zásady ochrany osobných údajov a pravidlá súborov Cookies.",
   "cookies_title": "Ako používame súbory Cookies:",
   "Create a new cohort": "Vytvorte novú kohortu",
+  "courses": "Courses",
+  "courses_completed": " Courses Completed",
   "Delete": "Vymazať",
   "Draft": "Výber",
   "answer_the_question": "Odpovedzte na otázku",
   "Edit": "Upraviť",
+  "Explore": "Explore",
   "external_content_article": "DOKUMENTY",
   "external_content_scorm": "ANIMOVANÉ ZDROJE",
   "external_content_video": "VIDEÁ",
@@ -50,6 +53,7 @@
   "Put back": "Dať naspäť",
   "Reject": "Odmietnuť",
   "Reload": "Obnoviť",
+  "Review": "Review",
   "Review lesson": "Opakovacia lekcia",
   "secured_payment": "Zabezpečený server",
   "See clue": "Pozrieť nápovedu",
@@ -70,6 +74,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} vrátane DPH za mesiac",
   "subscription_promo_code": "Teraz máte bezplatný neobmedzený prístup do nášho katalógu do {{date}}. Ak si ho chcete užívať aj po tomto termíne, prihláste sa na odber",
+  "skill_focus": "Skill focus",
   "This message has been removed by its author": "Túto správu odstránil jej autor.",
   "unsubscribe": "Odhlásiť sa z predplatného Coorpacademy",
   "Validated": "Overené",
@@ -95,6 +100,7 @@
   "post_comment_aria_label": "Uverejnite svoj komentár",
   "validate_aria_label": "Potvrďte svoju odpoveď a prejdite na ďalší krok",
   "stars": "hviezdy",
+  "questions": "Questions",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Ohodnoťte tento kurz"
