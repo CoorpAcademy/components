@@ -23,8 +23,8 @@
   flex-direction: column;
   max-width: 258px;
   width: 100%;
-  min-height: 266px;
-  box-shadow: 0 4px 16px 0px rgba(0, 0, 0, 0.4);;
+  min-height: 252px;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 12px;
   padding: 24px;
@@ -32,7 +32,7 @@
 }
 
 .learnerSkillCardWrapper:hover {
-  box-shadow: 0 4px 40px box_shadow_medium_dark;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
 
 .skillCoursesAndQuestionsWrapper,
@@ -59,29 +59,30 @@
 .skillTitleWrapper {
   display: flex;
   flex-direction: column;
-  min-height: 82px;
+  min-height: 68px;
   margin-bottom: 24px;
 }
 
 .skillTitle {
   composes: textBase;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 22px;
   margin-bottom: 8px;
 }
 
 .skillFocusBadge {
   composes: textBase;
   display: flex;
-  height: 14px;
+  height: 12px;
   width: 62px;
   align-items: center;
   background-color: #DDD1FF;
   border-radius: 24px;
   padding: 2px 4px;
   font-size: 10px;
-  font-weight: 400;
+  line-height: 12px;
+  font-weight: 600;
   color: #3900D6;
   margin-right: 8px;
 }
@@ -115,10 +116,4 @@
 
 .buttonWrapper {
   display: flex;
-}
-
-@media mobile {
-  .learnerSkillCardWrapper:hover {
-    box-shadow: 0 4px 20px box_shadow_medium_dark;
-  }
 }
