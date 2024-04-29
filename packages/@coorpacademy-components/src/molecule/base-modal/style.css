@@ -1,0 +1,77 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value lightDark from colors;
+@value dark from colors;
+@value light from colors;
+@value xtraLightGrey from colors;
+@value cm_grey_150 from colors;
+
+.modalWrapper {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  font-family: "Gilroy";
+  justify-content: center;
+  align-items: center;
+  background-color: lightDark;
+}
+
+.modal {
+  min-width: 660px;
+  min-height: 165px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.header {
+  padding: 24px;
+  display: flex;
+  position: relative;
+}
+
+.headerIcon {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.headerContent {
+  flex: 1;
+  margin-left: 16px;
+}
+
+.headerTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.headerDescription {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.headerCloseIcon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.body {
+  background-color: xtraLightGrey;
+  padding: 32px 32px 16px 32px;
+  min-height: 100px;
+  border-top: 1px solid cm_grey_150;
+  border-bottom: 1px solid cm_grey_150;
+}
+
+.footer {
+  padding: 24px;
+  display: flex;
+  flex-direction: row-reverse;
+}

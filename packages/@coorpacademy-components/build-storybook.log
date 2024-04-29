@@ -1,0 +1,2 @@
+yarn run v1.22.22
+$ cross-env BABEL_ENV=es build-storybook -c .storybook -o static --output-dir /var/folders/9c/b5y06j792g34r8ry4zbkfyk00000gr/T/chromatic--16201-TKyVpYLhpyTO
