@@ -10,20 +10,20 @@ export default {
     description: 'Modal description',
     children: <>Modal body</>,
     isOpen: true,
-    footerDescription: {
+    footer: {
       text: 'Footer description',
-      isError: false
-    },
-    cancelButton: {
-      onCancel: () => console.log('cancel'),
-      label: 'Cancel',
-      disabled: false
-    },
-    confirmButton: {
-      onConfirm: () => console.log('confirm'),
-      label: 'Confirm',
-      iconName: 'compass',
-      disabled: false
+      isError: false,
+      cancelButton: {
+        onCancel: () => console.log('cancel'),
+        label: 'Cancel',
+        disabled: false
+      },
+      confirmButton: {
+        onConfirm: () => console.log('confirm'),
+        label: 'Confirm',
+        iconName: 'compass',
+        disabled: false
+      }
     },
     onClose: () => console.log('close modal')
   }

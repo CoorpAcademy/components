@@ -66,20 +66,20 @@ export default {
       'Choose between 3 to 6 skills you are interested in. Your are able to change focus at any time.',
     children: <SkillPicker />,
     isOpen: true,
-    footerDescription: {
+    footer: {
       text: 'Select at least 3 more skills',
-      isError: false
-    },
-    cancelButton: {
-      onCancel: () => console.log('cancel'),
-      label: 'Cancel',
-      disabled: false
-    },
-    confirmButton: {
-      onConfirm: () => console.log('confirm'),
-      label: 'Confirm',
-      iconName: 'compass',
-      disabled: false
+      isError: false,
+      cancelButton: {
+        onCancel: () => console.log('cancel'),
+        label: 'Cancel',
+        disabled: false
+      },
+      confirmButton: {
+        onConfirm: () => console.log('confirm'),
+        label: 'Confirm',
+        iconName: 'compass',
+        disabled: false
+      }
     },
     onClose: () => console.log('close modal')
   }

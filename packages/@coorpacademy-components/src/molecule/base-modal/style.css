@@ -37,11 +37,11 @@
 .headerIcon {
   border-radius: 12px;
   overflow: hidden;
+  margin-right: 16px;
 }
 
 .headerContent {
   flex: 1;
-  margin-left: 16px;
 }
 
 .headerTitle {

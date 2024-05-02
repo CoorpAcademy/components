@@ -23,7 +23,7 @@ const buttonConfirmProps = {
   }
 };
 
-const Footer = () => (
+const CustomFooter = () => (
   <div style={{display: 'flex', gap: '8px', width: '50%', padding: '16px'}}>
     <ButtonLink {...buttonConfirmProps} />
   </div>
@@ -36,7 +36,7 @@ export default {
     description: 'Modal description',
     children: <>Modal body</>,
     isOpen: true,
-    footer: Footer,
+    footer: CustomFooter,
     onClose: () => console.log('close modal')
   }
 };
