@@ -20,7 +20,8 @@
 }
 
 .modal {
-  min-width: 660px;
+  max-width: 660px;
+  min-width: 450px;
   min-height: 165px;
   overflow: hidden;
   border-radius: 16px;
@@ -74,4 +75,15 @@
   padding: 24px;
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerDescriptionError {
+  color: #991100;
+}
+
+.footerCTAWrapper {
+  display: flex;
+  gap: 8px;
 }

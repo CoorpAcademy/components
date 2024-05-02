@@ -1,10 +1,78 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../atom/icon';
+import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const BaseModal = props => {
-  const {title, description, headerIconName, children, isOpen, footer, onClose} = props;
+  const {
+    title,
+    description,
+    headerIcon,
+    children,
+    isOpen,
+    footer,
+    footerDescription,
+    cancelButton,
+    confirmButton,
+    onClose
+  } = props;
+
+  const Footer = useCallback(() => {
+    if (footer) return footer();
+
+    if (!cancelButton && !confirmButton && !footerDescription) return null;
+
+    return (
+      <div className={style.footer}>
+        <div className={style.footerCTAWrapper}>
+          {cancelButton?.onCancel && cancelButton?.label ? (
+            <ButtonLink
+              {...{
+                customStyle: {
+                  width: '94px'
+                },
+                type: 'secondary',
+                onClick: cancelButton.onCancel,
+                label: cancelButton.label,
+                disabled: cancelButton.disabled
+              }}
+            />
+          ) : null}
+          {confirmButton?.onConfirm && confirmButton?.label ? (
+            <ButtonLink
+              {...{
+                customStyle: {
+                  width: '121px'
+                },
+                type: 'primary',
+                onClick: confirmButton.onConfirm,
+                label: confirmButton?.label,
+                disabled: confirmButton?.disabled,
+                ...(confirmButton?.iconName
+                  ? {
+                      icon: {
+                        position: 'left',
+                        faIcon: {
+                          name: confirmButton?.iconName,
+                          color: '#FFFFFF',
+                          size: 16
+                        }
+                      }
+                    }
+                  : null)
+              }}
+            />
+          ) : null}
+        </div>
+        {footerDescription?.text ? (
+          <div className={footerDescription.isError && style.footerDescriptionError}>
+            {footerDescription.text}
+          </div>
+        ) : null}
+      </div>
+    );
+  }, [footer, cancelButton, confirmButton, footerDescription]);
 
   if (!isOpen || !title || !children) return null;
 
@@ -17,11 +85,12 @@ const BaseModal = props => {
     <div className={style.modalWrapper}>
       <div className={style.modal}>
         <header className={style.header}>
-          {headerIconName ? (
+          {headerIcon && headerIcon.name ? (
             <div className={style.headerIcon}>
               <Icon
-                iconName={headerIconName}
-                backgroundColor="#DDD1FF"
+                iconName={headerIcon.name}
+                iconColor={headerIcon.color}
+                backgroundColor={headerIcon.backgroundColor}
                 size={{
                   faSize: 20,
                   wrapperSize: 48
@@ -45,7 +114,7 @@ const BaseModal = props => {
           </div>
         </header>
         <div className={style.body}>{children}</div>
-        {footer ? <div className={style.footer}>{footer()}</div> : null}
+        <Footer />
       </div>
     </div>
   );
@@ -53,11 +122,30 @@ const BaseModal = props => {
 
 BaseModal.propTypes = {
   title: PropTypes.string,
-  headerIconName: PropTypes.string,
+  headerIcon: PropTypes.shape({
+    name: PropTypes.string,
+    color: PropTypes.string,
+    backgroundColor: PropTypes.string
+  }),
   description: PropTypes.string,
   children: PropTypes.node,
   isOpen: PropTypes.bool,
   footer: PropTypes.func,
+  footerDescription: PropTypes.shape({
+    text: PropTypes.string,
+    isError: PropTypes.boolean
+  }),
+  cancelButton: PropTypes.shape({
+    label: PropTypes.string,
+    onCancel: PropTypes.string,
+    disabled: PropTypes.bool
+  }),
+  confirmButton: PropTypes.shape({
+    label: PropTypes.string,
+    onConfirm: PropTypes.string,
+    iconName: PropTypes.string,
+    disabled: PropTypes.bool
+  }),
   onClose: PropTypes.func
 };
 

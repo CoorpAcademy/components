@@ -3,10 +3,7 @@ import {convert} from 'css-color-function';
 import ButtonLink from '../../../../atom/button-link';
 
 const primarySkinColor = '#0061FF';
-const buttonCancelProps = {
-  onClick: () => console.log('cancel'),
-  label: 'Cancel'
-};
+
 const buttonConfirmProps = {
   customStyle: {
     backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
@@ -27,8 +24,7 @@ const buttonConfirmProps = {
 };
 
 const Footer = () => (
-  <div style={{display: 'flex', gap: '8px', width: '50%'}}>
-    <ButtonLink {...buttonCancelProps} />
+  <div style={{display: 'flex', gap: '8px', width: '50%', padding: '16px'}}>
     <ButtonLink {...buttonConfirmProps} />
   </div>
 );
