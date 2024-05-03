@@ -115,12 +115,12 @@ BaseModal.propTypes = {
       isError: PropTypes.boolean,
       cancelButton: PropTypes.shape({
         label: PropTypes.string,
-        onCancel: PropTypes.string,
+        onCancel: PropTypes.func,
         disabled: PropTypes.bool
       }),
       confirmButton: PropTypes.shape({
         label: PropTypes.string,
-        onConfirm: PropTypes.string,
+        onConfirm: PropTypes.func,
         iconName: PropTypes.string,
         disabled: PropTypes.bool
       })
