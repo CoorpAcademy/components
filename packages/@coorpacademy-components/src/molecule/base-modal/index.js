@@ -3,50 +3,51 @@ import PropTypes from 'prop-types';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
+import {isEmpty} from 'lodash/fp';
 
 const BaseModal = props => {
   const {title, description, headerIcon, children, isOpen, footer, onClose} = props;
 
   const Footer = useCallback(() => {
-    if (!footer) return null;
+    if (isEmpty(footer)) return null;
     if (typeof footer === 'function') return footer();
 
     const {cancelButton, confirmButton, text, isError} = footer;
-
-    if (!cancelButton && !confirmButton && !text) return null;
+    const {label: cancelLabel, onCancel, disabled: cancelDisabled} = cancelButton || {};
+    const {label: confirmLabel, onConfirm, disabled: confirmDisabled, iconName} = confirmButton || {};
 
     return (
       <div className={style.footer}>
         <div className={style.footerCTAWrapper}>
-          {cancelButton?.onCancel && cancelButton?.label ? (
+          {onCancel && cancelLabel ? (
             <ButtonLink
               {...{
                 customStyle: {
                   width: '94px'
                 },
                 type: 'secondary',
-                onClick: cancelButton.onCancel,
-                label: cancelButton.label,
-                disabled: cancelButton.disabled
+                onClick: onCancel,
+                label: cancelLabel,
+                disabled: cancelDisabled
               }}
             />
           ) : null}
-          {confirmButton?.onConfirm && confirmButton?.label ? (
+          {onConfirm && confirmLabel ? (
             <ButtonLink
               {...{
                 customStyle: {
                   width: '121px'
                 },
                 type: 'primary',
-                onClick: confirmButton.onConfirm,
-                label: confirmButton?.label,
-                disabled: confirmButton?.disabled,
-                ...(confirmButton?.iconName
+                onClick: onConfirm,
+                label: confirmLabel,
+                disabled: confirmDisabled,
+                ...(iconName
                   ? {
                       icon: {
                         position: 'left',
                         faIcon: {
-                          name: confirmButton?.iconName,
+                          name: iconName,
                           color: '#FFFFFF',
                           size: 16
                         }
@@ -73,7 +74,7 @@ const BaseModal = props => {
     <div className={style.modalWrapper}>
       <div className={style.modal}>
         <header className={style.header}>
-          {headerIcon && headerIcon.name ? (
+          {headerIcon?.name ? (
             <div className={style.headerIcon}>
               <Icon
                 iconName={headerIcon.name}
