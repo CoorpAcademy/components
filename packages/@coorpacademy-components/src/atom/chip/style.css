@@ -7,7 +7,7 @@
 @value white from colors;
 
 .container {
-  width: 100%;
+  width: fit-content;
   height: 52px;
   border-radius: 10px;
   padding: 10px 16px;

@@ -37,7 +37,7 @@ const LearnerSkillCard = (props, context) => {
       backgroundColor: '#FFF',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
-    onReviewClick,
+    onClick: onReviewClick,
     'aria-label': `${skillTitle}, ${reviewLocale}`,
     label: reviewLocale,
     'data-name': 'learner-skill-card-review-button'
@@ -49,7 +49,7 @@ const LearnerSkillCard = (props, context) => {
       color: hovered ? '#FFFFFF' : primarySkinColor,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
-    onExploreClick,
+    onClick: onExploreClick,
     'aria-label': `${skillTitle}, ${exploreLocale}`,
     label: exploreLocale,
     'data-name': 'learner-skill-card-explore-button',
