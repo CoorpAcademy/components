@@ -1,9 +1,9 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
+import {isEmpty} from 'lodash/fp';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
-import {isEmpty} from 'lodash/fp';
 
 const BaseModal = props => {
   const {title, description, headerIcon, children, isOpen, footer, onClose} = props;
@@ -14,7 +14,12 @@ const BaseModal = props => {
 
     const {cancelButton, confirmButton, text, isError} = footer;
     const {label: cancelLabel, onCancel, disabled: cancelDisabled} = cancelButton || {};
-    const {label: confirmLabel, onConfirm, disabled: confirmDisabled, iconName} = confirmButton || {};
+    const {
+      label: confirmLabel,
+      onConfirm,
+      disabled: confirmDisabled,
+      iconName
+    } = confirmButton || {};
 
     return (
       <div className={style.footer}>
