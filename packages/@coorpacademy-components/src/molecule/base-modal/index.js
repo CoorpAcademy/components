@@ -4,7 +4,6 @@ import {isEmpty} from 'lodash/fp';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
-import {isEmpty} from 'lodash/fp';
 
 const BaseModal = props => {
   const {title, description, headerIcon, children, isOpen, footer, onClose} = props;
