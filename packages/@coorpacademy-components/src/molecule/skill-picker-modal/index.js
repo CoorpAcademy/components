@@ -22,18 +22,18 @@ const SkillPickerModal = (props, context) => {
 
   const footer = useMemo(() => {
     return {
-      text: footerDescription,
+      text: isLoading ? '' : footerDescription,
       isError,
       cancelButton: {
         onCancel,
         label: translate('cancel'),
-        disabled: isError
+        disabled: isLoading || isError
       },
       confirmButton: {
         onConfirm,
         label: translate('confirm'),
         iconName: 'circle-check',
-        disabled: isError
+        disabled: isLoading || isError
       }
     };
   }, [footerDescription, isError, onCancel, onConfirm, translate]);
