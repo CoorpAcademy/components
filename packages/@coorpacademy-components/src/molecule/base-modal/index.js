@@ -53,7 +53,7 @@ const BaseModal = props => {
                         }
                       }
                     }
-                  : null)
+                  : {})
               }}
             />
           ) : null}
