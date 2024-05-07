@@ -1,0 +1,45 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+
+.container {
+  font-family: "Gilroy";
+  font-style: normal;
+  margin: 48px 180px;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.skillFocusContainer {
+  border-radius: 16px;
+  border: 1px solid cm_grey_100;
+  overflow: hidden;
+}
+
+.skillFocusHeader {
+  padding: 24px;
+  display: flex;
+  position: relative;
+}
+
+.skillFocusHeaderIcon {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.skillFocusHeaderContent {
+  flex: 1;
+}
+
+.skillFocusHeaderTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.skillFocusHeaderDescription {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
