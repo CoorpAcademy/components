@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
@@ -11,18 +11,24 @@ const SkillPickerModal = (props, context) => {
     skills,
     isOpen,
     isLoading,
-    isError,
-    footerDescription,
-    onSkillClick,
+    maxSelectedSkills = 6,
     onCancel,
     onConfirm,
     onClose
   } = props;
   const {translate} = context;
 
+  const [skillList, setSkillList] = useState(skills);
+  const selectedSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
+  const isError = useMemo(() => selectedSkills.length > maxSelectedSkills, [selectedSkills, maxSelectedSkills]);
+
   const footer = useMemo(() => {
+    const footerDescription = isError ? 
+      translate('skill_focus_footer_error_description').replace('.', selectedSkills.length - maxSelectedSkills) 
+      :
+      translate('skill_focus_footer_description').replace('.', maxSelectedSkills - selectedSkills.length) ;
     return {
-      text: isLoading ? '' : footerDescription,
+      text: isLoading || selectedSkills.length === maxSelectedSkills ? '' : footerDescription.replace(".", ),
       isError,
       cancelButton: {
         onCancel,
@@ -36,7 +42,7 @@ const SkillPickerModal = (props, context) => {
         disabled: isLoading || isError
       }
     };
-  }, [footerDescription, isError, onCancel, onConfirm, translate]);
+  }, [isError, onCancel, onConfirm, translate, selectedSkills, isLoading, maxSelectedSkills]);
 
   if (!isLoading && !skills) return null;
 
@@ -59,17 +65,20 @@ const SkillPickerModal = (props, context) => {
           </div>
         ) : (
           <>
-            <div style={{marginBottom: '16px'}}>7 {translate('selected')}</div>
+            <div style={{marginBottom: '16px'}}>{selectedSkills.length + " " + translate('selected')}</div>
             <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
               {skills.map((skill, index) => {
+                const {skillTitle, focus} = skill;
                 function handleChipClick() {
-                  onSkillClick && onSkillClick(skill);
+                  const tempSkillList = [...skillList];
+                  tempSkillList[index].focus = !tempSkillList[index].focus;
+                  setSkillList(tempSkillList);
                 }
 
                 return (
                   <Chip
-                    text={skill.name}
-                    selected={skill.selected}
+                    text={skillTitle}
+                    selected={focus}
                     onClick={handleChipClick}
                     key={index}
                   />
@@ -90,15 +99,13 @@ SkillPickerModal.contextTypes = {
 SkillPickerModal.propTypes = {
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string,
-      selected: PropTypes.boolean
+      skillTitle: PropTypes.string,
+      focus: PropTypes.boolean
     })
   ),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
-  isError: PropTypes.bool,
-  footerDescription: PropTypes.string,
-  onSkillClick: PropTypes.func,
+  maxSelectedSkills: PropTypes.number,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   onClose: PropTypes.func

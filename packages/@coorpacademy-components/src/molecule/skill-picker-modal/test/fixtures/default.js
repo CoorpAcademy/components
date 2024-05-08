@@ -2,43 +2,40 @@ export default {
   props: {
     skills: [
       {
-        name: 'Creativity and innovation',
-        selected: false
+        skillTitle: 'Creativity and innovation',
+        focus: false
       },
       {
-        name: 'Critical thinking and analysis',
-        selected: true
+        skillTitle: 'Critical thinking and analysis',
+        focus: true
       },
       {
-        name: 'Digital culture',
-        selected: false
+        skillTitle: 'Digital culture',
+        focus: false
       },
       {
-        name: 'Digital dexterity',
-        selected: false
+        skillTitle: 'Digital dexterity',
+        focus: false
       },
       {
-        name: 'Digital communication',
-        selected: false
+        skillTitle: 'Digital communication',
+        focus: false
       },
       {
-        name: 'Active listening',
-        selected: false
+        skillTitle: 'Active listening',
+        focus: false
       },
       {
-        name: 'Agility',
-        selected: false
+        skillTitle: 'Agility',
+        focus: false
       },
       {
-        name: 'Learning how to learn',
-        selected: false
+        skillTitle: 'Learning how to learn',
+        focus: false
       }
     ],
     isOpen: true,
     isLoading: false,
-    isError: false,
-    footerDescription: 'Select at least 3 more skills',
-    onSkillClick: skill => console.log('skill clicked', skill),
     onCancel: () => console.log('cancel'),
     onConfirm: () => console.log('confirm'),
     onClose: () => console.log('close modal')
