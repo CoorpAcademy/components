@@ -58,7 +58,7 @@ const SkillPickerModal = (props, context) => {
           skillNumber: minSelectedSkills - selectedSkillList.length
         });
     return {
-      text: isLoading ? '' : footerDescription,
+      text: isLoading || selectedSkills.length === maxSelectedSkills ? '' : footerDescription.replace(".", ),
       isError,
       cancelButton: {
         onCancel: handleCancel,
