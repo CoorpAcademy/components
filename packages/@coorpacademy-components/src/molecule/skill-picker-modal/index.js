@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useMemo, useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
@@ -46,6 +46,12 @@ const SkillPickerModal = (props, context) => {
       }
     };
   }, [isError, onCancel, onConfirm, translate, selectedSkills, isLoading, maxSelectedSkills]);
+
+  useEffect(() => {
+    if (skills) {
+      setSkillList(skills);
+    }
+  }, [skills]);
 
   if (!isLoading && !skills) return null;
 
