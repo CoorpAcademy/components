@@ -7,28 +7,31 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const SkillPickerModal = (props, context) => {
-  const {
-    skills,
-    isOpen,
-    isLoading,
-    maxSelectedSkills = 6,
-    onCancel,
-    onConfirm,
-    onClose
-  } = props;
+  const {skills, isOpen, isLoading, maxSelectedSkills = 6, onCancel, onConfirm, onClose} = props;
   const {translate} = context;
 
   const [skillList, setSkillList] = useState(skills);
   const selectedSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
-  const isError = useMemo(() => selectedSkills.length > maxSelectedSkills, [selectedSkills, maxSelectedSkills]);
+  const isError = useMemo(
+    () => selectedSkills.length > maxSelectedSkills,
+    [selectedSkills, maxSelectedSkills]
+  );
 
   const footer = useMemo(() => {
-    const footerDescription = isError ? 
-      translate('skill_focus_footer_error_description').replace('.', selectedSkills.length - maxSelectedSkills) 
-      :
-      translate('skill_focus_footer_description').replace('.', maxSelectedSkills - selectedSkills.length) ;
+    const footerDescription = isError
+      ? translate('skill_focus_footer_error_description').replace(
+          '.',
+          selectedSkills.length - maxSelectedSkills
+        )
+      : translate('skill_focus_footer_description').replace(
+          '.',
+          maxSelectedSkills - selectedSkills.length
+        );
     return {
-      text: isLoading || selectedSkills.length === maxSelectedSkills ? '' : footerDescription.replace(".", ),
+      text:
+        isLoading || selectedSkills.length === maxSelectedSkills
+          ? ''
+          : footerDescription.replace('.'),
       isError,
       cancelButton: {
         onCancel,
@@ -65,7 +68,9 @@ const SkillPickerModal = (props, context) => {
           </div>
         ) : (
           <>
-            <div style={{marginBottom: '16px'}}>{selectedSkills.length + " " + translate('selected')}</div>
+            <div style={{marginBottom: '16px'}}>
+              {`${selectedSkills.length} ${translate('selected')}`}
+            </div>
             <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
               {skills.map((skill, index) => {
                 const {skillTitle, focus} = skill;
@@ -76,12 +81,7 @@ const SkillPickerModal = (props, context) => {
                 }
 
                 return (
-                  <Chip
-                    text={skillTitle}
-                    selected={focus}
-                    onClick={handleChipClick}
-                    key={index}
-                  />
+                  <Chip text={skillTitle} selected={focus} onClick={handleChipClick} key={index} />
                 );
               })}
             </div>
