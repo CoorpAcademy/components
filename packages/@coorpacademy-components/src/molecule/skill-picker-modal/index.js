@@ -39,7 +39,7 @@ const SkillPickerModal = (props, context) => {
         disabled: isLoading || isError
       },
       confirmButton: {
-        onConfirm,
+        onConfirm: () => onConfirm(selectedSkills),
         label: translate('confirm'),
         iconName: 'circle-check',
         disabled: isLoading || isError
