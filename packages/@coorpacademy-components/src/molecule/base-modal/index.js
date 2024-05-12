@@ -63,7 +63,7 @@ const BaseModal = props => {
             />
           ) : null}
         </div>
-        {text ? <div className={isError && style.footerDescriptionError}>{text}</div> : null}
+        {text ? <div className={isError ? style.footerDescriptionError : ''}>{text}</div> : null}
       </div>
     );
   }, [footer]);

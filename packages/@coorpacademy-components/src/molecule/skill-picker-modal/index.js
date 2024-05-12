@@ -45,7 +45,7 @@ const SkillPickerModal = (props, context) => {
         )
       : translate('skill_focus_footer_description').replace(
           '.',
-          maxSelectedSkills - selectedSkills.length
+          minSelectedSkills - selectedSkills.length
         );
     return {
       text:
