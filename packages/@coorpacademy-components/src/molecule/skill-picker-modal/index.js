@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useEffect} from 'react';
+import React, {useMemo, useState, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
@@ -7,10 +7,30 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const SkillPickerModal = (props, context) => {
-  const {skills, isOpen, isLoading, maxSelectedSkills = 6, onCancel, onConfirm, onClose} = props;
+  const {
+    skills,
+    isOpen,
+    isLoading,
+    maxSelectedSkills = 6,
+    minSelectedSkills = 3,
+    onCancel,
+    onConfirm,
+    onClose
+  } = props;
   const {translate} = context;
 
-  const [skillList, setSkillList] = useState(skills);
+  const [skillList, setSkillList] = useState([]);
+
+  const handleCancel = useCallback(() => {
+    setSkillList(JSON.parse(JSON.stringify(skills)));
+    onCancel();
+  }, [setSkillList, skills, onCancel]);
+
+  const handleClose = useCallback(() => {
+    setSkillList(JSON.parse(JSON.stringify(skills)));
+    onClose();
+  }, [setSkillList, skills, onClose]);
+
   const selectedSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
   const isError = useMemo(
     () => selectedSkills.length > maxSelectedSkills,
@@ -29,12 +49,13 @@ const SkillPickerModal = (props, context) => {
         );
     return {
       text:
-        isLoading || selectedSkills.length === maxSelectedSkills
+        isLoading ||
+        (selectedSkills.length <= maxSelectedSkills && selectedSkills.length >= minSelectedSkills)
           ? ''
           : footerDescription.replace('.'),
       isError,
       cancelButton: {
-        onCancel,
+        onCancel: handleCancel,
         label: translate('cancel'),
         disabled: isLoading || isError
       },
@@ -45,22 +66,22 @@ const SkillPickerModal = (props, context) => {
         disabled: isLoading || isError
       }
     };
-  }, [isError, onCancel, onConfirm, translate, selectedSkills, isLoading, maxSelectedSkills]);
+  }, [isError, handleCancel, onConfirm, translate, selectedSkills, isLoading, maxSelectedSkills]);
 
   useEffect(() => {
-    if (skills) {
-      setSkillList(skills);
+    if (skills && isOpen) {
+      setSkillList(JSON.parse(JSON.stringify(skills)));
     }
-  }, [skills]);
+  }, [skills, isOpen, setSkillList]);
 
-  if (!isLoading && !skills) return null;
+  if (!isLoading && !skills && !isOpen) return null;
 
   return (
     <BaseModal
       title={translate('skill_focus')}
       description={translate('skill_focus_description')}
       isOpen={isOpen}
-      onClose={onClose}
+      onClose={handleClose}
       footer={footer}
       headerIcon={{
         name: 'bullseye-arrow',
@@ -78,10 +99,10 @@ const SkillPickerModal = (props, context) => {
               {`${selectedSkills.length} ${translate('selected')}`}
             </div>
             <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
-              {skills.map((skill, index) => {
+              {skillList.map((skill, index) => {
                 const {skillTitle, focus} = skill;
                 function handleChipClick() {
-                  const tempSkillList = [...skillList];
+                  const tempSkillList = JSON.parse(JSON.stringify(skillList));
                   tempSkillList[index].focus = !tempSkillList[index].focus;
                   setSkillList(tempSkillList);
                 }
@@ -111,6 +132,7 @@ SkillPickerModal.propTypes = {
   ),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
+  minSelectedSkills: PropTypes.number,
   maxSelectedSkills: PropTypes.number,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
