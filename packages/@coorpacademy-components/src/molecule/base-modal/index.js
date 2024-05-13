@@ -27,9 +27,7 @@ const BaseModal = props => {
           {onCancel && cancelLabel ? (
             <ButtonLink
               {...{
-                customStyle: {
-                  width: '94px'
-                },
+                className: style.footerCancelButton,
                 type: 'secondary',
                 onClick: onCancel,
                 label: cancelLabel,
@@ -40,9 +38,7 @@ const BaseModal = props => {
           {onConfirm && confirmLabel ? (
             <ButtonLink
               {...{
-                customStyle: {
-                  width: '121px'
-                },
+                className: style.footerConfirmButton,
                 type: 'primary',
                 onClick: onConfirm,
                 label: confirmLabel,
@@ -63,7 +59,13 @@ const BaseModal = props => {
             />
           ) : null}
         </div>
-        {text ? <div className={isError ? style.footerDescriptionError : ''}>{text}</div> : null}
+        {text ? (
+          <div
+            className={`${style.footerDescription} ${isError ? style.footerDescriptionError : ''}`}
+          >
+            {text}
+          </div>
+        ) : null}
       </div>
     );
   }, [footer]);
