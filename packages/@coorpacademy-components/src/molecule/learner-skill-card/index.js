@@ -12,6 +12,7 @@ const LearnerSkillCard = (props, context) => {
     'aria-label': ariaLabel,
     skillTitle,
     skillAriaLabel,
+    focus = false,
     metrics,
     onReviewClick,
     onExploreClick
@@ -37,7 +38,7 @@ const LearnerSkillCard = (props, context) => {
       backgroundColor: '#FFF',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
-    onClick: onReviewClick,
+    onClick: () => onReviewClick(skillTitle),
     'aria-label': `${skillTitle}, ${reviewLocale}`,
     label: reviewLocale,
     'data-name': 'learner-skill-card-review-button'
@@ -49,7 +50,7 @@ const LearnerSkillCard = (props, context) => {
       color: hovered ? '#FFFFFF' : primarySkinColor,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
-    onClick: onExploreClick,
+    onClick: () => onExploreClick(skillTitle),
     'aria-label': `${skillTitle}, ${exploreLocale}`,
     label: exploreLocale,
     'data-name': 'learner-skill-card-explore-button',
@@ -118,17 +119,19 @@ const LearnerSkillCard = (props, context) => {
         >
           {skillTitle}
         </div>
-        <div className={style.skillFocusBadge}>
-          <Icon
-            iconName="bullseye-arrow"
-            backgroundColor="#DDD1FF"
-            size={{
-              faSize: 10,
-              wrapperSize: 16
-            }}
-          />
-          {skillFocusLocale}
-        </div>
+        {focus ? (
+          <div className={style.skillFocusBadge}>
+            <Icon
+              iconName="bullseye-arrow"
+              backgroundColor="#DDD1FF"
+              size={{
+                faSize: 10,
+                wrapperSize: 16
+              }}
+            />
+            {skillFocusLocale}
+          </div>
+        ) : null}
       </div>
       <ProgressBar />
       <div className={style.progressInformations}>
@@ -167,6 +170,7 @@ LearnerSkillCard.propTypes = {
   'aria-label': PropTypes.string,
   skillTitle: PropTypes.string,
   skillAriaLabel: PropTypes.string,
+  focus: PropTypes.bool,
   metrics: PropTypes.shape({
     skillCourses: PropTypes.number,
     skillQuestions: PropTypes.number,

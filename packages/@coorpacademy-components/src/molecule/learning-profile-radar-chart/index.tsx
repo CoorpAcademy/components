@@ -87,23 +87,23 @@ const CHART_CONFIGS = {
 } as const;
 
 const DOT_DEFAULT_PROPS = {
-  strokeWidth: 4,
-  strokeOpacity: 0.2,
+  strokeWidth: 2,
+  strokeOpacity: 0.4,
   fill: '#fff',
-  r: 8,
+  r: 4,
   pointerEvents: 'all',
   style: {cursor: 'pointer'}
 } as const;
 
 const DOT_ACTIVE_PROPS = {
   fill: '#fff',
-  r: 8,
-  strokeWidth: 6,
-  strokeOpacity: 0.5
+  r: 6,
+  strokeWidth: 4,
+  strokeOpacity: 0.6
 } as const;
 
 const RADAR_DEFAULT_PROPS = {
-  strokeWidth: 6,
+  strokeWidth: 3,
   strokeOpacity: 0.2,
   fillOpacity: 0.2
 } as const;
@@ -301,7 +301,8 @@ export const LearningProfileRadarChart = ({
   colors: colorsProps,
   onClick,
   width,
-  height
+  height,
+  margin
 }: LearningProfileRadarChartPropTypes) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
@@ -339,7 +340,10 @@ export const LearningProfileRadarChart = ({
   useEffect(() => setIsMobile_(), [setIsMobile_]);
 
   useEffect(() => {
-    const handleClick = () => setActiveDot(undefined);
+    const handleClick = () => {
+      setActiveDot(undefined);
+      onClick(undefined);
+    };
 
     !isEmpty(activeDot) && window.addEventListener('click', handleClick);
 
@@ -402,6 +406,7 @@ export const LearningProfileRadarChart = ({
     <RadarChart
       width={width}
       height={height}
+      margin={margin}
       cx="50%"
       cy="50%"
       outerRadius="80%"
@@ -409,7 +414,7 @@ export const LearningProfileRadarChart = ({
     >
       {gradients}
       {buildRadars(totalDataset, handleOnDotClick, activeDot)}
-      <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
+      <PolarGrid strokeDasharray={10} strokeWidth={2} radialLines={false} />
       <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
       <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
       {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}

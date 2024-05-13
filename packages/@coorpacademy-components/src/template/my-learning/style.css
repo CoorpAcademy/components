@@ -1,45 +1,155 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
+@value cm_grey_500 from colors;
 
 .container {
   font-family: "Gilroy";
   font-style: normal;
-  margin: 48px 180px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   box-sizing: border-box;
   height: 100%;
+  width: 100%;
+  max-width: 1080px;
 }
 
 .skillFocusContainer {
   border-radius: 16px;
   border: 1px solid cm_grey_100;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 
-.skillFocusHeader {
+.skillFocusHeader,
+.skillListHeader {
   padding: 24px;
   display: flex;
   position: relative;
+  border-bottom: 1px solid cm_grey_100;
 }
 
-.skillFocusHeaderIcon {
+.skillFocusHeaderIcon,
+.skillListHeaderIcon {
   border-radius: 12px;
   overflow: hidden;
   margin-right: 12px;
 }
 
-.skillFocusHeaderContent {
+.skillFocusHeaderContent,
+.skillListHeaderContent {
   flex: 1;
 }
 
-.skillFocusHeaderTitle {
+.skillFocusHeaderTitle,
+.skillListHeaderTitle {
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
 }
 
-.skillFocusHeaderDescription {
+.skillFocusHeaderDescription,
+.skillListHeaderDescription {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  color: cm_grey_500;
+  display: flex;
+  align-items: center;
+}
+
+.skillFocusEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px;
+}
+
+.skillFocusEmptyTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.skillFocusEmptyDescription {
+  width: 502px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  margin-bottom: 32px;
+}
+
+.img {
+  width: 204px;
+  height: 200px;
+  margin-bottom: 32px;
+  border-radius: 50%;
+}
+
+.skillFocusContent {
+  display: flex;
+  padding: 24px;
+}
+
+.radarContainer {
+  width: 700px;
+  height: 444px;
+}
+
+.skillFilterContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.skillFilterNumber,
+.skillFilterNumberInActive {
+  border-radius: 50%;
+  background-color: #D6E6FF;
+  color: #0061FF;
+  padding: 2px 4px;
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.skillFilterNumberInActive {
+  background-color: #EAEAEB;
+  color: #515161;
+}
+
+.infoIconTooltip {
+  background-color: transparent;
+}
+
+.tooltip {
+  padding: 8px 12px;
+  width: 238px;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 16px;
+  right: -100px;
+  
+  ol {
+    padding: 14px;
+  }
+}
+
+.skillListHeader {
+  padding: 24px 0;
+  border: none;
+}
+
+.skillListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }

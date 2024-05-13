@@ -7,14 +7,14 @@ import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
-const getButtonContent = (icon?: IconType, label?: string) => {
+const getButtonContent = (icon?: IconType, content?: string | React.ReactNode) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
   if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
-        <span className={style.label}>{label}</span>
+        <span className={style.label}>{content}</span>
       </div>
     );
   }
@@ -38,7 +38,7 @@ const getButtonContent = (icon?: IconType, label?: string) => {
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
-      {label ? <span className={style.label}>{label}</span> : null}
+      {content ? <span className={style.label}>{content}</span> : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );
@@ -48,6 +48,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
     label,
+    content,
     disabled,
     icon,
     'data-name': dataName,
@@ -60,7 +61,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     customStyle,
     useTitle = true
   } = props;
-  const contentView = getButtonContent(icon, label);
+  const contentView = getButtonContent(icon, content ?? label);
   const styleButton = classnames(
     className,
     style.button,

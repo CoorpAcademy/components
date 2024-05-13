@@ -23,7 +23,7 @@ const SkillsChartSideInformationItem = ({title, value, legend, icon: iconProps})
 SkillsChartSideInformationItem.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
   title: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.number,
   legend: PropTypes.string
 };
 
