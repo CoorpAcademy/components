@@ -1,6 +1,5 @@
-import React, {useMemo, useState, useEffect, useCallback} from 'react';
+import React, {useMemo, useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {cloneDeep} from 'lodash/fp';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
 import Loader from '../../atom/loader';
@@ -10,6 +9,8 @@ import style from './style.css';
 const SkillPickerModal = (props, context) => {
   const {
     skills,
+    selectedSkills,
+    skillsLocales,
     isOpen,
     isLoading,
     maxSelectedSkills = 6,
@@ -20,36 +21,45 @@ const SkillPickerModal = (props, context) => {
   } = props;
   const {translate} = context;
 
-  const [skillList, setSkillList] = useState([]);
+  const [selectedSkillList, setSelectedSkillList] = useState(selectedSkills);
 
   const handleCancel = useCallback(() => {
-    setSkillList(cloneDeep(skills));
+    setSelectedSkillList(selectedSkills);
     onCancel();
-  }, [setSkillList, skills, onCancel]);
+  }, [setSelectedSkillList, selectedSkills, onCancel]);
 
   const handleClose = useCallback(() => {
-    setSkillList(cloneDeep(skills));
+    setSelectedSkillList(selectedSkills);
     onClose();
-  }, [setSkillList, skills, onClose]);
+  }, [setSelectedSkillList, selectedSkills, onClose]);
 
-  const selectedSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
+  const skillList = useMemo(() => {
+    return skills.map(skill => {
+      return {
+        skillTitle: skillsLocales[skill],
+        skillRef: skill,
+        focus: selectedSkillList.includes(skill)
+      };
+    });
+  }, [skills, selectedSkillList, skillsLocales])
+
   const isError = useMemo(
-    () => selectedSkills.length > maxSelectedSkills,
-    [selectedSkills, maxSelectedSkills]
+    () => selectedSkillList.length > maxSelectedSkills,
+    [selectedSkillList, maxSelectedSkills]
   );
 
   const footer = useMemo(() => {
     const footerDescription = isError
       ? translate('skill_focus_footer_error_description', {
-          skillNumber: selectedSkills.length - maxSelectedSkills
+          skillNumber: selectedSkillList.length - maxSelectedSkills
         })
       : translate('skill_focus_footer_description', {
-          skillNumber: minSelectedSkills - selectedSkills.length
+          skillNumber: minSelectedSkills - selectedSkillList.length
         });
     return {
       text:
         isLoading ||
-        (selectedSkills.length <= maxSelectedSkills && selectedSkills.length >= minSelectedSkills)
+        (selectedSkillList.length <= maxSelectedSkills && selectedSkillList.length >= minSelectedSkills)
           ? ''
           : footerDescription.replace('.'),
       isError,
@@ -59,19 +69,13 @@ const SkillPickerModal = (props, context) => {
         disabled: isLoading || isError
       },
       confirmButton: {
-        onConfirm: () => onConfirm(selectedSkills),
+        onConfirm: () => onConfirm(selectedSkillList),
         label: translate('confirm'),
         iconName: 'circle-check',
         disabled: isLoading || isError
       }
     };
-  }, [isError, handleCancel, onConfirm, translate, selectedSkills, isLoading, maxSelectedSkills]);
-
-  useEffect(() => {
-    if (skills && isOpen) {
-      setSkillList(cloneDeep(skills));
-    }
-  }, [skills, isOpen, setSkillList]);
+  }, [isError, handleCancel, onConfirm, translate, selectedSkillList, isLoading, maxSelectedSkills]);
 
   if ((!isLoading && !skills) || !isOpen) return null;
 
@@ -95,15 +99,19 @@ const SkillPickerModal = (props, context) => {
         ) : (
           <>
             <div style={{marginBottom: '16px'}}>
-              {`${selectedSkills.length} ${translate('selected')}`}
+              {`${selectedSkillList.length} ${translate('selected')}`}
             </div>
             <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
               {skillList.map((skill, index) => {
                 const {skillTitle, focus} = skill;
                 function handleChipClick() {
-                  const tempSkillList = cloneDeep(skillList);
-                  tempSkillList[index].focus = !tempSkillList[index].focus;
-                  setSkillList(tempSkillList);
+                  let filteredSelectedSkillList = [...selectedSkillList];
+                  if (selectedSkillList.includes(skill.skillRef)) {
+                    filteredSelectedSkillList = filteredSelectedSkillList.filter(ref => ref !== skill.skillRef);
+                  } else {
+                    filteredSelectedSkillList.push(skill.skillRef);
+                  }
+                  setSelectedSkillList(filteredSelectedSkillList);
                 }
 
                 return (
@@ -123,13 +131,9 @@ SkillPickerModal.contextTypes = {
 };
 
 SkillPickerModal.propTypes = {
-  skills: PropTypes.arrayOf(
-    PropTypes.shape({
-      skillTitle: PropTypes.string,
-      skillRef: PropTypes.string,
-      focus: PropTypes.boolean
-    })
-  ),
+  skills: PropTypes.arrayOf(PropTypes.string),
+  selectedSkills: PropTypes.arrayOf(PropTypes.string),
+  skillsLocales: PropTypes.objectOf(PropTypes.string),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
   minSelectedSkills: PropTypes.number,

@@ -1,39 +1,16 @@
 export default {
   props: {
-    skills: [
-      {
-        skillTitle: 'Creativity and innovation',
-        focus: false
-      },
-      {
-        skillTitle: 'Critical thinking and analysis',
-        focus: true
-      },
-      {
-        skillTitle: 'Digital culture',
-        focus: false
-      },
-      {
-        skillTitle: 'Digital dexterity',
-        focus: false
-      },
-      {
-        skillTitle: 'Digital communication',
-        focus: false
-      },
-      {
-        skillTitle: 'Active listening',
-        focus: false
-      },
-      {
-        skillTitle: 'Agility',
-        focus: false
-      },
-      {
-        skillTitle: 'Learning how to learn',
-        focus: false
-      }
-    ],
+    skills: ['skillRef1', 'skillRef2', 'skillRef3', 'skillRef4', 'skillRef5', 'skillRef6', 'skillRef7'],
+    selectedSkills: ['skillRef1', 'skillRef2'],
+    skillsLocales: {
+      skillRef1: 'Skill 1',
+      skillRef2: 'Skill 2',
+      skillRef3: 'Skill 3',
+      skillRef4: 'Skill 4',
+      skillRef5: 'Skill 5',
+      skillRef6: 'Skill 6',
+      skillRef7: 'Skill 7'
+    },
     isOpen: true,
     isLoading: false,
     onCancel: () => console.log('cancel'),
