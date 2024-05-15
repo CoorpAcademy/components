@@ -1,5 +1,6 @@
 import React, {useMemo, useState, useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
+import {cloneDeep} from 'lodash/fp';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
 import Loader from '../../atom/loader';
@@ -22,12 +23,12 @@ const SkillPickerModal = (props, context) => {
   const [skillList, setSkillList] = useState([]);
 
   const handleCancel = useCallback(() => {
-    setSkillList(JSON.parse(JSON.stringify(skills)));
+    setSkillList(cloneDeep(skills));
     onCancel();
   }, [setSkillList, skills, onCancel]);
 
   const handleClose = useCallback(() => {
-    setSkillList(JSON.parse(JSON.stringify(skills)));
+    setSkillList(cloneDeep(skills));
     onClose();
   }, [setSkillList, skills, onClose]);
 
@@ -39,14 +40,12 @@ const SkillPickerModal = (props, context) => {
 
   const footer = useMemo(() => {
     const footerDescription = isError
-      ? translate('skill_focus_footer_error_description').replace(
-          '.',
-          selectedSkills.length - maxSelectedSkills
-        )
-      : translate('skill_focus_footer_description').replace(
-          '.',
-          minSelectedSkills - selectedSkills.length
-        );
+      ? translate('skill_focus_footer_error_description', {
+          skillNumber: selectedSkills.length - maxSelectedSkills
+        })
+      : translate('skill_focus_footer_description', {
+          skillNumber: minSelectedSkills - selectedSkills.length
+        });
     return {
       text:
         isLoading ||
@@ -70,11 +69,11 @@ const SkillPickerModal = (props, context) => {
 
   useEffect(() => {
     if (skills && isOpen) {
-      setSkillList(JSON.parse(JSON.stringify(skills)));
+      setSkillList(cloneDeep(skills));
     }
   }, [skills, isOpen, setSkillList]);
 
-  if (!isLoading && !skills && !isOpen) return null;
+  if ((!isLoading && !skills) || !isOpen) return null;
 
   return (
     <BaseModal
@@ -102,7 +101,7 @@ const SkillPickerModal = (props, context) => {
               {skillList.map((skill, index) => {
                 const {skillTitle, focus} = skill;
                 function handleChipClick() {
-                  const tempSkillList = JSON.parse(JSON.stringify(skillList));
+                  const tempSkillList = cloneDeep(skillList);
                   tempSkillList[index].focus = !tempSkillList[index].focus;
                   setSkillList(tempSkillList);
                 }
@@ -127,6 +126,7 @@ SkillPickerModal.propTypes = {
   skills: PropTypes.arrayOf(
     PropTypes.shape({
       skillTitle: PropTypes.string,
+      skillRef: PropTypes.string,
       focus: PropTypes.boolean
     })
   ),
