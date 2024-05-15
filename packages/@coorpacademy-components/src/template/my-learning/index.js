@@ -2,6 +2,7 @@ import React, {useCallback, useState, useEffect, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import {getOr} from 'lodash/fp';
+import style from './style.css';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -11,7 +12,6 @@ import SkillPickerModal from '../../molecule/skill-picker-modal';
 import ResponsiveLearningProfileRadarChart from '../../molecule/learning-profile-radar-chart';
 import SkillsChartSideInformationPanel from '../../molecule/skills-chart-side-information-panel';
 import LearnerSkillCard from '../../molecule/learner-skill-card';
-import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
   const [hovered, setHovered] = useState(false);
@@ -67,7 +67,7 @@ const FilterButton = (props, context) => {
   const {skin} = context;
   const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
 
-  const Content = useMemo(
+  const Content = useCallback(
     () => (
       <div>
         {filter}
@@ -219,7 +219,7 @@ const MyLearning = (props, context) => {
     setSkillList(Object.values(skillsMap));
   }, [skillsMap, focus]);
 
-  const TooltipContent = useMemo(
+  const TooltipContent = useCallback(
     () => (
       <div>
         <div>

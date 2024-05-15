@@ -1,4 +1,7 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
 
@@ -152,4 +155,25 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+@media mobile {
+  .skillFocusContent {
+    flex-direction: column;
+  }
+
+  .radarContainer {
+    width: 370px;
+    height: 280px;
+    margin-bottom:48px;
+  }
+
+  .skillFilterContainer {
+    overflow-x: auto;
+  }
+
+  .skillListContainer {
+    align-items: center;
+    justify-content: center;
+  }
 }
