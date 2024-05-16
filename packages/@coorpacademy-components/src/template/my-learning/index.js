@@ -102,79 +102,74 @@ FilterButton.propTypes = {
 };
 
 const MyLearning = (props, context) => {
-  const {skills, isLoading, filters, onSkillFocusConfirm, onReviewSkill, onExploreSkill} = props;
+  const {skills, selectedSkills, skillsStats, skillsLocales, skillsFilters, isLoading, onSkillFocusConfirm, onReviewSkill, onExploreSkill} = props;
   const {translate} = context;
-  const {all, focus} = skills;
   const [open, setOpen] = useState(false);
-  const [skillList, setSkillList] = useState([]);
+  const [selectedSkillsList, setSelectedSkillsList] = useState([...selectedSkills]);
   const [skillFocusSelected, setSkillFocusSelected] = useState(undefined);
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState('all');
 
-  const skillsMap = useMemo(() => {
-    const tempSkillsMap = {};
-    all.forEach(skill => (tempSkillsMap[skill.skillTitle] = {...skill, focus: false}));
-    return tempSkillsMap;
-  }, [all]);
-  const focusSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
+  // const skillsMap = useMemo(() => {
+  //   const tempSkillsMap = {};
+  //   all.forEach(skill => (tempSkillsMap[skill.skillTitle] = {...skill, focus: false}));
+  //   return tempSkillsMap;
+  // }, [all]);
+  // const focusSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
+
+  const skillsReviewReady = useMemo(() =>  {
+    return skills.filter(skill => skillsFilters[skill].review);
+  }, [skills, skillsFilters]);
 
   const graphDatas = useMemo(() => {
     const data = {};
-    focusSkills.forEach((skill, index) => (data[`skillRef${index + 1}`] = skill.data));
+    selectedSkillsList.forEach((skill) => (data[skill] = skillsStats[skill].score));
     return data;
-  }, [focusSkills]);
+  }, [selectedSkillsList, skillsStats]);
 
   const graphLegends = useMemo(() => {
     const data = {};
-    focusSkills.forEach((skill, index) => (data[`skillRef${index + 1}`] = skill.skillTitle));
+    selectedSkillsList.forEach((skill) => (data[skill] = skillsLocales[skill]));
     return data;
-  }, [focusSkills]);
+  }, [selectedSkillsList, skillsLocales]);
 
-  const skillFilters = useMemo(() => {
-    const filterMap = {
-      All: {
-        name: 'All',
-        skills: all
-      }
-    };
-    filters.forEach(filter => (filterMap[filter] = {name: filter, skills: []}));
-    all.forEach(
-      skill =>
-        skill.filterAvailable &&
-        skill.filterAvailable.forEach(filter => filterMap[filter].skills.push(skill))
-    );
-    return Object.values(filterMap);
-  }, [filters, all]);
+  const filters = [
+    {
+      name: 'all',
+      skills: skills,
+    }, 
+    {
+      name: 'review',
+      skills: skillsReviewReady,
+    }
+  ]
 
   const coursedCompletedData = useMemo(
     () =>
       skillFocusSelected
-        ? skillsMap[graphLegends[skillFocusSelected]].coursesCompleted
-        : focusSkills.reduce((sum, skill) => sum + skill.coursesCompleted, 0),
-    [skillsMap, graphLegends, skillFocusSelected, focusSkills]
+        ? skillsStats[skillFocusSelected].coursesCompleted
+        : selectedSkillsList.reduce((sum, skill) => sum + skillsStats[skill].coursesCompleted, 0),
+    [skillFocusSelected, skillsStats, selectedSkillsList, skillFocusSelected]
   );
 
   const questionsAnsweredData = useMemo(
     () =>
       skillFocusSelected
-        ? skillsMap[graphLegends[skillFocusSelected]].questionsAnswered
-        : focusSkills.reduce((sum, skill) => sum + skill.questionsAnswered, 0),
-    [skillsMap, graphLegends, skillFocusSelected, focusSkills]
+        ? skillsStats[skillFocusSelected].questionsAnswered
+        : selectedSkillsList.reduce((sum, skill) => sum + skillsStats[skill].questionsAnswered, 0),
+    [skillFocusSelected, skillsStats, selectedSkillsList, skillFocusSelected]
   );
 
   const learningHoursData = useMemo(
     () =>
       skillFocusSelected
-        ? skillsMap[graphLegends[skillFocusSelected]].learningHours
-        : focusSkills.reduce((sum, skill) => sum + skill.learningHours, 0),
-    [skillsMap, graphLegends, skillFocusSelected, focusSkills]
+        ? skillsStats[skillFocusSelected].learningHours
+        : selectedSkillsList.reduce((sum, skill) => sum + skillsStats[skill].learningHours, 0),
+    [skillFocusSelected, skillsStats, selectedSkillsList, skillFocusSelected]
   );
 
   const skillChartPaneLegends = useMemo(
-    () =>
-      `${translate('on')} <b>${
-        skillFocusSelected ? graphLegends[skillFocusSelected] : translate('focused_skills')
-      }</b>`,
-    [translate, graphLegends, skillFocusSelected]
+    () => translate('on', {focusedSkill: skillFocusSelected ? skillsLocales[skillFocusSelected] : translate('focused_skills')}),
+    [translate, skillsLocales, skillFocusSelected]
   );
   const skillChartPanelProps = [
     {
@@ -205,19 +200,12 @@ const MyLearning = (props, context) => {
   const handleCloseSkillPicker = useCallback(() => setOpen(false), [setOpen]);
   const handleConfirmSkillPicker = useCallback(
     focusSkillList => {
-      skillList.forEach(skill => (skillsMap[skill.skillTitle] = {...skill, focus: false}));
-      focusSkillList.forEach(focusSkill => (skillsMap[focusSkill.skillTitle].focus = true));
-      setSkillList(Object.values(skillsMap));
+      setSelectedSkillsList(focusSkillList)
       onSkillFocusConfirm(focusSkillList);
       setOpen(false);
     },
-    [skillList, onSkillFocusConfirm, skillsMap, setSkillList, setOpen]
+    [onSkillFocusConfirm, setSelectedSkillsList, setOpen]
   );
-
-  useEffect(() => {
-    focus.forEach(skill => (skillsMap[skill.skillTitle] = {...skill, focus: true}));
-    setSkillList(Object.values(skillsMap));
-  }, [skillsMap, focus]);
 
   const TooltipContent = useCallback(
     () => (
@@ -240,7 +228,9 @@ const MyLearning = (props, context) => {
   return (
     <div className={style.container}>
       <SkillPickerModal
-        skills={skillList}
+        skills={skills}
+        selectedSkills={selectedSkillsList}
+        skillsLocales={skillsLocales}
         isOpen={open}
         isLoading={isLoading}
         onCancel={handleCloseSkillPicker}
@@ -262,11 +252,11 @@ const MyLearning = (props, context) => {
               {translate('skills_focus_description')}
             </div>
           </div>
-          {focusSkills.length > 0 ? (
+          {selectedSkillsList.length > 0 ? (
             <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
           ) : null}
         </header>
-        {focusSkills.length > 0 ? (
+        {selectedSkillsList.length > 0 ? (
           <div className={style.skillFocusContent}>
             <div className={style.radarContainer}>
               <ResponsiveLearningProfileRadarChart
@@ -346,7 +336,7 @@ const MyLearning = (props, context) => {
         </div>
       </header>
       <div className={style.skillFilterContainer}>
-        {skillFilters.map((filter, index) => {
+        {filters.map((filter, index) => {
           function handleFilterClick() {
             setActiveFilter(filter.name);
           }
@@ -355,7 +345,7 @@ const MyLearning = (props, context) => {
             <div key={index}>
               <FilterButton
                 active={activeFilter === filter.name}
-                filter={filter.name}
+                filter={translate(filter.name)}
                 skillTotal={filter.skills.length}
                 onClick={handleFilterClick}
               />
@@ -364,23 +354,30 @@ const MyLearning = (props, context) => {
         })}
       </div>
       <div className={style.skillListContainer}>
-        {skillFilters.map(filter => {
-          if (activeFilter !== filter.name) return null;
-          return filter.skills.map((skill, index) => (
+        {skills.map((skill, index) => {
+          if (activeFilter === 'review' && !skillsFilters[skill].review) return null;
+          function handleReviewSkill() {
+            onReviewSkill(skill);
+          }
+          function handleExploreSkill() {
+            onExploreSkill(skill);
+          }
+          return (
             <div key={index}>
               <LearnerSkillCard
-                skillTitle={skill.skillTitle}
-                focus={skillsMap[skill.skillTitle].focus}
+                skillTitle={skillsLocales[skill]}
+                focus={selectedSkills.includes(skill)}
                 metrics={{
-                  skillCourses: skill.courses,
-                  skillQuestions: skill.questionsAnswered,
-                  completedCourses: skill.coursesCompleted
+                  skillCourses: skillsStats[skill].courses,
+                  skillQuestions: skillsStats[skill].questionsAnswered,
+                  completedCourses: skillsStats[skill].coursesCompleted
                 }}
-                onReviewClick={onReviewSkill}
-                onExploreClick={onExploreSkill}
+                review={skillsFilters[skill].review}
+                onReviewClick={handleReviewSkill}
+                onExploreClick={handleExploreSkill}
               />
             </div>
-          ));
+          )
         })}
       </div>
     </div>
@@ -392,29 +389,23 @@ MyLearning.contextTypes = {
 };
 
 MyLearning.propTypes = {
-  skills: PropTypes.shape({
-    all: PropTypes.arrayOf(
-      PropTypes.shape({
-        skillTitle: PropTypes.string,
-        data: PropTypes.number,
-        courses: PropTypes.number,
-        coursesCompleted: PropTypes.number,
-        questionsAnswered: PropTypes.number,
-        learningHours: PropTypes.number,
-        filterAvailable: PropTypes.arrayOf(PropTypes.string)
-      })
-    ),
-    focus: PropTypes.arrayOf(
-      PropTypes.shape({
-        skillTitle: PropTypes.string,
-        data: PropTypes.number,
-        coursesCompleted: PropTypes.number,
-        questionsAnswered: PropTypes.number,
-        learningHours: PropTypes.number
-      })
-    )
-  }),
-  filters: PropTypes.arrayOf(PropTypes.string),
+  skills: PropTypes.arrayOf(PropTypes.string),
+  selectedSkills: PropTypes.arrayOf(PropTypes.string),
+  skillsStats: PropTypes.objectOf(
+    PropTypes.shape({
+      score: PropTypes.number,
+      courses: PropTypes.number,
+      coursesCompleted: PropTypes.number,
+      questionsAnswered: PropTypes.number,
+      learningHours: PropTypes.number,
+    })
+  ),
+  skillsFilters: PropTypes.objectOf(
+    PropTypes.shape({
+      review: PropTypes.boolean,
+    })
+  ),
+  skillsLocales: PropTypes.objectOf(PropTypes.string),
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
   onReviewSkill: PropTypes.func,

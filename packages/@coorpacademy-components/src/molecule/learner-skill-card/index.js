@@ -14,6 +14,7 @@ const LearnerSkillCard = (props, context) => {
     skillAriaLabel,
     focus = false,
     metrics,
+    review = false,
     onReviewClick,
     onExploreClick
   } = props;
@@ -38,6 +39,7 @@ const LearnerSkillCard = (props, context) => {
       backgroundColor: '#FFF',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
+    disabled: !review,
     onClick: () => onReviewClick(skillTitle),
     'aria-label': `${skillTitle}, ${reviewLocale}`,
     label: reviewLocale,
@@ -176,6 +178,7 @@ LearnerSkillCard.propTypes = {
     skillQuestions: PropTypes.number,
     completedCourses: PropTypes.number
   }),
+  review: PropTypes.bool,
   onReviewClick: PropTypes.func,
   onExploreClick: PropTypes.func
 };
