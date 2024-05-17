@@ -6,7 +6,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
-import Color from 'colorjs.io';
+import {convert} from 'css-color-function';
 import style from './style.css';
 
 library.add(fas);
@@ -33,7 +33,8 @@ const SIZE_CONFIGS = {
 };
 
 export const getForegroundColor = backgroundColor =>
-  new Color(backgroundColor).to('hsl').set({l: ICON_LUMINOSITY}).toString();
+  convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
+// set lightness to 32%
 
 const Icon = React.memo(function Icon({
   iconName,
