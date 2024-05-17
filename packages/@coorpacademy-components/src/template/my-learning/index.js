@@ -64,7 +64,7 @@ ChangeSkillFocusButton.propTypes = {
 
 const FilterButton = (props, context) => {
   const {active, filter, skillTotal, onClick} = props;
-  const {skin} = context;
+  const {skin, translate} = context;
   const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
 
   const Content = useCallback(
@@ -84,7 +84,7 @@ const FilterButton = (props, context) => {
       backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#FFFFFF',
       color: active ? primarySkinColor : '#9999A8',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
-      width: 'fit-content'
+      width: filter === translate('review') ? '198px' :'fit-content'
     },
     onClick,
     content: <Content />,
@@ -92,6 +92,10 @@ const FilterButton = (props, context) => {
   };
 
   return <ButtonLink {...buttonProps} />;
+};
+
+FilterButton.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 FilterButton.propTypes = {
@@ -108,13 +112,6 @@ const MyLearning = (props, context) => {
   const [selectedSkillsList, setSelectedSkillsList] = useState([...selectedSkills]);
   const [skillFocusSelected, setSkillFocusSelected] = useState(undefined);
   const [activeFilter, setActiveFilter] = useState('all');
-
-  // const skillsMap = useMemo(() => {
-  //   const tempSkillsMap = {};
-  //   all.forEach(skill => (tempSkillsMap[skill.skillTitle] = {...skill, focus: false}));
-  //   return tempSkillsMap;
-  // }, [all]);
-  // const focusSkills = useMemo(() => skillList.filter(skill => skill.focus), [skillList]);
 
   const skillsReviewReady = useMemo(() =>  {
     return skills.filter(skill => skillsFilters[skill].review);
@@ -239,22 +236,25 @@ const MyLearning = (props, context) => {
       />
       <div className={style.skillFocusContainer}>
         <header className={style.skillFocusHeader}>
-          <div className={style.skillFocusHeaderIcon}>
-            <Icon
-              iconName="bullseye-arrow"
-              backgroundColor="#DDD1FF"
-              size={{faSize: 20, wrapperSize: 48}}
-            />
-          </div>
-          <div className={style.skillFocusHeaderContent}>
-            <div className={style.skillFocusHeaderTitle}>{translate('skill_focus')}</div>
-            <div className={style.skillFocusHeaderDescription}>
-              {translate('skills_focus_description')}
+          <div className={style.skillFocusHeaderWrapper}>
+            <div className={style.skillFocusHeaderIcon}>
+              <Icon
+                iconName="bullseye-arrow"
+                backgroundColor="#DDD1FF"
+                borderRadius="12px"
+                size={{faSize: 20, wrapperSize: 48}}
+              />
+            </div>
+            <div className={style.skillFocusHeaderContent}>
+              <div className={style.skillFocusHeaderTitle}>{translate('skill_focus')}</div>
+              <div className={style.skillFocusHeaderDescription}>
+                {translate('skills_focus_description')}
+              </div>
             </div>
           </div>
-          {selectedSkillsList.length > 0 ? (
-            <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
-          ) : null}
+            {selectedSkillsList.length > 0 ? (
+              <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
+            ) : null}
         </header>
         {selectedSkillsList.length > 0 ? (
           <div className={style.skillFocusContent}>
@@ -265,7 +265,6 @@ const MyLearning = (props, context) => {
                 width={680}
                 data={graphDatas}
                 legend={graphLegends}
-                margin={{top: 80}}
                 onClick={handleOnDotClick}
                 colors={[
                   {

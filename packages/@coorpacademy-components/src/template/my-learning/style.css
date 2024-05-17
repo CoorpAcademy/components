@@ -41,9 +41,18 @@
   margin-right: 12px;
 }
 
+.skillFocusHeaderWrapper {
+  display: flex;
+  flex: 1;
+}
+
 .skillFocusHeaderContent,
 .skillListHeaderContent {
   flex: 1;
+}
+
+.skillFocusHeaderContent {
+  margin-right: 16px;
 }
 
 .skillFocusHeaderTitle,
@@ -158,12 +167,20 @@
 }
 
 @media mobile {
+  .skillFocusHeaderWrapper {
+    margin-bottom: 16px;
+  }
+
+  .skillFocusHeader{
+    flex-direction: column;
+  }
+
   .skillFocusContent {
     flex-direction: column;
   }
 
   .radarContainer {
-    width: 370px;
+    width: 100%;
     height: 280px;
     margin-bottom:48px;
   }

@@ -40,6 +40,7 @@ const Icon = React.memo(function Icon({
   iconName,
   iconColor,
   backgroundColor,
+  borderRadius,
   preset = DEFAULT_PRESET,
   size
 }) {
@@ -54,6 +55,7 @@ const Icon = React.memo(function Icon({
 
   const iconWrapperStyle = {
     backgroundColor,
+    borderRadius,
     width: wrapperSize,
     height: wrapperSize,
     padding: ICON_PADDING
@@ -74,6 +76,7 @@ Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
   backgroundColor: PropTypes.string,
+  borderRadius: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
     faSize: number,

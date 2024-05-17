@@ -406,7 +406,7 @@ export const LearningProfileRadarChart = ({
     <RadarChart
       width={width}
       height={height}
-      margin={margin}
+      margin={margin ?? (isMobile ? {top: 80} : {top: 180})}
       cx="50%"
       cy="50%"
       outerRadius="80%"
