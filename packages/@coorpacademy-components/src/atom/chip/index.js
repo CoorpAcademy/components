@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import get from 'lodash/fp/get';
-import Color from 'colorjs.io';
+import {convert} from 'css-color-function';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../provider';
 import {COLORS} from '../../variables/colors';
@@ -16,12 +16,8 @@ const ICON_SIZE = '12px';
 export const calculateHoveredSelectedBgColor = (
   selectedBgColor,
   luminosityDelta = LUMINOSITY_DELTA
-) => {
-  return new Color(selectedBgColor)
-    .to('hsl')
-    .set({l: l => l * (1 - luminosityDelta)})
-    .toString();
-};
+) => convert(`hsl(from ${selectedBgColor} h s calc(l*(1 - ${luminosityDelta})))`);
+// note: luminosity decrease is relative to the selected color
 
 const Chip = (props, context) => {
   const {
