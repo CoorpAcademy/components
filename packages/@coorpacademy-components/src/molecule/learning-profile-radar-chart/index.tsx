@@ -242,7 +242,13 @@ const buildCustomLabel = ({
 
   return (
     <g>
-      <foreignObject className={style.tickeForeignObject} x={x + offsetX} y={y + offsetY} width="200" height="65">
+      <foreignObject
+        className={style.tickeForeignObject}
+        x={x + offsetX}
+        y={y + offsetY}
+        width="200"
+        height="65"
+      >
         <div
           data-name={label}
           onClick={onLabelClick}
@@ -350,7 +356,7 @@ export const LearningProfileRadarChart = ({
     return () => {
       window.removeEventListener('click', handleClick);
     };
-  }, [activeDot]);
+  }, [activeDot, onClick, setActiveDot]);
 
   function handleOnDotClick(label: string) {
     const payload = formatedData.find(({subject}) => subject === label);
