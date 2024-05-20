@@ -2,10 +2,12 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
 @value mobile from breakpoints;
+@value white from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
 
 .container {
+  background-color: white;
   font-family: "Gilroy";
   font-style: normal;
   margin-top: 48px;
@@ -14,7 +16,7 @@
   margin-right: auto;
   position: relative;
   box-sizing: border-box;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   max-width: 1080px;
 }
