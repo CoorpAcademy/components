@@ -24,8 +24,6 @@ const SkillPickerModal = (props, context) => {
 
   const [selectedSkillList, setSelectedSkillList] = useState([...selectedSkills]);
 
-  console.log(selectedSkillList, skills)
-
   const handleCancel = useCallback(() => {
     setSelectedSkillList(selectedSkills);
     onCancel();

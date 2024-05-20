@@ -39,7 +39,7 @@ import {
 type CHART_TYPE_TYPE = keyof typeof CHART_CONFIGS;
 
 /* TICK_POSITIONS */
-const top: TickType = {offset: {x: -100, y: -65}, alignment: 'center', margin: 'auto'};
+const top: TickType = {offset: {x: -100, y: -75}, alignment: 'center', margin: 'auto'};
 const bottom: TickType = {offset: {x: -100, y: 10}, alignment: 'center', margin: 'auto'};
 const right: TickType = {offset: {x: 30, y: -10}, alignment: 'start', marginRight: 'auto'};
 const left: TickType = {offset: {x: -230, y: -10}, alignment: 'end', marginLeft: 'auto'};
@@ -242,7 +242,7 @@ const buildCustomLabel = ({
 
   return (
     <g>
-      <foreignObject x={x + offsetX} y={y + offsetY} width="200" height="65">
+      <foreignObject className={style.tickeForeignObject} x={x + offsetX} y={y + offsetY} width="200" height="65">
         <div
           data-name={label}
           onClick={onLabelClick}
