@@ -1,0 +1,28 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.skillPickerContainer {
+  height: 485px;
+  width: 596px;
+  overflow-y: auto;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loader {
+  width: 40px; 
+  height: 40px;
+}
+
+@media mobile {
+  .skillPickerContainer {
+    width: 100%;
+  }
+}

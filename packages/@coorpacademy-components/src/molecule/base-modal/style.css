@@ -1,4 +1,7 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
 @value white from colors;
 @value lightDark from colors;
 @value dark from colors;
@@ -8,6 +11,7 @@
 
 .modalWrapper {
   position: fixed;
+  z-index: 1000;
   bottom: 0;
   right: 0;
   height: 100vh;
@@ -86,4 +90,36 @@
 .footerCTAWrapper {
   display: flex;
   gap: 8px;
+}
+
+.footerCancelButton {
+  width: 94px;
+}
+
+.footerConfirmButton {
+  width: 121px;
+}
+
+@media mobile {
+  .modal {
+    min-width: unset;
+    flex: 1;
+    margin: 0 16px;
+  }
+
+  .footerCTAWrapper,
+  .footer {
+    flex-direction: column-reverse;
+  }
+
+  .footerCTAWrapper,
+  .footerCancelButton,
+  .footerConfirmButton,
+  .footerDescription {
+    width: 100%;
+  }
+
+  .footerDescription {
+    margin-bottom: 16px;
+  }
 }
