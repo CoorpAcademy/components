@@ -159,7 +159,7 @@ const CustomDot = ({
       stroke,
       cx,
       cy,
-      onTouchStart: e => {
+      onTouchStart: () => {
         if (!payload?.name) return;
         onDotClick(payload.name);
       },

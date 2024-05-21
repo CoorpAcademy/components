@@ -206,7 +206,9 @@ const MyLearning = (props, context) => {
   ];
 
   const handleOnDotClick = useCallback(
-    skillRef => {skillRef && setSkillFocusSelected(skillRef)},
+    skillRef => {
+      skillRef && setSkillFocusSelected(skillRef);
+    },
     [setSkillFocusSelected]
   );
   const handleOpenSkillPicker = useCallback(() => setOpen(true), [setOpen]);

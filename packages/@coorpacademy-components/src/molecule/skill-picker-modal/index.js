@@ -62,8 +62,8 @@ const SkillPickerModal = (props, context) => {
         isLoading ||
         (selectedSkillList.length <= maxSelectedSkills &&
           selectedSkillList.length >= minSelectedSkills)
-            ? ''
-            : footerDescription.replace('.'),
+          ? ''
+          : footerDescription.replace('.'),
       isError,
       cancelButton: {
         onCancel: handleCancel,
