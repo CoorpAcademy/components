@@ -1,6 +1,14 @@
 export default {
   props: {
-    skills: ['skillRef1', 'skillRef2', 'skillRef3', 'skillRef4', 'skillRef5', 'skillRef6', 'skillRef7'],
+    skills: [
+      'skillRef1',
+      'skillRef2',
+      'skillRef3',
+      'skillRef4',
+      'skillRef5',
+      'skillRef6',
+      'skillRef7'
+    ],
     selectedSkills: ['skillRef1', 'skillRef2'],
     skillsLocales: {
       skillRef1: 'Skill 1',

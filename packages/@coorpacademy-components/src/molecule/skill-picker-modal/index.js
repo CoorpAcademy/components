@@ -41,7 +41,7 @@ const SkillPickerModal = (props, context) => {
         focus: selectedSkillList.includes(skill)
       };
     });
-  }, [skills, selectedSkillList, skillsLocales])
+  }, [skills, selectedSkillList, skillsLocales]);
 
   const isError = useMemo(
     () => selectedSkillList.length > maxSelectedSkills,
@@ -59,7 +59,8 @@ const SkillPickerModal = (props, context) => {
     return {
       text:
         isLoading ||
-        (selectedSkillList.length <= maxSelectedSkills && selectedSkillList.length >= minSelectedSkills)
+        (selectedSkillList.length <= maxSelectedSkills &&
+          selectedSkillList.length >= minSelectedSkills)
           ? ''
           : footerDescription.replace('.'),
       isError,
@@ -75,7 +76,15 @@ const SkillPickerModal = (props, context) => {
         disabled: isLoading || isError
       }
     };
-  }, [isError, handleCancel, onConfirm, translate, selectedSkillList, isLoading, maxSelectedSkills]);
+  }, [
+    isError,
+    handleCancel,
+    onConfirm,
+    translate,
+    selectedSkillList,
+    isLoading,
+    maxSelectedSkills
+  ]);
 
   if ((!isLoading && !skills) || !isOpen) return null;
 
@@ -107,7 +116,9 @@ const SkillPickerModal = (props, context) => {
                 function handleChipClick() {
                   let filteredSelectedSkillList = [...selectedSkillList];
                   if (selectedSkillList.includes(skill.skillRef)) {
-                    filteredSelectedSkillList = filteredSelectedSkillList.filter(ref => ref !== skill.skillRef);
+                    filteredSelectedSkillList = filteredSelectedSkillList.filter(
+                      ref => ref !== skill.skillRef
+                    );
                   } else {
                     filteredSelectedSkillList.push(skill.skillRef);
                   }
