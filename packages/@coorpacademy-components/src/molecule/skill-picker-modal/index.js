@@ -22,7 +22,7 @@ const SkillPickerModal = (props, context) => {
   } = props;
   const {translate} = context;
 
-  const [selectedSkillList, setSelectedSkillList] = useState([...selectedSkills]);
+  const [selectedSkillList, setSelectedSkillList] = useState(selectedSkills);
 
   const handleCancel = useCallback(() => {
     setSelectedSkillList(selectedSkills);
@@ -59,7 +59,9 @@ const SkillPickerModal = (props, context) => {
         });
     return {
       text:
-        isLoading || selectedSkills.length === maxSelectedSkills
+      isLoading ||
+      (selectedSkillList.length <= maxSelectedSkills &&
+        selectedSkillList.length >= minSelectedSkills)
           ? ''
           : footerDescription.replace('.'),
       isError,
