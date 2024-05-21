@@ -309,7 +309,7 @@ const MyLearning = (props, context) => {
                 <Picture
                   className={style.img}
                   src={
-                    'https://t4.ftcdn.net/jpg/01/43/23/83/360_F_143238306_lh0ap42wgot36y44WybfQpvsJB5A1CHc.jpg'
+                    'https://static.coorpacademy.com/assets/images/mylearning-no-skill-selected-placeholder.svg'
                   }
                   alt={'demo'}
                 />

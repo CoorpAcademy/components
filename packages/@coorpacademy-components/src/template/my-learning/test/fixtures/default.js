@@ -108,7 +108,7 @@ const skillsLocales = {
   skillRef8: 'Active Working'
 };
 
-export const emptySkillFocusProps = {
+export const defaultProps = {
   skills,
   selectedSkills,
   skillsStats,
@@ -121,5 +121,5 @@ export const emptySkillFocusProps = {
 };
 
 export default {
-  props: emptySkillFocusProps
+  props: defaultProps
 };
