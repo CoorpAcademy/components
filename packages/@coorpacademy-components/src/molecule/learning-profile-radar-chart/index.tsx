@@ -159,6 +159,10 @@ const CustomDot = ({
       stroke,
       cx,
       cy,
+      onTouchStart: e => {
+        if (!payload?.name) return;
+        onDotClick(payload.name);
+      },
       onClick: e => {
         e.stopPropagation();
 
