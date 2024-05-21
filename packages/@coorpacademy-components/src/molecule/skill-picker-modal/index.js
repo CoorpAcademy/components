@@ -1,5 +1,6 @@
 import React, {useMemo, useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
+import filter from 'lodash/fp/filter';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
 import Loader from '../../atom/loader';
@@ -113,17 +114,12 @@ const SkillPickerModal = (props, context) => {
             </div>
             <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
               {skillList.map((skill, index) => {
-                const {skillTitle, focus} = skill;
+                const {skillTitle, skillRef, focus} = skill;
                 function handleChipClick() {
-                  let filteredSelectedSkillList = [...selectedSkillList];
-                  if (focus) {
-                    filteredSelectedSkillList = filteredSelectedSkillList.filter(
-                      ref => ref !== skill.skillRef
-                    );
-                  } else {
-                    filteredSelectedSkillList.push(skill.skillRef);
-                  }
-                  setSelectedSkillList(filteredSelectedSkillList);
+                  const newSelectedSkillList = focus
+                    ? filter(selectedSkill => selectedSkill !== skillRef, selectedSkillList)
+                    : [...selectedSkillList, skill.skillRef];
+                  setSelectedSkillList(newSelectedSkillList);
                 }
 
                 return (

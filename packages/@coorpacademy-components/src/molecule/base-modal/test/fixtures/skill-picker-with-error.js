@@ -4,7 +4,7 @@ import Chip from '../../../../atom/chip';
 const skills = [
   {
     text: 'Creativity and innovation',
-    selected: true,
+    selected: false,
     onClick: () => console.log('click on skill 1')
   },
   {
@@ -39,7 +39,7 @@ const skills = [
   },
   {
     text: 'Learning how to learn',
-    selected: true,
+    selected: false,
     onClick: () => console.log('click on skill 8')
   }
 ];
@@ -67,8 +67,8 @@ export default {
     children: <SkillPicker />,
     isOpen: true,
     footer: {
-      text: '',
-      isError: false,
+      text: 'Select at least 3 more skills',
+      isError: true,
       cancelButton: {
         onCancel: () => console.log('cancel'),
         label: 'Cancel',
