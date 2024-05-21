@@ -83,7 +83,8 @@ const SkillPickerModal = (props, context) => {
     translate,
     selectedSkillList,
     isLoading,
-    maxSelectedSkills
+    maxSelectedSkills,
+    minSelectedSkills
   ]);
 
   if ((!isLoading && !skills) || !isOpen) return null;
@@ -115,7 +116,7 @@ const SkillPickerModal = (props, context) => {
                 const {skillTitle, focus} = skill;
                 function handleChipClick() {
                   let filteredSelectedSkillList = [...selectedSkillList];
-                  if (selectedSkillList.includes(skill.skillRef)) {
+                  if (focus) {
                     filteredSelectedSkillList = filteredSelectedSkillList.filter(
                       ref => ref !== skill.skillRef
                     );
