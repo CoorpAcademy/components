@@ -1,5 +1,4 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value tablet from breakpoints;
 @value mobile from breakpoints;
 
 .sidePanel {

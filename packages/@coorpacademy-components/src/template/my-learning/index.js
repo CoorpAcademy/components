@@ -120,7 +120,7 @@ const MyLearning = (props, context) => {
   } = props;
   const {translate} = context;
   const [open, setOpen] = useState(false);
-  const [selectedSkillsList, setSelectedSkillsList] = useState([...selectedSkills]);
+  const [selectedSkillsList, setSelectedSkillsList] = useState(selectedSkills);
   const [skillFocusSelected, setSkillFocusSelected] = useState(undefined);
   const [activeFilter, setActiveFilter] = useState('all');
 
