@@ -34,7 +34,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
   });
 
 const ReviewNoSkills = (props: NoSkillsProps) => {
-  const {titleNoSkills, textNoSkills, iconSkillAriaLabel, directionReverse = false} = props;
+  const {titleNoSkills, textNoSkills, iconSkillAriaLabel} = props;
   const templateContext = useTemplateContext();
   const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const {theme} = templateContext;
@@ -50,20 +50,12 @@ const ReviewNoSkills = (props: NoSkillsProps) => {
 
   return (
     <View>
-      {directionReverse ? (
-        <EmptyStateHomeRevision
-          style={styleSheet.noSkillsImage}
-          iconSkillAriaLabel={iconSkillAriaLabel}
-        />
-      ) : null}
       <Text style={styleSheet.subtitle}>{titleNoSkills}</Text>
       <Text style={styleSheet.text}>{textNoSkills}</Text>
-      {!directionReverse ? (
-        <EmptyStateHomeRevision
-          style={styleSheet.noSkillsImage}
-          iconSkillAriaLabel={iconSkillAriaLabel}
-        />
-      ) : null}
+      <EmptyStateHomeRevision
+        style={styleSheet.noSkillsImage}
+        iconSkillAriaLabel={iconSkillAriaLabel}
+      />
     </View>
   );
 };
