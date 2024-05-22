@@ -119,7 +119,7 @@
 .title {
   composes: titleElement;
   font-size: 17px;
-  display: inline-flex;
+  display: block;
 }
 
 .fullAnswer {
