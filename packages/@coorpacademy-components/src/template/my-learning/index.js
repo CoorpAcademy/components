@@ -1,12 +1,14 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {getOr} from 'lodash/fp';
+import {getOr, keys, map, fromPairs, pipe, sumBy} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
 import ButtonLink from '../../atom/button-link';
 import ToolTip from '../../atom/tooltip';
+import ReviewNoSkills from '../../organism/review-no-skills';
+import SearchForm from '../../molecule/search-form';
 import SkillPickerModal from '../../molecule/skill-picker-modal';
 import ResponsiveLearningProfileRadarChart from '../../molecule/learning-profile-radar-chart';
 import SkillsChartSideInformationPanel from '../../molecule/skills-chart-side-information-panel';
@@ -23,33 +25,35 @@ const ChangeSkillFocusButton = (props, context) => {
 
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
-  const buttonProps = {
-    customStyle: {
-      backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-      color: hovered ? '#FFFFFF' : primarySkinColor,
-      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
-    },
-    onClick,
-    label: translate('change_skill_focus'),
-    'data-name': 'change-skill-focus-button',
-    icon: {
-      position: 'left',
-      faIcon: {
-        name: 'arrows-rotate',
-        backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-        color: hovered ? '#FFFFFF' : primarySkinColor,
-        size: 16
-      }
-    }
-  };
-
   return (
     <div
+      data-name="button-explore-wrapper"
       onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
-      data-name="button-explore-wrapper"
     >
-      <ButtonLink {...buttonProps} />
+      <ButtonLink
+        customStyle={{
+          backgroundColor: hovered
+            ? primarySkinColor
+            : convert(`color(${primarySkinColor} a(0.07))`),
+          color: hovered ? '#FFFFFF' : primarySkinColor,
+          transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+        }}
+        onClick={onClick}
+        label={translate('change_skill_focus')}
+        data-name="change-skill-focus-button"
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'arrows-rotate',
+            backgroundColor: hovered
+              ? primarySkinColor
+              : convert(`color(${primarySkinColor} a(0.07))`),
+            color: hovered ? '#FFFFFF' : primarySkinColor,
+            size: 16
+          }
+        }}
+      />
     </div>
   );
 };
@@ -84,7 +88,7 @@ const FilterButton = (props, context) => {
       backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#FFFFFF',
       color: active ? primarySkinColor : '#9999A8',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
-      width: filter === translate('review') ? '198px' : 'fit-content'
+      width: filter === translate('review_mode_available') ? '200px' : 'fit-content'
     },
     onClick,
     content: <Content />,
@@ -109,9 +113,8 @@ const MyLearning = (props, context) => {
   const {
     skills,
     selectedSkills = [],
-    skillsStats,
+    skillsInformation,
     skillsLocales,
-    skillsFilters,
     learnerFeature = true,
     isLoading,
     onSkillFocusConfirm,
@@ -121,84 +124,78 @@ const MyLearning = (props, context) => {
   const {translate} = context;
   const [open, setOpen] = useState(false);
   const [selectedSkillsList, setSelectedSkillsList] = useState(selectedSkills);
-  const [skillFocusSelected, setSkillFocusSelected] = useState(undefined);
+  const [skillFocusSelectedOnChart, setSkillFocusSelectedOnChart] = useState(undefined);
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState(skills);
   const [activeFilter, setActiveFilter] = useState('all');
 
   const skillsReviewReady = useMemo(() => {
-    return skills.filter(skill => skillsFilters[skill].review);
-  }, [skills, skillsFilters]);
+    return searchResults.filter(skill => skillsInformation[skill].availableForReview);
+  }, [searchResults, skillsInformation]);
 
-  const graphDatas = useMemo(() => {
-    const data = {};
-    selectedSkillsList.forEach(skill => (data[skill] = skillsStats[skill].score));
-    return data;
-  }, [selectedSkillsList, skillsStats]);
-
-  const graphLegends = useMemo(() => {
-    const data = {};
-    selectedSkillsList.forEach(skill => (data[skill] = skillsLocales[skill]));
-    return data;
-  }, [selectedSkillsList, skillsLocales]);
-
-  const filters = [
-    {
-      name: 'all',
-      skills
-    },
-    {
-      name: 'review',
-      skills: skillsReviewReady
-    }
-  ];
-
-  const coursedCompletedData = useMemo(
+  const graphDatas = useMemo(
     () =>
-      skillFocusSelected
-        ? skillsStats[skillFocusSelected].coursesCompleted
-        : selectedSkillsList.reduce((sum, skill) => sum + skillsStats[skill].coursesCompleted, 0),
-    [skillFocusSelected, skillsStats, selectedSkillsList]
+      pipe(
+        map(skill => [skill, skillsInformation[skill].stats.score]),
+        fromPairs
+      )(selectedSkillsList),
+    [selectedSkillsList, skillsInformation]
   );
 
-  const questionsAnsweredData = useMemo(
+  const graphLegends = useMemo(
     () =>
-      skillFocusSelected
-        ? skillsStats[skillFocusSelected].questionsAnswered
-        : selectedSkillsList.reduce((sum, skill) => sum + skillsStats[skill].questionsAnswered, 0),
-    [skillFocusSelected, skillsStats, selectedSkillsList]
+      pipe(
+        map(skill => [skill, skillsLocales[skill]]),
+        fromPairs
+      )(selectedSkillsList),
+    [selectedSkillsList, skillsLocales]
   );
 
-  const learningHoursData = useMemo(
-    () =>
-      skillFocusSelected
-        ? skillsStats[skillFocusSelected].learningHours
-        : selectedSkillsList.reduce((sum, skill) => sum + skillsStats[skill].learningHours, 0),
-    [skillFocusSelected, skillsStats, selectedSkillsList]
+  const filters = useMemo(() => {
+    return {
+      all: searchResults,
+      review_mode_available: skillsReviewReady
+    };
+  }, [searchResults, skillsReviewReady]);
+
+  const sumKpi = useCallback(
+    kpi =>
+      skillFocusSelectedOnChart
+        ? skillsInformation[skillFocusSelectedOnChart].stats[kpi]
+        : sumBy(skill => skillsInformation[skill].stats[kpi], selectedSkillsList),
+    [skillFocusSelectedOnChart, skillsInformation, selectedSkillsList]
   );
+
+  const coursedCompletedData = useMemo(() => sumKpi('coursesCompleted'), [sumKpi]);
+
+  const questionsAnsweredData = useMemo(() => sumKpi('questionsAnswered'), [sumKpi]);
+
+  const learningHoursData = useMemo(() => sumKpi('learningHours'), [sumKpi]);
 
   const skillChartPaneLegends = useMemo(
     () =>
       translate('on', {
-        focusedSkill: skillFocusSelected
-          ? skillsLocales[skillFocusSelected]
+        focusedSkill: skillFocusSelectedOnChart
+          ? skillsLocales[skillFocusSelectedOnChart]
           : translate('focused_skills')
       }),
-    [translate, skillsLocales, skillFocusSelected]
+    [translate, skillsLocales, skillFocusSelectedOnChart]
   );
   const skillChartPanelProps = [
     {
-      title: translate('courses_completed'),
+      title: translate('skill_chart_side_panel_courses_completed'),
       value: coursedCompletedData,
       legend: skillChartPaneLegends,
       icon: {iconName: 'book-open-cover', backgroundColor: '#D9F4F7'}
     },
     {
-      title: translate('questions_answered'),
+      title: translate('skill_chart_side_panel_questions_answered'),
       value: questionsAnsweredData,
       legend: skillChartPaneLegends,
       icon: {iconName: 'circle-question', backgroundColor: '#FFDCD1'}
     },
     {
-      title: translate('learning_hours'),
+      title: translate('skill_chart_side_panel_learning_hours'),
       value: learningHoursData,
       legend: skillChartPaneLegends,
       icon: {iconName: 'clock', backgroundColor: '#FAD6DE'}
@@ -207,9 +204,9 @@ const MyLearning = (props, context) => {
 
   const handleOnDotClick = useCallback(
     skillRef => {
-      skillRef && setSkillFocusSelected(skillRef);
+      skillRef && setSkillFocusSelectedOnChart(skillRef);
     },
-    [setSkillFocusSelected]
+    [setSkillFocusSelectedOnChart]
   );
   const handleOpenSkillPicker = useCallback(() => setOpen(true), [setOpen]);
   const handleCloseSkillPicker = useCallback(() => setOpen(false), [setOpen]);
@@ -221,8 +218,23 @@ const MyLearning = (props, context) => {
     },
     [onSkillFocusConfirm, setSelectedSkillsList, setOpen]
   );
+  const handleSearch = useCallback(
+    value => {
+      setSearchValue(value);
+      setSearchResults(
+        skills.filter(skill => {
+          return skillsLocales[skill].toLowerCase().includes(value.toLowerCase());
+        })
+      );
+    },
+    [skills, skillsLocales, setSearchValue, setSearchResults]
+  );
+  const handleSearchReset = useCallback(() => {
+    setSearchValue('');
+    setSearchResults(skills);
+  }, [skills, setSearchValue, setSearchResults]);
 
-  const TooltipContent = useCallback(
+  const ReviewTooltipContent = useCallback(
     () => (
       <div>
         <div>
@@ -230,10 +242,10 @@ const MyLearning = (props, context) => {
         </div>
         <p>{translate('review_mode_tooltip_content')}</p>
         <ol>
-          <li>{translate('Choose 1 Skill')}</li>
-          <li>{translate('Answer 5 Questions')}</li>
-          <li>{translate('You have Infinite Lives')}</li>
-          <li>{translate('Get it all right')}</li>
+          <li>{translate('review_mode_tooltip_content_part1')}</li>
+          <li>{translate('review_mode_tooltip_content_part2')}</li>
+          <li>{translate('review_mode_tooltip_content_part3')}</li>
+          <li>{translate('review_mode_tooltip_content_part4')}</li>
         </ol>
       </div>
     ),
@@ -310,10 +322,8 @@ const MyLearning = (props, context) => {
               <div className={style.skillFocusEmpty}>
                 <Picture
                   className={style.img}
-                  src={
-                    'https://static.coorpacademy.com/assets/images/mylearning-no-skill-selected-placeholder.svg'
-                  }
-                  alt={'demo'}
+                  src="https://static.coorpacademy.com/assets/images/mylearning-no-skill-selected-placeholder.svg"
+                  alt="demo"
                 />
                 <div className={style.skillFocusEmptyTitle}>
                   {translate('skill_focus_empty_title')}
@@ -322,12 +332,10 @@ const MyLearning = (props, context) => {
                   {translate('skills_focus_empty_description')}
                 </div>
                 <ButtonLink
-                  customStyle={{
-                    width: '168px'
-                  }}
-                  type={'primary'}
-                  onClick={handleOpenSkillPicker}
                   label={translate('choose_your_focus')}
+                  type="primary"
+                  customStyle={{width: '168px'}}
+                  onClick={handleOpenSkillPicker}
                 />
               </div>
             )}
@@ -349,7 +357,7 @@ const MyLearning = (props, context) => {
                 fontSize={12}
                 iconContainerClassName={style.infoIconTooltip}
                 tooltipClassName={style.tooltip}
-                TooltipContent={TooltipContent}
+                TooltipContent={ReviewTooltipContent}
                 closeToolTipInformationTextAriaLabel={translate(
                   'Press the escape key to close the information text'
                 )}
@@ -357,51 +365,87 @@ const MyLearning = (props, context) => {
             </div>
           </div>
         </header>
-        <div className={style.skillFilterContainer}>
-          {filters.map((filter, index) => {
-            function handleFilterClick() {
-              setActiveFilter(filter.name);
-            }
+        <div className={style.toolBarContainer}>
+          <div className={style.skillFilterContainer}>
+            {keys(filters).map((filter, index) => {
+              function handleFilterClick() {
+                setActiveFilter(filter);
+              }
 
-            return (
-              <div key={index}>
-                <FilterButton
-                  active={activeFilter === filter.name}
-                  filter={translate(filter.name)}
-                  skillTotal={filter.skills.length}
-                  onClick={handleFilterClick}
+              return (
+                <div key={index}>
+                  <FilterButton
+                    active={activeFilter === filter}
+                    filter={translate(filter)}
+                    skillTotal={filters[filter].length}
+                    onClick={handleFilterClick}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div className={style.searchWrapper}>
+            <SearchForm
+              search={{
+                placeholder: translate('search_place_holder'),
+                value: searchValue,
+                onChange: handleSearch
+              }}
+              onReset={handleSearchReset}
+            />
+          </div>
+        </div>
+        {searchValue && searchResults.length === 0 ? (
+          <div className={style.emptySearchResultContainer}>
+            <div className={style.emptySearchResultTitle}>
+              {translate('empty_search_result_title', {searchValue})}
+            </div>
+            <div className={style.emptySearchResultDescription}>
+              {translate('empty_search_result_description')}
+            </div>
+            <div className={style.emptySearchResultClearSearch} onClick={handleSearchReset}>
+              {translate('empty_search_result_clear_search')}
+            </div>
+          </div>
+        ) : (
+          <div className={style.skillListContainer}>
+            {activeFilter === 'review_mode_available' && filters[activeFilter].length === 0 ? (
+              <div className={style.skillListEmptyContainer}>
+                <ReviewNoSkills
+                  titleNoSkills={translate('review_skill_epmty')}
+                  textNoSkills={translate('review_skill_epmty_description')}
+                  iconSkillAriaLabel={translate('review_skill_epmty')}
+                  directionReverse
                 />
               </div>
-            );
-          })}
-        </div>
-        <div className={style.skillListContainer}>
-          {skills.map((skill, index) => {
-            if (activeFilter === 'review' && !skillsFilters[skill].review) return null;
-            function handleReviewSkill() {
-              onReviewSkill(skill);
-            }
-            function handleExploreSkill() {
-              onExploreSkill(skill);
-            }
-            return (
-              <div key={index}>
-                <LearnerSkillCard
-                  skillTitle={skillsLocales[skill]}
-                  focus={selectedSkills.includes(skill)}
-                  metrics={{
-                    skillCourses: skillsStats[skill].courses,
-                    skillQuestions: skillsStats[skill].questionsAnswered,
-                    completedCourses: skillsStats[skill].coursesCompleted
-                  }}
-                  review={skillsFilters[skill].review}
-                  onReviewClick={handleReviewSkill}
-                  onExploreClick={handleExploreSkill}
-                />
-              </div>
-            );
-          })}
-        </div>
+            ) : (
+              filters[activeFilter].map((skill, index) => {
+                function handleReviewSkill() {
+                  onReviewSkill(skill);
+                }
+                function handleExploreSkill() {
+                  onExploreSkill(skill);
+                }
+                return (
+                  <div key={index}>
+                    <LearnerSkillCard
+                      skillTitle={skillsLocales[skill]}
+                      focus={selectedSkills.includes(skill)}
+                      metrics={{
+                        skillCourses: skillsInformation[skill].stats.courses,
+                        skillQuestions: skillsInformation[skill].stats.questionsAnswered,
+                        completedCourses: skillsInformation[skill].stats.coursesCompleted
+                      }}
+                      review={skillsInformation[skill].availableForReview}
+                      onReviewClick={handleReviewSkill}
+                      onExploreClick={handleExploreSkill}
+                    />
+                  </div>
+                );
+              })
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -414,18 +458,16 @@ MyLearning.contextTypes = {
 MyLearning.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.string),
   selectedSkills: PropTypes.arrayOf(PropTypes.string),
-  skillsStats: PropTypes.objectOf(
+  skillsInformation: PropTypes.objectOf(
     PropTypes.shape({
-      score: PropTypes.number,
-      courses: PropTypes.number,
-      coursesCompleted: PropTypes.number,
-      questionsAnswered: PropTypes.number,
-      learningHours: PropTypes.number
-    })
-  ),
-  skillsFilters: PropTypes.objectOf(
-    PropTypes.shape({
-      review: PropTypes.boolean
+      availableForReview: PropTypes.bool,
+      stats: PropTypes.shape({
+        score: PropTypes.number,
+        courses: PropTypes.number,
+        coursesCompleted: PropTypes.number,
+        questionsAnswered: PropTypes.number,
+        learningHours: PropTypes.number
+      })
     })
   ),
   skillsLocales: PropTypes.objectOf(PropTypes.string),

@@ -46,6 +46,13 @@
   width: 361px;
 }
 
+.imgNoSkillsReverse {
+  height: 361px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  width: 361px;
+}
+
 @media tablet {
   .titleNoSkills, .textNoSkills {
     width: 90%;

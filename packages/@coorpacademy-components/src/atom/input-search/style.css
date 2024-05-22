@@ -33,6 +33,7 @@
 }
 
 .search {
+  background-color: unset;
   font-family: "Gilroy";
   text-transform: none;
   margin: 0 3px;

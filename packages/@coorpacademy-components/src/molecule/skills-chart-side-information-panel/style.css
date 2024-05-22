@@ -1,5 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
+
 
 .sidePanel {
   display: flex;
@@ -12,6 +14,12 @@
 }
 
 @media mobile {
+  .sidePanel {
+    width: 100%;
+  }
+}
+
+@media tablet {
   .sidePanel {
     width: 100%;
   }
