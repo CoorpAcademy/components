@@ -18,7 +18,7 @@ global.ResizeObserver = class MockedResizeObserver {
 
 test('should get label and trigger click', t => {
   t.plan(2);
-  const props = {...fixture.props, onClick: (ref: string) => t.is(ref, 'skillRef3')};
+  const props = {...fixture.props, onClick: (ref?: string) => t.is(ref, 'skillRef3')};
   const {container} = render(<LearningProfileRadarChart {...props} width={100} height={100} />);
   const label = container.querySelector('[data-name="Problem solving"]');
   t.truthy(label);
