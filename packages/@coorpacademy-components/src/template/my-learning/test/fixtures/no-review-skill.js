@@ -13,7 +13,7 @@ const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef3', 'skillRef4'];
 
 const skillsInformation = {
   skillRef1: {
-    availableForReview: true,
+    availableForReview: false,
     stats: {
       score: 15.3,
       courses: 120,
@@ -23,7 +23,7 @@ const skillsInformation = {
     }
   },
   skillRef2: {
-    availableForReview: true,
+    availableForReview: false,
     stats: {
       score: 56.3,
       courses: 120,
@@ -33,7 +33,7 @@ const skillsInformation = {
     }
   },
   skillRef3: {
-    availableForReview: true,
+    availableForReview: false,
     stats: {
       score: 23.3,
       courses: 120,
@@ -53,7 +53,7 @@ const skillsInformation = {
     }
   },
   skillRef5: {
-    availableForReview: true,
+    availableForReview: false,
     stats: {
       score: 43.3,
       courses: 120,
@@ -63,7 +63,7 @@ const skillsInformation = {
     }
   },
   skillRef6: {
-    availableForReview: true,
+    availableForReview: false,
     stats: {
       score: 63.3,
       courses: 120,
@@ -73,7 +73,7 @@ const skillsInformation = {
     }
   },
   skillRef7: {
-    availableForReview: true,
+    availableForReview: false,
     stats: {
       score: 63.3,
       courses: 120,

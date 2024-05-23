@@ -184,19 +184,19 @@ const MyLearning = (props, context) => {
   const skillChartPanelProps = [
     {
       title: translate('skill_chart_side_panel_courses_completed'),
-      value: coursedCompletedData,
+      value: `${coursedCompletedData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'book-open-cover', backgroundColor: '#D9F4F7'}
     },
     {
       title: translate('skill_chart_side_panel_questions_answered'),
-      value: questionsAnsweredData,
+      value: `${questionsAnsweredData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'circle-question', backgroundColor: '#FFDCD1'}
     },
     {
       title: translate('skill_chart_side_panel_learning_hours'),
-      value: learningHoursData,
+      value: `${learningHoursData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'clock', backgroundColor: '#FAD6DE'}
     }
