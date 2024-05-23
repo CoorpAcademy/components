@@ -72,7 +72,8 @@
   "Show more": "Show more",
   "Show": "Show",
   "Start battle": "Start battle",
-  "skills": "Skills",
+  "skills_section_title": "Skills",
+  "skills_section_description": "Explore or review skills",
   "skill_focus_empty_title": "Choose the skills you want to improve",
   "skills_focus_description": "Focus on skills you want to improve and track your progress",
   "skills_focus_empty_description": "Practice regularly, track your progress to master your chosen skills and unlock your potential.",
@@ -95,7 +96,6 @@
   "skill_chart_side_panel_questions_answered": "Questions answered",
   "skill_chart_side_panel_learning_hours": "Learning hours",
   "selected": "selected",
-  "Explore or review skills": "Explore or review skills",
   "This message has been removed by its author": "This message has been removed by its author.",
   "unsubscribe": "Unsubscribe from Coorpacademy",
   "Validated": "Validated",
@@ -131,7 +131,7 @@
   "validate_aria_label": "Validate your answer and go to next step",
   "stars": "stars",
   "questions": "Questions",
-  "on": "on <b>{{focusedSkill}}</b>",
+  "skill_scope_specifier": "on <b>{{focusedSkill}}</b>",
   "focused_skills": "focused skills",
   "custom":{
     "digitlearning": {

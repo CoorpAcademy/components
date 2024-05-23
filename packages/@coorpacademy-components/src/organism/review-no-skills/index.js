@@ -7,11 +7,11 @@ const ReviewNoSkills = ({
   titleNoSkills,
   textNoSkills,
   iconSkillAriaLabel,
-  directionReverse = false
+  imagePosition = 'bottom'
 }) => {
   return (
     <div className={style.noSkillsContainer}>
-      {directionReverse ? (
+      {imagePosition === 'top' ? (
         <EmptyStateHomeRevision
           className={style.imgNoSkillsReverse}
           aria-label={iconSkillAriaLabel}
@@ -19,7 +19,7 @@ const ReviewNoSkills = ({
       ) : null}
       <div className={style.titleNoSkills}>{titleNoSkills}</div>
       <div className={style.textNoSkills}> {textNoSkills}</div>
-      {!directionReverse ? (
+      {imagePosition === 'bottom' ? (
         <EmptyStateHomeRevision className={style.imgNoSkills} aria-label={iconSkillAriaLabel} />
       ) : null}
     </div>

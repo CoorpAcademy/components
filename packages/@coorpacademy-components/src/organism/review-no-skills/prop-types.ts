@@ -4,7 +4,7 @@ const propTypes = {
   titleNoSkills: PropTypes.string.isRequired,
   textNoSkills: PropTypes.string.isRequired,
   iconSkillAriaLabel: PropTypes.string.isRequired,
-  directionReverse: PropTypes.bool
+  imagePosition: PropTypes.oneOf(['top', 'bottom'])
 };
 
 export default propTypes;
@@ -13,5 +13,5 @@ export type NoSkillsProps = {
   titleNoSkills: string;
   textNoSkills: string;
   iconSkillAriaLabel: string;
-  directionReverse?: boolean;
+  imagePosition?: 'top' | 'bottom';
 };

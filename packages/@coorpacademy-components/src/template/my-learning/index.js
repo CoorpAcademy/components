@@ -13,6 +13,7 @@ import SkillPickerModal from '../../molecule/skill-picker-modal';
 import ResponsiveLearningProfileRadarChart from '../../molecule/learning-profile-radar-chart';
 import SkillsChartSideInformationPanel from '../../molecule/skills-chart-side-information-panel';
 import LearnerSkillCard from '../../molecule/learner-skill-card';
+import searchValueIncluded from '../../util/search-value-included';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -154,7 +155,7 @@ const MyLearning = (props, context) => {
   const filters = useMemo(() => {
     return {
       all: searchResults,
-      review_mode_available: skillsReviewReady
+      review: skillsReviewReady
     };
   }, [searchResults, skillsReviewReady]);
 
@@ -174,7 +175,7 @@ const MyLearning = (props, context) => {
 
   const skillChartPaneLegends = useMemo(
     () =>
-      translate('on', {
+      translate('skill_scope_specifier', {
         focusedSkill: skillFocusSelectedOnChart
           ? skillsLocales[skillFocusSelectedOnChart]
           : translate('focused_skills')
@@ -221,11 +222,7 @@ const MyLearning = (props, context) => {
   const handleSearch = useCallback(
     value => {
       setSearchValue(value);
-      setSearchResults(
-        skills.filter(skill => {
-          return skillsLocales[skill].toLowerCase().includes(value.toLowerCase());
-        })
-      );
+      setSearchResults(skills.filter(skill => searchValueIncluded(skillsLocales[skill], value)));
     },
     [skills, skillsLocales, setSearchValue, setSearchResults]
   );
@@ -350,9 +347,9 @@ const MyLearning = (props, context) => {
             />
           </div>
           <div className={style.skillListHeaderContent}>
-            <div className={style.skillListHeaderTitle}>{translate('skills')}</div>
+            <div className={style.skillListHeaderTitle}>{translate('skills_section_title')}</div>
             <div className={style.skillListHeaderDescription}>
-              {translate('Explore or review skills')}
+              {translate('skills_section_description')}
               <ToolTip
                 fontSize={12}
                 iconContainerClassName={style.infoIconTooltip}
@@ -376,7 +373,9 @@ const MyLearning = (props, context) => {
                 <div key={index}>
                   <FilterButton
                     active={activeFilter === filter}
-                    filter={translate(filter)}
+                    filter={
+                      filter === 'all' ? translate('all') : translate('review_mode_available')
+                    }
                     skillTotal={filters[filter].length}
                     onClick={handleFilterClick}
                   />
@@ -415,7 +414,7 @@ const MyLearning = (props, context) => {
                   titleNoSkills={translate('review_skill_epmty')}
                   textNoSkills={translate('review_skill_epmty_description')}
                   iconSkillAriaLabel={translate('review_skill_epmty')}
-                  directionReverse
+                  imagePosition="top"
                 />
               </div>
             ) : (
