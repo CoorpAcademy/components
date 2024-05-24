@@ -47,10 +47,9 @@
 }
 
 .imgNoSkillsReverse {
-  height: 361px;
+  composes: imgNoSkills;
   margin-top: 0px;
   margin-bottom: 8px;
-  width: 361px;
 }
 
 @media tablet {
