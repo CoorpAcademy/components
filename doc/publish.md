@@ -182,6 +182,7 @@ If you do, manually add the deps on your branch:
 ```
 
 now you can push your branch and PR the bump.
+Warning ⚠️ : remove from package.json `^` as it might not install the expected version 
 
 # troobleshooting
 
