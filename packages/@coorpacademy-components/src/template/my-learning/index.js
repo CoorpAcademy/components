@@ -41,7 +41,7 @@ const ChangeSkillFocusButton = (props, context) => {
           transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
         }}
         onClick={onClick}
-        label={translate('change_skill_focus')}
+        label={translate('skills_change_focus')}
         data-name="change-skill-focus-button"
         icon={{
           position: 'left',
@@ -323,13 +323,13 @@ const MyLearning = (props, context) => {
                   alt="demo"
                 />
                 <div className={style.skillFocusEmptyTitle}>
-                  {translate('skill_focus_empty_title')}
+                  {translate('skills_focus_empty_title')}
                 </div>
                 <div className={style.skillFocusEmptyDescription}>
                   {translate('skills_focus_empty_description')}
                 </div>
                 <ButtonLink
-                  label={translate('choose_your_focus')}
+                  label={translate('skills_choose_focus')}
                   type="primary"
                   customStyle={{width: '168px'}}
                   onClick={handleOpenSkillPicker}
@@ -411,9 +411,9 @@ const MyLearning = (props, context) => {
             {activeFilter === 'review_mode_available' && filters[activeFilter].length === 0 ? (
               <div className={style.skillListEmptyContainer}>
                 <ReviewNoSkills
-                  titleNoSkills={translate('review_skill_epmty')}
-                  textNoSkills={translate('review_skill_epmty_description')}
-                  iconSkillAriaLabel={translate('review_skill_epmty')}
+                  titleNoSkills={translate('review_skill_empty')}
+                  textNoSkills={translate('review_skill_empty_description')}
+                  iconSkillAriaLabel={translate('review_skill_empty')}
                   imagePosition="top"
                 />
               </div>
