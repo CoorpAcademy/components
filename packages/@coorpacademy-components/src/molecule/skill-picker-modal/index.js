@@ -45,7 +45,8 @@ const SkillPickerModal = (props, context) => {
   }, [skills, selectedSkillList, skillsLocales]);
 
   const isError = useMemo(
-    () => selectedSkillList.length > maxSelectedSkills,
+    () =>
+      selectedSkillList.length > maxSelectedSkills || selectedSkillList.length < minSelectedSkills,
     [selectedSkillList, maxSelectedSkills]
   );
 
