@@ -18,7 +18,7 @@ global.ResizeObserver = class MockedResizeObserver {
 
 test('should get dot and trigger click', t => {
   t.plan(2);
-  const props = {...fixture.props, onClick: (ref: string) => t.is(ref, 'skillRef1')};
+  const props = {...fixture.props, onClick: (ref?: string) => t.is(ref, 'skillRef1')};
   const {container} = render(<LearningProfileRadarChart {...props} width={100} height={100} />);
   const dot1 = container.querySelector('[data-name="dot-dataset-1"]');
   t.truthy(dot1);

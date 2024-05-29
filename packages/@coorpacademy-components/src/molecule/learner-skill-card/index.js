@@ -12,7 +12,9 @@ const LearnerSkillCard = (props, context) => {
     'aria-label': ariaLabel,
     skillTitle,
     skillAriaLabel,
+    focus = false,
     metrics,
+    review = false,
     onReviewClick,
     onExploreClick
   } = props;
@@ -37,6 +39,7 @@ const LearnerSkillCard = (props, context) => {
       backgroundColor: '#FFF',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
+    disabled: !review,
     onClick: onReviewClick,
     'aria-label': `${skillTitle}, ${reviewLocale}`,
     label: reviewLocale,
@@ -118,17 +121,19 @@ const LearnerSkillCard = (props, context) => {
         >
           {skillTitle}
         </div>
-        <div className={style.skillFocusBadge}>
-          <Icon
-            iconName="bullseye-arrow"
-            backgroundColor="#DDD1FF"
-            size={{
-              faSize: 10,
-              wrapperSize: 16
-            }}
-          />
-          {skillFocusLocale}
-        </div>
+        {focus ? (
+          <div className={style.skillFocusBadge}>
+            <Icon
+              iconName="bullseye-arrow"
+              backgroundColor="#DDD1FF"
+              size={{
+                faSize: 10,
+                wrapperSize: 16
+              }}
+            />
+            {skillFocusLocale}
+          </div>
+        ) : null}
       </div>
       <ProgressBar />
       <div className={style.progressInformations}>
@@ -167,11 +172,13 @@ LearnerSkillCard.propTypes = {
   'aria-label': PropTypes.string,
   skillTitle: PropTypes.string,
   skillAriaLabel: PropTypes.string,
+  focus: PropTypes.bool,
   metrics: PropTypes.shape({
     skillCourses: PropTypes.number,
     skillQuestions: PropTypes.number,
     completedCourses: PropTypes.number
   }),
+  review: PropTypes.bool,
   onReviewClick: PropTypes.func,
   onExploreClick: PropTypes.func
 };

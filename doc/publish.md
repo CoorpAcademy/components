@@ -110,6 +110,8 @@ info Direct dependencies
 
 Your branch is now ready to be deployed.
 
+Warning ⚠️ : remove from package.json `^` as it might not install the expected version when specifying a canary version
+
 ### canary known issues
 
 hashes issues https://github.com/lerna/lerna/issues/277

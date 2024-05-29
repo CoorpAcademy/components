@@ -85,10 +85,16 @@ export type LearningProfileRadarChartPropTypes = {
     [ref: string]: string;
   };
   totalDataset: number;
-  onClick: (skillRef: string) => void;
+  onClick: (skillRef?: string) => void;
   colors?: ColorType[];
   width?: number;
   height?: number;
+  margin?: {
+    top?: number;
+    right?: number;
+    bottom?: number;
+    left?: number;
+  };
 };
 
 export type CustomDotPropTypes = {

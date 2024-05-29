@@ -39,7 +39,7 @@ import {
 type CHART_TYPE_TYPE = keyof typeof CHART_CONFIGS;
 
 /* TICK_POSITIONS */
-const top: TickType = {offset: {x: -100, y: -65}, alignment: 'center', margin: 'auto'};
+const top: TickType = {offset: {x: -100, y: -75}, alignment: 'center', margin: 'auto'};
 const bottom: TickType = {offset: {x: -100, y: 10}, alignment: 'center', margin: 'auto'};
 const right: TickType = {offset: {x: 30, y: -10}, alignment: 'start', marginRight: 'auto'};
 const left: TickType = {offset: {x: -230, y: -10}, alignment: 'end', marginLeft: 'auto'};
@@ -87,23 +87,23 @@ const CHART_CONFIGS = {
 } as const;
 
 const DOT_DEFAULT_PROPS = {
-  strokeWidth: 4,
-  strokeOpacity: 0.2,
+  strokeWidth: 2,
+  strokeOpacity: 0.4,
   fill: '#fff',
-  r: 8,
+  r: 4,
   pointerEvents: 'all',
   style: {cursor: 'pointer'}
 } as const;
 
 const DOT_ACTIVE_PROPS = {
   fill: '#fff',
-  r: 8,
-  strokeWidth: 6,
-  strokeOpacity: 0.5
+  r: 6,
+  strokeWidth: 4,
+  strokeOpacity: 0.6
 } as const;
 
 const RADAR_DEFAULT_PROPS = {
-  strokeWidth: 6,
+  strokeWidth: 3,
   strokeOpacity: 0.2,
   fillOpacity: 0.2
 } as const;
@@ -159,6 +159,10 @@ const CustomDot = ({
       stroke,
       cx,
       cy,
+      onTouchStart: () => {
+        if (!payload?.name) return;
+        onDotClick(payload.name);
+      },
       onClick: e => {
         e.stopPropagation();
 
@@ -242,7 +246,13 @@ const buildCustomLabel = ({
 
   return (
     <g>
-      <foreignObject x={x + offsetX} y={y + offsetY} width="200" height="65">
+      <foreignObject
+        className={style.tickeForeignObject}
+        x={x + offsetX}
+        y={y + offsetY}
+        width="200"
+        height="65"
+      >
         <div
           data-name={label}
           onClick={onLabelClick}
@@ -301,7 +311,8 @@ export const LearningProfileRadarChart = ({
   colors: colorsProps,
   onClick,
   width,
-  height
+  height,
+  margin
 }: LearningProfileRadarChartPropTypes) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
@@ -339,14 +350,17 @@ export const LearningProfileRadarChart = ({
   useEffect(() => setIsMobile_(), [setIsMobile_]);
 
   useEffect(() => {
-    const handleClick = () => setActiveDot(undefined);
+    const handleClick = () => {
+      setActiveDot(undefined);
+      onClick(undefined);
+    };
 
     !isEmpty(activeDot) && window.addEventListener('click', handleClick);
 
     return () => {
       window.removeEventListener('click', handleClick);
     };
-  }, [activeDot]);
+  }, [activeDot, onClick, setActiveDot]);
 
   function handleOnDotClick(label: string) {
     const payload = formatedData.find(({subject}) => subject === label);
@@ -402,6 +416,7 @@ export const LearningProfileRadarChart = ({
     <RadarChart
       width={width}
       height={height}
+      margin={margin ?? (isMobile ? {top: 80} : {top: 180})}
       cx="50%"
       cy="50%"
       outerRadius="80%"
@@ -409,7 +424,7 @@ export const LearningProfileRadarChart = ({
     >
       {gradients}
       {buildRadars(totalDataset, handleOnDotClick, activeDot)}
-      <PolarGrid strokeDasharray={15} strokeWidth={3} radialLines={false} />
+      <PolarGrid strokeDasharray={10} strokeWidth={2} radialLines={false} />
       <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
       <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
       {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}
