@@ -91,7 +91,7 @@
   "subscription_promo_code": "Ora hai un accesso illimitato gratuito al nostro catalogo fino al {{date}}. Per continuare a fruirne dopo questa data, ti invitiamo ad abbonarti su",
   "skill_focus": "Messa a fuoco delle competenze",
   "skill_focus_footer_description": "Seleziona almeno {{skillNumber}} altre competenze\n",
-  "skill_focus_footer_error_description": "Deseleziona almeno {{skillNumber}} altre competenze\n",
+  "skill_focus_footer_error_description": "Deseleziona almeno {{skillNumber}} altre competenze",
   "skill_chart_side_panel_courses_completed": " Corsi completati",
   "skill_chart_side_panel_questions_answered": "Domande risposte",
   "skill_chart_side_panel_learning_hours": "Ore di apprendimento",
