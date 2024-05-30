@@ -93,7 +93,7 @@
   "skill_focus_footer_description": "Выберите как минимум ещё {{skillNumber}} навыка(-ов)",
   "skill_focus_footer_error_description": "Отмените выбор как минимум ещё {{skillNumber}} навыков",
   "skill_chart_side_panel_courses_completed": "Курсы завершены",
-  "skill_chart_side_panel_questions_answered": "На вопросы даны ответы",
+  "skill_chart_side_panel_questions_answered": "Получено ответов",
   "skill_chart_side_panel_learning_hours": "Учебные часы",
   "selected": "выбрано",
   "This message has been removed by its author": "Это сообщение было удалено его автором.",
