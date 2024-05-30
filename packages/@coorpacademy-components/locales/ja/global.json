@@ -21,7 +21,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "コース",
   "courses_completed": "コースを修了しました",
-  "skills_change_focus": "Change skill focus",
+  "skills_change_focus": "スキルフォーカスを変更する",
   "skills_choose_focus": "フォーカスを選択してください",
   "cancel": "キャンセル",
   "confirm": "確認する",
@@ -131,8 +131,8 @@
   "validate_aria_label": "回答が正しいことを確認して次のステップに進んでください",
   "stars": "出演者",
   "questions": "質問",
-  "skill_scope_specifier": "on <b>{{focusedSkill}}</b>",
-  "focused_skills": "focused skills",
+  "skill_scope_specifier": "<b>{{focusedSkill}}</b>で",
+  "focused_skills": "フォーカスしたスキル",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "このコースを評価する"
