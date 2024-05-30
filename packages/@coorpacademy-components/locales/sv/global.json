@@ -89,7 +89,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} inkl. skatt per månad",
   "subscription_promo_code": "Du har nu gratis obegränsad tillgång till vår katalog fram till den {{date}}. För att fortsätta använda den efter det här datumet, vänligen prenumerera på ",
-  "skill_focus": "Skill focus",
+  "skill_focus": "Färdighetsfokus",
   "skill_focus_footer_description": "Välj minst {{skillNumber}} färdigheter till",
   "skill_focus_footer_error_description": "Avmarkera minst {{skillNumber}} färdigheter till",
   "skill_chart_side_panel_courses_completed": "Avslutade kurser",
