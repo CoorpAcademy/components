@@ -131,7 +131,7 @@
   "validate_aria_label": "Convalida la tua risposta e vai al passaggio successivo",
   "stars": "stelle",
   "questions": "Domande\n",
-  "skill_scope_specifier": "su <b>{{focusedSkill}}</b>\n",
+  "skill_scope_specifier": "su <b>{{focusedSkill}}</b>",
   "focused_skills": "competenze messe a fuoco",
   "custom":{
     "digitlearning": {
