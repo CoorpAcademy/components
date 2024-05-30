@@ -34,7 +34,7 @@
   "external_content_scorm": "RISORSE ANIMATE",
   "external_content_video": "VIDEO",
   "external_content_podcast": "PODCAST",
-  "empty_search_result_title": "Nessun risultato per \"{{searchValue}}\"\n",
+  "empty_search_result_title": "Nessun risultato per “ {{searchValue}} ”",
   "empty_search_result_description": "Prova a modificare la tua ricerca per trovare ciò che stai cercando.\n\n",
   "empty_search_result_clear_search": "Cancella la ricerca\n",
   "keep_subscription": "Mantieni il mio abbonamento",
