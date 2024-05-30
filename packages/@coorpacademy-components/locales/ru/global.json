@@ -111,7 +111,7 @@
   "review_mode_tooltip_content_part1": "Выберите 1 навык",
   "review_mode_tooltip_content_part2": "Ответьте на 5 вопросов",
   "review_mode_tooltip_content_part3": "У вас бесконечное количество жизней",
-  "review_mode_tooltip_content_part4": "Я понимаю",
+  "review_mode_tooltip_content_part4": "Ответьте на все правильно",
   "review_mode_available": "Доступно для повторения",
   "review_header_step_item": {
     "correct_question": "{{current}}ответ на вопрос {{headerStepValue}} верный",
