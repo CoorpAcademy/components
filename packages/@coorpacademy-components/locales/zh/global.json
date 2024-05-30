@@ -108,11 +108,11 @@
   "something_went_wrong": "Oh Snap! Something went wrong.",
   "review_mode_tooltip_header": "什么是复习模式？",
   "review_mode_tooltip_content": "信息刚进入您的大脑就消失了？这很正常：不反复进行就无法记住！为了将知识长期保留在脑海中，请使用复习模式来帮助您恢复记忆！",
-  "review_mode_tooltip_content_part1": "Choose 1 Skill",
+  "review_mode_tooltip_content_part1": "选择一个技能",
   "review_mode_tooltip_content_part2": "回答 5 个问题",
-  "review_mode_tooltip_content_part3": "You have Infinite Lives",
-  "review_mode_tooltip_content_part4": "Get it all right",
-  "review_mode_available": "Available for review",
+  "review_mode_tooltip_content_part3": "您有无限的生命",
+  "review_mode_tooltip_content_part4": "做好一切",
+  "review_mode_available": "可以复习",
   "review_header_step_item": {
     "correct_question": "{{current}}问题 {{headerStepValue}} 正确",
     "incorrect_question": "{{current}}问题 {{headerStepValue}} 不正确",
@@ -124,15 +124,15 @@
     "invalid_scorm": "scorm 文件无效",
     "show_errors": "显示错误"
   },
-  "review_skill_empty": "You have no skill to revise yet",
-  "review_skill_empty_description": "First you need to complete courses before you can review different skills.",
+  "review_skill_empty": "您还没有要复习的技能",
+  "review_skill_empty_description": "首先您需要完成课程然后才能复习不同的技能。",
   "close_button_ariaLabel": "关闭审议幻灯片",
   "post_comment_aria_label": "发布您的评论",
   "validate_aria_label": "验证您的答案并转到下一步",
   "stars": "星星",
   "questions": "问题",
-  "skill_scope_specifier": "on <b>{{focusedSkill}}</b>",
-  "focused_skills": "focused skills",
+  "skill_scope_specifier": "关于<b>{{focusedSkill}}</b>",
+  "focused_skills": "已重点关注的技能",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "评价此课程"
