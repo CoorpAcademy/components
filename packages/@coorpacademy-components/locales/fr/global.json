@@ -92,7 +92,7 @@
   "skill_focus": "Ciblage des compétences",
   "skill_focus_footer_description": "Sélectionnez au moins {{skillNumber}} compétences supplémentaires",
   "skill_focus_footer_error_description": "Désélectionnez au moins {{skillNumber}} compétences supplémentaires",
-  "skill_chart_side_panel_courses_completed": "Cours achevés",
+  "skill_chart_side_panel_courses_completed": "Cours terminés",
   "skill_chart_side_panel_questions_answered": "Questions traitées",
   "skill_chart_side_panel_learning_hours": "Heures d'apprentissage",
   "selected": "sélectionnées",
