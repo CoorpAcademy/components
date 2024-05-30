@@ -125,7 +125,7 @@
     "show_errors": "mostrare errori"
   },
   "review_skill_empty": "Non hai ancora la capacità di rivedere",
-  "review_skill_empty_description": "Devi prima completare i corsi per poter ripassarre le diverse competenze.\n",
+  "review_skill_empty_description": "Per prima cosa devi completare i corsi prima di poter rivedere le diverse competenze.",
   "close_button_ariaLabel": "Chiudi la slide di revisione",
   "post_comment_aria_label": "Pubblica il tuo commento",
   "validate_aria_label": "Convalida la tua risposta e vai al passaggio successivo",
