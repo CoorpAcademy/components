@@ -111,7 +111,7 @@
   "review_mode_tooltip_content_part1": "Scegli 1 competenza",
   "review_mode_tooltip_content_part2": "Rispondi a 5 domande",
   "review_mode_tooltip_content_part3": "Hai vite infinite",
-  "review_mode_tooltip_content_part4": "Rispondi correttamente a tutto\n",
+  "review_mode_tooltip_content_part4": "Metti tutto a posto",
   "review_mode_available": "Disponibile per la revisione",
   "review_header_step_item": {
     "correct_question": "La {{current}} domanda {{headerStepValue}} è corretta",
