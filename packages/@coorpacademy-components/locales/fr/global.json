@@ -93,7 +93,7 @@
   "skill_focus_footer_description": "Sélectionnez au moins {{skillNumber}} compétences supplémentaires",
   "skill_focus_footer_error_description": "Désélectionnez au moins {{skillNumber}} compétences supplémentaires",
   "skill_chart_side_panel_courses_completed": "Cours terminés",
-  "skill_chart_side_panel_questions_answered": "Questions traitées",
+  "skill_chart_side_panel_questions_answered": "Questions répondues",
   "skill_chart_side_panel_learning_hours": "Heures d'apprentissage",
   "selected": "sélectionnées",
   "This message has been removed by its author": "Ce message a été supprimé par son auteur.",
