@@ -110,9 +110,9 @@
   "review_mode_tooltip_content": "Le informazioni svaniscono dalla tua mente non appena vi entrano? È perfettamente normale: non c'è ritenzione senza ripetizione! Per mantenere le tue conoscenze a lungo termine, usa la Modalità di ripasso per rinfrescarti la memoria!\n",
   "review_mode_tooltip_content_part1": "Scegli 1 competenza",
   "review_mode_tooltip_content_part2": "Rispondi a 5 domande",
-  "review_mode_tooltip_content_part3": "Hai vite Infinite\n",
+  "review_mode_tooltip_content_part3": "Hai vite infinite",
   "review_mode_tooltip_content_part4": "Rispondi correttamente a tutto\n",
-  "review_mode_available": "Disponibile per il ripasso\n",
+  "review_mode_available": "Disponibile per la revisione",
   "review_header_step_item": {
     "correct_question": "La {{current}} domanda {{headerStepValue}} è corretta",
     "incorrect_question": "La {{current}} domanda {{headerStepValue}} non è corretta",
@@ -124,7 +124,7 @@
     "invalid_scorm": "Il file scorm non è valido",
     "show_errors": "mostrare errori"
   },
-  "review_skill_empty": "Non hai ancora competenze da rivedere\n",
+  "review_skill_empty": "Non hai ancora la capacità di rivedere",
   "review_skill_empty_description": "Devi prima completare i corsi per poter ripassarre le diverse competenze.\n",
   "close_button_ariaLabel": "Chiudi la slide di revisione",
   "post_comment_aria_label": "Pubblica il tuo commento",
