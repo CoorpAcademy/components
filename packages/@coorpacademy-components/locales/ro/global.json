@@ -34,7 +34,7 @@
   "external_content_scorm": "RESURSE ANIMATE",
   "external_content_video": "VIDEOCLIPURI",
   "external_content_podcast": "PODCASTURI",
-  "empty_search_result_title": "No results for ”{{searchValue}}”",
+  "empty_search_result_title": "Nu există rezultate pentru „{{searchValue}}”",
   "empty_search_result_description": "Încercați să vă ajustați căutarea pentru a găsi ceea ce căutați.",
   "empty_search_result_clear_search": "Ștergeți căutarea",
   "keep_subscription": "Vreau să-mi păstrez abonamentul",
