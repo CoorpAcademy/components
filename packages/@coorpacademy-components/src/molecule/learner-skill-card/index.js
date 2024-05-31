@@ -141,7 +141,7 @@ const LearnerSkillCard = (props, context) => {
           <>
             <div className={style.progressInformation} data-name="skill-completed-courses">
               <span className={style.progressInformationNumber}>{completedCourses}</span>
-              {coursesCompletedLocale}
+              {` ${coursesCompletedLocale}`}
             </div>
             <div className={style.progressInformation} data-name="completed-percentage">
               <span className={style.progressInformationNumber}>{completedPercentage}%</span>
