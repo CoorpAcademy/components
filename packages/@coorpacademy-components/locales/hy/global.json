@@ -130,9 +130,9 @@
   "post_comment_aria_label": "Տեղադրեք ձեր մեկնաբանությունը",
   "validate_aria_label": "Հաստատեք ձեր պատասխանը և անցեք հաջորդ քայլին",
   "stars": "աստղեր",
-  "questions": "Questions",
-  "skill_scope_specifier": "on <b>{{focusedSkill}}</b>",
-  "focused_skills": "focused skills",
+  "questions": "Հարցեր",
+  "skill_scope_specifier": "<b>{{focusedSkill}}</b> ում",
+  "focused_skills": "կենտրոնացված հմտություններ",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Գնահատեք այս դասընթացը"
