@@ -111,8 +111,8 @@
   "review_mode_tooltip_content_part1": "Odaberite 1 Vještinu",
   "review_mode_tooltip_content_part2": "Odgovorite na 5 pitanja",
   "review_mode_tooltip_content_part3": "Imate beskonačne živote",
-  "review_mode_tooltip_content_part4": "Get it all right",
-  "review_mode_available": "Available for review",
+  "review_mode_tooltip_content_part4": "U redu",
+  "review_mode_available": "Dostupno za pregled",
   "review_header_step_item": {
     "correct_question": "{{current}}question {{headerStepValue}} je tačno",
     "incorrect_question": "{{current}}question {{headerStepValue}} je netačno",
@@ -124,7 +124,7 @@
     "invalid_scorm": "scorm datoteka nije važeća",
     "show_errors": "pokazati greške"
   },
-  "review_skill_empty": "You have no skill to revise yet",
+  "review_skill_empty": "Još nemate vještinu za reviziju",
   "review_skill_empty_description": "First you need to complete courses before you can review different skills.",
   "close_button_ariaLabel": "Zatvorite slajd za recenziju",
   "post_comment_aria_label": "Objavite svoj komentar",
