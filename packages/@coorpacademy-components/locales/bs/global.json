@@ -131,8 +131,8 @@
   "validate_aria_label": "Potvrdite svoj odgovor i idite na sljedeći korak",
   "stars": "zvijezde",
   "questions": "Pitanja",
-  "skill_scope_specifier": "on <b>{{focusedSkill}}</b>",
-  "focused_skills": "focused skills",
+  "skill_scope_specifier": "na <b>{{focusedSkill}}</b>",
+  "focused_skills": "fokusirane vještine",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Ocijenite ovaj kurs"
