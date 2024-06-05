@@ -263,7 +263,7 @@ const MyLearning = (props, context) => {
           onClose={handleCloseSkillPicker}
         />
         {learnerFeature ? (
-          <div className={style.skillFocusContainer}>
+          <div data-name="skill-focus-container" className={style.skillFocusContainer}>
             <header className={style.skillFocusHeader}>
               <div className={style.skillFocusHeaderWrapper}>
                 <div className={style.skillFocusHeaderIcon}>
@@ -275,17 +275,22 @@ const MyLearning = (props, context) => {
                   />
                 </div>
                 <div className={style.skillFocusHeaderContent}>
-                  <div className={style.skillFocusHeaderTitle}>{translate('skill_focus')}</div>
-                  <div className={style.skillFocusHeaderDescription}>
+                  <div data-name="skill-focus-title" className={style.skillFocusHeaderTitle}>
+                    {translate('skill_focus')}
+                  </div>
+                  <div
+                    data-name="skill-focus-description"
+                    className={style.skillFocusHeaderDescription}
+                  >
                     {translate('skills_focus_description')}
                   </div>
                 </div>
               </div>
-              {selectedSkillsList.length > 0 ? (
+              {selectedSkillsList.length >= 3 ? (
                 <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
               ) : null}
             </header>
-            {selectedSkillsList.length > 0 ? (
+            {selectedSkillsList.length >= 3 ? (
               <div className={style.skillFocusContent}>
                 <div className={style.radarContainer}>
                   <ResponsiveLearningProfileRadarChart

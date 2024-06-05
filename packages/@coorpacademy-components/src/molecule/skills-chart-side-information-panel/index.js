@@ -14,7 +14,11 @@ const SkillsChartSideInformationPanel = ({sidePanelItems = []}) => {
     ),
     sidePanelItems
   );
-  return <div className={style.sidePanel}>{sidePanel}</div>;
+  return (
+    <div data-name="skill-chart-side-panel" className={style.sidePanel}>
+      {sidePanel}
+    </div>
+  );
 };
 
 SkillsChartSideInformationPanel.propTypes = {

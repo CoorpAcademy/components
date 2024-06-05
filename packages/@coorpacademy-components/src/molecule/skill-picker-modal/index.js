@@ -51,20 +51,16 @@ const SkillPickerModal = (props, context) => {
   );
 
   const footer = useMemo(() => {
-    const footerDescription = isError
-      ? translate('skill_focus_footer_error_description', {
-          skillNumber: selectedSkillList.length - maxSelectedSkills
-        })
-      : translate('skill_focus_footer_description', {
-          skillNumber: minSelectedSkills - selectedSkillList.length
-        });
+    const footerDescription =
+      selectedSkillList.length > maxSelectedSkills
+        ? translate('skill_focus_footer_error_description', {
+            skillNumber: selectedSkillList.length - maxSelectedSkills
+          })
+        : translate('skill_focus_footer_description', {
+            skillNumber: minSelectedSkills - selectedSkillList.length
+          });
     return {
-      text:
-        isLoading ||
-        (selectedSkillList.length <= maxSelectedSkills &&
-          selectedSkillList.length >= minSelectedSkills)
-          ? ''
-          : footerDescription.replace('.'),
+      text: isLoading || !isError ? '' : footerDescription,
       isError,
       cancelButton: {
         onCancel: handleCancel,

@@ -9,7 +9,7 @@ const skills = [
   'skillRef8'
 ];
 
-const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef3', 'skillRef4'];
+const selectedSkills = ['skillRef1', 'skillRef2'];
 
 const skillsInformation = {
   skillRef1: {
