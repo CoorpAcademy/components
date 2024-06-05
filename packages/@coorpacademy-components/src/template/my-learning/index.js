@@ -281,7 +281,7 @@ const MyLearning = (props, context) => {
                   </div>
                 </div>
               </div>
-              {selectedSkillsList.length > 0 ? (
+              {selectedSkillsList.length >= 3 ? (
                 <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
               ) : null}
             </header>
