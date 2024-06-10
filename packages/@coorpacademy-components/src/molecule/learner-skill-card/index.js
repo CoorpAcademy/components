@@ -18,7 +18,7 @@ const LearnerSkillCard = (props, context) => {
     onReviewClick,
     onExploreClick
   } = props;
-  const {skillCourses, skillQuestions, completedCourses = 0} = metrics;
+  const {score, skillCourses, skillQuestions, completedCourses = 0} = metrics;
   const {skin, translate} = context;
   const [hovered, setHovered] = useState(false);
   const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
@@ -67,16 +67,13 @@ const LearnerSkillCard = (props, context) => {
     }
   };
 
-  const completedPercentage =
-    skillCourses && Number.parseInt((completedCourses / skillCourses) * 100);
-
   const ProgressBar = useCallback(() => {
     if (!skillCourses) return null;
 
     const progressBarColor = '#3EC483';
     const inlineProgressValueStyle = {
       backgroundColor: progressBarColor,
-      width: `${completedPercentage}%`
+      width: `${score}%`
     };
 
     return (
@@ -90,7 +87,7 @@ const LearnerSkillCard = (props, context) => {
         />
       </div>
     );
-  }, [completedPercentage, ariaLabel, skillCourses]);
+  }, [score, ariaLabel, skillCourses]);
 
   return (
     <div
@@ -144,7 +141,7 @@ const LearnerSkillCard = (props, context) => {
               {` ${coursesCompletedLocale}`}
             </div>
             <div className={style.progressInformation} data-name="completed-percentage">
-              <span className={style.progressInformationNumber}>{completedPercentage}%</span>
+              <span className={style.progressInformationNumber}>{score}%</span>
             </div>
           </>
         )}
@@ -174,6 +171,7 @@ LearnerSkillCard.propTypes = {
   skillAriaLabel: PropTypes.string,
   focus: PropTypes.bool,
   metrics: PropTypes.shape({
+    score: PropTypes.number,
     skillCourses: PropTypes.number,
     skillQuestions: PropTypes.number,
     completedCourses: PropTypes.number

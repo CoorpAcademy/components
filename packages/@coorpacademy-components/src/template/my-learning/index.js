@@ -127,7 +127,7 @@ const MyLearning = (props, context) => {
   const [selectedSkillsList, setSelectedSkillsList] = useState(selectedSkills);
   const [skillFocusSelectedOnChart, setSkillFocusSelectedOnChart] = useState(undefined);
   const [searchValue, setSearchValue] = useState('');
-  const [searchResults, setSearchResults] = useState(skills);
+  const [searchResults, setSearchResults] = useState(skills.sort((a, b) => skillsInformation[b].stats.score - skillsInformation[a].stats.score));
   const [activeFilter, setActiveFilter] = useState('all');
 
   const skillsReviewReady = useMemo(() => {
@@ -205,7 +205,7 @@ const MyLearning = (props, context) => {
 
   const handleOnDotClick = useCallback(
     skillRef => {
-      skillRef && setSkillFocusSelectedOnChart(skillRef);
+      setSkillFocusSelectedOnChart(skillRef);
     },
     [setSkillFocusSelectedOnChart]
   );
@@ -436,6 +436,7 @@ const MyLearning = (props, context) => {
                       skillTitle={skillsLocales[skill]}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
+                        score: skillsInformation[skill].stats.score,
                         skillCourses: skillsInformation[skill].stats.courses,
                         skillQuestions: skillsInformation[skill].stats.questionsAnswered,
                         completedCourses: skillsInformation[skill].stats.coursesCompleted
