@@ -93,10 +93,11 @@
   font-weight: 700;
   line-height: 28px;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .skillFocusEmptyDescription {
-  width: 502px;
+  max-width: 502px;
   text-align: center;
   font-size: 16px;
   font-weight: 500;
