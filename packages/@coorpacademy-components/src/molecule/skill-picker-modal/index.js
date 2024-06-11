@@ -120,7 +120,13 @@ const SkillPickerModal = (props, context) => {
                 }
 
                 return (
-                  <Chip text={skillTitle} selected={focus} onClick={handleChipClick} key={index} />
+                  <Chip
+                    text={skillTitle}
+                    selected={focus}
+                    onClick={handleChipClick}
+                    key={index}
+                    backgroundColor="skin"
+                  />
                 );
               })}
             </div>

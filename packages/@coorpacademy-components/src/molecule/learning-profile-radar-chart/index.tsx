@@ -423,10 +423,10 @@ export const LearningProfileRadarChart = ({
       data={formatedData}
     >
       {gradients}
-      {buildRadars(totalDataset, handleOnDotClick, activeDot)}
       <PolarGrid strokeDasharray={10} strokeWidth={2} radialLines={false} />
       <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
       <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
+      {buildRadars(totalDataset, handleOnDotClick, activeDot)}
       {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}
     </RadarChart>
   );

@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {getOr, keys, map, fromPairs, pipe, sumBy} from 'lodash/fp';
+import {get, keys, map, fromPairs, pipe, sumBy} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -20,7 +20,7 @@ const ChangeSkillFocusButton = (props, context) => {
   const [hovered, setHovered] = useState(false);
   const {onClick} = props;
   const {skin, translate} = context;
-  const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
+  const primarySkinColor = get('common.primary', skin);
 
   const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
 
@@ -60,6 +60,7 @@ const ChangeSkillFocusButton = (props, context) => {
 };
 
 ChangeSkillFocusButton.contextTypes = {
+  skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
@@ -70,13 +71,19 @@ ChangeSkillFocusButton.propTypes = {
 const FilterButton = (props, context) => {
   const {active, filter, skillTotal, onClick} = props;
   const {skin, translate} = context;
-  const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
+  const primarySkinColor = get('common.primary', skin);
 
   const Content = useCallback(
     () => (
       <div>
         {filter}
-        <span className={active ? style.skillFilterNumber : style.skillFilterNumberInActive}>
+        <span
+          className={active ? style.skillFilterNumber : style.skillFilterNumberInActive}
+          style={{
+            backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#EAEAEB',
+            color: active ? primarySkinColor : '#515161'
+          }}
+        >
           {skillTotal}
         </span>
       </div>
@@ -100,6 +107,7 @@ const FilterButton = (props, context) => {
 };
 
 FilterButton.contextTypes = {
+  skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
@@ -122,13 +130,21 @@ const MyLearning = (props, context) => {
     onReviewSkill,
     onExploreSkill
   } = props;
-  const {translate} = context;
+  const {skin, translate} = context;
+  const primarySkinColor = get('common.primary', skin);
   const [open, setOpen] = useState(false);
   const [selectedSkillsList, setSelectedSkillsList] = useState(selectedSkills);
   const [skillFocusSelectedOnChart, setSkillFocusSelectedOnChart] = useState(undefined);
   const [searchValue, setSearchValue] = useState('');
-  const [searchResults, setSearchResults] = useState(skills);
+  const [searchResults, setSearchResults] = useState(
+    skills.sort((a, b) => skillsInformation[b].stats.score - skillsInformation[a].stats.score)
+  );
   const [activeFilter, setActiveFilter] = useState('all');
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+
+  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const skillsReviewReady = useMemo(() => {
     return searchResults.filter(skill => skillsInformation[skill].availableForReview);
@@ -205,7 +221,7 @@ const MyLearning = (props, context) => {
 
   const handleOnDotClick = useCallback(
     skillRef => {
-      skillRef && setSkillFocusSelectedOnChart(skillRef);
+      setSkillFocusSelectedOnChart(skillRef);
     },
     [setSkillFocusSelectedOnChart]
   );
@@ -307,9 +323,8 @@ const MyLearning = (props, context) => {
                           stroke: ['#0062ffff', '#8000FF']
                         },
                         percentage: {
-                          color: '#0061FF',
-                          background:
-                            'linear-gradient(180deg, rgba(0, 97, 255, 0.10) 0%, rgba(147, 107, 255, 0.10) 100%)'
+                          color: primarySkinColor,
+                          background: convert(`color(${primarySkinColor} a(0.07))`)
                         },
                         label: {
                           color: '#020202ff'
@@ -333,12 +348,19 @@ const MyLearning = (props, context) => {
                 <div className={style.skillFocusEmptyDescription}>
                   {translate('skills_focus_empty_description')}
                 </div>
-                <ButtonLink
-                  label={translate('skills_choose_focus')}
-                  type="primary"
-                  customStyle={{width: '168px'}}
-                  onClick={handleOpenSkillPicker}
-                />
+                <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                  <ButtonLink
+                    label={translate('skills_choose_focus')}
+                    type="primary"
+                    customStyle={{
+                      width: '168px',
+                      backgroundColor: hovered
+                        ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
+                        : primarySkinColor
+                    }}
+                    onClick={handleOpenSkillPicker}
+                  />
+                </div>
               </div>
             )}
           </div>
@@ -430,15 +452,22 @@ const MyLearning = (props, context) => {
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
+                const {
+                  score,
+                  courses: skillCourses,
+                  questionsAnswered: skillQuestions,
+                  coursesCompleted: completedCourses
+                } = skillsInformation[skill].stats;
                 return (
                   <div key={index}>
                     <LearnerSkillCard
                       skillTitle={skillsLocales[skill]}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
-                        skillCourses: skillsInformation[skill].stats.courses,
-                        skillQuestions: skillsInformation[skill].stats.questionsAnswered,
-                        completedCourses: skillsInformation[skill].stats.coursesCompleted
+                        score,
+                        skillCourses,
+                        skillQuestions,
+                        completedCourses
                       }}
                       review={skillsInformation[skill].availableForReview}
                       onReviewClick={handleReviewSkill}
@@ -456,6 +485,7 @@ const MyLearning = (props, context) => {
 };
 
 MyLearning.contextTypes = {
+  skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
