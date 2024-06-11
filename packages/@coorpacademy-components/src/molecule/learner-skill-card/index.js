@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {convert} from 'css-color-function';
-import {get, getOr} from 'lodash/fp';
+import {get} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
@@ -21,7 +21,7 @@ const LearnerSkillCard = (props, context) => {
   const {score, skillCourses, skillQuestions, completedCourses = 0} = metrics;
   const {skin, translate} = context;
   const [hovered, setHovered] = useState(false);
-  const primarySkinColor = getOr('#0061FF', 'common.primary', skin);
+  const primarySkinColor = get('common.primary', skin);
 
   const reviewLocale = translate('Review');
   const exploreLocale = translate('Explore');
@@ -162,6 +162,7 @@ const LearnerSkillCard = (props, context) => {
 };
 
 LearnerSkillCard.contextTypes = {
+  skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 

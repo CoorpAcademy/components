@@ -1,12 +1,19 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty} from 'lodash/fp';
+import {isEmpty, get} from 'lodash/fp';
+import {convert} from 'css-color-function';
+import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
-const BaseModal = props => {
+const BaseModal = (props, context) => {
   const {title, description, headerIcon, children, isOpen, footer, onClose} = props;
+  const {skin} = context;
+
+  const [hovered, setHovered] = useState(false);
+  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -20,6 +27,7 @@ const BaseModal = props => {
       disabled: confirmDisabled,
       iconName
     } = confirmButton || {};
+    const primarySkinColor = get('common.primary', skin);
 
     return (
       <div className={style.footer}>
@@ -36,27 +44,34 @@ const BaseModal = props => {
             />
           ) : null}
           {onConfirm && confirmLabel ? (
-            <ButtonLink
-              {...{
-                className: style.footerConfirmButton,
-                type: 'primary',
-                onClick: onConfirm,
-                label: confirmLabel,
-                disabled: confirmDisabled,
-                ...(iconName
-                  ? {
-                      icon: {
-                        position: 'left',
-                        faIcon: {
-                          name: iconName,
-                          color: '#FFFFFF',
-                          size: 16
+            <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+              <ButtonLink
+                {...{
+                  customStyle: {
+                    backgroundColor: hovered
+                      ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
+                      : primarySkinColor
+                  },
+                  className: style.footerConfirmButton,
+                  type: 'primary',
+                  onClick: onConfirm,
+                  label: confirmLabel,
+                  disabled: confirmDisabled,
+                  ...(iconName
+                    ? {
+                        icon: {
+                          position: 'left',
+                          faIcon: {
+                            name: iconName,
+                            color: '#FFFFFF',
+                            size: 16
+                          }
                         }
                       }
-                    }
-                  : {})
-              }}
-            />
+                    : {})
+                }}
+              />
+            </div>
           ) : null}
         </div>
         {text ? (
@@ -68,7 +83,7 @@ const BaseModal = props => {
         ) : null}
       </div>
     );
-  }, [footer]);
+  }, [footer, hovered, handleMouseOver, handleMouseLeave, skin]);
 
   if (!isOpen || !title || !children) return null;
 
@@ -104,6 +119,10 @@ const BaseModal = props => {
       </div>
     </div>
   );
+};
+
+BaseModal.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 BaseModal.propTypes = {
