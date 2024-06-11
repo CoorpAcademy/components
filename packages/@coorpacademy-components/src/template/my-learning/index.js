@@ -140,6 +140,11 @@ const MyLearning = (props, context) => {
     skills.sort((a, b) => skillsInformation[b].stats.score - skillsInformation[a].stats.score)
   );
   const [activeFilter, setActiveFilter] = useState('all');
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+
+  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const skillsReviewReady = useMemo(() => {
     return searchResults.filter(skill => skillsInformation[skill].availableForReview);
@@ -343,12 +348,19 @@ const MyLearning = (props, context) => {
                 <div className={style.skillFocusEmptyDescription}>
                   {translate('skills_focus_empty_description')}
                 </div>
-                <ButtonLink
-                  label={translate('skills_choose_focus')}
-                  type="primary"
-                  customStyle={{width: '168px'}}
-                  onClick={handleOpenSkillPicker}
-                />
+                <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                  <ButtonLink
+                    label={translate('skills_choose_focus')}
+                    type="primary"
+                    customStyle={{
+                      width: '168px',
+                      backgroundColor: hovered
+                        ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
+                        : primarySkinColor
+                    }}
+                    onClick={handleOpenSkillPicker}
+                  />
+                </div>
               </div>
             )}
           </div>
