@@ -80,8 +80,8 @@ const FilterButton = (props, context) => {
         <span
           className={active ? style.skillFilterNumber : style.skillFilterNumberInActive}
           style={{
-            backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#FFFFFF',
-            color: active ? primarySkinColor : '#9999A8'
+            backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#EAEAEB',
+            color: active ? primarySkinColor : '#515161'
           }}
         >
           {skillTotal}
@@ -440,16 +440,22 @@ const MyLearning = (props, context) => {
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
+                const {
+                  score,
+                  courses: skillCourses,
+                  questionsAnswered: skillQuestions,
+                  coursesCompleted: completedCourses
+                } = skillsInformation[skill].stats;
                 return (
                   <div key={index}>
                     <LearnerSkillCard
                       skillTitle={skillsLocales[skill]}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
-                        score: skillsInformation[skill].stats.score,
-                        skillCourses: skillsInformation[skill].stats.courses,
-                        skillQuestions: skillsInformation[skill].stats.questionsAnswered,
-                        completedCourses: skillsInformation[skill].stats.coursesCompleted
+                        score,
+                        skillCourses,
+                        skillQuestions,
+                        completedCourses
                       }}
                       review={skillsInformation[skill].availableForReview}
                       onReviewClick={handleReviewSkill}
