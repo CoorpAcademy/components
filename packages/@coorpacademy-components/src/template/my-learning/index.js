@@ -27,11 +27,7 @@ const ChangeSkillFocusButton = (props, context) => {
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   return (
-    <div
-      data-name="button-explore-wrapper"
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div data-name="button-explore-wrapper">
       <ButtonLink
         customStyle={{
           backgroundColor: hovered
@@ -43,6 +39,8 @@ const ChangeSkillFocusButton = (props, context) => {
         onClick={onClick}
         label={translate('skills_change_focus')}
         data-name="change-skill-focus-button"
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
         icon={{
           position: 'left',
           faIcon: {

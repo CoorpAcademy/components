@@ -14,6 +14,8 @@ const propTypes = {
     type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  onMouseLeave: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
     download: PropTypes.bool,
@@ -46,6 +48,8 @@ export type ButtonLinkProps = {
   icon?: IconType;
   onClick?: () => void;
   onKeyDown?: () => void;
+  onMouseOver?: () => void;
+  onMouseLeave?: () => void;
   link?: {
     href?: string;
     download?: boolean;

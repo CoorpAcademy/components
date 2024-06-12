@@ -44,7 +44,7 @@ const BaseModal = (props, context) => {
             />
           ) : null}
           {onConfirm && confirmLabel ? (
-            <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+            <div>
               <ButtonLink
                 {...{
                   customStyle: {
@@ -57,6 +57,8 @@ const BaseModal = (props, context) => {
                   onClick: onConfirm,
                   label: confirmLabel,
                   disabled: confirmDisabled,
+                  onMouseOver: handleMouseOver,
+                  onMouseLeave: handleMouseLeave,
                   ...(iconName
                     ? {
                         icon: {
