@@ -103,6 +103,7 @@ const Discipline = (props, context) => {
               />
             )}
           </div>
+          <DisciplineAssociatedSkills skills={skills} onSkillClick={onSkillClick} />
           {authorSection}
         </div>
         {disciplineContent}

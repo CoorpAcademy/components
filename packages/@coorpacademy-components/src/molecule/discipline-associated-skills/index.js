@@ -20,8 +20,8 @@ const DisciplineAssociatedSkills = (props, context) => {
           iconName="bullseye-arrow"
           backgroundColor="#DDD1FF"
           size={{
-            faSize: 16,
-            wrapperSize: 16
+            faSize: 12,
+            wrapperSize: 12
           }}
         />
         {skill}
