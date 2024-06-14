@@ -23,7 +23,8 @@ export const learningProfileRadarChartPropTypes = {
     })
   ),
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
+  onExploreClick: PropTypes.func
 };
 
 export const customDotPropTypes = {
@@ -86,6 +87,7 @@ export type LearningProfileRadarChartPropTypes = {
   };
   totalDataset: number;
   onClick: (skillRef?: string) => void;
+  onExploreClick?: () => void;
   colors?: ColorType[];
   width?: number;
   height?: number;

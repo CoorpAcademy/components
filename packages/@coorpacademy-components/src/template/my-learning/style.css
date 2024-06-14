@@ -120,6 +120,10 @@
 .radarContainer {
   width: 700px;
   height: 444px;
+
+  svg {
+    overflow: initial;
+  }
 }
 
 .toolBarContainer {

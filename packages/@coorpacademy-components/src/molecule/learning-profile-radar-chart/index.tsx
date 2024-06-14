@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useEffect, useMemo, useState} from 'react';
+import React, { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Radar,
   RadarChart,
@@ -22,10 +22,12 @@ import {
   fromPairs,
   times,
   flatten,
-  findKey
+  findKey,
+  get
 } from 'lodash/fp';
+import { convert } from 'css-color-function';
 import classnames from 'classnames';
-import {isMobile as getIsMobile} from '../../util/check-is-mobile';
+import { isMobile as getIsMobile } from '../../util/check-is-mobile';
 import style from './style.css';
 import {
   ActiveDotType,
@@ -35,14 +37,18 @@ import {
   TickType,
   learningProfileRadarChartPropTypes
 } from './types';
+import ButtonLink from '../../atom/button-link';
+import { ButtonLinkProps } from '../../atom/button-link/types';
+import Provider, { GetSkinFromContext, GetTranslateFromContext } from '../../atom/provider';
+import { WebContextValues } from '../../atom/provider/web-context';
 
 type CHART_TYPE_TYPE = keyof typeof CHART_CONFIGS;
 
 /* TICK_POSITIONS */
-const top: TickType = {offset: {x: -100, y: -75}, alignment: 'center', margin: 'auto'};
-const bottom: TickType = {offset: {x: -100, y: 10}, alignment: 'center', margin: 'auto'};
-const right: TickType = {offset: {x: 30, y: -10}, alignment: 'start', marginRight: 'auto'};
-const left: TickType = {offset: {x: -230, y: -10}, alignment: 'end', marginLeft: 'auto'};
+const top: TickType = { offset: { x: -100, y: -75 }, alignment: 'center', margin: 'auto' };
+const bottom: TickType = { offset: { x: -100, y: 10 }, alignment: 'center', margin: 'auto' };
+const right: TickType = { offset: { x: 30, y: -10 }, alignment: 'start', marginRight: 'auto' };
+const left: TickType = { offset: { x: -230, y: -10 }, alignment: 'end', marginLeft: 'auto' };
 
 /* CONSTANTS */
 const BLACK = '#000000ff';
@@ -92,7 +98,7 @@ const DOT_DEFAULT_PROPS = {
   fill: '#fff',
   r: 4,
   pointerEvents: 'all',
-  style: {cursor: 'pointer'}
+  style: { cursor: 'pointer' }
 } as const;
 
 const DOT_ACTIVE_PROPS = {
@@ -109,7 +115,7 @@ const RADAR_DEFAULT_PROPS = {
 } as const;
 
 /* COMPONENTS */
-const Gradient = ({type, colors: [firstColor, secondColor]}: {type: string; colors: string[]}) => (
+const Gradient = ({ type, colors: [firstColor, secondColor] }: { type: string; colors: string[] }) => (
   <defs>
     <linearGradient id={`gradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stopColor={firstColor} />
@@ -124,7 +130,7 @@ const CustomTooltip = ({
   label
 }: {
   active?: boolean;
-  payload?: {value: number}[];
+  payload?: { value: number }[];
   label?: string;
 }) =>
   active && !!payload?.length ? (
@@ -145,7 +151,7 @@ const CustomDot = ({
 }: {
   cx?: number;
   cy?: number;
-  payload?: {payload: {subject: string} & {[datakey: string]: number}; name: string};
+  payload?: { payload: { subject: string } & { [datakey: string]: number }; name: string };
   onDotClick: (name: string) => void;
   dataKey: string;
   stroke: string;
@@ -211,7 +217,7 @@ const buildRadars = (
     );
   }, totalDataset);
 
-const buildCustomLabel = ({
+const CustomLabel = ({
   index,
   x,
   y,
@@ -220,7 +226,10 @@ const buildCustomLabel = ({
   activeDot,
   chartType,
   formatedColors,
-  onClick
+  primarySkinColor,
+  exploreLocale,
+  onClick,
+  onExploreClick
 }: {
   index: number;
   x: number;
@@ -230,11 +239,15 @@ const buildCustomLabel = ({
   chartType: CHART_TYPE_TYPE;
   formatedColors: FormatedColorsType[];
   activeDot?: ActiveDotType;
+  primarySkinColor: string;
+  exploreLocale: string;
   onClick: (name: string) => void;
+  onExploreClick: () => void;
 }) => {
+  const [hovered, setHovered] = useState(false);
   const isCurrentDotActive = activeDot?.label === label;
   const {
-    offset: {x: offsetX, y: offsetY},
+    offset: { x: offsetX, y: offsetY },
     alignment,
     ...rest
   } = CHART_CONFIGS[chartType].ticks[index];
@@ -244,12 +257,40 @@ const buildCustomLabel = ({
     onClick(label);
   }
 
+  const buttonExploreProps: ButtonLinkProps = {
+    customStyle: {
+      height: '36px',
+      backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
+      color: hovered ? '#FFFFFF' : primarySkinColor,
+      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+    },
+    onClick: onExploreClick,
+    'aria-label': `${label}, ${exploreLocale}`,
+    label: exploreLocale,
+    'data-name': 'learner-skill-card-explore-button',
+    icon: {
+      position: 'left',
+      faIcon: {
+        name: 'compass',
+        backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
+        color: hovered ? '#FFFFFF' : primarySkinColor,
+        size: 16
+      }
+    }
+  };
+
+  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+
+  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
+
+  const extraOffsetY = isCurrentDotActive ? (index === 0 ? -25 : -5) : 0;
+
   return (
     <g>
       <foreignObject
         className={style.tickeForeignObject}
         x={x + offsetX}
-        y={y + offsetY}
+        y={y + offsetY + extraOffsetY}
         width="200"
         height="65"
       >
@@ -265,17 +306,27 @@ const buildCustomLabel = ({
           }}
         >
           {formatedColors.map(
-            ({percentage: {color, background}, label: {color: colorLabel}}, i) => (
+            ({ percentage: { color, background }, label: { color: colorLabel } }, i) => (
               <Fragment key={i}>
-                <span className={style.tickValue} style={{color, background}}>
+                <span className={style.tickValue} style={{ color, background }}>
                   {percentagesValues[i]}
                 </span>
-                <span className={style.tickLabel} style={{color: colorLabel}}>
+                <span className={style.tickLabel} style={{ color: colorLabel }}>
                   {label}
                 </span>
               </Fragment>
             )
           )}
+          {isCurrentDotActive ?
+            <div
+              className={style.buttonWrapper}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              data-name="button-explore-wrapper"
+            >
+              <ButtonLink {...buttonExploreProps} />
+            </div> 
+          : null}
         </div>
       </foreignObject>
     </g>
@@ -293,16 +344,16 @@ const formatValues: (values_: number | number[]) => Record<string, number> = pip
 
 /* this convert incoming component data to rechart data structure */
 export const formatData: (
-  legend: {[ref: string]: string},
+  legend: { [ref: string]: string },
   data_: LearningProfileRadarChartPropTypes['data']
 ) => FormatedDataType[] = (legend, data_) =>
-  pipe(
-    toPairs,
-    map(([ref, values_]: [string, number | number[]]) => ({
-      ...formatValues(values_),
-      subject: legend[ref]
-    }))
-  )(data_);
+    pipe(
+      toPairs,
+      map(([ref, values_]: [string, number | number[]]) => ({
+        ...formatValues(values_),
+        subject: legend[ref]
+      }))
+    )(data_);
 
 export const LearningProfileRadarChart = ({
   data,
@@ -310,12 +361,18 @@ export const LearningProfileRadarChart = ({
   totalDataset,
   colors: colorsProps,
   onClick,
+  onExploreClick = () => { },
   width,
   height,
   margin
-}: LearningProfileRadarChartPropTypes) => {
+}: LearningProfileRadarChartPropTypes,
+  legacyContext: WebContextValues
+) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
+  const skin = GetSkinFromContext(legacyContext);
+  const translate = GetTranslateFromContext(legacyContext);
+  const primarySkinColor = get('common.primary', skin);
 
   const formatedColors = times(i => {
     if (!colorsProps?.length) return DEFAULT_COLORS;
@@ -331,7 +388,7 @@ export const LearningProfileRadarChart = ({
 
   const gradients = useMemo(
     () =>
-      formatedColors.map(({gradient: {fill, stroke}}, index) => (
+      formatedColors.map(({ gradient: { fill, stroke } }, index) => (
         <svg key={`gradient-${index}`}>
           <Gradient type={`fill-${index}`} colors={fill} />
           <Gradient type={`stroke-${index}`} colors={stroke} />
@@ -362,8 +419,17 @@ export const LearningProfileRadarChart = ({
     };
   }, [activeDot, onClick, setActiveDot]);
 
+  function handleOnActiveDotClick() {
+    setActiveDot(undefined);
+    onClick(undefined);
+  }
+
   function handleOnDotClick(label: string) {
-    const payload = formatedData.find(({subject}) => subject === label);
+    if (!isEmpty(activeDot) && activeDot?.label === label) {
+      handleOnActiveDotClick();
+      return;
+    }
+    const payload = formatedData.find(({ subject }) => subject === label);
     if (!payload) return;
 
     const index = formatedData.indexOf(payload);
@@ -383,32 +449,37 @@ export const LearningProfileRadarChart = ({
   function renderCustomLabel({
     x,
     y,
-    payload: {value: label},
+    payload: { value: label },
     index
   }: {
     x: number;
     y: number;
-    payload: {value: string};
+    payload: { value: string };
     index: number;
   }) {
-    const currentData = formatedData.find(({subject}) => subject === label);
+    const currentData = formatedData.find(({ subject }) => subject === label);
     const percentagesValues: number[] = pipe(
       omit('subject'),
       mapValues(value => `${value}%`),
       values
     )(currentData);
 
-    return buildCustomLabel({
-      index,
-      x,
-      y,
-      percentagesValues,
-      label,
-      activeDot,
-      chartType,
-      formatedColors,
-      onClick: handleOnDotClick
-    });
+    return (
+      <CustomLabel
+        index={index}
+        x={x}
+        y={y}
+        percentagesValues={percentagesValues}
+        label={label}
+        activeDot={activeDot}
+        chartType={chartType}
+        formatedColors={formatedColors}
+        primarySkinColor={primarySkinColor}
+        exploreLocale={translate('Explore')}
+        onClick={handleOnDotClick}
+        onExploreClick={onExploreClick}
+      />
+    )
   }
   const formatedData = useMemo(() => formatData(legend, data), [legend, data]);
 
@@ -416,7 +487,7 @@ export const LearningProfileRadarChart = ({
     <RadarChart
       width={width}
       height={height}
-      margin={margin ?? (isMobile ? {top: 80} : {top: 180})}
+      margin={margin ?? (isMobile ? { top: 80 } : { top: 180 })}
       cx="50%"
       cy="50%"
       outerRadius="80%"
@@ -437,6 +508,11 @@ const ResponsiveLearningProfileRadarChart = (props: LearningProfileRadarChartPro
     <LearningProfileRadarChart {...props} />
   </ResponsiveContainer>
 );
+
+LearningProfileRadarChart.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
 
 LearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
 ResponsiveLearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
