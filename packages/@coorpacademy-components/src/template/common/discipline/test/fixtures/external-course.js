@@ -17,6 +17,22 @@ export default {
     buyLabel: null,
     video: null,
     image,
+    skills: [
+      {
+        ref: 'skill-ref-1',
+        locale: 'Skill 1',
+        focused: true
+      },
+      {
+        ref: 'skill-ref-2',
+        locale: 'Skill 2',
+      },
+      {
+        ref: 'skill-ref-3',
+        locale: 'Skill 3',
+      }
+    ],
+    onSkillClick: () => console.log('skill clicked'),
     levels: [],
     level: {...props.content, title: null, discussion: {}}
   }

@@ -50,7 +50,7 @@
   "payment_form_submit": "Starta prenumeration på Coorpacademy",
   "Post": "Publicera",
   "premium_unsubscribe_confirmation": "Vi bekräftar uppsägningen av din prenumeration som kommer att träda i kraft från och med nästa månad.\n\nUnder tiden kan du fortsätta att ta del av vårt innehåll på Coorpacademys plattform.",
-  "Press the escape key to close the information text": "Tyck på Esc-tangenten för att stänga informationstexten",
+  "close_tooltip_information": "Tyck på Esc-tangenten för att stänga informationstexten",
   "product_cancel": "Avbryt när som helst.",
   "product_desc_battle": "Tävlingsläge",
   "product_desc_certificates": "Coorpacademy-certifikat",

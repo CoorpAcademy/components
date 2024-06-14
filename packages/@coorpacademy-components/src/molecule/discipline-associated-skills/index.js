@@ -55,7 +55,7 @@ const DisciplineAssociatedSkills = (props, context) => {
                     tooltipClassName={style.tooltip}
                     TooltipContent={translate('skill_focused_chip_tooltip')}
                     closeToolTipInformationTextAriaLabel={translate(
-                      'Press the escape key to close the information text'
+                      'close_tooltip_information'
                     )}
                   />
                 ) : (

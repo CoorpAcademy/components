@@ -144,7 +144,7 @@ const Favorite = (
         toolTipIsVisible={toolTipIsVisible}
         TooltipContent={toolTipContent}
         closeToolTipInformationTextAriaLabel={translate(
-          'Press the escape key to close the information text'
+          'close_tooltip_information'
         )}
         stickyOnKeyboardNavigation
       />

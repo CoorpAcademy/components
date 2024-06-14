@@ -50,7 +50,7 @@
   "payment_form_submit": "Začnite naročnino na Coorpacademy",
   "Post": "Objavi",
   "premium_unsubscribe_confirmation": "Potrjujemo preklic vaše naročnine, ki bo veljala od naslednjega meseca.\n\n Medtem lahko še naprej uživate v naši vsebini na platformi Coorpacademy.",
-  "Press the escape key to close the information text": "Pritisnite tipko Escape, da zaprete informacijsko besedilo",
+  "close_tooltip_information": "Pritisnite tipko Escape, da zaprete informacijsko besedilo",
   "product_cancel": "Prekličite kadarkoli.",
   "product_desc_battle": "Bojni način",
   "product_desc_certificates": "Certifikati Coorpacademy",

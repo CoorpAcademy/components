@@ -38,6 +38,17 @@ export default {
       }
     },
     levels,
+    skills: [
+      {
+        ref: 'skill-ref-1',
+        locale: 'Skill 1',
+      },
+      {
+        ref: 'skill-ref-2',
+        locale: 'Skill 2',
+      },
+    ],
+    onSkillClick: () => console.log('skill clicked'),
     shareWording: 'Share',
     shareText: 'Share this',
     shareSuccessWording: 'Success',

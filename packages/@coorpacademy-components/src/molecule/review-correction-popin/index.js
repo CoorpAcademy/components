@@ -52,7 +52,7 @@ const KlfButton = ({klf}, legacyContext) => {
   const toolTipProps = useMemo(
     () => ({
       closeToolTipInformationTextAriaLabel: translate(
-        'Press the escape key to close the information text'
+        'close_tooltip_information'
       ),
       AnchorElement: AnchorButton,
       TooltipContent,
