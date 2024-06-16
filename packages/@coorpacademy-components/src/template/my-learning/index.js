@@ -316,6 +316,7 @@ const MyLearning = (props, context) => {
                     data={graphDatas}
                     legend={graphLegends}
                     onClick={handleOnDotClick}
+                    onExploreClick={onExploreSkill}
                     colors={[
                       {
                         gradient: {

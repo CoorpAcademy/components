@@ -113,7 +113,7 @@ export const defaultProps = {
   isLoadng: false,
   onSkillFocusConfirm: () => console.log('confirm'),
   onReviewSkill: () => console.log('review'),
-  onExploreSkill: () => console.log('explore')
+  onExploreSkill: skillRef => console.log(skillRef)
 };
 
 export default {

@@ -87,7 +87,7 @@ export type LearningProfileRadarChartPropTypes = {
   };
   totalDataset: number;
   onClick: (skillRef?: string) => void;
-  onExploreClick?: () => void;
+  onExploreClick: (label?: string) => void;
   colors?: ColorType[];
   width?: number;
   height?: number;

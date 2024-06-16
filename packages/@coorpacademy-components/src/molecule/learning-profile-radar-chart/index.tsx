@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
+import React, {Fragment, useCallback, useEffect, useMemo, useState} from 'react';
 import {
   Radar,
   RadarChart,
@@ -25,10 +25,13 @@ import {
   findKey,
   get
 } from 'lodash/fp';
-import { convert } from 'css-color-function';
+import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import { isMobile as getIsMobile } from '../../util/check-is-mobile';
-import style from './style.css';
+import {isMobile as getIsMobile} from '../../util/check-is-mobile';
+import ButtonLink from '../../atom/button-link';
+import {ButtonLinkProps} from '../../atom/button-link/types';
+import Provider, {GetSkinFromContext, GetTranslateFromContext} from '../../atom/provider';
+import {WebContextValues} from '../../atom/provider/web-context';
 import {
   ActiveDotType,
   FormatedColorsType,
@@ -37,18 +40,15 @@ import {
   TickType,
   learningProfileRadarChartPropTypes
 } from './types';
-import ButtonLink from '../../atom/button-link';
-import { ButtonLinkProps } from '../../atom/button-link/types';
-import Provider, { GetSkinFromContext, GetTranslateFromContext } from '../../atom/provider';
-import { WebContextValues } from '../../atom/provider/web-context';
+import style from './style.css';
 
 type CHART_TYPE_TYPE = keyof typeof CHART_CONFIGS;
 
 /* TICK_POSITIONS */
-const top: TickType = { offset: { x: -100, y: -75 }, alignment: 'center', margin: 'auto' };
-const bottom: TickType = { offset: { x: -100, y: 10 }, alignment: 'center', margin: 'auto' };
-const right: TickType = { offset: { x: 30, y: -10 }, alignment: 'start', marginRight: 'auto' };
-const left: TickType = { offset: { x: -230, y: -10 }, alignment: 'end', marginLeft: 'auto' };
+const top: TickType = {offset: {x: -100, y: -75}, alignment: 'center', margin: 'auto'};
+const bottom: TickType = {offset: {x: -100, y: 10}, alignment: 'center', margin: 'auto'};
+const right: TickType = {offset: {x: 30, y: -10}, alignment: 'start', marginRight: 'auto'};
+const left: TickType = {offset: {x: -230, y: -10}, alignment: 'end', marginLeft: 'auto'};
 
 /* CONSTANTS */
 const BLACK = '#000000ff';
@@ -98,7 +98,7 @@ const DOT_DEFAULT_PROPS = {
   fill: '#fff',
   r: 4,
   pointerEvents: 'all',
-  style: { cursor: 'pointer' }
+  style: {cursor: 'pointer'}
 } as const;
 
 const DOT_ACTIVE_PROPS = {
@@ -115,7 +115,7 @@ const RADAR_DEFAULT_PROPS = {
 } as const;
 
 /* COMPONENTS */
-const Gradient = ({ type, colors: [firstColor, secondColor] }: { type: string; colors: string[] }) => (
+const Gradient = ({type, colors: [firstColor, secondColor]}: {type: string; colors: string[]}) => (
   <defs>
     <linearGradient id={`gradient-${type}`} x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stopColor={firstColor} />
@@ -130,7 +130,7 @@ const CustomTooltip = ({
   label
 }: {
   active?: boolean;
-  payload?: { value: number }[];
+  payload?: {value: number}[];
   label?: string;
 }) =>
   active && !!payload?.length ? (
@@ -144,6 +144,7 @@ const CustomDot = ({
   cx,
   cy,
   payload,
+  onDotHover,
   onDotClick,
   stroke,
   activeDot,
@@ -151,7 +152,8 @@ const CustomDot = ({
 }: {
   cx?: number;
   cy?: number;
-  payload?: { payload: { subject: string } & { [datakey: string]: number }; name: string };
+  payload?: {payload: {subject: string} & {[datakey: string]: number}; name: string};
+  onDotHover: (name: string) => void;
   onDotClick: (name: string) => void;
   dataKey: string;
   stroke: string;
@@ -175,6 +177,11 @@ const CustomDot = ({
         if (!payload?.name) return;
         onDotClick(payload.name);
       },
+      onMouseOver: () => {
+        if (!payload?.name) return;
+        onDotHover(payload.name);
+      },
+      onMouseLeave: () => onDotHover(''),
       'data-name': dataName
     }}
   />
@@ -182,6 +189,7 @@ const CustomDot = ({
 
 const buildRadars = (
   totalDataset: number,
+  handleDotHover: (name: string) => void,
   handleOnDotClick: (name: string) => void,
   activeDot?: ActiveDotType
 ) =>
@@ -206,6 +214,7 @@ const buildRadars = (
         // use with the tooltip component
         dot={
           <CustomDot
+            onDotHover={handleDotHover}
             onDotClick={handleOnDotClick}
             activeDot={activeDot}
             dataKey={datakey}
@@ -228,6 +237,7 @@ const CustomLabel = ({
   formatedColors,
   primarySkinColor,
   exploreLocale,
+  hoveredDot,
   onClick,
   onExploreClick
 }: {
@@ -241,13 +251,14 @@ const CustomLabel = ({
   activeDot?: ActiveDotType;
   primarySkinColor: string;
   exploreLocale: string;
+  hoveredDot: string;
   onClick: (name: string) => void;
-  onExploreClick: () => void;
+  onExploreClick: (name: string) => void;
 }) => {
   const [hovered, setHovered] = useState(false);
   const isCurrentDotActive = activeDot?.label === label;
   const {
-    offset: { x: offsetX, y: offsetY },
+    offset: {x: offsetX, y: offsetY},
     alignment,
     ...rest
   } = CHART_CONFIGS[chartType].ticks[index];
@@ -257,6 +268,10 @@ const CustomLabel = ({
     onClick(label);
   }
 
+  function handleExploreClick() {
+    onExploreClick(label);
+  }
+
   const buttonExploreProps: ButtonLinkProps = {
     customStyle: {
       height: '36px',
@@ -264,7 +279,7 @@ const CustomLabel = ({
       color: hovered ? '#FFFFFF' : primarySkinColor,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
-    onClick: onExploreClick,
+    onClick: handleExploreClick,
     'aria-label': `${label}, ${exploreLocale}`,
     label: exploreLocale,
     'data-name': 'learner-skill-card-explore-button',
@@ -283,7 +298,7 @@ const CustomLabel = ({
 
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
-  const extraOffsetY = isCurrentDotActive ? (index === 0 ? -25 : -5) : 0;
+  const extraOffsetY = isCurrentDotActive && index === 0 ? -25 : 0;
 
   return (
     <g>
@@ -297,7 +312,11 @@ const CustomLabel = ({
         <div
           data-name={label}
           onClick={onLabelClick}
-          className={classnames(style.tickWrapper, isCurrentDotActive && style.tickWrapperFocus)}
+          className={classnames(
+            style.tickWrapper,
+            isCurrentDotActive && style.tickWrapperFocus,
+            hoveredDot === label && style.tickWrapperHover
+          )}
           style={{
             ...rest,
             alignItems: alignment,
@@ -306,18 +325,18 @@ const CustomLabel = ({
           }}
         >
           {formatedColors.map(
-            ({ percentage: { color, background }, label: { color: colorLabel } }, i) => (
+            ({percentage: {color, background}, label: {color: colorLabel}}, i) => (
               <Fragment key={i}>
-                <span className={style.tickValue} style={{ color, background }}>
+                <span className={style.tickValue} style={{color, background}}>
                   {percentagesValues[i]}
                 </span>
-                <span className={style.tickLabel} style={{ color: colorLabel }}>
+                <span className={style.tickLabel} style={{color: colorLabel}}>
                   {label}
                 </span>
               </Fragment>
             )
           )}
-          {isCurrentDotActive ?
+          {isCurrentDotActive ? (
             <div
               className={style.buttonWrapper}
               onMouseOver={handleMouseOver}
@@ -325,8 +344,8 @@ const CustomLabel = ({
               data-name="button-explore-wrapper"
             >
               <ButtonLink {...buttonExploreProps} />
-            </div> 
-          : null}
+            </div>
+          ) : null}
         </div>
       </foreignObject>
     </g>
@@ -344,32 +363,34 @@ const formatValues: (values_: number | number[]) => Record<string, number> = pip
 
 /* this convert incoming component data to rechart data structure */
 export const formatData: (
-  legend: { [ref: string]: string },
+  legend: {[ref: string]: string},
   data_: LearningProfileRadarChartPropTypes['data']
 ) => FormatedDataType[] = (legend, data_) =>
-    pipe(
-      toPairs,
-      map(([ref, values_]: [string, number | number[]]) => ({
-        ...formatValues(values_),
-        subject: legend[ref]
-      }))
-    )(data_);
+  pipe(
+    toPairs,
+    map(([ref, values_]: [string, number | number[]]) => ({
+      ...formatValues(values_),
+      subject: legend[ref]
+    }))
+  )(data_);
 
-export const LearningProfileRadarChart = ({
-  data,
-  legend,
-  totalDataset,
-  colors: colorsProps,
-  onClick,
-  onExploreClick = () => { },
-  width,
-  height,
-  margin
-}: LearningProfileRadarChartPropTypes,
+export const LearningProfileRadarChart = (
+  {
+    data,
+    legend,
+    totalDataset,
+    colors: colorsProps,
+    onClick,
+    onExploreClick,
+    width,
+    height,
+    margin
+  }: LearningProfileRadarChartPropTypes,
   legacyContext: WebContextValues
 ) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
+  const [hoveredDot, setHoveredDot] = useState('');
   const skin = GetSkinFromContext(legacyContext);
   const translate = GetTranslateFromContext(legacyContext);
   const primarySkinColor = get('common.primary', skin);
@@ -388,7 +409,7 @@ export const LearningProfileRadarChart = ({
 
   const gradients = useMemo(
     () =>
-      formatedColors.map(({ gradient: { fill, stroke } }, index) => (
+      formatedColors.map(({gradient: {fill, stroke}}, index) => (
         <svg key={`gradient-${index}`}>
           <Gradient type={`fill-${index}`} colors={fill} />
           <Gradient type={`stroke-${index}`} colors={stroke} />
@@ -429,7 +450,7 @@ export const LearningProfileRadarChart = ({
       handleOnActiveDotClick();
       return;
     }
-    const payload = formatedData.find(({ subject }) => subject === label);
+    const payload = formatedData.find(({subject}) => subject === label);
     if (!payload) return;
 
     const index = formatedData.indexOf(payload);
@@ -446,18 +467,29 @@ export const LearningProfileRadarChart = ({
     }
   }
 
+  function handleExploreClick(label: string) {
+    const payload = formatedData.find(({subject}) => subject === label);
+    if (!payload) return;
+
+    const skillRef = findKey(val => val === payload?.subject, legend);
+
+    if (skillRef) {
+      onExploreClick(skillRef);
+    }
+  }
+
   function renderCustomLabel({
     x,
     y,
-    payload: { value: label },
+    payload: {value: label},
     index
   }: {
     x: number;
     y: number;
-    payload: { value: string };
+    payload: {value: string};
     index: number;
   }) {
-    const currentData = formatedData.find(({ subject }) => subject === label);
+    const currentData = formatedData.find(({subject}) => subject === label);
     const percentagesValues: number[] = pipe(
       omit('subject'),
       mapValues(value => `${value}%`),
@@ -476,10 +508,11 @@ export const LearningProfileRadarChart = ({
         formatedColors={formatedColors}
         primarySkinColor={primarySkinColor}
         exploreLocale={translate('Explore')}
+        hoveredDot={hoveredDot}
         onClick={handleOnDotClick}
-        onExploreClick={onExploreClick}
+        onExploreClick={handleExploreClick}
       />
-    )
+    );
   }
   const formatedData = useMemo(() => formatData(legend, data), [legend, data]);
 
@@ -487,7 +520,7 @@ export const LearningProfileRadarChart = ({
     <RadarChart
       width={width}
       height={height}
-      margin={margin ?? (isMobile ? { top: 80 } : { top: 180 })}
+      margin={margin ?? (isMobile ? {top: 80} : {top: 180})}
       cx="50%"
       cy="50%"
       outerRadius="80%"
@@ -497,7 +530,7 @@ export const LearningProfileRadarChart = ({
       <PolarGrid strokeDasharray={10} strokeWidth={2} radialLines={false} />
       <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
       <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
-      {buildRadars(totalDataset, handleOnDotClick, activeDot)}
+      {buildRadars(totalDataset, setHoveredDot, handleOnDotClick, activeDot)}
       {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}
     </RadarChart>
   );
