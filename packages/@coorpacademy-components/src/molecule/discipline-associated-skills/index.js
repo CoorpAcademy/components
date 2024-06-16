@@ -54,9 +54,7 @@ const DisciplineAssociatedSkills = (props, context) => {
                     iconContainerClassName={style.infoIconTooltip}
                     tooltipClassName={style.tooltip}
                     TooltipContent={translate('skill_focused_chip_tooltip')}
-                    closeToolTipInformationTextAriaLabel={translate(
-                      'close_tooltip_information'
-                    )}
+                    closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
                   />
                 ) : (
                   skill.locale

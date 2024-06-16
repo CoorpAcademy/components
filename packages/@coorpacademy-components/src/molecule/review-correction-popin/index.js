@@ -51,9 +51,7 @@ const KlfButton = ({klf}, legacyContext) => {
 
   const toolTipProps = useMemo(
     () => ({
-      closeToolTipInformationTextAriaLabel: translate(
-        'close_tooltip_information'
-      ),
+      closeToolTipInformationTextAriaLabel: translate('close_tooltip_information'),
       AnchorElement: AnchorButton,
       TooltipContent,
       'aria-label': translate('More details'),

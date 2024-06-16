@@ -25,11 +25,11 @@ export default {
       },
       {
         ref: 'skill-ref-2',
-        locale: 'Skill 2',
+        locale: 'Skill 2'
       },
       {
         ref: 'skill-ref-3',
-        locale: 'Skill 3',
+        locale: 'Skill 3'
       }
     ],
     onSkillClick: () => console.log('skill clicked'),

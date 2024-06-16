@@ -13,7 +13,7 @@ export default {
       },
       {
         ref: 'skill-ref-3',
-        locale: 'Skill 3',
+        locale: 'Skill 3'
       }
     ],
     onSkillClick: () => console.log('skill clicked')

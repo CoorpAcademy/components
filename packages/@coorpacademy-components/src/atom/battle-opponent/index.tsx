@@ -118,9 +118,7 @@ const BattleOpponent = (
               anchorId={battleOpponentInfoId}
               toolTipIsVisible={toolTipIsVisible}
               TooltipContent={TooltipContent}
-              closeToolTipInformationTextAriaLabel={translate(
-                'close_tooltip_information'
-              )}
+              closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
             />
           </span>
         </>

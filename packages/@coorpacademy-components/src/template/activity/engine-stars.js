@@ -137,9 +137,7 @@ const EngineStars = (props, legacyContext) => {
   );
 
   const toolTipProps = {
-    closeToolTipInformationTextAriaLabel: translate(
-      'close_tooltip_information'
-    )
+    closeToolTipInformationTextAriaLabel: translate('close_tooltip_information')
   };
 
   const TooltipContent = useCallback(
