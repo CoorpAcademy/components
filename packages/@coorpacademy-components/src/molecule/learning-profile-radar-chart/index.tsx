@@ -478,17 +478,18 @@ export const LearningProfileRadarChart = (
     }
   }
 
-  function renderCustomLabel({
-    x,
-    y,
-    payload: {value: label},
-    index
-  }: {
+  function renderCustomLabel(props: {
     x: number;
     y: number;
     payload: {value: string};
     index: number;
   }) {
+    const {
+      x,
+      y,
+      payload: {value: label},
+      index
+    } = props;
     const currentData = formatedData.find(({subject}) => subject === label);
     const percentagesValues: number[] = pipe(
       omit('subject'),
