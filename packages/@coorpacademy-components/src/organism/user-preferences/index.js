@@ -19,9 +19,7 @@ const Settings = (props, legacyContext) => {
       {isEmpty(description) ? null : (
         <ToolTip
           TooltipContent={description}
-          closeToolTipInformationTextAriaLabel={translate(
-            'Press the escape key to close the information text'
-          )}
+          closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
           data-testid="user-preferences-tooltip"
           aria-label={moreInfoAriaLabel}
           iconContainerClassName={style.infoIconTooltip}

@@ -39,7 +39,7 @@
   "payment_form_submit": "เริ่มการสมัครสมาชิก Coorpacademy",
   "Post": "โพสต์",
   "premium_unsubscribe_confirmation": "เรายืนยันการยกเลิกการเป็นสมาชิกของคุณ ซึ่งจะมีผลตั้งแต่เดือนหน้าเป็นต้นไป\n\nระหว่างนี้คุณสามารถเพลิดเพลินกับเนื้อหาของเราในแพลตฟอร์ม Coorpacademy ต่อไปได้",
-  "Press the escape key to close the information text": "กดปุ่ม Escape เพื่อปิดข้อความแสดงข้อมูล",
+  "close_tooltip_information": "กดปุ่ม Escape เพื่อปิดข้อความแสดงข้อมูล",
   "product_cancel": "ยกเลิกได้ทุกเมื่อ",
   "product_desc_battle": "โหมดต่อสู้",
   "product_desc_certificates": "หนังสือรับรองของ Coorpacademy",

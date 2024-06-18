@@ -383,9 +383,7 @@ const MyLearning = (props, context) => {
                 iconContainerClassName={style.infoIconTooltip}
                 tooltipClassName={style.tooltip}
                 TooltipContent={ReviewTooltipContent}
-                closeToolTipInformationTextAriaLabel={translate(
-                  'Press the escape key to close the information text'
-                )}
+                closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
               />
             </div>
           </div>

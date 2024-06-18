@@ -50,7 +50,7 @@
   "payment_form_submit": "Aloita Coorpacademyn tilaus",
   "Post": "Julkaise",
   "premium_unsubscribe_confirmation": "Vahvistamme tilauksesi peruuttamisen, joka astuu voimaan seuraavan kuun alussa.\n\nVoit sillä välin jatkaa sisältösi käyttämistä Coorpacademyn alustalla.",
-  "Press the escape key to close the information text": "Sulje tietoteksti painamalla ESC-näppäintä",
+  "close_tooltip_information": "Sulje tietoteksti painamalla ESC-näppäintä",
   "product_cancel": "Peruuta koska tahansa.",
   "product_desc_battle": "Taistelutila",
   "product_desc_certificates": "Coorpacademyn todistukset",

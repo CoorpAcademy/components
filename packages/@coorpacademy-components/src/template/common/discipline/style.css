@@ -14,7 +14,6 @@
 
 .leftSection {
   display: block;
-  overflow: hidden;
   padding: 20px;
   box-sizing: border-box;
   position: relative;
@@ -107,6 +106,10 @@
     flex: auto;
     margin-top: 15px;
     margin-left: 0px;
+  }
+
+  .leftSection {
+    width: 100%
   }
 
   .mobileAuthorCtaSection {

@@ -1,0 +1,71 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_700 from colors;
+
+.associatedSkillsWrapper {
+  margin-bottom: 12px;
+}
+
+.chipsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chipWrapper {
+  width: fit-content;
+  border-radius: 8px;
+  padding: 4px 8px;
+  background-color: cm_grey_200;
+  color: cm_grey_700;
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chipWrapperFocused {
+  background-color: #DDD1FF;
+  color: #3900D6;
+}
+
+.chipFocusedContent {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  div {
+    padding: 0 !important;
+  }
+}
+
+.infoIconTooltip {
+  background-color: transparent;
+}
+
+.tooltip {
+  width: fit-content;
+  color: #FFF;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 16px;
+  right: -28px;
+  top: -48px;
+
+  p {
+    padding: 8px 8px;
+    margin: 0;
+  }
+}
+
+@media desktop {
+  .associatedSkillsWrapper {
+    margin-top: 24px;
+  }
+}

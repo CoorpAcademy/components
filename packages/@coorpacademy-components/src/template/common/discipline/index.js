@@ -5,6 +5,7 @@ import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
+import DisciplineAssociatedSkills from '../../../molecule/discipline-associated-skills';
 import Share, {ShareFeedback, ShareStatusProvider} from '../../../molecule/share';
 import AddToMyList, {
   AddToMyListFeedback,
@@ -26,6 +27,8 @@ const Discipline = (props, context) => {
     start,
     buy,
     startLabel,
+    skills = [],
+    onSkillClick,
     buyLabel,
     shareWording,
     shareText,
@@ -100,6 +103,7 @@ const Discipline = (props, context) => {
               />
             )}
           </div>
+          <DisciplineAssociatedSkills skills={skills} onSkillClick={onSkillClick} />
           {authorSection}
         </div>
         {disciplineContent}
@@ -130,6 +134,7 @@ const Discipline = (props, context) => {
               </div>
             )}
           </div>
+          <DisciplineAssociatedSkills skills={skills} onSkillClick={onSkillClick} />
           {authorSection}
         </div>
       </div>
@@ -191,6 +196,14 @@ Discipline.propTypes = {
   shareText: Share.propTypes.text,
   shareSuccessWording: ShareFeedback.propTypes.successWording,
   shareErrorWording: ShareFeedback.propTypes.errorWording,
+  skills: PropTypes.arrayOf(
+    PropTypes.shape({
+      ref: PropTypes.string,
+      locale: PropTypes.string,
+      focused: PropTypes.bool
+    })
+  ),
+  onSkillClick: PropTypes.func,
   addToMyListText: AddToMyListFeedback.propTypes.addToMyListText,
   removeFromMyListText: AddToMyListFeedback.propTypes.removeFromMyListText,
   addToMyListButton: AddToMyList.propTypes.addToMyListButton,

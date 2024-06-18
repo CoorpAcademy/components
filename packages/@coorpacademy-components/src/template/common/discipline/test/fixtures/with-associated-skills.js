@@ -41,11 +41,28 @@ export default {
     skills: [
       {
         ref: 'skill-ref-1',
-        locale: 'Skill 1'
+        locale: 'Skill 1',
+        focused: true
       },
       {
         ref: 'skill-ref-2',
-        locale: 'Skill 2'
+        locale: 'Skill 2',
+        focused: false
+      },
+      {
+        ref: 'skill-ref-3',
+        locale: 'Skill 3',
+        focused: false
+      },
+      {
+        ref: 'skill-ref-4',
+        locale: 'Skill 4',
+        focused: false
+      },
+      {
+        ref: 'skill-ref-5',
+        locale: 'Skill 5',
+        focused: false
       }
     ],
     onSkillClick: () => console.log('skill clicked'),
