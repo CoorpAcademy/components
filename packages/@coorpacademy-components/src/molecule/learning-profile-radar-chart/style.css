@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value cm_primary_blue from colors;
 @value cm_grey_50 from colors;
+@value cm_grey_75 from colors;
 @value lightDark from colors;
 
 .tickeForeignObject {
@@ -26,6 +27,14 @@
   border-radius: 12px;
   width: fit-content;
 }
+
+.tickWrapper:hover,
+.tickWrapperHover {
+  background-color: cm_grey_75;
+  border-radius: 12px;
+}
+
+
 
 .tickValue {
   padding: 4px;
@@ -64,4 +73,9 @@
 .tooltipValue {
   font-size: 14px;
   font-weight: 700;
+}
+
+.buttonWrapper {
+  width: 100%;
+  height: 36px;
 }

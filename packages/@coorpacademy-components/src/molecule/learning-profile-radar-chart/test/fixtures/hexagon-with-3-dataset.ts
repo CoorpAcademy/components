@@ -58,6 +58,7 @@ const fixture: Fixture = {
         }
       }
     ],
+    onExploreClick: skillRef => console.log(skillRef),
     onClick: skillref => console.log(`on dot click on ref: ${skillref}`)
   }
 };

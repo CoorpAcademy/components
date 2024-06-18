@@ -22,11 +22,16 @@ import {
   fromPairs,
   times,
   flatten,
-  findKey
+  findKey,
+  get
 } from 'lodash/fp';
+import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import {isMobile as getIsMobile} from '../../util/check-is-mobile';
-import style from './style.css';
+import ButtonLink from '../../atom/button-link';
+import {ButtonLinkProps} from '../../atom/button-link/types';
+import Provider, {GetSkinFromContext, GetTranslateFromContext} from '../../atom/provider';
+import {WebContextValues} from '../../atom/provider/web-context';
 import {
   ActiveDotType,
   FormatedColorsType,
@@ -35,6 +40,7 @@ import {
   TickType,
   learningProfileRadarChartPropTypes
 } from './types';
+import style from './style.css';
 
 type CHART_TYPE_TYPE = keyof typeof CHART_CONFIGS;
 
@@ -138,6 +144,7 @@ const CustomDot = ({
   cx,
   cy,
   payload,
+  onDotHover,
   onDotClick,
   stroke,
   activeDot,
@@ -146,6 +153,7 @@ const CustomDot = ({
   cx?: number;
   cy?: number;
   payload?: {payload: {subject: string} & {[datakey: string]: number}; name: string};
+  onDotHover: (name: string) => void;
   onDotClick: (name: string) => void;
   dataKey: string;
   stroke: string;
@@ -169,6 +177,11 @@ const CustomDot = ({
         if (!payload?.name) return;
         onDotClick(payload.name);
       },
+      onMouseOver: () => {
+        if (!payload?.name) return;
+        onDotHover(payload.name);
+      },
+      onMouseLeave: () => onDotHover(''),
       'data-name': dataName
     }}
   />
@@ -176,6 +189,7 @@ const CustomDot = ({
 
 const buildRadars = (
   totalDataset: number,
+  handleDotHover: (name: string) => void,
   handleOnDotClick: (name: string) => void,
   activeDot?: ActiveDotType
 ) =>
@@ -200,6 +214,7 @@ const buildRadars = (
         // use with the tooltip component
         dot={
           <CustomDot
+            onDotHover={handleDotHover}
             onDotClick={handleOnDotClick}
             activeDot={activeDot}
             dataKey={datakey}
@@ -211,7 +226,7 @@ const buildRadars = (
     );
   }, totalDataset);
 
-const buildCustomLabel = ({
+const CustomLabel = ({
   index,
   x,
   y,
@@ -220,7 +235,11 @@ const buildCustomLabel = ({
   activeDot,
   chartType,
   formatedColors,
-  onClick
+  primarySkinColor,
+  exploreLocale,
+  hoveredDot,
+  onClick,
+  onExploreClick
 }: {
   index: number;
   x: number;
@@ -230,8 +249,13 @@ const buildCustomLabel = ({
   chartType: CHART_TYPE_TYPE;
   formatedColors: FormatedColorsType[];
   activeDot?: ActiveDotType;
+  primarySkinColor: string;
+  exploreLocale: string;
+  hoveredDot: string;
   onClick: (name: string) => void;
+  onExploreClick: (name: string) => void;
 }) => {
+  const [hovered, setHovered] = useState(false);
   const isCurrentDotActive = activeDot?.label === label;
   const {
     offset: {x: offsetX, y: offsetY},
@@ -244,19 +268,55 @@ const buildCustomLabel = ({
     onClick(label);
   }
 
+  function handleExploreClick() {
+    onExploreClick(label);
+  }
+
+  const buttonExploreProps: ButtonLinkProps = {
+    customStyle: {
+      height: '36px',
+      backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
+      color: hovered ? '#FFFFFF' : primarySkinColor,
+      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+    },
+    onClick: handleExploreClick,
+    'aria-label': `${label}, ${exploreLocale}`,
+    label: exploreLocale,
+    'data-name': 'learner-skill-card-explore-button',
+    icon: {
+      position: 'left',
+      faIcon: {
+        name: 'compass',
+        backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
+        color: hovered ? '#FFFFFF' : primarySkinColor,
+        size: 16
+      }
+    }
+  };
+
+  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+
+  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
+
+  const extraOffsetY = isCurrentDotActive && index === 0 ? -25 : 0;
+
   return (
     <g>
       <foreignObject
         className={style.tickeForeignObject}
         x={x + offsetX}
-        y={y + offsetY}
+        y={y + offsetY + extraOffsetY}
         width="200"
         height="65"
       >
         <div
           data-name={label}
           onClick={onLabelClick}
-          className={classnames(style.tickWrapper, isCurrentDotActive && style.tickWrapperFocus)}
+          className={classnames(
+            style.tickWrapper,
+            isCurrentDotActive && style.tickWrapperFocus,
+            hoveredDot === label && style.tickWrapperHover
+          )}
           style={{
             ...rest,
             alignItems: alignment,
@@ -276,6 +336,16 @@ const buildCustomLabel = ({
               </Fragment>
             )
           )}
+          {isCurrentDotActive ? (
+            <div
+              className={style.buttonWrapper}
+              onMouseOver={handleMouseOver}
+              onMouseLeave={handleMouseLeave}
+              data-name="button-explore-wrapper"
+            >
+              <ButtonLink {...buttonExploreProps} />
+            </div>
+          ) : null}
         </div>
       </foreignObject>
     </g>
@@ -304,18 +374,26 @@ export const formatData: (
     }))
   )(data_);
 
-export const LearningProfileRadarChart = ({
-  data,
-  legend,
-  totalDataset,
-  colors: colorsProps,
-  onClick,
-  width,
-  height,
-  margin
-}: LearningProfileRadarChartPropTypes) => {
+export const LearningProfileRadarChart = (
+  {
+    data,
+    legend,
+    totalDataset,
+    colors: colorsProps,
+    onClick,
+    onExploreClick,
+    width,
+    height,
+    margin
+  }: LearningProfileRadarChartPropTypes,
+  legacyContext: WebContextValues
+) => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeDot, setActiveDot] = useState<ActiveDotType>();
+  const [hoveredDot, setHoveredDot] = useState('');
+  const skin = GetSkinFromContext(legacyContext);
+  const translate = GetTranslateFromContext(legacyContext);
+  const primarySkinColor = get('common.primary', skin);
 
   const formatedColors = times(i => {
     if (!colorsProps?.length) return DEFAULT_COLORS;
@@ -362,7 +440,16 @@ export const LearningProfileRadarChart = ({
     };
   }, [activeDot, onClick, setActiveDot]);
 
+  function handleOnActiveDotClick() {
+    setActiveDot(undefined);
+    onClick(undefined);
+  }
+
   function handleOnDotClick(label: string) {
+    if (!isEmpty(activeDot) && activeDot?.label === label) {
+      handleOnActiveDotClick();
+      return;
+    }
     const payload = formatedData.find(({subject}) => subject === label);
     if (!payload) return;
 
@@ -380,17 +467,29 @@ export const LearningProfileRadarChart = ({
     }
   }
 
-  function renderCustomLabel({
-    x,
-    y,
-    payload: {value: label},
-    index
-  }: {
+  function handleExploreClick(label: string) {
+    const payload = formatedData.find(({subject}) => subject === label);
+    if (!payload) return;
+
+    const skillRef = findKey(val => val === payload?.subject, legend);
+
+    if (skillRef) {
+      onExploreClick(skillRef);
+    }
+  }
+
+  function renderCustomLabel(props: {
     x: number;
     y: number;
     payload: {value: string};
     index: number;
   }) {
+    const {
+      x,
+      y,
+      payload: {value: label},
+      index
+    } = props;
     const currentData = formatedData.find(({subject}) => subject === label);
     const percentagesValues: number[] = pipe(
       omit('subject'),
@@ -398,17 +497,23 @@ export const LearningProfileRadarChart = ({
       values
     )(currentData);
 
-    return buildCustomLabel({
-      index,
-      x,
-      y,
-      percentagesValues,
-      label,
-      activeDot,
-      chartType,
-      formatedColors,
-      onClick: handleOnDotClick
-    });
+    return (
+      <CustomLabel
+        index={index}
+        x={x}
+        y={y}
+        percentagesValues={percentagesValues}
+        label={label}
+        activeDot={activeDot}
+        chartType={chartType}
+        formatedColors={formatedColors}
+        primarySkinColor={primarySkinColor}
+        exploreLocale={translate('Explore')}
+        hoveredDot={hoveredDot}
+        onClick={handleOnDotClick}
+        onExploreClick={handleExploreClick}
+      />
+    );
   }
   const formatedData = useMemo(() => formatData(legend, data), [legend, data]);
 
@@ -426,7 +531,7 @@ export const LearningProfileRadarChart = ({
       <PolarGrid strokeDasharray={10} strokeWidth={2} radialLines={false} />
       <PolarAngleAxis dataKey="subject" tick={!isMobile && renderCustomLabel} />
       <PolarRadiusAxis tick={false} axisLine={false} domain={[0, 100]} />
-      {buildRadars(totalDataset, handleOnDotClick, activeDot)}
+      {buildRadars(totalDataset, setHoveredDot, handleOnDotClick, activeDot)}
       {isMobile ? <Tooltip cursor={false} content={<CustomTooltip />} /> : null}
     </RadarChart>
   );
@@ -437,6 +542,11 @@ const ResponsiveLearningProfileRadarChart = (props: LearningProfileRadarChartPro
     <LearningProfileRadarChart {...props} />
   </ResponsiveContainer>
 );
+
+LearningProfileRadarChart.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
 
 LearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;
 ResponsiveLearningProfileRadarChart.propTypes = learningProfileRadarChartPropTypes;

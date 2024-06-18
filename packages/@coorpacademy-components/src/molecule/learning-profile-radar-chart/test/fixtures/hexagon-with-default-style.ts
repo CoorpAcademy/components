@@ -20,6 +20,7 @@ const fixture: Fixture = {
       skillRef5: 'Time management',
       skillRef6: 'Sustainable thinking'
     },
+    onExploreClick: skillRef => console.log(skillRef),
     onClick: skillref => console.log(`on dot click on ref: ${skillref}`)
   }
 };
