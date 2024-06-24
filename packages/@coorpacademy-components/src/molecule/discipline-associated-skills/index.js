@@ -51,6 +51,7 @@ const DisciplineAssociatedSkills = (props, context) => {
                   <ToolTip
                     AnchorElement={handleAnchorElement}
                     fontSize={12}
+                    delayHide={0}
                     iconContainerClassName={style.infoIconTooltip}
                     tooltipClassName={style.tooltip}
                     TooltipContent={translate('skill_focused_chip_tooltip')}
