@@ -41,13 +41,13 @@ export default {
     skills: [
       {
         ref: 'skill-ref-1',
-        locale: 'Skill 1',
+        locale: 'Digital Dexterity',
         focused: true
       },
       {
         ref: 'skill-ref-2',
         locale: 'Skill 2',
-        focused: false
+        focused: true
       },
       {
         ref: 'skill-ref-3',
