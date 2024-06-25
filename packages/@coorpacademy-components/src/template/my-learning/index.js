@@ -189,6 +189,12 @@ const MyLearning = (props, context) => {
 
   const learningHoursData = useMemo(() => sumKpi('learningHours'), [sumKpi]);
 
+  const handleLearningTimeFormat = useCallback(learningTime => {
+    const hours = Math.floor(learningTime / 60);
+    const minutes = learningTime % 60;
+    return `${hours}h ${minutes}m`;
+  }, []);
+
   const skillChartPaneLegends = useMemo(
     () =>
       translate('skill_scope_specifier', {
@@ -206,16 +212,16 @@ const MyLearning = (props, context) => {
       icon: {iconName: 'book-open-cover', backgroundColor: '#D9F4F7'}
     },
     {
+      title: translate('skill_chart_side_panel_learning_hours'),
+      value: handleLearningTimeFormat(learningHoursData),
+      legend: skillChartPaneLegends,
+      icon: {iconName: 'clock', backgroundColor: '#FAD6DE'}
+    },
+    {
       title: translate('skill_chart_side_panel_questions_answered'),
       value: `${questionsAnsweredData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'circle-question', backgroundColor: '#FFDCD1'}
-    },
-    {
-      title: translate('skill_chart_side_panel_learning_hours'),
-      value: `${learningHoursData}`,
-      legend: skillChartPaneLegends,
-      icon: {iconName: 'clock', backgroundColor: '#FAD6DE'}
     }
   ];
 
