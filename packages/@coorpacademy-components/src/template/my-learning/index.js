@@ -192,7 +192,7 @@ const MyLearning = (props, context) => {
   const handleLearningTimeFormat = useCallback(learningTime => {
     const hours = Math.floor(learningTime / 60);
     const minutes = learningTime % 60;
-    return `${hours}h ${minutes}m`;
+    return translate('skill_chart_side_panel_learning_hours_format', {hours, minutes});
   }, []);
 
   const skillChartPaneLegends = useMemo(
