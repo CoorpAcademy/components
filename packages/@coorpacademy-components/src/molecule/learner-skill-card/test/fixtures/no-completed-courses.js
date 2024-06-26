@@ -4,8 +4,8 @@ export default {
   props: {
     ...defaultProps,
     metrics: {
-      skillQuestions: 25,
-      skillCourses: 50
+      questionsToReview: 25,
+      content: 50
     }
   }
 };

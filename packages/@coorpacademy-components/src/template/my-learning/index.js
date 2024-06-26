@@ -14,6 +14,7 @@ import ResponsiveLearningProfileRadarChart from '../../molecule/learning-profile
 import SkillsChartSideInformationPanel from '../../molecule/skills-chart-side-information-panel';
 import LearnerSkillCard from '../../molecule/learner-skill-card';
 import searchValueIncluded from '../../util/search-value-included';
+import {formatMinutes} from '../../util/time-format';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -183,17 +184,11 @@ const MyLearning = (props, context) => {
     [skillFocusSelectedOnChart, skillsInformation, selectedSkillsList]
   );
 
-  const coursedCompletedData = useMemo(() => sumKpi('coursesCompleted'), [sumKpi]);
+  const coursedCompletedData = useMemo(() => sumKpi('contentCompleted'), [sumKpi]);
 
-  const questionsAnsweredData = useMemo(() => sumKpi('questionsAnswered'), [sumKpi]);
+  const questionsToReviewData = useMemo(() => sumKpi('questionsToReview'), [sumKpi]);
 
-  const learningHoursData = useMemo(() => sumKpi('learningHours'), [sumKpi]);
-
-  const handleLearningTimeFormat = useCallback(learningTime => {
-    const hours = Math.floor(learningTime / 60);
-    const minutes = learningTime % 60;
-    return translate('skill_chart_side_panel_learning_hours_format', {hours, minutes});
-  }, []);
+  const learningTimeData = useMemo(() => sumKpi('learningTime'), [sumKpi]);
 
   const skillChartPaneLegends = useMemo(
     () =>
@@ -206,20 +201,20 @@ const MyLearning = (props, context) => {
   );
   const skillChartPanelProps = [
     {
-      title: translate('skill_chart_side_panel_courses_completed'),
+      title: translate('skill_chart_side_panel_content_completed'),
       value: `${coursedCompletedData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'book-open-cover', backgroundColor: '#D9F4F7'}
     },
     {
       title: translate('skill_chart_side_panel_learning_hours'),
-      value: handleLearningTimeFormat(learningHoursData),
+      value: formatMinutes(learningTimeData),
       legend: skillChartPaneLegends,
       icon: {iconName: 'clock', backgroundColor: '#FAD6DE'}
     },
     {
-      title: translate('skill_chart_side_panel_questions_answered'),
-      value: `${questionsAnsweredData}`,
+      title: translate('skill_chart_side_panel_questions_to_review'),
+      value: `${questionsToReviewData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'circle-question', backgroundColor: '#FFDCD1'}
     }
@@ -457,12 +452,8 @@ const MyLearning = (props, context) => {
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
-                const {
-                  score,
-                  courses: skillCourses,
-                  questionsAnswered: skillQuestions,
-                  coursesCompleted: completedCourses
-                } = skillsInformation[skill].stats;
+                const {score, content, questionsToReview, contentCompleted} =
+                  skillsInformation[skill].stats;
                 return (
                   <div key={index}>
                     <LearnerSkillCard
@@ -470,9 +461,9 @@ const MyLearning = (props, context) => {
                       focus={selectedSkills.includes(skill)}
                       metrics={{
                         score,
-                        skillCourses,
-                        skillQuestions,
-                        completedCourses
+                        content,
+                        questionsToReview,
+                        contentCompleted
                       }}
                       review={skillsInformation[skill].availableForReview}
                       onReviewClick={handleReviewSkill}
@@ -502,10 +493,10 @@ MyLearning.propTypes = {
       availableForReview: PropTypes.bool,
       stats: PropTypes.shape({
         score: PropTypes.number,
-        courses: PropTypes.number,
-        coursesCompleted: PropTypes.number,
-        questionsAnswered: PropTypes.number,
-        learningHours: PropTypes.number
+        content: PropTypes.number,
+        contentCompleted: PropTypes.number,
+        questionsToReview: PropTypes.number,
+        learningTime: PropTypes.number
       })
     })
   ),
