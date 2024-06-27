@@ -1,15 +1,14 @@
 function formatMinutes(minutes) {
-  let timeString = '';
+  const timeArr = [];
   const hours = Math.floor(minutes / 60);
-  let remainingMinutes = minutes % 60;
+  const remainingMinutes = `${minutes % 60}`;
   if (hours > 0) {
-    timeString += `${hours}h `;
+    timeArr.push(`${hours}h`);
   }
   if (remainingMinutes > 0) {
-    remainingMinutes = remainingMinutes < 10 ? `0${remainingMinutes}` : remainingMinutes;
-    timeString += `${remainingMinutes}min`;
+    timeArr.push(`${remainingMinutes.padStart(2, '0')}min`);
   }
-  return timeString;
+  return timeArr.length > 0 ? timeArr.join(' ') : '0min';
 }
 
 export {formatMinutes};
