@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value desktop from breakpoints;
+@value mobile from breakpoints;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_700 from colors;
@@ -80,8 +81,22 @@
   .associatedSkillsWrapper {
     margin-top: 24px;
   }
-
+  
   .chipFocusedContent {
     max-width: max-content;
+  }
+}
+
+@media mobile {
+  .associatedSkillsWrapper {
+    margin-top: 24px;
+  }
+
+  .chipFocusedContent {
+    max-width: 100%;
+  }
+
+  .chipWrapperFocused {
+    max-width: 69vw;
   }
 }
