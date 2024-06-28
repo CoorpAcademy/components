@@ -41,7 +41,7 @@ export default {
     skills: [
       {
         ref: 'skill-ref-1',
-        locale: 'Digital Dexterity',
+        locale: 'Emotional Intelligence and Self-awareness',
         focused: true
       },
       {
