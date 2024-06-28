@@ -18,7 +18,7 @@ const LearnerSkillCard = (props, context) => {
     onReviewClick,
     onExploreClick
   } = props;
-  const {score, skillCourses, skillQuestions, completedCourses = 0} = metrics;
+  const {score, content, questionsToReview, contentCompleted = 0} = metrics;
   const {skin, translate} = context;
   const [hovered, setHovered] = useState(false);
   const primarySkinColor = get('common.primary', skin);
@@ -28,7 +28,7 @@ const LearnerSkillCard = (props, context) => {
   const coursesLocale = translate('courses');
   const questionsLocale = translate('questions');
   const skillFocusLocale = translate('skill_focus');
-  const coursesCompletedLocale = translate('courses_completed');
+  const contentCompletedLocale = translate('courses_completed');
 
   const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
 
@@ -68,7 +68,7 @@ const LearnerSkillCard = (props, context) => {
   };
 
   const ProgressBar = useCallback(() => {
-    if (!skillCourses) return null;
+    if (!content) return null;
 
     const progressBarColor = '#3EC483';
     const inlineProgressValueStyle = {
@@ -87,7 +87,7 @@ const LearnerSkillCard = (props, context) => {
         />
       </div>
     );
-  }, [score, ariaLabel, skillCourses]);
+  }, [score, ariaLabel, content]);
 
   return (
     <div
@@ -95,16 +95,16 @@ const LearnerSkillCard = (props, context) => {
       data-name="learner-skill-card-wrapper"
       aria-label={ariaLabel}
     >
-      {skillCourses || skillQuestions ? (
+      {content || questionsToReview ? (
         <div className={style.skillCoursesAndQuestionsWrapper}>
-          {skillCourses ? (
+          {content ? (
             <div className={style.skillInformation} data-name="skill-courses">
-              <span className={style.skillInformationNumber}>{skillCourses}</span> {coursesLocale}
+              <span className={style.skillInformationNumber}>{content}</span> {coursesLocale}
             </div>
           ) : null}
-          {skillQuestions ? (
+          {questionsToReview ? (
             <div className={style.skillInformation} data-name="skill-questions">
-              <span className={style.skillInformationNumber}>{skillQuestions}</span>
+              <span className={style.skillInformationNumber}>{questionsToReview}</span>
               &nbsp;{questionsLocale}
             </div>
           ) : null}
@@ -134,11 +134,11 @@ const LearnerSkillCard = (props, context) => {
       </div>
       <ProgressBar />
       <div className={style.progressInformations}>
-        {skillCourses && (
+        {content && (
           <>
             <div className={style.progressInformation} data-name="skill-completed-courses">
-              <span className={style.progressInformationNumber}>{completedCourses}</span>
-              {` ${coursesCompletedLocale}`}
+              <span className={style.progressInformationNumber}>{contentCompleted}</span>
+              {` ${contentCompletedLocale}`}
             </div>
             <div className={style.progressInformation} data-name="completed-percentage">
               <span className={style.progressInformationNumber}>{score}%</span>
@@ -173,9 +173,9 @@ LearnerSkillCard.propTypes = {
   focus: PropTypes.bool,
   metrics: PropTypes.shape({
     score: PropTypes.number,
-    skillCourses: PropTypes.number,
-    skillQuestions: PropTypes.number,
-    completedCourses: PropTypes.number
+    content: PropTypes.number,
+    questionsToReview: PropTypes.number,
+    contentCompleted: PropTypes.number
   }),
   review: PropTypes.bool,
   onReviewClick: PropTypes.func,

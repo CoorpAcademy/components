@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value desktop from breakpoints;
+@value mobile from breakpoints;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_700 from colors;
@@ -26,8 +27,6 @@
   font-weight: 600;
   line-height: 20px;
   font-size: 14px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .chipWrapperFocused {
@@ -38,11 +37,18 @@
 .chipFocusedContent {
   display: flex;
   align-items: center;
+  max-width: 224px;
   gap: 4px;
 
   div {
     padding: 0 !important;
   }
+}
+
+.chipFocusedContentText {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .infoIconTooltip {
@@ -55,7 +61,7 @@
   font-size: 12px;
   font-style: normal;
   line-height: 16px;
-  top: -48px;
+  top: -64px;
 
   p {
     padding: 8px 8px;
@@ -63,8 +69,34 @@
   }
 }
 
+.tooltipContentWrapper {
+  padding: 8px 12px;
+  text-align: left;
+  width: max-content;
+  font-weight: 400;
+  line-height: 16px;
+}
+
 @media desktop {
   .associatedSkillsWrapper {
     margin-top: 24px;
+  }
+  
+  .chipFocusedContent {
+    max-width: max-content;
+  }
+}
+
+@media mobile {
+  .associatedSkillsWrapper {
+    margin-top: 24px;
+  }
+
+  .chipFocusedContent {
+    max-width: 100%;
+  }
+
+  .chipWrapperFocused {
+    max-width: 69vw;
   }
 }

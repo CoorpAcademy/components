@@ -24,7 +24,19 @@ const DisciplineAssociatedSkills = (props, context) => {
             wrapperSize: 12
           }}
         />
-        {skill}
+        <div className={style.chipFocusedContentText}>{skill}</div>
+      </div>
+    ),
+    []
+  );
+
+  const TooltipContentElement = useCallback(
+    skill => (
+      <div className={style.tooltipContentWrapper}>
+        <div>
+          <b>{translate('skill_focused_chip_tooltip')}</b>
+        </div>
+        <div>{skill}</div>
       </div>
     ),
     []
@@ -41,6 +53,9 @@ const DisciplineAssociatedSkills = (props, context) => {
             function handleAnchorElement() {
               return AnchorElement(skill.locale);
             }
+            function handleTooltipContentElement() {
+              return TooltipContentElement(skill.locale);
+            }
             return (
               <div
                 key={uniqueId()}
@@ -54,7 +69,7 @@ const DisciplineAssociatedSkills = (props, context) => {
                     delayHide={0}
                     iconContainerClassName={style.infoIconTooltip}
                     tooltipClassName={style.tooltip}
-                    TooltipContent={translate('skill_focused_chip_tooltip')}
+                    TooltipContent={handleTooltipContentElement}
                     closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
                   />
                 ) : (
