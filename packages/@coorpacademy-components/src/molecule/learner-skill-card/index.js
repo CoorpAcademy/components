@@ -53,6 +53,8 @@ const LearnerSkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onClick: onExploreClick,
+    onMouseOver: handleMouseOver,
+    onMouseLeave: handleMouseLeave,
     'aria-label': `${skillTitle}, ${exploreLocale}`,
     label: exploreLocale,
     'data-name': 'learner-skill-card-explore-button',
@@ -148,12 +150,7 @@ const LearnerSkillCard = (props, context) => {
       </div>
       <div className={style.ctaWrapper} data-name="cta-wrapper">
         <ButtonLink {...buttonReviewProps} />
-        <div
-          className={style.buttonWrapper}
-          onMouseOver={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
-          data-name="button-explore-wrapper"
-        >
+        <div className={style.buttonWrapper} data-name="button-explore-wrapper">
           <ButtonLink {...buttonExploreProps} />
         </div>
       </div>

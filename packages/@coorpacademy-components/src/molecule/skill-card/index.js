@@ -49,6 +49,8 @@ const SkillCard = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onClick,
+    onMouseOver: handleMouseOver,
+    onMouseLeave: handleMouseLeave,
     'aria-label': buttonAriaLabel ? `${skillTitle}, ${buttonAriaLabel}` : skillTitle,
     label: buttonLabel,
     'data-name': 'skill-card-button'
@@ -85,12 +87,7 @@ const SkillCard = (props, context) => {
           <QuestionIcon className={style.questionReviseIcon} width={16} height={16} />
           {reviseLabel}
         </div>
-        <div
-          className={style.buttonWrapper}
-          onMouseOver={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
-          data-name="button-wrapper"
-        >
+        <div className={style.buttonWrapper} data-name="button-wrapper">
           <ButtonLink {...buttonProps} />
         </div>
       </div>

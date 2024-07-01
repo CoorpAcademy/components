@@ -57,6 +57,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     link,
     onClick = noop,
     onKeyDown = noop,
+    onMouseOver = noop,
+    onMouseLeave = noop,
     className,
     customStyle,
     useTitle = true
@@ -109,6 +111,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
       className={styleButton}
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
       tabIndex={0}
     >
       {contentView}
