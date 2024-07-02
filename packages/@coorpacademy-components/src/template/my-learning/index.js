@@ -296,7 +296,7 @@ const MyLearning = (props, context) => {
                 </div>
                 <div className={style.skillFocusHeaderContent}>
                   <div data-name="skill-focus-title" className={style.skillFocusHeaderTitle}>
-                    {translate('skill_focus')}
+                    {translate('skills_focus')}
                   </div>
                   <div
                     data-name="skill-focus-description"
