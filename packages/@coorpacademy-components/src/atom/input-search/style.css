@@ -177,12 +177,6 @@
   line-height: 16px;
 }
 
-@media desktop {
-  .search::placeholder {
-    color: transparent;
-  }
-}
-
 @media tablet {
   .search,
   input {

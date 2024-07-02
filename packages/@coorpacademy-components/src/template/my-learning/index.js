@@ -71,7 +71,7 @@ ChangeSkillFocusButton.propTypes = {
 
 const FilterButton = (props, context) => {
   const {active, filter, skillTotal, onClick} = props;
-  const {skin, translate} = context;
+  const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
   const Content = useCallback(
@@ -97,7 +97,7 @@ const FilterButton = (props, context) => {
       backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#FFFFFF',
       color: active ? primarySkinColor : '#9999A8',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
-      width: filter === translate('review_mode_available') ? '200px' : 'fit-content'
+      width: 'fit-content'
     },
     onClick,
     content: <Content />,
@@ -154,7 +154,10 @@ const MyLearning = (props, context) => {
   const graphDatas = useMemo(
     () =>
       pipe(
-        map(skill => [skill, skillsInformation[skill].stats.score]),
+        map(skill => [
+          skill,
+          skillsInformation[skill].stats ? skillsInformation[skill].stats.score : 0
+        ]),
         fromPairs
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
@@ -355,7 +358,7 @@ const MyLearning = (props, context) => {
                     label={translate('skills_choose_focus')}
                     type="primary"
                     customStyle={{
-                      width: '168px',
+                      width: 'fit-contain',
                       backgroundColor: hovered
                         ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
                         : primarySkinColor
