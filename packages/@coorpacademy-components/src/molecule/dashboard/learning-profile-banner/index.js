@@ -11,6 +11,7 @@ const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
   const {title, subtitle, cta} = props;
   const buttonProps = {
     ...cta,
+    label: 'Accéder au profil d\'apprentissage',
     type: 'primary'
   };
 
@@ -27,14 +28,14 @@ const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
               data-name="learning-profile-banner-title"
               aria-label="{title}"
             >
-              {title}
+              {'Profil d\'apprentissage'}
             </span>
             <span
               className={style.subtitle}
               data-name="learning-profile-banner-subtitle"
               aria-label="{subtitle}"
             >
-              {subtitle}
+              {'Concentrez-vous, suivez vos progrès et révisez vos compétences'}
             </span>
             <ButtonLink {...buttonProps} className={style.cta} />
           </div>

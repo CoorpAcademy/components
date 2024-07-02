@@ -355,7 +355,7 @@ const MyLearning = (props, context) => {
                 </div>
                 <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
                   <ButtonLink
-                    label={translate('skills_choose_focus')}
+                    label={'Choisissez votre objectif'}
                     type="primary"
                     customStyle={{
                       width: 'fit-contain',
@@ -404,7 +404,7 @@ const MyLearning = (props, context) => {
                   <FilterButton
                     active={activeFilter === filter}
                     filter={
-                      filter === 'all' ? translate('all') : translate('review_mode_available')
+                      filter === 'all' ? 'Toutes' : 'Disponible pour révision'
                     }
                     skillTotal={filters[filter].length}
                     onClick={handleFilterClick}

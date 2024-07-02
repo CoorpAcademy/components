@@ -128,7 +128,7 @@ const LearnerSkillCard = (props, context) => {
                 wrapperSize: 16
               }}
             />
-            {skillFocusLocale}
+            Ciblage des compétences
           </div>
         ) : null}
       </div>
