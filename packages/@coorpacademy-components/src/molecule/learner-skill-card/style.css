@@ -75,7 +75,7 @@
   composes: textBase;
   display: flex;
   height: 12px;
-  width: 62px;
+  width: fit-content;
   align-items: center;
   background-color: #DDD1FF;
   border-radius: 24px;
