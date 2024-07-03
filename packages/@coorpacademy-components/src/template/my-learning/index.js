@@ -156,7 +156,7 @@ const MyLearning = (props, context) => {
       pipe(
         map(skill => [
           skill,
-          getOr(0, [skill, 'stats'], skillsInformation)
+          skillsInformation[skill].stats ? skillsInformation[skill].stats.score : 0
         ]),
         fromPairs
       )(selectedSkillsList),
