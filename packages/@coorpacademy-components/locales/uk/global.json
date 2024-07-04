@@ -90,7 +90,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} включно податків на місяць",
   "subscription_promo_code": "Тепер у вас безкоштовний необмежений доступ до нашого каталогу до {{date}}. Щоб користуватися ним і після цієї дати, будь ласка підпишіться на",
-  "skill_focus": "Фокус навички",
+  "skill_focus": "Цілеспрямований навик",
   "skills_focus": "Цільові навички",
   "skill_focus_footer_description": "Виберіть ще принаймні {{skillNumber}} навички",
   "skill_focus_footer_error_description": "Приберіть вибір ще принаймні {{skillNumber}} навичок",
