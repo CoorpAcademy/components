@@ -91,6 +91,7 @@
   "subscription_price": "${currency}${price} incl. taxes per month",
   "subscription_promo_code": "You now have a free unlimited access to our catalog until the {{date}}. To keep enjoying it after this date, please subscribe on",
   "skill_focus": "Oskusfookus",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Vali vähemalt veel {{skillNumber}} oskust",
   "skill_focus_footer_error_description": "Tühista veel vähemalt {{skillNumber}} oskuse valik",
   "skill_chart_side_panel_content_completed": "Sisu valmis",
