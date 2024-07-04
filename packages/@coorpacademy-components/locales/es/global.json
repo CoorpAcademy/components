@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price} incl. impuestos al mes",
   "subscription_promo_code": "Ahora tienes acceso gratis e ilimitado a nuestro catálogo hasta el {{date}}. Para seguir disfrutándolo después de esta fecha, por favor, suscríbete en",
   "skill_focus": "Enfoque de habilidades",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Habilidades específicas",
   "skill_focus_footer_description": "Selecciona al menos {{skillNumber}} habilidades más",
   "skill_focus_footer_error_description": "Quita de la selección al menos {{skillNumber}} habilidades más",
   "skill_chart_side_panel_content_completed": "Contenido completado",
