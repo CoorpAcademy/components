@@ -90,7 +90,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} incl. tasse al mese",
   "subscription_promo_code": "Ora hai un accesso illimitato gratuito al nostro catalogo fino al {{date}}. Per continuare a fruirne dopo questa data, ti invitiamo ad abbonarti su",
-  "skill_focus": "Messa a fuoco delle competenze",
+  "skill_focus": "Abilità mirata",
   "skills_focus": "Competenze mirate",
   "skill_focus_footer_description": "Seleziona almeno {{skillNumber}} altre competenze",
   "skill_focus_footer_error_description": "Deseleziona almeno {{skillNumber}} altre competenze",
