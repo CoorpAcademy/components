@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price} 포함됨. 1개월당 세금",
   "subscription_promo_code": "귀하는 이제 {{date}}까지 당사의 카탈로그에 대한 무제한의 무료 액세스 권한이 있습니다. 이 날짜 이후에 계속 즐기시려면, 구독하세요",
   "skill_focus": "집중 기술",
-  "skills_focus": "Skills focus",
+  "skills_focus": "타겟 스킬",
   "skill_focus_footer_description": "최소 {{skillNumber}}개 이상의 기술을 선택하세요",
   "skill_focus_footer_error_description": "최소 {{skillNumber}}개 이상의 기술을 선택 해제하세요.",
   "skill_chart_side_panel_content_completed": "콘텐츠 완료",
