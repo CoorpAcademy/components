@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {get, keys, map, fromPairs, pipe, sumBy} from 'lodash/fp';
+import {get, keys, map, fromPairs, pipe, sumBy, getOr} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -154,10 +154,7 @@ const MyLearning = (props, context) => {
   const graphDatas = useMemo(
     () =>
       pipe(
-        map(skill => [
-          skill,
-          skillsInformation[skill].stats ? skillsInformation[skill].stats.score : 0
-        ]),
+        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation).toFixed(1)]),
         fromPairs
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
@@ -463,7 +460,7 @@ const MyLearning = (props, context) => {
                       skillTitle={skillsLocales[skill]}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
-                        score,
+                        score: score.toFixed(1),
                         content,
                         questionsToReview,
                         contentCompleted
