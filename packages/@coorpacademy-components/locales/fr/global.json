@@ -91,6 +91,7 @@
   "subscription_price": "${price}${currency} TTC par mois",
   "subscription_promo_code": "Vous profitez d’un accès gratuit à tout le catalogue jusqu’au {{date}}. Passé cette date, nous vous invitons à souscrire l’abonnement sur",
   "skill_focus": "Compétence ciblée",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Sélectionnez au moins {{skillNumber}} compétences supplémentaires",
   "skill_focus_footer_error_description": "Désélectionnez au moins {{skillNumber}} compétences supplémentaires",
   "skill_chart_side_panel_content_completed": "Contenu terminé",
