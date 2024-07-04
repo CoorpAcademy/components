@@ -91,7 +91,7 @@
   "subscription_price": "含 ${currency}${price}每月稅金",
   "subscription_promo_code": "您現在可以免費無限制地造訪我們的目錄，直到{{date}}。如要在此日期之後繼續享用它，請訂閱",
   "skill_focus": "技能焦點",
-  "skills_focus": "Skills focus",
+  "skills_focus": "針對性技能",
   "skill_focus_footer_description": "至少選擇 {{skillNumber}} 項技能",
   "skill_focus_footer_error_description": "至少取消選擇 {{skillNumber}} 項技能",
   "skill_chart_side_panel_content_completed": "內容已完成",
