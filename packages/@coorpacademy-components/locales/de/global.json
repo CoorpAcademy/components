@@ -91,6 +91,7 @@
   "subscription_price": "${currency}${price} inkl. Steuer monatlich",
   "subscription_promo_code": "Sie haben jetzt einen kostenlosen unbegrenzten Zugang zu unserem Katalog bis {{date}}. Um es nach diesem Datum zu behalten, melden Sie sich bitte an",
   "skill_focus": "Fähigkeitsfokus",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Wählen Sie mindestens {{skillNumber}} weitere Fähigkeiten aus.",
   "skill_focus_footer_error_description": "Heben Sie die Auswahl von mindestens {{SkillNumber}} weiteren Skills auf.",
   "skill_chart_side_panel_content_completed": "Inhalt abgeschlossen",
