@@ -20,11 +20,12 @@
   margin-bottom: 48px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 16px;
   position: relative;
   box-sizing: border-box;
   min-height: 100%;
   width: 100%;
-  max-width: 1080px;
+  max-width: calc(1080px + 32px);
 }
 
 .skillFocusContainer {
