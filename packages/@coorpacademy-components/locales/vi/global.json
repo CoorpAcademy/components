@@ -91,6 +91,7 @@
   "subscription_price": "đã bao gồm ${price}${currency} thuế mỗi tháng",
   "subscription_promo_code": "Giờ đây bạn đã có quyền truy cập miễn phí không giới hạn vào danh mục của chúng tôi cho đến {{date}}. Để tiếp tục tận hưởng đặc quyền này sau ngày đã nêu, hãy đăng ký",
   "skill_focus": "Trọng tâm kỹ năng",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Chọn thêm ít nhất {{skillNumber}} kỹ năng nữa",
   "skill_focus_footer_error_description": "Bỏ chọn thêm ít nhất {{skillNumber}} kỹ năng nữa",
   "skill_chart_side_panel_content_completed": "Nội dung đã hoàn thành",
