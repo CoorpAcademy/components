@@ -90,7 +90,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "$ {currency} $ {price} vklj. davkov na mesec",
   "subscription_promo_code": "Zdaj imate brezplačen neomejen dostop do našega kataloga do {{date}} . Če želite še naprej uživati po tem datumu, se naročite",
-  "skill_focus": "Vodilna veščina",
+  "skill_focus": "Ciljna spretnost",
   "skills_focus": "Ciljno usmerjene veščine",
   "skill_focus_footer_description": "Izberite vsaj še toliko veščin: {{skillNumber}}",
   "skill_focus_footer_error_description": "Prekličite izbor vsaj še toliko veščin: {{skillNumber}}",
