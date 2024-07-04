@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price}包括每月税费",
   "subscription_promo_code": "现在你可以尽情访问我们的课程，直到{{date}}。若要在该日期之后继续享用，请订阅",
   "skill_focus": "重点关注的技能",
-  "skills_focus": "Skills focus",
+  "skills_focus": "针对性技能",
   "skill_focus_footer_description": "选择至少 {{skillNumber}} 项技能",
   "skill_focus_footer_error_description": "取消选择至少 {{skillNumber}} 项技能",
   "skill_chart_side_panel_content_completed": "内容已完成",
