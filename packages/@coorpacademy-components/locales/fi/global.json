@@ -91,7 +91,7 @@
   "subscription_price": "${price} ${currency} kuukaudessa sisältäen verot",
   "subscription_promo_code": "Sinulla on nyt luettelomme ilmainen ja rajoittamaton käyttöoikeus {{date}} asti. Jos haluat jatkaa sen käyttämistä kyseisen päivän jälkeen, tilaa",
   "skill_focus": "Osaamisen painopiste",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Kohdennettuja taitoja",
   "skill_focus_footer_description": "Valitse vähintään {{skillNumber}} valmiutta enemmän",
   "skill_focus_footer_error_description": "Poista vielä vähintään {{skillNumber}} valmiuden valinta",
   "skill_chart_side_panel_content_completed": "Sisältö valmis",
