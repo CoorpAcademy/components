@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price} ներառյալ ամսական հարկեր",
   "subscription_promo_code": "Դուք այժմ ունեք անվճար անսահմանափակ մուտք դեպի մեր կատալոգ մինչև {{date}}: Այս ամսաթվից հետո այն վայելելու համար, խնդրում ենք բաժանորդագրվել",
   "skill_focus": "Հմտության կենտրոնացում",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Նպատակային հմտություններ",
   "skill_focus_footer_description": "Ընտրեք առնվազն {{skillNumber}} ավելի շատ հմտություններ",
   "skill_focus_footer_error_description": "Ապաընտրեք առնվազն {{skillNumber}} ավելի շատ հմտություններ",
   "skill_chart_side_panel_content_completed": "Բովանդակությունը ավարտված է",
