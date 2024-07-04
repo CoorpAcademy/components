@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price} incl. taxe pe lună",
   "subscription_promo_code": "Aveți acces gratuit și nelimitat la catalogul nostru până la data de {{date}}. Dacă doriți să beneficiați de acces și după data respectivă, vă rugăm să vă abonați pe",
   "skill_focus": "Abilitățile vizate",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Abilități vizate",
   "skill_focus_footer_description": "Selectați cel puțin încă {{skillNumber}} abilități",
   "skill_focus_footer_error_description": "Deselectați cel puțin încă {{skillNumber}} abilități",
   "skill_chart_side_panel_content_completed": "Conținut finalizat",
