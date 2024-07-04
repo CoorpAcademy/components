@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price} kasamang taxes kada buwan",
   "subscription_promo_code": "Mayroon kang libreng walang limitasyong pag-access sa aming katalogo hanggang sa {{date}}. Upang mapanatili itong tangkilikin pagkatapos ng petsang ito, mangyaring mag-subscribe sa",
   "skill_focus": "Kasanayang pagtutuunan ng pansin",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Mga naka-target na kasanayan",
   "skill_focus_footer_description": "Pumili ng hindi bababa sa {{skillNumber}} pang kasanayan",
   "skill_focus_footer_error_description": "Alisin sa pagkakapili ang hindi bababa sa {{skillNumber}} pang kasanayan",
   "skill_chart_side_panel_content_completed": "Nakumpleto ang Nilalaman",
