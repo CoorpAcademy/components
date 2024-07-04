@@ -90,7 +90,7 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} wraz z podatkami miesięcznie",
   "subscription_promo_code": "Masz teraz nieograniczony dostęp do naszego katalogu do dnia {{date}}. Aby nadal korzystać po tym dniu, subskrybuj",
-  "skill_focus": "Wybór umiejętności",
+  "skill_focus": "Ukierunkowana umiejętność",
   "skills_focus": "Ukierunkowane umiejętności",
   "skill_focus_footer_description": "Wybierz jeszcze co najmniej {{skillNumber}} umiejętności",
   "skill_focus_footer_error_description": "Cofnij wybór co najmniej {{skillNumber}} umiejętności",
