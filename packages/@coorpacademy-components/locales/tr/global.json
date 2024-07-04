@@ -91,6 +91,7 @@
   "subscription_price": "Aylık ${currency}${price}, vergiler dahil",
   "subscription_promo_code": "Şimdi {{date}} tarihine kadar kataloğumuza ücretsiz sınırsız erişim hakkına sahipsiniz. Bu tarihten sonra içeriği kullanmaya devam etmek için, lütfen _______ tarihinde abone olun",
   "skill_focus": "Beceri odağı",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "En az {{skillNumber}} daha fazla beceri seç",
   "skill_focus_footer_error_description": "En az {{skillNumber}} daha fazla becerinin seçimini kaldır",
   "skill_chart_side_panel_content_completed": "İçerik Tamamlandı",
