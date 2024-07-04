@@ -91,6 +91,7 @@
   "subscription_price": "${currency}${price} uklj. poreza mjesečno",
   "subscription_promo_code": "Sada imate besplatan neograničen pristup našem katalogu do {{date}}. Da biste ga nastavili koristiti i nakon ovog datuma, pretplatite se na",
   "skill_focus": "Fokus vještina",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Odaberi još najmanje {{skillNumber}} vještina",
   "skill_focus_footer_error_description": "Poništi odabir najmanje još {{skillNumber}} vještina",
   "skill_chart_side_panel_content_completed": "Sadržaj dovršen",
