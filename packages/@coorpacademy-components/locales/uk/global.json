@@ -91,6 +91,7 @@
   "subscription_price": "${currency}${price} включно податків на місяць",
   "subscription_promo_code": "Тепер у вас безкоштовний необмежений доступ до нашого каталогу до {{date}}. Щоб користуватися ним і після цієї дати, будь ласка підпишіться на",
   "skill_focus": "Фокус навички",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Виберіть ще принаймні {{skillNumber}} навички",
   "skill_focus_footer_error_description": "Приберіть вибір ще принаймні {{skillNumber}} навичок",
   "skill_chart_side_panel_content_completed": "Зміст завершено",
