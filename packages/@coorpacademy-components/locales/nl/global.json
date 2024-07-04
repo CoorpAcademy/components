@@ -91,7 +91,7 @@
   "subscription_price": "${currency}${price} incl. belastingen per maand",
   "subscription_promo_code": "Je hebt nu gratis onbeperkte toegang tot onze catalogus tot {{date}}. Wil je dat dit na die datum zo blijft, verleng dan je abonnement.",
   "skill_focus": "Vaardigheidsfocus",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Gerichte vaardigheden",
   "skill_focus_footer_description": "Selecteer ten minste {{skillNumber}} extra vaardigheden",
   "skill_focus_footer_error_description": "Deselecteer ten minste {{skillNumber}} extra vaardigheden",
   "skill_chart_side_panel_content_completed": "Inhoud voltooid",
