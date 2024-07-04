@@ -91,6 +91,7 @@
   "subscription_price": "${currency}${price} beleértve. adó havonta",
   "subscription_promo_code": "Önnek  ingyenes korlátlan hozzáférése van a katalógusunkhoz eddig az időpontig: {{date}}. Ha ezután is használni szeretné, kérjük, fizessen elő",
   "skill_focus": "Képesség célzása",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Válassz még legalább {{skillNumber}} további képességet",
   "skill_focus_footer_error_description": "Vond vissza még legalább {{skillNumber}} képesség megjelölését",
   "skill_chart_side_panel_content_completed": "A tartalom elkészült",
