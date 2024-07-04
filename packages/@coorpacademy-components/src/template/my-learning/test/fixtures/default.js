@@ -75,7 +75,7 @@ const skillsInformation = {
   skillRef7: {
     availableForReview: true,
     stats: {
-      score: 63.3,
+      score: 63.33333333,
       content: 120,
       contentCompleted: 62,
       questionsToReview: 24,
