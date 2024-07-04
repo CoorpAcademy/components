@@ -91,7 +91,7 @@
   "subscription_price": "vč. ${price} ${currency} daně na měsíc",
   "subscription_promo_code": "Nyní máte neomezený přístup k našemu katalogu až do {{date}}. Chcete-li jej využívat i po tomto datu, obnovte si předplatné",
   "skill_focus": "Zaměření dovednosti",
-  "skills_focus": "Skills focus",
+  "skills_focus": "Cílené dovednosti",
   "skill_focus_footer_description": "Vyberte alespoň {{skillNumber}} dalších dovedností",
   "skill_focus_footer_error_description": "Zrušte výběr alespoň {{skillNumber}} dalších dovedností",
   "skill_chart_side_panel_content_completed": "Obsah dokončen",
