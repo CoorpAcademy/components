@@ -91,6 +91,7 @@
   "subscription_price": "${currency}${price} vrátane DPH za mesiac",
   "subscription_promo_code": "Teraz máte bezplatný neobmedzený prístup do nášho katalógu do {{date}}. Ak si ho chcete užívať aj po tomto termíne, prihláste sa na odber",
   "skill_focus": "Zameranie na zručnosti",
+  "skills_focus": "Skills focus",
   "skill_focus_footer_description": "Vyberte aspoň {{skillNumber}} ďalších zručností",
   "skill_focus_footer_error_description": "Zrušte výber aspoň {{skillNumber}} ďalších zručností",
   "skill_chart_side_panel_content_completed": "Obsah dokončený",
