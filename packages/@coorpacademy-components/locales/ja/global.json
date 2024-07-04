@@ -91,7 +91,7 @@
   "subscription_price": "1 ヶ月あたりの ${currency} ${price} 税込税",
   "subscription_promo_code": "今、{{date}} までカタログに無料の無制限のアクセスがあります。この日付後にそれを楽しんで、するに登録してください。",
   "skill_focus": "スキルフォーカス",
-  "skills_focus": "Skills focus",
+  "skills_focus": "対象となるスキル",
   "skill_focus_footer_description": "少なくとも{{skillNumber}}つ以上のスキルを選択してください",
   "skill_focus_footer_error_description": "少なくとも{{skillNumber}}つ以上のスキルの選択を解除してください",
   "skill_chart_side_panel_content_completed": "コンテンツ完了",
