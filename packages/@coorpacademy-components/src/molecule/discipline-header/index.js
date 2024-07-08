@@ -63,7 +63,7 @@ class DisciplineHeader extends React.Component {
     const {image, title, description, video, lastUpdated} = this.props;
     const {fullDisplay, scrollHeightShowMore} = this.state;
     const {translate} = this.context;
-    const maxHeightCourseInfos = 215;
+    const maxHeightCourseInfos = 210;
     const hasMediaContent = image || video;
     const toggleLabel = fullDisplay ? translate('See less') : translate('Show more');
     const shortCourseText = scrollHeightShowMore <= maxHeightCourseInfos;
