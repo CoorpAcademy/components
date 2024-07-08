@@ -11,14 +11,7 @@ import Provider from '../src/atom/provider';
 import skin from './skin';
 
 const withProvider = (Story, context) => {
-  const locales = {
-    en,
-    fr,
-    ja,
-    ko,
-    es,
-    vi
-  };
+  const locales = {en, fr, ja, ko, es, vi};
 
   const providerContext = {
     skin,
@@ -37,16 +30,16 @@ export const globalTypes = {
   locale: {
     name: 'Locale',
     description: 'Internationalization locale',
-    defaultValue: 'fr',
+    defaultValue: 'en',
     toolbar: {
       icon: 'globe',
       items: [
         { value: 'fr', right: '🇫🇷', title: 'Français' },
         { value: 'en', right: '🇺🇸', title: 'English' },
         { value: 'es', right: '🇪🇸', title: 'Español' },
-        { value: 'ja', right: '🇨🇳', title: 'Japanese' },
-        { value: 'ko', right: '🇰🇷', title: '한국어' },
-        { value: 'vi', right: '🇻🇳', title: 'vietnamese' },
+        { value: 'ja', right: '🇯🇵', title: 'Japanese' },
+        { value: 'ko', right: '🇰🇷', title: 'Korean' },
+        { value: 'vi', right: '🇻🇳', title: 'Vietnamese' },
       ],
     },
   },
