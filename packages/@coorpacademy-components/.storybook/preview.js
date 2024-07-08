@@ -1,60 +1,16 @@
-const React = require('react');
-const { useState } = require('react');
-const { default: createTranslate } = require('@coorpacademy/translate');
-const en = require('../locales/en/global');
-const fr = require('../locales/fr/global');
-const ja = require('../locales/ja/global');
-const ko = require('../locales/ko/global');
-const es = require('../locales/es/global');
-const vi = require('../locales/vi/global');
-const { default: Provider } = require('../src/atom/provider');
-const { default: Select } = require('../src/atom/select');
+import React from 'react';
+import createTranslate from '@coorpacademy/translate';
+import en from '../locales/en/global';
+import fr from '../locales/fr/global';
+import ja from '../locales/ja/global';
+import ko from '../locales/ko/global';
+import es from '../locales/es/global';
+import vi from '../locales/vi/global';
+import Provider from '../src/atom/provider';
 
-const skin = require('./skin');
+import skin from './skin';
 
-const LanguageSelector = ({ setLocale }) => {
-  const options = [
-    {
-      name: 'en',
-      value: 'en',
-      selected: true
-    },
-    {
-      name: 'fr',
-      value: 'fr',
-      selected: false
-    },
-    {
-      name: 'ja',
-      value: 'ja',
-      selected: false
-    },
-    {
-      name: 'ko',
-      value: 'ko',
-      selected: false
-    },
-    {
-      name: 'es',
-      value: 'es',
-      selected: false
-    },
-    {
-      name: 'vi',
-      value: 'vi',
-      selected: false
-    },
-  ]
-  return (
-    <div style={{marginBottom: '32px'}}>
-      <Select options={options} theme={'coorpmanager'} onChange={(value) => setLocale(value)}/>
-    </div>
-  );
-};
-
-const withProvider = Story => {
-  const [locale, setLocale] = useState('en');
-
+const withProvider = (Story, context) => {
   const locales = {
     en,
     fr,
@@ -64,26 +20,38 @@ const withProvider = Story => {
     vi
   };
 
-  const context = {
+  const providerContext = {
     skin,
-    translate: createTranslate(locales[locale]),
+    translate: createTranslate(locales[context.globals.locale]),
     Vimeo: window.Vimeo,
   };
 
   return (
-    <Provider {...context}>
-      <>
-      <LanguageSelector setLocale={setLocale} />
+    <Provider {...providerContext}>
       <Story />
-      </>
     </Provider>
   );
 };
 
-module.exports = {
-  decorators: [
-    withProvider
-  ]
+export const globalTypes = {
+  locale: {
+    name: 'Locale',
+    description: 'Internationalization locale',
+    defaultValue: 'fr',
+    toolbar: {
+      icon: 'globe',
+      items: [
+        { value: 'fr', right: '🇫🇷', title: 'Français' },
+        { value: 'en', right: '🇺🇸', title: 'English' },
+        { value: 'es', right: '🇪🇸', title: 'Español' },
+        { value: 'ja', right: '🇨🇳', title: 'Japanese' },
+        { value: 'ko', right: '🇰🇷', title: '한국어' },
+        { value: 'vi', right: '🇻🇳', title: 'vietnamese' },
+      ],
+    },
+  },
 };
 
-
+export const decorators = [
+  withProvider
+];

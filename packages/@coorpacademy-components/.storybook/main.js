@@ -14,6 +14,7 @@ module.exports = {
     ['@storybook/addon-ie11']:
     [
     '@storybook/addon-controls',
+    '@storybook/addon-toolbars',
     '@storybook/addon-actions'])
   ],
   stories: ['../src/**/*.stories.@(js|tsx)'],
