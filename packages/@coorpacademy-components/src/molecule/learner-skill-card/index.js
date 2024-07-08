@@ -37,7 +37,8 @@ const LearnerSkillCard = (props, context) => {
   const buttonReviewProps = {
     customStyle: {
       backgroundColor: '#FFF',
-      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
+      padding: '0px'
     },
     disabled: !review,
     onClick: onReviewClick,
