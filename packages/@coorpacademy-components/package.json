@@ -123,6 +123,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/addon-toolbars": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "@testing-library/react": "12.1.5",
     "@testing-library/react-native": "^10.1.1",
