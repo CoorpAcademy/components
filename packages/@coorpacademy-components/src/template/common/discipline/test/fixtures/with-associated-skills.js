@@ -56,7 +56,7 @@ export default {
       },
       {
         ref: 'skill-ref-4',
-        locale: 'Skill 4',
+        locale: 'Really Emotional Intelligence and Self-awareness',
         focused: false
       },
       {
