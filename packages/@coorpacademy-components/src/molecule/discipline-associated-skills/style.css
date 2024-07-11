@@ -55,18 +55,23 @@
   background-color: transparent;
 }
 
-.tooltip {
+.tooltip,
+.tooltipSkillFocused {
   width: fit-content;
   color: #FFF;
   font-size: 12px;
   font-style: normal;
   line-height: 16px;
-  top: -64px;
+  top: -48px;
 
   p {
     padding: 8px 8px;
     margin: 0;
   }
+}
+
+.tooltipSkillFocused {
+  top: -64px;
 }
 
 .tooltipContentWrapper {

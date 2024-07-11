@@ -16,15 +16,17 @@ const DisciplineAssociatedSkills = (props, context) => {
   const AnchorElement = useCallback(
     skill => (
       <div className={style.chipFocusedContent}>
-        <Icon
-          iconName="bullseye-arrow"
-          backgroundColor="#DDD1FF"
-          size={{
-            faSize: 12,
-            wrapperSize: 12
-          }}
-        />
-        <div className={style.chipFocusedContentText}>{skill}</div>
+        {skill.focused ? (
+          <Icon
+            iconName="bullseye-arrow"
+            backgroundColor="#DDD1FF"
+            size={{
+              faSize: 12,
+              wrapperSize: 12
+            }}
+          />
+        ) : null}
+        <div className={style.chipFocusedContentText}>{skill.locale}</div>
       </div>
     ),
     []
@@ -33,10 +35,12 @@ const DisciplineAssociatedSkills = (props, context) => {
   const TooltipContentElement = useCallback(
     skill => (
       <div className={style.tooltipContentWrapper}>
-        <div>
-          <b>{translate('skill_focused_chip_tooltip')}</b>
-        </div>
-        <div>{skill}</div>
+        {skill.focused ? (
+          <div>
+            <b>{translate('skill_focused_chip_tooltip')}</b>
+          </div>
+        ) : null}
+        <div>{skill.locale}</div>
       </div>
     ),
     []
@@ -51,10 +55,10 @@ const DisciplineAssociatedSkills = (props, context) => {
               return onSkillClick(skill.ref);
             }
             function handleAnchorElement() {
-              return AnchorElement(skill.locale);
+              return AnchorElement(skill);
             }
             function handleTooltipContentElement() {
-              return TooltipContentElement(skill.locale);
+              return TooltipContentElement(skill);
             }
             return (
               <div
@@ -62,19 +66,15 @@ const DisciplineAssociatedSkills = (props, context) => {
                 className={classnames(style.chipWrapper, skill.focused && style.chipWrapperFocused)}
                 onClick={handleSkillClick}
               >
-                {skill.focused ? (
-                  <ToolTip
-                    AnchorElement={handleAnchorElement}
-                    fontSize={12}
-                    delayHide={0}
-                    iconContainerClassName={style.infoIconTooltip}
-                    tooltipClassName={style.tooltip}
-                    TooltipContent={handleTooltipContentElement}
-                    closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
-                  />
-                ) : (
-                  skill.locale
-                )}
+                <ToolTip
+                  AnchorElement={handleAnchorElement}
+                  fontSize={12}
+                  delayHide={0}
+                  iconContainerClassName={style.infoIconTooltip}
+                  tooltipClassName={skill.focused ? style.tooltipSkillFocused : style.tooltip}
+                  TooltipContent={handleTooltipContentElement}
+                  closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
+                />
               </div>
             );
           })}
