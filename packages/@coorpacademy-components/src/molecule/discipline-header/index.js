@@ -55,7 +55,8 @@ class DisciplineHeader extends React.Component {
     }));
   }
 
-  setHandle(el) {
+  setHandle() {
+    const el = document.getElementById('discipline-summary');
     this.setState({scrollHeightShowMore: getOr(0, 'scrollHeight', el)});
   }
 
@@ -72,12 +73,13 @@ class DisciplineHeader extends React.Component {
     return (
       <div data-name="disciplineHeader" className={style.wrapper}>
         {hasMediaContent ? (
-          <div className={style.imgWrapper}>
+          <div className={style.imgWrapper} ref={this.setHandle}>
             <Preview image={image} video={video} />
           </div>
         ) : null}
         <div className={style.courseWrapper}>
           <div
+            id="discipline-summary"
             className={fullDisplay ? style.courseTextWrapperFull : style.courseTextWrapperShort}
             ref={this.setHandle}
           >
