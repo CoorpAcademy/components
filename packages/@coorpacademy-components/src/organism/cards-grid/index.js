@@ -6,7 +6,7 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 function CardsGrid(props) {
-  const {list = [], loading = false} = props;
+  const {list = [], justifyContent = 'center', loading = false} = props;
 
   const loader = loading ? (
     <div className={style.loader}>
@@ -23,7 +23,7 @@ function CardsGrid(props) {
   }, list);
 
   return (
-    <div className={style.default}>
+    <div className={style.default} style={{justifyContent}}>
       {cards}
       {loader}
     </div>
@@ -32,6 +32,7 @@ function CardsGrid(props) {
 
 CardsGrid.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
+  justifyContent: PropTypes.string,
   loading: PropTypes.bool
 };
 

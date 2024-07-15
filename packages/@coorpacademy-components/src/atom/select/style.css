@@ -13,6 +13,7 @@
 @value transparent from colors;
 @value box_shadow_light_dark from colors;
 @value box_shadow_medium_dark from colors;
+@value cm_grey_100 from colors;
 @value cm_blue_900 from colors;
 @value cm_grey_450 from colors;
 
@@ -633,4 +634,31 @@ div.player:hover span.selectSpan {
   margin-right: 0;
   height: 54px;
   max-width: 100%;
+}
+
+/*
+  skillDetail
+*/
+
+.skillDetail {
+  composes: no-label;
+}
+
+.skillDetail .selectWrapper {
+  height: 44px;
+  min-height: unset;
+}
+
+.skillDetail .selectSpan {
+  font-size: 15px;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 40px 0 10px;
+  border-radius: 12px !important;
+  background-color: cm_grey_100 !important;
+}
+
+.skillDetail select {
+  border: none !important;
+  height: 44px !important;
 }
