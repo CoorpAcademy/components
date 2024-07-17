@@ -71,11 +71,17 @@
   margin-left: 12px;
 }
 
-@media mobile {
+@media (max-width: 799px) {
   .searchAndSortSection {
     flex-direction: column;
   }
 
+  .sortSection {
+    margin-top: 16px;
+  }
+}
+
+@media mobile {
   .sortSection {
     flex-direction: column;
     gap: 16px;
