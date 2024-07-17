@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
+@value mobile from breakpoints;
 @value xtraLightGrey from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
@@ -159,5 +160,15 @@
 
   .ctaWrapper {
     margin-top: 32px;
+  }
+}
+
+@media mobile {
+  .ctaWrapper {
+    flex-direction: column;
+
+    button {
+      width: 100% !important;
+    }
   }
 }
