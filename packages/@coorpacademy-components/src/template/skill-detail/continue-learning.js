@@ -9,19 +9,19 @@ const ContinueLearning = (props, context) => {
   const {ongoingCourses} = props;
   const {translate} = context;
 
-  if (ongoingCourses.length === 0) {
+  if (ongoingCourses.list.length === 0) {
     return null;
   }
 
   const Title = () => (
     <>
       <span className={style.continueLearningTitle}>{translate('continue_learning')}</span>
-      <span className={style.continueLearningNumber}>{ongoingCourses.length}</span>
+      <span className={style.continueLearningNumber}>{ongoingCourses.list.length}</span>
     </>
   );
 
   return (
-    <CardsList cards={ongoingCourses} title={<Title />} customStyle={{padding: '16px 0px 8px'}}/>
+    <CardsList cards={ongoingCourses.list} title={<Title />} customStyle={{padding: '16px 0px 8px'}}/>
   );
 };
 

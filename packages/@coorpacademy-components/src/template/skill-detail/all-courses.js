@@ -118,7 +118,7 @@ const AllCourses = (props, context) => {
         </div>
       </div>
       <div className={style.filterWrapper}>
-        {options.length > 2
+        {options.length > 2 && searchResults.length > 0
           ? options.map((filter, index) => {
               const {name, value, selected} = filter;
 
@@ -136,7 +136,21 @@ const AllCourses = (props, context) => {
           : null}
       </div>
       <div>
-        <CardsGrid list={searchResults} justifyContent="left" />
+        {searchResults.length > 0 ? (
+          <CardsGrid list={searchResults} justifyContent="left" />
+        ) : (
+          <div className={style.emptySearchResultContainer}>
+            <div className={style.emptySearchResultTitle}>
+              {translate('empty_search_result_title', {searchValue})}
+            </div>
+            <div className={style.emptySearchResultDescription}>
+              {translate('empty_search_result_description')}
+            </div>
+            <div className={style.emptySearchResultClearSearch} onClick={handleSearchReset}>
+              {translate('empty_search_result_clear_search')}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

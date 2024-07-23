@@ -2,7 +2,7 @@ import cardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
 
 const cards = cardsGrid.props;
 const allCourses = cards;
-const onGoingCourses = cards.list;
+const onGoingCourses = cards;
 
 export const defaultProps = {
   title: 'Conflict management',
