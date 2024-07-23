@@ -106,8 +106,11 @@ const AllCourses = (props, context) => {
         </div>
         <div className={style.sortSection}>
           <InputSwitch
+            id={'show-completed-courses-switch'}
             type="switch"
+            name={translate('show_completed')}
             title={translate('show_completed')}
+            aria-label={'Show completed courses aria label'}
             value={showCompleted}
             onChange={handleShowCompletedToggle}
           />
