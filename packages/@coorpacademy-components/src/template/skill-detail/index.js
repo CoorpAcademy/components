@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get} from 'lodash/fp';
+import {get, isEmpty} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -14,7 +14,7 @@ import ContinueLearning from './continue-learning';
 
 const ContinueLearningButton = (props, context) => {
   const [hovered, setHovered] = useState(false);
-  const {onClick} = props;
+  const {ongoingCoursesAvailable, onClick} = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
@@ -25,7 +25,7 @@ const ContinueLearningButton = (props, context) => {
   return (
     <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
       <ButtonLink
-        label={translate('continue_learning')}
+        label={ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')}
         type="primary"
         customStyle={{
           width: 'fit-content',
@@ -54,14 +54,16 @@ ContinueLearningButton.contextTypes = {
 };
 
 ContinueLearningButton.propTypes = {
+  ongoingCoursesAvailable: PropTypes.bool,
   onClick: PropTypes.func
 };
 
 const SkillDetail = (props, context) => {
   const {
     title,
+    ref,
     description,
-    metrics,
+    metrics = {},
     focused,
     availableForReview,
     ongoingCourses,
@@ -109,7 +111,7 @@ const SkillDetail = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
-      <div className={style.container}>
+      <div className={style.container} data-name={ref}>
         <div className={style.backButtonWrapper} onClick={onBackClick}>
           <Icon
             iconName="arrow-left"
@@ -165,10 +167,10 @@ const SkillDetail = (props, context) => {
                 borderRadius: '12px'
               }}
             />
-            <ContinueLearningButton onClick={onContinueLearningClick} />
+            <ContinueLearningButton ongoingCoursesAvailable={!!ongoingCourses.list.length} onClick={onContinueLearningClick} />
           </div>
         </div>
-        <div className={style.progressInformationsWrapper}>
+        {score !== undefined ? <div className={style.progressInformationsWrapper}>
           <div className={style.progressTitle}>{translate('your_progress')}</div>
           <div className={style.skillCoursesAndQuestionsWrapper}>
             {content ? (
@@ -198,7 +200,7 @@ const SkillDetail = (props, context) => {
               </>
             )}
           </div>
-        </div>
+        </div> : null}
         <ContinueLearning ongoingCourses={ongoingCourses} />
         <AllCourses
           skillIncludedCourses={skillIncludedCourses}
@@ -217,6 +219,7 @@ SkillDetail.contextTypes = {
 
 SkillDetail.propTypes = {
   title: PropTypes.string.isRequired,
+  ref: PropTypes.string.isRequired,
   description: PropTypes.string,
   metrics: PropTypes.shape({
     score: PropTypes.number,
