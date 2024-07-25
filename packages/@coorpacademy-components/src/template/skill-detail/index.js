@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, isEmpty} from 'lodash/fp';
+import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -25,7 +25,9 @@ const ContinueLearningButton = (props, context) => {
   return (
     <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
       <ButtonLink
-        label={ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')}
+        label={
+          ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')
+        }
         type="primary"
         customStyle={{
           width: 'fit-content',
@@ -68,6 +70,7 @@ const SkillDetail = (props, context) => {
     availableForReview,
     ongoingCourses,
     skillIncludedCourses,
+    totalCourses,
     filters,
     sorting,
     onBackClick,
@@ -167,43 +170,49 @@ const SkillDetail = (props, context) => {
                 borderRadius: '12px'
               }}
             />
-            <ContinueLearningButton ongoingCoursesAvailable={!!ongoingCourses.list.length} onClick={onContinueLearningClick} />
+            <ContinueLearningButton
+              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              onClick={onContinueLearningClick}
+            />
           </div>
         </div>
-        {score !== undefined ? <div className={style.progressInformationsWrapper}>
-          <div className={style.progressTitle}>{translate('your_progress')}</div>
-          <div className={style.skillCoursesAndQuestionsWrapper}>
-            {content ? (
-              <div className={style.skillInformation} data-name="skill-courses">
-                <span className={style.skillInformationNumber}>{content}</span>{' '}
-                {translate('courses')}
-              </div>
-            ) : null}
-            {questionsToReview ? (
-              <div className={style.skillInformation} data-name="skill-questions">
-                <span className={style.skillInformationNumber}>{questionsToReview}</span>
-                &nbsp;{translate('questions')}
-              </div>
-            ) : null}
-          </div>
-          <ProgressBar />
-          <div className={style.progressInformations}>
-            {content && (
-              <>
-                <div className={style.progressInformation} data-name="skill-completed-courses">
-                  <span className={style.progressInformationNumber}>{contentCompleted}</span>
-                  {` ${translate('courses_completed')}`}
+        {score !== undefined ? (
+          <div className={style.progressInformationsWrapper}>
+            <div className={style.progressTitle}>{translate('your_progress')}</div>
+            <div className={style.skillCoursesAndQuestionsWrapper}>
+              {content ? (
+                <div className={style.skillInformation} data-name="skill-courses">
+                  <span className={style.skillInformationNumber}>{content}</span>{' '}
+                  {translate('courses')}
                 </div>
-                <div className={style.progressInformation} data-name="completed-percentage">
-                  <span className={style.progressInformationNumber}>{score}%</span>
+              ) : null}
+              {questionsToReview ? (
+                <div className={style.skillInformation} data-name="skill-questions">
+                  <span className={style.skillInformationNumber}>{questionsToReview}</span>
+                  &nbsp;{translate('questions')}
                 </div>
-              </>
-            )}
+              ) : null}
+            </div>
+            <ProgressBar />
+            <div className={style.progressInformations}>
+              {content && (
+                <>
+                  <div className={style.progressInformation} data-name="skill-completed-courses">
+                    <span className={style.progressInformationNumber}>{contentCompleted}</span>
+                    {` ${translate('courses_completed')}`}
+                  </div>
+                  <div className={style.progressInformation} data-name="completed-percentage">
+                    <span className={style.progressInformationNumber}>{score}%</span>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-        </div> : null}
+        ) : null}
         <ContinueLearning ongoingCourses={ongoingCourses} />
         <AllCourses
           skillIncludedCourses={skillIncludedCourses}
+          totalCourses={totalCourses}
           filters={filters}
           sorting={sorting}
         />
@@ -231,6 +240,7 @@ SkillDetail.propTypes = {
   availableForReview: PropTypes.bool,
   ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
+  totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))

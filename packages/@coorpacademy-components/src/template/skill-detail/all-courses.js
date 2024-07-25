@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
@@ -42,7 +42,7 @@ FilterButton.propTypes = {
 };
 
 const AllCourses = (props, context) => {
-  const {skillIncludedCourses, filters, sorting} = props;
+  const {skillIncludedCourses, totalCourses, filters, sorting} = props;
   const {options, onChange} = filters;
   const {list} = skillIncludedCourses;
   const {translate} = context;
@@ -62,6 +62,17 @@ const AllCourses = (props, context) => {
         <Select {...sorting} aria-label="All courses sort" />
       </div>
     ) : null;
+
+  useEffect(() => {
+    console.log('list', list);
+    setSearchResults(
+      list.sort((a, b) => {
+        const progressA = a.progress ?? 0;
+        const progressB = b.progress ?? 0;
+        return progressB - progressA;
+      })
+    );
+  }, [list]);
 
   const handleSearch = useCallback(
     value => {
@@ -91,7 +102,7 @@ const AllCourses = (props, context) => {
     <>
       <div className={style.continueLearningWrapper}>
         <span className={style.continueLearningTitle}>{translate('all_courses')}</span>
-        <span className={style.continueLearningNumber}>{skillIncludedCourses.list.length}</span>
+        <span className={style.continueLearningNumber}>{totalCourses}</span>
       </div>
       <div className={style.searchAndSortSection}>
         <div className={style.searchWrapper}>
@@ -166,6 +177,7 @@ AllCourses.contextTypes = {
 
 AllCourses.propTypes = {
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
+  totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))

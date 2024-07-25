@@ -96,7 +96,7 @@ class CardsList extends React.PureComponent {
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     showMore: PropTypes.string,
     cards: PropTypes.arrayOf(PropTypes.shape(cardPropTypes)),
-    customStyle: PropTypes.object,
+    customStyle: PropTypes.objectOf(PropTypes.string),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
     'arrows-aria-label': PropTypes.shape({
@@ -337,12 +337,15 @@ class CardsList extends React.PureComponent {
       </div>
     );
 
-    const titleView = typeof title === 'string' ? (
-      <span data-name="title" className={titleStyle} onClick={onShowMore}>
-        <IconView contentType={contentType} />
-        <span>{title}</span>
-      </span>
-    ) : <span className={style.titleNode}>{title}</span>;
+    const titleView =
+      typeof title === 'string' ? (
+        <span data-name="title" className={titleStyle} onClick={onShowMore}>
+          <IconView contentType={contentType} />
+          <span>{title}</span>
+        </span>
+      ) : (
+        <span className={style.titleNode}>{title}</span>
+      );
 
     const hasPages = maxPages > 0;
     const showMoreView =

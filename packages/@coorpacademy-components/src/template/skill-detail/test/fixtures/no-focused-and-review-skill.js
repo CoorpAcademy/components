@@ -18,6 +18,7 @@ export const defaultProps = {
   availableForReview: false,
   ongoingCourses: onGoingCourses,
   skillIncludedCourses: allCourses,
+  totalCourses: 10,
   filters: {
     options: [
       {
