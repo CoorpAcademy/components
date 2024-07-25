@@ -44,7 +44,7 @@ FilterButton.propTypes = {
 const AllCourses = (props, context) => {
   const {skillIncludedCourses, totalCourses, filters, sorting} = props;
   const {options, onChange} = filters;
-  const {list} = skillIncludedCourses;
+  const {list, loading} = skillIncludedCourses;
   const {translate} = context;
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState('');
@@ -151,7 +151,7 @@ const AllCourses = (props, context) => {
       </div>
       <div>
         {searchResults.length > 0 ? (
-          <CardsGrid list={searchResults} justifyContent="left" />
+          <CardsGrid list={searchResults} loading={loading} justifyContent="left" />
         ) : (
           <div className={style.emptySearchResultContainer}>
             <div className={style.emptySearchResultTitle}>
