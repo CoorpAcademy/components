@@ -649,16 +649,11 @@ div.player:hover span.selectSpan {
   min-height: unset;
 }
 
-.skillDetail .selectSpan {
+.skillDetail label.selectWrapper span.selectSpan {
   font-size: 15px;
   height: 44px;
   line-height: 44px;
   padding: 0 40px 0 10px;
-  border-radius: 12px !important;
-  background-color: cm_grey_100 !important;
-}
-
-.skillDetail select {
-  border: none !important;
-  height: 44px !important;
+  border-radius: 12px;
+  background-color: cm_grey_100;
 }

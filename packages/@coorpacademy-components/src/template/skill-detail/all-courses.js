@@ -64,7 +64,6 @@ const AllCourses = (props, context) => {
     ) : null;
 
   useEffect(() => {
-    console.log('list', list);
     setSearchResults(
       list.sort((a, b) => {
         const progressA = a.progress ?? 0;
@@ -151,7 +150,11 @@ const AllCourses = (props, context) => {
       </div>
       <div>
         {searchResults.length > 0 ? (
-          <CardsGrid list={searchResults} loading={loading} justifyContent="left" />
+          <CardsGrid
+            list={searchResults}
+            loading={loading}
+            customStyle={{justifyContent: 'left'}}
+          />
         ) : (
           <div className={style.emptySearchResultContainer}>
             <div className={style.emptySearchResultTitle}>
