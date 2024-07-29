@@ -138,7 +138,11 @@ const MyLearning = (props, context) => {
   const [skillFocusSelectedOnChart, setSkillFocusSelectedOnChart] = useState(undefined);
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(
-    skills.sort((a, b) => skillsInformation[b].stats.score - skillsInformation[a].stats.score)
+    skills.sort((a, b) => {
+      const scoreA = skillsInformation[a] ? skillsInformation[a].stats.score : 0;
+      const scoreB = skillsInformation[b] ? skillsInformation[b].stats.score : 0;
+      return scoreB - scoreA;
+    })
   );
   const [activeFilter, setActiveFilter] = useState('all');
   const [hovered, setHovered] = useState(false);
@@ -148,7 +152,9 @@ const MyLearning = (props, context) => {
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const skillsReviewReady = useMemo(() => {
-    return searchResults.filter(skill => skillsInformation[skill].availableForReview);
+    return searchResults.filter(skill =>
+      skillsInformation[skill] ? skillsInformation[skill].availableForReview : false
+    );
   }, [searchResults, skillsInformation]);
 
   const graphDatas = useMemo(
@@ -177,10 +183,15 @@ const MyLearning = (props, context) => {
   }, [searchResults, skillsReviewReady]);
 
   const sumKpi = useCallback(
-    kpi =>
-      skillFocusSelectedOnChart
-        ? skillsInformation[skillFocusSelectedOnChart].stats[kpi]
-        : sumBy(skill => skillsInformation[skill].stats[kpi], selectedSkillsList),
+    kpi => {
+      const skillFocusSelectedOnChartScore = getOr(0, [skillFocusSelectedOnChart, 'stats', `${kpi}`], skillsInformation);
+      return skillFocusSelectedOnChart
+        ? skillFocusSelectedOnChartScore
+        : sumBy(
+            skill => (skillsInformation[skill] ? skillsInformation[skill].stats[kpi] : 0),
+            selectedSkillsList
+          );
+    },
     [skillFocusSelectedOnChart, skillsInformation, selectedSkillsList]
   );
 
@@ -446,6 +457,13 @@ const MyLearning = (props, context) => {
               </div>
             ) : (
               filters[activeFilter].map((skill, index) => {
+                const defaultStats = {
+                  score: 0,
+                  content: 0,
+                  contentCompleted: 0,
+                  questionsToReview: 0
+                }
+
                 function handleReviewSkill() {
                   onReviewSkill(skill);
                 }
@@ -453,7 +471,7 @@ const MyLearning = (props, context) => {
                   onExploreSkill(skill);
                 }
                 const {score, content, questionsToReview, contentCompleted} =
-                  skillsInformation[skill].stats;
+                  skillsInformation[skill] ? skillsInformation[skill].stats : defaultStats;
                 return (
                   <div key={index}>
                     <LearnerSkillCard
@@ -465,7 +483,11 @@ const MyLearning = (props, context) => {
                         questionsToReview,
                         contentCompleted
                       }}
-                      review={skillsInformation[skill].availableForReview}
+                      review={
+                        skillsInformation[skill]
+                          ? skillsInformation[skill].availableForReview
+                          : false
+                      }
                       onReviewClick={handleReviewSkill}
                       onExploreClick={handleExploreSkill}
                     />

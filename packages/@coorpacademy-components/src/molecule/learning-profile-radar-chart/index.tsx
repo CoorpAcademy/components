@@ -394,6 +394,7 @@ export const LearningProfileRadarChart = (
   const skin = GetSkinFromContext(legacyContext);
   const translate = GetTranslateFromContext(legacyContext);
   const primarySkinColor = get('common.primary', skin);
+  console.log(data)
 
   const formatedColors = times(i => {
     if (!colorsProps?.length) return DEFAULT_COLORS;
