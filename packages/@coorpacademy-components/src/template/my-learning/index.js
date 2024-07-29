@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {get, keys, map, fromPairs, pipe, sumBy, getOr} from 'lodash/fp';
+import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -138,11 +138,7 @@ const MyLearning = (props, context) => {
   const [skillFocusSelectedOnChart, setSkillFocusSelectedOnChart] = useState(undefined);
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(
-    skills.sort((a, b) => {
-      const scoreA = skillsInformation[a] ? skillsInformation[a].stats.score : 0;
-      const scoreB = skillsInformation[b] ? skillsInformation[b].stats.score : 0;
-      return scoreB - scoreA;
-    })
+    sortBy(skillRef => -getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
   );
   const [activeFilter, setActiveFilter] = useState('all');
   const [hovered, setHovered] = useState(false);
@@ -184,7 +180,11 @@ const MyLearning = (props, context) => {
 
   const sumKpi = useCallback(
     kpi => {
-      const skillFocusSelectedOnChartScore = getOr(0, [skillFocusSelectedOnChart, 'stats', `${kpi}`], skillsInformation);
+      const skillFocusSelectedOnChartScore = getOr(
+        0,
+        [skillFocusSelectedOnChart, 'stats', `${kpi}`],
+        skillsInformation
+      );
       return skillFocusSelectedOnChart
         ? skillFocusSelectedOnChartScore
         : sumBy(
@@ -462,7 +462,7 @@ const MyLearning = (props, context) => {
                   content: 0,
                   contentCompleted: 0,
                   questionsToReview: 0
-                }
+                };
 
                 function handleReviewSkill() {
                   onReviewSkill(skill);
@@ -470,8 +470,11 @@ const MyLearning = (props, context) => {
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
-                const {score, content, questionsToReview, contentCompleted} =
-                  skillsInformation[skill] ? skillsInformation[skill].stats : defaultStats;
+                const {score, content, questionsToReview, contentCompleted} = skillsInformation[
+                  skill
+                ]
+                  ? skillsInformation[skill].stats
+                  : defaultStats;
                 return (
                   <div key={index}>
                     <LearnerSkillCard

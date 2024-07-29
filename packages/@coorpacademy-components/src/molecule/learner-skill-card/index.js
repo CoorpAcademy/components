@@ -135,7 +135,7 @@ const LearnerSkillCard = (props, context) => {
       </div>
       <ProgressBar />
       <div className={style.progressInformations}>
-        {content && (
+        {content ? (
           <>
             <div className={style.progressInformation} data-name="skill-completed-courses">
               <span className={style.progressInformationNumber}>{contentCompleted}</span>
@@ -145,7 +145,7 @@ const LearnerSkillCard = (props, context) => {
               <span className={style.progressInformationNumber}>{score}%</span>
             </div>
           </>
-        )}
+        ) : null}
       </div>
       <div className={style.ctaWrapper} data-name="cta-wrapper">
         <ButtonLink {...buttonReviewProps} />
