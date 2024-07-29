@@ -125,6 +125,7 @@ const MyLearning = (props, context) => {
     selectedSkills = [],
     skillsInformation,
     skillsLocales,
+    skillIds,
     learnerFeature = true,
     isLoading,
     onSkillFocusConfirm,
@@ -259,6 +260,10 @@ const MyLearning = (props, context) => {
     setSearchResults(skills);
   }, [skills, setSearchValue, setSearchResults]);
 
+  const handleExploreClick = useCallback((skillRef) => {
+    onExploreSkill(skillIds[skillRef]);
+  }, [skillIds, onExploreSkill]);
+
   const ReviewTooltipContent = useCallback(
     () => (
       <div>
@@ -328,7 +333,7 @@ const MyLearning = (props, context) => {
                     data={graphDatas}
                     legend={graphLegends}
                     onClick={handleOnDotClick}
-                    onExploreClick={onExploreSkill}
+                    onExploreClick={handleExploreClick}
                     colors={[
                       {
                         gradient: {
@@ -468,7 +473,7 @@ const MyLearning = (props, context) => {
                   onReviewSkill(skill);
                 }
                 function handleExploreSkill() {
-                  onExploreSkill(skill);
+                  onExploreSkill(skillIds[skill]);
                 }
                 const {score, content, questionsToReview, contentCompleted} = skillsInformation[
                   skill
@@ -526,6 +531,7 @@ MyLearning.propTypes = {
     })
   ),
   skillsLocales: PropTypes.objectOf(PropTypes.string),
+  skillIds: PropTypes.objectOf(PropTypes.string),
   learnerFeature: PropTypes.bool,
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
