@@ -89,7 +89,7 @@ const FilterButton = (props, context) => {
         </span>
       </div>
     ),
-    [filter, skillTotal, active]
+    [filter, skillTotal, active, primarySkinColor]
   );
 
   const buttonProps = {
@@ -260,9 +260,12 @@ const MyLearning = (props, context) => {
     setSearchResults(skills);
   }, [skills, setSearchValue, setSearchResults]);
 
-  const handleExploreClick = useCallback((skillRef) => {
-    onExploreSkill(skillIds[skillRef]);
-  }, [skillIds, onExploreSkill]);
+  const handleExploreClick = useCallback(
+    skillRef => {
+      onExploreSkill(skillIds[skillRef]);
+    },
+    [skillIds, onExploreSkill]
+  );
 
   const ReviewTooltipContent = useCallback(
     () => (

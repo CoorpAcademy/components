@@ -90,7 +90,7 @@ const SkillDetail = (props, context) => {
         {description}
       </div>
     );
-  });
+  }, [showMore, description]);
 
   const ProgressBar = useCallback(() => {
     if (score === undefined) return null;

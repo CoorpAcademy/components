@@ -9,12 +9,15 @@ const ContinueLearning = (props, context) => {
   const {ongoingCourses} = props;
   const {translate} = context;
 
-  const Title = useCallback(() => (
-    <>
-      <span className={style.continueLearningTitle}>{translate('continue_learning')}</span>
-      <span className={style.continueLearningNumber}>{ongoingCourses.list.length}</span>
-    </>
-  ));
+  const Title = useCallback(
+    () => (
+      <>
+        <span className={style.continueLearningTitle}>{translate('continue_learning')}</span>
+        <span className={style.continueLearningNumber}>{ongoingCourses.list.length}</span>
+      </>
+    ),
+    [ongoingCourses, translate]
+  );
 
   if (ongoingCourses.list.length === 0) {
     return null;
