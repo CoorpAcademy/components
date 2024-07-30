@@ -102,7 +102,7 @@ const skillIds = {
   skillRef5: 'skillId5',
   skillRef6: 'skillId6',
   skillRef7: 'skillId7',
-  skillRef8: 'skillId8',
+  skillRef8: 'skillId8'
 };
 
 const skillsLocales = {

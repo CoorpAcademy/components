@@ -52,7 +52,7 @@ const DisciplineAssociatedSkills = (props, context) => {
         <div className={style.chipsWrapper}>
           {skills.map(skill => {
             function handleSkillClick() {
-              return onSkillClick(skill.ref);
+              return onSkillClick(skill.id);
             }
             function handleAnchorElement() {
               return AnchorElement(skill);
@@ -91,6 +91,7 @@ DisciplineAssociatedSkills.contextTypes = {
 DisciplineAssociatedSkills.propTypes = {
   skills: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string,
       ref: PropTypes.string,
       locale: PropTypes.string,
       focused: PropTypes.bool

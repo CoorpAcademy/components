@@ -19,15 +19,18 @@ export default {
     image,
     skills: [
       {
+        id: 'skill-id-1',
         ref: 'skill-ref-1',
         locale: 'Skill 1',
         focused: true
       },
       {
+        id: 'skill-id-2',
         ref: 'skill-ref-2',
         locale: 'Skill 2'
       },
       {
+        id: 'skill-id-3',
         ref: 'skill-ref-3',
         locale: 'Skill 3'
       }
