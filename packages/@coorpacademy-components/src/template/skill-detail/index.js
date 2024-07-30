@@ -63,7 +63,7 @@ ContinueLearningButton.propTypes = {
 const SkillDetail = (props, context) => {
   const {
     title,
-    ref,
+    skillRef,
     description,
     metrics = {},
     focused,
@@ -114,7 +114,7 @@ const SkillDetail = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
-      <div className={style.container} data-name={ref}>
+      <div className={style.container} data-name={skillRef}>
         <div className={style.backButtonWrapper} onClick={onBackClick}>
           <Icon
             iconName="arrow-left"
@@ -228,7 +228,7 @@ SkillDetail.contextTypes = {
 
 SkillDetail.propTypes = {
   title: PropTypes.string.isRequired,
-  ref: PropTypes.string.isRequired,
+  skillRef: PropTypes.string.isRequired,
   description: PropTypes.string,
   metrics: PropTypes.shape({
     score: PropTypes.number,

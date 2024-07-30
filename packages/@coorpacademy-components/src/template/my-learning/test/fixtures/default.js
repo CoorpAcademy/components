@@ -105,8 +105,20 @@ const skillsLocales = {
   skillRef8: 'Active Working'
 };
 
+const skillIds = {
+  skillRef1: 'skillId1',
+  skillRef2: 'skillId2',
+  skillRef3: 'skillId3',
+  skillRef4: 'skillId4',
+  skillRef5: 'skillId5',
+  skillRef6: 'skillId6',
+  skillRef7: 'skillId7',
+  skillRef8: 'skillId8',
+};
+
 export const defaultProps = {
   skills,
+  skillIds,
   selectedSkills,
   skillsInformation,
   skillsLocales,

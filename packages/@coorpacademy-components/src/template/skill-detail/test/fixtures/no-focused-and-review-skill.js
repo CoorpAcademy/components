@@ -6,7 +6,7 @@ const onGoingCourses = {list: cards.list.slice(0, 2)};
 
 export const defaultProps = {
   title: 'Conflict management',
-  ref: 'conflict-management',
+  skillRef: 'conflict-management',
   description:
     'Conflict management is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
   metrics: {

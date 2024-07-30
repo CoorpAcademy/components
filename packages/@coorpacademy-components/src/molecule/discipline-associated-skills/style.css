@@ -3,8 +3,11 @@
 @value desktop from breakpoints;
 @value mobile from breakpoints;
 @value cm_grey_100 from colors;
+@value cm_grey_150 from colors;
 @value cm_grey_200 from colors;
+@value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+
 
 .associatedSkillsWrapper {
   margin-bottom: 12px;
@@ -20,18 +23,29 @@
   width: fit-content;
   border-radius: 8px;
   padding: 4px 8px;
-  background-color: cm_grey_200;
-  color: cm_grey_700;
+  background-color: cm_grey_150;
+  color: cm_grey_500;
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: 600;
   line-height: 20px;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.chipWrapper:hover {
+  background-color: cm_grey_200;
+  color: cm_grey_700;
 }
 
 .chipWrapperFocused {
   background-color: #DDD1FF;
-  color: #3900D6;
+  color: #4B0AFF;
+}
+
+.chipWrapperFocused:hover {
+  background-color: #B89EFF;
+  color: #2B00A3;
 }
 
 .chipFocusedContent {
