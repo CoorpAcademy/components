@@ -11,7 +11,9 @@ import style from './style.css';
 const DisciplineAssociatedSkills = (props, context) => {
   const {translate} = context;
 
-  const {skills = [], onSkillClick} = props;
+  const {skills = [], rootHref, onSkillClick} = props;
+
+  const href = rootHref ? (href + `/${skill.id}`) : '#';
 
   const AnchorElement = useCallback(
     skill => (
@@ -19,7 +21,6 @@ const DisciplineAssociatedSkills = (props, context) => {
         {skill.focused ? (
           <Icon
             iconName="bullseye-arrow"
-            backgroundColor="#DDD1FF"
             size={{
               faSize: 12,
               wrapperSize: 12
@@ -51,9 +52,6 @@ const DisciplineAssociatedSkills = (props, context) => {
       <CatalogSection title={translate('associated_skills')}>
         <div className={style.chipsWrapper}>
           {skills.map(skill => {
-            function handleSkillClick() {
-              return onSkillClick(skill.id);
-            }
             function handleAnchorElement() {
               return AnchorElement(skill);
             }
@@ -61,10 +59,11 @@ const DisciplineAssociatedSkills = (props, context) => {
               return TooltipContentElement(skill);
             }
             return (
-              <div
+              <a
+                href={href}
                 key={uniqueId()}
                 className={classnames(style.chipWrapper, skill.focused && style.chipWrapperFocused)}
-                onClick={handleSkillClick}
+                onClick={onSkillClick}
               >
                 <ToolTip
                   AnchorElement={handleAnchorElement}
@@ -75,7 +74,7 @@ const DisciplineAssociatedSkills = (props, context) => {
                   TooltipContent={handleTooltipContentElement}
                   closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
                 />
-              </div>
+              </a>
             );
           })}
         </div>
@@ -97,6 +96,7 @@ DisciplineAssociatedSkills.propTypes = {
       focused: PropTypes.bool
     })
   ),
+  rootHref: PropTypes.string,
   onSkillClick: PropTypes.func
 };
 

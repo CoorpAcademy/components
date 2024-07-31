@@ -40,11 +40,17 @@
 .chipWrapperFocused {
   background-color: #DDD1FF;
   color: #4B0AFF;
+  svg {
+    color: #4B0AFF;
+  }
 }
 
 .chipWrapperFocused:hover {
   background-color: #B89EFF;
   color: #2B00A3;
+  svg {
+    color: #2B00A3;
+  }
 }
 
 .chipFocusedContent {
@@ -55,6 +61,7 @@
 
   div {
     padding: 0 !important;
+    background-color: transparent;
   }
 }
 

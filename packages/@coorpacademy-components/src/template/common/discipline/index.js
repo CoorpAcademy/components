@@ -204,6 +204,7 @@ Discipline.propTypes = {
       focused: PropTypes.bool
     })
   ),
+  rootHref: PropTypes.string,
   onSkillClick: PropTypes.func,
   addToMyListText: AddToMyListFeedback.propTypes.addToMyListText,
   removeFromMyListText: AddToMyListFeedback.propTypes.removeFromMyListText,
