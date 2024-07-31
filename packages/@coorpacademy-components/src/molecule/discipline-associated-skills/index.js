@@ -13,7 +13,7 @@ const DisciplineAssociatedSkills = (props, context) => {
 
   const {skills = [], rootHref, onSkillClick} = props;
 
-  const href = rootHref ? (href + `/${skill.id}`) : '#';
+  const hrefFormat = useCallback(skill => (rootHref ? `${rootHref}/${skill.id}` : ''), [rootHref]);
 
   const AnchorElement = useCallback(
     skill => (
@@ -52,6 +52,10 @@ const DisciplineAssociatedSkills = (props, context) => {
       <CatalogSection title={translate('associated_skills')}>
         <div className={style.chipsWrapper}>
           {skills.map(skill => {
+            function handleSkillClick(event) {
+              if (!rootHref) event.preventDefault();
+              onSkillClick();
+            }
             function handleAnchorElement() {
               return AnchorElement(skill);
             }
@@ -60,10 +64,10 @@ const DisciplineAssociatedSkills = (props, context) => {
             }
             return (
               <a
-                href={href}
+                href={hrefFormat(skill)}
                 key={uniqueId()}
                 className={classnames(style.chipWrapper, skill.focused && style.chipWrapperFocused)}
-                onClick={onSkillClick}
+                onClick={handleSkillClick}
               >
                 <ToolTip
                   AnchorElement={handleAnchorElement}
