@@ -14,7 +14,7 @@ const DisciplineAssociatedSkills = (props, context) => {
   const {skills = [], skillDetailRootHref, onSkillClick} = props;
 
   const hrefFormat = useCallback(
-    skill => (skillDetailRootHref ? `${skillDetailRootHref}/${skill.id}` : ''),
+    skill => (skillDetailRootHref ? `${skillDetailRootHref}/${skill.ref}` : ''),
     [skillDetailRootHref]
   );
 
@@ -97,7 +97,6 @@ DisciplineAssociatedSkills.contextTypes = {
 DisciplineAssociatedSkills.propTypes = {
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
       ref: PropTypes.string,
       locale: PropTypes.string,
       focused: PropTypes.bool

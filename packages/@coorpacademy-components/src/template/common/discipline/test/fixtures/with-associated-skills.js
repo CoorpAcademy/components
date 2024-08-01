@@ -40,31 +40,26 @@ export default {
     levels,
     skills: [
       {
-        id: 'skill-id-1',
         ref: 'skill-ref-1',
         locale: 'Emotional Intelligence and Self-awareness',
         focused: true
       },
       {
-        id: 'skill-id-2',
         ref: 'skill-ref-2',
         locale: 'Skill 2',
         focused: true
       },
       {
-        id: 'skill-id-3',
         ref: 'skill-ref-3',
         locale: 'Skill 3',
         focused: false
       },
       {
-        id: 'skill-id-4',
         ref: 'skill-ref-4',
         locale: 'Really Emotional Intelligence and Self-awareness',
         focused: false
       },
       {
-        id: 'skill-id-5',
         ref: 'skill-ref-5',
         locale: 'Skill 5',
         focused: false

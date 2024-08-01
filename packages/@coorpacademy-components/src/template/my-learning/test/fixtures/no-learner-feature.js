@@ -92,17 +92,6 @@ const skillsInformation = {
   }
 };
 
-const skillIds = {
-  skillRef1: 'skillId1',
-  skillRef2: 'skillId2',
-  skillRef3: 'skillId3',
-  skillRef4: 'skillId4',
-  skillRef5: 'skillId5',
-  skillRef6: 'skillId6',
-  skillRef7: 'skillId7',
-  skillRef8: 'skillId8'
-};
-
 const skillsLocales = {
   skillRef1: 'Creativity and innovation',
   skillRef2: 'Critical thinking and analysis',
@@ -116,7 +105,6 @@ const skillsLocales = {
 
 export const noLearnerFeatureProps = {
   skills,
-  skillIds,
   skillsInformation,
   skillsLocales,
   learnerFeature: false,

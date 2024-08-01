@@ -203,7 +203,6 @@ Discipline.propTypes = {
   shareErrorWording: ShareFeedback.propTypes.errorWording,
   skills: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
       ref: PropTypes.string,
       locale: PropTypes.string,
       focused: PropTypes.bool
