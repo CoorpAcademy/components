@@ -78,7 +78,7 @@
   "Show more": "더 보기",
   "Show less": "간략히 보기",
   "Show": "보기",
-  "show_completed": "Show completed",
+  "show_completed": "쇼 완료",
   "Start battle": "전투 시작",
   "skills_section_title": "기술",
   "skills_section_description": "기술 탐색 또는 검토",
@@ -134,7 +134,7 @@
     "invalid_scorm": "scorm 파일이 유효하지 않습니다",
     "show_errors": "오류 표시"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "이 기술을 검토하세요",
   "review_skill_empty": "아직 수정할 기술이 없습니다.",
   "review_skill_empty_description": "다양한 기술을 복습하려면 먼저 과정을 끝내야 합니다.",
   "close_button_ariaLabel": "리뷰 슬라이드 닫기",
