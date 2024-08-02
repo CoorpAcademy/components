@@ -78,7 +78,7 @@
   "Show more": "詳細を表示する",
   "Show less": "表示を減らす",
   "Show": "ショー",
-  "show_completed": "Show completed",
+  "show_completed": "ショーは終了しました",
   "Start battle": "バトル を開始 ",
   "skills_section_title": "スキル",
   "skills_section_description": "スキルの探索または復習をする",
@@ -134,7 +134,7 @@
     "invalid_scorm": "SCORMファイルが有効ではありません",
     "show_errors": "エラーを表示する"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "このスキルを確認する",
   "review_skill_empty": "まだ復習するスキルがありません",
   "review_skill_empty_description": "異なるスキルを復習するには、まずコースを修了する必要があります。",
   "close_button_ariaLabel": "レビュースライドを閉じる",
