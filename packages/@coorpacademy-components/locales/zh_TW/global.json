@@ -78,7 +78,7 @@
   "Show more": "顯示更多",
   "Show less": "顯示較少",
   "Show": "顯示",
-  "show_completed": "Show completed",
+  "show_completed": "顯示已完成",
   "Start battle": "開始戰鬥",
   "skills_section_title": "技能",
   "skills_section_description": "探索或複習技能",
@@ -134,7 +134,7 @@
     "invalid_scorm": "scorm 檔無效",
     "show_errors": "顯示錯誤"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "複習一下這個技能",
   "review_skill_empty": "目前還沒有可修改的技能",
   "review_skill_empty_description": "在複習不同技能以前，必須先完成課程。",
   "close_button_ariaLabel": "關閉檢閱投影片",
