@@ -78,7 +78,7 @@
   "Show more": "Mostra di più",
   "Show less": "Mostra meno",
   "Show": "Mostra",
-  "show_completed": "Show completed",
+  "show_completed": "Spettacolo completato",
   "Start battle": "Inizia battaglia",
   "skills_section_title": "Competenze",
   "skills_section_description": "Esplora o rivedi le competenze",
@@ -134,7 +134,7 @@
     "invalid_scorm": "Il file scorm non è valido",
     "show_errors": "mostrare errori"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Rivedi questa abilità",
   "review_skill_empty": "Non hai ancora la capacità di rivedere",
   "review_skill_empty_description": "Per prima cosa devi completare i corsi prima di poter rivedere le diverse competenze.",
   "close_button_ariaLabel": "Chiudi la slide di revisione",
