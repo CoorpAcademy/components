@@ -78,7 +78,7 @@
   "Show more": "Näytä enemmän",
   "Show less": "Näytä vähemmän",
   "Show": "Aloita taistelu",
-  "show_completed": "Show completed",
+  "show_completed": "Esitys valmis",
   "Start battle": "Aloita taistelu",
   "skills_section_title": "Valmiudet",
   "skills_section_description": "Tutustu valmiuksiin tai kertaa niitä",
@@ -134,7 +134,7 @@
     "invalid_scorm": "Scorm-tiedosto ei ole käypä",
     "show_errors": "näytä virheet"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Tarkista tämä taito",
   "review_skill_empty": "Sinulla ei ole vielä kerrattavia valmiuksia",
   "review_skill_empty_description": "Sinun on ensin suoritettava kursseja ennen kuin voit kerrata eri valmiuksia.",
   "close_button_ariaLabel": "Sulje tarkastusdia",
