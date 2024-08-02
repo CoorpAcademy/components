@@ -134,7 +134,7 @@
     "invalid_scorm": "Le fichier SCORM n'est pas valide",
     "show_errors": "afficher les erreurs"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Revoir cette compétence",
   "review_skill_empty": "Vous n'avez pas encore de compétence à réviser",
   "review_skill_empty_description": "Vous devez d'abord suivre des cours avant de pouvoir réviser différentes compétences.",
   "close_button_ariaLabel": "Fermez la diapositive de révision",
