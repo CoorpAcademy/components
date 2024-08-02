@@ -134,7 +134,7 @@
     "invalid_scorm": "SCORM-файл є недійсним",
     "show_errors": "показати помилки"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Перегляньте цей навик",
   "review_skill_empty": "У вас ще немає навичок для перегляду",
   "review_skill_empty_description": "Спочатку вам потрібно пройти курси, перш ніж ви зможете переглянути різні навички.",
   "close_button_ariaLabel": "Закрити слайд перегляду",
