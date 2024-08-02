@@ -78,7 +78,7 @@
   "Show more": "Afișează mai mult",
   "Show less": "Arata mai putin",
   "Show": "Arată",
-  "show_completed": "Show completed",
+  "show_completed": "Emisiune finalizată",
   "Start battle": "Să înceapă bătălia",
   "skills_section_title": "Abilități",
   "skills_section_description": "Explorați sau recapitulați abilitățile",
@@ -134,7 +134,7 @@
     "invalid_scorm": "fișierul scorm nu este valid",
     "show_errors": "arata erori"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Examinați această abilitate",
   "review_skill_empty": "Nu aveți nicio abilitate de recapitulat deocamdată",
   "review_skill_empty_description": "Mai întâi trebuie să finalizați cursurile înainte de a putea recapitula diferite abilități.",
   "close_button_ariaLabel": "Închideți slide-ul de recenzie",
