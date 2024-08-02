@@ -78,7 +78,7 @@
   "Show more": "Show more",
   "Show less": "Magpakita ng mas kaunti",
   "Show": "Ipakita",
-  "show_completed": "Show completed",
+  "show_completed": "Nakumpleto ang palabas",
   "Start battle": "Simulan ang batlle",
   "skills_section_title": "Mga Kasanayan",
   "skills_section_description": "Suriing mabuti o repasuhin ang mga kasanayan",
@@ -134,7 +134,7 @@
     "invalid_scorm": "Hindi balido ang scorm file",
     "show_errors": "ipakita ang mga pagkakamali"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Suriin ang kasanayang ito",
   "review_skill_empty": "Wala ka pang kasanayang rerepasuhin",
   "review_skill_empty_description": "Una kailangan mong kumumpleto ng mga kurso bago ka makapagrepaso ng iba't-ibang kasanayan.",
   "close_button_ariaLabel": "Isara ang slide sa pag-review",
