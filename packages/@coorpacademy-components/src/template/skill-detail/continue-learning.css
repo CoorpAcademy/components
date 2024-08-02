@@ -1,0 +1,16 @@
+.continueLearningTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.continueLearningNumber {
+  border-radius: 50%;
+  background-color: #EAEAEB;
+  color: #515161;
+  padding: 2px 4px;
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+}

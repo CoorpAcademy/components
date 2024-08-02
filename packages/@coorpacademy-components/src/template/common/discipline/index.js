@@ -28,6 +28,7 @@ const Discipline = (props, context) => {
     buy,
     startLabel,
     skills = [],
+    skillsBaseUrl,
     onSkillClick,
     buyLabel,
     shareWording,
@@ -103,7 +104,11 @@ const Discipline = (props, context) => {
               />
             )}
           </div>
-          <DisciplineAssociatedSkills skills={skills} onSkillClick={onSkillClick} />
+          <DisciplineAssociatedSkills
+            skills={skills}
+            onSkillClick={onSkillClick}
+            skillsBaseUrl={skillsBaseUrl}
+          />
           {authorSection}
         </div>
         {disciplineContent}
@@ -203,6 +208,7 @@ Discipline.propTypes = {
       focused: PropTypes.bool
     })
   ),
+  skillsBaseUrl: PropTypes.string,
   onSkillClick: PropTypes.func,
   addToMyListText: AddToMyListFeedback.propTypes.addToMyListText,
   removeFromMyListText: AddToMyListFeedback.propTypes.removeFromMyListText,

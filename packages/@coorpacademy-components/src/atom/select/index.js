@@ -30,6 +30,7 @@ const themeStyle = {
   thematiques: style.thematiques,
   player: style.player,
   template: style.template,
+  skillDetail: style.skillDetail,
   coorpmanager: null
 };
 
@@ -194,7 +195,14 @@ const Select = (props, legacyContext) => {
           data-name="select-span"
           className={classnames(
             style.selectSpan,
-            includes(theme, ['player', 'invalid', 'question', 'thematiques', 'template'])
+            includes(theme, [
+              'player',
+              'invalid',
+              'question',
+              'thematiques',
+              'template',
+              'skillDetail'
+            ])
               ? style.noLabelCommon
               : null,
             borderClassName,

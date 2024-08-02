@@ -1,0 +1,174 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value xtraLightGrey from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_400 from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+}
+
+.backgroundContainer {
+  background-color: white;
+  min-height: 100%;
+  width: 100%;
+}
+
+.container {
+  composes: textBase;
+  background-color: white;
+  font-family: "Gilroy";
+  font-style: normal;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  max-width: calc(1080px + 40px);
+}
+
+.backButtonWrapper {
+  margin-bottom: 16px;
+  background-color: cm_grey_100;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.ctaContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.skillFocusBadge {
+  display: flex;
+  height: 12px;
+  width: fit-content;
+  align-items: center;
+  background-color: #DDD1FF;
+  border-radius: 24px;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: #3900D6;
+  margin-bottom: 16px;
+}
+
+.ctaWrapper,
+.showMoreWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.showMoreWrapper {
+  align-items: center;
+  margin-top: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.description {
+  margin-top: 8px;
+  max-width: 734px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: cm_grey_400;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progressInformationsWrapper {
+  margin-top: 40px;
+  background-color: xtraLightGrey;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.progressTitle {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  margin-bottom: 16px;
+}
+
+.skillCoursesAndQuestionsWrapper,
+.progressInformations {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skillInformation,
+.progressInformation {
+  composes: textBase;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: cm_grey_400;
+}
+
+.skillInformationNumber,
+.progressInformationNumber {
+  color: #000;
+}
+
+.progressBarWrapper {
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: cm_grey_100;
+  margin: 16px 0;
+}
+
+.progress {
+  display: block;
+  height: 8px;
+  animation: progressbar 2s ease-in-out;
+}
+
+@media tablet {
+  .ctaContainer {
+    flex-direction: column;
+  }
+
+  .ctaWrapper {
+    margin-top: 32px;
+  }
+}
+
+@media mobile {
+  .ctaWrapper {
+    flex-direction: column;
+
+    button {
+      width: 100% !important;
+    }
+  }
+}

@@ -48,6 +48,10 @@
   color: dark;
 }
 
+.titleNode {
+  flex-grow: 1;
+}
+
 .titleLink {
   composes: title;
   cursor: pointer;

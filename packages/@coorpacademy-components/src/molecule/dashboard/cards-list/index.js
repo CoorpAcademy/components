@@ -93,9 +93,10 @@ class CardsList extends React.PureComponent {
   static propTypes = {
     contentType: PropTypes.string,
     dataName: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     showMore: PropTypes.string,
     cards: PropTypes.arrayOf(PropTypes.shape(cardPropTypes)),
+    customStyle: PropTypes.objectOf(PropTypes.string),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
     'arrows-aria-label': PropTypes.shape({
@@ -293,6 +294,7 @@ class CardsList extends React.PureComponent {
       title,
       showMore,
       cards,
+      customStyle = {},
       onShowMore,
       dataName,
       contentType,
@@ -335,12 +337,15 @@ class CardsList extends React.PureComponent {
       </div>
     );
 
-    const titleView = (
-      <span data-name="title" className={titleStyle} onClick={onShowMore}>
-        <IconView contentType={contentType} />
-        <span>{title}</span>
-      </span>
-    );
+    const titleView =
+      typeof title === 'string' ? (
+        <span data-name="title" className={titleStyle} onClick={onShowMore}>
+          <IconView contentType={contentType} />
+          <span>{title}</span>
+        </span>
+      ) : (
+        <span className={style.titleNode}>{title}</span>
+      );
 
     const hasPages = maxPages > 0;
     const showMoreView =
@@ -363,6 +368,7 @@ class CardsList extends React.PureComponent {
     return (
       <div
         className={style.wrapper}
+        style={customStyle}
         data-name="cardsList"
         data-max-pages={`${maxPages}`}
         // eslint-disable-next-line react/destructuring-assignment

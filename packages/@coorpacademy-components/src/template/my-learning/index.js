@@ -89,7 +89,7 @@ const FilterButton = (props, context) => {
         </span>
       </div>
     ),
-    [filter, skillTotal, active]
+    [filter, skillTotal, active, primarySkinColor]
   );
 
   const buttonProps = {
