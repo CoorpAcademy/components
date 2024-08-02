@@ -11,11 +11,11 @@ import style from './style.css';
 const DisciplineAssociatedSkills = (props, context) => {
   const {translate} = context;
 
-  const {skills = [], skillDetailRootHref, onSkillClick} = props;
+  const {skills = [], skillsBaseUrl, onSkillClick} = props;
 
   const hrefFormat = useCallback(
-    skill => (skillDetailRootHref ? `${skillDetailRootHref}/${skill.ref}` : ''),
-    [skillDetailRootHref]
+    skill => (skillsBaseUrl ? `${skillsBaseUrl}/${skill.ref}` : ''),
+    [skillsBaseUrl]
   );
 
   const AnchorElement = useCallback(
@@ -56,7 +56,7 @@ const DisciplineAssociatedSkills = (props, context) => {
         <div className={style.chipsWrapper}>
           {skills.map(skill => {
             function handleSkillClick(event) {
-              if (!skillDetailRootHref) event.preventDefault();
+              if (!skillsBaseUrl) event.preventDefault();
               onSkillClick();
             }
             function handleAnchorElement() {
@@ -102,7 +102,7 @@ DisciplineAssociatedSkills.propTypes = {
       focused: PropTypes.bool
     })
   ),
-  skillDetailRootHref: PropTypes.string,
+  skillsBaseUrl: PropTypes.string,
   onSkillClick: PropTypes.func
 };
 

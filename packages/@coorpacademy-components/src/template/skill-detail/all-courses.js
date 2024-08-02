@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import {get, getOr, sortBy} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -49,11 +49,7 @@ const AllCourses = (props, context) => {
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(
-    list.sort((a, b) => {
-      const progressA = a.progress ?? 0;
-      const progressB = b.progress ?? 0;
-      return progressB - progressA;
-    })
+    sortBy(course => -getOr(0, ['progress'], course), list)
   );
 
   const sortView =
@@ -64,13 +60,7 @@ const AllCourses = (props, context) => {
     ) : null;
 
   useEffect(() => {
-    setSearchResults(
-      list.sort((a, b) => {
-        const progressA = a.progress ?? 0;
-        const progressB = b.progress ?? 0;
-        return progressB - progressA;
-      })
-    );
+    setSearchResults(sortBy(course => -getOr(0, ['progress'], course), list));
   }, [list]);
 
   const handleSearch = useCallback(
@@ -87,9 +77,9 @@ const AllCourses = (props, context) => {
   }, [list, setSearchValue, setSearchResults]);
 
   const handleShowCompletedToggle = useCallback(() => {
-    const tempShowCompleted = !showCompleted;
-    setShowCompleted(tempShowCompleted);
-    if (tempShowCompleted) {
+    const toggledShowCompleted = !showCompleted;
+    setShowCompleted(toggledShowCompleted);
+    if (toggledShowCompleted) {
       setSearchResults(list);
       handleSearchReset();
     } else {
