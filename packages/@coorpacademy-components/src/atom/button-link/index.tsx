@@ -49,7 +49,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     type,
     label,
     content,
-    disabled,
+    disabled = false,
     icon,
     'data-name': dataName,
     'data-testid': dataTestId = 'button-link',
@@ -110,6 +110,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
       tabIndex={0}
+      disabled={disabled}
     >
       {contentView}
     </button>
