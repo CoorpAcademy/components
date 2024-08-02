@@ -78,7 +78,7 @@
   "Show more": "Xem thêm",
   "Show less": "Hiện ít hơn",
   "Show": "Hiện",
-  "show_completed": "Show completed",
+  "show_completed": "Hiển thị đã hoàn thành",
   "Start battle": "Bắt đầu trận chiến",
   "skills_section_title": "Kỹ năng",
   "skills_section_description": "Khám phá hoặc ôn tập các kỹ năng",
@@ -134,7 +134,7 @@
     "invalid_scorm": "tập tin scorm là không hợp lệ",
     "show_errors": "hiển thị lỗi"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Xem lại kỹ năng này",
   "review_skill_empty": "Bạn chưa có kỹ năng nào để ôn tập",
   "review_skill_empty_description": "Trước tiên, bạn cần phải hoàn thành các khóa học rồi mới có thể ôn tập các kỹ năng khác nhau.",
   "close_button_ariaLabel": "Đóng màn hình đánh giá",
