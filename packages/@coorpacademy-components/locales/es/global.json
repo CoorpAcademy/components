@@ -134,7 +134,7 @@
     "invalid_scorm": "el archivo scorm no es válido",
     "show_errors": "mostrar errores"
   },
-  "review_this_skill": "Review this skill",
+  "review_this_skill": "Revisa esta habilidad",
   "review_skill_empty": "Aún no tienes ninguna habilidad para repasar",
   "review_skill_empty_description": "Primero tienes que completar los cursos antes de poder repasar habilidades diferentes.",
   "close_button_ariaLabel": "Cerrar pantalla de reseña",
