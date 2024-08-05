@@ -76,6 +76,7 @@ const ButtonLinkIconOnly = props => {
       title={ariaLabel}
       className={styleButton}
       onClick={handleOnClick}
+      disabled={disabled}
     >
       {contentView}
     </button>
