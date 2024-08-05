@@ -24,6 +24,7 @@ const Button = (props: ButtonProps) => {
       data-name={dataName}
       className={styleButton}
       onClick={handleOnClick}
+      disabled={disabled}
     >
       <div className={style.buttonContent}>
         <span className={style.label}>{label}</span>
