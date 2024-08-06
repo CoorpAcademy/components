@@ -6,7 +6,8 @@ export default {
       color: '#2d64c9'
     },
     useButtonTag: false,
-    onClick: () => console.log('clicked'),
-    children: 'Link'
+    onClick: () => console.log('clicked disabled'),
+    children: 'Link',
+    disabled: true
   }
 };

@@ -1,7 +1,9 @@
 export default {
   props: {
+    skinHover: true,
     href: '/favicon.ico',
-    download: true
-  },
-  children: ['link']
+    download: true,
+    onClick: () => console.log('clicked'),
+    children: 'link'
+  }
 };

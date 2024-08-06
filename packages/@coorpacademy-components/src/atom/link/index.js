@@ -24,7 +24,8 @@ const Link = (props, legacyContext) => {
     children,
     onMouseLeave = noop,
     onMouseEnter = noop,
-    download
+    download,
+    disabled
   } = props;
 
   const handleMouseEnter = useCallback(() => {
@@ -76,7 +77,7 @@ const Link = (props, legacyContext) => {
       ...linKElementProps,
       'data-name': dataName,
       'aria-label': ariaLabel,
-      href: href ? createHref(href) : undefined,
+      href: !href || disabled ? '#' : createHref(href),
       onClick: handleOnClick,
       onMouseEnter: handleMouseEnter,
       onMouseLeave: handleMouseLeave,
@@ -98,6 +99,7 @@ const Link = (props, legacyContext) => {
       handleMouseLeave,
       handleOnClick,
       href,
+      disabled,
       linKElementProps,
       propsStyle
     ]
@@ -127,7 +129,8 @@ Link.propTypes = {
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   useButtonTag: PropTypes.bool,
-  style: PropTypes.shape({})
+  style: PropTypes.shape({}),
+  disabled: PropTypes.bool
 };
 
 Link.contextTypes = {

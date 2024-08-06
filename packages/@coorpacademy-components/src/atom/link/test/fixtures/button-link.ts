@@ -6,7 +6,8 @@ export default {
       color: '#00B0FF',
       textDecoration: 'none'
     },
-    useButtonTag: true
-  },
-  children: ['link']
+    useButtonTag: true,
+    onClick: () => console.log('clicked'),
+    children: 'Button'
+  }
 };
