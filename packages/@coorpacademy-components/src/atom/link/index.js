@@ -74,8 +74,8 @@ const Link = (props, legacyContext) => {
   );
 
   const _href = useMemo(() => {
-    if (!href) return;
     if (disabled) return '#';
+    if (!href) return;
 
     return createHref(href);
   }, [createHref, disabled, href]);
@@ -86,7 +86,7 @@ const Link = (props, legacyContext) => {
       'data-name': dataName,
       'aria-label': ariaLabel,
       href: _href,
-      onClick: handleOnClick,
+      onClick: disabled ? noop : handleOnClick,
       onMouseEnter: handleMouseEnter,
       onMouseLeave: handleMouseLeave,
       className,
@@ -105,6 +105,7 @@ const Link = (props, legacyContext) => {
       handleMouseEnter,
       handleMouseLeave,
       handleOnClick,
+      disabled,
       _href,
       linKElementProps,
       propsStyle
