@@ -62,6 +62,7 @@ const Link = (props, legacyContext) => {
           },
     [href, onClick]
   );
+
   const _hoverStyle = useMemo(
     () =>
       skinHover && hovered
@@ -77,8 +78,8 @@ const Link = (props, legacyContext) => {
       ...linKElementProps,
       'data-name': dataName,
       'aria-label': ariaLabel,
-      href: !href || disabled ? '#' : createHref(href),
-      onClick: handleOnClick,
+      href: disabled || !href ? undefined : createHref(href),
+      onClick: disabled ? noop : handleOnClick,
       onMouseEnter: handleMouseEnter,
       onMouseLeave: handleMouseLeave,
       className,
@@ -93,13 +94,13 @@ const Link = (props, legacyContext) => {
       _style,
       ariaLabel,
       className,
-      createHref,
       dataName,
       handleMouseEnter,
       handleMouseLeave,
       handleOnClick,
       href,
       disabled,
+      createHref,
       linKElementProps,
       propsStyle
     ]
