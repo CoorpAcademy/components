@@ -24,12 +24,15 @@
 }
 
 .modal {
-  max-width: 660px;
+  max-width: 71vw;
+  max-height: 86vh;
   min-width: 450px;
   min-height: 165px;
   overflow: hidden;
   border-radius: 16px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -68,6 +71,7 @@
 }
 
 .body {
+  overflow: auto;
   background-color: xtraLightGrey;
   padding: 32px 32px 16px 32px;
   min-height: 100px;
