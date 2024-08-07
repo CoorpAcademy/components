@@ -41,7 +41,7 @@ test('should not get href attribute if no href props is passed', t => {
   t.is(hrefValue, null);
 });
 
-test('should get "#" as href attribute if disabled props is passed', t => {
+test('should not get href attribute if disabled props is passed', t => {
   const props = {
     disabled: true,
     href: 'href',
@@ -54,7 +54,7 @@ test('should get "#" as href attribute if disabled props is passed', t => {
   const link = container.querySelector('[data-name="link"]');
 
   const hrefValue = link.getAttribute('href');
-  t.is(hrefValue, '#');
+  t.is(hrefValue, null);
 });
 
 test('should get href attribute corresponding to href props', t => {

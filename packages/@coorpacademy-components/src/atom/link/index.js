@@ -73,19 +73,12 @@ const Link = (props, legacyContext) => {
     [hoverColor, hovered, skinHover]
   );
 
-  const _href = useMemo(() => {
-    if (disabled) return '#';
-    if (!href) return;
-
-    return createHref(href);
-  }, [createHref, disabled, href]);
-
   const _props = useMemo(
     () => ({
       ...linKElementProps,
       'data-name': dataName,
       'aria-label': ariaLabel,
-      href: _href,
+      href: disabled || !href ? undefined : createHref(href),
       onClick: disabled ? noop : handleOnClick,
       onMouseEnter: handleMouseEnter,
       onMouseLeave: handleMouseLeave,
@@ -105,8 +98,9 @@ const Link = (props, legacyContext) => {
       handleMouseEnter,
       handleMouseLeave,
       handleOnClick,
+      href,
       disabled,
-      _href,
+      createHref,
       linKElementProps,
       propsStyle
     ]
