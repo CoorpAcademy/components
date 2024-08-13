@@ -1,0 +1,28 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+
+.container {
+  font-family: Gilroy;
+  width: 258px;
+  height: 334px;
+  border: 1px cm_grey_100 solid;
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 22px;
+}
+
+.circularProgressBarContainer {
+  padding: 16px;
+}

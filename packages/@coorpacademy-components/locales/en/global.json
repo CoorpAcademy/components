@@ -16,6 +16,7 @@
   "Close": "Close",
   "clue_stars_to_loose_plural": "Unlocking the clue reduces the stars you can gain on this question by {{count}} (if you get it right)",
   "clue_stars_to_loose": "Unlocking the clue reduces the stars you can gain on this question by {{count}} (if you get it right)",
+  "completed": "Completed",
   "confirm_unsubscribe": "Are you sure you want to unsubscribe?",
   "cookies_details": "This website uses cookies so that we can provide you with the best possible learner experience. To read more about the cookies we use and about how we use your data, please read our",
   "cookies_policy": "Privacy and Cookies Policy.",
