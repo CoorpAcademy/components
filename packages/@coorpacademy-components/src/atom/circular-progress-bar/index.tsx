@@ -2,6 +2,22 @@ import React from 'react';
 import {LearningPriorityCardPropTypes, CircularProgressBarPropTypes} from './types';
 import style from './style.css';
 
+const ProgressionGradient = () => (
+  <defs>
+    <linearGradient
+      id="gradient-stroke-progression"
+      x1="81"
+      y1="0"
+      x2="81"
+      y2="162"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stopColor="#35CC7F" />
+      <stop offset="1" stopColor="#55F2A7" />
+    </linearGradient>
+  </defs>
+);
+
 const CircularProgressBar = ({
   label,
   progression,
@@ -16,6 +32,7 @@ const CircularProgressBar = ({
   return (
     <div className={style.container}>
       <svg className={style.main} width={size} height={size}>
+        <ProgressionGradient />
         <circle
           className={style.circle}
           cx={center}
@@ -24,13 +41,13 @@ const CircularProgressBar = ({
           strokeWidth={3}
           fill="transparent"
         />
-        <circle cx={center} cy={center} r={radius - (20 / radius) * 100} fill="#fafafa" />
+        <circle cx={center} cy={center} r={radius - (15 / radius) * 100} fill="#fafafa" />
         <circle
           className={style.progressionCircle}
           cx={center}
           cy={center}
           r={radius}
-          stroke="#2CAF6C"
+          stroke={`url(#gradient-stroke-progression)`}
           strokeWidth={strokeWidth}
           strokeDasharray={length}
           strokeDashoffset={offset}
