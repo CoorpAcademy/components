@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {keys} from 'lodash/fp';
 import style from './style.css';
 
@@ -11,19 +12,22 @@ const TAG_STYLES = {
   progress: style.progress
 };
 
-const Tag = props => {
-  const {label, type = 'default'} = props;
-
-  return (
-    <span className={TAG_STYLES[type]} data-name={`content-tag-${label}`}>
-      {label}
-    </span>
-  );
+const TAG_SIZE = {
+  S: style.small,
+  M: style.medium,
+  L: style.large
 };
+
+const Tag = ({label, type = 'default', size = 'M'}) => (
+  <span className={classnames(TAG_STYLES[type], TAG_SIZE[size])} data-name={`content-tag-${label}`}>
+    {label}
+  </span>
+);
 
 Tag.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.oneOf(keys(TAG_STYLES))
+  type: PropTypes.oneOf(keys(TAG_STYLES)),
+  size: PropTypes.oneOf(['S', 'M', 'L'])
 };
 
 export default Tag;
