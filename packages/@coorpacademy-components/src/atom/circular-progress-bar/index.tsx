@@ -47,7 +47,7 @@ const CircularProgressBar = ({
           strokeWidth={3}
           fill="transparent"
         />
-        <circle cx={center} cy={center} r={radius - (15 / radius) * 100} fill="#fafafa" />
+        <circle cx={center} cy={center} r={radius - (10 / radius) * 100} fill="#fafafa" />
         <circle
           className={style.progressionCircle}
           cx={center}
