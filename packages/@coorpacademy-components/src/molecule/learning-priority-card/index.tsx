@@ -49,14 +49,25 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
   };
 
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+      aria-label={`learning priority card ${title}`}
+      data-name={`learning-priority-card-${title}`}
+    >
       <div>
         <Tag label={tagLabel} type={type} size={'S'} />
       </div>
       <div className={style.title}>{title}</div>
       <div className={style.circularProgressBarContainer}>
         <CircularProgressBar
-          {...{size: 162, strokeWidth: 10, progression, label: translate('completed')}}
+          {...{
+            size: 162,
+            strokeWidth: 10,
+            progression,
+            label: translate('completed'),
+            'aria-label': `${title} ${progression}%`,
+            'data-name': `circular-progress-bar-${title}`
+          }}
         />
       </div>
       <div
