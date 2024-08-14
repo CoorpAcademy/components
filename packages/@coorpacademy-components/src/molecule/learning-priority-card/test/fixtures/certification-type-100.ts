@@ -5,7 +5,8 @@ export const defaultProps = {
     type: 'default'
   },
   progression: 100,
-  onclick: () => console.log('clicked')
+  onclick: () => console.log('clicked'),
+  type: 'learningPriority'
 };
 
 export default {

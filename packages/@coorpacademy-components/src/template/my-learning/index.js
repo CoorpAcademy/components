@@ -15,6 +15,7 @@ import SkillsChartSideInformationPanel from '../../molecule/skills-chart-side-in
 import LearnerSkillCard from '../../molecule/learner-skill-card';
 import searchValueIncluded from '../../util/search-value-included';
 import {formatMinutes} from '../../util/time-format';
+import CardsList from '../../molecule/dashboard/cards-list';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -129,7 +130,8 @@ const MyLearning = (props, context) => {
     isLoading,
     onSkillFocusConfirm,
     onReviewSkill,
-    onExploreSkill
+    onExploreSkill,
+    learningPriorities
   } = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
@@ -290,6 +292,9 @@ const MyLearning = (props, context) => {
           onConfirm={handleConfirmSkillPicker}
           onClose={handleCloseSkillPicker}
         />
+        <div className={style.cardsListContainer}>
+          <CardsList {...learningPriorities} arrows-aria-label={''} />
+        </div>
         {learnerFeature ? (
           <div data-name="skill-focus-container" className={style.skillFocusContainer}>
             <header className={style.skillFocusHeader}>
@@ -530,7 +535,8 @@ MyLearning.propTypes = {
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
   onReviewSkill: PropTypes.func,
-  onExploreSkill: PropTypes.func
+  onExploreSkill: PropTypes.func,
+  learningPriorities: PropTypes.shape(CardsList.propTypes)
 };
 
 export default MyLearning;

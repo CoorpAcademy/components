@@ -7,6 +7,7 @@ export type LearningPriorityCardPropTypes = {
   };
   progression: number;
   onClick: () => void;
+  type: 'learningPriority';
 };
 
 export const propTypes = {
@@ -15,5 +16,6 @@ export const propTypes = {
     label: PropTypes.oneOf(['Playlist', 'Certification', 'Skill'])
   }),
   progression: PropTypes.number,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  type: PropTypes.oneOf(['learningPriority'])
 };

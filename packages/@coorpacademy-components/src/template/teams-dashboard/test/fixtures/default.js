@@ -92,10 +92,10 @@ export const headerProps = {
 
 export const sections = [
   defaultsDeep(cardsProps, {
-    type: 'cards'
+    type: 'content'
   }),
   defaultsDeep(manyCardsProps, {
-    type: 'cards'
+    type: 'content'
   })
 ];
 

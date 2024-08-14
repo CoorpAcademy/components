@@ -1,3 +1,5 @@
+import LearningPrioritiesProps from '../../../../molecule/dashboard/cards-list/test/fixtures/learning-priority-card-list';
+
 const skills = [
   'skillRef1',
   'skillRef2',
@@ -113,7 +115,8 @@ export const defaultProps = {
   isLoadng: false,
   onSkillFocusConfirm: () => console.log('confirm'),
   onReviewSkill: () => console.log('review'),
-  onExploreSkill: skillRef => console.log(skillRef)
+  onExploreSkill: skillRef => console.log(skillRef),
+  learningPriorities: LearningPrioritiesProps.props
 };
 
 export default {

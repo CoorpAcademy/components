@@ -23,6 +23,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
+import LearningPriorityCard from '../../learning-priority-card';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -309,7 +310,11 @@ class CardsList extends React.PureComponent {
       map(([key, card]) => {
         return (
           <div className={style.card} key={key}>
-            <Card {...card} dataName={`${dataName}-${key}`} />
+            {card.type === 'learningPriority' ? (
+              <LearningPriorityCard {...card} />
+            ) : (
+              <Card {...card} dataName={`${dataName}-${key}`} />
+            )}
           </div>
         );
       })
