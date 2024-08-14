@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
+import {getOr, sortBy} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import CardsGrid from '../../organism/cards-grid';
 import CardsList from '../../molecule/dashboard/cards-list';
@@ -25,7 +26,7 @@ const ContinueLearning = (props, context) => {
 
   return (
     <CardsList
-      cards={ongoingCourses.list}
+      cards={sortBy(course => -getOr(0, ['progress'], course), ongoingCourses.list)}
       title={<Title />}
       customStyle={{padding: '16px 0px 8px'}}
     />
