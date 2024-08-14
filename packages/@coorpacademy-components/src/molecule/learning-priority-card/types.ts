@@ -18,10 +18,10 @@ export type LearningPriorityCardPropTypes = {
 
 export const propTypes = {
   title: PropTypes.string,
-  tag: {
+  tag: PropTypes.shape({
     label: PropTypes.oneOf(['Playlist', 'Certification', 'Skill']),
     type: PropTypes.string
-  },
+  }),
   progression: PropTypes.number,
   onClick: PropTypes.func
 };
