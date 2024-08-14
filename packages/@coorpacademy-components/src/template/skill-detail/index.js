@@ -202,7 +202,7 @@ const SkillDetail = (props, context) => {
                     {` ${translate('courses_completed')}`}
                   </div>
                   <div className={style.progressInformation} data-name="completed-percentage">
-                    <span className={style.progressInformationNumber}>{score}%</span>
+                    <span className={style.progressInformationNumber}>{score.toFixed(1)}%</span>
                   </div>
                 </>
               )}

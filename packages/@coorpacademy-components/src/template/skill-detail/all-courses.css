@@ -6,6 +6,7 @@
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 
 .continueLearningWrapper {
   margin-top: 40px;
@@ -45,12 +46,16 @@
   display: flex;
   gap: 32px;
   align-items: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .sortWrapper {
   display: flex;
   align-items: center;
   gap: 12px;
+  color: cm_grey_500;
 }
 
 .filterWrapper {
@@ -104,7 +109,7 @@
   text-decoration: underline;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 940px) {
   .searchAndSortSection {
     flex-direction: column;
   }
