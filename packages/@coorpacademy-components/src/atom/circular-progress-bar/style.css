@@ -19,7 +19,7 @@
 }
 
 .progressionCircle {
-  transition: stroke-dashoffset 1s ease-in-out;
+  transition: stroke-dashoffset 1.5s ease-in-out;
 }
 
 .infos {

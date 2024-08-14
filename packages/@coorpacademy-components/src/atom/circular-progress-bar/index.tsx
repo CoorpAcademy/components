@@ -1,4 +1,5 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState, useEffect} from 'react';
+import {isNull} from 'lodash/fp';
 import {LearningPriorityCardPropTypes, CircularProgressBarPropTypes} from './types';
 import style from './style.css';
 
@@ -26,14 +27,20 @@ const CircularProgressBar = ({
   'aria-label': ariaLabel,
   'data-name': dataName
 }: LearningPriorityCardPropTypes) => {
-  const {center, radius, length, offset} = useMemo(() => {
+  const [offset, setOffset] = useState<null | number>(null);
+
+  const {center, radius, length} = useMemo(() => {
     const center_ = size / 2;
     const radius_ = center_ - strokeWidth;
     const length_ = Math.ceil(2 * Math.PI * radius_);
-    const offset_ = Math.ceil(length_ * ((100 - progression) / 100));
 
-    return {center: center_, radius: radius_, length: length_, offset: offset_};
-  }, [size, strokeWidth, progression]);
+    return {center: center_, radius: radius_, length: length_};
+  }, [size, strokeWidth]);
+
+  useEffect(
+    () => setOffset(Math.ceil(length * ((100 - progression) / 100))),
+    [length, progression]
+  );
 
   return (
     <div className={style.container} aria-label={ariaLabel} data-name={dataName}>
@@ -56,7 +63,7 @@ const CircularProgressBar = ({
           stroke={`url(#gradient-stroke-progression)`}
           strokeWidth={strokeWidth}
           strokeDasharray={length}
-          strokeDashoffset={offset}
+          strokeDashoffset={isNull(offset) ? length : offset}
           fill="transparent"
           strokeLinecap="round"
         />
