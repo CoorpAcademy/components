@@ -8,12 +8,6 @@ export type LearningPriorityCardPropTypes = {
   };
   progression: number;
   onClick: () => void;
-  circularProgress: {
-    label: string;
-    progression: number;
-    size: number;
-    strokeWidth: number;
-  };
 };
 
 export const propTypes = {
