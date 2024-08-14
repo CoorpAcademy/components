@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {LearningPriorityCardPropTypes, CircularProgressBarPropTypes} from './types';
 import style from './style.css';
 
@@ -22,19 +22,25 @@ const CircularProgressBar = ({
   label,
   progression,
   size,
-  strokeWidth
+  strokeWidth,
+  'aria-label': ariaLabel,
+  'data-name': dataName
 }: LearningPriorityCardPropTypes) => {
-  const center = size / 2;
-  const radius = center - strokeWidth;
-  const length = Math.ceil(2 * Math.PI * radius);
-  const offset = Math.ceil(length * ((100 - progression) / 100));
+  const {center, radius, length, offset} = useMemo(() => {
+    const center_ = size / 2;
+    const radius_ = center_ - strokeWidth;
+    const length_ = Math.ceil(2 * Math.PI * radius_);
+    const offset_ = Math.ceil(length_ * ((100 - progression) / 100));
+
+    return {center: center_, radius: radius_, length: length_, offset: offset_};
+  }, [size, strokeWidth, progression]);
 
   return (
-    <div className={style.container}>
-      <svg className={style.main} width={size} height={size}>
+    <div className={style.container} aria-label={ariaLabel} data-name={dataName}>
+      <svg className={style.svg} width={size} height={size}>
         <ProgressionGradient />
         <circle
-          className={style.circle}
+          className={style.mainCircle}
           cx={center}
           cy={center}
           r={radius}
