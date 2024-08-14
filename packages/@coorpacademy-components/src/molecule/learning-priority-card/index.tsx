@@ -22,9 +22,7 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
   const primarySkinColor = get('common.primary', skin);
 
   const [hovered, setHovered] = useState(false);
-
   const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const buttonExploreProps = {
@@ -62,7 +60,7 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
         <CircularProgressBar
           {...{
             size: 162,
-            strokeWidth: 10,
+            strokeWidth: 12,
             progression,
             label: translate('completed'),
             'aria-label': `${title} ${progression}%`,

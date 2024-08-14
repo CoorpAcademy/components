@@ -12,17 +12,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 4px;
 }
 
 .title {
+  height: 44px;
+  margin-top: 4px;
   font-size: 16px;
   font-weight: 700;
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 22px;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .circularProgressBarContainer {
-  padding: 16px;
+  padding: 14px;
 }
