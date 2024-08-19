@@ -11,7 +11,7 @@ import style from './style.css';
 
 const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: WebContextValues) => {
   const {
-    tag: {label: tagLabel, type},
+    tag: {label: tagLabel},
     title,
     progression,
     onClick
@@ -32,9 +32,9 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     onClick,
-    'aria-label': `, ${exploreLocale}`,
+    'aria-label': `${title}, ${exploreLocale}`,
     label: exploreLocale,
-    'data-name': 'learner-skill-card-explore-button',
+    'data-name': 'learning-priority-explore-button',
     icon: {
       position: 'left' as const,
       faIcon: {
@@ -53,7 +53,7 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
       data-name={`learning-priority-card-${title}`}
     >
       <div>
-        <Tag label={tagLabel} type={type} size={'S'} />
+        <Tag label={tagLabel} size={'S'} />
       </div>
       <div className={style.title}>{title}</div>
       <div className={style.circularProgressBarContainer}>
