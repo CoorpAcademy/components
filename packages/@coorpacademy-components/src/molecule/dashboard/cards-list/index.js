@@ -16,14 +16,13 @@ import {
 } from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
-  NovaCompositionNavigationArrowLeft as ArrowLeft,
-  NovaCompositionNavigationArrowRight as ArrowRight,
   NovaSolidContentContentBook1 as LearnerIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
 import LearningPriorityCard from '../../learning-priority-card';
+import Icon from '../../../atom/icon';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -319,26 +318,22 @@ class CardsList extends React.PureComponent {
         );
       })
     )(cards);
-    const leftArrowView = (
-      <div className={style.circle} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
-        <ArrowLeft
-          style={{color: dark}}
-          className={style.left}
-          width={10}
-          height={10}
-          aria-label={ariaLabel.showMoreOnLeftAriaLabel}
-        />
-      </div>
-    );
-    const rightArrowView = (
-      <div className={style.circle} onClick={this.handleOnRight} data-name="card-list-right-arrow">
-        <ArrowRight
-          style={{color: dark}}
-          className={style.right}
-          width={10}
-          height={10}
-          aria-label={ariaLabel.showMoreOnRightAriaLabel}
-        />
+
+    const arrowIconProps = {
+      color: dark,
+      preset: 's',
+      borderRadius: '8px',
+      ariaLabel: ariaLabel.showMoreOnLeftAriaLabel
+    };
+
+    const arrows = (
+      <div className={style.arrowsWrapper}>
+        <div className={style.arrow} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
+          <Icon {...arrowIconProps} iconName="arrow-left" />
+        </div>
+        <div className={style.arrow} onClick={this.handleOnRight} data-name="card-list-right-arrow">
+          <Icon {...arrowIconProps} iconName="arrow-right" />
+        </div>
       </div>
     );
 
@@ -365,8 +360,7 @@ class CardsList extends React.PureComponent {
     const switchPagesView = hasPages ? (
       <div className={style.pagingWrapper}>
         {showMoreView}
-        {leftArrowView}
-        {rightArrowView}
+        {arrows}
       </div>
     ) : null;
 

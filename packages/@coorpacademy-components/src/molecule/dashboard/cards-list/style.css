@@ -8,6 +8,8 @@
 @value lightMediumGray from colors;
 @value medium from colors;
 @value light from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_75 from colors;
 
 .wrapper {
   padding: 16px 30px 8px;
@@ -104,43 +106,24 @@
 }
 
 .arrow {
-  position: flex;
-  padding: 9px;
+  background-color: cm_grey_75;
+  border-radius: 8px;
   cursor: pointer;
-  opacity: 1;
   user-select: none;
 }
 
-.circle:hover {
-  box-shadow: 0 0 10px 0  color(medium a(70%));
+.arrow:hover {
+  background-color: cm_grey_100;
+} 
+
+.arrowsWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.circle {
-  box-shadow: 0 0px 4px 0 color(lightMediumGray a(70%));
-  border: solid 1px light;
-  border-radius: 50%;
-  cursor: pointer;
-  line-height: 0;
-  margin-left: 5px;
-}
 .pagingWrapper {
   display: inline-flex;
-}
-
-.arrow:hover {
-  opacity: 1;
-}
-
-.left {
-  composes: arrow;
-  left: -35px;
-  text-align: right;
-}
-
-.right {
-  composes: arrow;
-  right: -35px;
-  text-align: left;
 }
 
 @media tablet {
