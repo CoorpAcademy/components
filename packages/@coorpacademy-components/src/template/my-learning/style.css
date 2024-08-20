@@ -3,6 +3,7 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 @value white from colors;
+@value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
 
@@ -10,12 +11,11 @@
   background-color: white;
   min-height: 100%;
   width: 100%;
+  font-family: "Gilroy";
+  font-style: normal;
 }
 
 .container {
-  background-color: white;
-  font-family: "Gilroy";
-  font-style: normal;
   margin-top: 48px;
   margin-bottom: 48px;
   margin-left: auto;
@@ -29,7 +29,8 @@
 }
 
 .cardsListContainer {
-  margin-bottom: 48px;
+  background-color: cm_grey_50;
+  padding: 48px 0;
 }
 
 /* to ecrase wrapper's style from CardsList component */

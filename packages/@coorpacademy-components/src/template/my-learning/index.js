@@ -281,6 +281,9 @@ const MyLearning = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
+      <div className={style.cardsListContainer}>
+        <CardsList {...learningPriorities} arrows-aria-label={''} />
+      </div>
       <div className={style.container}>
         <SkillPickerModal
           skills={skills}
@@ -292,9 +295,6 @@ const MyLearning = (props, context) => {
           onConfirm={handleConfirmSkillPicker}
           onClose={handleCloseSkillPicker}
         />
-        <div className={style.cardsListContainer}>
-          <CardsList {...learningPriorities} arrows-aria-label={''} />
-        </div>
         {learnerFeature ? (
           <div data-name="skill-focus-container" className={style.skillFocusContainer}>
             <header className={style.skillFocusHeader}>
