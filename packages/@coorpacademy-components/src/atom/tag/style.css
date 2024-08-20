@@ -5,41 +5,60 @@
 @value cm_negative_100 from colors;
 @value cm_orange_700 from colors;
 @value black from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_500 from colors;
 
 .tag {
   border-radius: 24px;
-  font-family: 'Gilroy';
-  font-size: 14px;
-  font-weight: bold;
+  font-family: "Gilroy";
+  font-weight: 600;
   text-align: center;
-  padding: 12px 16px;
+}
+
+.small {
+  composes: tag;
+  font-size: 10px;
+  padding: 2px 4px;
+}
+
+.medium {
+  composes: tag;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.large {
+  composes: tag;
+  font-size: 14px;
+  padding: 8px 16px;
 }
 
 .default {
-    composes: tag;
-    color: black;
+  composes: tag;
+  background-color: cm_grey_100;
+  color: cm_grey_500;
 }
 
 .progress {
-    composes: tag;
-    background-color: color(cm_yellow_200 a(15%));
-    color: cm_yellow_200;
+  composes: tag;
+  background-color: color(cm_yellow_200 a(15%));
+  color: cm_yellow_200;
 }
 
 .success {
-    composes: tag;
-    background-color: color(cm_positive_100 a(15%));
-    color: cm_positive_100;
+  composes: tag;
+  background-color: color(cm_positive_100 a(15%));
+  color: cm_positive_100;
 }
 
 .failure {
-    composes: tag;
-    background-color: color(cm_negative_100 a(15%));
-    color: cm_negative_100;
+  composes: tag;
+  background-color: color(cm_negative_100 a(15%));
+  color: cm_negative_100;
 }
 
 .warning {
-    composes: tag;
-    background-color: color(cm_orange_700 a(15%));
-    color: cm_orange_700;
+  composes: tag;
+  background-color: color(cm_orange_700 a(15%));
+  color: cm_orange_700;
 }

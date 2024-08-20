@@ -1,6 +1,7 @@
 export default {
   props: {
     label: 'Published',
-    type: 'success'
+    type: 'success',
+    size: 'L'
   }
 };

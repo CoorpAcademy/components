@@ -1,6 +1,7 @@
 export default {
   props: {
     label: '56 failed',
-    type: 'failure'
+    type: 'failure',
+    size: 'S'
   }
 };

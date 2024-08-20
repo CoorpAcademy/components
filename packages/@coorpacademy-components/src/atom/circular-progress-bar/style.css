@@ -1,0 +1,51 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_400 from colors;
+@value cm_grey_50 from colors;
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg {
+  transform: rotate(-90deg);
+}
+
+.mainCircle {
+  stroke: cm_grey_50;
+}
+
+.progressionCircle {
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.infos {
+  font-family: Gilroy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.label {
+  color: cm_grey_400;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+.progression {
+  color: #2caf6c;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
