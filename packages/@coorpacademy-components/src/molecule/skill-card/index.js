@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import {convert} from 'css-color-function';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import getOr from 'lodash/fp/getOr';
@@ -35,19 +35,16 @@ const SkillCard = (props, context) => {
     isCustom = false
   } = props;
   const {skin} = context;
-  const [hovered, setHovered] = useState(false);
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const buttonProps = {
     customStyle: {
-      backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-      color: hovered ? '#FFFFFF' : primarySkinColor,
+      backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+      color: primarySkinColor,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
+    hoverBackgroundColor: primarySkinColor,
+    hoverColor: '#FFFFFF',
     onClick,
     'aria-label': buttonAriaLabel ? `${skillTitle}, ${buttonAriaLabel}` : skillTitle,
     label: buttonLabel,
@@ -85,12 +82,7 @@ const SkillCard = (props, context) => {
           <QuestionIcon className={style.questionReviseIcon} width={16} height={16} />
           {reviseLabel}
         </div>
-        <div
-          className={style.buttonWrapper}
-          onMouseOver={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
-          data-name="button-wrapper"
-        >
+        <div className={style.buttonWrapper} data-name="button-wrapper">
           <ButtonLink {...buttonProps} />
         </div>
       </div>

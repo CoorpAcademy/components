@@ -19,6 +19,8 @@ const propTypes = {
     download: PropTypes.bool,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   }),
+  hoverBackgroundColor: PropTypes.string,
+  hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
   customStyle: PropTypes.shape({})
@@ -51,6 +53,8 @@ export type ButtonLinkProps = {
     download?: boolean;
     target?: '_self' | '_blank' | '_parent' | '_top';
   };
+  hoverBackgroundColor?: string;
+  hoverColor?: string;
   disabled?: boolean;
   className?: string;
   customStyle?: Record<string, unknown>;

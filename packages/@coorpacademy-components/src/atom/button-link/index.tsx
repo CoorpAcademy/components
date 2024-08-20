@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState, useMemo} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
@@ -7,9 +7,16 @@ import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
-const getButtonContent = (icon?: IconType, content?: string | React.ReactNode) => {
+const getButtonContent = (
+  icon?: IconType,
+  content?: string | React.ReactNode,
+  hovered?: boolean,
+  hoverBackgroundColor?: string,
+  hoverColor?: string
+) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
+  const isApplyHover = hovered && hoverBackgroundColor && hoverColor;
 
   if (!Icon && !faIcon) {
     return (
@@ -23,8 +30,8 @@ const getButtonContent = (icon?: IconType, content?: string | React.ReactNode) =
     <FaIcon
       {...{
         iconName: faIcon.name,
-        iconColor: faIcon.color,
-        backgroundColor: faIcon.backgroundColor,
+        iconColor: isApplyHover ? hoverColor : faIcon.color,
+        backgroundColor: isApplyHover ? hoverBackgroundColor : faIcon.backgroundColor,
         size: {
           faSize: faIcon.size,
           wrapperSize: faIcon.size
@@ -49,6 +56,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     type,
     label,
     content,
+    hoverBackgroundColor,
+    hoverColor,
     disabled = false,
     icon,
     'data-name': dataName,
@@ -61,7 +70,6 @@ const ButtonLink = (props: ButtonLinkProps) => {
     customStyle,
     useTitle = true
   } = props;
-  const contentView = getButtonContent(icon, content ?? label);
   const styleButton = classnames(
     className,
     style.button,
@@ -74,9 +82,27 @@ const ButtonLink = (props: ButtonLinkProps) => {
     disabled && style.disabled
   );
 
+  const [hovered, setHovered] = useState(false);
+
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
+
+  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+
+  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
+
+  const _customStyle = useMemo(() => {
+    return {
+      ...customStyle,
+      ...((hoverBackgroundColor || hoverColor) && hovered
+        ? {
+            backgroundColor: hoverBackgroundColor,
+            color: hoverColor
+          }
+        : null)
+    };
+  }, [hoverBackgroundColor, hoverColor, hovered, customStyle]);
 
   if (link) {
     return (
@@ -91,7 +117,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         data-testid={dataTestId}
         aria-label={ariaLabel || label}
       >
-        {contentView}
+        {getButtonContent(icon, content ?? label)}
       </Link>
     );
   }
@@ -105,14 +131,16 @@ const ButtonLink = (props: ButtonLinkProps) => {
       aria-label={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}
-      style={customStyle}
+      style={_customStyle}
       className={styleButton}
       onClick={handleOnClick}
       onKeyDown={handleOnKeyDown}
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
       tabIndex={0}
       disabled={disabled}
     >
-      {contentView}
+      {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
     </button>
   );
 };
