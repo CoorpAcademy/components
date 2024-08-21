@@ -62,18 +62,17 @@ test('onHover should change button text color && backgroundColor', t => {
   t.is(buttonLink.getAttribute('style'), expectedStyleNoHover);
 
   // hover
-  fireEvent.mouseOver(buttonWrapper);
-
   cardWrapper = container.querySelector('[data-name="skill-card-wrapper"]') as Element;
   buttonWrapper = cardWrapper.querySelector('[data-name="button-wrapper"]') as Element;
   t.truthy(buttonWrapper);
   buttonLink = buttonWrapper.querySelector('[data-name="skill-card-button"]') as Element;
   t.truthy(buttonLink);
+  fireEvent.mouseOver(buttonLink);
 
   t.is(buttonLink.getAttribute('style'), expectedStyleOnHover);
 
   // leave hover
-  fireEvent.mouseLeave(buttonWrapper);
+  fireEvent.mouseLeave(buttonLink);
 
   buttonLink = container.querySelector('[data-name="skill-card-button"]') as Element;
   t.truthy(buttonLink);
