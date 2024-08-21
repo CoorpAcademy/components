@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import {get} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import Provider, {GetTranslateFromContext, GetSkinFromContext} from '../../atom/provider';
@@ -21,16 +21,14 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
   const exploreLocale = translate('Explore');
   const primarySkinColor = get('common.primary', skin);
 
-  const [hovered, setHovered] = useState(false);
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
-
   const buttonExploreProps = {
     customStyle: {
-      backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-      color: hovered ? '#FFFFFF' : primarySkinColor,
+      backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+      color: primarySkinColor,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
+    hoverBackgroundColor: primarySkinColor,
+    hoverColor: '#FFFFFF',
     onClick,
     'aria-label': `${title}, ${exploreLocale}`,
     label: exploreLocale,
@@ -39,8 +37,8 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
       position: 'left' as const,
       faIcon: {
         name: 'compass',
-        backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-        color: hovered ? '#FFFFFF' : primarySkinColor,
+        backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+        color: primarySkinColor,
         size: 16
       }
     }
@@ -68,11 +66,7 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
           }}
         />
       </div>
-      <div
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-        data-name="button-explore-wrapper"
-      >
+      <div data-name="button-explore-wrapper">
         <ButtonLink {...buttonExploreProps} />
       </div>
     </div>
