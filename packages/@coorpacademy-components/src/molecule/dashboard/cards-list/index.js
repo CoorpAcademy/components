@@ -309,7 +309,7 @@ class CardsList extends React.PureComponent {
       map(([key, card]) => {
         return (
           <div className={style.card} key={key}>
-            {card.type === 'learningPriority' ? (
+            {card && card.type === 'learningPriority' ? (
               <LearningPriorityCard {...card} />
             ) : (
               <Card {...card} dataName={`${dataName}-${key}`} />
