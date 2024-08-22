@@ -12,5 +12,4 @@ export type CardsListProps = {
     showMoreOnRightAriaLabel: string;
   };
   type: string;
-  key: string;
 };

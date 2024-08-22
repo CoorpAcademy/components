@@ -104,7 +104,6 @@ class CardsList extends React.PureComponent {
       showMoreOnRightAriaLabel: PropTypes.string
     }),
     type: PropTypes.oneOf(['cards']),
-    key: PropTypes.string,
     // eslint-disable-next-line react/forbid-prop-types
     testingSizes: PropTypes.any
   };
