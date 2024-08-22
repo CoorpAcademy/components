@@ -1,11 +1,8 @@
 export const defaultProps = {
   title: '0 quality basics in enginer and development and things like that',
-  tag: {
-    label: 'Certification',
-    type: 'default'
-  },
+  tagLabel: 'Certification',
   progression: 100,
-  onclick: () => console.log('clicked'),
+  onClick: () => console.log('clicked'),
   type: 'learningPriority'
 };
 

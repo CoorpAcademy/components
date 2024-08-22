@@ -10,12 +10,7 @@ import {LearningPriorityCardPropTypes, propTypes} from './types';
 import style from './style.css';
 
 const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: WebContextValues) => {
-  const {
-    tag: {label: tagLabel},
-    title,
-    progression,
-    onClick
-  } = props;
+  const {tagLabel, title, progression, onClick} = props;
   const translate = GetTranslateFromContext(context);
   const skin = GetSkinFromContext(context);
   const exploreLocale = translate('Explore');

@@ -1,11 +1,8 @@
 export const defaultProps = {
   title: 'Conflict management',
-  tag: {
-    label: 'Skill',
-    type: 'default'
-  },
+  tagLabel: 'Skill',
   progression: 0,
-  onclick: () => console.log('clicked'),
+  onClick: () => console.log('clicked'),
   type: 'learningPriority'
 };
 
