@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {isString} from 'lodash/fp';
 import Slide from '../../../atom/slide';
 import HeroCard from '../../../molecule/hero';
 import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
@@ -9,6 +10,7 @@ import StartBattle from '../../../molecule/dashboard/start-battle';
 import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
 import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
+import Title from '../../../atom/title';
 import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
@@ -30,14 +32,27 @@ const Dashboard = props => {
     'arrows-aria-label': showMoreOnLeftOrRightAriaLabel
   } = props;
   const buildSectionComponent = section => {
-    const {type} = section;
+    const {type, title} = section;
     switch (type) {
       case 'hero':
         return <Hero hero={hero} welcome={welcome} />;
       case 'battleRequests':
         return <BattleRequestList {...section} />;
-      case 'cards':
-        return <CardsList {...section} arrows-aria-label={showMoreOnLeftOrRightAriaLabel} />;
+      case 'cards': {
+        const CardsListTitle =
+          React.isValidElement(title) || isString(title) ? (
+            section.title
+          ) : (
+            <Title {...section.title} />
+          );
+        return (
+          <CardsList
+            {...section}
+            title={CardsListTitle}
+            arrows-aria-label={showMoreOnLeftOrRightAriaLabel}
+          />
+        );
+      }
       case 'news':
         return <NewsList {...section} />;
       case 'battle':

@@ -1,4 +1,5 @@
 import LearningPrioritiesProps from '../../../../molecule/dashboard/cards-list/test/fixtures/learning-priority-card-list';
+import TitleProps from '../../../../atom/title/test/fixtures/form-group-title-icon-tag';
 
 const skills = [
   'skillRef1',
@@ -116,7 +117,7 @@ export const defaultProps = {
   onSkillFocusConfirm: () => console.log('confirm'),
   onReviewSkill: () => console.log('review'),
   onExploreSkill: skillRef => console.log(skillRef),
-  learningPriorities: LearningPrioritiesProps.props
+  learningPriorities: {...LearningPrioritiesProps.props, title: {...TitleProps.props}}
 };
 
 export default {

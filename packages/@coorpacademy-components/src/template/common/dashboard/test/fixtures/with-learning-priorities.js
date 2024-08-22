@@ -7,6 +7,7 @@ import StartBattle from '../../../../../molecule/dashboard/start-battle/test/fix
 import ReviewBanner from '../../../../../molecule/dashboard/review-banner/test/fixtures/default';
 import LearningProfileBanner from '../../../../../molecule/dashboard/learning-profile-banner/test/fixtures/default';
 import LearningPrioritiesSection from '../../../../../molecule/dashboard/cards-list/test/fixtures/learning-priority-card-list';
+import TitleProps from '../../../../../atom/title/test/fixtures/form-group-title-icon-tag';
 
 const requestsProps = BattleRequestList.props;
 const cardsProps = CardsList.props;
@@ -27,7 +28,12 @@ export default {
       alignment: 'left'
     },
     sections: [
-      {...LearningPrioritiesSection.props, type: 'cards', key: 'learningPriorities'},
+      {
+        ...LearningPrioritiesSection.props,
+        title: {...TitleProps.props},
+        type: 'cards',
+        key: 'learningPriorities'
+      },
       defaultsDeep(requestsProps, {
         type: 'battleRequests',
         key: 'battleRequests'

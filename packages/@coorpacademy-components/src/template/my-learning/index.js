@@ -16,6 +16,7 @@ import LearnerSkillCard from '../../molecule/learner-skill-card';
 import searchValueIncluded from '../../util/search-value-included';
 import {formatMinutes} from '../../util/time-format';
 import CardsList from '../../molecule/dashboard/cards-list';
+import Title from '../../atom/title';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -133,6 +134,7 @@ const MyLearning = (props, context) => {
     onExploreSkill,
     learningPriorities
   } = props;
+  const {title: learningPrioritiesTitleProps, ...learningPrioritiesProps} = learningPriorities;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
   const [open, setOpen] = useState(false);
@@ -282,7 +284,10 @@ const MyLearning = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.cardsListContainer}>
-        <CardsList {...learningPriorities} arrows-aria-label={''} />
+        <CardsList
+          {...learningPrioritiesProps}
+          title={<Title {...learningPrioritiesTitleProps} />}
+        />
       </div>
       <div className={style.container}>
         <SkillPickerModal
@@ -536,7 +541,10 @@ MyLearning.propTypes = {
   onSkillFocusConfirm: PropTypes.func,
   onReviewSkill: PropTypes.func,
   onExploreSkill: PropTypes.func,
-  learningPriorities: PropTypes.shape(CardsList.propTypes)
+  learningPriorities: PropTypes.shape({
+    ...CardsList.propTypes,
+    title: PropTypes.shape(Title.propTypes)
+  })
 };
 
 export default MyLearning;
