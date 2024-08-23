@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy, size} from 'lodash/fp';
+import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy, size, isEmpty} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -282,31 +282,33 @@ const MyLearning = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
-      <div className={style.cardsListContainer}>
-        <CardsList
-          {...learningPriorities}
-          title={
-            <Title
-              {...{
-                type: 'form-group',
-                title: learningPriorities.title,
-                subtitle: learningPriorities.subtitle,
-                icon: {
-                  iconName: 'sign-post',
-                  iconColor: '#A32700',
-                  borderRadius: '12px',
-                  backgroundColor: '#FFDCD1'
-                },
-                tag: {
-                  label: `${size(learningPriorities.cards)}`,
-                  type: 'default',
-                  size: 'S'
-                }
-              }}
-            />
-          }
-        />
-      </div>
+      {isEmpty(learningPriorities.cards) ? null : (
+        <div className={style.cardsListContainer}>
+          <CardsList
+            {...learningPriorities}
+            title={
+              <Title
+                {...{
+                  type: 'form-group',
+                  title: learningPriorities.title,
+                  subtitle: learningPriorities.subtitle,
+                  icon: {
+                    iconName: 'sign-post',
+                    iconColor: '#A32700',
+                    borderRadius: '12px',
+                    backgroundColor: '#FFDCD1'
+                  },
+                  tag: {
+                    label: `${size(learningPriorities.cards)}`,
+                    type: 'default',
+                    size: 'S'
+                  }
+                }}
+              />
+            }
+          />
+        </div>
+      )}
       <div className={style.container}>
         <SkillPickerModal
           skills={skills}
