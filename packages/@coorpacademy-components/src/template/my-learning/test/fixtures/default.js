@@ -117,7 +117,11 @@ export const defaultProps = {
   onSkillFocusConfirm: () => console.log('confirm'),
   onReviewSkill: () => console.log('review'),
   onExploreSkill: skillRef => console.log(skillRef),
-  learningPriorities: {...LearningPrioritiesProps.props, title: {...TitleProps.props}}
+  learningPriorities: {
+    ...LearningPrioritiesProps.props,
+    title: 'Learning priorities',
+    subtitle: 'Your top learning priorities defined by your company'
+  }
 };
 
 export default {

@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy} from 'lodash/fp';
+import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy, size} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -17,6 +17,7 @@ import searchValueIncluded from '../../util/search-value-included';
 import {formatMinutes} from '../../util/time-format';
 import CardsList from '../../molecule/dashboard/cards-list';
 import Title from '../../atom/title';
+import LearningPriorityCard from '../../molecule/learning-priority-card';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -134,7 +135,6 @@ const MyLearning = (props, context) => {
     onExploreSkill,
     learningPriorities
   } = props;
-  const {title: learningPrioritiesTitleProps, ...learningPrioritiesProps} = learningPriorities;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
   const [open, setOpen] = useState(false);
@@ -285,8 +285,27 @@ const MyLearning = (props, context) => {
     <div className={style.backgroundContainer}>
       <div className={style.cardsListContainer}>
         <CardsList
-          {...learningPrioritiesProps}
-          title={<Title {...learningPrioritiesTitleProps} />}
+          {...learningPriorities}
+          title={
+            <Title
+              {...{
+                type: 'form-group',
+                title: learningPriorities.title,
+                subtitle: learningPriorities.subtitle,
+                icon: {
+                  iconName: 'sign-post',
+                  iconColor: '#A32700',
+                  borderRadius: '12px',
+                  backgroundColor: '#FFDCD1'
+                },
+                tag: {
+                  label: `${size(learningPriorities.cards)}`,
+                  type: 'default',
+                  size: 'S'
+                }
+              }}
+            />
+          }
         />
       </div>
       <div className={style.container}>
@@ -520,6 +539,12 @@ MyLearning.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
+const learningPrioritiesPropTypes = {
+  ...CardsList.propTypes,
+  title: PropTypes.string,
+  subtitle: PropTypes.string
+};
+
 MyLearning.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.string),
   selectedSkills: PropTypes.arrayOf(PropTypes.string),
@@ -541,10 +566,7 @@ MyLearning.propTypes = {
   onSkillFocusConfirm: PropTypes.func,
   onReviewSkill: PropTypes.func,
   onExploreSkill: PropTypes.func,
-  learningPriorities: PropTypes.shape({
-    ...CardsList.propTypes,
-    title: PropTypes.shape(Title.propTypes)
-  })
+  learningPriorities: PropTypes.shape(learningPrioritiesPropTypes)
 };
 
 export default MyLearning;

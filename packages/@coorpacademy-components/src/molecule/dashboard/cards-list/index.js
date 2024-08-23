@@ -95,7 +95,12 @@ class CardsList extends React.PureComponent {
     dataName: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     showMore: PropTypes.string,
-    cards: PropTypes.arrayOf(PropTypes.shape(cardPropTypes)),
+    cards: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.shape(cardPropTypes),
+        PropTypes.shape(LearningPriorityCard.propTypes)
+      ])
+    ),
     customStyle: PropTypes.objectOf(PropTypes.string),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
@@ -311,7 +316,7 @@ class CardsList extends React.PureComponent {
         return (
           <div className={style.card} key={key}>
             {card && card.type === 'learningPriority' ? (
-              <LearningPriorityCard {...card} />
+              <LearningPriorityCard {...card} dataName={`${dataName}-${key}`} />
             ) : (
               <Card {...card} dataName={`${dataName}-${key}`} />
             )}
