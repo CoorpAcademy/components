@@ -9,7 +9,6 @@ import {defaultProps as ThirdCard} from '../../../../learning-priority-card/test
 export default {
   props: {
     title: <Title {...TitleProps.props} />,
-    subtitle: 'Your top learning priorities defined by your company',
     cards: [
       FirstCard,
       SecondCard,
@@ -23,7 +22,6 @@ export default {
     ],
     onScroll: (skip, limit) => {
       console.log(skip, limit);
-    },
-    type: 'cards'
+    }
   }
 };

@@ -17,7 +17,6 @@ import searchValueIncluded from '../../util/search-value-included';
 import {formatMinutes} from '../../util/time-format';
 import CardsList from '../../molecule/dashboard/cards-list';
 import Title from '../../atom/title';
-import LearningPriorityCard from '../../molecule/learning-priority-card';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -539,7 +538,7 @@ MyLearning.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-const learningPrioritiesPropTypes = {
+export const learningPrioritiesPropTypes = {
   ...CardsList.propTypes,
   title: PropTypes.string,
   subtitle: PropTypes.string

@@ -1,5 +1,4 @@
 import LearningPrioritiesProps from '../../../../molecule/dashboard/cards-list/test/fixtures/learning-priority-card-list';
-import TitleProps from '../../../../atom/title/test/fixtures/form-group-title-icon-tag';
 
 const skills = [
   'skillRef1',

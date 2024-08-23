@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isString} from 'lodash/fp';
+import {size} from 'lodash/fp';
 import Slide from '../../../atom/slide';
 import HeroCard from '../../../molecule/hero';
 import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
@@ -11,6 +11,7 @@ import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
 import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
 import Title from '../../../atom/title';
+import {learningPrioritiesPropTypes} from '../../my-learning';
 import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
@@ -32,27 +33,42 @@ const Dashboard = props => {
     'arrows-aria-label': showMoreOnLeftOrRightAriaLabel
   } = props;
   const buildSectionComponent = section => {
-    const {type, title} = section;
+    const {type} = section;
     switch (type) {
       case 'hero':
         return <Hero hero={hero} welcome={welcome} />;
       case 'battleRequests':
         return <BattleRequestList {...section} />;
-      case 'cards': {
-        const CardsListTitle =
-          React.isValidElement(title) || isString(title) ? (
-            section.title
-          ) : (
-            <Title {...section.title} />
-          );
+      case 'learningPrioritiesCards': {
         return (
           <CardsList
             {...section}
-            title={CardsListTitle}
+            title={
+              <Title
+                {...{
+                  type: 'form-group',
+                  title: section.title,
+                  subtitle: section.subtitle,
+                  icon: {
+                    iconName: 'sign-post',
+                    iconColor: '#A32700',
+                    borderRadius: '12px',
+                    backgroundColor: '#FFDCD1'
+                  },
+                  tag: {
+                    label: `${size(section.cards)}`,
+                    type: 'default',
+                    size: 'S'
+                  }
+                }}
+              />
+            }
             arrows-aria-label={showMoreOnLeftOrRightAriaLabel}
           />
         );
       }
+      case 'cards':
+        return <CardsList {...section} arrows-aria-label={showMoreOnLeftOrRightAriaLabel} />;
       case 'news':
         return <NewsList {...section} />;
       case 'battle':
@@ -95,6 +111,7 @@ Dashboard.propTypes = {
     PropTypes.oneOfType([
       PropTypes.shape(BattleRequestList.propTypes),
       PropTypes.shape(CardsList.propTypes),
+      PropTypes.shape(learningPrioritiesPropTypes),
       PropTypes.shape(NewsList.propTypes),
       PropTypes.shape(StartBattle.propTypes),
       PropTypes.shape(ReviewBanner.propTypes),
