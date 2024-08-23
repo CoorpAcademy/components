@@ -13,17 +13,12 @@ import AllCourses from './all-courses';
 import ContinueLearning from './continue-learning';
 
 const ContinueLearningButton = (props, context) => {
-  const [hovered, setHovered] = useState(false);
   const {ongoingCoursesAvailable, onClick} = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
-
   return (
-    <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+    <div>
       <ButtonLink
         label={
           ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')
@@ -32,10 +27,10 @@ const ContinueLearningButton = (props, context) => {
         customStyle={{
           width: 'fit-content',
           borderRadius: '12px',
-          backgroundColor: hovered
-            ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
-            : primarySkinColor
+          backgroundColor: primarySkinColor
         }}
+        hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
+        hoverColor="#FFFFFF"
         icon={{
           position: 'left',
           faIcon: {

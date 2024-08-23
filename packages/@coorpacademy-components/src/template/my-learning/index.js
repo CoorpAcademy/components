@@ -18,29 +18,20 @@ import {formatMinutes} from '../../util/time-format';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
-  const [hovered, setHovered] = useState(false);
   const {onClick} = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
-
   return (
-    <div
-      data-name="button-explore-wrapper"
-      onMouseOver={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div data-name="button-explore-wrapper">
       <ButtonLink
         customStyle={{
-          backgroundColor: hovered
-            ? primarySkinColor
-            : convert(`color(${primarySkinColor} a(0.07))`),
-          color: hovered ? '#FFFFFF' : primarySkinColor,
+          backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+          color: primarySkinColor,
           transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
         }}
+        hoverBackgroundColor={primarySkinColor}
+        hoverColor="#FFFFFF"
         onClick={onClick}
         label={translate('skills_change_focus')}
         data-name="change-skill-focus-button"
@@ -48,10 +39,8 @@ const ChangeSkillFocusButton = (props, context) => {
           position: 'left',
           faIcon: {
             name: 'arrows-rotate',
-            backgroundColor: hovered
-              ? primarySkinColor
-              : convert(`color(${primarySkinColor} a(0.07))`),
-            color: hovered ? '#FFFFFF' : primarySkinColor,
+            backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+            color: primarySkinColor,
             size: 16
           }
         }}
@@ -141,11 +130,6 @@ const MyLearning = (props, context) => {
     sortBy(skillRef => -getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
   );
   const [activeFilter, setActiveFilter] = useState('all');
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const skillsReviewReady = useMemo(() => {
     return searchResults.filter(skill =>
@@ -361,16 +345,17 @@ const MyLearning = (props, context) => {
                 <div className={style.skillFocusEmptyDescription}>
                   {translate('skills_focus_empty_description')}
                 </div>
-                <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                <div>
                   <ButtonLink
                     label={translate('skills_choose_focus')}
                     type="primary"
                     customStyle={{
                       width: 'fit-contain',
-                      backgroundColor: hovered
-                        ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
-                        : primarySkinColor
+                      backgroundColor: primarySkinColor
                     }}
+                    hoverBackgroundColor={convert(
+                      `hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`
+                    )}
                     onClick={handleOpenSkillPicker}
                   />
                 </div>

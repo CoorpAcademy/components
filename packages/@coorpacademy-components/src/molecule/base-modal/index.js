@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty, get} from 'lodash/fp';
 import {convert} from 'css-color-function';
@@ -10,10 +10,6 @@ import style from './style.css';
 const BaseModal = (props, context) => {
   const {title, description, headerIcon, children, isOpen, footer, onClose} = props;
   const {skin} = context;
-
-  const [hovered, setHovered] = useState(false);
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -44,14 +40,14 @@ const BaseModal = (props, context) => {
             />
           ) : null}
           {onConfirm && confirmLabel ? (
-            <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+            <div>
               <ButtonLink
                 {...{
-                  customStyle: {
-                    backgroundColor: hovered
-                      ? convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)
-                      : primarySkinColor
-                  },
+                  customStyle: {backgroundColor: primarySkinColor},
+                  hoverBackgroundColor: convert(
+                    `hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`
+                  ),
+                  hoverColor: '#FFFFFF',
                   className: style.footerConfirmButton,
                   type: 'primary',
                   onClick: onConfirm,
@@ -83,7 +79,7 @@ const BaseModal = (props, context) => {
         ) : null}
       </div>
     );
-  }, [footer, hovered, handleMouseOver, handleMouseLeave, skin]);
+  }, [footer, skin, style, convert, get, isEmpty]);
 
   if (!isOpen || !title || !children) return null;
 

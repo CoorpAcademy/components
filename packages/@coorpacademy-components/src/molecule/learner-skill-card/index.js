@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback} from 'react';
 import {convert} from 'css-color-function';
 import {get} from 'lodash/fp';
 import PropTypes from 'prop-types';
@@ -20,7 +20,6 @@ const LearnerSkillCard = (props, context) => {
   } = props;
   const {score, content, questionsToReview, contentCompleted = 0} = metrics;
   const {skin, translate} = context;
-  const [hovered, setHovered] = useState(false);
   const primarySkinColor = get('common.primary', skin);
 
   const reviewLocale = translate('Review');
@@ -29,10 +28,6 @@ const LearnerSkillCard = (props, context) => {
   const questionsLocale = translate('questions');
   const skillFocusLocale = translate('skill_focus');
   const contentCompletedLocale = translate('courses_completed');
-
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
-
-  const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const buttonReviewProps = {
     customStyle: {
@@ -49,10 +44,12 @@ const LearnerSkillCard = (props, context) => {
 
   const buttonExploreProps = {
     customStyle: {
-      backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-      color: hovered ? '#FFFFFF' : primarySkinColor,
+      backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+      color: primarySkinColor,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
+    hoverColor: '#FFFFFF',
+    hoverBackgroundColor: primarySkinColor,
     onClick: onExploreClick,
     'aria-label': `${skillTitle}, ${exploreLocale}`,
     label: exploreLocale,
@@ -61,8 +58,8 @@ const LearnerSkillCard = (props, context) => {
       position: 'left',
       faIcon: {
         name: 'compass',
-        backgroundColor: hovered ? primarySkinColor : convert(`color(${primarySkinColor} a(0.07))`),
-        color: hovered ? '#FFFFFF' : primarySkinColor,
+        backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+        color: primarySkinColor,
         size: 16
       }
     }
@@ -149,12 +146,7 @@ const LearnerSkillCard = (props, context) => {
       </div>
       <div className={style.ctaWrapper} data-name="cta-wrapper">
         <ButtonLink {...buttonReviewProps} />
-        <div
-          className={style.buttonWrapper}
-          onMouseOver={handleMouseOver}
-          onMouseLeave={handleMouseLeave}
-          data-name="button-explore-wrapper"
-        >
+        <div className={style.buttonWrapper} data-name="button-explore-wrapper">
           <ButtonLink {...buttonExploreProps} />
         </div>
       </div>
