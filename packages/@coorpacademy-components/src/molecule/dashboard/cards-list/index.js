@@ -304,7 +304,8 @@ class CardsList extends React.PureComponent {
       onShowMore,
       dataName,
       contentType,
-      'arrows-aria-label': ariaLabel = {}
+      'arrows-aria-label': ariaLabel = {},
+      type
     } = this.props;
     const {skin} = this.context;
     const {maxPages} = this.state;
@@ -315,7 +316,7 @@ class CardsList extends React.PureComponent {
       map(([key, card]) => {
         return (
           <div className={style.card} key={key}>
-            {card && card.type === 'learningPriority' ? (
+            {card && type === 'learningPrioritiesCards' ? (
               <LearningPriorityCard {...card} dataName={`${dataName}-${key}`} />
             ) : (
               <Card {...card} dataName={`${dataName}-${key}`} />

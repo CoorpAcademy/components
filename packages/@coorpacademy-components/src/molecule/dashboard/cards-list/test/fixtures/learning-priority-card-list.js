@@ -22,6 +22,7 @@ export default {
     ],
     onScroll: (skip, limit) => {
       console.log(skip, limit);
-    }
+    },
+    type: 'learningPrioritiesCards'
   }
 };
