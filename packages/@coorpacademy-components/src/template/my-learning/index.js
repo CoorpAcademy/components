@@ -282,7 +282,7 @@ const MyLearning = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
-      {isEmpty(learningPriorities.cards) ? null : (
+      {isEmpty(learningPriorities?.cards) ? null : (
         <div className={style.cardsListContainer}>
           <CardsList
             {...learningPriorities}
