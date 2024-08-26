@@ -3,7 +3,6 @@ export const defaultProps = {
   tagLabel: 'Certification',
   progression: 100,
   onClick: () => console.log('clicked'),
-  type: 'learningPriority'
 };
 
 export default {

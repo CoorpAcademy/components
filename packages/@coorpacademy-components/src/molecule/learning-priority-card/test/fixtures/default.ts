@@ -3,7 +3,6 @@ export const defaultProps = {
   tagLabel: 'Playlist',
   progression: 25,
   onClick: () => console.log('clicked'),
-  type: 'learningPriority'
 };
 
 export default {
