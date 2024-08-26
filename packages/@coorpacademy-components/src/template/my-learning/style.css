@@ -33,7 +33,7 @@
   padding: 48px 0;
 }
 
-/* to ecrase wrapper's style from CardsList component */
+/* to override wrapper's style from CardsList component */
 .cardsListContainer > :first-child {
   padding: 0;
 }

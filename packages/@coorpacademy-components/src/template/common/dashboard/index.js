@@ -57,7 +57,6 @@ const Dashboard = props => {
                   },
                   tag: {
                     label: `${size(section.cards)}`,
-                    type: 'default',
                     size: 'S'
                   }
                 }}
