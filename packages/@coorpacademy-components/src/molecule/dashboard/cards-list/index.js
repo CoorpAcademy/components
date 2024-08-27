@@ -16,13 +16,13 @@ import {
 } from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
-  NovaCompositionNavigationArrowLeft as ArrowLeft,
-  NovaCompositionNavigationArrowRight as ArrowRight,
   NovaSolidContentContentBook1 as LearnerIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
+import LearningPriorityCard from '../../learning-priority-card';
+import Icon from '../../../atom/icon';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -95,7 +95,12 @@ class CardsList extends React.PureComponent {
     dataName: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     showMore: PropTypes.string,
-    cards: PropTypes.arrayOf(PropTypes.shape(cardPropTypes)),
+    cards: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.shape(cardPropTypes),
+        PropTypes.shape(LearningPriorityCard.propTypes)
+      ])
+    ),
     customStyle: PropTypes.objectOf(PropTypes.string),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
@@ -103,6 +108,7 @@ class CardsList extends React.PureComponent {
       showMoreOnLeftAriaLabel: PropTypes.string,
       showMoreOnRightAriaLabel: PropTypes.string
     }),
+    type: PropTypes.oneOf(['cards', 'learningPrioritiesCards']),
     // eslint-disable-next-line react/forbid-prop-types
     testingSizes: PropTypes.any
   };
@@ -298,7 +304,8 @@ class CardsList extends React.PureComponent {
       onShowMore,
       dataName,
       contentType,
-      'arrows-aria-label': ariaLabel = {}
+      'arrows-aria-label': ariaLabel = {},
+      type
     } = this.props;
     const {skin} = this.context;
     const {maxPages} = this.state;
@@ -309,31 +316,31 @@ class CardsList extends React.PureComponent {
       map(([key, card]) => {
         return (
           <div className={style.card} key={key}>
-            <Card {...card} dataName={`${dataName}-${key}`} />
+            {card && type === 'learningPrioritiesCards' ? (
+              <LearningPriorityCard {...card} dataName={`${dataName}-${key}`} />
+            ) : (
+              <Card {...card} dataName={`${dataName}-${key}`} />
+            )}
           </div>
         );
       })
     )(cards);
-    const leftArrowView = (
-      <div className={style.circle} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
-        <ArrowLeft
-          style={{color: dark}}
-          className={style.left}
-          width={10}
-          height={10}
-          aria-label={ariaLabel.showMoreOnLeftAriaLabel}
-        />
-      </div>
-    );
-    const rightArrowView = (
-      <div className={style.circle} onClick={this.handleOnRight} data-name="card-list-right-arrow">
-        <ArrowRight
-          style={{color: dark}}
-          className={style.right}
-          width={10}
-          height={10}
-          aria-label={ariaLabel.showMoreOnRightAriaLabel}
-        />
+
+    const arrowIconProps = {
+      color: dark,
+      preset: 's',
+      borderRadius: '8px',
+      ariaLabel: ariaLabel.showMoreOnLeftAriaLabel
+    };
+
+    const arrows = (
+      <div className={style.arrowsWrapper}>
+        <div className={style.arrow} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
+          <Icon {...arrowIconProps} iconName="arrow-left" />
+        </div>
+        <div className={style.arrow} onClick={this.handleOnRight} data-name="card-list-right-arrow">
+          <Icon {...arrowIconProps} iconName="arrow-right" />
+        </div>
       </div>
     );
 
@@ -360,8 +367,7 @@ class CardsList extends React.PureComponent {
     const switchPagesView = hasPages ? (
       <div className={style.pagingWrapper}>
         {showMoreView}
-        {leftArrowView}
-        {rightArrowView}
+        {arrows}
       </div>
     ) : null;
 

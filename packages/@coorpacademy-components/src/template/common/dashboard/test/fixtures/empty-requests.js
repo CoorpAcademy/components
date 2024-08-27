@@ -30,7 +30,7 @@ export default {
       }),
       defaultsDeep(manyCardsProps, {
         type: 'cards',
-        key: 'playlist1'
+        key: 'playlist2'
       }),
       defaultsDeep(battleProps, {
         type: 'battle',

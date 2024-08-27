@@ -3,6 +3,7 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 @value white from colors;
+@value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
 
@@ -10,12 +11,11 @@
   background-color: white;
   min-height: 100%;
   width: 100%;
+  font-family: "Gilroy";
+  font-style: normal;
 }
 
 .container {
-  background-color: white;
-  font-family: "Gilroy";
-  font-style: normal;
   margin-top: 48px;
   margin-bottom: 48px;
   margin-left: auto;
@@ -28,10 +28,21 @@
   max-width: calc(1080px + 32px);
 }
 
+.cardsListContainer {
+  background-color: cm_grey_50;
+  padding: 48px 0;
+}
+
+/* to override wrapper's style from CardsList component */
+.cardsListContainer > :first-child {
+  padding: 0;
+}
+
 .skillFocusContainer {
   border-radius: 16px;
   border: 1px solid cm_grey_100;
   overflow: hidden;
+  margin-top: 48px;
   margin-bottom: 40px;
 }
 
@@ -271,5 +282,9 @@
 @media tablet {
   .skillFocusContent {
     flex-direction: column;
+  }
+
+  .cardsListContainer {
+    padding: 24px 16px;
   }
 }

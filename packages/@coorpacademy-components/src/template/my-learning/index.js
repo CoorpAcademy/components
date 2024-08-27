@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
-import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy} from 'lodash/fp';
+import {get, keys, map, fromPairs, pipe, sumBy, getOr, sortBy, size, isEmpty} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import Picture from '../../atom/picture';
@@ -15,6 +15,8 @@ import SkillsChartSideInformationPanel from '../../molecule/skills-chart-side-in
 import LearnerSkillCard from '../../molecule/learner-skill-card';
 import searchValueIncluded from '../../util/search-value-included';
 import {formatMinutes} from '../../util/time-format';
+import CardsList from '../../molecule/dashboard/cards-list';
+import Title from '../../atom/title';
 import style from './style.css';
 
 const ChangeSkillFocusButton = (props, context) => {
@@ -118,7 +120,8 @@ const MyLearning = (props, context) => {
     isLoading,
     onSkillFocusConfirm,
     onReviewSkill,
-    onExploreSkill
+    onExploreSkill,
+    learningPriorities
   } = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
@@ -263,6 +266,33 @@ const MyLearning = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
+      {isEmpty(learningPriorities?.cards) ? null : (
+        <div className={style.cardsListContainer}>
+          <CardsList
+            {...learningPriorities}
+            title={
+              <Title
+                {...{
+                  type: 'form-group',
+                  title: learningPriorities.title,
+                  subtitle: learningPriorities.subtitle,
+                  icon: {
+                    iconName: 'sign-post',
+                    iconColor: '#A32700',
+                    borderRadius: '12px',
+                    backgroundColor: '#FFDCD1'
+                  },
+                  tag: {
+                    label: `${size(learningPriorities.cards)}`,
+                    type: 'default',
+                    size: 'S'
+                  }
+                }}
+              />
+            }
+          />
+        </div>
+      )}
       <div className={style.container}>
         <SkillPickerModal
           skills={skills}
@@ -495,6 +525,12 @@ MyLearning.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
+export const learningPrioritiesPropTypes = {
+  ...CardsList.propTypes,
+  title: PropTypes.string,
+  subtitle: PropTypes.string
+};
+
 MyLearning.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.string),
   selectedSkills: PropTypes.arrayOf(PropTypes.string),
@@ -515,7 +551,8 @@ MyLearning.propTypes = {
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
   onReviewSkill: PropTypes.func,
-  onExploreSkill: PropTypes.func
+  onExploreSkill: PropTypes.func,
+  learningPriorities: PropTypes.shape(learningPrioritiesPropTypes)
 };
 
 export default MyLearning;

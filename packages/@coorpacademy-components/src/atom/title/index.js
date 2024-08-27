@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../icon';
+import Tag from '../tag';
 import style from './style.css';
 
 const getTitleStyle = (type, size) => {
@@ -43,7 +45,9 @@ const Title = props => {
     type,
     'data-name': dataName,
     titleSize = 'standard',
-    subtitleSize = 'standard'
+    subtitleSize = 'standard',
+    icon,
+    tag
   } = props;
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
@@ -51,11 +55,15 @@ const Title = props => {
   const subtitleSection = subtitle ? <div className={subtitleStyle}>{subtitle}</div> : null;
 
   return (
-    <div>
-      <div className={titleStyle} data-name={dataName}>
-        {title}
+    <div className={style.container}>
+      {icon ? <Icon {...icon} className={style.icon} /> : null}
+      <div>
+        <div className={titleStyle} data-name={dataName}>
+          {title}
+          {tag ? <Tag {...tag} /> : null}
+        </div>
+        {subtitleSection}
       </div>
-      {subtitleSection}
     </div>
   );
 };
@@ -66,6 +74,8 @@ Title.propTypes = {
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
   titleSize: PropTypes.oneOf(['standard', 'medium', 'small']),
-  subtitleSize: PropTypes.oneOf(['standard', 'small', 'small-without-margin', 'extra-small'])
+  subtitleSize: PropTypes.oneOf(['standard', 'small', 'small-without-margin', 'extra-small']),
+  icon: PropTypes.shape(Icon.propTypes),
+  tag: PropTypes.shape(Tag.propTypes)
 };
 export default Title;
