@@ -18,8 +18,12 @@ const TAG_SIZE = {
   L: style.large
 };
 
-const Tag = ({label, type = 'default', size = 'M'}) => (
-  <span className={classnames(TAG_STYLES[type], TAG_SIZE[size])} data-name={`content-tag-${label}`}>
+const Tag = ({label, type = 'default', size = 'M', customStyle = {}}) => (
+  <span
+    className={classnames(TAG_STYLES[type], TAG_SIZE[size])}
+    data-name={`content-tag-${label}`}
+    style={customStyle}
+  >
     {label}
   </span>
 );
@@ -27,7 +31,8 @@ const Tag = ({label, type = 'default', size = 'M'}) => (
 Tag.propTypes = {
   label: PropTypes.string,
   type: PropTypes.oneOf(keys(TAG_STYLES)),
-  size: PropTypes.oneOf(['S', 'M', 'L'])
+  size: PropTypes.oneOf(['S', 'M', 'L']),
+  customStyle: PropTypes.objectOf(PropTypes.string)
 };
 
 export default Tag;

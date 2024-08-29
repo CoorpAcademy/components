@@ -1,0 +1,68 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+
+.LearningPriorityContainer {
+  height: 485px;
+  width: 660px;
+  overflow-y: auto;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loader {
+  width: 40px; 
+  height: 40px;
+}
+
+.searchWrapper {
+  border-radius: 12px;
+  width: 300px;
+  background-color: cm_grey_100;
+  margin-bottom: 20px;
+}
+
+.filterWrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.filterButtonWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.skillFilterNumber,
+.skillFilterNumberInActive {
+  border-radius: 50%;
+  background-color: #D6E6FF;
+  color: #0061FF;
+  padding: 2px 4px;
+  margin-left: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+}
+
+.skillFilterNumberInActive {
+  background-color: #EAEAEB;
+  color: #515161;
+}
+
+.priorityListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media mobile {
+  .LearningPriorityContainer {
+    width: 100%;
+  }
+}

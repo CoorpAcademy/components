@@ -1,33 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map} from 'lodash/fp';
+import {isEmpty, map, noop, get} from 'lodash/fp';
+import {convert} from 'css-color-function';
 import classnames from 'classnames';
+import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
+import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
-const ListItem = ({
-  buttonLink,
-  secondButtonLink,
-  bulletPointMenuButton,
-  tags,
-  title,
-  dataColumns,
-  order,
-  'aria-label': ariaLabel,
-  contentType,
-  isBulkStyle = false,
-  isOverflowHidden = false
-}) => {
+const ListItem = (
+  {
+    buttonLink,
+    secondButtonLink,
+    bulletPointMenuButton,
+    tags,
+    title,
+    selected,
+    subtitle,
+    dataColumns,
+    order,
+    'aria-label': ariaLabel,
+    disabled = false,
+    contentType,
+    isBulkStyle = false,
+    isOverflowHidden = false,
+    onClick = noop
+  },
+  context
+) => {
+  const {skin} = context;
+  const primarySkinColor = get('common.primary', skin);
   let isPublished = false;
+
+  const selectedStyle = selected
+    ? {
+        backgroundColor: convert(`color(${primarySkinColor} a(0.07))`)
+      }
+    : {};
+
+  const tagSelectedStyle = selected
+    ? {
+        backgroundColor: convert(`color(${primarySkinColor} a(0.15))`),
+        color: primarySkinColor
+      }
+    : {};
 
   const tagsView = map.convert({cap: false})((tag, index) => {
     isPublished = tag.type === 'success';
     return (
       <div key={index} className={style.tag}>
-        <Tag {...tag} />
+        <Tag {...tag} customStyle={tagSelectedStyle} />
       </div>
     );
   })(tags);
@@ -48,19 +73,40 @@ const ListItem = ({
     ) : null;
 
   return (
-    <div className={classnames(style.wrapper, isBulkStyle && style.gridLayout)}>
+    <div
+      className={classnames(
+        style.wrapper,
+        isBulkStyle && style.gridLayout,
+        subtitle && style.withSubtitle,
+        disabled && style.disabled
+      )}
+      onClick={!disabled && onClick}
+      style={selectedStyle}
+    >
       <div
         className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}
       >
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.title} title={title}>
           {title}
+          <div className={style.subtitle}>{subtitle}</div>
         </div>
         {dataColumnsView}
       </div>
 
       <div className={style.settings}>
         {tagsView}
+        {selected ? (
+          <Icon
+            iconName="circle-check"
+            iconColor={primarySkinColor}
+            backgroundColor={'#ffffff'}
+            size={{
+              faSize: 16,
+              wrapperSize: 16
+            }}
+          />
+        ) : null}
         {buttonLink ? <ButtonLink {...buttonLink} /> : null}
         {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
@@ -71,8 +117,15 @@ const ListItem = ({
   );
 };
 
+ListItem.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
+
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  selected: PropTypes.bool,
   dataColumns: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -121,6 +174,8 @@ ListItem.propTypes = {
       type: PropTypes.oneOf(['success', 'failure', 'warning', 'progress', 'default'])
     })
   ),
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
   isBulkStyle: PropTypes.bool,
   isOverflowHidden: PropTypes.bool,
   order: PropTypes.number,

@@ -1,0 +1,47 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_50 from colors;
+@value cm_grey_700 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_400 from colors;
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: cm_grey_50;
+    font-size: 14px;
+    margin-top: 8px;
+    padding: 8px 16px;
+    border-radius: 7px;
+}
+
+.containerInfos {
+    margin-left: 32px;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+    color: cm_grey_700;
+    line-height: 22px;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
+.courses {
+    color: cm_grey_500;
+    display: block;
+    font-family: Gilroy;
+    line-height: 20px;
+}

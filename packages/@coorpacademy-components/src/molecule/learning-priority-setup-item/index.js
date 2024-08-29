@@ -1,0 +1,65 @@
+import React, {useCallback} from 'react';
+import PropTypes from 'prop-types';
+import Provider from '../../atom/provider';
+import Tag from '../../atom/tag';
+import ButtonLink from '../../atom/button-link';
+import style from './style.css';
+
+const LearningPrioritySetupItem = (props, context) => {
+  const {priorityRef, id, title, courses, type, 'aria-label': ariaLabel, onRemove} = props;
+
+  const {translate} = context;
+
+  const handleRemovePriority = useCallback(() => onRemove(priorityRef, type), [priorityRef, type]);
+
+  return (
+    <div
+      className={style.container}
+      aria-label={ariaLabel}
+      data-name={`learning-priority-setup-item-${id}`}
+    >
+      <div className={style.containerInfos}>
+        <div className={style.titleWrapper}>
+          <div className={style.title}>{title}</div>
+          <div>
+            <Tag label={translate(type)} size={'S'} />
+          </div>
+        </div>
+        <span className={style.courses}>{`${courses} ${translate('courses')}`}</span>
+      </div>
+      <ButtonLink
+        type="primary"
+        customStyle={{
+          width: 'fit-content',
+          backgroundColor: 'transparent'
+        }}
+        hoverBackgroundColor="#EAEAEB"
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'trash',
+            color: '#515161',
+            size: 16
+          }
+        }}
+        onClick={handleRemovePriority}
+      />
+    </div>
+  );
+};
+
+LearningPrioritySetupItem.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
+LearningPrioritySetupItem.propTypes = {
+  'aria-label': PropTypes.string,
+  id: PropTypes.string,
+  priorityRef: PropTypes.string,
+  title: PropTypes.string,
+  courses: PropTypes.number,
+  type: PropTypes.string,
+  onRemove: PropTypes.func
+};
+
+export default LearningPrioritySetupItem;

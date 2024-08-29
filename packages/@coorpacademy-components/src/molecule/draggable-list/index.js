@@ -4,11 +4,13 @@ import Draggable from '../draggable';
 import SetupSection from '../setup-section';
 import CourseSection from '../course-section';
 import ListItem from '../../organism/list-item';
+import LearningPrioritySetupItem from '../learning-priority-setup-item';
 
 const ITEMS = {
   'setup-section': SetupSection,
   'course-section': CourseSection,
-  'list-item': ListItem
+  'list-item': ListItem,
+  'learning-priority-setup-item': LearningPrioritySetupItem
 };
 
 const DraggableList = ({items, onDrop, itemType}) => {
@@ -69,7 +71,8 @@ DraggableList.propTypes = {
     PropTypes.oneOfType([
       PropTypes.shape(SetupSection.propTypes),
       PropTypes.shape(CourseSection.propTypes),
-      PropTypes.shape(ListItem.propTypes)
+      PropTypes.shape(ListItem.propTypes),
+      PropTypes.shape(LearningPrioritySetupItem.propTypes)
     ])
   ),
   onDrop: PropTypes.func,

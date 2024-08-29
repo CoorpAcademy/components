@@ -15,6 +15,7 @@ import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import WizardContents from '../../../organism/wizard-contents';
 import ListItems from '../../../organism/list-items';
+import BrandLearningPriorities from '../../../organism/brand-learning-priorities';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -186,6 +187,8 @@ const buildContentView = content => {
       return <BulkInfos {...content} />;
     case 'table-pending':
       return <ExpandibleActionableTable {...content} />;
+    case 'learning-priorities':
+      return <BrandLearningPriorities {...content} />;
   }
 };
 
@@ -331,6 +334,11 @@ BrandUpdate.propTypes = {
       }),
       key: PropTypes.string,
       type: PropTypes.oneOf(['expandible-table'])
+    }),
+    PropTypes.shape({
+      ...BrandLearningPriorities.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['learning-priorities'])
     })
   ]),
   documentation: PropTypes.shape({
