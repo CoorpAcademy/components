@@ -65,7 +65,7 @@ FilterButton.propTypes = {
 const LearningPriorityModal = (props, context) => {
   const {
     priorities,
-    preSelectedPriorities,
+    preselected,
     isOpen,
     isLoading,
     filters: {options, onChange},
@@ -108,7 +108,7 @@ const LearningPriorityModal = (props, context) => {
 
   const priorityList = useMemo(() => {
     return searchResults.map(priority => {
-      const isPreSelectedPriority = preSelectedPriorities.some(
+      const isPreSelectedPriority = preselected.some(
         selected => selected === priority.ref
       );
       return assign(
@@ -119,7 +119,7 @@ const LearningPriorityModal = (props, context) => {
         pick(['title', 'ref', 'type', 'courses'], priority)
       );
     });
-  }, [searchResults, preSelectedPriorities]);
+  }, [searchResults, preselected]);
 
   const footer = useMemo(() => {
     return {
@@ -229,7 +229,7 @@ LearningPriorityModal.propTypes = {
       type: PropTypes.string
     })
   ),
-  preSelectedPriorities: PropTypes.arrayOf(PropTypes.string),
+  preselected: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
   filters: PropTypes.shape({

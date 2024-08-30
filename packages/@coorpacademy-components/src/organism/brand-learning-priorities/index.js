@@ -32,7 +32,7 @@ const BrandLearningPriorities = (props, context) => {
         onAdd={onAdd}
         priorities={priorities}
         filters={filters}
-        preSelectedPriorities={selectedPriorities}
+        preselected={selectedPriorities}
       />
       <div className={style.LPtitle}>{translate('learning_priorities')}</div>
       <div className={style.LPdescription}>

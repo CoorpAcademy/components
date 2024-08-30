@@ -14,7 +14,7 @@ export default {
         type: 'skill'
       }
     ],
-    preSelectedPriorities: ['ref-1'],
+    preselected: ['ref-1'],
     filters: {
       options: [
         {

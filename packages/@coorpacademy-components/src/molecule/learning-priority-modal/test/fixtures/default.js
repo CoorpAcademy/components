@@ -20,7 +20,7 @@ export default {
         type: 'certificate'
       }
     ],
-    preSelectedPriorities: ['ref-1'],
+    preselected: ['ref-1'],
     filters: {
       options: [
         {
