@@ -80,7 +80,7 @@ const ListItem = (
         subtitle && style.withSubtitle,
         disabled && style.disabled
       )}
-      onClick={!disabled && onClick}
+      onClick={!disabled ? onClick : undefined}
       style={selectedStyle}
     >
       <div
@@ -101,10 +101,7 @@ const ListItem = (
             iconName="circle-check"
             iconColor={primarySkinColor}
             backgroundColor={'#ffffff'}
-            size={{
-              faSize: 16,
-              wrapperSize: 16
-            }}
+            size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
         {buttonLink ? <ButtonLink {...buttonLink} /> : null}

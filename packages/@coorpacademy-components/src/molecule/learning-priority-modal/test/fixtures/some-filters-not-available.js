@@ -11,13 +11,7 @@ export default {
         title: 'Learning Priority 2',
         ref: 'ref-2',
         courses: 0,
-        type: 'playlist'
-      },
-      {
-        title: 'Learning Priority 3',
-        ref: 'ref-3',
-        courses: 0,
-        type: 'certificate'
+        type: 'skill'
       }
     ],
     preSelectedPriorities: ['ref-1'],
@@ -26,26 +20,26 @@ export default {
         {
           name: 'All',
           value: 'ALL',
-          selected: true,
+          selected: false,
           count: 8
         },
         {
           name: 'Skill',
           value: 'skill',
-          selected: false,
+          selected: true,
           count: 3
         },
         {
           name: 'Certification',
           value: 'certification',
           selected: false,
-          count: 2
+          count: 0
         },
         {
           name: 'Playlist',
           value: 'playlist',
           selected: false,
-          count: 3
+          count: 0
         }
       ],
       onChange: value => console.log(value)

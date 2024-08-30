@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import {get, assign, pick} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import BaseModal from '../base-modal';
 import ListItem from '../../organism/list-item';
@@ -65,7 +65,7 @@ FilterButton.propTypes = {
 const LearningPriorityModal = (props, context) => {
   const {
     priorities,
-    selectedPriorities,
+    preSelectedPriorities,
     isOpen,
     isLoading,
     filters: {options, onChange},
@@ -108,17 +108,18 @@ const LearningPriorityModal = (props, context) => {
 
   const priorityList = useMemo(() => {
     return searchResults.map(priority => {
-      const isSelectedPriority = selectedPriorities.some(selected => selected === priority.ref);
-      return {
-        title: priority.title,
-        ref: priority.ref,
-        type: priority.type,
-        courses: priority.courses,
-        selected: isSelectedPriority,
-        disabled: isSelectedPriority
-      };
+      const isPreSelectedPriority = preSelectedPriorities.some(
+        selected => selected === priority.ref
+      );
+      return assign(
+        {
+          selected: isPreSelectedPriority,
+          disabled: isPreSelectedPriority
+        },
+        pick(['title', 'ref', 'type', 'courses'], priority)
+      );
     });
-  }, [searchResults, selectedPriorities]);
+  }, [searchResults, preSelectedPriorities]);
 
   const footer = useMemo(() => {
     return {
@@ -163,7 +164,7 @@ const LearningPriorityModal = (props, context) => {
               />
             </div>
             <div className={style.filterWrapper}>
-              {options.length > 2 && searchResults.length > 0
+              {searchResults.length > 0
                 ? options.map((filter, index) => {
                     const {name, value, selected, count} = filter;
 
@@ -201,12 +202,7 @@ const LearningPriorityModal = (props, context) => {
                     selected={selected || selectedPriority === ref}
                     disabled={disabled}
                     onClick={handlePriorityClick}
-                    tags={[
-                      {
-                        label: type,
-                        type: 'default'
-                      }
-                    ]}
+                    tags={[{label: type, type: 'default'}]}
                     key={ref}
                     backgroundColor="skin"
                   />
@@ -233,7 +229,7 @@ LearningPriorityModal.propTypes = {
       type: PropTypes.string
     })
   ),
-  selectedPriorities: PropTypes.arrayOf(PropTypes.string),
+  preSelectedPriorities: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
   filters: PropTypes.shape({
