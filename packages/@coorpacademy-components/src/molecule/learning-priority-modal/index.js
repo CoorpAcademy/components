@@ -108,9 +108,7 @@ const LearningPriorityModal = (props, context) => {
 
   const priorityList = useMemo(() => {
     return searchResults.map(priority => {
-      const isPreSelectedPriority = preselected.some(
-        selected => selected === priority.ref
-      );
+      const isPreSelectedPriority = preselected.some(selected => selected === priority.ref);
       return assign(
         {
           selected: isPreSelectedPriority,

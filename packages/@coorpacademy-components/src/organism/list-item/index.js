@@ -33,6 +33,7 @@ const ListItem = (
 ) => {
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
+  const mapUncapped = map.convert({cap: false});
   let isPublished = false;
 
   const selectedStyle = selected
@@ -48,7 +49,7 @@ const ListItem = (
       }
     : {};
 
-  const tagsView = map.convert({cap: false})((tag, index) => {
+  const tagsView = mapUncapped((tag, index) => {
     isPublished = tag.type === 'success';
     return (
       <div key={index} className={style.tag}>
@@ -57,7 +58,7 @@ const ListItem = (
     );
   })(tags);
 
-  const dataColumnsView = map.convert({cap: false})((dataColumn, index) => {
+  const dataColumnsView = mapUncapped((dataColumn, index) => {
     return (
       <div key={index} className={style[dataColumn.className]}>
         {dataColumn.type ? <Tag {...dataColumn} /> : dataColumn.label}
