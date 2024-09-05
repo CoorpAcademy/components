@@ -3,7 +3,6 @@
 
 .LearningPriorityContainer {
   height: 485px;
-  width: 660px;
   overflow-y: auto;
 }
 
@@ -31,6 +30,7 @@
   display: flex;
   gap: 12px;
   margin-bottom: 32px;
+  overflow-x: auto;
 }
 
 .filterButtonWrapper {

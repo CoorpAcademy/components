@@ -126,10 +126,13 @@ const LearningPriorityModal = (props, context) => {
         label: translate('cancel')
       },
       confirmButton: {
-        onConfirm: () => onAdd(selectedPriority),
+        onConfirm: () => {
+          onAdd(selectedPriority);
+          onClose();
+        },
         label: translate('add'),
         iconName: 'plus',
-        disabled: isLoading
+        disabled: isLoading || !selectedPriority
       }
     };
   }, [handleCancel, onAdd, translate, selectedPriority, isLoading]);
@@ -224,7 +227,7 @@ LearningPriorityModal.propTypes = {
       ref: PropTypes.string,
       title: PropTypes.string,
       courses: PropTypes.number,
-      type: PropTypes.string
+      type: PropTypes.oneOf(['skill', 'playlist', 'certificate'])
     })
   ),
   preselected: PropTypes.arrayOf(PropTypes.string),

@@ -12,6 +12,17 @@ const LearningPrioritySetupItem = (props, context) => {
 
   const handleRemovePriority = useCallback(() => onRemove(priorityRef, type), [priorityRef, type]);
 
+  const handleTypeTranslate = itemType => {
+    switch (itemType) {
+      case 'skill':
+        return translate('skill');
+      case 'playlist':
+        return translate('playlist');
+      case 'certificate':
+        return translate('certificate');
+    }
+  };
+
   return (
     <div
       className={style.container}
@@ -22,7 +33,7 @@ const LearningPrioritySetupItem = (props, context) => {
         <div className={style.titleWrapper}>
           <div className={style.title}>{title}</div>
           <div>
-            <Tag label={translate(type)} size={'S'} />
+            <Tag label={handleTypeTranslate(type)} size={'S'} />
           </div>
         </div>
         <span className={style.courses}>{`${courses} ${translate('courses')}`}</span>
@@ -58,7 +69,7 @@ LearningPrioritySetupItem.propTypes = {
   priorityRef: PropTypes.string,
   title: PropTypes.string,
   courses: PropTypes.number,
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['skill', 'playlist', 'certificate']),
   onRemove: PropTypes.func
 };
 

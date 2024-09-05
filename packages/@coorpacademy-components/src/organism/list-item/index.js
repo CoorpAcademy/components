@@ -90,7 +90,7 @@ const ListItem = (
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.title} title={title}>
           {title}
-          <div className={style.subtitle}>{subtitle}</div>
+          {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
         </div>
         {dataColumnsView}
       </div>
