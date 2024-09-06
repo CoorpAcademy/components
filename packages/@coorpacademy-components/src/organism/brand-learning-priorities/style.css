@@ -22,6 +22,11 @@
   margin-bottom: 32px;
 }
 
+.loading {
+  position: relative;
+  height: 200px;
+}
+
 .ctaWrapper {
   display: flex;
   justify-content: space-between;
