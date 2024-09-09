@@ -76,18 +76,21 @@ const LearningPriorityModal = (props, context) => {
   const {translate} = context;
 
   const [selectedPriority, setSelectedPriority] = useState('');
+  const [selectedPriorityType, setSelectedPriorityType] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(priorities);
 
   const handleCancel = useCallback(() => {
     setSelectedPriority('');
+    setSelectedPriorityType('');
     onCancel();
-  }, [setSelectedPriority, onCancel]);
+  }, [setSelectedPriority, setSelectedPriorityType, onCancel]);
 
   const handleClose = useCallback(() => {
     setSelectedPriority('');
+    setSelectedPriorityType('');
     onClose();
-  }, [setSelectedPriority, onClose]);
+  }, [setSelectedPriority, setSelectedPriorityType, onClose]);
 
   const handleSearch = useCallback(
     value => {
@@ -127,7 +130,7 @@ const LearningPriorityModal = (props, context) => {
       },
       confirmButton: {
         onConfirm: () => {
-          onAdd(selectedPriority);
+          onAdd(selectedPriority, selectedPriorityType);
           onClose();
         },
         label: translate('add'),
@@ -135,7 +138,7 @@ const LearningPriorityModal = (props, context) => {
         disabled: isLoading || !selectedPriority
       }
     };
-  }, [handleCancel, onAdd, translate, selectedPriority, isLoading]);
+  }, [handleCancel, onAdd, translate, selectedPriority, selectedPriorityType, isLoading]);
 
   if ((!isLoading && !priorities) || !isOpen) return null;
 
@@ -194,6 +197,7 @@ const LearningPriorityModal = (props, context) => {
                 const {title, priorityRef, courses = null, type, selected, disabled} = priority;
                 function handlePriorityClick() {
                   setSelectedPriority(priorityRef);
+                  setSelectedPriorityType(type);
                 }
 
                 return (
