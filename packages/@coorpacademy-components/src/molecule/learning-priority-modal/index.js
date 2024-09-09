@@ -114,7 +114,7 @@ const LearningPriorityModal = (props, context) => {
           selected: isPreSelectedPriority,
           disabled: isPreSelectedPriority
         },
-        pick(['title', 'ref', 'type', 'courses'], priority)
+        pick(['title', 'priorityRef', 'type', 'courses'], priority)
       );
     });
   }, [searchResults, preselected]);
@@ -191,20 +191,20 @@ const LearningPriorityModal = (props, context) => {
             </div>
             <div className={style.priorityListWrapper}>
               {priorityList.map(priority => {
-                const {title, ref, courses, type, selected, disabled} = priority;
+                const {title, priorityRef, courses, type, selected, disabled} = priority;
                 function handlePriorityClick() {
-                  setSelectedPriority(ref);
+                  setSelectedPriority(priorityRef);
                 }
 
                 return (
                   <ListItem
                     title={title}
                     subtitle={`${courses} ${translate('courses')}`}
-                    selected={selected || selectedPriority === ref}
+                    selected={selected || selectedPriority === priorityRef}
                     disabled={disabled}
                     onClick={handlePriorityClick}
                     tags={[{label: type, type: 'default'}]}
-                    key={ref}
+                    key={priorityRef}
                     backgroundColor="skin"
                   />
                 );
@@ -224,7 +224,7 @@ LearningPriorityModal.contextTypes = {
 LearningPriorityModal.propTypes = {
   priorities: PropTypes.arrayOf(
     PropTypes.shape({
-      ref: PropTypes.string,
+      priorityRef: PropTypes.string,
       title: PropTypes.string,
       courses: PropTypes.number,
       type: PropTypes.oneOf(['skill', 'playlist', 'certificate'])

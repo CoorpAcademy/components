@@ -3,19 +3,19 @@ export default {
     priorities: [
       {
         title: 'Learning Priority 1',
-        ref: 'ref-1',
+        priorityRef: 'ref-1',
         courses: 0,
         type: 'skill'
       },
       {
         title: 'Learning Priority 2',
-        ref: 'ref-2',
+        priorityRef: 'ref-2',
         courses: 0,
         type: 'playlist'
       },
       {
         title: 'Learning Priority 3',
-        ref: 'ref-3',
+        priorityRef: 'ref-3',
         courses: 0,
         type: 'certificate'
       }
