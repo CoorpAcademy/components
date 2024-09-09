@@ -6,7 +6,7 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const LearningPrioritySetupItem = (props, context) => {
-  const {priorityRef, id, title, courses, type, 'aria-label': ariaLabel, onRemove} = props;
+  const {priorityRef, id, title, courses = null, type, 'aria-label': ariaLabel, onRemove} = props;
 
   const {translate} = context;
 
@@ -36,7 +36,7 @@ const LearningPrioritySetupItem = (props, context) => {
             <Tag label={handleTypeTranslate(type)} size={'S'} />
           </div>
         </div>
-        <span className={style.courses}>{`${courses} ${translate('courses')}`}</span>
+        {courses !== null ? <span className={style.courses}>{`${courses} ${translate('courses')}`}</span> : null}
       </div>
       <ButtonLink
         type="primary"
