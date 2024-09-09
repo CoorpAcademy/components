@@ -1,19 +1,19 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
-import { convert } from 'css-color-function';
-import { get } from 'lodash/fp';
+import {convert} from 'css-color-function';
+import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
-import { SelectOptionPropTypes } from '../../atom/select';
+import {SelectOptionPropTypes} from '../../atom/select';
 import DraggableList from '../../molecule/draggable-list';
 import ButtonLink from '../../atom/button-link';
 import LearningPriorityModal from '../../molecule/learning-priority-modal';
 import style from './style.css';
 
 const BrandLearningPriorities = (props, context) => {
-  const { content, priorities, filters, isLoading, onAdd } = props;
+  const {content, priorities, filters, isLoading, onAdd} = props;
   const [openModal, setOpenModal] = useState(false);
-  const { skin, translate } = context;
+  const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
   const selectedPriorities = useMemo(
@@ -21,10 +21,13 @@ const BrandLearningPriorities = (props, context) => {
     [content.items]
   );
 
-  const Loading = () => (
-    <div className={style.loading}>
-      <Loader />
-    </div>
+  const Loading = useCallback(
+    () => (
+      <div className={style.loading}>
+        <Loader />
+      </div>
+    ),
+    []
   );
 
   const handleOpenModal = useCallback(() => setOpenModal(true), [setOpenModal]);
@@ -46,12 +49,14 @@ const BrandLearningPriorities = (props, context) => {
         {translate('learning_priorities_brand_description')}
       </div>
 
-      {isLoading ?
+      {isLoading ? (
         <Loading />
-        :
+      ) : (
         <>
           <div className={style.ctaWrapper}>
-            <div className={style.priorityCount}>{`${content.items.length} ${translate('items')}`}</div>
+            <div className={style.priorityCount}>
+              {`${content.items.length} ${translate('items')}`}
+            </div>
             <ButtonLink
               customStyle={{
                 backgroundColor: primarySkinColor,
@@ -76,7 +81,8 @@ const BrandLearningPriorities = (props, context) => {
             />
           </div>
           <DraggableList {...content} />
-        </>}
+        </>
+      )}
     </div>
   );
 };

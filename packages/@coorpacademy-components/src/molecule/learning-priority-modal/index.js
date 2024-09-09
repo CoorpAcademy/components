@@ -108,7 +108,7 @@ const LearningPriorityModal = (props, context) => {
 
   const priorityList = useMemo(() => {
     return searchResults.map(priority => {
-      const isPreSelectedPriority = preselected.some(selected => selected === priority.ref);
+      const isPreSelectedPriority = preselected.some(selected => selected === priority.priorityRef);
       return assign(
         {
           selected: isPreSelectedPriority,
@@ -191,15 +191,15 @@ const LearningPriorityModal = (props, context) => {
             </div>
             <div className={style.priorityListWrapper}>
               {priorityList.map(priority => {
-                const {title, priorityRef, courses, type, selected, disabled} = priority;
+                const {title, priorityRef, courses = null, type, selected, disabled} = priority;
                 function handlePriorityClick() {
                   setSelectedPriority(priorityRef);
                 }
 
                 return (
                   <ListItem
+                    {...(courses !== null ? {subtitle: `${courses} ${translate('courses')}`} : {})}
                     title={title}
-                    subtitle={`${courses} ${translate('courses')}`}
                     selected={selected || selectedPriority === priorityRef}
                     disabled={disabled}
                     onClick={handlePriorityClick}

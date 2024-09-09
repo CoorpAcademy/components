@@ -36,7 +36,9 @@ const LearningPrioritySetupItem = (props, context) => {
             <Tag label={handleTypeTranslate(type)} size={'S'} />
           </div>
         </div>
-        {courses !== null ? <span className={style.courses}>{`${courses} ${translate('courses')}`}</span> : null}
+        {courses !== null ? (
+          <span className={style.courses}>{`${courses} ${translate('courses')}`}</span>
+        ) : null}
       </div>
       <ButtonLink
         type="primary"
