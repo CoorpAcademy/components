@@ -22,9 +22,8 @@ export default {
   props: {
     itemType: 'learning-priority-setup-item',
     items: [item, item2, item3],
-    onDrop: (dragged, dropped) => {
-      console.log('foo');
-      console.log({dragged, dropped});
+    onDrop: items => {
+      console.log(items);
     }
   }
 };

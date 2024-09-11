@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useMemo} from 'react';
+import React, {useState, useCallback, useMemo, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import {get} from 'lodash/fp';
@@ -12,13 +12,33 @@ import style from './style.css';
 
 const BrandLearningPriorities = (props, context) => {
   const {content, priorities, filters, isLoading, onAdd} = props;
+  const {items, onDrop, itemType} = content;
+  const [itemList, setItemList] = useState([...items]);
   const [openModal, setOpenModal] = useState(false);
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
-  const selectedPriorities = useMemo(
-    () => content.items.map(priority => priority.priorityRef),
-    [content.items]
+  const selectedPriorities = useMemo(() => items.map(priority => priority.priorityRef), [items]);
+
+  const handleDropItem = useCallback(
+    (dragRef, dropRef) => {
+      const dragIndex = itemList.findIndex(item => item.priorityRef === dragRef);
+      const dropIndex = itemList.findIndex(item => item.priorityRef === dropRef);
+
+      if (dragIndex === dropIndex) return;
+
+      const newItems = [...itemList];
+      const [dragItem] = newItems.splice(dragIndex, 1);
+      newItems.splice(dropIndex, 0, dragItem);
+
+      setItemList(newItems);
+      onDrop(
+        newItems.map(item => {
+          return {type: item.type, ref: item.priorityRef};
+        })
+      );
+    },
+    [itemList, setItemList, onDrop]
   );
 
   const Loading = useCallback(
@@ -29,6 +49,10 @@ const BrandLearningPriorities = (props, context) => {
     ),
     []
   );
+
+  useEffect(() => {
+    setItemList(items);
+  }, [items]);
 
   const handleOpenModal = useCallback(() => setOpenModal(true), [setOpenModal]);
   const handleCloseModal = useCallback(() => setOpenModal(false), [setOpenModal]);
@@ -54,9 +78,7 @@ const BrandLearningPriorities = (props, context) => {
       ) : (
         <>
           <div className={style.ctaWrapper}>
-            <div className={style.priorityCount}>
-              {`${content.items.length} ${translate('items')}`}
-            </div>
+            <div className={style.priorityCount}>{`${items.length} ${translate('items')}`}</div>
             <ButtonLink
               customStyle={{
                 backgroundColor: primarySkinColor,
@@ -80,7 +102,7 @@ const BrandLearningPriorities = (props, context) => {
               }}
             />
           </div>
-          <DraggableList {...content} />
+          <DraggableList itemType={itemType} items={itemList} onDrop={handleDropItem} />
         </>
       )}
     </div>
