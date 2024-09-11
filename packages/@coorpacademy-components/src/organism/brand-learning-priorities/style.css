@@ -1,0 +1,40 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+
+.container {
+  font-family: "Gilroy";
+  font-style: normal;
+}
+
+.LPtitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.LPdescription {
+  color: cm_grey_500;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.loading {
+  position: relative;
+  height: 200px;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.priorityCount {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px; 
+}

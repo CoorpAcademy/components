@@ -24,11 +24,16 @@
   grid-template-columns: 60% auto;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 .title {
   color: cm_grey_900;
   display: flex;
+  flex-direction: column;
   height: 56px;
-  align-items: center;
+  justify-content: center;
   flex: 2 0 0;
   font-family: Gilroy;
   font-size: 16px;
@@ -40,6 +45,13 @@
   text-align: left;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: cm_grey_400;
 }
 
 .settings {
@@ -96,4 +108,12 @@
 
 .hiddenOverflowX:hover {
   overflow-x: auto;
+}
+
+.withSubtitle {
+  padding: 8px 16px;
+
+  .setting {
+    gap: 8px;
+  }
 }
