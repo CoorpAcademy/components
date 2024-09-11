@@ -3,6 +3,8 @@
 
 .LearningPriorityContainer {
   height: 485px;
+  width: calc(71vw - 68px);
+  max-width: 660px;
   overflow-y: auto;
 }
 
@@ -57,7 +59,7 @@
 
 .priorityListWrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 16px;
 }
 

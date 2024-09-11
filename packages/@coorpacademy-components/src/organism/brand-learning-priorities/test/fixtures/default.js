@@ -23,35 +23,28 @@ export default {
         type: 'certificate'
       }
     ],
-    filters: {
-      options: [
-        {
-          name: 'All',
-          value: 'ALL',
-          selected: true,
-          count: 8
-        },
-        {
-          name: 'Skill',
-          value: 'skill',
-          selected: false,
-          count: 3
-        },
-        {
-          name: 'Certification',
-          value: 'certification',
-          selected: false,
-          count: 2
-        },
-        {
-          name: 'Playlist',
-          value: 'playlist',
-          selected: false,
-          count: 3
-        }
-      ],
-      onChange: value => console.log(value)
-    },
+    filters: [
+      {
+        name: 'All',
+        value: 'all',
+        count: 3
+      },
+      {
+        name: 'Skill',
+        value: 'skill',
+        count: 1
+      },
+      {
+        name: 'Certification',
+        value: 'certificate',
+        count: 1
+      },
+      {
+        name: 'Playlist',
+        value: 'playlist',
+        count: 1
+      }
+    ],
     isLoading: false,
     onAdd: () => console.log('added')
   }

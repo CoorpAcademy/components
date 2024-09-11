@@ -102,15 +102,12 @@ BrandLearningPriorities.propTypes = {
       type: PropTypes.string
     })
   ),
-  filters: PropTypes.shape({
-    onChange: PropTypes.func,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        ...SelectOptionPropTypes,
-        count: PropTypes.number
-      })
-    )
-  }),
+  filters: PropTypes.arrayOf(
+    PropTypes.shape({
+      ...SelectOptionPropTypes,
+      count: PropTypes.number
+    })
+  ),
   isLoading: PropTypes.bool,
   onAdd: PropTypes.func
 };

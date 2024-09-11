@@ -63,21 +63,13 @@ FilterButton.propTypes = {
 };
 
 const LearningPriorityModal = (props, context) => {
-  const {
-    priorities,
-    preselected,
-    isOpen,
-    isLoading,
-    filters: {options, onChange},
-    onCancel,
-    onAdd,
-    onClose
-  } = props;
+  const {priorities, preselected, isOpen, isLoading, filters, onCancel, onAdd, onClose} = props;
   const {translate} = context;
 
   const [selectedPriority, setSelectedPriority] = useState('');
   const [selectedPriorityType, setSelectedPriorityType] = useState('');
   const [searchValue, setSearchValue] = useState('');
+  const [filterValue, setFilterValue] = useState('all');
   const [searchResults, setSearchResults] = useState(priorities);
 
   const handleCancel = useCallback(() => {
@@ -131,6 +123,8 @@ const LearningPriorityModal = (props, context) => {
       confirmButton: {
         onConfirm: () => {
           onAdd(selectedPriority, selectedPriorityType);
+          setSelectedPriority('');
+          setSelectedPriorityType('');
           onClose();
         },
         label: translate('add'),
@@ -138,7 +132,16 @@ const LearningPriorityModal = (props, context) => {
         disabled: isLoading || !selectedPriority
       }
     };
-  }, [handleCancel, onAdd, translate, selectedPriority, selectedPriorityType, isLoading]);
+  }, [
+    handleCancel,
+    setSelectedPriority,
+    setSelectedPriorityType,
+    onAdd,
+    translate,
+    selectedPriority,
+    selectedPriorityType,
+    isLoading
+  ]);
 
   if ((!isLoading && !priorities) || !isOpen) return null;
 
@@ -169,11 +172,11 @@ const LearningPriorityModal = (props, context) => {
             </div>
             <div className={style.filterWrapper}>
               {searchResults.length > 0
-                ? options.map((filter, index) => {
-                    const {name, value, selected, count} = filter;
+                ? filters.map((filter, index) => {
+                    const {name, value, count} = filter;
 
                     function handleChange() {
-                      onChange(value);
+                      setFilterValue(value);
                       handleSearchReset();
                     }
 
@@ -182,7 +185,7 @@ const LearningPriorityModal = (props, context) => {
                     return (
                       <div key={index} className={style.filterButtonWrapper}>
                         <FilterButton
-                          active={selected}
+                          active={filterValue === value}
                           filter={name}
                           onClick={handleChange}
                           itemTotal={count}
@@ -199,6 +202,8 @@ const LearningPriorityModal = (props, context) => {
                   setSelectedPriority(priorityRef);
                   setSelectedPriorityType(type);
                 }
+
+                if (filterValue !== 'all' && type !== filterValue) return null;
 
                 return (
                   <ListItem
@@ -237,15 +242,12 @@ LearningPriorityModal.propTypes = {
   preselected: PropTypes.arrayOf(PropTypes.string),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
-  filters: PropTypes.shape({
-    onChange: PropTypes.func,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        ...SelectOptionPropTypes,
-        count: PropTypes.number
-      })
-    )
-  }),
+  filters: PropTypes.arrayOf(
+    PropTypes.shape({
+      ...SelectOptionPropTypes,
+      count: PropTypes.number
+    })
+  ),
   onCancel: PropTypes.func,
   onAdd: PropTypes.func,
   onClose: PropTypes.func
