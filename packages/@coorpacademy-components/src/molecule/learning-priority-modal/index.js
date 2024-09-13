@@ -199,6 +199,11 @@ const LearningPriorityModal = (props, context) => {
               {priorityList.map(priority => {
                 const {title, priorityRef, courses = null, type, selected, disabled} = priority;
                 function handlePriorityClick() {
+                  if (selectedPriority === priorityRef) {
+                    setSelectedPriority('');
+                    setSelectedPriorityType('');
+                    return;
+                  }
                   setSelectedPriority(priorityRef);
                   setSelectedPriorityType(type);
                 }

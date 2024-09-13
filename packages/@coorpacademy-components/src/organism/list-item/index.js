@@ -79,7 +79,8 @@ const ListItem = (
         style.wrapper,
         isBulkStyle && style.gridLayout,
         subtitle && style.withSubtitle,
-        disabled && style.disabled
+        disabled && style.disabled,
+        onClick !== noop && !disabled && style.cursorPointer
       )}
       onClick={!disabled ? onClick : undefined}
       style={selectedStyle}
