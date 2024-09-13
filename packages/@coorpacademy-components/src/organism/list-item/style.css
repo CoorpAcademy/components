@@ -54,6 +54,10 @@
   color: cm_grey_400;
 }
 
+.cursorPointer {
+  cursor: pointer;
+}
+
 .settings {
   align-items: center;
   display: flex;
