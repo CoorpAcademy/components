@@ -43,8 +43,8 @@ const BrandLearningPriorities = (props, context) => {
 
   const Loading = useCallback(
     () => (
-      <div className={style.loading}>
-        <Loader />
+      <div className={style.loaderContainer}>
+        <Loader className={style.loader} theme="coorpmanager" />
       </div>
     ),
     []
