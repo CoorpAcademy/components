@@ -29,8 +29,6 @@ export default {
     sections: [
       {
         ...LearningPrioritiesSection.props,
-        title: 'Learning priorities',
-        subtitle: 'Your top learning priorities defined by your company',
         type: 'learningPrioritiesCards',
         key: 'learningPriorities'
       },

@@ -274,8 +274,8 @@ const MyLearning = (props, context) => {
               <Title
                 {...{
                   type: 'form-group',
-                  title: learningPriorities.title,
-                  subtitle: learningPriorities.subtitle,
+                  title: translate('learning_priorities'),
+                  subtitle: translate('learning_priorities_description'),
                   icon: {
                     iconName: 'sign-post',
                     iconColor: '#A32700',
@@ -525,12 +525,6 @@ MyLearning.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-export const learningPrioritiesPropTypes = {
-  ...CardsList.propTypes,
-  title: PropTypes.string,
-  subtitle: PropTypes.string
-};
-
 MyLearning.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.string),
   selectedSkills: PropTypes.arrayOf(PropTypes.string),
@@ -552,7 +546,7 @@ MyLearning.propTypes = {
   onSkillFocusConfirm: PropTypes.func,
   onReviewSkill: PropTypes.func,
   onExploreSkill: PropTypes.func,
-  learningPriorities: PropTypes.shape(learningPrioritiesPropTypes)
+  learningPriorities: PropTypes.shape(CardsList.propTypes)
 };
 
 export default MyLearning;

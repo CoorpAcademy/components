@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {size} from 'lodash/fp';
+import Provider from '../../../atom/provider';
 import Slide from '../../../atom/slide';
 import HeroCard from '../../../molecule/hero';
 import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
@@ -11,7 +12,6 @@ import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
 import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
 import Title from '../../../atom/title';
-import {learningPrioritiesPropTypes} from '../../my-learning';
 import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
@@ -23,7 +23,8 @@ Hero.propTypes = {
   welcome: PropTypes.shape(Slide.propTypes)
 };
 
-const Dashboard = props => {
+const Dashboard = (props, context) => {
+  const {translate} = context;
   const {
     sections = [],
     hero,
@@ -47,8 +48,8 @@ const Dashboard = props => {
               <Title
                 {...{
                   type: 'form-group',
-                  title: section.title,
-                  subtitle: section.subtitle,
+                  title: translate('learning_priorities'),
+                  subtitle: translate('learning_priorities_description'),
                   icon: {
                     iconName: 'sign-post',
                     iconColor: '#A32700',
@@ -103,6 +104,10 @@ const Dashboard = props => {
   );
 };
 
+Dashboard.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
 Dashboard.propTypes = {
   hero: Hero.propTypes.hero,
   welcome: Hero.propTypes.welcome,
@@ -110,7 +115,6 @@ Dashboard.propTypes = {
     PropTypes.oneOfType([
       PropTypes.shape(BattleRequestList.propTypes),
       PropTypes.shape(CardsList.propTypes),
-      PropTypes.shape(learningPrioritiesPropTypes),
       PropTypes.shape(NewsList.propTypes),
       PropTypes.shape(StartBattle.propTypes),
       PropTypes.shape(ReviewBanner.propTypes),
