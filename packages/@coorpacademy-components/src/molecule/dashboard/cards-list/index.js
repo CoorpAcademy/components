@@ -12,7 +12,8 @@ import {
   reduce,
   head,
   findIndex,
-  findLastIndex
+  findLastIndex,
+  isEmpty
 } from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
@@ -384,7 +385,7 @@ class CardsList extends React.PureComponent {
         <div className={style.list}>
           <div>
             <div data-name="header" className={style.header}>
-              {titleView}
+              {isEmpty(cards) ? null : titleView}
               {switchPagesView}
             </div>
             <div
