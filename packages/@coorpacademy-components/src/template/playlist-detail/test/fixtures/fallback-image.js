@@ -1,6 +1,9 @@
+import DefaultProps from './default';
+
 export default {
   props: {
-    images: [
+    ...DefaultProps.props,
+    coverImages: [
       {
         type: 'video',
         url: null
