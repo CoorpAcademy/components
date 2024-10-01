@@ -206,7 +206,7 @@ const SkillDetail = (props, context) => {
         ) : null}
         <ContinueLearning ongoingCourses={ongoingCourses} />
         <AllCourses
-          skillIncludedCourses={skillIncludedCourses}
+          courses={skillIncludedCourses}
           totalCourses={totalCourses}
           filters={filters}
           sorting={sorting}

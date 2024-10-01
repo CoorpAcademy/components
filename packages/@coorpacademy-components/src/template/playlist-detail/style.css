@@ -1,0 +1,109 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value xtraLightGrey from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_400 from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+}
+
+.backgroundContainer {
+  background-color: white;
+  min-height: 100%;
+  width: 100%;
+}
+
+.container {
+  composes: textBase;
+  background-color: white;
+  font-family: "Gilroy";
+  font-style: normal;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  max-width: calc(1080px + 40px);
+}
+
+.backButtonWrapper {
+  margin-bottom: 16px;
+  background-color: cm_grey_100;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.ctaContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.coverWrapper {
+  width: 420px;
+  height: 280px;
+}
+
+.showMoreWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.showMoreWrapper {
+  align-items: center;
+  margin-top: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.description {
+  margin-top: 8px;
+  max-width: 620px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: cm_grey_400;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.continueLearningButton {
+  margin-top: 24px;
+}
+
+@media tablet {
+  .ctaContainer {
+    flex-direction: column;
+  }
+}
+
+@media mobile {
+  .coverWrapper {
+    width: 100%;
+  }
+}
