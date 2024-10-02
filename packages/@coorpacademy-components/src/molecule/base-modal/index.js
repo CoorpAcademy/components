@@ -21,9 +21,10 @@ const BaseModal = (props, context) => {
       label: confirmLabel,
       onConfirm,
       disabled: confirmDisabled,
-      iconName
+      iconName,
+      color
     } = confirmButton || {};
-    const primarySkinColor = get('common.primary', skin);
+    const primarySkinColor = color || get('common.primary', skin);
 
     return (
       <div className={style.footer}>
@@ -145,7 +146,8 @@ BaseModal.propTypes = {
         label: PropTypes.string,
         onConfirm: PropTypes.func,
         iconName: PropTypes.string,
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        color: PropTypes.string
       })
     })
   ]),

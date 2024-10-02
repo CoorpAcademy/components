@@ -5,7 +5,6 @@
   height: 485px;
   width: calc(71vw - 68px);
   max-width: 660px;
-  overflow-y: auto;
 }
 
 .loaderContainer {

@@ -1,7 +1,5 @@
 import React, {useState, useCallback, useMemo, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {convert} from 'css-color-function';
-import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
 import {SelectOptionPropTypes} from '../../atom/select';
@@ -15,8 +13,7 @@ const BrandLearningPriorities = (props, context) => {
   const {items, onDrop, itemType} = content;
   const [itemList, setItemList] = useState([...items]);
   const [openModal, setOpenModal] = useState(false);
-  const {skin, translate} = context;
-  const primarySkinColor = get('common.primary', skin);
+  const {translate} = context;
 
   const selectedPriorities = useMemo(() => items.map(priority => priority.priorityRef), [items]);
 
@@ -80,14 +77,10 @@ const BrandLearningPriorities = (props, context) => {
           <div className={style.ctaWrapper}>
             <div className={style.priorityCount}>{`${items.length} ${translate('items')}`}</div>
             <ButtonLink
+              type="primary"
               customStyle={{
-                backgroundColor: primarySkinColor,
-                color: '#FFFFFF',
-                transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
                 width: 'fit-content'
               }}
-              hoverBackgroundColor={convert(`color(${primarySkinColor} a(0.07))`)}
-              hoverColor={primarySkinColor}
               onClick={handleOpenModal}
               label={translate('add_learning_priority')}
               data-name="add-learning-priority"
@@ -95,7 +88,6 @@ const BrandLearningPriorities = (props, context) => {
                 position: 'left',
                 faIcon: {
                   name: 'plus',
-                  backgroundColor: primarySkinColor,
                   color: '#FFFFFF',
                   size: 16
                 }
@@ -110,7 +102,6 @@ const BrandLearningPriorities = (props, context) => {
 };
 
 BrandLearningPriorities.contextTypes = {
-  skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 

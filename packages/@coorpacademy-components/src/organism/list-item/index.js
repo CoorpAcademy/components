@@ -19,6 +19,7 @@ const ListItem = (
     tags,
     title,
     selected,
+    selectedColor,
     subtitle,
     dataColumns,
     order,
@@ -32,7 +33,7 @@ const ListItem = (
   context
 ) => {
   const {skin} = context;
-  const primarySkinColor = get('common.primary', skin);
+  const primarySkinColor = selectedColor || get('common.primary', skin);
   const mapUncapped = map.convert({cap: false});
   let isPublished = false;
 
@@ -125,6 +126,7 @@ ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   selected: PropTypes.bool,
+  selectedColor: PropTypes.string,
   dataColumns: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
