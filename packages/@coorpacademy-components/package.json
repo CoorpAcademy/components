@@ -45,7 +45,8 @@
     "typecheck": "tsc --noEmit true"
   },
   "engines": {
-    "node": ">=12.22.12"
+    "node": ">=20.17.0",
+    "npm": "10.8.2"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",

@@ -31,7 +31,8 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=20.17.0",
+    "npm": "10.8.2"
   },
   "dependencies": {
     "lodash": "^4.17.21"

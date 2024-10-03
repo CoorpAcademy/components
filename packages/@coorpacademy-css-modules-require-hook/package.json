@@ -37,5 +37,9 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.25.0"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "engines": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
+  }
 }

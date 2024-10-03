@@ -60,5 +60,9 @@
     "mkdirp": "^1.0.4",
     "react": "^17.0.2",
     "react-native-svg": "^9.13.6"
+  },
+  "engines": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
   }
 }

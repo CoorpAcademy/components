@@ -21,9 +21,9 @@
     "update": "update-node"
   },
   "engines": {
-    "node": "^16.20.2",
+    "node": "^20.17.0",
     "yarn": "^1.12.3",
-    "npm": "^8.19.4"
+    "npm": "^10.8.2"
   },
   "workspaces": [
     "packages/*"

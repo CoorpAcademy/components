@@ -3,7 +3,8 @@
   "version": "1.0.3",
   "description": "Simple API to play with Animated",
   "engines": {
-    "node": ">=16.15.0"
+    "node": ">=20.17.0",
+    "npm": "10.8.2"
   },
   "license": "UNLICENSED",
   "scripts": {

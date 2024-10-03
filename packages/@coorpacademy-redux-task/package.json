@@ -48,5 +48,9 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "engines": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
+  }
 }

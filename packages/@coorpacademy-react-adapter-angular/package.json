@@ -64,5 +64,9 @@
     "webpack-dev-middleware": "^5.3.3",
     "webpack-hot-middleware": "^2.25.2"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "engines": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
+  }
 }

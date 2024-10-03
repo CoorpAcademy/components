@@ -49,5 +49,9 @@
     "nyc": "^15.1.0",
     "webpack": "^5.74.0"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "engines": {
+    "node": "20.17.0",
+    "npm": "10.8.2"
+  }
 }
