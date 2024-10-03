@@ -29,7 +29,7 @@ const BrandCreateForm = (props, context) => {
       <ButtonLink
         type="primary"
         data-name="brand_create_submit_button"
-        buttonType="submit"
+        usage="submit"
         customStyle={{
           display: 'inline-block',
           width: 'fit-content'

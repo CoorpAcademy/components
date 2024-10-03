@@ -54,7 +54,7 @@ const getButtonContent = (
 const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
-    buttonType = 'button',
+    usage = 'button',
     label,
     content,
     hoverBackgroundColor,
@@ -129,7 +129,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         title: ariaLabel || label
       })}
       // eslint-disable-next-line react/button-has-type
-      type={buttonType}
+      type={usage}
       aria-label={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}

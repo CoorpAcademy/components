@@ -37,7 +37,7 @@ const buildButtonSection = (
         label={submitValue}
         disabled={disabledSubmit}
         data-testid="submit-button"
-        buttonType="submit"
+        usage="submit"
         onClick={onSubmit}
       />
     </div>
@@ -46,7 +46,7 @@ const buildButtonSection = (
   const resetButton = onReset ? (
     <div className={style.resetButton}>
       <ButtonLink
-        buttonType="reset"
+        usage="reset"
         label={resetValue}
         data-testid="reset-button"
         onClick={onReset}
