@@ -18,9 +18,9 @@ test('should submit form', t => {
     isModified: true
   };
   const {container} = render(<BrandForm {...props} />);
-  const inputSubmit = container.querySelector('input[type="submit"]');
-  t.truthy(inputSubmit);
-  fireEvent.click(inputSubmit as Element);
+  const buttonSubmit = container.querySelector('button[type="submit"]');
+  t.truthy(buttonSubmit);
+  fireEvent.click(buttonSubmit as Element);
 });
 
 test('should reset form', t => {
@@ -34,9 +34,9 @@ test('should reset form', t => {
     isModified: true
   };
   const {container} = render(<BrandForm {...props} />);
-  const inputReset = container.querySelector('input[type="reset"]');
-  t.truthy(inputReset);
-  fireEvent.click(inputReset as Element);
+  const buttonReset = container.querySelector('button[type="reset"]');
+  t.truthy(buttonReset);
+  fireEvent.click(buttonReset as Element);
 });
 
 test('should not build any button if there are no values onSubmit or onReset', t => {

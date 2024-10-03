@@ -4,6 +4,7 @@ import {ICONS} from '../../util/button-icons';
 
 const propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
+  buttonType: PropTypes.oneOf(['button', 'submit', 'reset']),
   label: PropTypes.string,
   content: PropTypes.node,
   'aria-label': PropTypes.string,
@@ -40,6 +41,7 @@ export type IconType = {
 };
 export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
+  buttonType?: 'button' | 'submit' | 'reset';
   label?: string;
   content?: React.ReactNode;
   'aria-label'?: string;

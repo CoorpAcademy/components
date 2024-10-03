@@ -24,6 +24,7 @@ export default {
     items,
     content: {
       type: 'form',
+      theme: 'coorpmanager',
       groups: errorGroups,
       isModified: true,
       onReset: () => {

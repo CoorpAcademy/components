@@ -10,6 +10,7 @@ export default {
     items,
     content: {
       type: 'form',
+      theme: 'coorpmanager',
       groups,
       onSubmit: () => {},
       submitValue: 'Save changes'
