@@ -16,6 +16,7 @@ const ConfirmationInput = ({onChange, placeholder = ''}) => {
   return (
     <div>
       <input
+        data-testid="input"
         onInput={handleOnChange}
         placeholder={placeholder}
         className={style.input}
@@ -53,14 +54,13 @@ const ConfirmationForm = props => {
       <div className={style.confirmationCTAWrapper}>
         <ButtonLink
           label={cancelValue}
-          data-testid="close-confirmation-button"
+          data-testid="cancel-confirmation-button"
           onClick={onHandleClose}
         />
         <ButtonLink
-          type="tertiary"
           label={confirmValue}
           disabled={confirmDisabled}
-          data-testid="confirm-button"
+          data-testid="confirm-delete-button"
           onClick={onConfirm}
           customStyle={{backgroundColor: 'orange', color: 'white'}}
         />

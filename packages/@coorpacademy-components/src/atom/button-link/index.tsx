@@ -85,7 +85,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
 
   const [hovered, setHovered] = useState(false);
 
-  const handleOnClick = useCallback(() => onClick(), [onClick]);
+  const handleOnClick = useCallback(event => onClick(event), [onClick]);
 
   const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
 
