@@ -35,73 +35,6 @@
   min-height: 63px;
 }
 
-.toggle {
-  height: 52px;
-  padding: 0 40px;
-  line-height: 52px;
-  border-radius: 2px;
-  font-family: 'Gilroy';
-  font-size: 15px;
-  color: white;
-  font-weight: 700px;
-  display: block;
-  background-color: negative;
-  cursor: pointer;
-  text-align: center;
-}
-
-.toggleDisabled {
-  composes: toggle;
-  cursor: default;
-  background-color: light;
-  border: 1px solid light;
-}
-
-.button {
-  height: 32px;
-  padding: 0 15px;
-  text-transform: uppercase;
-  border-radius: 2px;
-  font-family: 'Gilroy';
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  line-height: 30px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.cancel {
-  composes: button;
-  border: 1px solid dark;
-  color: white;
-  background-color: dark;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  display: inline-block;
-  min-width: 120px;
-}
-
-.delete {
-  composes: button;
-  border: 1px solid orange;
-  color: white;
-  background-color: orange;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  display: inline-block;
-  min-width: 120px;
-}
-
-.disabled {
-  composes: delete;
-  cursor: default;
-  background-color: light;
-  border: 1px solid light;
-}
-
 .description {
   font-family: 'Gilroy';
   font-weight: 500;
@@ -122,4 +55,11 @@
   margin: 15px 0;
   width: 230px;
   appearance: none;
+}
+
+.confirmationCTAWrapper {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  gap: 16px;
 }

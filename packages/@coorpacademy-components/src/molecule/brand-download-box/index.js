@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {NovaSolidInterfaceFeedbackInterfaceAlertCircle as AlertIcon} from '@coorpacademy/nova-icons';
 import {get} from 'lodash/fp';
-import Button from '../../atom/button';
+import ButtonLink from '../../atom/button-link';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -27,13 +27,12 @@ const BrandDownloadBox = (props, context) => {
   return (
     <div className={style.wrapper}>
       {type}
-      <Button
+      <ButtonLink
         className={style.button}
-        type="link"
-        download
-        href={href}
+        link={{href, download: true}}
         onClick={onClick}
-        submitValue={submitValue}
+        label={submitValue}
+        customStyle={{backgroundColor: '#FFA000', color: 'white'}}
       />
     </div>
   );

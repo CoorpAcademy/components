@@ -19,10 +19,6 @@
   width: 80%;
 }
 
-.wrapper > .button {
-  background-color: dark;
-}
-
 .icon {
   width: 32px;
   height: 32px;
@@ -47,13 +43,18 @@
   font-size: 13px;
 }
 
+.button {
+  width: 200px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
 @media mobile {
   .wrapper {
     display: block;
   }
 
   .button {
-    display: block;
     width: 100%;
   }
 }

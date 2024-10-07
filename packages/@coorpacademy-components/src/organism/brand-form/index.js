@@ -39,6 +39,14 @@ const buildButtonSection = (
         data-testid="submit-button"
         usage="submit"
         onClick={onSubmit}
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'circle-check',
+            color: '#FFFFFF',
+            size: 16
+          }
+        }}
       />
     </div>
   ) : null;
@@ -50,6 +58,13 @@ const buildButtonSection = (
         label={resetValue}
         data-testid="reset-button"
         onClick={onReset}
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'trash',
+            size: 16
+          }
+        }}
       />
     </div>
   ) : null;

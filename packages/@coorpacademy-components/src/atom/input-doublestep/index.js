@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {snakeCase, omit, noop} from 'lodash/fp';
 import Loader from '../loader';
+import ButtonLink from '../button-link';
 import style from './style.css';
 
 const ConfirmationInput = ({onChange, placeholder = ''}) => {
@@ -49,15 +50,21 @@ const ConfirmationForm = props => {
       ) : (
         <div className={style.confirmEmptySpace} />
       )}
-      <span onClick={onHandleClose} className={style.cancel}>
-        {cancelValue}
-      </span>
-      <span
-        onClick={confirmDisabled ? noop : onConfirm}
-        className={confirmDisabled ? style.disabled : style.delete}
-      >
-        {confirmValue}
-      </span>
+      <div className={style.confirmationCTAWrapper}>
+        <ButtonLink
+          label={cancelValue}
+          data-testid="close-confirmation-button"
+          onClick={onHandleClose}
+        />
+        <ButtonLink
+          type="tertiary"
+          label={confirmValue}
+          disabled={confirmDisabled}
+          data-testid="confirm-button"
+          onClick={onConfirm}
+          customStyle={{backgroundColor: 'orange', color: 'white'}}
+        />
+      </div>
     </div>
   );
 
@@ -135,12 +142,21 @@ class InputDoublestep extends React.Component {
     const {open} = this.state;
 
     const formView = !open ? (
-      <span
-        onClick={disabled ? noop : this.handleToggle}
-        className={disabled ? style.toggleDisabled : style.toggle}
-      >
-        {toggleValue}
-      </span>
+      <ButtonLink
+        type="dangerous"
+        label={toggleValue}
+        disabled={disabled}
+        data-testid="input-toggle-button"
+        onClick={this.handleToggle}
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'trash',
+            color: '#ffffff',
+            size: 16
+          }
+        }}
+      />
     ) : (
       <Confirmation
         {...this.props}

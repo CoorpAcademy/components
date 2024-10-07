@@ -4,6 +4,7 @@ import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';
 import RadioGroup from '../../atom/radio-group';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const ContentTypesToggler = (props, context) => {
@@ -20,11 +21,14 @@ const ContentTypesToggler = (props, context) => {
 
   return (
     <div className={style.contentTypeWrapper}>
-      <RadioGroup {...contentTypes} style={{color: contentTypesColor}} />
+      <RadioGroup
+        {...contentTypes}
+        style={{color: contentTypesColor}}
+        color={COLORS.cm_primary_blue}
+      />
     </div>
   );
 };
-
 ContentTypesToggler.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
