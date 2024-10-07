@@ -12,7 +12,7 @@ import style from './style.css';
 import AllCourses from './all-courses';
 import ContinueLearning from './continue-learning';
 
-const ContinueLearningButton = (props, context) => {
+export const ContinueLearningButton = (props, context) => {
   const {ongoingCoursesAvailable, onClick} = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);

@@ -1,63 +1,18 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
-import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
-import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import AllCourses from '../skill-detail/all-courses';
 import ContinueLearning from '../skill-detail/continue-learning';
 import PlaylistDetailCover from '../../molecule/playlist-detail-cover';
+import {ContinueLearningButton} from '../skill-detail';
 import style from './style.css';
 
 const DESCRIPTION_BREAKPOINT = 382;
-
-const ContinueLearningButton = (props, context) => {
-  const {ongoingCoursesAvailable, onClick} = props;
-  const {skin, translate} = context;
-  const primarySkinColor = get('common.primary', skin);
-
-  return (
-    <div>
-      <ButtonLink
-        label={
-          ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')
-        }
-        type="primary"
-        customStyle={{
-          width: 'fit-content',
-          borderRadius: '12px',
-          backgroundColor: primarySkinColor
-        }}
-        hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
-        hoverColor="#FFFFFF"
-        icon={{
-          position: 'left',
-          faIcon: {
-            name: 'play',
-            color: '#FFFFFF',
-            size: 16
-          }
-        }}
-        onClick={onClick}
-      />
-    </div>
-  );
-};
-
-ContinueLearningButton.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
-};
-
-ContinueLearningButton.propTypes = {
-  ongoingCoursesAvailable: PropTypes.bool,
-  onClick: PropTypes.func
-};
 
 const PlaylistDetail = (props, context) => {
   const {
@@ -91,13 +46,7 @@ const PlaylistDetail = (props, context) => {
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={playlistRef}>
         <div className={style.backButtonWrapper} onClick={onBackClick}>
-          <Icon
-            iconName="arrow-left"
-            size={{
-              faSize: 14,
-              wrapperSize: 14
-            }}
-          />
+          <Icon iconName="arrow-left" size={{faSize: 14, wrapperSize: 14}} />
         </div>
         <div className={style.ctaContainer}>
           <div className={style.coverWrapper}>
@@ -111,13 +60,10 @@ const PlaylistDetail = (props, context) => {
                 <Description />
                 {description.length >= DESCRIPTION_BREAKPOINT ? (
                   <div className={style.showMoreWrapper} onClick={handleShowMore}>
-                    {showMore ? translate('Show less') : translate('Show more')}
+                    {translate(showMore ? 'Show less' : 'Show more')}
                     <Icon
                       iconName={showMore ? 'chevron-up' : 'chevron-down'}
-                      size={{
-                        faSize: 14,
-                        wrapperSize: 16
-                      }}
+                      size={{faSize: 14, wrapperSize: 16}}
                     />
                   </div>
                 ) : null}

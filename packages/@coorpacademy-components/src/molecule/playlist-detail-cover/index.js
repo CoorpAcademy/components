@@ -1,26 +1,19 @@
 import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
+import {COURSE_TYPES} from '../../variables/courses';
 import style from './style.css';
 
-const FALLBACK_IMAGES = {
-  podcast:
-    'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/cover-fallback-external-podcast.png',
-  video:
-    'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/cover-fallback-external-video.png',
-  interactive:
-    'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/cover-fallback-external-interactive.png',
-  document:
-    'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/cover-fallback-external-document.png'
-};
+const FALLBACK_PATH =
+  'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/cover-fallback-external-$TYPE.png';
 
 const PlaylistDetailCover = ({images}) => {
-  const [firstImageList, secondImageList] = useMemo(() => {
+  const [firstColumnImages, secondColumnImages] = useMemo(() => {
     const imagesClone = [...images];
     return [imagesClone.splice(0, imagesClone.length / 2), imagesClone];
   }, [images]);
 
   const buildImageStyle = useCallback(({type, url}) => {
-    const imageUrl = url || FALLBACK_IMAGES[type];
+    const imageUrl = url || FALLBACK_PATH.replace('$TYPE', type);
 
     return {
       backgroundImage: `url(${imageUrl})`,
@@ -36,12 +29,12 @@ const PlaylistDetailCover = ({images}) => {
       ) : (
         <>
           <div className={style.imagesWrapper}>
-            {firstImageList.map((image, index) => (
+            {firstColumnImages.map((image, index) => (
               <img key={index} className={style.image} style={buildImageStyle(image)} />
             ))}
           </div>
           <div className={style.imagesWrapper}>
-            {secondImageList.map((image, index) => (
+            {secondColumnImages.map((image, index) => (
               <img key={index} className={style.image} style={buildImageStyle(image)} />
             ))}
           </div>
@@ -54,7 +47,7 @@ const PlaylistDetailCover = ({images}) => {
 PlaylistDetailCover.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['podcast', 'video', 'interactive', 'document']),
+      type: PropTypes.oneOf(COURSE_TYPES),
       url: PropTypes.string
     })
   )
