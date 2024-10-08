@@ -47,7 +47,7 @@ const DisciplineAssociatedSkills = (props, context) => {
         <div>{skill.locale}</div>
       </div>
     ),
-    []
+    [translate]
   );
 
   return !isEmpty(skills) ? (

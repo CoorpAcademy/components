@@ -133,6 +133,7 @@ const LearningPriorityModal = (props, context) => {
     setSelectedPriority,
     setSelectedPriorityType,
     onAdd,
+    onClose,
     translate,
     selectedPriority,
     selectedPriorityType,

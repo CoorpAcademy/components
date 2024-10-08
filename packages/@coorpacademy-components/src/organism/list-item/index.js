@@ -33,20 +33,20 @@ const ListItem = (
   context
 ) => {
   const {skin} = context;
-  const primarySkinColor = selectedColor || get('common.primary', skin);
+  const primarySelectedColor = selectedColor || get('common.primary', skin);
   const mapUncapped = map.convert({cap: false});
   let isPublished = false;
 
   const selectedStyle = selected
     ? {
-        backgroundColor: convert(`color(${primarySkinColor} a(0.07))`)
+        backgroundColor: convert(`color(${primarySelectedColor} a(0.07))`)
       }
     : {};
 
   const tagSelectedStyle = selected
     ? {
-        backgroundColor: convert(`color(${primarySkinColor} a(0.15))`),
-        color: primarySkinColor
+        backgroundColor: convert(`color(${primarySelectedColor} a(0.15))`),
+        color: primarySelectedColor
       }
     : {};
 
@@ -102,7 +102,7 @@ const ListItem = (
         {selected ? (
           <Icon
             iconName="circle-check"
-            iconColor={primarySkinColor}
+            iconColor={primarySelectedColor}
             backgroundColor={'#ffffff'}
             size={{faSize: 16, wrapperSize: 16}}
           />

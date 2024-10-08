@@ -24,7 +24,7 @@ const BaseModal = (props, context) => {
       iconName,
       color
     } = confirmButton || {};
-    const primarySkinColor = color || get('common.primary', skin);
+    const buttonConfirmColor = color || get('common.primary', skin);
 
     return (
       <div className={style.footer}>
@@ -44,9 +44,9 @@ const BaseModal = (props, context) => {
             <div>
               <ButtonLink
                 {...{
-                  customStyle: {backgroundColor: primarySkinColor},
+                  customStyle: {backgroundColor: buttonConfirmColor},
                   hoverBackgroundColor: convert(
-                    `hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`
+                    `hsl(from ${buttonConfirmColor} h s calc(l*(1 - 0.08)))`
                   ),
                   hoverColor: '#FFFFFF',
                   className: style.footerConfirmButton,
@@ -80,7 +80,7 @@ const BaseModal = (props, context) => {
         ) : null}
       </div>
     );
-  }, [footer, skin, style, convert, get, isEmpty]);
+  }, [footer, skin]);
 
   if (!isOpen || !title || !children) return null;
 

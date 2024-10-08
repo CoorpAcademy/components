@@ -161,6 +161,7 @@ export default {
                       'You are about to delete the CSOD configuration. Click "confirm" to proceed.',
                     textValidation: false,
                     isPending: false,
+                    icon: 'trash',
                     onClick: () => console.log('dispatch without this config')
                   }
                 ]
@@ -271,6 +272,7 @@ export default {
                       'You are about to delete the SAP configuration. Click "confirm" to proceed.',
                     textValidation: false,
                     isPending: false,
+                    icon: 'trash',
                     onClick: () => console.log('dispatch without this config')
                   }
                 ]
@@ -322,6 +324,7 @@ export default {
                       'You are about to delete the XAPI configuration. Click "confirm" to proceed.',
                     textValidation: false,
                     isPending: false,
+                    icon: 'trash',
                     onClick: () => console.log('dispatch without this config')
                   }
                 ]

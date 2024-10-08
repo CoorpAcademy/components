@@ -108,6 +108,7 @@ class InputDoublestep extends React.Component {
     onClick: PropTypes.func.isRequired,
     onOpenConfirmation: PropTypes.func,
     onCloseConfirmation: PropTypes.func,
+    icon: PropTypes.string,
     ...inputDoubleProps
   };
 
@@ -138,24 +139,28 @@ class InputDoublestep extends React.Component {
   }
 
   render() {
-    const {toggleValue, disabled} = this.props;
+    const {toggleValue, disabled, icon} = this.props;
     const {open} = this.state;
 
     const formView = !open ? (
       <ButtonLink
+        {...(icon
+          ? {
+              icon: {
+                position: 'left',
+                faIcon: {
+                  name: icon,
+                  color: '#ffffff',
+                  size: 16
+                }
+              }
+            }
+          : {})}
         type="dangerous"
         label={toggleValue}
         disabled={disabled}
         data-testid="input-toggle-button"
         onClick={this.handleToggle}
-        icon={{
-          position: 'left',
-          faIcon: {
-            name: 'trash',
-            color: '#ffffff',
-            size: 16
-          }
-        }}
       />
     ) : (
       <Confirmation
