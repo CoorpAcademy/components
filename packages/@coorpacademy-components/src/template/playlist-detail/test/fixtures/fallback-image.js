@@ -6,19 +6,19 @@ export default {
     coverImages: [
       {
         type: 'video',
-        url: null
+        image: null
       },
       {
         type: 'interactive',
-        url: null
+        image: null
       },
       {
         type: 'podcast',
-        url: null
+        image: null
       },
       {
         type: 'document',
-        url: null
+        image: null
       }
     ]
   }

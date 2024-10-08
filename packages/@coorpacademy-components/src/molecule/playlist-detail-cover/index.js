@@ -12,8 +12,8 @@ const PlaylistDetailCover = ({images}) => {
     return [imagesClone.splice(0, imagesClone.length / 2), imagesClone];
   }, [images]);
 
-  const buildImageStyle = useCallback(({type, url}) => {
-    const imageUrl = url || FALLBACK_PATH.replace('$TYPE', type);
+  const buildImageStyle = useCallback(({type, image}) => {
+    const imageUrl = image || FALLBACK_PATH.replace('$TYPE', type);
 
     return {
       backgroundImage: `url(${imageUrl})`,
@@ -48,7 +48,7 @@ PlaylistDetailCover.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.oneOf(COURSE_TYPES),
-      url: PropTypes.string
+      image: PropTypes.string
     })
   )
 };

@@ -96,12 +96,7 @@ PlaylistDetail.contextTypes = {
 
 PlaylistDetail.propTypes = {
   title: PropTypes.string.isRequired,
-  coverImages: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.oneOf(['podcast', 'video', 'interactive', 'document']),
-      url: PropTypes.string
-    })
-  ),
+  coverImages: PlaylistDetailCover.propTypes.images,
   playlistRef: PropTypes.string.isRequired,
   description: PropTypes.string,
   ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
