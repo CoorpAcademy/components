@@ -50,7 +50,7 @@ PlaylistDetailCover.propTypes = {
       type: PropTypes.oneOf(COURSE_TYPES),
       image: PropTypes.string
     })
-  )
+  ).isRequired
 };
 
 export default PlaylistDetailCover;
