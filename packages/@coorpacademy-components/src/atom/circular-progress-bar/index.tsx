@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useEffect} from 'react';
+import React, {useMemo, useState, useEffect, useRef} from 'react';
 import {isNull} from 'lodash/fp';
 import {LearningPriorityCardPropTypes, CircularProgressBarPropTypes} from './types';
 import style from './style.css';
@@ -37,10 +37,15 @@ const CircularProgressBar = ({
     return {center: center_, radius: radius_, length: length_};
   }, [size, strokeWidth]);
 
-  useEffect(
-    () => setOffset(Math.ceil(length * ((100 - progression) / 100))),
-    [length, progression]
-  );
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setOffset(Math.ceil(length * ((100 - progression) / 100)));
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [length, progression]);
 
   return (
     <div className={style.container} aria-label={ariaLabel} data-name={dataName}>

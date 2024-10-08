@@ -428,6 +428,7 @@ export const LearningProfileRadarChart = (
   useEffect(() => setIsMobile_(), [setIsMobile_]);
 
   useEffect(() => {
+    console.log('LearningProfileRadarChart mounted');
     const handleClick = () => {
       setActiveDot(undefined);
       onClick(undefined);
