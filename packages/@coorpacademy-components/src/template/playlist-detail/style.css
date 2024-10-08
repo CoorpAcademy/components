@@ -47,7 +47,6 @@
 .ctaContainer {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   gap: 40px;
 }
 
