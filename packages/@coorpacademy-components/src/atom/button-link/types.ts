@@ -41,7 +41,7 @@ export type IconType = {
 };
 export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
-  usage: 'button' | 'submit' | 'reset';
+  usage?: 'button' | 'submit' | 'reset';
   label?: string;
   content?: React.ReactNode;
   'aria-label'?: string;
