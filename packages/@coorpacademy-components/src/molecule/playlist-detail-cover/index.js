@@ -1,6 +1,6 @@
 import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {COURSE_TYPES} from '../../variables/courses';
+import {EXTERNAL_COURSE_TYPES} from '../../util/external-content';
 import style from './style.css';
 
 const FALLBACK_PATH =
@@ -47,7 +47,7 @@ const PlaylistDetailCover = ({images}) => {
 PlaylistDetailCover.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(COURSE_TYPES),
+      type: PropTypes.oneOf(EXTERNAL_COURSE_TYPES),
       image: PropTypes.string
     })
   ).isRequired
