@@ -12,7 +12,8 @@ export default {
       type: 'form',
       groups,
       onSubmit: () => {},
-      submitValue: 'Save changes'
+      submitValue: 'Save changes',
+      resetValue: 'Cancel changes'
     }
   })
 };

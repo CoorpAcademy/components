@@ -4,6 +4,7 @@
 .container {
   font-family: "Gilroy";
   font-style: normal;
+  margin-bottom: 48px;
 }
 
 .LPtitle {
@@ -38,6 +39,7 @@
 .ctaWrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 16px;
 }
 

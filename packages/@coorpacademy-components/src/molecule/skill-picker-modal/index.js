@@ -47,7 +47,7 @@ const SkillPickerModal = (props, context) => {
   const isError = useMemo(
     () =>
       selectedSkillList.length > maxSelectedSkills || selectedSkillList.length < minSelectedSkills,
-    [selectedSkillList, maxSelectedSkills]
+    [selectedSkillList, maxSelectedSkills, minSelectedSkills]
   );
 
   const footer = useMemo(() => {

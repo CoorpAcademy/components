@@ -1,6 +1,6 @@
 import React, {useEffect, useMemo, useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {get, assign, pick} from 'lodash/fp';
+import {assign, pick} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import BaseModal from '../base-modal';
 import ListItem from '../../organism/list-item';
@@ -10,12 +10,12 @@ import Provider from '../../atom/provider';
 import {SelectOptionPropTypes} from '../../atom/select';
 import SearchForm from '../search-form';
 import searchValueIncluded from '../../util/search-value-included';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
-const FilterButton = (props, context) => {
+const FilterButton = props => {
   const {active, filter, itemTotal, onClick} = props;
-  const {skin} = context;
-  const primarySkinColor = get('common.primary', skin);
+  const primarySkinColor = COLORS.cm_primary_blue;
 
   const Content = useCallback(
     () => (
@@ -48,11 +48,6 @@ const FilterButton = (props, context) => {
   };
 
   return <ButtonLink {...buttonProps} />;
-};
-
-FilterButton.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
 };
 
 FilterButton.propTypes = {
@@ -129,7 +124,8 @@ const LearningPriorityModal = (props, context) => {
         },
         label: translate('add'),
         iconName: 'plus',
-        disabled: isLoading || !selectedPriority
+        disabled: isLoading || !selectedPriority,
+        color: COLORS.cm_primary_blue
       }
     };
   }, [
@@ -137,6 +133,7 @@ const LearningPriorityModal = (props, context) => {
     setSelectedPriority,
     setSelectedPriorityType,
     onAdd,
+    onClose,
     translate,
     selectedPriority,
     selectedPriorityType,
@@ -208,13 +205,14 @@ const LearningPriorityModal = (props, context) => {
                   setSelectedPriorityType(type);
                 }
 
-                if (filterValue !== 'all' && type !== filterValue) return null;
+                if ((filterValue !== 'all' && type !== filterValue) || !type || !title) return null;
 
                 return (
                   <ListItem
                     {...(courses !== null ? {subtitle: `${courses} ${translate('courses')}`} : {})}
                     title={title}
                     selected={selected || selectedPriority === priorityRef}
+                    selectedColor={COLORS.cm_primary_blue}
                     disabled={disabled}
                     onClick={handlePriorityClick}
                     tags={[{label: type, type: 'default'}]}

@@ -54,6 +54,7 @@ const getButtonContent = (
 const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
+    usage = 'button',
     label,
     content,
     hoverBackgroundColor,
@@ -84,7 +85,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
 
   const [hovered, setHovered] = useState(false);
 
-  const handleOnClick = useCallback(() => onClick(), [onClick]);
+  const handleOnClick = useCallback(event => onClick(event), [onClick]);
 
   const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
 
@@ -127,7 +128,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
       {...(useTitle && {
         title: ariaLabel || label
       })}
-      type="button"
+      // eslint-disable-next-line react/button-has-type
+      type={usage}
       aria-label={ariaLabel || label}
       data-name={dataName}
       data-testid={dataTestId}

@@ -19,8 +19,6 @@ const buildButtonSection = (
   disabled,
   isModified,
   isPending,
-  darkColor,
-  theme,
   massiveBattleForm
 ) => {
   if (!onSubmit && !onReset) {
@@ -34,26 +32,40 @@ const buildButtonSection = (
       data-for="submitButton"
       className={massiveBattleForm ? style.massiveBattleButton : style.saveButton}
     >
-      {theme === 'coorpmanager' ? (
-        <ButtonLink
-          type="primary"
-          label={submitValue}
-          disabled={disabledSubmit}
-          data-testid="submit-button"
-          buttonType="submit"
-          onClick={onSubmit}
-        />
-      ) : (
-        <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
-      )}
+      <ButtonLink
+        type="primary"
+        label={submitValue}
+        disabled={disabledSubmit}
+        data-testid="submit-button"
+        usage="submit"
+        onClick={onSubmit}
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'circle-check',
+            color: '#FFFFFF',
+            size: 16
+          }
+        }}
+      />
     </div>
   ) : null;
 
-  const cancelBackground = {backgroundColor: darkColor};
-
   const resetButton = onReset ? (
     <div className={style.resetButton}>
-      <Button type="reset" submitValue={resetValue} style={cancelBackground} />
+      <ButtonLink
+        usage="reset"
+        label={resetValue}
+        data-testid="reset-button"
+        onClick={onReset}
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'trash',
+            size: 16
+          }
+        }}
+      />
     </div>
   ) : null;
 

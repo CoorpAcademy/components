@@ -1,68 +1,63 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import forEach from 'lodash/fp/forEach';
-import replace from 'lodash/fp/replace';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
-import style from '../style.css';
 import InputDoubleStep from '..';
 import inputConfirmFixture from './fixtures/input-confirm';
 
 browserEnv();
 
-const checkStyles = (stylesToCheck, container, t) => {
-  forEach(([styleToCheck, shouldBePresent]) => {
-    const styledElement = container.querySelector(styleToCheck);
-    shouldBePresent ? t.truthy(styledElement) : t.falsy(styledElement);
-  }, stylesToCheck);
+const checkElement = (elementsToCheck, container, t) => {
+  forEach(([elementToCheck, shouldBePresent]) => {
+    const element = container.querySelector(elementToCheck);
+    shouldBePresent ? t.truthy(element) : t.falsy(element);
+  }, elementsToCheck);
 };
 
 test('should call the onChange function on change with inputConfirm fixture', t => {
-  const deleteStyle = `.${replace(' ', '.', style.delete)}`;
-  const inputStyle = `.${replace(' ', '.', style.input)}`;
-  const sectionStyle = `.${replace(' ', '.', style.sectionConfirm)}`;
-  const cancelStyle = `.${replace(' ', '.', style.cancel)}`;
-  const toggleStyle = `.${replace(' ', '.', style.toggle)}`;
+  const deleteEl = '[data-testid="confirm-delete-button"]';
+  const inputEl = '[data-testid="input"]';
+  const cancelEl = '[data-testid="cancel-confirmation-button"]';
+  const toggleEl = '[data-testid="input-toggle-button"]';
 
-  t.plan(21);
+  t.plan(17);
   const onClick = () => {
     t.pass();
   };
   const {container} = render(<InputDoubleStep {...inputConfirmFixture.props} onClick={onClick} />);
 
-  const stylesToCheckPreClick = [
-    [deleteStyle, false],
-    [inputStyle, false],
-    [cancelStyle, false],
-    [sectionStyle, false],
-    [toggleStyle, true]
+  const elementsToCheckPreClick = [
+    [deleteEl, false],
+    [inputEl, false],
+    [cancelEl, false],
+    [toggleEl, true]
   ];
 
-  checkStyles(stylesToCheckPreClick, container, t);
+  checkElement(elementsToCheckPreClick, container, t);
 
-  container.querySelector(toggleStyle);
+  container.querySelector(toggleEl);
 
-  fireEvent.click(container.querySelector(toggleStyle));
+  fireEvent.click(container.querySelector(toggleEl));
 
-  const stylesToCheckPostClick = [
-    [sectionStyle, true],
-    [inputStyle, true],
-    [deleteStyle, true],
-    [cancelStyle, true],
-    [toggleStyle, false]
+  const elementsToCheckPostClick = [
+    [deleteEl, true],
+    [inputEl, true],
+    [cancelEl, true],
+    [toggleEl, false]
   ];
 
-  checkStyles(stylesToCheckPostClick, container, t);
+  checkElement(elementsToCheckPostClick, container, t);
 
-  fireEvent.click(container.querySelector(cancelStyle));
+  fireEvent.click(container.querySelector(cancelEl));
 
-  checkStyles(stylesToCheckPreClick, container, t);
+  checkElement(elementsToCheckPreClick, container, t);
 
-  fireEvent.click(container.querySelector(toggleStyle));
+  fireEvent.click(container.querySelector(toggleEl));
 
-  checkStyles(stylesToCheckPostClick, container, t);
+  checkElement(elementsToCheckPostClick, container, t);
 
-  fireEvent.click(container.querySelector(deleteStyle), {
+  fireEvent.click(container.querySelector(deleteEl), {
     defaultPrevented: true
   });
 });

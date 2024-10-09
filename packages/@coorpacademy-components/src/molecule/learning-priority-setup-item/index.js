@@ -10,7 +10,10 @@ const LearningPrioritySetupItem = (props, context) => {
 
   const {translate} = context;
 
-  const handleRemovePriority = useCallback(() => onRemove(priorityRef, type), [priorityRef, type]);
+  const handleRemovePriority = useCallback(
+    () => onRemove(priorityRef, type),
+    [priorityRef, type, onRemove]
+  );
 
   const handleTypeTranslate = itemType => {
     switch (itemType) {

@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {snakeCase, omit, noop} from 'lodash/fp';
 import Loader from '../loader';
+import ButtonLink from '../button-link';
 import style from './style.css';
 
 const ConfirmationInput = ({onChange, placeholder = ''}) => {
@@ -15,6 +16,7 @@ const ConfirmationInput = ({onChange, placeholder = ''}) => {
   return (
     <div>
       <input
+        data-testid="input"
         onInput={handleOnChange}
         placeholder={placeholder}
         className={style.input}
@@ -49,15 +51,20 @@ const ConfirmationForm = props => {
       ) : (
         <div className={style.confirmEmptySpace} />
       )}
-      <span onClick={onHandleClose} className={style.cancel}>
-        {cancelValue}
-      </span>
-      <span
-        onClick={confirmDisabled ? noop : onConfirm}
-        className={confirmDisabled ? style.disabled : style.delete}
-      >
-        {confirmValue}
-      </span>
+      <div className={style.confirmationCTAWrapper}>
+        <ButtonLink
+          label={cancelValue}
+          data-testid="cancel-confirmation-button"
+          onClick={onHandleClose}
+        />
+        <ButtonLink
+          label={confirmValue}
+          disabled={confirmDisabled}
+          data-testid="confirm-delete-button"
+          onClick={onConfirm}
+          customStyle={{backgroundColor: 'orange', color: 'white'}}
+        />
+      </div>
     </div>
   );
 
@@ -101,6 +108,7 @@ class InputDoublestep extends React.Component {
     onClick: PropTypes.func.isRequired,
     onOpenConfirmation: PropTypes.func,
     onCloseConfirmation: PropTypes.func,
+    icon: PropTypes.string,
     ...inputDoubleProps
   };
 
@@ -131,16 +139,29 @@ class InputDoublestep extends React.Component {
   }
 
   render() {
-    const {toggleValue, disabled} = this.props;
+    const {toggleValue, disabled, icon} = this.props;
     const {open} = this.state;
 
     const formView = !open ? (
-      <span
-        onClick={disabled ? noop : this.handleToggle}
-        className={disabled ? style.toggleDisabled : style.toggle}
-      >
-        {toggleValue}
-      </span>
+      <ButtonLink
+        {...(icon
+          ? {
+              icon: {
+                position: 'left',
+                faIcon: {
+                  name: icon,
+                  color: '#ffffff',
+                  size: 16
+                }
+              }
+            }
+          : {})}
+        type="dangerous"
+        label={toggleValue}
+        disabled={disabled}
+        data-testid="input-toggle-button"
+        onClick={this.handleToggle}
+      />
     ) : (
       <Confirmation
         {...this.props}

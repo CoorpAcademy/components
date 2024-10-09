@@ -80,7 +80,17 @@ const buildInput = field => {
       return <BrandUploadBox {...field} />;
     case 'button':
     case 'link':
-      return <Button {...field} />;
+      return (
+        <ButtonLink
+          {...field}
+          type="primary"
+          label={field.submitValue}
+          link={
+            field.href ? {href: field.href, target: field.target, download: field.download} : null
+          }
+          customStyle={{width: 'fit-content'}}
+        />
+      );
     case 'buttonLink':
       return <ButtonLink {...field} type={field.buttonType} />;
     case 'roles':

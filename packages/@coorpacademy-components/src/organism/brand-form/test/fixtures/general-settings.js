@@ -44,7 +44,8 @@ export default {
             onClick: () => console.log('confirm'),
             textValidation: true,
             onChange: () => console.log('on change text'),
-            placeholder: "Brand's name"
+            placeholder: "Brand's name",
+            icon: 'trash'
           }
         ]
       }

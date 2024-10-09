@@ -43,7 +43,7 @@ const ArrowView = ({shouldRender, isArrowUp, ariaLabel, arrowClass, arrowColor})
         }),
       className: arrowClass
     }),
-    [ariaLabel, arrowClass, arrowColor]
+    [arrowClass, arrowColor]
   );
   if (shouldRender) {
     return isArrowUp ? (

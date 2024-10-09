@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../atom/button';
+import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -26,11 +26,16 @@ const BrandCreateForm = (props, context) => {
     </div>
   ) : (
     <div>
-      <Button
+      <ButtonLink
+        type="primary"
         data-name="brand_create_submit_button"
-        type="submit"
+        usage="submit"
+        customStyle={{
+          display: 'inline-block',
+          width: 'fit-content'
+        }}
         disabled={disabled}
-        submitValue={submitValue}
+        label={submitValue}
       />
     </div>
   );
