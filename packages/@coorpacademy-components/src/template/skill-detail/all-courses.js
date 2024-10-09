@@ -42,9 +42,9 @@ FilterButton.propTypes = {
 };
 
 const AllCourses = (props, context) => {
-  const {skillIncludedCourses, totalCourses, filters, sorting} = props;
+  const {courses, totalCourses, filters, sorting} = props;
   const {options, onChange} = filters;
-  const {list, loading} = skillIncludedCourses;
+  const {list, loading} = courses;
   const {translate} = context;
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState('');
@@ -169,7 +169,7 @@ AllCourses.contextTypes = {
 };
 
 AllCourses.propTypes = {
-  skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
+  courses: PropTypes.shape(CardsGrid.propTypes),
   totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,

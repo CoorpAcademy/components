@@ -8,6 +8,8 @@ import {
 
 export const isExternalContent = type => includes(type, ['scorm', 'video', 'article', 'podcast']);
 
+export const EXTERNAL_COURSE_TYPES = ['podcast', 'video', 'interactive', 'document'];
+
 export const EXTERNAL_CONTENT_ICONS = {
   scorm: {icon: ScormIcon, color: '#FFB800'},
   article: {icon: ArticleIcon, color: '#365FCD'},
