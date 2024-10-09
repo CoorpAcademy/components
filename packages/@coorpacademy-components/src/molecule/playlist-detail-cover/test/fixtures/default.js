@@ -3,7 +3,8 @@ export default {
     images: [
       {
         type: 'video',
-        image: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90'
+        image:
+          'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90'
       },
       {
         type: 'interactive',
@@ -11,11 +12,13 @@ export default {
       },
       {
         type: 'podcast',
-        image: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/shutterstock_777835606-1616609267419.jpg&h=500&w=500&q=90&m=contain'
+        image:
+          'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/shutterstock_777835606-1616609267419.jpg&h=500&w=500&q=90&m=contain'
       },
       {
         type: 'document',
-        image: 'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-marmiton/cockpit-marmiton/cover/shutterstock_520965634-1491986518210.jpg&h=500&w=500&q=90'
+        image:
+          'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-marmiton/cockpit-marmiton/cover/shutterstock_520965634-1491986518210.jpg&h=500&w=500&q=90'
       }
     ]
   }

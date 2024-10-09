@@ -32,7 +32,7 @@ export default {
         title: 'Learning priorities',
         subtitle: 'Your top learning priorities defined by your company',
         type: 'learningPrioritiesCards',
-        key: 'learningPriorities',
+        key: 'learningPriorities'
       },
       defaultsDeep(requestsProps, {
         type: 'battleRequests',
