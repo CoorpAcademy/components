@@ -1,9 +1,10 @@
-import React, {useMemo, useState, useCallback} from 'react';
+import React, {useMemo, useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import filter from 'lodash/fp/filter';
+import {filter, some, sortBy} from 'lodash/fp';
 import BaseModal from '../base-modal';
 import Chip from '../../atom/chip';
 import Loader from '../../atom/loader';
+import Select from '../../atom/select';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -12,6 +13,7 @@ const SkillPickerModal = (props, context) => {
     skills,
     selectedSkills,
     skillsLocales,
+    skillsScore,
     isOpen,
     isLoading,
     maxSelectedSkills = 6,
@@ -22,6 +24,8 @@ const SkillPickerModal = (props, context) => {
   } = props;
   const {translate} = context;
 
+  const [sortedSkills, setSortedSkills] = useState(sortBy(skill => skillsLocales[skill], skills));
+  const [currentSort, setCurrentSort] = useState('alphabetical');
   const [selectedSkillList, setSelectedSkillList] = useState(selectedSkills);
 
   const handleCancel = useCallback(() => {
@@ -34,20 +38,23 @@ const SkillPickerModal = (props, context) => {
     onClose();
   }, [setSelectedSkillList, selectedSkills, onClose]);
 
+  const skillProgressAvailable = some(skill => skillsScore[skill] > 0, skills);
+
   const skillList = useMemo(() => {
-    return skills.map(skill => {
+    return sortedSkills.map(skill => {
       return {
         skillTitle: skillsLocales[skill],
         skillRef: skill,
-        focus: selectedSkillList.includes(skill)
+        focus: selectedSkillList.includes(skill),
+        score: skillsScore[skill]
       };
     });
-  }, [skills, selectedSkillList, skillsLocales]);
+  }, [sortedSkills, selectedSkillList, skillsLocales, skillsScore]);
 
   const isError = useMemo(
     () =>
       selectedSkillList.length > maxSelectedSkills || selectedSkillList.length < minSelectedSkills,
-    [selectedSkillList, maxSelectedSkills]
+    [selectedSkillList, maxSelectedSkills, minSelectedSkills]
   );
 
   const footer = useMemo(() => {
@@ -85,6 +92,35 @@ const SkillPickerModal = (props, context) => {
     minSelectedSkills
   ]);
 
+  const sorting = useMemo(() => {
+    return {
+      theme: 'skillDetail',
+      options: [
+        {
+          name: translate('alphabetical'),
+          value: 'alphabetical',
+          selected: currentSort === 'alphabetical'
+        },
+        {
+          name: translate('progress'),
+          value: 'progress',
+          selected: currentSort === 'progress'
+        }
+      ],
+      onChange: value => setCurrentSort(value)
+    };
+  }, [currentSort, translate]);
+
+  useEffect(() => {
+    // eslint-disable-next-line lodash-fp/no-extraneous-function-wrapping
+    setSortedSkills(prev =>
+      sortBy(
+        skill => (currentSort === 'progress' ? -skillsScore[skill] : skillsLocales[skill]),
+        prev
+      )
+    );
+  }, [currentSort, skillsScore, skillsLocales, setSortedSkills]);
+
   if ((!isLoading && !skills) || !isOpen) return null;
 
   return (
@@ -106,12 +142,18 @@ const SkillPickerModal = (props, context) => {
           </div>
         ) : (
           <>
-            <div style={{marginBottom: '16px'}}>
-              {`${selectedSkillList.length} ${translate('selected')}`}
+            <div className={style.ctaWrapper}>
+              <div>{`${selectedSkillList.length} ${translate('selected')}`}</div>
+              {skillProgressAvailable ? (
+                <div className={style.sortWrapper}>
+                  {translate('sort_by')}
+                  <Select {...sorting} aria-label="All courses sort" />
+                </div>
+              ) : null}
             </div>
             <div style={{display: 'flex', gap: '16px', flexWrap: 'wrap'}}>
               {skillList.map((skill, index) => {
-                const {skillTitle, skillRef, focus} = skill;
+                const {skillTitle, skillRef, focus, score} = skill;
                 function handleChipClick() {
                   const newSelectedSkillList = focus
                     ? filter(selectedSkill => selectedSkill !== skillRef, selectedSkillList)
@@ -121,6 +163,7 @@ const SkillPickerModal = (props, context) => {
 
                 return (
                   <Chip
+                    {...(skillProgressAvailable ? {subText: `${score.toFixed(1)}%`} : {})}
                     text={skillTitle}
                     selected={focus}
                     onClick={handleChipClick}
@@ -145,6 +188,7 @@ SkillPickerModal.propTypes = {
   skills: PropTypes.arrayOf(PropTypes.string),
   selectedSkills: PropTypes.arrayOf(PropTypes.string),
   skillsLocales: PropTypes.objectOf(PropTypes.string),
+  skillsScore: PropTypes.objectOf(PropTypes.number),
   isOpen: PropTypes.bool,
   isLoading: PropTypes.bool,
   minSelectedSkills: PropTypes.number,

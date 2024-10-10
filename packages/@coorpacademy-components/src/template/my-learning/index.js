@@ -218,6 +218,15 @@ const MyLearning = (props, context) => {
     }
   ];
 
+  const skillsScore = useMemo(
+    () =>
+      pipe(
+        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation)]),
+        fromPairs
+      )(skills),
+    [skills, skillsInformation]
+  );
+
   const handleOnDotClick = useCallback(
     skillRef => {
       setSkillFocusSelectedOnChart(skillRef);
@@ -296,6 +305,7 @@ const MyLearning = (props, context) => {
       <div className={style.container}>
         <SkillPickerModal
           skills={skills}
+          skillsScore={skillsScore}
           selectedSkills={selectedSkillsList}
           skillsLocales={skillsLocales}
           isOpen={open}
