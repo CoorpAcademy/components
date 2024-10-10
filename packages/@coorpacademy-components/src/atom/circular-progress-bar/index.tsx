@@ -38,6 +38,8 @@ const CircularProgressBar = ({
   }, [size, strokeWidth]);
 
   useEffect(() => {
+    // add timeout to delay the animation
+    // to avoid visual glitch when the component is mounted multiple times
     const timeoutId = setTimeout(() => {
       setOffset(Math.ceil(length * ((100 - progression) / 100)));
     }, 1000);
