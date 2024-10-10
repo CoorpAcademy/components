@@ -21,6 +21,20 @@
   height: 40px;
 }
 
+.ctaWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sortWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: cm_grey_500;
+}
+
 @media mobile {
   .skillPickerContainer {
     width: 100%;
