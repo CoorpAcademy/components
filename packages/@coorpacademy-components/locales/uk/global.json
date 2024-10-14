@@ -1,6 +1,7 @@
 {
   "all": "Все",
   "all_courses": "Всі курси",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Додайте пріоритет навчання",
   "accepted_cards": "Кредитна чи дебетова картка",
   "add": "додати",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Форум",
   "product_desc_partnership": "Усі навчальні курси від наших партнерів",
   "playlist": "Список відтворення",
+  "progress": "Progress",
   "your_progress": "Ваш прогрес",
   "Put back": "Відкласти",
   "Reject": "Відхилити",
