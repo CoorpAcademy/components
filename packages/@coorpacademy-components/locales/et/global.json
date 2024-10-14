@@ -1,6 +1,7 @@
 {
   "all": "Kõik",
   "all_courses": "Kõik kursused",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Lisage õppimise prioriteet",
   "accepted_cards": "Credit or debit card",
   "add": "Lisa",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Foorum",
   "product_desc_partnership": "All training courses of our partners",
   "playlist": "Esitusloend",
+  "progress": "Progress",
   "your_progress": "Teie edusammud",
   "Put back": "Pane tagasi",
   "Reject": "Keeldu",
