@@ -1,6 +1,7 @@
 {
   "all": "Toate",
   "all_courses": "Toate cursurile",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Adăugați prioritate de învățare",
   "accepted_cards": "Card de credit sau de debit",
   "add": "Adăuga",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Toate cursurile oferite de partenerii noștri",
   "playlist": "Playlist",
+  "progress": "Progress",
   "your_progress": "Progresul tău",
   "Put back": "Respingeți",
   "Reject": "Refuză",
