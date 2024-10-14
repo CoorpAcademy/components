@@ -1,6 +1,7 @@
 {
   "all": "全部",
   "all_courses": "所有课程",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "添加学习优先级",
   "accepted_cards": "信用卡或借记卡",
   "add": "添加",
@@ -72,6 +73,7 @@
   "product_desc_forum": "论坛",
   "product_desc_partnership": "我们伙伴的所有训练课程",
   "playlist": "播放列表",
+  "progress": "Progress",
   "your_progress": "你的进步",
   "Put back": "放回",
   "Reject": "拒绝",
