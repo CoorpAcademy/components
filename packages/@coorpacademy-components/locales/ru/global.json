@@ -1,6 +1,7 @@
 {
   "all": "Все",
   "all_courses": "Все курсы",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Добавить приоритет обучения",
   "accepted_cards": "Кредитная или дебетовая карта",
   "add": "Добавить",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Форум",
   "product_desc_partnership": "Все обучающие курсы от наших партнеров",
   "playlist": "Плейлист",
+  "progress": "Progress",
   "your_progress": "Ваш прогресс",
   "Put back": "Отложить",
   "Reject": "Отклонить",
