@@ -96,7 +96,7 @@ const SkillPickerModal = (props, context) => {
     () => ({
       theme: 'skillDetail',
       options: ['alphabetical', 'progress'].map(value => ({
-        name: translate(value),
+        name: value === 'progress' ? translate('progress') : translate('alphabetical'),
         value,
         selected: currentSort === value
       })),
