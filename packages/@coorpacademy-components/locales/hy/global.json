@@ -1,6 +1,7 @@
 {
   "all": "Բոլորը",
   "all_courses": "Բոլոր դասընթացները",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Ավելացրեք ուսուցման առաջնահերթությունը",
   "accepted_cards": "Վարկային կամ դեբետային քարտ",
   "add": "Ավելացնել",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Ֆորում",
   "product_desc_partnership": "Մեր գործընկերների բոլոր վերապատրաստական դասընթացները",
   "playlist": "Երգացանկ",
+  "progress": "Progress",
   "your_progress": "Ձեր առաջընթացը",
   "Put back": "Հետ դնել",
   "Reject": "Մերժել",
