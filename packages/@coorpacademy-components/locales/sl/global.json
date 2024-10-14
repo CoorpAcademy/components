@@ -1,6 +1,7 @@
 {
   "all": "Vse",
   "all_courses": "Vsi tečaji",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Dodajte prednost učenja",
   "accepted_cards": "Kreditna ali debetna kartica",
   "add": "Dodaj",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Vsa izobraževanja naših partnerjev",
   "playlist": "Playlist",
+  "progress": "Progress",
   "your_progress": "Vaš napredek",
   "Put back": "Daj nazaj",
   "Reject": "Zavrni",
