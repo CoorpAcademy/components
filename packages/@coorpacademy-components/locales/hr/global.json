@@ -1,6 +1,7 @@
 {
   "all": "Sve",
   "all_courses": "Svi tečajevi",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Dodajte prioritet učenja",
   "accepted_cards": "Kreditna ili debitna kartica",
   "add": "Dodati",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Svi tečajevi usavršavanja naših partnera",
   "playlist": "Popis pjesama",
+  "progress": "Progress",
   "your_progress": "Vaš napredak",
   "Put back": "Vratite natrag",
   "Reject": "Odbijte",
