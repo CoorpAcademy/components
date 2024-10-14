@@ -1,6 +1,7 @@
 {
   "all": "Tất cả",
   "all_courses": "Tất cả các khóa học",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Thêm ưu tiên học tập",
   "accepted_cards": "Thẻ tín dụng hoặc thẻ ghi nợ",
   "add": "Thêm vào",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Diễn đàn",
   "product_desc_partnership": "Tất cả các khóa đào tạo của các đối tác của chúng tôi",
   "playlist": "Danh sách phát",
+  "progress": "Progress",
   "your_progress": "Sự tiến bộ của bạn",
   "Put back": "Để lại chổ cũ",
   "Reject": "Từ chối",
