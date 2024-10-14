@@ -1,6 +1,7 @@
 {
   "all": "全部",
   "all_courses": "所有課程",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "新增學習優先級",
   "accepted_cards": "信用卡或簽帳金融卡 ",
   "add": "添加",
@@ -72,6 +73,7 @@
   "product_desc_forum": "論壇",
   "product_desc_partnership": "我們合作夥伴的所有培訓課程",
   "playlist": "播放清單",
+  "progress": "Progress",
   "your_progress": "你的進步",
   "Put back": "放回",
   "Reject": "拒絕",
