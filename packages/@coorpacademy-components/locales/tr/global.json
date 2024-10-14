@@ -1,6 +1,7 @@
 {
   "all": "Tümü",
   "all_courses": "Tüm kurslar",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Öğrenme önceliğini ekle",
   "accepted_cards": "Kredi kartı veya debit kart",
   "add": "Eklemek",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Partnerlerimize ait tüm eğitim kursları",
   "playlist": "Playlist",
+  "progress": "Progress",
   "your_progress": "Senin ilerlemen",
   "Put back": "Geri koy",
   "Reject": "Reddet",
