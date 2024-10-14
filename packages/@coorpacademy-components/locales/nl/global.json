@@ -1,6 +1,7 @@
 {
   "all": "Alles",
   "all_courses": "Alle cursussen",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Voeg leerprioriteit toe",
   "accepted_cards": "Creditcard of betaalpas",
   "add": "Toevoegen",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Alle trainingscursussen van onze partners",
   "playlist": "Afspeellijst",
+  "progress": "Progress",
   "your_progress": "Jouw vooruitgang",
   "Put back": "Uitstellen",
   "Reject": "Afwijzen",
