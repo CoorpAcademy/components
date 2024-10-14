@@ -1,6 +1,7 @@
 {
   "all": "전체",
   "all_courses": "모든 코스",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "학습 우선순위 추가",
   "accepted_cards": "신용카드 또는 데빗카드",
   "add": "추가하다",
@@ -72,6 +73,7 @@
   "product_desc_forum": "포럼",
   "product_desc_partnership": "당사 파트너들의 모든 교육 코스",
   "playlist": "플레이리스트",
+  "progress": "Progress",
   "your_progress": "귀하의 진행 상황",
   "Put back": "연기",
   "Reject": "거부",
