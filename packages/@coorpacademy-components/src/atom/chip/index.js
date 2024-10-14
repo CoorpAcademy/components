@@ -22,6 +22,7 @@ export const calculateHoveredSelectedBgColor = (
 const Chip = (props, context) => {
   const {
     text,
+    subText,
     selected = false,
     customIcon,
     onClick,
@@ -65,6 +66,11 @@ const Chip = (props, context) => {
         <span className={style.text} style={selected ? {color: 'white'} : {}}>
           {text}
         </span>
+        {subText ? (
+          <span className={style.subText} style={selected ? {color: 'white'} : {}}>
+            {subText}
+          </span>
+        ) : null}
       </div>
       <FontAwesomeIcon
         className={selected ? style.selectedIconWrapper : style.unselectedIconWrapper}
@@ -81,6 +87,7 @@ Chip.contextTypes = {
 
 Chip.propTypes = {
   text: PropTypes.string,
+  subText: PropTypes.string,
   selected: PropTypes.bool,
   customIcon: PropTypes.string,
   backgroundColor: PropTypes.string,

@@ -19,6 +19,15 @@ export default {
       skillRef6: 'Skill 6',
       skillRef7: 'Skill 7'
     },
+    skillsScore: {
+      skillRef1: 23,
+      skillRef2: 56.3,
+      skillRef3: 80.89,
+      skillRef4: 0,
+      skillRef5: 4,
+      skillRef6: 32.22,
+      skillRef7: 12
+    },
     isOpen: true,
     isLoading: false,
     onCancel: () => console.log('cancel'),
