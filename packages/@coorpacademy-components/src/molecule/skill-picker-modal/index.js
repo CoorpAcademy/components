@@ -92,24 +92,18 @@ const SkillPickerModal = (props, context) => {
     minSelectedSkills
   ]);
 
-  const sorting = useMemo(() => {
-    return {
+  const sorting = useMemo(
+    () => ({
       theme: 'skillDetail',
-      options: [
-        {
-          name: translate('alphabetical'),
-          value: 'alphabetical',
-          selected: currentSort === 'alphabetical'
-        },
-        {
-          name: translate('progress'),
-          value: 'progress',
-          selected: currentSort === 'progress'
-        }
-      ],
+      options: ['alphabetical', 'progress'].map(value => ({
+        name: translate(value),
+        value,
+        selected: currentSort === value
+      })),
       onChange: value => setCurrentSort(value)
-    };
-  }, [currentSort, translate]);
+    }),
+    [currentSort, translate]
+  );
 
   useEffect(() => {
     // eslint-disable-next-line lodash-fp/no-extraneous-function-wrapping
