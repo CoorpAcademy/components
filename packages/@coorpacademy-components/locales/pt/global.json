@@ -1,6 +1,7 @@
 {
   "all": "Todas",
   "all_courses": "Todos os cursos",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Adicionar prioridade de aprendizagem",
   "accepted_cards": "Cartão de crédito ou débito",
   "add": "Adicionar",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Todos os cursos de formação dos nossos parceiros",
   "playlist": "Lista de reprodução",
+  "progress": "Progress",
   "your_progress": "Seu progresso",
   "Put back": "Repor ",
   "Reject": "Rejeitar",
