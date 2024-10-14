@@ -1,6 +1,7 @@
 {
   "all": "Alla",
   "all_courses": "Alla kurser",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Lägg till inlärningsprioritet",
   "accepted_cards": "Kredit- eller betalkort",
   "add": "Tillägga",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Forum",
   "product_desc_partnership": "Alla utbildningar från våra partners",
   "playlist": "Playlist",
+  "progress": "Progress",
   "your_progress": "Dina framsteg",
   "Put back": "Lägg tillbaka",
   "Reject": "Förkasta",
