@@ -1,6 +1,7 @@
 {
   "all": "Kaikki",
   "all_courses": "Kaikki kurssit",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Lisää oppimisprioriteetti",
   "accepted_cards": "Luotto- tai pankkikortti",
   "add": "Lisätä",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Keskustelupalsta",
   "product_desc_partnership": "Kaikki kumppaneidemme koulutuskurssit",
   "playlist": "Soittolista",
+  "progress": "Progress",
   "your_progress": "Edistymisesi",
   "Put back": "Pane takaisin",
   "Reject": "Hylkää",
