@@ -1,6 +1,7 @@
 {
   "all": "Všetko",
   "all_courses": "Všetky kurzy",
+  "alphabetical": "Alphabetical",
   "add_learning_priority": "Pridajte prioritu učenia",
   "accepted_cards": "Kreditná alebo debetná karta",
   "add": "Pridať",
@@ -72,6 +73,7 @@
   "product_desc_forum": "Fórum",
   "product_desc_partnership": "Všetky školenia našich partnerov",
   "playlist": "Playlist",
+  "progress": "Progress",
   "your_progress": "Váš pokrok",
   "Put back": "Dať naspäť",
   "Reject": "Odmietnuť",
