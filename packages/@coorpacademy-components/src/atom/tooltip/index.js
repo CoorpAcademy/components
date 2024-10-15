@@ -27,7 +27,8 @@ const ToolTipWrapper = ({
   handleContentMouseOver,
   iconSize,
   tooltipClassName,
-  usesAnchorElement
+  usesAnchorElement,
+  placement
 }) => {
   const coorpToolTipClasses = classnames(
     style.toolTip,
@@ -42,7 +43,7 @@ const ToolTipWrapper = ({
         id={anchorId}
         className={style.toolTipReact}
         data-event-off="click"
-        place="left"
+        place={placement}
         effect="solid"
         aria-label={closeToolTipInformationTextAriaLabel}
       >
@@ -98,7 +99,8 @@ const ToolTip = ({
   fontSize = 14,
   iconSize = 'small',
   AnchorElement,
-  tooltipClassName
+  tooltipClassName,
+  placement = 'left'
 }) => {
   const isComponent = useMemo(
     () => !isString(TooltipContent) && isValidElement(TooltipContent()),
@@ -169,6 +171,7 @@ const ToolTip = ({
       onMouseLeave={handleMouseLeave}
       onMouseOver={handleMouseOver}
       fontSize={fontSize}
+      placement={placement}
     />
   ) : (
     <div
@@ -211,7 +214,8 @@ ToolTip.propTypes = {
   // parents overflow hidden controls
   // data-for={anchorId} && data-tooltip-place="left" are needed on the anchored component
   anchorId: PropTypes.string,
-  toolTipIsVisible: PropTypes.bool
+  toolTipIsVisible: PropTypes.bool,
+  placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom'])
 };
 
 export default ToolTip;

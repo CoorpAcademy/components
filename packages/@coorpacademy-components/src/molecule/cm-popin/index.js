@@ -14,7 +14,7 @@ import isEmpty from 'lodash/fp/isEmpty';
 import classNames from 'classnames';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/button-link';
-import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
+import ButtonLinkIcon from '../../atom/button-link-icon';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import CardsGrid from '../../organism/cards-grid';
@@ -206,7 +206,7 @@ const CMPopin = props => {
           {renderHeader()}
           {onClose ? (
             <div className={style.onCloseButton}>
-              <ButtonLinkIconOnly
+              <ButtonLinkIcon
                 onClick={handleCloseButton}
                 data-name={'close-icon'}
                 aria-label={'close-icon'}

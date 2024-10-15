@@ -97,13 +97,13 @@
   opacity: 1 !important;
   left: 5px;
   max-width: 400px;
+  padding: 8px 12px !important;
 }
 
 /* for keyboard navigation, the position can't be obtained from the mouse */
 [class*="__react_component_tooltip"]:not(.toolTipReact) {
   border-radius: 7px !important;
-  top: 97px!important;
-  left: 628px!important;
+  left: -999em !important;
   visibility: visible !important;
   opacity: 1!important;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import getOr from 'lodash/fp/getOr';
 import PropTypes from 'prop-types';
 import ButtonLink from '../../atom/button-link';
-import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
+import ButtonLinkIcon from '../../atom/button-link-icon';
 import WizardSteps from '../../atom/wizard-steps';
 import WizardSummary from '../../molecule/wizard-summary';
 import BrandForm from '../brand-form';
@@ -32,7 +32,7 @@ const buildHeader = (wizardHeader, actions, steps, tabs) => {
     <div>
       <div className={style.header}>
         <div className={style.titleWrapper}>
-          <ButtonLinkIconOnly {...buttonCloseIcon} />
+          <ButtonLinkIcon {...buttonCloseIcon} />
           <div className={style.headerTitle} data-name={'content-title'}>
             {title}
           </div>

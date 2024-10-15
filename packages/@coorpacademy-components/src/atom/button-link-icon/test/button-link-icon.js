@@ -2,12 +2,12 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
-import ButtonLinkIconOnly from '..';
+import ButtonLinkIcon from '..';
 import defaultFixture from './fixtures/button-icon-bullet';
 
 browserEnv();
 
-test('should launch onClick on click event for ButtonLinkIconOnly', t => {
+test('should launch onClick on click event for ButtonLinkIcon', t => {
   t.plan(3);
 
   const props = {
@@ -15,7 +15,7 @@ test('should launch onClick on click event for ButtonLinkIconOnly', t => {
     onClick: () => t.pass()
   };
 
-  const {container} = render(<ButtonLinkIconOnly {...props} />);
+  const {container} = render(<ButtonLinkIcon {...props} />);
 
   const bulletButton = container.querySelector('[data-name="bullet-button"]');
   t.truthy(bulletButton);
@@ -25,10 +25,8 @@ test('should launch onClick on click event for ButtonLinkIconOnly', t => {
   t.pass();
 });
 
-test('should mount ButtonLinkIconOnly even if the className does not exist', t => {
-  const {container} = render(
-    <ButtonLinkIconOnly {...defaultFixture.props} className={'noClass'} />
-  );
+test('should mount ButtonLinkIcon even if the className does not exist', t => {
+  const {container} = render(<ButtonLinkIcon {...defaultFixture.props} className={'noClass'} />);
 
   const bulletButton = container.querySelector('[data-name="bullet-button"]');
   t.truthy(bulletButton);

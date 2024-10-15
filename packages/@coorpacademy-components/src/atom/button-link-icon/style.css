@@ -68,6 +68,15 @@
   border-radius: 5px;
 }
 
+.tooltipContentWrapper {
+  text-align: left;
+  width: max-content;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
 @media tablet {
   .responsive {
     composes: button;

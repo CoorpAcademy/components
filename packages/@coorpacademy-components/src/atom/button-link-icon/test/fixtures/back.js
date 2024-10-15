@@ -1,9 +1,10 @@
 export default {
   props: {
-    size: 'default',
+    size: 'small',
+    'data-name': 'back-button',
     'aria-label': 'aria button',
-    'data-name': 'bullet-button',
-    icon: 'bullet-point',
+    icon: 'back',
+    tooltipPlacement: 'right',
     onClick: () => console.log('click')
   }
 };

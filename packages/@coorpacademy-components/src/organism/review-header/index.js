@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import Provider, {GetTranslateFromContext, GetSkinFromContext} from '../../atom/provider';
-import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
+import ButtonLinkIcon from '../../atom/button-link-icon';
 import ReviewHeaderSteps from '../../molecule/review-header-steps';
 import style from './style.css';
 import propTypes from './types';
@@ -52,7 +52,7 @@ const ReviewHeader = (props, legacyContext) => {
       </div>
 
       <div className={style.iconButtonWrapper} data-testid="review-header-close-button-wrapper">
-        <ButtonLinkIconOnly {...buttonProps} />
+        <ButtonLinkIcon {...buttonProps} />
       </div>
     </div>
   );
