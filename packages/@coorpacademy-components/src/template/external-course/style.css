@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-content: stretch;
+  position: relative;
 }
 
 .defaultCockpit{
@@ -43,7 +44,16 @@
   z-index: 1;
   overflow: hidden;
 }
-
+.onTopHeader .header{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.onTopFooter .footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 .leftSection, .rightSection {
   align-self: center;
   flex: 1;
