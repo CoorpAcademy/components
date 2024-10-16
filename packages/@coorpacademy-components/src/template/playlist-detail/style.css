@@ -35,13 +35,8 @@
   max-width: calc(1080px + 40px);
 }
 
-.backButtonWrapper {
+.backButton {
   margin-bottom: 16px;
-  background-color: cm_grey_100;
-  border-radius: 8px;
-  width: fit-content;
-  padding: 8px;
-  cursor: pointer;
 }
 
 .ctaContainer {

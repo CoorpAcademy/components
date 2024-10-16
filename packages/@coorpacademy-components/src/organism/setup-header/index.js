@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import ButtonLink from '../../atom/button-link';
-import IconLink from '../../atom/button-link-icon-only';
+import IconLink from '../../atom/button-link-icon';
 import style from './style.css';
 
 const SetupHeader = props => {

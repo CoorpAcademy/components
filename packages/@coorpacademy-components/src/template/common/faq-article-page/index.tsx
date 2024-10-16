@@ -1,6 +1,6 @@
 import React from 'react';
 import {map} from 'lodash/fp';
-import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
+import ButtonLinkIcon from '../../../atom/button-link-icon';
 import PrivacyPolicyContact from '../../../molecule/privacy-policy-contact';
 import {propTypes, Props, SubArticle} from './types';
 import styles from './style.css';
@@ -20,7 +20,7 @@ const FAQArticlePage = ({
       <div className={styles.page}>
         <div className={styles.container}>
           <div className={styles.backContainer}>
-            <ButtonLinkIconOnly {...backButton} />
+            <ButtonLinkIcon {...backButton} />
             <span>{backButtonText}</span>
           </div>
           <h1 className={styles.title}>{title}</h1>
@@ -38,7 +38,7 @@ const FAQArticlePage = ({
             );
           }, subArticles)}
           <div className={styles.backContainerMobile}>
-            <ButtonLinkIconOnly {...backButton} />
+            <ButtonLinkIcon {...backButton} />
             <span>{backButtonText}</span>
           </div>
         </div>

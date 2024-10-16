@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
+import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import AllCourses from '../skill-detail/all-courses';
@@ -45,9 +46,14 @@ const PlaylistDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={playlistRef}>
-        <div className={style.backButtonWrapper} onClick={onBackClick}>
-          <Icon iconName="arrow-left" size={{faSize: 14, wrapperSize: 14}} />
-        </div>
+        <ButtonLinkIcon
+          faIcon="arrow-left"
+          data-name="back-button"
+          aria-label="Back"
+          onClick={onBackClick}
+          className={style.backButton}
+          tooltipPlacement="right"
+        />
         <div className={style.ctaContainer}>
           <div className={style.coverWrapper}>
             <PlaylistDetailCover images={coverImages} />

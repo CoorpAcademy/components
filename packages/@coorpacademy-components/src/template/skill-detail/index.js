@@ -6,6 +6,7 @@ import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
+import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import style from './style.css';
@@ -110,15 +111,14 @@ const SkillDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={skillRef}>
-        <div className={style.backButtonWrapper} onClick={onBackClick}>
-          <Icon
-            iconName="arrow-left"
-            size={{
-              faSize: 14,
-              wrapperSize: 14
-            }}
-          />
-        </div>
+        <ButtonLinkIcon
+          faIcon="arrow-left"
+          data-name="back-button"
+          aria-label="Back"
+          onClick={onBackClick}
+          className={style.backButton}
+          tooltipPlacement="right"
+        />
         <div className={style.ctaContainer}>
           <div>
             {focused ? (

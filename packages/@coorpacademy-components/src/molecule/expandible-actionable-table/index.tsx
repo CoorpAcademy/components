@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import classnames from 'classnames';
 import {get, isString, size, includes, isEmpty} from 'lodash/fp';
-import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
+import ButtonLinkIcon from '../../atom/button-link-icon';
 import StatusItem from '../../atom/status-item';
 import BulkProgressBar from '../bulk-progress-bar';
 import {WebContextValues} from '../../atom/provider/web-context';
@@ -150,7 +150,7 @@ const ActionableExpandableTable = (props: Props, legacyContext: WebContextValues
           <div className={style.columFirstWrapper}>
             <div className={style.expandButtonWrapper}>
               {isRowExpandible ? (
-                <ButtonLinkIconOnly
+                <ButtonLinkIcon
                   onClick={handleExpandRow(index)}
                   data-name={`arrowUp-button-${index}`}
                   icon="down"

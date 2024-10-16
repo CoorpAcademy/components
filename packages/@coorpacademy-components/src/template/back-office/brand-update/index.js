@@ -21,7 +21,7 @@ import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
-import ButtonLinkIconOnly from '../../../atom/button-link-icon-only';
+import ButtonLinkIcon from '../../../atom/button-link-icon';
 import ExpandibleActionableTable from '../../../molecule/expandible-actionable-table';
 import BulkInfos from '../../../molecule/bulk-infos';
 import style from './style.css';
@@ -127,7 +127,7 @@ const buildDocumentation = documentation => {
         dangerouslySetInnerHTML={{__html: content}}
       />
       {onClose ? (
-        <ButtonLinkIconOnly
+        <ButtonLinkIcon
           className={style.closeButton}
           onClick={onClose}
           data-name={'close-icon'}

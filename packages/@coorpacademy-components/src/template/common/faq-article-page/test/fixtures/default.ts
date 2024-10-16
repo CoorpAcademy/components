@@ -1,4 +1,4 @@
-import back from '../../../../../atom/button-link-icon-only/test/fixtures/back';
+import back from '../../../../../atom/button-link-icon/test/fixtures/back';
 import PrivacyPolicyContact from '../../../../../molecule/privacy-policy-contact/test/fixtures/default';
 import {Props} from '../../types';
 

@@ -20,7 +20,7 @@ const PlaylistDetailCover = ({images}) => {
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     };
-  });
+  }, []);
 
   return (
     <div className={style.container}>
