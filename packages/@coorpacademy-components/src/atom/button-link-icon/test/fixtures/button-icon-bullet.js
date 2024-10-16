@@ -1,7 +1,7 @@
 export default {
   props: {
     size: 'default',
-    'aria-label': 'aria button',
+    'aria-label': 'See more',
     'data-name': 'bullet-button',
     icon: 'bullet-point',
     tooltipPlacement: 'right',
