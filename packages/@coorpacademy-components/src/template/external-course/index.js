@@ -30,6 +30,7 @@ const ExternalCourse = (props, context) => {
     backgroundImageUrl,
     contentType,
     mode = 'default',
+    onTop = {},
     closePopin
   } = props;
   const {skin} = context;
@@ -147,7 +148,13 @@ const ExternalCourse = (props, context) => {
   }, [closePopin]);
 
   return (
-    <div className={defaultWrapperStyle[mode]}>
+    <div
+      className={classnames(
+        defaultWrapperStyle[mode],
+        onTop.header && style.onTopHeader,
+        onTop.footer && style.onTopFooter
+      )}
+    >
       {header}
       {popin}
       {mainContentSlot}
@@ -159,6 +166,10 @@ const ExternalCourse = (props, context) => {
 ExternalCourse.propTypes = {
   name: PropTypes.string,
   type: PropTypes.oneOf(keys(EXTERNAL_CONTENT_ICONS)),
+  onTop: PropTypes.shape({
+    header: PropTypes.bool,
+    footer: PropTypes.bool
+  }),
   url: PropTypes.string.isRequired,
   quit: PropTypes.shape({
     label: PropTypes.string.isRequired,
