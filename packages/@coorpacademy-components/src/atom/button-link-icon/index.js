@@ -92,7 +92,6 @@ const ButtonLinkIcon = props => {
           className={styleButton}
           data-name={dataName}
           aria-label={ariaLabel}
-          title={ariaLabel}
           onMouseLeave={handleMouseLeave}
           onMouseOver={handleMouseOver}
         >
@@ -110,7 +109,6 @@ const ButtonLinkIcon = props => {
           aria-label={ariaLabel}
           data-name={dataName}
           data-testid={`button-${dataName}-${className}`}
-          title={ariaLabel}
           className={styleButton}
           onClick={handleOnClick}
           onMouseLeave={handleMouseLeave}
