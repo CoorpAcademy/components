@@ -55,10 +55,6 @@
   background-color: light;
 }
 
-.completion p {
-  display: none;
-}
-
 .wrapperTitle {
   display: flex;
   width: 100%;
