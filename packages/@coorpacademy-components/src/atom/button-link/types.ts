@@ -32,6 +32,7 @@ export type FaIcontype = {
   color?: string;
   backgroundColor?: string;
   size?: number;
+  customStyle?: Record<string, unknown>;
 };
 
 export type IconType = {
