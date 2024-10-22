@@ -42,7 +42,8 @@ const Icon = React.memo(function Icon({
   backgroundColor,
   borderRadius,
   preset = DEFAULT_PRESET,
-  size
+  size,
+  customStyle
 }) {
   const effectiveIconColor =
     iconColor || (backgroundColor ? getForegroundColor(backgroundColor) : DEFAULT_ICON_COLOR);
@@ -62,7 +63,7 @@ const Icon = React.memo(function Icon({
   };
 
   return (
-    <div className={style.iconWrapper} style={iconWrapperStyle}>
+    <div className={style.iconWrapper} style={{...iconWrapperStyle, ...customStyle}}>
       <FontAwesomeIcon
         icon={`fa-${iconName}`}
         color={effectiveIconColor}
@@ -81,7 +82,8 @@ Icon.propTypes = {
   size: PropTypes.shape({
     faSize: number,
     wrapperSize: PropTypes.number
-  })
+  }),
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default Icon;
