@@ -8,9 +8,12 @@ import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
 import Provider from '../../atom/provider';
+// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
-const DetailSection = ({type, progression, badgeUrl, onDownload, stars}) => {
+const uncappedMap = map.convert({cap: false});
+
+const DetailSection = ({translate, index, type, progression, badgeUrl, onDownload, stars}) => {
   const isLocked = progression !== 100;
   const isStars = type === 'stars';
 
@@ -39,6 +42,7 @@ const DetailSection = ({type, progression, badgeUrl, onDownload, stars}) => {
       label="Locked"
       size="S"
       icon={{
+        position: 'left',
         iconName: 'lock',
         iconColor: '#515161',
         preset: 's',
@@ -48,10 +52,11 @@ const DetailSection = ({type, progression, badgeUrl, onDownload, stars}) => {
   );
 
   return isStars ? (
-    <div className={style.detailsSectionStar}>
+    <div className={style[`detailsSection${index}`]}>
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
-          <span className={style.detailsTitle}>Bonus stars</span>
+          <span className={style.detailsTitle}>{translate('bonus_stars')}</span>
+          {isLocked ? LockedTag : null}
         </div>
         <div className={style.stars}>
           <Icon iconName="star" iconColor="#FFCE0A" backgroundColor="#FFF9D1" preset="xl" />
@@ -60,7 +65,7 @@ const DetailSection = ({type, progression, badgeUrl, onDownload, stars}) => {
       </div>
     </div>
   ) : (
-    <div className={style.detailsSection}>
+    <div className={style[`detailsSection${index}`]}>
       <img
         className={style.img}
         src={
@@ -70,7 +75,7 @@ const DetailSection = ({type, progression, badgeUrl, onDownload, stars}) => {
       />
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
-          <span className={style.detailsTitle}>{type}</span>
+          <span className={style.detailsTitle}>{translate(type)}</span>
           {isLocked ? LockedTag : null}
         </div>
 
@@ -117,9 +122,13 @@ const ProgressWrapper = (
 
       {isEmpty(sections) ? null : (
         <div className={style.details}>
-          {map(
-            ({type, stars, badgeUrl, onDownload}) => (
-              <DetailSection {...{type, progression, badgeUrl, onDownload, stars}} key={type} />
+          {uncappedMap(
+            ({type, stars, badgeUrl, onDownload}, index) => (
+              <DetailSection
+                {...{translate, type, progression, badgeUrl, onDownload, stars}}
+                key={type}
+                index={index}
+              />
             ),
             sections
           )}
@@ -130,6 +139,8 @@ const ProgressWrapper = (
 };
 
 DetailSection.propTypes = {
+  translate: Provider.childContextTypes.translate,
+  index: PropTypes.number,
   type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
   progression: PropTypes.number,
   badgeUrl: PropTypes.string,

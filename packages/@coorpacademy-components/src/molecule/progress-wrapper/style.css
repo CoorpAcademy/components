@@ -74,12 +74,14 @@
   height: 114px;
 }
 
-.detailsSection {
+.detailsSection0 {
   composes: detailsSectionCommon;
   flex: 1;
 }
-
-.detailsSectionStar {
+.detailsSection1 {
+  composes: detailsSection0;
+}
+.detailsSection2 {
   composes: detailsSectionCommon;
   width: 245px;
 }
