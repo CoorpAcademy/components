@@ -3,7 +3,7 @@ vm:
   size: x-large
 sudo: false
 node_js:
-  - 18.19.1
+  - 20.18.0
 dist: jammy
 cache: npm
 install:

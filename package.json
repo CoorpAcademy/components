@@ -21,15 +21,15 @@
     "update": "update-node"
   },
   "engines": {
-    "node": "^18.19.1",
+    "node": ">=20.18.0",
     "yarn": "^1.12.3",
-    "npm": "^8.19.4"
+    "npm": ">=10.8.2"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@coorpacademy/update-node": "^6.0.0",
+    "@coorpacademy/update-node": "^7.2.0",
     "codecov": "^3.8.3",
     "estraverse": "^5.3.0",
     "lerna": "^6.4.1",
