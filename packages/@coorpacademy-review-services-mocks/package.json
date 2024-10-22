@@ -3,7 +3,7 @@
   "version": "1.6.15",
   "description": "Mocks with services for sandboxes using app-review",
   "engines": {
-    "node": ">=16.15.0"
+    "node": ">=18.12.0"
   },
   "license": "UNLICENSED",
   "scripts": {
