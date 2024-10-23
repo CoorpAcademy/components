@@ -23,6 +23,7 @@
   align-items: center;
   padding-bottom: 16px;
   color: cm_grey_400;
+  font-weight: 600;
 }
 
 .statsNumber {
