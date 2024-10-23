@@ -5,7 +5,15 @@ import {times} from 'lodash/fp';
 import style from './style.css';
 
 const ProgressBar = props => {
-  const {className, value, max, desc = '', steps = 0, style: propsStyle} = props;
+  const {
+    className,
+    value,
+    max,
+    desc = '',
+    steps = 0,
+    style: propsStyle,
+    displayInfo = true
+  } = props;
 
   const ratio = value / max;
   const percentage = Math.floor(ratio * 100);
@@ -20,10 +28,12 @@ const ProgressBar = props => {
           width: `${ratio * 100}%`
         }}
       />
-      <p className={style.texts}>
-        <span className={style.description}>{`${value}/${max} ${desc}`}</span>
-        <span className={style.percentage}>{text}</span>
-      </p>
+      {displayInfo ? (
+        <p className={style.texts}>
+          <span className={style.description}>{`${value}/${max} ${desc}`}</span>
+          <span className={style.percentage}>{text}</span>
+        </p>
+      ) : null}
       <div className={style.steps}>{stepList}</div>
     </div>
   );
@@ -35,7 +45,8 @@ ProgressBar.propTypes = {
   max: PropTypes.number.isRequired,
   desc: PropTypes.string,
   steps: PropTypes.number,
-  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  displayInfo: PropTypes.bool
 };
 
 export default ProgressBar;
