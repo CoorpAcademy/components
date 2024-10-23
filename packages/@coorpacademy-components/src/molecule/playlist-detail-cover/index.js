@@ -25,17 +25,17 @@ const PlaylistDetailCover = ({images}) => {
   return (
     <div className={style.container}>
       {images.length === 1 ? (
-        <img className={style.image} style={buildImageStyle(images[0])} />
+        <div className={style.image} style={buildImageStyle(images[0])} />
       ) : (
         <>
           <div className={style.imagesWrapper}>
             {firstColumnImages.map((image, index) => (
-              <img key={index} className={style.image} style={buildImageStyle(image)} />
+              <div key={index} className={style.image} style={buildImageStyle(image)} />
             ))}
           </div>
           <div className={style.imagesWrapper}>
             {secondColumnImages.map((image, index) => (
-              <img key={index} className={style.image} style={buildImageStyle(image)} />
+              <div key={index} className={style.image} style={buildImageStyle(image)} />
             ))}
           </div>
         </>
