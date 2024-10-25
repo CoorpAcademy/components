@@ -91,6 +91,10 @@
   margin-top: 24px;
 }
 
+.continueLearningSection {
+  padding: 24px 0 32px 0;
+}
+
 @media tablet {
   .ctaContainer {
     flex-direction: column;

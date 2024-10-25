@@ -28,7 +28,8 @@ const ContinueLearning = (props, context) => {
     <CardsList
       cards={sortBy(course => -getOr(0, ['progress'], course), ongoingCourses.list)}
       title={<Title />}
-      customStyle={{padding: '16px 0px 8px'}}
+      // to override CardList wrapper padding
+      customStyle={{padding: '0px'}}
     />
   );
 };

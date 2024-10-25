@@ -83,7 +83,9 @@ const PlaylistDetail = (props, context) => {
             </div>
           </div>
         </div>
-        <ContinueLearning ongoingCourses={ongoingCourses} />
+        <div className={style.continueLearningSection}>
+          <ContinueLearning ongoingCourses={ongoingCourses} />
+        </div>
         <AllCourses
           courses={playlistCourses}
           totalCourses={totalCourses}
