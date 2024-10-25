@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "11.32.29",
+  "version": "11.32.30",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -59,7 +59,7 @@
   ],
   "dependencies": {
     "@coorpacademy/nova-icons": "4.4.2",
-    "@coorpacademy/react-native-animation": "1.0.3",
+    "@coorpacademy/react-native-animation": "1.0.4",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/pro-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
