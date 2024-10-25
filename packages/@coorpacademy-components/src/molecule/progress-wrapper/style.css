@@ -1,4 +1,6 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value white from colors;
 @value xtraLightGrey from colors;
 @value cm_grey_100 from colors;
@@ -79,9 +81,11 @@
   composes: detailsSectionCommon;
   flex: 1;
 }
+
 .detailsSection1 {
   composes: detailsSection0;
 }
+
 .detailsSection2 {
   composes: detailsSectionCommon;
   width: 245px;
@@ -122,4 +126,59 @@
   gap: 16px;
   font-size: 32px;
   font-weight: 700;
+}
+
+.statsMobile {
+  display: none;
+}
+
+.statsModuleMobile {
+  display: none;
+}
+
+.statsProgressionMobile {
+  composes: progression;
+  display: none;
+}
+
+@media mobile {
+  .details {
+    flex-wrap: wrap;
+  }
+  .detailsSection2 {
+    flex: 1;
+  }
+  .detailsSection0 > img {
+    width: 120px;
+  }
+  .detailsSection1 > img {
+    width: 80px;
+    height: 80px;
+  }
+  .detailsInfo {
+   justify-content: space-around;
+   gap: 0;
+  }
+  .divider {
+    display: none;
+  }
+  .statsModule {
+    display: none;
+  }
+  .progression {
+    display: none;
+  }
+  .statsProgressionMobile {
+    display: block;
+  }
+  .statsModuleMobile {
+    display: block;
+  }
+  .statsMobile {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    color: cm_grey_400;
+    font-weight: 600;
+  }    
 }

@@ -87,15 +87,15 @@ const CertificationDetail = (props, context) => {
               <div className={style.divider} />
               <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
             </div>
-            <div className={style.continueLearningButton}>
-              <ContinueLearningButton
-                ongoingCoursesAvailable={!!ongoingCourses.list.length}
-                onClick={onContinueLearningClick}
-              />
-            </div>
+            <ContinueLearningButton
+              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              onClick={onContinueLearningClick}
+            />
           </div>
         </div>
-        <ContinueLearning ongoingCourses={ongoingCourses} />
+        <div className={style.continueLearningSection}>
+          <ContinueLearning ongoingCourses={ongoingCourses} />
+        </div>
         <ProgressWrapper
           title={translate('your_progress')}
           subtitle={translate('certification_progress_wrapper_subtitle')}

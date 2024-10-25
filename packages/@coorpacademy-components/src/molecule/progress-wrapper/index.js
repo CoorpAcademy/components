@@ -103,7 +103,7 @@ const ProgressWrapper = (
             {translate('courses_completed')}
           </div>
           <div className={style.divider} />
-          <div>
+          <div className={style.statsModule}>
             <span className={style.statsNumber}>{completedModules}</span>
             {translate('modules_completed')}
           </div>
@@ -119,6 +119,16 @@ const ProgressWrapper = (
         value={progression}
         max={100}
       />
+      {/* mobile */}
+      <div className={style.statsMobile}>
+        <div className={style.statsModuleMobile}>
+          <span className={style.statsNumber}>{completedModules}</span>
+          {translate('modules_completed')}
+        </div>
+        <div className={style.statsProgressionMobile}>
+          <span className={style.statsNumber}>{progression}%</span>
+        </div>
+      </div>
 
       {isEmpty(sections) ? null : (
         <div className={style.details}>
