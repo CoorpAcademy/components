@@ -13,13 +13,13 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
-const DetailSection = ({translate, index, type, progression, badgeUrl, onDownload, stars}) => {
-  const isLocked = progression !== 100;
+const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, context) => {
+  const {translate} = context;
   const isStars = type === 'stars';
 
   const DownloadButton = (
     <ButtonLink
-      label="Download"
+      label={translate('download')}
       onClick={onDownload}
       data-name="download-button"
       aria-label="download button"
@@ -75,7 +75,9 @@ const DetailSection = ({translate, index, type, progression, badgeUrl, onDownloa
       />
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
-          <span className={style.detailsTitle}>{translate(type)}</span>
+          <span className={style.detailsTitle}>
+            {type === 'diploma' ? translate('diploma') : translate('badge')}
+          </span>
           {isLocked ? LockedTag : null}
         </div>
 
@@ -90,6 +92,8 @@ const ProgressWrapper = (
   context
 ) => {
   const {translate} = context;
+  const modulesCompletedLocal = translate('modules_completed');
+  const isLocked = progression !== 100;
 
   return (
     <div className={style.container}>
@@ -105,7 +109,7 @@ const ProgressWrapper = (
           <div className={style.divider} />
           <div className={style.statsModule}>
             <span className={style.statsNumber}>{completedModules}</span>
-            {translate('modules_completed')}
+            {modulesCompletedLocal}
           </div>
         </div>
         <div className={style.progression}>
@@ -119,11 +123,10 @@ const ProgressWrapper = (
         value={progression}
         max={100}
       />
-      {/* mobile */}
       <div className={style.statsMobile}>
         <div className={style.statsModuleMobile}>
           <span className={style.statsNumber}>{completedModules}</span>
-          {translate('modules_completed')}
+          {modulesCompletedLocal}
         </div>
         <div className={style.statsProgressionMobile}>
           <span className={style.statsNumber}>{progression}%</span>
@@ -135,8 +138,8 @@ const ProgressWrapper = (
           {uncappedMap(
             ({type, stars, badgeUrl, onDownload}, index) => (
               <DetailSection
-                {...{translate, type, progression, badgeUrl, onDownload, stars}}
-                key={type}
+                {...{type, isLocked, badgeUrl, onDownload, stars}}
+                key={`${type}-${index}`}
                 index={index}
               />
             ),
@@ -148,11 +151,14 @@ const ProgressWrapper = (
   );
 };
 
+DetailSection.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
 DetailSection.propTypes = {
-  translate: Provider.childContextTypes.translate,
   index: PropTypes.number,
   type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
-  progression: PropTypes.number,
+  isLocked: PropTypes.bool,
   badgeUrl: PropTypes.string,
   onDownload: PropTypes.func,
   stars: PropTypes.number
