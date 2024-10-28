@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map} from 'lodash/fp';
+import {isEmpty, lowerCase, map} from 'lodash/fp';
 import Title from '../../atom/title';
 import ProgressBar from '../progress-bar';
 import {COLORS} from '../../variables/colors';
@@ -15,7 +15,7 @@ const uncappedMap = map.convert({cap: false});
 
 const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, context) => {
   const {translate} = context;
-  const isStars = type === 'stars';
+  const isTypeStars = type === 'stars';
 
   const DownloadButton = (
     <ButtonLink
@@ -51,7 +51,7 @@ const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, con
     />
   );
 
-  return isStars ? (
+  return isTypeStars ? (
     <div className={style[`detailsSection${index}`]}>
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
@@ -104,7 +104,7 @@ const ProgressWrapper = (
         <div className={style.stats}>
           <div>
             <span className={style.statsNumber}>{completedCourses}</span>
-            {translate('courses_completed')}
+            {lowerCase(translate('courses_completed'))}
           </div>
           <div className={style.divider} />
           <div className={style.statsModule}>
@@ -151,17 +151,21 @@ const ProgressWrapper = (
   );
 };
 
+const commonDetailSectionPropTypes = {
+  type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
+  badgeUrl: PropTypes.string,
+  onDownload: PropTypes.func,
+  stars: PropTypes.number
+};
+
 DetailSection.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
 DetailSection.propTypes = {
   index: PropTypes.number,
-  type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
   isLocked: PropTypes.bool,
-  badgeUrl: PropTypes.string,
-  onDownload: PropTypes.func,
-  stars: PropTypes.number
+  ...commonDetailSectionPropTypes
 };
 
 ProgressWrapper.contextTypes = {
@@ -174,7 +178,7 @@ ProgressWrapper.propTypes = {
   completedCourses: PropTypes.number,
   completedModules: PropTypes.number,
   progression: PropTypes.number,
-  sections: PropTypes.arrayOf(PropTypes.shape(DetailSection.propTypes))
+  sections: PropTypes.arrayOf(PropTypes.shape(commonDetailSectionPropTypes))
 };
 
 export default ProgressWrapper;

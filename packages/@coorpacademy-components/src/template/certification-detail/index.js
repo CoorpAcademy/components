@@ -18,12 +18,11 @@ const DESCRIPTION_BREAKPOINT = 382;
 
 const CertificationDetail = (props, context) => {
   const {
-    title,
-    logoUrl,
     certificationRef,
+    title,
     description,
-    ongoingCourses,
     certificationCourses,
+    ongoingCourses,
     totalCourses,
     totalModules,
     filters,
@@ -31,6 +30,7 @@ const CertificationDetail = (props, context) => {
     onBackClick,
     onContinueLearningClick,
     metrics,
+    logoUrl,
     onDownloadDiploma,
     badge = {}
   } = props;
@@ -39,7 +39,6 @@ const CertificationDetail = (props, context) => {
   const {badgeUrl = false, onDownloadBadge} = badge;
 
   const [showMore, setShowMore] = useState(false);
-
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
 
   const Description = useCallback(() => {
