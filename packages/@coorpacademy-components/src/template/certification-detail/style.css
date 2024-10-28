@@ -49,19 +49,21 @@
 }
 
 .ctaContainer {
+  height: 300px;
   display: flex;
+  align-items: center;
   width: 100%;
   gap: 40px;
 }
 
 .logoContainer {
+  height: 100%;
   width: 450px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: cm_grey_50;
   border-radius: 16px;
-  padding: 20px 0;
 }
 
 .logo {
