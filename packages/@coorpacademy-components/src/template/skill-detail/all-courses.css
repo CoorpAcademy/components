@@ -109,13 +109,17 @@
   text-decoration: underline;
 }
 
-@media (max-width: 940px) {
+@media tablet {
   .searchAndSortSection {
     flex-direction: column;
   }
 
   .sortSection {
     margin-top: 16px;
+  }
+
+  .filterWrapper {
+    overflow-x: scroll;
   }
 }
 
@@ -125,9 +129,5 @@
     gap: 16px;
     align-items: flex-start;
     margin-top: 16px;
-  }
-
-  .filterWrapper {
-    overflow-x: scroll;
   }
 }

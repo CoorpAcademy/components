@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 @value white from colors;
 @value xtraLightGrey from colors;
 @value cm_grey_100 from colors;
@@ -141,7 +142,7 @@
   display: none;
 }
 
-@media mobile {
+@media mobile, tablet {
   .details {
     flex-wrap: wrap;
   }
