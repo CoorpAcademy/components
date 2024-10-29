@@ -16,13 +16,13 @@ function getTemplate(locales, key, count) {
   return getOr(regularTemplate, `${key}_plural`, locales);
 }
 
-const createTranslate = locales => (key, data) => {
+const createTranslate = (locales, isAllowFalsy = false) => (key, data) => {
   const template = getTemplate(locales, key, get('count', data));
-  if (!isString(template)) {
+  if (!isString(template) && !isAllowFalsy) {
     throw new Error(`Key ${key} not found!`);
   }
 
-  return replace(
+  return !isString(template) ? key : replace(
     interpolation,
     (token, value) => {
       const _value = trim(value);
