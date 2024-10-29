@@ -23,7 +23,7 @@ const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, con
       onClick={onDownload}
       data-name="download-button"
       aria-label="download button"
-      customStyle={{backgroundColor: '#F1F6FE'}}
+      customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF'}}
       icon={{
         position: 'left',
         faIcon: {
