@@ -49,7 +49,6 @@
 }
 
 .ctaContainer {
-  height: 300px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -57,7 +56,7 @@
 }
 
 .logoContainer {
-  height: 100%;
+  height: 300px;
   width: 450px;
   display: flex;
   align-items: center;
