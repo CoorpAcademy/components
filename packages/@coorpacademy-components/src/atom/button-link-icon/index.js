@@ -58,7 +58,7 @@ const ButtonLinkIcon = props => {
     className
   );
 
-  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+  const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const handleMouseOver = useCallback(() => {
     timer.current && clearTimeout(timer.current);

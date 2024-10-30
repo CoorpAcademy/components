@@ -29,11 +29,6 @@
   border-radius: 7px;
   overflow: hidden;
   background-color: cm_grey_100;
-}
-
-/* Fade-in - Fade-out, does target button class but bulletPointMenu only */
-button + .bulletPointMenu {
-  /* fade out combo */
   visibility: hidden;
   opacity:0;
   transition:visibility 0.5s ease,opacity 0.5s ease;
@@ -43,7 +38,7 @@ button + .bulletPointMenu {
 button:focus + .bulletPointMenu {
   /* fade in combo */
   max-height: max-content;
-  visibility:visible;
+  visibility: visible;
   opacity:1;
 }
 
