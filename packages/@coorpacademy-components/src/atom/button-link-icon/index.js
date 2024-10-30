@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useCallback, useRef} from 'react';
+import React, {useState, useCallback, useRef} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, keys} from 'lodash/fp';
 import classnames from 'classnames';

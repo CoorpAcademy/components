@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import classnames from 'classnames';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import ButtonMenu from '../../atom/button-menu';
@@ -15,7 +15,19 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     menuButtonClassName,
     isBulkMenu
   } = props;
-  const handleOnClick = useCallback(() => onClick(), [onClick]);
+  const [visible, setVisible] = useState(false);
+
+  const handleOnClick = useCallback(() => {
+    onClick();
+    setVisible(true);
+  }, [onClick]);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', () => setVisible(false));
+    return () => {
+      document.removeEventListener('mousedown', () => setVisible(false));
+    };
+  }, []);
 
   const menuProps = {
     'data-name': 'button-menu',
@@ -24,7 +36,11 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
 
   const menu = (
     <div
-      className={classnames(style.bulletPointMenu, isBulkMenu && style.bulkBulletPointMenu)}
+      className={classnames(
+        style.bulletPointMenu,
+        isBulkMenu && style.bulkBulletPointMenu,
+        visible && style.visible
+      )}
       data-name="menu-wrapper"
       aria-label={menuAriaLabel}
     >

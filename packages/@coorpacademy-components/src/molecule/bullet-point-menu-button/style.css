@@ -34,20 +34,12 @@
   transition:visibility 0.5s ease,opacity 0.5s ease;
 }
 
-/* Does target button class but bulletPointMenu only */
-button:focus + .bulletPointMenu {
+.visible {
   /* fade in combo */
   max-height: max-content;
   visibility: visible;
   opacity:1;
 }
-
-/* 
-  Recover - unset pointer-events,
-  to be able to click on the button when the menu is open to close it
-*/
-.bulletPointWrapper > button:focus { pointer-events: none; }
-.bulletPointWrapper > button:not(:focus) { pointer-events: auto; }
 
 /* 
   bulk theme
