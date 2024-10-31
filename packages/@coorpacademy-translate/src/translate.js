@@ -17,11 +17,11 @@ function getTemplate(locales, key, count) {
 }
 
 const createTranslate =
-  (locales, throwIfMissing = false) =>
+  (locales, throwIfMissing = true) =>
   (key, data) => {
     const template = getTemplate(locales, key, get('count', data));
     if (!isString(template)) {
-      if (!throwIfMissing) throw new Error(`Key ${key} not found!`);
+      if (throwIfMissing) throw new Error(`Key ${key} not found!`);
       return key;
     }
 
