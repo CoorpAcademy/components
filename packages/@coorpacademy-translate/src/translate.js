@@ -17,23 +17,22 @@ function getTemplate(locales, key, count) {
 }
 
 const createTranslate =
-  (locales, isAllowFalsy = false) =>
+  (locales, throwIfMissing = false) =>
   (key, data) => {
     const template = getTemplate(locales, key, get('count', data));
-    if (!isString(template) && !isAllowFalsy) {
-      throw new Error(`Key ${key} not found!`);
+    if (!isString(template)) {
+      if (!throwIfMissing) throw new Error(`Key ${key} not found!`);
+      return key;
     }
 
-    return !isString(template)
-      ? key
-      : replace(
-          interpolation,
-          (token, value) => {
-            const _value = trim(value);
-            return has(_value, data) ? get(_value, data) : token;
-          },
-          template
-        );
+    return replace(
+      interpolation,
+      (token, value) => {
+        const _value = trim(value);
+        return has(_value, data) ? get(_value, data) : token;
+      },
+      template
+    );
   };
 
 export function mockTranslate(key, data) {
