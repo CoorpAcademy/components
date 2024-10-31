@@ -23,9 +23,10 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
   }, [onClick]);
 
   useEffect(() => {
-    document.addEventListener('mousedown', () => setVisible(false));
+    const handleMouseDown = () => setVisible(false);
+    document.addEventListener('mousedown', handleMouseDown);
     return () => {
-      document.removeEventListener('mousedown', () => setVisible(false));
+      document.removeEventListener('mousedown', handleMouseDown);
     };
   }, []);
 
