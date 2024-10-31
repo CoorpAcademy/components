@@ -6437,33 +6437,20 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   border-radius: 7px;
   overflow: hidden;
   background-color: #EAEAEB;
-}
-
-/* Fade-in - Fade-out, does target button class but bulletPointMenu only */
-button + .bulletPointMenu-K8ptY {
-  /* fade out combo */
   visibility: hidden;
   opacity:0;
   -webkit-transition:visibility 0.5s ease,opacity 0.5s ease;
   transition:visibility 0.5s ease,opacity 0.5s ease;
 }
 
-/* Does target button class but bulletPointMenu only */
-button:focus + .bulletPointMenu-K8ptY {
+.visible-bajiw {
   /* fade in combo */
   max-height: -webkit-max-content;
   max-height: -moz-max-content;
   max-height: max-content;
-  visibility:visible;
+  visibility: visible;
   opacity:1;
 }
-
-/* 
-  Recover - unset pointer-events,
-  to be able to click on the button when the menu is open to close it
-*/
-.bulletPointWrapper-k74CW > button:focus { pointer-events: none; }
-.bulletPointWrapper-k74CW > button:not(:focus) { pointer-events: auto; }
 
 /* 
   bulk theme
