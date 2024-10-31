@@ -117,3 +117,14 @@ test("should throw error if nested template couldn't be found", t => {
 
   t.throws(() => translate('foo.foo_none'), {message: 'Key foo.foo_none not found!'});
 });
+
+test("should not throw error if template couldn't be found and throwIfMissing === false", t => {
+  const translate = createTranslate(
+    {
+      foo: 'Foo'
+    },
+    false
+  );
+
+  t.is(translate('bar'), 'bar');
+});
