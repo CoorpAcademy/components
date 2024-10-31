@@ -16,21 +16,25 @@ function getTemplate(locales, key, count) {
   return getOr(regularTemplate, `${key}_plural`, locales);
 }
 
-const createTranslate = (locales, isAllowFalsy = false) => (key, data) => {
-  const template = getTemplate(locales, key, get('count', data));
-  if (!isString(template) && !isAllowFalsy) {
-    throw new Error(`Key ${key} not found!`);
-  }
+const createTranslate =
+  (locales, isAllowFalsy = false) =>
+  (key, data) => {
+    const template = getTemplate(locales, key, get('count', data));
+    if (!isString(template) && !isAllowFalsy) {
+      throw new Error(`Key ${key} not found!`);
+    }
 
-  return !isString(template) ? key : replace(
-    interpolation,
-    (token, value) => {
-      const _value = trim(value);
-      return has(_value, data) ? get(_value, data) : token;
-    },
-    template
-  );
-};
+    return !isString(template)
+      ? key
+      : replace(
+          interpolation,
+          (token, value) => {
+            const _value = trim(value);
+            return has(_value, data) ? get(_value, data) : token;
+          },
+          template
+        );
+  };
 
 export function mockTranslate(key, data) {
   if (data) {

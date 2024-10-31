@@ -119,9 +119,12 @@ test("should throw error if nested template couldn't be found", t => {
 });
 
 test("should not throw error if template couldn't be found and isAllowFalsy === true", t => {
-  const translate = createTranslate({
-    foo: 'Foo'
-  }, true);
+  const translate = createTranslate(
+    {
+      foo: 'Foo'
+    },
+    true
+  );
 
   t.is(translate('bar'), 'bar');
 });
