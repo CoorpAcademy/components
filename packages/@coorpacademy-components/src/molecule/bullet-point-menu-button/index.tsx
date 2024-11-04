@@ -1,5 +1,6 @@
 import React, {useCallback, useState, useEffect} from 'react';
 import classnames from 'classnames';
+import {noop} from 'lodash/fp';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import ButtonMenu from '../../atom/button-menu';
 import propTypes, {BulletPointMenuButtonProps} from './types';
@@ -10,7 +11,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     disabled = false,
     buttonAriaLabel,
     menuAriaLabel,
-    onClick,
+    onClick = noop,
     buttons,
     menuButtonClassName,
     isBulkMenu
