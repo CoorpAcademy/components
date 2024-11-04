@@ -44,6 +44,7 @@ const BulkProgressBar = (props: Props) => {
         max={100}
         steps={0}
         style={{backgroundColor: resolveProgressBarColor(status), borderRadius: '10px'}}
+        displayInfo={false}
       />
       {renderStatusIcon(status, progress)}
     </div>

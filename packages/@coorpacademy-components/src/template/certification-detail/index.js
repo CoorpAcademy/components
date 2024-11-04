@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {compact, lowerCase} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
@@ -9,30 +10,35 @@ import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import AllCourses from '../skill-detail/all-courses';
 import ContinueLearning from '../skill-detail/continue-learning';
-import PlaylistDetailCover from '../../molecule/playlist-detail-cover';
 import {ContinueLearningButton} from '../skill-detail';
+import ProgressWrapper from '../../molecule/progress-wrapper';
 import style from './style.css';
 
 const DESCRIPTION_BREAKPOINT = 382;
 
-const PlaylistDetail = (props, context) => {
+const CertificationDetail = (props, context) => {
   const {
+    certificationRef,
     title,
-    coverImages,
-    playlistRef,
     description,
+    certificationCourses,
     ongoingCourses,
-    playlistCourses,
     totalCourses,
+    totalModules,
     filters,
     sorting,
     onBackClick,
-    onContinueLearningClick
+    onContinueLearningClick,
+    metrics,
+    logoUrl,
+    onDownloadDiploma,
+    badge = {}
   } = props;
   const {translate} = context;
+  const {progression, completedCourses, completedModules, stars} = metrics;
+  const {badgeUrl = false, onDownloadBadge} = badge;
 
   const [showMore, setShowMore] = useState(false);
-
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
 
   const Description = useCallback(() => {
@@ -45,7 +51,7 @@ const PlaylistDetail = (props, context) => {
 
   return (
     <div className={style.backgroundContainer}>
-      <div className={style.container} data-name={playlistRef}>
+      <div className={style.container} data-name={certificationRef}>
         <ButtonLinkIcon
           faIcon="arrow-left"
           data-name="back-button"
@@ -55,11 +61,11 @@ const PlaylistDetail = (props, context) => {
           tooltipPlacement="right"
         />
         <div className={style.ctaContainer}>
-          <div className={style.coverWrapper}>
-            <PlaylistDetailCover images={coverImages} />
+          <div className={style.logoContainer}>
+            <img className={style.logo} src={logoUrl} />
           </div>
           <div>
-            <Tag label={translate('playlist')} />
+            <Tag label={translate('certification')} />
             <div className={style.title}>{title}</div>
             {description ? (
               <>
@@ -75,19 +81,44 @@ const PlaylistDetail = (props, context) => {
                 ) : null}
               </>
             ) : null}
-            <div className={style.continueLearningButton}>
-              <ContinueLearningButton
-                ongoingCoursesAvailable={!!ongoingCourses.list.length}
-                onClick={onContinueLearningClick}
-              />
+            <div className={style.contentStats}>
+              <span>{`${totalCourses} ${lowerCase(translate('courses'))}`}</span>
+              <div className={style.divider} />
+              <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
             </div>
+            <ContinueLearningButton
+              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              onClick={onContinueLearningClick}
+            />
           </div>
         </div>
         <div className={style.continueLearningSection}>
           <ContinueLearning ongoingCourses={ongoingCourses} />
         </div>
+        <ProgressWrapper
+          title={translate('your_progress')}
+          subtitle={translate('certification_progress_wrapper_subtitle')}
+          progression={progression}
+          completedCourses={completedCourses}
+          completedModules={completedModules}
+          sections={compact([
+            {
+              type: 'diploma',
+              onDownload: () => onDownloadDiploma
+            },
+            badgeUrl && {
+              type: 'badge',
+              badgeUrl,
+              onDownload: () => onDownloadBadge
+            },
+            {
+              type: 'stars',
+              stars
+            }
+          ])}
+        />
         <AllCourses
-          courses={playlistCourses}
+          courses={certificationCourses}
           totalCourses={totalCourses}
           filters={filters}
           sorting={sorting}
@@ -97,19 +128,31 @@ const PlaylistDetail = (props, context) => {
   );
 };
 
-PlaylistDetail.contextTypes = {
+CertificationDetail.contextTypes = {
   skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
-PlaylistDetail.propTypes = {
+CertificationDetail.propTypes = {
   title: PropTypes.string.isRequired,
-  coverImages: PlaylistDetailCover.propTypes.images,
-  playlistRef: PropTypes.string.isRequired,
+  certificationRef: PropTypes.string.isRequired,
   description: PropTypes.string,
+  logoUrl: PropTypes.string,
+  metrics: PropTypes.shape({
+    progression: PropTypes.number,
+    stars: PropTypes.number,
+    completedCourses: PropTypes.number,
+    completedModules: PropTypes.number
+  }),
+  onDownloadDiploma: PropTypes.func,
+  badge: PropTypes.shape({
+    badgeUrl: PropTypes.string,
+    onDownloadBadge: PropTypes.func
+  }),
   ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
-  playlistCourses: PropTypes.shape(CardsGrid.propTypes),
+  certificationCourses: PropTypes.shape(CardsGrid.propTypes),
   totalCourses: PropTypes.number,
+  totalModules: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
@@ -119,4 +162,4 @@ PlaylistDetail.propTypes = {
   onContinueLearningClick: PropTypes.func
 };
 
-export default PlaylistDetail;
+export default CertificationDetail;

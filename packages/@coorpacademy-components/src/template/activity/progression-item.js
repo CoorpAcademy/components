@@ -116,6 +116,7 @@ const ProgressionItem = (props, legacyContext) => {
         max={100}
         steps={steps}
         style={{backgroundColor: primary, borderRadius: 0}}
+        displayInfo={false}
       />
       <div className={style.state}>
         {link}

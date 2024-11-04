@@ -35,7 +35,8 @@ const getButtonContent = (
         size: {
           faSize: faIcon.size,
           wrapperSize: faIcon.size
-        }
+        },
+        customStyle: faIcon.customStyle
       }}
     />
   ) : (

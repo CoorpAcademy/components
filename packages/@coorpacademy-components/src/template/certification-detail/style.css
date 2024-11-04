@@ -3,9 +3,18 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 @value xtraLightGrey from colors;
+@value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_400 from colors;
+
+.divider {
+  width: 4px;
+  height: 4px;
+  background-color: cm_grey_400;
+  border: solid cm_grey_400 1px;
+  border-radius: 4px;
+}
 
 .textBase {
   font-family: "Gilroy";
@@ -46,17 +55,24 @@
   gap: 40px;
 }
 
-.coverWrapper {
-  width: 420px;
-  height: 280px;
+.logoContainer {
+  height: 300px;
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: cm_grey_50;
+  border-radius: 16px;
+}
+
+.logo {
+  width: 191px;
+  height: 191px;
 }
 
 .showMoreWrapper {
   display: flex;
   gap: 8px;
-}
-
-.showMoreWrapper {
   align-items: center;
   margin-top: 8px;
   font-weight: 600;
@@ -87,8 +103,13 @@
   text-overflow: ellipsis;
 }
 
-.continueLearningButton {
-  margin-top: 24px;
+.contentStats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 0;
+  font-weight: 600;
+  color: cm_grey_400;
 }
 
 .continueLearningSection {
@@ -103,7 +124,7 @@
 }
 
 @media mobile {
-  .coverWrapper {
+  .logoContainer {
     width: 100%;
   }
 }
