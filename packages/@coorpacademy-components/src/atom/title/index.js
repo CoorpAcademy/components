@@ -10,6 +10,8 @@ const getTitleStyle = (type, size) => {
       return style.titlePage;
     case 'form-group':
       switch (size) {
+        case 'standard-light-weight':
+          return style.titleFormGroupLightWeight;
         case 'standard':
           return style.titleFormGroup;
         case 'medium':
@@ -28,6 +30,8 @@ const getSubtitleStyle = (type, size) => {
       switch (size) {
         case 'standard':
           return style.subtitleFormGroup;
+        case 'standard-without-margin':
+          return style.subtitleFormGroupWithoutMargin;
         case 'small':
           return style.smallSubtitleFormGroup;
         case 'small-without-margin':

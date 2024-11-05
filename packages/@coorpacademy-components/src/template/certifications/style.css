@@ -1,0 +1,40 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value xtraLightGrey from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+
+.container {
+  font-family: "Gilroy";
+  font-style: normal;
+}
+
+.sortSection {
+  display: flex;
+  margin: 16px 0;
+  justify-content: space-between;
+}
+
+.certificatesCount {
+  color: cm_grey_500;
+}
+
+.sortSection {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.sortWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: cm_grey_500;
+}
