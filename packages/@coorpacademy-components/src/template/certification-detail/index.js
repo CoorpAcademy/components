@@ -30,7 +30,7 @@ const CertificationDetail = (props, context) => {
     onBackClick,
     onContinueLearningClick,
     metrics,
-    logoUrl,
+    logo,
     onDownloadDiploma,
     badge = {}
   } = props;
@@ -62,7 +62,7 @@ const CertificationDetail = (props, context) => {
         />
         <div className={style.ctaContainer}>
           <div className={style.logoContainer}>
-            <img className={style.logo} src={logoUrl} />
+            {logo ? <div className={style.logo}>{logo}</div> : null}
           </div>
           <div>
             <Tag label={translate('certification')} />
@@ -137,7 +137,7 @@ CertificationDetail.propTypes = {
   title: PropTypes.string.isRequired,
   certificationRef: PropTypes.string.isRequired,
   description: PropTypes.string,
-  logoUrl: PropTypes.string,
+  logo: PropTypes.string,
   metrics: PropTypes.shape({
     progression: PropTypes.number,
     stars: PropTypes.number,
