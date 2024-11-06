@@ -36,6 +36,7 @@ const Go1BaseBanner = props => {
           />
         </div>
       </div>
+      <div className={style.imagePlaceholder} />
       <img className={style.image} src={image} />
     </div>
   );
