@@ -19,6 +19,7 @@ import {
   NovaLineContentEditionContentBook as ContentBook
 } from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
+import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
@@ -83,6 +84,7 @@ const getBackgroudRadialColors = feature => {
       };
     case 'manage_email':
     case 'massive_battle':
+    case 'learning_priorities':
     case 'cms':
       return {
         iconBackgroundColor: '#7340FF',
@@ -164,7 +166,11 @@ const QuickAccessCard = (props, context) => {
               backgroundColor: iconBackgroundColor
             }}
           >
-            <Icon className={style.iconFeature} style={{color: iconColor}} />
+            {feature !== 'learning_priorities' ? (
+              <Icon className={style.iconFeature} style={{color: iconColor}} />
+            ) : (
+              <FaIcon className={style.iconFeature} iconName="sign-post" iconColor="white" />
+            )}
           </div>
           <div className={style.title}>
             {title}
