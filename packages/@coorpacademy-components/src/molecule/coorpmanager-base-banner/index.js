@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
-const Go1BaseBanner = props => {
+const CoorpmanagerBaseBanner = props => {
   const {image, title, subTitle, buttonLabel, onClick} = props;
 
   return (
@@ -42,7 +42,7 @@ const Go1BaseBanner = props => {
   );
 };
 
-Go1BaseBanner.propTypes = {
+CoorpmanagerBaseBanner.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   subTitle: PropTypes.string,
@@ -50,4 +50,4 @@ Go1BaseBanner.propTypes = {
   onClick: PropTypes.func
 };
 
-export default Go1BaseBanner;
+export default CoorpmanagerBaseBanner;

@@ -61,6 +61,8 @@
   height: 266px;
   right: 32px;
   top: 32px;
+  box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
 }
 
 @media (max-width: 1040px) {

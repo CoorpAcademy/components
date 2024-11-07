@@ -1,5 +1,5 @@
 import {defaultsDeep} from 'lodash/fp';
-import Go1BaseBanner from '../../../../../molecule/go1-base-banner/test/fixtures/default';
+import Go1BaseBanner from '../../../../../molecule/coorpmanager-base-banner/test/fixtures/default';
 import Default, {items} from './default';
 
 const {props} = Default;
