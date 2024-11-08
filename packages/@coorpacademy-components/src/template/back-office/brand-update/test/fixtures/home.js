@@ -10,7 +10,7 @@ const cards = [
     description: 'Upload new users on your learning platform.',
     openInNewTab: false,
     feature: 'upload_users',
-    href: () => `/brands/mock/admin/user/upload`,
+    href: `/brands/mock/admin/user/upload`,
     permissions: ['user']
   },
   {
@@ -18,7 +18,7 @@ const cards = [
     description: 'Manage your company Learning Priorities',
     openInNewTab: false,
     feature: 'learning_priorities',
-    href: () => `/brands/mock/animation/massive-battle`,
+    href: `/brands/mock/animation/massive-battle`,
     permissions: ['user']
   },
   {
@@ -26,7 +26,7 @@ const cards = [
     description: 'Manage display and order all sections composing the dashboard.',
     openInNewTab: false,
     feature: 'dashboard',
-    href: () => `/brands/mock/editorialization/dashboard`,
+    href: `/brands/mock/editorialization/dashboard`,
     permissions: ['user']
   },
   {
@@ -34,7 +34,7 @@ const cards = [
     description: 'Manage and edit each of your users.',
     openInNewTab: false,
     feature: 'manage_users',
-    href: () => `/brands/mock/admin/user/manage`,
+    href: `/brands/mock/admin/user/manage`,
     permissions: ['user']
   }
 ];
@@ -44,7 +44,6 @@ export default {
     items,
     content: {
       type: 'home',
-      groups: [],
       header: {
         title: 'Welcome Developer',
         subtitle: 'Welcome to the coorpmanager dashboard'

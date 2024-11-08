@@ -218,6 +218,7 @@ QuickAccessCard.propTypes = {
     'manage_email',
     'dashboard',
     'look_and_feel',
+    'learning_priorities',
     'manage_users',
     'upload_users',
     'binoculaire',
