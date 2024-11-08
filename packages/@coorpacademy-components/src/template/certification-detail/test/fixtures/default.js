@@ -14,11 +14,8 @@ export const defaultProps = {
     completedCourses: 5,
     completedModules: 10
   },
-  badge: {
-    badgeUrl:
-      'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png',
-    onDownloadBadge: () => console.log('click on download badge')
-  },
+  diplomaUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS',
+  badgeUrl: 'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png',
   playlistRef: 'expert-techniques',
   description:
     'This playlist is a comprehensive eLearning playlist designed for leaders, managers, and team members who want to master conflict resolution skills. This series will equip you with proven strategies to identify, address, and resolve conflicts within teams, fostering a collaborative and productive work environment. Through real-world scenarios, expert insights, and practical tools, you will learn how to navigate challenging conversations, mediate disputes, and build stronger, more cohesive teams. Perfect for anyone looking to enhance their leadership skills and promote harmony in the workplace.',

@@ -31,12 +31,11 @@ const CertificationDetail = (props, context) => {
     onContinueLearningClick,
     metrics,
     logoUrl,
-    onDownloadDiploma,
-    badge = {}
+    diplomaUrl,
+    badgeUrl
   } = props;
   const {translate} = context;
   const {progression, completedCourses, completedModules, stars} = metrics;
-  const {badgeUrl = false, onDownloadBadge} = badge;
 
   const [showMore, setShowMore] = useState(false);
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
@@ -104,12 +103,11 @@ const CertificationDetail = (props, context) => {
           sections={compact([
             {
               type: 'diploma',
-              onDownload: () => onDownloadDiploma
+              downloadUrl: diplomaUrl
             },
             badgeUrl && {
               type: 'badge',
-              badgeUrl,
-              onDownload: () => onDownloadBadge
+              downloadUrl: badgeUrl
             },
             {
               type: 'stars',
@@ -144,11 +142,8 @@ CertificationDetail.propTypes = {
     completedCourses: PropTypes.number,
     completedModules: PropTypes.number
   }),
-  onDownloadDiploma: PropTypes.func,
-  badge: PropTypes.shape({
-    badgeUrl: PropTypes.string,
-    onDownloadBadge: PropTypes.func
-  }),
+  diplomaUrl: PropTypes.string,
+  badgeUrl: PropTypes.string,
   ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
   certificationCourses: PropTypes.shape(CardsGrid.propTypes),
   totalCourses: PropTypes.number,

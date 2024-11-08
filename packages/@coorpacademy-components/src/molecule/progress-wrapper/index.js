@@ -13,14 +13,17 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
-const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, context) => {
+const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => {
   const {translate} = context;
   const isTypeStars = type === 'stars';
 
   const DownloadButton = (
     <ButtonLink
       label={translate('download')}
-      onClick={onDownload}
+      link={{
+        target: '_blank',
+        href: downloadUrl
+      }}
       data-name="download-button"
       aria-label="download button"
       customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF'}}
@@ -69,8 +72,9 @@ const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, con
       <img
         className={style.img}
         src={
-          badgeUrl ||
-          'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/diploma.svg'
+          type === 'badge'
+            ? downloadUrl
+            : 'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/diploma.svg'
         }
       />
       <div className={style.detailsInfo}>
@@ -136,9 +140,9 @@ const ProgressWrapper = (
       {isEmpty(sections) ? null : (
         <div className={style.details}>
           {uncappedMap(
-            ({type, stars, badgeUrl, onDownload}, index) => (
+            ({type, stars, downloadUrl}, index) => (
               <DetailSection
-                {...{type, isLocked, badgeUrl, onDownload, stars}}
+                {...{type, isLocked, downloadUrl, stars}}
                 key={`${type}-${index}`}
                 index={index}
               />
@@ -153,8 +157,7 @@ const ProgressWrapper = (
 
 const commonDetailSectionPropTypes = {
   type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
-  badgeUrl: PropTypes.string,
-  onDownload: PropTypes.func,
+  downloadUrl: PropTypes.string,
   stars: PropTypes.number
 };
 

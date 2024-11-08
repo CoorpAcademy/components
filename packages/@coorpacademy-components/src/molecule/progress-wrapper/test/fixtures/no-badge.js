@@ -8,7 +8,7 @@ export default {
     sections: [
       {
         type: 'diploma',
-        onDownload: () => console.log('click on download diploma')
+        downloadUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS'
       },
       {
         type: 'stars',
