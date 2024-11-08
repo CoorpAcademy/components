@@ -1,27 +1,50 @@
 export const defaultProps = {
-  certifications: [{
-    usergoal: {
+  certifications: [
+    {
       label: 'label',
       goal: {
-        title: 'title',
+        title: 'IA Technology : asses your knowledge on high end tech',
         condition: {
-          nbDone: 1
+          nbDone: 34
         }
-      }
+      },
+      progress: 23,
+      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg'
     },
-    progress: 23
-  }],
+    {
+      label: 'label2',
+      goal: {
+        title: 'Crisis management : learn how to manage a crisis',
+        condition: {
+          nbDone: 13
+        }
+      },
+      progress: 100,
+      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg'
+    },
+    {
+      label: 'label3',
+      goal: {
+        title: 'Business development',
+        condition: {
+          nbDone: 10
+        }
+      },
+      progress: 0,
+      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg'
+    }
+  ],
   sorting: {
     theme: 'skillDetail',
     options: [
       {
-        name: 'Position',
-        value: 'Position',
+        name: 'Relevance',
+        value: 'Relevance',
         selected: true
       },
       {
-        name: 'Most popular',
-        value: 'Most popular',
+        name: 'Shortest',
+        value: 'Shortest',
         selected: false
       },
       {
@@ -31,7 +54,7 @@ export const defaultProps = {
       }
     ],
     onChange: value => console.log(value)
-  },
+  }
 };
 
 export default {

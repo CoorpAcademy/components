@@ -4,6 +4,7 @@ import Provider from '../../atom/provider';
 import Title from '../../atom/title';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';
+import CertificationCard from '../../molecule/certification-card';
 import style from './style.css';
 
 const Certifications = (props, context) => {
@@ -14,8 +15,8 @@ const Certifications = (props, context) => {
 
   const sortView =
     sorting !== undefined ? (
-      <div data-name='choice'>
-        <Select {...sorting} aria-label='All courses sort' />
+      <div data-name="choice">
+        <Select {...sorting} aria-label="All courses sort" />
       </div>
     ) : null;
 
@@ -28,9 +29,9 @@ const Certifications = (props, context) => {
       <Title
         title={translate('certificates')}
         subtitle={translate('certificates_subtitle')}
-        type='form-group'
-        titleSize='standard-light-weight'
-        subtitleSize='standard-without-margin'
+        type="form-group"
+        titleSize="standard-light-weight"
+        subtitleSize="standard-without-margin"
         icon={{
           iconName: 'wreath-laurel',
           iconColor: '#B87A00',
@@ -38,14 +39,14 @@ const Certifications = (props, context) => {
           backgroundColor: '#FFEECC'
         }}
       />
-      <div className={style.sortSection}>
+      <div className={style.sortSectionWrapper}>
         <div className={style.certificatesCount}>
-          {certifications.length + ' ' + translate('certificate(s)')}
+          {`${certifications.length} ${translate('certificate(s)')}`}
         </div>
         <div className={style.sortSection}>
           <InputSwitch
             id={'show-completed-courses-switch'}
-            type='switch'
+            type="switch"
             name={translate('show_completed')}
             title={translate('show_completed')}
             aria-label={'Show completed courses aria label'}
@@ -58,6 +59,18 @@ const Certifications = (props, context) => {
           </div>
         </div>
       </div>
+      <div className={style.certificateList}>
+        {certifications.map(certification => {
+          if (!showCompleted && certification.progress === 100) {
+            return null;
+          }
+          return (
+            <div key={certification.label}>
+              <CertificationCard {...certification} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -67,19 +80,20 @@ Certifications.contextTypes = {
 };
 
 Certifications.propTypes = {
-  certifications: PropTypes.arrayOf(PropTypes.shape({
-    usergoal: PropTypes.shape({
+  certifications: PropTypes.arrayOf(
+    PropTypes.shape({
       label: PropTypes.string,
       goal: PropTypes.shape({
         title: PropTypes.string,
         condition: PropTypes.shape({
-          nbDone: PropTypes.number,
-        }),
+          nbDone: PropTypes.number
+        })
       }),
-    }),
-    progress: PropTypes.number,
-  })),
-  sorting: PropTypes.shape(Select.propTypes),
+      progress: PropTypes.number,
+      imgUrl: PropTypes.string
+    })
+  ),
+  sorting: PropTypes.shape(Select.propTypes)
 };
 
 export default Certifications;

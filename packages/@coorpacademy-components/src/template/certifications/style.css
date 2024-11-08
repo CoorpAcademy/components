@@ -11,6 +11,8 @@
 .container {
   font-family: "Gilroy";
   font-style: normal;
+  max-width: 1080px;
+  margin: auto;
 }
 
 .sortSection {
@@ -23,8 +25,17 @@
   color: cm_grey_500;
 }
 
+.sortSectionWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 4px;
+}
+
 .sortSection {
   display: flex;
+  flex-wrap: wrap;
   gap: 32px;
   align-items: center;
   font-size: 14px;
@@ -37,4 +48,23 @@
   align-items: center;
   gap: 12px;
   color: cm_grey_500;
+}
+
+.certificateList {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media mobile {
+  .sortSectionWrapper {
+    flex-direction: column-reverse;
+    margin-bottom: 16px;
+    align-items: normal;
+  }
+
+  .sortSection {
+    gap: 16px;
+  }
+  
 }
