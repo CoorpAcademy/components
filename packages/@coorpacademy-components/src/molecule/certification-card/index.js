@@ -7,7 +7,7 @@ import ProgressBar from '../progress-bar';
 import style from './style.css';
 
 const CertificationCard = (props, context) => {
-  const {label, goal, progress, imgUrl} = props;
+  const {label, goal, progress, imgUrl, onClick} = props;
   const {
     title,
     condition: {nbDone}
@@ -29,7 +29,7 @@ const CertificationCard = (props, context) => {
     customStyle: {padding: 0}
   };
   return (
-    <div className={style.container} data-name={`certification-card-${label}`}>
+    <div className={style.container} data-name={`certification-card-${label}`} onClick={onClick}>
       {progress > 0 ? (
         <Tag
           label={progressLabel}
@@ -75,7 +75,8 @@ CertificationCard.propTypes = {
     })
   }),
   progress: PropTypes.number,
-  imgUrl: PropTypes.string
+  imgUrl: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default CertificationCard;

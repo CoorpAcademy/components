@@ -9,7 +9,8 @@ export const defaultProps = {
         }
       },
       progress: 23,
-      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg'
+      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
+      onClick: () => console.log('click')
     },
     {
       label: 'label2',
@@ -20,7 +21,8 @@ export const defaultProps = {
         }
       },
       progress: 100,
-      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg'
+      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
+      onClick: () => console.log('click')
     },
     {
       label: 'label3',
@@ -31,7 +33,8 @@ export const defaultProps = {
         }
       },
       progress: 0,
-      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg'
+      imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
+      onClick: () => console.log('click')
     }
   ],
   sorting: {

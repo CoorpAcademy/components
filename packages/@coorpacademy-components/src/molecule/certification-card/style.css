@@ -3,6 +3,7 @@
 @value cm_grey_100 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_75 from colors;
 
 .container {
   font-family: "Gilroy";
@@ -11,11 +12,14 @@
   width: 345px;
   height: 309px;
   min-width: 288px;
+  background-color: #FFF;
   border: 2px solid #FFF;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.10);
   position: relative;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .imageWrapper {
@@ -25,12 +29,20 @@
   background-color: xtraLightGrey;
   height: 160px;
   width: auto;
-
+  transition: all 0.25s ease;
+  
   img {
     min-width: 100px;
   }
 }
 
+.container:hover {
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.14);
+
+  .imageWrapper {
+    background-color: cm_grey_75;
+  }
+}
 .detailWrapper {
   padding: 16px;
   display: flex;

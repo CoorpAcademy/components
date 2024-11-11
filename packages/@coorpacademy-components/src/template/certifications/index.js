@@ -90,7 +90,8 @@ Certifications.propTypes = {
         })
       }),
       progress: PropTypes.number,
-      imgUrl: PropTypes.string
+      imgUrl: PropTypes.string,
+      onClick: PropTypes.func
     })
   ),
   sorting: PropTypes.shape(Select.propTypes)
