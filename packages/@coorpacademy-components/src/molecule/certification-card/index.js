@@ -39,7 +39,7 @@ const CertificationCard = (props, context) => {
         />
       ) : null}
       <div className={style.imageWrapper}>
-        <img src={imgUrl} width="104" height="104" />
+        <img src={imgUrl} />
       </div>
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>

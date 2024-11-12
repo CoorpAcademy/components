@@ -41,18 +41,18 @@ export const defaultProps = {
     theme: 'skillDetail',
     options: [
       {
-        name: 'Relevance',
-        value: 'Relevance',
+        name: 'Alphabetical',
+        value: 'alphabetical',
         selected: true
       },
       {
-        name: 'Shortest',
-        value: 'Shortest',
+        name: 'Completion',
+        value: 'completion',
         selected: false
       },
       {
         name: 'Newest',
-        value: 'Newest',
+        value: 'newest',
         selected: false
       }
     ],

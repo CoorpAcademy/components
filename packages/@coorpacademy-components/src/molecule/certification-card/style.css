@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.5s ease-out;
 }
 
 .imageWrapper {
@@ -29,10 +29,11 @@
   background-color: xtraLightGrey;
   height: 160px;
   width: auto;
-  transition: all 0.25s ease;
+  transition: all 0.5s ease-out;
   
   img {
-    min-width: 100px;
+    width: 100px;
+    transition: all 0.5s ease-out;
   }
 }
 
@@ -41,6 +42,10 @@
 
   .imageWrapper {
     background-color: cm_grey_75;
+
+    img {
+      width: 115px;
+    }
   }
 }
 .detailWrapper {
