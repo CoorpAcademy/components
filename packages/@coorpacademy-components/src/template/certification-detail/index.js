@@ -4,12 +4,11 @@ import classnames from 'classnames';
 import {compact, lowerCase} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
-import Select, {SelectOptionPropTypes} from '../../atom/select';
+import {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import AllCourses from '../skill-detail/all-courses';
-import ContinueLearning from '../skill-detail/continue-learning';
 import {ContinueLearningButton} from '../skill-detail';
 import ProgressWrapper from '../../molecule/progress-wrapper';
 import style from './style.css';
@@ -22,11 +21,10 @@ const CertificationDetail = (props, context) => {
     title,
     description,
     certificationCourses,
-    ongoingCourses,
+    ongoingCoursesAvailable,
     totalCourses,
     totalModules,
     filters,
-    sorting,
     onBackClick,
     onContinueLearningClick,
     metrics,
@@ -86,13 +84,10 @@ const CertificationDetail = (props, context) => {
               <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
             </div>
             <ContinueLearningButton
-              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              ongoingCoursesAvailable={ongoingCoursesAvailable}
               onClick={onContinueLearningClick}
             />
           </div>
-        </div>
-        <div className={style.continueLearningSection}>
-          <ContinueLearning ongoingCourses={ongoingCourses} />
         </div>
         <ProgressWrapper
           title={translate('your_progress')}
@@ -115,12 +110,7 @@ const CertificationDetail = (props, context) => {
             }
           ])}
         />
-        <AllCourses
-          courses={certificationCourses}
-          totalCourses={totalCourses}
-          filters={filters}
-          sorting={sorting}
-        />
+        <AllCourses courses={certificationCourses} totalCourses={totalCourses} filters={filters} />
       </div>
     </div>
   );
@@ -144,7 +134,7 @@ CertificationDetail.propTypes = {
   }),
   diplomaUrl: PropTypes.string,
   badgeUrl: PropTypes.string,
-  ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
+  ongoingCoursesAvailable: PropTypes.bool,
   certificationCourses: PropTypes.shape(CardsGrid.propTypes),
   totalCourses: PropTypes.number,
   totalModules: PropTypes.number,
@@ -152,7 +142,6 @@ CertificationDetail.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func
 };
