@@ -114,10 +114,10 @@ const AllCourses = (props, context) => {
             value={showCompleted}
             onChange={handleShowCompletedToggle}
           />
-          <div className={style.sortWrapper}>
+          {sortView ? (<div className={style.sortWrapper}>
             {translate('sort_by')}
             {sortView}
-          </div>
+          </div>) : null}
         </div>
       </div>
       <div className={style.filterWrapper}>

@@ -41,14 +41,6 @@
   gap: 16px;
 }
 
-.divider {
-  width: 4px;
-  height: 4px;
-  background-color: #d7d7da;
-  border: solid #d7d7da 1px;
-  border-radius: 4px;
-}
-
 .progression {
   display: flex;
   justify-content: end;
@@ -181,5 +173,5 @@
     padding-top: 16px;
     color: cm_grey_400;
     font-weight: 600;
-  }    
+  }
 }

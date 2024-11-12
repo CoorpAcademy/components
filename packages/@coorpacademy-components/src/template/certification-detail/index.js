@@ -22,7 +22,6 @@ const CertificationDetail = (props, context) => {
     description,
     certificationCourses,
     ongoingCoursesAvailable,
-    totalCourses,
     totalModules,
     filters,
     onBackClick,
@@ -79,8 +78,6 @@ const CertificationDetail = (props, context) => {
               </>
             ) : null}
             <div className={style.contentStats}>
-              <span>{`${totalCourses} ${lowerCase(translate('courses'))}`}</span>
-              <div className={style.divider} />
               <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
             </div>
             <ContinueLearningButton
@@ -110,7 +107,7 @@ const CertificationDetail = (props, context) => {
             }
           ])}
         />
-        <AllCourses courses={certificationCourses} totalCourses={totalCourses} filters={filters} />
+        <AllCourses courses={certificationCourses} totalCourses={totalModules} filters={filters} />
       </div>
     </div>
   );
@@ -136,7 +133,6 @@ CertificationDetail.propTypes = {
   badgeUrl: PropTypes.string,
   ongoingCoursesAvailable: PropTypes.bool,
   certificationCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
   totalModules: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,

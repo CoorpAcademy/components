@@ -92,7 +92,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
 };
 
 const ProgressWrapper = (
-  {completedCourses, completedModules, title, subtitle, progression, sections},
+  {completedModules, title, subtitle, progression, sections},
   context
 ) => {
   const {translate} = context;
@@ -105,12 +105,7 @@ const ProgressWrapper = (
         <Title type="form-group" titleSize="medium" title={title} subtitle={subtitle} />
       </div>
       <div className={style.statscontainer}>
-        <div className={style.stats}>
-          <div>
-            <span className={style.statsNumber}>{completedCourses}</span>
-            {lowerCase(translate('courses_completed'))}
-          </div>
-          <div className={style.divider} />
+      <div className={style.stats}>
           <div className={style.statsModule}>
             <span className={style.statsNumber}>{completedModules}</span>
             {modulesCompletedLocal}
