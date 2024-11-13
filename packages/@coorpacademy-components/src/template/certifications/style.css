@@ -68,4 +68,7 @@
     gap: 16px;
   }
   
+  .certificateList {
+    justify-content: center;
+  }
 }

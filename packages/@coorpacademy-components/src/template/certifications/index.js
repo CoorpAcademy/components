@@ -53,10 +53,12 @@ const Certifications = (props, context) => {
             value={showCompleted}
             onChange={handleShowCompletedToggle}
           />
-          <div className={style.sortWrapper}>
-            {translate('sort_by')}
-            {sortView}
-          </div>
+          {sorting ? (
+            <div className={style.sortWrapper}>
+              {translate('sort_by')}
+              {sortView}
+            </div>
+          ) : null}
         </div>
       </div>
       <div className={style.certificateList}>

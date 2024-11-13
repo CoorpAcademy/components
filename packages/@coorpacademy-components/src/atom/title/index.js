@@ -77,8 +77,14 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
-  titleSize: PropTypes.oneOf(['standard', 'medium', 'small']),
-  subtitleSize: PropTypes.oneOf(['standard', 'small', 'small-without-margin', 'extra-small']),
+  titleSize: PropTypes.oneOf(['standard', 'standard-light-weight', 'medium', 'small']),
+  subtitleSize: PropTypes.oneOf([
+    'standard',
+    'standard-without-margin',
+    'small',
+    'small-without-margin',
+    'extra-small'
+  ]),
   icon: PropTypes.shape(Icon.propTypes),
   tag: PropTypes.shape(Tag.propTypes)
 };
