@@ -32,7 +32,7 @@ const CertificationDetail = (props, context) => {
     badgeUrl
   } = props;
   const {translate} = context;
-  const {progression, completedCourses, completedModules, stars} = metrics;
+  const {progression, completedModules, mandatoryModules, stars} = metrics;
 
   const [showMore, setShowMore] = useState(false);
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
@@ -90,8 +90,8 @@ const CertificationDetail = (props, context) => {
           title={translate('your_progress')}
           subtitle={translate('certification_progress_wrapper_subtitle')}
           progression={progression}
-          completedCourses={completedCourses}
           completedModules={completedModules}
+          mandatoryModules={mandatoryModules}
           sections={compact([
             {
               type: 'diploma',
@@ -126,8 +126,8 @@ CertificationDetail.propTypes = {
   metrics: PropTypes.shape({
     progression: PropTypes.number,
     stars: PropTypes.number,
-    completedCourses: PropTypes.number,
-    completedModules: PropTypes.number
+    completedModules: PropTypes.number,
+    mandatoryModules: PropTypes.number
   }),
   diplomaUrl: PropTypes.string,
   badgeUrl: PropTypes.string,

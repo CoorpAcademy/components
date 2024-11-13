@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, lowerCase, map} from 'lodash/fp';
+import {isEmpty, map} from 'lodash/fp';
 import Title from '../../atom/title';
 import ProgressBar from '../progress-bar';
 import {COLORS} from '../../variables/colors';
@@ -92,11 +92,11 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
 };
 
 const ProgressWrapper = (
-  {completedModules, title, subtitle, progression, sections},
+  {completedModules, mandatoryModules, title, subtitle, progression, sections},
   context
 ) => {
   const {translate} = context;
-  const modulesCompletedLocal = translate('modules_completed');
+  const mandatoryCompletedModulesLocal = translate('modules_completed_mandatory');
   const isLocked = progression !== 100;
 
   return (
@@ -105,10 +105,14 @@ const ProgressWrapper = (
         <Title type="form-group" titleSize="medium" title={title} subtitle={subtitle} />
       </div>
       <div className={style.statscontainer}>
-      <div className={style.stats}>
-          <div className={style.statsModule}>
-            <span className={style.statsNumber}>{completedModules}</span>
-            {modulesCompletedLocal}
+        <div className={style.stats}>
+          <div>
+            <span className={style.statsNumber}>
+              {`${
+                completedModules > mandatoryModules ? mandatoryModules : completedModules
+              } / ${mandatoryModules}`}
+            </span>
+            {mandatoryCompletedModulesLocal}
           </div>
         </div>
         <div className={style.progression}>
@@ -122,14 +126,8 @@ const ProgressWrapper = (
         value={progression}
         max={100}
       />
-      <div className={style.statsMobile}>
-        <div className={style.statsModuleMobile}>
-          <span className={style.statsNumber}>{completedModules}</span>
-          {modulesCompletedLocal}
-        </div>
-        <div className={style.statsProgressionMobile}>
-          <span className={style.statsNumber}>{progression}%</span>
-        </div>
+      <div className={style.statsProgressionMobile}>
+        <span className={style.statsNumber}>{progression}%</span>
       </div>
 
       {isEmpty(sections) ? null : (
@@ -173,8 +171,8 @@ ProgressWrapper.contextTypes = {
 ProgressWrapper.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  completedCourses: PropTypes.number,
   completedModules: PropTypes.number,
+  mandatoryModules: PropTypes.number,
   progression: PropTypes.number,
   sections: PropTypes.arrayOf(PropTypes.shape(commonDetailSectionPropTypes))
 };

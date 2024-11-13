@@ -2,8 +2,8 @@ export default {
   props: {
     title: 'Your Progress',
     subtitle: 'To unlock your rewards, you need to complete this certification',
-    completedCourses: 6,
-    completedModules: 13,
+    mandatoryModules: 6,
+    completedModules: 1,
     progression: 37,
     sections: [
       {

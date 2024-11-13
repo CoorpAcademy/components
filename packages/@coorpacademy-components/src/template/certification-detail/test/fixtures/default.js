@@ -10,7 +10,8 @@ export const defaultProps = {
   metrics: {
     progression: 50,
     stars: 250,
-    completedModules: 10
+    completedModules: 3,
+    mandatoryModules: 6
   },
   diplomaUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS',
   badgeUrl: 'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png',

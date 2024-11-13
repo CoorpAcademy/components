@@ -5,7 +5,8 @@ export default {
     ...defaultProps,
     metrics: {
       ...defaultProps.metrics,
-      progression: 100
+      progression: 100,
+      completedModules: 6
     }
   }
 };

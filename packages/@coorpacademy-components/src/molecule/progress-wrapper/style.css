@@ -121,10 +121,6 @@
   font-weight: 700;
 }
 
-.statsMobile {
-  display: none;
-}
-
 .statsModuleMobile {
   display: none;
 }
@@ -132,6 +128,9 @@
 .statsProgressionMobile {
   composes: progression;
   display: none;
+  color: cm_grey_400;
+  font-weight: 600;
+  padding-top: 16px;
 }
 
 @media mobile, tablet {
@@ -152,12 +151,6 @@
    justify-content: space-around;
    gap: 0;
   }
-  .divider {
-    display: none;
-  }
-  .statsModule {
-    display: none;
-  }
   .progression {
     display: none;
   }
@@ -166,12 +159,5 @@
   }
   .statsModuleMobile {
     display: block;
-  }
-  .statsMobile {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 16px;
-    color: cm_grey_400;
-    font-weight: 600;
   }
 }
