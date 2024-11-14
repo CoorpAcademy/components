@@ -1,0 +1,73 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+@value go1_primary from colors;
+@value go1_backgound from colors;
+@value white from colors;
+
+.background {
+  font-family: 'Gilroy';
+  font-style: normal;
+  background: linear-gradient(312deg, rgba(221, 209, 255, 0.80) 11.39%, rgba(250, 250, 250, 0.00) 54.19%), linear-gradient(11deg, #EBF2FF 11.7%, rgba(250, 250, 250, 0.00) 106.37%), var(--background-background_primary, #FAFAFA);;
+  border-radius: 16px;
+  width: 100%;
+  min-height: 246px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttonWrapper {
+  width: fit-content;
+}
+.buttonWrapper:hover {
+  background: go1_primary_hover;
+}
+.textSection {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0 32px 32px;
+}
+
+.title {
+  color: cm_grey_700;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 12px;
+}
+
+.subTitle {
+  color: cm_grey_500;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 22px;
+}
+
+.imagePlaceholder {
+  height: 246px;
+  width: 471px;
+  flex-shrink: 0;
+}
+
+.image {
+  position: absolute;
+  width: 427px;
+  height: 224px;
+  right: 32px;
+  top: 32px;
+  box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 8px;
+}
+
+@media (max-width: 1040px) {
+  .image,
+  .imagePlaceholder {
+    display: none;
+  }
+}
