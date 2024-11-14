@@ -26,15 +26,15 @@ export default {
       },
       {
         title: 'Logout URL:',
-        value: '',
+        value: 'https://www.coorpacademy.com/logout',
         type: 'text',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       },
       {
         title: 'Certificat PEM:',
-        value: '',
-        type: 'text',
+        value: 'XXX-XXX-XXX-XXX',
+        type: 'password',
         description: 'Lorem Ipsum dolor sit amet.',
         onChange: () => {}
       }
