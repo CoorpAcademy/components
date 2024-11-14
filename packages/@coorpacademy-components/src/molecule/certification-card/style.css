@@ -1,0 +1,87 @@
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_75 from colors;
+
+.container {
+  font-family: "Gilroy";
+  font-style: normal;
+  border-radius: 12px;
+  width: 345px;
+  height: 309px;
+  min-width: 288px;
+  background-color: #FFF;
+  border: 2px solid #FFF;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.10);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: xtraLightGrey;
+  height: 160px;
+  width: auto;
+  transition: all 0.5s ease-out;
+  
+  img {
+    width: 100px;
+    transition: all 0.5s ease-out;
+  }
+}
+
+.container:hover {
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.14);
+
+  .imageWrapper {
+    background-color: cm_grey_75;
+
+    img {
+      width: 115px;
+    }
+  }
+}
+.detailWrapper {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.titleWrapper {
+  width: 100%;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  margin-top: 4px;
+}
+
+.moduleCount {
+  margin-top: 4px;
+  color: cm_grey_400;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+
+  span {
+    color: cm_grey_500;
+  }
+}
+
+.customProgressBar {
+  width: 269px;
+  height: 4px;
+  background-color: cm_grey_100;
+}
