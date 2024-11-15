@@ -37,6 +37,16 @@ export default {
             value: 'Some data displayed to the user'
           },
           {
+            type: 'text',
+            title: 'Login',
+            value: 'login'
+          },
+          {
+            type: 'password',
+            title: 'Password',
+            value: 'XXXX-XXXXX'
+          },
+          {
             type: 'doublestep',
             toggleValue: 'Delete',
             confirmValue: 'Confirm',

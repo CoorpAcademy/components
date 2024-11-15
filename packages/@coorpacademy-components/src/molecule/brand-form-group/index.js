@@ -33,7 +33,7 @@ const inputContainerStyle = {
 };
 
 const buildInput = field => {
-  const {type} = field;
+  const {type, ...rest} = field;
 
   switch (type) {
     case 'autoComplete':
@@ -73,6 +73,7 @@ const buildInput = field => {
     case 'sections':
       return <SetupSections {...field} />;
     case 'text':
+    case 'password':
       return <InputText {...field} />;
     case 'downloadbox':
       return <BrandDownloadBox {...field} />;
@@ -100,7 +101,7 @@ const buildInput = field => {
     case 'titleAndInput':
       return <TitleAndInput {...field} />;
     default:
-      return <InputText {...field} />;
+      return <InputText {...rest} type={'text'} />;
   }
 };
 
@@ -170,6 +171,11 @@ BrandFormGroup.propTypes = {
         type: PropTypes.oneOf(['readonly'])
       }),
       PropTypes.shape({
+        ...InputText.propTypes,
+        type: PropTypes.oneOf(['password']),
+        size: PropTypes.oneOf(keys(inputContainerStyle))
+      }),
+      PropTypes.shape({
         ...InputSwitch.propTypes,
         type: PropTypes.oneOf(['switch'])
       }),
@@ -213,7 +219,7 @@ BrandFormGroup.propTypes = {
       }),
       PropTypes.shape({
         ...InputText.propTypes,
-        type: PropTypes.oneOf(['text']),
+        type: PropTypes.oneOf(['text', 'password']),
         size: PropTypes.oneOf(keys(inputContainerStyle))
       }),
       PropTypes.shape({

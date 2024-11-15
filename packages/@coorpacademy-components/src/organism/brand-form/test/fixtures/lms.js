@@ -307,11 +307,11 @@ export default {
                     onChange: () => console.log('dispatch Username')
                   },
                   {
-                    type: 'text',
+                    type: 'password',
                     title: 'Password',
                     description: 'this should be an input type password',
                     required: true,
-                    value: '',
+                    value: 'XXXX-XXXX-XXXX',
                     onChange: () => console.log('dispatch Password')
                   },
                   {

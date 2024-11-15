@@ -21,6 +21,7 @@ const InputText = props => {
     autoFocus = false,
     placeholder = '',
     value,
+    type = 'text',
     hint,
     defaultValue,
     onChange = noop,
@@ -78,7 +79,7 @@ const InputText = props => {
 
         <input
           autoFocus={autoFocus}
-          type="text"
+          type={type}
           name={propsTitle}
           className={style.input}
           placeholder={placeholder}
@@ -113,6 +114,7 @@ InputText.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
+  type: PropTypes.string,
   valid: PropTypes.bool,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string

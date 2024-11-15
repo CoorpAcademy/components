@@ -20,7 +20,7 @@ const SetupSlider = props => {
   const buildSlides = slides_ => {
     return map.convert({cap: false})((slide, key) => {
       const buildInput = field => {
-        const {type} = field;
+        const {type, ...rest} = field;
         switch (type) {
           case 'switch':
             return <InputSwitch {...field} />;
@@ -52,8 +52,11 @@ const SetupSlider = props => {
                 {buildSlides(field.slides)}
               </Accordion>
             );
-          default:
+          case 'text':
+          case 'password':
             return <InputText {...field} />;
+          default:
+            return <InputText {...rest} type={'text'} />;
         }
       };
 
@@ -113,6 +116,10 @@ const SlidePropTypes = PropTypes.shape({
       PropTypes.shape({
         ...InputReadonly.propTypes,
         type: PropTypes.oneOf(['readonly'])
+      }),
+      PropTypes.shape({
+        ...InputText.propTypes,
+        type: PropTypes.oneOf(['text', 'password'])
       }),
       PropTypes.shape({
         ...InputDoublestep.propTypes,
