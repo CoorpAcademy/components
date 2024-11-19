@@ -22,7 +22,6 @@ const CertificationDetail = (props, context) => {
     description,
     certificationCourses,
     ongoingCoursesAvailable,
-    totalModules,
     filters,
     onBackClick,
     onContinueLearningClick,
@@ -32,7 +31,8 @@ const CertificationDetail = (props, context) => {
     badgeUrl
   } = props;
   const {translate} = context;
-  const {progression, completedModules, mandatoryModules, stars} = metrics;
+  const {progression, completedModules, mandatoryModules, stars, totalModules, totalCourses} =
+    metrics;
 
   const [showMore, setShowMore] = useState(false);
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
@@ -107,7 +107,7 @@ const CertificationDetail = (props, context) => {
             }
           ])}
         />
-        <AllCourses courses={certificationCourses} totalCourses={totalModules} filters={filters} />
+        <AllCourses courses={certificationCourses} totalCourses={totalCourses} filters={filters} />
       </div>
     </div>
   );
@@ -127,13 +127,14 @@ CertificationDetail.propTypes = {
     progression: PropTypes.number,
     stars: PropTypes.number,
     completedModules: PropTypes.number,
-    mandatoryModules: PropTypes.number
+    mandatoryModules: PropTypes.number,
+    totalModules: PropTypes.number,
+    totalCourses: PropTypes.number
   }),
   diplomaUrl: PropTypes.string,
   badgeUrl: PropTypes.string,
   ongoingCoursesAvailable: PropTypes.bool,
   certificationCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalModules: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
