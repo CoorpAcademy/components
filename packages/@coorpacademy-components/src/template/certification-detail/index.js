@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, lowerCase} from 'lodash/fp';
+import {compact, lowerCase, pipe, get, size} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import {SelectOptionPropTypes} from '../../atom/select';
@@ -31,8 +31,7 @@ const CertificationDetail = (props, context) => {
     badgeUrl
   } = props;
   const {translate} = context;
-  const {progression, completedModules, mandatoryModules, stars, totalModules, totalCourses} =
-    metrics;
+  const {progression, mandatoryModules, stars, totalModules} = metrics;
 
   const [showMore, setShowMore] = useState(false);
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
@@ -44,6 +43,9 @@ const CertificationDetail = (props, context) => {
       </div>
     );
   }, [showMore, description]);
+
+  const totalCourses = pipe(get('list'), size)(certificationCourses);
+  const completedModules = (mandatoryModules * progression) / 100;
 
   return (
     <div className={style.backgroundContainer}>
@@ -126,10 +128,8 @@ CertificationDetail.propTypes = {
   metrics: PropTypes.shape({
     progression: PropTypes.number,
     stars: PropTypes.number,
-    completedModules: PropTypes.number,
     mandatoryModules: PropTypes.number,
-    totalModules: PropTypes.number,
-    totalCourses: PropTypes.number
+    totalModules: PropTypes.number
   }),
   diplomaUrl: PropTypes.string,
   badgeUrl: PropTypes.string,
