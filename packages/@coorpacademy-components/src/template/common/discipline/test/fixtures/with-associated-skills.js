@@ -65,7 +65,7 @@ export default {
         focused: false
       }
     ],
-    onSkillClick: () => console.log('skill clicked'),
+    onSkillClick: ref => console.log('skill clicked', ref),
     shareWording: 'Share',
     shareText: 'Share this',
     shareSuccessWording: 'Success',

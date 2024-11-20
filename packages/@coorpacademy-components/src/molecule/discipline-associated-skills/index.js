@@ -11,12 +11,7 @@ import style from './style.css';
 const DisciplineAssociatedSkills = (props, context) => {
   const {translate} = context;
 
-  const {skills = [], skillsBaseUrl, onSkillClick} = props;
-
-  const hrefFormat = useCallback(
-    skill => (skillsBaseUrl ? `${skillsBaseUrl}/${skill.ref}` : ''),
-    [skillsBaseUrl]
-  );
+  const {skills = [], onSkillClick} = props;
 
   const AnchorElement = useCallback(
     skill => (
@@ -55,9 +50,8 @@ const DisciplineAssociatedSkills = (props, context) => {
       <CatalogSection title={translate('associated_skills')}>
         <div className={style.chipsWrapper}>
           {skills.map(skill => {
-            function handleSkillClick(event) {
-              if (!skillsBaseUrl) event.preventDefault();
-              onSkillClick();
+            function handleSkillClick() {
+              onSkillClick(skill.ref);
             }
             function handleAnchorElement() {
               return AnchorElement(skill);
@@ -66,8 +60,7 @@ const DisciplineAssociatedSkills = (props, context) => {
               return TooltipContentElement(skill);
             }
             return (
-              <a
-                href={hrefFormat(skill)}
+              <div
                 key={uniqueId()}
                 className={classnames(style.chipWrapper, skill.focused && style.chipWrapperFocused)}
                 onClick={handleSkillClick}
@@ -81,7 +74,7 @@ const DisciplineAssociatedSkills = (props, context) => {
                   TooltipContent={handleTooltipContentElement}
                   closeToolTipInformationTextAriaLabel={translate('close_tooltip_information')}
                 />
-              </a>
+              </div>
             );
           })}
         </div>
@@ -102,7 +95,6 @@ DisciplineAssociatedSkills.propTypes = {
       focused: PropTypes.bool
     })
   ),
-  skillsBaseUrl: PropTypes.string,
   onSkillClick: PropTypes.func
 };
 
