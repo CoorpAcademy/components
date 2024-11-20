@@ -16,6 +16,6 @@ export default {
         locale: 'Skill 3'
       }
     ],
-    onSkillClick: () => console.log('skill clicked')
+    onSkillClick: ref => console.log('skill clicked', ref)
   }
 };
