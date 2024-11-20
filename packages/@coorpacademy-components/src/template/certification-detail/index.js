@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {compact, lowerCase, pipe, get, size} from 'lodash/fp';
@@ -44,8 +44,14 @@ const CertificationDetail = (props, context) => {
     );
   }, [showMore, description]);
 
-  const totalCourses = pipe(get('list'), size)(certificationCourses);
-  const completedModules = (mandatoryModules * progression) / 100;
+  const totalCourses = useMemo(
+    () => pipe(get('list'), size)(certificationCourses),
+    [certificationCourses]
+  );
+  const completedModules = useMemo(
+    () => (mandatoryModules * progression) / 100,
+    [mandatoryModules, progression]
+  );
 
   return (
     <div className={style.backgroundContainer}>
