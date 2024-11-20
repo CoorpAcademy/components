@@ -83,7 +83,7 @@ const AllCourses = (props, context) => {
       setSearchResults(list);
       handleSearchReset();
     } else {
-      setSearchResults(searchResults.filter(skill => skill.progress < 100));
+      setSearchResults(searchResults.filter(skill => skill.progress < 1));
     }
   }, [list, searchResults, showCompleted, setShowCompleted, setSearchResults, handleSearchReset]);
 
