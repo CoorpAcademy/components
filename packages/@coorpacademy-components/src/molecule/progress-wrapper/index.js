@@ -13,7 +13,7 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
-const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => {
+const DetailSection = ({dataName, index, type, isLocked, downloadUrl, stars}, context) => {
   const {translate} = context;
   const isTypeStars = type === 'stars';
 
@@ -24,9 +24,9 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
         target: '_blank',
         href: downloadUrl
       }}
-      data-name="download-button"
-      aria-label="download button"
-      customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF'}}
+      data-name={`download-${type}-button`}
+      aria-label={`download ${type} button`}
+      customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF', width: 'auto'}}
       icon={{
         position: 'left',
         faIcon: {
@@ -55,7 +55,11 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
   );
 
   return isTypeStars ? (
-    <div className={style[`detailsSection${index}`]}>
+    <div
+      className={style[`detailsSection${index}`]}
+      data-name={type}
+      aria-label={`${type} informations`}
+    >
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
           <span className={style.detailsTitle}>{translate('bonus_stars')}</span>
@@ -68,7 +72,11 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
       </div>
     </div>
   ) : (
-    <div className={style[`detailsSection${index}`]}>
+    <div
+      className={style[`detailsSection${index}`]}
+      data-name={type}
+      aria-label={`${type} informations`}
+    >
       <img
         className={style.img}
         src={
@@ -100,14 +108,18 @@ const ProgressWrapper = (
   const isLocked = progression !== 100;
 
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+      data-name="prgress-wrapper"
+      aria-label="progress wrapper section"
+    >
       <div className={style.titleContainer}>
         <Title type="form-group" titleSize="medium" title={title} subtitle={subtitle} />
       </div>
       <div className={style.statscontainer}>
         <div className={style.stats}>
           <div>
-            <span className={style.statsNumber}>
+            <span className={style.statsNumber} data-name="progress-stats">
               {`${
                 completedModules > mandatoryModules ? mandatoryModules : completedModules
               } / ${mandatoryModules}`}
@@ -116,7 +128,9 @@ const ProgressWrapper = (
           </div>
         </div>
         <div className={style.progression}>
-          <span className={style.statsNumber}>{progression}%</span>
+          <span className={style.statsNumber} data-name="progress-value">
+            {progression}%
+          </span>
         </div>
       </div>
       <ProgressBar
@@ -133,10 +147,11 @@ const ProgressWrapper = (
       {isEmpty(sections) ? null : (
         <div className={style.details}>
           {uncappedMap(
-            ({type, stars, downloadUrl}, index) => (
+            (section, index) => (
               <DetailSection
-                {...{type, isLocked, downloadUrl, stars}}
-                key={`${type}-${index}`}
+                {...section}
+                isLocked={isLocked}
+                key={`${section.type}-${index}`}
                 index={index}
               />
             ),
