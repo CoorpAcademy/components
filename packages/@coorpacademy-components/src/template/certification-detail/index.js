@@ -44,10 +44,6 @@ const CertificationDetail = (props, context) => {
     );
   }, [showMore, description]);
 
-  const totalCourses = useMemo(
-    () => pipe(get('list'), size)(certificationCourses),
-    [certificationCourses]
-  );
   const completedModules = useMemo(
     () => (mandatoryModules * progression) / 100,
     [mandatoryModules, progression]
@@ -115,7 +111,11 @@ const CertificationDetail = (props, context) => {
             }
           ])}
         />
-        <AllCourses courses={certificationCourses} totalCourses={totalCourses} filters={filters} />
+        <AllCourses
+          content={certificationCourses}
+          filters={filters}
+          data-name="certification-courses"
+        />
       </div>
     </div>
   );
