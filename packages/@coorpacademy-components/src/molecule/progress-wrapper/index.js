@@ -13,7 +13,7 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
-const DetailSection = ({dataName, index, type, isLocked, downloadUrl, stars}, context) => {
+const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => {
   const {translate} = context;
   const isTypeStars = type === 'stars';
 

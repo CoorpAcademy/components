@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, lowerCase, pipe, get, size} from 'lodash/fp';
+import {compact, lowerCase} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import {SelectOptionPropTypes} from '../../atom/select';
