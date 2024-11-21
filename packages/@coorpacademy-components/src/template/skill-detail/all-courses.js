@@ -81,14 +81,6 @@ const AllCourses = (props, context) => {
     setShowCompleted(prevShowCompleted => !prevShowCompleted);
   }, []);
 
-  const handleFilterChange = useCallback(
-    value => {
-      onChange(value);
-      handleSearchReset();
-    },
-    [onChange, handleSearchReset]
-  );
-
   return (
     <>
       <div className={style.continueLearningWrapper}>
@@ -128,6 +120,11 @@ const AllCourses = (props, context) => {
         {size(options) > 2 && size(contentResult)
           ? uncappedMap((filterProps, index) => {
               const {name, value, selected} = filterProps;
+
+              function handleFilterChange() {
+                onChange(value);
+                handleSearchReset();
+              }
 
               return (
                 <div key={index} className={style.filterButtonWrapper}>
