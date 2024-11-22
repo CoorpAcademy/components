@@ -8,9 +8,9 @@ export const defaultProps = {
   title: 'Expert techniques for managing team conflict',
   logoUrl: 'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png',
   metrics: {
-    progression: 50,
+    progression: 14,
     stars: 250,
-    mandatoryModules: 6,
+    mandatoryModules: 15,
     totalModules: 24
   },
   diplomaUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS',

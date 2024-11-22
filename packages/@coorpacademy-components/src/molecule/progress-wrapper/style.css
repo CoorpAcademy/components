@@ -100,6 +100,7 @@
 }
 
 .detailsTitle {
+  width: max-content;
   font-family: Gilroy;
   font-size: 16px;
   font-weight: 600;
