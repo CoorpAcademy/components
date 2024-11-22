@@ -11,7 +11,6 @@ import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import style from './style.css';
 import AllCourses from './all-courses';
-import ContinueLearning from './continue-learning';
 
 export const ContinueLearningButton = (props, context) => {
   const {ongoingCoursesAvailable, onClick} = props;
@@ -64,7 +63,7 @@ const SkillDetail = (props, context) => {
     metrics = {},
     focused,
     availableForReview,
-    ongoingCourses,
+    ongoingCoursesAvailable,
     skillIncludedCourses,
     totalCourses,
     filters,
@@ -166,7 +165,7 @@ const SkillDetail = (props, context) => {
               }}
             />
             <ContinueLearningButton
-              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              ongoingCoursesAvailable={ongoingCoursesAvailable}
               onClick={onContinueLearningClick}
             />
           </div>
@@ -184,7 +183,7 @@ const SkillDetail = (props, context) => {
               {questionsToReview ? (
                 <div className={style.skillInformation} data-name="skill-questions">
                   <span className={style.skillInformationNumber}>{questionsToReview}</span>
-                  &nbsp;{translate('questions')}
+                  &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
                 </div>
               ) : null}
             </div>
@@ -204,7 +203,6 @@ const SkillDetail = (props, context) => {
             </div>
           </div>
         ) : null}
-        <ContinueLearning ongoingCourses={ongoingCourses} />
         <AllCourses
           courses={skillIncludedCourses}
           totalCourses={totalCourses}
@@ -233,7 +231,7 @@ SkillDetail.propTypes = {
   }),
   focused: PropTypes.bool,
   availableForReview: PropTypes.bool,
-  ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
+  ongoingCoursesAvailable: PropTypes.bool,
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
   totalCourses: PropTypes.number,
   filters: PropTypes.shape({

@@ -2,7 +2,6 @@ import cardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
 
 const cards = cardsGrid.props;
 const allCourses = cards;
-const onGoingCourses = {list: cards.list.slice(0, 2)};
 
 export const defaultProps = {
   title: 'Conflict management',
@@ -11,7 +10,7 @@ export const defaultProps = {
     'Conflict management is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
   focused: true,
   availableForReview: true,
-  ongoingCourses: onGoingCourses,
+  ongoingCoursesAvailable: true,
   skillIncludedCourses: allCourses,
   totalCourses: 10,
   filters: {
