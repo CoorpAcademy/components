@@ -104,7 +104,7 @@ const ProgressWrapper = (
   context
 ) => {
   const {translate} = context;
-  const mandatoryCompletedModulesLocal = translate('modules_completed_mandatory');
+  const mandatoryCompletedModulesLocale = translate('modules_completed_mandatory');
   const isLocked = progression !== 100;
 
   return (
@@ -124,7 +124,7 @@ const ProgressWrapper = (
                 completedModules > mandatoryModules ? mandatoryModules : completedModules
               } / ${mandatoryModules}`}
             </span>
-            {mandatoryCompletedModulesLocal}
+            {mandatoryCompletedModulesLocale}
           </div>
         </div>
         <div className={style.progression}>
