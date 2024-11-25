@@ -26,7 +26,7 @@
   "items": "items",
   "certificate": "Certificate",
   "certification": "Certification",
-  "certification_progress_wrapper_subtitle": "To unlock your rewards, you need to complete this certification",
+  "certification_progress_wrapper_subtitle": "To unlock your rewards and complete this certification, reach the following goal",
   "chapters": "chapters",
   "Close": "Close",
   "clue_stars_to_loose_plural": "Unlocking the clue reduces the stars you can gain on this question by {{count}} (if you get it right)",
