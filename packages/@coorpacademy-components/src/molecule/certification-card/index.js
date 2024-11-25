@@ -44,7 +44,9 @@ const CertificationCard = (props, context) => {
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>
           <Tag label={translate('certification')} size="S" />
-          <div className={style.title} data-name='certification-title'>{title}</div>
+          <div className={style.title} data-name="certification-title">
+            {title}
+          </div>
           <div className={style.moduleCount}>
             <span>{nbDone}</span>
             {` ${translate('certification_module')}`}

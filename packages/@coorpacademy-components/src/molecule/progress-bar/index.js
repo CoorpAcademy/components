@@ -20,7 +20,11 @@ const ProgressBar = props => {
   const text = `${percentage}%`;
   const stepList = times(index => <div className={style.step} key={index} />, steps);
   return (
-    <div className={classnames(style.background, className)} data-name='progress-bar-wrapper' data-content={`${text}`}>
+    <div
+      className={classnames(style.background, className)}
+      data-name="progress-bar-wrapper"
+      data-content={`${text}`}
+    >
       <div
         className={style.progress}
         style={{
