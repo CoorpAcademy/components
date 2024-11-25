@@ -25,7 +25,7 @@ const Certifications = (props, context) => {
   }, [showCompleted, setShowCompleted]);
 
   return (
-    <div className={style.container}>
+    <div className={style.container} data-name='Certifications'>
       <Title
         title={translate('certificates')}
         subtitle={translate('certificates_subtitle')}
