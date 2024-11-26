@@ -128,7 +128,12 @@ const AllCourses = (props, context) => {
 
               return (
                 <div key={index} className={style.filterButtonWrapper}>
-                  <FilterButton selected={selected} label={name} onClick={handleFilterChange} />
+                  <FilterButton
+                    data-name={`filter-button-${value}`}
+                    selected={selected}
+                    label={name}
+                    onClick={handleFilterChange}
+                  />
                   {value === 'ALL' ? <div className={style.divider} /> : null}
                 </div>
               );
