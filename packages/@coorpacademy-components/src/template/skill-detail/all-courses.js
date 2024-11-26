@@ -13,7 +13,7 @@ import style from './all-courses.css';
 const uncappedMap = map.convert({cap: false});
 
 const FilterButton = (props, context) => {
-  const {selected, label, onClick} = props;
+  const {dataName, ariaLabel, selected, label, onClick} = props;
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
@@ -26,7 +26,8 @@ const FilterButton = (props, context) => {
     },
     label,
     onClick,
-    'data-name': 'filter-type-course-button'
+    'data-name': dataName,
+    'aria-label': ariaLabel
   };
 
   return <ButtonLink {...buttonProps} />;
@@ -38,6 +39,8 @@ FilterButton.contextTypes = {
 };
 
 FilterButton.propTypes = {
+  dataName: PropTypes.string,
+  ariaLabel: PropTypes.string,
   selected: PropTypes.bool,
   label: PropTypes.string,
   onClick: PropTypes.func
@@ -129,7 +132,8 @@ const AllCourses = (props, context) => {
               return (
                 <div key={index} className={style.filterButtonWrapper}>
                   <FilterButton
-                    data-name={`filter-button-${value}`}
+                    dataName={`filter-button-${value}`}
+                    ariaLabel={`Filter by ${name}`}
                     selected={selected}
                     label={name}
                     onClick={handleFilterChange}
