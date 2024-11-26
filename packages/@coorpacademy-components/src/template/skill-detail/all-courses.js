@@ -99,6 +99,7 @@ const AllCourses = (props, context) => {
               onChange: handleSearch
             }}
             onReset={handleSearchReset}
+            dataTestId="all-courses-search-input"
           />
         </div>
         <div className={style.sortSection}>
