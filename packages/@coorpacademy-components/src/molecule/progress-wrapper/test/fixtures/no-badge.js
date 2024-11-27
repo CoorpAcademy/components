@@ -2,13 +2,13 @@ export default {
   props: {
     title: 'Your Progress',
     subtitle: 'To unlock your rewards, you need to complete this certification',
-    completedCourses: 6,
-    completedModules: 13,
+    mandatoryModules: 6,
+    completedModules: 2,
     progression: 37,
     sections: [
       {
         type: 'diploma',
-        onDownload: () => console.log('click on download diploma')
+        downloadUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS'
       },
       {
         type: 'stars',

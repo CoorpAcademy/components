@@ -1,6 +1,6 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr, sortBy} from 'lodash/fp';
+import {get, filter, map, size} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -10,8 +10,10 @@ import searchValueIncluded from '../../util/search-value-included';
 import InputSwitch from '../../atom/input-switch';
 import style from './all-courses.css';
 
+const uncappedMap = map.convert({cap: false});
+
 const FilterButton = (props, context) => {
-  const {selected, filter, onClick} = props;
+  const {dataName, ariaLabel, selected, label, onClick} = props;
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
@@ -22,9 +24,10 @@ const FilterButton = (props, context) => {
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
       width: 'fit-content'
     },
-    label: filter,
+    label,
     onClick,
-    'data-name': 'filter-type-course-button'
+    'data-name': dataName,
+    'aria-label': ariaLabel
   };
 
   return <ButtonLink {...buttonProps} />;
@@ -36,21 +39,20 @@ FilterButton.contextTypes = {
 };
 
 FilterButton.propTypes = {
+  dataName: PropTypes.string,
+  ariaLabel: PropTypes.string,
   selected: PropTypes.bool,
-  filter: PropTypes.string,
+  label: PropTypes.string,
   onClick: PropTypes.func
 };
 
 const AllCourses = (props, context) => {
-  const {courses, totalCourses, filters, sorting} = props;
+  const {content, filters, sorting} = props;
   const {options, onChange} = filters;
-  const {list, loading} = courses;
+  const {list, loading} = content;
   const {translate} = context;
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState('');
-  const [searchResults, setSearchResults] = useState(
-    sortBy(course => -getOr(0, ['progress'], course), list)
-  );
 
   const sortView =
     sorting !== undefined ? (
@@ -59,39 +61,34 @@ const AllCourses = (props, context) => {
       </div>
     ) : null;
 
-  useEffect(() => {
-    setSearchResults(sortBy(course => -getOr(0, ['progress'], course), list));
-  }, [list]);
+  const filteredContent = useMemo(() => {
+    return showCompleted ? list : filter(course => course.progress < 1, list);
+  }, [list, showCompleted]);
+
+  const contentResult = useMemo(() => {
+    return filter(skill => searchValueIncluded(skill.title, searchValue), filteredContent);
+  }, [filteredContent, searchValue]);
 
   const handleSearch = useCallback(
     value => {
       setSearchValue(value);
-      setSearchResults(list.filter(skill => searchValueIncluded(skill.title, value)));
     },
-    [list, setSearchValue, setSearchResults]
+    [setSearchValue]
   );
 
   const handleSearchReset = useCallback(() => {
     setSearchValue('');
-    setSearchResults(list);
-  }, [list, setSearchValue, setSearchResults]);
+  }, [setSearchValue]);
 
   const handleShowCompletedToggle = useCallback(() => {
-    const toggledShowCompleted = !showCompleted;
-    setShowCompleted(toggledShowCompleted);
-    if (toggledShowCompleted) {
-      setSearchResults(list);
-      handleSearchReset();
-    } else {
-      setSearchResults(searchResults.filter(skill => skill.progress < 100));
-    }
-  }, [list, searchResults, showCompleted, setShowCompleted, setSearchResults, handleSearchReset]);
+    setShowCompleted(prevShowCompleted => !prevShowCompleted);
+  }, []);
 
   return (
     <>
       <div className={style.continueLearningWrapper}>
-        <span className={style.continueLearningTitle}>{translate('all_courses')}</span>
-        <span className={style.continueLearningNumber}>{totalCourses}</span>
+        <span className={style.continueLearningTitle}>{translate('all_content')}</span>
+        <span className={style.continueLearningNumber}>{size(contentResult)}</span>
       </div>
       <div className={style.searchAndSortSection}>
         <div className={style.searchWrapper}>
@@ -102,6 +99,7 @@ const AllCourses = (props, context) => {
               onChange: handleSearch
             }}
             onReset={handleSearchReset}
+            dataTestId="all-courses-search-input"
           />
         </div>
         <div className={style.sortSection}>
@@ -114,34 +112,43 @@ const AllCourses = (props, context) => {
             value={showCompleted}
             onChange={handleShowCompletedToggle}
           />
-          <div className={style.sortWrapper}>
-            {translate('sort_by')}
-            {sortView}
-          </div>
+          {sortView ? (
+            <div className={style.sortWrapper}>
+              {translate('sort_by')}
+              {sortView}
+            </div>
+          ) : null}
         </div>
       </div>
       <div className={style.filterWrapper}>
-        {options.length > 2 && searchResults.length > 0
-          ? options.map((filter, index) => {
-              const {name, value, selected} = filter;
+        {size(options) > 2 && size(contentResult)
+          ? uncappedMap((filterProps, index) => {
+              const {name, value, selected} = filterProps;
 
-              function handleChange() {
+              function handleFilterChange() {
                 onChange(value);
                 handleSearchReset();
               }
+
               return (
                 <div key={index} className={style.filterButtonWrapper}>
-                  <FilterButton selected={selected} filter={name} onClick={handleChange} />
+                  <FilterButton
+                    dataName={`filter-button-${value}`}
+                    ariaLabel={`Filter by ${name}`}
+                    selected={selected}
+                    label={name}
+                    onClick={handleFilterChange}
+                  />
                   {value === 'ALL' ? <div className={style.divider} /> : null}
                 </div>
               );
-            })
+            }, options)
           : null}
       </div>
       <div>
-        {searchResults.length > 0 ? (
+        {size(contentResult) ? (
           <CardsGrid
-            list={searchResults}
+            list={contentResult}
             loading={loading}
             customStyle={{justifyContent: 'left'}}
           />
@@ -169,8 +176,7 @@ AllCourses.contextTypes = {
 };
 
 AllCourses.propTypes = {
-  courses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
+  content: PropTypes.shape(CardsGrid.propTypes),
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))

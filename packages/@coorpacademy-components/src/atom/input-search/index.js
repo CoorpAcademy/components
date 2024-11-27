@@ -18,7 +18,8 @@ const Search = props => {
     onClear = noop,
     onFocus,
     onBlur,
-    theme = 'default'
+    theme = 'default',
+    dataTestId
   } = props;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const cmStyle = classnames(style.coorpmanager);
@@ -40,6 +41,7 @@ const Search = props => {
       </label>
       <input
         data-name="search-input"
+        data-testid={dataTestId}
         className={style.search}
         aria-label={placeholder}
         type="text"
@@ -71,7 +73,8 @@ Search.propTypes = {
   onClear: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  theme: PropTypes.oneOf(['default', 'coorpmanager'])
+  theme: PropTypes.oneOf(['default', 'coorpmanager']),
+  dataTestId: PropTypes.string
 };
 
 export default Search;

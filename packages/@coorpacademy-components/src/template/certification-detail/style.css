@@ -8,14 +8,6 @@
 @value cm_grey_200 from colors;
 @value cm_grey_400 from colors;
 
-.divider {
-  width: 4px;
-  height: 4px;
-  background-color: cm_grey_400;
-  border: solid cm_grey_400 1px;
-  border-radius: 4px;
-}
-
 .textBase {
   font-family: "Gilroy";
   font-style: normal;
@@ -53,6 +45,7 @@
   align-items: center;
   width: 100%;
   gap: 40px;
+  margin-bottom: 40px;
 }
 
 .logoContainer {
@@ -110,10 +103,6 @@
   padding: 24px 0;
   font-weight: 600;
   color: cm_grey_400;
-}
-
-.continueLearningSection {
-  padding: 24px 0 32px 0;
 }
 
 @media tablet {

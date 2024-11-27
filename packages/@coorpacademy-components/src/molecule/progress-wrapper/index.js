@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, lowerCase, map} from 'lodash/fp';
+import {isEmpty, map} from 'lodash/fp';
 import Title from '../../atom/title';
 import ProgressBar from '../progress-bar';
 import {COLORS} from '../../variables/colors';
@@ -13,17 +13,20 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
-const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, context) => {
+const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => {
   const {translate} = context;
   const isTypeStars = type === 'stars';
 
   const DownloadButton = (
     <ButtonLink
       label={translate('download')}
-      onClick={onDownload}
-      data-name="download-button"
-      aria-label="download button"
-      customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF'}}
+      link={{
+        target: '_blank',
+        href: downloadUrl
+      }}
+      data-name={`download-${type}-button`}
+      aria-label={`download ${type} button`}
+      customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF', width: 'auto'}}
       icon={{
         position: 'left',
         faIcon: {
@@ -52,7 +55,11 @@ const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, con
   );
 
   return isTypeStars ? (
-    <div className={style[`detailsSection${index}`]}>
+    <div
+      className={style[`detailsSection${index}`]}
+      data-name={type}
+      aria-label={`${type} informations`}
+    >
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
           <span className={style.detailsTitle}>{translate('bonus_stars')}</span>
@@ -65,12 +72,17 @@ const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, con
       </div>
     </div>
   ) : (
-    <div className={style[`detailsSection${index}`]}>
+    <div
+      className={style[`detailsSection${index}`]}
+      data-name={type}
+      aria-label={`${type} informations`}
+    >
       <img
         className={style.img}
         src={
-          badgeUrl ||
-          'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/diploma.svg'
+          type === 'badge'
+            ? downloadUrl
+            : 'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/diploma.svg'
         }
       />
       <div className={style.detailsInfo}>
@@ -88,32 +100,37 @@ const DetailSection = ({index, type, isLocked, badgeUrl, onDownload, stars}, con
 };
 
 const ProgressWrapper = (
-  {completedCourses, completedModules, title, subtitle, progression, sections},
+  {completedModules, mandatoryModules, title, subtitle, progression, sections},
   context
 ) => {
   const {translate} = context;
-  const modulesCompletedLocal = translate('modules_completed');
+  const mandatoryCompletedModulesLocale = translate('modules_completed_mandatory');
   const isLocked = progression !== 100;
 
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+      data-name="prgress-wrapper"
+      aria-label="progress wrapper section"
+    >
       <div className={style.titleContainer}>
         <Title type="form-group" titleSize="medium" title={title} subtitle={subtitle} />
       </div>
       <div className={style.statscontainer}>
         <div className={style.stats}>
           <div>
-            <span className={style.statsNumber}>{completedCourses}</span>
-            {lowerCase(translate('courses_completed'))}
-          </div>
-          <div className={style.divider} />
-          <div className={style.statsModule}>
-            <span className={style.statsNumber}>{completedModules}</span>
-            {modulesCompletedLocal}
+            <span className={style.statsNumber} data-name="progress-stats">
+              {`${
+                completedModules > mandatoryModules ? mandatoryModules : completedModules
+              } / ${mandatoryModules}`}
+            </span>
+            {mandatoryCompletedModulesLocale}
           </div>
         </div>
         <div className={style.progression}>
-          <span className={style.statsNumber}>{progression}%</span>
+          <span className={style.statsNumber} data-name="progress-value">
+            {progression}%
+          </span>
         </div>
       </div>
       <ProgressBar
@@ -123,23 +140,18 @@ const ProgressWrapper = (
         value={progression}
         max={100}
       />
-      <div className={style.statsMobile}>
-        <div className={style.statsModuleMobile}>
-          <span className={style.statsNumber}>{completedModules}</span>
-          {modulesCompletedLocal}
-        </div>
-        <div className={style.statsProgressionMobile}>
-          <span className={style.statsNumber}>{progression}%</span>
-        </div>
+      <div className={style.statsProgressionMobile}>
+        <span className={style.statsNumber}>{progression}%</span>
       </div>
 
       {isEmpty(sections) ? null : (
         <div className={style.details}>
           {uncappedMap(
-            ({type, stars, badgeUrl, onDownload}, index) => (
+            (section, index) => (
               <DetailSection
-                {...{type, isLocked, badgeUrl, onDownload, stars}}
-                key={`${type}-${index}`}
+                {...section}
+                isLocked={isLocked}
+                key={`${section.type}-${index}`}
                 index={index}
               />
             ),
@@ -153,8 +165,7 @@ const ProgressWrapper = (
 
 const commonDetailSectionPropTypes = {
   type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
-  badgeUrl: PropTypes.string,
-  onDownload: PropTypes.func,
+  downloadUrl: PropTypes.string,
   stars: PropTypes.number
 };
 
@@ -175,8 +186,8 @@ ProgressWrapper.contextTypes = {
 ProgressWrapper.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  completedCourses: PropTypes.number,
   completedModules: PropTypes.number,
+  mandatoryModules: PropTypes.number,
   progression: PropTypes.number,
   sections: PropTypes.arrayOf(PropTypes.shape(commonDetailSectionPropTypes))
 };

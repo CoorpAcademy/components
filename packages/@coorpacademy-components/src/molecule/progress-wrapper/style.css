@@ -41,14 +41,6 @@
   gap: 16px;
 }
 
-.divider {
-  width: 4px;
-  height: 4px;
-  background-color: #d7d7da;
-  border: solid #d7d7da 1px;
-  border-radius: 4px;
-}
-
 .progression {
   display: flex;
   justify-content: end;
@@ -108,6 +100,7 @@
 }
 
 .detailsTitle {
+  width: max-content;
   font-family: Gilroy;
   font-size: 16px;
   font-weight: 600;
@@ -129,10 +122,6 @@
   font-weight: 700;
 }
 
-.statsMobile {
-  display: none;
-}
-
 .statsModuleMobile {
   display: none;
 }
@@ -140,6 +129,9 @@
 .statsProgressionMobile {
   composes: progression;
   display: none;
+  color: cm_grey_400;
+  font-weight: 600;
+  padding-top: 16px;
 }
 
 @media mobile, tablet {
@@ -160,12 +152,6 @@
    justify-content: space-around;
    gap: 0;
   }
-  .divider {
-    display: none;
-  }
-  .statsModule {
-    display: none;
-  }
   .progression {
     display: none;
   }
@@ -175,11 +161,4 @@
   .statsModuleMobile {
     display: block;
   }
-  .statsMobile {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 16px;
-    color: cm_grey_400;
-    font-weight: 600;
-  }    
 }

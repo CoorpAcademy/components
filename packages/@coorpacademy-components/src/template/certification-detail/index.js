@@ -1,15 +1,14 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, lowerCase} from 'lodash/fp';
+import {compact, lowerCase, floor} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
-import Select, {SelectOptionPropTypes} from '../../atom/select';
+import {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import AllCourses from '../skill-detail/all-courses';
-import ContinueLearning from '../skill-detail/continue-learning';
 import {ContinueLearningButton} from '../skill-detail';
 import ProgressWrapper from '../../molecule/progress-wrapper';
 import style from './style.css';
@@ -22,21 +21,17 @@ const CertificationDetail = (props, context) => {
     title,
     description,
     certificationCourses,
-    ongoingCourses,
-    totalCourses,
-    totalModules,
+    ongoingCoursesAvailable,
     filters,
-    sorting,
     onBackClick,
     onContinueLearningClick,
     metrics,
     logoUrl,
-    onDownloadDiploma,
-    badge = {}
+    diplomaUrl,
+    badgeUrl
   } = props;
   const {translate} = context;
-  const {progression, completedCourses, completedModules, stars} = metrics;
-  const {badgeUrl = false, onDownloadBadge} = badge;
+  const {progression, mandatoryModules, stars, totalModules} = metrics;
 
   const [showMore, setShowMore] = useState(false);
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
@@ -48,6 +43,11 @@ const CertificationDetail = (props, context) => {
       </div>
     );
   }, [showMore, description]);
+
+  const completedModules = useMemo(
+    () => floor((mandatoryModules * progression) / 100),
+    [mandatoryModules, progression]
+  );
 
   return (
     <div className={style.backgroundContainer}>
@@ -82,34 +82,28 @@ const CertificationDetail = (props, context) => {
               </>
             ) : null}
             <div className={style.contentStats}>
-              <span>{`${totalCourses} ${lowerCase(translate('courses'))}`}</span>
-              <div className={style.divider} />
               <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
             </div>
             <ContinueLearningButton
-              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              ongoingCoursesAvailable={ongoingCoursesAvailable}
               onClick={onContinueLearningClick}
             />
           </div>
-        </div>
-        <div className={style.continueLearningSection}>
-          <ContinueLearning ongoingCourses={ongoingCourses} />
         </div>
         <ProgressWrapper
           title={translate('your_progress')}
           subtitle={translate('certification_progress_wrapper_subtitle')}
           progression={progression}
-          completedCourses={completedCourses}
           completedModules={completedModules}
+          mandatoryModules={mandatoryModules}
           sections={compact([
             {
               type: 'diploma',
-              onDownload: () => onDownloadDiploma
+              downloadUrl: diplomaUrl
             },
             badgeUrl && {
               type: 'badge',
-              badgeUrl,
-              onDownload: () => onDownloadBadge
+              downloadUrl: badgeUrl
             },
             {
               type: 'stars',
@@ -118,10 +112,9 @@ const CertificationDetail = (props, context) => {
           ])}
         />
         <AllCourses
-          courses={certificationCourses}
-          totalCourses={totalCourses}
+          content={certificationCourses}
           filters={filters}
-          sorting={sorting}
+          data-name="certification-courses"
         />
       </div>
     </div>
@@ -141,23 +134,17 @@ CertificationDetail.propTypes = {
   metrics: PropTypes.shape({
     progression: PropTypes.number,
     stars: PropTypes.number,
-    completedCourses: PropTypes.number,
-    completedModules: PropTypes.number
+    mandatoryModules: PropTypes.number,
+    totalModules: PropTypes.number
   }),
-  onDownloadDiploma: PropTypes.func,
-  badge: PropTypes.shape({
-    badgeUrl: PropTypes.string,
-    onDownloadBadge: PropTypes.func
-  }),
-  ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
+  diplomaUrl: PropTypes.string,
+  badgeUrl: PropTypes.string,
+  ongoingCoursesAvailable: PropTypes.bool,
   certificationCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
-  totalModules: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func
 };

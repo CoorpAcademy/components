@@ -14,7 +14,8 @@ const SearchForm = (props, context) => {
     search,
     onSearchFocus,
     onSearchBlur,
-    'search-reset-aria-label': searchResetAriaLabel
+    'search-reset-aria-label': searchResetAriaLabel,
+    dataTestId
   } = props;
   const handleSubmit = useMemo(
     () => evt => {
@@ -35,7 +36,7 @@ const SearchForm = (props, context) => {
       data-name="searchForm"
       aria-label={search.placeholder}
     >
-      <Search {...search} onFocus={onSearchFocus} onBlur={onSearchBlur} />
+      <Search {...search} onFocus={onSearchFocus} onBlur={onSearchBlur} dataTestId={dataTestId} />
       <div
         data-name="search-form-reset"
         aria-label={searchResetAriaLabel}
@@ -56,7 +57,8 @@ SearchForm.propTypes = {
   onSearchFocus: PropTypes.func,
   onSearchBlur: PropTypes.func,
   search: PropTypes.shape(Search.propTypes),
-  'search-reset-aria-label': PropTypes.string
+  'search-reset-aria-label': PropTypes.string,
+  dataTestId: PropTypes.string
 };
 
 export default SearchForm;
