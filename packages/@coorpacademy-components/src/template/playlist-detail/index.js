@@ -22,7 +22,6 @@ const PlaylistDetail = (props, context) => {
     description,
     ongoingCoursesAvailable,
     playlistCourses,
-    totalCourses,
     filters,
     sorting,
     onBackClick,
@@ -82,12 +81,7 @@ const PlaylistDetail = (props, context) => {
             </div>
           </div>
         </div>
-        <AllCourses
-          courses={playlistCourses}
-          totalCourses={totalCourses}
-          filters={filters}
-          sorting={sorting}
-        />
+        <AllCourses content={playlistCourses} filters={filters} sorting={sorting} />
       </div>
     </div>
   );
@@ -105,7 +99,6 @@ PlaylistDetail.propTypes = {
   description: PropTypes.string,
   ongoingCoursesAvailable: PropTypes.bool,
   playlistCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))

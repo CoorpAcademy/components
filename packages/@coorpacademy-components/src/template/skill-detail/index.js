@@ -65,7 +65,6 @@ const SkillDetail = (props, context) => {
     availableForReview,
     ongoingCoursesAvailable,
     skillIncludedCourses,
-    totalCourses,
     filters,
     sorting,
     onBackClick,
@@ -180,12 +179,10 @@ const SkillDetail = (props, context) => {
                   {translate('courses')}
                 </div>
               ) : null}
-              {questionsToReview ? (
-                <div className={style.skillInformation} data-name="skill-questions">
-                  <span className={style.skillInformationNumber}>{questionsToReview}</span>
-                  &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
-                </div>
-              ) : null}
+              <div className={style.skillInformation} data-name="skill-questions">
+                <span className={style.skillInformationNumber}>{questionsToReview}</span>
+                &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
+              </div>
             </div>
             <ProgressBar />
             <div className={style.progressInformations}>
@@ -203,12 +200,7 @@ const SkillDetail = (props, context) => {
             </div>
           </div>
         ) : null}
-        <AllCourses
-          courses={skillIncludedCourses}
-          totalCourses={totalCourses}
-          filters={filters}
-          sorting={sorting}
-        />
+        <AllCourses content={skillIncludedCourses} filters={filters} sorting={sorting} />
       </div>
     </div>
   );
@@ -233,7 +225,6 @@ SkillDetail.propTypes = {
   availableForReview: PropTypes.bool,
   ongoingCoursesAvailable: PropTypes.bool,
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
