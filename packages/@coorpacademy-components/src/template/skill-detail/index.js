@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get} from 'lodash/fp';
+import {get, isNull} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -114,6 +114,7 @@ const SkillDetail = (props, context) => {
           data-name="back-button"
           aria-label="Back"
           onClick={onBackClick}
+          disabled={isNull(onBackClick)}
           className={style.backButton}
           tooltipPlacement="right"
         />
