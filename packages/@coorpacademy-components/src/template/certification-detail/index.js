@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, lowerCase, floor, isNil} from 'lodash/fp';
+import {compact, lowerCase, round, isNil} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import {SelectOptionPropTypes} from '../../atom/select';
@@ -45,7 +45,7 @@ const CertificationDetail = (props, context) => {
   }, [showMore, description]);
 
   const completedModules = useMemo(
-    () => floor((mandatoryModules * progression) / 100),
+    () => round((mandatoryModules * progression) / 100),
     [mandatoryModules, progression]
   );
 
