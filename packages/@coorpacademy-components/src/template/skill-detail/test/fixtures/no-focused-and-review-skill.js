@@ -65,7 +65,6 @@ export const defaultProps = {
     ],
     onChange: value => console.log(value)
   },
-  onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),
   onContinueLearningClick: () => console.log('Continue learning clicked')
 };

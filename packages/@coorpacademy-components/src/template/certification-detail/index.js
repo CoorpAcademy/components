@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, lowerCase, floor, isNull} from 'lodash/fp';
+import {compact, lowerCase, floor, isNil} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import {SelectOptionPropTypes} from '../../atom/select';
@@ -52,15 +52,16 @@ const CertificationDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={certificationRef}>
-        <ButtonLinkIcon
-          faIcon="arrow-left"
-          data-name="back-button"
-          aria-label="Back"
-          onClick={onBackClick}
-          disabled={isNull(onBackClick)}
-          className={style.backButton}
-          tooltipPlacement="right"
-        />
+        {!isNil(onBackClick) ? (
+          <ButtonLinkIcon
+            faIcon="arrow-left"
+            data-name="back-button"
+            aria-label="Back"
+            onClick={onBackClick}
+            className={style.backButton}
+            tooltipPlacement="right"
+          />
+        ) : null}
         <div className={style.ctaContainer}>
           <div className={style.logoContainer}>
             <img className={style.logo} src={logoUrl} />
