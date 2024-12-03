@@ -2,7 +2,6 @@ import cardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
 
 const cards = cardsGrid.props;
 const allCourses = cards;
-const onGoingCourses = {list: cards.list.slice(0, 2)};
 
 export const defaultProps = {
   title: 'Conflict management',
@@ -17,7 +16,7 @@ export const defaultProps = {
   },
   focused: false,
   availableForReview: false,
-  ongoingCourses: onGoingCourses,
+  ongoingCoursesAvailable: true,
   skillIncludedCourses: allCourses,
   totalCourses: 10,
   filters: {
@@ -66,7 +65,6 @@ export const defaultProps = {
     ],
     onChange: value => console.log(value)
   },
-  onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),
   onContinueLearningClick: () => console.log('Continue learning clicked')
 };

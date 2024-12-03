@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get} from 'lodash/fp';
+import {get, isNil} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -11,7 +11,6 @@ import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import style from './style.css';
 import AllCourses from './all-courses';
-import ContinueLearning from './continue-learning';
 
 export const ContinueLearningButton = (props, context) => {
   const {ongoingCoursesAvailable, onClick} = props;
@@ -64,9 +63,8 @@ const SkillDetail = (props, context) => {
     metrics = {},
     focused,
     availableForReview,
-    ongoingCourses,
+    ongoingCoursesAvailable,
     skillIncludedCourses,
-    totalCourses,
     filters,
     sorting,
     onBackClick,
@@ -111,14 +109,16 @@ const SkillDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={skillRef}>
-        <ButtonLinkIcon
-          faIcon="arrow-left"
-          data-name="back-button"
-          aria-label="Back"
-          onClick={onBackClick}
-          className={style.backButton}
-          tooltipPlacement="right"
-        />
+        {!isNil(onBackClick) ? (
+          <ButtonLinkIcon
+            faIcon="arrow-left"
+            data-name="back-button"
+            aria-label="Back"
+            onClick={onBackClick}
+            className={style.backButton}
+            tooltipPlacement="right"
+          />
+        ) : null}
         <div className={style.ctaContainer}>
           <div>
             {focused ? (
@@ -166,7 +166,7 @@ const SkillDetail = (props, context) => {
               }}
             />
             <ContinueLearningButton
-              ongoingCoursesAvailable={!!ongoingCourses.list.length}
+              ongoingCoursesAvailable={ongoingCoursesAvailable}
               onClick={onContinueLearningClick}
             />
           </div>
@@ -181,12 +181,10 @@ const SkillDetail = (props, context) => {
                   {translate('courses')}
                 </div>
               ) : null}
-              {questionsToReview ? (
-                <div className={style.skillInformation} data-name="skill-questions">
-                  <span className={style.skillInformationNumber}>{questionsToReview}</span>
-                  &nbsp;{translate('questions')}
-                </div>
-              ) : null}
+              <div className={style.skillInformation} data-name="skill-questions">
+                <span className={style.skillInformationNumber}>{questionsToReview}</span>
+                &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
+              </div>
             </div>
             <ProgressBar />
             <div className={style.progressInformations}>
@@ -204,13 +202,7 @@ const SkillDetail = (props, context) => {
             </div>
           </div>
         ) : null}
-        <ContinueLearning ongoingCourses={ongoingCourses} />
-        <AllCourses
-          courses={skillIncludedCourses}
-          totalCourses={totalCourses}
-          filters={filters}
-          sorting={sorting}
-        />
+        <AllCourses content={skillIncludedCourses} filters={filters} sorting={sorting} />
       </div>
     </div>
   );
@@ -233,9 +225,8 @@ SkillDetail.propTypes = {
   }),
   focused: PropTypes.bool,
   availableForReview: PropTypes.bool,
-  ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
+  ongoingCoursesAvailable: PropTypes.bool,
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))

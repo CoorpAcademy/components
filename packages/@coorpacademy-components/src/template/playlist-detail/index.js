@@ -1,6 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {isNil} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
@@ -8,7 +9,6 @@ import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
 import AllCourses from '../skill-detail/all-courses';
-import ContinueLearning from '../skill-detail/continue-learning';
 import PlaylistDetailCover from '../../molecule/playlist-detail-cover';
 import {ContinueLearningButton} from '../skill-detail';
 import style from './style.css';
@@ -21,9 +21,8 @@ const PlaylistDetail = (props, context) => {
     coverImages,
     playlistRef,
     description,
-    ongoingCourses,
+    ongoingCoursesAvailable,
     playlistCourses,
-    totalCourses,
     filters,
     sorting,
     onBackClick,
@@ -46,14 +45,16 @@ const PlaylistDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={playlistRef}>
-        <ButtonLinkIcon
-          faIcon="arrow-left"
-          data-name="back-button"
-          aria-label="Back"
-          onClick={onBackClick}
-          className={style.backButton}
-          tooltipPlacement="right"
-        />
+        {!isNil(onBackClick) ? (
+          <ButtonLinkIcon
+            faIcon="arrow-left"
+            data-name="back-button"
+            aria-label="Back"
+            onClick={onBackClick}
+            className={style.backButton}
+            tooltipPlacement="right"
+          />
+        ) : null}
         <div className={style.ctaContainer}>
           <div className={style.coverWrapper}>
             <PlaylistDetailCover images={coverImages} />
@@ -77,21 +78,13 @@ const PlaylistDetail = (props, context) => {
             ) : null}
             <div className={style.continueLearningButton}>
               <ContinueLearningButton
-                ongoingCoursesAvailable={!!ongoingCourses.list.length}
+                ongoingCoursesAvailable={ongoingCoursesAvailable}
                 onClick={onContinueLearningClick}
               />
             </div>
           </div>
         </div>
-        <div className={style.continueLearningSection}>
-          <ContinueLearning ongoingCourses={ongoingCourses} />
-        </div>
-        <AllCourses
-          courses={playlistCourses}
-          totalCourses={totalCourses}
-          filters={filters}
-          sorting={sorting}
-        />
+        <AllCourses content={playlistCourses} filters={filters} sorting={sorting} />
       </div>
     </div>
   );
@@ -107,9 +100,8 @@ PlaylistDetail.propTypes = {
   coverImages: PlaylistDetailCover.propTypes.images,
   playlistRef: PropTypes.string.isRequired,
   description: PropTypes.string,
-  ongoingCourses: PropTypes.shape(CardsGrid.propTypes),
+  ongoingCoursesAvailable: PropTypes.bool,
   playlistCourses: PropTypes.shape(CardsGrid.propTypes),
-  totalCourses: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
