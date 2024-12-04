@@ -6,6 +6,7 @@
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 
 .textBase {
   font-family: "Gilroy";
@@ -96,50 +97,39 @@
   text-overflow: ellipsis;
 }
 
-.progressInformationsWrapper {
-  margin-top: 40px;
-  background-color: xtraLightGrey;
-  border-radius: 16px;
-  padding: 24px;
-}
-
-.progressTitle {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 22px;
-  margin-bottom: 16px;
-}
-
-.skillCoursesAndQuestionsWrapper,
-.progressInformations {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.skillInformation,
-.progressInformation {
+.skillInformation {
   composes: textBase;
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
   color: cm_grey_400;
+  margin-top: 16px;
 }
 
-.skillInformationNumber,
-.progressInformationNumber {
+.skillInformationNumber {
   color: #000;
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 40px 0;
+}
+
+.progressInformationNumber {
+  color: cm_grey_500;
 }
 
 .progressBarWrapper {
   position: relative;
   left: 0;
+  max-width: 300px;
   width: 100%;
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
   background-color: cm_grey_100;
-  margin: 16px 0;
 }
 
 .progress {
