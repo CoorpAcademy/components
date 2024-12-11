@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, filter, map, size} from 'lodash/fp';
+import {get, filter, map, size, isNil} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -47,7 +47,7 @@ FilterButton.propTypes = {
 };
 
 const AllCourses = (props, context) => {
-  const {content, filters, sorting} = props;
+  const {content, filters, sorting, totalContents} = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
   const {translate} = context;
@@ -88,7 +88,9 @@ const AllCourses = (props, context) => {
     <>
       <div className={style.continueLearningWrapper}>
         <span className={style.continueLearningTitle}>{translate('all_content')}</span>
-        <span className={style.continueLearningNumber}>{size(contentResult)}</span>
+        <span className={style.continueLearningNumber}>
+          {isNil(totalContents) ? size(contentResult) : totalContents}
+        </span>
       </div>
       <div className={style.searchAndSortSection}>
         <div className={style.searchWrapper}>
@@ -177,6 +179,7 @@ AllCourses.contextTypes = {
 
 AllCourses.propTypes = {
   content: PropTypes.shape(CardsGrid.propTypes),
+  totalContents: PropTypes.number,
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))

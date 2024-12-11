@@ -64,6 +64,7 @@ const SkillDetail = (props, context) => {
     focused,
     availableForReview,
     ongoingCoursesAvailable,
+    totalCourses,
     skillIncludedCourses,
     filters,
     sorting,
@@ -181,7 +182,12 @@ const SkillDetail = (props, context) => {
           <ProgressBar />
           <span className={style.progressInformationNumber}>{score.toFixed(1)}%</span>
         </div>
-        <AllCourses content={skillIncludedCourses} filters={filters} sorting={sorting} />
+        <AllCourses
+          content={skillIncludedCourses}
+          filters={filters}
+          sorting={sorting}
+          totalContents={totalCourses}
+        />
       </div>
     </div>
   );
@@ -203,6 +209,7 @@ SkillDetail.propTypes = {
   focused: PropTypes.bool,
   availableForReview: PropTypes.bool,
   ongoingCoursesAvailable: PropTypes.bool,
+  totalCourses: PropTypes.number,
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
   filters: PropTypes.shape({
     onChange: PropTypes.func,
