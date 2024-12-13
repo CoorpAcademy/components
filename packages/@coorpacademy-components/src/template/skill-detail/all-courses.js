@@ -129,7 +129,6 @@ const AllCourses = (props, context) => {
 
               function handleFilterChange() {
                 onChange(value);
-                handleSearchReset();
               }
 
               return (
