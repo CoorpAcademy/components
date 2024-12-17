@@ -64,6 +64,7 @@ const SkillDetail = (props, context) => {
     focused,
     availableForReview,
     ongoingCoursesAvailable,
+    totalCourses,
     skillIncludedCourses,
     filters,
     sorting,
@@ -71,7 +72,7 @@ const SkillDetail = (props, context) => {
     onReviewClick,
     onContinueLearningClick
   } = props;
-  const {score, content, questionsToReview, contentCompleted = 0} = metrics;
+  const {score = 0, questionsToReview} = metrics;
   const {translate} = context;
 
   const [showMore, setShowMore] = useState(false);
@@ -171,38 +172,22 @@ const SkillDetail = (props, context) => {
             />
           </div>
         </div>
-        {score !== undefined ? (
-          <div className={style.progressInformationsWrapper}>
-            <div className={style.progressTitle}>{translate('your_progress')}</div>
-            <div className={style.skillCoursesAndQuestionsWrapper}>
-              {content ? (
-                <div className={style.skillInformation} data-name="skill-courses">
-                  <span className={style.skillInformationNumber}>{content}</span>{' '}
-                  {translate('courses')}
-                </div>
-              ) : null}
-              <div className={style.skillInformation} data-name="skill-questions">
-                <span className={style.skillInformationNumber}>{questionsToReview}</span>
-                &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
-              </div>
-            </div>
-            <ProgressBar />
-            <div className={style.progressInformations}>
-              {content && (
-                <>
-                  <div className={style.progressInformation} data-name="skill-completed-courses">
-                    <span className={style.progressInformationNumber}>{contentCompleted}</span>
-                    {` ${translate('courses_completed')}`}
-                  </div>
-                  <div className={style.progressInformation} data-name="completed-percentage">
-                    <span className={style.progressInformationNumber}>{score.toFixed(1)}%</span>
-                  </div>
-                </>
-              )}
-            </div>
+        {questionsToReview > 0 ? (
+          <div className={style.skillInformation} data-name="skill-questions">
+            <span className={style.skillInformationNumber}>{questionsToReview}</span>
+            &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
           </div>
         ) : null}
-        <AllCourses content={skillIncludedCourses} filters={filters} sorting={sorting} />
+        <div className={style.progressContainer}>
+          <ProgressBar />
+          <span className={style.progressInformationNumber}>{score.toFixed(1)}%</span>
+        </div>
+        <AllCourses
+          content={skillIncludedCourses}
+          filters={filters}
+          sorting={sorting}
+          totalContents={totalCourses}
+        />
       </div>
     </div>
   );
@@ -219,13 +204,12 @@ SkillDetail.propTypes = {
   description: PropTypes.string,
   metrics: PropTypes.shape({
     score: PropTypes.number,
-    content: PropTypes.number,
-    questionsToReview: PropTypes.number,
-    contentCompleted: PropTypes.number
+    questionsToReview: PropTypes.number
   }),
   focused: PropTypes.bool,
   availableForReview: PropTypes.bool,
   ongoingCoursesAvailable: PropTypes.bool,
+  totalCourses: PropTypes.number,
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
   filters: PropTypes.shape({
     onChange: PropTypes.func,
