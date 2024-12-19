@@ -6,6 +6,12 @@
 
 .tickeForeignObject {
   overflow: visible;
+  width: 200px;
+  height: 65px;  
+}
+
+.tickeForeignObjectFocus {
+  height: 107px;
 }
 
 .tickWrapper {

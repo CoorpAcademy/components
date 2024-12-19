@@ -303,11 +303,12 @@ const CustomLabel = ({
   return (
     <g>
       <foreignObject
-        className={style.tickeForeignObject}
+        className={classnames(
+          style.tickeForeignObject,
+          isCurrentDotActive && style.tickeForeignObjectFocus
+        )}
         x={x + offsetX}
         y={y + offsetY + extraOffsetY}
-        width="200"
-        height="65"
       >
         <div
           data-name={label}
