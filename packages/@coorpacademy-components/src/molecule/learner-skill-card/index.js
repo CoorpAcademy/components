@@ -18,16 +18,14 @@ const LearnerSkillCard = (props, context) => {
     onReviewClick,
     onExploreClick
   } = props;
-  const {score, content, questionsToReview, contentCompleted = 0} = metrics;
+  const {score, content, questionsToReview = 0} = metrics;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
   const reviewLocale = translate('Review');
   const exploreLocale = translate('Explore');
-  const coursesLocale = translate('courses');
   const questionsLocale = translate('questions');
   const skillFocusLocale = translate('skill_focus');
-  const contentCompletedLocale = translate('courses_completed');
 
   const buttonReviewProps = {
     customStyle: {
@@ -93,13 +91,8 @@ const LearnerSkillCard = (props, context) => {
       data-name="learner-skill-card-wrapper"
       aria-label={ariaLabel}
     >
-      {content || questionsToReview ? (
+      {questionsToReview ? (
         <div className={style.skillCoursesAndQuestionsWrapper}>
-          {content ? (
-            <div className={style.skillInformation} data-name="skill-courses">
-              <span className={style.skillInformationNumber}>{content}</span> {coursesLocale}
-            </div>
-          ) : null}
           {questionsToReview ? (
             <div className={style.skillInformation} data-name="skill-questions">
               <span className={style.skillInformationNumber}>{questionsToReview}</span>
@@ -133,15 +126,9 @@ const LearnerSkillCard = (props, context) => {
       <ProgressBar />
       <div className={style.progressInformations}>
         {content ? (
-          <>
-            <div className={style.progressInformation} data-name="skill-completed-courses">
-              <span className={style.progressInformationNumber}>{contentCompleted}</span>
-              {` ${contentCompletedLocale}`}
-            </div>
-            <div className={style.progressInformation} data-name="completed-percentage">
-              <span className={style.progressInformationNumber}>{score}%</span>
-            </div>
-          </>
+          <div className={style.progressInformation} data-name="completed-percentage">
+            <span className={style.progressInformationNumber}>{score}%</span>
+          </div>
         ) : null}
       </div>
       <div className={style.ctaWrapper} data-name="cta-wrapper">
