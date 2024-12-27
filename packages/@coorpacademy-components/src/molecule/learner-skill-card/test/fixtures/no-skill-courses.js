@@ -4,8 +4,7 @@ export default {
   props: {
     ...defaultProps,
     metrics: {
-      questionsToReview: 25,
-      contentCompleted: 50
+      questionsToReview: 25
     }
   }
 };
