@@ -123,8 +123,8 @@ const LearnerSkillCard = (props, context) => {
           </div>
         ) : null}
       </div>
-      <ProgressBar />
       <div className={style.progressInformations}>
+        <ProgressBar />
         {content ? (
           <div className={style.progressInformation} data-name="completed-percentage">
             <span className={style.progressInformationNumber}>{score}%</span>

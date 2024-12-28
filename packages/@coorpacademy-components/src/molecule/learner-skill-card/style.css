@@ -90,6 +90,7 @@
 
 .progressWrapper {
   position: relative;
+  top: 4px;
   left: 0;
   width: 100%;
   height: 4px;
@@ -106,6 +107,8 @@
 }
 
 .progressInformations {
+  display: flex;
+  gap: 8px;
   min-height: 12px;
   margin-bottom: 24px;
 }
