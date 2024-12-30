@@ -16,7 +16,6 @@
 }
 
 .containerInfos {
-    margin-left: 32px;
     overflow: hidden;
     flex-grow: 1;
 }
