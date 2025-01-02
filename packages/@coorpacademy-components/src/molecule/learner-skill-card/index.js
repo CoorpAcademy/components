@@ -24,7 +24,7 @@ const LearnerSkillCard = (props, context) => {
 
   const reviewLocale = translate('Review');
   const exploreLocale = translate('Explore');
-  const questionsLocale = translate('questions');
+  const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
   const skillFocusLocale = translate('skill_focus');
 
   const buttonReviewProps = {
