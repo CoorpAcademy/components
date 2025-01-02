@@ -154,8 +154,7 @@ LearnerSkillCard.propTypes = {
   metrics: PropTypes.shape({
     score: PropTypes.number,
     content: PropTypes.number,
-    questionsToReview: PropTypes.number,
-    contentCompleted: PropTypes.number
+    questionsToReview: PropTypes.number
   }),
   review: PropTypes.bool,
   onReviewClick: PropTypes.func,
