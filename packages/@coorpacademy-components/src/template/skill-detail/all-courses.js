@@ -123,7 +123,7 @@ const AllCourses = (props, context) => {
         </div>
       </div>
       <div className={style.filterWrapper}>
-        {size(options) > 2 && size(contentResult)
+        {size(options) > 2
           ? uncappedMap((filterProps, index) => {
               const {name, value, selected} = filterProps;
 

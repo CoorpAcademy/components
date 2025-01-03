@@ -2,6 +2,7 @@ import React, {useCallback, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {compact, lowerCase, round, isNil} from 'lodash/fp';
+import Markdown from 'markdown-to-jsx';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import {SelectOptionPropTypes} from '../../atom/select';
@@ -39,7 +40,7 @@ const CertificationDetail = (props, context) => {
   const Description = useCallback(() => {
     return (
       <div className={classnames(style.description, !showMore && style.truncate)}>
-        {description}
+        <Markdown>{description}</Markdown>
       </div>
     );
   }, [showMore, description]);

@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {isNil} from 'lodash/fp';
+import Markdown from 'markdown-to-jsx';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
@@ -37,7 +38,7 @@ const PlaylistDetail = (props, context) => {
   const Description = useCallback(() => {
     return (
       <div className={classnames(style.description, !showMore && style.truncate)}>
-        {description}
+        <Markdown>{description}</Markdown>
       </div>
     );
   }, [showMore, description]);
