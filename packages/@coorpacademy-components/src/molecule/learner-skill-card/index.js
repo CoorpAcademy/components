@@ -1,11 +1,15 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {convert} from 'css-color-function';
 import {get} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import Provider from '../../atom/provider';
+import ProgressBar from '../progress-bar';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
+
+const MAX_SCORE = 100;
 
 const LearnerSkillCard = (props, context) => {
   const {
@@ -63,28 +67,7 @@ const LearnerSkillCard = (props, context) => {
     }
   };
 
-  const ProgressBar = useCallback(() => {
-    if (!content) return null;
-
-    const progressBarColor = '#3EC483';
-    const inlineProgressValueStyle = {
-      backgroundColor: progressBarColor,
-      width: `${score}%`
-    };
-
-    return (
-      <div className={style.progressWrapper}>
-        <div
-          data-name="progress"
-          className={style.progress}
-          style={inlineProgressValueStyle}
-          role="progressbar"
-          aria-label={get('progression', ariaLabel)}
-        />
-      </div>
-    );
-  }, [score, ariaLabel, content]);
-
+  // progressWrapper - progress
   return (
     <div
       className={style.learnerSkillCardWrapper}
@@ -121,14 +104,20 @@ const LearnerSkillCard = (props, context) => {
           </div>
         ) : null}
       </div>
-      <div className={style.progressInformations}>
-        <ProgressBar />
-        {content ? (
+      {content ? (
+        <div className={style.progressInformations}>
+          <ProgressBar
+            value={score}
+            displayInfo={false}
+            max={MAX_SCORE}
+            className={style.progressWrapper}
+            style={{backgroundColor: COLORS.positive}}
+          />
           <div className={style.progressInformation} data-name="completed-percentage">
             <span className={style.progressInformationNumber}>{score}%</span>
           </div>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
       <div className={style.ctaWrapper} data-name="cta-wrapper">
         <ButtonLink {...buttonReviewProps} />
         <div className={style.buttonWrapper} data-name="button-explore-wrapper">
