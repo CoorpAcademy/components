@@ -48,8 +48,6 @@ const CertificationDetail = (props, context) => {
     () => round((mandatoryModules * progression) / 100),
     [mandatoryModules, progression]
   );
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ file: index.js:100 ~ CertificationDetail ~ progression:', progression);
 
   return (
     <div className={style.backgroundContainer}>

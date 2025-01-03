@@ -36,7 +36,7 @@
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
 
-.skillCoursesAndQuestionsWrapper,
+.skillQuestionsWrapper,
 .progressInformations {
   display: flex;
   justify-content: space-between;

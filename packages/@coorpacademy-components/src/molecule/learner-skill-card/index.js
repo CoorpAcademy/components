@@ -66,8 +66,6 @@ const LearnerSkillCard = (props, context) => {
       }
     }
   };
-
-  // progressWrapper - progress
   return (
     <div
       className={style.learnerSkillCardWrapper}
@@ -75,7 +73,7 @@ const LearnerSkillCard = (props, context) => {
       aria-label={ariaLabel}
     >
       {questionsToReview ? (
-        <div className={style.skillCoursesAndQuestionsWrapper}>
+        <div className={style.skillQuestionsWrapper}>
           <div className={style.skillInformation} data-name="skill-questions">
             <span className={style.skillInformationNumber}>{questionsToReview}</span>
             &nbsp;{questionsLocale}
