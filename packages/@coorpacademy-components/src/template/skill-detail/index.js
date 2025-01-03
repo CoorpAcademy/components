@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import {get, isNil} from 'lodash/fp';
+import Markdown from 'markdown-to-jsx';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -82,7 +83,7 @@ const SkillDetail = (props, context) => {
   const Description = useCallback(() => {
     return (
       <div className={classnames(style.description, !showMore && style.truncate)}>
-        {description}
+        <Markdown>{description}</Markdown>
       </div>
     );
   }, [showMore, description]);

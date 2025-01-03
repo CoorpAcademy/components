@@ -7,7 +7,7 @@ export const defaultProps = {
   title: 'Conflict management',
   skillRef: 'conflict-management',
   description:
-    'Conflict management is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
+    '<b>Conflict management</b> is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
   metrics: {
     score: 60.73738,
     content: 89,
