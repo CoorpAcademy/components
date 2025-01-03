@@ -16,8 +16,17 @@ export const defaultProps = {
   diplomaUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS',
   badgeUrl: 'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png',
   playlistRef: 'expert-techniques',
-  description:
-    'This playlist is a comprehensive eLearning playlist designed for leaders, managers, and team members who want to master conflict resolution skills. This series will equip you with proven strategies to identify, address, and resolve conflicts within teams, fostering a collaborative and productive work environment. Through real-world scenarios, expert insights, and practical tools, you will learn how to navigate challenging conversations, mediate disputes, and build stronger, more cohesive teams. Perfect for anyone looking to enhance their leadership skills and promote harmony in the workplace.',
+  description: `Validez les 25 modules du certificat pour l’obtenir.
+
+Test initial : <i>Les basiques du management d’équipe : testez-vous !</i>
+
+Objectifs :
+—Organiser et manager le travail d’équipe
+—Motiver vos équipes
+—Communiquer efficacement
+—Développer les compétences et la performance d’équipe
+—Faire preuve de leadership et d’assertivité
+—Faire preuve d'intelligence émotionnelle et gérer les conflits`,
   ongoingCoursesAvailable: true,
   certificationCourses: allCourses,
   filters: {
