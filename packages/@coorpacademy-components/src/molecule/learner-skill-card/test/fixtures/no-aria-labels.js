@@ -3,6 +3,7 @@ export const defaultProps = {
   skillTitle: 'Critical thinking and analysis',
   metrics: {
     content: 89,
+    score: 65,
     questionsToReview: 25
   },
   onReviewClick: () => console.log('review'),

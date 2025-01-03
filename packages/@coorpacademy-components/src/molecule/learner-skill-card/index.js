@@ -93,12 +93,10 @@ const LearnerSkillCard = (props, context) => {
     >
       {questionsToReview ? (
         <div className={style.skillCoursesAndQuestionsWrapper}>
-          {questionsToReview ? (
-            <div className={style.skillInformation} data-name="skill-questions">
-              <span className={style.skillInformationNumber}>{questionsToReview}</span>
-              &nbsp;{questionsLocale}
-            </div>
-          ) : null}
+          <div className={style.skillInformation} data-name="skill-questions">
+            <span className={style.skillInformationNumber}>{questionsToReview}</span>
+            &nbsp;{questionsLocale}
+          </div>
         </div>
       ) : null}
       <div className={style.skillTitleWrapper}>
