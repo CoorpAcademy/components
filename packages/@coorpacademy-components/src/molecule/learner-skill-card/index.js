@@ -1,11 +1,15 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {convert} from 'css-color-function';
 import {get} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import Provider from '../../atom/provider';
+import ProgressBar from '../progress-bar';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
+
+const MAX_SCORE = 100;
 
 const LearnerSkillCard = (props, context) => {
   const {
@@ -18,16 +22,14 @@ const LearnerSkillCard = (props, context) => {
     onReviewClick,
     onExploreClick
   } = props;
-  const {score, content, questionsToReview, contentCompleted = 0} = metrics;
+  const {score, content, questionsToReview = 0} = metrics;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
 
   const reviewLocale = translate('Review');
   const exploreLocale = translate('Explore');
-  const coursesLocale = translate('courses');
-  const questionsLocale = translate('questions');
+  const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
   const skillFocusLocale = translate('skill_focus');
-  const contentCompletedLocale = translate('courses_completed');
 
   const buttonReviewProps = {
     customStyle: {
@@ -64,48 +66,18 @@ const LearnerSkillCard = (props, context) => {
       }
     }
   };
-
-  const ProgressBar = useCallback(() => {
-    if (!content) return null;
-
-    const progressBarColor = '#3EC483';
-    const inlineProgressValueStyle = {
-      backgroundColor: progressBarColor,
-      width: `${score}%`
-    };
-
-    return (
-      <div className={style.progressWrapper}>
-        <div
-          data-name="progress"
-          className={style.progress}
-          style={inlineProgressValueStyle}
-          role="progressbar"
-          aria-label={get('progression', ariaLabel)}
-        />
-      </div>
-    );
-  }, [score, ariaLabel, content]);
-
   return (
     <div
       className={style.learnerSkillCardWrapper}
       data-name="learner-skill-card-wrapper"
       aria-label={ariaLabel}
     >
-      {content || questionsToReview ? (
-        <div className={style.skillCoursesAndQuestionsWrapper}>
-          {content ? (
-            <div className={style.skillInformation} data-name="skill-courses">
-              <span className={style.skillInformationNumber}>{content}</span> {coursesLocale}
-            </div>
-          ) : null}
-          {questionsToReview ? (
-            <div className={style.skillInformation} data-name="skill-questions">
-              <span className={style.skillInformationNumber}>{questionsToReview}</span>
-              &nbsp;{questionsLocale}
-            </div>
-          ) : null}
+      {questionsToReview ? (
+        <div className={style.skillQuestionsWrapper}>
+          <div className={style.skillInformation} data-name="skill-questions">
+            <span className={style.skillInformationNumber}>{questionsToReview}</span>
+            &nbsp;{questionsLocale}
+          </div>
         </div>
       ) : null}
       <div className={style.skillTitleWrapper}>
@@ -130,20 +102,20 @@ const LearnerSkillCard = (props, context) => {
           </div>
         ) : null}
       </div>
-      <ProgressBar />
-      <div className={style.progressInformations}>
-        {content ? (
-          <>
-            <div className={style.progressInformation} data-name="skill-completed-courses">
-              <span className={style.progressInformationNumber}>{contentCompleted}</span>
-              {` ${contentCompletedLocale}`}
-            </div>
-            <div className={style.progressInformation} data-name="completed-percentage">
-              <span className={style.progressInformationNumber}>{score}%</span>
-            </div>
-          </>
-        ) : null}
-      </div>
+      {content ? (
+        <div className={style.progressInformations}>
+          <ProgressBar
+            value={score}
+            displayInfo={false}
+            max={MAX_SCORE}
+            className={style.progressWrapper}
+            style={{backgroundColor: COLORS.positive}}
+          />
+          <div className={style.progressInformation} data-name="completed-percentage">
+            <span className={style.progressInformationNumber}>{score}%</span>
+          </div>
+        </div>
+      ) : null}
       <div className={style.ctaWrapper} data-name="cta-wrapper">
         <ButtonLink {...buttonReviewProps} />
         <div className={style.buttonWrapper} data-name="button-explore-wrapper">
@@ -167,8 +139,7 @@ LearnerSkillCard.propTypes = {
   metrics: PropTypes.shape({
     score: PropTypes.number,
     content: PropTypes.number,
-    questionsToReview: PropTypes.number,
-    contentCompleted: PropTypes.number
+    questionsToReview: PropTypes.number
   }),
   review: PropTypes.bool,
   onReviewClick: PropTypes.func,

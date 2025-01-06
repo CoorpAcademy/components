@@ -495,9 +495,7 @@ const MyLearning = (props, context) => {
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
-                const {score, content, questionsToReview, contentCompleted} = skillsInformation[
-                  skill
-                ]
+                const {score, content, questionsToReview} = skillsInformation[skill]
                   ? skillsInformation[skill].stats
                   : defaultStats;
                 return (
@@ -508,8 +506,7 @@ const MyLearning = (props, context) => {
                       metrics={{
                         score: score.toFixed(1),
                         content,
-                        questionsToReview,
-                        contentCompleted
+                        questionsToReview
                       }}
                       review={
                         skillsInformation[skill]

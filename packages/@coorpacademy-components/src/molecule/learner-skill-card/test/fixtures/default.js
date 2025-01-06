@@ -4,8 +4,8 @@ export const defaultProps = {
   skillAriaLabel: 'Skill aria label',
   metrics: {
     content: 89,
-    questionsToReview: 25,
-    contentCompleted: 50
+    score: 65,
+    questionsToReview: 25
   },
   onReviewClick: () => console.log('review'),
   onExploreClick: () => console.log('explore')

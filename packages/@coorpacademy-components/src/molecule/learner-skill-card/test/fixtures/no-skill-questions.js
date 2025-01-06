@@ -4,8 +4,8 @@ export default {
   props: {
     ...defaultProps,
     metrics: {
-      content: 85,
-      contentCompleted: 50
+      score: 65,
+      content: 85
     }
   }
 };
