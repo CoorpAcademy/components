@@ -13,8 +13,9 @@ const CHECK_ICON_NAME_MAP = {
   single: 'circle-check',
   multi: 'square-check'
 };
-const getButtonContent = (faIcon, isSelected, options = {}) => {
-  const {selectionMode, iconColor = ICON_COLOR} = options;
+
+const getButtonContent = (faIcon, options = {}) => {
+  const {selectionMode = 'single', isSelected = false, iconColor = ICON_COLOR} = options;
 
   return (
     <div className={style.contentWrapper}>
@@ -49,9 +50,9 @@ const getButtonContent = (faIcon, isSelected, options = {}) => {
 const SelectIcon = props => {
   const {faIcon, 'data-name': dataName, 'aria-label': ariaLabel, onClick, options = {}} = props;
 
-  const {selectionMode = 'single', isSelected, iconColor = ICON_COLOR} = options;
+  const {isSelected = false} = options;
 
-  const contentView = getButtonContent(faIcon, isSelected, {selectionMode, iconColor});
+  const contentView = getButtonContent(faIcon, options);
   const styleButton = classnames(style.default, isSelected && style.selected);
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
