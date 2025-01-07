@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import FaIcon from '../icon';
 
-<<<<<<< HEAD
-=======
-// eslint-disable-next-line css-modules/no-unused-class
->>>>>>> 7ff996474 (feedbacks 2)
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
