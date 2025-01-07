@@ -1,0 +1,61 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_primary_blue from colors;
+@value cm_grey_500 from colors;
+
+.iconPicker {
+  height: 485px;
+  width: calc(71vw - 68px);
+  max-width: 612px;
+}
+
+.searchWrapper {
+  border-radius: 12px;
+  width: 300px;
+  background-color: cm_grey_100;
+  margin-bottom: 20px;
+}
+
+.iconsListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  gap: 12px;
+  overflow: visible;
+}
+
+.emptySearchResultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptySearchResultTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.emptySearchResultDescription {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  margin-bottom: 16px;
+}
+
+.emptySearchResultClearSearch {
+  color: #0061FF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+@media mobile {
+  .iconPicker {
+    width: 100%;
+  }
+}
