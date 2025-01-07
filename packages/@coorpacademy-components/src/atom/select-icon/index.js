@@ -48,9 +48,7 @@ const getButtonContent = (faIcon, isSelected, options = {}) => {
 const SelectIcon = props => {
   const {faIcon, 'data-name': dataName, 'aria-label': ariaLabel, onClick, options = {}} = props;
 
-  const {selectionMode, iconColor = ICON_COLOR} = options;
-
-  const isSelected = selectionMode === 'single' || selectionMode === 'multi';
+  const {selectionMode = 'single', isSelected, iconColor = ICON_COLOR} = options;
 
   const contentView = getButtonContent(faIcon, isSelected, {selectionMode, iconColor});
   const styleButton = classnames(style.default, isSelected && style.selected);
@@ -82,6 +80,7 @@ SelectIcon.propTypes = {
   onClick: PropTypes.func,
   options: PropTypes.shape({
     selectionMode: PropTypes.oneOf(['single', 'multi']),
+    isSelected: PropTypes.bool,
     iconColor: PropTypes.string
   })
 };

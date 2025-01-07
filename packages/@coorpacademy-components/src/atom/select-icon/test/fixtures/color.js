@@ -8,6 +8,7 @@ export default {
     faIcon: 'bullseye-pointer',
     options: {
       selectionMode: 'single',
+      isSelected: true,
       iconColor: COLORS.positive
     },
     onClick: () => console.log('click')

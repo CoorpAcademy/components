@@ -1,7 +1,7 @@
 export default {
   props: {
     size: 'responsive',
-    options: {selectionMode: 'single'},
+    options: {selectionMode: 'single', isSelected: true},
     'data-name': 'default-button',
     'aria-label': 'aria button',
     faIcon: 'bullseye-pointer',
