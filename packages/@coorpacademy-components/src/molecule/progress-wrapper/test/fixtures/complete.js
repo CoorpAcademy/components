@@ -12,8 +12,7 @@ export default {
       },
       {
         type: 'badge',
-        downloadUrl:
-          'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png'
+        downloadUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg'
       },
       {
         type: 'stars',
