@@ -57,7 +57,7 @@ const CertificationDetail = (props, context) => {
           <ButtonLinkIcon
             faIcon="arrow-left"
             data-name="back-button"
-            aria-label="Back"
+            aria-label={translate('back')}
             onClick={onBackClick}
             className={style.backButton}
             tooltipPlacement="right"
