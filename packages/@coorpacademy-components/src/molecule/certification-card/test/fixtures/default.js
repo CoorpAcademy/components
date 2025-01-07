@@ -7,7 +7,7 @@ export const defaultProps = {
     }
   },
   progress: 23,
-  imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
+  imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
   onClick: () => console.log('click')
 };
 
