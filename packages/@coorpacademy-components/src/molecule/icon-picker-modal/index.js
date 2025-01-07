@@ -100,7 +100,7 @@ const IconPickerModal = (props, context) => {
           aria-label={`aria icon ${index}`}
           faIcon={iconName}
           onClick={handleIconClick(index)}
-          options={{selectionMode: selectedIcon === index ? 'single' : ''}}
+          options={{isSelected: selectedIcon === index}}
         />
       )),
     [displayedIcons, selectedIcon, handleIconClick]
