@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useMemo} from 'react';
+import React, {useCallback, useEffect, useRef, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {compact, lowerCase, round, isNil} from 'lodash/fp';
@@ -13,8 +13,6 @@ import AllCourses from '../skill-detail/all-courses';
 import {ContinueLearningButton} from '../skill-detail';
 import ProgressWrapper from '../../molecule/progress-wrapper';
 import style from './style.css';
-
-const DESCRIPTION_BREAKPOINT = 382;
 
 const CertificationDetail = (props, context) => {
   const {
@@ -31,15 +29,28 @@ const CertificationDetail = (props, context) => {
     diplomaUrl,
     badgeUrl
   } = props;
+  const descriptionRef = useRef(null);
   const {translate} = context;
   const {progression, mandatoryModules, stars, totalModules} = metrics;
 
+  const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
+
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
+
+  useEffect(() => {
+    if (descriptionRef.current) {
+      const {clientHeight, scrollHeight} = descriptionRef.current;
+      setIsDescriptionTruncated(scrollHeight > clientHeight);
+    }
+  }, [description]);
 
   const Description = useCallback(() => {
     return (
-      <div className={classnames(style.description, !showMore && style.truncate)}>
+      <div
+        ref={descriptionRef}
+        className={classnames(style.description, !showMore && style.truncate)}
+      >
         <Markdown>{description}</Markdown>
       </div>
     );
@@ -73,7 +84,7 @@ const CertificationDetail = (props, context) => {
             {description ? (
               <>
                 <Description />
-                {description.length >= DESCRIPTION_BREAKPOINT ? (
+                {isDescriptionTruncated ? (
                   <div className={style.showMoreWrapper} onClick={handleShowMore}>
                     {translate(showMore ? 'Show less' : 'Show more')}
                     <Icon
