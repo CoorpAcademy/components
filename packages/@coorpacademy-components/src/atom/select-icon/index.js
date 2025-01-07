@@ -8,6 +8,7 @@ import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const ICON_COLOR = COLORS.cm_primary_blue;
+const BACKGROUND_COLOR = COLORS.white;
 const CHECK_ICON_NAME_MAP = {
   single: 'circle-check',
   multi: 'square-check'
@@ -23,7 +24,7 @@ const getButtonContent = (faIcon, isSelected, options = {}) => {
           <FaIcon
             iconName={CHECK_ICON_NAME_MAP[selectionMode]}
             iconColor={iconColor}
-            backgroundColor={'#ffffff'}
+            backgroundColor={BACKGROUND_COLOR}
             size={{faSize: 16, wrapperSize: 16}}
           />
         </div>
