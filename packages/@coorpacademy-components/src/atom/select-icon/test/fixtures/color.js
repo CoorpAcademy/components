@@ -1,10 +1,15 @@
+import {COLORS} from '../../../../variables/colors';
+
 export default {
   props: {
     size: 'responsive',
-    options: {selectionMode: 'multi'},
     'data-name': 'default-button',
     'aria-label': 'aria button',
     faIcon: 'bullseye-pointer',
+    options: {
+      selectionMode: 'single',
+      iconColor: COLORS.positive
+    },
     onClick: () => console.log('click')
   }
 };

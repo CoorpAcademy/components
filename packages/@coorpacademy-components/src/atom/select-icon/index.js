@@ -4,34 +4,37 @@ import classnames from 'classnames';
 import FaIcon from '../icon';
 
 // eslint-disable-next-line css-modules/no-unused-class
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
-const ICON_COLOR = '#0061FF';
+const ICON_COLOR = COLORS.cm_primary_blue;
 const CHECK_ICON_NAME_MAP = {
   single: 'circle-check',
   multi: 'square-check'
 };
-const getButtonContent = (faIcon, selected, selectionMode) => {
+const getButtonContent = (faIcon, isSelected, options = {}) => {
+  const {selectionMode, iconColor = ICON_COLOR} = options;
+
   return (
     <div className={style.contentWrapper}>
-      {selected ? (
-        // checkbox icon
+      {isSelected ? (
+        /* checkbox icon */
         <div className={style.checkIcon}>
           <FaIcon
             iconName={CHECK_ICON_NAME_MAP[selectionMode]}
-            iconColor={ICON_COLOR}
+            iconColor={iconColor}
             backgroundColor={'#ffffff'}
             size={{faSize: 16, wrapperSize: 16}}
           />
         </div>
       ) : null}
       {
-        // to be selected icon
+        /* selection tick (L18) / icon */
         <div className={style.iconWrapper}>
           <div className={style.icon}>
             <FaIcon
               iconName={faIcon}
-              iconColor={selected ? ICON_COLOR : ''}
+              iconColor={isSelected ? iconColor : ''}
               size={{faSize: 32, wrapperSize: 32}}
             />
           </div>
@@ -43,10 +46,14 @@ const getButtonContent = (faIcon, selected, selectionMode) => {
 };
 
 const SelectIcon = props => {
-  const {selectionMode, faIcon, 'data-name': dataName, 'aria-label': ariaLabel, onClick} = props;
-  const selected = selectionMode === 'single' || selectionMode === 'multi';
-  const contentView = getButtonContent(faIcon, selected, selectionMode);
-  const styleButton = classnames(style.default, selected && style.selected);
+  const {faIcon, 'data-name': dataName, 'aria-label': ariaLabel, onClick, options = {}} = props;
+
+  const {selectionMode, iconColor = ICON_COLOR} = options;
+
+  const isSelected = selectionMode === 'single' || selectionMode === 'multi';
+
+  const contentView = getButtonContent(faIcon, isSelected, {selectionMode, iconColor});
+  const styleButton = classnames(style.default, isSelected && style.selected);
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const IconButton = useCallback(
@@ -73,7 +80,10 @@ SelectIcon.propTypes = {
   'data-name': PropTypes.string,
   faIcon: PropTypes.string,
   onClick: PropTypes.func,
-  selectionMode: PropTypes.oneOf(['single', 'multi'])
+  options: PropTypes.shape({
+    selectionMode: PropTypes.oneOf(['single', 'multi']),
+    iconColor: PropTypes.string
+  })
 };
 
 export default SelectIcon;
