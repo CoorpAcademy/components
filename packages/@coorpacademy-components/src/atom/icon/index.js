@@ -33,7 +33,7 @@ const SIZE_CONFIGS = {
   }
 };
 
-export const createGradientBackground = (baseColor) => {
+export const createGradientBackground = baseColor => {
   const [hue, saturation, lightness] = hexToHsl(baseColor);
   const startColor = `hsla(${hue}, ${saturation}%, ${lightness + 59}%, 1)`;
   const endColor = `hsla(${hue}, ${saturation + 1}%, ${lightness + 49}%, 1)`;
