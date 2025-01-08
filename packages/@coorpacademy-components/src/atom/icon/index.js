@@ -32,6 +32,13 @@ const SIZE_CONFIGS = {
   }
 };
 
+
+export const createGradientBackground = (baseColor, startOpacity = 0.2, endOpacity = 0.5) => {
+  const startColor = `${baseColor}${Math.round(startOpacity * 100).toString(16).padStart(2, '0')}`;
+  const endColor = `${baseColor}${Math.round(endOpacity * 100).toString(16).padStart(2, '0')}`;
+  return `linear-gradient(180deg, ${baseColor}20 0%, ${baseColor}50 100%)`;
+};
+// 
 export const getForegroundColor = backgroundColor =>
   convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
 // set lightness to 32%
@@ -40,6 +47,7 @@ const Icon = React.memo(function Icon({
   iconName,
   iconColor,
   backgroundColor,
+  gradientBackground,
   borderRadius,
   preset = DEFAULT_PRESET,
   size,
@@ -55,7 +63,9 @@ const Icon = React.memo(function Icon({
   const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
 
   const iconWrapperStyle = {
-    backgroundColor,
+    background: gradientBackground
+    ? createGradientBackground(iconColor)
+    : backgroundColor,
     borderRadius,
     width: wrapperSize,
     height: wrapperSize,
@@ -77,6 +87,7 @@ Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
   backgroundColor: PropTypes.string,
+  gradientBackground: PropTypes.bool,
   borderRadius: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
