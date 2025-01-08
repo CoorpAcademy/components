@@ -7,8 +7,8 @@ import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
 import {convert} from 'css-color-function';
-import style from './style.css';
 import hexToHsl from 'hex-to-hsl';
+import style from './style.css';
 
 library.add(fas);
 
@@ -33,7 +33,7 @@ const SIZE_CONFIGS = {
   }
 };
 
-export const createGradientBackground = (baseColor, startOpacity = 0.2, endOpacity = 0.5) => {
+export const createGradientBackground = (baseColor) => {
   const [hue, saturation, lightness] = hexToHsl(baseColor);
   const startColor = `hsla(${hue}, ${saturation}%, ${lightness + 59}%, 1)`;
   const endColor = `hsla(${hue}, ${saturation + 1}%, ${lightness + 49}%, 1)`;
