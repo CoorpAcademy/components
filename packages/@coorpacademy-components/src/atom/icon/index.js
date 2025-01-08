@@ -7,7 +7,6 @@ import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
 import {convert} from 'css-color-function';
-import hexToHsl from 'hex-to-hsl';
 import style from './style.css';
 
 library.add(fas);
@@ -34,12 +33,11 @@ const SIZE_CONFIGS = {
 };
 
 export const createGradientBackground = baseColor => {
-  const [hue, saturation, lightness] = hexToHsl(baseColor);
-  const startColor = `hsla(${hue}, ${saturation}%, ${lightness + 59}%, 1)`;
-  const endColor = `hsla(${hue}, ${saturation + 1}%, ${lightness + 49}%, 1)`;
-
+  const startColor = convert(`color(${baseColor} lightness(+59%))`);
+  const endColor = convert(`color(${baseColor} lightness(+49%) saturation(+1%))`);
   return `linear-gradient(180deg, ${startColor} 0%, ${endColor} 100%)`;
 };
+
 export const getForegroundColor = backgroundColor =>
   convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
 // set lightness to 32%
@@ -64,7 +62,7 @@ const Icon = React.memo(function Icon({
   const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
 
   const iconWrapperStyle = {
-    background: gradientBackground ? createGradientBackground(iconColor) : backgroundColor,
+    background: gradientBackground ? createGradientBackground(effectiveIconColor) : backgroundColor,
     borderRadius,
     width: wrapperSize,
     height: wrapperSize,
