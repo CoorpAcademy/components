@@ -38,8 +38,10 @@ const CertificationCard = (props, context) => {
           icon={progressIconProps}
         />
       ) : null}
-      <div className={style.imageWrapper}>
-        <img src={imgUrl} />
+      <div className={style.imageSection}>
+        <div className={style.imageContainer}>
+          <img src={imgUrl} />
+        </div>
       </div>
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>

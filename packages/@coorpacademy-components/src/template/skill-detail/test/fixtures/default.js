@@ -6,8 +6,13 @@ const allCourses = cards;
 export const defaultProps = {
   title: 'Conflict management',
   skillRef: 'conflict-management',
-  description:
-    '<b>Conflict management</b> is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
+  description: `**Conditions** - complete the Basics levels of the following courses:
+ - The tire e-commerce market
+ - The mobile revolution 
+ - Big Data 
+ - The user experience 
+ - Connected point of sale
+`,
   metrics: {
     score: 60.73738,
     content: 89,

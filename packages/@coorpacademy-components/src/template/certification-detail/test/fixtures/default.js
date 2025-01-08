@@ -19,14 +19,7 @@ export const defaultProps = {
   description: `Validez les 25 modules du certificat pour l’obtenir.
 
 Test initial : <i>Les basiques du management d’équipe : testez-vous !</i>
-
-Objectifs :
-—Organiser et manager le travail d’équipe
-—Motiver vos équipes
-—Communiquer efficacement
-—Développer les compétences et la performance d’équipe
-—Faire preuve de leadership et d’assertivité
-—Faire preuve d'intelligence émotionnelle et gérer les conflits`,
+`,
   ongoingCoursesAvailable: true,
   certificationCourses: allCourses,
   filters: {

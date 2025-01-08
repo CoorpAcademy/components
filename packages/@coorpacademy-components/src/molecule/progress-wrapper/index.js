@@ -42,7 +42,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
 
   const LockedTag = (
     <Tag
-      label="Locked"
+      label={translate('locked')}
       size="S"
       icon={{
         position: 'left',
