@@ -216,7 +216,7 @@ ListItem.propTypes = {
       label: PropTypes.string,
       type: PropTypes.oneOf(['success', 'failure', 'warning', 'progress', 'default'])
     })
-  ), 
+  ),
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   isBulkStyle: PropTypes.bool,
