@@ -39,10 +39,8 @@ const CertificationDetail = (props, context) => {
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
 
   useEffect(() => {
-    if (descriptionRef.current) {
-      const {clientHeight, scrollHeight} = descriptionRef.current;
-      setIsDescriptionTruncated(scrollHeight > clientHeight);
-    }
+    const {clientHeight = 0, scrollHeight = 0} = descriptionRef.current;
+    setIsDescriptionTruncated(scrollHeight > clientHeight);
   }, [description]);
 
   const Description = useCallback(() => {
@@ -143,7 +141,7 @@ CertificationDetail.contextTypes = {
 CertificationDetail.propTypes = {
   title: PropTypes.string.isRequired,
   certificationRef: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  description: PropTypes.string.isRequired,
   logoUrl: PropTypes.string,
   metrics: PropTypes.shape({
     progression: PropTypes.number,

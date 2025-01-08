@@ -25,53 +25,55 @@ const Certifications = (props, context) => {
   }, [showCompleted, setShowCompleted]);
 
   return (
-    <div className={style.container} data-name="Certifications">
-      <Title
-        title={translate('certificates')}
-        subtitle={translate('certificates_subtitle')}
-        type="form-group"
-        titleSize="standard-light-weight"
-        subtitleSize="standard-without-margin"
-        icon={{
-          iconName: 'wreath-laurel',
-          iconColor: '#B87A00',
-          borderRadius: '12px',
-          backgroundColor: '#FFEECC'
-        }}
-      />
-      <div className={style.sortSectionWrapper}>
-        <div className={style.certificatesCount}>
-          {`${certifications.length} ${translate('certificate(s)')}`}
+    <div className={style.backgroudnContainer}>
+      <div className={style.container} data-name="Certifications">
+        <Title
+          title={translate('certificates')}
+          subtitle={translate('certificates_subtitle')}
+          type="form-group"
+          titleSize="standard-light-weight"
+          subtitleSize="standard-without-margin"
+          icon={{
+            iconName: 'wreath-laurel',
+            iconColor: '#B87A00',
+            borderRadius: '12px',
+            backgroundColor: '#FFEECC'
+          }}
+        />
+        <div className={style.sortSectionWrapper}>
+          <div className={style.certificatesCount}>
+            {`${certifications.length} ${translate('certificate(s)')}`}
+          </div>
+          <div className={style.sortSection}>
+            <InputSwitch
+              id={'show-completed-courses-switch'}
+              type="switch"
+              name={translate('show_completed')}
+              title={translate('show_completed')}
+              aria-label={'Show completed courses aria label'}
+              value={showCompleted}
+              onChange={handleShowCompletedToggle}
+            />
+            {sorting ? (
+              <div className={style.sortWrapper}>
+                {translate('sort_by')}
+                {sortView}
+              </div>
+            ) : null}
+          </div>
         </div>
-        <div className={style.sortSection}>
-          <InputSwitch
-            id={'show-completed-courses-switch'}
-            type="switch"
-            name={translate('show_completed')}
-            title={translate('show_completed')}
-            aria-label={'Show completed courses aria label'}
-            value={showCompleted}
-            onChange={handleShowCompletedToggle}
-          />
-          {sorting ? (
-            <div className={style.sortWrapper}>
-              {translate('sort_by')}
-              {sortView}
-            </div>
-          ) : null}
+        <div className={style.certificateList}>
+          {certifications.map(certification => {
+            if (!showCompleted && certification.progress === 100) {
+              return null;
+            }
+            return (
+              <div key={certification.label}>
+                <CertificationCard {...certification} />
+              </div>
+            );
+          })}
         </div>
-      </div>
-      <div className={style.certificateList}>
-        {certifications.map(certification => {
-          if (!showCompleted && certification.progress === 100) {
-            return null;
-          }
-          return (
-            <div key={certification.label}>
-              <CertificationCard {...certification} />
-            </div>
-          );
-        })}
       </div>
     </div>
   );
