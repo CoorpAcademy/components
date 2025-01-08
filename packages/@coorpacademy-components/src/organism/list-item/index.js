@@ -113,15 +113,15 @@ const ListItem = (
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.leftSection}>
           {leftIcon ? (
-              <div>
-                <FaIcon
-                  iconName={leftIcon.iconName}
-                  gradientBackground={leftIcon.gradientBackground || true}
-                  iconColor={leftIcon.iconColor || primarySelectedColor}
-                  preset={leftIcon.preset || 'xl'}
-                  borderRadius={leftIcon.borderRadius || '25%'}
-                />
-              </div>
+            <div>
+              <FaIcon
+                iconName={leftIcon.iconName}
+                gradientBackground={leftIcon.gradientBackground || true}
+                iconColor={leftIcon.iconColor || primarySelectedColor}
+                preset={leftIcon.preset || 'xl'}
+                borderRadius={leftIcon.borderRadius || '25%'}
+              />
+            </div>
           ) : null}
         </div>
         <div className={style.titleWrapper}>
