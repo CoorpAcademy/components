@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {isNil} from 'lodash/fp';
@@ -14,8 +14,6 @@ import PlaylistDetailCover from '../../molecule/playlist-detail-cover';
 import {ContinueLearningButton} from '../skill-detail';
 import style from './style.css';
 
-const DESCRIPTION_BREAKPOINT = 382;
-
 const PlaylistDetail = (props, context) => {
   const {
     title,
@@ -29,15 +27,27 @@ const PlaylistDetail = (props, context) => {
     onBackClick,
     onContinueLearningClick
   } = props;
+  const descriptionRef = useRef(null);
   const {translate} = context;
 
+  const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
 
+  useEffect(() => {
+    if (descriptionRef.current) {
+      const {clientHeight = 0, scrollHeight = 0} = descriptionRef.current;
+      setIsDescriptionTruncated(scrollHeight > clientHeight);
+    }
+  }, [description]);
+
   const Description = useCallback(() => {
     return (
-      <div className={classnames(style.description, !showMore && style.truncate)}>
+      <div
+        ref={descriptionRef}
+        className={classnames(style.description, !showMore && style.truncate)}
+      >
         <Markdown>{description}</Markdown>
       </div>
     );
@@ -50,7 +60,7 @@ const PlaylistDetail = (props, context) => {
           <ButtonLinkIcon
             faIcon="arrow-left"
             data-name="back-button"
-            aria-label="Back"
+            aria-label={translate('back')}
             onClick={onBackClick}
             className={style.backButton}
             tooltipPlacement="right"
@@ -66,7 +76,7 @@ const PlaylistDetail = (props, context) => {
             {description ? (
               <>
                 <Description />
-                {description.length >= DESCRIPTION_BREAKPOINT ? (
+                {isDescriptionTruncated ? (
                   <div className={style.showMoreWrapper} onClick={handleShowMore}>
                     {translate(showMore ? 'Show less' : 'Show more')}
                     <Icon

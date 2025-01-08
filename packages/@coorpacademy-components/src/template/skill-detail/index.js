@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
@@ -73,16 +73,28 @@ const SkillDetail = (props, context) => {
     onReviewClick,
     onContinueLearningClick
   } = props;
+  const descriptionRef = useRef(null);
   const {score = 0, questionsToReview} = metrics;
   const {translate} = context;
 
+  const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
   const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
 
+  useEffect(() => {
+    if (descriptionRef.current) {
+      const {clientHeight = 0, scrollHeight = 0} = descriptionRef.current;
+      setIsDescriptionTruncated(scrollHeight > clientHeight);
+    }
+  }, [description]);
+
   const Description = useCallback(() => {
     return (
-      <div className={classnames(style.description, !showMore && style.truncate)}>
+      <div
+        ref={descriptionRef}
+        className={classnames(style.description, !showMore && style.truncate)}
+      >
         <Markdown>{description}</Markdown>
       </div>
     );
@@ -140,7 +152,7 @@ const SkillDetail = (props, context) => {
             {description ? (
               <>
                 <Description />
-                {description.length >= 226 ? (
+                {isDescriptionTruncated ? (
                   <div className={style.showMoreWrapper} onClick={handleShowMore}>
                     {showMore ? translate('Show less') : translate('Show more')}
                     <Icon
