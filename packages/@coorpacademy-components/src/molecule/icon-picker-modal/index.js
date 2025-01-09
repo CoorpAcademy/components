@@ -9,6 +9,12 @@ import SearchForm from '../search-form';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
+export const filterIcons = (query, allIcons) => {
+  return query
+    ? filter(iconName => iconName.toLowerCase().includes(query.toLowerCase()), allIcons)
+    : allIcons;
+};
+
 const ICONS_PER_LOAD = 48;
 
 const IconPickerModal = (props, context) => {
@@ -62,15 +68,8 @@ const IconPickerModal = (props, context) => {
 
   const updateSearchResults = useCallback(
     query => {
-      if (!query) {
-        setSearchResults(allIcons);
-      } else {
-        const results = filter(
-          iconName => iconName.toLowerCase().includes(query.toLowerCase()),
-          allIcons
-        );
-        setSearchResults(results);
-      }
+      const results = filterIcons(query, allIcons);
+      setSearchResults(results);
     },
     [allIcons]
   );
