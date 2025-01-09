@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Ưu tiên học tập mới",
   "learning_priority_modal_description": "Tạo mức độ ưu tiên học tập bằng cách chọn một kỹ năng, danh sách phát hoặc chứng chỉ.",
   "locked": "Bị khóa",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Thay đổi trọng tâm kỹ năng",
   "skills_choose_focus": "Chọn trọng tâm của bạn",
   "cancel": "Hủy",
