@@ -1,6 +1,6 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
-import { createGradientBackground } from '..';
+import {createGradientBackground} from '..';
 
 browserEnv();
 
@@ -53,25 +53,37 @@ test('createGradientBackground with semi-transparent RGBA color', t => {
 });
 
 test('createGradientBackground with invalid color format', t => {
-  t.throws(() => {
-    createGradientBackground('invalid color');
-  }, { message: /Unable to parse color/ });
+  t.throws(
+    () => {
+      createGradientBackground('invalid color');
+    },
+    {message: /Unable to parse color/}
+  );
 });
 
 test('createGradientBackground with empty string', t => {
-  t.throws(() => {
-    createGradientBackground('');
-  }, { message: /Unable to parse color/ });
+  t.throws(
+    () => {
+      createGradientBackground('');
+    },
+    {message: /Unable to parse color/}
+  );
 });
 
 test('createGradientBackground with null input', t => {
-  t.throws(() => {
-    createGradientBackground(null);
-  }, { message: /Unable to parse color/ });
+  t.throws(
+    () => {
+      createGradientBackground(null);
+    },
+    {message: /Unable to parse color/}
+  );
 });
 
 test('createGradientBackground with undefined input', t => {
-  t.throws(() => {
-    createGradientBackground(undefined);
-  }, { message: /Unable to parse color/ });
+  t.throws(
+    () => {
+      createGradientBackground(undefined);
+    },
+    {message: /Unable to parse color/}
+  );
 });
