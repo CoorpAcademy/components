@@ -9,7 +9,7 @@ browserEnv();
 
 test('should call onCancel when cancel button is clicked', t => {
   const context = {
-    translate: (key: string) => {
+    translate: key => {
       return key;
     }
   };
@@ -28,7 +28,7 @@ test('should call onCancel when cancel button is clicked', t => {
 
 test('should call onConfirm with selected icon when confirm button is clicked', t => {
   const context = {
-    translate: (key: string) => {
+    translate: key => {
       return key;
     }
   };
