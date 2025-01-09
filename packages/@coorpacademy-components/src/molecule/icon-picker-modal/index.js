@@ -1,7 +1,7 @@
 import React, {useMemo, useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {map, pipe, get, values, slice} from 'lodash/fp';
+import {entries, map, pipe, get, values, slice, size} from 'lodash/fp';
 import BaseModal from '../base-modal';
 import SelectIcon from '../../atom/select-icon';
 import Provider from '../../atom/provider';
@@ -32,8 +32,8 @@ const IconPickerModal = (props, context) => {
   }, [onClose]);
 
   const handleIconClick = useCallback(
-    index => () => {
-      setSelectedIcon(prevSelectedIcon => (prevSelectedIcon === index ? null : index));
+    iconName => () => {
+      setSelectedIcon(prevSelectedIcon => (prevSelectedIcon === iconName ? null : iconName));
     },
     []
   );
@@ -62,17 +62,20 @@ const IconPickerModal = (props, context) => {
 
   const icons = useMemo(
     () =>
-      displayedIcons.map((iconName, index) => (
-        <SelectIcon
-          key={`icon-${index}`}
-          size="responsive"
-          data-name={`icon-${index}`}
-          aria-label={`aria icon ${index}`}
-          faIcon={iconName}
-          onClick={handleIconClick(index)}
-          options={{isSelected: selectedIcon === index}}
-        />
-      )),
+      pipe(
+        entries,
+        map(([index, iconName]) => (
+          <SelectIcon
+            key={`icon-${index}`}
+            size="responsive"
+            data-name={`icon-${index}`}
+            aria-label={`aria icon ${index}`}
+            faIcon={iconName}
+            onClick={handleIconClick(iconName)}
+            options={{isSelected: selectedIcon === iconName}}
+          />
+        ))
+      )(displayedIcons),
     [displayedIcons, selectedIcon, handleIconClick]
   );
 
@@ -125,7 +128,7 @@ const IconPickerModal = (props, context) => {
                 dataTestId="search-input"
               />
             </div>
-            {searchValue && searchResults.length === 0 ? (
+            {searchValue && size(searchResults) === 0 ? (
               <div className={style.emptySearchResultContainer}>
                 <div className={style.emptySearchResultTitle}>
                   {translate('empty_search_result_title', {searchValue})}

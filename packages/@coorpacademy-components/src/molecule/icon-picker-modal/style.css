@@ -19,7 +19,7 @@
 .iconsListWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
   margin: auto;
   gap: 12px;
   overflow: visible;

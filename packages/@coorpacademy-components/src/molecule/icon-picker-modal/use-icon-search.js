@@ -1,12 +1,9 @@
 import {useState, useCallback, useMemo} from 'react';
-import {debounce, filter} from 'lodash/fp';
+import {debounce, filter, pipe, includes, toLower} from 'lodash/fp';
 
 export const filterIcons = (query, allIcons) => {
-  return query
-    ? filter(iconName => iconName.toLowerCase().includes(query.toLowerCase()), allIcons)
-    : allIcons;
+  return query ? filter(pipe(toLower, includes(toLower(query))), allIcons) : allIcons;
 };
-
 const useIconSearch = allIcons => {
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(allIcons);

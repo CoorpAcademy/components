@@ -3,7 +3,8 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {fireEvent} from '@testing-library/react';
 import delay from 'delay';
-import IconPickerModal, {filterIcons} from '..';
+import IconPickerModal from '..';
+import {filterIcons} from '../use-icon-search';
 import {renderWithContext} from '../../../util/render-with-context';
 
 browserEnv();
