@@ -5,10 +5,10 @@ import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
-import Icon from '../../atom/icon';
+import FaIcon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
-// eslint-disable-next-line css-modules/no-unused-class
+import COLORS from '../../variables/colors';
 import style from './style.css';
 
 const ListItem = (
@@ -18,6 +18,7 @@ const ListItem = (
     bulletPointMenuButton,
     tags,
     title,
+    provider,
     selected,
     selectedColor,
     subtitle,
@@ -28,7 +29,9 @@ const ListItem = (
     contentType,
     isBulkStyle = false,
     isOverflowHidden = false,
-    onClick = noop
+    onClick = noop,
+    leftIcon,
+    editAsIcon = false
   },
   context
 ) => {
@@ -74,6 +77,24 @@ const ListItem = (
       </div>
     ) : null;
 
+  const handleButtonLinkClick = buttonLink?.onClick || noop;
+
+  const handleRenderButtonLink = () => {
+    if (editAsIcon && buttonLink) {
+      return (
+        <FaIcon
+          iconName={buttonLink.icon?.type || 'edit'}
+          onClick={handleButtonLinkClick}
+          className={style.editIcon}
+        />
+      );
+    }
+    if (buttonLink) {
+      return <ButtonLink {...buttonLink} />;
+    }
+    return null;
+  };
+
   return (
     <div
       className={classnames(
@@ -90,8 +111,28 @@ const ListItem = (
         className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}
       >
         {isPublished && contentType === 'certification' ? orderView : null}
-        <div className={style.title} title={title}>
-          {title}
+        <div className={style.leftSection}>
+          {leftIcon ? (
+            <div>
+              <FaIcon
+                iconName={leftIcon.iconName}
+                gradientBackground={leftIcon.gradientBackground || true}
+                iconColor={leftIcon.iconColor || primarySelectedColor}
+                preset={leftIcon.preset || 'xl'}
+                borderRadius={leftIcon.borderRadius || '25%'}
+              />
+            </div>
+          ) : null}
+        </div>
+        <div className={style.titleWrapper}>
+          <div className={style.titleProviderWrapper}>
+            <div className={style.title} title={title}>
+              {title}
+            </div>
+            {provider ? (
+              <Tag label={provider} type="default" className={style.providerTag} />
+            ) : null}
+          </div>
           {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
         </div>
         {dataColumnsView}
@@ -100,14 +141,14 @@ const ListItem = (
       <div className={style.settings}>
         {tagsView}
         {selected ? (
-          <Icon
+          <FaIcon
             iconName="circle-check"
             iconColor={primarySelectedColor}
-            backgroundColor={'#ffffff'}
+            backgroundColor={COLORS.white}
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
-        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
+        {handleRenderButtonLink()}
         {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
           <BulletPointMenuButton {...bulletPointMenuButton} />
@@ -125,6 +166,7 @@ ListItem.contextTypes = {
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  provider: PropTypes.string,
   selected: PropTypes.bool,
   selectedColor: PropTypes.string,
   dataColumns: PropTypes.arrayOf(
@@ -182,7 +224,18 @@ ListItem.propTypes = {
   order: PropTypes.number,
   'aria-label': PropTypes.string,
   contentType: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  leftIcon: PropTypes.shape({
+    iconName: PropTypes.string,
+    iconColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    borderRadius: PropTypes.string,
+    preset: PropTypes.string,
+    gradientBackground: PropTypes.bool,
+    size: PropTypes.number,
+    wrapperSize: PropTypes.number
+  }),
+  editAsIcon: PropTypes.bool
 };
 
 export default ListItem;

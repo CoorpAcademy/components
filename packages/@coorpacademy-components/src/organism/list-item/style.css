@@ -32,7 +32,6 @@
   color: cm_grey_900;
   display: flex;
   flex-direction: column;
-  height: 56px;
   justify-content: center;
   flex: 2 0 0;
   font-family: Gilroy;
@@ -72,18 +71,33 @@
   white-space: nowrap;
 }
 
-.cell {
+.leftSection {
   display: flex;
-  height: 56px;
   align-items: center;
-  flex: 1 0 0;
-  color: cm_grey_500;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 20px;
-  white-space: nowrap;
+  gap: 8px;
+  margin-right: 16px;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titleProviderWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.providerTag {
+  margin-left: 8px;
+}
+
+.editIcon {
+  cursor: pointer;
+  color: cm_grey_900;
+  margin-left: 8px;
 }
 
 .order {
