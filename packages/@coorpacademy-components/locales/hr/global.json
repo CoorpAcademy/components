@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Novi prioritet učenja",
   "learning_priority_modal_description": "Stvorite prioritet učenja odabirom jedne vještine, popisa za reprodukciju ili certifikata.",
   "locked": "Zaključano",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Promijeni fokus vještina",
   "skills_choose_focus": "Odaberi svoj fokus",
   "cancel": "Odustani",
