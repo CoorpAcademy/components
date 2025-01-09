@@ -33,8 +33,8 @@ const SIZE_CONFIGS = {
 };
 
 export const createGradientBackground = baseColor => {
-  const startColor = convert(`color(${baseColor} lightness(+59%))`);
-  const endColor = convert(`color(${baseColor} lightness(+49%) saturation(+1%))`);
+  const startColor = convert(`color(${baseColor} lightness(59%))`);
+  const endColor = convert(`color(${baseColor} lightness(49%))`);
   return `linear-gradient(180deg, ${startColor} 0%, ${endColor} 100%)`;
 };
 
