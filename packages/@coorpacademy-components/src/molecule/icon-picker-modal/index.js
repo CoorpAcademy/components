@@ -69,7 +69,7 @@ const IconPickerModal = (props, context) => {
             key={`icon-${index}`}
             size="responsive"
             data-name={`icon-${index}`}
-            aria-label={`aria icon ${index}`}
+            aria-label={iconName}
             faIcon={iconName}
             onClick={handleIconClick(iconName)}
             options={{isSelected: selectedIcon === iconName}}
