@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Nouvelle priorité d’apprentissage",
   "learning_priority_modal_description": "Créez une priorité d’apprentissage en sélectionnant une compétence, une liste de lecture ou une certification.",
   "locked": "Verrouillé",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Changer ses compétences ciblées",
   "skills_choose_focus": "Choisissez votre objectif",
   "cancel": "Annuler",
