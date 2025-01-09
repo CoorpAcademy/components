@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Նոր ուսուցման առաջնահերթություն",
   "learning_priority_modal_description": "Ստեղծեք ուսուցման առաջնահերթություն՝ ընտրելով կամ մեկ հմտություն, երգացանկ կամ հավաստագրում:",
   "locked": "Կողպված է",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Փոխեք հմտությունների կենտրոնացումը",
   "skills_choose_focus": "Ընտրեք ձեր ուշադրությունը",
   "cancel": "Չեղարկել",
