@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Nová priorita učení",
   "learning_priority_modal_description": "Vytvořte si prioritu učení výběrem jedné dovednosti, seznamu skladeb nebo certifikace.",
   "locked": "Uzamčeno",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Změnit zaměření dovednosti",
   "skills_choose_focus": "Vyberte své zaměření",
   "cancel": "Zrušit",
