@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Nuova priorità di apprendimento",
   "learning_priority_modal_description": "Crea una priorità di apprendimento selezionando un&#39;abilità, una playlist o una certificazione.",
   "locked": "Bloccato",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Cambia la messa a fuoco delle competenze",
   "skills_choose_focus": "Scegli la tua messa a fuoco",
   "cancel": "Annulla",
