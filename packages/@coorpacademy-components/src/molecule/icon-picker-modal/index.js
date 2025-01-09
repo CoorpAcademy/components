@@ -151,6 +151,7 @@ const IconPickerModal = (props, context) => {
                   onChange: handleSearch
                 }}
                 onReset={handleReset}
+                dataTestId="search-input"
               />
             </div>
             {searchValue && searchResults.length === 0 ? (

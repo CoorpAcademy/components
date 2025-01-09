@@ -107,11 +107,11 @@ const BaseModal = (props, context) => {
             <div className={style.headerTitle}>{title}</div>
             {description ? <div className={style.headerDescription}>{description}</div> : null}
           </div>
-          <div className={style.headerCloseIcon} onClick={handleOnClose}>
+          <div className={style.headerCloseIcon} onClick={handleOnClose} data-testid="close-icon">
             <Icon iconName="close" backgroundColor="#F4F4F5" size={{faSize: 14, wrapperSize: 28}} />
           </div>
         </header>
-        <div className={style.body} onScroll={onScroll}>
+        <div className={style.body} onScroll={onScroll} data-testid="modal-body">
           {children}
         </div>
         <Footer />
