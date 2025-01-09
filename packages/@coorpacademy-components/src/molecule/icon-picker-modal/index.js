@@ -1,19 +1,14 @@
 import React, {useMemo, useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {debounce, map, pipe, get, values, slice, filter} from 'lodash/fp';
+import {map, pipe, get, values, slice} from 'lodash/fp';
 import BaseModal from '../base-modal';
 import SelectIcon from '../../atom/select-icon';
 import Provider from '../../atom/provider';
 import SearchForm from '../search-form';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
-
-export const filterIcons = (query, allIcons) => {
-  return query
-    ? filter(iconName => iconName.toLowerCase().includes(query.toLowerCase()), allIcons)
-    : allIcons;
-};
+import useIconSearch from './use-icon-search';
 
 const ICONS_PER_LOAD = 48;
 
@@ -22,12 +17,11 @@ const IconPickerModal = (props, context) => {
   const {translate} = context;
 
   const [selectedIcon, setSelectedIcon] = useState(null);
-  const [searchValue, setSearchValue] = useState('');
   const [displayedIcons, setDisplayedIcons] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const allIcons = useMemo(() => pipe(values, map(get('iconName')))(fas), []);
-  const [searchResults, setSearchResults] = useState(allIcons);
+  const {searchValue, searchResults, handleSearch, handleReset} = useIconSearch(allIcons);
 
   const handleCancel = useCallback(() => {
     onCancel();
@@ -65,29 +59,6 @@ const IconPickerModal = (props, context) => {
     },
     [loadMoreIcons]
   );
-
-  const updateSearchResults = useCallback(
-    query => {
-      const results = filterIcons(query, allIcons);
-      setSearchResults(results);
-    },
-    [allIcons]
-  );
-
-  const debouncedSearch = useMemo(() => debounce(300, updateSearchResults), [updateSearchResults]);
-
-  const handleSearch = useCallback(
-    value => {
-      setSearchValue(value);
-      debouncedSearch(value);
-    },
-    [debouncedSearch]
-  );
-
-  const handleReset = useCallback(() => {
-    setSearchValue('');
-    updateSearchResults('');
-  }, [updateSearchResults]);
 
   const icons = useMemo(
     () =>
