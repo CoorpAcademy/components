@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Новий пріоритет навчання",
   "learning_priority_modal_description": "Створіть пріоритет навчання, вибравши одну навичку, список відтворення або сертифікат.",
   "locked": "Заблоковано",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Змінити фокус навички",
   "skills_choose_focus": "Виберіть свій фокус",
   "cancel": "Скасувати",
