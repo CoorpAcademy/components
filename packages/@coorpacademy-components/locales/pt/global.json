@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "Nova prioridade de aprendizagem",
   "learning_priority_modal_description": "Crie uma prioridade de aprendizado selecionando uma habilidade, lista de reprodução ou certificação.",
   "locked": "Bloqueado",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "Alterar o foco na competência",
   "skills_choose_focus": "Escolher o seu foco",
   "cancel": "Cancelar",
