@@ -44,6 +44,8 @@
   "learning_priority_modal_title": "新的學習重點",
   "learning_priority_modal_description": "透過選擇一項技能、播放清單或認證來建立學習優先順序。",
   "locked": "已上鎖",
+  "icon_picker_title": "Change icon",
+  "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "變更技能焦點",
   "skills_choose_focus": "選擇聚焦內容",
   "cancel": "取消",
