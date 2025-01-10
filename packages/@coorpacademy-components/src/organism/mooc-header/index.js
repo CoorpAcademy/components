@@ -353,7 +353,7 @@ class MoocHeader extends React.Component {
               item.disabled && item.selected && style.activePage,
               item.disabled && style.disabled
             )}
-            skinHover={!item.disabled}
+            hoverColor={!item.disabled && getOr('#00B0FF', 'common.primary', skin)}
             onClick={this.handleLinkClick}
             target={item.target || null}
             aria-label={itemLabel}
@@ -391,7 +391,7 @@ class MoocHeader extends React.Component {
             target={item.target || null}
             aria-label={itemLabel}
             onClick={this.handleLinkClick}
-            skinHover={!item.disabled}
+            hoverColor={!item.disabled && getOr('#00B0FF', 'common.primary', skin)}
             style={{
               ...activeColor
             }}
@@ -564,7 +564,6 @@ class MoocHeader extends React.Component {
                 <Link
                   className={style.link}
                   href={options.href}
-                  skinHover
                   hoverColor={hoverColor}
                   onClick={this.handleLinkClick}
                   target={options.target || null}

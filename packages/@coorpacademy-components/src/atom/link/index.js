@@ -10,7 +10,7 @@ const Link = (props, legacyContext) => {
   const {history: {createHref = identity} = {}} = legacyContext;
 
   const {
-    hoverColor = getOr('#00B0FF', 'common.primary', skin),
+    hoverColor,
     hoverBackgroundColor,
     'data-name': dataName = 'link',
     useButtonTag = false,

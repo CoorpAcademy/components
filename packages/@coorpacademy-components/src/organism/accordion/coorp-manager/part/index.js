@@ -146,7 +146,7 @@ const AccordionPart = (props, context) => {
       {!isCollapsibleTab ? (
         <Link
           onClick={handleParentClick}
-          skinHover
+          hoverColor={getOr('#00B0FF', 'common.primary', skin)}
           href={href}
           data-name={`link-item`}
           target={'_blank'}
