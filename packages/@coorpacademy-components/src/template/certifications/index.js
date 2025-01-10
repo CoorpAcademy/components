@@ -1,5 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
+import {map} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Title from '../../atom/title';
 import Select from '../../atom/select';
@@ -8,7 +9,7 @@ import CertificationCard from '../../molecule/certification-card';
 import style from './style.css';
 
 const Certifications = (props, context) => {
-  const {certifications, sorting} = props;
+  const {title, subtitle, tag, certifications, sorting} = props;
   const {translate} = context;
 
   const [showCompleted, setShowCompleted] = useState(true);
@@ -28,8 +29,8 @@ const Certifications = (props, context) => {
     <div className={style.backgroudnContainer}>
       <div className={style.container} data-name="Certifications">
         <Title
-          title={translate('certificates')}
-          subtitle={translate('certificates_subtitle')}
+          title={title}
+          subtitle={subtitle}
           type="form-group"
           titleSize="standard-light-weight"
           subtitleSize="standard-without-margin"
@@ -41,9 +42,7 @@ const Certifications = (props, context) => {
           }}
         />
         <div className={style.sortSectionWrapper}>
-          <div className={style.certificatesCount}>
-            {`${certifications.length} ${translate('certificate(s)')}`}
-          </div>
+          <div className={style.certificatesCount}>{`${certifications.length} ${title}`}</div>
           <div className={style.sortSection}>
             <InputSwitch
               id={'show-completed-courses-switch'}
@@ -63,16 +62,16 @@ const Certifications = (props, context) => {
           </div>
         </div>
         <div className={style.certificateList}>
-          {certifications.map(certification => {
-            if (!showCompleted && certification.progress === 100) {
-              return null;
-            }
+          {map(certification => {
+            const {label, progress} = certification;
+            if (!showCompleted && progress === 100) return null;
+
             return (
-              <div key={certification.label}>
-                <CertificationCard {...certification} />
+              <div key={label}>
+                <CertificationCard {...certification} tag={tag} />
               </div>
             );
-          })}
+          }, certifications)}
         </div>
       </div>
     </div>
@@ -84,6 +83,9 @@ Certifications.contextTypes = {
 };
 
 Certifications.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  tag: PropTypes.string,
   certifications: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -95,7 +97,10 @@ Certifications.propTypes = {
       }),
       progress: PropTypes.number,
       imgUrl: PropTypes.string,
-      onClick: PropTypes.func
+      onClick: PropTypes.func,
+      locales: PropTypes.shape({
+        conditionDescriptionProgress: PropTypes.string
+      })
     })
   ),
   sorting: PropTypes.shape(Select.propTypes)
