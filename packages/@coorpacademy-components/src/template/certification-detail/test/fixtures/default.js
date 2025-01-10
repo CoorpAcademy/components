@@ -6,6 +6,7 @@ const allCourses = cards;
 export const defaultProps = {
   certificationRef: 'cert_1',
   title: 'Expert techniques for managing team conflict',
+  tag: 'Certification',
   logoUrl: 'https://static.coorpacademy.com/content/onboarding/raw/badge-reward-1685105201663.png',
   metrics: {
     progression: 14,

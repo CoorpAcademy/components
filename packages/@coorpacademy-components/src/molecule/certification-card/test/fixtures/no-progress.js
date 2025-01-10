@@ -7,7 +7,11 @@ export const defaultProps = {
     }
   },
   imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
-  onClick: () => console.log('click')
+  onClick: () => console.log('click'),
+  tag: 'Certification',
+  locales: {
+    conditionDescriptionProgress: '1 module to complete'
+  }
 };
 
 export default {
