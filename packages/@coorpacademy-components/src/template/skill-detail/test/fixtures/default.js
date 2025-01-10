@@ -15,15 +15,13 @@ export const defaultProps = {
 `,
   metrics: {
     score: 60.73738,
-    content: 89,
-    questionsToReview: 25,
-    contentCompleted: 50
+    totalContents: 10,
+    questionsToReview: 25
   },
   focused: true,
   availableForReview: true,
   ongoingCoursesAvailable: true,
   skillIncludedCourses: allCourses,
-  totalCourses: 10,
   filters: {
     options: [
       {
