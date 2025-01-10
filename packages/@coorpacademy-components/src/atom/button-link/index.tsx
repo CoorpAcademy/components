@@ -16,7 +16,6 @@ const getButtonContent = (
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
-  const isApplyHover = hovered && hoverBackgroundColor && hoverColor;
 
   if (!Icon && !faIcon) {
     return (
@@ -30,8 +29,13 @@ const getButtonContent = (
     <FaIcon
       {...{
         iconName: faIcon.name,
-        iconColor: isApplyHover ? hoverColor : faIcon.color,
-        backgroundColor: isApplyHover ? hoverBackgroundColor : faIcon.backgroundColor,
+        iconColor: hovered && hoverColor ? hoverColor : faIcon.color,
+        // eslint-disable-next-line no-nested-ternary
+        backgroundColor: !faIcon?.backgroundColor
+          ? 'transparent'
+          : hovered && hoverBackgroundColor
+          ? hoverBackgroundColor
+          : faIcon.backgroundColor,
         size: {
           faSize: faIcon.size,
           wrapperSize: faIcon.size
@@ -90,7 +94,9 @@ const ButtonLink = (props: ButtonLinkProps) => {
 
   const handleOnKeyDown = useCallback(event => onKeyDown(event), [onKeyDown]);
 
-  const handleMouseOver = useCallback(() => setHovered(true), [setHovered]);
+  const handleMouseOver = useCallback(() => {
+    setHovered(true);
+  }, [setHovered]);
 
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
@@ -118,8 +124,12 @@ const ButtonLink = (props: ButtonLinkProps) => {
         data-name={dataName}
         data-testid={dataTestId}
         aria-label={ariaLabel || label}
+        hoverColor={hoverColor}
+        hoverBackgroundColor={hoverBackgroundColor}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
       >
-        {getButtonContent(icon, content ?? label)}
+        {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
       </Link>
     );
   }

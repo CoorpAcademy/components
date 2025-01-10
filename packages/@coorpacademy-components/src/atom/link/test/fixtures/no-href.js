@@ -1,6 +1,5 @@
 export default {
   props: {
-    skinHover: true,
     style: {
       color: '#2d64c9'
     },

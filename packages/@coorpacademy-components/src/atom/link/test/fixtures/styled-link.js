@@ -1,11 +1,12 @@
 export default {
   props: {
     href: '#',
-    skinHover: true,
     style: {
-      color: '#00B0FF',
+      color: 'black',
       textDecoration: 'none'
-    }
-  },
-  children: ['link']
+    },
+    children: 'link',
+    hoverColor: '#00B0FF',
+    hoverBackgroundColor: '#005eff'
+  }
 };
