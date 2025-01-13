@@ -17,7 +17,7 @@ const Link = (props, legacyContext) => {
     onClick = noop,
     style: customStyle,
     children,
-    onMouseOver = noop,
+    onMouseEnter = noop,
     onMouseLeave = noop,
     download,
     disabled,
@@ -26,10 +26,10 @@ const Link = (props, legacyContext) => {
 
   const navigate = useMemo(() => pushToHistory(legacyContext)({href}), [href, legacyContext]);
 
-  const handleMouseOver = useCallback(() => {
+  const handleMouseEnter = useCallback(() => {
     setHovered(true);
-    onMouseOver();
-  }, [onMouseOver]);
+    onMouseEnter();
+  }, [onMouseEnter]);
 
   const handleMouseLeave = useCallback(() => {
     setHovered(false);
@@ -58,7 +58,7 @@ const Link = (props, legacyContext) => {
       type="button"
       onClick={disabled ? noop : handleOnClick}
       style={style}
-      onMouseOver={handleMouseOver}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {children}
@@ -70,7 +70,7 @@ const Link = (props, legacyContext) => {
       href={disabled || !href ? undefined : createHref(href)}
       onClick={disabled ? noop : handleOnClick}
       style={style}
-      onMouseOver={handleMouseOver}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {children}
@@ -90,7 +90,7 @@ Link.propTypes = {
   hoverBackgroundColor: PropTypes.string,
   download: PropTypes.bool,
   onClick: PropTypes.func,
-  onMouseOver: PropTypes.func,
+  onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   useButtonTag: PropTypes.bool,
   style: PropTypes.shape({}),
