@@ -83,7 +83,7 @@ const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
     <Link
       href={href}
       onClick={disabled ? noop : onClick}
-      onMouseOver={handleMouseEnter}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       target={target}
       className={classnames(

@@ -126,7 +126,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         aria-label={ariaLabel || label}
         hoverColor={hoverColor}
         hoverBackgroundColor={hoverBackgroundColor}
-        onMouseOver={handleMouseOver}
+        onMouseEnter={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
         {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
