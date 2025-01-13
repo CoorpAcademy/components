@@ -6,6 +6,14 @@ node_js:
   - 20.18.0
 dist: jammy
 cache: npm
+before_deploy:
+  # those are required to fix broken deployments
+  #(cf https://travis-ci.community/t/deployments-are-failing-due-to-uri-dependency/14375 & https://travis-ci.community/t/cannot-load-such-file-faraday-net-http-loaderror/14455/4)
+  - yes | gem update --system --force
+  - gem install bundler
+  - gem install faraday-net_http -v '3.3.0' # Fix faraday version
+  - gem install uri
+  - gem install logger
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
   - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
