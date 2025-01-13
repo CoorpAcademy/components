@@ -67,10 +67,13 @@ export const defaultProps = {
     ],
     onChange: value => console.log(value)
   },
-  title: 'Certificates',
-  tag: 'Certificate',
-  subtitle:
-    'Demonstrate your knowledge and skills, helping you stand out in your career and achieve rewarding milestones along the way.'
+  locales: {
+    title: 'Certificates',
+    subtitle:
+      'Demonstrate your knowledge and skills, helping you stand out in your career and achieve rewarding milestones along the way.',
+    tag: 'Certification',
+    count: '3 certificates'
+  }
 };
 
 export default {

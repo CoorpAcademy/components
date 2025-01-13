@@ -9,7 +9,11 @@ import CertificationCard from '../../molecule/certification-card';
 import style from './style.css';
 
 const Certifications = (props, context) => {
-  const {title, subtitle, tag, certifications, sorting} = props;
+  const {
+    locales: {title, subtitle, tag, count},
+    certifications,
+    sorting
+  } = props;
   const {translate} = context;
 
   const [showCompleted, setShowCompleted] = useState(true);
@@ -42,7 +46,7 @@ const Certifications = (props, context) => {
           }}
         />
         <div className={style.sortSectionWrapper}>
-          <div className={style.certificatesCount}>{`${certifications.length} ${title}`}</div>
+          <div className={style.certificatesCount}>{count}</div>
           <div className={style.sortSection}>
             <InputSwitch
               id={'show-completed-courses-switch'}
@@ -83,9 +87,6 @@ Certifications.contextTypes = {
 };
 
 Certifications.propTypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  tag: PropTypes.string,
   certifications: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -103,6 +104,12 @@ Certifications.propTypes = {
       })
     })
   ),
+  locales: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    tag: PropTypes.string,
+    count: PropTypes.string
+  }),
   sorting: PropTypes.shape(Select.propTypes)
 };
 

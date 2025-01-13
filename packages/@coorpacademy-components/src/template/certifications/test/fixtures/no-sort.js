@@ -4,8 +4,11 @@ export default {
   props: {
     ...DefaultProps.props,
     sorting: null,
-    title: 'Passports',
-    tag: 'Passport',
-    subtitle: 'Validate your Passports here'
+    locales: {
+      title: 'Passports',
+      subtitle: 'Validate your Passports here',
+      tag: 'Passport',
+      count: '1 passport'
+    }
   }
 };
