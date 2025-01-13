@@ -32,7 +32,7 @@ const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
   } = props;
   const [hovered, setHovered] = useState(false);
 
-  const handleMouseEnter = useCallback(() => {
+  const handleMouseOver = useCallback(() => {
     setHovered(true);
   }, []);
 
@@ -83,7 +83,7 @@ const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
     <Link
       href={href}
       onClick={disabled ? noop : onClick}
-      onMouseEnter={handleMouseEnter}
+      onMouseOver={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       target={target}
       className={classnames(
