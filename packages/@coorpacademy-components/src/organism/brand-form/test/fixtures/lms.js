@@ -1,3 +1,5 @@
+import Desktop from '../../../../atom/input-file-draggable/test/fixtures/desktop';
+
 export default {
   props: {
     groups: [
@@ -37,6 +39,9 @@ export default {
               },
               {
                 title: 'XAPI'
+              },
+              {
+                title: 'Go1'
               }
             ],
             slides: [
@@ -322,6 +327,164 @@ export default {
                     cancelValue: 'Cancel',
                     description:
                       'You are about to delete the XAPI configuration. Click "confirm" to proceed.',
+                    textValidation: false,
+                    isPending: false,
+                    icon: 'trash',
+                    onClick: () => console.log('dispatch without this config')
+                  }
+                ]
+              },
+              {
+                fields: [
+                  {
+                    type: 'switch',
+                    title: 'Enabled',
+                    description:
+                      'Activating this toggle will trigger a global restream of the content mapping at the chosen granularity(ies) and of all the completions.',
+                    value: true,
+                    onChange: () => console.log('dispatch Enabled')
+                  },
+                  {
+                    type: 'slider',
+                    tabProps: [
+                      {
+                        title: 'Go1 API configuration'
+                      },
+                      {
+                        title: 'Content stream configuration'
+                      },
+                      {
+                        title: 'Progresion stream configuration'
+                      }
+                    ],
+                    slides: [
+                      {
+                        fields: [
+                          {
+                            type: 'text',
+                            title: 'URL for the point of entry (API)',
+                            placeholder: '',
+                            description:
+                              'This is the URL to communicate with a Client LMS instance’s API.',
+                            required: true,
+                            value: 'https://partner0125.csod.com',
+                            onChange: () => console.log('dispatch URL')
+                          },
+                          {
+                            type: 'text',
+                            title: 'Url for the authentication API',
+                            description:
+                              'This is the Url to get a JWT to communicate with go1 API.',
+                            placeholder: '',
+                            required: true,
+                            value: 'https://partner0125.csod.com',
+                            onChange: () => console.log('dispatch URL')
+                          },
+                          {
+                            type: 'text',
+                            title: 'Client ID',
+                            description:
+                              'This is the Client ID to connect to a specific LMS instance.',
+                            required: true,
+                            value: 'Some-client-id',
+                            onChange: () => console.log('dispatch Client ID')
+                          },
+                          {
+                            type: 'text',
+                            title: "Client's secret or password",
+                            description: 'Client secret associated to the Client ID',
+                            required: true,
+                            value: '',
+                            onChange: () => console.log('dispatch Client Secret')
+                          }
+                        ]
+                      },
+                      {
+                        fields: [
+                          {
+                            type: 'select',
+                            title: 'Lo Type',
+                            options: [
+                              {
+                                name: 'link',
+                                value: 'link',
+                                selected: false
+                              },
+                              {
+                                name: 'interactive',
+                                value: 'interactive',
+                                selected: true
+                              }
+                            ],
+                            onChange: value => console.log(value)
+                          },
+                          {
+                            type: 'switch',
+                            title: 'Course (discipline)',
+                            description:
+                              'Activating this toggle will trigger a restream at the Course (discipline) granularity.',
+                            value: true,
+                            onChange: () => console.log('dispatch Course')
+                          },
+                          {
+                            type: 'switch',
+                            title: 'Level (module)',
+                            description:
+                              'Activating this toggle will trigger a restream at the Level (module) granularity.',
+                            value: true,
+                            onChange: () => console.log('dispatch Level')
+                          },
+                          {
+                            type: 'switch',
+                            title: 'Chapter (microlearning)',
+                            description:
+                              'Activating this toggle will trigger a restream at the Chapter (microlearning) granularity.',
+                            value: false,
+                            onChange: () => console.log('dispatch Chapter')
+                          },
+                          {
+                            type: 'switch',
+                            title: 'External content',
+                            description:
+                              'Activating this toggle will trigger a restream at the External content granularity.',
+                            value: false,
+                            onChange: () => console.log('dispatch External content')
+                          },
+                          {
+                            ...Desktop.props,
+                            title: 'Thumbnail Logo',
+                            type: 'image'
+                          }
+                        ]
+                      },
+                      {
+                        fields: [
+                          {
+                            type: 'switch',
+                            title: 'Progression',
+                            description:
+                              'Activating this toggle will trigger a restream of the completions.',
+                            value: true,
+                            onChange: () => console.log('dispatch Progression')
+                          },
+                          {
+                            type: 'switch',
+                            title: 'Create user if not existant',
+                            value: true,
+                            onChange: () => console.log('dispatch Create user')
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    type: 'doublestep',
+                    toggleValue: 'Delete Configuration',
+                    confirmValue: 'Confirm',
+                    confirmDisabled: false,
+                    cancelValue: 'Cancel',
+                    description:
+                      'You are about to delete the go1 configuration. Click "confirm" to proceed.',
                     textValidation: false,
                     isPending: false,
                     icon: 'trash',
