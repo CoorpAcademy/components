@@ -1,5 +1,5 @@
 import React from 'react';
-import {noop, keys, get} from 'lodash/fp';
+import {noop, keys, get, getOr} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {

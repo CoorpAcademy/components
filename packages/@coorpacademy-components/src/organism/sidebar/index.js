@@ -9,7 +9,7 @@ import {
 
 import Link from '../../atom/link';
 import Button from '../../atom/button';
-import Provider, { GetSkinFromContext } from '../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../atom/provider';
 import Select from '../../atom/select';
 import Cta from '../../atom/cta';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -91,21 +91,24 @@ export const MultiSelectItem = ({name, index, onChange, title, options, uppercas
 
 MultiSelectItem.propTypes = SelectItem.propTypes;
 
-export const LinkItem = ({
-  href,
-  index,
-  name,
-  selected,
-  color,
-  title,
-  onClick,
-  uppercase = true,
-  styles,
-  children,
-  setChildrenAsHtml = true,
-  target = '_self',
-  activeIcon = false
-}) => {
+export const LinkItem = (
+  {
+    href,
+    index,
+    name,
+    selected,
+    color,
+    title,
+    onClick,
+    uppercase = true,
+    styles,
+    children,
+    setChildrenAsHtml = true,
+    target = '_self',
+    activeIcon = false
+  },
+  context
+) => {
   const skin = GetSkinFromContext(context);
 
   const handleOnClick = useMemo(

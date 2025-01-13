@@ -1,11 +1,10 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
-import {identity, getOr, noop} from 'lodash/fp';
-import Provider, {GetSkinFromContext} from '../provider';
+import {identity, noop} from 'lodash/fp';
+import Provider from '../provider';
 import pushToHistory from '../../util/navigation';
 
 const Link = (props, legacyContext) => {
-  const skin = GetSkinFromContext(legacyContext);
   const [hovered, setHovered] = useState(false);
   const {history: {createHref = identity} = {}} = legacyContext;
 
