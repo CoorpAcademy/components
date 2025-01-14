@@ -9,8 +9,7 @@ import style from './style.css';
 const CertificationCard = (props, context) => {
   const {
     label,
-    locales: {conditionDescriptionProgress},
-    tag,
+    locales: {conditionDescriptionProgress, tag},
     goal: {title},
     progress,
     imgUrl,
@@ -83,9 +82,9 @@ CertificationCard.propTypes = {
   progress: PropTypes.number,
   imgUrl: PropTypes.string,
   onClick: PropTypes.func,
-  tag: PropTypes.string,
   locales: PropTypes.shape({
-    conditionDescriptionProgress: PropTypes.string
+    conditionDescriptionProgress: PropTypes.string,
+    tag: PropTypes.string
   })
 };
 

@@ -72,7 +72,7 @@ const Certifications = (props, context) => {
 
             return (
               <div key={label}>
-                <CertificationCard {...certification} tag={tag} />
+                <CertificationCard {...certification} locales={{...certification.locales, tag}} />
               </div>
             );
           }, certifications)}
