@@ -48,7 +48,7 @@ const Link = (props, legacyContext) => {
     ...customStyle,
     ...(hovered && hoverBackgroundColor ? {backgroundColor: hoverBackgroundColor} : undefined),
     ...(hovered && hoverColor ? {color: hoverColor} : undefined),
-    pointerEvents: disabled || !href ? 'none' : undefined
+    ...(href || onClick ? null : {pointerEvents: 'none'})
   };
 
   return useButtonTag ? (
