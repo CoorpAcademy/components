@@ -35,7 +35,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
     hoverBackgroundColor: primarySkinColor,
-    hoverColor: '#FFFFFF',
+    hoverColor: COLORS.white,
     icon: {
       position: 'left',
       faIcon: {
@@ -55,7 +55,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
       icon={{
         position: 'left',
         iconName: 'lock',
-        iconColor: '#515161',
+        iconColor: COLORS.cm_grey_500,
         preset: 's',
         customStyle: {padding: 0}
       }}

@@ -15,6 +15,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Link from '../../../../atom/link';
 import Provider from '../../../../atom/provider';
+import {COLORS} from '../../../../variables/colors';
 import style from './style.css';
 
 const ICON_TYPES = {
@@ -146,7 +147,7 @@ const AccordionPart = (props, context) => {
       {!isCollapsibleTab ? (
         <Link
           onClick={handleParentClick}
-          hoverColor={getOr('#00B0FF', 'common.primary', skin)}
+          hoverColor={getOr(COLORS.brand, 'common.primary', skin)}
           href={href}
           data-name={`link-item`}
           target={'_blank'}
