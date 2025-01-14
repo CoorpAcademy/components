@@ -8,7 +8,7 @@ import Tag from '../../atom/tag';
 import FaIcon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
-import COLORS from '../../variables/colors';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const ListItem = (
