@@ -21,6 +21,7 @@ import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../atom/input-search';
 import SearchForm from '../../molecule/search-form';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
@@ -353,7 +354,7 @@ class MoocHeader extends React.Component {
               item.disabled && item.selected && style.activePage,
               item.disabled && style.disabled
             )}
-            skinHover={!item.disabled}
+            hoverColor={item.disabled ? '' : getOr(COLORS.brand, 'common.primary', skin)}
             onClick={this.handleLinkClick}
             target={item.target || null}
             aria-label={itemLabel}
@@ -391,7 +392,7 @@ class MoocHeader extends React.Component {
             target={item.target || null}
             aria-label={itemLabel}
             onClick={this.handleLinkClick}
-            skinHover={!item.disabled}
+            hoverColor={item.disabled ? '' : getOr(COLORS.brand, 'common.primary', skin)}
             style={{
               ...activeColor
             }}
@@ -564,7 +565,6 @@ class MoocHeader extends React.Component {
                 <Link
                   className={style.link}
                   href={options.href}
-                  skinHover
                   hoverColor={hoverColor}
                   onClick={this.handleLinkClick}
                   target={options.target || null}

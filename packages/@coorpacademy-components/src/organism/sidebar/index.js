@@ -9,7 +9,7 @@ import {
 
 import Link from '../../atom/link';
 import Button from '../../atom/button';
-import Provider from '../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../atom/provider';
 import Select from '../../atom/select';
 import Cta from '../../atom/cta';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -91,21 +91,26 @@ export const MultiSelectItem = ({name, index, onChange, title, options, uppercas
 
 MultiSelectItem.propTypes = SelectItem.propTypes;
 
-export const LinkItem = ({
-  href,
-  index,
-  name,
-  selected,
-  color,
-  title,
-  onClick,
-  uppercase = true,
-  styles,
-  children,
-  setChildrenAsHtml = true,
-  target = '_self',
-  activeIcon = false
-}) => {
+export const LinkItem = (
+  {
+    href,
+    index,
+    name,
+    selected,
+    color,
+    title,
+    onClick,
+    uppercase = true,
+    styles,
+    children,
+    setChildrenAsHtml = true,
+    target = '_self',
+    activeIcon = false
+  },
+  context
+) => {
+  const skin = GetSkinFromContext(context);
+
   const handleOnClick = useMemo(
     () => e => {
       onClick && onClick(e);
@@ -126,7 +131,7 @@ export const LinkItem = ({
     <Link
       target={target}
       onClick={handleOnClick}
-      skinHover
+      hoverColor={getOr('#00B0FF', 'common.primary', skin)}
       href={href}
       data-name={name || `link-item-${index}`}
       style={{
@@ -164,6 +169,10 @@ LinkItem.propTypes = {
   setChildrenAsHtml: PropTypes.bool,
   target: PropTypes.string,
   activeIcon: PropTypes.bool
+};
+
+LinkItem.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 export const IconLinkItem = ({

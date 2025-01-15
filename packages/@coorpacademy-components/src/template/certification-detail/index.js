@@ -18,6 +18,7 @@ const CertificationDetail = (props, context) => {
   const {
     certificationRef,
     title,
+    tag,
     description,
     certificationCourses,
     ongoingCoursesAvailable,
@@ -31,6 +32,7 @@ const CertificationDetail = (props, context) => {
   } = props;
   const descriptionRef = useRef(null);
   const {translate} = context;
+
   const {progression, mandatoryModules, stars, totalModules} = metrics;
 
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
@@ -79,7 +81,7 @@ const CertificationDetail = (props, context) => {
             <img className={style.logo} src={logoUrl} />
           </div>
           <div>
-            <Tag label={translate('certification')} />
+            <Tag label={tag} />
             <div className={style.title}>{title}</div>
             {description ? (
               <>
@@ -142,6 +144,7 @@ CertificationDetail.contextTypes = {
 
 CertificationDetail.propTypes = {
   title: PropTypes.string.isRequired,
+  tag: PropTypes.string,
   certificationRef: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   logoUrl: PropTypes.string,

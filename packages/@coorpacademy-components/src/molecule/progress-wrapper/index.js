@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map} from 'lodash/fp';
+import {convert} from 'css-color-function';
+import {isEmpty, map, get} from 'lodash/fp';
 import Title from '../../atom/title';
 import ProgressBar from '../progress-bar';
 import {COLORS} from '../../variables/colors';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
-import Provider from '../../atom/provider';
+import Provider, {GetSkinFromContext} from '../../atom/provider';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
@@ -15,30 +16,37 @@ const uncappedMap = map.convert({cap: false});
 
 const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => {
   const {translate} = context;
+  const skin = GetSkinFromContext(context);
+  const primarySkinColor = get('common.primary', skin);
   const isTypeStars = type === 'stars';
 
-  const DownloadButton = (
-    <ButtonLink
-      label={translate('download')}
-      link={{
-        target: '_blank',
-        href: downloadUrl
-      }}
-      data-name={`download-${type}-button`}
-      aria-label={`download ${type} button`}
-      customStyle={{backgroundColor: '#F1F6FE', color: '#0061FF', width: 'auto'}}
-      icon={{
-        position: 'left',
-        faIcon: {
-          name: 'download',
-          color: '#0061FF',
-          size: 14,
-          customStyle: {padding: 0}
-        }
-      }}
-      disabled={isLocked}
-    />
-  );
+  const downloadButtonProps = {
+    label: translate('download'),
+    link: {
+      target: '_blank',
+      href: downloadUrl
+    },
+    'data-name': `download-${type}-button`,
+    'aria-label': `download ${type} button`,
+    customStyle: {
+      backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
+      color: primarySkinColor,
+      width: 'auto',
+      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+    },
+    hoverBackgroundColor: primarySkinColor,
+    hoverColor: COLORS.white,
+    icon: {
+      position: 'left',
+      faIcon: {
+        name: 'download',
+        color: primarySkinColor,
+        size: 14,
+        customStyle: {padding: 0}
+      }
+    },
+    disabled: isLocked
+  };
 
   const LockedTag = (
     <Tag
@@ -47,7 +55,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
       icon={{
         position: 'left',
         iconName: 'lock',
-        iconColor: '#515161',
+        iconColor: COLORS.cm_grey_500,
         preset: 's',
         customStyle: {padding: 0}
       }}
@@ -93,7 +101,9 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
           {isLocked ? LockedTag : null}
         </div>
 
-        <div className={style.buttonContainer}>{DownloadButton}</div>
+        <div className={style.buttonContainer}>
+          <ButtonLink {...downloadButtonProps} />
+        </div>
       </div>
     </div>
   );
@@ -170,7 +180,8 @@ const commonDetailSectionPropTypes = {
 };
 
 DetailSection.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 DetailSection.propTypes = {

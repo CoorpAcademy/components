@@ -6,7 +6,7 @@ import {
   NovaCompositionCoorpacademyEye as EyeIcon
 } from '@coorpacademy/nova-icons';
 import DragAndDrop from '../drag-and-drop';
-import Link from '../button-link';
+import ButtonLink from '../button-link';
 import {FilesPropType} from '../../util/proptypes';
 import style from './style.css';
 
@@ -99,7 +99,7 @@ const InputFileDraggable = ({
       {labelLink && hrefLink ? (
         <div className={style.templateLink}>
           {labelLink}
-          <Link
+          <ButtonLink
             type="text"
             customStyle={linkCustomStyle}
             link={{href: hrefLink, download: true}}

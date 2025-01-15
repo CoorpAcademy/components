@@ -1,117 +1,80 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import PropTypes from 'prop-types';
-import {identity, getOr, noop} from 'lodash/fp';
-import Provider, {GetSkinFromContext} from '../provider';
+import {identity, noop} from 'lodash/fp';
+import Provider from '../provider';
 import pushToHistory from '../../util/navigation';
 
 const Link = (props, legacyContext) => {
-  const skin = GetSkinFromContext(legacyContext);
   const [hovered, setHovered] = useState(false);
   const {history: {createHref = identity} = {}} = legacyContext;
+
   const {
-    skinHover,
-    hoverColor = getOr('#00B0FF', 'common.primary', skin),
+    hoverColor,
+    hoverBackgroundColor,
     'data-name': dataName = 'link',
-    'aria-label': ariaLabel,
     useButtonTag = false,
-    ...linKElementProps
-  } = props;
-  const {
     href,
     onClick = noop,
-    className,
-    style: propsStyle,
+    style: customStyle,
     children,
-    onMouseLeave = noop,
     onMouseEnter = noop,
+    onMouseLeave = noop,
     download,
-    disabled
+    disabled,
+    ...restProps
   } = props;
+
+  const navigate = useMemo(() => pushToHistory(legacyContext)({href}), [href, legacyContext]);
 
   const handleMouseEnter = useCallback(() => {
     setHovered(true);
-
     onMouseEnter();
   }, [onMouseEnter]);
 
   const handleMouseLeave = useCallback(() => {
     setHovered(false);
-
     onMouseLeave();
   }, [onMouseLeave]);
-
-  const navigate = useMemo(() => pushToHistory(legacyContext)({href}), [href, legacyContext]);
 
   const handleOnClick = useCallback(
     e => {
       onClick(e);
-
-      if (!download) {
-        navigate(e);
-      }
+      if (!download) navigate(e);
     },
     [download, navigate, onClick]
   );
 
-  const _style = useMemo(
-    () =>
-      href || onClick
-        ? null
-        : {
-            pointerEvents: 'none'
-          },
-    [href, onClick]
-  );
-
-  const _hoverStyle = useMemo(
-    () =>
-      skinHover && hovered
-        ? {
-            color: hoverColor
-          }
-        : null,
-    [hoverColor, hovered, skinHover]
-  );
-
-  const _props = useMemo(
-    () => ({
-      ...linKElementProps,
-      'data-name': dataName,
-      'aria-label': ariaLabel,
-      href: disabled || !href ? undefined : createHref(href),
-      onClick: disabled ? noop : handleOnClick,
-      onMouseEnter: handleMouseEnter,
-      onMouseLeave: handleMouseLeave,
-      className,
-      style: {
-        ...propsStyle,
-        ..._style,
-        ..._hoverStyle
-      }
-    }),
-    [
-      _hoverStyle,
-      _style,
-      ariaLabel,
-      className,
-      dataName,
-      handleMouseEnter,
-      handleMouseLeave,
-      handleOnClick,
-      href,
-      disabled,
-      createHref,
-      linKElementProps,
-      propsStyle
-    ]
-  );
+  const style = {
+    ...customStyle,
+    ...(hovered && hoverBackgroundColor ? {backgroundColor: hoverBackgroundColor} : undefined),
+    ...(hovered && hoverColor ? {color: hoverColor} : undefined),
+    ...(href || onClick ? null : {pointerEvents: 'none'})
+  };
 
   return useButtonTag ? (
-    <button {..._props} type="button">
+    <button
+      {...restProps}
+      data-name={dataName}
+      type="button"
+      onClick={disabled ? noop : handleOnClick}
+      style={style}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {children}
     </button>
   ) : (
-    <a {..._props}>{children}</a>
+    <a
+      {...restProps}
+      data-name={dataName}
+      href={disabled || !href ? undefined : createHref(href)}
+      onClick={disabled ? noop : handleOnClick}
+      style={style}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {children}
+    </a>
   );
 };
 
@@ -123,8 +86,8 @@ Link.propTypes = {
   'aria-label': PropTypes.string,
   title: PropTypes.string,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  skinHover: PropTypes.bool,
   hoverColor: PropTypes.string,
+  hoverBackgroundColor: PropTypes.string,
   download: PropTypes.bool,
   onClick: PropTypes.func,
   onMouseEnter: PropTypes.func,

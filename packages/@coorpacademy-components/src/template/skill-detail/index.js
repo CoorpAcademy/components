@@ -65,7 +65,6 @@ const SkillDetail = (props, context) => {
     focused,
     availableForReview,
     ongoingCoursesAvailable,
-    totalCourses,
     skillIncludedCourses,
     filters,
     sorting,
@@ -74,7 +73,7 @@ const SkillDetail = (props, context) => {
     onContinueLearningClick
   } = props;
   const descriptionRef = useRef(null);
-  const {score = 0, questionsToReview} = metrics;
+  const {score = 0, questionsToReview, totalContents} = metrics;
   const {translate} = context;
 
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
@@ -199,7 +198,7 @@ const SkillDetail = (props, context) => {
           content={skillIncludedCourses}
           filters={filters}
           sorting={sorting}
-          totalContents={totalCourses}
+          totalContents={totalContents}
         />
       </div>
     </div>
@@ -217,12 +216,12 @@ SkillDetail.propTypes = {
   description: PropTypes.string,
   metrics: PropTypes.shape({
     score: PropTypes.number,
-    questionsToReview: PropTypes.number
+    questionsToReview: PropTypes.number,
+    totalContents: PropTypes.number
   }),
   focused: PropTypes.bool,
   availableForReview: PropTypes.bool,
   ongoingCoursesAvailable: PropTypes.bool,
-  totalCourses: PropTypes.number,
   skillIncludedCourses: PropTypes.shape(CardsGrid.propTypes),
   filters: PropTypes.shape({
     onChange: PropTypes.func,

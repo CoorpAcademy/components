@@ -92,8 +92,8 @@ const ButtonLinkIcon = props => {
           className={styleButton}
           data-name={dataName}
           aria-label={ariaLabel}
+          onMouseEnter={handleMouseOver}
           onMouseLeave={handleMouseLeave}
-          onMouseOver={handleMouseOver}
         >
           {contentView}
         </Link>

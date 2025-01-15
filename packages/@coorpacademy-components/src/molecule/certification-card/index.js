@@ -7,16 +7,19 @@ import ProgressBar from '../progress-bar';
 import style from './style.css';
 
 const CertificationCard = (props, context) => {
-  const {label, goal, progress, imgUrl, onClick} = props;
   const {
-    title,
-    condition: {nbDone}
-  } = goal;
+    label,
+    locales: {conditionDescriptionProgress, tag},
+    goal: {title},
+    progress,
+    imgUrl,
+    onClick
+  } = props;
   const {translate} = context;
-
   const isInprogress = progress < 100;
   const progressLabel = isInprogress ? translate('in_progress') : translate('completed');
   const progressTagType = isInprogress ? 'progress' : 'success';
+
   const progressIconProps = {
     position: 'left',
     iconName: isInprogress ? 'clock' : 'circle-check',
@@ -28,6 +31,7 @@ const CertificationCard = (props, context) => {
     },
     customStyle: {padding: 0}
   };
+
   return (
     <div className={style.container} data-name={`certification-card-${label}`} onClick={onClick}>
       {progress > 0 ? (
@@ -45,14 +49,11 @@ const CertificationCard = (props, context) => {
       </div>
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>
-          <Tag label={translate('certification')} size="S" />
+          <Tag label={tag} size="S" />
           <div className={style.title} data-name="certification-title">
             {title}
           </div>
-          <div className={style.moduleCount}>
-            <span>{nbDone}</span>
-            {` ${translate('certification_module')}`}
-          </div>
+          <div className={style.moduleCount}>{conditionDescriptionProgress}</div>
         </div>
         <ProgressBar
           className={style.customProgressBar}
@@ -80,7 +81,11 @@ CertificationCard.propTypes = {
   }),
   progress: PropTypes.number,
   imgUrl: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  locales: PropTypes.shape({
+    conditionDescriptionProgress: PropTypes.string,
+    tag: PropTypes.string
+  })
 };
 
 export default CertificationCard;

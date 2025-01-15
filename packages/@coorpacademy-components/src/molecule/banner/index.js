@@ -6,7 +6,7 @@ import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as QuestionIcon,
   NovaCompositionCoorpacademyValidate as ValidateIcon
 } from '@coorpacademy/nova-icons';
-import Link from '../../atom/button-link';
+import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const ICONS = {
@@ -47,7 +47,7 @@ const Banner = props => {
       </div>
       {firstCTALabel ? (
         <div className={classnames(style.button, STYLES[type])}>
-          <Link
+          <ButtonLink
             data-name="first-banner-cta"
             aria-label={firstCTALabel}
             label={firstCTALabel}
@@ -61,7 +61,7 @@ const Banner = props => {
       ) : null}
       {secondCTALabel ? (
         <div className={classnames(style.button, STYLES[type])}>
-          <Link
+          <ButtonLink
             data-name="second-banner-cta"
             onClick={secondCTA}
             aria-label={secondCTALabel}

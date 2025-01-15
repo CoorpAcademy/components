@@ -3,6 +3,7 @@ import {defaultProps} from './default';
 export default {
   props: {
     ...defaultProps,
+    tag: 'Passport',
     badgeUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
     description: `**Conditions** - complete the Basics levels of the following courses:
  - The tire e-commerce market

@@ -10,7 +10,10 @@ export const defaultProps = {
       },
       progress: 23,
       imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
-      onClick: () => console.log('click')
+      onClick: () => console.log('click'),
+      locales: {
+        conditionDescriptionProgress: '23 modules to complete'
+      }
     },
     {
       label: 'label2',
@@ -22,7 +25,10 @@ export const defaultProps = {
       },
       progress: 100,
       imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
-      onClick: () => console.log('click')
+      onClick: () => console.log('click'),
+      locales: {
+        conditionDescriptionProgress: '13 modules to complete'
+      }
     },
     {
       label: 'label3',
@@ -34,7 +40,10 @@ export const defaultProps = {
       },
       progress: 0,
       imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
-      onClick: () => console.log('click')
+      onClick: () => console.log('click'),
+      locales: {
+        conditionDescriptionProgress: '10 modules to complete'
+      }
     }
   ],
   sorting: {
@@ -57,6 +66,13 @@ export const defaultProps = {
       }
     ],
     onChange: value => console.log(value)
+  },
+  locales: {
+    title: 'Certificates',
+    subtitle:
+      'Demonstrate your knowledge and skills, helping you stand out in your career and achieve rewarding milestones along the way.',
+    tag: 'Certification',
+    count: '3 certificates'
   }
 };
 

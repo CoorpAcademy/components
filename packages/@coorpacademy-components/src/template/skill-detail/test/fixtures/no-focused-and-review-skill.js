@@ -10,15 +10,13 @@ export const defaultProps = {
     'Conflict management is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
   metrics: {
     score: 60,
-    content: 89,
-    questionsToReview: 25,
-    contentCompleted: 50
+    totalContents: 10,
+    questionsToReview: 25
   },
   focused: false,
   availableForReview: false,
   ongoingCoursesAvailable: true,
   skillIncludedCourses: allCourses,
-  totalCourses: 10,
   filters: {
     options: [
       {
