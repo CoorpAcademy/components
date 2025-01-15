@@ -27,7 +27,7 @@
   "items": "kohteita",
   "certificate": "Todistus",
   "certification": "Sertifiointi",
-  "certification_progress_wrapper_subtitle": "Jotta voit avata palkintosi ja suorittaa tämän todistuksen, saavuta seuraava tavoite",
+  "certification_progress_wrapper_subtitle": "To unlock your rewards, reach the following goal",
   "chapters": "kappaleet",
   "Close": "Sulje",
   "clue_stars_to_loose_plural": "Jos avaat tämän vihjeen, voitat tästä kysymyksestä {{count}} tähteä vähemmän (jos saat sen oikein)",
