@@ -1,7 +1,7 @@
 import React, {useMemo, useState, useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {entries, map, pipe, get, values, slice, size} from 'lodash/fp';
+import {entries, map, pipe, get, values, slice, size, uniq} from 'lodash/fp';
 import BaseModal from '../base-modal';
 import SelectIcon from '../../atom/select-icon';
 import Provider from '../../atom/provider';
@@ -20,7 +20,7 @@ const IconPickerModal = (props, context) => {
   const [displayedIcons, setDisplayedIcons] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const allIcons = useMemo(() => pipe(values, map(get('iconName')))(fas), []);
+  const allIcons = useMemo(() => pipe(values, map(get('iconName')), uniq)(fas), []);
   const {searchValue, searchResults, handleSearch, handleReset} = useIconSearch(allIcons);
 
   const handleCancel = useCallback(() => {
