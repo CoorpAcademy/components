@@ -27,7 +27,7 @@
   "items": "Artikel",
   "certificate": "Zertifikat",
   "certification": "Zertifizierung",
-  "certification_progress_wrapper_subtitle": "Um Ihre Belohnungen freizuschalten und diese Zertifizierung abzuschließen, müssen Sie folgendes Ziel erreichen:",
+  "certification_progress_wrapper_subtitle": "To unlock your rewards, reach the following goal",
   "chapters": "Kapitel",
   "Close": "Schliessen",
   "clue_stars_to_loose_plural": "Wenn Sie den Hinweis benutzen, reduziert sich die Anzahl Sterne, die Sie bei dieser Frage gewinnen können um {{count}}  (wenn Sie richtig antworten)",
