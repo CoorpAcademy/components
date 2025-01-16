@@ -30,9 +30,7 @@ const ListItem = (
     isBulkStyle = false,
     isOverflowHidden = false,
     onClick = noop,
-    leftIcon,
-    editAsIcon = false,
-    deleteAsIcon = false
+    leftIcon
   },
   context
 ) => {
@@ -77,19 +75,6 @@ const ListItem = (
         {order + 1}
       </div>
     ) : null;
-
-  const renderButton = (buttonProps, isIcon, defaultIcon, customClass) => {
-    if (isIcon && buttonProps) {
-      return (
-        <FaIcon
-          iconName={buttonProps.icon?.type || defaultIcon}
-          onClick={buttonProps.onClick || noop}
-          className={customClass}
-        />
-      );
-    }
-    return buttonProps ? <ButtonLink {...buttonProps} /> : null;
-  };
 
   return (
     <div
@@ -144,8 +129,8 @@ const ListItem = (
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
-        {renderButton(buttonLink, editAsIcon, 'edit', style.editIcon)}
-        {renderButton(secondButtonLink, deleteAsIcon, 'delete', style.deleteIcon)}
+        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
+        {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
           <BulletPointMenuButton {...bulletPointMenuButton} />
         ) : null}

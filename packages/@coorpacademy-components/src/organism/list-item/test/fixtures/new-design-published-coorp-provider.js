@@ -18,17 +18,21 @@ export default {
       preset: 'xl'
     },
     buttonLink: {
-      type: 'secondary',
-      label: 'Edit',
-      ariaLabel: 'aria button',
-      dataName: 'default-button',
+      type: 'primary',
+      customStyle: {
+        width: 'fit-content',
+        backgroundColor: 'transparent'
+      },
       icon: {
         position: 'left',
-        type: 'edit'
+        faIcon: {
+          name: 'edit',
+          color: '#515161',
+          size: 16
+        }
       },
       onClick: () => console.log('click')
     },
-    editAsIcon: true,
     bulletPointMenuButton: {
       buttonAriaLabel: 'aria button',
       menuAriaLabel: 'aria menu',
