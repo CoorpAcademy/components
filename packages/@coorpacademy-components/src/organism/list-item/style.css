@@ -94,7 +94,7 @@
   margin-left: 8px;
 }
 
-.editIcon {
+.editIcon .deleteIcon {
   cursor: pointer;
   color: cm_grey_900;
   margin-left: 8px;

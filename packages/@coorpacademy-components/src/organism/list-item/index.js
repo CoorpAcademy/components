@@ -31,7 +31,8 @@ const ListItem = (
     isOverflowHidden = false,
     onClick = noop,
     leftIcon,
-    editAsIcon = false
+    editAsIcon = false,
+    deleteAsIcon = false
   },
   context
 ) => {
@@ -77,22 +78,17 @@ const ListItem = (
       </div>
     ) : null;
 
-  const handleButtonLinkClick = buttonLink?.onClick || noop;
-
-  const handleRenderButtonLink = () => {
-    if (editAsIcon && buttonLink) {
+  const renderButton = (buttonProps, isIcon, defaultIcon, customClass) => {
+    if (isIcon && buttonProps) {
       return (
         <FaIcon
-          iconName={buttonLink.icon?.type || 'edit'}
-          onClick={handleButtonLinkClick}
-          className={style.editIcon}
+          iconName={buttonProps.icon?.type || defaultIcon}
+          onClick={buttonProps.onClick || noop}
+          className={customClass}
         />
       );
     }
-    if (buttonLink) {
-      return <ButtonLink {...buttonLink} />;
-    }
-    return null;
+    return buttonProps ? <ButtonLink {...buttonProps} /> : null;
   };
 
   return (
@@ -148,8 +144,8 @@ const ListItem = (
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
-        {handleRenderButtonLink()}
-        {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
+        {renderButton(buttonLink, editAsIcon, 'edit', style.editIcon)}
+        {renderButton(secondButtonLink, deleteAsIcon, 'delete', style.deleteIcon)}
         {!isEmpty(bulletPointMenuButton) ? (
           <BulletPointMenuButton {...bulletPointMenuButton} />
         ) : null}
@@ -235,7 +231,8 @@ ListItem.propTypes = {
     size: PropTypes.number,
     wrapperSize: PropTypes.number
   }),
-  editAsIcon: PropTypes.bool
+  editAsIcon: PropTypes.bool,
+  deleteAsIcon: PropTypes.bool
 };
 
 export default ListItem;
