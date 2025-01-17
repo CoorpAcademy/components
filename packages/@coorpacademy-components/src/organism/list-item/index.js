@@ -215,9 +215,7 @@ ListItem.propTypes = {
     gradientBackground: PropTypes.bool,
     size: PropTypes.number,
     wrapperSize: PropTypes.number
-  }),
-  editAsIcon: PropTypes.bool,
-  deleteAsIcon: PropTypes.bool
+  })
 };
 
 export default ListItem;
