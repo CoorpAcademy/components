@@ -30,8 +30,7 @@ const ListItem = (
     isBulkStyle = false,
     isOverflowHidden = false,
     onClick = noop,
-    leftIcon,
-    editAsIcon = false
+    leftIcon
   },
   context
 ) => {
@@ -76,24 +75,6 @@ const ListItem = (
         {order + 1}
       </div>
     ) : null;
-
-  const handleButtonLinkClick = buttonLink?.onClick || noop;
-
-  const handleRenderButtonLink = () => {
-    if (editAsIcon && buttonLink) {
-      return (
-        <FaIcon
-          iconName={buttonLink.icon?.type || 'edit'}
-          onClick={handleButtonLinkClick}
-          className={style.editIcon}
-        />
-      );
-    }
-    if (buttonLink) {
-      return <ButtonLink {...buttonLink} />;
-    }
-    return null;
-  };
 
   return (
     <div
@@ -148,7 +129,7 @@ const ListItem = (
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
-        {handleRenderButtonLink()}
+        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
         {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
           <BulletPointMenuButton {...bulletPointMenuButton} />
@@ -234,8 +215,7 @@ ListItem.propTypes = {
     gradientBackground: PropTypes.bool,
     size: PropTypes.number,
     wrapperSize: PropTypes.number
-  }),
-  editAsIcon: PropTypes.bool
+  })
 };
 
 export default ListItem;
