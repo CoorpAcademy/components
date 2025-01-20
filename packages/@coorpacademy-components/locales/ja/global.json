@@ -44,7 +44,7 @@
   "learning_priority_modal_title": "新たな学習の優先順位",
   "learning_priority_modal_description": "スキル、プレイリスト、または認定資格のいずれかを選択して、学習の優先順位を作成します。",
   "locked": "ロック済み",
-  "icon_picker_title": "Change icon",
+  "icon_picker_title": "アイコンの変更",
   "icon_picker_description": "Select a new icon for your skill",
   "skills_change_focus": "スキルフォーカスを変更する",
   "skills_choose_focus": "フォーカスを選択してください",
