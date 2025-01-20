@@ -7,7 +7,7 @@ import InputText from '../../atom/input-text';
 import TextArea from '../../atom/input-textarea';
 import style from './style.css';
 
-const InputGroup = ({title, inputProps, textAreaProps, disabled = false}) => {
+const renderInputGroup = ({title, inputProps, textAreaProps, disabled}) => {
   return (
     <div className={style.inputGroup}>
       <div className={style.title}>{title}</div>
@@ -15,13 +15,6 @@ const InputGroup = ({title, inputProps, textAreaProps, disabled = false}) => {
       <TextArea {...textAreaProps} disabled={disabled} />
     </div>
   );
-};
-
-InputGroup.propTypes = {
-  title: PropTypes.string,
-  inputProps: InputText.propTypes,
-  textAreaProps: TextArea.propTypes,
-  disabled: PropTypes.bool
 };
 
 const TranslationModal = (props, context) => {
@@ -93,30 +86,31 @@ const TranslationModal = (props, context) => {
       <div className={style.translationModal}>
         <div className={style.horizontalSection}>
           {/* Left Section */}
-          <InputGroup
-            title={inputLanguage}
-            inputProps={{...sourceInputText}}
-            textAreaProps={{...sourceTextArea}}
-            disabled
-          />
+          {renderInputGroup({
+            title: inputLanguage,
+            inputProps: sourceInputText,
+            textAreaProps: sourceTextArea,
+            disabled: true
+          })}
 
           {/* Separator */}
           <div className={style.separator} />
 
           {/* Right Section */}
-          <InputGroup
-            title={outputLanguage}
-            inputProps={{
+          {renderInputGroup({
+            title: outputLanguage,
+            inputProps: {
               ...targetInputText,
               value: inputValue,
               onChange: handleInputChange
-            }}
-            textAreaProps={{
+            },
+            textAreaProps: {
               ...targetTextArea,
               value: textAreaValue,
               onChange: handleTextAreaChange
-            }}
-          />
+            },
+            disabled: false
+          })}
         </div>
       </div>
     </BaseModal>
