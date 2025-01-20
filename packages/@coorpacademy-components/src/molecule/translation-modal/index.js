@@ -18,9 +18,9 @@ const InputGroup = ({title, inputProps, textAreaProps, disabled = false}) => {
 };
 
 InputGroup.propTypes = {
-  title: PropTypes.string.isRequired,
-  inputProps: InputText.propTypes.isRequired,
-  textAreaProps: TextArea.propTypes.isRequired,
+  title: PropTypes.string,
+  inputProps: InputText.propTypes,
+  textAreaProps: TextArea.propTypes,
   disabled: PropTypes.bool
 };
 
