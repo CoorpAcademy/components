@@ -45,7 +45,7 @@
   "learning_priority_modal_description": "Bir beceri, çalma listesi veya sertifika seçerek bir öğrenme önceliği oluşturun.",
   "locked": "Kilitli",
   "icon_picker_title": "Change icon",
-  "icon_picker_description": "Select a new icon for your skill",
+  "icon_picker_description": "Beceriniz için yeni bir simge seçin",
   "skills_change_focus": "Beceri odağını değiştir",
   "skills_choose_focus": "Odağını seç",
   "cancel": "İptal et",
