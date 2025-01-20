@@ -45,7 +45,7 @@
   "learning_priority_modal_description": "Создайте приоритет обучения, выбрав один навык, плейлист или сертификат.",
   "locked": "Заблокировано",
   "icon_picker_title": "Значок изменения",
-  "icon_picker_description": "Select a new icon for your skill",
+  "icon_picker_description": "Выберите новую иконку для своего навыка",
   "skills_change_focus": "Изменить фокус навыков",
   "skills_choose_focus": "Выберите свой фокус",
   "cancel": "Отменить",
