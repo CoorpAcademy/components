@@ -1,0 +1,46 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_grey_700 from colors;
+
+.translationModal {
+  height: 612px;
+  width: calc(71vw - 68px);
+  max-width: 612px;
+}
+
+@media mobile {
+  .translationModal {
+    width: 100%;
+  }
+}
+
+.title {
+  color: cm_grey_700;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 30px;
+}
+
+.horizontalSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.separator {
+  width: 2px;
+  flex-shrink: 0;
+  height: auto;
+  align-self: stretch;
+  background: cm_grey_100;
+  margin: 0 16px;
+}
