@@ -47,7 +47,7 @@ export type ButtonLinkProps = {
   label?: string;
   content?: React.ReactNode;
   'aria-label'?: string;
-  tooltipPlacement: 'left' | 'right' | 'top' | 'bottom';
+  tooltipPlacement?: 'left' | 'right' | 'top' | 'bottom';
   'data-name'?: string;
   'data-testid'?: string;
   icon?: IconType;
