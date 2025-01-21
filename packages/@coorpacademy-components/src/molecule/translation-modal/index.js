@@ -85,7 +85,6 @@ const TranslationModal = (props, context) => {
     >
       <div className={style.translationModal}>
         <div className={style.horizontalSection}>
-          {/* Left Section */}
           {renderInputGroup({
             title: inputLanguage,
             inputProps: sourceInputText,
@@ -93,10 +92,8 @@ const TranslationModal = (props, context) => {
             disabled: true
           })}
 
-          {/* Separator */}
           <div className={style.separator} />
 
-          {/* Right Section */}
           {renderInputGroup({
             title: outputLanguage,
             inputProps: {
