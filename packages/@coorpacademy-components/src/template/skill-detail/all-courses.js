@@ -131,7 +131,7 @@ const AllCourses = (props, context) => {
             cta={[
               {
                 type: 'switch',
-                labe: translate('banner_microlearning_rule.label'),
+                label: translate('banner_microlearning_rule.label'),
                 action: e => bannerMicrolearningRuleAction(e)
               }
             ]}
