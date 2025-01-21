@@ -1,12 +1,14 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {keys, noop, isEmpty} from 'lodash/fp';
+import {keys, noop, isEmpty, map} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
+
+const uncappedMap = map.convert({cap: false});
 
 const TYPES = {
   success: ['circle-check', COLORS.cm_positive_200],
@@ -23,7 +25,7 @@ const STYLES = {
 };
 
 const Banner = props => {
-  const {type, message, firstCTA = {}, secondCTA = {}, temporary, bannerKey, onEnd} = props;
+  const {type, message, cta = [], temporary, bannerKey, onEnd} = props;
   const [switchValue, setSwitchValue] = useState(false);
 
   const handleSwitchToggle = useCallback(
@@ -34,32 +36,46 @@ const Banner = props => {
     [switchValue, setSwitchValue]
   );
 
-  const buildCta = options => {
-    if (isEmpty(options)) return null;
+  const ButtonSeparator = <div className={classnames(style.buttonsBar, STYLES[type])} />;
 
-    const {type: buttonType, label, action = noop} = options;
+  const buildButton = ({type: buttonType, label, action = noop}) => {
     switch (buttonType) {
       case 'switch':
         return (
-          <InputSwitch
-            title={label}
-            value={switchValue}
-            onChange={handleSwitchToggle(action)}
-            data-name={`banner-switch-cta`}
-            aria-label={label}
-          />
+          <div className={classnames(style.button, STYLES[type])}>
+            <InputSwitch
+              title={label}
+              value={switchValue}
+              onChange={handleSwitchToggle(action)}
+              data-name={`banner-switch-cta`}
+              aria-label={label}
+            />
+          </div>
         );
       default:
         return (
-          <ButtonLink
-            data-name="banner-button-cta"
-            aria-label={label}
-            label={label}
-            onClick={action}
-            type="text"
-          />
+          <div className={classnames(style.button, STYLES[type])}>
+            <ButtonLink
+              data-name="banner-button-cta"
+              aria-label={label}
+              label={label}
+              onClick={action}
+              type="text"
+            />
+          </div>
         );
     }
+  };
+
+  const buildCta = (options, i) => {
+    if (isEmpty(options)) return null;
+
+    return (
+      <React.Fragment key={i}>
+        {i > 0 ? ButtonSeparator : null}
+        {buildButton(options)}
+      </React.Fragment>
+    );
   };
 
   const [iconName, iconColor] = TYPES[type];
@@ -79,9 +95,7 @@ const Banner = props => {
         />
         {message}
       </div>
-      <div className={classnames(style.button, STYLES[type])}>{buildCta(firstCTA)}</div>
-      {!isEmpty(secondCTA) ? <div className={classnames(style.buttonsBar, STYLES[type])} /> : null}
-      <div className={classnames(style.button, STYLES[type])}>{buildCta(secondCTA)}</div>
+      {uncappedMap(buildCta, cta)}
     </div>
   );
 };
@@ -96,8 +110,7 @@ Banner.propTypes = {
   bannerKey: PropTypes.string,
   type: PropTypes.oneOf(keys(TYPES)),
   message: PropTypes.string.isRequired,
-  firstCTA: ctaPropTypes,
-  secondCTA: ctaPropTypes,
+  cta: PropTypes.arrayOf(ctaPropTypes),
   temporary: PropTypes.bool,
   onEnd: PropTypes.func
 };

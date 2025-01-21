@@ -129,6 +129,10 @@
     background-color: cm_positive_100;
 }
 
+.buttonsBar.info {
+    background-color: cm_grey_700;
+}
+
 .icon {
     height: 22px;
     margin-right: 16px;
