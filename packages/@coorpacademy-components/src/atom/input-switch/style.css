@@ -86,6 +86,10 @@
   left: 30px;
 }
 
+.coorpmanager input:checked ~ label::after {
+  left: 23px;
+}
+
 .checkbox:disabled ~ label {
   background: light;
   pointer-events: none;
@@ -108,6 +112,10 @@
   min-height: 24px;
 }
 
+.coorpmanager .title {
+  width: fit-content;
+}
+
 .description {
   font-family: 'Gilroy';
   font-weight: 500;
@@ -126,6 +134,7 @@
 }
 
 .coorpmanager label::after, .coorpmanagerModified label::after {
+  top: 1px;
   width: 22px;
   height: 22px;
 }
@@ -134,7 +143,6 @@
   font-family: Gilroy;
   font-weight: bold;
   color: black;
-  min-width: 190px;
 }
 
 .coorpmanager .checkbox:checked ~ label {

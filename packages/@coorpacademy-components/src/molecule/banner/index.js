@@ -44,6 +44,7 @@ const Banner = props => {
         return (
           <div className={classnames(style.button, STYLES[type])}>
             <InputSwitch
+              theme="coorpmanager"
               title={label}
               value={switchValue}
               onChange={handleSwitchToggle(action)}
