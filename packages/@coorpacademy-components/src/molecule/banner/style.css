@@ -12,6 +12,8 @@
 @value cm_yellow_100 from colors;
 @value cm_yellow_200 from colors;
 @value cm_yellow_400 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_700 from colors;
 
 @keyframes fadeIn {
     0% {
@@ -37,7 +39,7 @@
     align-items: center; 
     gap: 8px; 
     padding: 16px 24px; 
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
 .banner.warning {
@@ -53,6 +55,11 @@
 .banner.success {
     background-color: cm_green_secondary_100;
     color: cm_positive_200;
+}
+
+.banner.info {
+    background-color: cm_grey_100;
+    color: cm_grey_700;
 }
 
 .temporaryBanner {
@@ -103,7 +110,6 @@
     color: color(cm_positive_100 blackness(+12%));
 }
 
-
 .buttonsBar {
     width: 2px;
     align-self: stretch;
@@ -122,7 +128,6 @@
 .buttonsBar.success {
     background-color: cm_positive_100;
 }
-
 
 .icon {
     height: 22px;

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {keys} from 'lodash/fp';
+import {keys, noop, isEmpty} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
+import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
 const TYPES = {
@@ -17,21 +18,50 @@ const TYPES = {
 const STYLES = {
   success: style.success,
   error: style.error,
-  warning: style.warning
+  warning: style.warning,
+  info: style.info
 };
 
 const Banner = props => {
-  const {
-    type,
-    message,
-    firstCTA,
-    firstCTALabel,
-    secondCTALabel,
-    secondCTA,
-    temporary,
-    bannerKey,
-    onEnd
-  } = props;
+  const {type, message, firstCTA = {}, secondCTA = {}, temporary, bannerKey, onEnd} = props;
+  const [switchValue, setSwitchValue] = useState(false);
+
+  const handleSwitchToggle = useCallback(
+    action => () => {
+      setSwitchValue(!switchValue);
+      action();
+    },
+    [switchValue, setSwitchValue]
+  );
+
+  const buildCta = options => {
+    if (isEmpty(options)) return null;
+
+    const {type: buttonType, label, action = noop} = options;
+    switch (buttonType) {
+      case 'switch':
+        return (
+          <InputSwitch
+            title={label}
+            value={switchValue}
+            onChange={handleSwitchToggle(action)}
+            data-name={`banner-switch-cta`}
+            aria-label={label}
+          />
+        );
+      default:
+        return (
+          <ButtonLink
+            data-name="banner-button-cta"
+            aria-label={label}
+            label={label}
+            onClick={action}
+            type="text"
+          />
+        );
+    }
+  };
+
   const [iconName, iconColor] = TYPES[type];
 
   return (
@@ -49,43 +79,25 @@ const Banner = props => {
         />
         {message}
       </div>
-      {firstCTALabel ? (
-        <div className={classnames(style.button, STYLES[type])}>
-          <ButtonLink
-            data-name="first-banner-cta"
-            aria-label={firstCTALabel}
-            label={firstCTALabel}
-            onClick={firstCTA}
-            type="text"
-          />
-        </div>
-      ) : null}
-      {firstCTALabel && secondCTALabel ? (
-        <div className={classnames(style.buttonsBar, STYLES[type])} />
-      ) : null}
-      {secondCTALabel ? (
-        <div className={classnames(style.button, STYLES[type])}>
-          <ButtonLink
-            data-name="second-banner-cta"
-            onClick={secondCTA}
-            aria-label={secondCTALabel}
-            label={secondCTALabel}
-            type="text"
-          />
-        </div>
-      ) : null}
+      <div className={classnames(style.button, STYLES[type])}>{buildCta(firstCTA)}</div>
+      {!isEmpty(secondCTA) ? <div className={classnames(style.buttonsBar, STYLES[type])} /> : null}
+      <div className={classnames(style.button, STYLES[type])}>{buildCta(secondCTA)}</div>
     </div>
   );
 };
+
+const ctaPropTypes = PropTypes.shape({
+  label: PropTypes.string,
+  type: PropTypes.oneOf(['button', 'switch']),
+  action: PropTypes.func
+});
 
 Banner.propTypes = {
   bannerKey: PropTypes.string,
   type: PropTypes.oneOf(keys(TYPES)),
   message: PropTypes.string.isRequired,
-  firstCTA: PropTypes.func,
-  firstCTALabel: PropTypes.string,
-  secondCTALabel: PropTypes.string,
-  secondCTA: PropTypes.func,
+  firstCTA: ctaPropTypes,
+  secondCTA: ctaPropTypes,
   temporary: PropTypes.bool,
   onEnd: PropTypes.func
 };
