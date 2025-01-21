@@ -3,11 +3,13 @@ export default {
     id: 'default',
     title: '🇫🇷 French',
     buttonLink: {
+      'aria-label': 'See',
       type: 'primary',
       customStyle: {
         width: 'fit-content',
-        backgroundColor: '#EAEAEB'
+        backgroundColor: 'transparent'
       },
+      hoverBackgroundColor: "#EAEAEB",
       icon: {
         position: 'left',
         faIcon: {

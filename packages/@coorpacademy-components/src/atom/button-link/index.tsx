@@ -6,6 +6,7 @@ import FaIcon from '../icon';
 import {ICONS} from '../../util/button-icons';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
+import ToolTip from '../tooltip';
 
 const getButtonContent = (
   icon?: IconType,
@@ -56,6 +57,25 @@ const getButtonContent = (
   );
 };
 
+const TooltipContent = ({ ariaLabel }: { ariaLabel: string }) => (
+  <span className={style.tooltipContentWrapper}>{ariaLabel}</span>
+);
+
+const renderToolTip = (hovered: boolean,tooltipPlacement: string, ariaLabel?: string) => {
+  if (!ariaLabel) return null;
+
+  return (
+    <ToolTip
+      fontSize={12}
+      anchorId="button-icon"
+      toolTipIsVisible={hovered}
+      placement={tooltipPlacement}
+      TooltipContent={() => <TooltipContent ariaLabel={ariaLabel} />}
+      closeToolTipInformationTextAriaLabel={ariaLabel}
+    />
+  );
+};
+
 const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
@@ -69,6 +89,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     'data-name': dataName,
     'data-testid': dataTestId = 'button-link',
     'aria-label': ariaLabel,
+    tooltipPlacement = 'left',
     link,
     onClick = noop,
     onKeyDown = noop,
@@ -79,6 +100,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
   const styleButton = classnames(
     className,
     style.button,
+    !label && style.iconButton,
     type === 'primary' && style.primary,
     type === 'secondary' && style.secondary,
     type === 'tertiary' && style.tertiary,
@@ -119,6 +141,12 @@ const ButtonLink = (props: ButtonLinkProps) => {
         {...(useTitle && {
           title: ariaLabel || label
         })}
+        {...(ariaLabel && !label
+          ? {
+              'data-for': 'button-icon',
+              'data-tip': hovered
+            }
+          : {})}
         style={customStyle}
         className={styleButton}
         data-name={dataName}
@@ -130,6 +158,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         onMouseLeave={handleMouseLeave}
       >
         {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+        {renderToolTip(hovered, tooltipPlacement, ariaLabel)}
       </Link>
     );
   }
@@ -137,8 +166,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
   return (
     <button
       {...(useTitle && {
-        title: ariaLabel || label
+        title: ariaLabel
       })}
+      {...(ariaLabel && !label
+        ? {
+            'data-for': 'button-icon',
+            'data-tip': hovered
+          }
+        : {})}
       // eslint-disable-next-line react/button-has-type
       type={usage}
       aria-label={ariaLabel || label}
@@ -154,6 +189,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       disabled={disabled}
     >
       {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+      {renderToolTip(hovered, tooltipPlacement, ariaLabel)}
     </button>
   );
 };

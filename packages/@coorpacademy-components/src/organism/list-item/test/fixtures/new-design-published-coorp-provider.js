@@ -18,11 +18,13 @@ export default {
       preset: 'xl'
     },
     buttonLink: {
+      'aria-label': 'Edit',
       type: 'primary',
       customStyle: {
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
+      hoverBackgroundColor: "#EAEAEB",
       icon: {
         position: 'left',
         faIcon: {

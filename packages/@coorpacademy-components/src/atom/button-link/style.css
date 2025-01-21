@@ -27,6 +27,11 @@
   user-select: none;
 }
 
+.iconButton {
+  composes: button;
+  padding: 0px 14px;
+}
+
 .disabled {
   opacity: 0.4;
   pointer-events: none;
@@ -95,4 +100,13 @@
   color: inherit;
   border-radius: 0px;
   height: auto;
+}
+
+.tooltipContentWrapper {
+  text-align: left;
+  width: max-content;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }
