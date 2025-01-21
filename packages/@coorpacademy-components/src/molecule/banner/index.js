@@ -30,8 +30,9 @@ const Banner = props => {
 
   const handleSwitchToggle = useCallback(
     action => () => {
-      setSwitchValue(!switchValue);
-      action();
+      const newSwitchValue = !switchValue;
+      setSwitchValue(newSwitchValue);
+      action(newSwitchValue);
     },
     [switchValue, setSwitchValue]
   );
