@@ -38,7 +38,7 @@ const Banner = props => {
 
   const ButtonSeparator = <div className={classnames(style.buttonsBar, STYLES[type])} />;
 
-  const buildButton = ({type: buttonType, label, action = noop}) => {
+  const buildButton = ({type: buttonType = 'button', label, action = noop}) => {
     switch (buttonType) {
       case 'switch':
         return (
