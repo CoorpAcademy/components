@@ -68,17 +68,17 @@ const Banner = props => {
     }
   };
 
-  const buildCta = cta => {
+  const buildCta = ctaOptions => {
     return uncappedMap((options, i) => {
       if (isEmpty(options)) return null;
-  
+
       return (
         <React.Fragment key={i}>
           {i > 0 ? ButtonSeparator : null}
           {buildButton(options)}
         </React.Fragment>
       );
-    }, cta)
+    }, ctaOptions);
   };
 
   const [iconName, iconColor] = TYPES[type];

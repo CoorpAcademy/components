@@ -127,11 +127,11 @@ const AllCourses = (props, context) => {
         {bannerMicrolearningRuleAction ? (
           <Banner
             type="info"
-            message={translate('banner_microlearning_rule.message')}
+            message={translate('banner_microlearning_rule_message')}
             cta={[
               {
                 type: 'switch',
-                label: translate('banner_microlearning_rule.label'),
+                label: translate('banner_microlearning_rule_label'),
                 action: e => bannerMicrolearningRuleAction(e)
               }
             ]}
