@@ -1,7 +1,4 @@
-import cardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
-
-const cards = cardsGrid.props;
-const allCourses = cards;
+import {cardListWithoutMicrolearning} from '../../../../organism/cards-grid/test/fixtures/catalog';
 
 export const defaultProps = {
   title: 'Conflict management',
@@ -21,18 +18,13 @@ export const defaultProps = {
   focused: true,
   availableForReview: true,
   ongoingCoursesAvailable: true,
-  skillIncludedCourses: allCourses,
+  skillIncludedCourses: {list: cardListWithoutMicrolearning},
   filters: {
     options: [
       {
         name: 'All content',
         value: 'ALL',
         selected: true
-      },
-      {
-        name: "5' learning",
-        value: 'microlearning',
-        selected: false
       },
       {
         name: 'Courses',
@@ -70,7 +62,8 @@ export const defaultProps = {
   },
   onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),
-  onContinueLearningClick: () => console.log('Continue learning clicked')
+  onContinueLearningClick: () => console.log('Continue learning clicked'),
+  bannerMicrolearningRuleAction: () => console.log('click on banner')
 };
 
 export default {

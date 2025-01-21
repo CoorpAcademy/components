@@ -25,7 +25,8 @@ const PlaylistDetail = (props, context) => {
     filters,
     sorting,
     onBackClick,
-    onContinueLearningClick
+    onContinueLearningClick,
+    bannerMicrolearningRuleAction = null
   } = props;
   const descriptionRef = useRef(null);
   const {translate} = context;
@@ -95,7 +96,12 @@ const PlaylistDetail = (props, context) => {
             </div>
           </div>
         </div>
-        <AllCourses content={playlistCourses} filters={filters} sorting={sorting} />
+        <AllCourses
+          content={playlistCourses}
+          filters={filters}
+          sorting={sorting}
+          bannerMicrolearningRuleAction={bannerMicrolearningRuleAction}
+        />
       </div>
     </div>
   );
@@ -119,7 +125,8 @@ PlaylistDetail.propTypes = {
   }),
   sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
-  onContinueLearningClick: PropTypes.func
+  onContinueLearningClick: PropTypes.func,
+  bannerMicrolearningRuleAction: PropTypes.func
 };
 
 export default PlaylistDetail;

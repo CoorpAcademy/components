@@ -109,6 +109,10 @@
   text-decoration: underline;
 }
 
+.bannerWrapper {
+  margin-bottom: 16px;
+}
+
 @media tablet {
   .searchAndSortSection {
     flex-direction: column;

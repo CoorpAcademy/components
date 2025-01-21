@@ -8,6 +8,7 @@ import SearchForm from '../../molecule/search-form';
 import CardsGrid from '../../organism/cards-grid';
 import searchValueIncluded from '../../util/search-value-included';
 import InputSwitch from '../../atom/input-switch';
+import Banner from '../../molecule/banner';
 import style from './all-courses.css';
 
 const uncappedMap = map.convert({cap: false});
@@ -47,7 +48,7 @@ FilterButton.propTypes = {
 };
 
 const AllCourses = (props, context) => {
-  const {content, filters, sorting, totalContents} = props;
+  const {content, filters, sorting, totalContents, bannerMicrolearningRuleAction} = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
   const {translate} = context;
@@ -122,6 +123,21 @@ const AllCourses = (props, context) => {
           ) : null}
         </div>
       </div>
+      <div className={style.bannerWrapper}>
+        {bannerMicrolearningRuleAction ? (
+          <Banner
+            type="info"
+            message={translate('banner_microlearning_rule.message')}
+            cta={[
+              {
+                type: 'switch',
+                labe: translate('banner_microlearning_rule.label'),
+                action: e => bannerMicrolearningRuleAction(e)
+              }
+            ]}
+          />
+        ) : null}
+      </div>
       <div className={style.filterWrapper}>
         {size(options) > 2
           ? uncappedMap((filterProps, index) => {
@@ -183,7 +199,8 @@ AllCourses.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes)
+  sorting: PropTypes.shape(Select.propTypes),
+  bannerMicrolearningRuleAction: PropTypes.func
 };
 
 export default AllCourses;
