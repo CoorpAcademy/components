@@ -68,15 +68,17 @@ const Banner = props => {
     }
   };
 
-  const buildCta = (options, i) => {
-    if (isEmpty(options)) return null;
-
-    return (
-      <React.Fragment key={i}>
-        {i > 0 ? ButtonSeparator : null}
-        {buildButton(options)}
-      </React.Fragment>
-    );
+  const buildCta = cta => {
+    return uncappedMap((options, i) => {
+      if (isEmpty(options)) return null;
+  
+      return (
+        <React.Fragment key={i}>
+          {i > 0 ? ButtonSeparator : null}
+          {buildButton(options)}
+        </React.Fragment>
+      );
+    }, cta)
   };
 
   const [iconName, iconColor] = TYPES[type];
@@ -96,7 +98,7 @@ const Banner = props => {
         />
         {message}
       </div>
-      {uncappedMap(buildCta, cta)}
+      {buildCta(cta)}
     </div>
   );
 };
