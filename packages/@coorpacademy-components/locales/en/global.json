@@ -46,6 +46,8 @@
   "locked": "Locked",
   "icon_picker_title": "Change icon",
   "icon_picker_description": "Select a new icon for your skill",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Change skill focus",
   "skills_choose_focus": "Choose your focus",
   "cancel": "Cancel",
