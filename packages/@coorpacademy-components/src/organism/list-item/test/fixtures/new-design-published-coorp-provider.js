@@ -24,7 +24,7 @@ export default {
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
-      hoverBackgroundColor: "#EAEAEB",
+      hoverBackgroundColor: '#EAEAEB',
       icon: {
         position: 'left',
         faIcon: {

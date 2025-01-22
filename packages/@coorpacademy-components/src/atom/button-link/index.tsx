@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import Link from '../link';
 import FaIcon from '../icon';
 import {ICONS} from '../../util/button-icons';
+import ToolTip from '../tooltip';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
-import ToolTip from '../tooltip';
 
 const getButtonContent = (
   icon?: IconType,
@@ -57,25 +57,6 @@ const getButtonContent = (
   );
 };
 
-const TooltipContent = ({ ariaLabel }: { ariaLabel: string }) => (
-  <span className={style.tooltipContentWrapper}>{ariaLabel}</span>
-);
-
-const renderToolTip = (hovered: boolean,tooltipPlacement: string, ariaLabel?: string) => {
-  if (!ariaLabel) return null;
-
-  return (
-    <ToolTip
-      fontSize={12}
-      anchorId="button-icon"
-      toolTipIsVisible={hovered}
-      placement={tooltipPlacement}
-      TooltipContent={() => <TooltipContent ariaLabel={ariaLabel} />}
-      closeToolTipInformationTextAriaLabel={ariaLabel}
-    />
-  );
-};
-
 const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
@@ -122,6 +103,26 @@ const ButtonLink = (props: ButtonLinkProps) => {
 
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
+  const TooltipContent = useCallback(
+    () => <span className={style.tooltipContentWrapper}>{ariaLabel}</span>,
+    [ariaLabel]
+  );
+
+  const renderToolTip = () => {
+    if (!ariaLabel) return null;
+
+    return (
+      <ToolTip
+        fontSize={12}
+        anchorId="button-icon"
+        toolTipIsVisible={hovered}
+        placement={tooltipPlacement}
+        TooltipContent={TooltipContent}
+        closeToolTipInformationTextAriaLabel={ariaLabel}
+      />
+    );
+  };
+
   const _customStyle = useMemo(() => {
     return {
       ...customStyle,
@@ -158,7 +159,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         onMouseLeave={handleMouseLeave}
       >
         {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
-        {renderToolTip(hovered, tooltipPlacement, ariaLabel)}
+        {renderToolTip()}
       </Link>
     );
   }
@@ -189,7 +190,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
       disabled={disabled}
     >
       {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
-      {renderToolTip(hovered, tooltipPlacement, ariaLabel)}
+      {renderToolTip()}
     </button>
   );
 };
