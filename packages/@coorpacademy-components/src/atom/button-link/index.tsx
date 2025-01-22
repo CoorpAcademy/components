@@ -143,12 +143,6 @@ const ButtonLink = (props: ButtonLinkProps) => {
         {...(useTitle && {
           title: ariaLabel || label
         })}
-        {...(ariaLabel && !label
-          ? {
-              'data-for': 'button-icon',
-              'data-tip': hovered
-            }
-          : {})}
         style={customStyle}
         className={styleButton}
         data-name={dataName}
