@@ -70,6 +70,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     'data-name': dataName,
     'data-testid': dataTestId = 'button-link',
     'aria-label': ariaLabel,
+    tooltipText,
     tooltipPlacement = 'left',
     link,
     onClick = noop,
@@ -104,12 +105,12 @@ const ButtonLink = (props: ButtonLinkProps) => {
   const handleMouseLeave = useCallback(() => setHovered(false), [setHovered]);
 
   const TooltipContent = useCallback(
-    () => <span className={style.tooltipContentWrapper}>{ariaLabel}</span>,
-    [ariaLabel]
+    () => <span className={style.tooltipContentWrapper}>{tooltipText || ariaLabel}</span>,
+    [tooltipText, ariaLabel]
   );
 
   const renderToolTip = () => {
-    if (!ariaLabel) return null;
+    if (!tooltipText && !ariaLabel) return null;
 
     return (
       <ToolTip
@@ -118,7 +119,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         toolTipIsVisible={hovered}
         placement={tooltipPlacement}
         TooltipContent={TooltipContent}
-        closeToolTipInformationTextAriaLabel={ariaLabel}
+        closeToolTipInformationTextAriaLabel={tooltipText || ariaLabel || ''}
       />
     );
   };
