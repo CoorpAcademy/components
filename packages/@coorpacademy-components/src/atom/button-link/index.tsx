@@ -168,7 +168,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
   return (
     <button
       {...(useTitle && {
-        title: ariaLabel
+        title: ariaLabel || label
       })}
       {...(ariaLabel && !label
         ? {
