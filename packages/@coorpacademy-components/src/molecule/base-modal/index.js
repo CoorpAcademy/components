@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, get} from 'lodash/fp';
+import {isEmpty, get, debounce} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
@@ -36,16 +36,20 @@ const BaseModal = (props, context) => {
 
     if (!bodyElement) return;
 
+    const debouncedCheckScrollbar = debounce(300, () => {
+      checkScrollbar();
+    });
+
     // Observer of the body content
     const mutationObserver = new MutationObserver(() => {
-      checkScrollbar();
+      debouncedCheckScrollbar();
     });
 
     mutationObserver.observe(bodyElement, {childList: true, subtree: true});
 
     // Observer of the body size
     const resizeObserver = new ResizeObserver(() => {
-      checkScrollbar();
+      debouncedCheckScrollbar();
     });
 
     if (bodyRef.current) {
@@ -57,6 +61,7 @@ const BaseModal = (props, context) => {
     return () => {
       mutationObserver.disconnect();
       resizeObserver.disconnect();
+      debouncedCheckScrollbar.cancel();
     };
   }, [children, detectScrollbar]);
 
