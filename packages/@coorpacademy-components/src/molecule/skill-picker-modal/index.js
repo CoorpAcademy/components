@@ -24,6 +24,7 @@ const SkillPickerModal = (props, context) => {
   } = props;
   const {translate} = context;
 
+  const detectScrollbar = true;
   const [sortedSkills, setSortedSkills] = useState(sortBy(skill => skillsLocales[skill], skills));
   const [currentSort, setCurrentSort] = useState('alphabetical');
   const [selectedSkillList, setSelectedSkillList] = useState(selectedSkills);
@@ -128,6 +129,7 @@ const SkillPickerModal = (props, context) => {
         name: 'bullseye-arrow',
         backgroundColor: '#DDD1FF'
       }}
+      detectScrollbar={detectScrollbar}
     >
       <div className={style.skillPickerContainer}>
         {isLoading ? (

@@ -8,10 +8,20 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const BaseModal = (props, context) => {
-  const {title, description, headerIcon, children, isOpen, footer, onClose, onScroll} = props;
+  const {
+    title,
+    description,
+    headerIcon,
+    children,
+    isOpen,
+    footer,
+    onClose,
+    onScroll,
+    detectScrollbar = false
+  } = props;
   const {skin} = context;
   const bodyRef = useRef(null);
-  const [isScrollbarVisible, setIsScrollbarVisible] = useState(false);
+  const [isScrollbarVisible, setIsScrollbarVisible] = useState(!detectScrollbar);
 
   const checkScrollbar = () => {
     const bodyElement = bodyRef.current;
@@ -21,6 +31,7 @@ const BaseModal = (props, context) => {
   };
 
   useEffect(() => {
+    if (!detectScrollbar) return;
     const bodyElement = bodyRef.current;
 
     if (!bodyElement) return;
@@ -47,7 +58,7 @@ const BaseModal = (props, context) => {
       mutationObserver.disconnect();
       resizeObserver.disconnect();
     };
-  }, [children]);
+  }, [children, detectScrollbar]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -197,7 +208,8 @@ BaseModal.propTypes = {
     })
   ]),
   onClose: PropTypes.func,
-  onScroll: PropTypes.func
+  onScroll: PropTypes.func,
+  detectScrollbar: PropTypes.bool
 };
 
 export default BaseModal;

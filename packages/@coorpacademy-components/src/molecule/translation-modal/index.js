@@ -28,6 +28,8 @@ const TranslationModal = (props, context) => {
   } = props;
   const {translate} = context;
 
+  const detectScrollbar = true;
+
   const [inputValue, setInputValue] = useState(targetInputText?.value || '');
   const [textAreaValue, setTextAreaValue] = useState(targetTextArea?.value || '');
 
@@ -82,6 +84,7 @@ const TranslationModal = (props, context) => {
         name: 'language',
         backgroundColor: '#D6E6FF'
       }}
+      detectScrollbar={detectScrollbar}
     >
       <div className={style.translationModal}>
         <div className={style.horizontalSection}>
