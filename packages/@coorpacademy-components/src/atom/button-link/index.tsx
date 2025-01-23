@@ -119,7 +119,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
         toolTipIsVisible={hovered}
         placement={tooltipPlacement}
         TooltipContent={TooltipContent}
-        closeToolTipInformationTextAriaLabel={tooltipText || ariaLabel || ''}
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        closeToolTipInformationTextAriaLabel={(tooltipText || ariaLabel)!}
       />
     );
   };
