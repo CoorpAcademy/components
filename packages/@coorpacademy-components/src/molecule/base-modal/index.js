@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty, get} from 'lodash/fp';
 import {convert} from 'css-color-function';
@@ -10,6 +10,44 @@ import style from './style.css';
 const BaseModal = (props, context) => {
   const {title, description, headerIcon, children, isOpen, footer, onClose, onScroll} = props;
   const {skin} = context;
+  const bodyRef = useRef(null);
+  const [isScrollbarVisible, setIsScrollbarVisible] = useState(false);
+
+  const checkScrollbar = () => {
+    const bodyElement = bodyRef.current;
+    if (bodyElement) {
+      setIsScrollbarVisible(bodyElement.scrollHeight > bodyElement.clientHeight);
+    }
+  };
+
+  useEffect(() => {
+    const bodyElement = bodyRef.current;
+
+    if (!bodyElement) return;
+
+    // Observer of the body content
+    const mutationObserver = new MutationObserver(() => {
+      checkScrollbar();
+    });
+
+    mutationObserver.observe(bodyElement, {childList: true, subtree: true});
+
+    // Observer of the body size
+    const resizeObserver = new ResizeObserver(() => {
+      checkScrollbar();
+    });
+
+    if (bodyRef.current) {
+      resizeObserver.observe(bodyRef.current);
+    }
+
+    checkScrollbar();
+
+    return () => {
+      mutationObserver.disconnect();
+      resizeObserver.disconnect();
+    };
+  }, [children]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -111,7 +149,12 @@ const BaseModal = (props, context) => {
             <Icon iconName="close" backgroundColor="#F4F4F5" size={{faSize: 14, wrapperSize: 28}} />
           </div>
         </header>
-        <div className={style.body} onScroll={onScroll} data-testid="modal-body">
+        <div
+          ref={bodyRef}
+          className={`${isScrollbarVisible ? style.body : style.bodyWithoutScrollbar}`}
+          onScroll={onScroll}
+          data-testid="modal-body"
+        >
           {children}
         </div>
         <Footer />

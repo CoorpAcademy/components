@@ -3,7 +3,6 @@
 @value cm_grey_700 from colors;
 
 .translationModal {
-  height: 612px;
   width: calc(71vw - 68px);
   max-width: 612px;
 }
