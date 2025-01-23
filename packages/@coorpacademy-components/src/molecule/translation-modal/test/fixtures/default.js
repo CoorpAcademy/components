@@ -53,6 +53,7 @@ export default {
       },
       textArea: {
         type: 'textarea',
+        name: 'Description target',
         title: 'Description',
         hint: '215/400 characters',
         placeholder: 'This is an input',
