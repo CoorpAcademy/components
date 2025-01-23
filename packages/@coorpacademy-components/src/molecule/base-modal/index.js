@@ -36,7 +36,7 @@ const BaseModal = (props, context) => {
 
     if (!bodyElement) return;
 
-    const debouncedCheckScrollbar = debounce(300, () => {
+    const debouncedCheckScrollbar = debounce(100, () => {
       checkScrollbar();
     });
 
