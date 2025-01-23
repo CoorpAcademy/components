@@ -167,7 +167,7 @@ const BaseModal = (props, context) => {
         </header>
         <div
           ref={bodyRef}
-          className={`${isScrollbarVisible ? style.body : style.bodyWithoutScrollbar}`}
+          className={isScrollbarVisible ? style.body : style.bodyWithoutScrollbar}
           onScroll={onScroll}
           data-testid="modal-body"
         >
