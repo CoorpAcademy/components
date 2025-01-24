@@ -46,6 +46,8 @@
   "locked": "Låst",
   "icon_picker_title": "Ändra ikon",
   "icon_picker_description": "Välj en ny ikon för din kompetens",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Ändra färdighetsfokus",
   "skills_choose_focus": "Välj fokus",
   "cancel": "Avbryt",
