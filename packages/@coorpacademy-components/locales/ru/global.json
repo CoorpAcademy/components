@@ -46,6 +46,8 @@
   "locked": "Заблокировано",
   "icon_picker_title": "Значок изменения",
   "icon_picker_description": "Выберите новую иконку для своего навыка",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Изменить фокус навыков",
   "skills_choose_focus": "Выберите свой фокус",
   "cancel": "Отменить",
