@@ -46,6 +46,8 @@
   "locked": "잠김",
   "icon_picker_title": "변경 아이콘",
   "icon_picker_description": "스킬의 새 아이콘을 선택하세요.",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "집중 기술 변경하기",
   "skills_choose_focus": "집중할 분야 선택",
   "cancel": "취소",
