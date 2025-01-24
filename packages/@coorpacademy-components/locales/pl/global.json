@@ -46,6 +46,8 @@
   "locked": "Zablokowane",
   "icon_picker_title": "Ikona zmiany",
   "icon_picker_description": "Wybierz nową ikonę dla swojej umiejętności",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Zmień wybrane umiejętności",
   "skills_choose_focus": "Wybierz umiejętności",
   "cancel": "Anuluj",
