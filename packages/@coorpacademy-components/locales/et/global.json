@@ -46,6 +46,8 @@
   "locked": "Lukustatud",
   "icon_picker_title": "Muuda ikooni",
   "icon_picker_description": "Valige oma oskuse jaoks uus ikoon",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Muuda oskusfookust",
   "skills_choose_focus": "Vali oma fookus",
   "cancel": "Tühista",
