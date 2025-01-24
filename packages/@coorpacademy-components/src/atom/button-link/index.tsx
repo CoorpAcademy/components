@@ -110,8 +110,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
   );
 
   const renderToolTip = () => {
-    if (!tooltipText && !ariaLabel) return null;
-
+    const closeToolTipInformationTextAriaLabel = tooltipText || ariaLabel;
+    if (!closeToolTipInformationTextAriaLabel) return null;
     return (
       <ToolTip
         fontSize={12}
@@ -119,8 +119,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         toolTipIsVisible={hovered}
         placement={tooltipPlacement}
         TooltipContent={TooltipContent}
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        closeToolTipInformationTextAriaLabel={(tooltipText || ariaLabel)!}
+        closeToolTipInformationTextAriaLabel={closeToolTipInformationTextAriaLabel}
       />
     );
   };

@@ -4,6 +4,7 @@ const fixture: Fixture = {
   props: {
     'aria-label': 'Edit',
     type: 'primary',
+    useTitle: false,
     customStyle: {
       width: 'fit-content',
       backgroundColor: 'transparent'
