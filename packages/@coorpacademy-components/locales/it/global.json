@@ -46,6 +46,8 @@
   "locked": "Bloccato",
   "icon_picker_title": "Cambia icona",
   "icon_picker_description": "Selezionate una nuova icona per la vostra abilità",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Cambia la messa a fuoco delle competenze",
   "skills_choose_focus": "Scegli la tua messa a fuoco",
   "cancel": "Annulla",
