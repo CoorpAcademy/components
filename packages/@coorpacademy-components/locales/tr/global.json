@@ -46,6 +46,8 @@
   "locked": "Kilitli",
   "icon_picker_title": "Simge değiştir",
   "icon_picker_description": "Beceriniz için yeni bir simge seçin",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Beceri odağını değiştir",
   "skills_choose_focus": "Odağını seç",
   "cancel": "İptal et",
