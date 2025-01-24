@@ -46,6 +46,8 @@
   "locked": "已上鎖",
   "icon_picker_title": "Change icon",
   "icon_picker_description": "Select a new icon for your skill",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "變更技能焦點",
   "skills_choose_focus": "選擇聚焦內容",
   "cancel": "取消",
