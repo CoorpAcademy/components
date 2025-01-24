@@ -46,6 +46,8 @@
   "locked": "Vergrendeld",
   "icon_picker_title": "Pictogram wijzigen",
   "icon_picker_description": "Selecteer een nieuw pictogram voor je vaardigheid",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Wijzig vaardigheidsfocus",
   "skills_choose_focus": "Kies je focus",
   "cancel": "Annuleren",
