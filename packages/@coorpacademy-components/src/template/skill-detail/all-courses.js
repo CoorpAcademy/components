@@ -132,7 +132,7 @@ const AllCourses = (props, context) => {
               {
                 type: 'switch',
                 label: translate('banner_microlearning_rule_label'),
-                action: e => bannerMicrolearningRuleAction(e)
+                action: bannerMicrolearningRuleAction
               }
             ]}
           />

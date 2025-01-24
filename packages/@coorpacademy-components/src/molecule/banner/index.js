@@ -28,27 +28,33 @@ const Banner = props => {
   const {type, message, cta = [], temporary, bannerKey, onEnd} = props;
   const [switchValue, setSwitchValue] = useState(false);
 
-  const handleSwitchToggle = useCallback(
-    action => () => {
-      const newSwitchValue = !switchValue;
-      setSwitchValue(newSwitchValue);
-      action(newSwitchValue);
-    },
-    [switchValue, setSwitchValue]
-  );
+
 
   const ButtonSeparator = <div className={classnames(style.buttonsBar, STYLES[type])} />;
 
   const buildButton = ({type: buttonType = 'button', label, action = noop}) => {
+
+    const handleSwitchToggle = useCallback(
+      () => {
+        console.log('handleSwitchToggle new test 2');
+        const newSwitchValue = !switchValue;
+        setSwitchValue(newSwitchValue);
+        action(newSwitchValue);
+      },
+      [switchValue, setSwitchValue]
+    );
+  
+
     switch (buttonType) {
       case 'switch':
         return (
           <div className={classnames(style.button, STYLES[type])}>
             <InputSwitch
+              id='show-microlearning-switch'
               theme="coorpmanager"
               title={label}
               value={switchValue}
-              onChange={handleSwitchToggle(action)}
+              onChange={handleSwitchToggle}
               data-name={`banner-switch-cta`}
               aria-label={label}
             />
