@@ -1,6 +1,6 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, get} from 'lodash/fp';
+import {isEmpty, get, debounce} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
@@ -8,8 +8,62 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const BaseModal = (props, context) => {
-  const {title, description, headerIcon, children, isOpen, footer, onClose, onScroll} = props;
+  const {
+    title,
+    description,
+    headerIcon,
+    children,
+    isOpen,
+    footer,
+    onClose,
+    onScroll,
+    detectScrollbar = false
+  } = props;
   const {skin} = context;
+  const bodyRef = useRef(null);
+  const [isScrollbarVisible, setIsScrollbarVisible] = useState(!detectScrollbar);
+
+  const checkScrollbar = () => {
+    const bodyElement = bodyRef.current;
+    if (bodyElement) {
+      setIsScrollbarVisible(bodyElement.scrollHeight > bodyElement.clientHeight);
+    }
+  };
+
+  useEffect(() => {
+    if (!detectScrollbar) return;
+    const bodyElement = bodyRef.current;
+
+    if (!bodyElement) return;
+
+    const debouncedCheckScrollbar = debounce(100, () => {
+      checkScrollbar();
+    });
+
+    // Observer of the body content
+    const mutationObserver = new MutationObserver(() => {
+      debouncedCheckScrollbar();
+    });
+
+    mutationObserver.observe(bodyElement, {childList: true, subtree: true});
+
+    // Observer of the body size
+    const resizeObserver = new ResizeObserver(() => {
+      debouncedCheckScrollbar();
+    });
+
+    if (bodyRef.current) {
+      resizeObserver.observe(bodyRef.current);
+    }
+
+    checkScrollbar();
+
+    return () => {
+      mutationObserver.disconnect();
+      resizeObserver.disconnect();
+      debouncedCheckScrollbar.cancel();
+    };
+  }, [children, detectScrollbar]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -111,7 +165,12 @@ const BaseModal = (props, context) => {
             <Icon iconName="close" backgroundColor="#F4F4F5" size={{faSize: 14, wrapperSize: 28}} />
           </div>
         </header>
-        <div className={style.body} onScroll={onScroll} data-testid="modal-body">
+        <div
+          ref={bodyRef}
+          className={isScrollbarVisible ? style.body : style.bodyWithoutScrollbar}
+          onScroll={onScroll}
+          data-testid="modal-body"
+        >
           {children}
         </div>
         <Footer />
@@ -154,7 +213,8 @@ BaseModal.propTypes = {
     })
   ]),
   onClose: PropTypes.func,
-  onScroll: PropTypes.func
+  onScroll: PropTypes.func,
+  detectScrollbar: PropTypes.bool
 };
 
 export default BaseModal;
