@@ -46,6 +46,8 @@
   "locked": "Bloqueado",
   "icon_picker_title": "Alterar ícone",
   "icon_picker_description": "Selecionar um novo ícone para a sua competência",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Alterar o foco na competência",
   "skills_choose_focus": "Escolher o seu foco",
   "cancel": "Cancelar",
