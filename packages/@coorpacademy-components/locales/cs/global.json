@@ -46,6 +46,8 @@
   "locked": "Uzamčeno",
   "icon_picker_title": "Ikona změny",
   "icon_picker_description": "Vyberte novou ikonu pro svou dovednost",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Změnit zaměření dovednosti",
   "skills_choose_focus": "Vyberte své zaměření",
   "cancel": "Zrušit",
