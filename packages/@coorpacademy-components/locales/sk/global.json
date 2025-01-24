@@ -46,6 +46,8 @@
   "locked": "Zamknuté",
   "icon_picker_title": "Ikona zmeny",
   "icon_picker_description": "Vyberte novú ikonu pre svoju zručnosť",
+  "translation_title": "Translate",
+  "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Zmeniť zameranie zručností",
   "skills_choose_focus": "Vyberte svoje zameranie",
   "cancel": "Zatvoriť",
