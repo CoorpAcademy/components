@@ -68,20 +68,12 @@
   padding: 16px;
   background-color: white;
   height: 114px;
-}
-
-.detailsSection0 {
-  composes: detailsSectionCommon;
   flex: 1;
 }
 
-.detailsSection1 {
-  composes: detailsSection0;
-}
-
-.detailsSection2 {
+.detailsSection0 , .detailsSection1, .detailsSection2 {
   composes: detailsSectionCommon;
-  width: 245px;
+  flex: 1;
 }
 
 .detailsInfo {

@@ -4,8 +4,8 @@ export default {
   props: {
     ...defaultProps,
     tag: 'Passport',
-    badgeUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
-    diplomaUrl: 'https://onboarding.coorpacademy.com/diplomas/cert_q1dFPSqgyS',
+    badgeUrl: '',
+    diplomaUrl: '',
     description: `**Conditions** - complete the Basics levels of the following courses:
  - The tire e-commerce market
  - The mobile revolution 
@@ -17,7 +17,8 @@ export default {
     metrics: {
       ...defaultProps.metrics,
       progression: 100,
-      mandatoryModules: 6
+      mandatoryModules: 6,
+      stars: 0
     }
   }
 };
