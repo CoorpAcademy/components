@@ -8,6 +8,8 @@ const propTypes = {
   label: PropTypes.string,
   content: PropTypes.node,
   'aria-label': PropTypes.string,
+  tooltipText: PropTypes.string,
+  tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
   'data-name': PropTypes.string,
   'data-testid': PropTypes.string,
   icon: PropTypes.shape({
@@ -46,6 +48,8 @@ export type ButtonLinkProps = {
   label?: string;
   content?: React.ReactNode;
   'aria-label'?: string;
+  tooltipText?: string;
+  tooltipPlacement?: 'left' | 'right' | 'top' | 'bottom';
   'data-name'?: string;
   'data-testid'?: string;
   icon?: IconType;

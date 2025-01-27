@@ -3,11 +3,13 @@ export default {
     id: 'default',
     title: '🇫🇷 French',
     buttonLink: {
+      'aria-label': 'Edit',
       type: 'primary',
       customStyle: {
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
+      hoverBackgroundColor: '#EAEAEB',
       icon: {
         position: 'left',
         faIcon: {
@@ -19,11 +21,13 @@ export default {
       onClick: () => console.log('click')
     },
     secondButtonLink: {
+      'aria-label': 'Delete',
       type: 'primary',
       customStyle: {
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
+      hoverBackgroundColor: '#EAEAEB',
       icon: {
         position: 'left',
         faIcon: {
