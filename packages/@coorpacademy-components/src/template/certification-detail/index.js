@@ -113,7 +113,7 @@ const CertificationDetail = (props, context) => {
           completedModules={completedModules}
           mandatoryModules={mandatoryModules}
           sections={compact([
-            {
+            diplomaUrl && {
               type: 'diploma',
               downloadUrl: diplomaUrl
             },
@@ -121,7 +121,7 @@ const CertificationDetail = (props, context) => {
               type: 'badge',
               downloadUrl: badgeUrl
             },
-            {
+            stars && {
               type: 'stars',
               stars
             }
