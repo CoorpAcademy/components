@@ -405,6 +405,129 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+.textBase-37eLG {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: #06265B;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.tooltipContainer-kPFT6 {
+  overflow: visible;
+  position: relative;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-self: center;
+}
+
+.tooltipIconContainer-E\+i-Y {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border: none;
+  background: #F4F4F5;
+  height: 25px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.toolTip-lId3x {
+  -webkit-transition: opacity 0.8s;
+  transition: opacity 0.8s;
+  position: absolute;
+  border-radius: 7px;
+  background-color: #1D1D2B;
+  height: auto;
+  width: 200px;
+}
+
+.bigIconToolTip-U44z5 {
+  right: -71px;
+  bottom: 31px;
+}
+
+.smallIconToolTip-BaLuJ {
+  right: -75px;
+  bottom: 32px;
+}
+
+.toolTip-lId3x::before {
+  content: '';
+  display: inline-block;
+  visibility: inherit;
+  opacity: inherit;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  background-color: inherit;
+  position: inherit;
+  border-radius: 2px;
+  bottom: -5px;
+  right: 40%;
+}
+
+.tooltipContent-I\+tkp {
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: white;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.tooltipContentFontSize14-sIC4q {
+  font-size: 14px;
+}
+
+.tooltipContentFontSize12-AYZhh {
+  font-size: 12px;
+}
+
+
+.informationIcon-ePxym {
+  color: #515161;
+}
+
+/* ----------------------- ReactToolTip exclusive classes ------------------------- */
+.toolTipReact-vygoQ {
+  pointer-events: all !important;
+  background-color: #1D1D2B;
+  border-radius: 7px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  left: 5px;
+  max-width: 400px;
+  padding: 8px 12px !important;
+}
+
+/* for keyboard navigation, the position can't be obtained from the mouse */
+[class*="__react_component_tooltip"]:not(.toolTipReact-vygoQ) {
+  border-radius: 7px !important;
+  left: -999em !important;
+  visibility: visible !important;
+  opacity: 1!important;
+}
+
+/* same reason, arrow can't be placed effectively */
+[class*="__react_component_tooltip"]:not(.toolTipReact-vygoQ)::after {
+  content: none !important;
+}
+
 .button-m07QY {
   width: 100%;
   height: 44px;
@@ -430,6 +553,10 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.iconButton-aQl-P {
+  padding: 0px 14px;
 }
 
 .disabled-uWXjk {
@@ -508,6 +635,16 @@
   height: auto;
 }
 
+.tooltipContentWrapper-LVQyJ {
+  text-align: left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
 
 @-webkit-keyframes fadeIn-fs4s9 {
   0% {
@@ -1138,129 +1275,6 @@ _:-ms-fullscreen,
     margin-left: 0;
     width: 100%;
   }
-}
-
-.textBase-37eLG {
-  font-family: "Gilroy";
-  font-style: normal;
-  color: #06265B;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.tooltipContainer-kPFT6 {
-  overflow: visible;
-  position: relative;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  justify-self: center;
-}
-
-.tooltipIconContainer-E\+i-Y {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  border: none;
-  background: #F4F4F5;
-  height: 25px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.toolTip-lId3x {
-  -webkit-transition: opacity 0.8s;
-  transition: opacity 0.8s;
-  position: absolute;
-  border-radius: 7px;
-  background-color: #1D1D2B;
-  height: auto;
-  width: 200px;
-}
-
-.bigIconToolTip-U44z5 {
-  right: -71px;
-  bottom: 31px;
-}
-
-.smallIconToolTip-BaLuJ {
-  right: -75px;
-  bottom: 32px;
-}
-
-.toolTip-lId3x::before {
-  content: '';
-  display: inline-block;
-  visibility: inherit;
-  opacity: inherit;
-  width: 15px;
-  height: 15px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  background-color: inherit;
-  position: inherit;
-  border-radius: 2px;
-  bottom: -5px;
-  right: 40%;
-}
-
-.tooltipContent-I\+tkp {
-  font-weight: 500;
-  font-size: 14px;
-  display: inline-block;
-  border-radius: 3px;
-  word-wrap: break-word;
-  color: white;
-  padding: 8px 14px;
-  text-align: center;
-}
-
-.tooltipContentFontSize14-sIC4q {
-  font-size: 14px;
-}
-
-.tooltipContentFontSize12-AYZhh {
-  font-size: 12px;
-}
-
-
-.informationIcon-ePxym {
-  color: #515161;
-}
-
-/* ----------------------- ReactToolTip exclusive classes ------------------------- */
-.toolTipReact-vygoQ {
-  pointer-events: all !important;
-  background-color: #1D1D2B;
-  border-radius: 7px !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  left: 5px;
-  max-width: 400px;
-  padding: 8px 12px !important;
-}
-
-/* for keyboard navigation, the position can't be obtained from the mouse */
-[class*="__react_component_tooltip"]:not(.toolTipReact-vygoQ) {
-  border-radius: 7px !important;
-  left: -999em !important;
-  visibility: visible !important;
-  opacity: 1!important;
-}
-
-/* same reason, arrow can't be placed effectively */
-[class*="__react_component_tooltip"]:not(.toolTipReact-vygoQ)::after {
-  content: none !important;
 }
 
 .button-4OSfr {
@@ -6612,12 +6626,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .providerTag-2JLQ\+ {
-  margin-left: 8px;
-}
-
-.editIcon-lndvW {
-  cursor: pointer;
-  color: #111117;
   margin-left: 8px;
 }
 

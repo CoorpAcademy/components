@@ -1080,109 +1080,6 @@
   }
 }
 
-.button-m07QY {
-  width: 100%;
-  height: 44px;
-  border-radius: 7px;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  border: none;
-  padding: 0px 16px;
-  /* prevents text selection when dragging
-  the mouse over the button */
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.disabled-uWXjk {
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.buttonContent-vWF\+R {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.link-iamHd {
-  color: inherit;
-  text-decoration: none;
-}
-
-.icon-d2jjB {
-  width: 12px;
-  height: 12px;
-}
-
-.label-Li4Ap {
-  margin: 0 8px 0 8px;
-  text-wrap: nowrap;
-  display: block;
-}
-
-.primary-QbWx5 {
-  background-color: #0061FF;
-  color: #fff;
-}
-
-.primary-QbWx5:hover {
-  background-color: #0051d6;
-}
-
-.secondary-4Zr4J {
-  background-color: #EAEAEB;
-  color: #111117;
-}
-
-.secondary-4Zr4J:hover {
-  background-color: #d7d7da;
-}
-
-.tertiary-RAaqP {
-  background-color: #FAFAFA;
-  color: #111117;
-}
-
-.tertiary-RAaqP:hover {
-  background-color: #EAEAEB;
-}
-
-.dangerous-LrqDp {
-  background-color: #ed3436;
-  color: #fff;
-}
-
-.dangerous-LrqDp:hover {
-  background-color: #b81400;
-}
-
-.text-r2bhr {
-  background: transparent;
-  color: inherit;
-  border-radius: 0px;
-  height: auto;
-}
-
 .textBase-37eLG {
   font-family: "Gilroy";
   font-style: normal;
@@ -1306,6 +1203,123 @@
   content: none !important;
 }
 
+.button-m07QY {
+  width: 100%;
+  height: 44px;
+  border-radius: 7px;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  border: none;
+  padding: 0px 16px;
+  /* prevents text selection when dragging
+  the mouse over the button */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.iconButton-aQl-P {
+  padding: 0px 14px;
+}
+
+.disabled-uWXjk {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.buttonContent-vWF\+R {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.link-iamHd {
+  color: inherit;
+  text-decoration: none;
+}
+
+.icon-d2jjB {
+  width: 12px;
+  height: 12px;
+}
+
+.label-Li4Ap {
+  margin: 0 8px 0 8px;
+  text-wrap: nowrap;
+  display: block;
+}
+
+.primary-QbWx5 {
+  background-color: #0061FF;
+  color: #fff;
+}
+
+.primary-QbWx5:hover {
+  background-color: #0051d6;
+}
+
+.secondary-4Zr4J {
+  background-color: #EAEAEB;
+  color: #111117;
+}
+
+.secondary-4Zr4J:hover {
+  background-color: #d7d7da;
+}
+
+.tertiary-RAaqP {
+  background-color: #FAFAFA;
+  color: #111117;
+}
+
+.tertiary-RAaqP:hover {
+  background-color: #EAEAEB;
+}
+
+.dangerous-LrqDp {
+  background-color: #ed3436;
+  color: #fff;
+}
+
+.dangerous-LrqDp:hover {
+  background-color: #b81400;
+}
+
+.text-r2bhr {
+  background: transparent;
+  color: inherit;
+  border-radius: 0px;
+  height: auto;
+}
+
+.tooltipContentWrapper-LVQyJ {
+  text-align: left;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
 .button-4OSfr {
   font-family: Gilroy;
   font-size: 14px;
@@ -3644,12 +3658,6 @@
 }
 
 .providerTag-2JLQ\+ {
-  margin-left: 8px;
-}
-
-.editIcon-lndvW {
-  cursor: pointer;
-  color: #111117;
   margin-left: 8px;
 }
 
