@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {keys, noop, isEmpty, map} from 'lodash/fp';
+import {keys, noop, isEmpty, map, size} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
@@ -28,33 +28,30 @@ const Banner = props => {
   const {type, message, cta = [], temporary, bannerKey, onEnd} = props;
   const [switchValue, setSwitchValue] = useState(false);
 
-
-
   const ButtonSeparator = <div className={classnames(style.buttonsBar, STYLES[type])} />;
 
-  const buildButton = ({type: buttonType = 'button', label, action = noop}) => {
+  const handleSwitchToggle = useCallback(
+    action => e => {
+      const newSwitchValue = !switchValue;
+      setSwitchValue(newSwitchValue);
+      action(newSwitchValue);
+    },
+    [switchValue]
+  );
 
-    const handleSwitchToggle = useCallback(
-      () => {
-        console.log('handleSwitchToggle new test 2');
-        const newSwitchValue = !switchValue;
-        setSwitchValue(newSwitchValue);
-        action(newSwitchValue);
-      },
-      [switchValue, setSwitchValue]
-    );
-  
+  const buildButton = ({type: buttonType = 'button', label, action = noop}) => {
+    const commonStyle = classnames(style.button, STYLES[type]);
 
     switch (buttonType) {
       case 'switch':
         return (
-          <div className={classnames(style.button, STYLES[type])}>
+          <div className={commonStyle}>
             <InputSwitch
-              id='show-microlearning-switch'
+              id="show-microlearning-switch"
               theme="coorpmanager"
               title={label}
               value={switchValue}
-              onChange={handleSwitchToggle}
+              onChange={handleSwitchToggle(action)}
               data-name={`banner-switch-cta`}
               aria-label={label}
             />
@@ -62,13 +59,14 @@ const Banner = props => {
         );
       default:
         return (
-          <div className={classnames(style.button, STYLES[type])}>
+          <div className={commonStyle}>
             <ButtonLink
               data-name="banner-button-cta"
               aria-label={label}
               label={label}
               onClick={action}
               type="text"
+              customStyle={{padding: 0}}
             />
           </div>
         );
@@ -80,10 +78,10 @@ const Banner = props => {
       if (isEmpty(options)) return null;
 
       return (
-        <React.Fragment key={i}>
-          {i > 0 ? ButtonSeparator : null}
+        <div className={style.ctaWrapper} key={i}>
+          {i > 0 && i <= size(options) ? ButtonSeparator : null}
           {buildButton(options)}
-        </React.Fragment>
+        </div>
       );
     }, ctaOptions);
   };
@@ -102,6 +100,7 @@ const Banner = props => {
           iconName={iconName}
           iconColor={iconColor}
           className={classnames(style.icon, temporary && style.temporaryIcon)}
+          customStyle={{padding: 0}}
         />
         {message}
       </div>

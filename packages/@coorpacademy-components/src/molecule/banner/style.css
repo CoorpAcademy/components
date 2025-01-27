@@ -35,10 +35,10 @@
 .banner {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;  
-    align-items: center; 
+    justify-content: flex-start;
+    align-items: center;
     gap: 8px; 
-    padding: 8px 8px 8px 24px; 
+    padding: 16px;
     border-radius: 12px;
 }
 
@@ -79,6 +79,11 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.ctaWrapper {
+    display: flex;
+    gap: 4px;
 }
 
 .button{
@@ -156,4 +161,12 @@
     display: flex;
     align-content: center;
     align-items: center;
+    gap: 16px;
+}
+
+@media mobile {
+    .banner {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
 }
