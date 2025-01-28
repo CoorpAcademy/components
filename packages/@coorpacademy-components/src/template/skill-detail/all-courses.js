@@ -123,8 +123,8 @@ const AllCourses = (props, context) => {
           ) : null}
         </div>
       </div>
-      <div className={style.bannerWrapper}>
-        {bannerMicrolearningRuleAction ? (
+      {bannerMicrolearningRuleAction ? (
+        <div className={style.bannerWrapper}>
           <Banner
             type="info"
             message={translate('banner_microlearning_rule_message')}
@@ -136,8 +136,8 @@ const AllCourses = (props, context) => {
               }
             ]}
           />
-        ) : null}
-      </div>
+        </div>
+      ) : null}
       <div className={style.filterWrapper}>
         {size(options) > 2
           ? uncappedMap((filterProps, index) => {
