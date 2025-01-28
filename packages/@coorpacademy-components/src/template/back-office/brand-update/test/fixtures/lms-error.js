@@ -16,8 +16,7 @@ export default {
     notifications: [
       {
         type: 'error',
-        message: errorGroups[1].fields[0].slides[0].fields[3].error,
-        onClose: noop
+        message: errorGroups[1].fields[0].slides[0].fields[3].error
       }
     ],
 

@@ -8,8 +8,7 @@ export default {
     notifications: [
       {
         type: 'success',
-        message: 'Your changes have been saved.',
-        onClose: () => {}
+        message: 'Your changes have been saved.'
       }
     ]
   })

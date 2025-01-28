@@ -66,15 +66,17 @@ const items = [
   }
 ];
 
-const notifications = [
+export const notifications = [
   {
     type: 'warning',
     message:
       '1 file out of 4 failed, you can still save the rest of the content. The files in error will be ignored. You will be able to correct them via a subsequent re-upload',
-    firstCTALabel: 'Download report',
-    firstCTA: function firstCTA() {
-      return console.log('first cta');
-    }
+    cta: [
+      {
+        label: 'Download report',
+        action: () => console.log('first cta')
+      }
+    ]
   }
 ];
 
