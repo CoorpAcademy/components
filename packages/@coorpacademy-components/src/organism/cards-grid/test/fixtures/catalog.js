@@ -33,6 +33,23 @@ const list = [
   )
 );
 
+export const cardListWithoutMicrolearning = [
+  card1.props,
+  card3.props,
+  card4.props,
+  card10.props,
+  card11.props,
+  card7.props,
+  card12.props,
+  card9.props,
+  card13.props
+].map(
+  pipe(
+    update('key', () => uniqueId()),
+    set('view', 'list')
+  )
+);
+
 export default {
   props: {
     list

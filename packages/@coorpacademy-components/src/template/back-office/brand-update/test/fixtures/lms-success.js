@@ -16,8 +16,7 @@ export default {
     notifications: [
       {
         type: 'success',
-        message: 'Your changes have been saved.',
-        onClose: noop
+        message: 'Your changes have been saved.'
       }
     ],
     items,

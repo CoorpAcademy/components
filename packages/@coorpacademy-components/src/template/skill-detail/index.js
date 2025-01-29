@@ -70,7 +70,8 @@ const SkillDetail = (props, context) => {
     sorting,
     onBackClick,
     onReviewClick,
-    onContinueLearningClick
+    onContinueLearningClick,
+    bannerMicrolearningRuleAction = null
   } = props;
   const descriptionRef = useRef(null);
   const {score = 0, questionsToReview, totalContents} = metrics;
@@ -199,6 +200,7 @@ const SkillDetail = (props, context) => {
           filters={filters}
           sorting={sorting}
           totalContents={totalContents}
+          bannerMicrolearningRuleAction={bannerMicrolearningRuleAction}
         />
       </div>
     </div>
@@ -230,7 +232,8 @@ SkillDetail.propTypes = {
   sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onReviewClick: PropTypes.func,
-  onContinueLearningClick: PropTypes.func
+  onContinueLearningClick: PropTypes.func,
+  bannerMicrolearningRuleAction: PropTypes.func
 };
 
 export default SkillDetail;

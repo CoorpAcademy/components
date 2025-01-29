@@ -10,8 +10,7 @@ export default {
     notifications: [
       {
         type: 'error',
-        message: 'There are errors in your changes, please review them before submitting again.',
-        onClose: () => {}
+        message: 'There are errors in your changes, please review them before submitting again.'
       }
     ],
     content: {

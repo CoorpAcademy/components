@@ -1,8 +1,6 @@
-import cardsGrid from '../../../../organism/cards-grid/test/fixtures/catalog';
+import {cardListWithoutMicrolearning} from '../../../../organism/cards-grid/test/fixtures/catalog';
 
-const cards = cardsGrid.props;
-const allCourses = cards;
-const onGoingCourses = {list: cards.list.slice(0, 2)};
+const onGoingCourses = {list: cardListWithoutMicrolearning.slice(0, 2)};
 
 export const defaultProps = {
   title: 'Expert techniques for managing team conflict',
@@ -31,18 +29,13 @@ export const defaultProps = {
   description:
     '<h3>This playlist</h3> is a comprehensive eLearning playlist designed for leaders, managers, and team members who want to master conflict resolution skills.',
   ongoingCourses: onGoingCourses,
-  playlistCourses: allCourses,
+  playlistCourses: {list: cardListWithoutMicrolearning},
   filters: {
     options: [
       {
         name: 'All content',
         value: 'ALL',
         selected: true
-      },
-      {
-        name: "5' learning",
-        value: 'microlearning',
-        selected: false
       },
       {
         name: 'Courses',
@@ -80,7 +73,8 @@ export const defaultProps = {
   },
   onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),
-  onContinueLearningClick: () => console.log('Continue learning clicked')
+  onContinueLearningClick: () => console.log('Continue learning clicked'),
+  bannerMicrolearningRuleAction: () => console.log('click on banner')
 };
 
 export default {

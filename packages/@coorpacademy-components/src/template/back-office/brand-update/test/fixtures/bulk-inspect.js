@@ -1,4 +1,5 @@
 import WizardContents from '../../../../../organism/wizard-contents/test/fixtures/bulk-inspect';
+import {notifications} from './bulk-inspect-with-popin';
 import headerAndMenu from './default';
 
 const {header} = headerAndMenu.props;
@@ -61,18 +62,6 @@ const items = [
       {title: 'Any', href: '#/any', selected: false},
       {title: 'Many', href: '#/many', selected: false}
     ]
-  }
-];
-
-const notifications = [
-  {
-    type: 'warning',
-    message:
-      '1 file out of 4 failed, you can still save the rest of the content. The files in error will be ignored. You will be able to correct them via a subsequent re-upload',
-    firstCTALabel: 'Download report',
-    firstCTA: function firstCTA() {
-      return console.log('first cta');
-    }
   }
 ];
 

@@ -12,6 +12,8 @@
 @value cm_yellow_100 from colors;
 @value cm_yellow_200 from colors;
 @value cm_yellow_400 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_700 from colors;
 
 @keyframes fadeIn {
     0% {
@@ -33,11 +35,11 @@
 .banner {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;  
-    align-items: center; 
+    justify-content: flex-start;
+    align-items: center;
     gap: 8px; 
-    padding: 16px 24px; 
-    border-radius: 5px;
+    padding: 16px;
+    border-radius: 12px;
 }
 
 .banner.warning {
@@ -53,6 +55,11 @@
 .banner.success {
     background-color: cm_green_secondary_100;
     color: cm_positive_200;
+}
+
+.banner.info {
+    background-color: cm_grey_100;
+    color: cm_grey_700;
 }
 
 .temporaryBanner {
@@ -72,6 +79,11 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.ctaWrapper {
+    display: flex;
+    gap: 4px;
 }
 
 .button{
@@ -103,7 +115,6 @@
     color: color(cm_positive_100 blackness(+12%));
 }
 
-
 .buttonsBar {
     width: 2px;
     align-self: stretch;
@@ -123,6 +134,9 @@
     background-color: cm_positive_100;
 }
 
+.buttonsBar.info {
+    background-color: cm_grey_700;
+}
 
 .icon {
     height: 22px;
@@ -147,4 +161,12 @@
     display: flex;
     align-content: center;
     align-items: center;
+    gap: 16px;
+}
+
+@media mobile {
+    .banner {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
 }
