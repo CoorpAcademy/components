@@ -1544,6 +1544,10 @@
   left: 30px;
 }
 
+.coorpmanager-IRajZ input:checked ~ label::after {
+  left: 23px;
+}
+
 .checkbox-KTgQR:disabled ~ label {
   background: #ECEFF1;
   pointer-events: none;
@@ -1571,6 +1575,12 @@
   min-height: 24px;
 }
 
+.coorpmanager-IRajZ .title-9jnv2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .description-xSre0 {
   font-family: 'Gilroy';
   font-weight: 500;
@@ -1589,6 +1599,7 @@
 }
 
 .coorpmanager-IRajZ label::after, .coorpmanagerModified-7W5tY label::after {
+  top: 1px;
   width: 22px;
   height: 22px;
 }
@@ -1597,7 +1608,6 @@
   font-family: Gilroy;
   font-weight: bold;
   color: #14171A;
-  min-width: 190px;
 }
 
 .coorpmanager-IRajZ .checkbox-KTgQR:checked ~ label {
