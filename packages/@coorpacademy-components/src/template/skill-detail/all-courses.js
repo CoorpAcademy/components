@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, filter, map, size, isNil} from 'lodash/fp';
+import {get, filter, map, size, isNil, isEmpty} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
@@ -48,10 +48,11 @@ FilterButton.propTypes = {
 };
 
 const AllCourses = (props, context) => {
-  const {content, filters, sorting, totalContents, bannerMicrolearningRuleAction} = props;
+  const {translate} = context;
+  const {content, filters, sorting, totalContents, bannerMicrolearning = {}} = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
-  const {translate} = context;
+  const {type: bannerMessageType, action: bannerAction} = bannerMicrolearning;
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState('');
 
@@ -123,16 +124,20 @@ const AllCourses = (props, context) => {
           ) : null}
         </div>
       </div>
-      {bannerMicrolearningRuleAction ? (
+      {!isEmpty(bannerMicrolearning) ? (
         <div className={style.bannerWrapper}>
           <Banner
             type="info"
-            message={translate('banner_microlearning_rule_message')}
+            message={
+              bannerMessageType === 'skill'
+                ? translate('banner_microlearning_rule_message_skill')
+                : translate('banner_microlearning_rule_message')
+            }
             cta={[
               {
                 type: 'switch',
                 label: translate('banner_microlearning_rule_label'),
-                action: bannerMicrolearningRuleAction
+                action: bannerAction
               }
             ]}
           />
@@ -200,7 +205,10 @@ AllCourses.propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
   sorting: PropTypes.shape(Select.propTypes),
-  bannerMicrolearningRuleAction: PropTypes.func
+  bannerMicrolearning: PropTypes.shape({
+    type: PropTypes.oneOf(['skill', 'playlist']),
+    action: PropTypes.func
+  })
 };
 
 export default AllCourses;
