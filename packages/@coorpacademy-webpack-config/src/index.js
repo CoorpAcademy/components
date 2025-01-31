@@ -60,7 +60,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
                 }
               ]
             ],
-            plugins: [['@babel/plugin-proposal-object-rest-spread', {loose: true}], 'lodash']
+            plugins: ['lodash']
           }
         },
         {

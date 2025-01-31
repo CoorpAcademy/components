@@ -33,10 +33,10 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.18.5",
-    "@babel/preset-env": "^7.18.2",
-    "@babel/register": "^7.17.7",
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "@babel/register": "^7.25.9",
     "@coorpacademy/eslint-plugin-coorpacademy": "^11.0.0",
     "ava": "^4.3.0",
     "babel-plugin-istanbul": "^6.1.1",
