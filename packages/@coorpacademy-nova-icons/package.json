@@ -42,7 +42,7 @@
     "@svgr/plugin-prettier": "^5.4.0",
     "@svgr/plugin-svgo": "^5.4.0",
     "async": "^3.2.0",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^9.2.1",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-lodash": "^3.3.4",
