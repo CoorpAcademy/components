@@ -6,6 +6,7 @@ export default {
       {
         label: "Show 5'Learning",
         type: 'switch',
+        oldSwitchValue: true,
         action: () => console.log('first cta')
       }
     ]

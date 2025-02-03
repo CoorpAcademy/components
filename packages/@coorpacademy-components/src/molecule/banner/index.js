@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {keys, noop, isEmpty, map, size} from 'lodash/fp';
+import {keys, noop, isEmpty, map, size, pipe, find, get} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
@@ -26,7 +26,8 @@ const STYLES = {
 
 const Banner = props => {
   const {type, message, cta = [], temporary, bannerKey, onEnd} = props;
-  const [switchValue, setSwitchValue] = useState(false);
+  const oldSwitchValue = pipe(find({type: 'switch'}), get('oldSwitchValue'))(cta);
+  const [switchValue, setSwitchValue] = useState(oldSwitchValue || false);
 
   const ButtonSeparator = <div className={classnames(style.buttonsBar, STYLES[type])} />;
 
@@ -112,7 +113,8 @@ const Banner = props => {
 const ctaPropTypes = PropTypes.shape({
   label: PropTypes.string,
   type: PropTypes.oneOf(['button', 'switch']),
-  action: PropTypes.func
+  action: PropTypes.func,
+  oldSwitchValue: PropTypes.bool
 });
 
 Banner.propTypes = {

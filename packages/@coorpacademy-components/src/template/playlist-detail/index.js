@@ -26,10 +26,11 @@ const PlaylistDetail = (props, context) => {
     sorting,
     onBackClick,
     onContinueLearningClick,
-    bannerMicrolearningRuleAction = null
+    bannerMicrolearning = {}
   } = props;
   const descriptionRef = useRef(null);
   const {translate} = context;
+  const {action: bannerMicrolearningAction, oldSwitchValue} = bannerMicrolearning;
 
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -102,7 +103,8 @@ const PlaylistDetail = (props, context) => {
           sorting={sorting}
           bannerMicrolearning={{
             type: 'playlist',
-            action: bannerMicrolearningRuleAction
+            action: bannerMicrolearningAction,
+            oldSwitchValue
           }}
         />
       </div>
@@ -129,7 +131,10 @@ PlaylistDetail.propTypes = {
   sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,
-  bannerMicrolearningRuleAction: PropTypes.func
+  bannerMicrolearning: {
+    action: PropTypes.func,
+    oldSwitchValue: PropTypes.bool
+  }
 };
 
 export default PlaylistDetail;

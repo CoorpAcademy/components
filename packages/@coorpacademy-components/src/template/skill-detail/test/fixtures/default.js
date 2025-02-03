@@ -63,7 +63,9 @@ export const defaultProps = {
   onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),
   onContinueLearningClick: () => console.log('Continue learning clicked'),
-  bannerMicrolearningRuleAction: () => console.log('click on banner')
+  bannerMicrolearning: {
+    action: () => console.log('click on banner')
+  }
 };
 
 export default {

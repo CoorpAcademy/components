@@ -52,7 +52,7 @@ const AllCourses = (props, context) => {
   const {content, filters, sorting, totalContents, bannerMicrolearning = {}} = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
-  const {type: bannerMessageType, action: bannerAction} = bannerMicrolearning;
+  const {type: bannerMessageType, action: bannerAction, oldSwitchValue} = bannerMicrolearning;
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState('');
 
@@ -137,7 +137,8 @@ const AllCourses = (props, context) => {
               {
                 type: 'switch',
                 label: translate('banner_microlearning_rule_label'),
-                action: bannerAction
+                action: bannerAction,
+                oldSwitchValue
               }
             ]}
           />
@@ -207,7 +208,8 @@ AllCourses.propTypes = {
   sorting: PropTypes.shape(Select.propTypes),
   bannerMicrolearning: PropTypes.shape({
     type: PropTypes.oneOf(['skill', 'playlist']),
-    action: PropTypes.func
+    action: PropTypes.func,
+    oldSwitchValue: PropTypes.bool
   })
 };
 
