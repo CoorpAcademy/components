@@ -16,6 +16,7 @@
   "back_to_catalog": "코스로 돌아가기",
   "badge": "배지",
   "banner_microlearning_rule_message": "5'Learning은 학습 우선순위에 포함되지 않으며, 숨김 처리되었습니다.",
+  "banner_microlearning_rule_message_skill": "5'Learning do not count towards skill progress and have been hidden.",
   "banner_microlearning_rule_label": "5'Learning 표시",
   "bonus_stars": "보너스 별",
   "certificates": "증명서",
