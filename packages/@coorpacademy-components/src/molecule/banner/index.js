@@ -48,7 +48,7 @@ const Banner = props => {
           <div className={commonStyle}>
             <InputSwitch
               id="show-microlearning-switch"
-              theme="coorpmanager"
+              theme="default"
               title={label}
               value={switchValue}
               onChange={handleSwitchToggle(action)}

@@ -200,7 +200,10 @@ const SkillDetail = (props, context) => {
           filters={filters}
           sorting={sorting}
           totalContents={totalContents}
-          bannerMicrolearningRuleAction={bannerMicrolearningRuleAction}
+          bannerMicrolearning={{
+            type: 'skill',
+            action: bannerMicrolearningRuleAction
+          }}
         />
       </div>
     </div>
