@@ -141,10 +141,10 @@ PlaylistDetail.propTypes = {
   }),
   onBackClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,
-  bannerMicrolearning: {
+  bannerMicrolearning: PropTypes.shape({
     action: PropTypes.func,
     oldSwitchValue: PropTypes.bool
-  }
+  })
 };
 
 export default PlaylistDetail;

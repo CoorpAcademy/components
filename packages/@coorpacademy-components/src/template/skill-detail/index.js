@@ -248,10 +248,10 @@ SkillDetail.propTypes = {
     oldValue: PropTypes.string,
     onChange: PropTypes.func
   }),
-  bannerMicrolearning: {
+  bannerMicrolearning: PropTypes.shape({
     action: PropTypes.func,
     oldSwitchValue: PropTypes.bool
-  }
+  })
 };
 
 export default SkillDetail;
