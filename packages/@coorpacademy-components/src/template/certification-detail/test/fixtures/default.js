@@ -65,7 +65,11 @@ Test initial : <i>Les basiques du management d’équipe : testez-vous !</i>
   },
   onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),
-  onContinueLearningClick: () => console.log('Continue learning clicked')
+  onContinueLearningClick: () => console.log('Continue learning clicked'),
+  search: {
+    oldValue: 'Search',
+    onChange: value => console.log(value)
+  }
 };
 
 export default {

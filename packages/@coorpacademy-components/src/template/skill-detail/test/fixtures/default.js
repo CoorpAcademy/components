@@ -65,6 +65,9 @@ export const defaultProps = {
   onContinueLearningClick: () => console.log('Continue learning clicked'),
   bannerMicrolearning: {
     action: () => console.log('click on banner')
+  },
+  search: {
+    onChange: () => console.log('on change search')
   }
 };
 
