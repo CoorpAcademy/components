@@ -101,11 +101,15 @@ const PlaylistDetail = (props, context) => {
           content={playlistCourses}
           filters={filters}
           sorting={sorting}
-          bannerMicrolearning={{
-            type: 'playlist',
-            action: bannerMicrolearningAction,
-            oldSwitchValue
-          }}
+          bannerMicrolearning={
+            bannerMicrolearningAction
+              ? {
+                  type: 'playlist',
+                  action: bannerMicrolearningAction,
+                  oldSwitchValue
+                }
+              : {}
+          }
         />
       </div>
     </div>

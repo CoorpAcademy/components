@@ -201,11 +201,15 @@ const SkillDetail = (props, context) => {
           filters={filters}
           sorting={sorting}
           totalContents={totalContents}
-          bannerMicrolearning={{
-            type: 'skill',
-            action: bannerMicrolearningAction,
-            oldSwitchValue
-          }}
+          bannerMicrolearning={
+            bannerMicrolearningAction
+              ? {
+                  type: 'skill',
+                  action: bannerMicrolearningAction,
+                  oldSwitchValue
+                }
+              : {}
+          }
         />
       </div>
     </div>
