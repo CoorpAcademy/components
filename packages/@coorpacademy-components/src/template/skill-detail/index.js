@@ -71,6 +71,7 @@ const SkillDetail = (props, context) => {
     onBackClick,
     onReviewClick,
     onContinueLearningClick,
+    search,
     bannerMicrolearning = {}
   } = props;
   const descriptionRef = useRef(null);
@@ -210,6 +211,7 @@ const SkillDetail = (props, context) => {
                 }
               : {}
           }
+          search={search}
         />
       </div>
     </div>
@@ -242,6 +244,10 @@ SkillDetail.propTypes = {
   onBackClick: PropTypes.func,
   onReviewClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,
+  search: PropTypes.shape({
+    oldValue: PropTypes.string,
+    onChange: PropTypes.func
+  }),
   bannerMicrolearning: {
     action: PropTypes.func,
     oldSwitchValue: PropTypes.bool
