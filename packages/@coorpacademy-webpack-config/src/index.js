@@ -83,12 +83,10 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
 
     plugins: (() => {
       const plugins = [
-        ...[
-          new MiniCssExtractPlugin({
-            filename: '[name].css',
-            ignoreOrder: true
-          })
-        ],
+        new MiniCssExtractPlugin({
+          filename: '[name].css',
+          ignoreOrder: true
+        }),
         ...(isProduction
           ? [
               new CompressionPlugin({
