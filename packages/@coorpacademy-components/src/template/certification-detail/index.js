@@ -28,7 +28,8 @@ const CertificationDetail = (props, context) => {
     metrics,
     logoUrl,
     diplomaUrl,
-    badgeUrl
+    badgeUrl,
+    search
   } = props;
   const descriptionRef = useRef(null);
   const {translate} = context;
@@ -131,6 +132,7 @@ const CertificationDetail = (props, context) => {
           content={certificationCourses}
           filters={filters}
           data-name="certification-courses"
+          search={search}
         />
       </div>
     </div>
@@ -163,7 +165,11 @@ CertificationDetail.propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
   onBackClick: PropTypes.func,
-  onContinueLearningClick: PropTypes.func
+  onContinueLearningClick: PropTypes.func,
+  search: PropTypes.shape({
+    oldValue: PropTypes.string,
+    onChange: PropTypes.func
+  })
 };
 
 export default CertificationDetail;

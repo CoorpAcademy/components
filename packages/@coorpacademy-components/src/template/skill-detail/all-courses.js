@@ -1,12 +1,11 @@
 import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, filter, map, size, isNil, isEmpty} from 'lodash/fp';
+import {get, filter, map, size, isNil, isEmpty, debounce} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
 import CardsGrid from '../../organism/cards-grid';
-import searchValueIncluded from '../../util/search-value-included';
 import InputSwitch from '../../atom/input-switch';
 import Banner from '../../molecule/banner';
 import style from './all-courses.css';
@@ -49,12 +48,19 @@ FilterButton.propTypes = {
 
 const AllCourses = (props, context) => {
   const {translate} = context;
-  const {content, filters, sorting, totalContents, bannerMicrolearning = {}} = props;
+  const {
+    content,
+    filters,
+    sorting,
+    totalContents,
+    bannerMicrolearning = {},
+    search: {oldValue: oldSearchValue, onChange: handleSearch}
+  } = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
-  const {type: bannerMessageType, action: bannerAction} = bannerMicrolearning;
+  const {type: bannerMessageType, action: bannerAction, oldSwitchValue} = bannerMicrolearning;
   const [showCompleted, setShowCompleted] = useState(true);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState(oldSearchValue || '');
 
   const sortView =
     sorting !== undefined ? (
@@ -67,20 +73,27 @@ const AllCourses = (props, context) => {
     return showCompleted ? list : filter(course => course.progress < 1, list);
   }, [list, showCompleted]);
 
-  const contentResult = useMemo(() => {
-    return filter(skill => searchValueIncluded(skill.title, searchValue), filteredContent);
-  }, [filteredContent, searchValue]);
+  const debounceHandleSearch = useMemo(() => {
+    return debounce(800, value => {
+      handleSearch(value);
+    });
+  }, [handleSearch]);
 
-  const handleSearch = useCallback(
+  const onSearchChange = useCallback(
     value => {
       setSearchValue(value);
+      debounceHandleSearch(value);
     },
-    [setSearchValue]
+    [debounceHandleSearch]
   );
 
-  const handleSearchReset = useCallback(() => {
-    setSearchValue('');
-  }, [setSearchValue]);
+  const handleSearchReset = useCallback(
+    value => {
+      setSearchValue('');
+      debounceHandleSearch('');
+    },
+    [debounceHandleSearch]
+  );
 
   const handleShowCompletedToggle = useCallback(() => {
     setShowCompleted(prevShowCompleted => !prevShowCompleted);
@@ -91,7 +104,7 @@ const AllCourses = (props, context) => {
       <div className={style.continueLearningWrapper}>
         <span className={style.continueLearningTitle}>{translate('all_content')}</span>
         <span className={style.continueLearningNumber}>
-          {isNil(totalContents) ? size(contentResult) : totalContents}
+          {isNil(totalContents) ? size(filteredContent) : totalContents}
         </span>
       </div>
       <div className={style.searchAndSortSection}>
@@ -100,7 +113,7 @@ const AllCourses = (props, context) => {
             search={{
               placeholder: translate('search_place_holder'),
               value: searchValue,
-              onChange: handleSearch
+              onChange: onSearchChange
             }}
             onReset={handleSearchReset}
             dataTestId="all-courses-search-input"
@@ -137,7 +150,8 @@ const AllCourses = (props, context) => {
               {
                 type: 'switch',
                 label: translate('banner_microlearning_rule_label'),
-                action: bannerAction
+                action: bannerAction,
+                oldSwitchValue
               }
             ]}
           />
@@ -168,9 +182,9 @@ const AllCourses = (props, context) => {
           : null}
       </div>
       <div>
-        {size(contentResult) ? (
+        {size(filteredContent) ? (
           <CardsGrid
-            list={contentResult}
+            list={filteredContent}
             loading={loading}
             customStyle={{justifyContent: 'left'}}
           />
@@ -207,7 +221,12 @@ AllCourses.propTypes = {
   sorting: PropTypes.shape(Select.propTypes),
   bannerMicrolearning: PropTypes.shape({
     type: PropTypes.oneOf(['skill', 'playlist']),
-    action: PropTypes.func
+    action: PropTypes.func,
+    oldSwitchValue: PropTypes.bool
+  }),
+  search: PropTypes.shape({
+    oldValue: PropTypes.string,
+    onChange: PropTypes.func
   })
 };
 

@@ -71,11 +71,13 @@ const SkillDetail = (props, context) => {
     onBackClick,
     onReviewClick,
     onContinueLearningClick,
-    bannerMicrolearningRuleAction = null
+    search,
+    bannerMicrolearning = {}
   } = props;
   const descriptionRef = useRef(null);
   const {score = 0, questionsToReview, totalContents} = metrics;
   const {translate} = context;
+  const {action: bannerMicrolearningAction, oldSwitchValue} = bannerMicrolearning;
 
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -200,10 +202,16 @@ const SkillDetail = (props, context) => {
           filters={filters}
           sorting={sorting}
           totalContents={totalContents}
-          bannerMicrolearning={{
-            type: 'skill',
-            action: bannerMicrolearningRuleAction
-          }}
+          bannerMicrolearning={
+            bannerMicrolearningAction
+              ? {
+                  type: 'skill',
+                  action: bannerMicrolearningAction,
+                  oldSwitchValue
+                }
+              : {}
+          }
+          search={search}
         />
       </div>
     </div>
@@ -236,7 +244,14 @@ SkillDetail.propTypes = {
   onBackClick: PropTypes.func,
   onReviewClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,
-  bannerMicrolearningRuleAction: PropTypes.func
+  search: PropTypes.shape({
+    oldValue: PropTypes.string,
+    onChange: PropTypes.func
+  }),
+  bannerMicrolearning: PropTypes.shape({
+    action: PropTypes.func,
+    oldSwitchValue: PropTypes.bool
+  })
 };
 
 export default SkillDetail;
