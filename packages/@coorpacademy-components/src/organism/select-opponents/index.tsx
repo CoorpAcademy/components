@@ -1,7 +1,7 @@
 import React from 'react';
 import map from 'lodash/fp/map';
 import TitleAndCheckBoxWrapper from '../../molecule/title-and-checkbox-wrapper';
-import propTypes, {SelectOpponentsProps, TitleAndCheckBoxWrapperProps} from './types';
+import {propTypes, SelectOpponentsProps, TitleAndCheckBoxWrapperProps} from './types';
 import style from './style.css';
 
 // @ts-expect-error (need to get the index)

@@ -27,7 +27,7 @@ test('should select array of choices when props.multiple is set', t => {
   const props = {
     ...defaultFixture.props,
     multiple: true,
-    onChange: (choices: typeof TitledCheckbox.propTypes.choice[]) => {
+    onChange: (choices: (typeof TitledCheckbox.propTypes.choice)[]) => {
       t.true(Array.isArray(choices));
       t.pass();
     }

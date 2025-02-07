@@ -419,7 +419,7 @@ export const LearningProfileRadarChart = (
     [formatedColors]
   );
 
-  const userAgent = navigator?.userAgent;
+  const userAgent = navigator?.userAgent; // eslint-disable-line n/no-unsupported-features/node-builtins
   const isMobile_ = useMemo(() => getIsMobile(userAgent), [userAgent]);
 
   const setIsMobile_ = useCallback(() => {

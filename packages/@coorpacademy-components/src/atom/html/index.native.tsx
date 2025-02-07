@@ -172,8 +172,8 @@ const Html = (props: Props) => {
           html: isTextCentered
             ? `<p>${children}</p>`
             : numberOfLines
-            ? `<span>${children}</span>`
-            : `${children}`
+              ? `<span>${children}</span>`
+              : `${children}`
         }}
         tagsStyles={tagsStyles}
         baseFontStyle={{

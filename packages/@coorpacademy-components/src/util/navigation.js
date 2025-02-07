@@ -1,4 +1,4 @@
-/* eslint-disable node/no-deprecated-api */
+/* eslint-disable n/no-deprecated-api */
 import {parse} from 'url';
 import {getOr, has, noop} from 'lodash/fp';
 

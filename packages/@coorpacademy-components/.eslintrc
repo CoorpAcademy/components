@@ -64,16 +64,8 @@
         "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
       }
     ],
-    "node/no-unsupported-features/es-syntax": [
-      "error",
-      {
-        "ignores": [
-          "modules"
-        ]
-      }
-    ],
-    "node/file-extension-in-import": [
-      "error",
+    "n/file-extension-in-import": [
+      "off", // ! Disabled because the current implementation trigger an error when a css file with same name exists
       "always",
       {
         ".js": "never",

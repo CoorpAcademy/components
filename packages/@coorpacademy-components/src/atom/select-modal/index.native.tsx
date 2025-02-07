@@ -9,7 +9,7 @@ import {Theme} from '../../variables/theme.native';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../variables/analytics';
 import Space from '../space/index.native';
 import Text from '../text/index.native';
-import ModalSelect, {OnChangeFunction} from '../../hoc/modal/select/index.native';
+import ModalSelect, {OnChangeFunction} from '../../hoc/modal/select/index.native'; // eslint-disable-line import/no-cycle
 import {useTemplateContext} from '../../template/app-review/template-context';
 
 export type ChoiceItem = {

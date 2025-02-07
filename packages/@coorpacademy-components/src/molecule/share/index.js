@@ -89,6 +89,7 @@ export const ShareFeedback = ({successWording, errorWording}) => {
 const Share = ({style, text, wording}) => {
   const [, setStatus] = useContext(StatusContext);
   const onClick = useCallback(async () => {
+    /* eslint-disable n/no-unsupported-features/node-builtins */
     const browserSupportsClipboardWriteText =
       'clipboard' in navigator && 'writeText' in navigator.clipboard;
     if (browserSupportsClipboardWriteText) {

@@ -14,13 +14,16 @@ const QuickAccessCardGroup = props => {
     </div>
   ) : null;
 
-  const cards = map(cardProps => {
-    return (
-      <div className={style.card} key={`card-${cardProps.feature}`}>
-        <QuickAccessCard {...cardProps} />
-      </div>
-    );
-  }, slice(0, 4, list));
+  const cards = map(
+    cardProps => {
+      return (
+        <div className={style.card} key={`card-${cardProps.feature}`}>
+          <QuickAccessCard {...cardProps} />
+        </div>
+      );
+    },
+    slice(0, 4, list)
+  );
 
   return (
     <div className={style.group}>

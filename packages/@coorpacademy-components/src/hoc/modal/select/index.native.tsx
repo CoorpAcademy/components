@@ -7,7 +7,7 @@ import {useTemplateContext} from '../../../template/app-review/template-context'
 
 import Modal from '../index.native';
 import ModalSelectItem from '../select-item/index.native';
-import {ChoiceItem} from '../../../atom/select-modal/index.native';
+import {ChoiceItem} from '../../../atom/select-modal/index.native'; // eslint-disable-line import/no-cycle
 
 export type OnChangeFunction = (value: string) => void;
 
