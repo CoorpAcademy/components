@@ -130,7 +130,7 @@ export const UploadReport = ({
         {mode === 'edit' && !showMessage ? <div>{fieldsList}</div> : null}
         {mode === 'edit' && !showMessage ? <span className={style.or}>{orLabel}</span> : null}
       </div>
-      {!showMessage ? (
+      {showMessage ? null : (
         <div className={style.drop}>
           <p className={style.message}>{message}</p>
           <Button
@@ -141,7 +141,7 @@ export const UploadReport = ({
             style={{backgroundColor: primaryColor}}
           />
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

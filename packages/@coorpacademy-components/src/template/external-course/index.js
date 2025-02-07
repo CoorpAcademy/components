@@ -63,7 +63,7 @@ const ExternalCourse = (props, context) => {
   }, []);
 
   const completeButton = useMemo(() => {
-    return !isNil(complete) ? (
+    return isNil(complete) ? null : (
       <Button
         type="button"
         disabled={loading ? true : complete.disabled}
@@ -81,22 +81,22 @@ const ExternalCourse = (props, context) => {
         )}
         data-testid="complete-button"
       />
-    ) : null;
+    );
   }, [complete, loading, primary, handleOnClick]);
 
   const warningButton = useMemo(() => {
-    return !isNil(warning) ? (
+    return isNil(warning) ? null : (
       <div className={style.leftSection}>
         <div onClick={handleOnClick(warning)} className={classnames(style.iconLabel, style.link)}>
           <QuestionIcon className={style.iconQuestion} width={24} height={24} />
           <span>{warning.label}</span>
         </div>
       </div>
-    ) : null;
+    );
   }, [handleOnClick, warning]);
 
   const quitButton = useMemo(() => {
-    return !isNil(quit) ? (
+    return isNil(quit) ? null : (
       <div className={style.leftSection}>
         <span
           className={classnames(style.quitCta, loading ? style.loading : null)}
@@ -105,11 +105,11 @@ const ExternalCourse = (props, context) => {
           {quit.label}
         </span>
       </div>
-    ) : null;
+    );
   }, [quit, loading, handleOnClick]);
 
   const titleSection = useMemo(() => {
-    return !isNil(name) ? (
+    return isNil(name) ? null : (
       <div className={classnames(style.iconLabel, style.title)}>
         <div className={style.oval} style={{backgroundColor: IconColor}}>
           <IconType className={style.iconHeader} />
@@ -120,7 +120,7 @@ const ExternalCourse = (props, context) => {
           dangerouslySetInnerHTML={{__html: name}}
         />
       </div>
-    ) : null;
+    );
   }, [name, IconColor]);
 
   const header = useMemo(() => {
@@ -144,7 +144,7 @@ const ExternalCourse = (props, context) => {
   }, [warning, warningButton, complete, completeButton]);
 
   const popin = useMemo(() => {
-    return !isNil(closePopin) ? <CmPopin {...closePopin} /> : null;
+    return isNil(closePopin) ? null : <CmPopin {...closePopin} />;
   }, [closePopin]);
 
   return (

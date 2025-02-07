@@ -1,5 +1,5 @@
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-short-video';
-import type {Fixture} from '../../prop-types';
+import {type Fixture} from '../../prop-types';
 
 const qcmGraphic = AnswerQCMGraphic.props;
 

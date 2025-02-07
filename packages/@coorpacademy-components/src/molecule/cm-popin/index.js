@@ -124,12 +124,15 @@ const CMPopin = props => {
 
   const getClassBtnSwitch = (index, btnList) => {
     switch (index) {
-      case 0:
+      case 0: {
         return style.firstBtnSwitchContainer;
-      case btnList.length - 1:
+      }
+      case btnList.length - 1: {
         return style.lastBtnSwitchContainer;
-      default:
+      }
+      default: {
         return style.singleSwitchContainer;
+      }
     }
   };
 
@@ -197,7 +200,7 @@ const CMPopin = props => {
   );
   return (
     <div
-      className={mode !== 'cookie' ? style.background : null}
+      className={mode === 'cookie' ? null : style.background}
       style={backgroundImageStyle}
       data-name={'cm-popin-container'}
     >
@@ -246,7 +249,7 @@ const CMPopin = props => {
           </div>
         ) : null}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
-        {!isEmpty(items) ? renderItems() : null}
+        {isEmpty(items) ? null : renderItems()}
         {renderBtnSwitch()}
         {firstButton || secondButton || thirdButton ? (
           <div className={style.buttonContainer}>

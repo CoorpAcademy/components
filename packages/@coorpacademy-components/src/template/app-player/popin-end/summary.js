@@ -232,7 +232,7 @@ const Summary = (props, context) => {
 
   return (
     <BackgroundScorm mode={mode} failed={header.failed}>
-      <div className={mode !== 'scorm' ? style.summaryWrapper : null}>
+      <div className={mode === 'scorm' ? null : style.summaryWrapper}>
         <Header {...header} mode={mode} />
         {feedbackView}
         <Action {...action} color={primary} />

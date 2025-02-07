@@ -5,8 +5,6 @@ import includes from 'lodash/fp/includes';
 import every from 'lodash/fp/every';
 import stringMatching from 'extended-proptypes/lib/validators/stringMatching';
 
-import _ColorPropType from 'extended-proptypes/lib/validators/color';
-import _HexPropType from 'extended-proptypes/lib/validators/hex';
 import isEmpty from 'lodash/fp/isEmpty';
 import head from 'lodash/fp/head';
 
@@ -30,7 +28,7 @@ export const FilesPropType = (props, propName, componentName) => {
     'text/csv'
   ];
 
-  const propValue = props[propName];
+  const propValue = props[propName]; // eslint-disable-line react/destructuring-assignment
   const filesTypes = split(',', propValue);
   const isValid =
     isEmpty(head(filesTypes)) || every(type => includes(trim(type), validFilesTypes), filesTypes);
@@ -41,5 +39,6 @@ export const FilesPropType = (props, propName, componentName) => {
   );
 };
 
-export const ColorPropType = _ColorPropType;
-export const HexPropType = _HexPropType;
+export {default as ColorPropType} from 'extended-proptypes/lib/validators/color';
+
+export {default as HexPropType} from 'extended-proptypes/lib/validators/hex';

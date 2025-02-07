@@ -144,7 +144,7 @@ class PopinCorrection extends Component {
   }
 
   initWrapper(wrapper) {
-    this.wrapper = wrapper;
+    this.wrapper = wrapper; // eslint-disable-line react/no-unused-class-component-methods
   }
 
   render() {

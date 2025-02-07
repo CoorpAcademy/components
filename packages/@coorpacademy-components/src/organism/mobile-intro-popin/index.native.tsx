@@ -6,8 +6,8 @@ import {NovaSolidStatusClose as CloseIcon} from '@coorpacademy/nova-icons';
 import {useTemplateContext} from '../../template/app-review/template-context';
 import Touchable from '../../hoc/touchable/index.native';
 
-import type {Theme} from '../../variables/theme.native';
-import type {Brand} from '../../variables/brand.native';
+import {type Theme} from '../../variables/theme.native';
+import {type Brand} from '../../variables/brand.native';
 
 export type Props = {
   isVisible: boolean;

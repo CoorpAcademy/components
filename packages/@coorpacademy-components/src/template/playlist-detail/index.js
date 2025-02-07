@@ -57,7 +57,7 @@ const PlaylistDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={playlistRef}>
-        {!isNil(onBackClick) ? (
+        {isNil(onBackClick) ? null : (
           <ButtonLinkIcon
             faIcon="arrow-left"
             data-name="back-button"
@@ -66,7 +66,7 @@ const PlaylistDetail = (props, context) => {
             className={style.backButton}
             tooltipPlacement="right"
           />
-        ) : null}
+        )}
         <div className={style.ctaContainer}>
           <div className={style.coverWrapper}>
             <PlaylistDetailCover images={coverImages} />

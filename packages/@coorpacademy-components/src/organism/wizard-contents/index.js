@@ -64,22 +64,30 @@ const buildHeader = (wizardHeader, actions, steps, tabs) => {
 const buildView = content => {
   const {type} = content;
   switch (type) {
-    case 'form':
+    case 'form': {
       return <BrandForm {...content} />;
-    case 'translate':
+    }
+    case 'translate': {
       return <ContentTranslate {...content} />;
-    case 'populations':
+    }
+    case 'populations': {
       return <OrganismSearchAndChipsResults {...content} />;
-    case 'courses':
+    }
+    case 'courses': {
       return <CourseSelection {...content} />;
-    case 'organize-courses':
+    }
+    case 'organize-courses': {
       return <CourseSections {...content} />;
-    case 'rewards':
+    }
+    case 'rewards': {
       return <RewardsForm {...content} />;
-    case 'expandible-table':
+    }
+    case 'expandible-table': {
       return <ExpandibleActionableErrorsTable {...content} />;
-    case 'upload-progression':
+    }
+    case 'upload-progression': {
       return <BulkInfos {...content} />;
+    }
   }
 };
 

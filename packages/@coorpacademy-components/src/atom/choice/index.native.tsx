@@ -3,7 +3,7 @@ import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
 
 import Html from '../html/index.native';
 import ImageBackground from '../image-background/index.native';
-import type {Media, QuestionType} from '../../molecule/questions/types';
+import {type Media, type QuestionType} from '../../molecule/questions/types';
 import getCleanUri from '../../util/get-clean-uri';
 import Touchable from '../../hoc/touchable/index.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
@@ -135,7 +135,6 @@ const Choice = ({
   if (isSelected) {
     textStyle.push(styleSheet.textSelected);
 
-    // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
     const selectionStyle = brandTheme && {
       backgroundColor: brandTheme.colors?.primary,
       borderColor: brandTheme.colors?.primary,
@@ -156,19 +155,19 @@ const Choice = ({
 
   return (
     <Touchable
-      onPress={!isDisabled ? onPress : undefined}
+      onPress={isDisabled ? undefined : onPress}
       style={style}
       analyticsID="question-choice"
       analyticsParams={{questionType}}
     >
       <View
         style={[styleSheet.boxShadow, styleSheet.container]}
-        testID={prefixTestID && `${prefixTestID}${selectedSuffix}`}
+        testID={prefixTestID ? `${prefixTestID}${selectedSuffix}` : undefined}
       >
         {url ? (
           <View style={styleSheet.imageContainer}>
             <ImageBackground
-              testID={prefixTestID && `${prefixTestID}${mediaSuffix}`}
+              testID={prefixTestID ? `${prefixTestID}${mediaSuffix}` : undefined}
               source={source}
               style={styleSheet.image}
             />

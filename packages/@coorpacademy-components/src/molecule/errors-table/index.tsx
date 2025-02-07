@@ -23,8 +23,9 @@ const ErrorsTable = (props: Props) => {
   const headerView = [
     <th className={classnames(style[`header-0`])} key="header">
       <div> {''}</div>
-    </th>
-  ].concat(headerRow);
+    </th>,
+    ...headerRow
+  ];
 
   const bodyView = rows.map((row, index) => {
     const {fields = []} = row;

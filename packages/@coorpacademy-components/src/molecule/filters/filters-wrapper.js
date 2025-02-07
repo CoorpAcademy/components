@@ -14,20 +14,22 @@ const FiltersWapper = (props, context) => {
   const buildFilter = (filter, idx) => {
     const {type, fieldName} = filter;
     switch (type) {
-      case 'select':
+      case 'select': {
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
             <Select {...filter} />
           </div>
         );
-      case 'radio':
+      }
+      case 'radio': {
         return (
           <div data-name="choice" data-filter-type={fieldName} className={style.choice} key={idx}>
             <p className={style.title}>{filter.title}</p>
             <RadioGroup {...filter} className={style.radioGroup} />
           </div>
         );
-      case 'range':
+      }
+      case 'range': {
         return (
           <div
             data-name="choice"
@@ -42,7 +44,8 @@ const FiltersWapper = (props, context) => {
             </label>
           </div>
         );
-      case 'switch':
+      }
+      case 'switch': {
         return (
           <div
             data-name="choice"
@@ -58,8 +61,10 @@ const FiltersWapper = (props, context) => {
             </label>
           </div>
         );
-      default:
+      }
+      default: {
         return null;
+      }
     }
   };
 

@@ -17,15 +17,18 @@ const createStyle = (icon: StatusItemProps['icon'], current?: boolean): StyleShe
   let backgroundColor;
 
   switch (icon) {
-    case 'right':
+    case 'right': {
       backgroundColor = COLORS.positive;
       break;
-    case 'wrong':
+    }
+    case 'wrong': {
       backgroundColor = COLORS.negative;
       break;
+    }
     case 'no-answer':
-    default:
+    default: {
       backgroundColor = COLORS.gray;
+    }
   }
 
   return StyleSheet.create({
@@ -65,15 +68,18 @@ const Step = ({value, icon, current}: StatusItemProps) => {
   let child;
 
   switch (icon) {
-    case 'right':
+    case 'right': {
       child = <RightIcon style={style.icon} color="#fff" />;
       break;
-    case 'wrong':
+    }
+    case 'wrong': {
       child = <WrongIcon style={style.icon} color="#fff" />;
       break;
+    }
     case 'no-answer':
-    default:
+    default: {
       child = <Text style={style.stepText}>{value}</Text>;
+    }
   }
 
   return <View style={style.step}>{child}</View>;

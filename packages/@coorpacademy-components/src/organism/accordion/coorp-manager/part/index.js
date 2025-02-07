@@ -53,13 +53,13 @@ const setupThemeStyle = {
 };
 
 const MoreLessIcons = ({type, moreClassName, lessClassName, darkColor, mediumColor}) => {
-  return type !== 'iconLink' ? (
+  return type === 'iconLink' ? (
+    <OpenInNewTabIcon className={style.newTabIcon} />
+  ) : (
     <div>
       <ArrowIcon className={moreClassName} style={{color: darkColor}} />
       <ArrowIcon className={lessClassName} style={{color: mediumColor}} />
     </div>
-  ) : (
-    <OpenInNewTabIcon className={style.newTabIcon} />
   );
 };
 
@@ -78,7 +78,7 @@ const Part = ({
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
   const lessClassName = isOpen ? style.openIconActivated : style.openIcon;
-  const moreClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
+  const moreClassName = isOpen ? style.closeIcon : style.closeIconActivated;
   const iconColor = selected ? style.iconBlue : style.iconGrey;
   const hoverIconColor = selected && style.blueTitleIcon;
   const selectedBlackLabel = selected && style.labelBlack;
@@ -144,7 +144,20 @@ const AccordionPart = (props, context) => {
   const isCollapsibleTab = type === 'collapsibleTab';
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>
-      {!isCollapsibleTab ? (
+      {isCollapsibleTab ? (
+        <Part
+          skin={skin}
+          title={title}
+          content={content}
+          iconType={iconType}
+          theme={theme}
+          onParentClick={handleParentClick}
+          onClick={onClick}
+          selected={selected}
+          isOpen={isOpen}
+          type={type}
+        />
+      ) : (
         <Link
           onClick={handleParentClick}
           hoverColor={getOr(COLORS.brand, 'common.primary', skin)}
@@ -168,19 +181,6 @@ const AccordionPart = (props, context) => {
             type={type}
           />
         </Link>
-      ) : (
-        <Part
-          skin={skin}
-          title={title}
-          content={content}
-          iconType={iconType}
-          theme={theme}
-          onParentClick={handleParentClick}
-          onClick={onClick}
-          selected={selected}
-          isOpen={isOpen}
-          type={type}
-        />
       )}
       {isCollapsibleTab && isOpen ? <div className={themeStyle.container}>{content}</div> : null}
     </div>

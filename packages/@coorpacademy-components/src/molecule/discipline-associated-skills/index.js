@@ -45,7 +45,7 @@ const DisciplineAssociatedSkills = (props, context) => {
     [translate]
   );
 
-  return !isEmpty(skills) ? (
+  return isEmpty(skills) ? null : (
     <div data-name="discipline-associated-skills" className={style.associatedSkillsWrapper}>
       <CatalogSection title={translate('associated_skills')}>
         <div className={style.chipsWrapper}>
@@ -80,7 +80,7 @@ const DisciplineAssociatedSkills = (props, context) => {
         </div>
       </CatalogSection>
     </div>
-  ) : null;
+  );
 };
 
 DisciplineAssociatedSkills.contextTypes = {

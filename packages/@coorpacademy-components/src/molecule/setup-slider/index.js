@@ -22,41 +22,54 @@ const SetupSlider = props => {
       const buildInput = field => {
         const {type, ...rest} = field;
         switch (type) {
-          case 'switch':
+          case 'switch': {
             return <InputSwitch {...field} />;
-          case 'select':
+          }
+          case 'select': {
             return <Select {...field} theme={'coorpmanager'} />;
-          case 'checkbox':
+          }
+          case 'checkbox': {
             return <InputCheckbox {...field} />;
-          case 'image':
+          }
+          case 'image': {
             return (
               <div className={style.imageUploadContainer}>
                 <InputFileDraggable {...field} />
               </div>
             );
-          case 'splitForm':
+          }
+          case 'splitForm': {
             return <SetupCohortItem field={field} />;
-          case 'alert':
+          }
+          case 'alert': {
             return <MessagePopin header={field.title} content={field.subtitle} />;
-          case 'readonly':
+          }
+          case 'readonly': {
             return <InputReadonly {...field} />;
-          case 'doublestep':
+          }
+          case 'doublestep': {
             return <InputDoublestep {...field} />;
-          case 'downloadbox':
+          }
+          case 'downloadbox': {
             return <BrandDownloadBox {...field} />;
-          case 'form-group':
+          }
+          case 'form-group': {
             return <Title {...field} />;
-          case 'slider':
+          }
+          case 'slider': {
             return (
               <Accordion tabProps={field.tabProps} type={'all'} theme={'setup'}>
                 {buildSlides(field.slides)}
               </Accordion>
             );
+          }
           case 'text':
-          case 'password':
+          case 'password': {
             return <InputText {...field} />;
-          default:
+          }
+          default: {
             return <InputText {...rest} type={'text'} />;
+          }
         }
       };
 

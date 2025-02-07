@@ -26,6 +26,5 @@ export default {
         To close this page (if it is your first visit on the e-training), click on the cross in the upper right corner of the screen!</h2><br />
         <img src="https://static.coorpacademy.com/content/qualityrights/img/QR_logo_small.png" />
     `
-    /* eslint-enable max-len */
   }
 };

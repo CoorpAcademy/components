@@ -117,6 +117,20 @@ CardBackground.propTypes = {
   'aria-label': PropTypes.string
 };
 
+const getType = contentType => {
+  switch (contentType) {
+    case 'chapter': {
+      return 'microlearning';
+    }
+    case 'course': {
+      return 'learner';
+    }
+    default: {
+      return contentType;
+    }
+  }
+};
+
 const Card = memo(function Card(props, context) {
   const {skin} = context;
   const {
@@ -172,16 +186,6 @@ const Card = memo(function Card(props, context) {
     </div>
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
-  const getType = contentType => {
-    switch (contentType) {
-      case 'chapter':
-        return 'microlearning';
-      case 'course':
-        return 'learner';
-      default:
-        return contentType;
-    }
-  };
 
   return (
     <div

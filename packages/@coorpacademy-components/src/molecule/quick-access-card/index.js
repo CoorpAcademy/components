@@ -27,108 +27,134 @@ const {cm_primary_blue} = COLORS;
 
 const getIcon = feature => {
   switch (feature) {
-    case 'manage_users':
+    case 'manage_users': {
       return ManageUserIcon;
-    case 'upload_users':
+    }
+    case 'upload_users': {
       return UploadUserIcon;
-    case 'manage_email':
+    }
+    case 'manage_email': {
       return ManageEmailIcon;
-    case 'massive_battle':
+    }
+    case 'massive_battle': {
       return MassiveBattleIcon;
-    case 'cms':
+    }
+    case 'cms': {
       return CmsIcon;
-    case 'look_and_feel':
+    }
+    case 'look_and_feel': {
       return LookAndFeelIcon;
-    case 'dashboard':
+    }
+    case 'dashboard': {
       return DashboardIcon;
-    case 'cockpit':
+    }
+    case 'cockpit': {
       return CockpitIcon;
-    case 'analytics':
+    }
+    case 'analytics': {
       return AnalyticsIcon;
-    case 'binoculaire':
+    }
+    case 'binoculaire': {
       return Binoculaire;
-    case 'book':
+    }
+    case 'book': {
       return ContentBook;
-    case 'network':
+    }
+    case 'network': {
       return NetworkAlert;
-    case 'chat-bubble-question':
+    }
+    case 'chat-bubble-question': {
       return ChatBubbleCircleQuestionMark;
-    case 'mobile-phone':
+    }
+    case 'mobile-phone': {
       return MobilePhone;
-    default:
+    }
+    default: {
       return CockpitIcon;
+    }
   }
 };
 
 const getBackgroudRadialColors = feature => {
   switch (feature) {
     case 'manage_users':
-    case 'upload_users':
+    case 'upload_users': {
       return {
         iconBackgroundColor: '#2EC1D6',
         degrees: '187',
         iconColor: null
       };
+    }
     case 'look_and_feel':
-    case 'dashboard':
+    case 'dashboard': {
       return {
         iconBackgroundColor: '#18BB98',
         degrees: '167',
         iconColor: null
       };
-    case 'cockpit':
+    }
+    case 'cockpit': {
       return {
         iconBackgroundColor: '#FF7043',
         degrees: '14',
         iconColor: null
       };
+    }
     case 'manage_email':
     case 'massive_battle':
     case 'learning_priorities':
-    case 'cms':
+    case 'cms': {
       return {
         iconBackgroundColor: '#7340FF',
         degrees: '256',
         iconColor: null
       };
-    case 'analytics':
+    }
+    case 'analytics': {
       return {
         iconBackgroundColor: '#FF4040',
         degrees: '0',
         iconColor: null
       };
-    case 'binoculaire':
+    }
+    case 'binoculaire': {
       return {
         iconBackgroundColor: '#FFEFEB',
         iconColor: '#FF541F',
         degrees: '0'
       };
-    case 'book':
+    }
+    case 'book': {
       return {
         iconBackgroundColor: '#F1F6FE',
         degrees: '0',
         iconColor: cm_primary_blue
       };
-    case 'network':
+    }
+    case 'network': {
       return {
         iconBackgroundColor: '#FFE5E6',
         iconColor: '#FF0A0A',
         degrees: '0'
       };
-    case 'chat-bubble-question':
+    }
+    case 'chat-bubble-question': {
       return {
         iconBackgroundColor: '#E8FCF8',
         iconColor: '#16AC8C',
         degrees: '0'
       };
-    case 'mobile-phone':
+    }
+    case 'mobile-phone': {
       return {
         iconBackgroundColor: '#F4F0FF',
         degrees: '0',
         iconColor: '#5C21FF'
       };
-    default:
+    }
+    default: {
       return null;
+    }
   }
 };
 
@@ -143,8 +169,9 @@ const QuickAccessCard = (props, context) => {
       <Link href={href} target={openInNewTab ? '_blank' : '_self'} className={style.link}>
         <div
           style={
-            !isMoocCard
-              ? {
+            isMoocCard
+              ? null
+              : {
                   background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
             hsl(${degrees}deg 68% 40% / 20%) 0%, 
             hsl(${degrees}deg 68% 40% / 0%) 100%), 
@@ -156,7 +183,6 @@ const QuickAccessCard = (props, context) => {
             hsl(${degrees}deg 87% 91% / 0%) 100%), 
           #FAFAFA`
                 }
-              : null
           }
           className={style.content}
         >
@@ -166,10 +192,10 @@ const QuickAccessCard = (props, context) => {
               backgroundColor: iconBackgroundColor
             }}
           >
-            {feature !== 'learning_priorities' ? (
-              <Icon className={style.iconFeature} style={{color: iconColor}} />
-            ) : (
+            {feature === 'learning_priorities' ? (
               <FaIcon className={style.iconFeature} iconName="sign-post" iconColor="white" />
+            ) : (
+              <Icon className={style.iconFeature} style={{color: iconColor}} />
             )}
           </div>
           <div className={style.title}>
@@ -179,13 +205,13 @@ const QuickAccessCard = (props, context) => {
           <div className={style.description}>{description}</div>
           <div className={style.cta}>
             <div
-              className={!isMoocCard ? style.iconGotoWrapper : null}
+              className={isMoocCard ? null : style.iconGotoWrapper}
               style={
-                !isMoocCard
-                  ? {
+                isMoocCard
+                  ? null
+                  : {
                       backgroundColor: iconBackgroundColor
                     }
-                  : null
               }
             >
               <div

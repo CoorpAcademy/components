@@ -8,16 +8,21 @@ import style from './style.css';
 
 const getUrl = ({url, type, id, query = {}, opts = {}}) => {
   switch (type) {
-    case 'youtube':
+    case 'youtube': {
       return `https://www.youtube.com/embed/${id}?${qs.stringify({...query, ...opts})}`;
-    case 'uptale':
+    }
+    case 'uptale': {
       return `https://my.uptale.io/Experience/Launch?id=${id}`;
-    case 'omniPlayer':
+    }
+    case 'omniPlayer': {
       return `https://mms.myomni.live/${id}`;
-    case 'jwplayer':
+    }
+    case 'jwplayer': {
       return `https://content.jwplatform.com/players/${id}-7IMa4DCK.html`;
-    default:
+    }
+    default: {
       return url;
+    }
   }
 };
 
@@ -63,6 +68,7 @@ class VideoIframe extends React.Component {
       frameBorder: '0'
     };
     return (
+      // eslint-disable-next-line react/iframe-missing-sandbox
       <iframe {...properties} src={src} width={width} height={height} className={style.iframe} />
     );
   }

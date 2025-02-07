@@ -93,15 +93,15 @@ const Select = (props, legacyContext) => {
     );
   };
 
-  const optionList = !isEmpty(options)
-    ? options.map((option, index) => selectOption(option, index))
-    : optgroups.map((optgroup, index) => {
+  const optionList = isEmpty(options)
+    ? optgroups.map((optgroup, index) => {
         return (
           <optgroup key={index} label={optgroup.label}>
-            {optgroup.options && optgroup.options.map((option, i) => selectOption(option, i))}
+            {optgroup.options ? optgroup.options.map((option, i) => selectOption(option, i)) : null}
           </optgroup>
         );
-      });
+      })
+    : options.map((option, index) => selectOption(option, index));
 
   const titleView = title ? <span className={style.title}>{title}</span> : null;
 

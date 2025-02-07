@@ -24,12 +24,15 @@ const renderStatusIcon = (status: Status, progress: number) => {
 
 const resolveProgressBarColor = (status: Status) => {
   switch (status) {
-    case STATUS.fail:
+    case STATUS.fail: {
       return cm_negative_100;
-    case STATUS.inProgress:
+    }
+    case STATUS.inProgress: {
       return cm_primary_blue;
-    default:
+    }
+    default: {
       return cm_positive_100;
+    }
   }
 };
 

@@ -16,7 +16,7 @@ import propTypes, {MediaViewPropTypes, TYPE_AUDIO, TYPE_IMAGE, TYPE_VIDEO} from 
 const MediaView = ({media}) => {
   const {videoId, type, ...childProps} = media;
   switch (type) {
-    case TYPE_IMAGE:
+    case TYPE_IMAGE: {
       return (
         <div
           className={style.media}
@@ -25,20 +25,24 @@ const MediaView = ({media}) => {
           }}
         />
       );
-    case TYPE_VIDEO:
+    }
+    case TYPE_VIDEO: {
       return (
         <div className={style.video}>
           <VideoPlayer {...omit('id', childProps)} id={videoId} height="100%" width="100%" />
         </div>
       );
-    case TYPE_AUDIO:
+    }
+    case TYPE_AUDIO: {
       return (
         <div className={style.audio}>
           <Audio {...omit('id', childProps)} height="100%" width="100%" />
         </div>
       );
-    default:
+    }
+    default: {
       return null;
+    }
   }
 };
 
@@ -47,20 +51,27 @@ MediaView.propTypes = MediaViewPropTypes;
 const Switch = ({model, help, question}) => {
   const {type} = model;
   switch (type) {
-    case 'qcmDrag':
+    case 'qcmDrag': {
       return <QcmDrag {...model} help={help} groupAriaLabel={question} />;
-    case 'qcm':
+    }
+    case 'qcm': {
       return <Qcm {...model} groupAriaLabel={question} />;
-    case 'qcmGraphic':
+    }
+    case 'qcmGraphic': {
       return <QcmGraphic {...model} groupAriaLabel={question} />;
-    case 'freeText':
+    }
+    case 'freeText': {
       return <FreeText {...model} />;
-    case 'dropDown':
+    }
+    case 'dropDown': {
       return <DropDown {...model} groupAriaLabel={question} />;
-    case 'slider':
+    }
+    case 'slider': {
       return <QuestionRange {...model} groupAriaLabel={question} />;
-    case 'template':
+    }
+    case 'template': {
       return <Template {...model} groupAriaLabel={question} />;
+    }
   }
 };
 

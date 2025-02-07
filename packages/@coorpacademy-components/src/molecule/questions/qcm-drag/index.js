@@ -92,15 +92,13 @@ const SelectedAnswerSections = ({answers, help, backgroundColor}) => {
     );
   });
 
-  if (selectedAnswersViews.length > 0) {
-    return <div className={style.selectedAnswers}>{selectedAnswersViews}</div>;
-  } else {
-    return (
-      <div className={style.emptyAnswers}>
-        <EmptyView help={help} />
-      </div>
-    );
-  }
+  return selectedAnswersViews.length > 0 ? (
+    <div className={style.selectedAnswers}>{selectedAnswersViews}</div>
+  ) : (
+    <div className={style.emptyAnswers}>
+      <EmptyView help={help} />
+    </div>
+  );
 };
 
 SelectedAnswerSections.propTypes = {

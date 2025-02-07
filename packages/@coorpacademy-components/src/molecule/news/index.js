@@ -26,10 +26,10 @@ const News = (props, context) => {
       </div>
       <div className={style.infos}>
         <Link
-          href={cta && cta.href}
+          href={cta ? cta.href : null}
           title={title}
           className={classnames(style.title, style.innerHTML)}
-          target={cta && cta.target}
+          target={cta ? cta.target : null}
           data-name="news-title"
           dangerouslySetInnerHTML={{__html: title}}
         />

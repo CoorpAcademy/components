@@ -204,7 +204,7 @@ const SelectMultiple = (
           data-name={`select-languages`}
           onClick={handleOnClick}
         >
-          {isCMTheme && titleView}
+          {isCMTheme ? titleView : null}
           <span
             className={classnames(
               style.selection,
@@ -234,7 +234,7 @@ const SelectMultiple = (
           <ul className={style.list}>{lines}</ul>
         </div>
       </label>
-      {!isCMTheme ? <div className={style.description}>{description}</div> : null}
+      {isCMTheme ? null : <div className={style.description}>{description}</div>}
       {hintView}
     </div>
   );

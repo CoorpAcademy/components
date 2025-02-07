@@ -56,11 +56,11 @@ const AllCourses = (props, context) => {
   const [searchValue, setSearchValue] = useState('');
 
   const sortView =
-    sorting !== undefined ? (
+    sorting === undefined ? null : (
       <div data-name="choice">
         <Select {...sorting} aria-label="All courses sort" />
       </div>
-    ) : null;
+    );
 
   const filteredContent = useMemo(() => {
     return showCompleted ? list : filter(course => course.progress < 1, list);

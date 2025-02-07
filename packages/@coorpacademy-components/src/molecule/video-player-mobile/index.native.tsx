@@ -34,13 +34,14 @@ const VideoSwitch = ({media, autoplay}: Props) => {
 
       return <JWPlayer style={styleSheet.container} config={config} />;
     }
-    case 'application/vimeo':
+    case 'application/vimeo': {
       return media.videoId ? (
         <View style={styleSheet.container}>
           <Vimeo videoId={media.videoId} />
         </View>
       ) : null;
-    case 'application/youtube':
+    }
+    case 'application/youtube': {
       return (
         <Youtube
           apiKey={brandTheme.youtube?.apiKey || ''}
@@ -49,8 +50,10 @@ const VideoSwitch = ({media, autoplay}: Props) => {
           play={autoplay}
         />
       );
-    default:
+    }
+    default: {
       return <Text>{`video mimeType ${media.mimeType} is not handled`}</Text>;
+    }
   }
 };
 

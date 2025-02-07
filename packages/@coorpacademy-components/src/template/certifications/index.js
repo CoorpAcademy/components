@@ -19,11 +19,11 @@ const Certifications = (props, context) => {
   const [showCompleted, setShowCompleted] = useState(true);
 
   const sortView =
-    sorting !== undefined ? (
+    sorting === undefined ? null : (
       <div data-name="choice">
         <Select {...sorting} aria-label="All courses sort" />
       </div>
-    ) : null;
+    );
 
   const handleShowCompletedToggle = useCallback(() => {
     setShowCompleted(!showCompleted);

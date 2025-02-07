@@ -319,20 +319,27 @@ const SidebarItem = ({item, color, index}) => {
     case 'select': {
       return <SelectItem {...item} color={color} index={index} />;
     }
-    case 'multi-select':
+    case 'multi-select': {
       return <MultiSelectItem {...item} color={color} index={index} />;
-    case 'link':
+    }
+    case 'link': {
       return <LinkItem {...item} color={color} index={index} />;
-    case 'iconLink':
+    }
+    case 'iconLink': {
       return <IconLinkItem {...item} color={color} index={index} />;
-    case 'title':
+    }
+    case 'title': {
       return <TitleItem {...item} color={color} index={index} />;
-    case 'button':
+    }
+    case 'button': {
       return <ButtonItem {...item} color={color} index={index} />;
-    case 'info':
+    }
+    case 'info': {
       return <InfoItem {...item} color={color} index={index} />;
-    case 'inputtext':
+    }
+    case 'inputtext': {
       return <InputTextItem {...item} color={color} index={index} />;
+    }
   }
 };
 

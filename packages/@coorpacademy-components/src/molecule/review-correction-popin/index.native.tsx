@@ -222,7 +222,7 @@ const KlfButton = ({
 
   const handlePressKey = useCallback(() => {
     setDisplayTooltip(!displayTooltip);
-    !displayTooltip ? fadeIn.start() : fadeIn.reset();
+    displayTooltip ? fadeIn.reset() : fadeIn.start();
   }, [displayTooltip, fadeIn]);
 
   const {

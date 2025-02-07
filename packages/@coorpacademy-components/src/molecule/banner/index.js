@@ -43,7 +43,7 @@ const Banner = props => {
     const commonStyle = classnames(style.button, STYLES[type]);
 
     switch (buttonType) {
-      case 'switch':
+      case 'switch': {
         return (
           <div className={commonStyle}>
             <InputSwitch
@@ -57,7 +57,8 @@ const Banner = props => {
             />
           </div>
         );
-      default:
+      }
+      default: {
         return (
           <div className={commonStyle}>
             <ButtonLink
@@ -70,6 +71,7 @@ const Banner = props => {
             />
           </div>
         );
+      }
     }
   };
 

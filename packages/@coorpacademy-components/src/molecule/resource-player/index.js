@@ -47,13 +47,16 @@ const ResourceElement = props => {
   const {url} = childProps;
 
   switch (type) {
-    case TYPE_IMAGE:
+    case TYPE_IMAGE: {
       return <div className={style.img} style={{backgroundImage: `url(${url})`}} />;
-    case TYPE_PDF:
+    }
+    case TYPE_PDF: {
       return <Pdf {...childProps} />;
-    case TYPE_AUDIO:
+    }
+    case TYPE_AUDIO: {
       return <Audio {...childProps} />;
-    case TYPE_VIDEO:
+    }
+    case TYPE_VIDEO: {
       return (
         <VideoPlayer
           {...omit('id', childProps)}
@@ -62,6 +65,7 @@ const ResourceElement = props => {
           id={videoId}
         />
       );
+    }
   }
 };
 

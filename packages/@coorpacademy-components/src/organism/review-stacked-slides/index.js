@@ -25,12 +25,15 @@ const unstackByPosition = {
 
 const getSlideAnimation = (action, position) => {
   switch (action) {
-    case 'unstack':
+    case 'unstack': {
       return style.slideOutHideAndIn;
-    case 'restack':
+    }
+    case 'restack': {
       return unstackByPosition[position];
-    default:
+    }
+    default: {
       return null;
+    }
   }
 };
 

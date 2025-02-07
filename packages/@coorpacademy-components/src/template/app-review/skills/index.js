@@ -27,14 +27,14 @@ const ReviewSkills = props => {
         </div>
       ) : (
         <div>
-          {!isEmpty(listSkills) ? (
-            <ReviewListSkills listSkills={listSkills} />
-          ) : (
+          {isEmpty(listSkills) ? (
             <ReviewNoSkills
               titleNoSkills={titleNoSkills}
               textNoSkills={textNoSkills}
               iconSkillAriaLabel={iconSkillAriaLabel}
             />
+          ) : (
+            <ReviewListSkills listSkills={listSkills} />
           )}
         </div>
       )}

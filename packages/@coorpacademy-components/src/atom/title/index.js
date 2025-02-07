@@ -6,39 +6,52 @@ import style from './style.css';
 
 const getTitleStyle = (type, size) => {
   switch (type) {
-    case 'page':
+    case 'page': {
       return style.titlePage;
-    case 'form-group':
+    }
+    case 'form-group': {
       switch (size) {
-        case 'standard-light-weight':
+        case 'standard-light-weight': {
           return style.titleFormGroupLightWeight;
-        case 'standard':
+        }
+        case 'standard': {
           return style.titleFormGroup;
-        case 'medium':
+        }
+        case 'medium': {
           return style.mediumTitleFormGroup;
-        case 'small':
+        }
+        case 'small': {
           return style.smallTitleFormGroup;
+        }
       }
+    }
   }
 };
 
 const getSubtitleStyle = (type, size) => {
   switch (type) {
-    case 'page':
+    case 'page': {
       return style.subtitlePage;
-    case 'form-group':
+    }
+    case 'form-group': {
       switch (size) {
-        case 'standard':
+        case 'standard': {
           return style.subtitleFormGroup;
-        case 'standard-without-margin':
+        }
+        case 'standard-without-margin': {
           return style.subtitleFormGroupWithoutMargin;
-        case 'small':
+        }
+        case 'small': {
           return style.smallSubtitleFormGroup;
-        case 'small-without-margin':
+        }
+        case 'small-without-margin': {
           return style.smallSubtitleFormGroupWithoutMargin;
-        case 'extra-small':
+        }
+        case 'extra-small': {
           return style.extraSmallSubtitleFormGroup;
+        }
       }
+    }
   }
 };
 

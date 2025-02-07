@@ -6,7 +6,7 @@ import trim from 'lodash/fp/trim';
 import Html from '../../../../atom/html/index.native';
 import Select from '../../../../atom/select-modal/index.native';
 import Space from '../../../../atom/space/index.native';
-import type {TemplateListOfChoices, TemplateTextChoice} from '../../types';
+import {type TemplateListOfChoices, type TemplateTextChoice} from '../../types';
 import FreeText from '../../free-text/index.native';
 import {
   FocusedSelectId,
@@ -42,7 +42,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType => ({
     fontWeight: theme.fontWeight.bold,
     lineHeight: 25
   },
-  // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
+
   selectInput: {
     padding: theme.spacing.tiny,
     borderRadius: theme.radius.regular,

@@ -163,7 +163,7 @@ const EngineStars = (props, legacyContext) => {
         style.engineStars,
         disabled ? style.disabled : '',
         active ? style.active : '',
-        onClick !== noop ? style.clickable : null,
+        onClick === noop ? null : style.clickable,
         className
       ])}
       type="button"

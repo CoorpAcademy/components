@@ -132,7 +132,7 @@ const Popin = (props, context) => {
                 name={`cockpit-popin-cta-${type}`}
                 className={style.button}
                 style={{backgroundColor: primaryColor}}
-                disabled={isAssistancePopin && !value.message}
+                disabled={isAssistancePopin ? !value.message : null}
               />
             ) : null}
           </div>

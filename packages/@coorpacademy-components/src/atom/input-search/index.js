@@ -28,16 +28,16 @@ const Search = props => {
   return (
     <div className={isDefaultTheme ? style.wrapperSearch : cmStyle}>
       <label htmlFor="search" title={placeholder}>
-        {!isDefaultTheme ? (
-          <CMSearchIcon className={style.searchIcon} />
-        ) : (
+        {isDefaultTheme ? (
           <SearchIcon className={style.searchIcon} />
+        ) : (
+          <CMSearchIcon className={style.searchIcon} />
         )}
-        {!isDefaultTheme ? (
+        {isDefaultTheme ? null : (
           <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
             {placeholder}
           </span>
-        ) : null}
+        )}
       </label>
       <input
         data-name="search-input"

@@ -45,6 +45,7 @@ const Dashboard = (props, context) => {
   const {skin, translate} = context;
   const body = () => {
     if (selected) {
+      // eslint-disable-next-line react/iframe-missing-sandbox
       if (url) return <iframe src={url} className={style.dashboardIframe} frameBorder="0" />;
       if (!error) return <Loader />;
     } else if (!error) {

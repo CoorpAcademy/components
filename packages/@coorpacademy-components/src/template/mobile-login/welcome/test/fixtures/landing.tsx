@@ -1,5 +1,5 @@
 import {noop} from 'lodash/fp';
-import type {Props} from '../../index.native';
+import {type Props} from '../../index.native';
 
 type Fixture = {props: Props};
 

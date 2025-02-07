@@ -8,24 +8,21 @@ import style from './handle.css';
 class NoopHammer {
   constructor() {}
 
-  // eslint-disable-next-line class-methods-use-this
   on() {
     return;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   stop() {
     return;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   destroy() {
     return;
   }
 }
 
 const Hammer = // eslint-disable-next-line no-undef
-  typeof window !== 'undefined' ? /* istanbul ignore next */ require('hammerjs') : NoopHammer;
+  typeof window === 'undefined' ? /* istanbul ignore next */ NoopHammer : require('hammerjs');
 
 const Handle = (props, legacyContext) => {
   const skin = GetSkinFromContext(legacyContext);

@@ -68,10 +68,12 @@ const IconView = (props, context) => {
 
 const computeWidth = card => {
   switch (card && card.type) {
-    case 'chapter':
+    case 'chapter': {
       return 219;
-    default:
+    }
+    default: {
       return 272;
+    }
   }
 };
 
@@ -169,7 +171,7 @@ class CardsList extends React.PureComponent {
 
     if (newCardsWidth !== cardsWidth && offsetWidth !== 0) {
       this.updatePaginationState(cards);
-      // eslint-disable-next-line react/no-did-update-set-state
+
       this.setState({
         cardsWidth: newCardsWidth
       });

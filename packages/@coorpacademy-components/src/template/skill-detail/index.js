@@ -123,7 +123,7 @@ const SkillDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={skillRef}>
-        {!isNil(onBackClick) ? (
+        {isNil(onBackClick) ? null : (
           <ButtonLinkIcon
             faIcon="arrow-left"
             data-name="back-button"
@@ -132,7 +132,7 @@ const SkillDetail = (props, context) => {
             className={style.backButton}
             tooltipPlacement="right"
           />
-        ) : null}
+        )}
         <div className={style.ctaContainer}>
           <div>
             {focused ? (

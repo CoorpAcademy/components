@@ -23,7 +23,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       width: 132,
       height: 132
     },
-    // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
+
     card: {
       alignItems: 'center',
       paddingTop: 32,

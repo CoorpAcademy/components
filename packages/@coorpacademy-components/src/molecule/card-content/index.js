@@ -142,8 +142,8 @@ const ContentInfo = ({
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
-      <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
-        {!disabled ? (
+      <div className={isNil(progress) ? style.hideProgressBar : style.progressWrapper}>
+        {disabled ? null : (
           <div
             data-name="progress"
             className={style.progress}
@@ -151,7 +151,7 @@ const ContentInfo = ({
             role="progressbar"
             aria-label={get('progression', ariaLabel)}
           />
-        ) : null}
+        )}
       </div>
     ) : null;
 

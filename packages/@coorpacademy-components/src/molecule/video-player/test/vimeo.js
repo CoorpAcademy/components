@@ -26,11 +26,9 @@ class Player extends EventEmitter {
     };
   }
 
-  /* eslint-disable class-methods-use-this */
   loadVideo() {}
 
   unload() {}
-  /* eslint-enable class-methods-use-this */
 }
 
 test('should call listeners within props, then remove them on willComponentUnmount', t => {
@@ -106,7 +104,6 @@ test('should update vimeo video', t => {
   t.plan(2);
 
   class _Player extends Player {
-    /* eslint-disable class-methods-use-this */
     loadVideo() {
       t.pass();
     }
@@ -114,7 +111,6 @@ test('should update vimeo video', t => {
     unload() {
       t.pass();
     }
-    /* eslint-enable class-methods-use-this */
   }
 
   const component = <Vimeo />;

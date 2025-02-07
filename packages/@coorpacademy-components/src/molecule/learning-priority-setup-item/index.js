@@ -17,12 +17,15 @@ const LearningPrioritySetupItem = (props, context) => {
 
   const handleTypeTranslate = itemType => {
     switch (itemType) {
-      case 'skill':
+      case 'skill': {
         return translate('skill');
-      case 'playlist':
+      }
+      case 'playlist': {
         return translate('playlist');
-      case 'certificate':
+      }
+      case 'certificate': {
         return translate('certificate');
+      }
     }
   };
 
@@ -39,9 +42,9 @@ const LearningPrioritySetupItem = (props, context) => {
             <Tag label={handleTypeTranslate(type)} size={'S'} />
           </div>
         </div>
-        {courses !== null ? (
+        {courses === null ? null : (
           <span className={style.courses}>{`${courses} ${translate('courses')}`}</span>
-        ) : null}
+        )}
       </div>
       <ButtonLink
         type="primary"

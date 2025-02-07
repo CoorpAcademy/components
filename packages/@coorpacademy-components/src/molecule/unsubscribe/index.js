@@ -10,7 +10,7 @@ const Unsubscribe = (props, context) => {
 
   return (
     <div>
-      {!hasUnsubscribed ? (
+      {hasUnsubscribed ? null : (
         <div className={style.unsubscribe}>
           <div className={style.description}>{translate('confirm_unsubscribe')} </div>
           <div className={style.buttonContainer}>
@@ -28,7 +28,7 @@ const Unsubscribe = (props, context) => {
             </button>
           </div>
         </div>
-      ) : null}
+      )}
       {hasUnsubscribed ? (
         <div className={style.unsubscribeConfirmation}>
           {translate('premium_unsubscribe_confirmation')}

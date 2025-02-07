@@ -53,19 +53,21 @@ const MediaView = ({media, autoplay}: {media?: Media; autoplay: boolean}) => {
   }
 
   switch (media.type) {
-    case TYPE_VIDEO:
+    case TYPE_VIDEO: {
       return (
         <View style={styles.mediaContainer}>
           <Video media={media} autoplay={autoplay} />
         </View>
       );
+    }
     case TYPE_IMAGE: {
       const uri = `https://${media.url?.split('//')[1]}`;
       return <Image style={[styles.mediaContainer, styles.image]} source={{uri}} />;
     }
     case TYPE_AUDIO:
-    default:
+    default: {
       return null;
+    }
   }
 };
 

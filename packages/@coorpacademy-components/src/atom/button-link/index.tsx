@@ -32,11 +32,11 @@ const getButtonContent = (
         iconName: faIcon.name,
         iconColor: hovered && hoverColor ? hoverColor : faIcon.color,
         // eslint-disable-next-line no-nested-ternary
-        backgroundColor: !faIcon?.backgroundColor
-          ? 'transparent'
-          : hovered && hoverBackgroundColor
-          ? hoverBackgroundColor
-          : faIcon.backgroundColor,
+        backgroundColor: faIcon?.backgroundColor
+          ? hovered && hoverBackgroundColor
+            ? hoverBackgroundColor
+            : faIcon.backgroundColor
+          : 'transparent',
         size: {
           faSize: faIcon.size,
           wrapperSize: faIcon.size

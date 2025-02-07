@@ -58,7 +58,7 @@ const logEvent = (
 ) => {
   analytics &&
     analytics.logEvent(eventName, {
-      ...(analyticsParams || {}),
+      ...analyticsParams,
       id: analyticsID
     });
 };

@@ -12,14 +12,18 @@ import style from './style.css';
 
 const Icon = ({level = 0}) => {
   switch (level) {
-    case 1:
+    case 1: {
       return <NovaCompositionCoorpacademyLevel1 className={style.icon} />;
-    case 2:
+    }
+    case 2: {
       return <NovaCompositionCoorpacademyLevel2 className={style.icon} />;
-    case 3:
+    }
+    case 3: {
       return <NovaCompositionCoorpacademyLevel3 className={style.icon} />;
-    default:
+    }
+    default: {
       return <NovaCompositionCoorpacademyLevel0 className={style.icon} />;
+    }
   }
 };
 

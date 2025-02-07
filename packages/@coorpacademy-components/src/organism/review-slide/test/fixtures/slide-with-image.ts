@@ -1,5 +1,5 @@
 import qcm from '../../../../molecule/answer/test/fixtures/qcm-short';
-import type {Fixture} from '../../prop-types';
+import {type Fixture} from '../../prop-types';
 
 const fixture: Fixture = {
   props: {

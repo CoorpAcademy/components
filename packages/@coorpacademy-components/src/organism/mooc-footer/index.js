@@ -56,7 +56,7 @@ function MoocFooter(props) {
 
   // Header section of the footer (the marketing banner)
 
-  const headSectionView = !isEmpty(headSection) ? (
+  const headSectionView = isEmpty(headSection) ? null : (
     <div data-name="headSpacingContainer" className={style.headSpacingContainer}>
       <div data-name="headSection" className={style.headSectionWrapper}>
         <div className={style.logoAndLabelWrapper}>
@@ -85,7 +85,7 @@ function MoocFooter(props) {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 
   // Sitemap section of the footer (contains HELP, TOOLBOX... and other pages, as well as social links)
 
@@ -115,16 +115,16 @@ function MoocFooter(props) {
     );
   };
 
-  const sections = !isEmpty(siteMapSections)
-    ? siteMapSections.map((section, index) => {
+  const sections = isEmpty(siteMapSections)
+    ? null
+    : siteMapSections.map((section, index) => {
         return (
           <nav key={index} className={style.sectionWrapper}>
             <p className={style.sectionTitle}>{section.title}</p>
             {renderPagesFromSection(section.pages)}
           </nav>
         );
-      })
-    : null;
+      });
 
   const socialLinksView = socialLinks.map((socialLink, index) => {
     return (

@@ -40,6 +40,7 @@ function ExternalContentViewer(props) {
       </audio>
     </div>
   ) : (
+    // eslint-disable-next-line react/iframe-missing-sandbox
     <iframe
       src={isPdf && mode === 'mobile' ? googleViewer : url}
       frameBorder={0}

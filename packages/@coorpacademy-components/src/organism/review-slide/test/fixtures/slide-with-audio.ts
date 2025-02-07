@@ -1,5 +1,5 @@
 import answerUIFreetextWithAudio from '../../../../molecule/answer/test/fixtures/audio';
-import type {Fixture} from '../../prop-types';
+import {type Fixture} from '../../prop-types';
 
 const fixture: Fixture = {
   props: {

@@ -1,3 +1,1 @@
-import props from '../../../../../atom/review-presentation/test/fixtures/default';
-
-export default props;
+export {default} from '../../../../../atom/review-presentation/test/fixtures/default';

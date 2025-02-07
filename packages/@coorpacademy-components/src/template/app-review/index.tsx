@@ -5,10 +5,12 @@ import propTypes, {AppReviewProps} from './prop-types';
 
 const AppReview = ({viewName, slides}: AppReviewProps) => {
   switch (viewName) {
-    case 'slides':
+    case 'slides': {
       return <Player {...slides} />;
-    default:
+    }
+    default: {
       return <Loader />;
+    }
   }
 };
 

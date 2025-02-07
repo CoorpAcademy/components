@@ -117,9 +117,9 @@ const SetupHeader = props => {
             <div className={style.platformListIcon}>
               <IconLink {...platformListIconButtonProps} />
             </div>
-            {!isDashboard ? (
+            {isDashboard ? null : (
               <li className={classnames(style.element, style.platformName)}>{platformName}</li>
-            ) : null}
+            )}
           </ul>
         )}
         <ul className={style.list}>

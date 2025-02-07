@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useRef} from 'react';
 import {Animated, Easing, StyleSheet, View, ViewStyle} from 'react-native';
 
 import QRCodeScannerBase from 'react-native-qrcode-scanner';
-import type {BarCodeReadEvent} from 'react-native-camera';
+import {type BarCodeReadEvent} from 'react-native-camera';
 import {NovaCompositionCoorpacademyQrCode as QrCodeIcon} from '@coorpacademy/nova-icons';
 import Touchable from '../../../hoc/touchable/index.native';
 import Text from '../../../atom/text/index.native';

@@ -4,11 +4,11 @@ import {get, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import {NovaCompositionCoorpacademyLogout as LogoutIcon} from '@coorpacademy/nova-icons';
 import Link from '../link';
-import type {WebContextValues} from '../provider/web-context';
+import {type WebContextValues} from '../provider/web-context';
 import Provider from '../provider';
 import style from './style.css';
 import propTypes from './prop-types';
-import type {CTAProps} from './prop-types';
+import {type CTAProps} from './prop-types';
 
 const CTA = (props: CTAProps, legacyContext: WebContextValues) => {
   const {skin} = legacyContext;

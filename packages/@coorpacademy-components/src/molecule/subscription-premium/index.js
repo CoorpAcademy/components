@@ -61,7 +61,7 @@ const SubscriptionPremiumDetails = (props, context) => {
       </div>
       <div>
         <Description date={date} price={price} />
-        {!isPromoCode ? (
+        {isPromoCode ? null : (
           <div className={style.cancelSubscriptionText}>
             {translate('subscription_premium_description_part3')}
             <a
@@ -71,7 +71,7 @@ const SubscriptionPremiumDetails = (props, context) => {
               {translate('subscription_premium_description_part3_with_link')}
             </a>
           </div>
-        ) : null}
+        )}
       </div>
     </div>
   );

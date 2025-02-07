@@ -10,12 +10,12 @@ import FreeText from '../../free-text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE} from '../../../../variables/analytics';
 
-import type {
-  QuestionType,
-  Choice,
-  TemplateListOfChoices,
-  TemplateTextChoice,
-  SelectableChoice
+import {
+  type QuestionType,
+  type Choice,
+  type TemplateListOfChoices,
+  type TemplateTextChoice,
+  type SelectableChoice
 } from '../../types';
 
 export type Props = {
@@ -117,7 +117,7 @@ const Switch = (props: Props) => {
   );
 
   switch (type) {
-    case 'qcm':
+    case 'qcm': {
       return (
         <View testID="question-choices">
           {(choices as SelectableChoice[]).map(choice => (
@@ -135,7 +135,8 @@ const Switch = (props: Props) => {
           ))}
         </View>
       );
-    case 'qcmGraphic':
+    }
+    case 'qcmGraphic': {
       return (
         <View testID="question-choices">
           {(choices as SelectableChoice[]).map(choice => (
@@ -154,6 +155,7 @@ const Switch = (props: Props) => {
           ))}
         </View>
       );
+    }
     case 'slider': {
       if (min === undefined || max === undefined) {
         return <View />;
@@ -171,7 +173,7 @@ const Switch = (props: Props) => {
         />
       );
     }
-    case 'template':
+    case 'template': {
       if (handleBlur === undefined || handleFocus === undefined || focusedSelectId === undefined) {
         // eslint-disable-next-line no-console
         console.warn('type template must implement handleFocus etc within Context.store');
@@ -191,13 +193,15 @@ const Switch = (props: Props) => {
           />
         </View>
       );
-    case 'qcmDrag':
+    }
+    case 'qcmDrag': {
       return (
         <View testID="question-draggable">
           <QuestionDraggable choices={choices as SelectableChoice[]} onPress={handleChoicePress} />
         </View>
       );
-    case 'basic':
+    }
+    case 'basic': {
       if (!onInputValueChange) {
         return <View />;
       }
@@ -211,12 +215,14 @@ const Switch = (props: Props) => {
           isDisabled={isDisabled}
         />
       );
-    default:
+    }
+    default: {
       return (
         <View>
           <Text>Unhandled type: {type}</Text>
         </View>
       );
+    }
   }
 };
 

@@ -36,10 +36,12 @@ const Dashboard = (props, context) => {
   const buildSectionComponent = section => {
     const {type} = section;
     switch (type) {
-      case 'hero':
+      case 'hero': {
         return <Hero hero={hero} welcome={welcome} />;
-      case 'battleRequests':
+      }
+      case 'battleRequests': {
         return <BattleRequestList {...section} />;
+      }
       case 'learningPrioritiesCards': {
         return (
           <CardsList
@@ -67,18 +69,24 @@ const Dashboard = (props, context) => {
           />
         );
       }
-      case 'cards':
+      case 'cards': {
         return <CardsList {...section} arrows-aria-label={showMoreOnLeftOrRightAriaLabel} />;
-      case 'news':
+      }
+      case 'news': {
         return <NewsList {...section} />;
-      case 'battle':
+      }
+      case 'battle': {
         return <StartBattle {...section} />;
-      case 'review':
+      }
+      case 'review': {
         return <ReviewBanner {...section} />;
-      case 'learningProfile':
+      }
+      case 'learningProfile': {
         return <LearningProfileBanner {...section} />;
-      default:
+      }
+      default: {
         return null;
+      }
     }
   };
 

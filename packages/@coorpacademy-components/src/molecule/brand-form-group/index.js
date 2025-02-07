@@ -36,51 +36,68 @@ const buildInput = field => {
   const {type, ...rest} = field;
 
   switch (type) {
-    case 'autoComplete':
+    case 'autoComplete': {
       return <Autocomplete {...field} />;
-    case 'color':
+    }
+    case 'color': {
       return <InputColor {...field} />;
-    case 'readonly':
+    }
+    case 'readonly': {
       return <InputReadonly {...field} />;
-    case 'switch':
+    }
+    case 'switch': {
       return <InputSwitch {...field} />;
-    case 'textarea':
+    }
+    case 'textarea': {
       return <InputTextarea {...field} />;
-    case 'html':
+    }
+    case 'html': {
       return <InputHTML {...field} />;
-    case 'doublestep':
+    }
+    case 'doublestep': {
       return <InputDoublestep {...field} />;
-    case 'select':
+    }
+    case 'select': {
       return <Select {...field} theme={'coorpmanager'} />;
-    case 'selectMultiple':
+    }
+    case 'selectMultiple': {
       return <SelectMultiple {...field} />;
-    case 'checkbox':
+    }
+    case 'checkbox': {
       return <InputCheckbox {...field} />;
-    case 'image':
+    }
+    case 'image': {
       return (
         <div className={style.imageUploadContainer}>
           <InputFileDraggable {...field} />
         </div>
       );
-    case 'bulkUpload':
+    }
+    case 'bulkUpload': {
       return (
         <div className={style.bulkUploadContainer}>
           <InputFileDraggable {...field} />
         </div>
       );
-    case 'slider':
+    }
+    case 'slider': {
       return <SetupSlider {...field} />;
-    case 'sections':
+    }
+    case 'sections': {
       return <SetupSections {...field} />;
+    }
     case 'text':
-    case 'password':
+    case 'password': {
       return <InputText {...field} />;
-    case 'downloadbox':
+    }
+    case 'downloadbox': {
       return <BrandDownloadBox {...field} />;
-    case 'uploadbox':
+    }
+    case 'uploadbox': {
       return <BrandUploadBox {...field} />;
+    }
     case 'button':
-    case 'link':
+    case 'link': {
       return (
         <ButtonLink
           {...field}
@@ -92,16 +109,22 @@ const buildInput = field => {
           customStyle={{width: 'fit-content'}}
         />
       );
-    case 'buttonLink':
+    }
+    case 'buttonLink': {
       return <ButtonLink {...field} type={field.buttonType} />;
-    case 'roles':
+    }
+    case 'roles': {
       return <Roles {...field} />;
-    case 'titleAndCheckBoxWrapper':
+    }
+    case 'titleAndCheckBoxWrapper': {
       return <TitleAndCheckBoxWrapper {...field} />;
-    case 'titleAndInput':
+    }
+    case 'titleAndInput': {
       return <TitleAndInput {...field} />;
-    default:
+    }
+    default: {
       return <InputText {...rest} type={'text'} />;
+    }
   }
 };
 

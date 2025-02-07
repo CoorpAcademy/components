@@ -5,13 +5,7 @@ import classnames from 'classnames';
 import style from './style.css';
 
 const Loader = ({className, theme = 'default'}) => {
-  return theme !== 'default' ? (
-    <div data-name="loader" className={classnames(style.cmLoaderContainer, className)}>
-      <CMLoader className={style.cmLoaderGrey} />
-      <CMLoader className={style.cmLoaderLightGrey} />
-      <CMLoader className={style.cmLoaderBlue} />
-    </div>
-  ) : (
+  return theme === 'default' ? (
     <div data-name="loader" className={classnames(style.container, className)}>
       <div className={style.dots}>
         <div className={style.red} />
@@ -19,6 +13,12 @@ const Loader = ({className, theme = 'default'}) => {
         <div className={style.green} />
         <div className={style.yellow} />
       </div>
+    </div>
+  ) : (
+    <div data-name="loader" className={classnames(style.cmLoaderContainer, className)}>
+      <CMLoader className={style.cmLoaderGrey} />
+      <CMLoader className={style.cmLoaderLightGrey} />
+      <CMLoader className={style.cmLoaderBlue} />
     </div>
   );
 };

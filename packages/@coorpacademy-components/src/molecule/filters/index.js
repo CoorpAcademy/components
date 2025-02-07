@@ -102,11 +102,11 @@ class Filters extends React.Component {
     const sortingActive = sorted === true;
 
     const sortView =
-      sorting !== undefined ? (
+      sorting === undefined ? null : (
         <div data-name="choice" className={style.select}>
           <Select {...sorting} aria-label={sortAriaLabel} />
         </div>
-      ) : null;
+      );
 
     return (
       <div data-name="search" className={style.search}>

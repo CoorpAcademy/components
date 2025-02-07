@@ -39,18 +39,21 @@ const InputSwitch = props => {
 
   const getClass = () => {
     switch (theme) {
-      case 'coorpmanager':
+      case 'coorpmanager': {
         return {
           defaultClass: style.coorpmanager,
           modifiedClass: style.coorpmanagerModified
         };
-      case 'mooc':
+      }
+      case 'mooc': {
         return {
           defaultClass: style.partielUncheck,
           modifiedClass: style.coorpmanagerModified
         };
-      default:
+      }
+      default: {
         return {defaultClass: style.default, modifiedClass: style.modified};
+      }
     }
   };
   const {defaultClass, modifiedClass} = getClass();
@@ -83,7 +86,7 @@ const InputSwitch = props => {
           />
         </div>
       </div>
-      <div className={!details ? style.alignedTextContainer : null}>
+      <div className={details ? null : style.alignedTextContainer}>
         {titlePosition === 'right' ? titleView : null}
         {details ? <div className={style.detailsTxt}>{details}</div> : null}
       </div>

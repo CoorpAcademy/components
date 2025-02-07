@@ -12,7 +12,7 @@ const ForumThread = props => {
 
   return (
     <div className={mainPost ? style.mainPost : null}>
-      <ForumPost {...props} mainPost={mainPost && !isEmpty(answers)} />
+      <ForumPost {...props} mainPost={mainPost ? !isEmpty(answers) : null} />
       <div data-name="forumAnswers" className={style.answers}>
         {answersView}
       </div>

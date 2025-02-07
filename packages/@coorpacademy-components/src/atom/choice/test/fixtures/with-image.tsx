@@ -1,5 +1,5 @@
 import noop from 'lodash/fp/noop';
-import type {Media} from '../../../../molecule/questions/types';
+import {type Media} from '../../../../molecule/questions/types';
 import {Props} from '../../index.native';
 
 type Fixture = {props: Props};

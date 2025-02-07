@@ -142,7 +142,13 @@ class InputDoublestep extends React.Component {
     const {toggleValue, disabled, icon} = this.props;
     const {open} = this.state;
 
-    const formView = !open ? (
+    const formView = open ? (
+      <Confirmation
+        {...this.props}
+        onHandleClose={this.handleToggle}
+        onConfirm={this.handleOnClick}
+      />
+    ) : (
       <ButtonLink
         {...(icon
           ? {
@@ -161,12 +167,6 @@ class InputDoublestep extends React.Component {
         disabled={disabled}
         data-testid="input-toggle-button"
         onClick={this.handleToggle}
-      />
-    ) : (
-      <Confirmation
-        {...this.props}
-        onHandleClose={this.handleToggle}
-        onConfirm={this.handleOnClick}
       />
     );
 

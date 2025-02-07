@@ -1,3 +1,1 @@
-import Onboarding from '../../../atom/review-presentation/index.native';
-
-export default Onboarding;
+export {default} from '../../../atom/review-presentation/index.native';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {defaultsDeep, get, getOr} from 'lodash/fp';
 import {SrcPropType, ColorPropType, HexPropType} from '../../util/proptypes';
-import WebContext, {useWebContext} from './web-context';
+import {useWebContext} from './web-context';
 
 const DEFAULT_SKIN = {
   common: {
@@ -114,5 +114,7 @@ const GetTranslateFromContext = legacyContext => {
   return translate;
 };
 
-export {WebContext, useWebContext, GetSkinFromContext, GetTranslateFromContext};
+export {GetSkinFromContext, GetTranslateFromContext};
 export default Provider;
+
+export {default as WebContext, useWebContext} from './web-context';

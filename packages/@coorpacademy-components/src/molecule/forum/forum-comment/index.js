@@ -32,7 +32,7 @@ const ForumComment = (props, context) => {
     <div className={style.post}>
       <Button
         type="link"
-        onClick={!postDisabled ? onPost : noop}
+        onClick={postDisabled ? noop : onPost}
         disabled={postDisabled}
         submitValue={translate('Post')}
         aria-label={translate('post_comment_aria_label')}

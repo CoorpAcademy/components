@@ -88,13 +88,13 @@ const buildNotifications = notifications => {
 
   const notificationsList = notifications.map((notification, index) => {
     return (
-      <div className={!notification.temporary ? style.permanentNotification : null} key={index}>
+      <div className={notification.temporary ? null : style.permanentNotification} key={index}>
         <Banner {...notification} />
       </div>
     );
   });
   return (
-    <div className={!find({temporary: true}, notifications) ? style.permanentNotifications : null}>
+    <div className={find({temporary: true}, notifications) ? null : style.permanentNotifications}>
       {notificationsList}
     </div>
   );
@@ -167,28 +167,38 @@ const buildContentView = content => {
 
   const {type} = content;
   switch (type) {
-    case 'form':
+    case 'form': {
       return <BrandForm {...content} />;
-    case 'list':
+    }
+    case 'list': {
       return <BrandTable {...content} />;
-    case 'upload':
+    }
+    case 'upload': {
       return <BrandUpload {...content} />;
-    case 'analytics-dashboards':
+    }
+    case 'analytics-dashboards': {
       return <BrandAnalytics {...content} />;
+    }
     case 'list-content':
-    case 'expandible-actionable-table':
+    case 'expandible-actionable-table': {
       return <ListItems {...content} />;
-    case 'home':
+    }
+    case 'home': {
       return <BrandDashboard {...content} />;
+    }
     case 'wizard':
-    case 'expandible-table':
+    case 'expandible-table': {
       return <WizardContents {...content} />;
-    case 'bulk-empty-dashboard':
+    }
+    case 'bulk-empty-dashboard': {
       return <BulkInfos {...content} />;
-    case 'table-pending':
+    }
+    case 'table-pending': {
       return <ExpandibleActionableTable {...content} />;
-    case 'learning-priorities':
+    }
+    case 'learning-priorities': {
       return <BrandLearningPriorities {...content} />;
+    }
   }
 };
 

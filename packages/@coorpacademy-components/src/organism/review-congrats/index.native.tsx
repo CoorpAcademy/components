@@ -13,7 +13,7 @@ import {
   useTranslateY,
   useTranslateX
 } from '@coorpacademy/react-native-animation';
-import type {AnimatePropParams} from '@coorpacademy/react-native-animation/es/use-animate-prop';
+import {type AnimatePropParams} from '@coorpacademy/react-native-animation/es/use-animate-prop';
 
 import {useTemplateContext} from '../../template/app-review/template-context';
 import {Theme} from '../../variables/theme.native';

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import type {ImageSourcePropType} from 'react-native';
+import {type ImageSourcePropType} from 'react-native';
 import {CMPopinProps} from '../../../molecule/cm-popin/types';
 import ReviewCongratsPropTypes, {
   ReviewCongratsProps

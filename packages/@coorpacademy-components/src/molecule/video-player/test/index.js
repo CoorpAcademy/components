@@ -14,10 +14,10 @@ test('should emit play only one', t => {
   const props = {
     id: 'foo',
     mimeType: 'video/mp4',
-    onPause: () => t.is('Pause', events.shift()),
-    onPlay: () => t.is('Play', events.shift()),
-    onResume: () => t.is('Resume', events.shift()),
-    onEnd: () => t.is('End', events.shift()),
+    onPause: () => t.is(events.shift(), 'Pause'),
+    onPlay: () => t.is(events.shift(), 'Play'),
+    onResume: () => t.is(events.shift(), 'Resume'),
+    onEnd: () => t.is(events.shift(), 'End'),
     jwpOptions: {
       licenseKey: '12345',
       playerScript: '/path/to/jwplayer.js',

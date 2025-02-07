@@ -37,31 +37,27 @@ const ToolTipWrapper = ({
     usesAnchorElement ? null : iconSize === 'big' ? style.bigIconToolTip : style.smallIconToolTip
   );
   if (!toolTipIsVisible) return null;
-  if (anchorId) {
-    return (
-      <ReactTooltip
-        id={anchorId}
-        className={style.toolTipReact}
-        data-event-off="click"
-        place={placement}
-        effect="solid"
-        aria-label={closeToolTipInformationTextAriaLabel}
-      >
-        {content}
-      </ReactTooltip>
-    );
-  } else {
-    return (
-      <div
-        className={coorpToolTipClasses}
-        data-testid="tooltip"
-        aria-label={closeToolTipInformationTextAriaLabel}
-        onMouseOver={handleContentMouseOver}
-      >
-        {content}
-      </div>
-    );
-  }
+  return anchorId ? (
+    <ReactTooltip
+      id={anchorId}
+      className={style.toolTipReact}
+      data-event-off="click"
+      place={placement}
+      effect="solid"
+      aria-label={closeToolTipInformationTextAriaLabel}
+    >
+      {content}
+    </ReactTooltip>
+  ) : (
+    <div
+      className={coorpToolTipClasses}
+      data-testid="tooltip"
+      aria-label={closeToolTipInformationTextAriaLabel}
+      onMouseOver={handleContentMouseOver}
+    >
+      {content}
+    </div>
+  );
 };
 
 ToolTipWrapper.propTypes = {

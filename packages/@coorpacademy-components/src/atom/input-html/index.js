@@ -37,10 +37,10 @@ const InputHtml = (props, legacyContext) => {
   const {title, placeholder, error, description, disabled} = props;
 
   const className = error ? style.error : style.default;
-  const iconContent = !preview ? (
-    <PreviewIcon style={{color: mediumColor}} height={16} />
-  ) : (
+  const iconContent = preview ? (
     <PencilIcon style={{color: mediumColor}} height={16} />
+  ) : (
+    <PreviewIcon style={{color: mediumColor}} height={16} />
   );
 
   return (

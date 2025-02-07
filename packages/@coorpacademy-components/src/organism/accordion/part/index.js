@@ -29,7 +29,7 @@ const AccordionPart = (props, context) => {
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
   const openIconClassName = isOpen ? style.openIconActivated : style.openIcon;
-  const closeIconClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
+  const closeIconClassName = isOpen ? style.closeIcon : style.closeIconActivated;
 
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>

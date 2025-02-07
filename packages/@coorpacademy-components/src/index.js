@@ -1,8 +1,7 @@
-import Provider from './atom/provider';
-import PopinEnd from './template/app-player/popin-end';
-import PopinCorrection from './template/app-player/popin-correction';
-import Player from './template/app-player/player';
-import Loading from './template/app-player/loading';
-import PopinNoAccess from './template/app-player/popin-no-access';
+export {default as Provider} from './atom/provider';
+export {default as PopinCorrection} from './template/app-player/popin-correction';
+export {default as PopinEnd} from './template/app-player/popin-end';
+export {default as Loading} from './template/app-player/loading';
+export {default as Player} from './template/app-player/player';
 
-export {Provider, PopinEnd, PopinCorrection, Loading, Player, PopinNoAccess};
+export {default as PopinNoAccess} from './template/app-player/popin-no-access';

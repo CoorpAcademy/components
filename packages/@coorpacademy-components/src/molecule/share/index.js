@@ -26,8 +26,8 @@ const copyTextViaExecCommand = text => {
   textarea.value = text;
 
   // Element.append is not supported on IE11 :/
-  // eslint-disable-next-line unicorn/prefer-node-append
-  document.body.appendChild(textarea);
+
+  document.body.append(textarea);
   let status = SHARE_STATUS.IDLE;
 
   try {
@@ -40,8 +40,8 @@ const copyTextViaExecCommand = text => {
   }
 
   // Element.remove is not supported on IE11 :/
-  // eslint-disable-next-line unicorn/prefer-node-remove
-  document.body.removeChild(textarea);
+
+  textarea.remove();
 
   return status;
 };

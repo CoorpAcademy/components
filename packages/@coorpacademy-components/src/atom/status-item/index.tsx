@@ -15,15 +15,16 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
   let child;
   let contentAriaLabel;
   switch (icon) {
-    case 'no-answer':
+    case 'no-answer': {
       child = value;
       contentAriaLabel = translate('review_header_step_item.not_answered_question', {
         current: current ? 'current ' : '',
         headerStepValue: value
       });
       break;
+    }
 
-    case 'right':
+    case 'right': {
       child = (
         <RightIcon
           className={classnames(style.rightIcon, current && style.currentRightIcon)}
@@ -35,8 +36,9 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         />
       );
       break;
+    }
 
-    case 'wrong':
+    case 'wrong': {
       child = (
         <WrongIcon
           className={classnames(style.wrongIcon, current && style.currentWrongIcon)}
@@ -48,15 +50,17 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         />
       );
       break;
+    }
 
-    case 'errors-number':
+    case 'errors-number': {
       child = value;
       contentAriaLabel = translate('bulk_import.errors_number', {
         bulkImportErrorsNumber: value
       });
       break;
+    }
 
-    case 'valid':
+    case 'valid': {
       child = (
         <RightIcon
           className={classnames(style.validIcon)}
@@ -65,8 +69,9 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         />
       );
       break;
+    }
 
-    case 'invalid':
+    case 'invalid': {
       child = (
         <WrongIcon
           className={classnames(style.invalidIcon)}
@@ -75,9 +80,11 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         />
       );
       break;
+    }
 
-    default:
+    default: {
       return null;
+    }
   }
 
   return (

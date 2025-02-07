@@ -26,7 +26,7 @@ function Discussion(props) {
 
   const threadsView = threads.map(thread => <ForumThread {...thread} key={thread.id} mainPost />);
 
-  const commentView = !hideComments ? (
+  const commentView = hideComments ? null : (
     <ForumComment
       avatar={avatar}
       value={value}
@@ -37,7 +37,7 @@ function Discussion(props) {
       textareaDisabled={textareaDisabled}
       postDisabled={postDisabled}
     />
-  ) : null;
+  );
 
   const loader = loading ? (
     <div className={style.loader}>

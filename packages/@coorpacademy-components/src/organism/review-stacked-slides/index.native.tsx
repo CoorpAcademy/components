@@ -3,7 +3,7 @@ import {Animated, Easing, StyleSheet, useWindowDimensions} from 'react-native';
 import keys from 'lodash/fp/keys';
 import {useAnimateProp, useTranslateY} from '@coorpacademy/react-native-animation';
 import Slide from '../review-slide/index.native';
-import type {ReviewStackProps} from './prop-types';
+import {type ReviewStackProps} from './prop-types';
 
 const style = StyleSheet.create({
   slides: {

@@ -66,7 +66,7 @@ const CertificationDetail = (props, context) => {
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={certificationRef}>
-        {!isNil(onBackClick) ? (
+        {isNil(onBackClick) ? null : (
           <ButtonLinkIcon
             faIcon="arrow-left"
             data-name="back-button"
@@ -75,7 +75,7 @@ const CertificationDetail = (props, context) => {
             className={style.backButton}
             tooltipPlacement="right"
           />
-        ) : null}
+        )}
         <div className={style.ctaContainer}>
           <div className={style.logoContainer}>
             <img className={style.logo} src={logoUrl} />

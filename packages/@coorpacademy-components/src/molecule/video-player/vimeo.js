@@ -218,19 +218,22 @@ class Vimeo extends React.Component {
       const {[key]: value} = this.props;
       switch (key) {
         case 'width':
-        case 'height':
+        case 'height': {
           player.element[key] = value;
           break;
-        case 'id':
+        }
+        case 'id': {
           if (value) {
             player.loadVideo(value);
           } else {
             player.unload();
           }
           break;
-        case 'autoplay':
+        }
+        case 'autoplay': {
           player.play();
           break;
+        }
       }
     });
   }

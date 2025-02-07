@@ -49,15 +49,16 @@ class BrandUploadBox extends React.Component {
     const brandColor = get('common.brand', skin);
 
     switch (status) {
-      case 'loading':
+      case 'loading': {
         content = (
           <div className={style.loading}>
             <Loader />
           </div>
         );
         break;
+      }
 
-      default:
+      default: {
         content = (
           <div className={style.wrapper}>
             <div id={idBox} className={dragging ? style.dropping : style.default}>
@@ -78,6 +79,7 @@ class BrandUploadBox extends React.Component {
             </div>
           </div>
         );
+      }
     }
 
     return content;

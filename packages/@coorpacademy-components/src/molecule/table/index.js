@@ -112,21 +112,26 @@ const Table = (props, context) => {
 
   const renderIcon = field => {
     switch (get('icon', field)) {
-      case 'draft':
+      case 'draft': {
         return <DraftIcon width={25} height={25} />;
-      case 'validate':
+      }
+      case 'validate': {
         return <ValidateIcon width={25} height={25} />;
-      case 'nostatus':
+      }
+      case 'nostatus': {
         return <span className={style.nostatus}>{'\u26A0️'}</span>;
-      case 'videosubtitle':
+      }
+      case 'videosubtitle': {
         return (
           <>
             <VideoSubtitleIcon className={style.videosubtitle} width={25} height={25} />
             {field.title}
           </>
         );
-      default:
+      }
+      default: {
         null;
+      }
     }
   };
 

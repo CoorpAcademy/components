@@ -18,7 +18,18 @@
   ],
   "parser": "@babel/eslint-parser",
   "rules": {
+    /* Rule added to make work coorp plugin v12, maybe to activate and fix */
     "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
+    "unicorn/prefer-string-replace-all": "off",
+    "unicorn/no-useless-switch-case": "off",
+    "unicorn/prefer-event-target": "off",
+    "react/jsx-no-bind": "warn",
+    "react/hook-use-state": "warn",
+    "react/prop-types": "warn",
+    "react/forbid-prop-types": "warn",
+    "react/no-unused-prop-types": "warn",
+    "class-methods-use-this": "off",
+    /* --- */
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "promise/no-native": "off",

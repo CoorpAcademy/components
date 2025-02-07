@@ -8,7 +8,7 @@ import style from './style.css';
 const Content = props => {
   const {mode = 'default'} = props;
   return (
-    <div className={mode !== 'scorm' ? style.popinWrapper : null}>
+    <div className={mode === 'scorm' ? null : style.popinWrapper}>
       <Summary {...props} />
     </div>
   );

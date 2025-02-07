@@ -7,14 +7,15 @@ import propTypes from './prop-types';
 const ReviewListSkills = ({listSkills}) => {
   return (
     <div className={style.listSkillsContainer}>
-      {listSkills &&
-        map.convert({cap: false})((skillCard, key) => {
-          return (
-            <div className={style.skillCardContainer} key={`step-${key}`}>
-              <SkillCard {...skillCard} />
-            </div>
-          );
-        }, listSkills)}
+      {listSkills
+        ? map.convert({cap: false})((skillCard, key) => {
+            return (
+              <div className={style.skillCardContainer} key={`step-${key}`}>
+                <SkillCard {...skillCard} />
+              </div>
+            );
+          }, listSkills)
+        : null}
     </div>
   );
 };

@@ -27,7 +27,6 @@ type StyleSheetType = {
 
 const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
   StyleSheet.create({
-    // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
     input: {
       padding: theme.spacing.tiny,
       borderColor: theme.colors.gray.lightMedium,

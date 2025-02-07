@@ -57,7 +57,7 @@ const AnswersCorrection = ({corrections}) => {
         dangerouslySetInnerHTML={{__html: correction.answer}}
       />
     );
-  }, corrections);
+  });
   return <p className={style.fullAnswer}>{joinBySeparator(answers)}</p>;
 };
 
@@ -266,7 +266,7 @@ const CorrectionPart = props => {
         </h2>
         {failed && !isEmpty(corrections) ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
-      {mode !== 'scorm' ? <IconsPart {...props} /> : null}
+      {mode === 'scorm' ? null : <IconsPart {...props} />}
     </div>
   );
 };
@@ -325,7 +325,7 @@ const NextQuestionPart = (props, context) => {
     />
   ) : null;
 
-  return mode !== 'scorm' ? (
+  return mode === 'scorm' ? null : (
     <Link
       {...linkProps}
       className={classnames(style.nextSection, getLinkStyle({gameOver, extraLifeGranted}))}
@@ -341,7 +341,7 @@ const NextQuestionPart = (props, context) => {
         {nextStep}
       </div>
     </Link>
-  ) : null;
+  );
 };
 
 NextQuestionPart.propTypes = {

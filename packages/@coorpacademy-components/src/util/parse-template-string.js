@@ -17,8 +17,9 @@ function parseTemplateString(_template) {
 
   return compact([
     res.index === 0 ? null : {type: 'string', value: template.slice(0, res.index)},
-    {type: 'answerField', value: res[1]}
-  ]).concat(parseTemplateString(template.slice(res.index + res[0].length)));
+    {type: 'answerField', value: res[1]},
+    ...parseTemplateString(template.slice(res.index + res[0].length))
+  ]);
 }
 
 export default parseTemplateString;

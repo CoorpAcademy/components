@@ -72,7 +72,7 @@ const Progression = (props, legacyContext) => {
       {allProgressions}
     </div>
   );
-  const themeSelect = !isEmpty(themeFilter.options) ? (
+  const themeSelect = isEmpty(themeFilter.options) ? null : (
     <Select
       borderClassName={style.selectBorder}
       className={style.select}
@@ -81,8 +81,8 @@ const Progression = (props, legacyContext) => {
       onChange={handleSelectTheme}
       aria-label={ariaLabel}
     />
-  ) : null;
-  const recommendationSection = !isEmpty(recommendation) ? (
+  );
+  const recommendationSection = isEmpty(recommendation) ? null : (
     <div className={style.recommendationWrapper}>
       <p className={style.recommendationSection}>{recommendation.title} </p>
       <p className={style.recommendationSection}>
@@ -104,7 +104,7 @@ const Progression = (props, legacyContext) => {
         data-testid="button-link-recommendation"
       />
     </div>
-  ) : null;
+  );
 
   return (
     <div className={style.default}>

@@ -15,11 +15,11 @@ const MenuList = props => {
   const MenuitemDiv = menuItems.map((item, index) => {
     const {title, href, type, subItems, outgoing = false, onClick} = item;
 
-    const subItemsView = !isNil(subItems) ? (
+    const subItemsView = isNil(subItems) ? null : (
       <div className={style.subNav}>
         <SsMenuList items={item.subItems} />
       </div>
-    ) : null;
+    );
 
     return (
       <li key={index} className={type ? buttonStyle[type] : style.item}>

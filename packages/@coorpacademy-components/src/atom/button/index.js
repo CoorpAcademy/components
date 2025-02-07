@@ -31,13 +31,15 @@ const ButtonContent = props => {
     onMouseLeave = noop,
     onMouseOver = noop
   } = props;
+  /* eslint-disable no-constant-binary-expression */
+  // (this is false positive)
   const anchorClassName = (disabled && `${className} ${cssStyle.disabledAnchor}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
   const anchorHref = (disabled && null) || href;
   const inputClassName = (disabled && `${className} ${cssStyle.buttonDisabled}`) || className;
 
   switch (type) {
-    case 'link':
+    case 'link': {
       return (
         <Link
           data-name={dataName}
@@ -53,8 +55,9 @@ const ButtonContent = props => {
           {submitValue || children || 'submit'}
         </Link>
       );
+    }
 
-    case 'a':
+    case 'a': {
       return (
         <a
           data-name={dataName}
@@ -68,8 +71,9 @@ const ButtonContent = props => {
           {submitValue || children}
         </a>
       );
+    }
 
-    case 'button':
+    case 'button': {
       if (useButtonTag)
         return (
           <button
@@ -92,6 +96,7 @@ const ButtonContent = props => {
             {children}
           </button>
         );
+    }
     // falls through in case type is button BUT no button tag is needed, for retro-compatibility
     default: {
       return (

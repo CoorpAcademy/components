@@ -219,13 +219,7 @@ class DragAndDrop extends React.Component {
     const buildContent = () => {
       if (loading) {
         return previewView;
-      } else if (!isEmpty(previewContent)) {
-        return (
-          <div className={classnames(previewContainer, disabled && style.disabled)}>
-            {previewView}
-          </div>
-        );
-      } else {
+      } else if (isEmpty(previewContent)) {
         return (
           <div
             className={classnames(
@@ -246,6 +240,12 @@ class DragAndDrop extends React.Component {
             </div>
             {button}
             <div>{children(this.handleDragStart, this.handleDragStop)}</div>
+          </div>
+        );
+      } else {
+        return (
+          <div className={classnames(previewContainer, disabled && style.disabled)}>
+            {previewView}
           </div>
         );
       }

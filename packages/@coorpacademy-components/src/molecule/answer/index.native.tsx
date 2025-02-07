@@ -5,12 +5,15 @@ import {AnswerProps} from './prop-types';
 
 const convertType = (modelType: AnswerProps['model']['type']): QuestionType => {
   switch (modelType) {
-    case 'freeText':
+    case 'freeText': {
       return 'basic';
-    case 'dropDown':
+    }
+    case 'dropDown': {
       return 'template';
-    default:
+    }
+    default: {
       return modelType;
+    }
   }
 };
 

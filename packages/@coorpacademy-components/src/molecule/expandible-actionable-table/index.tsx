@@ -17,34 +17,40 @@ const buildField = (field: Field) => {
   if (isString(field)) return field;
   const {componentType} = field;
   switch (componentType) {
-    case 'status':
+    case 'status': {
       return (
         <div className={style.statusItemWrapper}>
           <StatusItem {...field} />
         </div>
       );
-    case 'progress-bar':
+    }
+    case 'progress-bar': {
       return <BulkProgressBar {...field} />;
+    }
   }
 };
 
 const buildLastField = (lastField: LastField) => {
   const {componentType} = lastField;
   switch (componentType) {
-    case 'menu':
+    case 'menu': {
       return <BulletPointMenuButton {...lastField} />;
-    case 'button-link':
+    }
+    case 'button-link': {
       return <ButtonLink {...lastField} />;
+    }
   }
 };
 
 const buildNestedRow = (row: NestedRow) => {
   const {componentType} = row;
   switch (componentType) {
-    case 'errors-table':
+    case 'errors-table': {
       return <ErrorsTable {...row} />;
-    case 'expandible-errors-table':
+    }
+    case 'expandible-errors-table': {
       return <ActionableExpandableTable {...row} />;
+    }
   }
 };
 
@@ -98,7 +104,7 @@ const ActionableExpandableTable = (props: Props, legacyContext: WebContextValues
      */
     const newExpandedRows = isRowExpanded
       ? expandedRows.filter(id => id !== index)
-      : expandedRows.concat(index);
+      : [...expandedRows, index];
 
     setExpandedRows(newExpandedRows);
 

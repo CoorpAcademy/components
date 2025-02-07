@@ -1,6 +1,6 @@
 import noop from 'lodash/fp/noop';
 import {Props} from '../../index.native';
-import type {Choice, Media} from '../../../../types';
+import {type Choice, type Media} from '../../../../types';
 import {choices} from './qcm';
 
 type Fixture = {props: Props};

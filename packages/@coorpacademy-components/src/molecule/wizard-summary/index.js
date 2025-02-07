@@ -12,13 +12,14 @@ const buildItemsOfSection = items => {
   return items.map((item, index) => {
     const {type} = item;
     switch (type) {
-      case 'mainElement':
+      case 'mainElement': {
         return (
           <li key={`${item.title}-${index}`} data-name={item.title}>
             <span className={style.title}>{item.title}</span>
             <span className={style.value}>{item.value}</span>
           </li>
         );
+      }
       case 'content': {
         const {badgeList, badgeAriaLabel, title, author, unsaved = false} = item;
         return (
@@ -110,14 +111,13 @@ const BuildAction = ({action, side}) => {
 };
 
 const checkOnClose = (checked, summaryElement, onCloseSummary, clickEvent) => {
-  if (checked) {
-    if (
-      summaryElement &&
-      summaryElement.current &&
-      !summaryElement.current.contains(clickEvent.target)
-    ) {
-      onCloseSummary();
-    }
+  if (
+    checked &&
+    summaryElement &&
+    summaryElement.current &&
+    !summaryElement.current.contains(clickEvent.target)
+  ) {
+    onCloseSummary();
   }
 };
 
@@ -129,19 +129,23 @@ const WizardSummary = props => {
   const [checked, setChecked] = useState(false);
 
   const onCloseSummary = () => setChecked(false);
+
+  let clickListener, touchListener;
   const handleOnChange = useCallback(() => {
-    if (!checked) {
-      document.addEventListener('click', clickEvent =>
-        checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
-      );
-      document.addEventListener('touchstart', clickEvent =>
-        checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
-      );
+    if (checked) {
+      if (clickListener) {
+        document.removeEventListener('click', clickListener);
+        clickListener = null;
+      }
+      if (touchListener) {
+        document.removeEventListener('touchstart', touchListener);
+        touchListener = null;
+      }
     } else {
-      document.removeEventListener('click', clickEvent =>
+      clickListener = document.addEventListener('click', clickEvent =>
         checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
       );
-      document.removeEventListener('touchstart', clickEvent =>
+      touchListener = document.addEventListener('touchstart', clickEvent =>
         checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
       );
     }

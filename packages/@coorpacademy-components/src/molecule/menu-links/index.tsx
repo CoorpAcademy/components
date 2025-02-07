@@ -80,7 +80,7 @@ const MenuLinks = ({
             </li>
           );
         })}
-        {!isDesktopMode ? (
+        {isDesktopMode ? null : (
           <li
             // eslint-disable-next-line react/jsx-no-bind
             onClick={handleOnclickShowMore}
@@ -93,7 +93,7 @@ const MenuLinks = ({
               <ArrowIcon className={isOpen ? styles.showLessIcon : styles.showMoreIcon} />
             </span>
           </li>
-        ) : null}
+        )}
       </ul>
     </nav>
   );

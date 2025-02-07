@@ -9,7 +9,7 @@ import style from './style.css';
 
 const mapWithIndex = map.convert({cap: false});
 // eslint-disable-next-line no-undef
-const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
+const Hammer = typeof window === 'undefined' ? undefined : require('hammerjs');
 
 class Slider extends React.Component {
   static propTypes = {

@@ -40,7 +40,7 @@ class VideoPlayer extends React.Component {
   renderPlayer = () => {
     const {mimeType, id, url, onPause, onEnded, width = '100%', height = '343px'} = this.props;
     switch (mimeType) {
-      case 'application/vimeo':
+      case 'application/vimeo': {
         return (
           <Vimeo
             {...this.props}
@@ -52,11 +52,12 @@ class VideoPlayer extends React.Component {
             onPlay={this.handleOnPlay}
           />
         );
+      }
       case 'application/youtube':
       case 'application/uptale':
       case 'application/h5p':
       case 'application/omniPlayer':
-      case 'application/faurecia-vr':
+      case 'application/faurecia-vr': {
         return (
           <VideoIframe
             key={id}
@@ -72,6 +73,7 @@ class VideoPlayer extends React.Component {
             onEnded={onEnded}
           />
         );
+      }
       case 'application/kontiki':
       case 'application/jwplayer':
       case 'video/mp4': {

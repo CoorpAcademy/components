@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {View} from 'react-native';
-import type {SpaceType} from '../../variables/theme.native';
+import {type SpaceType} from '../../variables/theme.native';
 import {useTemplateContext} from '../../template/app-review/template-context';
 
 export type Props = {

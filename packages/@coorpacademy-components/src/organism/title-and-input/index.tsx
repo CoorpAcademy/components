@@ -11,12 +11,15 @@ const buildInput = (
   field: TitleAndInputProps['field']
 ) => {
   switch (childType) {
-    case 'autoComplete':
+    case 'autoComplete': {
       return <Autocomplete {...field} />;
-    case 'selectMultiple':
+    }
+    case 'selectMultiple': {
       return <SelectMultiple {...field} />;
-    case 'selectOpponents':
+    }
+    case 'selectOpponents': {
       return <SelectOpponents {...field} />;
+    }
   }
 };
 

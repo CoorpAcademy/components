@@ -2,6 +2,7 @@ const minimatch = require('minimatch');
 const {filter} = require('rxjs/operators');
 const {walkDirectory$} = require('./walk-directory');
 
+// eslint-disable-next-line unicorn/no-object-as-default-parameter
 const readComponentFiles$ = (cwd, {native} = {native: false}) =>
   walkDirectory$(cwd).pipe(
     filter(

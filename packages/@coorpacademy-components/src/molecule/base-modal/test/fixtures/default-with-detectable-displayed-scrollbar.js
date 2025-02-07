@@ -1,4 +1,4 @@
-const longText = new Array(500)
+const longText = Array.from({length: 500})
   .fill('Lorem ipsum dolor sit amet, consectetur adipiscing elit. ')
   .join('');
 

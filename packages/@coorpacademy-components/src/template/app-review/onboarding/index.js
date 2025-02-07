@@ -1,3 +1,1 @@
-import Onboarding from '../../../atom/review-presentation';
-
-export default Onboarding;
+export {default} from '../../../atom/review-presentation';

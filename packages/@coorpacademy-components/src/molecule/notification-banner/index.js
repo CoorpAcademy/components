@@ -66,7 +66,7 @@ const NotificationBanner = (props, context) => {
             color: '#546e7a'
           }}
         />
-        {!isUndefined(handleOnClickAcceptButton) ? (
+        {isUndefined(handleOnClickAcceptButton) ? null : (
           <Button
             type="link"
             data-name="notification-banner-cta"
@@ -78,7 +78,7 @@ const NotificationBanner = (props, context) => {
               backgroundColor: primaryColor
             }}
           />
-        ) : null}
+        )}
       </div>
     </div>
   );

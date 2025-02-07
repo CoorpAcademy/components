@@ -25,12 +25,15 @@ const getButtonContent = (icon, faIcon) => {
 
 const getSizeStyle = size => {
   switch (size) {
-    case 'small':
+    case 'small': {
       return style.small;
-    case 'responsive':
+    }
+    case 'responsive': {
       return style.responsive;
-    default:
+    }
+    default: {
       return style.default;
+    }
   }
 };
 

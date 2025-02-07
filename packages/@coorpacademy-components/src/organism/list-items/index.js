@@ -53,7 +53,7 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     <div>
       {tableHeaderView}
       <ul
-        className={!selectMultiple ? style.list : style.listWithSelectMultiple}
+        className={selectMultiple ? style.listWithSelectMultiple : style.list}
         aria-label={ariaLabel}
         data-name={'content-list'}
       >
@@ -66,10 +66,12 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
 const buildContentView = (content, ariaLabel, selectMultiple) => {
   const {type} = content;
   switch (type) {
-    case 'list':
+    case 'list': {
       return buildListItemsView(content, ariaLabel, selectMultiple);
-    case 'expandible-actionable-table':
+    }
+    case 'expandible-actionable-table': {
       return <ExpandibleActionableTable {...content} />;
+    }
   }
 };
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import type {Animation} from '@coorpacademy/react-native-animation';
+import {type Animation} from '@coorpacademy/react-native-animation';
 import ReviewCorrectionPopinPropTypes, {
   ReviewCorrectionPopinProps
 } from '../../molecule/review-correction-popin/prop-types';

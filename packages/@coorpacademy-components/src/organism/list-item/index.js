@@ -85,7 +85,7 @@ const ListItem = (
         disabled && style.disabled,
         onClick !== noop && !disabled && style.cursorPointer
       )}
-      onClick={!disabled ? onClick : undefined}
+      onClick={disabled ? undefined : onClick}
       style={selectedStyle}
     >
       <div
@@ -131,9 +131,9 @@ const ListItem = (
         ) : null}
         {buttonLink ? <ButtonLink {...buttonLink} /> : null}
         {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
-        {!isEmpty(bulletPointMenuButton) ? (
+        {isEmpty(bulletPointMenuButton) ? null : (
           <BulletPointMenuButton {...bulletPointMenuButton} />
-        ) : null}
+        )}
       </div>
     </div>
   );
