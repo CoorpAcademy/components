@@ -13,15 +13,10 @@
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {
     "promise/no-native": "off",
     "default-param-last": "warn",
-    "flowtype/define-flow-type": "error",
-    "flowtype-errors/enforce-min-coverage": [
-      "error",
-      70
-    ],
     "no-shadow": [
       "error",
       {

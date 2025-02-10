@@ -1,9 +1,10 @@
 import {mapKeys} from 'lodash/fp';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+/* eslint-disable react/no-deprecated */
 const DefaultProvider = props => props.children;
 
+// eslint-disable-next-line unicorn/consistent-function-scoping
 const link = (Provider, Component) => (scope, element, attrs) => {
   const update = vTree => {
     ReactDOM.render(vTree, element[0]);

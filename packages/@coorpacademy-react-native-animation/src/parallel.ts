@@ -41,10 +41,10 @@ const parallel = function (
           }
         };
 
-        if (!animation) {
-          _endCallback({finished: true});
-        } else {
+        if (animation) {
           animation.start(_endCallback);
+        } else {
+          _endCallback({finished: true});
         }
       });
     },

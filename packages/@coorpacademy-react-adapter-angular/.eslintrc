@@ -14,14 +14,10 @@
     "plugin:@coorpacademy/coorpacademy/react",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {
     "react/prop-types": "off",
-    "promise/no-native": "off",
-    "node/no-unsupported-features/es-syntax": [
-      "error",
-      { "ignores": ["modules"] }
-    ]
+    "promise/no-native": "off"
   },
   "settings": {
     "import/core-modules": ["ava"],

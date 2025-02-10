@@ -56,7 +56,7 @@ export const createRouterMiddleware = routeDefinitions => {
 
       const {path, action: routeAction} = route;
       const params = path(pathname);
-      // eslint-disable-next-line node/callback-return
+      // eslint-disable-next-line n/callback-return
       const updatedAction = await next(action);
 
       await store.dispatch(routeAction(params));

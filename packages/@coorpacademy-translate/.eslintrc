@@ -12,13 +12,7 @@
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
-  "parser": "babel-eslint",
-  "rules": {
-    "node/no-unsupported-features/es-syntax": [
-      "error",
-      { "ignores": ["modules"] }
-    ]
-  }, 
+  "parser": "@babel/eslint-parser",
   "settings": {
     "import/core-modules": ["ava"],
     "node": {"allowModules": ["ava"]}

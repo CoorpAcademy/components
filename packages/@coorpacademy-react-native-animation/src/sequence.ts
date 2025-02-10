@@ -13,14 +13,14 @@ const sequence = function (
   return {
     start(endCallback?: Animated.EndCallback) {
       const onComplete = function (result: Animated.EndResult) {
-        if (!result.finished) {
-          endCallback && endCallback(result);
-          return;
-        } else {
+        if (result.finished) {
           const currentAnimation = animations[current];
           if ('onComplete' in currentAnimation) {
             currentAnimation.onComplete?.();
           }
+        } else {
+          endCallback && endCallback(result);
+          return;
         }
 
         current++;

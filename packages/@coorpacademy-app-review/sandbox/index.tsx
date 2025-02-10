@@ -44,9 +44,7 @@ const isContainerAvailable = (options: SandboxOptions): boolean =>
   !pipe(get('container'), isNil)(options);
 
 const createSandbox = (options: SandboxOptions): void => {
-  if (!isContainerAvailable(options)) {
-    console.error('[AppReview sandbox] Requires a container.');
-  } else {
+  if (isContainerAvailable(options)) {
     const container = document.getElementById(options.container);
     // mode mobile/web
     const appOptions: AppOptions = {
@@ -72,6 +70,8 @@ const createSandbox = (options: SandboxOptions): void => {
       </WebContext>,
       container
     );
+  } else {
+    console.error('[AppReview sandbox] Requires a container.');
   }
 };
 

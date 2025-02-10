@@ -1,10 +1,11 @@
 import {Media} from '@coorpacademy/components/es/molecule/questions/types';
 import type {ProgressionFromAPI, Services, VideoMedia} from '@coorpacademy/review-services';
 
-export type WithRequired<T, K extends keyof T> = T & {
-  // the "-" is a Mapping Modifier, removes optionality from a prop
-  [P in K]-?: T[P];
-};
+export type WithRequired<T, K extends keyof T> = T &
+  {
+    // the "-" is a Mapping Modifier, removes optionality from a prop
+    [P in K]-?: T[P];
+  };
 
 export interface Translate {
   (key: string, data?: Record<string, string>): string;

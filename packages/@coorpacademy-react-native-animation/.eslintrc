@@ -19,6 +19,8 @@
   ],
   "parser": "@typescript-eslint/parser",
   "rules": {
+    "unicorn/prefer-export-from": "off",
+    "import/consistent-type-specifier-style": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "promise/no-native": "off",
@@ -30,15 +32,7 @@
         ]
       }
     ],
-    "node/no-unsupported-features/es-syntax": [
-      "error",
-      {
-        "ignores": [
-          "modules"
-        ]
-      }
-    ],
-    "node/file-extension-in-import": [
+    "n/file-extension-in-import": [
       "error",
       "always",
       {

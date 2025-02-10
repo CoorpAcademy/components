@@ -14,7 +14,7 @@
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {
     "no-restricted-properties": ["error", {
       "object": "Object",
@@ -22,11 +22,7 @@
       "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
     }],
     "node/file-extension-in-import": ["error", "always", {".js": "never", ".ts": "never", ".json": "never"}],
-    "promise/no-native": "off",
-    "node/no-unsupported-features/es-syntax": [
-      "error",
-      { "ignores": ["modules"] }
-    ]
+    "promise/no-native": "off"
   },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"],

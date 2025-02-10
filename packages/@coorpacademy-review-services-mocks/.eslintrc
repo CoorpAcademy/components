@@ -38,14 +38,13 @@
     "@typescript-eslint/no-unused-vars": "error",
     "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
     "@coorpacademy/coorpacademy/no-promise-all": "error",
-    "node/no-unsupported-features/es-syntax": ["error", {"ignores": ["modules"]}],
     "@typescript-eslint/ban-types": "off",
-    "node/file-extension-in-import": [
+    "n/file-extension-in-import": [
       "error",
       "always",
       {".js": "never", ".ts": "never", ".json": "always", ".tsx": "never", ".jsx": "never"}
     ],
-    "node/no-extraneous-import": ["error"],
+    "n/no-extraneous-import": ["error"],
     "ava/no-ignored-test-files": [
       "error",
       {"files": ["**/test/**/*.{js,ts,tsx}", "**/*.test.{js,ts,tsx}"]}
@@ -84,12 +83,6 @@
         "jsx": "never",
         "ts": "never",
         "tsx": "never"
-      }
-    ],
-    "node/no-missing-import": [
-      "error",
-      {
-        "tryExtensions": [".js", ".json", ".tsx", ".ts", ".d.ts"]
       }
     ]
   },

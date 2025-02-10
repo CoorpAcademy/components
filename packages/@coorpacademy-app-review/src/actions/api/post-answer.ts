@@ -44,13 +44,13 @@ export const postAnswer = async (
   if (response.type === POST_ANSWER_SUCCESS) {
     const updatedProgression = response.payload as ProgressionFromAPI;
     const slideRef = updatedProgression.state.nextContent.ref;
-    if (slideRef !== 'successExitNode') {
+    if (slideRef === 'successExitNode') {
+      onEndProgression(updatedProgression);
+      await dispatch(fetchCorrection);
+    } else {
       await dispatch(fetchSlide(slideRef));
       await dispatch(fetchCorrection);
       await dispatch(fetchStartRank);
-    } else {
-      onEndProgression(updatedProgression);
-      await dispatch(fetchCorrection);
     }
   }
 };
