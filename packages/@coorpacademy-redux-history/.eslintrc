@@ -14,7 +14,8 @@
   ],
   "parser": "@babel/eslint-parser",
   "rules": {
-    "promise/no-native": "off"
+    "promise/no-native": "off",
+    "unicorn/switch-case-braces": "off"
   },
   "settings": {
     "import/core-modules": ["ava"],

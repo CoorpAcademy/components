@@ -19,7 +19,7 @@ test('should dispatch action', t => {
 
   return routerMiddleware({
     getState: () => ({route: {pathname: '/'}}),
-    dispatch: action => t.deepEqual({0: '/'}, action)
+    dispatch: action => t.deepEqual(action, {0: '/'})
   })(action => t.is(locationAction, action))(locationAction);
 });
 
@@ -59,7 +59,7 @@ test("should extract url's params", t => {
 
   return routerMiddleware({
     getState: () => ({route: {pathname: '/'}}),
-    dispatch: action => t.deepEqual({foo: 'foo'}, action)
+    dispatch: action => t.deepEqual(action, {foo: 'foo'})
   })(action => t.is(locationAction, action))(locationAction);
 });
 
