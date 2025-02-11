@@ -4,6 +4,7 @@
   "scripts": {
     "prepare": "lerna run prepare",
     "lint": "lerna run lint",
+    "lint:clear-cache": "for p in $(ls packages); do (cd packages/$p && rm -rf node_modules/.cache/.eslintcache);done",
     "test": "lerna run test",
     "test:unit": "lerna run test:unit --stream",
     "prestatic": "rm -rf static && lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web --scope @coorpacademy/app-review --include-dependencies prepare",
