@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.39.52",
+  "version": "0.40.0",
   "description": "",
   "engines": {
     "node": ">=18.12.0"
@@ -35,12 +35,12 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@coorpacademy/components": "11.32.52",
-    "@coorpacademy/progression-engine": "11.7.1",
-    "@coorpacademy/redux-task": "1.1.6",
-    "@coorpacademy/review-services": "1.6.2",
-    "@coorpacademy/review-services-mocks": "1.6.16",
-    "@coorpacademy/translate": "6.2.1",
+    "@coorpacademy/components": "11.33.0",
+    "@coorpacademy/progression-engine": "11.8.0",
+    "@coorpacademy/redux-task": "1.2.0",
+    "@coorpacademy/review-services": "1.7.0",
+    "@coorpacademy/review-services-mocks": "1.7.0",
+    "@coorpacademy/translate": "6.3.0",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
@@ -52,9 +52,9 @@
     "react": "^17.0.2"
   },
   "devDependencies": {
-    "@coorpacademy/css-modules-require-hook": "4.0.0",
+    "@coorpacademy/css-modules-require-hook": "4.1.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^11.0.0",
-    "@coorpacademy/webpack-config": "13.0.0",
+    "@coorpacademy/webpack-config": "13.1.0",
     "@testing-library/react": "^12.1.5",
     "@types/lodash": "^4.14.182",
     "@typescript-eslint/eslint-plugin": "^5.28.0",
