@@ -60,7 +60,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
                 }
               ]
             ],
-            plugins: [['@babel/plugin-proposal-object-rest-spread', {loose: true}], 'lodash']
+            plugins: ['lodash']
           }
         },
         {
@@ -83,12 +83,10 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
 
     plugins: (() => {
       const plugins = [
-        ...[
-          new MiniCssExtractPlugin({
-            filename: '[name].css',
-            ignoreOrder: true
-          })
-        ],
+        new MiniCssExtractPlugin({
+          filename: '[name].css',
+          ignoreOrder: true
+        }),
         ...(isProduction
           ? [
               new CompressionPlugin({

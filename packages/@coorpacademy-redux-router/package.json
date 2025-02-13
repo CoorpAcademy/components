@@ -36,10 +36,10 @@
     "path-match": "^1.2.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/register": "^7.9.0",
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
+    "@babel/register": "^7.25.9",
     "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
     "ava": "^4.3.0",
     "babel-plugin-istanbul": "^6.0.0",
