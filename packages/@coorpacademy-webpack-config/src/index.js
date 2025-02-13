@@ -66,11 +66,18 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
         {
           test: /\.css$/,
           use: [
-            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            isProduction
+              ? {
+                  loader: MiniCssExtractPlugin.loader,
+                  options: {defaultExport: true}
+                }
+              : 'style-loader',
             {
               loader: 'css-loader',
               options: {
+                esModule: true,
                 modules: {
+                  namedExport: true,
                   getLocalIdent
                 }
               }
