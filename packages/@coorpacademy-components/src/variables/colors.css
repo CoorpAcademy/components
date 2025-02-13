@@ -30,6 +30,7 @@
 @value cm_blue_50: #f1f6fe;
 @value cm_blue_200: #74A5F6;
 @value cm_blue_600: #0051d6;
+@value cm_blue_700 #0042AD;
 @value cm_blue_900: #06265B;
 @value cm_bleu_article: #365FCD;
 @value cm_grey_50: #FAFAFA;
@@ -72,6 +73,8 @@
 @value box_shadow_light_dark: rgba(0, 0, 0, 0.12);
 @value box_shadow_medium_dark: rgba(0, 0, 0, 0.2);
 @value box_shadow_orange_700: rgba(255, 84, 31, 0.15);
+@value box_shadow_blue_700: rgba(0, 66, 173, 0.15); ;
+
 @value light_blue: #ADC9F5;
 @value negative_100: #FCDADA;
 @value go1_backgound: #144953;
