@@ -1,0 +1,17 @@
+
+@value colors: '../../variables/colors.css';
+@value cm_grey_700 from colors;
+
+.customSkillHeader {
+  display: flex;
+}
+
+.title {
+  color: cm_grey_700;
+  font-family: "Gilroy";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  margin-left: 15px;
+}
+
