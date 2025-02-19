@@ -87,6 +87,7 @@ const ListItem = (
       )}
       onClick={!disabled ? onClick : undefined}
       style={selectedStyle}
+      data-name={`modal-title-${title}`}
     >
       <div
         className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}

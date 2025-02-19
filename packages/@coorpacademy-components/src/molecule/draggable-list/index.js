@@ -63,7 +63,7 @@ const DraggableList = ({items, onDrop, itemType}) => {
       <Item {...item} key={item.id} order={index} />
     </Draggable>
   ));
-  return <div>{itemsView}</div>;
+  return <div data-name={`draggable-list-${itemType}`}>{itemsView}</div>;
 };
 
 DraggableList.propTypes = {
