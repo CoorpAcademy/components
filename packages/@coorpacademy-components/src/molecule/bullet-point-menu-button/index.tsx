@@ -14,7 +14,8 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     onClick = noop,
     buttons,
     menuButtonClassName,
-    isBulkMenu
+    isBulkMenu,
+    isCustomSkillMenu
   } = props;
   const [visible, setVisible] = useState(false);
 
@@ -41,7 +42,8 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
       className={classnames(
         style.bulletPointMenu,
         isBulkMenu && style.bulkBulletPointMenu,
-        visible && style.visible
+        visible && style.visible,
+        isCustomSkillMenu && style.customSkillBulletPointMenu
       )}
       data-name="menu-wrapper"
       aria-label={menuAriaLabel}

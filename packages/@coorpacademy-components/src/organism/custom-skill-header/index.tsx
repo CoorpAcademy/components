@@ -21,7 +21,7 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
     ...bulletPointMenuButton,
     buttonAriaLabel: 'aria button bullet point menu',
     menuAriaLabel: 'aria button bullet point menu',
-    isHeaderCustomSkill: true
+    isCustomSkillMenu: true
   };
 
   return (
