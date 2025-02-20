@@ -1,7 +1,14 @@
 @value colors: '../../variables/colors.css';
 @value cm_grey_700 from colors;
 
-.customSkillHeader {
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.titleAndButtonWrapper {
   display: flex;
 }
 
@@ -15,10 +22,6 @@
   flex-direction: column;
   justify-content: space-between;
   margin-left: 15px;
-}
-
-.tag {
-  margin-bottom: 20px;
 }
 
 .title {
