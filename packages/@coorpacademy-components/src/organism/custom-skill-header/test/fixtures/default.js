@@ -3,7 +3,12 @@ const fixture = {
     onQuitClick: () => {
       console.log('onQuitClick');
     },
-    title: 'Create new skill'
+    title: 'Create new skill',
+    tag: {
+      label: 'Draft',
+      type: 'progress',
+      size: 'S'
+    }
   }
 };
 
