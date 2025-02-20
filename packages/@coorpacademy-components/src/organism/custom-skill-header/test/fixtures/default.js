@@ -8,6 +8,17 @@ const fixture = {
       label: 'Draft',
       type: 'progress',
       size: 'S'
+    },
+    bulletPointMenuButton: {
+      buttons: [
+        {
+          'data-name': 'delete-button',
+          label: 'Delete',
+          type: 'default',
+          faIcon: 'trash',
+          onClick: () => console.log('click Download Report')
+        }
+      ]
     }
   }
 };
