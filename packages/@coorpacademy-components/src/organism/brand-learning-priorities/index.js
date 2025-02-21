@@ -75,7 +75,9 @@ const BrandLearningPriorities = (props, context) => {
       ) : (
         <>
           <div className={style.ctaWrapper}>
-            <div className={style.priorityCount}>{`${items.length} ${translate('items')}`}</div>
+            <div className={style.priorityCount} data-name="learning-priority-count">
+              {`${items.length} ${translate('items')}`}
+            </div>
             <ButtonLink
               type="primary"
               customStyle={{

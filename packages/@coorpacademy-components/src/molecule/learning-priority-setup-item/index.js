@@ -34,7 +34,9 @@ const LearningPrioritySetupItem = (props, context) => {
     >
       <div className={style.containerInfos}>
         <div className={style.titleWrapper}>
-          <div className={style.title}>{title}</div>
+          <div className={style.title} data-name="learning-priority-setup-item-title">
+            {title}
+          </div>
           <div>
             <Tag label={handleTypeTranslate(type)} size={'S'} />
           </div>
@@ -59,6 +61,7 @@ const LearningPrioritySetupItem = (props, context) => {
           }
         }}
         onClick={handleRemovePriority}
+        data-testid={`button-link-trash-${priorityRef}`}
       />
     </div>
   );

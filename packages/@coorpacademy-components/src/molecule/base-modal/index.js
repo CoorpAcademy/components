@@ -90,7 +90,8 @@ const BaseModal = (props, context) => {
                 type: 'secondary',
                 onClick: onCancel,
                 label: cancelLabel,
-                disabled: cancelDisabled
+                disabled: cancelDisabled,
+                'data-testid': `button-link-${cancelLabel}`
               }}
             />
           ) : null}
@@ -119,7 +120,8 @@ const BaseModal = (props, context) => {
                           }
                         }
                       }
-                    : {})
+                    : {}),
+                  'data-testid': `button-link-${confirmLabel}`
                 }}
               />
             </div>
