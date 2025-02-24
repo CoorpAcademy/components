@@ -34,7 +34,8 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
 
   const menuProps = {
     'data-name': 'button-menu',
-    buttons
+    buttons,
+    isCustomSkillMenu
   };
 
   const menu = (
