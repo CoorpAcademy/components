@@ -59,3 +59,16 @@
   composes: dangerous;
   justify-content: flex-start;
 }
+
+.customSkillButton {
+  background-color: transparent;
+  font-weight: 600;
+  width: 201px;
+  justify-content: flex-start;
+}
+
+.buttonMenuContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
