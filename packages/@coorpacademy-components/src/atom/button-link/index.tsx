@@ -13,15 +13,20 @@ const getButtonContent = (
   content?: string | React.ReactNode,
   hovered?: boolean,
   hoverBackgroundColor?: string,
-  hoverColor?: string
+  hoverColor?: string,
+  isCustomSkillMenu?: boolean
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
+  const labelClassName = classnames(style.label, {
+    [style.customSkillLabel]: isCustomSkillMenu && faIcon
+  });
+
   if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
-        <span className={style.label}>{content}</span>
+        <span className={labelClassName}>{content}</span>
       </div>
     );
   }
@@ -51,7 +56,7 @@ const getButtonContent = (
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
-      {content ? <span className={style.label}>{content}</span> : null}
+      {content ? <span className={labelClassName}>{content}</span> : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );
@@ -77,7 +82,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     onKeyDown = noop,
     className,
     customStyle,
-    useTitle = true
+    useTitle = true,
+    isCustomSkillMenu
   } = props;
   const styleButton = classnames(
     className,
@@ -89,7 +95,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     type === 'text' && style.text,
     type === 'dangerous' && style.dangerous,
     link && style.link,
-    disabled && style.disabled
+    disabled && style.disabled,
+    isCustomSkillMenu && style.customSkillButton
   );
 
   const [hovered, setHovered] = useState(false);
@@ -153,7 +160,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
         onMouseEnter={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+        {getButtonContent(
+          icon,
+          content ?? label,
+          hovered,
+          hoverBackgroundColor,
+          hoverColor,
+          isCustomSkillMenu
+        )}
         {renderToolTip()}
       </Link>
     );
@@ -184,7 +198,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
       tabIndex={0}
       disabled={disabled}
     >
-      {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+      {getButtonContent(
+        icon,
+        content ?? label,
+        hovered,
+        hoverBackgroundColor,
+        hoverColor,
+        isCustomSkillMenu
+      )}
       {renderToolTip()}
     </button>
   );

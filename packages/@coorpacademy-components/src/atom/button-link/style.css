@@ -110,3 +110,12 @@
   font-weight: 500;
   line-height: 16px;
 }
+
+.customSkillButton {
+  composes: button;
+  padding: 12px 6px;
+}
+
+.customSkillLabel {
+  margin: 0;
+}
