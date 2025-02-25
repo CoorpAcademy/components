@@ -48,6 +48,7 @@
 @value cm_grey_900: #111117;
 @value cm_positive_100: #35CC7F;
 @value cm_positive_200: #05944F;
+@value cm_positive_300: #04713D;
 @value cm_negative_100: #ed3436;
 @value cm_negative_200: #b81400;
 @value cm_negative_50: #ffe5e6;
@@ -57,12 +58,14 @@
 @value cm_green_secondary_200: #38CC6C;
 @value cm_orange_200: #FF7043;
 @value cm_orange_700: #FF4105;
+@value cm_orange_800: #A32700;
 @value cm_pink_50: #ffefeb;
 @value cm_purple_200: #7340FF;
 @value cm_yellow_scorm: #FFB800;
 @value cm_yellow_secondary_200: #ffde03;
 @value cm_yellow_100: #ffc043;
 @value cm_yellow_200: #DB9200;
+@value cm_yellow_300: #B87A00;
 @value cm_yellow_400: #bd7e00;
 @value cm_red_200: #FF4040;
 @value cm_negative_red_200: #ED3436;
