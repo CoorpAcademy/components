@@ -7,7 +7,7 @@ import style from './style.css';
 import {CustomSkillHeaderProps} from './types';
 
 const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
-  const {onQuitClick, title, tag, bulletPointMenuButton} = props;
+  const {onQuitClick, title, tag, saveStatus, bulletPointMenuButton} = props;
 
   const closeButtonProps = {
     size: 'default',
@@ -29,7 +29,10 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
       <div className={style.titleAndButtonWrapper} data-name="title-and-button-wrapper">
         <ButtonLinkIcon {...closeButtonProps} className={style.button} />
         <div className={style.titleWrapper}>
-          <Tag {...tag} customStyle={{marginBottom: '4px'}} />
+          <div className={style.statusWrapper}>
+            <Tag {...tag} />
+            <p className={style.saveStatus}>{saveStatus}</p>
+          </div>
           <h3 className={style.title} aria-label={title} data-name="header-title">
             {title}
           </h3>
