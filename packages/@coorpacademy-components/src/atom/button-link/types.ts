@@ -26,7 +26,8 @@ const propTypes = {
   hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.shape({})
+  customStyle: PropTypes.shape({}),
+  isCustomSkillMenu: PropTypes.bool
 };
 
 export type FaIcontype = {
@@ -66,6 +67,7 @@ export type ButtonLinkProps = {
   className?: string;
   customStyle?: Record<string, unknown>;
   useTitle?: boolean;
+  isCustomSkillMenu?: boolean;
 };
 
 export type Fixture = {props: ButtonLinkProps};
