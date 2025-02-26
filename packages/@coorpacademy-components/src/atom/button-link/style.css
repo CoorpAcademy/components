@@ -113,7 +113,8 @@
 
 .customSkillButton {
   composes: button;
-  padding: 12px 6px;
+  padding: 12px 16px;
+  padding-left: 6px;
 }
 
 .customSkillLabel {
