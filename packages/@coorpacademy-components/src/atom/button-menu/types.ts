@@ -21,7 +21,8 @@ export const buttonPropTypes = {
     color: PropTypes.string,
     hoverBackgroundColor: PropTypes.string
   }),
-  isCustomSkillMenu: PropTypes.bool
+  isCustomSkillMenu: PropTypes.bool,
+  labelStyle: PropTypes.shape({})
 };
 
 const propTypes = {
@@ -34,6 +35,7 @@ export default propTypes;
 type CustomStyleProps = {
   color?: string;
   hoverBackgroundColor?: string;
+  padding?: string;
 };
 
 export type ButtonProps = {
@@ -46,6 +48,7 @@ export type ButtonProps = {
   icon?: IconType;
   customStyle?: CustomStyleProps;
   isCustomSkillMenu?: boolean;
+  labelStyle?: Record<string, unknown>;
 };
 
 export type ButtonMenuProps = {

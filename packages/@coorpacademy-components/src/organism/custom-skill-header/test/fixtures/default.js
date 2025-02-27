@@ -26,7 +26,8 @@ const defaultFixture = {
           onClick: () => console.log('click Download Report'),
           customStyle: {
             color: '#1D1D2B',
-            hoverBackgroundColor: '#EAEAEB'
+            hoverBackgroundColor: '#EAEAEB',
+            padding: '6px'
           },
           labelStyle: {margin: '0'},
           isCustomSkillMenu: true
@@ -42,7 +43,8 @@ const defaultFixture = {
           onClick: () => console.log('click Download Report'),
           customStyle: {
             color: '#1D1D2B',
-            hoverBackgroundColor: '#EAEAEB'
+            hoverBackgroundColor: '#EAEAEB',
+            padding: '6px'
           },
           labelStyle: {margin: '0'},
           isCustomSkillMenu: true
@@ -58,7 +60,8 @@ const defaultFixture = {
           onClick: () => console.log('click Download Report'),
           customStyle: {
             color: '#991100',
-            hoverBackgroundColor: '#FCDADA'
+            hoverBackgroundColor: '#FCDADA',
+            padding: '6px'
           },
           labelStyle: {margin: '0'},
           isCustomSkillMenu: true
