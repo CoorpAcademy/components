@@ -11,7 +11,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
           position: 'left',
           faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
         },
-        onClick: () => console.log('click Download Report'),
+        onClick: () => console.log('click on Discard changes'),
         customStyle: {
           color: '#1D1D2B',
           hoverBackgroundColor: '#EAEAEB'
@@ -26,7 +26,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
           position: 'left',
           type: 'save'
         },
-        onClick: () => console.log('click Download Report')
+        onClick: () => console.log('click on Delete')
       }
     ],
     'aria-label': 'aria button',
