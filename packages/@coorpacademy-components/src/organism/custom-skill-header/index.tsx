@@ -4,18 +4,40 @@ import ButtonLinkIcon from '../../atom/button-link-icon';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import Tag from '../../atom/tag';
 import {ButtonLinkProps} from '../../atom/button-link/types';
+import {ActionButtonProps, CustomSkillHeaderProps} from './types';
 import style from './style.css';
 
-import {CustomSkillHeaderProps} from './types';
+const commonButtonStyles = {
+  fontWeight: '600',
+  borderRadius: '12px'
+};
+
+const createButtonLinkProps = (
+  buttonProps: ActionButtonProps,
+  type: 'save' | 'publish'
+): ButtonLinkProps => ({
+  ...buttonProps,
+  'data-name': `custom-skill-header-${type}-button`,
+  'aria-label': `aria ${type} button`,
+  type: type === 'save' ? 'secondary' : 'primary',
+  icon: {
+    position: 'left',
+    faIcon: {
+      name: type === 'save' ? 'floppy-disk' : buttonProps.faIconName ?? 'circle-check',
+      color: type === 'save' ? '#1D1D2B' : '#FFFFFF',
+      size: 14
+    }
+  },
+  customStyle: commonButtonStyles,
+  isCustomSkillMenu: true
+});
 
 const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
   const {onQuitClick, title, tag, saveStatus, bulletPointMenuButton, saveButton, publishButton} =
     props;
 
-  const commonButtonStyles = {
-    fontWeight: '600',
-    borderRadius: '12px'
-  };
+  const saveButtonProps = createButtonLinkProps(saveButton, 'save');
+  const publishButtonProps = createButtonLinkProps(publishButton, 'publish');
 
   const closeButtonProps = {
     size: 'default',
@@ -32,32 +54,6 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
     isCustomSkillMenu: true
   };
 
-  const saveButtonProps: ButtonLinkProps = {
-    ...saveButton,
-    'data-name': 'custom-skill-header-save-button',
-    'aria-label': 'aria save button',
-    type: 'secondary',
-    icon: {
-      position: 'left',
-      faIcon: {name: 'floppy-disk', color: '#1D1D2B', size: 14}
-    },
-    customStyle: commonButtonStyles,
-    isCustomSkillMenu: true
-  };
-
-  const publishButtonProps: ButtonLinkProps = {
-    ...publishButton,
-    'data-name': 'custom-skill-header-save-button',
-    'aria-label': 'aria save button',
-    type: 'primary',
-    icon: {
-      position: 'left',
-      faIcon: {name: 'circle-check', color: '#FFFFFF', size: 14}
-    },
-    customStyle: commonButtonStyles,
-    isCustomSkillMenu: true
-  };
-
   return (
     <div className={style.headerWrapper} data-name="header-wrapper">
       <div className={style.titleAndButtonWrapper} data-name="title-and-button-wrapper">
@@ -65,7 +61,7 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
         <div className={style.titleWrapper}>
           <div className={style.statusWrapper}>
             <Tag {...tag} />
-            <p className={style.saveStatus}>{saveStatus}</p>
+            {saveStatus.display ? <p className={style.saveStatus}>{saveStatus.label}</p> : null}
           </div>
           <h3 className={style.title} aria-label={title} data-name="header-title">
             {title}

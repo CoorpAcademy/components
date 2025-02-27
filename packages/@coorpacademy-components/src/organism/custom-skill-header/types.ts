@@ -6,17 +6,23 @@ type TagProps = {
   size: string;
 };
 
-type ActionButtonProps = {
+export type ActionButtonProps = {
   label: string;
   onClick: () => void;
   disabled?: boolean;
+  faIconName?: string;
+};
+
+type SaveStatusProps = {
+  label: 'Unsaved changes' | 'Saved';
+  display: boolean;
 };
 
 export type CustomSkillHeaderProps = {
   onQuitClick: () => void;
   title: string;
   tag: TagProps;
-  saveStatus: 'Unsaved changes' | 'Saved';
+  saveStatus: SaveStatusProps;
   bulletPointMenuButton: BulletPointMenuButtonProps;
   saveButton: ActionButtonProps;
   publishButton: ActionButtonProps;
