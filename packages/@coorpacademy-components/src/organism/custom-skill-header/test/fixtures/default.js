@@ -28,6 +28,7 @@ const defaultFixture = {
             color: '#1D1D2B',
             hoverBackgroundColor: '#EAEAEB'
           },
+          labelStyle: {margin: '0'},
           isCustomSkillMenu: true
         },
         {
@@ -43,6 +44,7 @@ const defaultFixture = {
             color: '#1D1D2B',
             hoverBackgroundColor: '#EAEAEB'
           },
+          labelStyle: {margin: '0'},
           isCustomSkillMenu: true
         },
         {
@@ -58,6 +60,7 @@ const defaultFixture = {
             color: '#991100',
             hoverBackgroundColor: '#FCDADA'
           },
+          labelStyle: {margin: '0'},
           isCustomSkillMenu: true
         }
       ]
