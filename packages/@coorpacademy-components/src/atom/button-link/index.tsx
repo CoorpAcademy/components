@@ -14,19 +14,19 @@ const getButtonContent = (
   hovered?: boolean,
   hoverBackgroundColor?: string,
   hoverColor?: string,
-  isCustomSkillMenu?: boolean
+  labelStyle?: Record<string, unknown>
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
-  const labelClassName = classnames(style.label, {
-    [style.customSkillLabel]: isCustomSkillMenu && faIcon
-  });
+  const finalLabelStyle = labelStyle || undefined;
 
   if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
-        <span className={labelClassName}>{content}</span>
+        <span className={style.label} style={finalLabelStyle}>
+          {content}
+        </span>
       </div>
     );
   }
@@ -56,7 +56,11 @@ const getButtonContent = (
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
-      {content ? <span className={labelClassName}>{content}</span> : null}
+      {content ? (
+        <span className={style.label} style={finalLabelStyle}>
+          {content}
+        </span>
+      ) : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );
@@ -83,7 +87,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     className,
     customStyle,
     useTitle = true,
-    isCustomSkillMenu
+    labelStyle
   } = props;
   const styleButton = classnames(
     className,
@@ -95,8 +99,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     type === 'text' && style.text,
     type === 'dangerous' && style.dangerous,
     link && style.link,
-    disabled && style.disabled,
-    isCustomSkillMenu && style.customSkillButton
+    disabled && style.disabled
   );
 
   const [hovered, setHovered] = useState(false);
@@ -166,7 +169,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
           hovered,
           hoverBackgroundColor,
           hoverColor,
-          isCustomSkillMenu
+          labelStyle
         )}
         {renderToolTip()}
       </Link>
@@ -204,7 +207,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         hovered,
         hoverBackgroundColor,
         hoverColor,
-        isCustomSkillMenu
+        labelStyle
       )}
       {renderToolTip()}
     </button>
