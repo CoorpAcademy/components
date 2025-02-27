@@ -9,8 +9,12 @@ import style from './style.css';
 
 const commonButtonStyles = {
   fontWeight: '600',
-  borderRadius: '12px'
+  borderRadius: '12px',
+  padding: '12px 16px',
+  paddingLeft: '6px'
 };
+
+const labelStyle = {margin: '0'};
 
 const createButtonLinkProps = (
   buttonProps: ActionButtonProps,
@@ -37,7 +41,7 @@ const createButtonLinkProps = (
     }
   },
   customStyle: commonButtonStyles,
-  isCustomSkillMenu: true
+  labelStyle
 });
 
 const CustomSkillHeader = (props: CustomSkillHeaderProps) => {

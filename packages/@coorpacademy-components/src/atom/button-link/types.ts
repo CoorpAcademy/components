@@ -27,7 +27,7 @@ const propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   customStyle: PropTypes.shape({}),
-  isCustomSkillMenu: PropTypes.bool
+  labelStyle: PropTypes.shape({})
 };
 
 export type FaIcontype = {
@@ -67,7 +67,7 @@ export type ButtonLinkProps = {
   className?: string;
   customStyle?: Record<string, unknown>;
   useTitle?: boolean;
-  isCustomSkillMenu?: boolean;
+  labelStyle?: Record<string, unknown>;
 };
 
 export type Fixture = {props: ButtonLinkProps};
