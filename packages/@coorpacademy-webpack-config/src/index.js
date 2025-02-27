@@ -11,7 +11,7 @@ export const getLocalIdent = (context, localIdentName, localName) => {
   return `${localName}-${hash.digest('base64').slice(0, 5)}`;
 };
 
-const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
+const createConfig = (NODE_ENV = 'development', {additionalPlugins = [], esModule = true} = {}) => {
   const isProduction = NODE_ENV === 'production';
   return {
     mode: isProduction ? 'production' : 'development',
@@ -75,9 +75,9 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             {
               loader: 'css-loader',
               options: {
-                esModule: true,
+                esModule,
                 modules: {
-                  namedExport: true,
+                  namedExport: esModule,
                   getLocalIdent
                 }
               }

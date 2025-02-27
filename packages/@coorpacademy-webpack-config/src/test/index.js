@@ -31,6 +31,9 @@ test('should include lodash babel plugin by default', t => {
 test('should be validate by webpack schema', t => {
   t.notThrows(() => webpack.validate(generateConfig('development')));
   t.notThrows(() => webpack.validate(generateConfig('production')));
+  t.notThrows(() => webpack.validate(generateConfig('development'), {esModules: true}));
+  t.notThrows(() => webpack.validate(generateConfig('development'), {esModules: false}));
+  t.notThrows(() => webpack.validate(generateConfig('development'), {additionalPlugins: []}));
 });
 
 test('should hash className', t => {
