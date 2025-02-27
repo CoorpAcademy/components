@@ -63,14 +63,13 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
     size: 'default',
     icon: 'close',
     'data-name': 'custom-skill-header-close-button',
-    'aria-label': 'close-button-aria-label',
+    'aria-label': 'Close',
     onClick: onQuitClick
   };
 
   const bulletPointMenuButtonProps = {
     ...bulletPointMenuButton,
-    buttonAriaLabel: 'aria button bullet point menu',
-    menuAriaLabel: 'aria button bullet point menu',
+    buttonAriaLabel: 'More actions',
     isCustomSkillMenu: true
   };
 
