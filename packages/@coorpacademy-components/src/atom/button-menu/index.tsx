@@ -6,20 +6,21 @@ import {IconType} from '../button-link/types';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 
-const getIconProps = (icon: IconType | undefined) => {
+const getIconProps = (icon?: IconType) => {
   if (!icon) return undefined;
-  return icon.faIcon
+  const {position, type, faIcon} = icon;
+  return faIcon
     ? {
         faIcon: {
-          name: icon.faIcon.name,
-          size: icon.faIcon.size,
-          color: icon.faIcon.color
+          name: faIcon.name,
+          size: faIcon.size,
+          color: faIcon.color
         },
-        position: icon.position
+        position
       }
     : {
-        type: icon.type,
-        position: icon.position
+        type,
+        position
       };
 };
 

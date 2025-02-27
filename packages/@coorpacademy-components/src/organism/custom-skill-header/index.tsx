@@ -18,7 +18,6 @@ const createButtonLinkProps = (
 ): ButtonLinkProps => ({
   ...buttonProps,
   'data-name': `custom-skill-header-${type}-button`,
-  'aria-label': `aria ${type} button`,
   type: type === 'save' || type === 'archive' ? 'secondary' : 'primary',
   icon: {
     position: 'left',
