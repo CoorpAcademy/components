@@ -26,7 +26,7 @@ const BattleOpponent = (
 ) => {
   const translate: Required<WebContextValues>['translate'] = GetTranslateFromContext(legacyContext);
   const wrapperClassnames = useMemo(
-    () => classnames(style.card, style['opponent-card'], isRandom ? style.random : null),
+    () => classnames(style.card, style.opponentCard, isRandom ? style.random : null),
     [isRandom]
   );
 
