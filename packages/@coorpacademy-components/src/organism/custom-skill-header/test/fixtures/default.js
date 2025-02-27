@@ -9,7 +9,10 @@ const defaultFixture = {
       type: 'progress',
       size: 'S'
     },
-    saveStatus: 'Saved',
+    saveStatus: {
+      label: 'Saved',
+      display: true
+    },
     bulletPointMenuButton: {
       buttons: [
         {
@@ -66,7 +69,8 @@ const defaultFixture = {
     },
     publishButton: {
       label: 'Publish changes',
-      onClick: () => console.log('click Publish changes')
+      onClick: () => console.log('click Publish changes'),
+      faIconName: 'circle-check'
     }
   }
 };
