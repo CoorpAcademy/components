@@ -14,7 +14,7 @@ export type ActionButtonProps = {
 };
 
 type SaveStatusProps = {
-  label: 'Unsaved changes' | 'Saved';
+  label?: 'Unsaved changes' | 'Saved';
   display: boolean;
 };
 
@@ -26,4 +26,5 @@ export type CustomSkillHeaderProps = {
   bulletPointMenuButton: BulletPointMenuButtonProps;
   saveButton: ActionButtonProps;
   publishButton: ActionButtonProps;
+  archiveButton?: ActionButtonProps;
 };
