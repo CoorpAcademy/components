@@ -14,17 +14,26 @@ const commonButtonStyles = {
 
 const createButtonLinkProps = (
   buttonProps: ActionButtonProps,
-  type: 'save' | 'publish'
+  type: 'save' | 'publish' | 'archive'
 ): ButtonLinkProps => ({
   ...buttonProps,
   'data-name': `custom-skill-header-${type}-button`,
   'aria-label': `aria ${type} button`,
-  type: type === 'save' ? 'secondary' : 'primary',
+  type: type === 'save' || type === 'archive' ? 'secondary' : 'primary',
   icon: {
     position: 'left',
     faIcon: {
-      name: type === 'save' ? 'floppy-disk' : buttonProps.faIconName ?? 'circle-check',
-      color: type === 'save' ? '#1D1D2B' : '#FFFFFF',
+      name: (() => {
+        switch (type) {
+          case 'save':
+            return 'floppy-disk';
+          case 'archive':
+            return 'folder-open';
+          default:
+            return buttonProps?.faIconName ?? 'circle-check';
+        }
+      })(),
+      color: type === 'save' || type === 'archive' ? '#1D1D2B' : '#FFFFFF',
       size: 14
     }
   },
@@ -33,11 +42,22 @@ const createButtonLinkProps = (
 });
 
 const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
-  const {onQuitClick, title, tag, saveStatus, bulletPointMenuButton, saveButton, publishButton} =
-    props;
+  const {
+    onQuitClick,
+    title,
+    tag,
+    saveStatus,
+    bulletPointMenuButton,
+    saveButton,
+    publishButton,
+    archiveButton
+  } = props;
 
   const saveButtonProps = createButtonLinkProps(saveButton, 'save');
   const publishButtonProps = createButtonLinkProps(publishButton, 'publish');
+  const archiveButtonProps = archiveButton
+    ? createButtonLinkProps(archiveButton, 'archive')
+    : undefined;
 
   const closeButtonProps = {
     size: 'default',
@@ -69,9 +89,15 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
         </div>
       </div>
       <div className={style.buttonsWrapper} data-name="button-wrapper">
-        <BulletPointMenuButton {...bulletPointMenuButtonProps} />
-        <ButtonLink {...saveButtonProps} />
-        <ButtonLink {...publishButtonProps} />
+        {archiveButton ? (
+          <ButtonLink {...archiveButtonProps} />
+        ) : (
+          <>
+            <BulletPointMenuButton {...bulletPointMenuButtonProps} />
+            <ButtonLink {...saveButtonProps} />
+            <ButtonLink {...publishButtonProps} />
+          </>
+        )}
       </div>
     </div>
   );
