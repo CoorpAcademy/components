@@ -13,7 +13,8 @@ const getButtonContent = (
   content?: string | React.ReactNode,
   hovered?: boolean,
   hoverBackgroundColor?: string,
-  hoverColor?: string
+  hoverColor?: string,
+  labelStyle?: Record<string, unknown>
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
@@ -21,7 +22,9 @@ const getButtonContent = (
   if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
-        <span className={style.label}>{content}</span>
+        <span className={style.label} style={labelStyle}>
+          {content}
+        </span>
       </div>
     );
   }
@@ -51,7 +54,11 @@ const getButtonContent = (
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
-      {content ? <span className={style.label}>{content}</span> : null}
+      {content ? (
+        <span className={style.label} style={labelStyle}>
+          {content}
+        </span>
+      ) : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );
@@ -77,7 +84,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     onKeyDown = noop,
     className,
     customStyle,
-    useTitle = true
+    useTitle = true,
+    labelStyle
   } = props;
   const styleButton = classnames(
     className,
@@ -153,7 +161,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
         onMouseEnter={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+        {getButtonContent(
+          icon,
+          content ?? label,
+          hovered,
+          hoverBackgroundColor,
+          hoverColor,
+          labelStyle
+        )}
         {renderToolTip()}
       </Link>
     );
@@ -184,7 +199,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
       tabIndex={0}
       disabled={disabled}
     >
-      {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+      {getButtonContent(
+        icon,
+        content ?? label,
+        hovered,
+        hoverBackgroundColor,
+        hoverColor,
+        labelStyle
+      )}
       {renderToolTip()}
     </button>
   );
