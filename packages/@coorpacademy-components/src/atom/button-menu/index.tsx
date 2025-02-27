@@ -34,6 +34,7 @@ const Button = (props: ButtonProps) => {
     linkType,
     icon,
     customStyle,
+    labelStyle,
     isCustomSkillMenu
   } = props;
   const styleButton = classnames(
@@ -58,11 +59,11 @@ const Button = (props: ButtonProps) => {
       onClick={handleOnClick}
       data-name={dataName}
       className={styleButton}
-      customStyle={{color: customStyle?.color}}
+      customStyle={{color: customStyle?.color, padding: customStyle?.padding}}
       hoverBackgroundColor={customStyle?.hoverBackgroundColor}
       hoverColor={customStyle?.color}
       icon={iconProps}
-      isCustomSkillMenu={isCustomSkillMenu}
+      labelStyle={labelStyle}
     />
   ) : (
     <button
