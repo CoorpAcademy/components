@@ -23,7 +23,7 @@
   margin: 5px;
 }
 
-.opponent-card {
+.opponentCard {
   flex: 1 1 350px;
   height: 80px;
   background-color: white;
@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-.opponent-card .name {
+.opponentCard .name {
   font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 700;
@@ -46,7 +46,7 @@
 }
 
 
-.opponent-card .rightArrow {
+.opponentCard .rightArrow {
   margin-left: 20px;
 }
 
@@ -95,7 +95,7 @@
   display: none;
 }
 
-.opponent-card:hover {
+.opponentCard:hover {
   background-color: cm_grey_75;
 }
 
@@ -125,16 +125,16 @@
 }
 
 @media mobile {
-  .opponent-card {
+  .opponentCard {
     width: 100%;
     padding: 10px;
   }
 
-  .opponent-card .avatar {
+  .opponentCard .avatar {
     margin-right: 10px;
   }
 
-  .opponent-card .rightArrow {
+  .opponentCard .rightArrow {
     margin-left: 10px;
   }
 
