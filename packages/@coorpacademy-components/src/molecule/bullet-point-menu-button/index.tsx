@@ -1,8 +1,9 @@
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useMemo, useState, useEffect} from 'react';
 import classnames from 'classnames';
-import {noop} from 'lodash/fp';
+import {noop, some} from 'lodash/fp';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import ButtonMenu from '../../atom/button-menu';
+import {ButtonProps} from '../../atom/button-menu/types';
 import propTypes, {BulletPointMenuButtonProps} from './types';
 import style from './style.css';
 
@@ -14,8 +15,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     onClick = noop,
     buttons,
     menuButtonClassName,
-    isBulkMenu,
-    isCustomSkillMenu
+    isBulkMenu
   } = props;
   const [visible, setVisible] = useState(false);
 
@@ -32,10 +32,12 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     };
   }, []);
 
+  const hasIcon = useMemo(() => some((button: ButtonProps) => !!button.icon, buttons), [buttons]);
+
   const menuProps = {
     'data-name': 'button-menu',
     buttons,
-    isCustomSkillMenu
+    hasIcon
   };
 
   const menu = (
@@ -44,7 +46,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
         style.bulletPointMenu,
         isBulkMenu && style.bulkBulletPointMenu,
         visible && style.visible,
-        isCustomSkillMenu && style.customSkillBulletPointMenu
+        hasIcon && style.bulletPointMenuWithIcon
       )}
       data-name="menu-wrapper"
       aria-label={menuAriaLabel}

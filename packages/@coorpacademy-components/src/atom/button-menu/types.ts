@@ -20,14 +20,14 @@ export const buttonPropTypes = {
   customStyle: PropTypes.shape({
     color: PropTypes.string,
     hoverBackgroundColor: PropTypes.string
-  }),
-  isCustomSkillMenu: PropTypes.bool,
-  labelStyle: PropTypes.shape({})
+  })
 };
 
 const propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.shape(buttonPropTypes)).isRequired,
-  'data-name': PropTypes.string
+  hasIcon: PropTypes.bool,
+  'data-name': PropTypes.string,
+  'aria-label': PropTypes.string
 };
 
 export default propTypes;
@@ -47,15 +47,13 @@ export type ButtonProps = {
   linkType?: ButtonLinkProps['type'];
   icon?: IconType;
   customStyle?: CustomStyleProps;
-  isCustomSkillMenu?: boolean;
-  labelStyle?: Record<string, unknown>;
 };
 
 export type ButtonMenuProps = {
   buttons: ButtonProps[];
+  hasIcon?: boolean;
   'data-name'?: string;
   'aria-label'?: string;
-  isCustomSkillMenu?: boolean;
 };
 
 export type ButtonMenuPropsFixture = {props: ButtonMenuProps};
