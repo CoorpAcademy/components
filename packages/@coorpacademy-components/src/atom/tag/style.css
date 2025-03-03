@@ -7,6 +7,7 @@
 @value black from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
+@value cm_primary_blue from colors;
 
 .tag {
   border-radius: 24px;
@@ -63,6 +64,12 @@
   composes: tag;
   background-color: color(cm_orange_700 a(15%));
   color: cm_orange_700;
+}
+
+.info {
+  composes: tag;
+  background-color: color(cm_primary_blue a(15%));
+  color: cm_primary_blue;
 }
 
 .content {

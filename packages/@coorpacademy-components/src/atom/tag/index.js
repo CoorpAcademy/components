@@ -10,7 +10,8 @@ const TAG_STYLES = {
   success: style.success,
   failure: style.failure,
   warning: style.warning,
-  progress: style.progress
+  progress: style.progress,
+  info: style.info
 };
 
 const TAG_SIZE = {
