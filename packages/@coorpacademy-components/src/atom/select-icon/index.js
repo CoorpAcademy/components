@@ -52,7 +52,7 @@ const SelectIcon = props => {
   const {isSelected = false} = options;
 
   const contentView = getButtonContent(faIcon, options);
-  const styleButton = classnames(style.default, isSelected && style.selected);
+  const styleButton = classnames(style.defaultStyle, isSelected && style.selected);
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const IconButton = useCallback(

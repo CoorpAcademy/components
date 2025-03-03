@@ -42,7 +42,7 @@
   text-decoration: none;
 }
 
-.default {
+.defaultStyle {
   composes: button;
   width: 44px;
   height: 44px;
@@ -91,7 +91,7 @@
   }
 }
 
-.default .icon {
+.defaultStyle .icon {
   width: 14px;
   height: 14px;
 }

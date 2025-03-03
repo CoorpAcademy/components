@@ -14,7 +14,7 @@ const themeStyle = {
   setup: style.setup,
   coorpmanager: style.coorpmanager,
   cockpit: style.cockpit,
-  default: style.default
+  default: style.defaultStyle
 };
 const InputText = props => {
   const {
@@ -39,7 +39,7 @@ const InputText = props => {
   const isCMTheme = theme === 'coorpmanager';
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const mainClass = themeStyle[theme];
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const className = getClassState(style.defaultStyle, style.modified, style.error, modified, error);
   const descriptionView =
     description && theme !== 'coorpmanager' ? (
       <div className={style.description}>{description}</div>

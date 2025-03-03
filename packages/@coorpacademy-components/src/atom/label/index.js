@@ -6,7 +6,7 @@ import style from './style.css';
 
 const Label = ({children, innerHtml = false}) => {
   return (
-    <span className={classnames(style.default, innerHtml ? style.innerHTML : null)}>
+    <span className={classnames(style.defaultStyle, innerHtml ? style.innerHTML : null)}>
       {children}
     </span>
   );

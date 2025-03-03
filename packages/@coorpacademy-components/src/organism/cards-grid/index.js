@@ -23,7 +23,7 @@ function CardsGrid(props) {
   }, list);
 
   return (
-    <div className={style.default} style={customStyle}>
+    <div className={style.defaultStyle} style={customStyle}>
       {cards}
       {loader}
     </div>

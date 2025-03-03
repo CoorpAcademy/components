@@ -24,7 +24,7 @@
   transform: scale(1.2);
 }
 
-.default {
+.defaultStyle {
   border: 2px dashed xtraLightGrey;
   border-radius: 4px;
   overflow: hidden;

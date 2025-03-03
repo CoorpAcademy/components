@@ -35,7 +35,7 @@
   padding: 8px 16px;
 }
 
-.default {
+.defaultStyle {
   composes: tag;
   background-color: cm_grey_100;
   color: cm_grey_500;

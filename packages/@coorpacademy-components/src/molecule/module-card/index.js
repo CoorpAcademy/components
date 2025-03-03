@@ -12,7 +12,7 @@ function ModuleCard(props, context) {
 
   const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
   return (
-    <div className={style.default} data-name="module-card" onClick={onClick}>
+    <div className={style.defaultStyle} data-name="module-card" onClick={onClick}>
       <div
         className={classnames(style.title, style.innerHTML)}
         // eslint-disable-next-line react/no-danger

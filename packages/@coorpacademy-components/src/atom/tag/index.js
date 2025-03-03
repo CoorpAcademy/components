@@ -6,7 +6,7 @@ import Icon from '../icon';
 import style from './style.css';
 
 const TAG_STYLES = {
-  default: style.default,
+  default: style.defaultStyle,
   success: style.success,
   failure: style.failure,
   warning: style.warning,

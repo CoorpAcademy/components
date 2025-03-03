@@ -9,7 +9,7 @@
 @value white from colors;
 @value xtraLightGrey from colors;
 
-.default {
+.defaultStyle {
   margin: 16px auto 0;
   box-sizing: border-box;
   max-width: 1080px;
@@ -104,7 +104,7 @@
 }
 
 @media tablet, mobile {
-  .default {
+  .defaultStyle {
     margin: 0;
     padding: 0;
   }

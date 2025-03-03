@@ -10,7 +10,7 @@
 @value cm_primary_blue from colors;
 @value light_blue from colors;
 
-.default {
+.defaultStyle {
   display: flex;
 }
 
@@ -30,7 +30,7 @@
   composes: coorpmanager;
 }
 
-.default label {
+.defaultStyle label {
   height: 24px;
   position: relative;
   flex-grow: 0;
@@ -42,7 +42,7 @@
   transition: all 0.3s ease;
 }
 
-.default label::after {
+.defaultStyle label::after {
   position: absolute;
   left: 2px;
   top: 2px;
@@ -82,7 +82,7 @@
   background: positive;
 }
 
-.default input:checked ~ label::after {
+.defaultStyle input:checked ~ label::after {
   left: 30px;
 }
 

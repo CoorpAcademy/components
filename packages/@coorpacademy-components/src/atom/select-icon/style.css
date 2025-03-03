@@ -36,7 +36,7 @@
   color: cm_grey_500;
 }
 
-.default {
+.defaultStyle {
   composes: button;
   width: 144px;
   height: 120px;

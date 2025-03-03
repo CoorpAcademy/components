@@ -1,6 +1,6 @@
 @value mobile, tablet from "../../variables/breakpoints.css";
 
-.default {
+.defaultStyle {
   display: flex;
   flex-flow: row;
   justify-content: center;
@@ -29,7 +29,7 @@
 }
 
 @media tablet {
-  .default {
+  .defaultStyle {
     flex-flow: column;
     height: auto;
     width: 100%;

@@ -16,7 +16,7 @@
   overflow: visible;
 }
 
-.default {
+.defaultStyle {
   border-radius: 100%;
   border: 4px solid white;
   box-sizing: border-box;

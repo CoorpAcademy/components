@@ -61,7 +61,7 @@ const Handle = (props, legacyContext) => {
           backgroundColor,
           boxShadow: `0px 0px 20px ${getShadowBoxColorFromPrimary(primaryColor)}`
         }}
-        className={style.default}
+        className={style.defaultStyle}
         ref={handle}
         data-name={'handle'}
       />

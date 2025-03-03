@@ -97,7 +97,7 @@ const StatusItem = (props: StatusItemProps) => {
   return (
     <div
       className={classnames(
-        style.default,
+        style.defaultStyle,
         icon === 'right' && style.right,
         icon === 'wrong' && style.wrong,
         current && style.current,

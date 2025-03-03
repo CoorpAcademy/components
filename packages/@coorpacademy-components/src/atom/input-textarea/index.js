@@ -14,7 +14,7 @@ const themeStyle = {
   setup: style.setup,
   coorpmanager: style.coorpmanager,
   cockpit: style.cockpit,
-  default: style.default
+  default: style.defaultStyle
 };
 const InputTextarea = props => {
   const {
@@ -33,7 +33,7 @@ const InputTextarea = props => {
   } = props;
 
   const mainClass = themeStyle[theme];
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const className = getClassState(style.defaultStyle, style.modified, style.error, modified, error);
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
 
   const descriptionView =

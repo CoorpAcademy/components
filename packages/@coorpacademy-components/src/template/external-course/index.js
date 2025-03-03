@@ -13,9 +13,9 @@ import CmPopin from '../../molecule/cm-popin';
 import style from './style.css';
 
 const defaultWrapperStyle = {
-  default: style.default,
+  default: style.defaultStyle,
   cockpit: style.defaultCockpit,
-  mobile: style.default
+  mobile: style.defaultStyle
 };
 
 const ExternalCourse = (props, context) => {

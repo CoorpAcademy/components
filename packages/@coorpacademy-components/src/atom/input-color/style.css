@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value grey from colors;
 
-.default {
+.defaultStyle {
   composes: default from '../input-text/style.css';
 }
 

@@ -6,7 +6,7 @@
 @value xtraLightGrey from colors;
 @value dark from colors;
 
-.default {
+.defaultStyle {
   width: 350px;
   margin: 5px;
   height: 80px;
@@ -21,7 +21,7 @@
   cursor: pointer;
 }
 
-.default:hover {
+.defaultStyle:hover {
   background-color: xtraLightGrey;
 }
 
@@ -49,7 +49,7 @@
 }
 
 @media mobile {
-  .default {
+  .defaultStyle {
     padding: 10px;
     margin: 5px 0;
     width: 100%;

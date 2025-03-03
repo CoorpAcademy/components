@@ -36,7 +36,7 @@ const InputHtml = (props, legacyContext) => {
 
   const {title, placeholder, error, description, disabled} = props;
 
-  const className = error ? style.error : style.default;
+  const className = error ? style.error : style.defaultStyle;
   const iconContent = !preview ? (
     <PreviewIcon style={{color: mediumColor}} height={16} />
   ) : (

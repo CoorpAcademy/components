@@ -36,7 +36,7 @@
   display: block;
 }
 
-.default {
+.defaultStyle {
   background-color: cm_grey_100;
   color: cm_grey_900;
 }
@@ -46,7 +46,7 @@
   justify-content: flex-start;
 }
 
-.default:hover {
+.defaultStyle:hover {
   background-color: cm_grey_200;
 }
 

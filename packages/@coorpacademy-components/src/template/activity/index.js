@@ -107,7 +107,7 @@ const Progression = (props, legacyContext) => {
   ) : null;
 
   return (
-    <div className={style.default}>
+    <div className={style.defaultStyle}>
       <div data-name="activity-header" tabIndex={0}>
         <div className={style.mainTitle} tabIndex={0}>
           <span>{mainTitle}</span> {mainSubtitle}

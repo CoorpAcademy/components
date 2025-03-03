@@ -21,7 +21,7 @@ const InputColor = props => {
     backgroundColor: value
   };
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const className = getClassState(style.defaultStyle, style.modified, style.error, modified, error);
 
   return (
     <div className={className}>

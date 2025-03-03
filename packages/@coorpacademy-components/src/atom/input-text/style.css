@@ -15,7 +15,7 @@
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
 
-.default {
+.defaultStyle {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -120,7 +120,7 @@
   align-self: flex-start;
   padding-left: 13px;
 }
-.default label {
+.defaultStyle label {
   display: flex;
   align-items: center;
   height: 50px;

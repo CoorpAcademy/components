@@ -16,7 +16,7 @@
 @value cm_green_50 from colors;
 @value cm_primary_blue from colors;
 
-.default {
+.defaultStyle {
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
@@ -43,7 +43,7 @@
   composes: default;
 }
 
-.default input,
+.defaultStyle input,
 .coorpManager input {
   display: none;
 }
@@ -55,7 +55,7 @@
   color: white;
 }
 
-.default .title {
+.defaultStyle .title {
   font-family: Gilroy;
   font-size: 15px;
   text-transform: none;
@@ -63,9 +63,9 @@
   width: 180px;
 }
 
-.default .tertiary,
-.default .primary,
-.default .secondary {
+.defaultStyle .tertiary,
+.defaultStyle .primary,
+.defaultStyle .secondary {
   color: dark;
   background-color: unset;
 }
@@ -97,7 +97,7 @@
   background-color: cm_blue_50;
 }
 
-.default .label,
+.defaultStyle .label,
 .coorpManager .label {
   border: solid 1px cm_grey_200;
   background-color: cm_grey_100;
@@ -113,7 +113,7 @@
   position: relative;
 }
 
-.default .label {
+.defaultStyle .label {
   margin-left: 20px;
 }
 
@@ -144,7 +144,7 @@
   outline: 2px solid battle;
 }
 
-.default .inherit,
+.defaultStyle .inherit,
 .coorpManager .inherit {
   color: inherit;
   text-overflow: ellipsis;
@@ -154,7 +154,7 @@
 }
 
 .coorpManager .noLabelMargins,
-.default .noLabelMargins {
+.defaultStyle .noLabelMargins {
   margin-right: 0;
   margin-left: 0;
 }

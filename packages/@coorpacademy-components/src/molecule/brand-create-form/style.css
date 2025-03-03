@@ -73,7 +73,7 @@
   margin-bottom: 20px;
 }
 
-.default {
+.defaultStyle {
   margin-bottom: 70px;
 }
 
@@ -81,14 +81,14 @@
   composes: default;
 }
 
-.default label {
+.defaultStyle label {
   font-family: 'Gilroy';
   font-weight: 600;
   font-size: 18px;
   color: medium;
 }
 
-.default input {
+.defaultStyle input {
   font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
