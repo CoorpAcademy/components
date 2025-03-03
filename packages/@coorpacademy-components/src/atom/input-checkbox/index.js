@@ -35,7 +35,8 @@ const InputCheckbox = props => {
   const modifiedClassName =
     theme === 'coorpmanager' ? style.coorpManagerModified : style.defaultModified;
   const errorClassName = theme === 'coorpmanager' ? style.coorpManagerError : style.defaultError;
-  const defaultContainerClassName = theme === 'coorpmanager' ? style.coorpManager : style.defaultStyle;
+  const defaultContainerClassName =
+    theme === 'coorpmanager' ? style.coorpManager : style.defaultStyle;
 
   const className = getClassState(
     defaultContainerClassName,

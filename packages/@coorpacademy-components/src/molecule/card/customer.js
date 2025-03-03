@@ -5,7 +5,7 @@ import {keys} from 'lodash/fp';
 import style from './customer.css';
 
 export const THEMES = {
-  default: null,
+  default: style.defaultStyle,
   coorpmanager: style.coorpmanager
 };
 
