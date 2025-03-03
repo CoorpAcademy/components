@@ -2,7 +2,7 @@ import React, {useCallback, useState, useMemo} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
-import FaIcon from '../icon';
+import FaIcon, {DEFAULT_ICON_COLOR} from '../icon';
 import {ICONS} from '../../util/button-icons';
 import ToolTip from '../tooltip';
 import propTypes, {ButtonLinkProps, IconType} from './types';
@@ -32,7 +32,7 @@ const getButtonContent = (
     <FaIcon
       {...{
         iconName: faIcon.name,
-        iconColor: hovered && hoverColor ? hoverColor : faIcon.color,
+        iconColor: hovered && hoverColor ? hoverColor : faIcon.color ?? DEFAULT_ICON_COLOR,
         // eslint-disable-next-line no-nested-ternary
         backgroundColor: !faIcon?.backgroundColor
           ? 'transparent'
