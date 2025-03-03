@@ -4,6 +4,7 @@ import ButtonLinkIcon from '../../atom/button-link-icon';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import Tag from '../../atom/tag';
 import {ButtonLinkProps} from '../../atom/button-link/types';
+import {COLORS} from '../../variables/colors';
 import customSkillHeaderPropTypes, {ActionButtonProps, CustomSkillHeaderProps} from './types';
 import style from './style.css';
 
@@ -34,7 +35,7 @@ const createButtonLinkProps = (
             return buttonProps?.faIconName ?? 'circle-check';
         }
       })(),
-      color: type === 'save' || type === 'archive' ? '#1D1D2B' : '#FFFFFF',
+      color: type === 'save' || type === 'archive' ? COLORS.cm_grey_700 : COLORS.white,
       size: 14
     }
   },
@@ -43,7 +44,7 @@ const createButtonLinkProps = (
 
 const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
   const {
-    onQuitClick,
+    onClose,
     title,
     tag,
     saveStatus,
@@ -64,7 +65,7 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
     icon: 'close',
     'data-name': 'custom-skill-header-close-button',
     'aria-label': 'Close',
-    onClick: onQuitClick
+    onClick: onClose
   };
 
   const bulletPointMenuButtonProps = {
