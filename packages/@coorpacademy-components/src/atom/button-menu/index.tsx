@@ -1,22 +1,68 @@
 import React, {useMemo, useCallback} from 'react';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
+import ButtonLink from '../button-link';
+import {IconType} from '../button-link/types';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 
+const getIconProps = (icon?: IconType) => {
+  if (!icon) return undefined;
+  const {position, type, faIcon} = icon;
+  return faIcon
+    ? {
+        faIcon: {
+          name: faIcon.name,
+          size: faIcon.size,
+          color: faIcon.color
+        },
+        position
+      }
+    : {
+        type,
+        position
+      };
+};
+
 const Button = (props: ButtonProps) => {
-  const {'data-name': dataName, disabled, label, onClick, type = 'default'} = props;
+  const {
+    'data-name': dataName,
+    disabled,
+    label,
+    onClick,
+    type = 'default',
+    linkType,
+    icon,
+    customStyle
+  } = props;
   const styleButton = classnames(
     style.button,
     type === 'default' && style.default,
     type === 'defaultLeft' && style.defaultLeft,
     type === 'dangerous' && style.dangerous,
     type === 'dangerousLeft' && style.dangerousLeft,
-    disabled && style.disabled
+    disabled && style.disabled,
+    icon && style.buttonMenuWithIcon
   );
 
   const handleOnClick = useCallback(() => onClick(), [onClick]);
-  return (
+
+  const iconProps = useMemo(() => getIconProps(icon), [icon]);
+
+  return icon ? (
+    <ButtonLink
+      label={label}
+      type={linkType}
+      disabled={disabled}
+      onClick={handleOnClick}
+      data-name={dataName}
+      className={styleButton}
+      customStyle={{color: customStyle?.color, padding: customStyle?.padding}}
+      hoverBackgroundColor={customStyle?.hoverBackgroundColor}
+      hoverColor={customStyle?.color}
+      icon={iconProps}
+    />
+  ) : (
     <button
       type="button"
       aria-label={label}
@@ -36,7 +82,7 @@ const Button = (props: ButtonProps) => {
 Button.propTypes = buttonPropTypes;
 
 const ButtonMenu = (props: ButtonMenuProps) => {
-  const {buttons, 'data-name': dataName} = props;
+  const {buttons, 'data-name': dataName, hasIcon} = props;
   const buildButton = useCallback((button: ButtonProps, index) => {
     return <Button {...button} key={button.label + index} />;
   }, []);
@@ -47,7 +93,16 @@ const ButtonMenu = (props: ButtonMenuProps) => {
     [buttons, buildButton]
   );
 
-  return <div data-name={dataName}>{buttonList}</div>;
+  return (
+    <div
+      data-name={dataName}
+      className={classnames({
+        [style.buttonMenuContainer]: hasIcon
+      })}
+    >
+      {buttonList}
+    </div>
+  );
 };
 
 ButtonMenu.propTypes = propTypes;

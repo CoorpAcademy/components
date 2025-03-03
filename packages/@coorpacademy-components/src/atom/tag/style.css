@@ -1,9 +1,13 @@
 @value colors: "../../variables/colors.css";
 @value white from colors;
+@value cm_yellow_100 from colors;
 @value cm_yellow_200 from colors;
+@value cm_yellow_300 from colors;
 @value cm_positive_100 from colors;
+@value cm_positive_300 from colors;
 @value cm_negative_100 from colors;
 @value cm_orange_700 from colors;
+@value cm_orange_800 from colors;
 @value black from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
@@ -43,14 +47,14 @@
 
 .progress {
   composes: tag;
-  background-color: color(cm_yellow_200 a(15%));
-  color: cm_yellow_200;
+  background-color: color(cm_yellow_100 a(25%));
+  color: cm_yellow_300;
 }
 
 .success {
   composes: tag;
-  background-color: color(cm_positive_100 a(15%));
-  color: cm_positive_100;
+  background-color: color(cm_positive_100 a(20%));
+  color: cm_positive_300;
 }
 
 .failure {
@@ -61,8 +65,8 @@
 
 .warning {
   composes: tag;
-  background-color: color(cm_orange_700 a(15%));
-  color: cm_orange_700;
+  background-color: color(cm_orange_700 a(18%));
+  color: cm_orange_800;
 }
 
 .content {

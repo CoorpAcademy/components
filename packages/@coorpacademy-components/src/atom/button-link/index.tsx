@@ -2,7 +2,7 @@ import React, {useCallback, useState, useMemo} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
-import FaIcon from '../icon';
+import FaIcon, {DEFAULT_ICON_COLOR} from '../icon';
 import {ICONS} from '../../util/button-icons';
 import ToolTip from '../tooltip';
 import propTypes, {ButtonLinkProps, IconType} from './types';
@@ -18,10 +18,15 @@ const getButtonContent = (
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
+  const labelClassName =
+    faIcon && faIcon.size !== undefined && faIcon.size < 16
+      ? style.labelWithoutMargin
+      : style.label;
+
   if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
-        <span className={style.label}>{content}</span>
+        <span className={labelClassName}>{content}</span>
       </div>
     );
   }
@@ -30,7 +35,7 @@ const getButtonContent = (
     <FaIcon
       {...{
         iconName: faIcon.name,
-        iconColor: hovered && hoverColor ? hoverColor : faIcon.color,
+        iconColor: hovered && hoverColor ? hoverColor : faIcon.color ?? DEFAULT_ICON_COLOR,
         // eslint-disable-next-line no-nested-ternary
         backgroundColor: !faIcon?.backgroundColor
           ? 'transparent'
@@ -51,7 +56,7 @@ const getButtonContent = (
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
-      {content ? <span className={style.label}>{content}</span> : null}
+      {content ? <span className={labelClassName}>{content}</span> : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );

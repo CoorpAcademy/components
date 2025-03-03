@@ -1,0 +1,110 @@
+import React from 'react';
+import ButtonLink from '../../atom/button-link';
+import ButtonLinkIcon from '../../atom/button-link-icon';
+import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
+import Tag from '../../atom/tag';
+import {ButtonLinkProps} from '../../atom/button-link/types';
+import {COLORS} from '../../variables/colors';
+import headerWithActionsPropTypes, {ActionButtonProps, HeaderWithActionsProps} from './types';
+import style from './style.css';
+
+const commonButtonStyles = {
+  fontWeight: '600',
+  borderRadius: '12px',
+  padding: '12px 16px',
+  paddingLeft: '6px'
+};
+
+const createButtonLinkProps = (
+  buttonProps: ActionButtonProps,
+  type: 'save' | 'publish' | 'archive'
+): ButtonLinkProps => ({
+  ...buttonProps,
+  'data-name': `custom-skill-header-${type}-button`,
+  type: type === 'save' || type === 'archive' ? 'secondary' : 'primary',
+  icon: {
+    position: 'left',
+    faIcon: {
+      name: (() => {
+        switch (type) {
+          case 'save':
+            return 'floppy-disk';
+          case 'archive':
+            return 'folder-open';
+          default:
+            return buttonProps?.faIconName ?? 'circle-check';
+        }
+      })(),
+      color: type === 'save' || type === 'archive' ? COLORS.cm_grey_700 : COLORS.white,
+      size: 14
+    }
+  },
+  customStyle: commonButtonStyles
+});
+
+const HeaderWithActions = (props: HeaderWithActionsProps) => {
+  const {
+    onClose,
+    title,
+    tag,
+    saveStatus,
+    bulletPointMenuButton,
+    saveButton,
+    publishButton,
+    archiveButton
+  } = props;
+
+  const saveButtonProps = createButtonLinkProps(saveButton, 'save');
+  const publishButtonProps = createButtonLinkProps(publishButton, 'publish');
+  const archiveButtonProps = archiveButton
+    ? createButtonLinkProps(archiveButton, 'archive')
+    : undefined;
+
+  const closeButtonProps = {
+    size: 'default',
+    icon: 'close',
+    'data-name': 'custom-skill-header-close-button',
+    'aria-label': 'Close',
+    onClick: onClose
+  };
+
+  const bulletPointMenuButtonProps = {
+    ...bulletPointMenuButton,
+    buttonAriaLabel: 'More actions'
+  };
+
+  return (
+    <div className={style.headerWrapper} data-name="header-with-actions-wrapper">
+      <div
+        className={style.titleAndButtonWrapper}
+        data-name="header-with-actions-title-and-button-wrapper"
+      >
+        <ButtonLinkIcon {...closeButtonProps} className={style.button} />
+        <div className={style.titleWrapper}>
+          <div className={style.statusWrapper}>
+            <Tag {...tag} />
+            {saveStatus.display ? <p className={style.saveStatus}>{saveStatus.label}</p> : null}
+          </div>
+          <h3 className={style.title} aria-label={title} data-name="header-with-actions-title">
+            {title}
+          </h3>
+        </div>
+      </div>
+      <div className={style.buttonsWrapper} data-name="header-with-actions-buttons-wrapper">
+        {archiveButton ? (
+          <ButtonLink {...archiveButtonProps} />
+        ) : (
+          <>
+            <BulletPointMenuButton {...bulletPointMenuButtonProps} />
+            <ButtonLink {...saveButtonProps} />
+            <ButtonLink {...publishButtonProps} />
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+HeaderWithActions.propTypes = headerWithActionsPropTypes;
+
+export default HeaderWithActions;
