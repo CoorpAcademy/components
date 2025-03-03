@@ -10,7 +10,7 @@ const faIconPropTypes = {
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
-const iconPropTypes = {
+export const iconPropTypes = {
   position: PropTypes.oneOf(['right', 'left']).isRequired,
   type: PropTypes.oneOf(keys(ICONS)),
   faIcon: PropTypes.shape(faIconPropTypes)
