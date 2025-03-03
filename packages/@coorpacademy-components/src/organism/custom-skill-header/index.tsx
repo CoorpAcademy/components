@@ -4,7 +4,7 @@ import ButtonLinkIcon from '../../atom/button-link-icon';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import Tag from '../../atom/tag';
 import {ButtonLinkProps} from '../../atom/button-link/types';
-import {ActionButtonProps, CustomSkillHeaderProps} from './types';
+import customSkillHeaderPropTypes, {ActionButtonProps, CustomSkillHeaderProps} from './types';
 import style from './style.css';
 
 const commonButtonStyles = {
@@ -100,5 +100,7 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
     </div>
   );
 };
+
+CustomSkillHeader.propTypes = customSkillHeaderPropTypes;
 
 export default CustomSkillHeader;
