@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {ButtonLinkProps, IconType} from '../button-link/types';
+import {ButtonLinkProps, IconType, iconPropTypes} from '../button-link/types';
 
 export const buttonPropTypes = {
   'data-name': PropTypes.string,
@@ -8,18 +8,11 @@ export const buttonPropTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
   linkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
-  icon: PropTypes.shape({
-    position: PropTypes.oneOf(['right', 'left']).isRequired,
-    type: PropTypes.string,
-    faIcon: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      size: PropTypes.number,
-      color: PropTypes.string
-    })
-  }),
+  icon: PropTypes.shape(iconPropTypes),
   customStyle: PropTypes.shape({
     color: PropTypes.string,
-    hoverBackgroundColor: PropTypes.string
+    hoverBackgroundColor: PropTypes.string,
+    padding: PropTypes.string
   })
 };
 
