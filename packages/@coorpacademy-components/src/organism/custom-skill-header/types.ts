@@ -9,7 +9,7 @@ const actionButtonPropTypes = {
 };
 
 const customSkillHeaderPropTypes = {
-  onQuitClick: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   tag: PropTypes.shape({
     label: PropTypes.oneOf(['Published', 'Ongoing changes', 'Draft', 'Archived']).isRequired,
@@ -17,7 +17,7 @@ const customSkillHeaderPropTypes = {
     size: PropTypes.string.isRequired
   }).isRequired,
   saveStatus: PropTypes.shape({
-    label: PropTypes.oneOf(['Unsaved changes', 'Saved']),
+    label: PropTypes.oneOf(['Unsaved changes', 'Saved']).isRequired,
     display: PropTypes.bool.isRequired
   }).isRequired,
   bulletPointMenuButton: PropTypes.shape(propTypes).isRequired,
@@ -42,12 +42,12 @@ export type ActionButtonProps = {
 };
 
 type SaveStatusProps = {
-  label?: 'Unsaved changes' | 'Saved';
+  label: 'Unsaved changes' | 'Saved';
   display: boolean;
 };
 
 export type CustomSkillHeaderProps = {
-  onQuitClick: () => void;
+  onClose: () => void;
   title: string;
   tag: TagProps;
   saveStatus: SaveStatusProps;
