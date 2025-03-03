@@ -5,7 +5,7 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import Tag from '../../atom/tag';
 import {ButtonLinkProps} from '../../atom/button-link/types';
 import {COLORS} from '../../variables/colors';
-import customSkillHeaderPropTypes, {ActionButtonProps, CustomSkillHeaderProps} from './types';
+import headerWithActionsPropTypes, {ActionButtonProps, HeaderWithActionsProps} from './types';
 import style from './style.css';
 
 const commonButtonStyles = {
@@ -42,7 +42,7 @@ const createButtonLinkProps = (
   customStyle: commonButtonStyles
 });
 
-const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
+const HeaderWithActions = (props: HeaderWithActionsProps) => {
   const {
     onClose,
     title,
@@ -74,20 +74,23 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
   };
 
   return (
-    <div className={style.headerWrapper} data-name="header-wrapper">
-      <div className={style.titleAndButtonWrapper} data-name="title-and-button-wrapper">
+    <div className={style.headerWrapper} data-name="header-with-actions-wrapper">
+      <div
+        className={style.titleAndButtonWrapper}
+        data-name="header-with-actions-title-and-button-wrapper"
+      >
         <ButtonLinkIcon {...closeButtonProps} className={style.button} />
         <div className={style.titleWrapper}>
           <div className={style.statusWrapper}>
             <Tag {...tag} />
             {saveStatus.display ? <p className={style.saveStatus}>{saveStatus.label}</p> : null}
           </div>
-          <h3 className={style.title} aria-label={title} data-name="header-title">
+          <h3 className={style.title} aria-label={title} data-name="header-with-actions-title">
             {title}
           </h3>
         </div>
       </div>
-      <div className={style.buttonsWrapper} data-name="button-wrapper">
+      <div className={style.buttonsWrapper} data-name="header-with-actions-buttons-wrapper">
         {archiveButton ? (
           <ButtonLink {...archiveButtonProps} />
         ) : (
@@ -102,6 +105,6 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
   );
 };
 
-CustomSkillHeader.propTypes = customSkillHeaderPropTypes;
+HeaderWithActions.propTypes = headerWithActionsPropTypes;
 
-export default CustomSkillHeader;
+export default HeaderWithActions;

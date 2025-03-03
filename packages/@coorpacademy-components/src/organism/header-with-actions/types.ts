@@ -8,7 +8,7 @@ const actionButtonPropTypes = {
   faIconName: PropTypes.string
 };
 
-const customSkillHeaderPropTypes = {
+const headerWithActionsPropTypes = {
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   tag: PropTypes.shape({
@@ -26,7 +26,7 @@ const customSkillHeaderPropTypes = {
   archiveButton: PropTypes.shape(actionButtonPropTypes)
 };
 
-export default customSkillHeaderPropTypes;
+export default headerWithActionsPropTypes;
 
 type TagProps = {
   label: 'Published' | 'Ongoing changes' | 'Draft' | 'Archived';
@@ -46,7 +46,7 @@ type SaveStatusProps = {
   display: boolean;
 };
 
-export type CustomSkillHeaderProps = {
+export type HeaderWithActionsProps = {
   onClose: () => void;
   title: string;
   tag: TagProps;
