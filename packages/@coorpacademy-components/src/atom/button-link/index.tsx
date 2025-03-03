@@ -18,7 +18,10 @@ const getButtonContent = (
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
-  const labelClassName = faIcon && (faIcon.size ?? 0) < 16 ? style.labelWithoutMargin : style.label;
+  const labelClassName =
+    faIcon && faIcon.size !== undefined && faIcon.size < 16
+      ? style.labelWithoutMargin
+      : style.label;
 
   if (!Icon && !faIcon) {
     return (
