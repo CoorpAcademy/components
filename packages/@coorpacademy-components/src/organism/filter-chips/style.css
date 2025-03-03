@@ -1,3 +1,30 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.titleContainer {
+    color: cm_grey_700;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex: 10;
+}
+
+.buttonContainer {
+    font-weight: normal;
+    color: cm_grey_500;
+}
+
 .optionsContainer {
     display: flex;
     flex-wrap: wrap;

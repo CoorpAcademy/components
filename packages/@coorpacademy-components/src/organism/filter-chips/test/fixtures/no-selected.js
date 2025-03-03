@@ -1,5 +1,9 @@
-export default {
+import {FilterChipProps} from '../../prop-types';
+
+const props: FilterChipProps = {
   props: {
+    title: 'Type',
+    onClear: () => console.log('clear filters'),
     options: [
       {
         label: 'Courses',
@@ -46,3 +50,5 @@ export default {
     ]
   }
 };
+
+export default props;
