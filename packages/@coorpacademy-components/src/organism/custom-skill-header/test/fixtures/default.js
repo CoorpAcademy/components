@@ -1,3 +1,5 @@
+import menuWithIconFixture from '../../../../atom/button-menu/test/fixtures/menu-with-icon';
+
 const defaultFixture = {
   props: {
     onQuitClick: () => {
@@ -14,59 +16,7 @@ const defaultFixture = {
       display: true
     },
     bulletPointMenuButton: {
-      buttons: [
-        {
-          'data-name': 'discard-button',
-          label: 'Discard changes',
-          linkType: 'tertiary',
-          icon: {
-            position: 'left',
-            faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
-          },
-          onClick: () => console.log('click Download Report'),
-          customStyle: {
-            color: '#1D1D2B',
-            hoverBackgroundColor: '#EAEAEB',
-            padding: '6px'
-          },
-          labelStyle: {margin: '0'},
-          isCustomSkillMenu: true
-        },
-        {
-          'data-name': 'archive-button',
-          label: 'Archive',
-          linkType: 'tertiary',
-          icon: {
-            position: 'left',
-            faIcon: {name: 'folder-open', color: '#515161', size: 14}
-          },
-          onClick: () => console.log('click Download Report'),
-          customStyle: {
-            color: '#1D1D2B',
-            hoverBackgroundColor: '#EAEAEB',
-            padding: '6px'
-          },
-          labelStyle: {margin: '0'},
-          isCustomSkillMenu: true
-        },
-        {
-          'data-name': 'delete-button',
-          label: 'Delete',
-          linkType: 'tertiary',
-          icon: {
-            position: 'left',
-            faIcon: {name: 'trash', color: '#B81400', size: 14}
-          },
-          onClick: () => console.log('click Download Report'),
-          customStyle: {
-            color: '#991100',
-            hoverBackgroundColor: '#FCDADA',
-            padding: '6px'
-          },
-          labelStyle: {margin: '0'},
-          isCustomSkillMenu: true
-        }
-      ]
+      buttons: menuWithIconFixture.props.buttons
     },
     saveButton: {
       label: 'Save changes',

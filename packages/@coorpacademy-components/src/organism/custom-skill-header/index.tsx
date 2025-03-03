@@ -14,8 +14,6 @@ const commonButtonStyles = {
   paddingLeft: '6px'
 };
 
-const labelStyle = {margin: '0'};
-
 const createButtonLinkProps = (
   buttonProps: ActionButtonProps,
   type: 'save' | 'publish' | 'archive'
@@ -40,8 +38,7 @@ const createButtonLinkProps = (
       size: 14
     }
   },
-  customStyle: commonButtonStyles,
-  labelStyle
+  customStyle: commonButtonStyles
 });
 
 const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
@@ -72,8 +69,7 @@ const CustomSkillHeader = (props: CustomSkillHeaderProps) => {
 
   const bulletPointMenuButtonProps = {
     ...bulletPointMenuButton,
-    buttonAriaLabel: 'More actions',
-    isCustomSkillMenu: true
+    buttonAriaLabel: 'More actions'
   };
 
   return (
