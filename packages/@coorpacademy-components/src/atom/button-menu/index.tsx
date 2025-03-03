@@ -33,9 +33,7 @@ const Button = (props: ButtonProps) => {
     type = 'default',
     linkType,
     icon,
-    customStyle,
-    labelStyle,
-    isCustomSkillMenu
+    customStyle
   } = props;
   const styleButton = classnames(
     style.button,
@@ -44,7 +42,7 @@ const Button = (props: ButtonProps) => {
     type === 'dangerous' && style.dangerous,
     type === 'dangerousLeft' && style.dangerousLeft,
     disabled && style.disabled,
-    isCustomSkillMenu && style.customSkillButton
+    icon && style.buttonMenuWithIcon
   );
 
   const handleOnClick = useCallback(() => onClick(), [onClick]);
@@ -63,7 +61,6 @@ const Button = (props: ButtonProps) => {
       hoverBackgroundColor={customStyle?.hoverBackgroundColor}
       hoverColor={customStyle?.color}
       icon={iconProps}
-      labelStyle={labelStyle}
     />
   ) : (
     <button
@@ -85,7 +82,7 @@ const Button = (props: ButtonProps) => {
 Button.propTypes = buttonPropTypes;
 
 const ButtonMenu = (props: ButtonMenuProps) => {
-  const {buttons, 'data-name': dataName, isCustomSkillMenu} = props;
+  const {buttons, 'data-name': dataName, hasIcon} = props;
   const buildButton = useCallback((button: ButtonProps, index) => {
     return <Button {...button} key={button.label + index} />;
   }, []);
@@ -100,7 +97,7 @@ const ButtonMenu = (props: ButtonMenuProps) => {
     <div
       data-name={dataName}
       className={classnames({
-        [style.buttonMenuContainer]: isCustomSkillMenu
+        [style.buttonMenuContainer]: hasIcon
       })}
     >
       {buttonList}

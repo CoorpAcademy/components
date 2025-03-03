@@ -9,8 +9,7 @@ const propTypes = {
   buttons: ButtonMenu.propTypes.buttons,
   onClick: PropTypes.func,
   menuButtonClassName: PropTypes.string,
-  isBulkMenu: PropTypes.bool,
-  isCustomSkillMenu: PropTypes.bool
+  isBulkMenu: PropTypes.bool
 };
 
 export default propTypes;
@@ -23,7 +22,6 @@ export type BulletPointMenuButtonProps = {
   onClick: () => void;
   menuButtonClassName?: string;
   isBulkMenu?: boolean;
-  isCustomSkillMenu?: boolean;
 };
 
 export type BulletPointMenuButtonPropsFixture = {props: BulletPointMenuButtonProps};

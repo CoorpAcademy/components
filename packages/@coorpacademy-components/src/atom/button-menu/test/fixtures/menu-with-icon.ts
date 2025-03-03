@@ -14,9 +14,24 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         onClick: () => console.log('click on Discard changes'),
         customStyle: {
           color: '#1D1D2B',
-          hoverBackgroundColor: '#EAEAEB'
+          hoverBackgroundColor: '#EAEAEB',
+          padding: '6px'
+        }
+      },
+      {
+        'data-name': 'archive-button',
+        label: 'Archive',
+        linkType: 'tertiary',
+        icon: {
+          position: 'left',
+          faIcon: {name: 'folder-open', color: '#515161', size: 14}
         },
-        isCustomSkillMenu: true
+        onClick: () => console.log('click on Archive'),
+        customStyle: {
+          color: '#1D1D2B',
+          hoverBackgroundColor: '#EAEAEB',
+          padding: '6px'
+        }
       },
       {
         'data-name': 'delete-button',
@@ -24,13 +39,19 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         linkType: 'tertiary',
         icon: {
           position: 'left',
-          type: 'save'
+          faIcon: {name: 'trash', color: '#B81400', size: 14}
         },
-        onClick: () => console.log('click on Delete')
+        onClick: () => console.log('click on Delete'),
+        customStyle: {
+          color: '#991100',
+          hoverBackgroundColor: '#FCDADA',
+          padding: '6px'
+        }
       }
     ],
-    'aria-label': 'aria button',
-    'data-name': 'menu-with-icon'
+    'aria-label': 'button menu',
+    'data-name': 'menu-with-icon',
+    hasIcon: true
   }
 };
 
