@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import propTypes, {BulletPointMenuButtonProps} from '../../molecule/bullet-point-menu-button/types';
+import bulletPointMenuButtonPropTypes, {
+  BulletPointMenuButtonProps
+} from '../../molecule/bullet-point-menu-button/types';
 
 const actionButtonPropTypes = {
   label: PropTypes.string.isRequired,
@@ -17,13 +19,11 @@ const headerWithActionsPropTypes = {
     size: PropTypes.string.isRequired
   }).isRequired,
   saveStatus: PropTypes.shape({
-    label: PropTypes.oneOf(['Unsaved changes', 'Saved']).isRequired,
-    display: PropTypes.bool.isRequired
+    display: PropTypes.bool.isRequired,
+    label: PropTypes.oneOf(['Unsaved changes', 'Saved'])
   }).isRequired,
-  bulletPointMenuButton: PropTypes.shape(propTypes).isRequired,
-  saveButton: PropTypes.shape(actionButtonPropTypes).isRequired,
-  publishButton: PropTypes.shape(actionButtonPropTypes).isRequired,
-  archiveButton: PropTypes.shape(actionButtonPropTypes)
+  bulletPointMenuButton: PropTypes.shape(bulletPointMenuButtonPropTypes),
+  actionButtons: PropTypes.arrayOf(PropTypes.shape(actionButtonPropTypes)).isRequired
 };
 
 export default headerWithActionsPropTypes;
@@ -37,13 +37,13 @@ type TagProps = {
 export type ActionButtonProps = {
   label: string;
   onClick: () => void;
+  type?: string;
   disabled?: boolean;
-  faIconName?: string;
 };
 
 type SaveStatusProps = {
-  label: 'Unsaved changes' | 'Saved';
   display: boolean;
+  label?: 'Unsaved changes' | 'Saved';
 };
 
 export type HeaderWithActionsProps = {
@@ -51,8 +51,6 @@ export type HeaderWithActionsProps = {
   title: string;
   tag: TagProps;
   saveStatus: SaveStatusProps;
-  bulletPointMenuButton: BulletPointMenuButtonProps;
-  saveButton: ActionButtonProps;
-  publishButton: ActionButtonProps;
-  archiveButton?: ActionButtonProps;
+  actionButtons: ActionButtonProps[];
+  bulletPointMenuButton?: BulletPointMenuButtonProps;
 };

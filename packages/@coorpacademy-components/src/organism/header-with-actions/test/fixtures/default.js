@@ -1,7 +1,7 @@
 const defaultFixture = {
   props: {
-    onQuitClick: () => {
-      console.log('onQuitClick');
+    onClose: () => {
+      console.log('Close');
     },
     title: 'Large Language Models',
     tag: {
@@ -60,18 +60,22 @@ const defaultFixture = {
             padding: '6px'
           }
         }
-      ]
+      ],
+      onClick: () => console.log('click on bullet point menu')
     },
-    saveButton: {
-      label: 'Save changes',
-      onClick: () => console.log('click Save changes'),
-      disabled: true
-    },
-    publishButton: {
-      label: 'Publish changes',
-      onClick: () => console.log('click Publish changes'),
-      faIconName: 'circle-check'
-    }
+    actionButtons: [
+      {
+        label: 'Save changes',
+        type: 'save',
+        onClick: () => console.log('click Save changes'),
+        disabled: true
+      },
+      {
+        label: 'Publish changes',
+        type: 'publish',
+        onClick: () => console.log('click Publish changes')
+      }
+    ]
   }
 };
 
