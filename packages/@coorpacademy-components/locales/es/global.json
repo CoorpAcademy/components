@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Califica este curso",
-      "diploma": "Vía validada"
-    },
-    "ehc-vd": {
-      "diploma": "certificate"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
     },
     "givaudan": {
       "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
-    },
-    "mylcl-learning": {
-      "diploma": "learning path"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certificado"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
