@@ -185,7 +185,26 @@
   "focused_skills": "habilidades interesadas",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Califica este curso"
+      "comment_aria_label": "Califica este curso",
+      "diploma": "Vía validada"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certificado"
     }
   }
 }

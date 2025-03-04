@@ -185,7 +185,26 @@
   "focused_skills": "聚焦技能",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "評量本課程"
+      "comment_aria_label": "評量本課程",
+      "diploma": "驗證途徑"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "獎"
+    },
+    "learning-lab": {
+      "diploma": "證書"
+    },
+    "onboarding": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }

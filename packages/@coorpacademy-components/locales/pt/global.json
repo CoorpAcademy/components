@@ -185,7 +185,26 @@
   "focused_skills": "competências com foco",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Avalie este curso"
+      "comment_aria_label": "Avalie este curso",
+      "diploma": "Caminho validado"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certificado"
     }
   }
 }

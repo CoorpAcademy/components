@@ -185,7 +185,26 @@
   "focused_skills": "fookusoskused",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Hinda seda kursust"
+      "comment_aria_label": "Hinda seda kursust",
+      "diploma": "Valideeritud rada"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Auhind"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Tunnistus"
     }
   }
 }

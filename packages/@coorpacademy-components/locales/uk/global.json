@@ -185,7 +185,26 @@
   "focused_skills": "навички розвитку",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Оцініть цей курс"
+      "comment_aria_label": "Оцініть цей курс",
+      "diploma": "Перевірений шлях"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "Нагорода"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "onboarding": {
+      "diploma": "Сертифікат"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }

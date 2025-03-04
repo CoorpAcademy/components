@@ -185,7 +185,26 @@
   "focused_skills": "wybrane umiejętności",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Oceń ten kurs"
+      "comment_aria_label": "Oceń ten kurs",
+      "diploma": "Sprawdzona ścieżka"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certyfikat"
     }
   }
 }

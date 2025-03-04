@@ -185,7 +185,26 @@
   "focused_skills": "färdighet i fokus",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Betygsätt denna kurs"
+      "comment_aria_label": "Betygsätt denna kurs",
+      "diploma": "Validerad väg"
+    },
+    "ehc-vd": {
+      "diploma": "certifikat"
+    },
+    "esante-formation": {
+      "diploma": "Inlärningsväg"
+    },
+    "givaudan": {
+      "diploma": "Utmärkelse"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "inlärningsväg"
+    },
+    "onboarding": {
+      "diploma": "Certifikat"
     }
   }
 }

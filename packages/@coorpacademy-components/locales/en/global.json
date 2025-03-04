@@ -185,7 +185,26 @@
   "focused_skills": "focused skills",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Rate this course"
+      "comment_aria_label": "Rate this course",
+      "diploma": "Validated pathway"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificat"
+    },
+    "onboarding": {
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }

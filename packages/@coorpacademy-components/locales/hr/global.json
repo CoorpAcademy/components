@@ -185,7 +185,26 @@
   "focused_skills": "fokusirane vještine",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Ocijenite ovaj tečaj"
+      "comment_aria_label": "Ocijenite ovaj tečaj",
+      "diploma": "Validirani put"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Dodijeliti"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Potvrda"
     }
   }
 }
