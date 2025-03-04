@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Betygsätt denna kurs",
-      "diploma": "Validerad väg"
-    },
-    "ehc-vd": {
-      "diploma": "certifikat"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
-      "diploma": "Inlärningsväg"
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "Utmärkelse"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
-    },
-    "mylcl-learning": {
-      "diploma": "inlärningsväg"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certifikat"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
