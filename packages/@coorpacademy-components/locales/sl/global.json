@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Ocenite ta tečaj",
-      "diploma": "Potrjena pot"
-    },
-    "ehc-vd": {
-      "diploma": "potrdilo"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
-      "diploma": "Učna pot"
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "Nagrada"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certifikat"
-    },
-    "mylcl-learning": {
-      "diploma": "learning path"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certifikat"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
