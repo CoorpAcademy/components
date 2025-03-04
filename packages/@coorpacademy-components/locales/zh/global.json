@@ -186,7 +186,7 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "评价此课程",
-      "diploma": "经过验证的途径"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
@@ -195,13 +195,13 @@
       "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "奖"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
     },
     "mylcl-learning": {
        "diploma": "learning path"
