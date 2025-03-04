@@ -74,6 +74,7 @@
   align-items: flex-start;
   padding: 12px;
   width: 201px;
+  max-height: 135px;
   overflow-y: scroll;
   background: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.07);
