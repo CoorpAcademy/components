@@ -186,7 +186,7 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Đánh giá khóa học này",
-      "diploma": "Lộ trình đã được xác thực"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
@@ -195,13 +195,13 @@
       "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "Phần thưởng"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Chứng chỉ"
+      "diploma": "Certificat"
     },
     "mylcl-learning": {
        "diploma": "learning path"
