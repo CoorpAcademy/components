@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Ohodnoťte tento kurz",
-      "diploma": "Ověřená cesta"
-    },
-    "ehc-vd": {
-      "diploma": "certificate"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
     },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
     "givaudan": {
-      "diploma": "Cena"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
-    },
-    "mylcl-learning": {
-      "diploma": "learning path"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certifikát"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
