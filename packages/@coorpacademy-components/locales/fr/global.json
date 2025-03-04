@@ -186,13 +186,13 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Notez ce cours",
-      "diploma": "Parcours validé"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
-      "diploma": "Attestation"
+      "diploma": "Learning path"
     },
     "ehc-vd": {
-      "diploma": "attestation"
+      "diploma": "certificate"
     },
     "givaudan": {
       "diploma": "Award"
@@ -204,7 +204,7 @@
       "diploma": "Certificat"
     },
     "mylcl-learning": {
-       "diploma": "parcours"
+       "diploma": "learning path"
     }
   }
 }
