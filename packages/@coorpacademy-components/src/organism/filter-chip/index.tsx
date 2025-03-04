@@ -24,7 +24,7 @@ const FilterChip = (props: FilterChipProps) => {
         {hasSelectedFilters ? (
           <div className={style.buttonContainer}>
             <ButtonLink
-              customStyle={{'font-weight': 'normal'}}
+              customStyle={{fontWeight: 'normal'}}
               label="Clear"
               type="text"
               data-name="filter-clear-button"
