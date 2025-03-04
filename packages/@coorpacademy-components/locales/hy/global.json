@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Գնահատեք այս դասընթացը",
-      "diploma": "Վավերացված ուղի"
-    },
-    "ehc-vd": {
-      "diploma": "certificate"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
     },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
     "givaudan": {
-      "diploma": "Մրցանակ"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
-    },
-    "mylcl-learning": {
-      "diploma": "learning path"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
