@@ -186,7 +186,7 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "I-rate ang kursong ito",
-      "diploma": "Napatunayang landas"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
@@ -195,13 +195,13 @@
       "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "parangal"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Sertipiko"
+      "diploma": "Certificat"
     },
     "mylcl-learning": {
        "diploma": "learning path"
