@@ -186,7 +186,7 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Bu kursu değerlendirin",
-      "diploma": "Doğrulanmış yol"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
@@ -195,13 +195,13 @@
       "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "Ödül"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Sertifika"
+      "diploma": "Certificat"
     },
     "mylcl-learning": {
        "diploma": "learning path"
