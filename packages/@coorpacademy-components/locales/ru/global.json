@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Оцените этот курс",
-      "diploma": "Проверенный путь"
-    },
-    "ehc-vd": {
-      "diploma": "certificate"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
     },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
     "givaudan": {
-      "diploma": "Награда"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
-    },
-    "mylcl-learning": {
-      "diploma": "learning path"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Сертификат"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
