@@ -186,25 +186,25 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Arvioi tämä kurssi",
-      "diploma": "Vahvistettu reitti"
-    },
-    "ehc-vd": {
-      "diploma": "todistus"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
-      "diploma": "Oppimispolku"
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "Diplomi"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
-    },
-    "mylcl-learning": {
-      "diploma": "oppimispolku"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Todistus"
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }
