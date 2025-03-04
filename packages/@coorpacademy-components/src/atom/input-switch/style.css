@@ -15,11 +15,11 @@
 }
 
 .modified {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .coorpmanager {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .coorpmanagerModified {

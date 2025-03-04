@@ -22,7 +22,7 @@
 }
 
 .coorpmanager {
-  composes: default;
+  composes: defaultStyle;
 }
 
 div.coorpmanager label.selectWrapper {
@@ -51,11 +51,11 @@ div.coorpmanager label.selectWrapper {
   }
 }
 .error {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .modified {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .selectWrapper {
@@ -257,7 +257,7 @@ div.coorpmanager label.selectWrapper {
 */
 
 .no-label {
-  composes: default;
+  composes: defaultStyle;
   position: relative;
 }
 
@@ -407,7 +407,7 @@ div.player:hover span.selectSpan {
 */
 
 .mooc {
-  composes: default;
+  composes: defaultStyle;
   width: 150px;
 }
 

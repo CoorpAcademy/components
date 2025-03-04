@@ -43,14 +43,14 @@
 }
 
 .course {
-  composes: default;
+  composes: defaultStyle;
   border-radius: 8px;
   width: 256px;
   height: 297px;
 }
 
 .chapter {
-  composes: default;
+  composes: defaultStyle;
   border-radius: 8px;
   width: 203px;
   height: 297px;

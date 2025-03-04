@@ -36,11 +36,11 @@
 }
 
 .defaultError {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .defaultModified {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .defaultStyle input,

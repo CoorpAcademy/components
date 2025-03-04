@@ -22,7 +22,7 @@
 }
 
 .content {
-  composes: default;
+  composes: defaultStyle;
   padding: 12px 12px 0;
   font-size: 12px;
 }

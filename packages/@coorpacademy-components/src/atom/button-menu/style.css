@@ -42,7 +42,7 @@
 }
 
 .defaultLeft {
-  composes: default;
+  composes: defaultStyle;
   justify-content: flex-start;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .dangerous {
-  composes: default;
+  composes: defaultStyle;
   color: cm_negative_100;
 }
 

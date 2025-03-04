@@ -11,12 +11,12 @@
 
 .error {
   composes: error from '../input-text/style.css';
-  composes: default;
+  composes: defaultStyle;
 }
 
 .modified {
   composes: modified from '../input-text/style.css';
-  composes: default;
+  composes: defaultStyle;
 }
 
 .title {

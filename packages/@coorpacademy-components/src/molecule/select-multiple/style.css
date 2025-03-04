@@ -27,11 +27,11 @@
 }
 
 .error {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .modified {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .select {
@@ -148,7 +148,7 @@
   setup theme
 */
 .setup {
-  composes: default;
+  composes: defaultStyle;
   display: flex;
   align-items: center;
   height: 50px;
@@ -197,7 +197,7 @@
 */
 
 .cockpit {
-  composes: default;
+  composes: defaultStyle;
   display: flex;
   align-items: center;
   margin-left: 20px;

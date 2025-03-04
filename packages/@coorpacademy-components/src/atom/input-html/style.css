@@ -9,7 +9,7 @@
 }
 
 .error {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .defaultStyle label {
