@@ -180,7 +180,26 @@
   "focused_skills": "zaměřených dovedností",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Ohodnoťte tento kurz"
+      "comment_aria_label": "Ohodnoťte tento kurz",
+      "diploma": "Ověřená cesta"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Cena"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certifikát"
     }
   }
 }

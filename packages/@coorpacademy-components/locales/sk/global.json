@@ -180,7 +180,26 @@
   "focused_skills": "zručnosti, na ktoré sa zameriavate",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Ohodnoťte tento kurz"
+      "comment_aria_label": "Ohodnoťte tento kurz",
+      "diploma": "Overená cesta"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Cena"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certifikát"
     }
   }
 }

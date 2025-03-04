@@ -180,7 +180,26 @@
   "focused_skills": "osredotočene veščine",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Ocenite ta tečaj"
+      "comment_aria_label": "Ocenite ta tečaj",
+      "diploma": "Potrjena pot"
+    },
+    "ehc-vd": {
+      "diploma": "potrdilo"
+    },
+    "esante-formation": {
+      "diploma": "Učna pot"
+    },
+    "givaudan": {
+      "diploma": "Nagrada"
+    },
+    "learning-lab": {
+      "diploma": "Certifikat"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certifikat"
     }
   }
 }

@@ -180,7 +180,26 @@
   "focused_skills": "odaklanan beceriler",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Bu kursu değerlendirin"
+      "comment_aria_label": "Bu kursu değerlendirin",
+      "diploma": "Doğrulanmış yol"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "Ödül"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "onboarding": {
+      "diploma": "Sertifika"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }

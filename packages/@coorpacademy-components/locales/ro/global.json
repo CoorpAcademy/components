@@ -180,7 +180,26 @@
   "focused_skills": "abilități focalizate",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Evaluează acest curs"
+      "comment_aria_label": "Evaluează acest curs",
+      "diploma": "Calea validată"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Adjudecare"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certificat"
     }
   }
 }

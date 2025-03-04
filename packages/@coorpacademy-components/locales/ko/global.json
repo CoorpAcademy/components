@@ -180,7 +180,26 @@
   "focused_skills": "집중한 기술",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "이 강좌를 평가해 주세요"
+      "comment_aria_label": "이 강좌를 평가해 주세요",
+      "diploma": "검증된 경로"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "상"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "인증서"
     }
   }
 }

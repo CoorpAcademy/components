@@ -180,7 +180,26 @@
   "focused_skills": "célzott képességek",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Értékelje ezt a tanfolyamot"
+      "comment_aria_label": "Értékelje ezt a tanfolyamot",
+      "diploma": "Ellenőrzött útvonal"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Díj"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Bizonyítvány"
     }
   }
 }

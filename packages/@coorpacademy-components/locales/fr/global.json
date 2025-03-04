@@ -180,7 +180,26 @@
   "focused_skills": "compétences ciblées",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Notez ce cours"
+      "comment_aria_label": "Notez ce cours",
+      "diploma": "Parcours validé"
+    },
+    "esante-formation": {
+      "diploma": "Attestation"
+    },
+    "ehc-vd": {
+      "diploma": "attestation"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificat"
+    },
+    "onboarding": {
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "parcours"
     }
   }
 }

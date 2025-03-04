@@ -180,7 +180,26 @@
   "focused_skills": "osaamisen painopisteet",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Arvioi tämä kurssi"
+      "comment_aria_label": "Arvioi tämä kurssi",
+      "diploma": "Vahvistettu reitti"
+    },
+    "ehc-vd": {
+      "diploma": "todistus"
+    },
+    "esante-formation": {
+      "diploma": "Oppimispolku"
+    },
+    "givaudan": {
+      "diploma": "Diplomi"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "oppimispolku"
+    },
+    "onboarding": {
+      "diploma": "Todistus"
     }
   }
 }

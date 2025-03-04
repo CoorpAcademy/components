@@ -180,7 +180,26 @@
   "focused_skills": "կենտրոնացված հմտություններ",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Գնահատեք այս դասընթացը"
+      "comment_aria_label": "Գնահատեք այս դասընթացը",
+      "diploma": "Վավերացված ուղի"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Մրցանակ"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certificate"
     }
   }
 }

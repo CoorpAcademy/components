@@ -180,7 +180,26 @@
   "focused_skills": "competenze messe a fuoco",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Vota questo corso"
+      "comment_aria_label": "Vota questo corso",
+      "diploma": "Percorso convalidato"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Certificato"
     }
   }
 }

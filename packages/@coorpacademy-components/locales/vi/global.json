@@ -180,7 +180,26 @@
   "focused_skills": "kỹ năng được chú trọng",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Đánh giá khóa học này"
+      "comment_aria_label": "Đánh giá khóa học này",
+      "diploma": "Lộ trình đã được xác thực"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "Phần thưởng"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "onboarding": {
+      "diploma": "Chứng chỉ"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }

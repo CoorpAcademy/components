@@ -180,7 +180,26 @@
   "focused_skills": "フォーカスしたスキル",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "このコースを評価する"
+      "comment_aria_label": "このコースを評価する",
+      "diploma": "検証済みの経路"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "アワード"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "証明書"
     }
   }
 }

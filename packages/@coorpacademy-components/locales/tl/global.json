@@ -180,7 +180,26 @@
   "focused_skills": "mga kasanayang pinagtuunan ng pansin",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "I-rate ang kursong ito"
+      "comment_aria_label": "I-rate ang kursong ito",
+      "diploma": "Napatunayang landas"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "parangal"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "onboarding": {
+      "diploma": "Sertipiko"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
     }
   }
 }

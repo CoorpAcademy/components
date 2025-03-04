@@ -94,5 +94,29 @@
   "close_button_ariaLabel": "ปิดสไลด์รีวิว",
   "post_comment_aria_label": "โพสต์ความคิดเห็นของคุณ",
   "validate_aria_label": "ตรวจสอบคำตอบของคุณแล้วไปยังขั้นตอนถัดไป",
-  "stars": "ดาว"
+  "stars": "ดาว",
+  "custom":{
+    "digitlearning": {
+      "comment_aria_label": "Rate this course",
+      "diploma": "Validated pathway"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificat"
+    },
+    "onboarding": {
+      "diploma": "Certificat"
+    },
+    "mylcl-learning": {
+       "diploma": "learning path"
+    }
+  }
 }

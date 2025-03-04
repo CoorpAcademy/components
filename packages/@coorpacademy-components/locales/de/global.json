@@ -180,7 +180,26 @@
   "focused_skills": "fokussierte Fähigkeiten\n",
   "custom":{
     "digitlearning": {
-      "comment_aria_label": "Bewerten Sie diesen Kurs"
+      "comment_aria_label": "Bewerten Sie diesen Kurs",
+      "diploma": "Validierter Weg"
+    },
+    "ehc-vd": {
+      "diploma": "certificate"
+    },
+    "esante-formation": {
+      "diploma": "Learning path"
+    },
+    "givaudan": {
+      "diploma": "Award"
+    },
+    "learning-lab": {
+      "diploma": "Certificate"
+    },
+    "mylcl-learning": {
+      "diploma": "learning path"
+    },
+    "onboarding": {
+      "diploma": "Zertifikat"
     }
   }
 }
