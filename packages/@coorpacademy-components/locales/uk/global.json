@@ -186,7 +186,7 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Оцініть цей курс",
-      "diploma": "Перевірений шлях"
+      "diploma": "Validated pathway"
     },
     "esante-formation": {
       "diploma": "Learning path"
@@ -195,13 +195,13 @@
       "diploma": "certificate"
     },
     "givaudan": {
-      "diploma": "Нагорода"
+      "diploma": "Award"
     },
     "learning-lab": {
-      "diploma": "Certificate"
+      "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Сертифікат"
+      "diploma": "Certificat"
     },
     "mylcl-learning": {
        "diploma": "learning path"
