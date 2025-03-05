@@ -62,7 +62,7 @@ const Chip = (props, context) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       aria-label={text}
-      data-name={text}
+      data-name={`chip-${text}`}
     >
       <div className={style.left}>
         {leftIcon ? <FontAwesomeIcon style={{color}} icon={leftIcon} fontSize={ICON_SIZE} /> : null}

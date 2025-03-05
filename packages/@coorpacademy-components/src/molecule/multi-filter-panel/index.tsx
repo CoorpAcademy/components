@@ -1,5 +1,5 @@
 import React from 'react';
-import {isEmpty, map, size, pipe, filter, flatMap, toString} from 'lodash/fp';
+import {map, size, pipe, filter, flatMap, toString} from 'lodash/fp';
 import FilterChip from '../../organism/filter-chip';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
@@ -36,16 +36,15 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
   )(options);
   const hasSelectedFilters = allSelectedFilters > 0;
 
-  const filters = uncappedMap((filterOptions: MultiFilterPanelOptionsProps, i: number) => {
-    if (isEmpty(filterOptions)) return null;
-
-    return (
+  const filters = uncappedMap(
+    (filterOptions: MultiFilterPanelOptionsProps, i: number) => (
       <div key={i}>
         {buildFilters(filterOptions)}
         {i + 1 < size(options) ? FilterSeparator : null}
       </div>
-    );
-  }, options);
+    ),
+    options
+  );
 
   return (
     <>
