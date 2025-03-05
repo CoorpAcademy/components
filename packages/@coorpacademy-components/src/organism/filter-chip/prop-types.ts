@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const propTypes = PropTypes.shape({
+const propTypes = {
   title: PropTypes.string,
   onClear: PropTypes.func,
   options: PropTypes.arrayOf(
@@ -12,7 +12,7 @@ const propTypes = PropTypes.shape({
       onClick: PropTypes.func
     })
   )
-});
+};
 
 export type FilterChipProps = {
   title: string;
