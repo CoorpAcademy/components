@@ -36,15 +36,15 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
   )(options);
   const hasSelectedFilters = allSelectedFilters > 0;
 
-  const filters = uncappedMap(
-    (filterOptions: MultiFilterPanelOptionsProps, i: number) => (
+  const filters = uncappedMap((filterOptions: MultiFilterPanelOptionsProps, i: number) => {
+    const isLastItem = i + 1 === size(options);
+    return (
       <div key={i}>
         {buildFilters(filterOptions)}
-        {i + 1 < size(options) ? FilterSeparator : null}
+        {isLastItem ? null : FilterSeparator}
       </div>
-    ),
-    options
-  );
+    );
+  }, options);
 
   return (
     <>
