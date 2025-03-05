@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import filterChipProptypes, {FilterChipProps} from '../../organism/filter-chip/prop-types';
 
-const propTypes = PropTypes.shape({
+const propTypes = {
   title: PropTypes.string,
   onClearAll: PropTypes.func,
   options: PropTypes.arrayOf(
@@ -10,7 +10,7 @@ const propTypes = PropTypes.shape({
       options: PropTypes.shape(filterChipProptypes)
     })
   )
-});
+};
 
 export type MultiFilterPanelOptionsProps = {
   type: 'chip';

@@ -48,7 +48,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
   }, options);
 
   return (
-    <div>
+    <>
       <div className={style.header}>
         <div className={style.titleContainer}>
           <Title title={title} type="form-group" titleSize="standard-light-weight" />
@@ -71,7 +71,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
       </div>
 
       {filters}
-    </div>
+    </>
   );
 };
 

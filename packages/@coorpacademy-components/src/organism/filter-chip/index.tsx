@@ -13,7 +13,7 @@ const FilterChip = (props: FilterChipProps) => {
   const hasSelectedFilters = selectedFiltersCount > 0;
 
   return (
-    <div>
+    <>
       <div className={style.header}>
         <div className={style.titleContainer}>
           <Title title={title} />
@@ -27,8 +27,8 @@ const FilterChip = (props: FilterChipProps) => {
               customStyle={{fontWeight: 'normal'}}
               label="Clear"
               type="text"
-              data-name="filter-clear-button"
-              aria-label="filter clear button"
+              data-name="filter-chip-clear-button"
+              aria-label="filter chip clear button"
               onClick={onClear}
             />
           </div>
@@ -51,7 +51,7 @@ const FilterChip = (props: FilterChipProps) => {
           );
         }, options)}
       </div>
-    </div>
+    </>
   );
 };
 
