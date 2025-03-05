@@ -11,7 +11,7 @@ import Provider from '../provider';
 import cssStyle from './style.css';
 
 const MODES = {
-  default: cssStyle.default,
+  default: cssStyle.defaultStyle,
   small: cssStyle.small
 };
 

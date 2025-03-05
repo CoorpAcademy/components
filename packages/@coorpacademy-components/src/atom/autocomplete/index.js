@@ -12,7 +12,7 @@ import style from './style.css';
 
 const THEME_STYLE = {
   coorpmanager: style.coorpmanager,
-  default: style.default
+  default: style.defaultStyle
 };
 
 const renderSuggestion = suggestion => <span>{suggestion.name}</span>;
@@ -39,7 +39,7 @@ const Autocomplete = props => {
   const mainClass = THEME_STYLE[theme];
   const title = useMemo(() => `${propsTitle}${required ? '*' : ''}`, [propsTitle, required]);
   const className = useMemo(
-    () => getClassState(style.default, style.modified, style.error, modified, error),
+    () => getClassState(style.defaultStyle, style.modified, style.error, modified, error),
     [modified, error]
   );
 

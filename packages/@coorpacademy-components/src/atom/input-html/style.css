@@ -4,15 +4,15 @@
 @value light from colors;
 @value negative from colors;
 
-.default {
+.defaultStyle {
   display: flex;
 }
 
 .error {
-  composes: default;
+  composes: defaultStyle;
 }
 
-.default label {
+.defaultStyle label {
   display: flex;
   align-items: center;
   position: relative;

@@ -6,7 +6,7 @@
 @value grey from colors;
 @value white from colors;
 
-.default {
+.defaultStyle {
   font-family: Gilroy;
   position: fixed;
   z-index: 20;

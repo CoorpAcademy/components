@@ -17,12 +17,12 @@
 @value cm_blue_900 from colors;
 @value cm_grey_450 from colors;
 
-.default {
+.defaultStyle {
   display: flex;
 }
 
 .coorpmanager {
-  composes: default;
+  composes: defaultStyle;
 }
 
 div.coorpmanager label.selectWrapper {
@@ -51,18 +51,18 @@ div.coorpmanager label.selectWrapper {
   }
 }
 .error {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .modified {
-  composes: default;
+  composes: defaultStyle;
 }
 
 .selectWrapper {
   position: relative;
 }
 
-.default .selectWrapper {
+.defaultStyle .selectWrapper {
   display: flex;
   align-items: center;
   height: 50px;
@@ -94,7 +94,7 @@ div.coorpmanager label.selectWrapper {
   text-overflow: ellipsis;
 }
 
-.default .selectBox {
+.defaultStyle .selectBox {
   font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
@@ -155,7 +155,7 @@ div.coorpmanager label.selectWrapper {
   margin: auto 0;
 }
 
-.default select:focus::-ms-value {
+.defaultStyle select:focus::-ms-value {
   background-color: transparent;  /* make the select background transparent in ie */
   color: dark;
 }
@@ -194,7 +194,7 @@ div.coorpmanager label.selectWrapper {
   }
 }
 
-.default .selectBox[multiple] {
+.defaultStyle .selectBox[multiple] {
   padding: 0;
   height: 80px;
 }
@@ -257,7 +257,7 @@ div.coorpmanager label.selectWrapper {
 */
 
 .no-label {
-  composes: default;
+  composes: defaultStyle;
   position: relative;
 }
 
@@ -278,7 +278,7 @@ div.coorpmanager label.selectWrapper {
   box-sizing: border-box;
 }
 
-div.default label.selectWrapper span.longLabel {
+div.defaultStyle label.selectWrapper span.longLabel {
     min-width: 230px;
     max-width: 280px;
     white-space: pre-wrap;
@@ -367,7 +367,7 @@ div.player:hover span.selectSpan {
     height: 100%;
   }
 
-  .player.default .selectBox {
+  .player.defaultStyle .selectBox {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -407,7 +407,7 @@ div.player:hover span.selectSpan {
 */
 
 .mooc {
-  composes: default;
+  composes: defaultStyle;
   width: 150px;
 }
 
@@ -552,7 +552,7 @@ div.player:hover span.selectSpan {
   margin-left: 0;
 }
 
-.default .selectWrapper select.selectBox {
+.defaultStyle .selectWrapper select.selectBox {
   width: inherit;
   border-radius: 8px;
   padding: 0;

@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value grey from colors;
 
-.default {
+.defaultStyle {
   composes: default from '../input-text/style.css';
 }
 
@@ -11,12 +11,12 @@
 
 .error {
   composes: error from '../input-text/style.css';
-  composes: default;
+  composes: defaultStyle;
 }
 
 .modified {
   composes: modified from '../input-text/style.css';
-  composes: default;
+  composes: defaultStyle;
 }
 
 .title {

@@ -15,7 +15,7 @@ function ThemeImage({image}, {skin}) {
 
   return (
     <div className={style.wrapper}>
-      <div className={style.default}>
+      <div className={style.defaultStyle}>
         <div className={style.background} style={defaultStyle} />
       </div>
       <div className={style.desktopContainer}>

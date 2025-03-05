@@ -25,7 +25,7 @@ const PictureBackground = props => {
       </div>
     </div>
   ) : (
-    <img className={classnames(cssStyle.default, bgStyle)} src={src} alt={alt} />
+    <img className={classnames(cssStyle.defaultStyle, bgStyle)} src={src} alt={alt} />
   );
 
   return (

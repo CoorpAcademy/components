@@ -31,7 +31,7 @@ const ResourceBrowser = props => {
   const {resources, className, overlay} = props;
   const selectedResource = find(({selected}) => selected, resources);
   return (
-    <div data-name="resourceBrowser" className={classnames(style.default, className)}>
+    <div data-name="resourceBrowser" className={classnames(style.defaultStyle, className)}>
       <div className={style.resourcePlayerWrapper}>
         {selectedResource ? (
           <ResourcePlayer

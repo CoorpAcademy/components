@@ -30,7 +30,7 @@ const getSizeStyle = size => {
     case 'responsive':
       return style.responsive;
     default:
-      return style.default;
+      return style.defaultStyle;
   }
 };
 

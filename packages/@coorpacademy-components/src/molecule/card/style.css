@@ -11,11 +11,11 @@
 @value cm_negative_200 from colors;
 @value negative_100 from colors;
 
-.default[disabled] {
+.defaultStyle[disabled] {
   cursor: inherit;
 }
 
-.default {
+.defaultStyle {
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -33,7 +33,7 @@
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
 }
 
-.default[disabled] .favorite {
+.defaultStyle[disabled] .favorite {
   z-index: 0;
 }
 
@@ -43,14 +43,14 @@
 }
 
 .course {
-  composes: default;
+  composes: defaultStyle;
   border-radius: 8px;
   width: 256px;
   height: 297px;
 }
 
 .chapter {
-  composes: default;
+  composes: defaultStyle;
   border-radius: 8px;
   width: 203px;
   height: 297px;
@@ -88,7 +88,7 @@
   max-height: 52px;
 }
 
-.default .image {
+.defaultStyle .image {
   overflow: hidden;
   background-position: 50%;
   background-size: cover;
@@ -99,18 +99,18 @@
   line-height: 125px;
 }
 
-.default .image::after {
+.defaultStyle .image::after {
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
 
-.default:hover .image {
+.defaultStyle:hover .image {
   transform-origin: center;
   transform: scale(1.1);
   transition: all 1s ease-in-out;
 }
 
-.default .image::after {
+.defaultStyle .image::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -125,7 +125,7 @@
   );
 }
 
-.default .image::before {
+.defaultStyle .image::before {
   position: absolute;
   content: '';
   width: 100%;
@@ -137,7 +137,7 @@
   background: black;
 }
 
-.default:hover .image::before {
+.defaultStyle:hover .image::before {
   opacity: 0.3;
   transition: opacity 0.5s ease-in-out;
 }
@@ -156,14 +156,14 @@
   }
 }
 
-.course .default:hover,
-.chapter .default:hover {
+.course .defaultStyle:hover,
+.chapter .defaultStyle:hover {
   background: light;
   cursor: pointer;
   transition: background 0.25s ease-in-out;
 }
 
-.default[disabled] .imageWrapper {
+.defaultStyle[disabled] .imageWrapper {
   opacity: 0.8;
 }
 
@@ -382,8 +382,8 @@
   animation-play-state: paused;
 }
 
-.default:hover .externalIconCircleWrapper::after,
-.default:hover .externalIconCircleWrapper::before {
+.defaultStyle:hover .externalIconCircleWrapper::after,
+.defaultStyle:hover .externalIconCircleWrapper::before {
   animation-play-state: running;
   box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0.37);
 }
@@ -494,13 +494,13 @@
 }
 
 @media (hover: none) {
-  .default:hover .image {
+  .defaultStyle:hover .image {
     transform: scale(1);
   }
-  .default:hover .image::before {
+  .defaultStyle:hover .image::before {
     opacity: 0;
   }
-  .default:hover .externalIconCircleWrapper {
+  .defaultStyle:hover .externalIconCircleWrapper {
     transform: scale(1);
   }
 }

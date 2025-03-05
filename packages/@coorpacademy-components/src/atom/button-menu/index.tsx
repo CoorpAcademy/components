@@ -8,7 +8,7 @@ const Button = (props: ButtonProps) => {
   const {'data-name': dataName, disabled, label, onClick, type = 'default'} = props;
   const styleButton = classnames(
     style.button,
-    type === 'default' && style.default,
+    type === 'default' && style.defaultStyle,
     type === 'defaultLeft' && style.defaultLeft,
     type === 'dangerous' && style.dangerous,
     type === 'dangerousLeft' && style.dangerousLeft,

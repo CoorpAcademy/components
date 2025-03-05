@@ -179,10 +179,10 @@ const SelectMultiple = (
     />
   ) : null;
 
-  const mainClass = theme ? themeStyle[theme] : style.default;
+  const mainClass = theme ? themeStyle[theme] : style.defaultStyle;
   const showPlaceholder = isCMTheme && isActive;
   const behaviourClassName = getClassState(
-    style.default,
+    style.defaultStyle,
     style.modified,
     style.error,
     modified,

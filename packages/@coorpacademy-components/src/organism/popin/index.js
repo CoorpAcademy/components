@@ -18,7 +18,7 @@ const Popin = (props, context) => {
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
-    <div className={style.default} onClick={closeOnClick}>
+    <div className={style.defaultStyle} onClick={closeOnClick}>
       <div className={style.popin} onClick={stopPropagation}>
         <div className={style.header} onClick={closeOnClick} data-name="popin-header">
           {header}

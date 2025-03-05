@@ -24,7 +24,7 @@
   transform: scale(1.2);
 }
 
-.default {
+.defaultStyle {
   border: 2px dashed xtraLightGrey;
   border-radius: 4px;
   overflow: hidden;
@@ -34,14 +34,14 @@
 }
 
 .loading {
-  composes: default;
+  composes: defaultStyle;
   height: 80px;
   border: none;
   position: relative;
 }
 
 .dropping {
-  composes: default;
+  composes: defaultStyle;
   border: 3px dashed brand;
 }
 

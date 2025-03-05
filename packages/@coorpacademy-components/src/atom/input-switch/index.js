@@ -50,7 +50,7 @@ const InputSwitch = props => {
           modifiedClass: style.coorpmanagerModified
         };
       default:
-        return {defaultClass: style.default, modifiedClass: style.modified};
+        return {defaultClass: style.defaultStyle, modifiedClass: style.modified};
     }
   };
   const {defaultClass, modifiedClass} = getClass();

@@ -7,7 +7,7 @@
 @value dark from colors;
 @value warn from colors;
 
-.default{
+.defaultStyle{
   font-family: 'Gilroy';
   font-size: 14px;
   font-weight: bold;
@@ -25,7 +25,7 @@
 }
 
 .defaultCockpit{
-  composes: default;
+  composes: defaultStyle;
   height: 100%;
 }
 

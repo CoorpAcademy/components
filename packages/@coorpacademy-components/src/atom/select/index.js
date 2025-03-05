@@ -154,7 +154,7 @@ const Select = (props, legacyContext) => {
   const arrowColor = selected ? color : undefined;
 
   const behaviorClassName = useMemo(
-    () => getClassState(style.default, style.modified, style.error, modified, error),
+    () => getClassState(style.defaultStyle, style.modified, style.error, modified, error),
     [error, modified]
   );
   const composedClassName = useMemo(

@@ -23,7 +23,7 @@ const AnalyticsPopin = (props, context) => {
   }
 
   return (
-    <div className={style.default} onClick={onCloseClick}>
+    <div className={style.defaultStyle} onClick={onCloseClick}>
       <div className={style.popin}>
         <div className={style.header} onClick={onCloseClick} data-name="popin-header">
           {header}

@@ -5,7 +5,7 @@
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 
-.default {
+.defaultStyle {
   box-sizing: border-box;
   width: 100%;
   margin: auto;

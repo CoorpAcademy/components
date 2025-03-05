@@ -36,22 +36,22 @@
   display: block;
 }
 
-.default {
+.defaultStyle {
   background-color: cm_grey_100;
   color: cm_grey_900;
 }
 
 .defaultLeft {
-  composes: default;
+  composes: defaultStyle;
   justify-content: flex-start;
 }
 
-.default:hover {
+.defaultStyle:hover {
   background-color: cm_grey_200;
 }
 
 .dangerous {
-  composes: default;
+  composes: defaultStyle;
   color: cm_negative_100;
 }
 

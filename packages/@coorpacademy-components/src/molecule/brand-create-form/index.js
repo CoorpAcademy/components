@@ -12,7 +12,7 @@ const BrandCreateForm = (props, context) => {
 
   const wrapperClass =
     isModified || isPending || field.error ? style.modifiedWrapper : style.wrapper;
-  const fieldClass = field.error ? style.error : style.default;
+  const fieldClass = field.error ? style.error : style.defaultStyle;
   const disabled = isPending || !isModified;
   const {onChange} = field;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);

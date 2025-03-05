@@ -22,7 +22,7 @@ const Hero = (props: Props, context: WebContextValues) => {
   } = props;
 
   const primaryColor = get('common.primary', skin);
-  const cardStyle = classnames(style.hero, title ? null : style.lazy);
+  const cardStyle = classnames(style.hero, title ? style.defaultStyle : style.lazy);
 
   return (
     <div className={cardStyle} data-name="hero">
