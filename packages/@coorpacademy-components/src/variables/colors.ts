@@ -5,6 +5,7 @@ export const COLORS = {
   positive: '#35CC7F',
   cm_positive_200: '#05944F',
   white: '#ffffff',
+  cm_grey_400: '#9999A8',
   cm_grey_800: '#171721',
   cm_primary_blue: '#0061FF',
   cm_grey_500: '#515161',

@@ -26,6 +26,7 @@ const Chip = (props, context) => {
     selected = false,
     customIcon,
     onClick,
+    leftIcon,
     backgroundColor = DEFAULT_BACKGROUND_COLOR
   } = props;
   const {skin} = context;
@@ -48,6 +49,7 @@ const Chip = (props, context) => {
   const hoverStyle = isHovered ? {backgroundColor: hoveredSelectedBgColor} : {};
 
   const defaultIcon = selected ? 'fa-check' : 'fa-plus';
+  const color = selected ? COLORS.white : COLORS.cm_grey_400;
 
   return (
     <div
@@ -60,20 +62,23 @@ const Chip = (props, context) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       aria-label={text}
-      data-name={text}
+      data-name={`chip-${text}`}
     >
-      <div className={style.textZone} title={text}>
-        <span className={style.text} style={selected ? {color: 'white'} : {}}>
-          {text}
-        </span>
-        {subText ? (
-          <span className={style.subText} style={selected ? {color: 'white'} : {}}>
-            {subText}
+      <div className={style.left}>
+        {leftIcon ? <FontAwesomeIcon style={{color}} icon={leftIcon} fontSize={ICON_SIZE} /> : null}
+        <div title={text}>
+          <span className={style.text} style={{color}}>
+            {text}
           </span>
-        ) : null}
+          {subText ? (
+            <span className={style.subText} style={{color}}>
+              {subText}
+            </span>
+          ) : null}
+        </div>
       </div>
       <FontAwesomeIcon
-        className={selected ? style.selectedIconWrapper : style.unselectedIconWrapper}
+        style={{color}}
         icon={customIcon ? `fa-${customIcon}` : defaultIcon}
         fontSize={ICON_SIZE}
       />
@@ -91,7 +96,8 @@ Chip.propTypes = {
   selected: PropTypes.bool,
   customIcon: PropTypes.string,
   backgroundColor: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  leftIcon: PropTypes.string
 };
 
 export default Chip;
