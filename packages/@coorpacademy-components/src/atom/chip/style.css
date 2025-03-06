@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
-@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
 @value cm_positive_100 from colors;
 @value white from colors;
@@ -22,7 +22,7 @@
 
 .unselected {
   background-color: cm_grey_100;
-  color: cm_grey_400;
+  color: cm_grey_500;
 }
 
 .unselected:hover {

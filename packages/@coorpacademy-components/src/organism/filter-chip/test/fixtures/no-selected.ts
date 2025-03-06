@@ -29,7 +29,7 @@ const filterChipProps: FilterChipProps = {
       label: 'Videos',
       type: 'video',
       selected: false,
-      icon: 'fa-video',
+      icon: 'fa-circle-play',
       onClick: () => console.log('click on Videos filter')
     },
     {
