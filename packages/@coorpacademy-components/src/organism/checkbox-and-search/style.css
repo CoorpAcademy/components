@@ -1,0 +1,57 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_400 from colors;
+
+.container {
+    width: 385px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.titleAndTagWrapper {
+    display: flex;
+    gap: 8px;
+}
+
+.search {
+    font-weight: 'normal';
+    background-color: '#EAEAEB';
+    margin-bottom: 24px;
+}
+
+.clearButtonContainer {
+    color: cm_grey_500;
+}
+
+.optionsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.optionRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    font-family: 'Gilroy';
+    gap: 16px;
+}
+
+.countLabel {
+    font-size: '14px';
+    color: cm_grey_400;
+}
+
+/* .checkboxAndLabel {
+    font-size: '14px';
+    align-items: baseline;
+    font-family: 'Gilroy';
+    background-color: aqua;
+} */
