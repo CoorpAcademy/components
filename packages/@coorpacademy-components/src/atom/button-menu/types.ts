@@ -7,7 +7,7 @@ export const buttonPropTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
-  linkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
+  buttonLinkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   icon: PropTypes.shape(iconPropTypes),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
@@ -27,14 +27,13 @@ export type ButtonProps = {
   label: string;
   onClick: () => void;
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
-  linkType?: ButtonLinkProps['type'];
+  buttonLinkType?: ButtonLinkProps['type'];
   icon?: IconType;
   customStyle?: Record<string, string | number>;
 };
 
 export type ButtonMenuProps = {
   buttons: ButtonProps[];
-  hasIcon?: boolean;
   'data-name'?: string;
   'aria-label'?: string;
 };

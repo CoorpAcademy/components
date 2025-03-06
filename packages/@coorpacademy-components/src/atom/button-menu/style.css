@@ -1,20 +1,28 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
-@value cm_grey_200 from colors;
-@value cm_grey_900 from colors;
 @value cm_negative_100 from colors;
+@value cm_negative_300 from colors;
+@value negative_100 from colors;
+
+.buttonMenuContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .button {
   width: 100%;
   height: 40px;
   font-family: Gilroy;
   font-size: 14px;
+  font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   border: none;
   pointer-events: auto;
+  border-radius: 8px;
   /* prevents text selection when dragging 
   the mouse over the button */
   user-select: none;
@@ -37,8 +45,8 @@
 }
 
 .defaultStyle {
-  background-color: cm_grey_100;
-  color: cm_grey_900;
+  background-color: transparent;
+  color: cm_grey_700;
 }
 
 .defaultLeft {
@@ -47,12 +55,16 @@
 }
 
 .defaultStyle:hover {
-  background-color: cm_grey_200;
+  background-color: cm_grey_100;
 }
 
 .dangerous {
   composes: defaultStyle;
-  color: cm_negative_100;
+  color: cm_negative_300;
+}
+
+.dangerous:hover {
+  background-color: negative_100;
 }
 
 .dangerousLeft {
@@ -60,15 +72,3 @@
   justify-content: flex-start;
 }
 
-.buttonMenuWithIcon {
-  background-color: transparent;
-  font-weight: 600;
-  width: 201px;
-  justify-content: flex-start;
-}
-
-.buttonMenuContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}

@@ -6,37 +6,28 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
       {
         'data-name': 'discard-button',
         label: 'Discard changes',
-        linkType: 'tertiary',
+        buttonLinkType: 'tertiary',
         icon: {
           position: 'left',
           faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
         },
         onClick: () => console.log('click on Discard changes'),
-        customStyle: {
-          color: '#1D1D2B',
-          hoverBackgroundColor: '#EAEAEB',
-          padding: '6px'
-        }
+        type: 'defaultLeft'
       },
       {
         'data-name': 'archive-button',
         label: 'Archive',
-        linkType: 'tertiary',
+        buttonLinkType: 'tertiary',
         icon: {
           position: 'left',
           type: 'chevron-left'
         },
         onClick: () => console.log('click on Archive'),
-        customStyle: {
-          color: '#1D1D2B',
-          hoverBackgroundColor: '#EAEAEB',
-          padding: '0 14px'
-        }
+        type: 'defaultLeft'
       }
     ],
     'aria-label': 'button menu',
-    'data-name': 'menu-with-icon',
-    hasIcon: true
+    'data-name': 'menu-with-icon'
   }
 };
 

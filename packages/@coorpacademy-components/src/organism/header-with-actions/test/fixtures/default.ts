@@ -27,45 +27,45 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
         {
           'data-name': 'discard-button',
           label: 'Discard changes',
-          linkType: 'tertiary',
+          buttonLinkType: 'tertiary',
           icon: {
             position: 'left',
             faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
           },
           onClick: () => console.log('click on Discard changes'),
+          customHover: {hoverBackgroundColor: '#EAEAEB', hoverColor: '#1D1D2B'},
           customStyle: {
             color: '#1D1D2B',
-            hoverBackgroundColor: '#EAEAEB',
             padding: '6px'
           }
         },
         {
           'data-name': 'archive-button',
           label: 'Archive',
-          linkType: 'tertiary',
+          buttonLinkType: 'tertiary',
           icon: {
             position: 'left',
             faIcon: {name: 'folder-open', color: '#515161', size: 14}
           },
           onClick: () => console.log('click on Archive'),
+          customHover: {hoverBackgroundColor: '#EAEAEB', hoverColor: '#1D1D2B'},
           customStyle: {
             color: '#1D1D2B',
-            hoverBackgroundColor: '#EAEAEB',
             padding: '6px'
           }
         },
         {
           'data-name': 'delete-button',
           label: 'Delete',
-          linkType: 'tertiary',
+          buttonLinkType: 'tertiary',
           icon: {
             position: 'left',
             faIcon: {name: 'trash', color: '#B81400', size: 14}
           },
           onClick: () => console.log('click on Delete'),
+          customHover: {hoverBackgroundColor: '#FCDADA', hoverColor: '#991100'},
           customStyle: {
             color: '#991100',
-            hoverBackgroundColor: '#FCDADA',
             padding: '6px'
           }
         }
