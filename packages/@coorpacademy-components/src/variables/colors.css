@@ -49,9 +49,10 @@
 @value cm_positive_100: #35CC7F;
 @value cm_positive_200: #05944F;
 @value cm_positive_300: #04713D;
+@value cm_negative_50: #ffe5e6;
 @value cm_negative_100: #ed3436;
 @value cm_negative_200: #b81400;
-@value cm_negative_50: #ffe5e6;
+@value cm_negative_300: #991100;
 @value cm_green_50: #e8fcf8;
 @value cm_green_200: #16ac8c;
 @value cm_green_secondary_100: #D6F5E1;

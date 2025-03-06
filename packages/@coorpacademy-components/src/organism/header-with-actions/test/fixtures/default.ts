@@ -33,11 +33,7 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
             faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
           },
           onClick: () => console.log('click on Discard changes'),
-          customHover: {hoverBackgroundColor: '#EAEAEB', hoverColor: '#1D1D2B'},
-          customStyle: {
-            color: '#1D1D2B',
-            padding: '6px'
-          }
+          type: 'defaultLeft'
         },
         {
           'data-name': 'archive-button',
@@ -48,11 +44,7 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
             faIcon: {name: 'folder-open', color: '#515161', size: 14}
           },
           onClick: () => console.log('click on Archive'),
-          customHover: {hoverBackgroundColor: '#EAEAEB', hoverColor: '#1D1D2B'},
-          customStyle: {
-            color: '#1D1D2B',
-            padding: '6px'
-          }
+          type: 'defaultLeft'
         },
         {
           'data-name': 'delete-button',
@@ -63,11 +55,7 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
             faIcon: {name: 'trash', color: '#B81400', size: 14}
           },
           onClick: () => console.log('click on Delete'),
-          customHover: {hoverBackgroundColor: '#FCDADA', hoverColor: '#991100'},
-          customStyle: {
-            color: '#991100',
-            padding: '6px'
-          }
+          type: 'dangerousLeft'
         }
       ],
       onClick: () => console.log('click on bullet point menu')

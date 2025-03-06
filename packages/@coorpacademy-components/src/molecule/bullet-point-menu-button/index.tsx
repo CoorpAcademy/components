@@ -1,9 +1,8 @@
-import React, {useCallback, useMemo, useState, useEffect} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import classnames from 'classnames';
-import {noop, some} from 'lodash/fp';
+import {noop} from 'lodash/fp';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import ButtonMenu from '../../atom/button-menu';
-import {ButtonProps} from '../../atom/button-menu/types';
 import propTypes, {BulletPointMenuButtonProps} from './types';
 import style from './style.css';
 
@@ -32,12 +31,9 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     };
   }, []);
 
-  const hasIcon = useMemo(() => some((button: ButtonProps) => !!button.icon, buttons), [buttons]);
-
   const menuProps = {
     'data-name': 'button-menu',
-    buttons,
-    hasIcon
+    buttons
   };
 
   const menu = (
@@ -45,8 +41,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
       className={classnames(
         style.bulletPointMenu,
         isBulkMenu && style.bulkBulletPointMenu,
-        visible && style.visible,
-        hasIcon && style.bulletPointMenuWithIcon
+        visible && style.visible
       )}
       data-name="menu-wrapper"
       aria-label={menuAriaLabel}
