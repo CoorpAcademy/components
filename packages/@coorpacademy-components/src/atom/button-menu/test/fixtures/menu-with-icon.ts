@@ -30,7 +30,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         customStyle: {
           color: '#1D1D2B',
           hoverBackgroundColor: '#EAEAEB',
-          padding: '6px'
+          padding: '0 14px'
         }
       }
     ],

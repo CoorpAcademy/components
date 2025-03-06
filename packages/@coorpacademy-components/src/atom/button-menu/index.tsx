@@ -33,8 +33,9 @@ const Button = (props: ButtonProps) => {
     type = 'default',
     linkType,
     icon,
-    customStyle
+    customStyle = {}
   } = props;
+  const {hoverBackgroundColor, color} = customStyle;
   const styleButton = classnames(
     style.button,
     type === 'default' && style.defaultStyle,
@@ -44,7 +45,6 @@ const Button = (props: ButtonProps) => {
     disabled && style.disabled,
     icon && style.buttonMenuWithIcon
   );
-
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const iconProps = useMemo(() => getIconProps(icon), [icon]);
@@ -57,9 +57,9 @@ const Button = (props: ButtonProps) => {
       onClick={handleOnClick}
       data-name={dataName}
       className={styleButton}
-      customStyle={{color: customStyle?.color, padding: customStyle?.padding}}
-      hoverBackgroundColor={customStyle?.hoverBackgroundColor}
-      hoverColor={customStyle?.color}
+      customStyle={{...customStyle}}
+      hoverBackgroundColor={hoverBackgroundColor?.toString()}
+      hoverColor={color?.toString()}
       icon={iconProps}
     />
   ) : (
@@ -94,12 +94,7 @@ const ButtonMenu = (props: ButtonMenuProps) => {
   );
 
   return (
-    <div
-      data-name={dataName}
-      className={classnames({
-        [style.buttonMenuContainer]: hasIcon
-      })}
-    >
+    <div data-name={dataName} className={classnames(hasIcon && style.buttonMenuContainer)}>
       {buttonList}
     </div>
   );

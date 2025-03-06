@@ -9,11 +9,7 @@ export const buttonPropTypes = {
   type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
   linkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   icon: PropTypes.shape(iconPropTypes),
-  customStyle: PropTypes.shape({
-    color: PropTypes.string,
-    hoverBackgroundColor: PropTypes.string,
-    padding: PropTypes.string
-  })
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 const propTypes = {
@@ -25,12 +21,6 @@ const propTypes = {
 
 export default propTypes;
 
-type CustomStyleProps = {
-  color?: string;
-  hoverBackgroundColor?: string;
-  padding?: string;
-};
-
 export type ButtonProps = {
   'data-name'?: string;
   disabled?: boolean;
@@ -39,7 +29,7 @@ export type ButtonProps = {
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   linkType?: ButtonLinkProps['type'];
   icon?: IconType;
-  customStyle?: CustomStyleProps;
+  customStyle?: Record<string, string | number>;
 };
 
 export type ButtonMenuProps = {
