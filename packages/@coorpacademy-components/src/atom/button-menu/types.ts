@@ -14,7 +14,6 @@ export const buttonPropTypes = {
 
 const propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.shape(buttonPropTypes)).isRequired,
-  hasIcon: PropTypes.bool,
   'data-name': PropTypes.string,
   'aria-label': PropTypes.string
 };
