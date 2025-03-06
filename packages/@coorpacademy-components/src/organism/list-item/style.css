@@ -8,6 +8,7 @@
 @value cm_grey_500 from colors;
 
 .wrapper {
+  font-family: Gilroy;
   align-items: center;
   background-color: color(xtraLightGrey a(90%));
   border-radius: 7px;
@@ -34,11 +35,10 @@
   flex-direction: column;
   justify-content: center;
   flex: 2 0 0;
-  font-family: Gilroy;
   font-size: 16px;
   font-stretch: normal;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1.38;
   letter-spacing: normal;
   text-align: left;
@@ -47,9 +47,8 @@
 }
 
 .subtitle {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
   color: cm_grey_400;
 }
 
@@ -97,7 +96,6 @@
 .order {
   width: 6px;
   height: 20px;
-  font-family: 'Gilroy';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

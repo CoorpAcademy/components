@@ -30,7 +30,7 @@
 
 .titleFormGroupLightWeight {
     composes: titleFormGroup;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .mediumTitleFormGroup {

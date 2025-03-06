@@ -24,7 +24,7 @@
 .title {
   font-family: Gilroy;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.4;
@@ -102,4 +102,10 @@
   align-items: center;
   height: 50vh;
   width: 100%;
+}
+
+.inputWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
