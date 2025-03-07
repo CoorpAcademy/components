@@ -63,6 +63,7 @@ export default {
         onChange: value => console.log(value)
       },
       language: '🇫🇷 French'
-    }
+    },
+    readOnly: true
   }
 };
