@@ -186,7 +186,7 @@
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Avalie este curso",
-      "diploma": "Validated pathway"
+      "diploma": "Caminho validado"
     },
     "esante-formation": {
       "diploma": "Learning path"
@@ -201,7 +201,7 @@
       "diploma": "Certificat"
     },
     "onboarding": {
-      "diploma": "Certificat"
+      "diploma": "Certificado"
     },
     "mylcl-learning": {
        "diploma": "learning path"
