@@ -19,10 +19,10 @@
 }
 
 .search {
-    font-weight: 'normal';
-    background-color: '#EAEAEB';
-    margin-bottom: 24px;
-}
+    border-radius: 12px;
+    width: inherit;
+    background-color: cm_grey_100;
+  }
 
 .clearButtonContainer {
     color: cm_grey_500;
@@ -39,7 +39,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: antiquewhite;
     font-family: 'Gilroy';
     gap: 16px;
 }
@@ -47,6 +46,12 @@
 .countLabel {
     font-size: '14px';
     color: cm_grey_400;
+}
+
+.checkIconDefault {
+    color: cm_grey_150;
+    height: 20px;
+    width: 20px;
 }
 
 /* .checkboxAndLabel {

@@ -1,9 +1,9 @@
 import React, {useCallback, useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
-import Checkbox from '../../atom/checkbox';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
@@ -41,8 +41,7 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
             search={{
               placeholder: 'Search for a skill',
               value: searchValue,
-              onChange: onSearchChange,
-              theme: 'coorpmanager'
+              onChange: onSearchChange
             }}
           />
         </div>
@@ -54,8 +53,7 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
             data-testid={`option-item-${option.value}`}
             className={style.optionRow}
           >
-            {/* <InputCheckbox title={option.label} titleStyle={'inherit'} theme={'coorpmanager'} /> */}
-            <Checkbox checked={option.selected} />
+            <FontAwesomeIcon icon="square" className={style.checkIconDefault} />
             <p className={style.countLabel}>{option.count}</p>
           </div>
         ))}
