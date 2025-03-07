@@ -5,11 +5,6 @@ export default {
       title: 'Skills',
       titleSize: 'small'
     },
-    tag: {
-      label: '10',
-      type: 'success',
-      size: 'S'
-    },
     onClearFilters: () => {
       console.log('clear filters');
     },

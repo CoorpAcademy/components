@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import Title from '../../atom/title';
-import Tag from '../../atom/tag';
 
 const propTypes = {
   title: Title.propTypes,
   type: PropTypes.string,
-  tag: Tag.propTypes,
   onClearFilters: PropTypes.func,
   withSearch: PropTypes.bool,
   options: PropTypes.arrayOf(
@@ -32,7 +30,6 @@ type CheckboxItem = {
 export type FilterCheckboxAndSearchProps = {
   title: React.ComponentProps<typeof Title>;
   type: string;
-  tag: React.ComponentProps<typeof Tag>;
   onClearFilters: () => void;
   withSearch: boolean;
   options: CheckboxItem[];
