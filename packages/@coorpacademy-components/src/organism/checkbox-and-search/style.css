@@ -16,6 +16,12 @@
 .titleAndTagWrapper {
     display: flex;
     gap: 8px;
+    color: cm_grey_700;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    align-items: center;
 }
 
 .search {
@@ -27,6 +33,7 @@
 
 .clearButtonContainer {
     color: cm_grey_500;
+    align-self: flex-end;
 }
 
 .optionsContainer {
@@ -45,4 +52,6 @@
 
 .optionCount {
     color: cm_grey_400;
+    font-family: 'Gilroy';
+    font-size: 12px;
 }

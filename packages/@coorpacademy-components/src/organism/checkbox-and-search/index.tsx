@@ -21,23 +21,22 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
     <div className={style.container} data-testid="filter-checkbox-and-search-container">
       <div className={style.header} data-testid="header">
         <div className={style.titleAndTagWrapper} data-testid="title-and-tag-wrapper">
-          <Title {...title} />
+          <Title title={title} />
           {hasSelectedFilters ? (
             <Tag label={selectedFiltersCount.toString()} type="info" size="S" />
           ) : null}
         </div>
-        <div className={style.clearButtonContainer}>
-          <ButtonLink
-            label="Clear"
-            type="text"
-            data-testid="clear-button-link"
-            onClick={onClearFilters}
-            customStyle={{
-              fontWeight: 'normal',
-              backgroundColor: 'pink'
-            }}
-          />
-        </div>
+        {hasSelectedFilters ? (
+          <div className={style.clearButtonContainer}>
+            <ButtonLink
+              label="Clear"
+              type="text"
+              data-testid="clear-button-link"
+              onClick={onClearFilters}
+              customStyle={{fontWeight: 'normal', alignSelf: 'flex-end'}}
+            />
+          </div>
+        ) : null}
       </div>
       {withSearch ? (
         <div className={style.search} data-testid="search-container">

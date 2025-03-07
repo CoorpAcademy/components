@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-import Title from '../../atom/title';
 
 const propTypes = {
-  title: Title.propTypes,
+  title: PropTypes.string,
   type: PropTypes.string,
   onClearFilters: PropTypes.func,
   withSearch: PropTypes.bool,
@@ -28,7 +27,7 @@ type CheckboxItem = {
 };
 
 export type FilterCheckboxAndSearchProps = {
-  title: React.ComponentProps<typeof Title>;
+  title: string;
   type: string;
   onClearFilters: () => void;
   withSearch: boolean;
