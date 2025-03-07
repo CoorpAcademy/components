@@ -1,9 +1,9 @@
 import React, {useCallback, useState} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
+import CmCheckboxWithText from '../../molecule/cm-checkbox-with-text';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
@@ -29,8 +29,7 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
             onClick={onClearFilters}
             customStyle={{
               fontWeight: 'normal',
-              backgroundColor: 'pink',
-              marginLeft: 'auto'
+              backgroundColor: 'pink'
             }}
           />
         </div>
@@ -48,13 +47,16 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
       ) : null}
       <div data-testid="options-container" className={style.optionsContainer}>
         {options.map(option => (
-          <div
-            key={option.value}
-            data-testid={`option-item-${option.value}`}
-            className={style.optionRow}
-          >
-            <FontAwesomeIcon icon="square" className={style.checkIconDefault} />
-            <p className={style.countLabel}>{option.count}</p>
+          <div key={option.value} className={style.optionRow}>
+            <CmCheckboxWithText
+              {...option}
+              key={option.value}
+              title={option.label}
+              onChange={onSearchChange}
+              name={option.label}
+              checked={option.selected}
+            />
+            <p className={style.optionCount}>{option.count}</p>
           </div>
         ))}
       </div>
