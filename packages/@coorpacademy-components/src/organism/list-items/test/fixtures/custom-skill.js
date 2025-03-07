@@ -102,6 +102,6 @@ export default {
       itemType: 'custom-skill',
       isDraggable: false
     },
-    search: searchProps.props
+    search: {...searchProps.props, placeholder: 'Search...'}
   }
 };
