@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {filter, pipe, size} from 'lodash/fp';
+import {filter, pipe, size, toString} from 'lodash/fp';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -8,9 +8,10 @@ import CmCheckboxWithText from '../../molecule/cm-checkbox-with-text';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
+const buttonStyle = {fontWeight: 'normal', position: 'absolute', right: 0};
+
 const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
-  const {title, withSearch, onClearFilters, options} = props;
-  // const translate = GetTranslateFromContext(context);
+  const {title, placeholder, withSearch, onClearFilters, options} = props;
   const [searchValue, setSearchValue] = useState('');
   const onSearchChange = useCallback(value => {
     setSearchValue(value);
@@ -23,7 +24,7 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
         <div className={style.titleAndTagWrapper} data-testid="title-and-tag-wrapper">
           <Title title={title} />
           {hasSelectedFilters ? (
-            <Tag label={selectedFiltersCount.toString()} type="info" size="S" />
+            <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
           ) : null}
         </div>
         {hasSelectedFilters ? (
@@ -33,7 +34,7 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
               type="text"
               data-testid="clear-button-link"
               onClick={onClearFilters}
-              customStyle={{fontWeight: 'normal', alignSelf: 'flex-end'}}
+              customStyle={buttonStyle}
             />
           </div>
         ) : null}
@@ -42,7 +43,7 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
         <div className={style.search} data-testid="search-container">
           <SearchForm
             search={{
-              placeholder: 'Search for a skill',
+              placeholder,
               value: searchValue,
               onChange: onSearchChange
             }}

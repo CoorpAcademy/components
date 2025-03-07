@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 const propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,
+  placeholder: PropTypes.string,
   onClearFilters: PropTypes.func,
   withSearch: PropTypes.bool,
   options: PropTypes.arrayOf(
@@ -29,6 +30,7 @@ type CheckboxItem = {
 export type FilterCheckboxAndSearchProps = {
   title: string;
   type: string;
+  placeholder: string;
   onClearFilters: () => void;
   withSearch: boolean;
   options: CheckboxItem[];

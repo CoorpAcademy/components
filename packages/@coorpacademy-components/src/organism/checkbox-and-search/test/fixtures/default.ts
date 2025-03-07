@@ -1,10 +1,11 @@
 export default {
   props: {
     title: 'Skills',
+    type: 'checkbox',
+    placeholder: 'Search for a skill',
     onClearFilters: () => {
       console.log('clear filters');
     },
-    type: 'checkbox',
     withSearch: true,
     options: [
       {

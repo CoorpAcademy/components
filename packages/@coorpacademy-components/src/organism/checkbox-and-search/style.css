@@ -33,7 +33,7 @@
 
 .clearButtonContainer {
     color: cm_grey_500;
-    align-self: flex-end;
+    position: relative;
 }
 
 .optionsContainer {
