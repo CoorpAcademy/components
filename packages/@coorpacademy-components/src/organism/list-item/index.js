@@ -111,8 +111,8 @@ const ListItem = (
             <div className={style.title} title={title}>
               {title}
             </div>
-            {provider ? (
-              <Tag label={provider} type="default" className={style.providerTag} />
+            {!isEmpty(provider) ? (
+              <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
           </div>
           {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
@@ -148,7 +148,10 @@ ListItem.contextTypes = {
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  provider: PropTypes.string,
+  provider: PropTypes.shape({
+    label: PropTypes.string,
+    type: PropTypes.oneOf(['info', 'default', 'success', 'failure', 'warning', 'progress'])
+  }),
   selected: PropTypes.bool,
   selectedColor: PropTypes.string,
   dataColumns: PropTypes.arrayOf(
