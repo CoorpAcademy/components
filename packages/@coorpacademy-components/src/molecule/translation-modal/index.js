@@ -55,22 +55,18 @@ const TranslationModal = (props, context) => {
   }, [inputValue, textAreaValue]);
 
   const footer = useMemo(() => {
+    const cancelButton = {
+      onCancel: handleCancel,
+      label: translate(readOnly ? 'close' : 'cancel')
+    };
     return readOnly
       ? {
-          cancelButton: {
-            onCancel: handleCancel,
-            label: translate('close')
-          }
+          cancelButton
         }
       : {
-          cancelButton: {
-            onCancel: handleCancel,
-            label: translate('cancel')
-          },
+          cancelButton,
           confirmButton: {
-            onConfirm: () => {
-              onConfirm();
-            },
+            onConfirm,
             label: translate('confirm'),
             iconName: 'plus',
             disabled: isConfirmDisabled,
