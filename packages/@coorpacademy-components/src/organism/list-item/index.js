@@ -6,11 +6,14 @@ import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import FaIcon from '../../atom/icon';
+import Checkbox from '../../atom/checkbox';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import {COLORS} from '../../variables/colors';
+import CardImagePreview from '../../atom/card-image-preview';
 import style from './style.css';
 
+const BACKGROUND_COLOR = COLORS.white;
 const ListItem = (
   {
     buttonLink,
@@ -30,7 +33,9 @@ const ListItem = (
     isBulkStyle = false,
     isOverflowHidden = false,
     onClick = noop,
-    leftIcon
+    leftIcon,
+    image,
+    checkable = false
   },
   context
 ) => {
@@ -39,18 +44,20 @@ const ListItem = (
   const mapUncapped = map.convert({cap: false});
   let isPublished = false;
 
-  const selectedStyle = selected
-    ? {
-        backgroundColor: convert(`color(${primarySelectedColor} a(0.07))`)
-      }
-    : {};
+  const selectedStyle =
+    selected && !checkable
+      ? {
+          backgroundColor: convert(`color(${primarySelectedColor} a(0.07))`)
+        }
+      : {};
 
-  const tagSelectedStyle = selected
-    ? {
-        backgroundColor: convert(`color(${primarySelectedColor} a(0.15))`),
-        color: primarySelectedColor
-      }
-    : {};
+  const tagSelectedStyle =
+    selected && !checkable
+      ? {
+          backgroundColor: convert(`color(${primarySelectedColor} a(0.15))`),
+          color: primarySelectedColor
+        }
+      : {};
 
   const tagsView = mapUncapped((tag, index) => {
     isPublished = tag.type === 'success';
@@ -83,7 +90,8 @@ const ListItem = (
         isBulkStyle && style.gridLayout,
         subtitle && style.withSubtitle,
         disabled && style.disabled,
-        onClick !== noop && !disabled && style.cursorPointer
+        onClick !== noop && !disabled && style.cursorPointer,
+        checkable && selected && style.checkableSelected
       )}
       onClick={!disabled ? onClick : undefined}
       style={selectedStyle}
@@ -94,7 +102,8 @@ const ListItem = (
       >
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.leftSection}>
-          {leftIcon ? (
+          {checkable ? <Checkbox id={title} name={title} checked={selected} /> : null}
+          {leftIcon && !image ? (
             <div>
               <FaIcon
                 iconName={leftIcon.iconName}
@@ -103,6 +112,11 @@ const ListItem = (
                 preset={leftIcon.preset || 'xl'}
                 borderRadius={leftIcon.borderRadius || '25%'}
               />
+            </div>
+          ) : null}
+          {!leftIcon && image ? (
+            <div className={style.containerImage}>
+              <CardImagePreview image={image} />
             </div>
           ) : null}
         </div>
@@ -122,11 +136,11 @@ const ListItem = (
 
       <div className={style.settings}>
         {tagsView}
-        {selected ? (
+        {selected && !checkable ? (
           <FaIcon
             iconName="circle-check"
             iconColor={primarySelectedColor}
-            backgroundColor={COLORS.white}
+            backgroundColor={BACKGROUND_COLOR}
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
@@ -216,7 +230,9 @@ ListItem.propTypes = {
     gradientBackground: PropTypes.bool,
     size: PropTypes.number,
     wrapperSize: PropTypes.number
-  })
+  }),
+  image: PropTypes.string,
+  checkable: PropTypes.bool
 };
 
 export default ListItem;
