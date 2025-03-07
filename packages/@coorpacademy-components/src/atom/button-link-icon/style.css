@@ -1,6 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
+@value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value white from colors;
@@ -14,11 +15,11 @@
   align-items: center;
   cursor: pointer;
   border: none;
-  background-color: cm_grey_100;
+  background-color: cm_grey_50;
 }
 
 .button:hover {
-  background-color: cm_grey_200;
+  background-color: cm_grey_100;
 }
 
 .disabled {

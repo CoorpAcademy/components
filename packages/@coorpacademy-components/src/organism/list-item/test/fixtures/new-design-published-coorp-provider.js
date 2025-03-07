@@ -21,7 +21,7 @@ export default {
       preset: 'xl'
     },
     buttonLink: {
-      'aria-label': 'Edit',
+      'aria-label': 'See details',
       type: 'primary',
       customStyle: {
         width: 'fit-content',
@@ -39,7 +39,7 @@ export default {
       onClick: () => console.log('click')
     },
     bulletPointMenuButton: {
-      buttonAriaLabel: 'aria button',
+      buttonAriaLabel: 'More',
       menuAriaLabel: 'aria menu',
       buttons: [
         {

@@ -47,7 +47,7 @@ const items = [
     },
     buttonLink: {
       ...lisItemProps.buttonLink,
-      'aria-label': 'See',
+      'aria-label': 'Edit',
       icon: {
         position: 'left',
         faIcon: {
