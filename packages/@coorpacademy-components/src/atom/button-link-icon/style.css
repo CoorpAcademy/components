@@ -46,14 +46,14 @@
   composes: button;
   width: 44px;
   height: 44px;
-  border-radius: 7px;
+  border-radius: 12px;
 }
 
 .responsive {
   composes: button;
   width: 44px;
   height: 44px;
-  border-radius: 7px;
+  border-radius: 12px;
 }
 
 .responsive .icon {
