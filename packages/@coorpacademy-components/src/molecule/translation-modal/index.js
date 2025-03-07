@@ -24,7 +24,8 @@ const TranslationModal = (props, context) => {
     onConfirm,
     onClose,
     source: {inputText: sourceInputText, textArea: sourceTextArea, inputLanguage},
-    target: {inputText: targetInputText, textArea: targetTextArea, language: outputLanguage}
+    target: {inputText: targetInputText, textArea: targetTextArea, language: outputLanguage},
+    readOnly = false
   } = props;
   const {translate} = context;
 
@@ -54,22 +55,25 @@ const TranslationModal = (props, context) => {
   }, [inputValue, textAreaValue]);
 
   const footer = useMemo(() => {
-    return {
-      cancelButton: {
-        onCancel: handleCancel,
-        label: translate('cancel')
-      },
-      confirmButton: {
-        onConfirm: () => {
-          onConfirm();
-        },
-        label: translate('confirm'),
-        iconName: 'plus',
-        disabled: isConfirmDisabled,
-        color: COLORS.cm_primary_blue
-      }
+    const cancelButton = {
+      onCancel: handleCancel,
+      label: translate(readOnly ? 'close' : 'cancel')
     };
-  }, [handleCancel, onConfirm, translate, isConfirmDisabled]);
+    return readOnly
+      ? {
+          cancelButton
+        }
+      : {
+          cancelButton,
+          confirmButton: {
+            onConfirm,
+            label: translate('confirm'),
+            iconName: 'plus',
+            disabled: isConfirmDisabled,
+            color: COLORS.cm_primary_blue
+          }
+        };
+  }, [handleCancel, onConfirm, translate, isConfirmDisabled, readOnly]);
 
   if (!isOpen) return null;
 
@@ -109,7 +113,7 @@ const TranslationModal = (props, context) => {
               value: textAreaValue,
               onChange: handleTextAreaChange
             },
-            disabled: false
+            disabled: readOnly
           })}
         </div>
       </div>
@@ -147,7 +151,8 @@ TranslationModal.propTypes = {
       theme: PropTypes.string
     }),
     language: PropTypes.string
-  })
+  }),
+  readOnly: PropTypes.bool
 };
 
 export default TranslationModal;
