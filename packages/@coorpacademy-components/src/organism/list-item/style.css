@@ -6,6 +6,7 @@
 @value primaryAdd1 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 @value cm_primary_blue from colors;
 
 .wrapper {
@@ -45,11 +46,31 @@
   white-space: nowrap;
 }
 
+.titleCheckable {
+  overflow: hidden;
+  color: cm_grey_700;
+  text-overflow: ellipsis;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}
+
 .subtitle {
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   color: cm_grey_400;
+}
+
+.subtitleCheckable {
+  color: var(--font-font_color_tertiary, cm_grey_400);
+  font-family: Gilroy;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
 }
 
 .cursorPointer {

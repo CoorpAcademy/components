@@ -6,11 +6,11 @@ import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import FaIcon from '../../atom/icon';
-import Checkbox from '../../atom/checkbox';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import {COLORS} from '../../variables/colors';
 import CardImagePreview from '../../atom/card-image-preview';
+import TriStateCheckbox from '../../atom/tri-state-checkbox';
 import style from './style.css';
 
 const BACKGROUND_COLOR = COLORS.white;
@@ -102,7 +102,10 @@ const ListItem = (
       >
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.leftSection}>
-          {checkable ? <Checkbox id={title} name={title} checked={selected} /> : null}
+          {checkable ? (
+            /* checkbox icon */
+            <TriStateCheckbox checked={selected} />
+          ) : null}
           {leftIcon && !image ? (
             <div>
               <FaIcon
@@ -122,14 +125,21 @@ const ListItem = (
         </div>
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
-            <div className={style.title} title={title}>
+            <div
+              className={classnames(style.title, checkable && style.titleCheckable)}
+              title={title}
+            >
               {title}
             </div>
             {provider ? (
               <Tag label={provider} type="default" className={style.providerTag} />
             ) : null}
           </div>
-          {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
+          {subtitle ? (
+            <div className={classnames(style.subtitle, checkable && style.subtitleCheckable)}>
+              {subtitle}
+            </div>
+          ) : null}
         </div>
         {dataColumnsView}
       </div>
