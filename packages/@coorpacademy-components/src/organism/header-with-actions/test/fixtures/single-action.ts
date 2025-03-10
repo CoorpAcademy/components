@@ -31,7 +31,8 @@ const singleActionFixture: HeaderWithActionsPropsFixture = {
           faIcon: {
             name: 'folder-open',
             color: COLORS.cm_grey_700,
-            size: 14
+            size: 14,
+            customStyle: {padding: 0}
           }
         },
         customStyle: {

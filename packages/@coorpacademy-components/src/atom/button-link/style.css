@@ -59,11 +59,6 @@
   display: block;
 }
 
-.labelWithoutMargin {
-  composes: label;
-  margin: 0;
-}
-
 .primary {
   background-color: cm_primary_blue;
   color: white;

@@ -9,7 +9,12 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         buttonLinkType: 'tertiary',
         icon: {
           position: 'left',
-          faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
+          faIcon: {
+            name: 'circle-xmark',
+            color: '#515161',
+            size: 14,
+            customStyle: {padding: '0'}
+          }
         },
         onClick: () => console.log('click on Discard changes'),
         type: 'defaultLeft'

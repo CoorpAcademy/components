@@ -18,15 +18,10 @@ const getButtonContent = (
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
-  const labelClassName =
-    faIcon && faIcon.size !== undefined && faIcon.size < 16
-      ? style.labelWithoutMargin
-      : style.label;
-
   if (!Icon && !faIcon) {
     return (
       <div className={style.buttonContent}>
-        <span className={labelClassName}>{content}</span>
+        <span className={style.label}>{content}</span>
       </div>
     );
   }
@@ -56,7 +51,7 @@ const getButtonContent = (
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
-      {content ? <span className={labelClassName}>{content}</span> : null}
+      {content ? <span className={style.label}>{content}</span> : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );

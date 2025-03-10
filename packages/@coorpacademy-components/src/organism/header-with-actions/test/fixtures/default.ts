@@ -30,7 +30,12 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
           buttonLinkType: 'tertiary',
           icon: {
             position: 'left',
-            faIcon: {name: 'circle-xmark', color: '#515161', size: 14}
+            faIcon: {
+              name: 'circle-xmark',
+              color: '#515161',
+              size: 14,
+              customStyle: {padding: 0}
+            }
           },
           onClick: () => console.log('click on Discard changes'),
           type: 'defaultLeft'
@@ -41,7 +46,7 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
           buttonLinkType: 'tertiary',
           icon: {
             position: 'left',
-            faIcon: {name: 'folder-open', color: '#515161', size: 14}
+            faIcon: {name: 'folder-open', color: '#515161', size: 14, customStyle: {padding: 0}}
           },
           onClick: () => console.log('click on Archive'),
           type: 'defaultLeft'
@@ -52,7 +57,7 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
           buttonLinkType: 'tertiary',
           icon: {
             position: 'left',
-            faIcon: {name: 'trash', color: '#B81400', size: 14}
+            faIcon: {name: 'trash', color: '#B81400', size: 14, customStyle: {padding: 0}}
           },
           onClick: () => console.log('click on Delete'),
           type: 'dangerousLeft'
@@ -71,7 +76,8 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
           faIcon: {
             name: 'floppy-disk',
             color: COLORS.cm_grey_700,
-            size: 14
+            size: 14,
+            customStyle: {padding: 0}
           }
         },
         customStyle: {
@@ -88,7 +94,8 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
           faIcon: {
             name: 'circle-check',
             color: COLORS.white,
-            size: 14
+            size: 14,
+            customStyle: {padding: 0}
           }
         },
         customStyle: {

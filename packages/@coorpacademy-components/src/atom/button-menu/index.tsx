@@ -2,27 +2,8 @@ import React, {useMemo, useCallback} from 'react';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import ButtonLink from '../button-link';
-import {IconType} from '../button-link/types';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
-
-const getIconProps = (icon?: IconType) => {
-  if (!icon) return undefined;
-  const {position, type, faIcon} = icon;
-  return faIcon
-    ? {
-        faIcon: {
-          name: faIcon.name,
-          size: faIcon.size,
-          color: faIcon.color
-        },
-        position
-      }
-    : {
-        type,
-        position
-      };
-};
 
 const Button = (props: ButtonProps) => {
   const {
@@ -45,8 +26,6 @@ const Button = (props: ButtonProps) => {
   );
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
-  const iconProps = useMemo(() => getIconProps(icon), [icon]);
-
   return icon ? (
     <ButtonLink
       label={label}
@@ -56,7 +35,7 @@ const Button = (props: ButtonProps) => {
       data-name={dataName}
       className={styleButton}
       customStyle={{...customStyle}}
-      icon={iconProps}
+      icon={icon}
     />
   ) : (
     <button
