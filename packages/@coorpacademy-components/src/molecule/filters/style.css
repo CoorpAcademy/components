@@ -107,7 +107,7 @@
   width: 25%;
 }
 
-.CTAfilter {
+.ctaFilter {
   composes: hoverFill from '../../atom/button/hover-fill.css';
   display: none;
 }
@@ -278,10 +278,10 @@
     width: 100%;
   }
 
-  .wrapperFilters .CTAfilter,
-  .sorting .CTAfilter,
-  .activeWrapperFilters .CTAfilter,
-  .activeSorting .CTAfilter {
+  .wrapperFilters .ctaFilter,
+  .sorting .ctaFilter,
+  .activeWrapperFilters .ctaFilter,
+  .activeSorting .ctaFilter {
     display: block;
     width: 100%;
     height: 49px;
@@ -295,8 +295,8 @@
     bottom: 15px;
   }
 
-  .activeWrapperFilters .CTAfilter::before,
-  .activeSorting .CTAfilter::before {
+  .activeWrapperFilters .ctaFilter::before,
+  .activeSorting .ctaFilter::before {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
