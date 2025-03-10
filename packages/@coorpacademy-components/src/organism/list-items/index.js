@@ -90,20 +90,19 @@ const ListItems = ({
         <div className={style.title}>
           <Title
             title={title}
-            type={'form-group'}
+            type="form-group"
             titleSize="standard-light-weight"
-            data-name={'list-title'}
+            data-name="list-title"
           />
         </div>
         <div className={style.inputWrapper}>
           {!isEmpty(search) ? <Search {...search} /> : null}
           <div className={style.actionsWrapper}>
-            {selectMultiple ? (
+            {!isEmpty(selectMultiple) ? (
               <div className={style.selectMultiple}>
                 <SelectMultiple {...selectMultiple} />
               </div>
             ) : null}
-
             {!isEmpty(buttonLink) ? <ButtonLink {...buttonLink} /> : null}
           </div>
         </div>
