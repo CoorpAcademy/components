@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {isEmpty} from 'lodash/fp';
 import Icon from '../icon';
 import Tag from '../tag';
+import ButtonLink from '../button-link';
 import style from './style.css';
 
 const getTitleStyle = (type, size) => {
@@ -51,7 +53,8 @@ const Title = props => {
     titleSize = 'standard',
     subtitleSize = 'standard',
     icon,
-    tag
+    tag,
+    button
   } = props;
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
@@ -61,12 +64,15 @@ const Title = props => {
   return (
     <div className={style.container}>
       {icon ? <Icon {...icon} className={style.icon} /> : null}
-      <div>
-        <div className={titleStyle} data-name={dataName}>
-          {title}
-          {tag ? <Tag {...tag} /> : null}
+      <div className={style.titleContainer}>
+        <div>
+          <div className={titleStyle} data-name={dataName}>
+            {title}
+            {tag ? <Tag {...tag} /> : null}
+          </div>
+          {subtitleSection}
         </div>
-        {subtitleSection}
+        {!isEmpty(button) ? <ButtonLink {...button} /> : null}
       </div>
     </div>
   );
@@ -86,6 +92,7 @@ Title.propTypes = {
     'extra-small'
   ]),
   icon: PropTypes.shape(Icon.propTypes),
-  tag: PropTypes.shape(Tag.propTypes)
+  tag: PropTypes.shape(Tag.propTypes),
+  button: PropTypes.shape(ButtonLink.propTypes)
 };
 export default Title;

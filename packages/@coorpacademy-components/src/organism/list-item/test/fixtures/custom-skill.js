@@ -2,12 +2,15 @@ export default {
   props: {
     id: 'default',
     title: 'Leaders of tomorrow',
-    provider: 'Coorpacademy',
+    provider: {
+      label: 'Coorpacademy',
+      type: 'info'
+    },
     subtitle: '23 courses',
     tags: [
       {
-        label: 'Archived',
-        type: 'warning'
+        label: 'Published',
+        type: 'success'
       }
     ],
     leftIcon: {
@@ -18,7 +21,7 @@ export default {
       preset: 'xl'
     },
     buttonLink: {
-      'aria-label': 'Edit',
+      'aria-label': 'See details',
       type: 'primary',
       customStyle: {
         width: 'fit-content',
@@ -28,7 +31,7 @@ export default {
       icon: {
         position: 'left',
         faIcon: {
-          name: 'edit',
+          name: 'eye',
           color: '#515161',
           size: 16
         }
@@ -36,17 +39,35 @@ export default {
       onClick: () => console.log('click')
     },
     bulletPointMenuButton: {
-      buttonAriaLabel: 'aria button',
+      buttonAriaLabel: 'More',
       menuAriaLabel: 'aria menu',
       buttons: [
         {
-          'data-name': 'CP-publish-button',
-          label: 'Publish',
+          'data-name': 'custom-skill-archive-button',
+          icon: {
+            position: 'left',
+            faIcon: {
+              name: 'folder-open',
+              color: '#515161',
+              size: 14,
+              customStyle: {padding: 0}
+            }
+          },
+          label: 'Archive',
           type: 'default',
           onClick: () => console.log('click')
         },
         {
-          'data-name': 'CP-delete-button',
+          'data-name': 'custom-skill-delete-button',
+          icon: {
+            position: 'left',
+            faIcon: {
+              name: 'trash',
+              color: '#991100',
+              size: 14,
+              customStyle: {padding: 0}
+            }
+          },
           label: 'Delete',
           type: 'dangerous',
           onClick: () => console.log('click')

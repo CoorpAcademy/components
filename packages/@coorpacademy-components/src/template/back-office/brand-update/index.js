@@ -24,6 +24,7 @@ import CmPopin from '../../../molecule/cm-popin';
 import ButtonLinkIcon from '../../../atom/button-link-icon';
 import ExpandibleActionableTable from '../../../molecule/expandible-actionable-table';
 import BulkInfos from '../../../molecule/bulk-infos';
+import Title from '../../../atom/title';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -197,6 +198,15 @@ const buildDetailsView = details => {
   return <BrandTable {...details} />;
 };
 
+const buildTitle = title => {
+  if (isEmpty(title)) return;
+  return (
+    <div className={style.title}>
+      <Title {...title} />
+    </div>
+  );
+};
+
 const BrandUpdate = props => {
   const {
     notifications,
@@ -207,7 +217,8 @@ const BrandUpdate = props => {
     popin,
     onItemClick,
     documentation,
-    contentFixHeight
+    contentFixHeight,
+    title
   } = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
@@ -219,6 +230,7 @@ const BrandUpdate = props => {
   const contentView = buildContentView(content);
   const detailsView = buildDetailsView(details);
   const popinView = buildPopin(popin);
+  const titleView = buildTitle(title);
 
   const contentStyle = classNames([
     style.content,
@@ -233,6 +245,7 @@ const BrandUpdate = props => {
         <div className={style.headerSticky}>{headerView}</div>
         <div className={contentStyle}>
           {notificationsView}
+          {titleView}
           {tabsView}
           {contentView}
           {detailsView}
@@ -353,7 +366,8 @@ BrandUpdate.propTypes = {
     type: PropTypes.oneOf(['list'])
   }),
   onItemClick: PropTypes.func,
-  contentFixHeight: PropTypes.bool
+  contentFixHeight: PropTypes.bool,
+  title: PropTypes.shape(Title.propTypes)
 };
 
 export default BrandUpdate;

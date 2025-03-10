@@ -172,6 +172,10 @@
   top: 10px;
 }
 
+.title {
+  margin-bottom: 32px;
+}
+
 @media desktop, tablet {
   .container {
     scroll-behavior: unset;

@@ -9,6 +9,7 @@ import ButtonLink from '../../atom/button-link';
 import SelectMultiple from '../../molecule/select-multiple';
 import ExpandibleActionableTable from '../../molecule/expandible-actionable-table';
 import Loader from '../../atom/loader';
+import Search from '../../atom/input-search';
 import style from './style.css';
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
@@ -79,23 +80,31 @@ const ListItems = ({
   selectMultiple,
   content,
   'aria-label': ariaLabel,
-  isFetching
+  isFetching,
+  search
 }) => {
   const contentView = buildContentView(content, ariaLabel, selectMultiple);
   return (
     <div>
       <div className={style.header}>
         <div className={style.title}>
-          <Title title={title} type={'form-group'} data-name={'list-title'} />
+          <Title
+            title={title}
+            type="form-group"
+            titleSize="standard-light-weight"
+            data-name="list-title"
+          />
         </div>
-        <div className={style.actionsWrapper}>
-          {selectMultiple ? (
-            <div className={style.selectMultiple}>
-              <SelectMultiple {...selectMultiple} />
-            </div>
-          ) : null}
-
-          <ButtonLink {...buttonLink} />
+        <div className={style.inputWrapper}>
+          {!isEmpty(search) ? <Search {...search} /> : null}
+          <div className={style.actionsWrapper}>
+            {!isEmpty(selectMultiple) ? (
+              <div className={style.selectMultiple}>
+                <SelectMultiple {...selectMultiple} />
+              </div>
+            ) : null}
+            {!isEmpty(buttonLink) ? <ButtonLink {...buttonLink} /> : null}
+          </div>
         </div>
       </div>
       {isFetching ? (
@@ -128,7 +137,8 @@ ListItems.propTypes = {
     })
   ]),
   title: PropTypes.string,
-  isFetching: PropTypes.bool
+  isFetching: PropTypes.bool,
+  search: PropTypes.shape(Search.propTypes)
 };
 
 export default ListItems;
