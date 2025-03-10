@@ -44,12 +44,30 @@ export default {
       buttons: [
         {
           'data-name': 'custom-skill-archive-button',
+          icon: {
+            position: 'left',
+            faIcon: {
+              name: 'folder-open',
+              color: '#515161',
+              size: 14,
+              customStyle: {padding: 0}
+            }
+          },
           label: 'Archive',
           type: 'default',
           onClick: () => console.log('click')
         },
         {
           'data-name': 'custom-skill-delete-button',
+          icon: {
+            position: 'left',
+            faIcon: {
+              name: 'trash',
+              color: '#991100',
+              size: 14,
+              customStyle: {padding: 0}
+            }
+          },
           label: 'Delete',
           type: 'dangerous',
           onClick: () => console.log('click')

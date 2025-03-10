@@ -1,4 +1,4 @@
-import lisItemPublishedProps from '../../../list-item/test/fixtures/new-design-published-coorp-provider';
+import lisItemPublishedProps from '../../../list-item/test/fixtures/custom-skill';
 import searchProps from '../../../../atom/input-search/test/fixtures/coorpmanager';
 
 const {props: lisItemProps} = lisItemPublishedProps;
