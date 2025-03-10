@@ -6,15 +6,14 @@
 @value primaryAdd1 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value cm_primary_blue from colors;
 
 .wrapper {
   font-family: Gilroy;
   align-items: center;
   background-color: color(xtraLightGrey a(90%));
-  border-radius: 7px;
   box-sizing: border-box;
   display: flex;
-  height: 60px;
   justify-content: space-between;
   padding: 0 24px;
   width: 100%;
@@ -126,4 +125,14 @@
   .setting {
     gap: 8px;
   }
+}
+.containerImage {
+  min-height: 56px;
+  min-width: 56px;
+}
+
+.checkableSelected {
+  border-radius: 12px;
+  border: 2px solid cm_primary_blue;
+  height: 80px;
 }
