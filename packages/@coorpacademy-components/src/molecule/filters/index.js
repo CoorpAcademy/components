@@ -145,7 +145,7 @@ class Filters extends React.Component {
           />
           <div
             data-name="cta"
-            className={style.CTAfilter}
+            className={style.ctaFilter}
             style={{
               backgroundColor: defaultColor
             }}
@@ -161,7 +161,7 @@ class Filters extends React.Component {
           {sortView}
           <div
             data-name="cta"
-            className={style.CTAfilter}
+            className={style.ctaFilter}
             style={{
               backgroundColor: defaultColor
             }}
