@@ -1,23 +1,23 @@
 import React, {useCallback, useState} from 'react';
 import {filter, pipe, size, toString} from 'lodash/fp';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
 import CmCheckboxWithText from '../../molecule/cm-checkbox-with-text';
-import {GetTranslateFromContext} from '../../atom/provider';
-import {WebContextValues} from '../../atom/provider/web-context';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
-const buttonStyle = {fontWeight: 'normal', position: 'absolute', right: 0};
-// const INITIAL_VISIBLE_OPTIONS = 5;
-// const toggleLabel = NoOptions.length > 5 ? 'Show more' : 'Show less';
-const FilterCkeckboxAndSearch = (
-  props: FilterCheckboxAndSearchProps,
-  context: WebContextValues
-) => {
+const clearButtonStyle = {fontWeight: 'normal', position: 'absolute', right: 0};
+const showButtonStyle = {
+  fontSize: '14px',
+  fontWeight: '600',
+  fontFamily: 'Gilroy',
+  marginTop: '16px'
+};
+const INITIAL_VISIBLE_OPTIONS = 5;
+
+const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
   const {title, placeholder, withSearch, onClearFilters, options} = props;
   const [searchValue, setSearchValue] = useState('');
   const onSearchChange = useCallback(value => {
@@ -26,11 +26,10 @@ const FilterCkeckboxAndSearch = (
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
   const hasSelectedFilters = selectedFiltersCount > 0;
-  const translate = GetTranslateFromContext(context);
   const handleShowMore = useCallback(() => {
     setShowMore(!showMore);
   }, [showMore]);
-
+  const visibleOptions = showMore ? options : options.slice(0, INITIAL_VISIBLE_OPTIONS);
   return (
     <div className={style.container} data-testid="filter-checkbox-and-search-container">
       <div className={style.header} data-testid="header">
@@ -47,7 +46,7 @@ const FilterCkeckboxAndSearch = (
               type="text"
               data-testid="clear-button-link"
               onClick={onClearFilters}
-              customStyle={buttonStyle}
+              customStyle={clearButtonStyle}
             />
           </div>
         ) : null}
@@ -64,7 +63,7 @@ const FilterCkeckboxAndSearch = (
         </div>
       ) : null}
       <div data-testid="options-container" className={style.optionsContainer}>
-        {options.map(option => (
+        {visibleOptions.map(option => (
           <div key={option.value} className={style.optionRow}>
             <CmCheckboxWithText
               {...option}
@@ -78,12 +77,21 @@ const FilterCkeckboxAndSearch = (
           </div>
         ))}
       </div>
-      <div>
-        <div onClick={handleShowMore}>
-          {translate(showMore ? 'Show less' : 'Show more')}
-          <FontAwesomeIcon icon={showMore ? 'chevron-up' : 'chevron-down'} />
+      {options.length > INITIAL_VISIBLE_OPTIONS ? (
+        <div>
+          <ButtonLink
+            label={showMore ? 'Show less' : 'Show more'}
+            type="text"
+            icon={
+              showMore
+                ? {position: 'right', type: 'chevron-up'}
+                : {position: 'right', type: 'chevron-down'}
+            }
+            customStyle={showButtonStyle}
+            onClick={handleShowMore}
+          />
         </div>
-      </div>
+      ) : null}
     </div>
   );
 };
