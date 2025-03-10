@@ -16,7 +16,7 @@ import Notification from './notification';
 import style from './style.css';
 
 export const THEMES = {
-  default: style.defaultStyle,
+  default: null,
   coorpmanager: style.coorpmanager
 };
 
