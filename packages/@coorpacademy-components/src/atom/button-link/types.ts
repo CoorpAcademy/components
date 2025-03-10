@@ -2,6 +2,20 @@ import PropTypes from 'prop-types';
 import {keys} from 'lodash/fp';
 import {ICONS} from '../../util/button-icons';
 
+const faIconPropTypes = {
+  name: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  size: PropTypes.number,
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+};
+
+export const iconPropTypes = {
+  position: PropTypes.oneOf(['right', 'left']).isRequired,
+  type: PropTypes.oneOf(keys(ICONS)),
+  faIcon: PropTypes.shape(faIconPropTypes)
+};
+
 const propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   usage: PropTypes.oneOf(['button', 'submit', 'reset']),
@@ -12,10 +26,7 @@ const propTypes = {
   tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
   'data-name': PropTypes.string,
   'data-testid': PropTypes.string,
-  icon: PropTypes.shape({
-    position: PropTypes.oneOf(['right', 'left']),
-    type: PropTypes.oneOf(keys(ICONS))
-  }),
+  icon: PropTypes.shape(iconPropTypes),
   onClick: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
@@ -26,10 +37,10 @@ const propTypes = {
   hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.shape({})
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
-export type FaIcontype = {
+export type FaIconType = {
   name: string;
   color?: string;
   backgroundColor?: string;
@@ -40,8 +51,9 @@ export type FaIcontype = {
 export type IconType = {
   position: 'right' | 'left';
   type?: keyof typeof ICONS;
-  faIcon?: FaIcontype;
+  faIcon?: FaIconType;
 };
+
 export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
   usage?: 'button' | 'submit' | 'reset';

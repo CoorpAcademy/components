@@ -1,11 +1,21 @@
 import React, {useMemo, useCallback} from 'react';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
+import ButtonLink from '../button-link';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 
 const Button = (props: ButtonProps) => {
-  const {'data-name': dataName, disabled, label, onClick, type = 'default'} = props;
+  const {
+    'data-name': dataName,
+    disabled,
+    label,
+    onClick,
+    type = 'default',
+    buttonLinkType,
+    icon,
+    customStyle = {}
+  } = props;
   const styleButton = classnames(
     style.button,
     type === 'default' && style.defaultStyle,
@@ -14,9 +24,20 @@ const Button = (props: ButtonProps) => {
     type === 'dangerousLeft' && style.dangerousLeft,
     disabled && style.disabled
   );
-
   const handleOnClick = useCallback(() => onClick(), [onClick]);
-  return (
+
+  return icon ? (
+    <ButtonLink
+      label={label}
+      type={buttonLinkType}
+      disabled={disabled}
+      onClick={handleOnClick}
+      data-name={dataName}
+      className={styleButton}
+      customStyle={{...customStyle}}
+      icon={icon}
+    />
+  ) : (
     <button
       type="button"
       aria-label={label}
@@ -47,7 +68,11 @@ const ButtonMenu = (props: ButtonMenuProps) => {
     [buttons, buildButton]
   );
 
-  return <div data-name={dataName}>{buttonList}</div>;
+  return (
+    <div data-name={dataName} className={style.buttonMenuContainer}>
+      {buttonList}
+    </div>
+  );
 };
 
 ButtonMenu.propTypes = propTypes;
