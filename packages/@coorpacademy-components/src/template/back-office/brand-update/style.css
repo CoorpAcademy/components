@@ -94,7 +94,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  overflow: visible;
+  overflow: auto;
   top: 94px;
   position: relative;
   padding-top: 30px;
