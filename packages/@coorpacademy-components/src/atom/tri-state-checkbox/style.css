@@ -1,0 +1,41 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_100 from colors;
+@value cm_primary_blue from colors;
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.checkboxContainer input {
+  display: none;
+}
+
+.checkboxContainer .label {
+  border: solid 1px cm_grey_200;
+  background-color: cm_grey_100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12px;
+  height: 12px;
+  padding: 4px;
+  border-radius: 5px;
+  margin-right: 8px;
+  font-size: 14px;
+  color: dark;
+  position: relative;
+}
+
+.checkbox:disabled + .label {
+  opacity: 0.4;
+}
+
+.checkbox:checked + .label,
+.checkbox:indeterminate + .label {
+  border: solid 1px cm_primary_blue;
+  background-color: cm_primary_blue;
+}
