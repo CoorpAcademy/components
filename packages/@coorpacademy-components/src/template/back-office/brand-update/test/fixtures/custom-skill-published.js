@@ -1,8 +1,11 @@
-import {defaultsDeep, cloneDeep} from 'lodash/fp';
+import {defaultsDeep} from 'lodash/fp';
 import listItemsProps from '../../../../../organism/list-items/test/fixtures/custom-skill';
+import TitleProps from '../../../../../atom/title/test/fixtures/form-group-title-with-button';
 import Default from './default';
 
-const props = cloneDeep(Default.props);
+const props = defaultsDeep(Default.props, {
+  title: TitleProps.props
+});
 
 props.items[0].selected = false;
 props.items[2].selected = true;
