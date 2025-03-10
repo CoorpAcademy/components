@@ -13,7 +13,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
             name: 'circle-xmark',
             color: '#515161',
             size: 14,
-            customStyle: {padding: '0'}
+            customStyle: {padding: 0}
           }
         },
         onClick: () => console.log('click on Discard changes'),
