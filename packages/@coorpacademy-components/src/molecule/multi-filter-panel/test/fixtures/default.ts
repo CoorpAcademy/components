@@ -55,17 +55,6 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
         ]
       }
     }
-    // {
-    //   type: 'checkbox',
-    //   options: [
-    //     {
-    //       label: 'active listening',
-    //       type: 'skills',
-    //       count: 104,
-    //       onClick: () => console.log('click on active listening skill')
-    //     }
-    //   ]
-    // }
   ]
 };
 

@@ -5,6 +5,9 @@ import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
 import CmCheckboxWithText from '../../molecule/cm-checkbox-with-text';
+
+import Provider, {GetTranslateFromContext} from '../../atom/provider';
+import {WebContextValues} from '../../atom/provider/web-context';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
@@ -17,8 +20,12 @@ const showButtonStyle = {
 };
 const INITIAL_VISIBLE_OPTIONS = 5;
 
-const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
-  const {title, placeholder, withSearch, onClearFilters, options} = props;
+const FilterCkeckboxAndSearch = (
+  props: FilterCheckboxAndSearchProps,
+  context: WebContextValues
+) => {
+  const {title, placeholder, withSearch, onClear, options} = props;
+  const translate = GetTranslateFromContext(context);
   const [searchValue, setSearchValue] = useState('');
   const onSearchChange = useCallback(value => {
     setSearchValue(value);
@@ -42,10 +49,10 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
         {hasSelectedFilters ? (
           <div className={style.clearButtonContainer}>
             <ButtonLink
-              label="Clear"
+              label={'Clear'}
               type="text"
               data-testid="clear-button-link"
-              onClick={onClearFilters}
+              onClick={onClear}
               customStyle={clearButtonStyle}
             />
           </div>
@@ -80,13 +87,12 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
       {options.length > INITIAL_VISIBLE_OPTIONS ? (
         <div>
           <ButtonLink
-            label={showMore ? 'Show less' : 'Show more'}
+            label={showMore ? translate('Show less') : translate('Show more')}
             type="text"
-            icon={
-              showMore
-                ? {position: 'right', type: 'chevron-up'}
-                : {position: 'right', type: 'chevron-down'}
-            }
+            icon={{
+              position: 'right',
+              type: showMore ? 'chevron-up' : 'chevron-down'
+            }}
             customStyle={showButtonStyle}
             onClick={handleShowMore}
           />
@@ -95,6 +101,11 @@ const FilterCkeckboxAndSearch = (props: FilterCheckboxAndSearchProps) => {
     </div>
   );
 };
+
 FilterCkeckboxAndSearch.propTypes = propTypes;
+
+FilterCkeckboxAndSearch.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default FilterCkeckboxAndSearch;

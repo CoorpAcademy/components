@@ -4,6 +4,7 @@ import FilterChip from '../../organism/filter-chip';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
+import FilterCheckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import propTypes, {MultiFilterPanelProps, MultiFilterPanelOptionsProps} from './prop-types';
 import style from './style.css';
 
@@ -17,9 +18,8 @@ const buildFilters = (filterOptions: MultiFilterPanelOptionsProps) => {
   switch (type) {
     case 'chip':
       return <FilterChip {...options.options} />;
-    // case 'checkbox':
-    //   // return <FilterCheckbox />;
-    //   return null;
+    case 'checkbox':
+      return <FilterCheckboxAndSearch {...options.options} />;
 
     default:
       return null;
@@ -38,6 +38,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
 
   const filters = uncappedMap((filterOptions: MultiFilterPanelOptionsProps, i: number) => {
     const isLastItem = i + 1 === size(options);
+
     return (
       <div key={i}>
         {buildFilters(filterOptions)}

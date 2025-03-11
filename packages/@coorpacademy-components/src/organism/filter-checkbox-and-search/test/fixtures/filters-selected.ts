@@ -53,7 +53,7 @@ export default {
         value: 'digital-awareness',
         selected: false,
         skillRef: 'skill_103',
-        count: 75,
+        count: 132,
         onClick: () => {
           console.log('Digital Awareness selected');
         }
@@ -63,7 +63,7 @@ export default {
         value: 'digital-carefulness',
         selected: false,
         skillRef: 'skill_104',
-        count: 75,
+        count: 145,
         onClick: () => {
           console.log('Digital Carefulness selected');
         }

@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   title: PropTypes.string,
-  type: PropTypes.string,
   placeholder: PropTypes.string,
-  onClearFilters: PropTypes.func,
+  onClear: PropTypes.func,
   withSearch: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -18,7 +17,7 @@ const propTypes = {
   )
 };
 
-type CheckboxItem = {
+type FilterCheckboxAndSearchOptions = {
   label: string;
   value: string;
   selected: boolean;
@@ -29,11 +28,10 @@ type CheckboxItem = {
 
 export type FilterCheckboxAndSearchProps = {
   title: string;
-  type: string;
   placeholder: string;
-  onClearFilters: () => void;
+  onClear: () => void;
   withSearch: boolean;
-  options: CheckboxItem[];
+  options: FilterCheckboxAndSearchOptions[];
 };
 
 export default propTypes;
