@@ -78,7 +78,8 @@ const createConfig = (NODE_ENV = 'development', {additionalPlugins = [], esModul
                 esModule,
                 modules: {
                   namedExport: esModule,
-                  getLocalIdent
+                  getLocalIdent,
+                  exportLocalsConvention: 'as-is'
                 }
               }
             },
