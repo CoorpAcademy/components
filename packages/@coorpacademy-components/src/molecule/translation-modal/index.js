@@ -59,20 +59,18 @@ const TranslationModal = (props, context) => {
       onCancel: handleCancel,
       label: translate(readOnly ? 'close' : 'cancel')
     };
-    return readOnly
-      ? {
-          cancelButton
+    return {
+      cancelButton,
+      ...(!readOnly && {
+        confirmButton: {
+          onConfirm,
+          label: translate('confirm'),
+          iconName: 'plus',
+          disabled: isConfirmDisabled,
+          color: COLORS.cm_primary_blue
         }
-      : {
-          cancelButton,
-          confirmButton: {
-            onConfirm,
-            label: translate('confirm'),
-            iconName: 'plus',
-            disabled: isConfirmDisabled,
-            color: COLORS.cm_primary_blue
-          }
-        };
+      })
+    };
   }, [handleCancel, onConfirm, translate, isConfirmDisabled, readOnly]);
 
   if (!isOpen) return null;
