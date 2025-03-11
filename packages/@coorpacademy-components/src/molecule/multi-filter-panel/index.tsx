@@ -4,7 +4,6 @@ import FilterChip from '../../organism/filter-chip';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
-import FilterCheckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import propTypes, {MultiFilterPanelProps, MultiFilterPanelOptionsProps} from './prop-types';
 import style from './style.css';
 
@@ -15,6 +14,8 @@ const FilterSeparator = <div className={style.filterSeparator} />;
 
 const buildFilters = (filterOptions: MultiFilterPanelOptionsProps) => {
   const {type, ...options} = filterOptions;
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ buildFilters ~ filterOptions:', filterOptions);
   switch (type) {
     case 'chip':
       return <FilterChip {...options.options} />;

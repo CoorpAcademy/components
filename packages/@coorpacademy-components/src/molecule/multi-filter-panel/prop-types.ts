@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import filterChipProptypes, {FilterChipProps} from '../../organism/filter-chip/prop-types';
-import filterCheckboxAndSearchProptypes, {
-  FilterCheckboxAndSearchProps
-} from '../../organism/filter-checkbox-and-search/props-types';
+import FilterChip from '../../organism/filter-chip';
+import FilterCkeckboxAndSearch from '../../organism/filter-checkbox-and-search';
+import {FilterChipProps} from '../../organism/filter-chip/prop-types';
+import {FilterCheckboxAndSearchProps} from '../../organism/filter-checkbox-and-search/props-types';
 
 const propTypes = {
   title: PropTypes.string,
@@ -11,20 +11,28 @@ const propTypes = {
     PropTypes.oneOfType([
       PropTypes.shape({
         type: PropTypes.oneOf(['chip']),
-        options: PropTypes.shape(filterChipProptypes)
+        options: PropTypes.shape(FilterChip.propTypes)
       }),
       PropTypes.shape({
         type: PropTypes.oneOf(['checkbox']),
-        options: PropTypes.arrayOf(PropTypes.shape(filterCheckboxAndSearchProptypes))
+        options: PropTypes.arrayOf(PropTypes.shape(FilterCkeckboxAndSearch.propTypes))
       })
     ])
   )
 };
-
-export type MultiFilterPanelOptionsProps = {
-  type: 'chip' | 'checkbox';
-  options: FilterChipProps | FilterCheckboxAndSearchProps;
+export type MultiFilterPanelOptionsChipProps = {
+  type: 'chip';
+  options: FilterChipProps;
 };
+
+export type MultiFilterPanelOptionsCheckboxProps = {
+  type: 'checkbox';
+  options: FilterCheckboxAndSearchProps;
+};
+
+export type MultiFilterPanelOptionsProps =
+  | MultiFilterPanelOptionsChipProps
+  | MultiFilterPanelOptionsCheckboxProps;
 
 export type MultiFilterPanelProps = {
   title: string;
