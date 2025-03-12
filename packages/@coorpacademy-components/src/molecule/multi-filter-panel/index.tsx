@@ -11,6 +11,7 @@ import style from './style.css';
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
 
+const CLEAR_ALL_BUTTON_STYLE = {fontWeight: 'normal', position: 'relative', left: '27px'};
 const FilterSeparator = <div className={style.filterSeparator} />;
 
 const buildFilters = (filterOptions: FilterOptionsProps) => {
@@ -58,7 +59,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
         {hasSelectedFilters ? (
           <div className={style.buttonContainer}>
             <ButtonLink
-              customStyle={{fontWeight: 'normal'}}
+              customStyle={CLEAR_ALL_BUTTON_STYLE}
               label="Clear all"
               type="text"
               data-name="filters-all-clear-button"

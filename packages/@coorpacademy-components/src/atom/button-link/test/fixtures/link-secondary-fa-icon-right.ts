@@ -10,6 +10,7 @@ const fixture: Fixture = {
       position: 'right',
       faIcon: {
         name: 'analytics',
+        color: '#515161',
         size: 16
       }
     },

@@ -8,6 +8,7 @@ import CmCheckboxWithText from '../../molecule/cm-checkbox-with-text';
 
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
@@ -38,7 +39,7 @@ const FilterCkeckboxAndSearch = (
   }, [showMore]);
   const visibleOptions = showMore ? options : options.slice(0, INITIAL_VISIBLE_OPTIONS);
   return (
-    <div className={style.container} data-testid="filter-checkbox-and-search-container">
+    <div data-testid="filter-checkbox-and-search-container">
       <div className={style.header} data-testid="header">
         <div className={style.titleAndTagWrapper} data-testid="title-and-tag-wrapper">
           <Title title={title} />
@@ -91,10 +92,15 @@ const FilterCkeckboxAndSearch = (
             type="text"
             icon={{
               position: 'right',
-              type: showMore ? 'chevron-up' : 'chevron-down'
+              faIcon: {
+                name: showMore ? 'chevron-up' : 'chevron-down',
+                size: 16,
+                color: COLORS.cm_grey_500
+              }
             }}
             customStyle={showButtonStyle}
             onClick={handleShowMore}
+            data-testid="show-more-button"
           />
         </div>
       ) : null}

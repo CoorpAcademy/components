@@ -2,10 +2,12 @@
 @value cm_primary_blue from colors;
 @value cm_grey_100 from colors;
 
+
 .header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
+    align-items: center;
 }
 
 .titleContainer {
@@ -19,6 +21,7 @@
 .buttonContainer {
     font-weight: normal;
     color: cm_primary_blue;
+    cursor: pointer;
 }
 
 .filterSeparator {

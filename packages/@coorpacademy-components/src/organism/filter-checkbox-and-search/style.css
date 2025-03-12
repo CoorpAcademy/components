@@ -3,9 +3,6 @@
 @value cm_grey_100 from colors;
 @value cm_grey_400 from colors;
 
-.container {
-    width: 385px;
-}
 
 .header {
     display: flex;
