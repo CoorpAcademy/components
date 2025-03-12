@@ -2,7 +2,7 @@
 @value grey from colors;
 
 .defaultStyle {
-  composes: default from '../input-text/style.css';
+  composes: defaultStyle from '../input-text/style.css';
 }
 
 .input {
