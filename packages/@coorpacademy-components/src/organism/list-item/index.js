@@ -125,21 +125,14 @@ const ListItem = (
         </div>
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
-            <div
-              className={classnames(style.title, checkable && style.titleCheckable)}
-              title={title}
-            >
+            <div className={style.title} title={title}>
               {title}
             </div>
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
           </div>
-          {subtitle ? (
-            <div className={classnames(style.subtitle, checkable && style.subtitleCheckable)}>
-              {subtitle}
-            </div>
-          ) : null}
+          {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
         </div>
         {dataColumnsView}
       </div>
