@@ -7,8 +7,8 @@ import SearchForm from '../../molecule/search-form';
 
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
-import {COLORS} from '../../variables/colors';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
@@ -21,12 +21,10 @@ const SHOW_BUTTON_STYLE = {
 };
 const CHECKBOX_TITLE_STYLE = {
   marginRight: '16px',
-  fontWeight: 'normal',
   fontSize: '14px',
-  border: 'none',
-  fontFamily: 'Gilroy'
+  fontFamily: 'Gilroy',
+  fontWeight: 'normal'
 };
-
 const INITIAL_VISIBLE_OPTIONS = 5;
 
 const FilterCkeckboxAndSearch = (
@@ -47,9 +45,12 @@ const FilterCkeckboxAndSearch = (
   }, [showMore]);
   const visibleOptions = showMore ? options : options.slice(0, INITIAL_VISIBLE_OPTIONS);
   return (
-    <div data-testid="filter-checkbox-search-container">
-      <div className={style.header} data-testid="filter-checkbox-search-header">
-        <div className={style.titleAndTagWrapper} data-testid="title-and-tag-wrapper">
+    <div data-testid="filter-checkbox-and-search-container">
+      <div className={style.header} data-testid="filter-checkbox-and-search-header">
+        <div
+          className={style.titleAndTagWrapper}
+          data-testid="filter-checkbox-and-searh-title-and-tag-wrapper"
+        >
           <Title title={title} />
           {hasSelectedFilters ? (
             <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
@@ -60,7 +61,7 @@ const FilterCkeckboxAndSearch = (
             <ButtonLink
               label={'Clear'}
               type="text"
-              data-testid="clear-button-link"
+              data-testid="filter-checkbox-and-search-clear-button"
               onClick={onClear}
               customStyle={CLEAR_BUTTON_STYLE}
             />
@@ -68,7 +69,7 @@ const FilterCkeckboxAndSearch = (
         ) : null}
       </div>
       {withSearch ? (
-        <div className={style.search} data-testid="filter-checkbox-search-container">
+        <div className={style.search} data-testid="filter-checkbox-and-search-searchbar-container">
           <SearchForm
             search={{
               placeholder,
@@ -78,23 +79,19 @@ const FilterCkeckboxAndSearch = (
           />
         </div>
       ) : null}
-      <div data-testid="filter-checkbox-options-container" className={style.optionsContainer}>
-        {visibleOptions.map(({label, value, selected, count, onClick}) => {
-          const [customIcon, customColor] = selected
-            ? ['check', COLORS.white]
-            : ['square', COLORS.white];
+      <div
+        data-testid="filter-checkbox-and-search-options-container"
+        className={style.optionsContainer}
+      >
+        {visibleOptions.map(({value, label, selected, count}) => {
           return (
             <div key={value} className={style.optionRow}>
               <CheckboxWithTitle
+                key={value}
                 title={label}
-                name={value}
+                onChange={onSearchChange} // TODO : launch search on change
+                name={label}
                 checked={selected}
-                icon={{s
-                  iconName: customIcon,
-                  iconColor: customColor,
-                  preset: 's'
-                }}
-                onChange={onClick}
                 customStyle={CHECKBOX_TITLE_STYLE}
               />
               <p className={style.optionCount}>{count}</p>
@@ -117,7 +114,6 @@ const FilterCkeckboxAndSearch = (
             }}
             customStyle={SHOW_BUTTON_STYLE}
             onClick={handleShowMore}
-            data-testid="show-more-button"
           />
         </div>
       ) : null}
