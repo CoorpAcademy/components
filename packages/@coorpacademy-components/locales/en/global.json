@@ -49,6 +49,7 @@
   "locked": "Locked",
   "icon_picker_title": "Change icon",
   "icon_picker_description": "Select a new icon for your skill",
+  "icon_editor_color": "Icon color",
   "translation_title": "Translate",
   "translation_description": "Manage translations to reach more learners",
   "skills_change_focus": "Change skill focus",

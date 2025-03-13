@@ -1,0 +1,17 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_700 from colors;
+
+.IconEditorWrapper {
+
+}
+
+.inputButtonContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+.inputButtonContainer button {
+  margin-top: -7px;
+  width: 137px;
+}

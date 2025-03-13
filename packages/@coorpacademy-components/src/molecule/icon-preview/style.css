@@ -1,0 +1,31 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_700 from colors;
+
+.iconPreviewWrapper {
+  padding: 32px;
+  border-radius: 8px;
+}
+
+.iconPreview {
+    display: flex;
+    padding: 72px 48px 64px 48px;
+    flex-direction: column;
+    text-align: center; 
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.iconWrapper {
+  border-radius: 12px;
+  border: 4px solid white;
+}
+
+.titleWrapper {
+  color: cm_grey_700;
+  font-family: Gilroy;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+}
