@@ -22,6 +22,7 @@ export default {
         paddingBottom: '12px',
         paddingLeft: '24px'
       }
-    }
+    },
+    handleChange: () => console.log('change')
   }
 };
