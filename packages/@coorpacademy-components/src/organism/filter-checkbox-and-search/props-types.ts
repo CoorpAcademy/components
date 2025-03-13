@@ -10,7 +10,7 @@ const propTypes = {
       label: PropTypes.string,
       value: PropTypes.string,
       selected: PropTypes.bool,
-      ref: PropTypes.string,
+      reference: PropTypes.string,
       count: PropTypes.number,
       onClick: PropTypes.func
     })
@@ -21,7 +21,7 @@ type FilterCheckboxAndSearchOptions = {
   label: string;
   value: string;
   selected: boolean;
-  skillRef: string;
+  reference: string;
   count: number;
   onClick: () => void;
 };

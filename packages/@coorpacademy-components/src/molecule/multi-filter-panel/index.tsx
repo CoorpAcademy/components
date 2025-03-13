@@ -11,7 +11,7 @@ import style from './style.css';
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
 
-const CLEAR_ALL_BUTTON_STYLE = {fontWeight: 'normal', position: 'relative', left: '27px'};
+const CLEAR_ALL_BUTTON_STYLE = {fontWeight: 'normal', padding: 0};
 const FilterSeparator = <div className={style.filterSeparator} />;
 
 const buildFilters = (filterOptions: FilterOptionsProps) => {

@@ -1,6 +1,6 @@
 import FilterChipProps from '../../../../organism/filter-chip/test/fixtures/all-selected';
 import {MultiFilterPanelProps} from '../../prop-types';
-import filterCheckboxFixtures from '../../../../organism/filter-checkbox-and-search/test/fixtures/filters-selected';
+import defaultFilterCheckboxFixtures from '../../../../organism/filter-checkbox-and-search/test/fixtures/default';
 
 export const multiFilterPanelProps: MultiFilterPanelProps = {
   title: 'Filters',
@@ -58,7 +58,7 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
     },
     {
       type: 'checkbox',
-      options: filterCheckboxFixtures.props
+      options: defaultFilterCheckboxFixtures.props
     }
   ]
 };

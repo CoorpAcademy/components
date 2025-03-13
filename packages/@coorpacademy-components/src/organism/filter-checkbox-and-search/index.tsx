@@ -4,7 +4,7 @@ import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
-import CmCheckboxWithText from '../../molecule/cm-checkbox-with-text';
+import CmCheckboxWithText from '../../molecule/checkbox-with-text';
 
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
@@ -12,7 +12,7 @@ import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
-const clearButtonStyle = {fontWeight: 'normal', position: 'absolute', right: 0};
+const clearButtonStyle = {fontWeight: 'normal', padding: 0};
 const showButtonStyle = {
   fontSize: '14px',
   fontWeight: '600',
@@ -40,7 +40,7 @@ const FilterCkeckboxAndSearch = (
   const visibleOptions = showMore ? options : options.slice(0, INITIAL_VISIBLE_OPTIONS);
   return (
     <div data-testid="filter-checkbox-and-search-container">
-      <div className={style.header} data-testid="header">
+      <div className={style.header} data-testid="filter-checkbox-and-search-header">
         <div className={style.titleAndTagWrapper} data-testid="title-and-tag-wrapper">
           <Title title={title} />
           {hasSelectedFilters ? (
@@ -60,7 +60,7 @@ const FilterCkeckboxAndSearch = (
         ) : null}
       </div>
       {withSearch ? (
-        <div className={style.search} data-testid="search-container">
+        <div className={style.search} data-testid="filter-checkbox-search-container">
           <SearchForm
             search={{
               placeholder,
@@ -70,14 +70,14 @@ const FilterCkeckboxAndSearch = (
           />
         </div>
       ) : null}
-      <div data-testid="options-container" className={style.optionsContainer}>
+      <div data-testid="filter-checkbox-options-container" className={style.optionsContainer}>
         {visibleOptions.map(option => (
           <div key={option.value} className={style.optionRow}>
             <CmCheckboxWithText
               {...option}
               key={option.value}
               title={option.label}
-              onChange={onSearchChange}
+              onChange={onSearchChange} // to be changed
               name={option.label}
               checked={option.selected}
             />
