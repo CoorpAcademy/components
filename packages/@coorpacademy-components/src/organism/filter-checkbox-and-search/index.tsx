@@ -4,21 +4,29 @@ import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
-import CheckboxWithText from '../../molecule/checkbox-with-text';
 
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
 import {COLORS} from '../../variables/colors';
+import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
-const clearButtonStyle = {fontWeight: 'normal', padding: 0};
-const showButtonStyle = {
+const CLEAR_BUTTON_STYLE = {fontWeight: 'normal', padding: 0};
+const SHOW_BUTTON_STYLE = {
   fontSize: '14px',
   fontWeight: '600',
   fontFamily: 'Gilroy',
   marginTop: '16px'
 };
+const CHECKBOX_TITLE_STYLE = {
+  marginRight: '16px',
+  fontWeight: 'normal',
+  fontSize: '14px',
+  border: 'none',
+  fontFamily: 'Gilroy'
+};
+
 const INITIAL_VISIBLE_OPTIONS = 5;
 
 const FilterCkeckboxAndSearch = (
@@ -54,7 +62,7 @@ const FilterCkeckboxAndSearch = (
               type="text"
               data-testid="clear-button-link"
               onClick={onClear}
-              customStyle={clearButtonStyle}
+              customStyle={CLEAR_BUTTON_STYLE}
             />
           </div>
         ) : null}
@@ -71,18 +79,28 @@ const FilterCkeckboxAndSearch = (
         </div>
       ) : null}
       <div data-testid="filter-checkbox-options-container" className={style.optionsContainer}>
-        {visibleOptions.map(({label, value, selected, count}) => (
-          <div key={value} className={style.optionRow}>
-            <CheckboxWithText
-              key={value}
-              title={label}
-              onChange={onSearchChange} // to be changed
-              name={label}
-              checked={selected}
-            />
-            <p className={style.optionCount}>{count}</p>
-          </div>
-        ))}
+        {visibleOptions.map(({label, value, selected, count, onClick}) => {
+          const [customIcon, customColor] = selected
+            ? ['check', COLORS.white]
+            : ['square', COLORS.white];
+          return (
+            <div key={value} className={style.optionRow}>
+              <CheckboxWithTitle
+                title={label}
+                name={value}
+                checked={selected}
+                icon={{s
+                  iconName: customIcon,
+                  iconColor: customColor,
+                  preset: 's'
+                }}
+                onChange={onClick}
+                customStyle={CHECKBOX_TITLE_STYLE}
+              />
+              <p className={style.optionCount}>{count}</p>
+            </div>
+          );
+        })}
       </div>
       {options.length > INITIAL_VISIBLE_OPTIONS ? (
         <div>
@@ -97,7 +115,7 @@ const FilterCkeckboxAndSearch = (
                 color: COLORS.cm_grey_500
               }
             }}
-            customStyle={showButtonStyle}
+            customStyle={SHOW_BUTTON_STYLE}
             onClick={handleShowMore}
             data-testid="show-more-button"
           />
