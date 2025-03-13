@@ -9,8 +9,11 @@ import FaIcon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import {COLORS} from '../../variables/colors';
+import CardImagePreview from '../../atom/card-image-preview';
+import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import style from './style.css';
 
+const BACKGROUND_COLOR = COLORS.white;
 const ListItem = (
   {
     buttonLink,
@@ -30,13 +33,16 @@ const ListItem = (
     isBulkStyle = false,
     isOverflowHidden = false,
     onClick = noop,
-    leftIcon
+    leftIcon,
+    image,
+    checkbox
   },
   context
 ) => {
   const {skin} = context;
   const primarySelectedColor = selectedColor || get('common.primary', skin);
   const mapUncapped = map.convert({cap: false});
+  const checkable = checkbox || false;
   let isPublished = false;
 
   const selectedStyle = selected
@@ -83,7 +89,8 @@ const ListItem = (
         isBulkStyle && style.gridLayout,
         subtitle && style.withSubtitle,
         disabled && style.disabled,
-        onClick !== noop && !disabled && style.cursorPointer
+        onClick !== noop && !disabled && style.cursorPointer,
+        checkbox?.checked && style.checked
       )}
       onClick={!disabled ? onClick : undefined}
       style={selectedStyle}
@@ -94,7 +101,8 @@ const ListItem = (
       >
         {isPublished && contentType === 'certification' ? orderView : null}
         <div className={style.leftSection}>
-          {leftIcon ? (
+          {checkable ? <CheckboxWithTitle {...checkbox} /> : null}
+          {leftIcon && !image ? (
             <div>
               <FaIcon
                 iconName={leftIcon.iconName}
@@ -103,6 +111,11 @@ const ListItem = (
                 preset={leftIcon.preset || 'xl'}
                 borderRadius={leftIcon.borderRadius || '25%'}
               />
+            </div>
+          ) : null}
+          {!leftIcon && image ? (
+            <div className={style.containerImage}>
+              <CardImagePreview image={image} />
             </div>
           ) : null}
         </div>
@@ -122,11 +135,11 @@ const ListItem = (
 
       <div className={style.settings}>
         {tagsView}
-        {selected ? (
+        {selected && !checkable ? (
           <FaIcon
             iconName="circle-check"
             iconColor={primarySelectedColor}
-            backgroundColor={COLORS.white}
+            backgroundColor={BACKGROUND_COLOR}
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
@@ -219,7 +232,9 @@ ListItem.propTypes = {
     gradientBackground: PropTypes.bool,
     size: PropTypes.number,
     wrapperSize: PropTypes.number
-  })
+  }),
+  image: PropTypes.string,
+  checkbox: PropTypes.shape(CheckboxWithTitle.propTypes)
 };
 
 export default ListItem;
