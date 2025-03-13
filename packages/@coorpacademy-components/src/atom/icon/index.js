@@ -7,6 +7,7 @@ import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
 import {convert} from 'css-color-function';
+import {createGradientBackground} from '../../util/get-background-gradient-color';
 import style from './style.css';
 
 library.add(fas);
@@ -30,12 +31,6 @@ const SIZE_CONFIGS = {
     faSize: 20,
     wrapperSize: 48
   }
-};
-
-export const createGradientBackground = baseColor => {
-  const startColor = convert(`color(${baseColor} lightness(91%))`);
-  const endColor = convert(`color(${baseColor} lightness(81%))`);
-  return `linear-gradient(180deg, ${startColor} 0%, ${endColor} 100%)`;
 };
 
 export const getForegroundColor = backgroundColor =>
@@ -62,7 +57,9 @@ const Icon = React.memo(function Icon({
   const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
 
   const iconWrapperStyle = {
-    background: gradientBackground ? createGradientBackground(effectiveIconColor) : backgroundColor,
+    background: gradientBackground
+      ? createGradientBackground(effectiveIconColor, '81%', '91%')
+      : backgroundColor,
     borderRadius,
     width: wrapperSize,
     height: wrapperSize,
