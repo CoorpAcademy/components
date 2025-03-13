@@ -1,4 +1,6 @@
-export default {
+import {CheckboxWithTextProps} from '../../prop-types';
+
+const checkboxWithTextFixture: {props: CheckboxWithTextProps} = {
   props: {
     title: 'Text',
     name: 'name',
@@ -10,3 +12,5 @@ export default {
     'data-name': 'data-name'
   }
 };
+
+export default checkboxWithTextFixture;

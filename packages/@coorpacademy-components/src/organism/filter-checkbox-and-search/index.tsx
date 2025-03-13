@@ -4,7 +4,7 @@ import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
-import CmCheckboxWithText from '../../molecule/checkbox-with-text';
+import CheckboxWithText from '../../molecule/checkbox-with-text';
 
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
@@ -39,8 +39,8 @@ const FilterCkeckboxAndSearch = (
   }, [showMore]);
   const visibleOptions = showMore ? options : options.slice(0, INITIAL_VISIBLE_OPTIONS);
   return (
-    <div data-testid="filter-checkbox-and-search-container">
-      <div className={style.header} data-testid="filter-checkbox-and-search-header">
+    <div data-testid="filter-checkbox-search-container">
+      <div className={style.header} data-testid="filter-checkbox-search-header">
         <div className={style.titleAndTagWrapper} data-testid="title-and-tag-wrapper">
           <Title title={title} />
           {hasSelectedFilters ? (
@@ -71,17 +71,16 @@ const FilterCkeckboxAndSearch = (
         </div>
       ) : null}
       <div data-testid="filter-checkbox-options-container" className={style.optionsContainer}>
-        {visibleOptions.map(option => (
-          <div key={option.value} className={style.optionRow}>
-            <CmCheckboxWithText
-              {...option}
-              key={option.value}
-              title={option.label}
+        {visibleOptions.map(({label, value, selected, count}) => (
+          <div key={value} className={style.optionRow}>
+            <CheckboxWithText
+              key={value}
+              title={label}
               onChange={onSearchChange} // to be changed
-              name={option.label}
-              checked={option.selected}
+              name={label}
+              checked={selected}
             />
-            <p className={style.optionCount}>{option.count}</p>
+            <p className={style.optionCount}>{count}</p>
           </div>
         ))}
       </div>

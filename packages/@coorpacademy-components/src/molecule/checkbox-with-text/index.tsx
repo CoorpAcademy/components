@@ -3,9 +3,9 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {noop, uniqueId} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
-import propTypes, {CmCheckboxWithTextProps} from './prop-types';
+import propTypes, {CheckboxWithTextProps} from './prop-types';
 
-const CmCheckboxWithText = (props: CmCheckboxWithTextProps) => {
+const CheckboxWithText = (props: CheckboxWithTextProps) => {
   const {
     title,
     name,
@@ -44,6 +44,6 @@ const CmCheckboxWithText = (props: CmCheckboxWithTextProps) => {
   );
 };
 
-CmCheckboxWithText.propTypes = propTypes;
+CheckboxWithText.propTypes = propTypes;
 
-export default CmCheckboxWithText;
+export default CheckboxWithText;

@@ -9,7 +9,7 @@ const propTypes = {
   'data-name': PropTypes.string
 };
 
-export type CmCheckboxWithTextProps = {
+export type CheckboxWithTextProps = {
   title: string;
   name: string;
   checked: boolean;
