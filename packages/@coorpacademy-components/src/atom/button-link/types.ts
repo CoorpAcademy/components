@@ -11,7 +11,7 @@ const faIconPropTypes = {
 };
 
 export const iconPropTypes = {
-  position: PropTypes.oneOf(['right', 'left']).isRequired,
+  position: PropTypes.oneOf(['right', 'left']),
   type: PropTypes.oneOf(keys(ICONS)),
   faIcon: PropTypes.shape(faIconPropTypes)
 };
