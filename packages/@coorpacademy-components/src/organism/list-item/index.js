@@ -13,7 +13,6 @@ import CardImagePreview from '../../atom/card-image-preview';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import style from './style.css';
 
-const BACKGROUND_COLOR = COLORS.white;
 const ListItem = (
   {
     buttonLink,
@@ -135,11 +134,11 @@ const ListItem = (
 
       <div className={style.settings}>
         {tagsView}
-        {selected && !checkable ? (
+        {selected ? (
           <FaIcon
             iconName="circle-check"
             iconColor={primarySelectedColor}
-            backgroundColor={BACKGROUND_COLOR}
+            backgroundColor={COLORS.white}
             size={{faSize: 16, wrapperSize: 16}}
           />
         ) : null}
