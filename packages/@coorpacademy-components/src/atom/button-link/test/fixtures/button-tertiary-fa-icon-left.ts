@@ -10,7 +10,8 @@ const fixture: Fixture = {
       position: 'left',
       faIcon: {
         name: 'eye',
-        size: 16
+        size: 16,
+        color: '#515161'
       }
     },
     onClick: () => console.log('click')

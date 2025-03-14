@@ -1,26 +1,26 @@
 import React from 'react';
 import {map, size, pipe, filter, flatMap, toString} from 'lodash/fp';
 import FilterChip from '../../organism/filter-chip';
+import FilterCkeckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
-import propTypes, {MultiFilterPanelProps, MultiFilterPanelOptionsProps} from './prop-types';
+import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
 import style from './style.css';
 
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
 
+const CLEAR_ALL_BUTTON_STYLE = {fontWeight: 'normal', padding: 0};
 const FilterSeparator = <div className={style.filterSeparator} />;
 
-const buildFilters = (filterOptions: MultiFilterPanelOptionsProps) => {
-  const {type, ...options} = filterOptions;
+const buildFilters = (filterOptions: FilterOptionsProps) => {
+  const {type, options} = filterOptions;
   switch (type) {
     case 'chip':
-      return <FilterChip {...options.options} />;
-    // case 'checkbox':
-    //   // return <FilterCheckbox />;
-    //   return null;
-
+      return <FilterChip {...options} />;
+    case 'checkbox':
+      return <FilterCkeckboxAndSearch {...options} />;
     default:
       return null;
   }
@@ -36,8 +36,9 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
   )(options);
   const hasSelectedFilters = allSelectedFilters > 0;
 
-  const filters = uncappedMap((filterOptions: MultiFilterPanelOptionsProps, i: number) => {
+  const filters = uncappedMap((filterOptions: FilterOptionsProps, i: number) => {
     const isLastItem = i + 1 === size(options);
+
     return (
       <div key={i}>
         {buildFilters(filterOptions)}
@@ -58,7 +59,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
         {hasSelectedFilters ? (
           <div className={style.buttonContainer}>
             <ButtonLink
-              customStyle={{fontWeight: 'normal'}}
+              customStyle={CLEAR_ALL_BUTTON_STYLE}
               label="Clear all"
               type="text"
               data-name="filters-all-clear-button"
