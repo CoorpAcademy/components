@@ -12,7 +12,6 @@ const IconEditor = (props, context) => {
 
   return (
     <>
-      {' '}
       <IconPreview iconName={iconName} title={title} iconColor={iconColor} />
       <div className={style.inputButtonContainer}>
         <InputText
