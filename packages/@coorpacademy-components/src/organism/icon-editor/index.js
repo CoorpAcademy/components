@@ -11,7 +11,8 @@ const IconEditor = (props, context) => {
   const {translate} = context;
 
   return (
-    <div className={style.IconEditorWrapper}>
+    <>
+      {' '}
       <IconPreview iconName={iconName} title={title} iconColor={iconColor} />
       <div className={style.inputButtonContainer}>
         <InputText
@@ -28,7 +29,7 @@ const IconEditor = (props, context) => {
         />
         <ButtonLink {...buttonLink} />
       </div>
-    </div>
+    </>
   );
 };
 
