@@ -5,6 +5,7 @@
 @value cm_grey_200 from colors;
 @value black from colors;
 @value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
 
 .container {
   display: flex;
@@ -36,13 +37,17 @@
   border-radius: 4px;
 }
 
-.container .label:hover {
+.container:hover .label {
   border: 1px solid cm_primary_blue;
 }
 
 .checkbox:checked + .label {
   border: solid 1px cm_primary_blue;
   background-color: cm_primary_blue;
+}
+
+.checkbox:checked:hover + .label {
+  background-color: cm_blue_600;
 }
 
 .checkbox:checked + .label .icon {

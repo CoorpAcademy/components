@@ -44,7 +44,13 @@ const CheckboxWithTitle = props => {
               customStyle={DEFAULT_ICON_STYLE}
             />
           ) : (
-            <FaIcon className={style.icon} preset="s" customStyle={DEFAULT_ICON_STYLE} />
+            <FaIcon
+              className={style.icon}
+              iconName={'square'}
+              iconColor={'transparent'}
+              preset="s"
+              customStyle={DEFAULT_ICON_STYLE}
+            />
           )}
         </div>
       </label>
