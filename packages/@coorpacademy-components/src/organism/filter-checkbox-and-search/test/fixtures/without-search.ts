@@ -4,7 +4,7 @@ import defaultProps from './default';
 const filterCheckboxWithoutSearch: {props: FilterCheckboxAndSearchProps} = {
   props: {
     ...defaultProps.props,
-    withSearch: false
+    onSearchProps: undefined
   }
 };
 export default filterCheckboxWithoutSearch;

@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
+import SearchForm from '../../molecule/search-form';
 
 const propTypes = {
   title: PropTypes.string,
-  placeholder: PropTypes.string,
   onClear: PropTypes.func,
-  withSearch: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
@@ -14,7 +13,8 @@ const propTypes = {
       count: PropTypes.number,
       onClick: PropTypes.func
     })
-  )
+  ),
+  onSearchProps: PropTypes.shape(SearchForm.propTypes)
 };
 
 export type FilterCheckboxAndSearchOptions = {
@@ -28,9 +28,8 @@ export type FilterCheckboxAndSearchOptions = {
 
 export type FilterCheckboxAndSearchProps = {
   title: string;
-  placeholder: string;
   onClear: () => void;
-  withSearch: boolean;
+  onSearchProps: React.ComponentProps<typeof SearchForm>;
   options: FilterCheckboxAndSearchOptions[];
 };
 

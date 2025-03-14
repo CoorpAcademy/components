@@ -9,12 +9,8 @@ import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import {COLORS} from '../../variables/colors';
-import searchValueIncluded from '../../util/search-value-included';
 import style from './style.css';
-import propTypes, {
-  FilterCheckboxAndSearchOptions,
-  FilterCheckboxAndSearchProps
-} from './props-types';
+import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
 const CLEAR_BUTTON_STYLE = {fontWeight: 'normal', padding: 0};
 const SHOW_BUTTON_STYLE = {
@@ -31,44 +27,23 @@ const CHECKBOX_TITLE_STYLE = {
 };
 const INITIAL_VISIBLE_OPTIONS = 5;
 
-const getFilteredOptionsAndShowButton = (
-  options: FilterCheckboxAndSearchOptions[],
-  searchValue: string
-) => {
-  const filteredOptions = searchValue
-    ? options.filter(option => searchValueIncluded(option.label, searchValue))
-    : options;
-  const showButton = filteredOptions.length > INITIAL_VISIBLE_OPTIONS;
-  return {filteredOptions, showButton};
-};
-
 const FilterCkeckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
-  const {title, placeholder, withSearch, onClear, options} = props;
+  const {title, onSearchProps, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
-  const [searchValue, setSearchValue] = useState('');
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
   const hasSelectedFilters = selectedFiltersCount > 0;
-  const handleSearch = useCallback(value => {
-    setSearchValue(value);
-  }, []);
+
   const handleShowMore = useCallback(() => {
     setShowMore(!showMore);
   }, [showMore]);
-  const handleOnReset = useCallback(() => {
-    setSearchValue('');
-  }, []);
-
-  const {filteredOptions, showButton} = useMemo(() => {
-    return getFilteredOptionsAndShowButton(options, searchValue);
-  }, [searchValue, options]);
 
   const visibleOptions = useMemo(() => {
-    return showMore ? filteredOptions : filteredOptions.slice(0, INITIAL_VISIBLE_OPTIONS);
-  }, [filteredOptions, showMore]);
+    return showMore ? options : options.slice(0, INITIAL_VISIBLE_OPTIONS);
+  }, [options, showMore]);
 
   return (
     <div data-testid="filter-checkbox-and-search-container">
@@ -94,17 +69,9 @@ const FilterCkeckboxAndSearch = (
           </div>
         ) : null}
       </div>
-      {withSearch ? (
+      {onSearchProps ? (
         <div className={style.search}>
-          <SearchForm
-            search={{
-              placeholder,
-              value: searchValue,
-              onChange: handleSearch
-            }}
-            onReset={handleOnReset}
-            dataTestId="filter-checkbox-and-search-searchinput"
-          />
+          <SearchForm {...onSearchProps} />
         </div>
       ) : null}
       <div
@@ -131,7 +98,7 @@ const FilterCkeckboxAndSearch = (
           );
         })}
       </div>
-      {showButton ? (
+      {options.length > INITIAL_VISIBLE_OPTIONS ? (
         <div>
           <ButtonLink
             label={showMore ? translate('Show less') : translate('Show more')}

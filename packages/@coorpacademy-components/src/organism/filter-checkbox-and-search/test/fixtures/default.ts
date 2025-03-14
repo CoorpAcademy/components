@@ -3,11 +3,18 @@ import {FilterCheckboxAndSearchProps} from '../../props-types';
 const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
   props: {
     title: 'Skills',
-    placeholder: 'Search for a skill',
     onClear: () => {
       console.log('clear filters');
     },
-    withSearch: true,
+    onSearchProps: {
+      search: {
+        placeholder: 'Search for a skill',
+        value: '',
+        onChange: () => {
+          console.log('onChange search');
+        }
+      }
+    },
     options: [
       {
         label: 'Active listening',
