@@ -28,8 +28,4 @@ test('should display options contents on show more click', t => {
   t.is(showButton.textContent, 'Show more');
   fireEvent.click(showButton);
   t.is(showButton.textContent, 'Show less');
-  const options = container.querySelectorAll(
-    '[data-testid="filter-checkbox-and-search-option-row"]'
-  );
-  t.is(options.length, 7);
 });

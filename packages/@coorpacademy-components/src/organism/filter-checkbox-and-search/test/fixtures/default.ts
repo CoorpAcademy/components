@@ -20,7 +20,7 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
         label: 'Active listening',
         value: 'active-listening',
         selected: false,
-        reference: 'skill_94',
+        ref: 'skill_94',
         count: 104,
         onClick: () => {
           console.log('active listening selected');
@@ -30,7 +30,7 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
         label: 'Resilience and wellbeing',
         value: 'resilience-and-wellbeing',
         selected: false,
-        reference: 'skill_95',
+        ref: 'skill_95',
         count: 184,
         onClick: () => {
           console.log('Resilience and wellbeing selected');
@@ -40,7 +40,7 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
         label: 'Agility',
         value: 'agility',
         selected: false,
-        reference: 'skill_96',
+        ref: 'skill_96',
         count: 234,
         onClick: () => {
           console.log('Agility selected');
@@ -50,7 +50,7 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
         label: 'Analytical and Critical Thinking',
         value: 'analytical-and-critical-thinking',
         selected: false,
-        reference: 'skill_97',
+        ref: 'skill_97',
         count: 75,
         onClick: () => {
           console.log('Analytical and Critical Thinking selected');

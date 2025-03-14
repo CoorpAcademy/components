@@ -9,7 +9,7 @@ const propTypes = {
       label: PropTypes.string,
       value: PropTypes.string,
       selected: PropTypes.bool,
-      reference: PropTypes.string,
+      ref: PropTypes.string,
       count: PropTypes.number,
       onClick: PropTypes.func
     })
@@ -21,7 +21,7 @@ export type FilterCheckboxAndSearchOptions = {
   label: string;
   value: string;
   selected: boolean;
-  reference: string;
+  ref: string;
   count: number;
   onClick: () => void;
 };
