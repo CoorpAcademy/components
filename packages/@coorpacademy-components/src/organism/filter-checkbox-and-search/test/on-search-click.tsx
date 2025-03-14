@@ -2,6 +2,7 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {cleanup, fireEvent} from '@testing-library/react';
+import delay from 'delay';
 import FilterCheckboxAndSearch from '..';
 import {renderWithContext} from '../../../util/render-with-context';
 
@@ -11,7 +12,7 @@ test.afterEach(() => {
   cleanup();
 });
 
-test('should setSearchValue on search input change', t => {
+test('should setSearchValue on search input change', async t => {
   // t.plan3);
   const context = {
     translate: (key: string) => key
@@ -75,6 +76,7 @@ test('should setSearchValue on search input change', t => {
   t.truthy(searchInput);
   fireEvent.change(searchInput, {target: {value: 'no-value-result'}});
   t.is(searchInput.value, 'no-value-result');
+  await delay(500);
   rerender(<FilterCheckboxAndSearch {...props} />);
   const optionRow = container.querySelectorAll(
     '[data-testid="filter-checkbox-and-search-option-row"]'

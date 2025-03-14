@@ -31,10 +31,15 @@ const CHECKBOX_TITLE_STYLE = {
 };
 const INITIAL_VISIBLE_OPTIONS = 5;
 
-const getOptions = (options: FilterCheckboxAndSearchOptions[], searchValue: string) => {
-  return searchValue
+const getFilteredOptionsAndShowButton = (
+  options: FilterCheckboxAndSearchOptions[],
+  searchValue: string
+) => {
+  const filteredOptions = searchValue
     ? options.filter(option => searchValueIncluded(option.label, searchValue))
     : options;
+  const showButton = filteredOptions.length > INITIAL_VISIBLE_OPTIONS;
+  return {filteredOptions, showButton};
 };
 
 const FilterCkeckboxAndSearch = (
@@ -57,17 +62,13 @@ const FilterCkeckboxAndSearch = (
     setSearchValue('');
   }, []);
 
-  const visibleOptions = useMemo(() => {
-    const resultOptions = getOptions(options, searchValue);
-    return showMore ? resultOptions : resultOptions.slice(0, INITIAL_VISIBLE_OPTIONS);
-  }, [searchValue, showMore, options]);
-
-  const showButton = useMemo(() => {
-    const searchOptionsResult = searchValue
-      ? options.filter(option => option.label.toLowerCase().includes(searchValue.toLowerCase()))
-      : options;
-    return searchOptionsResult.length > INITIAL_VISIBLE_OPTIONS;
+  const {filteredOptions, showButton} = useMemo(() => {
+    return getFilteredOptionsAndShowButton(options, searchValue);
   }, [searchValue, options]);
+
+  const visibleOptions = useMemo(() => {
+    return showMore ? filteredOptions : filteredOptions.slice(0, INITIAL_VISIBLE_OPTIONS);
+  }, [filteredOptions, showMore]);
 
   return (
     <div data-testid="filter-checkbox-and-search-container">
