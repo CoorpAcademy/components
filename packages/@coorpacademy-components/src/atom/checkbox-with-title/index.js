@@ -1,8 +1,10 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
-import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
+import FaIcon from '../icon';
 import style from './style.css';
+
+const DEFAULT_ICON_STYLE = {padding: '0', width: '20px', height: '20px'};
 
 const CheckboxWithTitle = props => {
   const {
@@ -11,14 +13,16 @@ const CheckboxWithTitle = props => {
     checked,
     onChange = noop,
     'data-name': dataName,
-    'aria-label': ariaLabel
+    'aria-label': ariaLabel,
+    icon = {iconName: 'check', iconColor: 'white', preset: 's'},
+    customStyle = {}
   } = props;
-
-  const idCheckbox = uniqueId('input-checkbox-');
+  const {iconName, iconColor, preset} = icon;
+  const idCheckbox = useMemo(() => uniqueId('input-checkbox-'), []);
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   return (
-    <div className={style.container}>
+    <div className={style.container} style={{...customStyle}}>
       <label htmlFor={idCheckbox}>
         <input
           type="checkbox"
@@ -31,10 +35,31 @@ const CheckboxWithTitle = props => {
           aria-label={ariaLabel}
         />
         <div className={style.label}>
-          <CheckIcon className={style.icon} />
+          {checked ? (
+            <FaIcon
+              className={style.icon}
+              iconName={iconName}
+              iconColor={iconColor}
+              preset={preset}
+              customStyle={DEFAULT_ICON_STYLE}
+            />
+          ) : (
+            <FaIcon
+              className={style.icon}
+              iconName={'square'}
+              iconColor={'transparent'}
+              preset="s"
+              customStyle={DEFAULT_ICON_STYLE}
+            />
+          )}
         </div>
       </label>
-      <span className={style.title}>{title}</span>
+      {title ? (
+        <span
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
+      ) : null}
     </div>
   );
 };
@@ -45,6 +70,12 @@ CheckboxWithTitle.propTypes = {
   checked: PropTypes.bool,
   onChange: PropTypes.func,
   'aria-label': PropTypes.string,
-  'data-name': PropTypes.string
+  'data-name': PropTypes.string,
+  icon: PropTypes.shape({
+    iconName: PropTypes.string,
+    iconColor: PropTypes.string,
+    preset: PropTypes.string
+  }),
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 export default CheckboxWithTitle;

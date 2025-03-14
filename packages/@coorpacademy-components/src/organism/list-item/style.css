@@ -2,22 +2,28 @@
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
-@value cm_grey_900 from colors;
 @value primaryAdd1 from colors;
+@value cm_grey_75 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+@value cm_primary_blue from colors;
 
 .wrapper {
   font-family: Gilroy;
   align-items: center;
   background-color: color(xtraLightGrey a(90%));
-  border-radius: 7px;
   box-sizing: border-box;
   display: flex;
-  height: 60px;
   justify-content: space-between;
   padding: 0 24px;
   width: 100%;
+  border-radius: 12px;
+  min-height: 64px;
+}
+
+.wrapper:hover {
+  background-color: cm_grey_75;
 }
 
 .gridLayout {
@@ -30,26 +36,31 @@
 }
 
 .title {
-  color: cm_grey_900;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  color: cm_grey_700;
   flex: 2 0 0;
   font-size: 16px;
   font-stretch: normal;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.38;
+  line-height: 22px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   letter-spacing: normal;
   text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .subtitle {
   font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
   line-height: 16px;
   color: cm_grey_400;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 
 .cursorPointer {
@@ -73,14 +84,14 @@
 .leftSection {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-right: 16px;
+  gap: 16px;
 }
 
 .titleWrapper {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  margin: 0 16px;
 }
 
 .titleProviderWrapper {
@@ -121,9 +132,18 @@
 }
 
 .withSubtitle {
-  padding: 8px 16px;
+  padding: 12px 16px;
 
   .setting {
     gap: 8px;
   }
+}
+
+.containerImage {
+  min-height: 56px;
+  min-width: 56px;
+}
+
+.checked {
+  outline: 2px solid cm_primary_blue;
 }
