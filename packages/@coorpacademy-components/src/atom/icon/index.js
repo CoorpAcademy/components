@@ -80,7 +80,7 @@ const Icon = React.memo(function Icon({
   );
 });
 
-Icon.propTypes = {
+export const iconPropTypes = {
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
   backgroundColor: PropTypes.string,
@@ -93,5 +93,7 @@ Icon.propTypes = {
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
+
+Icon.propTypes = iconPropTypes;
 
 export default Icon;

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {keys} from 'lodash/fp';
-import Cta from '../../atom/button-link';
+import ButtonLink from '../../atom/button-link';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import Link from '../../atom/link';
@@ -8,6 +8,7 @@ import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
 import {ICONS} from '../../util/button-icons';
+import {iconPropTypes} from '../../atom/icon';
 
 const propTypes = {
   content: PropTypes.string,
@@ -23,7 +24,7 @@ const propTypes = {
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary', 'tertiary']),
-    customStyle: Cta.propTypes.customStyle
+    customStyle: ButtonLink.propTypes.customStyle
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
@@ -31,7 +32,7 @@ const propTypes = {
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    customStyle: Cta.propTypes.customStyle,
+    customStyle: ButtonLink.propTypes.customStyle,
     icon: PropTypes.shape({
       position: PropTypes.oneOf(['right', 'left']),
       type: PropTypes.oneOf(keys(ICONS))
@@ -43,10 +44,10 @@ const propTypes = {
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
     'aria-label': PropTypes.string,
     largeButton: PropTypes.bool,
-    customStyle: Cta.propTypes.customStyle
+    customStyle: ButtonLink.propTypes.customStyle
   }),
   onClose: PropTypes.func,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOf([PropTypes.string, PropTypes.shape(iconPropTypes)]),
   backgroundImageUrl: PropTypes.string,
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
