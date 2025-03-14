@@ -1,89 +1,35 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {renderWithContext} from '../../../../es/util/render-with-context';
+import {cleanup, fireEvent} from '@testing-library/react';
 import FilterCheckboxAndSearch from '..';
+import {renderWithContext} from '../../../util/render-with-context';
+import filterCheckboxSelected from './fixtures/filters-selected';
 
 browserEnv();
 
-test('should display content on show more click', t => {
-  const props = {
-    title: 'Skills',
-    placeholder: 'Search for a skill',
-    onClear: () => {
-      console.log('clear filters');
-    },
-    withSearch: true,
-    options: [
-      {
-        label: 'Active listening',
-        value: 'active-listening',
-        selected: false,
-        reference: 'skill_94',
-        count: 104,
-        onClick: () => {
-          console.log('active listening selected');
-        }
-      },
-      {
-        label: 'Active listening',
-        value: 'active-listening116',
-        selected: false,
-        reference: 'skill_94',
-        count: 104,
-        onClick: () => {
-          console.log('active listening selected');
-        }
-      },
-      {
-        label: 'Active listening',
-        value: 'active-listening115',
-        selected: false,
-        reference: 'skill_93',
-        count: 104,
-        onClick: () => {
-          console.log('active listening selected');
-        }
-      },
-      {
-        label: 'Active listening',
-        value: 'active-listening114',
-        selected: false,
-        reference: 'skill_94',
-        count: 104,
-        onClick: () => {
-          console.log('active listening selected');
-        }
-      },
-      {
-        label: 'Active listening',
-        value: 'active-listening112',
-        selected: false,
-        reference: 'skill_96',
-        count: 104,
-        onClick: () => {
-          console.log('active listening selected');
-        }
-      },
-      {
-        label: 'Active listening',
-        value: 'active-listening113',
-        selected: false,
-        reference: 'skill_95',
-        count: 104,
-        onClick: () => {
-          console.log('active listening selected');
-        }
-      }
-    ]
+test.afterEach(() => {
+  cleanup();
+});
+
+test('should display options contents on show more click', t => {
+  t.plan(3);
+  const context = {
+    translate: (key: string) => key
   };
-  const {container, debug} = renderWithContext(<FilterCheckboxAndSearch {...props} />);
-  debug(container);
-  const showMoreButton = container.querySelector('[data-testid="show-more-button"]');
-  // const showMoreButton = getByTestId('show-more-button');
-  t.truthy(showMoreButton);
-  // console.log('🚀 ~ showMoreButton:', showMoreButton);
-  // fireEvent.click(showMoreButton);
-  // t.is(showMoreButton.textContent?.trim(), '__Show less');
-  t.pass();
+  const {container} = renderWithContext(
+    <FilterCheckboxAndSearch {...filterCheckboxSelected.props} />,
+    {context}
+  );
+  const showButton = container.querySelector(
+    '[data-testid="filter-checkbox-and-search-show-button"]'
+  ) as Element;
+  t.truthy(showButton);
+  t.is(showButton.textContent, 'Show more');
+  fireEvent.click(showButton);
+  t.is(showButton.textContent, 'Show less');
+  const options = container.querySelectorAll(
+    '[data-testid="filter-checkbox-and-search-option-row"]'
+  );
+  t.is(options.length, 7);
 });

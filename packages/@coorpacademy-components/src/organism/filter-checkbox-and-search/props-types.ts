@@ -17,7 +17,7 @@ const propTypes = {
   )
 };
 
-type FilterCheckboxAndSearchOptions = {
+export type FilterCheckboxAndSearchOptions = {
   label: string;
   value: string;
   selected: boolean;
