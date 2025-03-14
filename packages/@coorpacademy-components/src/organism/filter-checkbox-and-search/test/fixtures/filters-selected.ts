@@ -13,7 +13,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Conflict Management',
         value: 'conflict-management',
         selected: true,
-        reference: 'skill_98',
+        ref: 'skill_98',
         count: 140,
         onClick: () => {
           console.log('Conflict Management selected');
@@ -23,7 +23,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Creativity and Innovation',
         value: 'creativity-and-innovation',
         selected: false,
-        reference: 'skill_99',
+        ref: 'skill_99',
         count: 184,
         onClick: () => {
           console.log('Creativity and Innovation selected');
@@ -33,7 +33,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Cultural Sensitivity, Diversity and Inclusion',
         value: 'cultural-sensitivity-diversity-and-inclusion',
         selected: true,
-        reference: 'skill_100',
+        ref: 'skill_100',
         count: 153,
         onClick: () => {
           console.log('Cultural Sensitivity, Diversity and Inclusion selected');
@@ -43,7 +43,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Data-drivenness and AI',
         value: 'data-drivenness-and-ai',
         selected: false,
-        reference: 'skill_102',
+        ref: 'skill_102',
         count: 234,
         onClick: () => {
           console.log('Data-drivenness and AI selected');
@@ -53,7 +53,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Digital Awareness',
         value: 'digital-awareness',
         selected: false,
-        reference: 'skill_103',
+        ref: 'skill_103',
         count: 132,
         onClick: () => {
           console.log('Digital Awareness selected');
@@ -63,7 +63,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Digital Analytical Thinking',
         value: 'digital-analytical-thinking',
         selected: false,
-        reference: 'skill_104',
+        ref: 'skill_104',
         count: 145,
         onClick: () => {
           console.log('Digital Analytical Thinking selected');
@@ -73,7 +73,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Digital Communication',
         value: 'digital-communication',
         selected: false,
-        reference: 'skill_105',
+        ref: 'skill_105',
         count: 145,
         onClick: () => {
           console.log('Digital Communication selected');
@@ -83,7 +83,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Digital Dexterity',
         value: 'digital-dexterity',
         selected: false,
-        reference: 'skill_106',
+        ref: 'skill_106',
         count: 145,
         onClick: () => {
           console.log('Digital Dexterity selected');
@@ -93,7 +93,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Digital Learning',
         value: 'digital-learning',
         selected: false,
-        reference: 'skill_107',
+        ref: 'skill_107',
         count: 145,
         onClick: () => {
           console.log('Digital Learning selected');
@@ -103,7 +103,7 @@ const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
         label: 'Digital',
         value: 'digital',
         selected: false,
-        reference: 'skill_108',
+        ref: 'skill_108',
         count: 145,
         onClick: () => {
           console.log('Digital selected');
