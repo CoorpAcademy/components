@@ -5,7 +5,31 @@ import checkboxWithTitleProps from '../../../../atom/checkbox-with-title/test/fi
 
 const items = [
   {...checkboxSelected.props, id: '1'},
-  {...checkboxSelected.props, id: '2'},
+  {
+    id: '2',
+    title: 'Ensuring team cohesion ',
+    subtitle: 'Coorpacademy',
+    image:
+      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
+    tags: [
+      {
+        label: 'Course',
+        type: 'default',
+        icon: {
+          iconName: 'book-open',
+          preset: 's',
+          customStyle: {
+            padding: 0
+          },
+          position: 'left'
+        }
+      }
+    ],
+    checkbox: {
+      checked: true,
+      onChange: value => console.log(value)
+    }
+  },
   {...checkbox.props, id: '3'}
 ];
 
