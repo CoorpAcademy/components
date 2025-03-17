@@ -275,37 +275,27 @@ const CMPopin = props => {
         {firstButton ? (
           <div className={firstButton.largeButton ? style.largeButton : style.button}>
             <ButtonLink
-              label={firstButton.label}
+              {...firstButton}
               onClick={firstButton.handleOnclick}
               data-name={'cm-popin-cta'}
-              aria-label={firstButton['aria-label']}
-              type={firstButton.type}
-              customStyle={firstButton.customStyle}
             />
           </div>
         ) : null}
         {secondButton ? (
           <div className={secondButton.largeButton ? style.largeButton : style.button}>
             <ButtonLink
-              label={secondButton.label}
+              {...secondButton}
               onClick={secondButton.handleOnclick}
               data-name={`cm-popin-cta-${secondButton.type}`}
-              aria-label={secondButton['aria-label']}
-              type={secondButton.type}
-              customStyle={secondButton.customStyle}
-              icon={secondButton.icon}
             />
           </div>
         ) : null}
         {thirdButton ? (
           <div className={thirdButton.largeButton ? style.largeButton : style.button}>
             <ButtonLink
-              label={thirdButton.label}
+              {...thirdButton}
               onClick={thirdButton.handleOnclick}
               data-name={`cm-popin-cta-${thirdButton.type}`}
-              aria-label={thirdButton['aria-label']}
-              type={thirdButton.type}
-              customStyle={thirdButton.customStyle}
             />
           </div>
         ) : null}
