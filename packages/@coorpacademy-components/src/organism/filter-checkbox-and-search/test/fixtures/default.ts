@@ -6,7 +6,7 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
     onClear: () => {
       console.log('clear filters');
     },
-    onSearchProps: {
+    searchOptions: {
       search: {
         placeholder: 'Search for a skill',
         value: '',

@@ -5,6 +5,8 @@ import FilterCkeckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
+import {WebContextValues} from '../../atom/provider/web-context';
+import {GetTranslateFromContext} from '../../atom/provider';
 import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
 import style from './style.css';
 
@@ -26,8 +28,9 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
   }
 };
 
-const MultiFilterPanel = (props: MultiFilterPanelProps) => {
+const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
   const {title, onClearAll, options} = props;
+  const translate = GetTranslateFromContext(context);
   const allSelectedFilters = pipe(
     map('options'),
     flatMap('options'),
@@ -60,7 +63,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps) => {
           <div className={style.buttonContainer}>
             <ButtonLink
               customStyle={CLEAR_ALL_BUTTON_STYLE}
-              label="Clear all"
+              label={translate('clear_all')}
               type="text"
               data-name="filters-all-clear-button"
               aria-label="filters all clear button"

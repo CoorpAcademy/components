@@ -14,7 +14,7 @@ const propTypes = {
       onClick: PropTypes.func
     })
   ),
-  onSearchProps: PropTypes.shape(SearchForm.propTypes)
+  searchOptions: PropTypes.shape(SearchForm.propTypes)
 };
 
 export type FilterCheckboxAndSearchOptions = {
@@ -29,7 +29,7 @@ export type FilterCheckboxAndSearchOptions = {
 export type FilterCheckboxAndSearchProps = {
   title: string;
   onClear: () => void;
-  onSearchProps: React.ComponentProps<typeof SearchForm>;
+  searchOptions: React.ComponentProps<typeof SearchForm>;
   options: FilterCheckboxAndSearchOptions[];
 };
 

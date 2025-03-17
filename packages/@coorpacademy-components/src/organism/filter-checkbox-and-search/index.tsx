@@ -31,7 +31,7 @@ const FilterCkeckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
-  const {title, onSearchProps, onClear, options} = props;
+  const {title, searchOptions, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
@@ -60,7 +60,7 @@ const FilterCkeckboxAndSearch = (
         {hasSelectedFilters ? (
           <div className={style.clearButtonContainer}>
             <ButtonLink
-              label={'Clear'}
+              label={translate('clear')}
               type="text"
               data-testid="filter-checkbox-and-search-clear-button"
               onClick={onClear}
@@ -69,21 +69,21 @@ const FilterCkeckboxAndSearch = (
           </div>
         ) : null}
       </div>
-      {onSearchProps ? (
+      {searchOptions ? (
         <div className={style.search}>
-          <SearchForm {...onSearchProps} />
+          <SearchForm {...searchOptions} />
         </div>
       ) : null}
       <div
         data-testid="filter-checkbox-and-search-options-container"
         className={style.optionsContainer}
       >
-        {visibleOptions.map(({value, label, selected, count, onClick}) => {
+        {visibleOptions.map(({value, label, selected, count, onClick}, index) => {
           return (
             <div
               key={value}
               className={style.optionRow}
-              data-testid="filter-checkbox-and-search-option-row"
+              data-testid={`filter-checkbox-and-search-option-row-${index}`}
             >
               <CheckboxWithTitle
                 key={value}
