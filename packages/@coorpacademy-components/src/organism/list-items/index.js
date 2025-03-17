@@ -85,7 +85,7 @@ const buildEmptyResultView = emptyResult => {
 const buildContentView = (content, ariaLabel, selectMultiple) => {
   const {type} = content;
 
-  if (type === 'list' && isEmpty(content.items)) {
+  if (type === 'list' && isEmpty(content.items) && content.emptyResult) {
     return buildEmptyResultView(content.emptyResult);
   }
 
