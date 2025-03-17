@@ -47,7 +47,7 @@ const propTypes = {
     customStyle: ButtonLink.propTypes.customStyle
   }),
   onClose: PropTypes.func,
-  icon: PropTypes.oneOf([PropTypes.string, PropTypes.shape(iconPropTypes)]),
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(iconPropTypes)]),
   backgroundImageUrl: PropTypes.string,
   descriptionText: PropTypes.string,
   cookieTitle: PropTypes.string,
@@ -83,7 +83,7 @@ export type QuitPopinButton = {
 
 export type CMPopinProps = {
   content: string;
-  icon: string;
+  icon: string | PropTypes.InferProps<typeof iconPropTypes>;
   mode: 'alert' | 'information' | 'cookie' | 'items' | 'list';
   onClose?: () => void;
   popinHeader?: PopinHeaderProps;
