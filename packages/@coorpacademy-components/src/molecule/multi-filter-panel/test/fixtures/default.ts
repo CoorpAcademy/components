@@ -1,5 +1,6 @@
 import FilterChipProps from '../../../../organism/filter-chip/test/fixtures/all-selected';
 import {MultiFilterPanelProps} from '../../prop-types';
+import filterCheckboxSelected from '../../../../organism/filter-checkbox-and-search/test/fixtures/filters-selected';
 
 export const multiFilterPanelProps: MultiFilterPanelProps = {
   title: 'Filters',
@@ -54,18 +55,11 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
           }
         ]
       }
+    },
+    {
+      type: 'checkbox',
+      options: filterCheckboxSelected.props
     }
-    // {
-    //   type: 'checkbox',
-    //   options: [
-    //     {
-    //       label: 'active listening',
-    //       type: 'skills',
-    //       count: 104,
-    //       onClick: () => console.log('click on active listening skill')
-    //     }
-    //   ]
-    // }
   ]
 };
 

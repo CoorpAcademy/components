@@ -1,0 +1,51 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_400 from colors;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.titleAndTagWrapper {
+    display: flex;
+    gap: 8px;
+    color: cm_grey_700;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    align-items: center;
+}
+
+.search {
+    border-radius: 12px;
+    background-color: cm_grey_100;
+    margin-bottom: 16px;
+  }
+
+.clearButtonContainer {
+    color: cm_grey_500;
+}
+
+.optionsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.optionRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+}
+
+.optionCount {
+    color: cm_grey_400;
+    font-family: 'Gilroy';
+    font-size: 12px;
+}
