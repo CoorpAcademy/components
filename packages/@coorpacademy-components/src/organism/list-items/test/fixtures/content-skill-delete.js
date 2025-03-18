@@ -1,30 +1,14 @@
 import checkbox from '../../../list-item/test/fixtures/checkbox';
-import checkboxSelected from '../../../list-item/test/fixtures/checkbox-selected';
+import checkboxDeletable from '../../../list-item/test/fixtures/checkbox-deletable';
 import searchProps from '../../../../atom/input-search/test/fixtures/coorpmanager';
 import checkboxWithTitleProps from '../../../../atom/checkbox-with-title/test/fixtures/with-custom-icon';
 import {COLORS} from '../../../../variables/colors';
 
-const secondButtonLink = {
-  'aria-label': 'Delete',
-  type: 'primary',
-  customStyle: {
-    width: 'fit-content',
-    backgroundColor: 'transparent'
-  },
-  hoverBackgroundColor: '#EAEAEB',
-  icon: {
-    position: 'left',
-    faIcon: {
-      name: 'trash',
-      color: '#515161',
-      size: 16
-    }
-  },
-  onClick: () => console.log('Click on delete icon')
-};
-
 const items = [
-  {...checkboxSelected.props, secondButtonLink, id: '1'},
+  {
+    ...checkboxDeletable.props,
+    id: '1'
+  },
   {
     id: '2',
     title: 'Ensuring team cohesion ',
@@ -49,12 +33,12 @@ const items = [
       checked: true,
       onChange: value => console.log(value)
     },
-    secondButtonLink
+    secondButtonLink: checkboxDeletable.props.secondButtonLink
   },
   {
     ...checkbox.props,
-    secondButtonLink,
-    id: '3'
+    id: '3',
+    secondButtonLink: checkboxDeletable.props.secondButtonLink
   }
 ];
 
