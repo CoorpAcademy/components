@@ -36,6 +36,11 @@
   text-align: left;
 }
 
+.checkboxAndActionsWrapper {
+  display: flex;
+  gap: 24px; 
+}
+
 .selectMultiple {
   width: 291px;
 }

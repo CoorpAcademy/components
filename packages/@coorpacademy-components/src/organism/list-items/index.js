@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import ListItem from '../list-item';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
@@ -105,14 +106,18 @@ const ListItems = ({
   'aria-label': ariaLabel,
   isFetching,
   search,
-  checkboxWithTitle
+  checkboxWithTitle,
+  actionButtons
 }) => {
   const contentView = buildContentView(content, ariaLabel, selectMultiple);
   return (
     <div>
       <div className={style.header}>
         {checkboxWithTitle ? (
-          <CheckboxWithTitle {...checkboxWithTitle} title={checkboxWithTitle.title} />
+          <div className={style.checkboxAndActionsWrapper}>
+            <CheckboxWithTitle {...checkboxWithTitle} title={checkboxWithTitle.title} />
+            {actionButtons ? map(action => <ButtonLink {...action} />)(actionButtons) : null}
+          </div>
         ) : (
           <div className={style.title}>
             <Title
@@ -172,7 +177,8 @@ ListItems.propTypes = {
   title: PropTypes.string,
   isFetching: PropTypes.bool,
   search: PropTypes.shape(Search.propTypes),
-  checkboxWithTitle: PropTypes.shape(CheckboxWithTitle.propTypes)
+  checkboxWithTitle: PropTypes.shape(CheckboxWithTitle.propTypes),
+  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonLink.propTypes))
 };
 
 export default ListItems;
