@@ -4,13 +4,17 @@
 @value medium from colors;
 @value xtraLightGrey from colors;
 @value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 @value dark from colors;
+@value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0;
   margin-bottom: 24px;
 }
 
@@ -30,6 +34,11 @@
   line-height: 1.4;
   letter-spacing: normal;
   text-align: left;
+}
+
+.checkboxAndActionsWrapper {
+  display: flex;
+  gap: 24px; 
 }
 
 .selectMultiple {
@@ -108,4 +117,41 @@
   display: flex;
   gap: 8px;
   align-items: center;
+}
+
+.emptySearchResultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: cm_grey_700;
+  font-family: Gilroy;
+  margin-top: 40px;
+}
+
+.emptySearchResultTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.emptySearchResultDescription {
+  color: cm_grey_500;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.emptySearchResultButton {
+  color: cm_primary_blue;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  cursor: pointer;
+  margin-top: 32px;
+  width: auto;
+}
+
+.emptySearchResultButton:hover {
+  color: cm_blue_600;
 }

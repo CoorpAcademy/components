@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import ListItem from '../list-item';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
@@ -10,6 +11,7 @@ import SelectMultiple from '../../molecule/select-multiple';
 import ExpandibleActionableTable from '../../molecule/expandible-actionable-table';
 import Loader from '../../atom/loader';
 import Search from '../../atom/input-search';
+import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import style from './style.css';
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
@@ -64,8 +66,30 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   );
 };
 
+const buildEmptyResultView = emptyResult => {
+  const {title, description, button} = emptyResult;
+
+  return (
+    <div className={style.emptySearchResultContainer}>
+      <div className={style.emptySearchResultTitle}>{title}</div>
+      <div className={style.emptySearchResultDescription}>{description}</div>
+      <ButtonLink
+        type="text"
+        label={button.label}
+        onClick={button.handleSearchReset}
+        className={style.emptySearchResultButton}
+      />
+    </div>
+  );
+};
+
 const buildContentView = (content, ariaLabel, selectMultiple) => {
   const {type} = content;
+
+  if (type === 'list' && isEmpty(content.items) && content.emptyResult) {
+    return buildEmptyResultView(content.emptyResult);
+  }
+
   switch (type) {
     case 'list':
       return buildListItemsView(content, ariaLabel, selectMultiple);
@@ -81,20 +105,29 @@ const ListItems = ({
   content,
   'aria-label': ariaLabel,
   isFetching,
-  search
+  search,
+  checkboxWithTitle,
+  actionButtons
 }) => {
   const contentView = buildContentView(content, ariaLabel, selectMultiple);
   return (
     <div>
       <div className={style.header}>
-        <div className={style.title}>
-          <Title
-            title={title}
-            type="form-group"
-            titleSize="standard-light-weight"
-            data-name="list-title"
-          />
-        </div>
+        {checkboxWithTitle ? (
+          <div className={style.checkboxAndActionsWrapper}>
+            <CheckboxWithTitle {...checkboxWithTitle} title={checkboxWithTitle.title} />
+            {actionButtons ? map(action => <ButtonLink {...action} />)(actionButtons) : null}
+          </div>
+        ) : (
+          <div className={style.title}>
+            <Title
+              title={title}
+              type="form-group"
+              titleSize="standard-light-weight"
+              data-name="list-title"
+            />
+          </div>
+        )}
         <div className={style.inputWrapper}>
           {!isEmpty(search) ? <Search {...search} /> : null}
           <div className={style.actionsWrapper}>
@@ -129,7 +162,12 @@ ListItems.propTypes = {
       itemType: PropTypes.string,
       onDrop: PropTypes.func,
       isDraggable: PropTypes.bool,
-      tableHeader: PropTypes.arrayOf(PropTypes.string)
+      tableHeader: PropTypes.arrayOf(PropTypes.string),
+      emptyResult: PropTypes.shape({
+        title: PropTypes.string,
+        description: PropTypes.string,
+        button: PropTypes.shape(ButtonLink.propTypes)
+      })
     }),
     PropTypes.shape({
       ...ExpandibleActionableTable.propTypes,
@@ -138,7 +176,9 @@ ListItems.propTypes = {
   ]),
   title: PropTypes.string,
   isFetching: PropTypes.bool,
-  search: PropTypes.shape(Search.propTypes)
+  search: PropTypes.shape(Search.propTypes),
+  checkboxWithTitle: PropTypes.shape(CheckboxWithTitle.propTypes),
+  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonLink.propTypes))
 };
 
 export default ListItems;
