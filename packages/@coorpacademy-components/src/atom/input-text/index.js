@@ -93,7 +93,7 @@ const InputText = props => {
           data-name={dataName}
           aria-label={ariaLabel}
         />
-        {inputColor ? (
+        {inputColor && !error && value ? (
           <span
             className={style.preview}
             style={{
