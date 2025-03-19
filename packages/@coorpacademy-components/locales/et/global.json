@@ -49,6 +49,8 @@
   "locked": "Lukustatud",
   "icon_picker_title": "Muuda ikooni",
   "icon_picker_description": "Valige oma oskuse jaoks uus ikoon",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Tõlgi",
   "translation_description": "Rohkem õppijate kaasamiseks hallake tõlkeid",
   "skills_change_focus": "Muuda oskusfookust",
