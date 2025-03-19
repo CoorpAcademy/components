@@ -49,6 +49,8 @@
   "locked": "Naka-lock",
   "icon_picker_title": "Baguhin ang icon",
   "icon_picker_description": "Pumili ng bagong icon para sa iyong kasanayan",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Isalin",
   "translation_description": "Pamahalaan ang mga pagsasalin upang maabot ang mas maraming nag-aaral",
   "skills_change_focus": "Baguhin ang kasanayang pagtutuunan ng pansin",
