@@ -49,6 +49,8 @@
   "locked": "Заблокировано",
   "icon_picker_title": "Значок изменения",
   "icon_picker_description": "Выберите новую иконку для своего навыка",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Перевести",
   "translation_description": "Управляйте переводами, чтобы охватить больше учащихся",
   "skills_change_focus": "Изменить фокус навыков",
