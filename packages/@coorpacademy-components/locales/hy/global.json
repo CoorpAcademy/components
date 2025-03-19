@@ -49,6 +49,8 @@
   "locked": "Կողպված է",
   "icon_picker_title": "Փոխել պատկերակը",
   "icon_picker_description": "Ընտրեք նոր պատկերակ ձեր հմտության համար",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Թարգմանել",
   "translation_description": "Կառավարեք թարգմանությունները՝ ավելի շատ սովորողների հասնելու համար",
   "skills_change_focus": "Փոխեք հմտությունների կենտրոնացումը",
