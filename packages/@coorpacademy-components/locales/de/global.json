@@ -49,6 +49,8 @@
   "locked": "Gesperrt",
   "icon_picker_title": "Symbol „Ändern“",
   "icon_picker_description": "Wählen Sie ein neues Symbol für Ihre Fertigkeit",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Übersetzen",
   "translation_description": "Verwalten Sie Übersetzungen, um mehr Lernende zu erreichen",
   "skills_change_focus": "Fähigkeitsfokus ändern",
