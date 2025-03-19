@@ -49,6 +49,8 @@
   "locked": "未解锁",
   "icon_picker_title": "更改图标",
   "icon_picker_description": "为您的技能选择一个新图标",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "翻译",
   "translation_description": "管理翻译以触达更多学习者",
   "skills_change_focus": "更改重点关注的技能",
