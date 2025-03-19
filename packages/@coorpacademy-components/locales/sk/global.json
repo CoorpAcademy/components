@@ -49,6 +49,8 @@
   "locked": "Zamknuté",
   "icon_picker_title": "Ikona zmeny",
   "icon_picker_description": "Vyberte novú ikonu pre svoju zručnosť",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Preložiť",
   "translation_description": "Spravovať preklady, aby ste oslovili viac študentov",
   "skills_change_focus": "Zmeniť zameranie zručností",
