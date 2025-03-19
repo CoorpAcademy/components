@@ -5,6 +5,32 @@ import ButtonLink from '../button-link';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 
+const buildIconByTheme = (type: NonNullable<ButtonProps['icon']>['theme']) => {
+  const defaultIconStyle = {
+    position: 'left' as const,
+    faIcon: {
+      size: 14,
+      color: '#515161',
+      customStyle: {padding: 0}
+    }
+  };
+
+  const themes = {
+    publish: {name: 'cloud-arrow-up'},
+    archive: {name: 'folder-open'},
+    delete: {name: 'trash', color: '#B81400'}
+  };
+
+  return themes[type]
+    ? {
+        icon: {
+          ...defaultIconStyle,
+          faIcon: {...defaultIconStyle.faIcon, ...themes[type]}
+        }
+      }
+    : null;
+};
+
 const Button = (props: ButtonProps) => {
   const {
     'data-name': dataName,
@@ -26,33 +52,26 @@ const Button = (props: ButtonProps) => {
   );
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
-  return icon ? (
-    <ButtonLink
-      label={label}
-      type={buttonLinkType}
-      disabled={disabled}
-      onClick={handleOnClick}
-      data-name={dataName}
-      className={styleButton}
-      customStyle={{...customStyle}}
-      icon={icon}
-    />
-  ) : (
-    <button
-      type="button"
-      aria-label={label}
-      title={label}
-      data-name={dataName}
-      className={styleButton}
-      onClick={handleOnClick}
-      disabled={disabled}
-      style={customStyle}
-    >
-      <div className={style.buttonContent}>
-        <span className={style.label}>{label}</span>
-      </div>
-    </button>
-  );
+  const buttonLinkProps = useMemo(() => {
+    const defaultProps = {
+      icon,
+      'aria-label': label,
+      disabled,
+      label,
+      type: buttonLinkType,
+      onClick: handleOnClick,
+      'data-name': dataName,
+      className: styleButton,
+      customStyle: {...customStyle}
+    };
+
+    return {
+      ...defaultProps,
+      ...(icon?.theme && buildIconByTheme(icon.theme))
+    };
+  }, [label, buttonLinkType, handleOnClick, dataName, styleButton, customStyle, icon, disabled]);
+
+  return <ButtonLink {...buttonLinkProps} />;
 };
 
 Button.propTypes = buttonPropTypes;

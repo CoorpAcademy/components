@@ -32,16 +32,6 @@
   pointer-events: none;
 }
 
-.buttonContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.label {
-  margin: 0 8px 0 8px;
-  display: block;
-}
 
 .defaultStyle {
   background-color: transparent;
