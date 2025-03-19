@@ -49,6 +49,8 @@
   "locked": "Låst",
   "icon_picker_title": "Ändra ikon",
   "icon_picker_description": "Välj en ny ikon för din kompetens",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Översätt",
   "translation_description": "Hantera översättningar för att nå fler elever",
   "skills_change_focus": "Ändra färdighetsfokus",
