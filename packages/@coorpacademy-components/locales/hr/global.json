@@ -49,6 +49,8 @@
   "locked": "Zaključano",
   "icon_picker_title": "Promijenite ikonu",
   "icon_picker_description": "Odaberite novu ikonu za svoju vještinu",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Prevedi",
   "translation_description": "Upravljajte prijevodima kako biste dosegli više učenika",
   "skills_change_focus": "Promijeni fokus vještina",
