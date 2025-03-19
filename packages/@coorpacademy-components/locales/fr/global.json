@@ -49,6 +49,8 @@
   "locked": "Verrouillé",
   "icon_picker_title": "Changer d'icône",
   "icon_picker_description": "Sélectionnez une nouvelle icône pour votre compétence",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Traduire",
   "translation_description": "Gérer les traductions pour toucher plus d'apprenants",
   "skills_change_focus": "Changer ses compétences ciblées",
