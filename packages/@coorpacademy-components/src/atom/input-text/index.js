@@ -33,7 +33,8 @@ const InputText = props => {
     modified = false,
     title: propsTitle,
     'data-name': dataName = 'input-text',
-    'aria-label': ariaLabel = 'Input Text'
+    'aria-label': ariaLabel = 'Input Text',
+    inputColor = false
   } = props;
 
   const isCMTheme = theme === 'coorpmanager';
@@ -92,6 +93,14 @@ const InputText = props => {
           data-name={dataName}
           aria-label={ariaLabel}
         />
+        {inputColor && !error && value ? (
+          <span
+            className={style.preview}
+            style={{
+              backgroundColor: value
+            }}
+          />
+        ) : null}
         {errorIconView}
         {validIconView}
         {hintView}
@@ -117,6 +126,7 @@ InputText.propTypes = {
   type: PropTypes.string,
   valid: PropTypes.bool,
   'aria-label': PropTypes.string,
-  'data-name': PropTypes.string
+  'data-name': PropTypes.string,
+  inputColor: PropTypes.bool
 };
 export default InputText;

@@ -400,3 +400,14 @@
 .coorpmanager:focus-within .title.noValue .descriptionLabel::after{
   left: 21px;
 }
+
+.preview {
+  z-index: 500;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  right: 10px;
+  position: absolute;
+  top: 23%;
+  box-shadow: 0 0 1px grey;
+}
