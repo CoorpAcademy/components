@@ -49,6 +49,8 @@
   "locked": "ロック済み",
   "icon_picker_title": "アイコンの変更",
   "icon_picker_description": "スキルの新しいアイコンを選択する",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "翻訳",
   "translation_description": "翻訳を管理して、より多くの学習者にリーチする",
   "skills_change_focus": "スキルフォーカスを変更する",
