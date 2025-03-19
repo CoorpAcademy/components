@@ -49,6 +49,8 @@
   "locked": "잠김",
   "icon_picker_title": "변경 아이콘",
   "icon_picker_description": "스킬의 새 아이콘을 선택하세요.",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "번역하기",
   "translation_description": "번역을 관리해 더 많은 학습자에게 도달하세요.",
   "skills_change_focus": "집중 기술 변경하기",
