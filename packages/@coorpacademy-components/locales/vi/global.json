@@ -49,6 +49,8 @@
   "locked": "Bị khóa",
   "icon_picker_title": "Thay đổi biểu tượng",
   "icon_picker_description": "Chọn một biểu tượng mới cho kỹ năng của bạn",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Dịch",
   "translation_description": "Quản lý các bản dịch để tiếp cận nhiều người học hơn",
   "skills_change_focus": "Thay đổi trọng tâm kỹ năng",
