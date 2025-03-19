@@ -49,6 +49,8 @@
   "locked": "Bloqueado",
   "icon_picker_title": "Alterar ícone",
   "icon_picker_description": "Selecionar um novo ícone para a sua competência",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Traduzir",
   "translation_description": "Faça a gestão das traduções para chegar a mais estudantes",
   "skills_change_focus": "Alterar o foco na competência",
