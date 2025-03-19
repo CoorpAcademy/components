@@ -49,6 +49,8 @@
   "locked": "Kilitli",
   "icon_picker_title": "Simge değiştir",
   "icon_picker_description": "Beceriniz için yeni bir simge seçin",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Çevir",
   "translation_description": "Daha fazla öğrenciye ulaşmak için çevirileri yönetin",
   "skills_change_focus": "Beceri odağını değiştir",
