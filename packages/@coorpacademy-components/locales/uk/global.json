@@ -49,6 +49,8 @@
   "locked": "Заблоковано",
   "icon_picker_title": "Змінити піктограму",
   "icon_picker_description": "Виберіть нову іконку для вашого вміння",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Перекласти",
   "translation_description": "Керуйте перекладами, щоб охопити більше учнів",
   "skills_change_focus": "Змінити фокус навички",
