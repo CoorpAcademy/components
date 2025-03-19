@@ -49,6 +49,8 @@
   "locked": "Lezárt",
   "icon_picker_title": "Ikon módosítása",
   "icon_picker_description": "Válasszon egy új ikont a készségéhez",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Fordítás",
   "translation_description": "Kezelje a fordításokat, hogy több tanulót szólítson meg",
   "skills_change_focus": "Képesség célzásának változtatása",
