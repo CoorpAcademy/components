@@ -49,6 +49,8 @@
   "locked": "Lukittu",
   "icon_picker_title": "Vaihda kuvake",
   "icon_picker_description": "Valitse uusi kuvake taidollesi",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Käännä",
   "translation_description": "Hallitse käännöksiä ja saat lisää oppijoita",
   "skills_change_focus": "Vaihda osaamisen painopistettä",
