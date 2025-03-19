@@ -8,7 +8,10 @@ export const buttonPropTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
   buttonLinkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
-  icon: PropTypes.shape(iconPropTypes),
+  icon: PropTypes.shape({
+    ...iconPropTypes,
+    theme: PropTypes.oneOf(['archive', 'publish', 'delete'])
+  }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
@@ -27,7 +30,7 @@ export type ButtonProps = {
   onClick: () => void;
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   buttonLinkType?: ButtonLinkProps['type'];
-  icon?: IconType;
+  icon?: IconType & {theme: 'archive' | 'publish' | 'delete'};
   customStyle?: Record<string, string | number>;
 };
 
