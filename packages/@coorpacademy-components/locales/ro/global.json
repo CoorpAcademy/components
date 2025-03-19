@@ -49,6 +49,8 @@
   "locked": "Blocat",
   "icon_picker_title": "Schimbă pictograma",
   "icon_picker_description": "Selectați o pictogramă nouă pentru abilitatea dvs",
+  "icon_editor_color": "Icon color",
+  "invalid_color": "Invalid color",
   "translation_title": "Traducere",
   "translation_description": "Gestionați traducerile pentru a ajunge la cât mai mulți cursanți",
   "skills_change_focus": "Schimbați abilitățile vizate\n",
