@@ -23,6 +23,8 @@ const propTypes = {
 
 export default propTypes;
 
+export type Theme = 'archive' | 'publish' | 'delete';
+
 export type ButtonProps = {
   'data-name'?: string;
   disabled?: boolean;
@@ -30,7 +32,7 @@ export type ButtonProps = {
   onClick: () => void;
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   buttonLinkType?: ButtonLinkProps['type'];
-  icon?: IconType & {theme: 'archive' | 'publish' | 'delete'};
+  icon?: IconType & {theme?: Theme};
   customStyle?: Record<string, string | number>;
 };
 
