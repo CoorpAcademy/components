@@ -13,7 +13,10 @@ export default {
       label: 'Cancel',
       type: 'secondary',
       'aria-label': 'Cancel this operation',
-      handleOnClick: () => {}
+      handleOnClick: () => {},
+      customStyle: {
+        fontWeight: '600'
+      }
     },
     secondButton: {
       label: 'Confirm',
@@ -31,6 +34,9 @@ export default {
             alignItems: 'baseline'
           }
         }
+      },
+      customStyle: {
+        fontWeight: '600'
       }
     }
   }
