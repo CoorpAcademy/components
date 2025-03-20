@@ -373,7 +373,7 @@ BrandUpdate.propTypes = {
   }),
   popin: PropTypes.shape({
     ...CmPopin.propTypes,
-    theme: PropTypes.oneOf(['publish', 'archive', 'delete'])
+    theme: PropTypes.oneOf(['published', 'archived', 'deleted'])
   }),
   details: PropTypes.shape({
     ...BrandTable.propTypes,

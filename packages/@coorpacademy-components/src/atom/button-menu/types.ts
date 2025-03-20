@@ -23,7 +23,7 @@ const propTypes = {
 
 export default propTypes;
 
-export type Theme = 'archive' | 'publish' | 'delete';
+export type Theme = 'archived' | 'published' | 'deleted';
 
 export type ButtonProps = {
   'data-name'?: string;
