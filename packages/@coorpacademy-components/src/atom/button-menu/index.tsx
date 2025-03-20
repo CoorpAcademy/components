@@ -3,29 +3,16 @@ import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import ButtonLink from '../button-link';
 import style from './style.css';
-import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
+import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes, Theme} from './types';
+import {DEFAULT_ICON_STYLE, THEMES} from './utils';
 
-const buildIconByTheme = (type: NonNullable<ButtonProps['icon']>['theme']) => {
-  const defaultIconStyle = {
-    position: 'left' as const,
-    faIcon: {
-      size: 14,
-      color: '#515161',
-      customStyle: {padding: 0}
-    }
-  };
-
-  const themes = {
-    publish: {name: 'cloud-arrow-up'},
-    archive: {name: 'folder-open'},
-    delete: {name: 'trash', color: '#B81400'}
-  };
-
-  return themes[type]
+const buildCustomIconByTheme = (theme: Theme) => {
+  const custom = THEMES[theme];
+  return custom
     ? {
         icon: {
-          ...defaultIconStyle,
-          faIcon: {...defaultIconStyle.faIcon, ...themes[type]}
+          ...DEFAULT_ICON_STYLE,
+          faIcon: {...DEFAULT_ICON_STYLE.faIcon, ...custom}
         }
       }
     : null;
@@ -52,26 +39,28 @@ const Button = (props: ButtonProps) => {
   );
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
-  const buttonLinkProps = useMemo(() => {
-    const defaultProps = {
-      icon,
-      'aria-label': label,
-      disabled,
-      label,
-      type: buttonLinkType,
-      onClick: handleOnClick,
-      'data-name': dataName,
-      className: styleButton,
-      customStyle: {...customStyle}
-    };
+  const buttonLinkProps = {
+    'aria-label': label,
+    disabled,
+    label,
+    type: buttonLinkType,
+    onClick: handleOnClick,
+    'data-name': dataName,
+    className: styleButton,
+    customStyle: {...customStyle}
+  };
 
+  const buildButtonLinkIconProps = () => {
+    if (!icon) return;
+
+    const {theme, ...rest} = icon;
     return {
-      ...defaultProps,
-      ...(icon?.theme && buildIconByTheme(icon.theme))
+      ...rest,
+      ...(theme && buildCustomIconByTheme(theme))
     };
-  }, [label, buttonLinkType, handleOnClick, dataName, styleButton, customStyle, icon, disabled]);
+  };
 
-  return <ButtonLink {...buttonLinkProps} />;
+  return <ButtonLink {...buttonLinkProps} icon={buildButtonLinkIconProps()} />;
 };
 
 Button.propTypes = buttonPropTypes;
