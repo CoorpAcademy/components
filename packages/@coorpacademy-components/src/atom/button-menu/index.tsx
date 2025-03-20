@@ -3,19 +3,27 @@ import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import ButtonLink from '../button-link';
 import style from './style.css';
-import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes, Theme} from './types';
+import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 import {DEFAULT_ICON_STYLE, THEMES} from './utils';
 
-const buildCustomIconByTheme = (theme: Theme) => {
-  const custom = THEMES[theme];
-  return custom
+const buildCustomIconByTheme = (icon: ButtonProps['icon']) => {
+  if (!icon) return;
+
+  const {theme, ...iconProps} = icon;
+  const custom = theme && THEMES[theme];
+  if (!custom) return iconProps;
+
+  const customProps = custom
     ? {
-        icon: {
-          ...DEFAULT_ICON_STYLE,
-          faIcon: {...DEFAULT_ICON_STYLE.faIcon, ...custom}
-        }
+        ...DEFAULT_ICON_STYLE,
+        faIcon: {...DEFAULT_ICON_STYLE.faIcon, ...custom}
       }
     : null;
+
+  return {
+    ...iconProps,
+    ...customProps
+  };
 };
 
 const Button = (props: ButtonProps) => {
@@ -50,17 +58,9 @@ const Button = (props: ButtonProps) => {
     customStyle: {...customStyle}
   };
 
-  const buildButtonLinkIconProps = () => {
-    if (!icon) return;
+  const iconProps = buildCustomIconByTheme(icon);
 
-    const {theme, ...rest} = icon;
-    return {
-      ...rest,
-      ...(theme && buildCustomIconByTheme(theme))
-    };
-  };
-
-  return <ButtonLink {...buttonLinkProps} icon={buildButtonLinkIconProps()} />;
+  return <ButtonLink {...buttonLinkProps} icon={iconProps} />;
 };
 
 Button.propTypes = buttonPropTypes;
