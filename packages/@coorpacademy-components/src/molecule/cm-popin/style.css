@@ -48,6 +48,7 @@
 
 .popin {
   width: 400px;
+  box-sizing: border-box;
   flex-grow: 0;
   margin: 16px;
   padding: 24px;
@@ -111,7 +112,7 @@
   line-height: 24px;
   letter-spacing: normal;
   text-align: center;
-  color: cm_grey_600;
+  color: cm_grey_700;
 }
 
 .buttonContainer {
