@@ -10,7 +10,7 @@ export const buttonPropTypes = {
   buttonLinkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   icon: PropTypes.shape({
     ...iconPropTypes,
-    theme: PropTypes.oneOf(['archive', 'publish', 'delete'])
+    theme: PropTypes.oneOf(['archived', 'published', 'deleted'])
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
