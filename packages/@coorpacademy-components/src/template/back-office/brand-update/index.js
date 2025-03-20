@@ -26,6 +26,7 @@ import ExpandibleActionableTable from '../../../molecule/expandible-actionable-t
 import BulkInfos from '../../../molecule/bulk-infos';
 import Title from '../../../atom/title';
 import style from './style.css';
+import {POPIN_THEMES} from './utils';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
 
@@ -109,12 +110,23 @@ const buildHeader = header => {
   );
 };
 
+const buildPopinCustomPropsByTheme = theme => POPIN_THEMES[theme] ?? {};
+
 const buildPopin = popin => {
-  return popin ? (
+  if (!popin) return;
+
+  const {theme, icon: popinIcon, secondButton: popinSecondButton} = popin;
+  const {icon: themeIcon, actionButton: themeActionButton} = buildPopinCustomPropsByTheme(theme);
+
+  return (
     <div className={style.popin}>
-      <CmPopin {...popin} />
+      <CmPopin
+        {...popin}
+        icon={popinIcon || themeIcon}
+        secondButton={{...popinSecondButton, ...themeActionButton}}
+      />
     </div>
-  ) : null;
+  );
 };
 
 const buildDocumentation = documentation => {
@@ -359,7 +371,10 @@ BrandUpdate.propTypes = {
     show: PropTypes.bool,
     onClose: PropTypes.func
   }),
-  popin: PropTypes.shape({...CmPopin.propTypes}),
+  popin: PropTypes.shape({
+    ...CmPopin.propTypes,
+    theme: PropTypes.oneOf(['publish', 'archive', 'delete'])
+  }),
   details: PropTypes.shape({
     ...BrandTable.propTypes,
     key: PropTypes.string,
