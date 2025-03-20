@@ -10,7 +10,7 @@ export const DEFAULT_ICON_STYLE = {
 };
 
 export const THEMES = {
-  publish: {name: 'cloud-arrow-up'},
-  archive: {name: 'folder-open'},
-  delete: {name: 'trash', color: COLORS.cm_negative_200}
+  published: {name: 'cloud-arrow-up'},
+  archived: {name: 'folder-open'},
+  deleted: {name: 'trash', color: COLORS.cm_negative_200}
 };

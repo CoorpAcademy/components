@@ -17,19 +17,19 @@ const COMMUN_ACTION_BUTTON_PROPS = {
 };
 
 const ICON_PROPS = {
-  publish: {
+  published: {
     iconName: 'cloud-arrow-up',
     iconColor: COLORS.cm_grey_500,
     backgroundColor: COLORS.gray,
     preset: 'xl'
   },
-  archive: {
+  archived: {
     iconName: 'circle-exclamation',
     iconColor: COLORS.yellow_700,
     backgroundColor: COLORS.yellow_100,
     preset: 'xl'
   },
-  delete: {
+  deleted: {
     iconName: 'triangle-exclamation',
     iconColor: COLORS.red_700,
     backgroundColor: COLORS.red_100,
@@ -38,16 +38,16 @@ const ICON_PROPS = {
 };
 
 export const POPIN_THEMES = {
-  publish: {
-    icon: ICON_PROPS.publish,
+  published: {
+    icon: ICON_PROPS.published,
     actionButton: COMMUN_ACTION_BUTTON_PROPS
   },
-  archive: {
-    icon: ICON_PROPS.archive,
+  archived: {
+    icon: ICON_PROPS.archived,
     actionButton: COMMUN_ACTION_BUTTON_PROPS
   },
-  delete: {
-    icon: ICON_PROPS.delete,
+  deleted: {
+    icon: ICON_PROPS.deleted,
     actionButton: {
       icon: {
         position: 'left',

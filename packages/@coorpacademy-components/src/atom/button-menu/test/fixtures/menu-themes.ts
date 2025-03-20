@@ -7,7 +7,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         type: 'defaultLeft',
         icon: {
           position: 'left',
-          theme: 'publish'
+          theme: 'published'
         },
         'data-name': 'published-button',
         label: 'Publish',
@@ -18,7 +18,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         type: 'defaultLeft',
         icon: {
           position: 'left',
-          theme: 'archive'
+          theme: 'archived'
         },
         'data-name': 'archive-button',
         label: 'Archive',
@@ -29,7 +29,7 @@ const menuWithIconFixture: ButtonMenuPropsFixture = {
         type: 'dangerousLeft',
         icon: {
           position: 'left',
-          theme: 'delete'
+          theme: 'deleted'
         },
         'data-name': 'delete-button',
         label: 'Delete',
