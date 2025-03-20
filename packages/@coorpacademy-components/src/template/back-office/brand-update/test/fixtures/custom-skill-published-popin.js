@@ -6,6 +6,6 @@ const {props} = customSkillPublishedProps;
 export default {
   props: {
     ...props,
-    popin: {...customSkillArchivePopinProps.props, icon: null, theme: 'delete'}
+    popin: {...customSkillArchivePopinProps.props, icon: null, theme: 'archive'}
   }
 };
