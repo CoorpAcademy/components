@@ -6,7 +6,6 @@ export const defaultProps = {
     score: 65,
     questionsToReview: 25
   },
-  onReviewClick: () => console.log('review'),
   onExploreClick: () => console.log('explore')
 };
 
