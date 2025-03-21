@@ -17,21 +17,21 @@ const defaultFixture: ButtonMenuActionPropsFixture = {
       'aria-label': 'aria button',
       'data-name': 'button-menu-action',
       onClick: () => console.log('click on Add translations button'),
-      hoverBackgroundColor: COLORS.primary_weak_hover,
-      hoverColor: COLORS.primary_strong,
+      hoverBackgroundColor: COLORS.primary_100,
+      hoverColor: COLORS.cm_primary_blue,
       icon: {
         position: 'left',
         faIcon: {
           name: 'plus',
-          color: COLORS.primary_strong,
+          color: COLORS.cm_primary_blue,
           size: 14,
           customStyle: {padding: 0}
         }
       },
       customStyle: {
         width: 'fit-content',
-        backgroundColor: COLORS.primary_weak,
-        color: COLORS.primary_strong,
+        backgroundColor: COLORS.cm_blue_50,
+        color: COLORS.cm_primary_blue,
         borderRadius: '12px',
         paddingRight: '8px',
         paddingleft: '16px',
