@@ -12,10 +12,12 @@ const getTitleStyle = (type, size) => {
       return style.titlePage;
     case 'form-group':
       switch (size) {
-        case 'standard-light-weight':
-          return style.titleFormGroupLightWeight;
         case 'standard':
           return style.titleFormGroup;
+        case 'standard-light-weight':
+          return style.titleFormGroupLightWeight;
+        case 'xl-strong':
+          return style.XlStrongTitle;
         case 'medium':
           return style.mediumTitleFormGroup;
         case 'small':
@@ -34,6 +36,8 @@ const getSubtitleStyle = (type, size) => {
           return style.subtitleFormGroup;
         case 'standard-without-margin':
           return style.subtitleFormGroupWithoutMargin;
+        case 'medium':
+          return style.mediumSubtitleFormGroup;
         case 'small':
           return style.smallSubtitleFormGroup;
         case 'small-without-margin':
@@ -83,10 +87,11 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
-  titleSize: PropTypes.oneOf(['standard', 'standard-light-weight', 'medium', 'small']),
+  titleSize: PropTypes.oneOf(['xl-strong', 'standard', 'standard-light-weight', 'medium', 'small']),
   subtitleSize: PropTypes.oneOf([
     'standard',
     'standard-without-margin',
+    'medium',
     'small',
     'small-without-margin',
     'extra-small'

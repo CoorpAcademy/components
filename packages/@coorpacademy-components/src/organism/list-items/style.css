@@ -70,7 +70,6 @@
   padding: 8px 24px;
 }
 
-
 .tableHeaderItem {
   display: flex;
   flex: 1 0 0;
@@ -125,7 +124,7 @@
   align-items: center;
   color: cm_grey_700;
   font-family: Gilroy;
-  margin-top: 40px;
+  margin-top: 64px;
 }
 
 .emptySearchResultTitle {

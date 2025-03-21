@@ -16,7 +16,11 @@ export default {
       emptyResult: {
         title: 'No results...',
         description: 'Try adjusting your search to find what you are looking for.',
-        button: {label: 'Clear search', handleSearchReset: () => console.log('clear search')}
+        button: {
+          type: 'text',
+          label: 'Clear search',
+          onClick: () => console.log('clear search')
+        }
       }
     },
     search: {...searchProps.props, value: 'qfqdf', placeholder: 'Search content'}

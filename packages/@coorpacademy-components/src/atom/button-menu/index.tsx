@@ -46,6 +46,7 @@ const Button = (props: ButtonProps) => {
       className={styleButton}
       onClick={handleOnClick}
       disabled={disabled}
+      style={customStyle}
     >
       <div className={style.buttonContent}>
         <span className={style.label}>{label}</span>
