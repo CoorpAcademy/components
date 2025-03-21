@@ -6,7 +6,7 @@ import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import {WebContextValues} from '../../atom/provider/web-context';
-import {GetTranslateFromContext} from '../../atom/provider';
+import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
 import style from './style.css';
 
@@ -79,5 +79,9 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
 };
 
 MultiFilterPanel.propTypes = propTypes;
+
+MultiFilterPanel.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default MultiFilterPanel;
