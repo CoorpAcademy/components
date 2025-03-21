@@ -7,7 +7,6 @@ export const COLORS = {
   white: '#ffffff',
   cm_grey_400: '#9999A8',
   cm_grey_800: '#171721',
-  cm_blue_50: '#f1f6fe',
   cm_primary_blue: '#0061FF',
   cm_grey_500: '#515161',
   cm_grey_700: '#1D1D2B',
