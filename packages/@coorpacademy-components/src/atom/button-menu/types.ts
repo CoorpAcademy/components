@@ -25,15 +25,10 @@ export default propTypes;
 
 export type Theme = 'archived' | 'published' | 'deleted';
 
-export type ButtonProps = {
-  'data-name'?: string;
-  disabled?: boolean;
-  label: string;
-  onClick: () => void;
+export type ButtonProps = Omit<ButtonLinkProps, 'type' | 'icon'> & {
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   buttonLinkType?: ButtonLinkProps['type'];
   icon?: IconType & {theme?: Theme};
-  customStyle?: Record<string, string | number>;
 };
 
 export type ButtonMenuProps = {
