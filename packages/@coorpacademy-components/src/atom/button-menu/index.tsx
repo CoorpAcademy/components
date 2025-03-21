@@ -1,6 +1,7 @@
 import React, {useMemo, useCallback} from 'react';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
+import {noop} from 'lodash/fp';
 import ButtonLink from '../button-link';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
@@ -31,11 +32,12 @@ const Button = (props: ButtonProps) => {
     'data-name': dataName,
     disabled,
     label,
-    onClick,
+    onClick = noop,
     type = 'default',
     buttonLinkType,
     icon,
-    customStyle = {}
+    customStyle = {},
+    ...rest
   } = props;
   const styleButton = classnames(
     style.button,
@@ -48,6 +50,7 @@ const Button = (props: ButtonProps) => {
   const handleOnClick = useCallback(() => onClick(), [onClick]);
 
   const buttonLinkProps = {
+    ...rest,
     'aria-label': label,
     disabled,
     label,
