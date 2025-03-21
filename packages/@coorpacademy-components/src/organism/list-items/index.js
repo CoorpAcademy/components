@@ -12,7 +12,22 @@ import ExpandibleActionableTable from '../../molecule/expandible-actionable-tabl
 import Loader from '../../atom/loader';
 import Search from '../../atom/input-search';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
+import ButtonMenuAction from '../../molecule/button-menu-action';
 import style from './style.css';
+
+const buildTitleView = title => {
+  if (typeof title === 'string') {
+    return (
+      <Title
+        title={title}
+        type="form-group"
+        titleSize="standard-light-weight"
+        data-name="list-title"
+      />
+    );
+  }
+  return <Title {...title} />;
+};
 
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   const {items, itemType, onDrop, isDraggable = false, tableHeader} = content;
@@ -73,12 +88,7 @@ const buildEmptyResultView = emptyResult => {
     <div className={style.emptySearchResultContainer}>
       <div className={style.emptySearchResultTitle}>{title}</div>
       <div className={style.emptySearchResultDescription}>{description}</div>
-      <ButtonLink
-        type="text"
-        label={button.label}
-        onClick={button.handleSearchReset}
-        className={style.emptySearchResultButton}
-      />
+      <ButtonLink {...button} className={style.emptySearchResultButton} />
     </div>
   );
 };
@@ -107,9 +117,11 @@ const ListItems = ({
   isFetching,
   search,
   checkboxWithTitle,
-  actionButtons
+  actionButtons,
+  buttonMenuAction
 }) => {
   const contentView = buildContentView(content, ariaLabel, selectMultiple);
+  const titleView = buildTitleView(title);
   return (
     <div>
       <div className={style.header}>
@@ -119,14 +131,7 @@ const ListItems = ({
             {actionButtons ? map(action => <ButtonLink {...action} />)(actionButtons) : null}
           </div>
         ) : (
-          <div className={style.title}>
-            <Title
-              title={title}
-              type="form-group"
-              titleSize="standard-light-weight"
-              data-name="list-title"
-            />
-          </div>
+          <div className={style.title}>{titleView}</div>
         )}
         <div className={style.inputWrapper}>
           {!isEmpty(search) ? <Search {...search} /> : null}
@@ -138,6 +143,7 @@ const ListItems = ({
             ) : null}
             {!isEmpty(buttonLink) ? <ButtonLink {...buttonLink} /> : null}
           </div>
+          {buttonMenuAction ? <ButtonMenuAction {...buttonMenuAction} /> : null}
         </div>
       </div>
       {isFetching ? (
@@ -174,11 +180,12 @@ ListItems.propTypes = {
       type: PropTypes.oneOf(['expandible-actionable-table'])
     })
   ]),
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(Title.propTypes)]),
   isFetching: PropTypes.bool,
   search: PropTypes.shape(Search.propTypes),
   checkboxWithTitle: PropTypes.shape(CheckboxWithTitle.propTypes),
-  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonLink.propTypes))
+  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonLink.propTypes)),
+  buttonMenuAction: PropTypes.shape(ButtonMenuAction.propTypes)
 };
 
 export default ListItems;
