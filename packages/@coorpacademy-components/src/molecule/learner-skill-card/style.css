@@ -43,8 +43,7 @@
   margin-bottom: 8px;
 }
 
-.skillInformation,
-.progressInformation {
+.skillInformation {
   composes: textBase;
   font-weight: 400;
   font-size: 10px;
@@ -52,8 +51,7 @@
   color: cm_grey_400;
 }
 
-.skillInformationNumber,
-.progressInformationNumber {
+.skillInformationNumber{
   color: #000;
 }
 
@@ -84,7 +82,6 @@
   font-size: 10px;
   line-height: 12px;
   font-weight: 600;
-  color: #3900D6;
   margin-right: 8px;
 }
 
@@ -107,11 +104,10 @@
   margin-bottom: 24px;
 }
 
-.ctaWrapper {
-  margin-top: auto;
+.contentAndQuestionsWrapper{
+  composes: textBase;
+  font-size: 12px;
   display: flex;
-}
-
-.buttonWrapper {
-  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
