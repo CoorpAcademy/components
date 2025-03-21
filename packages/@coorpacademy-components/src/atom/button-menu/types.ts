@@ -8,7 +8,10 @@ export const buttonPropTypes = {
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
   buttonLinkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
-  icon: PropTypes.shape(iconPropTypes),
+  icon: PropTypes.shape({
+    ...iconPropTypes,
+    theme: PropTypes.oneOf(['archived', 'published', 'deleted'])
+  }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
@@ -20,15 +23,12 @@ const propTypes = {
 
 export default propTypes;
 
-export type ButtonProps = {
-  'data-name'?: string;
-  disabled?: boolean;
-  label: string;
-  onClick: () => void;
+export type Theme = 'archived' | 'published' | 'deleted';
+
+export type ButtonProps = Omit<ButtonLinkProps, 'type' | 'icon'> & {
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   buttonLinkType?: ButtonLinkProps['type'];
-  icon?: IconType;
-  customStyle?: Record<string, string | number>;
+  icon?: IconType & {theme?: Theme};
 };
 
 export type ButtonMenuProps = {
