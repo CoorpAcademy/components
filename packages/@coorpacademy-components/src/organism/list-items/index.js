@@ -88,7 +88,9 @@ const buildEmptyResultView = emptyResult => {
     <div className={style.emptySearchResultContainer}>
       <div className={style.emptySearchResultTitle}>{title}</div>
       <div className={style.emptySearchResultDescription}>{description}</div>
-      <ButtonLink {...button} className={style.emptySearchResultButton} />
+      <div className={style.emptySearchResultButton}>
+        {button?.menu ? <ButtonMenuAction {...button} /> : <ButtonLink {...button} />}
+      </div>
     </div>
   );
 };
@@ -172,7 +174,7 @@ ListItems.propTypes = {
       emptyResult: PropTypes.shape({
         title: PropTypes.string,
         description: PropTypes.string,
-        button: PropTypes.shape(ButtonLink.propTypes)
+        button: PropTypes.oneOfType([ButtonLink.propTypes, ButtonMenuAction.propTypes])
       })
     }),
     PropTypes.shape({
