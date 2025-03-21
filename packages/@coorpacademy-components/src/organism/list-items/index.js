@@ -174,7 +174,10 @@ ListItems.propTypes = {
       emptyResult: PropTypes.shape({
         title: PropTypes.string,
         description: PropTypes.string,
-        button: PropTypes.oneOfType([ButtonLink.propTypes, ButtonMenuAction.propTypes])
+        button: PropTypes.oneOfType([
+          PropTypes.shape(ButtonLink.propTypes),
+          PropTypes.shape(ButtonMenuAction.propTypes)
+        ])
       })
     }),
     PropTypes.shape({
