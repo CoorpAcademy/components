@@ -17,16 +17,16 @@ test('should toggle visibility of the menu on button click', t => {
   const {container} = render(<ButtonMenuAction {...props} />);
 
   const button = container.querySelector('[data-name="button-menu-action"]') as Element;
-  t.truthy(button, 'Button should be in the document');
+  t.truthy(button);
 
   fireEvent.click(button);
 
   const menu = container.querySelector('[data-name="menu-wrapper"]') as Element;
-  t.truthy(menu, 'Menu should be in the document when the button is clicked');
+  t.truthy(menu);
 
   fireEvent.click(button);
 
-  t.false(menu.classList.contains('visible'), 'Menu should be hidden after second click');
+  t.false(menu.classList.contains('visible'));
 
   t.pass();
 });
@@ -46,11 +46,11 @@ test('should close the menu when clicking outside', t => {
   fireEvent.click(button);
 
   const menu = container.querySelector('[data-name="menu-wrapper"]') as Element;
-  t.truthy(menu, 'Menu should be visible after button click');
+  t.truthy(menu);
 
   fireEvent.mouseDown(document.body);
 
-  t.false(menu.classList.contains('visible'), 'Menu should be hidden after clicking outside');
+  t.false(menu.classList.contains('visible'));
 
   t.pass();
 });
@@ -74,7 +74,7 @@ test('should find the button menu and have clickable buttons', t => {
   fireEvent.click(button);
 
   const menu = container.querySelector('[data-name="menu-wrapper"]') as Element;
-  t.truthy(menu, 'Menu should be visible after button click');
+  t.truthy(menu);
 
   const labelFrenchButton = menu.querySelector('[data-name="label-french-button"]') as Element;
   t.truthy(labelFrenchButton);
