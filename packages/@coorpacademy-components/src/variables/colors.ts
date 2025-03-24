@@ -18,7 +18,8 @@ export const COLORS = {
   yellow_700: '#A38300',
   yellow_100: '#FFF9D1',
   red_700: '#A30000',
-  red_100: '#FFD1D1'
+  red_100: '#FFD1D1',
+  cm_orange_800: '#A32700'
 } as const;
 
 export type Colors = typeof COLORS;
