@@ -17,7 +17,7 @@ const getTitleStyle = (type, size) => {
         case 'standard-light-weight':
           return style.titleFormGroupLightWeight;
         case 'xl-strong':
-          return style.XlStrongTitle;
+          return style.xlStrongTitle;
         case 'medium':
           return style.mediumTitleFormGroup;
         case 'small':
