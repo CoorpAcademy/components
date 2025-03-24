@@ -49,12 +49,15 @@ const Icon = React.memo(function Icon({
 }) {
   const effectiveIconColor =
     iconColor || (backgroundColor ? getForegroundColor(backgroundColor) : DEFAULT_ICON_COLOR);
-
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ effectiveIconColor:', effectiveIconColor);
   const effectiveSize = size
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
   const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ wrapperSize:', wrapperSize);
 
   const iconWrapperStyle = {
     background: gradientBackground
