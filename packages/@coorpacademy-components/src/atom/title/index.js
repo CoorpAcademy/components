@@ -22,6 +22,8 @@ const getTitleStyle = (type, size) => {
           return style.mediumTitleFormGroup;
         case 'small':
           return style.smallTitleFormGroup;
+        case 'lightAndSmallTitleFormGroup':
+          return style.lightAndSmallTitleFormGroup;
       }
   }
 };
@@ -87,7 +89,14 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
-  titleSize: PropTypes.oneOf(['xl-strong', 'standard', 'standard-light-weight', 'medium', 'small']),
+  titleSize: PropTypes.oneOf([
+    'xl-strong',
+    'standard',
+    'standard-light-weight',
+    'medium',
+    'small',
+    'lightAndSmallTitleFormGroup'
+  ]),
   subtitleSize: PropTypes.oneOf([
     'standard',
     'standard-without-margin',
