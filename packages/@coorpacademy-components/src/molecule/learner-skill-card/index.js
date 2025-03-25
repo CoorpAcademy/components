@@ -78,11 +78,11 @@ const LearnerSkillCard = (props, context) => {
             {content} {translate('content')}
           </div>
           {questionsToReview ? (
-            <div className={style.skillQuestionsWrapper}>
-              <div
-                className={style.skillInformation}
-                data-name="learner-skill-card-skill-questions"
-              >
+            <div className={style.skillInformation} data-name="learner-skill-card-skill-questions">
+              <div>
+                <Icon iconName={'circle'} iconColor={COLORS.cm_grey_400} size={{faSize: 4}} />
+              </div>
+              <div data-name="questions-to-review">
                 <span className={style.skillInformationNumber}>{questionsToReview}</span>
                 &nbsp;{questionsLocale}
               </div>
