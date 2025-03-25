@@ -661,3 +661,8 @@ div.player:hover span.selectSpan {
   background-color: cm_grey_100;
   color: cm_grey_700;
 }
+
+.skillDetail.no-label .selectBox {
+  width: 100%;
+  max-width: 100%;
+}
