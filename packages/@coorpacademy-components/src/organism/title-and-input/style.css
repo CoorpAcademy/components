@@ -1,9 +1,22 @@
 .inputContainer {
-    margin-top: 16px;
-    max-width: 300px;
+  margin-top: 16px;
 }
 
 .selectOpponentsContainer {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
+.defaultWidth {
+  composes: inputContainer;
+  width: 300px;
+}
+
+.mediumWidth {
+  composes: inputContainer;
+  width: 444px;
+}
+
+.largeWidth {
+  composes: inputContainer;
+  width: 100%;
+}
