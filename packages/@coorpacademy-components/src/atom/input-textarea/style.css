@@ -242,7 +242,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: 0 0 0 17px;
-  border-radius: 7px;
+  border-radius: 12px;
   background-color: transparent;
   font-family: Gilroy;
   font-size: 14px;
@@ -270,7 +270,7 @@
   right: 0px;
   position: absolute;
   background-color: cm_grey_100;
-  border-radius: 7px;
+  border-radius: 12px;
   transition: all 0.25s linear;
 }
 
