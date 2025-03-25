@@ -41,14 +41,15 @@ const TitleAndInput = (props: TitleAndInputProps) => {
   const {size = 'default'} = field as {size?: keyof typeof inputStyle};
   const styleInput =
     childType === 'selectOpponents' ? style.selectOpponentsContainer : inputStyle[size];
+  const titleProps = {
+    ...title,
+    titleSize: title?.titleSize || 'medium',
+    subtitleSize: title?.subtitleSize || 'small-without-margin',
+    type: title?.type || 'form-group'
+  };
   return (
     <div>
-      <Title
-        {...title}
-        type={'form-group'}
-        titleSize={'medium'}
-        subtitleSize={'small-without-margin'}
-      />
+      <Title {...titleProps} />
       <div className={styleInput}>{input}</div>
     </div>
   );

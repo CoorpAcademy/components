@@ -7,6 +7,7 @@ import {SelectOpponentsProps} from '../select-opponents/types';
 import InputText from '../../atom/input-text';
 import InputTextarea from '../../atom/input-textarea';
 import Select from '../../atom/select';
+import {TitleProps} from '../../atom/title/types';
 
 const validInputSize = ['default', 'medium', 'large'];
 
@@ -39,12 +40,7 @@ const propTypes = {
 export type ValidInputSize = typeof validInputSize[number];
 
 export type TitleAndInputProps = {
-  title: {
-    title: string;
-    subtitle: string;
-    type: string;
-    'data-name': string;
-  };
+  title: TitleProps;
   field:
     | (React.ComponentProps<typeof Select> & {size?: ValidInputSize})
     | React.ComponentProps<typeof SelectMultiple>

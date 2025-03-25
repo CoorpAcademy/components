@@ -5,7 +5,9 @@ export default {
     title: {
       type: 'form-group',
       title: 'Default language*',
-      subtitle: 'Language in which the skill is created'
+      subtitle: 'Language in which the skill is created',
+      titleSize: 'lightAndSmallTitleFormGroup',
+      subtitleSize: 'standard-without-margin'
     },
     field: {
       ...SelectSkillDetail.props,

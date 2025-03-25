@@ -4,7 +4,8 @@ export default {
   props: {
     title: {
       type: 'form-group',
-      title: 'Description'
+      title: 'Description',
+      titleSize: 'lightAndSmallTitleFormGroup'
     },
     field: {
       ...InputTextArea.props,
