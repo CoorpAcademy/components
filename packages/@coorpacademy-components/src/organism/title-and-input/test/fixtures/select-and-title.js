@@ -1,14 +1,9 @@
 import SelectSkillDetail from '../../../../atom/select/test/fixtures/skill-detail';
+import Title from '../../../../atom/title/test/fixtures/form-group-title-required';
 
 export default {
   props: {
-    title: {
-      type: 'form-group',
-      title: 'Default language*',
-      subtitle: 'Language in which the skill is created',
-      titleSize: 'lightAndSmallTitleFormGroup',
-      subtitleSize: 'standard-without-margin'
-    },
+    title: Title.props,
     field: {
       ...SelectSkillDetail.props,
       options: [

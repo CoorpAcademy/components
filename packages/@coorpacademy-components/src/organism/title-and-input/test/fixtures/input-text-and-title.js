@@ -4,8 +4,9 @@ export default {
   props: {
     title: {
       type: 'form-group',
-      title: 'Title*',
-      titleSize: 'lightAndSmallTitleFormGroup'
+      title: 'Title',
+      titleSize: 'lightAndSmallTitleFormGroup',
+      required: true
     },
     field: {
       ...InputText.props,

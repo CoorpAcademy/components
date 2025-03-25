@@ -4,6 +4,7 @@ import {isEmpty} from 'lodash/fp';
 import Icon from '../icon';
 import Tag from '../tag';
 import ButtonLink from '../button-link';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const getTitleStyle = (type, size) => {
@@ -60,7 +61,8 @@ const Title = props => {
     subtitleSize = 'standard',
     icon,
     tag,
-    button
+    button,
+    required
   } = props;
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
@@ -73,7 +75,14 @@ const Title = props => {
       <div className={style.titleContainer}>
         <div>
           <div className={titleStyle} data-name={dataName}>
-            {title}
+            {required ? (
+              <>
+                {title}
+                <span style={{color: COLORS.cm_negative_300, gap: 0}}>*</span>
+              </>
+            ) : (
+              title
+            )}
             {tag ? <Tag {...tag} /> : null}
           </div>
           {subtitleSection}
@@ -107,6 +116,7 @@ Title.propTypes = {
   ]),
   icon: PropTypes.shape(Icon.propTypes),
   tag: PropTypes.shape(Tag.propTypes),
-  button: PropTypes.shape(ButtonLink.propTypes)
+  button: PropTypes.shape(ButtonLink.propTypes),
+  required: PropTypes.bool
 };
 export default Title;

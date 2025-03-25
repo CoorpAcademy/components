@@ -11,4 +11,5 @@ export type TitleProps = {
     | 'small'
     | 'lightAndSmallTitleFormGroup';
   subtitleSize: 'standard' | 'medium' | 'small-without-margin' | 'small' | 'extra-small';
+  required: boolean;
 };
