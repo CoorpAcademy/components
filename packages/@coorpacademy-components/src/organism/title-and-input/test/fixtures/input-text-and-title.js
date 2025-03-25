@@ -3,7 +3,6 @@ import InputText from '../../../../atom/input-text/test/fixtures/cm-default';
 export default {
   props: {
     title: {
-      type: 'form-group',
       title: 'Title',
       titleSize: 'lightAndSmallTitleFormGroup',
       required: true
