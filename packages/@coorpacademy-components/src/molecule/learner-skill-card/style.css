@@ -22,9 +22,7 @@
   display: flex;
   flex-direction: column;
   width: 254px;
-  /* max-width: 258px;
-  min-width: 254px; */
-  /* min-height: 252px; */
+  height: 252px;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 12px;
@@ -35,12 +33,12 @@
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
 
-.skillQuestionsWrapper,
+/* .skillQuestionsWrapper,
 .progressInformations {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-}
+} */
 
 .skillInformation {
   composes: textBase;
@@ -48,6 +46,8 @@
   font-size: 10px;
   line-height: 12px;
   color: cm_grey_400;
+  display: flex;
+  align-items: baseline;
 }
 
 .skillInformationNumber{
@@ -59,7 +59,6 @@
   gap: 8px;
   flex-direction: column;
   min-height: 68px;
-  margin-bottom: 24px;
 }
 
 .skillTitle {
@@ -97,10 +96,9 @@
 }
 
 .progressInformations {
-  display: flex;
-  gap: 8px;
-  min-height: 12px;
-  margin-bottom: 24px;
+  width: 178px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .contentAndQuestionsWrapper {
@@ -109,11 +107,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .iconWrapper {
   border-radius: 12px;
-  width: 252px;
 }
 
 .iconBackgroundWrapper {
