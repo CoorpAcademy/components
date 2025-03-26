@@ -36,13 +36,16 @@ const buildInput = (
 };
 
 const TitleAndInput = (props: TitleAndInputProps) => {
-  const {title, field, childType} = props;
-  const {titleSize = 'medium', subtitleSize = 'small-without-margin', type = 'form-group'} = title;
+  const {
+    title: {titleSize, subtitleSize, type, ...restTitleProps},
+    field,
+    childType
+  } = props;
   const titleProps = {
-    ...title,
-    titleSize,
-    subtitleSize,
-    type
+    ...restTitleProps,
+    titleSize: titleSize ?? 'medium',
+    subtitleSize: subtitleSize ?? 'small-without-margin',
+    type: type ?? 'form-group'
   };
   const input = buildInput(childType, field);
   const {size = 'default'} = field;

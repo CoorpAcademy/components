@@ -2,6 +2,7 @@
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value cm_negative_300 from colors;
 
 .container {
   display: flex;
@@ -125,4 +126,9 @@
 .icon {
   height: 24px;
   width: 24px;
+}
+
+.required {
+  color: cm_negative_300; 
+  gap: 0;
 }

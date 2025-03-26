@@ -4,7 +4,6 @@ import {isEmpty} from 'lodash/fp';
 import Icon from '../icon';
 import Tag from '../tag';
 import ButtonLink from '../button-link';
-import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const getTitleStyle = (type, size) => {
@@ -75,14 +74,8 @@ const Title = props => {
       <div className={style.titleContainer}>
         <div>
           <div className={titleStyle} data-name={dataName}>
-            {required ? (
-              <>
-                {title}
-                <span style={{color: COLORS.cm_negative_300, gap: 0}}>*</span>
-              </>
-            ) : (
-              title
-            )}
+            {title}
+            {required ? <span className={style.required}>*</span> : null}
             {tag ? <Tag {...tag} /> : null}
           </div>
           {subtitleSection}
