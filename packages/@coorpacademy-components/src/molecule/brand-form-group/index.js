@@ -136,7 +136,7 @@ const BrandFormGroup = props => {
     titleSize,
     subtitleSize = 'standard'
   } = props;
-  const fieldsList = map.convert({cap: false})(buildField, fields);
+  const fieldsList = map.convert({cap: false})(field => buildField(field, title), fields);
   const layout = useMemo(() => defineLayoutClass(fieldsLayout), [fieldsLayout]);
 
   return (

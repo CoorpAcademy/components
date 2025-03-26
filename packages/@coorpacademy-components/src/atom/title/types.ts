@@ -9,7 +9,7 @@ export type TitleProps = {
     | 'standard-light-weight'
     | 'medium'
     | 'small'
-    | 'lightAndSmallTitleFormGroup';
+    | 'smallAndLight';
   subtitleSize: 'standard' | 'medium' | 'small-without-margin' | 'small' | 'extra-small';
   required: boolean;
 };

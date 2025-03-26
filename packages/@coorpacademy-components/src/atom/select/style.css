@@ -663,6 +663,5 @@ div.player:hover span.selectSpan {
 }
 
 .skillDetail.no-label .selectBox {
-  width: 100%;
   max-width: 100%;
 }

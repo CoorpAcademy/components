@@ -23,8 +23,8 @@ const getTitleStyle = (type, size) => {
           return style.mediumTitleFormGroup;
         case 'small':
           return style.smallTitleFormGroup;
-        case 'lightAndSmallTitleFormGroup':
-          return style.lightAndSmallTitleFormGroup;
+        case 'smallAndLight':
+          return style.smallAndLightTitleFormGroup;
       }
   }
 };
@@ -104,7 +104,7 @@ Title.propTypes = {
     'standard-light-weight',
     'medium',
     'small',
-    'lightAndSmallTitleFormGroup'
+    'smallAndLight'
   ]),
   subtitleSize: PropTypes.oneOf([
     'standard',

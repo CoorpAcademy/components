@@ -15,9 +15,6 @@ const propTypes = {
   title: PropTypes.shape(Title.propTypes).isRequired,
   field: PropTypes.oneOfType([
     PropTypes.shape(Autocomplete.propTypes),
-    PropTypes.shape({...Select.propTypes, size: PropTypes.oneOf(validInputSize)}),
-    PropTypes.shape(SelectMultiple.propTypes),
-    PropTypes.shape(SelectOpponents.propTypes),
     PropTypes.shape({
       ...InputText.propTypes,
       size: PropTypes.oneOf(validInputSize)
@@ -25,29 +22,33 @@ const propTypes = {
     PropTypes.shape({
       ...InputTextarea.propTypes,
       size: PropTypes.oneOf(validInputSize)
-    })
+    }),
+    PropTypes.shape({...Select.propTypes, size: PropTypes.oneOf(validInputSize)}),
+    PropTypes.shape(SelectMultiple.propTypes),
+    PropTypes.shape(SelectOpponents.propTypes)
   ]),
   childType: PropTypes.oneOf([
     'autoComplete',
+    'inputText',
+    'inputTextArea',
     'select',
     'selectMultiple',
-    'selectOpponents',
-    'inputText',
-    'inputTextArea'
+    'selectOpponents'
   ]).isRequired
 };
 
-export type ValidInputSize = typeof validInputSize[number];
+export type ValidInputSize = 'default' | 'medium' | 'large';
 
 export type TitleAndInputProps = {
   title: TitleProps;
   field:
+    | React.ComponentProps<typeof Autocomplete>
+    | (React.ComponentProps<typeof InputText> & {size?: ValidInputSize})
+    | (React.ComponentProps<typeof InputTextarea> & {size?: ValidInputSize})
     | (React.ComponentProps<typeof Select> & {size?: ValidInputSize})
     | React.ComponentProps<typeof SelectMultiple>
-    | React.ComponentProps<typeof Autocomplete>
-    | (SelectOpponentsProps & {size?: ValidInputSize})
-    | (React.ComponentProps<typeof InputText> & {size?: ValidInputSize})
-    | (React.ComponentProps<typeof InputTextarea> & {size?: ValidInputSize});
+    | SelectOpponentsProps;
+
   childType: string;
 };
 

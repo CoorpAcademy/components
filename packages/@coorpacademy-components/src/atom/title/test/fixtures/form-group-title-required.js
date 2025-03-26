@@ -3,7 +3,7 @@ export default {
     type: 'form-group',
     title: 'Default language',
     subtitle: 'Language in which the skill is created',
-    titleSize: 'lightAndSmallTitleFormGroup',
+    titleSize: 'smallAndLight',
     subtitleSize: 'standard-without-margin',
     required: true
   }

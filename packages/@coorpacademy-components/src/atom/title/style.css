@@ -59,7 +59,7 @@
   font-size: 14px;
 }
 
-.lightAndSmallTitleFormGroup {
+.smallAndLightTitleFormGroup {
   composes: smallTitleFormGroup;
   color: cm_grey_500;
   font-weight: 600;

@@ -9,7 +9,7 @@ import SelectOpponents from '../select-opponents';
 import propTypes, {TitleAndInputProps} from './types';
 import style from './style.css';
 
-export const inputStyle = {
+export const inputStyle: Record<string, string> = {
   default: style.defaultWidth,
   medium: style.mediumWidth,
   large: style.largeWidth
@@ -22,31 +22,33 @@ const buildInput = (
   switch (childType) {
     case 'autoComplete':
       return <Autocomplete {...field} />;
+    case 'inputText':
+      return <InputText {...field} />;
+    case 'inputTextArea':
+      return <InputTextarea {...field} />;
     case 'select':
       return <Select {...field} />;
     case 'selectMultiple':
       return <SelectMultiple {...field} />;
     case 'selectOpponents':
       return <SelectOpponents {...field} />;
-    case 'inputText':
-      return <InputText {...field} />;
-    case 'inputTextArea':
-      return <InputTextarea {...field} />;
   }
 };
 
 const TitleAndInput = (props: TitleAndInputProps) => {
   const {title, field, childType} = props;
-  const input = buildInput(childType, field);
-  const {size = 'default'} = field as {size?: keyof typeof inputStyle};
-  const styleInput =
-    childType === 'selectOpponents' ? style.selectOpponentsContainer : inputStyle[size];
+  const {titleSize = 'medium', subtitleSize = 'small-without-margin', type = 'form-group'} = title;
   const titleProps = {
     ...title,
-    titleSize: title?.titleSize || 'medium',
-    subtitleSize: title?.subtitleSize || 'small-without-margin',
-    type: title?.type || 'form-group'
+    titleSize,
+    subtitleSize,
+    type
   };
+  const input = buildInput(childType, field);
+  const {size = 'default'} = field;
+  const styleInput =
+    childType === 'selectOpponents' ? style.selectOpponentsContainer : inputStyle[size];
+
   return (
     <div>
       <Title {...titleProps} />
