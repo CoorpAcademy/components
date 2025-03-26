@@ -13,7 +13,7 @@ const IconEditor = (props, context) => {
 
   const isValidColor = validateColor(iconColor);
   return (
-    <>
+    <div className={style.container}>
       <IconPreview
         iconName={iconName}
         title={title}
@@ -35,7 +35,7 @@ const IconEditor = (props, context) => {
         />
         <ButtonLink {...buttonLink} />
       </div>
-    </>
+    </div>
   );
 };
 
@@ -48,17 +48,7 @@ IconEditor.propTypes = {
   iconColor: PropTypes.string,
   title: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
-  buttonLink: PropTypes.shape({
-    type: PropTypes.string,
-    label: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    dataName: PropTypes.string,
-    icon: PropTypes.shape({
-      position: PropTypes.string,
-      type: PropTypes.string
-    }),
-    onClick: PropTypes.func
-  })
+  buttonLink: PropTypes.shape(ButtonLink.propTypes)
 };
 
 export default IconEditor;

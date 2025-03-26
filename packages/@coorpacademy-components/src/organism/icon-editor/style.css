@@ -1,11 +1,17 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_700 from colors;
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: '12px';
+}
+
 .inputButtonContainer {
-    display: flex;
-    align-items: flex-start;;
-    gap: 8px;
-  }
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
 
 .inputButtonContainer button {
   width: 137px;
