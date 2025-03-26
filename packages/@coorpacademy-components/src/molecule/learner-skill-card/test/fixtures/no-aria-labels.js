@@ -1,17 +1,17 @@
-export const defaultProps = {
-  'aria-label': 'Learner Skill Card',
-  title: 'Critical thinking and analysis',
+import {defaultProps} from './default';
+
+export const noAriaLabelProps = {
+  ...defaultProps,
   metrics: {
     content: 89,
     score: 65,
     questionsToReview: 25
   },
-  skill: {
-    title: 'Critical thinking and analysis'
-  },
+  iconColor: '#A32700',
+  iconName: 'banana',
   onExploreClick: () => console.log('explore')
 };
 
 export default {
-  props: defaultProps
+  props: noAriaLabelProps
 };
