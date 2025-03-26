@@ -1,11 +1,11 @@
-import SelectSkillDetail from '../../../../atom/select/test/fixtures/skill-detail';
+import Select from '../../../../atom/select/test/fixtures/skill-detail';
 import Title from '../../../../atom/title/test/fixtures/form-group-title-required';
 
 export default {
   props: {
     title: Title.props,
     field: {
-      ...SelectSkillDetail.props,
+      ...Select.props,
       options: [
         {
           name: '🇬🇧 English',

@@ -105,11 +105,13 @@ const buildInput = field => {
   }
 };
 
-const buildField = (field, index) => {
+const buildField = (field, title, index) => {
   const input = buildInput(field);
   const {theme, size = 'default'} = field.type === 'titleAndInput' ? field.field : field;
-  const styleInput = theme === 'coorpmanager' ? inputContainerStyle[size] : style.field;
-  const styleField = field.type === 'titleAndInput' ? style.fieldMassiveBattle : styleInput;
+  const styleInput =
+    theme === 'coorpmanager' || theme === 'skillDetail' ? inputContainerStyle[size] : style.field;
+  const isMassiveBattle = field.type === 'titleAndInput' && title === 'Massive Battle';
+  const styleField = isMassiveBattle ? style.fieldMassiveBattle : styleInput;
 
   return (
     <div className={styleField} key={index}>
@@ -131,6 +133,7 @@ const BrandFormGroup = props => {
     fieldsLayout = '',
     groupLayout = '',
     fields = [],
+    titleSize,
     subtitleSize = 'standard'
   } = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
@@ -142,7 +145,13 @@ const BrandFormGroup = props => {
       className={classNames(style.wrapper, groupLayout === 'grid' && style.groupGrid)}
     >
       <div className={style.titleWrapper}>
-        <Title title={title} subtitle={subtitle} subtitleSize={subtitleSize} type={'form-group'} />
+        <Title
+          title={title}
+          subtitle={subtitle}
+          titleSize={titleSize}
+          subtitleSize={subtitleSize}
+          type={'form-group'}
+        />
       </div>
       <div className={layout}>{fieldsList}</div>
     </div>
@@ -152,6 +161,7 @@ const BrandFormGroup = props => {
 BrandFormGroup.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  titleSize: PropTypes.string,
   subtitleSize: PropTypes.string,
   fieldsLayout: PropTypes.string,
   groupLayout: PropTypes.string,
