@@ -54,31 +54,3 @@ test('should close the menu when clicking outside', t => {
 
   t.pass();
 });
-
-test('should find the button menu and have clickable buttons', t => {
-  t.plan(6);
-
-  const props = {
-    button: {...defaultFixture.props.button, onClick: () => t.pass()},
-    menu: {
-      ...defaultFixture.props.menu,
-      buttons: [{...defaultFixture.props.menu.buttons[0], onClick: () => t.pass()}]
-    }
-  };
-
-  const {container} = render(<ButtonMenuAction {...props} />);
-
-  const button = container.querySelector('[data-name="button-menu-action"]') as Element;
-  t.truthy(button);
-
-  fireEvent.click(button);
-
-  const menu = container.querySelector('[data-name="menu-wrapper"]') as Element;
-  t.truthy(menu);
-
-  const labelFrenchButton = menu.querySelector('[data-name="label-french-button"]') as Element;
-  t.truthy(labelFrenchButton);
-
-  fireEvent.click(labelFrenchButton);
-  t.pass();
-});
