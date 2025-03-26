@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useMemo, useRef} from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../atom/icon';
 import Provider from '../../atom/provider';
@@ -11,29 +11,58 @@ const MAX_SCORE = 100;
 
 const LearnerSkillCard = (props, context) => {
   const {
-    // 'aria-label': ariaLabel,
+    'aria-label': ariaLabel,
+    skillTitle,
+    skillAriaLabel,
     focus = false,
     metrics,
-    skill,
+    iconName,
+    iconColor,
     onExploreClick
   } = props;
   const {score, content, questionsToReview = 0} = metrics;
-  const {title, ariaLabel, iconColor, iconName} = skill;
   const {translate} = context;
   const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
   const skillFocusLocale = translate('skill_focus');
-
-  // const {customBackgroundColor} = focus ? '#DDD1FF' : COLORS.gray;
+  const {tagTextColor, tagBackgroundColor} = useMemo(
+    () => ({
+      tagTextColor1: focus ? '#2B00A3' : COLORS.cm_grey_500,
+      tagBackgroundColor: focus ? '#DDD1FF' : COLORS.gray
+    }),
+    [focus]
+  );
+  const headerBackgroundRef = useRef(null);
+  const defaultBackground = useMemo(
+    () => createGradientBackground(iconColor, '93%', '100%'),
+    [iconColor]
+  );
+  const handleMouseEnter = useCallback(() => {
+    // eslint-disable-next-line no-console
+    console.log('handleMouseEnter');
+    headerBackgroundRef.current.style.background = createGradientBackground(
+      iconColor,
+      '83%',
+      '100%'
+    );
+  }, [iconColor]);
+  const handleMouseLeave = useCallback(() => {
+    headerBackgroundRef.current.style.background = defaultBackground;
+  }, [defaultBackground]);
   return (
     <div
       data-name="learner-skill-card-wrapper"
       onClick={onExploreClick}
       className={style.learnerSkillCardContainer}
+      aria-label={ariaLabel}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* icon background */}
       <div
+        data-name="icon-background"
+        ref={headerBackgroundRef}
         className={style.iconBackgroundWrapper}
-        style={{background: createGradientBackground(iconColor, '93%', '100%')}}
+        style={{background: defaultBackground, color: tagTextColor}}
       >
         {/* wrapper with gradient background */}
         <div className={style.iconWrapper} data-testid="icon-wrapper">
@@ -41,11 +70,11 @@ const LearnerSkillCard = (props, context) => {
             iconName={iconName}
             iconColor={iconColor}
             gradientBackground
-            // size={{
-            //   faSize: 12,
-            //   wrapperSize: 30
-            // }}
-            preset="m"
+            size={{
+              faSize: 20,
+              wrapperSize: 44
+            }}
+            customStyle={{border: '4px solid white'}}
           />
         </div>
       </div>
@@ -55,13 +84,13 @@ const LearnerSkillCard = (props, context) => {
           <div
             className={style.skillFocusBadge}
             style={{
-              backgroundColor: focus ? '#DDD1FF' : COLORS.gray,
-              color: focus ? '#2B00A3' : COLORS.cm_grey_500
+              backgroundColor: tagBackgroundColor,
+              color: tagTextColor
             }}
           >
             <Icon
               iconName={focus ? 'bullseye-arrow' : 'shapes'}
-              backgroundColor={focus ? '#DDD1FF' : COLORS.gray}
+              backgroundColor={tagBackgroundColor}
               size={{
                 faSize: 10,
                 wrapperSize: 16
@@ -69,35 +98,45 @@ const LearnerSkillCard = (props, context) => {
             />
             {focus ? skillFocusLocale : translate('skill')}
           </div>
-          <div data-name="skill-title" className={style.skillTitle} aria-label={ariaLabel || title}>
-            {title}
+          <div
+            data-name="skill-title"
+            className={style.skillTitle}
+            aria-label={skillAriaLabel || skillTitle}
+          >
+            {skillTitle}
           </div>
-        </div>
-        <div className={style.contentAndQuestionsWrapper}>
-          <div>
-            {content} {translate('content')}
-          </div>
-          {questionsToReview ? (
-            <div className={style.skillInformation} data-name="learner-skill-card-skill-questions">
-              <div>
-                <Icon iconName={'circle'} iconColor={COLORS.cm_grey_400} size={{faSize: 4}} />
-              </div>
-              <div data-name="questions-to-review">
-                <span className={style.skillInformationNumber}>{questionsToReview}</span>
+          <div className={style.contentAndQuestionsWrapper}>
+            <div data-name="learner-skill-card-skill-content">
+              {content} {translate('content')}
+            </div>
+            {questionsToReview ? (
+              <div
+                className={style.skillInformation}
+                data-name="learner-skill-card-skill-questions"
+              >
+                <div>
+                  <Icon
+                    iconName={'circle'}
+                    iconColor={COLORS.cm_grey_400}
+                    size={{faSize: 4}}
+                    customStyle={{padding: 0}}
+                  />
+                </div>
+                <span data-name="questions-to-review">{questionsToReview}</span>
                 &nbsp;{questionsLocale}
               </div>
-            </div>
-          ) : null}
+            ) : null}
+          </div>
         </div>
-        <div className={style.progressInformations}>
-          <ProgressBar
-            value={score}
-            displayInfo={false}
-            max={MAX_SCORE}
-            className={style.progressWrapper}
-            style={{backgroundColor: COLORS.positive}}
-          />
-        </div>
+      </div>
+      <div className={style.progressInformations}>
+        <ProgressBar
+          value={score}
+          displayInfo={false}
+          max={MAX_SCORE}
+          className={style.progressWrapper}
+          style={{backgroundColor: COLORS.positive}}
+        />
       </div>
     </div>
   );
@@ -109,21 +148,17 @@ LearnerSkillCard.contextTypes = {
 };
 
 LearnerSkillCard.propTypes = {
-  // 'aria-label': PropTypes.string,
-  // skillTitle: PropTypes.string,
-  // skillAriaLabel: PropTypes.string,
+  'aria-label': PropTypes.string,
+  skillTitle: PropTypes.string,
+  skillAriaLabel: PropTypes.string,
   focus: PropTypes.bool,
   metrics: PropTypes.shape({
     score: PropTypes.number,
     content: PropTypes.number,
     questionsToReview: PropTypes.number
   }),
-  skill: PropTypes.shape({
-    title: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    iconColor: PropTypes.string,
-    iconName: PropTypes.string
-  }),
+  iconColor: PropTypes.string,
+  iconName: PropTypes.string,
   onExploreClick: PropTypes.func
 };
 
