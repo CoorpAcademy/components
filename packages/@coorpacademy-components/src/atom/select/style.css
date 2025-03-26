@@ -13,9 +13,10 @@
 @value transparent from colors;
 @value box_shadow_light_dark from colors;
 @value box_shadow_medium_dark from colors;
-@value cm_grey_100 from colors;
 @value cm_blue_900 from colors;
+@value cm_grey_100 from colors;
 @value cm_grey_450 from colors;
+@value cm_grey_700 from colors;
 
 .defaultStyle {
   display: flex;
@@ -279,14 +280,14 @@ div.coorpmanager label.selectWrapper {
 }
 
 div.defaultStyle label.selectWrapper span.longLabel {
-    min-width: 230px;
-    max-width: 280px;
-    white-space: pre-wrap;
-    line-height: 22px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    height: auto;
-    border: none;
+  min-width: 230px;
+  max-width: 280px;
+  white-space: pre-wrap;
+  line-height: 22px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: auto;
+  border: none;
 }
 
 div:not(.player) .noLabelCommon.selectSpan {
@@ -537,7 +538,7 @@ div.player:hover span.selectSpan {
 @supports (-moz-appearance:none) {
   .player label.selectWrapper select.selectBox {
     width: 100%;
-  } 
+  }
 }
 
 /*
@@ -647,13 +648,20 @@ div.player:hover span.selectSpan {
 .skillDetail .selectWrapper {
   height: 44px;
   min-height: unset;
+  width: 100%;
+  margin: 0
 }
 
 .skillDetail label.selectWrapper span.selectSpan {
-  font-size: 15px;
+  font-size: 14px;
   height: 44px;
   line-height: 44px;
-  padding: 0 40px 0 10px;
+  padding: 0 40px 0 16px;
   border-radius: 12px;
   background-color: cm_grey_100;
+  color: cm_grey_700;
+}
+
+.skillDetail.no-label .selectBox {
+  max-width: 100%;
 }

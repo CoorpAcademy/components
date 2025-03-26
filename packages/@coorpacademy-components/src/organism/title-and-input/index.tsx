@@ -1,10 +1,19 @@
 import React from 'react';
 import Title from '../../atom/title';
 import Autocomplete from '../../atom/autocomplete';
+import InputText from '../../atom/input-text';
+import InputTextarea from '../../atom/input-textarea';
+import Select from '../../atom/select';
 import SelectMultiple from '../../molecule/select-multiple';
 import SelectOpponents from '../select-opponents';
 import propTypes, {TitleAndInputProps} from './types';
 import style from './style.css';
+
+export const inputStyle: Record<string, string> = {
+  default: style.defaultWidth,
+  medium: style.mediumWidth,
+  large: style.largeWidth
+};
 
 const buildInput = (
   childType: TitleAndInputProps['childType'],
@@ -13,6 +22,12 @@ const buildInput = (
   switch (childType) {
     case 'autoComplete':
       return <Autocomplete {...field} />;
+    case 'inputText':
+      return <InputText {...field} />;
+    case 'inputTextArea':
+      return <InputTextarea {...field} />;
+    case 'select':
+      return <Select {...field} />;
     case 'selectMultiple':
       return <SelectMultiple {...field} />;
     case 'selectOpponents':
@@ -21,18 +36,25 @@ const buildInput = (
 };
 
 const TitleAndInput = (props: TitleAndInputProps) => {
-  const {title, field, childType} = props;
+  const {
+    title: {titleSize, subtitleSize, type, ...restTitleProps},
+    field,
+    childType
+  } = props;
+  const titleProps = {
+    ...restTitleProps,
+    titleSize: titleSize ?? 'medium',
+    subtitleSize: subtitleSize ?? 'small-without-margin',
+    type: type ?? 'form-group'
+  };
   const input = buildInput(childType, field);
+  const {size = 'default'} = field;
   const styleInput =
-    childType === 'selectOpponents' ? style.selectOpponentsContainer : style.inputContainer;
+    childType === 'selectOpponents' ? style.selectOpponentsContainer : inputStyle[size];
+
   return (
     <div>
-      <Title
-        {...title}
-        type={'form-group'}
-        titleSize={'medium'}
-        subtitleSize={'small-without-margin'}
-      />
+      <Title {...titleProps} />
       <div className={styleInput}>{input}</div>
     </div>
   );

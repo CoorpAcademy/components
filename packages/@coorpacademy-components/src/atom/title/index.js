@@ -22,6 +22,8 @@ const getTitleStyle = (type, size) => {
           return style.mediumTitleFormGroup;
         case 'small':
           return style.smallTitleFormGroup;
+        case 'smallAndLight':
+          return style.smallAndLightTitleFormGroup;
       }
   }
 };
@@ -58,7 +60,8 @@ const Title = props => {
     subtitleSize = 'standard',
     icon,
     tag,
-    button
+    button,
+    required
   } = props;
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
@@ -72,6 +75,7 @@ const Title = props => {
         <div>
           <div className={titleStyle} data-name={dataName}>
             {title}
+            {required ? <span className={style.required}>*</span> : null}
             {tag ? <Tag {...tag} /> : null}
           </div>
           {subtitleSection}
@@ -87,7 +91,14 @@ Title.propTypes = {
   subtitle: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
-  titleSize: PropTypes.oneOf(['xl-strong', 'standard', 'standard-light-weight', 'medium', 'small']),
+  titleSize: PropTypes.oneOf([
+    'xl-strong',
+    'standard',
+    'standard-light-weight',
+    'medium',
+    'small',
+    'smallAndLight'
+  ]),
   subtitleSize: PropTypes.oneOf([
     'standard',
     'standard-without-margin',
@@ -98,6 +109,7 @@ Title.propTypes = {
   ]),
   icon: PropTypes.shape(Icon.propTypes),
   tag: PropTypes.shape(Tag.propTypes),
-  button: PropTypes.shape(ButtonLink.propTypes)
+  button: PropTypes.shape(ButtonLink.propTypes),
+  required: PropTypes.bool
 };
 export default Title;

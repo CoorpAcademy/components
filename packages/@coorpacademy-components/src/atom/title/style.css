@@ -1,6 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value cm_negative_300 from colors;
 
 .container {
   display: flex;
@@ -56,6 +58,13 @@
 .smallTitleFormGroup {
   composes: title;
   font-size: 14px;
+}
+
+.smallAndLightTitleFormGroup {
+  composes: smallTitleFormGroup;
+  color: cm_grey_500;
+  font-weight: 600;
+  line-height: 20px;
 }
 
 .subtitle {
@@ -117,4 +126,9 @@
 .icon {
   height: 24px;
   width: 24px;
+}
+
+.required {
+  color: cm_negative_300; 
+  gap: 0;
 }
