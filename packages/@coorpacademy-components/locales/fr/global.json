@@ -210,6 +210,9 @@
     },
     "mylcl-learning": {
        "diploma": "parcours"
+    },
+    "who": {
+      "badge": "Additional information about your certificate"
     }
   }
 }
