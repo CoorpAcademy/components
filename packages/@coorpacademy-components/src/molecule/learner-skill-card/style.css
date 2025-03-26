@@ -27,18 +27,12 @@
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 12px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .learnerSkillCardContainer:hover {
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
-
-/* .skillQuestionsWrapper,
-.progressInformations {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-} */
 
 .skillInformation {
   composes: textBase;
@@ -47,12 +41,10 @@
   line-height: 12px;
   color: cm_grey_400;
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  height: 16px;
 }
 
-.skillInformationNumber{
-  color: #000;
-}
 
 .skillTitleWrapper {
   display: flex;
@@ -66,7 +58,6 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
-  margin-bottom: 8px;
 }
 
 .skillFocusBadge {
@@ -96,35 +87,47 @@
 }
 
 .progressInformations {
-  width: 178px;
+  padding: 0 24px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
   padding-left: 24px;
-  padding-right: 24px;
+  margin-top: 16px;
 }
 
 .contentAndQuestionsWrapper {
   composes: textBase;
+  font-weight: 400;
   font-size: 12px;
+  font-style: 'normal';
+  line-height: 16px;
+  color: cm_grey_400;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  padding: 0px;
+  height: 16px;
+  width: 252px;
 }
 
 .iconWrapper {
   border-radius: 12px;
+  padding: 0px;
 }
 
 .iconBackgroundWrapper {
-  display: flex;
-  padding-left: 16px;
-  padding-top: 16px;
-  padding-bottom: 12px;
-  border-radius: 12px;
+  padding: 16px 0 12px 16px;
+  border-radius: 12px 12px 0 0;
+  height: 52px;
+  border: 2px solid white;
 }
 
 .learnerSkillCardContent {
-  padding: 24px;
+  padding: 16px;
   display: flex;
   gap: 8px;
   flex-direction: column;
+  margin-bottom: 16px;
 }

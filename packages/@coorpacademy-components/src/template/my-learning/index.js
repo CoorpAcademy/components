@@ -148,6 +148,8 @@ const MyLearning = (props, context) => {
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
   );
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ MyLearning ~ graphDatas:', graphDatas);
 
   const graphLegends = useMemo(
     () =>
@@ -272,7 +274,8 @@ const MyLearning = (props, context) => {
     ),
     [translate]
   );
-
+  // eslint-disable-next-line no-console
+  console.log('skillsLocales', skillsLocales);
   return (
     <div className={style.backgroundContainer}>
       {isEmpty(learningPriorities?.cards) ? null : (
@@ -342,6 +345,7 @@ const MyLearning = (props, context) => {
                 <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
               ) : null}
             </header>
+
             {selectedSkillsList.length >= 3 ? (
               <div className={style.skillFocusContent}>
                 <div className={style.radarContainer}>
@@ -482,6 +486,8 @@ const MyLearning = (props, context) => {
               </div>
             ) : (
               filters[activeFilter].map((skill, index) => {
+                // eslint-disable-next-line no-console
+                console.log('skill', skill);
                 const defaultStats = {
                   score: 0,
                   content: 0,
@@ -508,6 +514,8 @@ const MyLearning = (props, context) => {
                         content,
                         questionsToReview
                       }}
+                      iconColor="#A32700"
+                      iconName="banana"
                       review={
                         skillsInformation[skill]
                           ? skillsInformation[skill].availableForReview
