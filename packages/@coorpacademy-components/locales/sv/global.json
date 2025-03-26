@@ -210,6 +210,9 @@
     },
     "mylcl-learning": {
        "diploma": "inlärningsväg"
+    },
+    "who": {
+      "badge": "Additional information about your certificate"
     }
   }
 }
