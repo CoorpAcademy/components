@@ -1,11 +1,12 @@
 import React from 'react';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import IconEditor from '../icon-editor';
+import ListItems from '../list-items';
 import propTypes, {SkillEditionProps} from './types';
 import style from './style.css';
 
 const SkillEdition = (props: SkillEditionProps) => {
-  const {skillInformations} = props;
+  const {skillInformations, translations} = props;
 
   return (
     <div className={style.container}>
@@ -15,6 +16,7 @@ const SkillEdition = (props: SkillEditionProps) => {
           <IconEditor {...skillInformations.iconEditor} />
         </div>
       </div>
+      <ListItems {...translations} />
     </div>
   );
 };

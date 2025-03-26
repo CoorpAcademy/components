@@ -1,5 +1,6 @@
 import BrandFormGroup from '../../../../molecule/brand-form-group/test/fixtures/skill-edition';
 import IconEditor from '../../../icon-editor/test/fixtures/default';
+import ListItems from '../../../list-items/test/fixtures/translations';
 
 export default {
   props: {
@@ -23,6 +24,7 @@ export default {
         ]
       },
       iconEditor: IconEditor.props
-    }
+    },
+    translations: ListItems.props
   }
 };
