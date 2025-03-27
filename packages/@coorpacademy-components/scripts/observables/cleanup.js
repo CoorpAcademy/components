@@ -21,9 +21,9 @@ const removeEmptyFolders$ = (folderPath, removeParents = false) => {
           return;
         }
         // Filter out system files if needed
-        files = files.filter(file => file !== '.DS_Store');
+        const files_ = files.filter(file => file !== '.DS_Store');
 
-        if (files.length === 0) {
+        if (files_.length === 0) {
           rmdir(folderPath, rmdirErr => {
             if (rmdirErr) {
               observer.error(rmdirErr);
@@ -58,6 +58,7 @@ const deleteFolder$ = folderPath => {
       .then(() => {
         observer.next(folderPath);
         observer.complete();
+        return null;
       })
       .catch(err => observer.error(err));
   });
