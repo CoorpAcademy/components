@@ -4,7 +4,7 @@ export default {
   props: {
     title: {
       title: 'Title',
-      titleSize: 'smallAndLight',
+      titleSize: 'small-and-light',
       required: true
     },
     field: {
