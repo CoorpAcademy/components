@@ -1,19 +1,16 @@
 const {Observable} = require('rxjs');
 const {filter} = require('rxjs/operators');
 const {walkDirectory$} = require('./walk-directory'); // your existing directory walker
-const {readdir,unlink, rmdir, stat} = require('fs');
+const {readdir, rmdir, stat} = require('fs');
 const {dirname} = require('path');
 const {rm} = require('fs/promises'); 
-
 
 const readAllStoryFiles$ = (cwd) =>
   walkDirectory$(cwd).pipe(
     filter((filePath) => filePath.endsWith('.stories.tsx'))
   );
 
-
-
-function removeEmptyFolders$(folderPath, removeParents = false) {
+const removeEmptyFolders$ = (folderPath, removeParents = false) => {
   return new Observable((observer) => {
     stat(folderPath, (statErr, stats) => {
       if (statErr || !stats.isDirectory()) {
@@ -54,11 +51,10 @@ function removeEmptyFolders$(folderPath, removeParents = false) {
   });
 }
 
-
 /**
  * Recursively deletes a folder (rm -rf).
  */
-function deleteFolder$(folderPath) {
+const  deleteFolder$ = (folderPath) => {
   return new Observable((observer) => {
     rm(folderPath, {recursive: true, force: true})
       .then(() => {
@@ -68,7 +64,5 @@ function deleteFolder$(folderPath) {
       .catch((err) => observer.error(err));
   });
 }
-
-
 
 module.exports = {readAllStoryFiles$, deleteFolder$, removeEmptyFolders$};

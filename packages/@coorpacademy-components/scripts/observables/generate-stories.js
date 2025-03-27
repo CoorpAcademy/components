@@ -1,4 +1,3 @@
-// generate-stories.js
 const {join, dirname, relative} = require('path');
 const {of, from, concat} = require('rxjs');
 const {map, toArray, mergeMap} = require('rxjs/operators');
@@ -29,7 +28,6 @@ const generateStories$ = (cwd) => {
         )
       );
 
-      // Observable that emits lines for fixture exports
       const fixtureExports$ = readComponentFixtures$({title, path, type}).pipe(
         map(
           ({fixture}) => `
