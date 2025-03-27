@@ -1,6 +1,6 @@
 const {join, dirname, relative} = require('path');
 const {of, from, concat} = require('rxjs');
-const {map, toArray, mergeMap} = require('rxjs/operators');
+const {map, toArray, mergeMap, shareReplay} = require('rxjs/operators');
 const {readComponentFixtures$} = require('./component-fixtures');
 const {pascalCase} = require('./string');
 const {readComponents$} = require('./components');
@@ -16,15 +16,19 @@ const generateStories$ = cwd => {
       const testPath = join(path, 'test');
       const storiesPath = join(testPath, 'index.stories.tsx');
 
-      // Observable that emits lines for fixture imports
-      const fixtureImports$ = readComponentFixtures$({title, path, type}).pipe(
+      // 1) Read the fixtures once, share the results
+      const fixtures$ = readComponentFixtures$({title, path, type}).pipe(
+        shareReplay(1) // caches and replays the emitted fixtures
+      );
+
+      const fixtureImports$ = fixtures$.pipe(
         map(
           ({fixture, fixturePath}) =>
             `import fixture${fixture} from './${relative(testPath, fixturePath)}';`
         )
       );
 
-      const fixtureExports$ = readComponentFixtures$({title, path, type}).pipe(
+      const fixtureExports$ = fixtures$.pipe(
         map(
           ({fixture}) => `
 export const ${pascalCase(fixture)} = (args: any) => <${title} {...args} />;
@@ -32,7 +36,6 @@ ${pascalCase(fixture)}.args = fixture${fixture}.props;`
         )
       );
 
-      // Combine all lines in a single stream with concat()
       const content$ = concat(
         // 1) Basic imports
         of(`import React from 'react';`, `import ${title} from '..';`),
@@ -50,7 +53,7 @@ export default {
 
       return [storiesPath, content$];
     }),
-    toArray() // gather all story definitions into an array
+    toArray()
   );
 
   // 2) Remove stale story folders, then emit the new generation array
