@@ -4,16 +4,12 @@ const {map, toArray, mergeMap} = require('rxjs/operators');
 const {readComponentFixtures$} = require('./component-fixtures');
 const {pascalCase} = require('./string');
 const {readComponents$} = require('./components');
-const {
-  readAllStoryFiles$,
-  deleteFolder$,
-  removeEmptyFolders$
-} = require('./cleanup');
+const {readAllStoryFiles$, deleteFolder$, removeEmptyFolders$} = require('./cleanup');
 
 /**
  * Generate story files for all current components.
  */
-const generateStories$ = (cwd) => {
+const generateStories$ = cwd => {
   // 1) Build [storiesPath, lines$] pairs for each component
   const generation$ = readComponents$(cwd).pipe(
     map(({title, path, type, titleRaw, levels}) => {
@@ -59,11 +55,11 @@ export default {
 
   // 2) Remove stale story folders, then emit the new generation array
   return generation$.pipe(
-    mergeMap((storyEntries) => {
+    mergeMap(storyEntries => {
       const desiredStoryPaths = new Set(storyEntries.map(([p]) => p));
 
       return readAllStoryFiles$(cwd).pipe(
-        mergeMap((existingStoryPath) => {
+        mergeMap(existingStoryPath => {
           if (!desiredStoryPaths.has(existingStoryPath)) {
             // This story is stale
             const testFolder = dirname(existingStoryPath);
