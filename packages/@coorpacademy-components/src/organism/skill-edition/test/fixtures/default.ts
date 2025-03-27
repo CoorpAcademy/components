@@ -17,7 +17,15 @@ export default {
   props: {
     skillInformations: {
       form: BrandFormGroup.props,
-      iconEditor: {...IconEditor.props, title: '-'}
+      iconEditor: {
+        title: {
+          type: 'form-group',
+          title: 'Skill icon',
+          titleSize: 'small-and-light',
+          required: true
+        },
+        editor: {...IconEditor.props, title: '-'}
+      }
     },
     translations: TranslationsEmpty.props,
     content: {

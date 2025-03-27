@@ -14,7 +14,8 @@ const SkillEdition = (props: SkillEditionProps) => {
       <div className={style.skillInformationsContainer}>
         <BrandFormGroup {...skillInformations.form} />
         <div className={style.iconEditor}>
-          <IconEditor {...skillInformations.iconEditor} />
+          <Title {...skillInformations.iconEditor.title} />
+          <IconEditor {...skillInformations.iconEditor.editor} />
         </div>
       </div>
       <ListItems {...translations} />
