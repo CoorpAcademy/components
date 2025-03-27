@@ -3,17 +3,17 @@
   flex-direction: column;
   gap: 80px;
   width: 100%;
+  padding-bottom: 32px;
 }
 
 .skillInformationsContainer {
   display: flex;
   gap: 96px;
-  align-items: end;
+  align-items: center;
 }
 
 .iconEditor {
   min-width: 420px;
-  margin-bottom: 32px;
 }
 
 .contentContainer {

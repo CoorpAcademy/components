@@ -11,8 +11,8 @@ const SkillEditionPropTypes = {
   }).isRequired,
   translations: PropTypes.shape(ListItems.propTypes).isRequired,
   content: PropTypes.shape({
-    title: PropTypes.shape({...Title.propTypes}).isRequired,
-    listContent: PropTypes.shape({...ListItems.propTypes}).isRequired
+    title: PropTypes.shape(Title.propTypes).isRequired,
+    listContent: PropTypes.shape(ListItems.propTypes).isRequired
   })
 };
 
