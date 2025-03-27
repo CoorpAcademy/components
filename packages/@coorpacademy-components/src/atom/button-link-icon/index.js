@@ -85,7 +85,7 @@ const ButtonLinkIcon = props => {
           {...link}
           {...(ariaLabel
             ? {
-                'data-for': 'button-icon',
+                'data-for': dataName,
                 'data-tip': toolTipIsVisible
               }
             : {})}
@@ -101,7 +101,7 @@ const ButtonLinkIcon = props => {
         <button
           {...(ariaLabel
             ? {
-                'data-for': 'button-icon',
+                'data-for': dataName,
                 'data-tip': toolTipIsVisible
               }
             : {})}
@@ -139,7 +139,7 @@ const ButtonLinkIcon = props => {
       {ariaLabel ? (
         <ToolTip
           fontSize={12}
-          anchorId="button-icon"
+          anchorId={dataName}
           toolTipIsVisible={toolTipIsVisible}
           placement={tooltipPlacement}
           TooltipContent={TooltipContent}
