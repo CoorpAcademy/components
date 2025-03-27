@@ -27,7 +27,7 @@ const IconEditor = (props, context) => {
           theme="coorpmanager"
           description={translate('icon_editor_color')}
           value={iconColor}
-          error={iconColor && !isValidColor && translate('invalid_color')}
+          error={iconColor && !isValidColor ? translate('invalid_color') : undefined}
           disabled={false}
           valid={false}
           onChange={handleChange}
