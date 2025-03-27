@@ -3,7 +3,6 @@ import searchProps from '../../../../atom/input-search/test/fixtures/coorpmanage
 export default {
   props: {
     title: {title: '0 item', type: 'form-group', titleSize: 'medium-light-color'},
-
     'aria-label': 'aria list',
     content: {
       items: [],

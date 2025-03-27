@@ -1,6 +1,8 @@
 import BrandFormGroup from '../../../../molecule/brand-form-group/test/fixtures/skill-edition';
+import ContentSkill from '../../../list-items/test/fixtures/content-skill';
 import IconEditor from '../../../icon-editor/test/fixtures/default';
 import ListItems from '../../../list-items/test/fixtures/translations';
+import Default from './default';
 
 export default {
   props: {
@@ -25,6 +27,10 @@ export default {
       },
       iconEditor: IconEditor.props
     },
-    translations: ListItems.props
+    translations: ListItems.props,
+    content: {
+      title: Default.props.content.title,
+      listContent: ContentSkill.props
+    }
   }
 };

@@ -15,3 +15,9 @@
   min-width: 420px;
   margin-bottom: 32px;
 }
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
