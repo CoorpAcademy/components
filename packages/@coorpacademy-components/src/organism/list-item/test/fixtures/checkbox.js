@@ -11,7 +11,10 @@ export default {
         type: 'default',
         icon: {
           iconName: 'book-open',
-          preset: 's',
+          size: {
+            faSize: 12,
+            wrapperSize: 12
+          },
           customStyle: {
             padding: 0
           },

@@ -9,26 +9,50 @@
 @value cm_grey_700 from colors;
 @value cm_primary_blue from colors;
 
+
+.wrapper:hover {
+  background-color: cm_grey_75;
+}
 .wrapper {
   font-family: Gilroy;
-  align-items: center;
   background-color: color(xtraLightGrey a(90%));
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
   padding: 0 24px;
   width: 100%;
   border-radius: 12px;
   min-height: 64px;
 }
 
-.wrapper:hover {
-  background-color: cm_grey_75;
+
+.flexLayout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .gridLayout {
-  display: grid;
-  grid-template-columns: 60% auto;
+  display: flex;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+}
+
+
+.dataColumnsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: inherit;
+  justify-content: flex-start;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  height: 100%;
+
 }
 
 .disabled {
@@ -67,15 +91,6 @@
   cursor: pointer;
 }
 
-.settings {
-  align-items: center;
-  display: flex;
-  height: 100%;
-  gap: 16px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .tag {
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -90,8 +105,9 @@
 .titleWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2px;
-  margin: 0 16px;
+  margin: 0 16px 0 0;
 }
 
 .titleProviderWrapper {
@@ -118,8 +134,11 @@
 .dataColumnsWrapper {
   display: flex;
   width: 100%;
-  align-items: center;
-  align-content: space-between;
+  gap: 54px;
+  /* align-items: center; */
+  /* align-content: space-between; */
+  /* justifycontent: center; */
+
 }
 
 .hiddenOverflowX {
