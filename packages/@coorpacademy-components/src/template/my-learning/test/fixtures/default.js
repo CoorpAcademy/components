@@ -16,6 +16,8 @@ const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef5'];
 const skillsInformation = {
   skillRef1: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 15.3,
       content: 120,
@@ -26,6 +28,8 @@ const skillsInformation = {
   },
   skillRef2: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 56.3,
       content: 120,
@@ -36,6 +40,8 @@ const skillsInformation = {
   },
   skillRef3: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'shapes',
     stats: {
       score: 23.3,
       content: 120,
@@ -46,6 +52,8 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
+    iconColor: '#1B7B88',
+    iconName: 'person-burst',
     stats: {
       score: 83.3,
       content: 120,
@@ -56,6 +64,8 @@ const skillsInformation = {
   },
   skillRef5: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'hand-point-up',
     stats: {
       score: 43.3,
       content: 120,
@@ -66,6 +76,8 @@ const skillsInformation = {
   },
   skillRef6: {
     availableForReview: true,
+    iconColor: '#2B00A3',
+    iconName: 'banana',
     stats: {
       score: 63.3,
       content: 120,
@@ -76,6 +88,8 @@ const skillsInformation = {
   },
   skillRef7: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'shapes',
     stats: {
       score: 63.33333333,
       content: 120,
@@ -85,6 +99,8 @@ const skillsInformation = {
     }
   },
   skillRef8: {
+    iconColor: '#1B7B88',
+    iconName: 'banana',
     availableForReview: false,
     stats: {
       score: 63.3,
@@ -112,9 +128,8 @@ export const defaultProps = {
   selectedSkills,
   skillsInformation,
   skillsLocales,
-  isLoadng: false,
+  isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
-  onReviewSkill: () => console.log('review'),
   onExploreSkill: skillRef => console.log(skillRef),
   learningPriorities: {
     ...LearningPrioritiesProps.props,

@@ -21,47 +21,36 @@
 .learnerSkillCardWrapper {
   display: flex;
   flex-direction: column;
-  max-width: 258px;
-  min-width: 254px;
-  width: 100%;
-  min-height: 252px;
+  width: 254px;
+  height: 220px;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 12px;
-  padding: 24px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .learnerSkillCardWrapper:hover {
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
 
-.skillQuestionsWrapper,
-.progressInformations {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.skillInformation,
-.progressInformation {
+.skillInformation {
   composes: textBase;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
   color: cm_grey_400;
+  display: flex;
+  align-items: center;
+  height: 16px;
 }
 
-.skillInformationNumber,
-.progressInformationNumber {
-  color: #000;
-}
 
 .skillTitleWrapper {
   display: flex;
+  gap: 8px;
   flex-direction: column;
   min-height: 68px;
-  margin-bottom: 24px;
 }
 
 .skillTitle {
@@ -69,7 +58,6 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 22px;
-  margin-bottom: 8px;
 }
 
 .skillFocusBadge {
@@ -78,13 +66,11 @@
   height: 12px;
   width: fit-content;
   align-items: center;
-  background-color: #DDD1FF;
   border-radius: 24px;
   padding: 2px 4px;
   font-size: 10px;
   line-height: 12px;
   font-weight: 600;
-  color: #3900D6;
   margin-right: 8px;
 }
 
@@ -97,21 +83,57 @@
   border-radius: 2px;
   overflow: hidden;
   background: light;
-  margin-bottom: 8px;
 }
 
 .progressInformations {
+  padding: 0 24px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
+  padding-left: 24px;
+}
+
+.contentAndQuestionsWrapper {
+  composes: textBase;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: cm_grey_400;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  height: 16px;
+  width: 252px;
+}
+
+.iconWrapper {
+  border-radius: 12px;
+  padding: 0px;
+}
+
+.iconHeaderWrapper {
+  padding: 16px 0 12px 16px;
+  border-radius: 12px 12px 0 0;
+  height: 52px;
+  border: 2px solid white;
+  overflow: hidden;
+  background-position-y: -2px;
+  background-repeat: repeat-x;
+  background-color: white;
+}
+
+.iconHeaderWrapper:hover {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.learnerSkillCardContent {
+  padding: 16px;
   display: flex;
   gap: 8px;
-  min-height: 12px;
-  margin-bottom: 24px;
-}
-
-.ctaWrapper {
-  margin-top: auto;
-  display: flex;
-}
-
-.buttonWrapper {
-  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 }

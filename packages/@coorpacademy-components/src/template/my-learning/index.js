@@ -119,7 +119,6 @@ const MyLearning = (props, context) => {
     learnerFeature = true,
     isLoading,
     onSkillFocusConfirm,
-    onReviewSkill,
     onExploreSkill,
     learningPriorities
   } = props;
@@ -133,7 +132,6 @@ const MyLearning = (props, context) => {
     sortBy(skillRef => -getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
   );
   const [activeFilter, setActiveFilter] = useState('all');
-
   const skillsReviewReady = useMemo(() => {
     return searchResults.filter(skill =>
       skillsInformation[skill] ? skillsInformation[skill].availableForReview : false
@@ -143,7 +141,7 @@ const MyLearning = (props, context) => {
   const graphDatas = useMemo(
     () =>
       pipe(
-        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation).toFixed(1)]),
+        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation)]),
         fromPairs
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
@@ -272,7 +270,6 @@ const MyLearning = (props, context) => {
     ),
     [translate]
   );
-
   return (
     <div className={style.backgroundContainer}>
       {isEmpty(learningPriorities?.cards) ? null : (
@@ -342,6 +339,7 @@ const MyLearning = (props, context) => {
                 <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
               ) : null}
             </header>
+
             {selectedSkillsList.length >= 3 ? (
               <div className={style.skillFocusContent}>
                 <div className={style.radarContainer}>
@@ -471,7 +469,7 @@ const MyLearning = (props, context) => {
           </div>
         ) : (
           <div className={style.skillListContainer}>
-            {activeFilter === 'review_mode_available' && filters[activeFilter].length === 0 ? (
+            {activeFilter === 'review' && filters[activeFilter].length === 0 ? (
               <div className={style.skillListEmptyContainer}>
                 <ReviewNoSkills
                   titleNoSkills={translate('review_skill_empty')}
@@ -488,32 +486,25 @@ const MyLearning = (props, context) => {
                   contentCompleted: 0,
                   questionsToReview: 0
                 };
-
-                function handleReviewSkill() {
-                  onReviewSkill(skill);
-                }
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
                 const {score, content, questionsToReview} = skillsInformation[skill]
                   ? skillsInformation[skill].stats
                   : defaultStats;
+                const {iconColor, iconName} = skillsInformation[skill];
                 return (
                   <div key={index}>
                     <LearnerSkillCard
                       skillTitle={skillsLocales[skill]}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
-                        score: score.toFixed(1),
+                        score,
                         content,
                         questionsToReview
                       }}
-                      review={
-                        skillsInformation[skill]
-                          ? skillsInformation[skill].availableForReview
-                          : false
-                      }
-                      onReviewClick={handleReviewSkill}
+                      iconColor={iconColor}
+                      iconName={iconName}
                       onExploreClick={handleExploreSkill}
                     />
                   </div>
@@ -538,6 +529,8 @@ MyLearning.propTypes = {
   skillsInformation: PropTypes.objectOf(
     PropTypes.shape({
       availableForReview: PropTypes.bool,
+      iconColor: PropTypes.string,
+      iconName: PropTypes.string,
       stats: PropTypes.shape({
         score: PropTypes.number,
         content: PropTypes.number,
@@ -551,7 +544,6 @@ MyLearning.propTypes = {
   learnerFeature: PropTypes.bool,
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
-  onReviewSkill: PropTypes.func,
   onExploreSkill: PropTypes.func,
   learningPriorities: PropTypes.shape(CardsList.propTypes)
 };

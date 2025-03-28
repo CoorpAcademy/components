@@ -7,7 +7,8 @@ export const defaultProps = {
     score: 65,
     questionsToReview: 25
   },
-  onReviewClick: () => console.log('review'),
+  iconColor: '#2B00A3',
+  iconName: 'banana',
   onExploreClick: () => console.log('explore')
 };
 
