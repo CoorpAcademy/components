@@ -6,6 +6,7 @@ import InputTextarea from '../../atom/input-textarea';
 import Select from '../../atom/select';
 import SelectMultiple from '../../molecule/select-multiple';
 import SelectOpponents from '../select-opponents';
+import IconEditor from '../icon-editor';
 import propTypes, {TitleAndInputProps} from './types';
 import style from './style.css';
 
@@ -22,6 +23,8 @@ const buildInput = (
   switch (childType) {
     case 'autoComplete':
       return <Autocomplete {...field} />;
+    case 'iconEditor':
+      return <IconEditor {...field} />;
     case 'inputText':
       return <InputText {...field} />;
     case 'inputTextArea':
