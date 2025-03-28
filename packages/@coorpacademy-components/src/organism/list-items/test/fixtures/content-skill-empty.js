@@ -17,6 +17,6 @@ export default {
         }
       }
     },
-    search: {...searchProps.props, placeholder: 'Search content'}
+    search: {...searchProps.props, value: 'qfqdf', placeholder: 'Search content'}
   }
 };

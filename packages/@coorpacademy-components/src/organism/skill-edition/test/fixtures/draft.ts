@@ -1,7 +1,7 @@
 import BrandFormGroup from '../../../../molecule/brand-form-group/test/fixtures/skill-edition';
 import ContentSkill from '../../../list-items/test/fixtures/content-skill';
-import TitleAndInput from '../../../title-and-input/test/fixtures/icon-editor-and-title';
 import ListItems from '../../../list-items/test/fixtures/translations';
+import TitleAndInput from '../../../title-and-input/test/fixtures/icon-editor-and-title';
 import Default from './default';
 
 export default {

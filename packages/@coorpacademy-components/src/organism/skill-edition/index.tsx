@@ -8,14 +8,13 @@ import style from './style.css';
 
 const SkillEdition = (props: SkillEditionProps) => {
   const {skillInformations, translations, content} = props;
-  const {iconEditor, form} = skillInformations;
 
   return (
     <div className={style.container}>
       <div className={style.skillInformationsContainer}>
-        <BrandFormGroup {...form} />
+        <BrandFormGroup {...skillInformations.form} />
         <div className={style.iconEditor}>
-          <TitleAndInput {...iconEditor} />
+          <TitleAndInput {...skillInformations.iconEditor} />
         </div>
       </div>
       <ListItems {...translations} />

@@ -1,10 +1,10 @@
 import BrandFormGroup from '../../../../molecule/brand-form-group/test/fixtures/skill-edition';
 import ButtonMenuActionStyle from '../../../../molecule/button-menu-action/test/fixtures/default';
 import ContentSkillEmpty from '../../../list-items/test/fixtures/content-skill-empty';
+import IconEditor from '../../../icon-editor/test/fixtures/empty-color';
+import TitleAndInput from '../../../title-and-input/test/fixtures/icon-editor-and-title';
 import TranslationsEmpty from '../../../list-items/test/fixtures/translations-empty';
 import {COLORS} from '../../../../variables/colors';
-import TitleAndInput from '../../../title-and-input/test/fixtures/icon-editor-and-title';
-import IconEditor from '../../../icon-editor/test/fixtures/empty-color';
 
 const contentButtonProps = {
   type: 'primary',
@@ -63,7 +63,8 @@ export default {
               }
             }
           }
-        }
+        },
+        search: {...ContentSkillEmpty.props.search, value: ''}
       }
     }
   }

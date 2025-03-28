@@ -13,7 +13,7 @@ const IconEditor = (props, context) => {
 
   const isValidColor = validateColor(iconColor);
   return (
-    <div className={style.container}>
+    <>
       <IconPreview
         iconName={iconName}
         title={title}
@@ -35,7 +35,7 @@ const IconEditor = (props, context) => {
         />
         <ButtonLink {...buttonLink} />
       </div>
-    </div>
+    </>
   );
 };
 
