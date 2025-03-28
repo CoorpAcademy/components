@@ -40,7 +40,7 @@ const ButtonLinkIcon = props => {
     disabled,
     icon,
     faIcon,
-    'data-name': dataName,
+    'data-name': dataName = 'button-icon',
     'aria-label': ariaLabel,
     link,
     onClick,

@@ -15,7 +15,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     buttons,
     menuButtonClassName,
     isBulkMenu,
-    'data-name': dataName
+    'data-name': dataName = 'bullet-point-button'
   } = props;
   const [visible, setVisible] = useState(false);
 
@@ -52,7 +52,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
   const bulletPointButtonProps = {
     size: 'default',
     'aria-label': buttonAriaLabel,
-    'data-name': 'bullet-point-button',
+    'data-name': dataName,
     icon: 'bullet-point',
     onClick: handleOnClick,
     disabled,
@@ -61,7 +61,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
 
   return (
     <div className={style.bulletPointWrapper} data-name="bullet-point-wrapper">
-      <ButtonLinkIcon {...bulletPointButtonProps} data-name={dataName} />
+      <ButtonLinkIcon {...bulletPointButtonProps} />
       {menu}
     </div>
   );
