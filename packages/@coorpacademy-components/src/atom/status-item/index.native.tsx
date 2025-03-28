@@ -18,7 +18,7 @@ const createStyle = (icon: StatusItemProps['icon'], current?: boolean): StyleShe
 
   switch (icon) {
     case 'right':
-      backgroundColor = COLORS.positive;
+      backgroundColor = COLORS.cm_positive_500;
       break;
     case 'wrong':
       backgroundColor = COLORS.negative;

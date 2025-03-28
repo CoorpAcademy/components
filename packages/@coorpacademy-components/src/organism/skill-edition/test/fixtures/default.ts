@@ -103,7 +103,6 @@ export default {
               customStyle: {
                 borderRadius: '12px',
                 fontWeight: 600,
-                paddingRight: '8px',
                 paddingleft: '16px'
               }
             }

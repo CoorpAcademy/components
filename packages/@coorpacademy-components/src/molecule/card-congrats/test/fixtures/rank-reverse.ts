@@ -10,7 +10,7 @@ const fixture: Fixture = {
     text: 'You are now',
     value: '123 th',
     Icon: RankIcon,
-    iconColor: COLORS.positive,
+    iconColor: COLORS.cm_positive_500,
     textColor: COLORS.cm_grey_800,
     direction: 'row-reverse'
   }
