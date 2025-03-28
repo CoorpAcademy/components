@@ -24,6 +24,7 @@ const LearnerSkillCard = (props, context) => {
   const {translate} = context;
   const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
   const skillFocusLocale = translate('skill_focus');
+  const defaultSkillLocale = translate('skill');
   const {tagTextColor, tagBackgroundColor} = useMemo(
     () => ({
       tagTextColor: focus ? '#2B00A3' : COLORS.cm_grey_500,
@@ -36,40 +37,32 @@ const LearnerSkillCard = (props, context) => {
     () => createGradientBackground(iconColor, '93%', '100%'),
     [iconColor]
   );
-  const BORDER_CARD_STYLE = '2px solid white';
-  const BORDER_COLOR_HOVER_STYLE = 'transparent transparent white transparent';
   const handleMouseEnter = useCallback(() => {
-    // eslint-disable-next-line no-console
-    console.log('handleMouseEnter');
-    headerBackgroundRef.current.style.background = createGradientBackground(
+    headerBackgroundRef.current.style.backgroundImage = createGradientBackground(
       iconColor,
       '83%',
       '100%'
     );
-    headerBackgroundRef.current.style.borderColor = BORDER_COLOR_HOVER_STYLE;
   }, [iconColor]);
   const handleMouseLeave = useCallback(() => {
-    headerBackgroundRef.current.style.background = defaultBackground;
-    headerBackgroundRef.current.style.border = BORDER_CARD_STYLE;
+    headerBackgroundRef.current.style.backgroundImage = defaultBackground;
   }, [defaultBackground]);
   return (
     <div
       data-name="learner-skill-card-wrapper"
       onClick={onExploreClick}
-      className={style.learnerSkillCardContainer}
+      className={style.learnerSkillCardWrapper}
       aria-label={ariaLabel}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* icon background */}
       <div
-        data-name="icon-background"
+        data-name="learner-skill-card-icon-header-wrapper"
         ref={headerBackgroundRef}
-        className={style.iconBackgroundWrapper}
-        style={{background: defaultBackground, color: tagTextColor}}
+        className={style.iconHeaderWrapper}
+        style={{backgroundImage: defaultBackground, color: tagTextColor}}
       >
-        {/* wrapper with gradient background */}
-        <div className={style.iconWrapper} data-testid="icon-wrapper">
+        <div className={style.iconWrapper} data-testid="learner-skill-card-icon-wrapper">
           <Icon
             iconName={iconName}
             iconColor={iconColor}
@@ -82,7 +75,6 @@ const LearnerSkillCard = (props, context) => {
           />
         </div>
       </div>
-      {/* card content */}
       <div className={style.learnerSkillCardContent}>
         <div className={style.skillTitleWrapper}>
           <div
@@ -100,7 +92,7 @@ const LearnerSkillCard = (props, context) => {
                 wrapperSize: 16
               }}
             />
-            {focus ? skillFocusLocale : translate('skill')}
+            {focus ? skillFocusLocale : defaultSkillLocale}
           </div>
           <div
             data-name="skill-title"
@@ -110,23 +102,21 @@ const LearnerSkillCard = (props, context) => {
             {skillTitle}
           </div>
           <div className={style.contentAndQuestionsWrapper}>
-            <div data-name="learner-skill-card-skill-content">
+            <div data-name="learner-skill-card-skill-content-number">
               {content} {translate('content')}
             </div>
             {questionsToReview ? (
               <div
                 className={style.skillInformation}
-                data-name="learner-skill-card-skill-questions"
+                data-name="learner-skill-card-skill-questions-wrapper"
               >
-                <div>
-                  <Icon
-                    iconName={'circle'}
-                    iconColor={COLORS.cm_grey_400}
-                    size={{faSize: 4}}
-                    customStyle={{padding: 0}}
-                  />
-                </div>
-                <span data-name="questions-to-review">{questionsToReview}</span>
+                <Icon
+                  iconName={'circle'}
+                  iconColor={COLORS.cm_grey_400}
+                  size={{faSize: 4}}
+                  customStyle={{padding: 0}}
+                />
+                <span data-name="learner-skill-card-questions-to-review">{questionsToReview}</span>
                 &nbsp;{questionsLocale}
               </div>
             ) : null}
@@ -147,7 +137,6 @@ const LearnerSkillCard = (props, context) => {
 };
 
 LearnerSkillCard.contextTypes = {
-  // skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
 
@@ -155,14 +144,14 @@ LearnerSkillCard.propTypes = {
   'aria-label': PropTypes.string,
   skillTitle: PropTypes.string,
   skillAriaLabel: PropTypes.string,
+  iconColor: PropTypes.string,
+  iconName: PropTypes.string,
   focus: PropTypes.bool,
   metrics: PropTypes.shape({
     score: PropTypes.number,
     content: PropTypes.number,
     questionsToReview: PropTypes.number
   }),
-  iconColor: PropTypes.string,
-  iconName: PropTypes.string,
   onExploreClick: PropTypes.func
 };
 
