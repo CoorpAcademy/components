@@ -37,7 +37,7 @@
 .skillInformation {
   composes: textBase;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 12px;
   color: cm_grey_400;
   display: flex;
