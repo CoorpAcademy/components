@@ -20,7 +20,6 @@ const skillsInformation = {
       score: 15.3,
       content: 120,
       contentCompleted: 12,
-      questionsToReview: 123,
       learningTime: 8
     }
   },
@@ -32,7 +31,6 @@ const skillsInformation = {
       score: 56.3,
       content: 120,
       contentCompleted: 65,
-      questionsToReview: 234,
       learningTime: 5
     }
   },
@@ -44,7 +42,6 @@ const skillsInformation = {
       score: 23.3,
       content: 120,
       contentCompleted: 78,
-      questionsToReview: 256,
       learningTime: 1
     }
   },
@@ -56,7 +53,6 @@ const skillsInformation = {
       score: 83.3,
       content: 120,
       contentCompleted: 89,
-      questionsToReview: 345,
       learningTime: 7
     }
   },
@@ -68,7 +64,6 @@ const skillsInformation = {
       score: 43.3,
       content: 120,
       contentCompleted: 62,
-      questionsToReview: 444,
       learningTime: 6
     }
   },
@@ -80,7 +75,6 @@ const skillsInformation = {
       score: 63.3,
       content: 120,
       contentCompleted: 62,
-      questionsToReview: 24,
       learningTime: 9
     }
   },
@@ -92,7 +86,6 @@ const skillsInformation = {
       score: 63.3,
       content: 120,
       contentCompleted: 62,
-      questionsToReview: 24,
       learningTime: 9
     }
   },
@@ -104,7 +97,6 @@ const skillsInformation = {
       score: 63.3,
       content: 120,
       contentCompleted: 62,
-      questionsToReview: 24,
       learningTime: 9
     }
   }
@@ -128,7 +120,6 @@ export const defaultProps = {
   skillsLocales,
   isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
-  onReviewSkill: () => console.log('review'),
   onExploreSkill: () => console.log('explore')
 };
 

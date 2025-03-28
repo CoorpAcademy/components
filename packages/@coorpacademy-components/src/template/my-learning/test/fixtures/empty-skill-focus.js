@@ -125,7 +125,6 @@ export const emptySkillFocusProps = {
   skillsLocales,
   isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
-  onReviewSkill: () => console.log('review'),
   onExploreSkill: () => console.log('explore')
 };
 
