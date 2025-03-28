@@ -9,7 +9,7 @@ export default {
     options: {
       selectionMode: 'single',
       isSelected: true,
-      iconColor: COLORS.positive
+      iconColor: COLORS.cm_positive_500
     },
     onClick: () => console.log('click')
   }

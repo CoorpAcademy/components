@@ -8,7 +8,7 @@ import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
 import {ICONS} from '../../util/button-icons';
-import {iconPropTypes} from '../../atom/icon';
+import {propTypes as iconPropTypes} from '../../atom/icon';
 
 const propTypes = {
   content: PropTypes.string,

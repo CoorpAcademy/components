@@ -21,8 +21,8 @@
 
 .continueLearningNumber {
   border-radius: 12px;
-  background-color: #EAEAEB;
-  color: #515161;
+  background-color: cm_grey_100;
+  color: cm_grey_500;
   padding: 2px 4px;
   margin-left: 8px;
   font-size: 10px;
@@ -49,12 +49,14 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
+  margin-right: 16px;
 }
 
 .sortWrapper {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: max-content;
   color: cm_grey_500;
 }
 
@@ -115,7 +117,8 @@
 
 @media tablet {
   .searchAndSortSection {
-    flex-direction: column;
+    flex-direction: row;
+    gap: 16px;
   }
 
   .sortSection {
@@ -128,6 +131,10 @@
 }
 
 @media mobile {
+  .searchAndSortSection {
+    flex-direction: column;
+  }
+
   .sortSection {
     flex-direction: column;
     gap: 16px;

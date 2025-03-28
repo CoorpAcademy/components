@@ -23,6 +23,7 @@ import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
 import LearningPriorityCard from '../../learning-priority-card';
 import Icon from '../../../atom/icon';
+import {COLORS} from '../../../variables/colors';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -330,6 +331,7 @@ class CardsList extends React.PureComponent {
       color: dark,
       preset: 's',
       borderRadius: '8px',
+      backgroundColor: COLORS.neutral_75,
       ariaLabel: ariaLabel.showMoreOnLeftAriaLabel
     };
 

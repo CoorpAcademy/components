@@ -75,7 +75,9 @@ const FilterButton = (props, context) => {
         <span
           className={active ? style.skillFilterNumber : style.skillFilterNumberInActive}
           style={{
-            backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : COLORS.gray,
+            backgroundColor: active
+              ? convert(`color(${primarySkinColor} a(0.07))`)
+              : COLORS.cm_grey_100,
             color: active ? primarySkinColor : COLORS.cm_grey_500
           }}
         >
