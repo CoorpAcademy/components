@@ -133,7 +133,8 @@ const MyLearning = (props, context) => {
     sortBy(skillRef => -getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
   );
   const [activeFilter, setActiveFilter] = useState('all');
-
+  // eslint-disable-next-line no-console
+  console.log('skillsInformation', skillsInformation.skillRef1);
   const skillsReviewReady = useMemo(() => {
     return searchResults.filter(skill =>
       skillsInformation[skill] ? skillsInformation[skill].availableForReview : false
@@ -486,13 +487,13 @@ const MyLearning = (props, context) => {
               </div>
             ) : (
               filters[activeFilter].map((skill, index) => {
-                // eslint-disable-next-line no-console
-                console.log('skill', skill);
                 const defaultStats = {
                   score: 0,
                   content: 0,
                   contentCompleted: 0,
-                  questionsToReview: 0
+                  questionsToReview: 0,
+                  iconColor: '#FFFFFF',
+                  iconName: 'circle'
                 };
 
                 function handleReviewSkill() {
@@ -514,8 +515,8 @@ const MyLearning = (props, context) => {
                         content,
                         questionsToReview
                       }}
-                      iconColor="#A32700"
-                      iconName="banana"
+                      iconColor={skillsInformation[skill].iconColor}
+                      iconName={skillsInformation[skill].iconName}
                       review={
                         skillsInformation[skill]
                           ? skillsInformation[skill].availableForReview
@@ -546,6 +547,8 @@ MyLearning.propTypes = {
   skillsInformation: PropTypes.objectOf(
     PropTypes.shape({
       availableForReview: PropTypes.bool,
+      iconColor: PropTypes.string,
+      iconName: PropTypes.string,
       stats: PropTypes.shape({
         score: PropTypes.number,
         content: PropTypes.number,
