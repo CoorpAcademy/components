@@ -36,23 +36,25 @@
   display: flex;
 }
 
-
 .mainSection {
   display: flex;
-  gap: 40px;
   align-items: flex-start;
+  gap: 40px;
 }
 
 .leftSide {
+  width: 420px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 .rightSide {
+  max-width: 620px;
+  height: 280px;
   display: flex;
-  gap: 6px
-  ;
+  gap: 8px;
   flex-direction: column;
 }
 
@@ -68,7 +70,7 @@
 /* CTA buttons in a row */
 .ctaWrapper {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   margin-top: 16px;
 }
 
@@ -92,11 +94,24 @@
   color: #3900D6;
 }
 
+.skillBadge {
+  display: flex;
+  height: 12px;
+  width: fit-content;
+  align-items: center;
+  background-color: #EAEAEB;
+  border-radius: 24px;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+  color: #515161;
+}
+
 /* Show more link */
 .showMoreWrapper {
   display: flex;
   align-items: center;
-  margin-top: 8px;
   color: cm_grey_500;
   font-weight: 600;
   cursor: pointer;
@@ -105,10 +120,12 @@
 
 /* Description text */
 .description {
-  max-width: 734px;
+  max-width: 620px;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  flex: 1 0 0;
+  align-self: stretch;
   color: cm_grey_400;
 }
 
@@ -135,19 +152,22 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 16px 0 40px 0;
 }
 
 .progressInformationNumber {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: cm_grey_500;
+  flex-shrink: 0; /* ensures text doesn’t shrink if space is tight */
+
 }
 
 .progressBarRow {
   display: flex;
   align-items: center;
   flex-direction: row;
+  width: 100%;    /* let this row fill its parent’s width */
+
   gap: 8px; /* or whatever spacing you prefer */
 }
 
@@ -155,7 +175,7 @@
   position: relative;
   left: 0;
   max-width: 300px;
-  width: 100%;
+  flex: 1;        /* allows it to expand as much as possible */
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
