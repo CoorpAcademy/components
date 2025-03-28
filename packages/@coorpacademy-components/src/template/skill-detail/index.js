@@ -130,6 +130,7 @@ const SkillDetail = (props, context) => {
       </div>
     );
   }, [score]);
+  const hasDescription = Boolean(description && description.trim().length > 0);
 
   return (
     <div className={style.backgroundContainer}>
@@ -153,7 +154,6 @@ const SkillDetail = (props, context) => {
           <div className={style.leftSide}>
             <IconPreview iconName="bullseye-arrow" iconColor="#DDD1FF" title={title} />
           </div>
-
           <div className={style.rightSide}>
             {focused ? (
               <div className={style.skillFocusBadge}>
@@ -199,7 +199,12 @@ const SkillDetail = (props, context) => {
               </div>
             ) : null}
 
-            <div className={style.progressContainer}>
+            <div
+              className={classnames(
+                style.progressContainer,
+                !hasDescription && style.noDescriptionSpacing
+              )}
+            >
               <ProgressBar />
             </div>
 
