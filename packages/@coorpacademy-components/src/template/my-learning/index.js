@@ -119,7 +119,6 @@ const MyLearning = (props, context) => {
     learnerFeature = true,
     isLoading,
     onSkillFocusConfirm,
-    onReviewSkill,
     onExploreSkill,
     learningPriorities
   } = props;
@@ -470,7 +469,7 @@ const MyLearning = (props, context) => {
           </div>
         ) : (
           <div className={style.skillListContainer}>
-            {activeFilter === 'review_mode_available' && filters[activeFilter].length === 0 ? (
+            {activeFilter === 'review' && filters[activeFilter].length === 0 ? (
               <div className={style.skillListEmptyContainer}>
                 <ReviewNoSkills
                   titleNoSkills={translate('review_skill_empty')}
@@ -487,10 +486,6 @@ const MyLearning = (props, context) => {
                   contentCompleted: 0,
                   questionsToReview: 0
                 };
-
-                function handleReviewSkill() {
-                  onReviewSkill(skill);
-                }
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
@@ -510,12 +505,6 @@ const MyLearning = (props, context) => {
                       }}
                       iconColor={iconColor}
                       iconName={iconName}
-                      review={
-                        skillsInformation[skill]
-                          ? skillsInformation[skill].availableForReview
-                          : false
-                      }
-                      onReviewClick={handleReviewSkill}
                       onExploreClick={handleExploreSkill}
                     />
                   </div>
@@ -555,7 +544,6 @@ MyLearning.propTypes = {
   learnerFeature: PropTypes.bool,
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
-  onReviewSkill: PropTypes.func,
   onExploreSkill: PropTypes.func,
   learningPriorities: PropTypes.shape(CardsList.propTypes)
 };

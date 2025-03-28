@@ -130,7 +130,6 @@ export const defaultProps = {
   skillsLocales,
   isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
-  onReviewSkill: () => console.log('review'),
   onExploreSkill: skillRef => console.log(skillRef),
   learningPriorities: {
     ...LearningPrioritiesProps.props,

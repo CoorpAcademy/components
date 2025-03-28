@@ -9,6 +9,8 @@ const ReviewNoSkills = ({
   iconSkillAriaLabel,
   imagePosition = 'bottom'
 }) => {
+  // eslint-disable-next-line no-console
+  console.log('ReviewNoSkills');
   return (
     <div className={style.noSkillsContainer}>
       {imagePosition === 'top' ? (

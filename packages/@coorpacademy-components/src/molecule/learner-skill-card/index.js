@@ -152,6 +152,7 @@ LearnerSkillCard.propTypes = {
     content: PropTypes.number,
     questionsToReview: PropTypes.number
   }),
+  // review: PropTypes.bool,
   onExploreClick: PropTypes.func
 };
 
