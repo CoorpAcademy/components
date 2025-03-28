@@ -52,7 +52,7 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
-    iconColor: '#A32700',
+    iconColor: '#1B7B88',
     iconName: 'person-burst',
     stats: {
       score: 83.3,
@@ -99,7 +99,7 @@ const skillsInformation = {
     }
   },
   skillRef8: {
-    iconColor: '#A32700',
+    iconColor: '#1B7B88',
     iconName: 'banana',
     availableForReview: false,
     stats: {
@@ -128,7 +128,7 @@ export const defaultProps = {
   selectedSkills,
   skillsInformation,
   skillsLocales,
-  isLoadng: false,
+  isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
   onReviewSkill: () => console.log('review'),
   onExploreSkill: skillRef => console.log(skillRef),

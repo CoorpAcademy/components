@@ -12,6 +12,8 @@ const skills = [
 const skillsInformation = {
   skillRef1: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 15.3,
       content: 120,
@@ -22,6 +24,8 @@ const skillsInformation = {
   },
   skillRef2: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 56.3,
       content: 120,
@@ -32,6 +36,8 @@ const skillsInformation = {
   },
   skillRef3: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 23.3,
       content: 120,
@@ -42,6 +48,8 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 83.3,
       content: 120,
@@ -52,6 +60,8 @@ const skillsInformation = {
   },
   skillRef5: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 43.3,
       content: 120,
@@ -62,6 +72,8 @@ const skillsInformation = {
   },
   skillRef6: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 63.3,
       content: 120,
@@ -72,6 +84,8 @@ const skillsInformation = {
   },
   skillRef7: {
     availableForReview: true,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 63.3,
       content: 120,
@@ -82,6 +96,8 @@ const skillsInformation = {
   },
   skillRef8: {
     availableForReview: false,
+    iconColor: '#A32700',
+    iconName: 'circle',
     stats: {
       score: 63.3,
       content: 120,
@@ -108,7 +124,7 @@ export const noLearnerFeatureProps = {
   skillsInformation,
   skillsLocales,
   learnerFeature: false,
-  isLoadng: false,
+  isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
   onReviewSkill: () => console.log('review'),
   onExploreSkill: () => console.log('explore')
