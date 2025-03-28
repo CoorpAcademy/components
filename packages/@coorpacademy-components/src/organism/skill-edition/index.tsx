@@ -1,21 +1,21 @@
 import React from 'react';
 import BrandFormGroup from '../../molecule/brand-form-group';
-import IconEditor from '../icon-editor';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
+import TitleAndInput from '../title-and-input';
 import propTypes, {SkillEditionProps} from './types';
 import style from './style.css';
 
 const SkillEdition = (props: SkillEditionProps) => {
   const {skillInformations, translations, content} = props;
+  const {iconEditor, form} = skillInformations;
 
   return (
     <div className={style.container}>
       <div className={style.skillInformationsContainer}>
-        <BrandFormGroup {...skillInformations.form} />
+        <BrandFormGroup {...form} />
         <div className={style.iconEditor}>
-          <Title {...skillInformations.iconEditor.title} />
-          <IconEditor {...skillInformations.iconEditor.editor} />
+          <TitleAndInput {...iconEditor} />
         </div>
       </div>
       <ListItems {...translations} />

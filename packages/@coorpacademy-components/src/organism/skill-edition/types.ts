@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
 import BrandFormGroup from '../../molecule/brand-form-group';
-import IconEditor from '../icon-editor';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
+import TitleAndInput from '../title-and-input';
 
 const SkillEditionPropTypes = {
   skillInformations: PropTypes.shape({
     form: PropTypes.shape(BrandFormGroup.propTypes).isRequired,
-    iconEditor: PropTypes.shape({
-      title: PropTypes.shape(Title.propTypes),
-      editor: PropTypes.shape(IconEditor.propTypes).isRequired
-    })
+    iconEditor: PropTypes.shape(TitleAndInput.propTypes)
   }).isRequired,
   translations: PropTypes.shape(ListItems.propTypes).isRequired,
   content: PropTypes.shape({
@@ -28,10 +25,7 @@ type ContentProps = {
 
 type SkillInformationsProps = {
   form: PropTypes.InferProps<typeof BrandFormGroup.propTypes>;
-  iconEditor: {
-    title: PropTypes.InferProps<typeof Title.propTypes>;
-    editor: PropTypes.InferProps<typeof IconEditor.propTypes>;
-  };
+  iconEditor: PropTypes.InferProps<typeof TitleAndInput.propTypes>;
 };
 
 export type SkillEditionProps = {

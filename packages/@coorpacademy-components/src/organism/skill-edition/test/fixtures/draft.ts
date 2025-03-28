@@ -1,6 +1,6 @@
 import BrandFormGroup from '../../../../molecule/brand-form-group/test/fixtures/skill-edition';
 import ContentSkill from '../../../list-items/test/fixtures/content-skill';
-import IconEditor from '../../../icon-editor/test/fixtures/default';
+import TitleAndInput from '../../../title-and-input/test/fixtures/icon-editor-and-title';
 import ListItems from '../../../list-items/test/fixtures/translations';
 import Default from './default';
 
@@ -25,7 +25,7 @@ export default {
           }
         ]
       },
-      iconEditor: IconEditor.props
+      iconEditor: {...TitleAndInput.props}
     },
     translations: ListItems.props,
     content: {
