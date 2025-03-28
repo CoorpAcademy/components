@@ -8,6 +8,7 @@ import InputText from '../../atom/input-text';
 import InputTextarea from '../../atom/input-textarea';
 import Select from '../../atom/select';
 import IconEditor from '../icon-editor';
+import {IconEditorProps} from '../icon-editor/types';
 
 const validInputSize = ['default', 'medium', 'large'];
 
@@ -45,7 +46,7 @@ export type TitleAndInputProps = {
   title: React.ComponentProps<typeof Title>;
   field:
     | React.ComponentProps<typeof Autocomplete>
-    | React.ComponentProps<typeof IconEditor>
+    | IconEditorProps
     | (React.ComponentProps<typeof InputText> & {size?: ValidInputSize})
     | (React.ComponentProps<typeof InputTextarea> & {size?: ValidInputSize})
     | (React.ComponentProps<typeof Select> & {size?: ValidInputSize})
