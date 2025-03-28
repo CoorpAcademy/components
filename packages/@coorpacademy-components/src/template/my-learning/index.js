@@ -271,8 +271,6 @@ const MyLearning = (props, context) => {
     ),
     [translate]
   );
-  // eslint-disable-next-line no-console
-  console.log('skillsLocales', skillsLocales);
   return (
     <div className={style.backgroundContainer}>
       {isEmpty(learningPriorities?.cards) ? null : (
@@ -487,9 +485,7 @@ const MyLearning = (props, context) => {
                   score: 0,
                   content: 0,
                   contentCompleted: 0,
-                  questionsToReview: 0,
-                  iconColor: '#FFFFFF',
-                  iconName: 'circle'
+                  questionsToReview: 0
                 };
 
                 function handleReviewSkill() {
