@@ -38,7 +38,7 @@ export const ContinueLearningButton = (props, context) => {
         faIcon: {
           name: 'play',
           color: '#FFFFFF',
-          size: 16
+          size: 14
         }
       }}
       onClick={onClick}
@@ -67,7 +67,6 @@ const SkillDetail = (props, context) => {
     ongoingCoursesAvailable,
     skillIncludedCourses,
     filters,
-    sorting,
     onBackClick,
     onReviewClick,
     onContinueLearningClick,
@@ -165,7 +164,16 @@ const SkillDetail = (props, context) => {
                 />
                 {translate('skill_focus')}
               </div>
-            ) : null}
+            ) : (
+              <div className={style.skillBadge}>
+                <Icon
+                  iconName="shapes"
+                  backgroundColor="#EAEAEB"
+                  size={{faSize: 10, wrapperSize: 16}}
+                />
+                {translate('skill')}
+              </div>
+            )}
 
             <h2 className={style.title}>{title}</h2>
 
@@ -177,7 +185,7 @@ const SkillDetail = (props, context) => {
                     {showMore ? translate('Show less') : translate('Show more')}
                     <Icon
                       iconName={showMore ? 'chevron-up' : 'chevron-down'}
-                      size={{faSize: 14, wrapperSize: 16}}
+                      size={{faSize: 14, wrapperSize: 14}}
                     />
                   </div>
                 ) : null}
@@ -210,10 +218,10 @@ const SkillDetail = (props, context) => {
                   faIcon: {
                     name: 'rotate-right',
                     color: '#000000',
-                    size: 16
+                    size: 14
                   }
                 }}
-                customStyle={{borderRadius: '8px'}}
+                customStyle={{borderRadius: '12px', width: 'fit-content'}}
               />
             </div>
           </div>
@@ -223,7 +231,7 @@ const SkillDetail = (props, context) => {
         <AllCourses
           content={skillIncludedCourses}
           filters={filters}
-          sorting={sorting}
+          // sorting={sorting}
           totalContents={totalContents}
           bannerMicrolearning={
             bannerMicrolearningAction
