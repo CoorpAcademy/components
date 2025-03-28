@@ -20,6 +20,10 @@ const LearnerSkillCard = (props, context) => {
     iconColor,
     onExploreClick
   } = props;
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ LearnerSkillCard ~ iconColor:', iconColor);
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ LearnerSkillCard ~ iconName:', iconName);
   const {score, content, questionsToReview = 0} = metrics;
   const {translate} = context;
   const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
@@ -44,6 +48,7 @@ const LearnerSkillCard = (props, context) => {
       '83%',
       '100%'
     );
+    headerBackgroundRef.current.style.border = 'none';
   }, [iconColor]);
   const handleMouseLeave = useCallback(() => {
     headerBackgroundRef.current.style.background = defaultBackground;
