@@ -20,10 +20,6 @@ const LearnerSkillCard = (props, context) => {
     iconColor,
     onExploreClick
   } = props;
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ LearnerSkillCard ~ iconColor:', iconColor);
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ LearnerSkillCard ~ iconName:', iconName);
   const {score, content, questionsToReview = 0} = metrics;
   const {translate} = context;
   const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
