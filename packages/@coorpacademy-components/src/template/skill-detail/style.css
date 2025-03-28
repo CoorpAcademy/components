@@ -146,6 +146,10 @@
   color: cm_grey_400;
   margin-top: 16px;
 }
+.noDescriptionSpacing {
+  margin-top: 48px ; /* or whatever bigger spacing you want */
+}
+
 
 /* Progress bar container */
 .progressContainer {
