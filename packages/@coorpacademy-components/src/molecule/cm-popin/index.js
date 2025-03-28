@@ -13,15 +13,25 @@ import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
 import classNames from 'classnames';
 import Provider from '../../atom/provider';
-import Cta from '../../atom/button-link';
+import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import InputSwitch from '../../atom/input-switch';
 import Title from '../../atom/title';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
 import Link from '../../atom/link';
+import Icon from '../../atom/icon';
 import style from './style.css';
 import propTypes from './types';
+
+// DEPRECATED
+const LOGO = {
+  AlertDiamond,
+  WindowUpload,
+  MoonRocket,
+  CheckCircle1,
+  AlertIcon
+};
 
 const IconType = {
   lockedContent: <LockIcon className={style.lockIcon} />,
@@ -50,14 +60,6 @@ const CMPopin = props => {
     items,
     link
   } = props;
-  const logo = {
-    AlertDiamond,
-    WindowUpload,
-    MoonRocket,
-    CheckCircle1,
-    AlertIcon
-  };
-  const LogoComponent = logo[icon];
 
   const backgroundImageStyle = backgroundImageUrl
     ? {
@@ -89,7 +91,24 @@ const CMPopin = props => {
       };
     }
   }, [handleCloseButton, mode, onClose]);
-  const renderHeader = () => {
+
+  const wrapperPopinStyle = classNames(
+    style.popin,
+    mode === 'cookie' && style.popinCookie,
+    mode === 'list' && style.popinFilesList,
+    mode === 'items' && style.popinItems
+  );
+
+  const buildIcon = () => {
+    if (typeof icon === 'string') {
+      const LogoComponent = LOGO[icon];
+      return LogoComponent ? <LogoComponent className={style.icon} /> : null;
+    }
+
+    return !isEmpty(icon) ? <Icon {...icon} className={style.icon} /> : null;
+  };
+
+  const buildHeader = () => {
     if (header) {
       const {title, headerIcon, backgroundImage} = header;
       const TopTitleIcon = IconType[headerIcon];
@@ -118,8 +137,30 @@ const CMPopin = props => {
           <div className={style.cookieTitle}>{cookieTitle}</div>
         </div>
       );
+  };
 
-    return null;
+  const renderHeader = () => {
+    const headerContent = buildHeader();
+    const close = onClose ? (
+      <div className={style.onCloseButton}>
+        <ButtonLinkIcon
+          onClick={handleCloseButton}
+          data-name={'close-icon'}
+          aria-label={'close-icon'}
+          size="small"
+          icon="close"
+        />
+      </div>
+    ) : null;
+
+    if (isEmpty(headerContent) && isEmpty(close)) return null;
+
+    return (
+      <header className={style.popinHeader}>
+        {headerContent}
+        {close}
+      </header>
+    );
   };
 
   const getClassBtnSwitch = (index, btnList) => {
@@ -171,8 +212,8 @@ const CMPopin = props => {
   };
 
   const renderItems = () => {
+    if (isEmpty(items)) return null;
     const {type, list} = items;
-    if (isEmpty(list)) return null;
 
     if (type === 'content')
       return (
@@ -189,12 +230,79 @@ const CMPopin = props => {
 
     return null;
   };
-  const wrapperPopinStyle = classNames(
-    mode === 'cookie' && style.popinCookie,
-    mode === 'list' && style.popinFilesList,
-    mode === 'items' && style.popinItems,
-    style.popin
-  );
+
+  const renderContent = () => {
+    if (mode === 'items' || mode === 'list') return;
+
+    const isCookieOrInformations = mode === 'cookie' || mode === 'information';
+    const renderContentTitle = () => {
+      if (!content) return null;
+
+      if (isCookieOrInformations)
+        return (
+          <p
+            className={mode === 'alert' ? style.content : style.message}
+            data-name={'cm-popin-content'}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: content}}
+          />
+        );
+
+      return (
+        <div className={mode === 'alert' ? style.content : style.message}>
+          <Title title={content} data-name={'cm-popin-content'} />
+        </div>
+      );
+    };
+
+    return (
+      <div className={isCookieOrInformations ? style.cookieTitleContainer : style.titleContainer}>
+        {buildIcon()}
+        <div className={style.contentSection}>
+          {renderContentTitle()}
+          {descriptionText ? <div className={style.descriptionText}>{descriptionText}</div> : null}
+        </div>
+        {link ? <Link {...link} /> : null}
+      </div>
+    );
+  };
+
+  const renderButtons = () => {
+    if (!firstButton && !secondButton && !thirdButton) return null;
+
+    return (
+      <div className={style.buttonContainer}>
+        {firstButton ? (
+          <div className={firstButton.largeButton ? style.largeButton : style.button}>
+            <ButtonLink
+              {...firstButton}
+              onClick={firstButton.handleOnclick}
+              data-name={'cm-popin-cta'}
+            />
+          </div>
+        ) : null}
+        {secondButton ? (
+          <div className={secondButton.largeButton ? style.largeButton : style.button}>
+            <ButtonLink
+              {...secondButton}
+              onClick={secondButton.handleOnclick}
+              data-name={`cm-popin-cta-${secondButton.type}`}
+            />
+          </div>
+        ) : null}
+        {thirdButton ? (
+          <div className={thirdButton.largeButton ? style.largeButton : style.button}>
+            <ButtonLink
+              {...thirdButton}
+              onClick={thirdButton.handleOnclick}
+              data-name={`cm-popin-cta-${thirdButton.type}`}
+            />
+          </div>
+        ) : null}
+      </div>
+    );
+  };
+
   return (
     <div
       className={mode !== 'cookie' ? style.background : null}
@@ -202,93 +310,12 @@ const CMPopin = props => {
       data-name={'cm-popin-container'}
     >
       <div className={wrapperPopinStyle} ref={nodeRef}>
-        <header className={style.popinHeader}>
-          {renderHeader()}
-          {onClose ? (
-            <div className={style.onCloseButton}>
-              <ButtonLinkIcon
-                onClick={handleCloseButton}
-                data-name={'close-icon'}
-                aria-label={'close-icon'}
-                size="small"
-                icon="close"
-              />
-            </div>
-          ) : null}
-        </header>
-        {mode !== 'items' && mode !== 'list' ? (
-          <div
-            className={
-              mode === 'cookie' || mode === 'information'
-                ? style.cookieTitleContainer
-                : style.titleContainer
-            }
-          >
-            <div className={style.contentSection}>
-              {LogoComponent ? <LogoComponent className={style.icon} /> : null}
-              {content ? (
-                <p
-                  className={mode === 'alert' ? style.content : style.message}
-                  data-name={'cm-popin-content'}
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{__html: content}}
-                />
-              ) : null}
-            </div>
-            {descriptionText ? (
-              <p
-                className={style.descriptionText}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{__html: descriptionText}}
-              />
-            ) : null}
-            {link ? <Link {...link} /> : null}
-          </div>
-        ) : null}
+        {renderHeader()}
+        {renderContent()}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
-        {!isEmpty(items) ? renderItems() : null}
+        {renderItems()}
         {renderBtnSwitch()}
-        {firstButton || secondButton || thirdButton ? (
-          <div className={style.buttonContainer}>
-            {firstButton ? (
-              <div className={firstButton.largeButton ? style.largeButton : style.button}>
-                <Cta
-                  label={firstButton.label}
-                  onClick={firstButton.handleOnclick}
-                  data-name={'cm-popin-cta'}
-                  aria-label={firstButton['aria-label']}
-                  type={firstButton.type}
-                  customStyle={firstButton.customStyle}
-                />
-              </div>
-            ) : null}
-            {secondButton ? (
-              <div className={secondButton.largeButton ? style.largeButton : style.button}>
-                <Cta
-                  label={secondButton.label}
-                  onClick={secondButton.handleOnclick}
-                  data-name={`cm-popin-cta-${secondButton.type}`}
-                  aria-label={secondButton['aria-label']}
-                  type={secondButton.type}
-                  customStyle={secondButton.customStyle}
-                  icon={secondButton.icon}
-                />
-              </div>
-            ) : null}
-            {thirdButton ? (
-              <div className={thirdButton.largeButton ? style.largeButton : style.button}>
-                <Cta
-                  label={thirdButton.label}
-                  onClick={thirdButton.handleOnclick}
-                  data-name={`cm-popin-cta-${thirdButton.type}`}
-                  aria-label={thirdButton['aria-label']}
-                  type={thirdButton.type}
-                  customStyle={thirdButton.customStyle}
-                />
-              </div>
-            ) : null}
-          </div>
-        ) : null}
+        {renderButtons()}
       </div>
     </div>
   );

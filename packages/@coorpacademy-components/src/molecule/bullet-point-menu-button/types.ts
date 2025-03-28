@@ -3,6 +3,7 @@ import ButtonMenu from '../../atom/button-menu';
 import {ButtonProps} from '../../atom/button-menu/types';
 
 const propTypes = {
+  'data-name': PropTypes.string,
   disabled: PropTypes.bool,
   buttonAriaLabel: PropTypes.string,
   menuAriaLabel: PropTypes.string,
@@ -15,6 +16,7 @@ const propTypes = {
 export default propTypes;
 
 export type BulletPointMenuButtonProps = {
+  'data-name'?: string;
   disabled?: boolean;
   buttonAriaLabel?: string;
   menuAriaLabel?: string;

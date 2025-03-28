@@ -2,6 +2,7 @@ export default {
   props: {
     id: 'default',
     title: 'Leaders of tomorrow',
+    'data-name': 'list-item-0',
     provider: {
       label: 'Coorpacademy',
       type: 'info'

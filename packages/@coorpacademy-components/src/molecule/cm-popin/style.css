@@ -47,10 +47,11 @@
 }
 
 .popin {
-  width: fit-content;
+  width: 400px;
+  box-sizing: border-box;
   flex-grow: 0;
   margin: 16px;
-  padding: 16px 16px 16px 16px;
+  padding: 24px;
   border-radius: 20px;
   background-color: cm_grey_50;
   display: flex;
@@ -58,10 +59,13 @@
   align-items: center;
   justify-content: space-between;
   animation: popup 0.7s;
+  gap: 32px;
 }
 
 .popinItems {
   padding: 0;
+  width: fit-content;
+  gap: 0;
 }
 
 
@@ -101,18 +105,17 @@
 
 .content {
   font-family: Gilroy;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.4;
+  line-height: 24px;
   letter-spacing: normal;
   text-align: center;
-  color: cm_grey_600;
+  color: cm_grey_700;
 }
 
 .buttonContainer {
-  min-height: 80px;
   display: flex;
   width: 100%;
   align-items: center;
@@ -121,7 +124,7 @@
 
 .button {
   min-width: max-content;
-  width: 161px;
+  width: 100%;
   padding: 8px;
 }
 
@@ -178,24 +181,20 @@
   text-align: center;
   font-family: Gilroy;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 20px;
   color: cm_grey_500;
   font-style: normal;
   white-space: pre-line;
-  margin: 0px 32px;
-}
-
-.content {
-  margin: 20px 32px;
 }
 
 .titleContainer {
-  padding-top: 40px;
+  justify-content: center;
   align-items: center;
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 24px;
 }
 
 .descriptionBtn {
@@ -258,6 +257,9 @@ a {
   bottom: 32px;
   left: 32px;
   z-index: 1000;
+  width: fit-content;
+  gap: 0;
+  padding: 16px;
 }
 
 .cookieHeader {
@@ -411,9 +413,6 @@ a {
   .descriptionText {
     margin: 0px 16px;
   }
-  .content {
-    margin: 20px 16px;
-  }
   .message { 
     padding: 40px 16px 0px;
   }
@@ -449,10 +448,6 @@ a {
 
   .descriptionText {
     margin: 0px 16px;
-  }
-
-  .content {
-    margin: 16px 32px;
   }
   
   .largeButton { 

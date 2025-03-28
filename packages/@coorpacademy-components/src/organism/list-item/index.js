@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map, noop, get} from 'lodash/fp';
+import {isEmpty, map, noop, get, last, split, pipe} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import Provider from '../../atom/provider';
@@ -34,7 +34,8 @@ const ListItem = (
     onClick = noop,
     leftIcon,
     image,
-    checkbox
+    checkbox,
+    'data-name': dataName
   },
   context
 ) => {
@@ -81,6 +82,8 @@ const ListItem = (
       </div>
     ) : null;
 
+  const extractedIndex = pipe(split('-'), last)(dataName);
+
   return (
     <div
       className={classnames(
@@ -93,7 +96,7 @@ const ListItem = (
       )}
       onClick={!disabled ? onClick : undefined}
       style={selectedStyle}
-      data-name={`modal-title-${title}`}
+      data-name={dataName}
     >
       <div
         className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}
@@ -131,7 +134,6 @@ const ListItem = (
         </div>
         {dataColumnsView}
       </div>
-
       <div className={style.settings}>
         {tagsView}
         {selected ? (
@@ -145,7 +147,10 @@ const ListItem = (
         {buttonLink ? <ButtonLink {...buttonLink} /> : null}
         {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
         {!isEmpty(bulletPointMenuButton) ? (
-          <BulletPointMenuButton {...bulletPointMenuButton} />
+          <BulletPointMenuButton
+            {...bulletPointMenuButton}
+            data-name={`bullet-point-menu-button-${extractedIndex}`}
+          />
         ) : null}
       </div>
     </div>
@@ -160,6 +165,7 @@ ListItem.contextTypes = {
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  'data-name': PropTypes.string,
   provider: PropTypes.shape({
     label: PropTypes.string,
     type: PropTypes.oneOf(['info', 'default', 'success', 'failure', 'warning', 'progress'])

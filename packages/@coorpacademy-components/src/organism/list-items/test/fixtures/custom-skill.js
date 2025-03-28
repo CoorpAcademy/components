@@ -7,6 +7,7 @@ const items = [
   lisItemProps,
   {
     ...lisItemProps,
+    'data-name': 'list-item-2',
     id: '2',
     title: 'Conflict management',
     leftIcon: {
@@ -17,6 +18,7 @@ const items = [
   },
   {
     ...lisItemProps,
+    'data-name': 'list-item-3',
     id: '3',
     title: 'Team management',
     leftIcon: {
@@ -27,6 +29,7 @@ const items = [
   },
   {
     ...lisItemProps,
+    'data-name': 'list-item-4',
     id: '4',
     title: 'Agility',
     leftIcon: {
@@ -37,6 +40,7 @@ const items = [
   },
   {
     ...lisItemProps,
+    'data-name': 'list-item-5',
     id: '5',
     title: 'Active listening',
     leftIcon: {

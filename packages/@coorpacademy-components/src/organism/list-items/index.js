@@ -41,7 +41,12 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     ) : (
       items.map((item, index) => (
         <li key={item.id} className={style.item} data-name={`content-${index}`}>
-          <ListItem {...item} order={null} contentType={itemType} />
+          <ListItem
+            {...item}
+            order={null}
+            contentType={itemType}
+            data-name={`list-item-${index}`}
+          />
         </li>
       ))
     );
