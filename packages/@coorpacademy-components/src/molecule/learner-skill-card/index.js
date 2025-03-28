@@ -26,7 +26,7 @@ const LearnerSkillCard = (props, context) => {
   const skillFocusLocale = translate('skill_focus');
   const {tagTextColor, tagBackgroundColor} = useMemo(
     () => ({
-      tagTextColor1: focus ? '#2B00A3' : COLORS.cm_grey_500,
+      tagTextColor: focus ? '#2B00A3' : COLORS.cm_grey_500,
       tagBackgroundColor: focus ? '#DDD1FF' : COLORS.gray
     }),
     [focus]
@@ -36,6 +36,8 @@ const LearnerSkillCard = (props, context) => {
     () => createGradientBackground(iconColor, '93%', '100%'),
     [iconColor]
   );
+  const BORDER_CARD_STYLE = '2px solid white';
+  const BORDER_COLOR_HOVER_STYLE = 'transparent transparent white transparent';
   const handleMouseEnter = useCallback(() => {
     // eslint-disable-next-line no-console
     console.log('handleMouseEnter');
@@ -44,10 +46,11 @@ const LearnerSkillCard = (props, context) => {
       '83%',
       '100%'
     );
-    headerBackgroundRef.current.style.border = 'none';
+    headerBackgroundRef.current.style.borderColor = BORDER_COLOR_HOVER_STYLE;
   }, [iconColor]);
   const handleMouseLeave = useCallback(() => {
     headerBackgroundRef.current.style.background = defaultBackground;
+    headerBackgroundRef.current.style.border = BORDER_CARD_STYLE;
   }, [defaultBackground]);
   return (
     <div
