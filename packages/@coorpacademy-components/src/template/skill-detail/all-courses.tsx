@@ -2,25 +2,49 @@ import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get, filter, map, size, isNil, isEmpty, debounce} from 'lodash/fp';
 import Provider from '../../atom/provider';
-import Select, {SelectOptionPropTypes} from '../../atom/select';
+import {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
-import CardsGrid from '../../organism/cards-grid';
+import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
 import InputSwitch from '../../atom/input-switch';
 import Banner from '../../molecule/banner';
+import {COLORS} from '../../variables/colors';
 import style from './all-courses.css';
 
+// @ts-expect-error convert untypped
 const uncappedMap = map.convert({cap: false});
+interface ProviderContext {
+  skin: {
+    common: {
+      primary: string;
+      secondary: string;
+    };
+  };
+  translate: (key: string, options?: any) => string;
+}
 
-const FilterButton = (props, context) => {
+interface FilterOption {
+  name: string;
+  value: string;
+  selected: boolean;
+}
+
+interface FilterButtonProps {
+  dataName?: string;
+  ariaLabel?: string;
+  selected?: boolean;
+  label?: string;
+  onClick?: () => void;
+}
+const FilterButton = (props: FilterButtonProps, context: ProviderContext) => {
   const {dataName, ariaLabel, selected, label, onClick} = props;
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
   const buttonProps = {
     customStyle: {
-      backgroundColor: selected ? primarySkinColor : '#E1E1E3',
-      color: selected ? '#FFFFFF' : '#515161',
+      backgroundColor: selected ? primarySkinColor : COLORS.cm_grey_150,
+      color: selected ? COLORS.white : COLORS.cm_grey_500,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
       width: 'fit-content'
     },
@@ -37,7 +61,6 @@ FilterButton.contextTypes = {
   skin: Provider.childContextTypes.skin,
   translate: Provider.childContextTypes.translate
 };
-
 FilterButton.propTypes = {
   dataName: PropTypes.string,
   ariaLabel: PropTypes.string,
@@ -46,28 +69,45 @@ FilterButton.propTypes = {
   onClick: PropTypes.func
 };
 
-const AllCourses = (props, context) => {
+const AllCourses = (
+  props: {
+    content: {
+      list: CardsGridProps['list'];
+      loading?: boolean;
+    };
+    totalContents?: number;
+    search: {
+      oldValue: string;
+      onChange: (value: string) => void;
+    };
+    bannerMicrolearning?: {
+      type: 'skill' | 'playlist';
+      action: () => void;
+      oldSwitchValue: boolean;
+    };
+    filters: {
+      onChange?: (value: string) => void;
+      options?: unknown[];
+    };
+  },
+  context: ProviderContext
+) => {
   const {translate} = context;
   const {
     content,
     filters,
-    sorting,
     totalContents,
-    bannerMicrolearning = {},
+    bannerMicrolearning = undefined,
     search: {oldValue: oldSearchValue, onChange: handleSearch}
   } = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
-  const {type: bannerMessageType, action: bannerAction, oldSwitchValue} = bannerMicrolearning;
+  const bannerMessageType = bannerMicrolearning?.type;
+  const bannerAction = bannerMicrolearning?.action;
+  const oldSwitchValue = bannerMicrolearning?.oldSwitchValue;
+
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState(oldSearchValue || '');
-
-  const sortView =
-    sorting !== undefined ? (
-      <div data-name="choice">
-        <Select {...sorting} aria-label="All courses sort" />
-      </div>
-    ) : null;
 
   const filteredContent = useMemo(() => {
     return showCompleted ? list : filter(course => course.progress < 1, list);
@@ -87,13 +127,10 @@ const AllCourses = (props, context) => {
     [debounceHandleSearch]
   );
 
-  const handleSearchReset = useCallback(
-    value => {
-      setSearchValue('');
-      debounceHandleSearch('');
-    },
-    [debounceHandleSearch]
-  );
+  const handleSearchReset = useCallback(() => {
+    setSearchValue('');
+    debounceHandleSearch('');
+  }, [debounceHandleSearch]);
 
   const handleShowCompletedToggle = useCallback(() => {
     setShowCompleted(prevShowCompleted => !prevShowCompleted);
@@ -122,19 +159,13 @@ const AllCourses = (props, context) => {
         <div className={style.sortSection}>
           <InputSwitch
             id={'show-completed-courses-switch'}
-            type="switch"
             name={translate('show_completed')}
             title={translate('show_completed')}
+            theme="default"
             aria-label={'Show completed courses aria label'}
             value={showCompleted}
             onChange={handleShowCompletedToggle}
           />
-          {sortView ? (
-            <div className={style.sortWrapper}>
-              {translate('sort_by')}
-              {sortView}
-            </div>
-          ) : null}
         </div>
       </div>
       {!isEmpty(bannerMicrolearning) ? (
@@ -157,13 +188,14 @@ const AllCourses = (props, context) => {
           />
         </div>
       ) : null}
+
       <div className={style.filterWrapper}>
         {size(options) > 2
-          ? uncappedMap((filterProps, index) => {
+          ? uncappedMap((filterProps: FilterOption, index: number) => {
               const {name, value, selected} = filterProps;
 
               function handleFilterChange() {
-                onChange(value);
+                onChange && onChange(value);
               }
 
               return (
@@ -218,7 +250,6 @@ AllCourses.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   bannerMicrolearning: PropTypes.shape({
     type: PropTypes.oneOf(['skill', 'playlist']),
     action: PropTypes.func,

@@ -7,6 +7,7 @@
 @value cm_grey_200 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value purple_600 from colors;
 
 .textBase {
   font-family: "Gilroy";
@@ -22,28 +23,59 @@
 .container {
   composes: textBase;
   background-color: white;
-  font-family: "Gilroy";
-  font-style: normal;
-  margin-top: 48px;
-  margin-bottom: 48px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 48px auto;
   padding: 0 16px;
   position: relative;
   box-sizing: border-box;
   min-height: 100%;
+  max-height: 100%;
   width: 100%;
   max-width: calc(1080px + 40px);
 }
 
-.backButton {
-  margin-bottom: 16px;
+.topSection {
+  display: flex;
 }
 
-.ctaContainer {
+.mainSection {
   display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.leftSide {
+  max-width: 420px;
+  max-height: 280px;
+  height: 100%;
   width: 100%;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rightSide {
+  max-width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.title {
+  gap: 8px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.ctaWrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.backButton {
+  margin-bottom: 16px;
 }
 
 .skillFocusBadge {
@@ -57,36 +89,43 @@
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
-  color: #3900D6;
-  margin-bottom: 16px;
+  color: purple_600;
 }
 
-.ctaWrapper,
+.skillBadge {
+  display: flex;
+  height: 12px;
+  width: fit-content;
+  align-items: center;
+  background-color: cm_grey_100;
+  border-radius: 24px;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+  color: cm_grey_500;
+}
+
 .showMoreWrapper {
   display: flex;
-  gap: 8px;
-}
-
-.showMoreWrapper {
   align-items: center;
-  margin-top: 8px;
+  color: cm_grey_500;
   font-weight: 600;
   cursor: pointer;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
+  font-size: 14px;
 }
 
 .description {
-  margin-top: 8px;
-  max-width: 734px;
+  max-width: 620px;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  flex: 1 0 0;
+  align-self: stretch;
   color: cm_grey_400;
+  display: block;
+  white-space: nowrap;
+  height: 100%;
 }
 
 .truncate {
@@ -95,6 +134,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: 40px;
 }
 
 .skillInformation {
@@ -105,27 +145,37 @@
   color: cm_grey_400;
   margin-top: 16px;
 }
-
-.skillInformationNumber {
-  color: #000;
+.noDescriptionSpacing {
+  margin-top: 48px ;
 }
+
 
 .progressContainer {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 16px 0 40px 0;
 }
 
 .progressInformationNumber {
+  font-size: 14px;
+  font-weight: 600;
   color: cm_grey_500;
+  flex-shrink: 0;
+}
+
+.progressBarRow {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
 }
 
 .progressBarWrapper {
   position: relative;
   left: 0;
   max-width: 300px;
-  width: 100%;
+  flex: 1; 
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
@@ -133,27 +183,146 @@
 }
 
 .progress {
-  display: block;
+  display: flex;
   height: 8px;
   animation: progressbar 2s ease-in-out;
 }
 
 @media tablet {
-  .ctaContainer {
-    flex-direction: column;
+
+
+  .container {
+    margin: 16px auto;
   }
 
+  .topSection {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .mainSection {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .progressBarWrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .progressContainer {
+    width: 100%;
+  }
+
+  .progressBarRow {
+    width: 100%;
+  }
+
+  .leftSide {
+    max-width: 343px;
+    max-height: 228px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 32px 32px 32px 0px;
+    border-radius: 16px;
+  }
+
+  .rightSide {
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    text-align: left;
+  }
+
+  .description {
+    font-size: 16px;
+    text-align: left;
+    /* margin-bottom: 12px; */
+    /* line-height: 20px; */
+    max-width: 100%;
+  }
+
+
+/* .description {
+  max-width: 620px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: cm_grey_400;
+  display: block;
+  white-space: nowrap;
+  height: 100%;
+} */
+
   .ctaWrapper {
-    margin-top: 32px;
+    flex-direction: row;
+    gap: 16px;
+    width: 100%;
+    margin-top: 24px;
+    justify-content: flex-start;
+  }
+
+  .ctaWrapper button {
+    min-width: 160px;
+    max-width: 260px;
+    width: 100%;
   }
 }
 
+
 @media mobile {
+
+  .container {
+    margin: 16px auto;
+  }
+
+  .topSection {
+    flex-direction: row;
+    align-items: center; 
+    gap: 16px;
+  }
+
+  .leftSide {
+    border-radius: 16px;
+    padding: 16px 32px 32px 0px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .backButton {
+    margin-bottom: 0;
+  }
+
+  .rightSide {
+    width: 100%;
+  }
+
   .ctaWrapper {
     flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
 
-    button {
-      width: 100% !important;
-    }
+  .ctaWrapper button {
+    width: 100% !important;
+    max-width: 100%;
   }
 }

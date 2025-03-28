@@ -33,7 +33,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
   const questionsLocale = translate('skill_chart_side_panel_questions_to_review') as string;
   const [badgeIconName, badgeLocale, tagTextColor, tagBackgroundColor] = focus
     ? ['bullseye-arrow', translate('skill_focus') as string, COLORS.purple_700, COLORS.purple_100]
-    : ['shapes', translate('skill') as string, COLORS.cm_grey_500, COLORS.gray];
+    : ['shapes', translate('skill') as string, COLORS.neutral_500, COLORS.cm_grey_100];
   const headerBackgroundRef = useRef<HTMLDivElement | null>(null);
   const defaultBackground = useMemo(() => createGradientBackground(color, '93%', '100%'), [color]);
   const focusBackground = useMemo(() => createGradientBackground(color, '83%', '100%'), [color]);
@@ -93,7 +93,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
                 }
               }}
             />
-            {badgeLocale}
+            <span style={{color: tagTextColor}}>{badgeLocale}</span>
           </div>
 
           <div className={style.questionWrapper}>
@@ -117,8 +117,8 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
                     {...{
                       iconName: 'circle',
                       iconColor: COLORS.cm_grey_400,
-                      size: {faSize: 4},
-                      customStyle: {padding: 0, height: 'auto'}
+                      backgroundColor: 'transparent',
+                      size: {faSize: 4, wrapperSize: 0}
                     }}
                   />
                   <span data-name="learner-skill-card-questions-to-review">
@@ -137,7 +137,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
           displayInfo={false}
           max={MAX_SCORE}
           className={style.progressWrapper}
-          style={{backgroundColor: COLORS.positive}}
+          style={{backgroundColor: COLORS.cm_positive_500}}
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import {Props, propTypes, Status} from './types';
 
-const {negative: cm_negative_100, cm_primary_blue, positive: cm_positive_100} = COLORS;
+const {negative: cm_negative_100, cm_primary_blue, cm_positive_500} = COLORS;
 
 const STATUS = {
   inProgress: 'inProgress',
@@ -29,7 +29,7 @@ const resolveProgressBarColor = (status: Status) => {
     case STATUS.inProgress:
       return cm_primary_blue;
     default:
-      return cm_positive_100;
+      return cm_positive_500;
   }
 };
 

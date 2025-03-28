@@ -10,8 +10,8 @@ const fixture: Fixture = {
     text: 'You have won',
     value: '100',
     Icon: StarIcon,
-    iconColor: COLORS.positive,
-    textColor: COLORS.positive,
+    iconColor: COLORS.cm_positive_500,
+    textColor: COLORS.cm_positive_500,
     direction: 'row'
   }
 };

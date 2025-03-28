@@ -2,7 +2,7 @@ import React, {useCallback, useState, useMemo} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
-import FaIcon, {DEFAULT_ICON_COLOR} from '../icon';
+import FaIcon, {DEFAULT_ICON_COLOR, IconProps} from '../icon';
 import {ICONS} from '../../util/button-icons';
 import ToolTip from '../tooltip';
 import propTypes, {ButtonLinkProps, IconType} from './types';
@@ -28,12 +28,12 @@ const getButtonContent = (
 
   const iconComponent = faIcon ? (
     <FaIcon
-      {...{
+      {...({
         iconName: faIcon.name,
         iconColor: hovered && hoverColor ? hoverColor : faIcon.color ?? DEFAULT_ICON_COLOR,
         // eslint-disable-next-line no-nested-ternary
         backgroundColor: !faIcon?.backgroundColor
-          ? 'transparent'
+          ? null
           : hovered && hoverBackgroundColor
           ? hoverBackgroundColor
           : faIcon.backgroundColor,
@@ -42,7 +42,7 @@ const getButtonContent = (
           wrapperSize: faIcon.size
         },
         customStyle: faIcon.customStyle
-      }}
+      } as IconProps)}
     />
   ) : (
     <Icon className={style.icon} theme="coorpmanager" />

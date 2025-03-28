@@ -18,14 +18,14 @@ const createStyle = (icon: StatusItemProps['icon'], current?: boolean): StyleShe
 
   switch (icon) {
     case 'right':
-      backgroundColor = COLORS.positive;
+      backgroundColor = COLORS.cm_positive_500;
       break;
     case 'wrong':
       backgroundColor = COLORS.negative;
       break;
     case 'no-answer':
     default:
-      backgroundColor = COLORS.gray;
+      backgroundColor = COLORS.cm_grey_100;
   }
 
   return StyleSheet.create({

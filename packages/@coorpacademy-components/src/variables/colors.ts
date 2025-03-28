@@ -1,13 +1,13 @@
 export const COLORS = {
-  gray: '#EAEAEB',
+  cm_grey_100: '#EAEAEB',
   negative: '#ed3436',
   cm_negative_200: '#B81400',
-  positive: '#35CC7F',
   cm_positive_200: '#05944F',
-  white: '#ffffff',
+  white: '#FFFFFF',
   cm_blue_50: '#f1f6fe',
   cm_grey_400: '#9999A8',
   cm_grey_800: '#171721',
+  cm_grey_150: '#E1E1E3',
   cm_primary_blue: '#0061FF',
   cm_blue_700: '#0042AD',
   primary_100: '#D6E6FF',
@@ -31,7 +31,8 @@ export const COLORS = {
   purple_100: '#DDD1FF',
   turquoise_100: '#D9F4F7',
   pink_100: '#FAD6DE',
-  orange_100: '#FFDCD1'
+  orange_100: '#FFDCD1',
+  cm_positive_500: '#35CC7F'
 } as const;
 
 export type Colors = typeof COLORS;

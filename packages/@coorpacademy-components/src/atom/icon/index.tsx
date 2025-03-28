@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes, {number} from 'prop-types';
+import React, {CSSProperties} from 'react';
+import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {library} from '@fortawesome/fontawesome-svg-core';
+import {IconName, library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
@@ -12,13 +12,33 @@ import style from './style.css';
 
 library.add(fas);
 
-const DEFAULT_PRESET = 'm';
-const ICON_LUMINOSITY = 32;
-const DEFAULT_WRAPPER_SIZE = 40;
-const ICON_PADDING = 8;
+export const DEFAULT_PRESET = 'm';
+export const ICON_LUMINOSITY = 32;
+export const DEFAULT_WRAPPER_SIZE = 40;
+export const ICON_PADDING = 8;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
-const SIZE_CONFIGS = {
+export interface IconSize {
+  faSize: number;
+  wrapperSize: number;
+}
+
+export interface IconProps {
+  iconName: string;
+  iconColor?: string;
+  backgroundColor?: string;
+  gradientBackground?: boolean;
+  borderRadius?: string;
+  preset?: string;
+  size?: IconSize;
+  customStyle?: CSSProperties;
+}
+
+export function getForegroundColor(backgroundColor: string): string {
+  return convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
+}
+
+const SIZE_CONFIGS: Record<'s' | 'm' | 'xl', IconSize> = {
   s: {
     faSize: 12,
     wrapperSize: 32
@@ -33,11 +53,7 @@ const SIZE_CONFIGS = {
   }
 };
 
-export const getForegroundColor = backgroundColor =>
-  convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
-// set lightness to 32%
-
-const Icon = React.memo(function Icon({
+const Icon: React.FC<IconProps> = ({
   iconName,
   iconColor,
   backgroundColor,
@@ -46,7 +62,7 @@ const Icon = React.memo(function Icon({
   preset = DEFAULT_PRESET,
   size,
   customStyle
-}) {
+}) => {
   const effectiveIconColor =
     iconColor || (backgroundColor ? getForegroundColor(backgroundColor) : DEFAULT_ICON_COLOR);
 
@@ -54,9 +70,20 @@ const Icon = React.memo(function Icon({
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
-  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
+  const hasBackground = backgroundColor || gradientBackground;
+  if (!hasBackground) {
+    return (
+      <FontAwesomeIcon
+        icon={`fa-${iconName}` as IconName}
+        color={effectiveIconColor}
+        fontSize={effectiveSize.faSize}
+        style={customStyle}
+      />
+    );
+  }
 
-  const iconWrapperStyle = {
+  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
+  const iconWrapperStyle: CSSProperties = {
     background: gradientBackground
       ? createGradientBackground(effectiveIconColor, '81%', '91%')
       : backgroundColor,
@@ -69,15 +96,15 @@ const Icon = React.memo(function Icon({
   return (
     <div className={style.iconWrapper} style={{...iconWrapperStyle, ...customStyle}}>
       <FontAwesomeIcon
-        icon={`fa-${iconName}`}
+        icon={`fa-${iconName}` as IconName}
         color={effectiveIconColor}
         fontSize={effectiveSize.faSize}
       />
     </div>
   );
-});
+};
 
-export const iconPropTypes = {
+export const propTypes = {
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
   backgroundColor: PropTypes.string,
@@ -85,12 +112,18 @@ export const iconPropTypes = {
   borderRadius: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
-    faSize: number,
-    wrapperSize: PropTypes.number
+    faSize: PropTypes.number.isRequired,
+    wrapperSize: PropTypes.number.isRequired
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
-Icon.propTypes = iconPropTypes;
+// const MemoizedIcon = React.memo(Icon) as React.MemoExoticComponent<React.FC<IconProps>> & {
+//   propTypes?: React.WeakValidationMap<IconProps>;
+//   defaultProps?: Partial<IconProps>;
+// };
+
+Icon.propTypes = propTypes;
+// MemoizedIcon.propTypes = Icon.propTypes;
 
 export default Icon;

@@ -134,7 +134,7 @@ const ProgressWrapper = (
       </div>
       <ProgressBar
         className={style.customProgressBar}
-        style={{backgroundColor: COLORS.positive}}
+        style={{backgroundColor: COLORS.cm_positive_500}}
         displayInfo={false}
         value={progression}
         max={100}

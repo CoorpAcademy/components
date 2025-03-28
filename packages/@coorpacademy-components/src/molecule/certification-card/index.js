@@ -57,7 +57,7 @@ const CertificationCard = (props, context) => {
         </div>
         <ProgressBar
           className={style.customProgressBar}
-          style={{backgroundColor: COLORS.positive}}
+          style={{backgroundColor: COLORS.cm_positive_500}}
           displayInfo={false}
           value={progress}
           max={100}

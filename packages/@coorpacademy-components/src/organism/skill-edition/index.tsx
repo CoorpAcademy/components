@@ -192,7 +192,7 @@ const buildTranslationItems = (
       width: 'fit-content',
       backgroundColor: 'transparent'
     },
-    hoverBackgroundColor: COLORS.gray,
+    hoverBackgroundColor: COLORS.cm_grey_100,
     icon: {
       position: 'left',
       faIcon: {
@@ -210,7 +210,7 @@ const buildTranslationItems = (
       width: 'fit-content',
       backgroundColor: 'transparent'
     },
-    hoverBackgroundColor: COLORS.gray,
+    hoverBackgroundColor: COLORS.cm_grey_100,
     icon: {
       position: 'left',
       faIcon: {

@@ -1,15 +1,13 @@
-import {COLORS} from '../../../../variables/colors';
-
 export default {
   props: {
     iconPreview: {
       title: '-',
-      icon: {color: COLORS.cm_blue_700, name: 'circle'}
+      icon: {color: '#0042AD', name: 'circle'}
     },
     inputText: {
       description: 'Use darker colors (e.g., #0042AD) to ensure better contrast and visibility.',
       onChange: (value: string) => console.log(`Change color: ${value}`),
-      value: COLORS.cm_blue_700
+      value: '#0042AD'
     },
     buttonLink: {
       type: 'secondary',
