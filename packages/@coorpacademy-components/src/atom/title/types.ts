@@ -8,8 +8,9 @@ export type TitleProps = {
     | 'standard'
     | 'standard-light-weight'
     | 'medium'
+    | 'medium-light-color'
     | 'small'
-    | 'smallAndLight';
+    | 'small-and-light';
   subtitleSize: 'standard' | 'medium' | 'small-without-margin' | 'small' | 'extra-small';
   required: boolean;
 };

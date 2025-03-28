@@ -1,8 +1,10 @@
 export default {
   props: {
-    iconColor: '#invalid-color',
-    iconName: 'globe-pointer',
-    title: 'Cloud computing technology',
+    iconPreview: {
+      title: 'Cloud computing technology',
+      icon: {color: '#1B7B88', name: 'globe-pointer'}
+    },
+    inputText: {handleChange: () => console.log('change')},
     buttonLink: {
       type: 'secondary',
       label: 'Change icon',
@@ -22,7 +24,6 @@ export default {
         paddingBottom: '12px',
         paddingLeft: '24px'
       }
-    },
-    handleChange: () => console.log('change')
+    }
   }
 };

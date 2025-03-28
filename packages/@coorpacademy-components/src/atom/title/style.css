@@ -55,6 +55,12 @@
   font-size: 16px;
 }
 
+.mediumAndLightColorTitleFormGroup {
+  composes: mediumTitleFormGroup;
+  color: cm_grey_500;
+  font-weight: 600;
+}
+
 .smallTitleFormGroup {
   composes: title;
   font-size: 14px;

@@ -18,6 +18,7 @@ import ListItems from '../../../organism/list-items';
 import BrandLearningPriorities from '../../../organism/brand-learning-priorities';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
+import HeaderWithActions from '../../../organism/header-with-actions';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import CmPopin from '../../../molecule/cm-popin';
@@ -25,6 +26,7 @@ import ButtonLinkIcon from '../../../atom/button-link-icon';
 import ExpandibleActionableTable from '../../../molecule/expandible-actionable-table';
 import BulkInfos from '../../../molecule/bulk-infos';
 import Title from '../../../atom/title';
+import SkillEdition from '../../../organism/skill-edition';
 import style from './style.css';
 import {POPIN_THEMES} from './utils';
 
@@ -105,7 +107,11 @@ const buildNotifications = notifications => {
 const buildHeader = header => {
   return (
     <div className={style.header}>
-      <Header {...header} />
+      {header.type === 'header-with-actions' ? (
+        <HeaderWithActions {...header} />
+      ) : (
+        <Header {...header} />
+      )}
     </div>
   );
 };
@@ -202,6 +208,8 @@ const buildContentView = content => {
       return <ExpandibleActionableTable {...content} />;
     case 'learning-priorities':
       return <BrandLearningPriorities {...content} />;
+    case 'skill-edition':
+      return <SkillEdition {...content} />;
   }
 };
 
@@ -279,7 +287,13 @@ BrandUpdate.propTypes = {
       ...Banner.propTypes
     })
   ),
-  header: PropTypes.shape({...Header.propTypes}),
+  header: PropTypes.oneOfType([
+    PropTypes.shape({...Header.propTypes}),
+    PropTypes.shape({
+      ...HeaderWithActions.propTypes,
+      type: PropTypes.oneOf(['header-with-actions']).isRequired
+    })
+  ]),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
@@ -364,6 +378,11 @@ BrandUpdate.propTypes = {
       ...BrandLearningPriorities.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['learning-priorities'])
+    }),
+    PropTypes.shape({
+      ...SkillEdition.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['skill-edition'])
     })
   ]),
   documentation: PropTypes.shape({
