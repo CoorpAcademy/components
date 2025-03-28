@@ -133,8 +133,6 @@ const MyLearning = (props, context) => {
     sortBy(skillRef => -getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
   );
   const [activeFilter, setActiveFilter] = useState('all');
-  // eslint-disable-next-line no-console
-  console.log('skillsInformation', skillsInformation.skillRef1);
   const skillsReviewReady = useMemo(() => {
     return searchResults.filter(skill =>
       skillsInformation[skill] ? skillsInformation[skill].availableForReview : false
@@ -144,13 +142,11 @@ const MyLearning = (props, context) => {
   const graphDatas = useMemo(
     () =>
       pipe(
-        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation).toFixed(1)]),
+        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation)]),
         fromPairs
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
   );
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ MyLearning ~ graphDatas:', graphDatas);
 
   const graphLegends = useMemo(
     () =>
@@ -505,18 +501,19 @@ const MyLearning = (props, context) => {
                 const {score, content, questionsToReview} = skillsInformation[skill]
                   ? skillsInformation[skill].stats
                   : defaultStats;
+                const {iconColor, iconName} = skillsInformation[skill];
                 return (
                   <div key={index}>
                     <LearnerSkillCard
                       skillTitle={skillsLocales[skill]}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
-                        score: score.toFixed(1),
+                        score,
                         content,
                         questionsToReview
                       }}
-                      iconColor={skillsInformation[skill].iconColor}
-                      iconName={skillsInformation[skill].iconName}
+                      iconColor={iconColor}
+                      iconName={iconName}
                       review={
                         skillsInformation[skill]
                           ? skillsInformation[skill].availableForReview
