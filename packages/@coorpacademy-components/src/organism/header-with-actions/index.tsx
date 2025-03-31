@@ -11,7 +11,7 @@ import style from './style.css';
 
 const getDataName = (suffix: string) => `header-with-actions-${suffix}`;
 // @ts-expect-error (need to get the index)
-const mapWithIndex = map.convert({cap: false});
+const uncappedMap = map.convert({cap: false});
 
 const HeaderWithActions = (props: HeaderWithActionsProps) => {
   const {closeButton, title, tag, saveStatus, bulletPointMenuButton, actionButtons} = props;
@@ -39,7 +39,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
         {bulletPointMenuButton && !isEmpty(bulletPointMenuButton.buttons) ? (
           <BulletPointMenuButton {...bulletPointMenuButton} buttonAriaLabel="More actions" />
         ) : null}
-        {mapWithIndex((action: ButtonLinkProps, key: string) => {
+        {uncappedMap((action: ButtonLinkProps, key: string) => {
           return <ButtonLink {...action} key={key} />;
         }, actionButtons)}
       </div>
