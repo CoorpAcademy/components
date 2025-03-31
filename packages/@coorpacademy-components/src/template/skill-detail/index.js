@@ -13,6 +13,7 @@ import ButtonLink from '../../atom/button-link';
 import CardsGrid from '../../organism/cards-grid';
 import {SelectOptionPropTypes} from '../../../lib/atom/select';
 import secondary from '../../atom/cta/test/fixtures/secondary';
+import {COLORS} from '../../variables/colors';
 import AllCourses from './all-courses';
 import style from './style.css';
 
@@ -28,7 +29,6 @@ export const ContinueLearningButton = (props, context) => {
       customStyle={{
         width: 'fit-content',
         borderRadius: '12px',
-        // Use your actual brand color or 'secondary.backgroundColor'
         backgroundColor: secondary.backgroundColor
       }}
       hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
@@ -168,7 +168,7 @@ const SkillDetail = (props, context) => {
               <div className={style.skillBadge}>
                 <Icon
                   iconName="shapes"
-                  backgroundColor="#EAEAEB"
+                  backgroundColor={COLORS.gray}
                   size={{faSize: 10, wrapperSize: 16}}
                 />
                 {translate('skill')}
