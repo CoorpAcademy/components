@@ -18,7 +18,8 @@ const generateStories$ = cwd => {
 
       // 1) Read the fixtures once, share the results
       const fixtures$ = readComponentFixtures$({title, path, type}).pipe(
-        shareReplay(1) // caches and replays the emitted fixtures
+        shareReplay({bufferSize: Infinity, refCount: true})
+        // caches and replays the emitted fixtures
       );
 
       const fixtureImports$ = fixtures$.pipe(
