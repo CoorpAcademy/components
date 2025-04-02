@@ -19,7 +19,6 @@ const BaseModal = (props, context) => {
     onClose,
     onScroll,
     detectScrollbar = false,
-    disableScrollbar = false,
     customStyle
   } = props;
   const {skin} = context;
@@ -28,13 +27,13 @@ const BaseModal = (props, context) => {
 
   const checkScrollbar = () => {
     const bodyElement = bodyRef.current;
-    if (bodyElement && !disableScrollbar) {
+    if (bodyElement) {
       setIsScrollbarVisible(bodyElement.scrollHeight > bodyElement.clientHeight);
     }
   };
 
   useEffect(() => {
-    if (!detectScrollbar || disableScrollbar) return;
+    if (!detectScrollbar) return;
     const bodyElement = bodyRef.current;
 
     if (!bodyElement) return;
@@ -66,7 +65,7 @@ const BaseModal = (props, context) => {
       resizeObserver.disconnect();
       debouncedCheckScrollbar.cancel();
     };
-  }, [children, detectScrollbar, disableScrollbar]);
+  }, [children, detectScrollbar]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -222,7 +221,6 @@ BaseModal.propTypes = {
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
   detectScrollbar: PropTypes.bool,
-  disableScrollbar: PropTypes.bool,
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 

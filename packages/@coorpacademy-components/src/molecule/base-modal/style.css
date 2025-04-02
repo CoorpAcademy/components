@@ -122,7 +122,8 @@
   }
 
   .footerCTAWrapper,
-  .footerDescription {
+  .footerDescription,
+  .button {
     width: 100%;
   }
 
