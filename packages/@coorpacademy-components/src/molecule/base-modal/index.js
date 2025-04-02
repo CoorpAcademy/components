@@ -5,6 +5,7 @@ import {convert} from 'css-color-function';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const BaseModal = (props, context) => {
@@ -17,7 +18,9 @@ const BaseModal = (props, context) => {
     footer,
     onClose,
     onScroll,
-    detectScrollbar = false
+    detectScrollbar = false,
+    disableScrollbar = false,
+    customStyle
   } = props;
   const {skin} = context;
   const bodyRef = useRef(null);
@@ -25,13 +28,13 @@ const BaseModal = (props, context) => {
 
   const checkScrollbar = () => {
     const bodyElement = bodyRef.current;
-    if (bodyElement) {
+    if (bodyElement && !disableScrollbar) {
       setIsScrollbarVisible(bodyElement.scrollHeight > bodyElement.clientHeight);
     }
   };
 
   useEffect(() => {
-    if (!detectScrollbar) return;
+    if (!detectScrollbar || disableScrollbar) return;
     const bodyElement = bodyRef.current;
 
     if (!bodyElement) return;
@@ -63,7 +66,7 @@ const BaseModal = (props, context) => {
       resizeObserver.disconnect();
       debouncedCheckScrollbar.cancel();
     };
-  }, [children, detectScrollbar]);
+  }, [children, detectScrollbar, disableScrollbar]);
 
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
@@ -86,7 +89,7 @@ const BaseModal = (props, context) => {
           {onCancel && cancelLabel ? (
             <ButtonLink
               {...{
-                className: style.footerCancelButton,
+                className: style.button,
                 type: 'secondary',
                 onClick: onCancel,
                 label: cancelLabel,
@@ -99,12 +102,12 @@ const BaseModal = (props, context) => {
             <div>
               <ButtonLink
                 {...{
-                  customStyle: {backgroundColor: buttonConfirmColor},
+                  customStyle: {backgroundColor: buttonConfirmColor, paddingLeft: '16px'},
                   hoverBackgroundColor: convert(
                     `hsl(from ${buttonConfirmColor} h s calc(l*(1 - 0.08)))`
                   ),
-                  hoverColor: '#FFFFFF',
-                  className: style.footerConfirmButton,
+                  hoverColor: COLORS.white,
+                  className: style.button,
                   type: 'primary',
                   onClick: onConfirm,
                   label: confirmLabel,
@@ -116,7 +119,8 @@ const BaseModal = (props, context) => {
                           faIcon: {
                             name: iconName,
                             color: '#FFFFFF',
-                            size: 16
+                            size: 14,
+                            customStyle: {padding: 0}
                           }
                         }
                       }
@@ -146,7 +150,7 @@ const BaseModal = (props, context) => {
   }
 
   return (
-    <div className={style.modalWrapper}>
+    <div className={style.modalWrapper} data-testid="modal">
       <div className={style.modal}>
         <header className={style.header}>
           {headerIcon?.name ? (
@@ -172,6 +176,7 @@ const BaseModal = (props, context) => {
           className={isScrollbarVisible ? style.body : style.bodyWithoutScrollbar}
           onScroll={onScroll}
           data-testid="modal-body"
+          style={customStyle}
         >
           {children}
         </div>
@@ -216,7 +221,9 @@ BaseModal.propTypes = {
   ]),
   onClose: PropTypes.func,
   onScroll: PropTypes.func,
-  detectScrollbar: PropTypes.bool
+  detectScrollbar: PropTypes.bool,
+  disableScrollbar: PropTypes.bool,
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default BaseModal;
