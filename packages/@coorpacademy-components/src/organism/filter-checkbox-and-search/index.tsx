@@ -30,7 +30,7 @@ const FilterCkeckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
-  const {title, searchOptions, onClear, options = []} = props;
+  const {title, searchOptions, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
