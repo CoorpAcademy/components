@@ -78,7 +78,12 @@ const FilterCkeckboxAndSearch = (
         className={style.optionsContainer}
       >
         {isEmpty(visibleOptions) ? (
-          <p className={style.emptySearchResult}>No results... Try adjusting your search.</p>
+          <p
+            className={style.emptySearchResult}
+            data-testid="filter-checkbox-and-search-empty-message"
+          >
+            No results... Try adjusting your search.
+          </p>
         ) : (
           visibleOptions.map(({value, label, selected, count, onClick}, index) => (
             <div
