@@ -43,6 +43,8 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Courses",
   "courses_completed": "Courses completed",
+  "content_skill_modal_title": "Add content",
+  "content_skill_modal_description": "Add courses, video, interactive and more to this skill",
   "continue_learning": "Continue learning",
   "learning_priority_modal_title": "New learning priority",
   "learning_priority_modal_description": "Create a learning priority by selecting either one skill, playlist or certification.",
