@@ -2,10 +2,10 @@
 @value cm_grey_700 from colors;
 
 .inputButtonContainer {
-    display: flex;
-    align-items: flex-start;;
-    gap: 8px;
-  }
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
 
 .inputButtonContainer button {
   width: 137px;

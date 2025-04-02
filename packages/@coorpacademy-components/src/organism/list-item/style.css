@@ -145,5 +145,6 @@
 }
 
 .checked {
-  outline: 2px solid cm_primary_blue;
+  border: 2px solid cm_primary_blue;
+  padding: 10px 14px;
 }

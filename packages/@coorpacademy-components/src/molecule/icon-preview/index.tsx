@@ -1,25 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FaIcon from '../../atom/icon';
 import {createGradientBackground} from '../../util/get-background-gradient-color';
+import propTypes, {IconPreviewProps} from './types';
 import style from './style.css';
 
-const IconPreview = props => {
-  const {iconName, iconColor, title} = props;
+const IconPreview = (props: IconPreviewProps) => {
+  const {icon, title} = props;
   return (
     <div
       className={style.iconPreviewWrapper}
-      style={{background: createGradientBackground(iconColor, '93%', '100%')}}
+      style={{background: createGradientBackground(icon.color, '93%', '100%')}}
     >
       <div className={style.iconPreview}>
         <div className={style.iconWrapper}>
           <FaIcon
-            iconName={iconName}
-            iconColor={iconColor}
-            gradientBackground
-            size={{
-              faSize: 36,
-              wrapperSize: 80
+            {...{
+              iconName: icon.name,
+              iconColor: icon.color,
+              size: {
+                faSize: 36,
+                wrapperSize: 80
+              },
+              gradientBackground: true
             }}
           />
         </div>
@@ -29,10 +31,6 @@ const IconPreview = props => {
   );
 };
 
-IconPreview.propTypes = {
-  iconName: PropTypes.string.isRequired,
-  iconColor: PropTypes.string,
-  title: PropTypes.string
-};
+IconPreview.propTypes = propTypes;
 
 export default IconPreview;
