@@ -117,7 +117,7 @@ const BaseModal = (props, context) => {
                           position: 'left',
                           faIcon: {
                             name: iconName,
-                            color: '#FFFFFF',
+                            color: COLORS.white,
                             size: 14,
                             customStyle: {padding: 0}
                           }

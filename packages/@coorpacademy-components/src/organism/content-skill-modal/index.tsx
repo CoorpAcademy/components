@@ -1,17 +1,15 @@
 import React, {useCallback, useMemo} from 'react';
 import BaseModal from '../../molecule/base-modal';
-import Provider, {GetTranslateFromContext} from '../../atom/provider';
-import type {WebContextValues} from '../../atom/provider/web-context';
 import ListItems from '../list-items';
 import MultiFilterPanel from '../../molecule/multi-filter-panel';
+import Provider from '../../atom/provider';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import propTypes, {ContentSkillModalProps} from './types';
 
-const ContentSkillModal = (props: ContentSkillModalProps, legacyContext: WebContextValues) => {
+const ContentSkillModal = (props: ContentSkillModalProps) => {
   const {contentList, filters, modal} = props;
   const {isOpen, onCancel, onConfirm, onClose} = modal;
-  const translate = GetTranslateFromContext(legacyContext);
 
   const handleCancel = useCallback(() => {
     onCancel();
@@ -29,32 +27,32 @@ const ContentSkillModal = (props: ContentSkillModalProps, legacyContext: WebCont
     () => ({
       cancelButton: {
         onCancel: handleCancel,
-        label: translate('cancel')
+        label: 'Cancel'
       },
       confirmButton: {
         onConfirm,
-        label: translate('add'),
+        label: 'Add',
         iconName: 'plus',
         disabled: false,
         color: COLORS.cm_primary_blue
       }
     }),
-    [handleCancel, onConfirm, translate]
+    [handleCancel, onConfirm]
   );
+  const baseModal = {
+    title: 'Add contentcontent_skill_modal_title',
+    description: 'Add courses, video, interactive and more to this skill',
+    headerIcon,
+    footer,
+    isOpen,
+    onClose: handleClose,
+    customStyle: {padding: '24px 0 24px 24px'}
+  };
 
   if (!isOpen) return null;
 
   return (
-    <BaseModal
-      title={translate('content_skill_modal_title')}
-      description={translate('content_skill_modal_description')}
-      headerIcon={headerIcon}
-      footer={footer}
-      isOpen={isOpen}
-      onClose={handleClose}
-      disableScrollbar
-      customStyle={{padding: '24px 0 24px 24px'}}
-    >
+    <BaseModal {...baseModal}>
       <div className={style.container}>
         <div className={style.containerList}>
           <ListItems {...contentList} />
