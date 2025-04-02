@@ -339,7 +339,6 @@ const MyLearning = (props, context) => {
                 <ChangeSkillFocusButton onClick={handleOpenSkillPicker} />
               ) : null}
             </header>
-
             {selectedSkillsList.length >= 3 ? (
               <div className={style.skillFocusContent}>
                 <div className={style.radarContainer}>
