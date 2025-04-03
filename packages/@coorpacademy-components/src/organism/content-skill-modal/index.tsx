@@ -20,8 +20,8 @@ const ContentSkillModal = (props: ContentSkillModalProps) => {
 
   const headerIcon = {
     name: 'circle-plus',
-    color: '#0051D6',
-    backgroundColor: '#D6E6FF'
+    color: COLORS.primary_600,
+    backgroundColor: COLORS.primary_100
   };
   const footer = useMemo(
     () => ({
