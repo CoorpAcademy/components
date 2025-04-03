@@ -1,4 +1,4 @@
-import {defaultProps} from './default';
+import {defaultProps, BANANA_ICON_PROPS} from './default';
 
 export default {
   props: {
@@ -6,8 +6,7 @@ export default {
     skillsInformation: {
       skillRef1: {
         availableForReview: true,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -18,8 +17,7 @@ export default {
       },
       skillRef2: {
         availableForReview: true,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -30,8 +28,7 @@ export default {
       },
       skillRef3: {
         availableForReview: true,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -42,8 +39,7 @@ export default {
       },
       skillRef4: {
         availableForReview: false,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -54,8 +50,7 @@ export default {
       },
       skillRef5: {
         availableForReview: true,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -66,8 +61,7 @@ export default {
       },
       skillRef6: {
         availableForReview: true,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -78,8 +72,7 @@ export default {
       },
       skillRef7: {
         availableForReview: true,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
@@ -90,8 +83,7 @@ export default {
       },
       skillRef8: {
         availableForReview: false,
-        iconColor: '#A32700',
-        iconName: 'circle',
+        icon: BANANA_ICON_PROPS,
         stats: {
           score: 0,
           content: 120,
