@@ -40,13 +40,13 @@ const ContentSkillModal = (props: ContentSkillModalProps) => {
     [handleCancel, onConfirm]
   );
   const baseModal = {
-    title: 'Add contentcontent_skill_modal_title',
+    title: 'Add content',
     description: 'Add courses, video, interactive and more to this skill',
     headerIcon,
     footer,
     isOpen,
     onClose: handleClose,
-    customStyle: {padding: '24px 0 24px 24px'}
+    customStyle: {padding: '0 0 0 24px'}
   };
 
   if (!isOpen) return null;
