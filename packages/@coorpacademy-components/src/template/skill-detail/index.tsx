@@ -16,8 +16,26 @@ import secondary from '../../atom/cta/test/fixtures/secondary';
 import {COLORS} from '../../variables/colors';
 import AllCourses from './all-courses';
 import style from './style.css';
+import Color from 'colorjs.io/types';
 
-export const ContinueLearningButton = (props, context) => {
+interface ContinueLearningButtonProps {
+  ongoingCoursesAvailable?: boolean;
+  onClick?: () => void;
+}
+interface ProviderContext {
+  skin: {
+    common: {
+      primary: string;
+      secondary: string;
+    };
+  };
+  translate: (key: string) => string;
+}
+
+export const ContinueLearningButton = (
+  props: ContinueLearningButtonProps,
+  context: ProviderContext
+) => {
   const {ongoingCoursesAvailable, onClick} = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
@@ -29,15 +47,15 @@ export const ContinueLearningButton = (props, context) => {
       customStyle={{
         width: 'fit-content',
         borderRadius: '12px',
-        backgroundColor: secondary.backgroundColor
+        backgroundColor: secondary
       }}
       hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
-      hoverColor="#FFFFFF"
+      hoverColor={COLORS.white}
       icon={{
         position: 'left',
         faIcon: {
           name: 'play',
-          color: '#FFFFFF',
+          color: COLORS.white,
           size: 14
         }
       }}
@@ -56,7 +74,39 @@ ContinueLearningButton.propTypes = {
   onClick: PropTypes.func
 };
 
-const SkillDetail = (props, context) => {
+interface Metrics {
+  score?: number;
+  questionsToReview?: number;
+  totalContents?: number;
+}
+
+interface SkillDetailProps {
+  title: string;
+  skillRef: string;
+  description?: string;
+  metrics?: Metrics;
+  focused?: boolean;
+  availableForReview?: boolean;
+  ongoingCoursesAvailable?: boolean;
+  skillIncludedCourses?: Record<string, any>;
+  filters?: {
+    onChange?: () => void;
+    options?: any[];
+  };
+  sorting?: any;
+  onBackClick?: () => void;
+  onReviewClick?: () => void;
+  onContinueLearningClick?: () => void;
+  search?: {
+    oldValue?: string;
+    onChange?: () => void;
+  };
+  bannerMicrolearning?: {
+    action?: () => void;
+    oldSwitchValue?: boolean;
+  };
+}
+const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
   const {
     title,
     skillRef,
@@ -99,7 +149,7 @@ const SkillDetail = (props, context) => {
         ref={descriptionRef}
         className={classnames(style.description, !showMore && style.truncate)}
       >
-        <Markdown>{description}</Markdown>
+        {description ? <Markdown>{description}</Markdown> : null}
       </div>
     );
   }, [showMore, description]);
@@ -107,7 +157,7 @@ const SkillDetail = (props, context) => {
   const ProgressBar = useCallback(() => {
     if (typeof score !== 'number') return null;
 
-    const progressBarColor = '#3EC483';
+    const progressBarColor = COLORS.cm_positive_500;
     const inlineProgressStyle = {
       backgroundColor: progressBarColor,
       width: `${score}%`
@@ -152,14 +202,14 @@ const SkillDetail = (props, context) => {
         {/* Main section: icon on the left, skill info on the right */}
         <div className={style.mainSection}>
           <div className={style.leftSide}>
-            <IconPreview iconName="bullseye-arrow" iconColor="#DDD1FF" title={title} />
+            <IconPreview iconName="bullseye-arrow" iconColor={COLORS.purple_100} title={title} />
           </div>
           <div className={style.rightSide}>
             {focused ? (
               <div className={style.skillFocusBadge}>
                 <Icon
                   iconName="bullseye-arrow"
-                  backgroundColor="#DDD1FF"
+                  backgroundColor={COLORS.purple_100}
                   size={{faSize: 10, wrapperSize: 16}}
                 />
                 {translate('skill_focus')}
@@ -222,7 +272,7 @@ const SkillDetail = (props, context) => {
                   position: 'left',
                   faIcon: {
                     name: 'rotate-right',
-                    color: '#000000',
+                    color: COLORS.cm_grey_700,
                     size: 14
                   }
                 }}
@@ -236,7 +286,6 @@ const SkillDetail = (props, context) => {
         <AllCourses
           content={skillIncludedCourses}
           filters={filters}
-          // sorting={sorting}
           totalContents={totalContents}
           bannerMicrolearning={
             bannerMicrolearningAction
@@ -276,7 +325,6 @@ SkillDetail.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onReviewClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes, {number} from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {library} from '@fortawesome/fontawesome-svg-core';
+import {IconName, library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
@@ -33,11 +33,23 @@ const SIZE_CONFIGS = {
   }
 };
 
-export const getForegroundColor = backgroundColor =>
+export const getForegroundColor = (backgroundColor: string): string =>
   convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
 // set lightness to 32%
-
-const Icon = React.memo(function Icon({
+interface IconProps {
+  iconName: string;
+  iconColor?: string;
+  backgroundColor?: string;
+  gradientBackground?: boolean;
+  borderRadius?: string;
+  preset?: string;
+  size?: {
+    faSize: number;
+    wrapperSize: number;
+  };
+  customStyle?: React.CSSProperties;
+}
+const Icon: React.FC<IconProps> = React.memo(function Icon({
   iconName,
   iconColor,
   backgroundColor,
@@ -69,7 +81,7 @@ const Icon = React.memo(function Icon({
   return (
     <div className={style.iconWrapper} style={{...iconWrapperStyle, ...customStyle}}>
       <FontAwesomeIcon
-        icon={`fa-${iconName}`}
+        icon={`fa-${iconName}` as IconName}
         color={effectiveIconColor}
         fontSize={effectiveSize.faSize}
       />
@@ -85,8 +97,8 @@ export const iconPropTypes = {
   borderRadius: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
-    faSize: number,
-    wrapperSize: PropTypes.number
+    faSize: number.isRequired,
+    wrapperSize: PropTypes.number.isRequired
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
