@@ -1,4 +1,5 @@
 import LearningPrioritiesProps from '../../../../molecule/dashboard/cards-list/test/fixtures/learning-priority-card-list';
+import {COLORS} from '../../../../variables/colors';
 
 const skills = [
   'skillRef1',
@@ -13,11 +14,13 @@ const skills = [
 
 const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef5'];
 
+export const BANANA_ICON_PROPS = {color: COLORS.cm_orange_800, name: 'banana'};
+export const HOT_MUG_ICON_PROPS = {color: COLORS.cm_orange_800, name: 'mug-hot'};
+
 const skillsInformation = {
   skillRef1: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 15.3,
       content: 120,
@@ -28,8 +31,7 @@ const skillsInformation = {
   },
   skillRef2: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 56.3,
       content: 120,
@@ -40,8 +42,7 @@ const skillsInformation = {
   },
   skillRef3: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'shapes',
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 23.3,
       content: 120,
@@ -52,8 +53,7 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
-    iconColor: '#1B7B88',
-    iconName: 'person-burst',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 83.3,
       content: 120,
@@ -64,8 +64,7 @@ const skillsInformation = {
   },
   skillRef5: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'hand-point-up',
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 43.3,
       content: 120,
@@ -76,8 +75,7 @@ const skillsInformation = {
   },
   skillRef6: {
     availableForReview: true,
-    iconColor: '#2B00A3',
-    iconName: 'banana',
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -88,8 +86,7 @@ const skillsInformation = {
   },
   skillRef7: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'shapes',
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 63.33333333,
       content: 120,
@@ -99,9 +96,8 @@ const skillsInformation = {
     }
   },
   skillRef8: {
-    iconColor: '#1B7B88',
-    iconName: 'banana',
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,

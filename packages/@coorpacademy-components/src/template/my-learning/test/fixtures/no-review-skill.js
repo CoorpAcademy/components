@@ -1,3 +1,5 @@
+import {BANANA_ICON_PROPS} from './default';
+
 const skills = [
   'skillRef1',
   'skillRef2',
@@ -14,89 +16,89 @@ const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef3', 'skillRef4'];
 const skillsInformation = {
   skillRef1: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 15.3,
       content: 120,
       contentCompleted: 12,
+      questionsToReview: 123,
       learningTime: 8
     }
   },
   skillRef2: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 56.3,
       content: 120,
       contentCompleted: 65,
+      questionsToReview: 234,
       learningTime: 5
     }
   },
   skillRef3: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 23.3,
       content: 120,
       contentCompleted: 78,
+      questionsToReview: 256,
       learningTime: 1
     }
   },
   skillRef4: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 83.3,
       content: 120,
       contentCompleted: 89,
+      questionsToReview: 345,
       learningTime: 7
     }
   },
   skillRef5: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 43.3,
       content: 120,
       contentCompleted: 62,
+      questionsToReview: 444,
       learningTime: 6
     }
   },
   skillRef6: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
       contentCompleted: 62,
+      questionsToReview: 24,
       learningTime: 9
     }
   },
   skillRef7: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
       contentCompleted: 62,
+      questionsToReview: 24,
       learningTime: 9
     }
   },
   skillRef8: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
       contentCompleted: 62,
+      questionsToReview: 24,
       learningTime: 9
     }
   }

@@ -1,3 +1,5 @@
+import {COLORS} from '../../../../variables/colors';
+
 const skills = [
   'skillRef1',
   'skillRef2',
@@ -9,11 +11,11 @@ const skills = [
   'skillRef8'
 ];
 
+const SHAPES_ICON_PROPS = {color: COLORS.purple_700, name: 'shapes'};
 const skillsInformation = {
   skillRef1: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 15.3,
       content: 120,
@@ -24,8 +26,7 @@ const skillsInformation = {
   },
   skillRef2: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 56.3,
       content: 120,
@@ -36,8 +37,7 @@ const skillsInformation = {
   },
   skillRef3: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 23.3,
       content: 120,
@@ -48,8 +48,7 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 83.3,
       content: 120,
@@ -60,8 +59,7 @@ const skillsInformation = {
   },
   skillRef5: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 43.3,
       content: 120,
@@ -72,8 +70,7 @@ const skillsInformation = {
   },
   skillRef6: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -84,8 +81,7 @@ const skillsInformation = {
   },
   skillRef7: {
     availableForReview: true,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -96,8 +92,7 @@ const skillsInformation = {
   },
   skillRef8: {
     availableForReview: false,
-    iconColor: '#A32700',
-    iconName: 'circle',
+    icon: SHAPES_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,

@@ -21,7 +21,10 @@ export const COLORS = {
   red_100: '#FFD1D1',
   cm_orange_800: '#A32700',
   purple_700: '#2B00A3',
-  purple_100: '#DDD1FF'
+  purple_100: '#DDD1FF',
+  turquoise_100: '#D9F4F7',
+  pink_100: '#FAD6DE',
+  orange_100: '#FFDCD1'
 } as const;
 
 export type Colors = typeof COLORS;
