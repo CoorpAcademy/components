@@ -8,19 +8,44 @@ import SearchForm from '../../molecule/search-form';
 import CardsGrid from '../../organism/cards-grid';
 import InputSwitch from '../../atom/input-switch';
 import Banner from '../../molecule/banner';
+import {COLORS} from '../../variables/colors';
 import style from './all-courses.css';
 
+// @ts-expect-error convert untypped
 const uncappedMap = map.convert({cap: false});
+interface ProviderContext {
+  skin: {
+    common: {
+      primary: string;
+      secondary: string;
+    };
+  };
+  translate: (key: string, options?: any) => string;
+}
 
-const FilterButton = (props, context) => {
+interface FilterOption {
+  name: string;
+  value: string;
+  selected: boolean;
+}
+
+/** Props for FilterButton */
+interface FilterButtonProps {
+  dataName?: string;
+  ariaLabel?: string;
+  selected?: boolean;
+  label?: string;
+  onClick?: () => void;
+}
+const FilterButton = (props: FilterButtonProps, context: ProviderContext) => {
   const {dataName, ariaLabel, selected, label, onClick} = props;
   const {skin} = context;
   const primarySkinColor = get('common.primary', skin);
 
   const buttonProps = {
     customStyle: {
-      backgroundColor: selected ? primarySkinColor : '#E1E1E3',
-      color: selected ? '#FFFFFF' : '#515161',
+      backgroundColor: selected ? primarySkinColor : COLORS.cm_grey_150,
+      color: selected ? COLORS.white : COLORS.cm_grey_500,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
       width: 'fit-content'
     },
@@ -46,19 +71,67 @@ FilterButton.propTypes = {
   onClick: PropTypes.func
 };
 
-const AllCourses = (props, context) => {
+interface ProviderContext {
+  skin: {
+    common: {
+      primary: string;
+      secondary: string;
+    };
+  };
+  translate: (key: string, options?: any) => string;
+}
+
+const AllCourses = (
+  props: {
+    dataName: string;
+    ariaLabel: string;
+    selected: boolean;
+    label: string;
+    content: {
+      list: any[];
+      loading: boolean;
+    };
+    totalContents?: number;
+    search: {
+      oldValue?: string;
+      onChange: (value: string) => void;
+    };
+    bannerMicrolearning?: {
+      type: 'skill' | 'playlist';
+      action: () => void;
+      oldSwitchValue: boolean;
+    };
+    onBackClick: () => void;
+    onReviewClick: () => void;
+    onContinueLearningClick: () => void;
+    onClick: () => void;
+    onChange: (value: string) => void;
+    onReset: () => void;
+    onKeyPress: () => void;
+    onMouseOver: () => void;
+    filters: {
+      onChange?: (value: string) => void;
+      options?: any[];
+    };
+    sorting?: any;
+  },
+  context: ProviderContext
+) => {
   const {translate} = context;
   const {
     content,
     filters,
     sorting,
     totalContents,
-    bannerMicrolearning = {},
+    bannerMicrolearning = undefined,
     search: {oldValue: oldSearchValue, onChange: handleSearch}
   } = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
-  const {type: bannerMessageType, action: bannerAction, oldSwitchValue} = bannerMicrolearning;
+  const bannerMessageType = bannerMicrolearning?.type;
+  const bannerAction = bannerMicrolearning?.action;
+  const oldSwitchValue = bannerMicrolearning?.oldSwitchValue;
+
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState(oldSearchValue || '');
 
@@ -87,13 +160,10 @@ const AllCourses = (props, context) => {
     [debounceHandleSearch]
   );
 
-  const handleSearchReset = useCallback(
-    value => {
-      setSearchValue('');
-      debounceHandleSearch('');
-    },
-    [debounceHandleSearch]
-  );
+  const handleSearchReset = useCallback(() => {
+    setSearchValue('');
+    debounceHandleSearch('');
+  }, [debounceHandleSearch]);
 
   const handleShowCompletedToggle = useCallback(() => {
     setShowCompleted(prevShowCompleted => !prevShowCompleted);
@@ -122,7 +192,6 @@ const AllCourses = (props, context) => {
         <div className={style.sortSection}>
           <InputSwitch
             id={'show-completed-courses-switch'}
-            type="switch"
             name={translate('show_completed')}
             title={translate('show_completed')}
             aria-label={'Show completed courses aria label'}
@@ -157,13 +226,14 @@ const AllCourses = (props, context) => {
           />
         </div>
       ) : null}
+
       <div className={style.filterWrapper}>
         {size(options) > 2
-          ? uncappedMap((filterProps, index) => {
+          ? uncappedMap((filterProps: FilterOption, index: number) => {
               const {name, value, selected} = filterProps;
 
               function handleFilterChange() {
-                onChange(value);
+                onChange && onChange(value);
               }
 
               return (
