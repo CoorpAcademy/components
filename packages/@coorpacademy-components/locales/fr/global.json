@@ -49,14 +49,14 @@
   "locked": "Verrouillé",
   "icon_picker_title": "Changer d'icône",
   "icon_picker_description": "Sélectionnez une nouvelle icône pour votre compétence",
-  "icon_editor_color": "Icon color",
-  "invalid_color": "Invalid color",
+  "icon_editor_color": "Couleur de l'icône",
+  "invalid_color": "Couleur invalide",
   "translation_title": "Traduire",
   "translation_description": "Gérer les traductions pour toucher plus d'apprenants",
   "skills_change_focus": "Changer ses compétences ciblées",
   "skills_choose_focus": "Choisissez votre objectif",
   "cancel": "Annuler",
-  "close": "Close",
+  "close": "Fermer",
   "confirm": "Confirmer",
   "Delete": "Supprimer",
   "Draft": "Brouillon",
@@ -113,8 +113,8 @@
   "secured_payment": "Serveur sécurisé",
   "start_learning": "Commencer à apprendre",
   "sort_by": "Trier par :",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "Clair",
+  "clear_all": "Tout effacer",
   "See clue": "Voir l'indice",
   "See less": "Voir moins",
   "See lesson": "Voir la leçon",
@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Les informations complémentaires sur votre certificat"
+    },
+    "css": {
+      "modules": "Niveaux",
+      "modules_completed": "niveaux complétés",
+      "modules_completed_mandatory": "niveaux obligatoires complétés",
+      "certification_module": "niveau à compléter"
     }
   }
 }
