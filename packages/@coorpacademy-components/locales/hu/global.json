@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "További információk a tanúsítványról"
+    },
+    "css": {
+      "modules": "Szintek",
+      "modules_completed": "szintek teljesítve",
+      "modules_completed_mandatory": "kötelező szintek teljesítése",
+      "certification_module": "szint teljesítéséhez"
     }
   }
 }
