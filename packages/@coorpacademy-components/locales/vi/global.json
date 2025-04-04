@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Thông tin bổ sung về chứng chỉ của bạn"
+    },
+    "css": {
+      "modules": "Cấp độ",
+      "modules_completed": "các cấp độ đã hoàn thành",
+      "modules_completed_mandatory": "đã hoàn thành các cấp độ bắt buộc",
+      "certification_module": "mức độ để hoàn thành"
     }
   }
 }
