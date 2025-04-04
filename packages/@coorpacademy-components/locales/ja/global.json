@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "証明書に関する追加情報"
+    },
+    "css": {
+      "modules": "レベル",
+      "modules_completed": "完了したレベル",
+      "modules_completed_mandatory": "必須レベルを完了",
+      "certification_module": "完了するレベル"
     }
   }
 }
