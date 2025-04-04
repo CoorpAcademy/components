@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Ytterligare information om ditt certifikat"
+    },
+    "css": {
+      "modules": "Nivåer",
+      "modules_completed": "nivåer avklarade",
+      "modules_completed_mandatory": "obligatoriska nivåer genomförda",
+      "certification_module": "nivå att slutföra"
     }
   }
 }
