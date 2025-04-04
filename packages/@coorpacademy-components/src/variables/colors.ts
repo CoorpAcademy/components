@@ -10,6 +10,7 @@ export const COLORS = {
   cm_grey_800: '#171721',
   cm_primary_blue: '#0061FF',
   primary_100: '#D6E6FF',
+  primary_600: '#0051D6',
   cm_grey_500: '#515161',
   cm_grey_700: '#1D1D2B',
   cm_yellow_400: '#bd7e00',

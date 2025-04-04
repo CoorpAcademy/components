@@ -1,10 +1,9 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {filter, pipe, size, toString} from 'lodash/fp';
+import {filter, isEmpty, pipe, size, toString} from 'lodash/fp';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
-
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
@@ -46,7 +45,7 @@ const FilterCkeckboxAndSearch = (
   }, [options, showMore]);
 
   return (
-    <div data-testid="filter-checkbox-and-search-container">
+    <div data-testid="filter-checkbox-and-search-container" className={style.container}>
       <div className={style.header} data-testid="filter-checkbox-and-search-header">
         <div
           className={style.titleAndTagWrapper}
@@ -78,8 +77,15 @@ const FilterCkeckboxAndSearch = (
         data-testid="filter-checkbox-and-search-options-container"
         className={style.optionsContainer}
       >
-        {visibleOptions.map(({value, label, selected, count, onClick}, index) => {
-          return (
+        {isEmpty(visibleOptions) ? (
+          <p
+            className={style.emptySearchResult}
+            data-testid="filter-checkbox-and-search-empty-message"
+          >
+            No results... Try adjusting your search.
+          </p>
+        ) : (
+          visibleOptions.map(({value, label, selected, count, onClick}, index) => (
             <div
               key={value}
               className={style.optionRow}
@@ -95,8 +101,8 @@ const FilterCkeckboxAndSearch = (
               />
               <p className={style.optionCount}>{count}</p>
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
       {options.length > INITIAL_VISIBLE_OPTIONS ? (
         <div>

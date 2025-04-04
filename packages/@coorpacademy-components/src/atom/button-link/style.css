@@ -4,6 +4,7 @@
 @value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
+@value cm_grey_700 from colors;
 @value cm_grey_900 from colors;
 @value cm_negative_100 from colors;
 @value cm_negative_200 from colors;
@@ -70,7 +71,7 @@
 
 .secondary {
   background-color: cm_grey_100;
-  color: cm_grey_900;
+  color: cm_grey_700;
 }
 
 .secondary:hover {
