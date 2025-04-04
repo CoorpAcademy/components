@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "인증서에 대한 추가 정보"
+    },
+    "css": {
+      "modules": "레벨",
+      "modules_completed": "완료된 레벨",
+      "modules_completed_mandatory": "필수 레벨 완료",
+      "certification_module": "완료할 레벨"
     }
   }
 }
