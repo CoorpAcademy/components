@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Lisätietoja todistuksestasi"
+    },
+    "css": {
+      "modules": "Tasot",
+      "modules_completed": "tasot suoritettu",
+      "modules_completed_mandatory": "pakolliset tasot suoritettu",
+      "certification_module": "suoritettava taso"
     }
   }
 }
