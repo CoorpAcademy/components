@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Dodatne informacije o vašem certifikatu"
+    },
+    "css": {
+      "modules": "Ravni",
+      "modules_completed": "stopnje dokončane",
+      "modules_completed_mandatory": "opravljene obvezne stopnje",
+      "certification_module": "stopnjo za dokončanje"
     }
   }
 }
