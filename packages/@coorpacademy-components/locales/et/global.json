@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Täiendav teave teie sertifikaadi kohta"
+    },
+    "css": {
+      "modules": "Tasemed",
+      "modules_completed": "tasemed läbitud",
+      "modules_completed_mandatory": "kohustuslikud tasemed läbitud",
+      "certification_module": "taseme lõpetamiseks"
     }
   }
 }
