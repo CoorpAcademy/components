@@ -51,7 +51,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
     <div
       data-name="learner-skill-card-wrapper"
       onClick={onExploreClick}
-      className={style.learnerSkillCardWrapper}
+      className={style.learnerSkillCardContainer}
       aria-label={ariaLabel}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -59,10 +59,10 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
       <div
         data-name="learner-skill-card-icon-header-wrapper"
         ref={headerBackgroundRef}
-        className={style.iconHeaderWrapper}
+        className={style.iconBackgroundWrapper}
         style={{backgroundImage: defaultBackground, color: tagTextColor}}
       >
-        <div data-testid="learner-skill-card-icon-wrapper">
+        <div className={style.iconWrapper} data-testid="learner-skill-card-icon-wrapper">
           <FaIcon
             {...{
               iconName: name,
