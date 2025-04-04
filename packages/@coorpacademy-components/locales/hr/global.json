@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Dodatne informacije o vašem certifikatu"
+    },
+    "css": {
+      "modules": "Razine",
+      "modules_completed": "završene razine",
+      "modules_completed_mandatory": "završene obavezne razine",
+      "certification_module": "razina za dovršetak"
     }
   }
 }
