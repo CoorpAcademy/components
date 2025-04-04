@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Informațiile suplimentare despre certificatul dvs"
+    },
+    "css": {
+      "modules": "Niveluri",
+      "modules_completed": "niveluri finalizate",
+      "modules_completed_mandatory": "niveluri obligatorii finalizate",
+      "certification_module": "nivel de finalizat"
     }
   }
 }
