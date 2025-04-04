@@ -4782,6 +4782,11 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   font-size: 16px;
 }
 
+.mediumAndLightColorTitleFormGroup-xwNxq {
+  color: #515161;
+  font-weight: 600;
+}
+
 .smallTitleFormGroup-\+jFOU {
   font-size: 14px;
 }
@@ -6851,8 +6856,10 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .checked-FqIBX {
-  outline: 2px solid #0061FF;
+  border: 2px solid #0061FF;
+  padding: 10px 14px;
 }
+
 .draggable-QNgaT {
   cursor: -webkit-grab;
   cursor: grab;
