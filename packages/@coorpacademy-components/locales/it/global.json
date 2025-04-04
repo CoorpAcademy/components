@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Le informazioni aggiuntive sul tuo certificato"
+    },
+    "css": {
+      "modules": "Livelli",
+      "modules_completed": "livelli completati",
+      "modules_completed_mandatory": "livelli obbligatori completati",
+      "certification_module": "livello da completare"
     }
   }
 }
