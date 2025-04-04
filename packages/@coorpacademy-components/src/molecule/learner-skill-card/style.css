@@ -18,7 +18,7 @@
   font-style: normal;
 }
 
-.learnerSkillCardWrapper {
+.learnerSkillCardContainer {
   display: flex;
   flex-direction: column;
   width: 254px;
@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-.learnerSkillCardWrapper:hover {
+.learnerSkillCardContainer:hover {
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 }
 
@@ -84,6 +84,7 @@
   overflow: hidden;
   background: light;
 }
+
 .progressInformations {
   padding: 0 24px;
   width: 70%;
@@ -107,7 +108,12 @@
   width: 252px;
 }
 
-.iconHeaderWrapper {
+.iconWrapper {
+  border-radius: 12px;
+  padding: 0px;
+}
+
+.iconBackgroundWrapper {
   padding: 16px 0 12px 16px;
   border-radius: 12px 12px 0 0;
   height: 52px;
@@ -118,8 +124,8 @@
   background-color: white;
 }
 
-.iconHeaderWrapper:hover {
-  border: 2px solid transparent;
+.iconBackgroundWrapper:hover {
+  border: 2px solid white;
   cursor: pointer;
 }
 
