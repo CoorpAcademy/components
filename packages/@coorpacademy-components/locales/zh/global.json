@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "有关您证书的附加信息"
+    },
+    "css": {
+      "modules": "级别",
+      "modules_completed": "完成的级别",
+      "modules_completed_mandatory": "已完成强制性级别",
+      "certification_module": "完成级别"
     }
   }
 }
