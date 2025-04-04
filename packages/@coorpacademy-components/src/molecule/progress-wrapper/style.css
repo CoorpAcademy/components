@@ -127,6 +127,14 @@
   padding-top: 16px;
 }
 
+.toggleDetailsButton {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
 @media mobile, tablet {
   .details {
     flex-wrap: wrap;
