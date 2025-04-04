@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Дополнительная информация о вашем сертификате"
+    },
+    "css": {
+      "modules": "Уровни",
+      "modules_completed": "уровни завершены",
+      "modules_completed_mandatory": "обязательные уровни завершены",
+      "certification_module": "уровень для завершения"
     }
   }
 }
