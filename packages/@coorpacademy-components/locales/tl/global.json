@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Karagdagang impormasyon tungkol sa iyong sertipiko"
+    },
+    "css": {
+      "modules": "Mga antas",
+      "modules_completed": "mga antas na natapos",
+      "modules_completed_mandatory": "nakumpleto ang mga mandatoryong antas",
+      "certification_module": "antas upang makumpleto"
     }
   }
 }
