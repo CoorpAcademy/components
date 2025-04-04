@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Sertifikanız hakkında ek bilgi"
+    },
+    "css": {
+      "modules": "Seviyeler",
+      "modules_completed": "tamamlanan seviyeler",
+      "modules_completed_mandatory": "zorunlu seviyeler tamamlandı",
+      "certification_module": "tamamlanma seviyesi"
     }
   }
 }
