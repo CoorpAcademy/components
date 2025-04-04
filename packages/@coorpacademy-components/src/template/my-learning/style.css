@@ -6,6 +6,9 @@
 @value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
+@value primary_100 from colors;
+@value cm_primary_blue from colors;
+@value white from colors;
 
 .backgroundContainer {
   background-color: white;
@@ -153,8 +156,8 @@
 .skillFilterNumber,
 .skillFilterNumberInActive {
   border-radius: 50%;
-  background-color: #D6E6FF;
-  color: #0061FF;
+  background-color: primary_100;
+  color: cm_primary_blue;
   padding: 2px 4px;
   margin-left: 8px;
   font-size: 10px;
@@ -163,8 +166,8 @@
 }
 
 .skillFilterNumberInActive {
-  background-color: #EAEAEB;
-  color: #515161;
+  background-color: cm_grey_100;
+  color: cm_grey_500;
 }
 
 .searchWrapper {
@@ -180,7 +183,7 @@
 .tooltip {
   padding: 8px 12px;
   width: 238px;
-  color: #FFF;
+  color: white;
   font-size: 12px;
   font-style: normal;
   line-height: 16px;
@@ -229,7 +232,7 @@
 }
 
 .emptySearchResultClearSearch {
-  color: #0061FF;
+  color: cm_primary_blue;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;

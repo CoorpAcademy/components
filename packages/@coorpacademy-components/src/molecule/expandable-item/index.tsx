@@ -35,6 +35,7 @@ const ExpandableItem = ({
                 isExpended ? styles.expendedIcon : null,
                 isLink ? styles.linkIcon : null
               )}
+              iconName="shapes"
             />
           ) : null}
         </a>
