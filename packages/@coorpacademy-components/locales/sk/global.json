@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Ďalšie informácie o vašom certifikáte"
+    },
+    "css": {
+      "modules": "Úrovne",
+      "modules_completed": "úrovne dokončené",
+      "modules_completed_mandatory": "povinné úrovne dokončené",
+      "certification_module": "úroveň dokončiť"
     }
   }
 }
