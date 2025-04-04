@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import {isEmpty, map, get} from 'lodash/fp';
@@ -117,6 +117,11 @@ const ProgressWrapper = (
   const mandatoryCompletedModulesLocale = translate('modules_completed_mandatory');
   const isLocked = progression !== 100;
 
+  const [showDetails, setShowDetails] = useState(false);
+
+  const handleToggleDetails = useCallback(() => {
+    setShowDetails(!showDetails);
+  }, [showDetails]);
   return (
     <div
       className={style.container}
@@ -154,8 +159,22 @@ const ProgressWrapper = (
         <span className={style.statsNumber}>{progression}%</span>
       </div>
 
-      {isEmpty(sections) ? null : (
-        <div className={style.details}>
+      {!isEmpty(sections) ? (
+        <div
+          className={style.toggleDetailsButton}
+          onClick={handleToggleDetails}
+          data-testid="toggle-details-button"
+        >
+          <Icon
+            iconColor={'black'}
+            iconName={showDetails ? 'chevron-up' : 'chevron-down'}
+            size={{faSize: 20, wrapperSize: 24}}
+          />
+        </div>
+      ) : null}
+
+      {!isEmpty(sections) && showDetails ? (
+        <div className={style.details} data-testid="progress-wrapper-details">
           {uncappedMap(
             (section, index) => (
               <DetailSection
@@ -168,7 +187,7 @@ const ProgressWrapper = (
             sections
           )}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
