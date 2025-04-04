@@ -471,7 +471,7 @@ const MyLearning = (props, context) => {
           </div>
         ) : (
           <div className={style.skillListContainer}>
-            {activeFilter === 'review_mode_available' && filters[activeFilter].length === 0 ? (
+            {activeFilter === 'review' && filters[activeFilter].length === 0 ? (
               <div className={style.skillListEmptyContainer}>
                 <ReviewNoSkills
                   titleNoSkills={translate('review_skill_empty')}

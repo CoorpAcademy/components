@@ -14,7 +14,7 @@ const skills = [
 
 const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef5'];
 
-export const BANANA_ICON_PROPS = {color: COLORS.cm_orange_800, name: 'banana'};
+export const BANANA_ICON_PROPS = {color: COLORS.cm_primary_blue, name: 'banana'};
 export const HOT_MUG_ICON_PROPS = {color: COLORS.cm_orange_800, name: 'mug-hot'};
 
 const skillsInformation = {
@@ -110,13 +110,13 @@ const skillsInformation = {
 
 const skillsLocales = {
   skillRef1: 'Creativity and innovation',
-  skillRef2: 'Critical thinking and analysis',
+  skillRef2: 'Effective Communication, Team Collaboration & Strong Problem-Solving Mindset',
   skillRef3: 'Digital culture',
-  skillRef4: 'Digital dexterity',
+  skillRef4: 'Digital Adaptability and Resilience',
   skillRef5: 'Digital communication',
-  skillRef6: 'Active listening',
+  skillRef6: 'Effective Communication, Team Collaboration & Strong Problem-Solving Mindset',
   skillRef7: 'Active Watching',
-  skillRef8: 'Active Working'
+  skillRef8: 'Active Working and Continuous Improvement Process'
 };
 
 export const defaultProps = {

@@ -129,15 +129,15 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
             ) : null}
           </div>
         </div>
-      </div>
-      <div className={style.progressInformations}>
-        <ProgressBar
-          value={score}
-          displayInfo={false}
-          max={MAX_SCORE}
-          className={style.progressWrapper}
-          style={{backgroundColor: COLORS.positive}}
-        />
+        <div className={style.progressInformations}>
+          <ProgressBar
+            value={score}
+            displayInfo={false}
+            max={MAX_SCORE}
+            className={style.progressWrapper}
+            style={{backgroundColor: COLORS.positive}}
+          />
+        </div>
       </div>
     </div>
   );

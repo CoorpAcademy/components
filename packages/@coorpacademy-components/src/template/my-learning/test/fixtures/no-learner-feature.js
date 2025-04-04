@@ -105,13 +105,13 @@ const skillsInformation = {
 
 const skillsLocales = {
   skillRef1: 'Creativity and innovation',
-  skillRef2: 'Critical thinking and analysis',
+  skillRef2: 'Effective Communication, Team Collaboration & Strong Problem-Solving Mindset',
   skillRef3: 'Digital culture',
-  skillRef4: 'Digital dexterity',
+  skillRef4: 'Digital Adaptability and Resilience',
   skillRef5: 'Digital communication',
-  skillRef6: 'Active listening',
+  skillRef6: 'Effective Communication, Team Collaboration & Strong Problem-Solving Mindset',
   skillRef7: 'Active Watching',
-  skillRef8: 'Active Working'
+  skillRef8: 'Active Working and Continuous Improvement Process'
 };
 
 export const noLearnerFeatureProps = {
