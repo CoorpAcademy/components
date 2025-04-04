@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "Dodatkowe informacje o Twoim certyfikacie"
+    },
+    "css": {
+      "modules": "Poziomy",
+      "modules_completed": "ukończone poziomy",
+      "modules_completed_mandatory": "ukończone poziomy obowiązkowe",
+      "certification_module": "poziom do ukończenia"
     }
   }
 }
