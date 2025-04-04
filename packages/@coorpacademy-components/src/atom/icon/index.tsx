@@ -15,7 +15,6 @@ library.add(fas);
 const DEFAULT_PRESET = 'm';
 const ICON_LUMINOSITY = 32;
 const DEFAULT_WRAPPER_SIZE = 40;
-const ICON_PADDING = 8;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
@@ -66,7 +65,7 @@ const Icon: React.FC<IconProps> = React.memo(function Icon({
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
-  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
+  const wrapperSize = effectiveSize.wrapperSize;
 
   const iconWrapperStyle = {
     background: gradientBackground
@@ -74,8 +73,7 @@ const Icon: React.FC<IconProps> = React.memo(function Icon({
       : backgroundColor,
     borderRadius,
     width: wrapperSize,
-    height: wrapperSize,
-    padding: ICON_PADDING
+    height: wrapperSize
   };
 
   return (
