@@ -213,6 +213,12 @@
     },
     "who": {
       "badge": "De aanvullende informatie over uw certificaat"
+    },
+    "css": {
+      "modules": "Niveaus",
+      "modules_completed": "niveaus voltooid",
+      "modules_completed_mandatory": "verplichte niveaus voltooid",
+      "certification_module": "niveau om te voltooien"
     }
   }
 }
