@@ -72,6 +72,7 @@ const InputTextarea = props => {
           onChange={handleChange}
           disabled={disabled}
           data-testid={name}
+          tabIndex={0}
         />
         {errorIconView}
         {validIconView}
