@@ -21,8 +21,8 @@
 .learnerSkillCardContainer {
   display: flex;
   flex-direction: column;
-  width: 254px;
-  max-height: 252px;
+  width: 258px;
+  min-height: 220px;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 12px;
@@ -31,18 +31,17 @@
 }
 
 .learnerSkillCardContainer:hover {
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10); 
 }
 
 .skillInformation {
   composes: textBase;
   font-weight: 400;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 16px;
   color: cm_grey_400;
   display: flex;
   align-items: center;
-  height: 16px;
 }
 
 
@@ -65,7 +64,6 @@
   line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
-  height: 40px;
 }
 
 .skillFocusBadge {
@@ -105,28 +103,24 @@
   line-height: 16px;
   color: cm_grey_400;
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
 .iconWrapper {
   border-radius: 12px;
-  padding: 0px;
 }
 
-.iconBackgroundWrapper {
+.iconHeaderWrapper {
   padding: 16px 0 12px 16px;
   border-radius: 12px 12px 0 0;
-  height: 52px;
   border: 2px solid white;
-  overflow: hidden;
   background-position-y: -2px;
   background-repeat: repeat-x;
   background-color: white;
 }
 
-.iconBackgroundWrapper:hover {
-  border: 2px solid white;
+.iconHeaderWrapper:hover {
+  border: 2px solid transparent;
   cursor: pointer;
 }
 

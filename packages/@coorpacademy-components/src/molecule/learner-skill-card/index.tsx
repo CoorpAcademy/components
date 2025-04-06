@@ -59,7 +59,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
       <div
         data-name="learner-skill-card-icon-header-wrapper"
         ref={headerBackgroundRef}
-        className={style.iconBackgroundWrapper}
+        className={style.iconHeaderWrapper}
         style={{backgroundImage: defaultBackground, color: tagTextColor}}
       >
         <div className={style.iconWrapper} data-testid="learner-skill-card-icon-wrapper">

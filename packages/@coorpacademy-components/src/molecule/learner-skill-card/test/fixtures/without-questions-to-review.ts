@@ -1,7 +1,7 @@
 import {LearnerSkillCardProps} from '../../prop-types';
 import defaultProps from './default';
 
-const noQuestionsToReview: LearnerSkillCardProps = {
+const withoutQuestionsToReview: LearnerSkillCardProps = {
   ...defaultProps.props,
   metrics: {
     score: 65,
@@ -10,5 +10,5 @@ const noQuestionsToReview: LearnerSkillCardProps = {
 };
 
 export default {
-  props: noQuestionsToReview
+  props: withoutQuestionsToReview
 };
