@@ -115,13 +115,16 @@
   padding: 16px 0 12px 16px;
   border-radius: 12px 12px 0 0;
   border: 2px solid white;
+  overflow: hidden;
   background-position-y: -2px;
   background-repeat: repeat-x;
   background-color: white;
 }
 
-.learnerSkillCardContainer:hover .iconHeaderWrapper {
+.learnerSkillCardContainer:hover .iconHeaderWrapper,
+.iconHeaderWrapper:hover {
   border: 2px solid transparent;
+  overflow: hidden;
   cursor: pointer;
 }
 
