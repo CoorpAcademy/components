@@ -49,7 +49,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
   }, [defaultBackground]);
   return (
     <div
-      data-name="learner-skill-card-wrapper"
+      data-testid="learner-skill-card-wrapper"
       onClick={onExploreClick}
       className={style.learnerSkillCardContainer}
       aria-label={ariaLabel}
@@ -57,7 +57,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
       onMouseLeave={handleMouseLeave}
     >
       <div
-        data-name="learner-skill-card-icon-header-wrapper"
+        data-testid="learner-skill-card-icon-header-wrapper"
         ref={headerBackgroundRef}
         className={style.iconHeaderWrapper}
         style={{backgroundImage: defaultBackground, color: tagTextColor}}
