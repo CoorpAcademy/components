@@ -20,7 +20,7 @@ const propTypes = {
 export type LearnerSkillCardProps = {
   'aria-label'?: string;
   skillTitle: string;
-  skillAriaLabel: string;
+  skillAriaLabel?: string;
   focus: boolean;
   metrics: {
     content: number;
