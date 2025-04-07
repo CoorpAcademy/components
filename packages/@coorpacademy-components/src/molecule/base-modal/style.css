@@ -103,12 +103,10 @@
   gap: 8px;
 }
 
-.footerCancelButton {
-  width: 94px;
-}
-
-.footerConfirmButton {
-  width: 121px;
+.button {
+  border-radius: 12px;
+  padding: 8px;
+  font-weight: 600;
 }
 
 @media mobile {
@@ -124,9 +122,8 @@
   }
 
   .footerCTAWrapper,
-  .footerCancelButton,
-  .footerConfirmButton,
-  .footerDescription {
+  .footerDescription,
+  .button {
     width: 100%;
   }
 
