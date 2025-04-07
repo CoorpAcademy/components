@@ -46,7 +46,11 @@ const ContentSkillModal = (props: ContentSkillModalProps) => {
     footer,
     isOpen,
     onClose: handleClose,
-    customStyle: {padding: '0 0 0 24px'}
+    customStyle: {
+      padding: 0,
+      height: '60vh',
+      overflow: 'hidden'
+    }
   };
 
   if (!isOpen) return null;
