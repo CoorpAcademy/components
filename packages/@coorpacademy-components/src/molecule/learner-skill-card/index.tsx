@@ -15,7 +15,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
     'aria-label': ariaLabel,
     skillTitle,
     skillAriaLabel,
-    focus = false,
+    focus,
     metrics,
     icon,
     onExploreClick
