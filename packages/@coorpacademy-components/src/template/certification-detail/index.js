@@ -99,7 +99,7 @@ const CertificationDetail = (props, context) => {
               </>
             ) : null}
             <div className={style.contentStats}>
-              <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
+              <span>{`${translate('modules', {count: totalModules})}`}</span>
             </div>
             <ContinueLearningButton
               ongoingCoursesAvailable={ongoingCoursesAvailable}
