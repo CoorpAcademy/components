@@ -40,14 +40,14 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
   const menuStyle = classnames(
     style.bulletPointMenu,
     isBulkMenu && style.bulkBulletPointMenu,
-    visible && style.visible
+    style.visible
   );
 
-  const menu = (
+  const menu = visible ? (
     <div className={menuStyle} data-name="menu-wrapper" aria-label={menuAriaLabel}>
       <ButtonMenu {...menuProps} />
     </div>
-  );
+  ) : null;
 
   const bulletPointButtonProps = {
     size: 'default',
