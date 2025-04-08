@@ -20,6 +20,8 @@ import Title from '../../atom/title';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
+const roundScore = value => Math.round(value * 10) / 10;
+
 const ChangeSkillFocusButton = (props, context) => {
   const {onClick} = props;
   const {skin, translate} = context;
@@ -143,7 +145,7 @@ const MyLearning = (props, context) => {
   const graphDatas = useMemo(
     () =>
       pipe(
-        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation)]),
+        map(skill => [skill, roundScore(getOr(0, [skill, 'stats', 'score'], skillsInformation))]),
         fromPairs
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
