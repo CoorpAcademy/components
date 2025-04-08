@@ -9,11 +9,11 @@ import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
 const getButtonContent = (
-  icon?: IconType,
-  content?: string | React.ReactNode,
-  hovered?: boolean,
-  hoverBackgroundColor?: string,
-  hoverColor?: string
+  icon,
+  content,
+  hovered,
+  hoverBackgroundColor,
+  hoverColor
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
@@ -42,7 +42,7 @@ const getButtonContent = (
           wrapperSize: faIcon.size
         },
         customStyle: faIcon.customStyle
-      } as IconProps)}
+      } )}
     />
   ) : (
     <Icon className={style.icon} theme="coorpmanager" />
@@ -57,7 +57,7 @@ const getButtonContent = (
   );
 };
 
-const ButtonLink = (props: ButtonLinkProps) => {
+const ButtonLink = (props) => {
   const {
     type,
     usage = 'button',
