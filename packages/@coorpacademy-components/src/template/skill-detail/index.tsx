@@ -9,17 +9,30 @@ import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import IconPreview from '../../molecule/icon-preview';
 import ButtonLink from '../../atom/button-link';
-import CardsGrid from '../../organism/cards-grid';
+import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
 import {SelectOptionPropTypes} from '../../../lib/atom/select';
 import secondary from '../../atom/cta/test/fixtures/secondary';
 import {COLORS} from '../../variables/colors';
 import AllCourses from './all-courses';
 import style from './style.css';
 
+interface ContinueLearningButtonProps {
+  ongoingCoursesAvailable?: boolean;
+  onClick?: () => void;
+}
+interface ProviderContext {
+  skin: {
+    common: {
+      primary: string;
+      secondary: string;
+    };
+  };
+  translate: (key: string) => string;
+}
 
 export const ContinueLearningButton = (
-  props,
-  context
+  props: ContinueLearningButtonProps,
+  context: ProviderContext
 ) => {
   const {ongoingCoursesAvailable, onClick} = props;
   const {skin, translate} = context;
@@ -59,7 +72,41 @@ ContinueLearningButton.propTypes = {
   onClick: PropTypes.func
 };
 
-const SkillDetail = (props, context) => {
+interface Metrics {
+  score?: number;
+  questionsToReview?: number;
+  totalContents?: number;
+}
+
+type BannerMicrolearning =
+  | Record<string, never>
+  | {
+      action: () => void;
+      oldSwitchValue: boolean;
+    };
+interface SkillDetailProps {
+  title: string;
+  skillRef: string;
+  description?: string;
+  metrics?: Metrics;
+  focused?: boolean;
+  availableForReview?: boolean;
+  ongoingCoursesAvailable?: boolean;
+  skillIncludedCourses: CardsGridProps;
+  filters: {
+    onChange?: () => void;
+    options?: unknown[];
+  };
+  onBackClick?: () => void;
+  onReviewClick?: () => void;
+  onContinueLearningClick?: () => void;
+  search: {
+    oldValue: string;
+    onChange: () => void;
+  };
+  bannerMicrolearning?: BannerMicrolearning;
+}
+const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
   const {
     title,
     skillRef,

@@ -8,6 +8,7 @@ import SearchForm from '../../molecule/search-form';
 import CardsGrid from '../../organism/cards-grid';
 import InputSwitch from '../../atom/input-switch';
 import Banner from '../../molecule/banner';
+import {COLORS} from '../../variables/colors';
 import style from './all-courses.css';
 
 const uncappedMap = map.convert({cap: false});
@@ -19,8 +20,8 @@ const FilterButton = (props, context) => {
 
   const buttonProps = {
     customStyle: {
-      backgroundColor: selected ? primarySkinColor : '#E1E1E3',
-      color: selected ? '#FFFFFF' : '#515161',
+      backgroundColor: selected ? primarySkinColor : COLORS.cm_grey_150,
+      color: selected ? COLORS.white : COLORS.cm_grey_500,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
       width: 'fit-content'
     },
@@ -46,19 +47,26 @@ FilterButton.propTypes = {
   onClick: PropTypes.func
 };
 
-const AllCourses = (props, context) => {
+
+const AllCourses = (
+  props,
+  context
+) => {
   const {translate} = context;
   const {
     content,
     filters,
     sorting,
     totalContents,
-    bannerMicrolearning = {},
+    bannerMicrolearning = undefined,
     search: {oldValue: oldSearchValue, onChange: handleSearch}
   } = props;
   const {options, onChange} = filters;
   const {list, loading} = content;
-  const {type: bannerMessageType, action: bannerAction, oldSwitchValue} = bannerMicrolearning;
+  const bannerMessageType = bannerMicrolearning?.type;
+  const bannerAction = bannerMicrolearning?.action;
+  const oldSwitchValue = bannerMicrolearning?.oldSwitchValue;
+
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState(oldSearchValue || '');
 
@@ -87,13 +95,10 @@ const AllCourses = (props, context) => {
     [debounceHandleSearch]
   );
 
-  const handleSearchReset = useCallback(
-    value => {
-      setSearchValue('');
-      debounceHandleSearch('');
-    },
-    [debounceHandleSearch]
-  );
+  const handleSearchReset = useCallback(() => {
+    setSearchValue('');
+    debounceHandleSearch('');
+  }, [debounceHandleSearch]);
 
   const handleShowCompletedToggle = useCallback(() => {
     setShowCompleted(prevShowCompleted => !prevShowCompleted);
@@ -122,9 +127,9 @@ const AllCourses = (props, context) => {
         <div className={style.sortSection}>
           <InputSwitch
             id={'show-completed-courses-switch'}
-            type="switch"
             name={translate('show_completed')}
             title={translate('show_completed')}
+            theme="default"
             aria-label={'Show completed courses aria label'}
             value={showCompleted}
             onChange={handleShowCompletedToggle}
@@ -157,13 +162,14 @@ const AllCourses = (props, context) => {
           />
         </div>
       ) : null}
+
       <div className={style.filterWrapper}>
         {size(options) > 2
           ? uncappedMap((filterProps, index) => {
               const {name, value, selected} = filterProps;
 
               function handleFilterChange() {
-                onChange(value);
+                onChange && onChange(value);
               }
 
               return (
