@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Սահմանեք ձեր ընկերության ուսուցման առաջնահերթությունները հմտություններով, երգացանկերով կամ հավաստագրերով: Դրանք կհայտնվեն «Իմ ուսուցումը» էջում:",
   "media_stars_to_win_plural": "Հաղթեք {{count}} լրացուցիչ աստղեր այս բաժնում, երբ առաջին անգամ դիտեք դասը:",
   "media_stars_to_win": "Հաղթեք {{count}} լրացուցիչ աստղ այս բաժնում, երբ առաջին անգամ դիտեք դասը:",
-  "modules": "Մոդուլներ",
-  "modules_completed": "մոդուլները ավարտված են",
-  "modules_completed_mandatory": "լրացված պարտադիր մոդուլներ",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Ավելին",
   "More details": "Ավելի մանրամասն",
   "New media": "Նոր դաս",
@@ -215,9 +216,10 @@
       "badge": "Ձեր վկայականի մասին լրացուցիչ տեղեկություններ"
     },
     "css": {
-      "modules": "Մակարդակներ",
-      "modules_completed": "ավարտված մակարդակները",
-      "modules_completed_mandatory": "լրացված պարտադիր մակարդակները",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "մակարդակ՝ ավարտելու համար"
     }
   }
