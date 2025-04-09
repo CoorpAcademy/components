@@ -2,13 +2,19 @@ import React, {useCallback, useState, useMemo} from 'react';
 import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
-import FaIcon, {DEFAULT_ICON_COLOR, IconProps} from '../icon';
+import FaIcon, {DEFAULT_ICON_COLOR} from '../icon';
 import {ICONS} from '../../util/button-icons';
 import ToolTip from '../tooltip';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
-const getButtonContent = (icon, content, hovered, hoverBackgroundColor, hoverColor) => {
+const getButtonContent = (
+  icon?: IconType,
+  content?: string | React.ReactNode,
+  hovered?: boolean,
+  hoverBackgroundColor?: string,
+  hoverColor?: string
+) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
@@ -51,7 +57,7 @@ const getButtonContent = (icon, content, hovered, hoverBackgroundColor, hoverCol
   );
 };
 
-const ButtonLink = props => {
+const ButtonLink = (props: ButtonLinkProps) => {
   const {
     type,
     usage = 'button',
