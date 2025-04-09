@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Określ priorytety uczenia się dla swojej firmy za pomocą umiejętności, playlist lub certyfikatów. Pojawią się one na stronie My Learning.",
   "media_stars_to_win_plural": "Zdobądź {{count}} dodatkowe gwiazdki w każdym rozdziale za obejrzenie filmiku z lekcją!",
   "media_stars_to_win": "Zdobądź {{count}} dodatkowe gwiazdki w każdym rozdziale za obejrzenie filmiku z lekcją!",
-  "modules": "Moduły",
-  "modules_completed": "ukończone moduły",
-  "modules_completed_mandatory": "ukończone moduły obowiązkowe",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Więcej",
   "More details": "Więcej szczegółów",
   "New media": "Nowa lekcja",
@@ -215,9 +216,10 @@
       "badge": "Dodatkowe informacje o Twoim certyfikacie"
     },
     "css": {
-      "modules": "Poziomy",
-      "modules_completed": "ukończone poziomy",
-      "modules_completed_mandatory": "ukończone poziomy obowiązkowe",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "poziom do ukończenia"
     }
   }
