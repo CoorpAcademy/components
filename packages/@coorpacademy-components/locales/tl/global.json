@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Tukuyin ang mga priyoridad sa pag-aaral para sa iyong kumpanya na may mga kasanayan, playlist o certification. Lalabas ang mga ito sa pahina ng Aking Pag-aaral.",
   "media_stars_to_win_plural": "Manalo ng {{count}} karagdagang mga star sa kabanatang ito sa unang pagkakataon na tingnan mo ang isang lesson! ",
   "media_stars_to_win": "Manalo ng {{count}} karagdagang mga star sa kabanatang ito sa unang pagkakataon na tingnan mo ang isang lesson!",
-  "modules": "Mga module",
-  "modules_completed": "natapos ang mga module",
-  "modules_completed_mandatory": "mga mandatoryong module na nakumpleto",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "More",
   "More details": "Higit pang mga detalye",
   "New media": "Bagong lesson",
@@ -215,9 +216,10 @@
       "badge": "Karagdagang impormasyon tungkol sa iyong sertipiko"
     },
     "css": {
-      "modules": "Mga antas",
-      "modules_completed": "mga antas na natapos",
-      "modules_completed_mandatory": "nakumpleto ang mga mandatoryong antas",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "antas upang makumpleto"
     }
   }
