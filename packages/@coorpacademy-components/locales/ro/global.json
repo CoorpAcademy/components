@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Definiți prioritățile de învățare pentru compania dvs. cu competențe, liste de redare sau certificări. Acestea vor apărea pe pagina Învățarea mea.",
   "media_stars_to_win_plural": "Câștigați {{count}} stele în plus prima oară când urmăriți o lecție din acest capitol!",
   "media_stars_to_win": "Câștigați {{count}} stele în plus prima oară când urmăriți o lecție din acest capitol!",
-  "modules": "Module",
-  "modules_completed": "module finalizate",
-  "modules_completed_mandatory": "module obligatorii finalizate",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Mai multe",
   "More details": "Mai multe detalii",
   "New media": "Lecție nouă",
@@ -215,9 +216,10 @@
       "badge": "Informațiile suplimentare despre certificatul dvs"
     },
     "css": {
-      "modules": "Niveluri",
-      "modules_completed": "niveluri finalizate",
-      "modules_completed_mandatory": "niveluri obligatorii finalizate",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "nivel de finalizat"
     }
   }
