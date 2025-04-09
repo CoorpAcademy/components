@@ -47,11 +47,7 @@ FilterButton.propTypes = {
   onClick: PropTypes.func
 };
 
-
-const AllCourses = (
-  props,
-  context
-) => {
+const AllCourses = (props, context) => {
   const {translate} = context;
   const {
     content,

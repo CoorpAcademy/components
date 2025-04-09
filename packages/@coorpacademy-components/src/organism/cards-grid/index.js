@@ -5,8 +5,7 @@ import Card from '../../molecule/card';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-
-const CardsGrid = (props) => {
+const CardsGrid = props => {
   const {list = [], customStyle = {}, loading = false} = props;
 
   const loader = loading ? (
@@ -32,7 +31,6 @@ const CardsGrid = (props) => {
 };
 
 CardsGrid.propTypes = {
-  // @ts-expect-error component is not typed & wrapped into memo
   list: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
   customStyle: PropTypes.objectOf(PropTypes.string),
   loading: PropTypes.bool

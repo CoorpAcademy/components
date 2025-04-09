@@ -37,7 +37,7 @@ export const defaultProps = {
         selected: false
       }
     ],
-    onChange: (value: string) => console.log(value)
+    onChange: value => console.log(value)
   },
   sorting: {
     theme: 'skillDetail',
@@ -58,7 +58,7 @@ export const defaultProps = {
         selected: false
       }
     ],
-    onChange: (value: string) => console.log(value)
+    onChange: value => console.log(value)
   },
   onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),

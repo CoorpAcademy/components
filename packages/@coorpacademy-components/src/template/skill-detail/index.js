@@ -11,16 +11,11 @@ import IconPreview from '../../molecule/icon-preview';
 import ButtonLink from '../../atom/button-link';
 import CardsGrid from '../../organism/cards-grid';
 import {SelectOptionPropTypes} from '../../../lib/atom/select';
-import secondary from '../../atom/cta/test/fixtures/secondary';
 import {COLORS} from '../../variables/colors';
 import AllCourses from './all-courses';
 import style from './style.css';
 
-
-export const ContinueLearningButton = (
-  props,
-  context
-) => {
+export const ContinueLearningButton = (props, context) => {
   const {ongoingCoursesAvailable, onClick} = props;
   const {skin, translate} = context;
   const primarySkinColor = get('common.primary', skin);
@@ -32,7 +27,8 @@ export const ContinueLearningButton = (
       customStyle={{
         width: 'fit-content',
         borderRadius: '12px',
-        backgroundColor: secondary
+        // TO VALIDATE
+        backgroundColor: primarySkinColor
       }}
       hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
       hoverColor={COLORS.white}
@@ -84,9 +80,7 @@ const SkillDetail = (props, context) => {
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
-  const handleShowMore = useCallback(() => {
-    setShowMore(!showMore);
-  }, [showMore]);
+  const handleShowMore = useCallback(() => setShowMore(!showMore), [setShowMore, showMore]);
 
   useEffect(() => {
     if (descriptionRef.current) {

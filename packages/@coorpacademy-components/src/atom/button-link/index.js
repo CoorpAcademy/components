@@ -8,13 +8,7 @@ import ToolTip from '../tooltip';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
-const getButtonContent = (
-  icon,
-  content,
-  hovered,
-  hoverBackgroundColor,
-  hoverColor
-) => {
+const getButtonContent = (icon, content, hovered, hoverBackgroundColor, hoverColor) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
@@ -28,7 +22,7 @@ const getButtonContent = (
 
   const iconComponent = faIcon ? (
     <FaIcon
-      {...({
+      {...{
         iconName: faIcon.name,
         iconColor: hovered && hoverColor ? hoverColor : faIcon.color ?? DEFAULT_ICON_COLOR,
         // eslint-disable-next-line no-nested-ternary
@@ -42,7 +36,7 @@ const getButtonContent = (
           wrapperSize: faIcon.size
         },
         customStyle: faIcon.customStyle
-      } )}
+      }}
     />
   ) : (
     <Icon className={style.icon} theme="coorpmanager" />
@@ -57,7 +51,7 @@ const getButtonContent = (
   );
 };
 
-const ButtonLink = (props) => {
+const ButtonLink = props => {
   const {
     type,
     usage = 'button',
