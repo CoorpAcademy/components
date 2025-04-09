@@ -219,7 +219,7 @@
       "modules": "{{count}}级别",
       "modules_plural": "{{count}}级别",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span>强制级别完成",
-      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span>强制级别已完成",
       "certification_module": "完成级别"
     }
   }
