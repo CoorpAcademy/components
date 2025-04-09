@@ -80,7 +80,7 @@
   "media_stars_to_win": "Հաղթեք {{count}} լրացուցիչ աստղ այս բաժնում, երբ առաջին անգամ դիտեք դասը:",
   "modules": "{{count}} մոդուլ",
   "modules_plural": "{{count}} մոդուլներ",
-  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> պարտադիր մոդուլն ավարտված է",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> պարտադիր մոդուլներն ավարտված են",
   "More": "Ավելին",
   "More details": "Ավելի մանրամասն",
