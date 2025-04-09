@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "기술, 플레이리스트 또는 인증을 통해 회사의 학습 우선순위를 정의하세요. 이는 My Learning 페이지에 표시됩니다.",
   "media_stars_to_win_plural": "귀하가 레슨을 처음 볼 때, 이 장에서 {{count}}개의 추가 스타를 획득하세요!",
   "media_stars_to_win": "귀하가 레슨을 처음 볼 때, 이 장에서 {{count}}개의 추가 스타를 획득하세요!",
-  "modules": "모듈",
-  "modules_completed": "완료된 모듈",
-  "modules_completed_mandatory": "완료한 필수 모듈",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "더 많이",
   "More details": "자세한 내용은",
   "New media": "신규 레슨",
@@ -215,9 +216,10 @@
       "badge": "인증서에 대한 추가 정보"
     },
     "css": {
-      "modules": "레벨",
-      "modules_completed": "완료된 레벨",
-      "modules_completed_mandatory": "필수 레벨 완료",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "완료할 레벨"
     }
   }
