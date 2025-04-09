@@ -78,7 +78,7 @@
   "learning_priorities_brand_description": "Definirajte prioritete učenja za svoju kompaniju pomoću vještina, lista za reprodukciju ili certifikata. Oni će se pojaviti na stranici Moje učenje.",
   "media_stars_to_win_plural": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
   "media_stars_to_win": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
-  "modules": "{{count}} module",
+  "modules": "{{count}} modul",
   "modules_plural": "{{count}} modules",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obavezni modul završen",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
