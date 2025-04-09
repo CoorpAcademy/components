@@ -15,12 +15,14 @@ test.afterEach(() => {
 test('should display details on toggle click', t => {
   t.plan(3);
   const context = {
-    translate: key => key
+    translate: (key: string) => key
   };
   const {container} = renderWithContext(<ProgressWrapper {...progressWrapperWithNoBadge.props} />, {
     context
   });
-  const toggleButton = container.querySelector('[data-testid=toggle-details-button]') as Element;
+  const toggleButton = container.querySelector(
+    '[data-testid=progress-wrapper-toggle-details-button]'
+  ) as Element;
   t.truthy(toggleButton);
 
   const progressWrapperDetailsHidden = container.querySelector(

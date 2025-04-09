@@ -160,33 +160,35 @@ const ProgressWrapper = (
       </div>
 
       {!isEmpty(sections) ? (
-        <div
-          className={style.toggleDetailsButton}
-          onClick={handleToggleDetails}
-          data-testid="toggle-details-button"
-        >
-          <Icon
-            iconColor={'black'}
-            iconName={showDetails ? 'chevron-up' : 'chevron-down'}
-            size={{faSize: 20, wrapperSize: 24}}
-          />
-        </div>
-      ) : null}
+        <>
+          <div
+            className={style.toggleDetailsButton}
+            onClick={handleToggleDetails}
+            data-testid="progress-wrapper-toggle-details-button"
+          >
+            <Icon
+              iconColor={COLORS.cm_grey_700}
+              iconName={showDetails ? 'chevron-up' : 'chevron-down'}
+              size={{faSize: 20, wrapperSize: 24}}
+            />
+          </div>
 
-      {!isEmpty(sections) && showDetails ? (
-        <div className={style.details} data-testid="progress-wrapper-details">
-          {uncappedMap(
-            (section, index) => (
-              <DetailSection
-                {...section}
-                isLocked={isLocked}
-                key={`${section.type}-${index}`}
-                index={index}
-              />
-            ),
-            sections
-          )}
-        </div>
+          {showDetails ? (
+            <div className={style.details} data-testid="progress-wrapper-details">
+              {uncappedMap(
+                (section, index) => (
+                  <DetailSection
+                    {...section}
+                    isLocked={isLocked}
+                    key={`${section.type}-${index}`}
+                    index={index}
+                  />
+                ),
+                sections
+              )}
+            </div>
+          ) : null}
+        </>
       ) : null}
     </div>
   );

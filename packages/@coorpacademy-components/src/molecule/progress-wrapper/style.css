@@ -131,8 +131,7 @@
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  padding: 16px 8px;
 }
 
 @media mobile, tablet {
