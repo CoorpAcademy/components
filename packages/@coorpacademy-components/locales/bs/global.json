@@ -219,7 +219,7 @@
       "modules": "{{count}} nivo",
       "modules_plural": "{{count}} nivoa",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obavezni nivo završen",
-      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obavezni nivoi završeni",
       "certification_module": "nivo koji treba završiti"
     }
   }
