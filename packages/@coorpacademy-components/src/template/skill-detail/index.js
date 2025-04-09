@@ -21,27 +21,29 @@ export const ContinueLearningButton = (props, context) => {
   const primarySkinColor = get('common.primary', skin);
 
   return (
-    <ButtonLink
-      label={ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')}
-      type="primary"
-      customStyle={{
-        width: 'fit-content',
-        borderRadius: '12px',
-        // TO VALIDATE
-        backgroundColor: primarySkinColor
-      }}
-      hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
-      hoverColor={COLORS.white}
-      icon={{
-        position: 'left',
-        faIcon: {
-          name: 'play',
-          color: COLORS.white,
-          size: 14
-        }
-      }}
-      onClick={onClick}
-    />
+    <div>
+      <ButtonLink
+        label={ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')}
+        type="primary"
+        customStyle={{
+          width: 'fit-content',
+          borderRadius: '12px',
+          // TO VALIDATE
+          backgroundColor: primarySkinColor
+        }}
+        hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
+        hoverColor={COLORS.white}
+        icon={{
+          position: 'left',
+          faIcon: {
+            name: 'play',
+            color: COLORS.white,
+            size: 14
+          }
+        }}
+        onClick={onClick}
+      />
+    </div>
   );
 };
 
@@ -95,7 +97,7 @@ const SkillDetail = (props, context) => {
         ref={descriptionRef}
         className={classnames(style.description, !showMore && style.truncate)}
       >
-        {description ? <Markdown>{description}</Markdown> : null}
+        <Markdown>{description}</Markdown>
       </div>
     );
   }, [showMore, description]);

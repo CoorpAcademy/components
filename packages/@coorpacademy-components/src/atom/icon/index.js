@@ -83,8 +83,8 @@ export const iconPropTypes = {
   borderRadius: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
-    faSize: number.isRequired,
-    wrapperSize: PropTypes.number.isRequired
+    faSize: number,
+    wrapperSize: PropTypes.number
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };

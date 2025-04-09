@@ -5,7 +5,7 @@ import Card from '../../molecule/card';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const CardsGrid = props => {
+function CardsGrid(props) {
   const {list = [], customStyle = {}, loading = false} = props;
 
   const loader = loading ? (
@@ -28,7 +28,7 @@ const CardsGrid = props => {
       {loader}
     </div>
   );
-};
+}
 
 CardsGrid.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
