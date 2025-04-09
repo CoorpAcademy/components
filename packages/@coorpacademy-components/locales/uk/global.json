@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Визначте пріоритети навчання для вашої компанії за допомогою навичок, списків відтворення або сертифікатів. Вони з’являться на сторінці «Моє навчання».",
   "media_stars_to_win_plural": "Вигравайте {{count}} додаткових зірок за перший перегляд уроку в цьому розділі!",
   "media_stars_to_win": "Вигравайте {{count}} додаткову зірку за перший перегляд уроку в цьому розділі!",
-  "modules": "Модулі",
-  "modules_completed": "виконаних модулів",
-  "modules_completed_mandatory": "Обов'язкові модулі завершено",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Більше",
   "More details": "Детальніше",
   "New media": "Новий урок",
@@ -215,9 +216,10 @@
       "badge": "Додаткова інформація про ваш сертифікат"
     },
     "css": {
-      "modules": "Рівні",
-      "modules_completed": "рівнів завершено",
-      "modules_completed_mandatory": "пройдені обов&#39;язкові рівні",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "рівень для завершення"
     }
   }
