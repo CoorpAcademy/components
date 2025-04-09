@@ -80,7 +80,7 @@
   "media_stars_to_win": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
   "modules": "{{count}} module",
   "modules_plural": "{{count}} modules",
-  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obavezni modul završen",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Više",
   "More details": "Više detalja",
