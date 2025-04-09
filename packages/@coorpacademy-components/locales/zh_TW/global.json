@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "透過技能、播放清單或認證為您的公司定義學習優先事項。它們將出現在「我的學習」頁面上。",
   "media_stars_to_win_plural": "第一次觀看課程時，在本章中贏得{{count}}個額外的星星！",
   "media_stars_to_win": "第一次觀看課程時，在本章中贏得{{count}}個額外的星星！",
-  "modules": "模組",
-  "modules_completed": "模組已完成",
-  "modules_completed_mandatory": "已完成必修單元",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "更多",
   "More details": "更多細節",
   "New media": "新課程",
@@ -215,9 +216,10 @@
       "badge": "有關您證書的附加信息"
     },
     "css": {
-      "modules": "等級",
-      "modules_completed": "完成的級別",
-      "modules_completed_mandatory": "已完成強制性級別",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "完成等級"
     }
   }
