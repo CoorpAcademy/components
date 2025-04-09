@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Definiera inlärningsprioriteringar för ditt företag med färdigheter, spellistor eller certifieringar. De kommer att visas på sidan Mitt lärande.",
   "media_stars_to_win_plural": "Vinn {{count}} stjärnor till i det här kapitlet första gången du tittar på en lektion!",
   "media_stars_to_win": "Vinn {{count}} stjärna till i det här kapitlet första gången du tittar på en lektion!",
-  "modules": "Moduler",
-  "modules_completed": "moduler avslutade",
-  "modules_completed_mandatory": "obligatoriska moduler klara",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Mer",
   "More details": "Fler uppgifter",
   "New media": "Ny lektion",
@@ -215,9 +216,10 @@
       "badge": "Ytterligare information om ditt certifikat"
     },
     "css": {
-      "modules": "Nivåer",
-      "modules_completed": "nivåer avklarade",
-      "modules_completed_mandatory": "obligatoriska nivåer genomförda",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "nivå att slutföra"
     }
   }
