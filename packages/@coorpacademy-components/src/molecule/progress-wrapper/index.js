@@ -114,7 +114,10 @@ const ProgressWrapper = (
   context
 ) => {
   const {translate} = context;
-  const mandatoryCompletedModulesLocale = translate('modules_completed_mandatory');
+  const mandatoryCompletedModulesLocale = translate('modules_completed_mandatory', {
+    total: mandatoryModules,
+    count: completedModules > mandatoryModules ? mandatoryModules : completedModules
+  });
   const isLocked = progression !== 100;
 
   return (
@@ -128,14 +131,10 @@ const ProgressWrapper = (
       </div>
       <div className={style.statscontainer}>
         <div className={style.stats}>
-          <div>
-            <span className={style.statsNumber} data-name="progress-stats">
-              {`${
-                completedModules > mandatoryModules ? mandatoryModules : completedModules
-              } / ${mandatoryModules}`}
-            </span>
-            {mandatoryCompletedModulesLocale}
-          </div>
+          <div
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: mandatoryCompletedModulesLocale}}
+          />
         </div>
         <div className={style.progression}>
           <span className={style.statsNumber} data-name="progress-value">

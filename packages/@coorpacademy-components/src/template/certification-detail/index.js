@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, lowerCase, round, isNil} from 'lodash/fp';
+import {compact, round, isNil} from 'lodash/fp';
 import Markdown from 'markdown-to-jsx';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
@@ -99,7 +99,7 @@ const CertificationDetail = (props, context) => {
               </>
             ) : null}
             <div className={style.contentStats}>
-              <span>{`${totalModules} ${lowerCase(translate('modules'))}`}</span>
+              <span>{`${translate('modules', {count: totalModules})}`}</span>
             </div>
             <ContinueLearningButton
               ongoingCoursesAvailable={ongoingCoursesAvailable}
