@@ -78,7 +78,7 @@
   "learning_priorities_brand_description": "透過技能、播放清單或認證為您的公司定義學習優先事項。它們將出現在「我的學習」頁面上。",
   "media_stars_to_win_plural": "第一次觀看課程時，在本章中贏得{{count}}個額外的星星！",
   "media_stars_to_win": "第一次觀看課程時，在本章中贏得{{count}}個額外的星星！",
-  "modules": "{{count}} module",
+  "modules": "{{count}}模組",
   "modules_plural": "{{count}} modules",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
