@@ -80,7 +80,7 @@
   "media_stars_to_win": "Gagnez {{count}} étoile supplémentaire par chapitre en consultant la leçon !",
   "modules": "{{count}} module",
   "modules_plural": "{{count}} modules",
-  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> module obligatoire terminé",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Plus",
   "More details": "Plus de détails",
