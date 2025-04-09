@@ -6866,10 +6866,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   position: relative;
   background: transparent;
   margin: 8px 0;
-  border-radius: 7px;
-  -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
-  z-index: 0;
+  border-radius: 12px;
 }
 
 .draggable-QNgaT > :first-child {
