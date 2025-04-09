@@ -80,7 +80,7 @@
   "media_stars_to_win": "在这一章，当你首次阅读一节课的时候可以赢得 {{count}}额外的星星！",
   "modules": "{{count}}模块",
   "modules_plural": "{{count}}模块",
-  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span>强制模块已完成",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "更多",
   "More details": "更多细节",
