@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Definirajte prioritete učenja za svoju kompaniju pomoću vještina, lista za reprodukciju ili certifikata. Oni će se pojaviti na stranici Moje učenje.",
   "media_stars_to_win_plural": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
   "media_stars_to_win": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
-  "modules": "Moduli",
-  "modules_completed": "moduli završeni",
-  "modules_completed_mandatory": "obavezni moduli završeni",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Više",
   "More details": "Više detalja",
   "New media": "Nova lekcija",
@@ -215,9 +216,10 @@
       "badge": "Dodatne informacije o vašem certifikatu"
     },
     "css": {
-      "modules": "Nivoi",
-      "modules_completed": "završeni nivoi",
-      "modules_completed_mandatory": "obavezni nivoi završeni",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "nivo koji treba završiti"
     }
   }
