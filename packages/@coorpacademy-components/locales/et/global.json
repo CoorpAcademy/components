@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "Määrake oma ettevõtte õppimisprioriteedid oskuste, esitusloendite või sertifikaatide abil. Need kuvatakse lehel Minu õppimine.",
   "media_stars_to_win_plural": "Võida selles peatükis õppetunni esmakordsel vaatamisel  {{count}} lisatähepunkti!",
   "media_stars_to_win": "Võida selles peatükis õppetunni esmakordsel vaatamisel  {{count}} lisatähepunkt!",
-  "modules": "Moodulid",
-  "modules_completed": "moodulid valmis",
-  "modules_completed_mandatory": "kohustuslikud moodulid on lõpetatud",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Lisaks",
   "More details": "Rohkem detaile",
   "New media": "Uus õppetund",
@@ -215,9 +216,10 @@
       "badge": "Täiendav teave teie sertifikaadi kohta"
     },
     "css": {
-      "modules": "Tasemed",
-      "modules_completed": "tasemed läbitud",
-      "modules_completed_mandatory": "kohustuslikud tasemed läbitud",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "taseme lõpetamiseks"
     }
   }
