@@ -78,9 +78,10 @@
   "learning_priorities_brand_description": "スキル、プレイリスト、または認定資格を使用して、会社の学習の優先順位を定義します。これらは「マイ ラーニング」ページに表示されます。",
   "media_stars_to_win_plural": "もし、はじめてこのレッスンを受けた場合は{{count}}個のスターが追加で獲得できます。",
   "media_stars_to_win": "もし、はじめてこのレッスンを受けた場合は{{count}}個のスターが追加で獲得できます。",
-  "modules": "モジュール",
-  "modules_completed": "モジュール完了",
-  "modules_completed_mandatory": "必須のモジュールを完了しました",
+  "modules": "{{count}} module",
+  "modules_plural": "{{count}} modules",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "その他",
   "More details": "さらに詳しく",
   "New media": "新しいレッスン",
@@ -215,9 +216,10 @@
       "badge": "証明書に関する追加情報"
     },
     "css": {
-      "modules": "レベル",
-      "modules_completed": "完了したレベル",
-      "modules_completed_mandatory": "必須レベルを完了",
+      "modules": "{{count}} level",
+      "modules_plural": "{{count}} levels",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "完了するレベル"
     }
   }
