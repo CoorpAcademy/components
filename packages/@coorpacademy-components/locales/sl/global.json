@@ -81,7 +81,7 @@
   "modules": "{{count}} modul",
   "modules_plural": "{{count}} moduli",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obvezni modul zaključen",
-  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> dokončani obvezni moduli",
   "More": "Več",
   "More details": "Več podrobnosti",
   "New media": "Nova lekcija",
@@ -114,8 +114,8 @@
   "secured_payment": "Varen strežnik",
   "start_learning": "Začnite se učiti",
   "sort_by": "Razvrsti po:",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "jasno",
+  "clear_all": "Počisti vse",
   "See clue": "Glej namig",
   "See less": "Glej manj",
   "See lesson": "Glej lekcijo",
@@ -216,7 +216,7 @@
       "badge": "Dodatne informacije o vašem certifikatu"
     },
     "css": {
-      "modules": "{{count}} level",
+      "modules": "raven {{count}}",
       "modules_plural": "{{count}} levels",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
