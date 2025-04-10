@@ -78,7 +78,7 @@
   "learning_priorities_brand_description": "Xác định các ưu tiên học tập cho công ty của bạn bằng các kỹ năng, danh sách phát hoặc chứng chỉ. Chúng sẽ xuất hiện trên trang Học tập của tôi.",
   "media_stars_to_win_plural": "Giành được thêm {{count}} sao trong chương này khi xem bài học lần đầu tiên!",
   "media_stars_to_win": "Giành được thêm {{count}} sao trong chương này khi xem bài học lần đầu tiên!",
-  "modules": "mô-đun {{count}}",
+  "modules": "{{count}} mô-đun",
   "modules_plural": "{{count}} mô-đun",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> module bắt buộc đã hoàn thành",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> các module bắt buộc đã hoàn thành",
