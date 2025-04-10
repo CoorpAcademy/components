@@ -216,10 +216,10 @@
       "badge": "Die zusätzlichen Informationen zu Ihrem Zertifikat"
     },
     "css": {
-      "modules": "{{count}} level",
-      "modules_plural": "{{count}} levels",
-      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
-      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
+      "modules": "{{count}} Ebene",
+      "modules_plural": "{{count}} Ebenen",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> Pflichtlevel abgeschlossen",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obligatorische Level abgeschlossen",
       "certification_module": "Level zum Abschließen"
     }
   }
