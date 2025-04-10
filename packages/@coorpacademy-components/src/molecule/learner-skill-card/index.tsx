@@ -99,45 +99,50 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
             />
             {focus ? skillFocusLocale : defaultSkillLocale}
           </div>
-          <div
-            data-name="skill-card-title"
-            className={style.skillTitle}
-            aria-label={skillAriaLabel || skillTitle}
-          >
-            {skillTitle}
-          </div>
-          <div className={style.contentAndQuestionsWrapper}>
-            <div data-name="learner-skill-card-skill-content-number">
-              {content} {translate('content')}
+
+          <div className={style.questionWrapper}>
+            <div
+              data-name="skill-card-title"
+              className={style.skillTitle}
+              aria-label={skillAriaLabel || skillTitle}
+            >
+              {skillTitle}
             </div>
-            {questionsToReview ? (
-              <div
-                className={style.skillInformation}
-                data-name="learner-skill-card-skill-questions-wrapper"
-              >
-                <FaIcon
-                  {...{
-                    iconName: 'circle',
-                    iconColor: COLORS.cm_grey_400,
-                    size: {faSize: 4},
-                    customStyle: {padding: 0}
-                  }}
-                />
-                <span data-name="learner-skill-card-questions-to-review">{questionsToReview}</span>
-                &nbsp;{questionsLocale}
+            <div className={style.contentAndQuestionsWrapper}>
+              <div data-name="learner-skill-card-skill-content-number">
+                {content} {translate('content')}
               </div>
-            ) : null}
+              {questionsToReview ? (
+                <div
+                  className={style.skillInformation}
+                  data-name="learner-skill-card-skill-questions-wrapper"
+                >
+                  <FaIcon
+                    {...{
+                      iconName: 'circle',
+                      iconColor: COLORS.cm_grey_400,
+                      size: {faSize: 4},
+                      customStyle: {padding: 0, height: 'auto'}
+                    }}
+                  />
+                  <span data-name="learner-skill-card-questions-to-review">
+                    {questionsToReview}
+                  </span>
+                  &nbsp;{questionsLocale}
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
-        <div className={style.progressInformations}>
-          <ProgressBar
-            value={score}
-            displayInfo={false}
-            max={MAX_SCORE}
-            className={style.progressWrapper}
-            style={{backgroundColor: COLORS.positive}}
-          />
-        </div>
+      </div>
+      <div className={style.progressInformations}>
+        <ProgressBar
+          value={score}
+          displayInfo={false}
+          max={MAX_SCORE}
+          className={style.progressWrapper}
+          style={{backgroundColor: COLORS.positive}}
+        />
       </div>
     </div>
   );
