@@ -114,8 +114,8 @@
   "secured_payment": "Säker server",
   "start_learning": "Börja lära sig",
   "sort_by": "Sortera efter:",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "Rensa",
+  "clear_all": "Rensa alla",
   "See clue": "Se ledtråd",
   "See less": "Visa mindre",
   "See lesson": "Se lektion",
@@ -216,9 +216,9 @@
       "badge": "Ytterligare information om ditt certifikat"
     },
     "css": {
-      "modules": "{{count}} level",
-      "modules_plural": "{{count}} levels",
-      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
+      "modules": "{{count}} nivå",
+      "modules_plural": "{{count}} nivåer",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obligatorisk nivå klar",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "nivå att slutföra"
     }
