@@ -217,7 +217,7 @@
     },
     "css": {
       "modules": "{{count}} уровень",
-      "modules_plural": "уровни {{count}}",
+      "modules_plural": "{{count}} уровни",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> обязательный уровень завершен",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> обязательные уровни завершены",
       "certification_module": "уровень для завершения"
