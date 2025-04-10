@@ -78,7 +78,7 @@
   "learning_priorities_brand_description": "Defina prioridades de aprendizado para sua empresa com habilidades, playlists ou certificações. Elas aparecerão na página My Learning.",
   "media_stars_to_win_plural": "Ganhe {{count}}  estrelas adicionais neste capítulo na primeira vez que veja esta lição!",
   "media_stars_to_win": "Ganhe {{count}} estrelas adicionais neste capítulo quando vir uma lição pela primeira vez! ",
-  "modules": "módulo {{count}}",
+  "modules": "{{count}} módulo",
   "modules_plural": "módulos {{count}}",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> módulo obrigatório concluído",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> módulos obrigatórios concluídos",
