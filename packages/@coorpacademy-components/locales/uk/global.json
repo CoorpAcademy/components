@@ -80,7 +80,7 @@
   "media_stars_to_win": "Вигравайте {{count}} додаткову зірку за перший перегляд уроку в цьому розділі!",
   "modules": "{{count}} модуль",
   "modules_plural": "{{count}} модулі",
-  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> обов&#39;язковий модуль завершено",
+  "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> обов’язкових модулів завершено",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> виконано обов’язкові модулі",
   "More": "Більше",
   "More details": "Детальніше",
