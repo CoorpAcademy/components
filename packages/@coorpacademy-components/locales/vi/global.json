@@ -114,8 +114,8 @@
   "secured_payment": "Máy chủ bảo mật",
   "start_learning": "Bắt đầu học",
   "sort_by": "Sắp xếp theo:",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "Thông thoáng",
+  "clear_all": "Xóa tất cả",
   "See clue": "Xem gợi ý",
   "See less": "Thu bớt",
   "See lesson": "Xem bài học",
@@ -216,7 +216,7 @@
       "badge": "Thông tin bổ sung về chứng chỉ của bạn"
     },
     "css": {
-      "modules": "{{count}} level",
+      "modules": "{{count}} cấp độ",
       "modules_plural": "{{count}} levels",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
