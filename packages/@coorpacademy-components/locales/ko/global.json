@@ -81,7 +81,7 @@
   "modules": "{{count}} 모듈",
   "modules_plural": "{{count}} 모듈",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> 필수 모듈 완료",
-  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> 필수 모듈 완료",
   "More": "더 많이",
   "More details": "자세한 내용은",
   "New media": "신규 레슨",
@@ -114,8 +114,8 @@
   "secured_payment": "안전 서버",
   "start_learning": "학습 시작",
   "sort_by": "정렬 기준:",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "분명한",
+  "clear_all": "모두 지우기",
   "See clue": "단서 보기",
   "See less": "덜 보기",
   "See lesson": "레슨 보기",
@@ -216,8 +216,8 @@
       "badge": "인증서에 대한 추가 정보"
     },
     "css": {
-      "modules": "{{count}} level",
-      "modules_plural": "{{count}} levels",
+      "modules": "{{count}} 레벨",
+      "modules_plural": "{{count}} 레벨",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "완료할 레벨"
