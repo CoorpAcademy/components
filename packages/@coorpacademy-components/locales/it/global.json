@@ -217,7 +217,7 @@
     },
     "css": {
       "modules": "livello {{count}}",
-      "modules_plural": "livelli {{count}}",
+      "modules_plural": "{{count}} livelli",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> livello obbligatorio completato",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> livelli obbligatori completati",
       "certification_module": "livello da completare"
