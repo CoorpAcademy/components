@@ -78,7 +78,7 @@
   "learning_priorities_brand_description": "Definiți prioritățile de învățare pentru compania dvs. cu competențe, liste de redare sau certificări. Acestea vor apărea pe pagina Învățarea mea.",
   "media_stars_to_win_plural": "Câștigați {{count}} stele în plus prima oară când urmăriți o lecție din acest capitol!",
   "media_stars_to_win": "Câștigați {{count}} stele în plus prima oară când urmăriți o lecție din acest capitol!",
-  "modules": "modulul {{count}}",
+  "modules": "{{count}} modulul",
   "modules_plural": "modulele {{count}}",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> modul obligatoriu finalizat",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> module obligatorii finalizate",
