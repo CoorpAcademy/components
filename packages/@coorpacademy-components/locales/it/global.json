@@ -79,7 +79,7 @@
   "media_stars_to_win_plural": "Guadagna {{count}} stelle aggiuntive in questo capitolo la prima volta che visualizzi una lezione!",
   "media_stars_to_win": "Guadagna {{count}} stelle aggiuntive in questo capitolo, la prima volta che visualizzi una lezione!",
   "modules": "{{count}} modulo",
-  "modules_plural": "moduli {{count}}",
+  "modules_plural": "{{count}} moduli",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> modulo obbligatorio completato",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> moduli obbligatori completati",
   "More": "Altro",
