@@ -115,7 +115,7 @@
   "start_learning": "Alusta õppimist",
   "sort_by": "Sorteerima:",
   "clear": "Selge",
-  "clear_all": "Clear all",
+  "clear_all": "Tühjenda kõik",
   "See clue": "Näita vihjet",
   "See less": "Näita vähem",
   "See lesson": "Vaadake õppetundi",
@@ -216,8 +216,8 @@
       "badge": "Täiendav teave teie sertifikaadi kohta"
     },
     "css": {
-      "modules": "{{count}} level",
-      "modules_plural": "{{count}} levels",
+      "modules": "{{count}} tase",
+      "modules_plural": "{{count}} tasemed",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "taseme lõpetamiseks"
