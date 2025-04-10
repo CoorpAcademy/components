@@ -22,7 +22,7 @@ export default {
           'Provide key details about the skill, including its name, description and its icon',
         select: {
           title: 'Default language',
-          subtitle: 'Select the default language for this skill',
+          subtitle: 'Language in which the skill is created',
           'data-name': 'Default language',
           field: {
             options: SelectAndTitle.props.field.options,
@@ -36,6 +36,7 @@ export default {
             title: 'Skill name',
             placeholder: 'Skill name',
             hint: '0/80 characters',
+            description: 'Skill name',
             value: '',
             onChange: (value: string) => console.log(value)
           }
@@ -46,6 +47,7 @@ export default {
             title: 'Description',
             placeholder: 'What is the skill about, what are the takeaways...',
             hint: '0/400 characters',
+            description: 'Description',
             value: '',
             onChange: (value: string) => console.log(value)
           }
@@ -53,7 +55,7 @@ export default {
       },
       iconEditor: {
         title: 'Skill icon',
-        iconPreview: {title: '', icon: {color: '', name: 'globe-pointer'}},
+        iconPreview: {title: '-', icon: {color: '', name: 'globe-pointer'}},
         inputText: {...IconEditor.props.inputText},
         buttonLink: {
           label: 'Change icon',
