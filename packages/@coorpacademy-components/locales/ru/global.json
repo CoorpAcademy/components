@@ -115,7 +115,7 @@
   "start_learning": "Начать обучение",
   "sort_by": "Сортировать по:",
   "clear": "Прозрачный",
-  "clear_all": "Clear all",
+  "clear_all": "Очистить все",
   "See clue": "Смотреть подсказку",
   "See less": "Свернуть",
   "See lesson": "См. урок",
@@ -216,8 +216,8 @@
       "badge": "Дополнительная информация о вашем сертификате"
     },
     "css": {
-      "modules": "{{count}} level",
-      "modules_plural": "{{count}} levels",
+      "modules": "уровень {{count}}",
+      "modules_plural": "уровни {{count}}",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "уровень для завершения"
