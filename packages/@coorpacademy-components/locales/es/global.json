@@ -216,7 +216,7 @@
       "badge": "Información adicional sobre su certificado"
     },
     "css": {
-      "modules": "nivel {{count}}",
+      "modules": "{{count}} nivel",
       "modules_plural": "niveles de {{count}}",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> nivel obligatorio completado",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> niveles obligatorios completados",
