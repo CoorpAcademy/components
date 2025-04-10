@@ -78,7 +78,7 @@
   "learning_priorities_brand_description": "Definieer leerprioriteiten voor uw bedrijf met vaardigheden, afspeellijsten of certificeringen. Deze verschijnen op de pagina Mijn leren.",
   "media_stars_to_win_plural": "Win {{count}} extra sterren in dit hoofdstuk de eerste keer dat je een les bekijkt!",
   "media_stars_to_win": "Win {{count}} extra ster in dit hoofdstuk de eerste keer dat je een les bekijkt!",
-  "modules": "{{count}} module",
+  "modules": "{{count}} -module",
   "modules_plural": "{{count}} modules",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
