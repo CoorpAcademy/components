@@ -34,13 +34,13 @@ export default {
           'data-name': 'CP-archive-button',
           label: 'Archive',
           type: 'default',
-          onClick: () => console.log('click')
+          onClick: () => console.log('Archive click')
         },
         {
           'data-name': 'CP-delete-button',
           label: 'Delete',
           type: 'dangerous',
-          onClick: () => console.log('click')
+          onClick: () => console.log('Delete click')
         }
       ],
       onClick: () => console.log('click')

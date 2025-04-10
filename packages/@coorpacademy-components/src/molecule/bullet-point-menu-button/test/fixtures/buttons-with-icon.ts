@@ -4,6 +4,7 @@ import menuWithIconFixture from '../../../../atom/button-menu/test/fixtures/menu
 const buttonsWithIconFixture: BulletPointMenuButtonPropsFixture = {
   props: {
     ...menuWithIconFixture.props,
+    isBulkMenu: true,
     onClick: () => console.log('click on bullet point menu')
   }
 };
