@@ -79,7 +79,7 @@
   "media_stars_to_win_plural": "Vyhrajte {{count}} ďalších hviezd v tejto kapitole pri prvom zobrazení hodiny!",
   "media_stars_to_win": "Vyhrajte {{count}} ďalších hviezd v tejto kapitole pri prvom zobrazení hodiny!",
   "modules": "{{count}} modul",
-  "modules_plural": "moduly {{count}}",
+  "modules_plural": "{{count}} moduly",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> povinný modul dokončený",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> povinné moduly dokončené",
   "More": "Viac",
