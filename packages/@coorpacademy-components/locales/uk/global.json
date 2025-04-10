@@ -218,7 +218,7 @@
     "css": {
       "modules": "{{count}} рівень",
       "modules_plural": "{{count}} рівні",
-      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> пройдений обов&#39;язковий рівень",
+      "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> пройдений обов’язковий рівень",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> завершено обов&#39;язкові рівні",
       "certification_module": "рівень для завершення"
     }
