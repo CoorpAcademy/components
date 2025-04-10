@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useEffect} from 'react';
+import React, {useCallback, useState, useEffect, useRef} from 'react';
 import classnames from 'classnames';
 import {noop} from 'lodash/fp';
 import ButtonLinkIcon from '../../atom/button-link-icon';
@@ -18,19 +18,40 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     'data-name': dataName = 'bullet-point-button'
   } = props;
   const [visible, setVisible] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const handleOnClick = useCallback(() => {
-    onClick();
-    setVisible(true);
-  }, [onClick]);
+  const handleOnClick = useCallback(
+    (event: React.MouseEvent | React.TouchEvent) => {
+      event.stopPropagation();
+      event.preventDefault();
+      onClick();
+      setVisible(!visible);
+    },
+    [onClick, visible]
+  );
 
   useEffect(() => {
-    const handleMouseDown = () => setVisible(false);
-    document.addEventListener('mousedown', handleMouseDown);
-    return () => {
-      document.removeEventListener('mousedown', handleMouseDown);
+    const handleClick = (clickEvent: MouseEvent | TouchEvent) => {
+      if (
+        wrapperRef &&
+        wrapperRef.current &&
+        !wrapperRef.current.contains(clickEvent.target as Node)
+      ) {
+        setVisible(false);
+      }
     };
-  }, []);
+    if (visible) {
+      document.addEventListener('click', handleClick);
+      document.addEventListener('touchstart', handleClick);
+    } else {
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('touchstart', handleClick);
+    }
+    return () => {
+      document.removeEventListener('click', handleClick);
+      document.removeEventListener('touchstart', handleClick);
+    };
+  }, [visible]);
 
   const menuProps = {
     'data-name': 'button-menu',
@@ -44,7 +65,7 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
   );
 
   const menu = visible ? (
-    <div className={menuStyle} data-name="menu-wrapper" aria-label={menuAriaLabel}>
+    <div className={menuStyle} data-name="menu-wrapper" aria-label={menuAriaLabel} ref={wrapperRef}>
       <ButtonMenu {...menuProps} />
     </div>
   ) : null;

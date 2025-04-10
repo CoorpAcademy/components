@@ -8,9 +8,7 @@ const defaultFixture: BulletPointMenuButtonPropsFixture = {
   props: {
     buttonAriaLabel: 'aria button',
     menuAriaLabel: 'aria menu',
-    buttons: [actionButtonProps, deleteButtonProps],
-    onClick: () =>
-      console.log('click on bullet point button - test in a bigger component to see the menu')
+    buttons: [actionButtonProps, deleteButtonProps]
   }
 };
 

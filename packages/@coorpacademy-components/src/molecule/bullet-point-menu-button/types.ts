@@ -21,7 +21,7 @@ export type BulletPointMenuButtonProps = {
   buttonAriaLabel?: string;
   menuAriaLabel?: string;
   buttons: ButtonProps[];
-  onClick: () => void;
+  onClick?: () => void;
   menuButtonClassName?: string;
   isBulkMenu?: boolean;
 };
