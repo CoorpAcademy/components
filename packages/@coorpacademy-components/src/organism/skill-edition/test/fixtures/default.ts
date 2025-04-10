@@ -1,8 +1,7 @@
-import BrandFormGroup from '../../../../molecule/brand-form-group/test/fixtures/skill-edition';
 import ButtonMenuActionStyle from '../../../../molecule/button-menu-action/test/fixtures/default';
 import ContentSkillEmpty from '../../../list-items/test/fixtures/content-skill-empty';
 import IconEditor from '../../../icon-editor/test/fixtures/empty-color';
-import TitleAndInput from '../../../title-and-input/test/fixtures/icon-editor-and-title';
+import SelectAndTitle from '../../../title-and-input/test/fixtures/select-and-title';
 import TranslationsEmpty from '../../../list-items/test/fixtures/translations-empty';
 import {COLORS} from '../../../../variables/colors';
 
@@ -17,8 +16,52 @@ const contentButtonProps = {
 export default {
   props: {
     skillInformations: {
-      form: BrandFormGroup.props,
-      iconEditor: {...TitleAndInput.props, field: {...IconEditor.props, size: 'large', title: '-'}}
+      form: {
+        title: 'Skill informations',
+        subtitle:
+          'Provide key details about the skill, including its name, description and its icon',
+        select: {
+          title: 'Default language',
+          subtitle: 'Select the default language for this skill',
+          'data-name': 'Default language',
+          field: {
+            options: SelectAndTitle.props.field.options,
+            'aria-label': 'Select a language',
+            onChange: (value: string) => console.log(value)
+          }
+        },
+        inputText: {
+          title: 'Title',
+          field: {
+            title: 'Skill name',
+            placeholder: 'Skill name',
+            hint: '0/80 characters',
+            value: '',
+            onChange: (value: string) => console.log(value)
+          }
+        },
+        inputTextArea: {
+          title: 'Description',
+          field: {
+            title: 'Description',
+            placeholder: 'What is the skill about, what are the takeaways...',
+            hint: '0/400 characters',
+            value: '',
+            onChange: (value: string) => console.log(value)
+          }
+        }
+      },
+      iconEditor: {
+        title: 'Skill icon',
+        iconPreview: {title: '', icon: {color: '', name: 'globe-pointer'}},
+        inputText: {...IconEditor.props.inputText},
+        buttonLink: {
+          label: 'Change icon',
+          ariaLabel: 'aria button',
+          'data-name': 'default-button',
+          onClick: () => console.log('click on "Change icon" button')
+        }
+      }
     },
     translations: TranslationsEmpty.props,
     content: {

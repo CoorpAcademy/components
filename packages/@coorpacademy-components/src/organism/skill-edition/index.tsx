@@ -3,18 +3,136 @@ import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
-import propTypes, {SkillEditionProps} from './types';
+import propTypes, {SkillEditionProps, FieldInputProps} from './types';
 import style from './style.css';
+
+const buildFormField = (
+  {title, placeholder, hint, value, onChange}: FieldInputProps,
+  type: 'text' | 'textarea'
+) => {
+  return {
+    type,
+    title,
+    placeholder,
+    hint,
+    value,
+    onChange,
+    theme: 'coorpmanager',
+    size: 'large'
+  };
+};
+
+const buildTitleAndInputField = ({
+  title,
+  subtitle,
+  required = false,
+  dataName,
+  childType
+}: {
+  title: string;
+  subtitle?: string;
+  required?: boolean;
+  dataName?: string;
+  childType: string;
+}) => {
+  return {
+    title: {
+      type: 'form-group',
+      title,
+      subtitle,
+      titleSize: 'small-and-light',
+      subtitleSize: subtitle ? 'standard-without-margin' : undefined,
+      required,
+      'data-name': dataName
+    },
+    childType,
+    type: 'titleAndInput'
+  };
+};
 
 const SkillEdition = (props: SkillEditionProps) => {
   const {skillInformations, translations, content} = props;
+  const {form, iconEditor} = skillInformations;
+  const {select, inputTextArea, inputText} = form;
+
+  const fields = [
+    {
+      ...buildTitleAndInputField({
+        title: select.title,
+        subtitle: select.subtitle,
+        required: true,
+        dataName: select['data-name'],
+        childType: 'select'
+      }),
+      field: {
+        options: select.field.options,
+        'aria-label': select.field['aria-label'],
+        onChange: select.field.onChange,
+        theme: 'skillDetail',
+        size: 'large'
+      }
+    },
+    {
+      ...buildTitleAndInputField({
+        title: inputText.title,
+        required: true,
+        childType: 'inputText'
+      }),
+      field: buildFormField(inputText.field, 'text')
+    },
+    {
+      ...buildTitleAndInputField({
+        title: inputTextArea.title,
+        childType: 'inputTextArea'
+      }),
+      field: buildFormField(inputTextArea.field, 'textarea')
+    }
+  ];
+
+  const formProps = {
+    title: skillInformations.form.title,
+    subtitle: skillInformations.form.subtitle,
+    titleSize: 'xl-strong',
+    subtitleSize: 'medium',
+    fields
+  };
+
+  const iconEditorProps = {
+    title: {
+      type: 'form-group',
+      title: iconEditor.title,
+      titleSize: 'small-and-light',
+      required: true
+    },
+    field: {
+      iconPreview: iconEditor.iconPreview,
+      inputText: iconEditor.inputText,
+      buttonLink: {
+        type: 'secondary',
+        label: iconEditor.buttonLink.label,
+        ariaLabel: iconEditor.buttonLink.ariaLabel,
+        dataName: iconEditor.buttonLink.ariaLabel,
+        icon: {
+          position: 'left',
+          faIcon: {
+            name: 'arrows-rotate',
+            size: 16
+          }
+        },
+        onClick: iconEditor.buttonLink.onClick,
+        customStyle: {borderRadius: '12px', padding: '0 8px 0 16px', fontWeight: '500'}
+      },
+      size: 'large'
+    },
+    childType: 'iconEditor'
+  };
 
   return (
     <div className={style.container}>
       <div className={style.skillInformationsContainer}>
-        <BrandFormGroup {...skillInformations.form} />
+        <BrandFormGroup {...formProps} />
         <div className={style.iconEditor}>
-          <TitleAndInput {...skillInformations.iconEditor} />
+          <TitleAndInput {...iconEditorProps} />
         </div>
       </div>
       <ListItems {...translations} />
