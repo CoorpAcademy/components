@@ -217,7 +217,7 @@
     },
     "css": {
       "modules": "{{count}} raven",
-      "modules_plural": "ravni {{count}}",
+      "modules_plural": "{{count}} ravni",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> končana obvezna raven",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> dokončane obvezne stopnje",
       "certification_module": "stopnjo za dokončanje"
