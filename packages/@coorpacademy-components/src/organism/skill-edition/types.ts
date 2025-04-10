@@ -2,16 +2,9 @@ import PropTypes from 'prop-types';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import InputText from '../../atom/input-text';
+import InputTextarea from '../../atom/input-textarea';
 import IconPreview from '../../molecule/icon-preview';
 import {SelectOptionPropTypes} from '../../atom/select';
-
-const FieldPropTypes = {
-  title: PropTypes.string,
-  hint: PropTypes.string,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func
-};
 
 const FormPropTypes = {
   title: PropTypes.string,
@@ -28,11 +21,11 @@ const FormPropTypes = {
   }),
   inputText: PropTypes.shape({
     title: PropTypes.string,
-    field: PropTypes.shape(FieldPropTypes)
+    field: PropTypes.shape(InputText.propTypes)
   }),
   inputTextArea: PropTypes.shape({
     title: PropTypes.string,
-    field: PropTypes.shape(FieldPropTypes)
+    field: PropTypes.shape(InputTextarea.propTypes)
   })
 };
 
@@ -67,14 +60,6 @@ type ContentProps = {
   listContent: PropTypes.InferProps<typeof ListItems.propTypes>;
 };
 
-export type FieldInputProps = {
-  title: string;
-  placeholder: string;
-  hint: string;
-  value: string;
-  onChange: () => void;
-};
-
 export type FieldSelectProps = {
   options: PropTypes.InferProps<typeof SelectOptionPropTypes>[];
   'aria-label': string;
@@ -92,11 +77,11 @@ type FormProps = {
   };
   inputText: {
     title: string;
-    field: FieldInputProps;
+    field: PropTypes.InferProps<typeof InputText.propTypes>;
   };
   inputTextArea: {
     title: string;
-    field: FieldInputProps;
+    field: PropTypes.InferProps<typeof InputTextarea.propTypes>;
   };
 };
 

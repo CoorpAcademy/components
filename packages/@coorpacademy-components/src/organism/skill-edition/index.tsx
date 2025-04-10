@@ -1,22 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
-import propTypes, {SkillEditionProps, FieldInputProps} from './types';
+import InputText from '../../atom/input-text';
+import InputTextarea from '../../atom/input-textarea';
+import propTypes, {SkillEditionProps} from './types';
 import style from './style.css';
 
 const buildFormField = (
-  {title, placeholder, hint, value, onChange}: FieldInputProps,
+  field:
+    | PropTypes.InferProps<typeof InputText.propTypes>
+    | PropTypes.InferProps<typeof InputTextarea.propTypes>,
   type: 'text' | 'textarea'
 ) => {
   return {
+    ...field,
     type,
-    title,
-    placeholder,
-    hint,
-    value,
-    onChange,
     theme: 'coorpmanager',
     size: 'large'
   };
