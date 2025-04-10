@@ -219,7 +219,7 @@
       "modules": "{{count}} nivå",
       "modules_plural": "{{count}} nivåer",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obligatorisk nivå klar",
-      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obligatoriska nivåer slutförda",
       "certification_module": "nivå att slutföra"
     }
   }
