@@ -115,7 +115,7 @@
   "start_learning": "Aloita oppiminen",
   "sort_by": "Järjestä:",
   "clear": "Selkeä",
-  "clear_all": "Clear all",
+  "clear_all": "Tyhjennä kaikki",
   "See clue": "Näytä vihje",
   "See less": "Näytä vähemmän",
   "See lesson": "Näytä oppitunti",
@@ -216,7 +216,7 @@
       "badge": "Lisätietoja todistuksestasi"
     },
     "css": {
-      "modules": "{{count}} level",
+      "modules": "{{count}} taso",
       "modules_plural": "{{count}} levels",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
