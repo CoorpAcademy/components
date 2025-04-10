@@ -114,8 +114,8 @@
   "secured_payment": "セキュリティで保護されたサーバー",
   "start_learning": "学習を始める",
   "sort_by": "並べ替え：",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "クリア",
+  "clear_all": "すべてクリア",
   "See clue": "ヒントをみる ",
   "See less": "閉じる",
   "See lesson": "レッスンを見る",
@@ -216,7 +216,7 @@
       "badge": "証明書に関する追加情報"
     },
     "css": {
-      "modules": "{{count}} level",
+      "modules": "{{count}}レベル",
       "modules_plural": "{{count}} levels",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
