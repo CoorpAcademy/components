@@ -79,7 +79,7 @@
   "media_stars_to_win_plural": "Získejte další hvězdy ({{count}}) v této kapitole při prvním zobrazení lekce!",
   "media_stars_to_win": "Vyhrajte další hvězdu ({{count}}) v této kapitole při prvním zobrazení lekce!",
   "modules": "modul {{count}}",
-  "modules_plural": "moduly {{count}}",
+  "modules_plural": "{{count}} moduly",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory module completed",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
   "More": "Více",
