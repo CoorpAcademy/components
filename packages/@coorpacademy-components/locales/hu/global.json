@@ -81,7 +81,7 @@
   "modules": "{{count}} modul",
   "modules_plural": "{{count}} modulok",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> kötelező modul befejezve",
-  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory modules completed",
+  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> kötelező modulok teljesítve",
   "More": "Több",
   "More details": "További részletek",
   "New media": "Új lecke",
@@ -114,8 +114,8 @@
   "secured_payment": "Biztonságos szerver",
   "start_learning": "Kezdje el a tanulást",
   "sort_by": "Rendezés:",
-  "clear": "Clear",
-  "clear_all": "Clear all",
+  "clear": "Világos",
+  "clear_all": "Minden törlése",
   "See clue": "Tipp megtekintése",
   "See less": "Mutasson kevesebbet",
   "See lesson": "Lecke megnézése",
@@ -216,8 +216,8 @@
       "badge": "További információk a tanúsítványról"
     },
     "css": {
-      "modules": "{{count}} level",
-      "modules_plural": "{{count}} levels",
+      "modules": "{{count}} szinten",
+      "modules_plural": "{{count}} szintek",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory level completed",
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}}/{{total}}</span> mandatory levels completed",
       "certification_module": "szint teljesítéséhez"
