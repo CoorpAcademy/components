@@ -19,6 +19,7 @@ export const updateBackgroundImage = (ref: React.RefObject<HTMLDivElement>, back
 const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValues) => {
   const {
     'aria-label': ariaLabel,
+    cardIndex,
     skillTitle,
     skillAriaLabel,
     focus,
@@ -29,25 +30,22 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
   const {score, content, questionsToReview = 0} = metrics;
   const translate = GetTranslateFromContext(context);
   const {color, name} = icon;
-  const questionsLocale = translate('skill_chart_side_panel_questions_to_review');
-  const skillFocusLocale = translate('skill_focus');
-  const defaultSkillLocale = translate('skill');
-  const [tagTextColor, tagBackgroundColor] = useMemo(
-    () => (focus ? [COLORS.purple_700, COLORS.purple_100] : [COLORS.cm_grey_500, COLORS.gray]),
-    [focus]
-  );
+  const questionsLocale = translate('skill_chart_side_panel_questions_to_review') as string;
+  const [badgeIconName, badgeLocale, tagTextColor, tagBackgroundColor] = focus
+    ? ['bullseye-arrow', translate('skill_focus') as string, COLORS.purple_700, COLORS.purple_100]
+    : ['shapes', translate('skill') as string, COLORS.cm_grey_500, COLORS.gray];
   const headerBackgroundRef = useRef<HTMLDivElement | null>(null);
   const defaultBackground = useMemo(() => createGradientBackground(color, '93%', '100%'), [color]);
-  const focusIconName = useMemo(() => (focus ? 'bullseye-arrow' : 'shapes'), [focus]);
+  const focusBackground = useMemo(() => createGradientBackground(color, '83%', '100%'), [color]);
   const handleMouseEnter = useCallback(() => {
-    updateBackgroundImage(headerBackgroundRef, createGradientBackground(color, '83%', '100%'));
-  }, [color]);
+    updateBackgroundImage(headerBackgroundRef, focusBackground);
+  }, [focusBackground]);
   const handleMouseLeave = useCallback(() => {
     updateBackgroundImage(headerBackgroundRef, defaultBackground);
   }, [defaultBackground]);
   return (
     <div
-      data-testid="learner-skill-card-wrapper"
+      data-testid={`learner-skill-card-wrapper-${cardIndex}`}
       onClick={onExploreClick}
       className={style.learnerSkillCardContainer}
       aria-label={ariaLabel}
@@ -87,7 +85,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
           >
             <FaIcon
               {...{
-                iconName: focusIconName,
+                iconName: badgeIconName,
                 backgroundColor: tagBackgroundColor,
                 size: {
                   faSize: 10,
@@ -95,7 +93,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
                 }
               }}
             />
-            {focus ? skillFocusLocale : defaultSkillLocale}
+            {badgeLocale}
           </div>
 
           <div className={style.questionWrapper}>

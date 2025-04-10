@@ -22,7 +22,7 @@ const skillsInformation = {
     availableForReview: true,
     icon: HOT_MUG_ICON_PROPS,
     stats: {
-      score: 15.3,
+      score: 15.333333333,
       content: 120,
       contentCompleted: 12,
       questionsToReview: 123,

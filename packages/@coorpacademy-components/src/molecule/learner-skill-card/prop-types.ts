@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   'aria-label': PropTypes.string,
+  cardIndex: PropTypes.number,
   skillTitle: PropTypes.string,
   skillAriaLabel: PropTypes.string,
   focus: PropTypes.bool,
@@ -19,6 +20,7 @@ const propTypes = {
 
 export type LearnerSkillCardProps = {
   'aria-label'?: string;
+  cardIndex: number;
   skillTitle: string;
   skillAriaLabel?: string;
   focus: boolean;
