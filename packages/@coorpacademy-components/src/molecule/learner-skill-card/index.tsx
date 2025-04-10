@@ -10,6 +10,12 @@ import style from './style.css';
 
 const MAX_SCORE = 100;
 
+export const updateBackgroundImage = (ref: React.RefObject<HTMLDivElement>, background: string) => {
+  if (ref.current) {
+    ref.current.style.backgroundImage = background;
+  }
+};
+
 const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValues) => {
   const {
     'aria-label': ariaLabel,
@@ -34,18 +40,10 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
   const defaultBackground = useMemo(() => createGradientBackground(color, '93%', '100%'), [color]);
   const focusIconName = useMemo(() => (focus ? 'bullseye-arrow' : 'shapes'), [focus]);
   const handleMouseEnter = useCallback(() => {
-    if (headerBackgroundRef.current) {
-      headerBackgroundRef.current.style.backgroundImage = createGradientBackground(
-        color,
-        '83%',
-        '100%'
-      );
-    }
+    updateBackgroundImage(headerBackgroundRef, createGradientBackground(color, '83%', '100%'));
   }, [color]);
   const handleMouseLeave = useCallback(() => {
-    if (headerBackgroundRef.current) {
-      headerBackgroundRef.current.style.backgroundImage = defaultBackground;
-    }
+    updateBackgroundImage(headerBackgroundRef, defaultBackground);
   }, [defaultBackground]);
   return (
     <div
