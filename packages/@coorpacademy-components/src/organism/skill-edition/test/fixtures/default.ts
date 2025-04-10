@@ -2,8 +2,8 @@ import ButtonMenuActionStyle from '../../../../molecule/button-menu-action/test/
 import ContentSkillEmpty from '../../../list-items/test/fixtures/content-skill-empty';
 import IconEditor from '../../../icon-editor/test/fixtures/empty-color';
 import SelectAndTitle from '../../../title-and-input/test/fixtures/select-and-title';
-import TranslationsEmpty from '../../../list-items/test/fixtures/translations-empty';
 import {COLORS} from '../../../../variables/colors';
+import {TranslationPropsType} from '../../types';
 
 const contentButtonProps = {
   type: 'primary',
@@ -11,6 +11,29 @@ const contentButtonProps = {
   'aria-label': 'aria button',
   'data-name': 'default-button',
   onClick: () => console.log('Add content')
+};
+
+export const translationsEmptyProps: TranslationPropsType = {
+  title: 'Translations',
+  subtitle: 'Manage your translation to reach more learners',
+  button: {
+    label: 'Add translation',
+    onClick: () => console.log('click on Add translations button')
+  },
+  localesOptions: [
+    {ref: 'fr', label: '🇫🇷 French', onClick: () => console.log('click on fr')},
+    {ref: 'es', label: '🇪🇸 Spanish', onClick: () => console.log('click on es')},
+    {ref: 'it', label: '🇮🇹 Italian', onClick: () => console.log('click on it')},
+    {ref: 'de', label: '🇩🇪 German', onClick: () => console.log('click on de')},
+    {ref: 'ru', label: '🇷🇺 Russian', onClick: () => console.log('click on ru')},
+    {ref: 'pl', label: '🇵🇱 Polish', onClick: () => console.log('click on pl')},
+    {ref: 'tr', label: '🇹🇷 Turkish', onClick: () => console.log('click on tr')}
+  ],
+  items: {},
+  emptyResult: {
+    title: 'No translations for this skill yet',
+    description: 'No translations for this skill yet. Click ‘Add translation’ to get started.'
+  }
 };
 
 export default {
@@ -65,7 +88,7 @@ export default {
         }
       }
     },
-    translations: TranslationsEmpty.props,
+    translations: translationsEmptyProps,
     content: {
       title: {
         type: 'form-group',

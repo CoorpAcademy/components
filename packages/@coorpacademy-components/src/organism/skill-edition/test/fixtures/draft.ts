@@ -1,7 +1,19 @@
 import ContentSkill from '../../../list-items/test/fixtures/content-skill';
-import ListItems from '../../../list-items/test/fixtures/translations';
 import {COLORS} from '../../../../variables/colors';
-import Default from './default';
+import {TranslationPropsType} from '../../types';
+import Default, {translationsEmptyProps} from './default';
+
+export const translationsProps: TranslationPropsType = {
+  ...translationsEmptyProps,
+  emptyResult: undefined,
+  items: {
+    fr: {
+      title: '🇫🇷 French',
+      onEditClick: () => console.log('on edit click'),
+      onDeleteClick: () => console.log('on delete click')
+    }
+  }
+};
 
 export default {
   props: {
@@ -36,7 +48,7 @@ export default {
         }
       }
     },
-    translations: ListItems.props,
+    translations: translationsProps,
     content: {
       title: Default.props.content.title,
       listContent: ContentSkill.props

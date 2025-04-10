@@ -42,12 +42,35 @@ const IconEditorPropTypes = {
   })
 };
 
+const translationProps = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  localesOptions: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      ref: PropTypes.string.isRequired,
+      onClick: PropTypes.func.isRequired
+    })
+  ).isRequired,
+  items: PropTypes.objectOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      onEditClick: PropTypes.func.isRequired,
+      onDeleteClick: PropTypes.func.isRequired
+    }).isRequired
+  ).isRequired,
+  button: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
+  }).isRequired
+});
+
 const SkillEditionPropTypes = {
   skillInformations: PropTypes.shape({
     form: PropTypes.shape(FormPropTypes).isRequired,
     iconEditor: PropTypes.shape(IconEditorPropTypes).isRequired
   }).isRequired,
-  translations: PropTypes.shape(ListItems.propTypes).isRequired,
+  translations: translationProps.isRequired,
   content: PropTypes.shape({
     title: PropTypes.shape(Title.propTypes).isRequired,
     listContent: PropTypes.shape(ListItems.propTypes).isRequired
@@ -112,9 +135,34 @@ export const themeStyle = {
   default: 'defaultStyle'
 };
 
-export type SkillEditionProps = {
+export type TranslationPropsType = {
+  title: string;
+  subtitle: string;
+  localesOptions: {
+    label: string;
+    ref: string;
+    onClick: () => void;
+  }[];
+  items?: {
+    [ref: string]: {
+      title: string;
+      onEditClick: () => void;
+      onDeleteClick: () => void;
+    };
+  };
+  button: {
+    label: string;
+    onClick: () => void;
+  };
+  emptyResult?: {
+    title: string;
+    description: string;
+  };
+};
+
+export type SkillEditionPropsType = {
   skillInformations: SkillInformationsProps;
-  translations: PropTypes.InferProps<typeof ListItems.propTypes>;
+  translations: TranslationPropsType;
   content: ContentProps;
 };
 
