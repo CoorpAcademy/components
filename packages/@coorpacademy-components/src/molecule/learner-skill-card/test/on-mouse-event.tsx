@@ -41,7 +41,7 @@ test('should set background to hovered background on mouseEnter', t => {
     context
   );
 
-  const wrapper = getByTestId('learner-skill-card-wrapper');
+  const wrapper = getByTestId('learner-skill-card-wrapper-0');
   const iconHeaderWrapper = getByTestId('learner-skill-card-icon-header-wrapper');
 
   t.truthy(wrapper);
@@ -64,7 +64,7 @@ test('should set background to defaultBackground on mouseLeave', t => {
     context
   );
 
-  const wrapper = getByTestId('learner-skill-card-wrapper');
+  const wrapper = getByTestId('learner-skill-card-wrapper-0');
   const iconHeaderWrapper = getByTestId('learner-skill-card-icon-header-wrapper');
 
   t.truthy(wrapper);

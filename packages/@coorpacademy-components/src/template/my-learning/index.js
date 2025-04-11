@@ -132,7 +132,7 @@ const MyLearning = (props, context) => {
   const [skillFocusSelectedOnChart, setSkillFocusSelectedOnChart] = useState(undefined);
   const [searchValue, setSearchValue] = useState('');
   const [searchResults, setSearchResults] = useState(
-    sortBy(skillRef => getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
+    sortBy(skillRef => -getOr(0, [skillRef, 'stats', 'score'], skillsInformation), skills)
   );
   const [activeFilter, setActiveFilter] = useState('all');
 
