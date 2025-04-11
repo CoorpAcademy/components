@@ -1,17 +1,7 @@
-import ButtonMenuActionStyle from '../../../../molecule/button-menu-action/test/fixtures/default';
-import ContentSkillEmpty from '../../../list-items/test/fixtures/content-skill-empty';
 import IconEditor from '../../../icon-editor/test/fixtures/empty-color';
 import SelectAndTitle from '../../../title-and-input/test/fixtures/select-and-title';
 import {COLORS} from '../../../../variables/colors';
-import {TranslationPropsType} from '../../types';
-
-const contentButtonProps = {
-  type: 'primary',
-  label: 'Add content',
-  'aria-label': 'aria button',
-  'data-name': 'default-button',
-  onClick: () => console.log('Add content')
-};
+import {TranslationPropsType, ContentPropsType} from '../../types';
 
 export const translationsEmptyProps: TranslationPropsType = {
   title: 'Translations',
@@ -33,6 +23,30 @@ export const translationsEmptyProps: TranslationPropsType = {
   emptyResult: {
     title: 'No translations for this skill yet',
     description: 'No translations for this skill yet. Click ‘Add translation’ to get started.'
+  }
+};
+
+export const contentEmptyProps: ContentPropsType = {
+  title: 'Content',
+  subtitle: 'Add or remove content from this skill',
+  button: {
+    label: 'Add content',
+    onClick: () => console.log('Add content')
+  },
+  list: {
+    title: '0 item',
+    emptyResult: {
+      title: 'No content associated with this skill',
+      description:
+        'Start adding valuable resources to help learners build their knowledge and expertise!'
+    },
+    search: {
+      value: '',
+      placeholder: 'Search',
+      onChange: (value: string) => {
+        console.log(value);
+      }
+    }
   }
 };
 
@@ -89,51 +103,6 @@ export default {
       }
     },
     translations: translationsEmptyProps,
-    content: {
-      title: {
-        type: 'form-group',
-        title: 'Content',
-        subtitle: 'Add or remove content from this skill',
-        titleSize: 'xl-strong',
-        subtitleSize: 'medium',
-        button: {
-          ...contentButtonProps,
-          icon: ButtonMenuActionStyle?.props?.button?.icon || {},
-          customStyle: ButtonMenuActionStyle?.props?.button?.customStyle || {}
-        },
-        required: true
-      },
-      listContent: {
-        ...ContentSkillEmpty.props,
-        content: {
-          items: [],
-          type: 'list',
-          emptyResult: {
-            title: 'No content associated with this skill',
-            description:
-              'Start adding valuable resources to help learners build their knowledge and expertise!',
-            button: {
-              ...contentButtonProps,
-              icon: {
-                position: 'left',
-                faIcon: {
-                  name: 'plus',
-                  color: COLORS.white,
-                  customStyle: {padding: 0},
-                  size: 14
-                }
-              },
-              customStyle: {
-                borderRadius: '12px',
-                fontWeight: 600,
-                paddingRight: '8px',
-                paddingleft: '16px'
-              }
-            }
-          }
-        },
-        search: {...ContentSkillEmpty.props.search, value: ''}
-      }
-    }
+    content: contentEmptyProps
   }
 };
