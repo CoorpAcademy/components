@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes, {number} from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {library} from '@fortawesome/fontawesome-svg-core';
+import {IconName, library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
@@ -14,14 +14,13 @@ library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const ICON_LUMINOSITY = 32;
-const DEFAULT_WRAPPER_SIZE = 40;
-const ICON_PADDING = 8;
+const DEFAULT_WRAPPER_SIZE = 20;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
   s: {
     faSize: 12,
-    wrapperSize: 32
+    wrapperSize: 16
   },
   m: {
     faSize: 16,
@@ -29,15 +28,27 @@ const SIZE_CONFIGS = {
   },
   xl: {
     faSize: 20,
-    wrapperSize: 48
+    wrapperSize: 24
   }
 };
 
-export const getForegroundColor = backgroundColor =>
+export const getForegroundColor = (backgroundColor: string): string =>
   convert(`color(${backgroundColor} lightness(${ICON_LUMINOSITY}%))`);
 // set lightness to 32%
-
-const Icon = React.memo(function Icon({
+export interface IconProps {
+  iconName: string;
+  iconColor?: string;
+  backgroundColor?: string;
+  gradientBackground?: boolean;
+  borderRadius?: string;
+  preset?: string;
+  size?: {
+    faSize: number;
+    wrapperSize: number;
+  };
+  customStyle?: React.CSSProperties;
+}
+const Icon: React.FC<IconProps> = React.memo(function Icon({
   iconName,
   iconColor,
   backgroundColor,
@@ -54,7 +65,7 @@ const Icon = React.memo(function Icon({
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
-  const wrapperSize = effectiveSize.wrapperSize - ICON_PADDING * 2;
+  const wrapperSize = effectiveSize.wrapperSize;
 
   const iconWrapperStyle = {
     background: gradientBackground
@@ -62,14 +73,13 @@ const Icon = React.memo(function Icon({
       : backgroundColor,
     borderRadius,
     width: wrapperSize,
-    height: wrapperSize,
-    padding: ICON_PADDING
+    height: wrapperSize
   };
 
   return (
     <div className={style.iconWrapper} style={{...iconWrapperStyle, ...customStyle}}>
       <FontAwesomeIcon
-        icon={`fa-${iconName}`}
+        icon={`fa-${iconName}` as IconName}
         color={effectiveIconColor}
         fontSize={effectiveSize.faSize}
       />
@@ -85,8 +95,8 @@ export const iconPropTypes = {
   borderRadius: PropTypes.string,
   preset: PropTypes.oneOf(['s', 'm', 'xl']),
   size: PropTypes.shape({
-    faSize: number,
-    wrapperSize: PropTypes.number
+    faSize: number.isRequired,
+    wrapperSize: PropTypes.number.isRequired
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };

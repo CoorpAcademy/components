@@ -64,8 +64,7 @@ export default {
           faIcon: {
             name: 'trash',
             color: COLORS.cm_grey_700,
-            size: 14,
-            customStyle: {padding: 0}
+            size: 14
           }
         },
         customStyle: {
