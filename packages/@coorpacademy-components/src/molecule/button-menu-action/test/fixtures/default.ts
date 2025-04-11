@@ -49,7 +49,6 @@ const defaultFixture: ButtonMenuActionPropsFixture = {
         {...buttonBase, label: '🇹🇷 Turkish'}
       ]
     },
-
     menuWrapper: {
       customStyle: {maxHeight: '252px'}
     }
