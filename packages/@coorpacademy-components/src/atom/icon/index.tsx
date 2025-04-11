@@ -14,13 +14,13 @@ library.add(fas);
 
 const DEFAULT_PRESET = 'm';
 const ICON_LUMINOSITY = 32;
-const DEFAULT_WRAPPER_SIZE = 40;
+const DEFAULT_WRAPPER_SIZE = 20;
 export const DEFAULT_ICON_COLOR = 'hsl(0, 0%, 32%)';
 
 const SIZE_CONFIGS = {
   s: {
     faSize: 12,
-    wrapperSize: 32
+    wrapperSize: 16
   },
   m: {
     faSize: 16,
@@ -28,7 +28,7 @@ const SIZE_CONFIGS = {
   },
   xl: {
     faSize: 20,
-    wrapperSize: 48
+    wrapperSize: 24
   }
 };
 

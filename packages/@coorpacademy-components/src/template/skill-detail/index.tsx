@@ -241,6 +241,7 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
                     <Icon
                       iconName={showMore ? 'chevron-up' : 'chevron-down'}
                       size={{faSize: 14, wrapperSize: 14}}
+                      customStyle={{padding: '8px'}}
                     />
                   </div>
                 ) : null}
