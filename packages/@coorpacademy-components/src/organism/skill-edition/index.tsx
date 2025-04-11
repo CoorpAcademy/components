@@ -4,7 +4,7 @@ import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
-import {COLORS} from '../../../lib/variables/colors';
+import {COLORS} from '../../variables/colors';
 import propTypes, {SkillEditionPropsType, TranslationPropsType} from './types';
 import style from './style.css';
 
