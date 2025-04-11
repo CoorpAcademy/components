@@ -1,17 +1,19 @@
 import React, {useCallback, useState, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import {get, isNil} from 'lodash/fp';
 import Markdown from 'markdown-to-jsx';
+import {convert} from 'css-color-function';
 import Provider from '../../atom/provider';
-import Select, {SelectOptionPropTypes} from '../../atom/select';
-import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
+import IconPreview from '../../molecule/icon-preview';
+import ButtonLink from '../../atom/button-link';
 import CardsGrid from '../../organism/cards-grid';
-import style from './style.css';
+import {SelectOptionPropTypes} from '../../../lib/atom/select';
+import {COLORS} from '../../variables/colors';
 import AllCourses from './all-courses';
+import style from './style.css';
 
 export const ContinueLearningButton = (props, context) => {
   const {ongoingCoursesAvailable, onClick} = props;
@@ -21,23 +23,22 @@ export const ContinueLearningButton = (props, context) => {
   return (
     <div>
       <ButtonLink
-        label={
-          ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')
-        }
+        label={ongoingCoursesAvailable ? translate('continue_learning') : translate('start_learning')}
         type="primary"
         customStyle={{
           width: 'fit-content',
           borderRadius: '12px',
+          // TO VALIDATE
           backgroundColor: primarySkinColor
         }}
         hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
-        hoverColor="#FFFFFF"
+        hoverColor={COLORS.white}
         icon={{
           position: 'left',
           faIcon: {
             name: 'play',
-            color: '#FFFFFF',
-            size: 16
+            color: COLORS.white,
+            size: 14
           }
         }}
         onClick={onClick}
@@ -67,18 +68,17 @@ const SkillDetail = (props, context) => {
     ongoingCoursesAvailable,
     skillIncludedCourses,
     filters,
-    sorting,
     onBackClick,
     onReviewClick,
     onContinueLearningClick,
     search,
-    bannerMicrolearning = {}
+    bannerMicrolearning
   } = props;
-  const descriptionRef = useRef(null);
-  const {score = 0, questionsToReview, totalContents} = metrics;
-  const {translate} = context;
-  const {action: bannerMicrolearningAction, oldSwitchValue} = bannerMicrolearning;
 
+  const {score = 0, questionsToReview = 0, totalContents = 0} = metrics;
+  const {translate} = context;
+  const bannerMicrolearningAction = bannerMicrolearning?.action;
+  const descriptionRef = useRef(null);
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
@@ -103,55 +103,85 @@ const SkillDetail = (props, context) => {
   }, [showMore, description]);
 
   const ProgressBar = useCallback(() => {
-    if (score === undefined) return null;
-    const progressBarColor = '#3EC483';
-    const inlineProgressValueStyle = {
+    if (typeof score !== 'number') return null;
+
+    const progressBarColor = COLORS.cm_positive_500;
+    const inlineProgressStyle = {
       backgroundColor: progressBarColor,
       width: `${score}%`
     };
 
     return (
-      <div className={style.progressBarWrapper}>
-        <div
-          data-name="progress"
-          className={style.progress}
-          style={inlineProgressValueStyle}
-          role="progressbar"
-        />
+      <div className={style.progressBarRow}>
+        <div className={style.progressBarWrapper}>
+          <div
+            data-name="progress"
+            className={style.progress}
+            style={inlineProgressStyle}
+            role="progressbar"
+            aria-valuenow={score}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          />
+        </div>
+        <span className={style.progressInformationNumber}>{score.toFixed(1)}%</span>
       </div>
     );
   }, [score]);
+  const hasDescription = Boolean(description && description.trim().length > 0);
 
   return (
     <div className={style.backgroundContainer}>
       <div className={style.container} data-name={skillRef}>
-        {!isNil(onBackClick) ? (
-          <ButtonLinkIcon
-            faIcon="arrow-left"
-            data-name="back-button"
-            aria-label={translate('back')}
-            onClick={onBackClick}
-            className={style.backButton}
-            tooltipPlacement="right"
-          />
-        ) : null}
-        <div className={style.ctaContainer}>
-          <div>
+        {/* Top section for the back arrow (optional) */}
+        <div className={style.topSection}>
+          {!isNil(onBackClick) ? (
+            <ButtonLinkIcon
+              faIcon="arrow-left"
+              data-name="back-button"
+              aria-label={translate('back')}
+              onClick={onBackClick}
+              className={style.backButton}
+              tooltipPlacement="right"
+            />
+          ) : null}
+        </div>
+
+        {/* Main section: icon on the left, skill info on the right */}
+        <div className={style.mainSection}>
+          <div className={style.leftSide}>
+            <IconPreview
+              icon={{
+                name: 'bullseye-arrow',
+                color: COLORS.purple_100
+              }}
+              title={title}
+            />
+          </div>
+          <div className={style.rightSide}>
             {focused ? (
               <div className={style.skillFocusBadge}>
                 <Icon
                   iconName="bullseye-arrow"
-                  backgroundColor="#DDD1FF"
-                  size={{
-                    faSize: 10,
-                    wrapperSize: 16
-                  }}
+                  backgroundColor={COLORS.purple_100}
+                  size={{faSize: 10, wrapperSize: 16}}
                 />
                 {translate('skill_focus')}
               </div>
-            ) : null}
-            <div className={style.title}>{title}</div>
-            {description ? (
+            ) : (
+              <div className={style.skillBadge}>
+                <Icon
+                  iconName="shapes"
+                  backgroundColor={COLORS.gray}
+                  size={{faSize: 10, wrapperSize: 16}}
+                />
+                {translate('skill')}
+              </div>
+            )}
+
+            <h2 className={style.title}>{title}</h2>
+
+            {description && (
               <>
                 <Description />
                 {isDescriptionTruncated ? (
@@ -159,57 +189,66 @@ const SkillDetail = (props, context) => {
                     {showMore ? translate('Show less') : translate('Show more')}
                     <Icon
                       iconName={showMore ? 'chevron-up' : 'chevron-down'}
-                      size={{
-                        faSize: 14,
-                        wrapperSize: 16
-                      }}
+                      size={{faSize: 14, wrapperSize: 14}}
                     />
                   </div>
                 ) : null}
               </>
-            ) : null}
-          </div>
+            )}
 
-          <div className={style.ctaWrapper}>
-            <ButtonLink
-              type="secondary"
-              onClick={onReviewClick}
-              label={translate('review_this_skill')}
-              disabled={!availableForReview}
-              customStyle={{
-                width: 'fit-content',
-                borderRadius: '12px'
-              }}
-            />
-            <ContinueLearningButton
-              ongoingCoursesAvailable={ongoingCoursesAvailable}
-              onClick={onContinueLearningClick}
-            />
+            {questionsToReview > 0 ? (
+              <div className={style.skillInformation}>
+                <span>{questionsToReview}</span>
+                &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
+              </div>
+            ) : null}
+
+            <div
+              className={classnames(
+                style.progressContainer,
+                !hasDescription && style.noDescriptionSpacing
+              )}
+            >
+              <ProgressBar />
+            </div>
+
+            <div className={style.ctaWrapper}>
+              <ContinueLearningButton
+                ongoingCoursesAvailable={ongoingCoursesAvailable}
+                onClick={onContinueLearningClick}
+              />
+              <ButtonLink
+                type="secondary"
+                label={translate('review_this_skill')}
+                disabled={!availableForReview}
+                onClick={onReviewClick}
+                icon={{
+                  position: 'left',
+                  faIcon: {
+                    name: 'rotate-right',
+                    color: COLORS.cm_grey_700,
+                    size: 14
+                  }
+                }}
+                customStyle={{borderRadius: '12px', width: 'fit-content'}}
+              />
+            </div>
           </div>
         </div>
-        {questionsToReview > 0 ? (
-          <div className={style.skillInformation} data-name="skill-questions">
-            <span className={style.skillInformationNumber}>{questionsToReview}</span>
-            &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
-          </div>
-        ) : null}
-        <div className={style.progressContainer}>
-          <ProgressBar />
-          <span className={style.progressInformationNumber}>{score.toFixed(1)}%</span>
-        </div>
+
+        {/* Courses section below */}
         <AllCourses
           content={skillIncludedCourses}
           filters={filters}
-          sorting={sorting}
           totalContents={totalContents}
           bannerMicrolearning={
-            bannerMicrolearningAction
+            bannerMicrolearning && bannerMicrolearningAction
               ? {
                   type: 'skill',
                   action: bannerMicrolearningAction,
-                  oldSwitchValue
+                  oldSwitchValue: bannerMicrolearning.oldSwitchValue
                 }
-              : {}
+              : undefined
           }
           search={search}
         />
@@ -219,8 +258,8 @@ const SkillDetail = (props, context) => {
 };
 
 SkillDetail.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 SkillDetail.propTypes = {
@@ -240,7 +279,6 @@ SkillDetail.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onReviewClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,
