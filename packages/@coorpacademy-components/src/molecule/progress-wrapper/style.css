@@ -63,12 +63,11 @@
 }
 
 .hiddenDetails {
-  max-height: 0;
-  padding-top: 0;
+  height: 0;
 }
 
 .visibleDetails {
-  max-height: 1000px;
+  height: auto;
   padding-top: 24px;
 }
 

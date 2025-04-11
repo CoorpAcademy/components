@@ -25,15 +25,14 @@ test('should display details on toggle click', t => {
   ) as Element;
   t.truthy(toggleButton);
 
-  const progressWrapperDetailsHidden = container.querySelector(
-    '[data-testid=progress-wrapper-details]'
-  ) as Element;
-  t.falsy(progressWrapperDetailsHidden);
+  const details = container.querySelector('[data-testid=progress-wrapper-details]') as HTMLElement;
+  t.truthy(details);
+
+  t.true(details.className.includes('progress-wrapper__hiddenDetails'));
 
   fireEvent.click(toggleButton);
 
-  const progressWrapperDetailsDisplayed = container.querySelector(
-    '[data-testid=progress-wrapper-details]'
-  ) as Element;
-  t.truthy(progressWrapperDetailsDisplayed);
+  setTimeout(() => {
+    t.true(details.className.includes('progress-wrapper__visibleDetails'));
+  }, 0);
 });
