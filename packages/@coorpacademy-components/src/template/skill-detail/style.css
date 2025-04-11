@@ -31,7 +31,6 @@
   max-width: calc(1080px + 40px);
 }
 
-/* ========== TOP SECTION ========== */
 .topSection {
   display: flex;
 }
@@ -58,7 +57,6 @@
   flex-direction: column;
 }
 
-/* Title styling */
 .title {
   gap: 8px;
   margin: 0;
@@ -67,19 +65,16 @@
   line-height: 32px;
 }
 
-/* CTA buttons in a row */
 .ctaWrapper {
   display: flex;
   gap: 8px;
   margin-top: 16px;
 }
 
-/* Back button spacing */
 .backButton {
   margin-bottom: 16px;
 }
 
-/* Skill focus badge */
 .skillFocusBadge {
   display: flex;
   height: 12px;
@@ -108,7 +103,6 @@
   color: #515161;
 }
 
-/* Show more link */
 .showMoreWrapper {
   display: flex;
   align-items: center;
@@ -118,7 +112,6 @@
   font-size: 14px;
 }
 
-/* Description text */
 .description {
   max-width: 620px;
   font-size: 14px;
@@ -137,7 +130,6 @@
   text-overflow: ellipsis;
 }
 
-/* Questions to review */
 .skillInformation {
   composes: textBase;
   font-weight: 600;
@@ -147,11 +139,10 @@
   margin-top: 16px;
 }
 .noDescriptionSpacing {
-  margin-top: 48px ; /* or whatever bigger spacing you want */
+  margin-top: 48px ;
 }
 
 
-/* Progress bar container */
 .progressContainer {
   display: flex;
   align-items: center;
@@ -162,24 +153,23 @@
   font-size: 14px;
   font-weight: 600;
   color: cm_grey_500;
-  flex-shrink: 0; /* ensures text doesn’t shrink if space is tight */
-
+  flex-shrink: 0;
 }
 
 .progressBarRow {
   display: flex;
   align-items: center;
   flex-direction: row;
-  width: 100%;    /* let this row fill its parent’s width */
+  width: 100%;
 
-  gap: 8px; /* or whatever spacing you prefer */
+  gap: 8px;
 }
 
 .progressBarWrapper {
   position: relative;
   left: 0;
   max-width: 300px;
-  flex: 1;        /* allows it to expand as much as possible */
+  flex: 1; 
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
@@ -192,27 +182,18 @@
   animation: progressbar 2s ease-in-out;
 }
 
-
-
-/* =============== Media Queries =============== */
-
-/* Tablet breakpoint */
 @media tablet {
-  /* We keep the same row layout on tablet, 
-     but you can tweak widths if you want narrower columns. */
   .topSection {
     flex-direction: row;
     align-items: flex-start;
   }
   .leftSide,
   .rightSide {
-    width: 50%; /* or any fraction that suits your design */
+    width: 50%;
   }
 }
 
-/* Mobile breakpoint */
 @media mobile {
-  /* Stack vertically on mobile */
   .topSection {
     flex-direction: column;
     align-items: center; 

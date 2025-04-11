@@ -12,9 +12,9 @@ import ButtonLink from '../../atom/button-link';
 import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
 import secondary from '../../atom/cta/test/fixtures/secondary';
 import {COLORS} from '../../variables/colors';
+import {SelectOptionPropTypes} from '../../atom/select';
 import AllCourses from './all-courses';
 import style from './style.css';
-import { SelectOptionPropTypes } from '../../atom/select';
 
 interface ContinueLearningButtonProps {
   ongoingCoursesAvailable?: boolean;
