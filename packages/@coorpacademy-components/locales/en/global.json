@@ -47,6 +47,7 @@
   "learning_priority_modal_title": "New learning priority",
   "learning_priority_modal_description": "Create a learning priority by selecting either one skill, playlist or certification.",
   "locked": "Locked",
+  "rewards": "Rewards",
   "icon_picker_title": "Change icon",
   "icon_picker_description": "Select a new icon for your skill",
   "icon_editor_color": "Icon color",
