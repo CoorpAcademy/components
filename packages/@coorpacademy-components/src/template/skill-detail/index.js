@@ -10,6 +10,7 @@ import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import AllCourses from './all-courses';
 
@@ -31,12 +32,12 @@ export const ContinueLearningButton = (props, context) => {
           backgroundColor: primarySkinColor
         }}
         hoverBackgroundColor={convert(`hsl(from ${primarySkinColor} h s calc(l*(1 - 0.08)))`)}
-        hoverColor="#FFFFFF"
+        hoverColor={COLORS.white}
         icon={{
           position: 'left',
           faIcon: {
             name: 'play',
-            color: '#FFFFFF',
+            color: COLORS.white,
             size: 16
           }
         }}
@@ -141,7 +142,7 @@ const SkillDetail = (props, context) => {
               <div className={style.skillFocusBadge}>
                 <Icon
                   iconName="bullseye-arrow"
-                  backgroundColor="#DDD1FF"
+                  backgroundColor={COLORS.purple_100}
                   size={{
                     faSize: 10,
                     wrapperSize: 16

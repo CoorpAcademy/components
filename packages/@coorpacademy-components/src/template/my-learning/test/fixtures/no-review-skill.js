@@ -1,3 +1,5 @@
+import {BANANA_ICON_PROPS} from './default';
+
 const skills = [
   'skillRef1',
   'skillRef2',
@@ -14,6 +16,7 @@ const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef3', 'skillRef4'];
 const skillsInformation = {
   skillRef1: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 15.3,
       content: 120,
@@ -24,6 +27,7 @@ const skillsInformation = {
   },
   skillRef2: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 56.3,
       content: 120,
@@ -34,6 +38,7 @@ const skillsInformation = {
   },
   skillRef3: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 23.3,
       content: 120,
@@ -44,6 +49,7 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 83.3,
       content: 120,
@@ -54,6 +60,7 @@ const skillsInformation = {
   },
   skillRef5: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 43.3,
       content: 120,
@@ -64,6 +71,7 @@ const skillsInformation = {
   },
   skillRef6: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -74,6 +82,7 @@ const skillsInformation = {
   },
   skillRef7: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -84,6 +93,7 @@ const skillsInformation = {
   },
   skillRef8: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -110,9 +120,8 @@ export const defaultProps = {
   selectedSkills,
   skillsInformation,
   skillsLocales,
-  isLoadng: false,
+  isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
-  onReviewSkill: () => console.log('review'),
   onExploreSkill: () => console.log('explore')
 };
 
