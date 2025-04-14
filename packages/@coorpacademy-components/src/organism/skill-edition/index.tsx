@@ -141,7 +141,7 @@ const Translations = ({
     },
     'aria-label': title,
     content: {
-      ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button}}),
+      ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: translationMenuAction}}),
       items: uncappedMap(buildTranslationItems, items),
       type: 'list'
     },
