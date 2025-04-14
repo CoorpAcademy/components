@@ -47,6 +47,7 @@
   "learning_priority_modal_title": "新的学习重点",
   "learning_priority_modal_description": "通过选择一项技能、播放列表或认证来创建学习优先级。",
   "locked": "未解锁",
+  "rewards": "Rewards",
   "icon_picker_title": "更改图标",
   "icon_picker_description": "为您的技能选择一个新图标",
   "icon_editor_color": "图标颜色",
