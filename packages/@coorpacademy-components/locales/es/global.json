@@ -47,6 +47,7 @@
   "learning_priority_modal_title": "Nueva prioridad de aprendizaje",
   "learning_priority_modal_description": "Crea una prioridad de aprendizaje seleccionando una habilidad, lista de reproducción o certificación.",
   "locked": "Bloqueado",
+  "rewards": "Rewards",
   "icon_picker_title": "Cambiar icono",
   "icon_picker_description": "Selecciona un nuevo icono para tu habilidad",
   "icon_editor_color": "Color del icono",
