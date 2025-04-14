@@ -7,6 +7,7 @@
 @value cm_grey_100 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 
 .container {
   border-radius: 16px;
@@ -52,12 +53,22 @@
 }
 
 .details {
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding-top 0.3s ease;
   display: flex;
   justify-content: space-between;
-  align-items: "center";
+  align-items: center;
   flex-direction: row;
-  padding-top: 24px;
   gap: 16px;
+}
+
+.hiddenDetails {
+  height: 0;
+}
+
+.visibleDetails {
+  height: auto;
+  padding-top: 24px;
 }
 
 .detailsSectionCommon {
@@ -125,6 +136,30 @@
   color: cm_grey_400;
   font-weight: 600;
   padding-top: 16px;
+}
+
+.toggleDetailsButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 16px;
+  width: 100%;
+}
+
+.toggleDetailsTitle {
+  color: cm_grey_700;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.toggleDetailsLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 @media mobile, tablet {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {convert} from 'css-color-function';
 import {isEmpty, map, get} from 'lodash/fp';
@@ -48,20 +49,6 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
     disabled: isLocked
   };
 
-  const LockedTag = (
-    <Tag
-      label={translate('locked')}
-      size="S"
-      icon={{
-        position: 'left',
-        iconName: 'lock',
-        iconColor: COLORS.cm_grey_500,
-        preset: 's',
-        customStyle: {padding: 0}
-      }}
-    />
-  );
-
   return isTypeStars ? (
     <div
       className={style[`detailsSection${index}`]}
@@ -71,7 +58,6 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
       <div className={style.detailsInfo}>
         <div className={style.detailsInfoText}>
           <span className={style.detailsTitle}>{translate('bonus_stars')}</span>
-          {isLocked ? LockedTag : null}
         </div>
         <div className={style.stars}>
           <Icon iconName="star" iconColor="#FFCE0A" backgroundColor="#FFF9D1" preset="xl" />
@@ -98,7 +84,6 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
           <span className={style.detailsTitle}>
             {type === 'diploma' ? translate('diploma') : translate('badge')}
           </span>
-          {isLocked ? LockedTag : null}
         </div>
 
         <div className={style.buttonContainer}>
@@ -120,6 +105,11 @@ const ProgressWrapper = (
   });
   const isLocked = progression !== 100;
 
+  const [showDetails, setShowDetails] = useState(false);
+
+  const handleToggleDetails = useCallback(() => {
+    setShowDetails(!showDetails);
+  }, [showDetails]);
   return (
     <div
       className={style.container}
@@ -153,21 +143,57 @@ const ProgressWrapper = (
         <span className={style.statsNumber}>{progression}%</span>
       </div>
 
-      {isEmpty(sections) ? null : (
-        <div className={style.details}>
-          {uncappedMap(
-            (section, index) => (
-              <DetailSection
-                {...section}
-                isLocked={isLocked}
-                key={`${section.type}-${index}`}
-                index={index}
-              />
-            ),
-            sections
-          )}
-        </div>
-      )}
+      {!isEmpty(sections) ? (
+        <>
+          <div
+            className={style.toggleDetailsButton}
+            onClick={handleToggleDetails}
+            data-testid="progress-wrapper-toggle-details-button"
+          >
+            <div className={style.toggleDetailsLabel}>
+              <span className={style.toggleDetailsTitle}>{translate('rewards')}</span>
+              {isLocked ? (
+                <Tag
+                  label={translate('locked')}
+                  size="S"
+                  icon={{
+                    position: 'left',
+                    iconName: 'lock',
+                    iconColor: COLORS.cm_grey_500,
+                    preset: 's',
+                    customStyle: {padding: 0}
+                  }}
+                />
+              ) : null}
+            </div>
+            <Icon
+              iconColor={COLORS.cm_grey_700}
+              iconName={showDetails ? 'chevron-up' : 'chevron-down'}
+              size={{faSize: 20, wrapperSize: 24}}
+            />
+          </div>
+
+          <div
+            className={classNames(
+              style.details,
+              showDetails ? style.visibleDetails : style.hiddenDetails
+            )}
+            data-testid="progress-wrapper-details"
+          >
+            {uncappedMap(
+              (section, index) => (
+                <DetailSection
+                  {...section}
+                  isLocked={isLocked}
+                  key={`${section.type}-${index}`}
+                  index={index}
+                />
+              ),
+              sections
+            )}
+          </div>
+        </>
+      ) : null}
     </div>
   );
 };
