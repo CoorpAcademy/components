@@ -47,6 +47,7 @@
   "learning_priority_modal_title": "Uusi oppimisprioriteetti",
   "learning_priority_modal_description": "Luo oppimisprioriteetti valitsemalla joko yksi taito, soittolista tai todistus.",
   "locked": "Lukittu",
+  "rewards": "Rewards",
   "icon_picker_title": "Vaihda kuvake",
   "icon_picker_description": "Valitse uusi kuvake taidollesi",
   "icon_editor_color": "Ikonin väri",
