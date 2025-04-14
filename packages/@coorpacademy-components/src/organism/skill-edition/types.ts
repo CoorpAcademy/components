@@ -58,7 +58,7 @@ const translationPropTypes = PropTypes.shape({
       onEditClick: PropTypes.func.isRequired,
       onDeleteClick: PropTypes.func.isRequired
     }).isRequired
-  ).isRequired,
+  ),
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
