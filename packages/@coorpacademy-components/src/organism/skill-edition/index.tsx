@@ -324,7 +324,7 @@ const Content = ({
     type: 'form-group',
     title,
     subtitle,
-    button: builTitleButton(buttonLabel, onClick),
+    button,
     required: true
   };
 
