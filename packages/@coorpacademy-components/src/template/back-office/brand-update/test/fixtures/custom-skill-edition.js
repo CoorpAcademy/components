@@ -36,6 +36,7 @@ items[2].tabs = [
     type: 'simpleTab'
   }
 ];
+
 export default {
   props: {
     header: {...HeaderWithActionsProps.props, type: 'header-with-actions'},

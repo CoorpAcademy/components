@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import ListItems from '../list-items';
-import Title from '../../atom/title';
 import InputText from '../../atom/input-text';
 import InputTextarea from '../../atom/input-textarea';
 import IconPreview from '../../molecule/icon-preview';

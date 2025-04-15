@@ -28,6 +28,8 @@ import BulkInfos from '../../../molecule/bulk-infos';
 import Title from '../../../atom/title';
 import SkillEdition from '../../../organism/skill-edition';
 import IconPickerModal from '../../../molecule/icon-picker-modal';
+import TranslationModal from '../../../molecule/translation-modal';
+import ContentSkillModal from '../../../organism/content-skill-modal';
 import style from './style.css';
 import {POPIN_THEMES} from './utils';
 
@@ -138,6 +140,10 @@ const buildPopin = popin => {
   switch (popin.type) {
     case 'icon-picker':
       return <IconPickerModal {...popin} />;
+    case 'translation':
+      return <TranslationModal {...popin} />;
+    case 'content':
+      return <ContentSkillModal {...popin} />;
     default:
       return buildDefaultPopin(popin);
   }
@@ -406,6 +412,14 @@ BrandUpdate.propTypes = {
     PropTypes.shape({
       ...IconPickerModal.propTypes,
       type: PropTypes.oneOf(['icon-picker'])
+    }),
+    PropTypes.shape({
+      ...TranslationModal.propTypes,
+      type: PropTypes.oneOf(['translation'])
+    }),
+    PropTypes.shape({
+      ...ContentSkillModal.propTypes,
+      type: PropTypes.oneOf(['content'])
     })
   ]),
   details: PropTypes.shape({
