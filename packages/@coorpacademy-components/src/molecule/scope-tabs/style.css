@@ -25,7 +25,9 @@
   height: 50px;
   color: dark;
   background: xtraLightGrey;
-  border: 1px solid light;
+  border-bottom: 1px solid light;
+  border-right: 1px solid light;
+  border-left: 1px solid light;
   cursor: pointer;
   flex-direction: row;
   justify-content: center;

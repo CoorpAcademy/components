@@ -32,6 +32,14 @@ export default {
         locale: 'Skill 3'
       }
     ],
+    content: {
+      title: 'Les nouveaux business',
+      time: '2H20',
+      skills: [
+        'Connaître l’ensemble des leviers au service de la génération de trafic',
+        'Comprendre les différences entre les coûts media'
+      ]
+    },
     onSkillClick: () => console.log('skill clicked'),
     levels: [],
     level: {...props.content, title: null, discussion: {}}

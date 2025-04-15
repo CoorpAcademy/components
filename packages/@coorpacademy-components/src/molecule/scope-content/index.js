@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr} from 'lodash/fp';
+import {get, getOr, isEmpty} from 'lodash/fp';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import Discussion from '../../organism/discussion';
@@ -56,7 +56,7 @@ const ScopeContent = (props, context) => {
   ) : null;
 
   return content && title ? (
-    <div data-name="scopeContent">
+    <div data-name="scopeContent" className={style.scopeContent}>
       <div data-name="description" className={style.desc}>
         <div className={style.infos}>
           <div className={style.title}>
@@ -73,19 +73,25 @@ const ScopeContent = (props, context) => {
           </div>
           {ctaView}
         </div>
-        <div className={style.skills}>
-          <div className={style.coltitle}>{skillsTitle}</div>
-          <ul className={style.dottedlist}>{skills}</ul>
-        </div>
-        <div className={style.column}>
-          <div className={style.coltitle}>{chaptersTitle}</div>
-          <div>
-            <ul className={style.roundedlist}>{chapters}</ul>
-          </div>
+        <div className={style.columnLayout}>
+          {isEmpty(skills) ? null : (
+            <div className={style.skills}>
+              <div className={style.coltitle}>{skillsTitle}</div>
+              <ul className={style.dottedlist}>{skills}</ul>
+            </div>
+          )}
+          {isEmpty(chapters) ? null : (
+            <div className={style.column}>
+              <div className={style.coltitle}>{chaptersTitle}</div>
+              <div>
+                <ul className={style.roundedlist}>{chapters}</ul>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-      {_resources ? (
+      {!isEmpty(_resources) ? (
         <div data-name="description" className={style.bordered}>
           <ResourceBrowser resources={_resources} />
         </div>
