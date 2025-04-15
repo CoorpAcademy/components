@@ -17,7 +17,16 @@
   border-right: solid 1px light;
   border-bottom: 1px solid light;
 }
+.scopeContent {
+  width: 100%;
+}
 
+.columnLayout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
 .infos {
   width: 100%;
   display: flex;
@@ -57,7 +66,7 @@
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
-  width: 50%;
+  flex: 1 0 50%;
   font-family: "Gilroy";
   font-size: 12px;
   padding-right: 40px;

@@ -11,6 +11,7 @@ import AddToMyList, {
   AddToMyListFeedback,
   AddToMyListStatusProvider
 } from '../../../molecule/add-to-my-list';
+import ScopeContent from '../../../molecule/scope-content';
 import style from './style.css';
 
 const Discipline = (props, context) => {
@@ -24,6 +25,7 @@ const Discipline = (props, context) => {
     video,
     authors = [],
     description = '',
+    content = null,
     start,
     buy,
     startLabel,
@@ -60,11 +62,20 @@ const Discipline = (props, context) => {
     />
   );
 
-  const disciplineContent = (
-    <div className={style.content}>
-      <DisciplineScope content={level} levels={levels} selected={selected} onClick={changeLevel} />
-    </div>
-  );
+  const disciplineContent =
+    content || !isEmpty(levels) ? (
+      <div className={style.content}>
+        {content ? <ScopeContent content={content} /> : null}
+        {!isEmpty(levels) ? (
+          <DisciplineScope
+            content={level}
+            levels={levels}
+            selected={selected}
+            onClick={changeLevel}
+          />
+        ) : null}
+      </div>
+    ) : null;
 
   const disciplineHeader = (
     <div className={style.header}>
@@ -192,6 +203,7 @@ Discipline.propTypes = {
   levels: DisciplineScope.propTypes.levels,
   selected: DisciplineScope.propTypes.selected,
   changeLevel: DisciplineScope.propTypes.onClick,
+  content: ScopeContent.propTypes.content,
   shareWording: Share.propTypes.wording,
   shareText: Share.propTypes.text,
   shareSuccessWording: ShareFeedback.propTypes.successWording,

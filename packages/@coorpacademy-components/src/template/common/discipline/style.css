@@ -1,7 +1,9 @@
 @value breakpoints: "../../../variables/breakpoints.css";
+@value colors: "../../../variables/colors.css";
 @value desktop from breakpoints;
 @value mobile from breakpoints;
 @value wide from breakpoints;
+@value light from colors;
 
 .container {
   composes: wrapper from '../layout.css';
@@ -55,6 +57,10 @@
 .content {
   composes: column;
   width: 840px;
+}
+
+.content {
+  border-top: 1px solid light;
 }
 
 .cta,
