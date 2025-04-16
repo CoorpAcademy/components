@@ -39,7 +39,7 @@ const TranslationModal = (props, context) => {
     onClose();
   }, [onClose]);
 
-  const isValid = !targetInputText.value || !targetTextArea.value;
+  const isValid = targetInputText.value && targetTextArea.value;
 
   const footer = useMemo(() => {
     const cancelButton = {
