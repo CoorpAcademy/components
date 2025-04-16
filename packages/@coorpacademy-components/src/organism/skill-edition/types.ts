@@ -92,7 +92,7 @@ type IconEditorProps = {
   buttonLink: {label: string; ariaLabel: string; onClick: () => void};
 };
 
-type SkillInformationsProps = {
+export type SkillInformationsProps = {
   form: FormProps;
   iconEditor: IconEditorProps;
 };

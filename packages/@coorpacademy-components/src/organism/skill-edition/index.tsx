@@ -6,7 +6,7 @@ import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
 import InputText from '../../atom/input-text';
 import InputTextarea from '../../atom/input-textarea';
-import propTypes, {SkillEditionProps} from './types';
+import propTypes, {SkillEditionProps, SkillInformationsProps} from './types';
 import style from './style.css';
 
 const buildFormField = (
@@ -51,10 +51,39 @@ const buildTitleAndInputField = ({
   };
 };
 
-const SkillEdition = (props: SkillEditionProps) => {
-  const {skillInformations, translations, content} = props;
+const SkillInformations = (skillInformations: SkillInformationsProps) => {
   const {form, iconEditor} = skillInformations;
   const {select, inputTextArea, inputText} = form;
+
+  const iconEditorProps = {
+    title: {
+      type: 'form-group',
+      title: iconEditor.title,
+      titleSize: 'small-and-light',
+      required: true
+    },
+    field: {
+      iconPreview: iconEditor.iconPreview,
+      inputText: iconEditor.inputText,
+      buttonLink: {
+        type: 'secondary',
+        label: iconEditor.buttonLink.label,
+        ariaLabel: iconEditor.buttonLink.ariaLabel,
+        dataName: 'open-icon-modal-button',
+        icon: {
+          position: 'left',
+          faIcon: {
+            name: 'arrows-rotate',
+            size: 16
+          }
+        },
+        onClick: iconEditor.buttonLink.onClick,
+        customStyle: {borderRadius: '12px', padding: '0 8px 0 16px', fontWeight: '500'}
+      },
+      size: 'large'
+    },
+    childType: 'iconEditor'
+  };
 
   const fields = [
     {
@@ -91,51 +120,29 @@ const SkillEdition = (props: SkillEditionProps) => {
   ];
 
   const formProps = {
-    title: skillInformations.form.title,
-    subtitle: skillInformations.form.subtitle,
+    title: form.title,
+    subtitle: form.subtitle,
     titleSize: 'xl-strong',
     subtitleSize: 'medium',
     fields
   };
 
-  const iconEditorProps = {
-    title: {
-      type: 'form-group',
-      title: iconEditor.title,
-      titleSize: 'small-and-light',
-      required: true
-    },
-    field: {
-      iconPreview: iconEditor.iconPreview,
-      inputText: iconEditor.inputText,
-      buttonLink: {
-        type: 'secondary',
-        label: iconEditor.buttonLink.label,
-        ariaLabel: iconEditor.buttonLink.ariaLabel,
-        dataName: 'open-icon-modal-button',
-        icon: {
-          position: 'left',
-          faIcon: {
-            name: 'arrows-rotate',
-            size: 16
-          }
-        },
-        onClick: iconEditor.buttonLink.onClick,
-        customStyle: {borderRadius: '12px', padding: '0 8px 0 16px', fontWeight: '500'}
-      },
-      size: 'large'
-    },
-    childType: 'iconEditor'
-  };
+  return (
+    <div className={style.skillInformationsContainer}>
+      <BrandFormGroup {...formProps} />
+      <div className={style.iconEditor}>
+        <TitleAndInput {...iconEditorProps} />
+      </div>
+    </div>
+  );
+};
+
+const SkillEdition = (props: SkillEditionProps) => {
+  const {skillInformations, translations, content} = props;
 
   return (
     <div className={style.container}>
-      <div className={style.skillInformationsContainer}>
-        <BrandFormGroup {...formProps} />
-        <div className={style.iconEditor}>
-          <TitleAndInput {...iconEditorProps} />
-        </div>
-      </div>
+      <SkillInformations {...skillInformations} />
       <ListItems {...translations} />
       <div className={style.contentContainer}>
         <Title {...content.title} />
