@@ -89,7 +89,7 @@ type IconEditorProps = {
   title: string;
   iconPreview: PropTypes.InferProps<typeof IconPreview.propTypes>;
   inputText: PropTypes.InferProps<typeof InputText.propTypes>;
-  buttonLink: {label: string; ariaLabel: string; 'data-name': string; onClick: () => void};
+  buttonLink: {label: string; ariaLabel: string; onClick: () => void};
 };
 
 type SkillInformationsProps = {

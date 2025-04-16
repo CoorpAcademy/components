@@ -2,9 +2,13 @@ export default {
   props: {
     iconPreview: {
       title: 'Cloud computing technology',
-      icon: {color: '', name: 'globe-pointer'}
+      icon: {color: '#0042AD', name: 'globe-pointer'}
     },
-    inputText: {handleChange: () => console.log('change')},
+    inputText: {
+      description: 'Use darker colors (e.g., #0042AD) to ensure better contrast and visibility.',
+      handleChange: (value: string) => console.log(`Change color: ${value}`),
+      value: '#0042AD'
+    },
     buttonLink: {
       type: 'secondary',
       label: 'Change icon',

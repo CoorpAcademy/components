@@ -4,7 +4,11 @@ export default {
       title: 'Cloud computing technology',
       icon: {color: '#invalid-color', name: 'globe-pointer'}
     },
-    inputText: {handleChange: () => console.log('change')},
+    inputText: {
+      description: '',
+      handleChange: () => console.log('change'),
+      value: '#invalid-color'
+    },
     buttonLink: {
       type: 'secondary',
       label: 'Change icon',

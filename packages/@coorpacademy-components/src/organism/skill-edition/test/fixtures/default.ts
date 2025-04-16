@@ -27,7 +27,8 @@ export default {
           field: {
             options: SelectAndTitle.props.field.options,
             'aria-label': 'Select a language',
-            onChange: (value: string) => console.log(value)
+            onChange: (value: string) => console.log(value),
+            value: 'en'
           }
         },
         inputText: {
@@ -60,7 +61,6 @@ export default {
         buttonLink: {
           label: 'Change icon',
           ariaLabel: 'aria button',
-          'data-name': 'default-button',
           onClick: () => console.log('click on "Change icon" button')
         }
       }

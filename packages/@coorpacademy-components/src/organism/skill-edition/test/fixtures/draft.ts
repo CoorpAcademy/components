@@ -28,6 +28,10 @@ export default {
         iconPreview: {
           title: 'Cloud computing technology',
           icon: {color: '#1B7B88', name: 'globe-pointer'}
+        },
+        inputText: {
+          ...Default.props.skillInformations.iconEditor,
+          value: '#1B7B88'
         }
       }
     },

@@ -112,7 +112,7 @@ const SkillEdition = (props: SkillEditionProps) => {
         type: 'secondary',
         label: iconEditor.buttonLink.label,
         ariaLabel: iconEditor.buttonLink.ariaLabel,
-        dataName: iconEditor.buttonLink.ariaLabel,
+        dataName: 'open-icon-modal-button',
         icon: {
           position: 'left',
           faIcon: {

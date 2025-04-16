@@ -13,26 +13,27 @@ const IconEditor = (props: IconEditorProps, legacyContext: WebContextValues) => 
   const translate = GetTranslateFromContext(legacyContext);
   const {iconPreview, inputText, buttonLink} = props;
   const {title, icon} = iconPreview;
+  const {value, description, handleChange} = inputText;
 
-  const isValidColor = validateColor(icon.color);
+  const isValidColor = validateColor(inputText.value);
+  const previewColor = isValidColor ? value : COLORS.white;
+  const inputError = value && (!isValidColor ? translate('invalid_color') : undefined);
+
   return (
     <>
-      <IconPreview
-        icon={{...icon, color: isValidColor ? icon.color : COLORS.white}}
-        title={title}
-      />
+      <IconPreview icon={{...icon, color: previewColor}} title={title} />
       <div className={style.inputButtonContainer}>
         <InputText
           type="text"
           title={translate('icon_editor_color')}
           placeholder={COLORS.white}
           theme="coorpmanager"
-          description={translate('icon_editor_color')}
-          value={icon.color}
-          error={icon.color && !isValidColor ? translate('invalid_color') : undefined}
+          description={description}
+          value={value}
+          error={inputError}
           disabled={false}
           valid={false}
-          onChange={inputText.handleChange}
+          onChange={handleChange}
           inputColor
         />
         <ButtonLink {...buttonLink} />
