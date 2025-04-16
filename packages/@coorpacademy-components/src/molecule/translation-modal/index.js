@@ -1,4 +1,4 @@
-import React, {useMemo, useCallback, useState} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from '../base-modal';
 import Provider from '../../atom/provider';
@@ -31,9 +31,6 @@ const TranslationModal = (props, context) => {
 
   const detectScrollbar = true;
 
-  const [inputValue, setInputValue] = useState(targetInputText?.value || '');
-  const [textAreaValue, setTextAreaValue] = useState(targetTextArea?.value || '');
-
   const handleCancel = useCallback(() => {
     onCancel();
   }, [onCancel]);
@@ -42,17 +39,7 @@ const TranslationModal = (props, context) => {
     onClose();
   }, [onClose]);
 
-  const handleInputChange = useCallback(e => {
-    setInputValue(e.target.value);
-  }, []);
-
-  const handleTextAreaChange = useCallback(e => {
-    setTextAreaValue(e.target.value);
-  }, []);
-
-  const isConfirmDisabled = useMemo(() => {
-    return !inputValue.trim() || !textAreaValue.trim();
-  }, [inputValue, textAreaValue]);
+  const isValid = !targetInputText.value || !targetTextArea.value;
 
   const footer = useMemo(() => {
     const cancelButton = {
@@ -66,12 +53,12 @@ const TranslationModal = (props, context) => {
           onConfirm,
           label: translate('confirm'),
           iconName: 'plus',
-          disabled: isConfirmDisabled,
+          disabled: !isValid,
           color: COLORS.cm_primary_blue
         }
       })
     };
-  }, [handleCancel, onConfirm, translate, isConfirmDisabled, readOnly]);
+  }, [handleCancel, onConfirm, translate, readOnly, isValid]);
 
   if (!isOpen) return null;
 
@@ -101,16 +88,8 @@ const TranslationModal = (props, context) => {
 
           {renderInputGroup({
             title: outputLanguage,
-            inputProps: {
-              ...targetInputText,
-              value: inputValue,
-              onChange: handleInputChange
-            },
-            textAreaProps: {
-              ...targetTextArea,
-              value: textAreaValue,
-              onChange: handleTextAreaChange
-            },
+            inputProps: targetInputText,
+            textAreaProps: targetTextArea,
             disabled: readOnly
           })}
         </div>
