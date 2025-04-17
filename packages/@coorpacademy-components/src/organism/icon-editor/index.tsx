@@ -3,7 +3,6 @@ import IconPreview from '../../molecule/icon-preview';
 import InputText from '../../atom/input-text';
 import ButtonLink from '../../atom/button-link';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
-import {validateColor} from '../../util/validate-color';
 import type {WebContextValues} from '../../atom/provider/web-context';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
@@ -13,29 +12,23 @@ const IconEditor = (props: IconEditorProps, legacyContext: WebContextValues) => 
   const translate = GetTranslateFromContext(legacyContext);
   const {iconPreview, inputText, buttonLink} = props;
   const {title, icon} = iconPreview;
-  const {value, description, handleChange} = inputText;
 
-  const isValidColor = validateColor(inputText.value);
-  const previewColor = isValidColor ? value : COLORS.white;
-  const inputError = value && (!isValidColor ? translate('invalid_color') : undefined);
+  const inputTextProps = {
+    ...inputText,
+    type: 'text',
+    title: translate('icon_editor_color'),
+    placeholder: COLORS.white,
+    theme: 'coorpmanager',
+    disabled: false,
+    valid: false,
+    inputColor: true
+  };
 
   return (
     <>
-      <IconPreview icon={{...icon, color: previewColor}} title={title} />
+      <IconPreview icon={{...icon}} title={title} />
       <div className={style.inputButtonContainer}>
-        <InputText
-          type="text"
-          title={translate('icon_editor_color')}
-          placeholder={COLORS.white}
-          theme="coorpmanager"
-          description={description}
-          value={value}
-          error={inputError}
-          disabled={false}
-          valid={false}
-          onChange={handleChange}
-          inputColor
-        />
+        <InputText {...inputTextProps} />
         <ButtonLink {...buttonLink} />
       </div>
     </>

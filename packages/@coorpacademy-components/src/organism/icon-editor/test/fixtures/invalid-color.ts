@@ -2,12 +2,13 @@ export default {
   props: {
     iconPreview: {
       title: 'Cloud computing technology',
-      icon: {color: '#invalid-color', name: 'globe-pointer'}
+      icon: {color: '#0042AD', name: 'globe-pointer'}
     },
     inputText: {
       description: '',
       handleChange: () => console.log('change'),
-      value: '#invalid-color'
+      value: '#invalid-color',
+      error: 'Invalid color format. Please use a valid hex code (e.g., #RRGGBB).'
     },
     buttonLink: {
       type: 'secondary',
