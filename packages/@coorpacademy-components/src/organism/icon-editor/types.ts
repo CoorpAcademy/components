@@ -6,8 +6,8 @@ import ButtonLink from '../../atom/button-link';
 import {ButtonLinkProps} from '../../atom/button-link/types';
 
 const IconEditorPropTypes = {
-  iconPreview: PropTypes.shape(IconPreview.propTypes),
-  inputText: PropTypes.shape(InputText.propTypes),
+  iconPreview: PropTypes.shape(IconPreview.propTypes).isRequired,
+  inputText: PropTypes.shape(InputText.propTypes).isRequired,
   buttonLink: PropTypes.shape(ButtonLink.propTypes)
 };
 
