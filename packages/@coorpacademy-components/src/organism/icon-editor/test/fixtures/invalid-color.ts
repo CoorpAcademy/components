@@ -6,7 +6,7 @@ export default {
     },
     inputText: {
       description: '',
-      handleChange: () => console.log('change'),
+      onChange: () => console.log('change'),
       value: '#invalid-color',
       error: 'Invalid color format. Please use a valid hex code (e.g., #RRGGBB).'
     },

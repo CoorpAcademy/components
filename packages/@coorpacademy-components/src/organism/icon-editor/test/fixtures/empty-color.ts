@@ -6,7 +6,7 @@ export default {
     },
     inputText: {
       description: 'Use darker colors (e.g., #0042AD) to ensure better contrast and visibility.',
-      handleChange: (value: string) => console.log(`Change color: ${value}`),
+      onChange: (value: string) => console.log(`Change color: ${value}`),
       value: '#0042AD'
     },
     buttonLink: {
