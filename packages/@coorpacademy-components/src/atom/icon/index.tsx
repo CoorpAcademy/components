@@ -70,7 +70,7 @@ const Icon: React.FC<IconProps> = ({
     ? merge(SIZE_CONFIGS[DEFAULT_PRESET], size)
     : getOr(SIZE_CONFIGS[DEFAULT_PRESET], toLower(preset), SIZE_CONFIGS);
 
-  const hasBackground = !!backgroundColor || gradientBackground;
+  const hasBackground = backgroundColor || gradientBackground;
   if (!hasBackground) {
     return (
       <FontAwesomeIcon

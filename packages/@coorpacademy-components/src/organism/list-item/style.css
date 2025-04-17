@@ -9,7 +9,6 @@
 @value cm_grey_700 from colors;
 @value cm_primary_blue from colors;
 
-
 .wrapper:hover {
   background-color: cm_grey_75;
 }
@@ -23,7 +22,6 @@
   min-height: 64px;
 }
 
-
 .flexLayout {
   display: flex;
   justify-content: space-between;
@@ -31,13 +29,10 @@
 }
 
 .gridLayout {
-  display: flex;
+  display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-
 }
-
-
 
 .settings {
   display: flex;
