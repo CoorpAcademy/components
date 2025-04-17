@@ -29,7 +29,7 @@ const IconEditor = (props: IconEditorProps, legacyContext: WebContextValues) => 
       <IconPreview icon={{...icon}} title={title} />
       <div className={style.inputButtonContainer}>
         <InputText {...inputTextProps} />
-        <ButtonLink {...buttonLink} />
+        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
       </div>
     </>
   );
