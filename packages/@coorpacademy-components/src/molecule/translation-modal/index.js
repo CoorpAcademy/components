@@ -23,6 +23,7 @@ const TranslationModal = (props, context) => {
     onCancel,
     onConfirm,
     onClose,
+    disabled = false,
     source: {inputText: sourceInputText, textArea: sourceTextArea, inputLanguage},
     target: {inputText: targetInputText, textArea: targetTextArea, language: outputLanguage},
     readOnly = false
@@ -39,8 +40,6 @@ const TranslationModal = (props, context) => {
     onClose();
   }, [onClose]);
 
-  const isValid = targetInputText.value && targetTextArea.value;
-
   const footer = useMemo(() => {
     const cancelButton = {
       onCancel: handleCancel,
@@ -53,12 +52,12 @@ const TranslationModal = (props, context) => {
           onConfirm,
           label: translate('confirm'),
           iconName: 'plus',
-          disabled: !isValid,
+          disabled,
           color: COLORS.cm_primary_blue
         }
       })
     };
-  }, [handleCancel, onConfirm, translate, readOnly, isValid]);
+  }, [handleCancel, onConfirm, translate, readOnly, disabled]);
 
   if (!isOpen) return null;
 
@@ -107,6 +106,7 @@ TranslationModal.propTypes = {
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   onClose: PropTypes.func,
+  disabled: PropTypes.bool,
   source: PropTypes.shape({
     inputText: PropTypes.shape({
       ...InputText.propTypes,
