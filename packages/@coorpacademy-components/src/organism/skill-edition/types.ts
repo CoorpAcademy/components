@@ -30,9 +30,9 @@ const FormPropTypes = {
 };
 
 const IconEditorPropTypes = {
-  title: PropTypes.string,
-  iconPreview: PropTypes.shape(IconPreview.propTypes),
-  inputText: PropTypes.shape(InputText.propTypes),
+  title: PropTypes.string.isRequired,
+  iconPreview: PropTypes.shape(IconPreview.propTypes).isRequired,
+  inputText: PropTypes.shape(InputText.propTypes).isRequired,
   buttonLink: PropTypes.shape({
     label: PropTypes.string,
     ariaLabel: PropTypes.string,
