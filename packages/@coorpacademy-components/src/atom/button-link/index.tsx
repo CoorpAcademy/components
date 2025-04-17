@@ -33,7 +33,7 @@ const getButtonContent = (
         iconColor: hovered && hoverColor ? hoverColor : faIcon.color ?? DEFAULT_ICON_COLOR,
         // eslint-disable-next-line no-nested-ternary
         backgroundColor: !faIcon?.backgroundColor
-          ? 'transparent'
+          ? null
           : hovered && hoverBackgroundColor
           ? hoverBackgroundColor
           : faIcon.backgroundColor,

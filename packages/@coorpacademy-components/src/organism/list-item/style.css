@@ -38,13 +38,6 @@
 }
 
 
-.dataColumnsWrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  min-height: inherit;
-  justify-content: flex-start;
-}
 
 .settings {
   display: flex;
@@ -135,10 +128,9 @@
   display: flex;
   width: 100%;
   gap: 54px;
-  /* align-items: center; */
-  /* align-content: space-between; */
-  /* justifycontent: center; */
-
+  min-height: inherit;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .hiddenOverflowX {

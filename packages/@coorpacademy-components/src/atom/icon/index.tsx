@@ -2,7 +2,7 @@ import React, {CSSProperties} from 'react';
 import PropTypes, {number} from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
-import {Icon, IconName, library} from '@fortawesome/fontawesome-svg-core';
+import {IconName, library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
