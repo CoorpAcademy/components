@@ -22,12 +22,7 @@
 .container {
   composes: textBase;
   background-color: white;
-  font-family: "Gilroy";
-  font-style: normal;
-  margin-top: 48px;
-  margin-bottom: 48px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 48px auto;
   padding: 0 16px;
   position: relative;
   box-sizing: border-box;
@@ -36,16 +31,55 @@
   max-width: calc(1080px + 40px);
 }
 
+/* ========== TOP SECTION ========== */
+.topSection {
+  display: flex;
+}
+
+.mainSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.leftSide {
+  width: 420px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rightSide {
+  max-width: 620px;
+  height: 280px;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
+/* Title styling */
+.title {
+  gap: 8px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+/* CTA buttons in a row */
+.ctaWrapper {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Back button spacing */
 .backButton {
   margin-bottom: 16px;
 }
 
-.ctaContainer {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
+/* Skill focus badge */
 .skillFocusBadge {
   display: flex;
   height: 12px;
@@ -58,34 +92,40 @@
   line-height: 16px;
   font-weight: 600;
   color: #3900D6;
-  margin-bottom: 16px;
 }
 
-.ctaWrapper,
+.skillBadge {
+  display: flex;
+  height: 12px;
+  width: fit-content;
+  align-items: center;
+  background-color: #EAEAEB;
+  border-radius: 24px;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 600;
+  color: #515161;
+}
+
+/* Show more link */
 .showMoreWrapper {
   display: flex;
-  gap: 8px;
-}
-
-.showMoreWrapper {
   align-items: center;
-  margin-top: 8px;
+  color: cm_grey_500;
   font-weight: 600;
   cursor: pointer;
+  font-size: 14px;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
-}
-
+/* Description text */
 .description {
-  margin-top: 8px;
-  max-width: 734px;
+  max-width: 620px;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  flex: 1 0 0;
+  align-self: stretch;
   color: cm_grey_400;
 }
 
@@ -97,6 +137,7 @@
   text-overflow: ellipsis;
 }
 
+/* Questions to review */
 .skillInformation {
   composes: textBase;
   font-weight: 600;
@@ -105,27 +146,40 @@
   color: cm_grey_400;
   margin-top: 16px;
 }
-
-.skillInformationNumber {
-  color: #000;
+.noDescriptionSpacing {
+  margin-top: 48px ; /* or whatever bigger spacing you want */
 }
 
+
+/* Progress bar container */
 .progressContainer {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 16px 0 40px 0;
 }
 
 .progressInformationNumber {
+  font-size: 14px;
+  font-weight: 600;
   color: cm_grey_500;
+  flex-shrink: 0; /* ensures text doesn’t shrink if space is tight */
+
+}
+
+.progressBarRow {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;    /* let this row fill its parent’s width */
+
+  gap: 8px; /* or whatever spacing you prefer */
 }
 
 .progressBarWrapper {
   position: relative;
   left: 0;
   max-width: 300px;
-  width: 100%;
+  flex: 1;        /* allows it to expand as much as possible */
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
@@ -133,27 +187,50 @@
 }
 
 .progress {
-  display: block;
+  display: flex;
   height: 8px;
   animation: progressbar 2s ease-in-out;
 }
 
-@media tablet {
-  .ctaContainer {
-    flex-direction: column;
-  }
 
-  .ctaWrapper {
-    margin-top: 32px;
+
+/* =============== Media Queries =============== */
+
+/* Tablet breakpoint */
+@media tablet {
+  /* We keep the same row layout on tablet, 
+     but you can tweak widths if you want narrower columns. */
+  .topSection {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .leftSide,
+  .rightSide {
+    width: 50%; /* or any fraction that suits your design */
   }
 }
 
+/* Mobile breakpoint */
 @media mobile {
+  /* Stack vertically on mobile */
+  .topSection {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+    align-items: center;
+  }
+
   .ctaWrapper {
     flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
 
-    button {
-      width: 100% !important;
-    }
+  .ctaWrapper button {
+    width: 100% !important;
   }
 }
