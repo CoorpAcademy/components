@@ -4,6 +4,10 @@ import Default, {translationsEmptyProps, contentEmptyProps} from './default';
 
 const translationsProps: TranslationPropsType = {
   ...translationsEmptyProps,
+  button: {
+    ...translationsEmptyProps.button,
+    disabled: false
+  },
   emptyResult: undefined,
   items: {
     fr: {

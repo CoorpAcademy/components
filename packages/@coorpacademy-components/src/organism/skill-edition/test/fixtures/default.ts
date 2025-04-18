@@ -8,7 +8,8 @@ export const translationsEmptyProps: TranslationPropsType = {
   subtitle: 'Manage your translation to reach more learners',
   button: {
     label: 'Add translation',
-    onClick: () => console.log('click on Add translations button')
+    onClick: () => console.log('click on Add translations button'),
+    disabled: true
   },
   localesOptions: [
     {ref: 'fr', label: '🇫🇷 French', onClick: () => console.log('click on fr')},

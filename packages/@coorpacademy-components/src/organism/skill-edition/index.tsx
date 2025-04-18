@@ -148,12 +148,11 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
 
-const builTitleButton = (label: string, onClick: () => void) => ({
+const buildButtonProps = (button: TranslationPropsType['button']) => ({
+  ...button,
   type: 'primary',
-  label,
-  'aria-label': label,
-  'data-name': `button-${label}`,
-  onClick,
+  'aria-label': button.label,
+  'data-name': `button-${button.label}`,
   hoverBackgroundColor: COLORS.primary_100,
   hoverColor: COLORS.cm_primary_blue,
   icon: {
@@ -228,14 +227,14 @@ const Translations = ({
   title,
   subtitle,
   items,
-  button: {label, onClick},
+  button,
   localesOptions,
   emptyResult
 }: TranslationPropsType) => {
-  const button = builTitleButton(label, onClick);
+  const buttonProps = buildButtonProps(button);
 
   const translationMenuAction = {
-    button,
+    button: buttonProps,
     menu: {
       buttons: map(
         ({
@@ -315,16 +314,16 @@ const buildContentItem = ({
 const Content = ({
   title,
   subtitle,
-  button: {label: buttonLabel, onClick},
+  button,
   list: {title: listTitle, checkbox, items, search, emptyResult}
 }: ContentPropsType) => {
-  const button = builTitleButton(buttonLabel, onClick);
+  const buttonProps = buildButtonProps(button);
 
   const titleProps = {
     type: 'form-group',
     title,
     subtitle,
-    button,
+    button: buttonProps,
     required: true
   };
 
@@ -337,7 +336,7 @@ const Content = ({
     title: listTitle,
     'aria-label': 'content list items',
     content: {
-      ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button}}),
+      ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: buttonProps}}),
       items: map(buildContentItem, items),
       type: 'list'
     },
