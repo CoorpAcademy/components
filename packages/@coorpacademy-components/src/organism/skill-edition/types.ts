@@ -21,7 +21,8 @@ const translationPropTypes = PropTypes.shape({
   ),
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
   }).isRequired
 });
 
@@ -100,6 +101,7 @@ export type TranslationPropsType = {
   button: {
     label: string;
     onClick: () => void;
+    disabled?: boolean;
   };
   emptyResult?: {
     title: string;
