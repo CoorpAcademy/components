@@ -9,11 +9,12 @@
 .skillInformationsContainer {
   display: flex;
   gap: 96px;
-  align-items: center;
 }
 
 .iconEditor {
   min-width: 420px;
+  min-height: 300px;
+  margin-top: 88px;
 }
 
 .contentContainer {

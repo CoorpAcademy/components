@@ -65,27 +65,27 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
     field: {
       iconPreview: iconEditor.iconPreview,
       inputText: iconEditor.inputText,
-      ...(iconEditor.buttonLink && {
-        buttonLink: {
-          type: 'secondary',
-          label: iconEditor.buttonLink.label,
-          ariaLabel: iconEditor.buttonLink.ariaLabel,
-          dataName: 'open-icon-modal-button',
-          icon: {
-            position: 'left',
-            faIcon: {
-              name: 'arrows-rotate',
-              size: 16
+      buttonLink: iconEditor.buttonLink
+        ? {
+            type: 'secondary',
+            label: iconEditor.buttonLink.label,
+            ariaLabel: iconEditor.buttonLink.ariaLabel,
+            dataName: 'open-icon-modal-button',
+            icon: {
+              position: 'left',
+              faIcon: {
+                name: 'arrows-rotate',
+                size: 16
+              }
+            },
+            onClick: iconEditor.buttonLink.onClick,
+            customStyle: {
+              borderRadius: '12px',
+              padding: '0 8px 0 16px',
+              fontWeight: '500'
             }
-          },
-          onClick: iconEditor.buttonLink.onClick,
-          customStyle: {
-            borderRadius: '12px',
-            padding: '0 8px 0 16px',
-            fontWeight: '500'
           }
-        }
-      }),
+        : undefined,
       size: 'large'
     },
     childType: 'iconEditor'

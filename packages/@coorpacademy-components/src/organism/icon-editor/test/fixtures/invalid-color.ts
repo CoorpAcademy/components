@@ -8,7 +8,7 @@ export default {
       description: '',
       onChange: () => console.log('change'),
       value: '#invalid-color',
-      error: 'Invalid color format. Please use a valid hex code (e.g., #RRGGBB).'
+      error: 'Invalid color.'
     },
     buttonLink: {
       type: 'secondary',
