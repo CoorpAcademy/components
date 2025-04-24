@@ -111,7 +111,9 @@ const buildHeader = header => {
       {header.type === 'header-with-actions' ? (
         <HeaderWithActions {...header} />
       ) : (
-        <Header {...header} />
+        <div className={style.headerStickyDefault}>
+          <Header {...header} />
+        </div>
       )}
     </div>
   );

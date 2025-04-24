@@ -41,11 +41,14 @@
 }
 
 .headerSticky {
-  overflow: hidden;
   background-color: white;
   position: fixed;
   width: calc(100% - 351px);
   z-index: 999;
+}
+
+.headerStickyDefault {
+  overflow: hidden;
   pointer-events: none;
 }
 
