@@ -5,6 +5,7 @@ import InputText from '../../atom/input-text';
 import InputTextarea from '../../atom/input-textarea';
 import IconPreview from '../../molecule/icon-preview';
 import {SelectOptionPropTypes} from '../../atom/select';
+import {IconPreviewProps} from '../../molecule/icon-preview/types';
 
 const FormPropTypes = {
   title: PropTypes.string,
@@ -60,8 +61,15 @@ type ContentProps = {
   listContent: PropTypes.InferProps<typeof ListItems.propTypes>;
 };
 
+export type SelectOption = {
+  name: string;
+  value?: string | number;
+  selected?: boolean;
+  validOption?: boolean;
+};
+
 export type FieldSelectProps = {
-  options: PropTypes.InferProps<typeof SelectOptionPropTypes>[];
+  options: SelectOption[];
   'aria-label': string;
   onChange: () => void;
 };
@@ -77,18 +85,18 @@ type FormProps = {
   };
   inputText: {
     title: string;
-    field: PropTypes.InferProps<typeof InputText.propTypes>;
+    field: InputTextProps;
   };
   inputTextArea: {
     title: string;
-    field: PropTypes.InferProps<typeof InputTextarea.propTypes>;
+    field: InputTextareaProps;
   };
 };
 
 type IconEditorProps = {
   title: string;
-  iconPreview: PropTypes.InferProps<typeof IconPreview.propTypes>;
-  inputText: PropTypes.InferProps<typeof InputText.propTypes>;
+  iconPreview: IconPreviewProps;
+  inputText: InputTextProps;
   buttonLink?: {label: string; ariaLabel: string; onClick: () => void};
 };
 
@@ -97,8 +105,50 @@ export type SkillInformationsProps = {
   iconEditor: IconEditorProps;
 };
 
+export const themeStyle = {
+  setup: 'setup',
+  coorpmanager: 'coorpmanager',
+  cockpit: 'cockpit',
+  default: 'defaultStyle'
+};
+
 export type SkillEditionProps = {
   skillInformations: SkillInformationsProps;
   translations: PropTypes.InferProps<typeof ListItems.propTypes>;
   content: ContentProps;
+};
+
+export type InputTextProps = {
+  autoFocus?: boolean;
+  title?: string;
+  placeholder?: string;
+  defaultValue?: string;
+  theme?: keyof typeof themeStyle;
+  disabled?: boolean;
+  value?: string;
+  hint?: string;
+  error?: string;
+  onChange?: (value: string) => void;
+  description?: string;
+  modified?: boolean;
+  type?: string;
+  valid?: boolean;
+  'aria-label'?: string;
+  'data-name'?: string;
+  inputColor?: boolean;
+};
+
+export type InputTextareaProps = {
+  placeholder?: string;
+  title?: string;
+  name?: string;
+  theme?: keyof typeof themeStyle;
+  disabled?: boolean;
+  value?: string;
+  hint?: string;
+  error?: string;
+  onChange?: (value: string) => void;
+  description?: string;
+  modified?: boolean;
+  valid?: boolean;
 };

@@ -56,7 +56,7 @@ export default {
       },
       iconEditor: {
         title: 'Skill icon',
-        iconPreview: {title: '-', icon: {color: '#0042AD', name: 'globe-pointer'}},
+        iconPreview: {title: '-', icon: {color: COLORS.cm_blue_700, name: 'globe-pointer'}},
         inputText: {...IconEditor.props.inputText},
         buttonLink: {
           label: 'Change icon',

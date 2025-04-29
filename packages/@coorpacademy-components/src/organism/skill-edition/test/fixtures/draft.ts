@@ -1,5 +1,6 @@
 import ContentSkill from '../../../list-items/test/fixtures/content-skill';
 import ListItems from '../../../list-items/test/fixtures/translations';
+import {COLORS} from '../../../../variables/colors';
 import Default from './default';
 
 export default {
@@ -27,11 +28,11 @@ export default {
         ...Default.props.skillInformations.iconEditor,
         iconPreview: {
           title: 'Cloud computing technology',
-          icon: {color: '#1B7B88', name: 'globe-pointer'}
+          icon: {color: COLORS.cm_turquoise_strong, name: 'globe-pointer'}
         },
         inputText: {
           ...Default.props.skillInformations.iconEditor,
-          value: '#1B7B88'
+          value: COLORS.cm_turquoise_strong
         }
       }
     },

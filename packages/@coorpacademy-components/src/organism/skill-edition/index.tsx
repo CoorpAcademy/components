@@ -1,20 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
-import InputText from '../../atom/input-text';
-import InputTextarea from '../../atom/input-textarea';
-import propTypes, {SkillEditionProps, SkillInformationsProps} from './types';
+import propTypes, {
+  SkillEditionProps,
+  SkillInformationsProps,
+  InputTextareaProps,
+  InputTextProps
+} from './types';
 import style from './style.css';
 
-const buildFormField = (
-  field:
-    | PropTypes.InferProps<typeof InputText.propTypes>
-    | PropTypes.InferProps<typeof InputTextarea.propTypes>,
-  type: 'text' | 'textarea'
-) => {
+const buildFormField = (field: InputTextareaProps | InputTextProps, type: 'text' | 'textarea') => {
   return {
     ...field,
     type,
@@ -34,7 +31,7 @@ const buildTitleAndInputField = ({
   subtitle?: string;
   required?: boolean;
   dataName?: string;
-  childType: string;
+  childType?: string;
 }) => {
   return {
     title: {

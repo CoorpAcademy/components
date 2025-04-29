@@ -9,6 +9,7 @@ export const COLORS = {
   cm_grey_400: '#9999A8',
   cm_grey_800: '#171721',
   cm_primary_blue: '#0061FF',
+  cm_blue_700: '#0042AD',
   primary_100: '#D6E6FF',
   primary_600: '#0051D6',
   cm_grey_500: '#515161',
@@ -18,7 +19,8 @@ export const COLORS = {
   yellow_700: '#A38300',
   yellow_100: '#FFF9D1',
   red_700: '#A30000',
-  red_100: '#FFD1D1'
+  red_100: '#FFD1D1',
+  cm_turquoise_strong: '#1B7B88'
 } as const;
 
 export type Colors = typeof COLORS;

@@ -1,3 +1,5 @@
+import {COLORS} from '../../../../variables/colors';
+
 export default {
   props: {
     type: 'text',
@@ -5,7 +7,7 @@ export default {
     placeholder: 'This is an input',
     theme: 'coorpmanager',
     description: 'This is the tooltip text',
-    value: '#1B7B88',
+    value: COLORS.cm_turquoise_strong,
     disabled: false,
     valid: false,
     error: '',
