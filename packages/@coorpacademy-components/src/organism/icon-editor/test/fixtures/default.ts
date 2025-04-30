@@ -7,7 +7,7 @@ export default {
       icon: {color: COLORS.cm_blue_700, name: 'circle'}
     },
     inputText: {
-      description: 'Use darker colors (e.g., #0042AD) to ensure better contrast and visibility.', // ici c'est juste du texte, tu peux laisser
+      description: 'Use darker colors (e.g., #0042AD) to ensure better contrast and visibility.',
       onChange: (value: string) => console.log(`Change color: ${value}`),
       value: COLORS.cm_blue_700
     },
