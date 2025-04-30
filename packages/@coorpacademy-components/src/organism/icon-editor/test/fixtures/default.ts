@@ -1,10 +1,16 @@
+import {COLORS} from '../../../../variables/colors';
+
 export default {
   props: {
     iconPreview: {
-      title: 'Cloud computing technology',
-      icon: {color: '#1B7B88', name: 'globe-pointer'}
+      title: '-',
+      icon: {color: COLORS.cm_blue_700, name: 'circle'}
     },
-    inputText: {handleChange: () => console.log('change')},
+    inputText: {
+      description: 'Use darker colors (e.g., #0042AD) to ensure better contrast and visibility.',
+      onChange: (value: string) => console.log(`Change color: ${value}`),
+      value: COLORS.cm_blue_700
+    },
     buttonLink: {
       type: 'secondary',
       label: 'Change icon',

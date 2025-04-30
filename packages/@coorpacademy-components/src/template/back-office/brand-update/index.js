@@ -27,6 +27,7 @@ import ExpandibleActionableTable from '../../../molecule/expandible-actionable-t
 import BulkInfos from '../../../molecule/bulk-infos';
 import Title from '../../../atom/title';
 import SkillEdition from '../../../organism/skill-edition';
+import IconPickerModal from '../../../molecule/icon-picker-modal';
 import style from './style.css';
 import {POPIN_THEMES} from './utils';
 
@@ -116,13 +117,9 @@ const buildHeader = header => {
   );
 };
 
-const buildPopinCustomPropsByTheme = theme => POPIN_THEMES[theme] ?? {};
-
-const buildPopin = popin => {
-  if (!popin) return;
-
+const buildDefaultPopin = popin => {
   const {theme, icon: popinIcon, secondButton: popinSecondButton} = popin;
-  const {icon: themeIcon, actionButton: themeActionButton} = buildPopinCustomPropsByTheme(theme);
+  const {icon: themeIcon, actionButton: themeActionButton} = POPIN_THEMES[theme] ?? {};
 
   return (
     <div className={style.popin}>
@@ -133,6 +130,17 @@ const buildPopin = popin => {
       />
     </div>
   );
+};
+
+const buildPopin = popin => {
+  if (isEmpty(popin)) return;
+
+  switch (popin.type) {
+    case 'icon-picker':
+      return <IconPickerModal {...popin} />;
+    default:
+      return buildDefaultPopin(popin);
+  }
 };
 
 const buildDocumentation = documentation => {
@@ -390,10 +398,16 @@ BrandUpdate.propTypes = {
     show: PropTypes.bool,
     onClose: PropTypes.func
   }),
-  popin: PropTypes.shape({
-    ...CmPopin.propTypes,
-    theme: PropTypes.oneOf(['published', 'archived', 'deleted'])
-  }),
+  popin: PropTypes.oneOfType([
+    PropTypes.shape({
+      ...CmPopin.propTypes,
+      theme: PropTypes.oneOf(['published', 'archived', 'deleted'])
+    }),
+    PropTypes.shape({
+      ...IconPickerModal.propTypes,
+      type: PropTypes.oneOf(['icon-picker'])
+    })
+  ]),
   details: PropTypes.shape({
     ...BrandTable.propTypes,
     key: PropTypes.string,
