@@ -21,10 +21,14 @@ const configurations: Array<Config> = [
   assign(CURRENT_BASE_CONFIGURATION, {
     version: '2',
     starsPerCorrectAnswer: 12
+  }),
+  assign(CURRENT_BASE_CONFIGURATION, {
+    version: '3',
+    starsPerCorrectAnswer: 4
   })
 ];
 
 export default {
   configurations,
-  defaultConfiguration: CURRENT_BASE_CONFIGURATION
+  defaultConfiguration: configurations[2]
 };

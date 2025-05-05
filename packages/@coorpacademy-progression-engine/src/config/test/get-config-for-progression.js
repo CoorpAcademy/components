@@ -84,6 +84,19 @@ test('should return the configuration with the given version if it exists', t =>
     starsPerResourceViewed: 0,
     remainingLifeRequests: 0
   });
+  t.deepEqual(getConfigForProgression(createProgression({ref: 'review', version: '1'})), {
+    version: '1',
+    lives: 0,
+    livesDisabled: true,
+    maxTypos: 2,
+    slidesToComplete: 5,
+    shuffleChoices: true,
+    answerBoundaryLimit: 5,
+    starsPerAskingClue: 0,
+    starsPerCorrectAnswer: 8,
+    starsPerResourceViewed: 0,
+    remainingLifeRequests: 0
+  });
 });
 
 test('should merge the engineOptions values from the progression into the resulting configuration', t => {
