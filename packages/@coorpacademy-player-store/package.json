@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-store",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "description": "Redux store for slide players",
   "main": "lib",
   "module": "es",
@@ -53,7 +53,7 @@
     "nyc": "^15.1.0"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "11.8.0",
+    "@coorpacademy/progression-engine": "11.8.1",
     "@coorpacademy/redux-task": "1.2.0",
     "lodash": "^4.17.21",
     "redux": "^4.0.5",
