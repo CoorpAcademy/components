@@ -88,4 +88,17 @@ test('should return the default configuration if the engine does not have the gi
     starsPerResourceViewed: 4,
     remainingLifeRequests: 1
   });
+  t.deepEqual(getConfig({ref: 'review', version: 'foobar'}), {
+    version: '3',
+    lives: 0,
+    livesDisabled: true,
+    maxTypos: 2,
+    slidesToComplete: 5,
+    shuffleChoices: true,
+    answerBoundaryLimit: 5,
+    starsPerAskingClue: 0,
+    starsPerCorrectAnswer: 4,
+    starsPerResourceViewed: 0,
+    remainingLifeRequests: 0
+  });
 });
