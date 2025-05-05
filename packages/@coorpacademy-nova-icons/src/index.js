@@ -77,8 +77,10 @@ import _NovaCompositionCoorpacademyPrev from './components/nova-composition/coor
 import _NovaCompositionCoorpacademyProfile from './components/nova-composition/coorpacademy/profile';
 import _NovaCompositionCoorpacademyQrCode from './components/nova-composition/coorpacademy/qr-code';
 import _NovaCompositionCoorpacademyQueue from './components/nova-composition/coorpacademy/queue';
+import _NovaCompositionCoorpacademyRankingStar from './components/nova-composition/coorpacademy/ranking-star';
 import _NovaCompositionCoorpacademyReload from './components/nova-composition/coorpacademy/reload';
 import _NovaCompositionCoorpacademyRevision from './components/nova-composition/coorpacademy/revision';
+import _NovaCompositionCoorpacademyRoundedStar from './components/nova-composition/coorpacademy/rounded-star';
 import _NovaCompositionCoorpacademySchoolGraduation from './components/nova-composition/coorpacademy/school-graduation';
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
 import _NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
@@ -94,6 +96,7 @@ import _NovaCompositionCoorpacademyStartBattleShape from './components/nova-comp
 import _NovaCompositionCoorpacademyTarget from './components/nova-composition/coorpacademy/target';
 import _NovaCompositionCoorpacademyTimer from './components/nova-composition/coorpacademy/timer';
 import _NovaCompositionCoorpacademyTooltipCorner from './components/nova-composition/coorpacademy/tooltip-corner';
+import _NovaCompositionCoorpacademyTrophy from './components/nova-composition/coorpacademy/trophy';
 import _NovaCompositionCoorpacademyTrophyCup from './components/nova-composition/coorpacademy/trophy-cup';
 import _NovaCompositionCoorpacademyTwitter from './components/nova-composition/coorpacademy/twitter';
 import _NovaCompositionCoorpacademyTypeEye from './components/nova-composition/coorpacademy/type-eye';
@@ -320,8 +323,10 @@ export const NovaCompositionCoorpacademyPrev: Icon = _NovaCompositionCoorpacadem
 export const NovaCompositionCoorpacademyProfile: Icon = _NovaCompositionCoorpacademyProfile;
 export const NovaCompositionCoorpacademyQrCode: Icon = _NovaCompositionCoorpacademyQrCode;
 export const NovaCompositionCoorpacademyQueue: Icon = _NovaCompositionCoorpacademyQueue;
+export const NovaCompositionCoorpacademyRankingStar: Icon = _NovaCompositionCoorpacademyRankingStar;
 export const NovaCompositionCoorpacademyReload: Icon = _NovaCompositionCoorpacademyReload;
 export const NovaCompositionCoorpacademyRevision: Icon = _NovaCompositionCoorpacademyRevision;
+export const NovaCompositionCoorpacademyRoundedStar: Icon = _NovaCompositionCoorpacademyRoundedStar;
 export const NovaCompositionCoorpacademySchoolGraduation: Icon =
   _NovaCompositionCoorpacademySchoolGraduation;
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
@@ -342,6 +347,7 @@ export const NovaCompositionCoorpacademyTarget: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademyTimer: Icon = _NovaCompositionCoorpacademyTimer;
 export const NovaCompositionCoorpacademyTooltipCorner: Icon =
   _NovaCompositionCoorpacademyTooltipCorner;
+export const NovaCompositionCoorpacademyTrophy: Icon = _NovaCompositionCoorpacademyTrophy;
 export const NovaCompositionCoorpacademyTrophyCup: Icon = _NovaCompositionCoorpacademyTrophyCup;
 export const NovaCompositionCoorpacademyTwitter: Icon = _NovaCompositionCoorpacademyTwitter;
 export const NovaCompositionCoorpacademyTypeEye: Icon = _NovaCompositionCoorpacademyTypeEye;
