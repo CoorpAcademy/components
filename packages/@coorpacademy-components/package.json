@@ -58,7 +58,7 @@
     "Soualmi Djamel <djamel.soualmi@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "4.5.1",
+    "@coorpacademy/nova-icons": "4.5.0",
     "@coorpacademy/react-native-animation": "1.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/pro-solid-svg-icons": "^6.5.1",
