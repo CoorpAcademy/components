@@ -12,6 +12,8 @@
 @value battle from colors;
 @value orangeAdd from colors;
 @value transparent from colors;
+@value warning_100 from colors;
+@value warning_700 from colors;
 
 .wrapper {
   min-height: 60px;
@@ -338,8 +340,30 @@
 }
 
 .itemBadge {
-  composes: notifications;
-  top: 10px;
+  font-family: 'Gilroy';
+  font-weight: 700;
+  font-size: 10px;
+  min-width: 16px;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: warning_100;
+  color: warning_700;
+  line-height: 16px;
+}
+
+.counter {
+ padding: 0 2px;
+}
+
+.itemBadge span {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
 }
 
 .notifications:hover,
@@ -586,6 +610,7 @@
 @media desktop {
   .item {
     padding: 0 11px;
+    gap: 8px;
   }
 
   .logoWrapper {
@@ -752,7 +777,6 @@
 
   .itemBadge {
     position: relative;
-    margin-top: -15px;
     right: auto;
     top: auto;
   }

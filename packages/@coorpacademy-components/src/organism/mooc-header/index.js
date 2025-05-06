@@ -337,7 +337,7 @@ class MoocHeader extends React.Component {
               )}
               aria-label={pageCountAriaLabel}
             >
-              {item.counter}
+              <span className={style.counter}>{item.counter > 99 ? "+99" : item.counter}</span>
             </Link>
           ) : null;
 
