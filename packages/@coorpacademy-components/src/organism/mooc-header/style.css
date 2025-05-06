@@ -9,6 +9,7 @@
 @value black from colors;
 @value dark from colors;
 @value cm_grey_200 from colors;
+@value cm_grey_75 from colors;
 @value battle from colors;
 @value orangeAdd from colors;
 @value transparent from colors;
@@ -381,26 +382,21 @@
 
 .stat {
   height: 100%;
-  padding: 0 10px;
+  padding: 0 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+  min-width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  gap: 4px
 }
 
-.stat:hover .label {
-  text-decoration: underline;
-}
-
-.iconWrapper {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.stat:hover{
+  background-color: cm_grey_75;
 }
 
 .icon {
@@ -423,10 +419,9 @@
 
 .stat .label {
   font-family: 'Gilroy';
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   color: dark;
-  margin-top: 5px;
 }
 
 .settings {
@@ -816,10 +811,6 @@
   .stats {
     padding: 0;
     border: 0;
-    height: auto;
-  }
-
-  .stat {
     height: auto;
   }
 

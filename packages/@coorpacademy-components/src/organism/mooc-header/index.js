@@ -6,13 +6,11 @@ import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
-  NovaCompositionCoorpacademyStar as StarIcon,
-  NovaCompositionCoorpacademyCharts as ChartsIcon,
-  NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
   NovaCompositionCoorpacademyPlacesHome24 as HomeIcon,
   NovaSolidTimeAlarm as AlarmIcon
 } from '@coorpacademy/nova-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';
@@ -312,8 +310,6 @@ class MoocHeader extends React.Component {
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
     const darkColor = get('common.dark', skin);
-    const white = get('common.white', skin);
-    const iconWrapperStyle = {backgroundColor: primaryColor};
 
     if (items) {
       const displayedPages = items.displayed.map((item, index) => {
@@ -337,7 +333,7 @@ class MoocHeader extends React.Component {
               )}
               aria-label={pageCountAriaLabel}
             >
-              <span className={style.counter}>{item.counter > 99 ? "+99" : item.counter}</span>
+              <span className={style.counter}>{item.counter > 99 ? '+99' : item.counter}</span>
             </Link>
           ) : null;
 
@@ -493,8 +489,12 @@ class MoocHeader extends React.Component {
               onClick={this.handleLinkClick}
               aria-label={user.stats.stars['aria-label']}
             >
-              <div className={style.iconWrapper} style={iconWrapperStyle}>
-                <StarIcon className={style.stars} style={{color: white}} />
+              <div>
+                <FontAwesomeIcon
+                  icon="star"
+                  style={{color: COLORS.yellow_500}}
+                  className={style.stars}
+                />
               </div>
               <div data-name="value" className={style.label}>
                 {user.stats.stars.label}
@@ -507,8 +507,12 @@ class MoocHeader extends React.Component {
               onClick={this.handleLinkClick}
               aria-label={user.stats.ranking['aria-label']}
             >
-              <div className={style.iconWrapper} style={iconWrapperStyle}>
-                <ChartsIcon className={style.ranking} style={{color: white}} />
+              <div>
+                <FontAwesomeIcon
+                  icon="ranking-star"
+                  className={style.ranking}
+                  style={{color: primaryColor}}
+                />
               </div>
 
               <div data-name="value" className={style.label}>
@@ -522,8 +526,12 @@ class MoocHeader extends React.Component {
               onClick={this.handleLinkClick}
               aria-label={user.stats.badge['aria-label']}
             >
-              <div className={style.iconWrapper} style={iconWrapperStyle}>
-                <TrophyIcon className={style.badge} style={{color: white}} />
+              <div>
+                <FontAwesomeIcon
+                  icon="trophy"
+                  className={style.badge}
+                  style={{color: COLORS.neutral_400}}
+                />
               </div>
               <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
