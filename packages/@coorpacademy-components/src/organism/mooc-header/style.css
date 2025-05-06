@@ -343,17 +343,21 @@
   font-family: 'Gilroy';
   font-weight: 700;
   font-size: 10px;
-  width: 16px;
-  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   background-color: warning_100;
   color: warning_700;
   line-height: 16px;
+}
+
+.counter {
+ padding: 0 2px;
 }
 
 .itemBadge span {
