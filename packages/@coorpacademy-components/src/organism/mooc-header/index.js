@@ -493,7 +493,7 @@ class MoocHeader extends React.Component {
               onClick={this.handleLinkClick}
               aria-label={user.stats.stars['aria-label']}
             >
-              <div  >
+              <div>
                 <FontAwesomeIcon icon="star" style={{color: COLORS.yellow_500}} className={style.stars}/>
               </div>
               <div data-name="value" className={style.label}>
@@ -507,7 +507,7 @@ class MoocHeader extends React.Component {
               onClick={this.handleLinkClick}
               aria-label={user.stats.ranking['aria-label']}
             >
-              <div >
+              <div>
                 <FontAwesomeIcon icon="ranking-star" className={style.ranking} style={{color: primaryColor}} />
               </div>
 
@@ -522,7 +522,7 @@ class MoocHeader extends React.Component {
               onClick={this.handleLinkClick}
               aria-label={user.stats.badge['aria-label']}
             >
-              <div  >
+              <div>
                 <FontAwesomeIcon icon="trophy" className={style.badge} style={{color: COLORS.neutral_400}} />
               </div>
               <div className={style.label}>{user.stats.badge.label}</div>
