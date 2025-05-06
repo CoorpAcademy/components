@@ -333,7 +333,7 @@ class MoocHeader extends React.Component {
               )}
               aria-label={pageCountAriaLabel}
             >
-              <span className={style.counter}>{item.counter > 99 ? '+99' : item.counter}</span>
+              <span className={style.counter}>{item.counter > 99 ? "99+" : item.counter}</span>
             </Link>
           ) : null;
 
@@ -463,7 +463,7 @@ class MoocHeader extends React.Component {
             data-name="user-notifications"
             className={style.notifications}
           >
-            {nbNotifications}
+            {nbNotifications > 99 ? "99+" : nbNotifications}
           </Link>
         ) : null;
       const notificationPageView = (
@@ -474,7 +474,7 @@ class MoocHeader extends React.Component {
           aria-label={notificationsAriaLabel}
         >
           <div>
-            <AlarmIcon width={16} height={16} />
+            <FontAwesomeIcon icon="bell" style={{color: COLORS.negative_700}}/>
           </div>
           {notificationsView}
         </Link>

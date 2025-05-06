@@ -31,7 +31,7 @@ export default {
       profileAvatarAlt: 'Your profile picture',
       notifications: {
         href: '#notifications',
-        value: 5,
+        value: 0,
         'aria-label': 'you have 5 new notificationss'
       },
       href: '#account',

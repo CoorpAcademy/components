@@ -10,11 +10,16 @@
 @value dark from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_75 from colors;
+@value cm_grey_100 from colors;
 @value battle from colors;
 @value orangeAdd from colors;
 @value transparent from colors;
+@value negative_100 from colors;
 @value warning_100 from colors;
 @value warning_700 from colors;
+@value red_200 from colors;
+@value negative_600 from colors;
+@vlue cm_negative_200 from colors;
 
 .wrapper {
   min-height: 60px;
@@ -287,22 +292,22 @@
   margin: auto 16px auto 4px;
   padding: 8px;
   position: relative;
-  color:  dark;
+  color: dark;
   box-sizing: border-box;
   border-radius: 8px;
-  background-color: color(dark a(8%));
+  background-color: cm_grey_75;
   transition: all 0.5s linear;
 }
 .notification:hover {
-  background-color: color(dark a(17%));
-  color:  dark;
+  background-color: cm_grey_100;
+  color: dark;
 }
 .active {
-  background-color: color(orangeAdd a(8%));
+  background-color: negative_100;
   color: orangeAdd;
 }
 .active:hover {
-  background-color: color(orangeAdd a(17%));
+  background-color: red_200;
   color: orangeAdd;
 }
 
@@ -327,8 +332,8 @@
 
 .notifications {
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -8px;
+  right: -8px;
   font-family: 'Gilroy';
   font-weight: 700;
   font-size: 10px;
@@ -336,8 +341,10 @@
   color: white;
   border-radius: 8px;
   text-decoration: none;
-  background-color: orangeAdd;
+  background-color: negative_600;
   padding: 0 5px;
+  min-width: 8px;
+  text-align: center;
 }
 
 .itemBadge {
