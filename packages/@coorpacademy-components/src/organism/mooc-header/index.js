@@ -310,7 +310,6 @@ class MoocHeader extends React.Component {
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
     const darkColor = get('common.dark', skin);
-    const white = get('common.white', skin);
 
     if (items) {
       const displayedPages = items.displayed.map((item, index) => {
@@ -334,7 +333,7 @@ class MoocHeader extends React.Component {
               )}
               aria-label={pageCountAriaLabel}
             >
-              <span className={style.counter}>{item.counter > 99 ? "+99" : item.counter}</span>
+              <span className={style.counter}>{item.counter > 99 ? '+99' : item.counter}</span>
             </Link>
           ) : null;
 
@@ -491,7 +490,11 @@ class MoocHeader extends React.Component {
               aria-label={user.stats.stars['aria-label']}
             >
               <div>
-                <FontAwesomeIcon icon="star" style={{color: COLORS.yellow_500}} className={style.stars}/>
+                <FontAwesomeIcon
+                  icon="star"
+                  style={{color: COLORS.yellow_500}}
+                  className={style.stars}
+                />
               </div>
               <div data-name="value" className={style.label}>
                 {user.stats.stars.label}
@@ -505,7 +508,11 @@ class MoocHeader extends React.Component {
               aria-label={user.stats.ranking['aria-label']}
             >
               <div>
-                <FontAwesomeIcon icon="ranking-star" className={style.ranking} style={{color: primaryColor}} />
+                <FontAwesomeIcon
+                  icon="ranking-star"
+                  className={style.ranking}
+                  style={{color: primaryColor}}
+                />
               </div>
 
               <div data-name="value" className={style.label}>
@@ -520,7 +527,11 @@ class MoocHeader extends React.Component {
               aria-label={user.stats.badge['aria-label']}
             >
               <div>
-                <FontAwesomeIcon icon="trophy" className={style.badge} style={{color: COLORS.neutral_400}} />
+                <FontAwesomeIcon
+                  icon="trophy"
+                  className={style.badge}
+                  style={{color: COLORS.neutral_400}}
+                />
               </div>
               <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
