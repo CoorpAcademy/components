@@ -6,9 +6,6 @@ import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
-  NovaCompositionCoorpacademyRoundedStar as StarIcon,
-  NovaCompositionCoorpacademyRankingStar as RankingStar,
-  NovaCompositionCoorpacademyTrophy as TrophyIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
   NovaCompositionCoorpacademyPlacesHome24 as HomeIcon,
   NovaSolidTimeAlarm as AlarmIcon
