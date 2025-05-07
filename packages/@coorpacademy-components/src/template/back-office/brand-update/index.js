@@ -409,7 +409,7 @@ BrandUpdate.propTypes = {
   popin: PropTypes.oneOfType([
     PropTypes.shape({
       ...CmPopin.propTypes,
-      theme: PropTypes.oneOf(['published', 'archived', 'deleted'])
+      theme: PropTypes.oneOf(['published', 'archived', 'deleted', 'draft'])
     }),
     PropTypes.shape({
       ...IconPickerModal.propTypes,
