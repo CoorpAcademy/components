@@ -7,8 +7,7 @@ import {
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
-  NovaCompositionCoorpacademyPlacesHome24 as HomeIcon,
-  NovaCompositionCoorpacademyBell as BellIcon
+  NovaCompositionCoorpacademyPlacesHome24 as HomeIcon
 } from '@coorpacademy/nova-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../../atom/provider';
