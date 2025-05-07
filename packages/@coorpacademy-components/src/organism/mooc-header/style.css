@@ -206,6 +206,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  gap: 8px;
 }
 
 .item.disabled {
@@ -287,16 +288,18 @@
   height: 100%;
 }
 .notification {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   margin: auto 16px auto 4px;
-  padding: 8px;
   position: relative;
   color: dark;
   box-sizing: border-box;
   border-radius: 8px;
   background-color: cm_grey_75;
   transition: all 0.5s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .notification:hover {
   background-color: cm_grey_100;
@@ -343,7 +346,7 @@
   text-decoration: none;
   background-color: negative_600;
   padding: 0 5px;
-  min-width: 8px;
+  min-width: 6px;
   text-align: center;
 }
 
@@ -372,12 +375,6 @@
   display: inline-block;
   line-height: 1;
   text-align: center;
-}
-
-.notifications:hover,
-.itemBadge:hover {
-  transform: scale(1.3);
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .stats {

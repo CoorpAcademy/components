@@ -22,10 +22,10 @@ export const COLORS = {
   red_100: '#FFD1D1',
   cm_turquoise_strong: '#1B7B88',
   yellow_500: '#FFCE0A',
-  neutral_75: " #F4F4F5",
-  neutral_400: " #9999A8",
-  neutral_500: "#515161",
-  negative_700: "#B81400"
+  neutral_75: ' #F4F4F5',
+  neutral_400: ' #9999A8',
+  neutral_500: '#515161',
+  negative_700: '#B81400'
 } as const;
 
 export type Colors = typeof COLORS;

@@ -8,7 +8,7 @@ import {
   NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
   NovaCompositionCoorpacademyPlacesHome24 as HomeIcon,
-  NovaSolidTimeAlarm as AlarmIcon
+  NovaCompositionCoorpacademyBell as BellIcon
 } from '@coorpacademy/nova-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../../atom/provider';
@@ -333,7 +333,7 @@ class MoocHeader extends React.Component {
               )}
               aria-label={pageCountAriaLabel}
             >
-              <span className={style.counter}>{item.counter > 99 ? "99+" : item.counter}</span>
+              <span className={style.counter}>{item.counter > 99 ? '99+' : item.counter}</span>
             </Link>
           ) : null;
 
@@ -463,7 +463,7 @@ class MoocHeader extends React.Component {
             data-name="user-notifications"
             className={style.notifications}
           >
-            {nbNotifications > 99 ? "99+" : nbNotifications}
+            {nbNotifications > 99 ? '99+' : nbNotifications}
           </Link>
         ) : null;
       const notificationPageView = (
@@ -473,9 +473,10 @@ class MoocHeader extends React.Component {
           href={user.notifications.href}
           aria-label={notificationsAriaLabel}
         >
-          <div>
-            <FontAwesomeIcon icon="bell" style={{color: COLORS.negative_700}}/>
-          </div>
+          <FontAwesomeIcon
+            icon="bell"
+            style={{color: nbNotifications > 0 ? COLORS.negative_700 : COLORS.neutral_500}}
+          />
           {notificationsView}
         </Link>
       );
