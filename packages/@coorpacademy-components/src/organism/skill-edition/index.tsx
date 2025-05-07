@@ -1,10 +1,10 @@
 import React from 'react';
 import {includes, isEmpty, keys, map} from 'lodash/fp';
-import {COLORS} from '../../../lib/variables/colors';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
+import {COLORS} from '../../variables/colors';
 import propTypes, {
   TranslationPropsType,
   SkillEditionPropsType,
