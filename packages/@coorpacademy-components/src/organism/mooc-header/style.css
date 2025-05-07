@@ -98,10 +98,11 @@
   cursor: pointer;
   color: dark;
   font-family: 'Gilroy';
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .items .currentOption {
@@ -109,7 +110,6 @@
 }
 
 .caret {
-  margin: 2px 0 0 15px;
   color: medium;
   width: 10px;
   height: 10px;

@@ -423,7 +423,8 @@ class MoocHeader extends React.Component {
               }}
             >
               {moreAriaLabel}
-              <ArrowDown
+              <FontAwesomeIcon
+                icon="chevron-down"
                 style={{color: mediumColor}}
                 className={style.caret}
                 aria-label={moreAriaLabel}
