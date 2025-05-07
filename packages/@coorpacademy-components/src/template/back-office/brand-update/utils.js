@@ -34,6 +34,12 @@ const ICON_PROPS = {
     iconColor: COLORS.red_700,
     backgroundColor: COLORS.red_100,
     preset: 'xl'
+  },
+  draft: {
+    iconName: 'circle-exclamation',
+    iconColor: COLORS.yellow_700,
+    backgroundColor: COLORS.yellow_100,
+    preset: 'xl'
   }
 };
 
@@ -57,6 +63,19 @@ export const POPIN_THEMES = {
         }
       },
       type: 'dangerous'
+    }
+  },
+  draft: {
+    icon: ICON_PROPS.draft,
+    actionButton: {
+      ...COMMUN_ACTION_BUTTON_PROPS,
+      icon: {
+        position: 'left',
+        faIcon: {
+          ...COMMUN_ACTION_BUTTON_PROPS.icon.faIcon,
+          name: 'floppy-disk'
+        }
+      }
     }
   }
 };
