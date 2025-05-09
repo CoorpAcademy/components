@@ -163,8 +163,8 @@
 }
 
 .skillFilterNumberInActive {
-  background-color: #EAEAEB;
-  color: #515161;
+  background-color: cm_grey_100;
+  color: cm_grey_500;
 }
 
 .searchWrapper {

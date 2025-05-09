@@ -109,7 +109,7 @@ const LearnerSkillCard = (props, context) => {
             displayInfo={false}
             max={MAX_SCORE}
             className={style.progressWrapper}
-            style={{backgroundColor: COLORS.positive}}
+            style={{backgroundColor: COLORS.cm_positive_500}}
           />
           <div className={style.progressInformation} data-name="completed-percentage">
             <span className={style.progressInformationNumber}>{score}%</span>

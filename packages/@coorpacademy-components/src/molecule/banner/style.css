@@ -116,6 +116,7 @@
 }
 
 .buttonsBar {
+    margin-right: 4px;
     width: 2px;
     align-self: stretch;
     flex-grow: 0;

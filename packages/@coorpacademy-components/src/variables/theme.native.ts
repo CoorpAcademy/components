@@ -95,7 +95,7 @@ const defaultTheme: Theme = {
     },
     cta: cm_primary_blue,
     negative: COLORS.negative,
-    positive: COLORS.positive,
+    positive: COLORS.cm_positive_500,
     white: '#FFFFFF',
     black: '#14171A',
     battle: '#FFDE03',
