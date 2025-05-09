@@ -104,7 +104,7 @@ const Icon: React.FC<IconProps> = ({
   );
 };
 
-export const propTypes = {
+Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
   iconColor: PropTypes.string,
   backgroundColor: PropTypes.string,
