@@ -1,4 +1,5 @@
 import LearningPrioritiesProps from '../../../../molecule/dashboard/cards-list/test/fixtures/learning-priority-card-list';
+import {COLORS} from '../../../../variables/colors';
 
 const skills = [
   'skillRef1',
@@ -13,11 +14,15 @@ const skills = [
 
 const selectedSkills = ['skillRef1', 'skillRef2', 'skillRef5'];
 
+export const BANANA_ICON_PROPS = {color: COLORS.cm_primary_blue, name: 'banana'};
+export const HOT_MUG_ICON_PROPS = {color: COLORS.cm_orange_800, name: 'mug-hot'};
+
 const skillsInformation = {
   skillRef1: {
     availableForReview: true,
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
-      score: 15.3,
+      score: 15.333333333,
       content: 120,
       contentCompleted: 12,
       questionsToReview: 123,
@@ -26,6 +31,7 @@ const skillsInformation = {
   },
   skillRef2: {
     availableForReview: true,
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 56.3,
       content: 120,
@@ -36,6 +42,7 @@ const skillsInformation = {
   },
   skillRef3: {
     availableForReview: true,
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 23.3,
       content: 120,
@@ -46,6 +53,7 @@ const skillsInformation = {
   },
   skillRef4: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 83.3,
       content: 120,
@@ -56,6 +64,7 @@ const skillsInformation = {
   },
   skillRef5: {
     availableForReview: true,
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 43.3,
       content: 120,
@@ -66,6 +75,7 @@ const skillsInformation = {
   },
   skillRef6: {
     availableForReview: true,
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -76,6 +86,7 @@ const skillsInformation = {
   },
   skillRef7: {
     availableForReview: true,
+    icon: HOT_MUG_ICON_PROPS,
     stats: {
       score: 63.33333333,
       content: 120,
@@ -86,6 +97,7 @@ const skillsInformation = {
   },
   skillRef8: {
     availableForReview: false,
+    icon: BANANA_ICON_PROPS,
     stats: {
       score: 63.3,
       content: 120,
@@ -98,13 +110,13 @@ const skillsInformation = {
 
 const skillsLocales = {
   skillRef1: 'Creativity and innovation',
-  skillRef2: 'Critical thinking and analysis',
+  skillRef2: 'Effective Communication, Team Collaboration & Strong Problem-Solving Mindset',
   skillRef3: 'Digital culture',
-  skillRef4: 'Digital dexterity',
+  skillRef4: 'Digital Adaptability and Resilience',
   skillRef5: 'Digital communication',
-  skillRef6: 'Active listening',
+  skillRef6: 'Effective Communication, Team Collaboration & Strong Problem-Solving Mindset',
   skillRef7: 'Active Watching',
-  skillRef8: 'Active Working'
+  skillRef8: 'Active Working and Continuous Improvement Process'
 };
 
 export const defaultProps = {
@@ -112,9 +124,8 @@ export const defaultProps = {
   selectedSkills,
   skillsInformation,
   skillsLocales,
-  isLoadng: false,
+  isLoading: false,
   onSkillFocusConfirm: () => console.log('confirm'),
-  onReviewSkill: () => console.log('review'),
   onExploreSkill: skillRef => console.log(skillRef),
   learningPriorities: {
     ...LearningPrioritiesProps.props,
