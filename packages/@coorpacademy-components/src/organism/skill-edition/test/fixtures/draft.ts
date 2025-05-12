@@ -1,7 +1,81 @@
-import ContentSkill from '../../../list-items/test/fixtures/content-skill';
-import ListItems from '../../../list-items/test/fixtures/translations';
 import {COLORS} from '../../../../variables/colors';
-import Default from './default';
+import {TranslationPropsType, ContentListItemType, ContentPropsType} from '../../types';
+import Default, {translationsEmptyProps, contentEmptyProps} from './default';
+
+const translationsProps: TranslationPropsType = {
+  ...translationsEmptyProps,
+  button: {
+    ...translationsEmptyProps.button,
+    disabled: false
+  },
+  emptyResult: undefined,
+  items: {
+    fr: {
+      title: '🇫🇷 French',
+      onEditClick: () => console.log('on edit click'),
+      onDeleteClick: () => console.log('on delete click')
+    }
+  }
+};
+
+const contentData: ContentListItemType[] = [
+  {
+    ref: 'content_1',
+    title: 'Content 1',
+    subtitle: 'Subtitle 1',
+    image:
+      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
+    tags: {label: 'Course', iconName: 'book-open'},
+    checkbox: {
+      checked: false,
+      onChange: (value: boolean) => {
+        console.log(value);
+      }
+    }
+  },
+  {
+    ref: 'content_2',
+    title: 'Content 2',
+    subtitle: 'Subtitle 2',
+    image:
+      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
+    tags: {label: '5’Learning', iconName: 'stopwatch'},
+    checkbox: {
+      checked: false,
+      onChange: (value: boolean) => {
+        console.log(value);
+      }
+    }
+  },
+  {
+    ref: 'content_3',
+    title: 'Content 3',
+    subtitle: 'Subtitle 3',
+    image:
+      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
+    tags: {label: 'Video', iconName: 'circle-play'},
+    checkbox: {
+      checked: true,
+      onChange: (value: boolean) => {
+        console.log(value);
+      }
+    }
+  }
+];
+
+const contentProps: ContentPropsType = {
+  ...contentEmptyProps,
+  list: {
+    ...contentEmptyProps.list,
+    emptyResult: undefined,
+    items: contentData,
+    checkbox: {
+      title: '1 item selected',
+      checked: false,
+      onChange: (value: boolean) => console.log(value)
+    }
+  }
+};
 
 export default {
   props: {
@@ -36,10 +110,7 @@ export default {
         }
       }
     },
-    translations: ListItems.props,
-    content: {
-      title: Default.props.content.title,
-      listContent: ContentSkill.props
-    }
+    translations: translationsProps,
+    content: contentProps
   }
 };

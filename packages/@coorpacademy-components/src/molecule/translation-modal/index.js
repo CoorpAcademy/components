@@ -1,4 +1,4 @@
-import React, {useMemo, useCallback, useState} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import BaseModal from '../base-modal';
 import Provider from '../../atom/provider';
@@ -23,6 +23,7 @@ const TranslationModal = (props, context) => {
     onCancel,
     onConfirm,
     onClose,
+    disabled = false,
     source: {inputText: sourceInputText, textArea: sourceTextArea, inputLanguage},
     target: {inputText: targetInputText, textArea: targetTextArea, language: outputLanguage},
     readOnly = false
@@ -31,9 +32,6 @@ const TranslationModal = (props, context) => {
 
   const detectScrollbar = true;
 
-  const [inputValue, setInputValue] = useState(targetInputText?.value || '');
-  const [textAreaValue, setTextAreaValue] = useState(targetTextArea?.value || '');
-
   const handleCancel = useCallback(() => {
     onCancel();
   }, [onCancel]);
@@ -41,18 +39,6 @@ const TranslationModal = (props, context) => {
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
-
-  const handleInputChange = useCallback(e => {
-    setInputValue(e.target.value);
-  }, []);
-
-  const handleTextAreaChange = useCallback(e => {
-    setTextAreaValue(e.target.value);
-  }, []);
-
-  const isConfirmDisabled = useMemo(() => {
-    return !inputValue.trim() || !textAreaValue.trim();
-  }, [inputValue, textAreaValue]);
 
   const footer = useMemo(() => {
     const cancelButton = {
@@ -66,12 +52,12 @@ const TranslationModal = (props, context) => {
           onConfirm,
           label: translate('confirm'),
           iconName: 'plus',
-          disabled: isConfirmDisabled,
+          disabled,
           color: COLORS.cm_primary_blue
         }
       })
     };
-  }, [handleCancel, onConfirm, translate, isConfirmDisabled, readOnly]);
+  }, [handleCancel, onConfirm, translate, readOnly, disabled]);
 
   if (!isOpen) return null;
 
@@ -101,16 +87,8 @@ const TranslationModal = (props, context) => {
 
           {renderInputGroup({
             title: outputLanguage,
-            inputProps: {
-              ...targetInputText,
-              value: inputValue,
-              onChange: handleInputChange
-            },
-            textAreaProps: {
-              ...targetTextArea,
-              value: textAreaValue,
-              onChange: handleTextAreaChange
-            },
+            inputProps: targetInputText,
+            textAreaProps: targetTextArea,
             disabled: readOnly
           })}
         </div>
@@ -128,6 +106,7 @@ TranslationModal.propTypes = {
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   onClose: PropTypes.func,
+  disabled: PropTypes.bool,
   source: PropTypes.shape({
     inputText: PropTypes.shape({
       ...InputText.propTypes,
