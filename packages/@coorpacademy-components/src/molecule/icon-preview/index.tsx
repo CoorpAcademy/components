@@ -25,7 +25,9 @@ const IconPreview = (props: IconPreviewProps) => {
             }}
           />
         </div>
-        <div className={style.titleWrapper}>{title}</div>
+        <div className={style.titleWrapper} title={title}>
+          {title}
+        </div>
       </div>
     </div>
   );
