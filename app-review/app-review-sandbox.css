@@ -8913,7 +8913,6 @@ input:-webkit-autofill:active{
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  cursor: pointer;
   margin-top: 32px;
   width: auto;
 }
