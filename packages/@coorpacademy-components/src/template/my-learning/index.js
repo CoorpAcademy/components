@@ -17,7 +17,10 @@ import searchValueIncluded from '../../util/search-value-included';
 import {formatMinutes} from '../../util/time-format';
 import CardsList from '../../molecule/dashboard/cards-list';
 import Title from '../../atom/title';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
+
+const roundScore = value => Math.round(value * 10) / 10;
 
 const ChangeSkillFocusButton = (props, context) => {
   const {onClick} = props;
@@ -33,7 +36,7 @@ const ChangeSkillFocusButton = (props, context) => {
           transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
         }}
         hoverBackgroundColor={primarySkinColor}
-        hoverColor="#FFFFFF"
+        hoverColor={COLORS.white}
         onClick={onClick}
         label={translate('skills_change_focus')}
         data-name="change-skill-focus-button"
@@ -72,8 +75,8 @@ const FilterButton = (props, context) => {
         <span
           className={active ? style.skillFilterNumber : style.skillFilterNumberInActive}
           style={{
-            backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#EAEAEB',
-            color: active ? primarySkinColor : '#515161'
+            backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : COLORS.gray,
+            color: active ? primarySkinColor : COLORS.cm_grey_500
           }}
         >
           {skillTotal}
@@ -85,8 +88,8 @@ const FilterButton = (props, context) => {
 
   const buttonProps = {
     customStyle: {
-      backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : '#FFFFFF',
-      color: active ? primarySkinColor : '#9999A8',
+      backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : COLORS.white,
+      color: active ? primarySkinColor : COLORS.cm_grey_400,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
       width: 'fit-content'
     },
@@ -119,7 +122,6 @@ const MyLearning = (props, context) => {
     learnerFeature = true,
     isLoading,
     onSkillFocusConfirm,
-    onReviewSkill,
     onExploreSkill,
     learningPriorities
   } = props;
@@ -143,7 +145,7 @@ const MyLearning = (props, context) => {
   const graphDatas = useMemo(
     () =>
       pipe(
-        map(skill => [skill, getOr(0, [skill, 'stats', 'score'], skillsInformation).toFixed(1)]),
+        map(skill => [skill, roundScore(getOr(0, [skill, 'stats', 'score'], skillsInformation))]),
         fromPairs
       )(selectedSkillsList),
     [selectedSkillsList, skillsInformation]
@@ -202,19 +204,19 @@ const MyLearning = (props, context) => {
       title: translate('skill_chart_side_panel_content_completed'),
       value: `${coursedCompletedData}`,
       legend: skillChartPaneLegends,
-      icon: {iconName: 'book-open-cover', backgroundColor: '#D9F4F7'}
+      icon: {iconName: 'book-open-cover', backgroundColor: COLORS.turquoise_100}
     },
     {
       title: translate('skill_chart_side_panel_learning_hours'),
       value: formatMinutes(learningTimeData),
       legend: skillChartPaneLegends,
-      icon: {iconName: 'clock', backgroundColor: '#FAD6DE'}
+      icon: {iconName: 'clock', backgroundColor: COLORS.pink_100}
     },
     {
       title: translate('skill_chart_side_panel_questions_to_review'),
       value: `${questionsToReviewData}`,
       legend: skillChartPaneLegends,
-      icon: {iconName: 'circle-question', backgroundColor: '#FFDCD1'}
+      icon: {iconName: 'circle-question', backgroundColor: COLORS.orange_100}
     }
   ];
 
@@ -287,9 +289,9 @@ const MyLearning = (props, context) => {
                   subtitle: translate('learning_priorities_description'),
                   icon: {
                     iconName: 'sign-post',
-                    iconColor: '#A32700',
+                    iconColor: COLORS.cm_orange_800,
                     borderRadius: '12px',
-                    backgroundColor: '#FFDCD1'
+                    backgroundColor: COLORS.orange_100
                   },
                   tag: {
                     label: `${size(learningPriorities.cards)}`,
@@ -321,7 +323,7 @@ const MyLearning = (props, context) => {
                 <div className={style.skillFocusHeaderIcon}>
                   <Icon
                     iconName="bullseye-arrow"
-                    backgroundColor="#DDD1FF"
+                    backgroundColor={COLORS.purple_100}
                     borderRadius="12px"
                     size={{faSize: 20, wrapperSize: 48}}
                   />
@@ -407,7 +409,7 @@ const MyLearning = (props, context) => {
           <div className={style.skillListHeaderIcon}>
             <Icon
               iconName="dumbbell"
-              backgroundColor="#FFF9D1"
+              backgroundColor={COLORS.yellow_100}
               size={{faSize: 20, wrapperSize: 48}}
             />
           </div>
@@ -471,7 +473,7 @@ const MyLearning = (props, context) => {
           </div>
         ) : (
           <div className={style.skillListContainer}>
-            {activeFilter === 'review_mode_available' && filters[activeFilter].length === 0 ? (
+            {activeFilter === 'review' && filters[activeFilter].length === 0 ? (
               <div className={style.skillListEmptyContainer}>
                 <ReviewNoSkills
                   titleNoSkills={translate('review_skill_empty')}
@@ -489,31 +491,25 @@ const MyLearning = (props, context) => {
                   questionsToReview: 0
                 };
 
-                function handleReviewSkill() {
-                  onReviewSkill(skill);
-                }
                 function handleExploreSkill() {
                   onExploreSkill(skill);
                 }
                 const {score, content, questionsToReview} = skillsInformation[skill]
                   ? skillsInformation[skill].stats
                   : defaultStats;
+                const {color, name} = get([skill, 'icon'], skillsInformation);
                 return (
                   <div key={index}>
                     <LearnerSkillCard
                       skillTitle={skillsLocales[skill]}
+                      cardIndex={index}
                       focus={selectedSkills.includes(skill)}
                       metrics={{
-                        score: score.toFixed(1),
+                        score,
                         content,
                         questionsToReview
                       }}
-                      review={
-                        skillsInformation[skill]
-                          ? skillsInformation[skill].availableForReview
-                          : false
-                      }
-                      onReviewClick={handleReviewSkill}
+                      icon={{color, name}}
                       onExploreClick={handleExploreSkill}
                     />
                   </div>
@@ -551,7 +547,6 @@ MyLearning.propTypes = {
   learnerFeature: PropTypes.bool,
   isLoading: PropTypes.bool,
   onSkillFocusConfirm: PropTypes.func,
-  onReviewSkill: PropTypes.func,
   onExploreSkill: PropTypes.func,
   learningPriorities: PropTypes.shape(CardsList.propTypes)
 };
