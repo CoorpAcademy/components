@@ -6,7 +6,7 @@ import {toJSON} from './tools/fetch-responses';
 import {buildURL} from './tools';
 
 export const fetchSlide =
-  (locale: string | void) =>
+  (locale?: string) =>
   async (slideRef: string, token: string): Promise<SlideFromAPI | void> => {
     const {host}: JWT = decode(token);
     const url = buildURL(`${host}/api/v1/slides/${slideRef}/parentContentTitle`, locale);

@@ -5,10 +5,12 @@ import {toJSON} from './tools/fetch-responses';
 import {buildURL} from './tools';
 
 export const fetchSkill =
-  (locale: string | void) =>
+  (locale?: string) =>
   async (skillRef: string, token: string): Promise<Skill> => {
     const {host}: JWT = decode(token);
-    const url = buildURL(`${host}/api/v2/skills?conditions={"ref":"${skillRef}"}`, locale);
+    const url = buildURL(`${host}/api/v2/skills`, locale, {
+      conditions: JSON.stringify({ref: skillRef})
+    });
     const response = await crossFetch(url, {
       headers: {authorization: token}
     });

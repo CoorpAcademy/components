@@ -1,7 +1,18 @@
-export const buildURL = (url: string, locale: string | void): string => {
-  if (!locale) return url;
+export const buildURL = (
+  base: string,
+  locale?: string,
+  additionalParams: Record<string, string> = {}
+): string => {
+  const url = new URL(base);
 
-  const urlForTranslate = new URL(url);
-  urlForTranslate.searchParams.set('lang', locale);
-  return urlForTranslate.toString();
+  if (locale) {
+    url.searchParams.set('lang', locale);
+  }
+
+  // eslint-disable-next-line fp/no-loops
+  for (const [key, value] of Object.entries(additionalParams)) {
+    url.searchParams.set(key, value);
+  }
+
+  return url.toString();
 };

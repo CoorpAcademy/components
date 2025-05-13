@@ -6,7 +6,7 @@ import {toJSON} from './tools/fetch-responses';
 import {buildURL} from './tools';
 
 export const fetchSkills =
-  (locale: string | void) =>
+  (locale?: string) =>
   async (token: string): Promise<SkillToReview[]> => {
     const {user: userId, host}: JWT = decode(token);
     const url = buildURL(`${host}/api/v2/skills/review/user/${userId}`, locale);

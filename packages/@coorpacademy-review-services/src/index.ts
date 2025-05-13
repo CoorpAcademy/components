@@ -38,7 +38,7 @@ import {postAnswer} from './post-answer';
 import {postProgression, postSandboxProgression} from './post-progression';
 import {fetchSkill} from './fetch-skill';
 
-export const getServices = (locale: string | void): Services => ({
+export const getServices = (locale?: string): Services => ({
   fetchCorrection: fetchCorrection(locale),
   fetchRank,
   fetchSkill: fetchSkill(locale),

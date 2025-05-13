@@ -6,7 +6,7 @@ import {toJSON} from './tools/fetch-responses';
 import {buildURL} from './tools';
 
 export const postAnswer =
-  (locale: string | void) =>
+  (locale?: string) =>
   async (
     progression: ProgressionFromAPI,
     token: string,

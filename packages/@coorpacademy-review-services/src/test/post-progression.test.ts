@@ -11,6 +11,7 @@ const result: ProgressionFromAPI = {
     type: 'skill'
   },
   engine: {
+    version: '1',
     ref: 'review'
   },
   state: {
