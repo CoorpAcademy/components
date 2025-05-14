@@ -11,7 +11,7 @@
 }
 
 .button {
-  width: 100%;
+  width: auto;
   height: 40px;
   font-family: Gilroy;
   font-size: 14px;

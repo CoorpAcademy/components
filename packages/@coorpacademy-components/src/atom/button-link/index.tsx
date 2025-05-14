@@ -80,6 +80,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     useTitle = true
   } = props;
   const styleButton = classnames(
+    link && style.link,
     className,
     style.button,
     !label && style.iconButton,
@@ -88,7 +89,6 @@ const ButtonLink = (props: ButtonLinkProps) => {
     type === 'tertiary' && style.tertiary,
     type === 'text' && style.text,
     type === 'dangerous' && style.dangerous,
-    link && style.link,
     disabled && style.disabled
   );
 
@@ -143,8 +143,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
         {...(useTitle && {
           title: ariaLabel || label
         })}
-        style={customStyle}
         className={styleButton}
+        style={customStyle}
         data-name={dataName}
         data-testid={dataTestId}
         aria-label={ariaLabel || label}

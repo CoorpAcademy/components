@@ -251,11 +251,11 @@
   width: 100%;
 }
 
-.more {
+.tabletOnlyMoreMenu {
   composes: options;
 }
 
-.more:hover .optionsGroup {
+.tabletOnlyMoreMenu:hover .optionsGroup {
   display: block;
 }
 
@@ -606,6 +606,14 @@
   border-radius: 2px;
 }
 
+.desktopOnlyMoreMenu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media desktop {
   .item {
     padding: 0 11px;
@@ -862,5 +870,9 @@
   .open .settingsGroup,
   .open .settings {
     width: 100%;
+  }
+
+  .desktopOnlyMoreMenu {
+    display: none;
   }
 }
