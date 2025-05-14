@@ -275,6 +275,21 @@ class MoocHeader extends React.Component {
     }));
   };
 
+  createMenuButtons = (items, primaryColor) => {
+    return items.map(item => ({
+      label: item.title,
+      disabled: item.disabled,
+      type: 'defaultLeft',
+      link: {href: item.href},
+      'data-name': `item-more-${item.title}`,
+      customStyle: item.selected
+        ? {
+            color: primaryColor
+          }
+        : null
+    }));
+  };
+
   render() {
     if (isEmpty(this.props)) return null;
     const {
