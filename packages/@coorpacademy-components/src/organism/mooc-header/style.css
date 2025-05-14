@@ -92,23 +92,6 @@
   align-items: stretch;
 }
 
-.currentOption {
-  position: relative;
-  padding: 0 20px;
-  cursor: pointer;
-  color: dark;
-  font-family: 'Gilroy';
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.items .currentOption {
-  padding: 0 0 0 20px;
-}
-
 .caret {
   color: medium;
   width: 10px;
@@ -759,10 +742,6 @@
     height: 40px;
     width: 3px;
     display: inherit;
-  }
-
-  .items .currentOption {
-    display: none;
   }
 
   .items .optionsGroup {

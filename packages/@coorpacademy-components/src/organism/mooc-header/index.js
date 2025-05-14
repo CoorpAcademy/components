@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
-  NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
@@ -418,12 +417,6 @@ class MoocHeader extends React.Component {
           </Link>
         );
       });
-      const {hovered} = this.state;
-      const _hoverStyle = hovered
-        ? {
-            color: primaryColor
-          }
-        : null;
       pagesView = (
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
