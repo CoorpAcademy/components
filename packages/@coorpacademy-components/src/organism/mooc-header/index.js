@@ -130,8 +130,7 @@ class MoocHeader extends React.Component {
       isSettingsOpen: false,
       isMenuOpen: false,
       isFocus: false,
-      isToolTipOpen: false,
-      hovered: false
+      isToolTipOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -260,18 +259,6 @@ class MoocHeader extends React.Component {
       }));
     }
   }
-
-  handleMouseEnter = () => {
-    this.setState({
-      hovered: true
-    });
-  };
-
-  handleMouseLeave = () => {
-    this.setState({
-      hovered: false
-    });
-  };
 
   createMenuButtons = (items, primaryColor) => {
     return items.map(item => ({
