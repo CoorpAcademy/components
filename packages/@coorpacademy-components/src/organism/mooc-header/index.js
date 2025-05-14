@@ -438,6 +438,11 @@ class MoocHeader extends React.Component {
                 type="link"
                 primaryColor={primaryColor}
                 containerCustom={{alignItems: 'flex-start'}}
+                menuWrapper={{
+                  customStyle: {
+                    top: '30px'
+                  }
+                }}
                 menu={{
                   buttons: this.createMenuButtons(items.more, primaryColor)
                 }}
