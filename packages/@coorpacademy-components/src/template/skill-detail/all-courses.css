@@ -52,14 +52,6 @@
   margin-right: 16px;
 }
 
-.sortWrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: max-content;
-  color: cm_grey_500;
-}
-
 .filterWrapper {
   display: flex;
   gap: 12px;

@@ -2,7 +2,7 @@ import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get, filter, map, size, isNil, isEmpty, debounce} from 'lodash/fp';
 import Provider from '../../atom/provider';
-import Select, {SelectOptionPropTypes} from '../../atom/select';
+import {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLink from '../../atom/button-link';
 import SearchForm from '../../molecule/search-form';
 import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
@@ -93,7 +93,6 @@ const AllCourses = (
       onChange?: (value: string) => void;
       options?: unknown[];
     };
-    sorting?: unknown;
   },
   context: ProviderContext
 ) => {
@@ -101,7 +100,6 @@ const AllCourses = (
   const {
     content,
     filters,
-    sorting,
     totalContents,
     bannerMicrolearning = undefined,
     search: {oldValue: oldSearchValue, onChange: handleSearch}
@@ -114,13 +112,6 @@ const AllCourses = (
 
   const [showCompleted, setShowCompleted] = useState(true);
   const [searchValue, setSearchValue] = useState(oldSearchValue || '');
-
-  const sortView =
-    sorting !== undefined ? (
-      <div data-name="choice">
-        <Select {...sorting} aria-label="All courses sort" />
-      </div>
-    ) : null;
 
   const filteredContent = useMemo(() => {
     return showCompleted ? list : filter(course => course.progress < 1, list);
@@ -179,12 +170,6 @@ const AllCourses = (
             value={showCompleted}
             onChange={handleShowCompletedToggle}
           />
-          {sortView ? (
-            <div className={style.sortWrapper}>
-              {translate('sort_by')}
-              {sortView}
-            </div>
-          ) : null}
         </div>
       </div>
       {!isEmpty(bannerMicrolearning) ? (
@@ -269,7 +254,6 @@ AllCourses.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   bannerMicrolearning: PropTypes.shape({
     type: PropTypes.oneOf(['skill', 'playlist']),
     action: PropTypes.func,

@@ -97,7 +97,6 @@ interface SkillDetailProps {
     onChange?: () => void;
     options?: unknown[];
   };
-  sorting?: () => void;
   onBackClick?: () => void;
   onReviewClick?: () => void;
   onContinueLearningClick?: () => void;
@@ -119,7 +118,6 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
     ongoingCoursesAvailable,
     skillIncludedCourses,
     filters,
-    sorting,
     onBackClick,
     onReviewClick,
     onContinueLearningClick,
@@ -296,7 +294,6 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
         <AllCourses
           content={skillIncludedCourses}
           filters={filters}
-          sorting={sorting}
           totalContents={totalContents}
           bannerMicrolearning={
             bannerMicrolearning && bannerMicrolearningAction
@@ -340,7 +337,6 @@ SkillDetail.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
   }),
-  sorting: PropTypes.shape(Select.propTypes),
   onBackClick: PropTypes.func,
   onReviewClick: PropTypes.func,
   onContinueLearningClick: PropTypes.func,
