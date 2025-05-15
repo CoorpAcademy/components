@@ -54,7 +54,7 @@ props.items[2].tabs = [
         permissions: ['drafts'],
         selected: false,
         type: 'simpleTab',
-        status: '1'
+        status: '123'
       },
       {
         title: 'Archived',
@@ -63,7 +63,7 @@ props.items[2].tabs = [
         permissions: ['archived'],
         selected: false,
         type: 'simpleTab',
-        status: '3'
+        status: '39'
       }
     ]
   }
