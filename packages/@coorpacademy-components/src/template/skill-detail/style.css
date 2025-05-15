@@ -270,6 +270,11 @@
 
   .leftSide {
     border-radius: 16px;
+    padding: 16px 32px 32px 0px;
+  }
+
+  .backButton {
+    margin-bottom: 0;
   }
 
   .rightSide {
