@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
-  NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
   NovaCompositionCoorpacademyCog as CogIcon,
@@ -18,6 +17,7 @@ import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../atom/input-search';
 import SearchForm from '../../molecule/search-form';
+import ButtonMenuAction from '../../molecule/button-menu-action';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
@@ -130,8 +130,7 @@ class MoocHeader extends React.Component {
       isSettingsOpen: false,
       isMenuOpen: false,
       isFocus: false,
-      isToolTipOpen: false,
-      hovered: false
+      isToolTipOpen: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -261,16 +260,19 @@ class MoocHeader extends React.Component {
     }
   }
 
-  handleMouseEnter = () => {
-    this.setState({
-      hovered: true
-    });
-  };
-
-  handleMouseLeave = () => {
-    this.setState({
-      hovered: false
-    });
+  createMenuButtons = (items, primaryColor) => {
+    return items.map(item => ({
+      label: item.title,
+      disabled: item.disabled,
+      type: 'defaultLeft',
+      link: {href: item.href},
+      'data-name': `item-more-${item.title}`,
+      customStyle: item.selected
+        ? {
+            color: primaryColor
+          }
+        : null
+    }));
   };
 
   render() {
@@ -402,39 +404,32 @@ class MoocHeader extends React.Component {
           </Link>
         );
       });
-      const {hovered} = this.state;
-      const _hoverStyle = hovered
-        ? {
-            color: primaryColor
-          }
-        : null;
       pagesView = (
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
-          <div className={style.more}>
-            <div
-              className={style.currentOption}
-              aria-haspopup="true"
-              data-name="item-more"
-              onMouseEnter={this.handleMouseEnter}
-              onMouseLeave={this.handleMouseLeave}
-              style={{
-                ..._hoverStyle
-              }}
-            >
-              {moreAriaLabel}
-              <ArrowDown
-                style={{color: mediumColor}}
-                className={style.caret}
-                aria-label={moreAriaLabel}
+          {items.more ? (
+            <div className={style.desktopOnlyMoreMenu}>
+              <ButtonMenuAction
+                button={{
+                  label: moreAriaLabel,
+                  'aria-label': moreAriaLabel,
+                  'data-name': 'item-more'
+                }}
+                type="link"
+                primaryColor={primaryColor}
+                containerCustom={{alignItems: 'flex-start'}}
+                menuWrapper={{
+                  customStyle: {
+                    top: '30px'
+                  }
+                }}
+                menu={{
+                  buttons: this.createMenuButtons(items.more, primaryColor)
+                }}
               />
             </div>
-            <span
-              className={style.bar}
-              style={{
-                backgroundColor: primaryColor
-              }}
-            />
+          ) : null}
+          <div className={style.tabletOnlyMoreMenu}>
             <div className={style.optionsGroup}>{optionsView}</div>
           </div>
         </div>

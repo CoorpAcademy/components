@@ -85,7 +85,7 @@ export default {
         {
           title: 'Discussions',
           href: '#',
-          selected: false
+          selected: true
         },
         {
           title: 'FAQ',

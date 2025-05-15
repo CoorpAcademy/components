@@ -27,6 +27,6 @@ test('should handle mouse enter and leave events on item more', t => {
   const {container} = renderWithContext(<MoocHeader {...defaultFixture.props} />);
   const itemMoreDiv = container.querySelector(itemMoreSelector);
   t.truthy(itemMoreDiv);
-  fireEvent.mouseEnter(itemMoreDiv);
-  fireEvent.mouseLeave(itemMoreDiv);
+  fireEvent.click(itemMoreDiv);
+  fireEvent.click(itemMoreDiv);
 });

@@ -10,17 +10,22 @@ const ButtonMenuActionPropTypes = {
     customStyle: PropTypes.objectOf(
       PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
     )
-  })
+  }),
+  type: PropTypes.oneOf(['button', 'link']),
+  primaryColor: PropTypes.string
 };
 export default ButtonMenuActionPropTypes;
 
 export type ButtonMenuActionProps = {
   button: ButtonLinkProps;
   menu: ButtonMenuProps;
+  type?: 'button' | 'link';
   menuWrapper?: {
     ariaLabel?: string;
     customStyle?: Record<string, unknown>;
   };
+  containerCustom?: Record<string, unknown>;
+  primaryColor?: string;
 };
 
 export type ButtonMenuActionPropsFixture = {props: ButtonMenuActionProps};

@@ -5,7 +5,7 @@ export const buttonPropTypes = {
   'data-name': PropTypes.string,
   disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
   buttonLinkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   icon: PropTypes.shape({
