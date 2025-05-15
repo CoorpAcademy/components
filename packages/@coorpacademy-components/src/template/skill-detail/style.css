@@ -187,6 +187,12 @@
 }
 
 @media tablet {
+
+
+  .container {
+    margin: 16px auto;
+  }
+
   .topSection {
     flex-direction: row;
     align-items: flex-start;
@@ -205,6 +211,7 @@
   .progressContainer {
     width: 100%;
   }
+
   .progressBarRow {
     width: 100%;
   }
@@ -279,6 +286,11 @@
 
 
 @media mobile {
+
+  .container {
+    margin: 16px auto;
+  }
+
   .topSection {
     flex-direction: row;
     align-items: center; 
