@@ -206,7 +206,7 @@
   }
 
   .leftSide {
-    width: 342px;
+    width: 343px;
     height: 228px;
     display: flex;
     flex-direction: column;
@@ -265,12 +265,11 @@
   .topSection {
     flex-direction: row;
     align-items: center; 
+    gap: 16px;
   }
 
   .leftSide {
-    width: 343px;
     border-radius: 16px;
-    padding: 4px 32px 32px 0px;
   }
 
   .rightSide {
