@@ -113,7 +113,9 @@ const buildHeader = header => {
       {header.type === 'header-with-actions' ? (
         <HeaderWithActions {...header} />
       ) : (
-        <Header {...header} />
+        <div className={style.headerStickyDefault}>
+          <Header {...header} />
+        </div>
       )}
     </div>
   );
@@ -407,7 +409,7 @@ BrandUpdate.propTypes = {
   popin: PropTypes.oneOfType([
     PropTypes.shape({
       ...CmPopin.propTypes,
-      theme: PropTypes.oneOf(['published', 'archived', 'deleted'])
+      theme: PropTypes.oneOf(['published', 'archived', 'deleted', 'draft'])
     }),
     PropTypes.shape({
       ...IconPickerModal.propTypes,
