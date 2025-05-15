@@ -300,6 +300,7 @@
   .leftSide {
     border-radius: 16px;
     padding: 16px 32px 32px 0px;
+    height: 244px;
   }
 
   .backButton {
