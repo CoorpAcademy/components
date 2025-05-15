@@ -12,7 +12,7 @@
 @value cm_primary_blue from colors;
 
 .defaultStyle {
-  width: 100%;
+  width: fit-content;
   height: 100%;
   opacity: 0.5;
   border-radius: 50%;

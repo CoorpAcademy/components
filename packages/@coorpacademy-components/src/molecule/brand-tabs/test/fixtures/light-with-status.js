@@ -5,7 +5,7 @@ export default {
         title: 'General Settings',
         href: '#brand/samsung/settings',
         selected: true,
-        status: '3'
+        status: '32'
       },
       {
         title: 'Look & Feel',
@@ -23,7 +23,7 @@ export default {
         title: 'Manage users',
         href: '#brand/samsung/users',
         selected: false,
-        status: '3'
+        status: '300'
       },
       {
         title: 'Upload users',
@@ -41,7 +41,7 @@ export default {
         title: 'Cohort',
         href: '#brand/samsung/cohort',
         selected: false,
-        status: '0'
+        status: '20'
       }
     ],
     type: 'light'
