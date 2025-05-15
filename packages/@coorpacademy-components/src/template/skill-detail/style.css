@@ -121,6 +121,9 @@
   flex: 1 0 0;
   align-self: stretch;
   color: cm_grey_400;
+  display: block;
+  white-space: nowrap;
+  height: 100%;
 }
 
 .truncate {
@@ -129,6 +132,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: 40px;
 }
 
 .skillInformation {
@@ -240,10 +244,23 @@
     font-size: 16px;
     text-align: left;
     /* margin-bottom: 12px; */
-    line-height: 20px;
+    /* line-height: 20px; */
     max-width: 100%;
-    min-height: 40px;
   }
+
+
+/* .description {
+  max-width: 620px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: cm_grey_400;
+  display: block;
+  white-space: nowrap;
+  height: 100%;
+} */
 
   .ctaWrapper {
     flex-direction: row;
