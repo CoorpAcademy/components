@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import {
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
-  NovaCompositionCoorpacademyCog as CogIcon,
   NovaCompositionCoorpacademyPlacesHome24 as HomeIcon
 } from '@coorpacademy/nova-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -100,6 +99,7 @@ class MoocHeader extends React.Component {
         type: PropTypes.oneOf(['select', 'switch', 'link']),
         color: PropTypes.string,
         'aria-label': PropTypes.string,
+        icon: PropTypes.node,
         options: PropTypes.shape({
           href: PropTypes.string,
           onChange: PropTypes.func,
@@ -325,7 +325,6 @@ class MoocHeader extends React.Component {
     const moreAriaLabel = translate('More');
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
-    const darkColor = get('common.dark', skin);
 
     if (items) {
       const displayedPages = items.displayed.map((item, index) => {
@@ -546,19 +545,7 @@ class MoocHeader extends React.Component {
               <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
           </div>
-          <div className={style.avatarWrapper}>
-            {notificationPageView}
-            <div className={style.avatar} data-name="user-avatar">
-              <Link
-                href={user.href}
-                className={style.userLink}
-                onClick={this.handleLinkClick}
-                aria-label={user['picture-aria-label']}
-              >
-                <Picture src={user.picture} alt={user.profileAvatarAlt} />
-              </Link>
-            </div>
-          </div>
+          <div className={style.avatarWrapper}>{notificationPageView}</div>
         </div>
       );
     }
@@ -573,13 +560,15 @@ class MoocHeader extends React.Component {
           name: settingName = index,
           color,
           hoverColor,
-          'aria-label': ariaLabel
+          'aria-label': ariaLabel,
+          icon
         } = setting;
 
         switch (type) {
           case 'link': {
             settingView = (
               <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
+                {icon ? <span style={{marginRight: 8}}>{icon}</span> : null}
                 <Link
                   className={style.link}
                   href={options.href}
@@ -610,6 +599,7 @@ class MoocHeader extends React.Component {
                 className={classnames(style.setting, style.selectBoxes)}
                 key={settingName}
               >
+                {icon ? <span style={{marginRight: 8}}>{icon}</span> : null}
                 <span className={style.label}>{title}</span>
                 <Select {...selectProps} aria-label={ariaLabel || title} />
               </div>
@@ -629,6 +619,7 @@ class MoocHeader extends React.Component {
                 key={settingName}
                 aria-label={ariaLabel || title}
               >
+                {icon ? <span style={{marginRight: 8}}>{icon}</span> : null}
                 <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
                 <span id={`title-id-${settingName}`} className={style.label}>
                   {title}
@@ -644,14 +635,24 @@ class MoocHeader extends React.Component {
 
       settingsView = (
         <div className={style.settings} ref={this.setMenuSettings}>
-          <CogIcon
-            data-name="settings-toggle"
-            style={{color: darkColor}}
-            className={style.settingsToggle}
-            onClick={this.handleSettingsToggle}
-            aria-expanded={isSettingsOpen}
-            aria-label={settingsAriaLabel}
-          />
+          <div
+            className={classnames(style.userAvatarWrapper, isSettingsOpen && style.userAvatarOpen)}
+          >
+            <Link
+              className={classnames(style.userLinkAvatar)}
+              onClick={this.handleSettingsToggle}
+              aria-expanded={isSettingsOpen}
+              aria-label={settingsAriaLabel}
+              aria-haspopup="true"
+              role="button"
+            >
+              <Picture
+                className={style.avatar}
+                src={user && user.picture}
+                alt={user && user.profileAvatarAlt}
+              />
+            </Link>
+          </div>
           <div className={isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
             <div
               data-name="settings"

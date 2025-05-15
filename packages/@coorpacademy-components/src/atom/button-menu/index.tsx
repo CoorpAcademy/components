@@ -3,6 +3,8 @@ import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import {noop} from 'lodash/fp';
 import ButtonLink from '../button-link';
+import Select from '../select';
+import InputSwitch from '../input-switch';
 import style from './style.css';
 import propTypes, {ButtonMenuProps, ButtonProps, buttonPropTypes} from './types';
 import {DEFAULT_ICON_STYLE, THEMES} from './utils';
@@ -37,8 +39,11 @@ const Button = (props: ButtonProps) => {
     buttonLinkType,
     icon,
     customStyle = {},
+    selectProps,
+    switchProps,
     ...rest
   } = props;
+
   const styleButton = classnames(
     style.button,
     type === 'default' && style.defaultStyle,
@@ -47,7 +52,33 @@ const Button = (props: ButtonProps) => {
     type === 'dangerousLeft' && style.dangerousLeft,
     disabled && style.disabled
   );
+
   const handleOnClick = useCallback(() => onClick(), [onClick]);
+
+  if (type === 'select' && selectProps) {
+    return (
+      <div className={style.setting}>
+        <span className={style.label}>{selectProps.title}</span>
+        <Select {...selectProps} aria-label={label} />
+      </div>
+    );
+  }
+
+  if (type === 'switch' && switchProps) {
+    return (
+      <div className={style.setting} aria-label={label}>
+        <InputSwitch
+          {...switchProps}
+          aria-labelledby={`title-id-${dataName}`}
+          titlePosition="right"
+          theme="coorpmanager"
+        />
+        <span id={`title-id-${dataName}`} className={style.label}>
+          {label}
+        </span>
+      </div>
+    );
+  }
 
   const buttonLinkProps = {
     ...rest,
