@@ -19,7 +19,11 @@
 @value warning_700 from colors;
 @value red_200 from colors;
 @value negative_600 from colors;
-@vlue cm_negative_200 from colors;
+@value cm_negative_200 from colors;
+@value cm_grey_700 from colors;
+@value cm_negative_300 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 
 .wrapper {
   min-height: 60px;
@@ -463,7 +467,7 @@
 }
 
 .settingsGroup {
-  padding: 12px;
+  padding: 12px 0px 12px 0px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -473,39 +477,35 @@
   height: 40px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: start;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 0px 12px;
+  margin: 0px 12px;
+  color: cm_grey_700;
+}
+
+.setting:hover:not(.setting:last-child) {
+  background-color: cm_grey_100;
 }
 
 .setting:last-child {
-  font-family: 'Gilroy';
-  font-size: 13px;
-  font-weight: 600;
-  color: medium;
-  height: 40px;
+  color: cm_negative_300;
+  padding: 10px 0px 0px 0px;
   border-top: 1px solid light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  padding: 0 30px;
-  cursor: pointer;
 }
 
-.setting:last-child:hover {
-  color: dark;
+.setting:last-child .settingLink {
+  color: cm_negative_300;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0px 12px;
 }
 
-.languageSelect {
-  width: 98%;
-  height: 30px;
-}
-
-.selectBoxes {
-  flex-direction: column;
-  height: 60px;
-  align-items: baseline;
-  margin-top: 15px;
-  margin-bottom: 10px;
+.setting:last-child:hover .settingLink {
+  background-color: negative_100;
 }
 
 .setting .label {
@@ -519,12 +519,49 @@
   margin-right: 10px;
 }
 
-.setting .link {
+.settingLink {
   font-family: 'Gilroy';
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
-  color: dark;
   text-decoration: none;
+  line-height: 20px;
+  color: cm_grey_700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+
+.setting.disabled :hover{
+  background-color: white;
+}
+
+.linkIcon {
+  width: 14px;
+  height: 14px;
+  color: inherit;
+}
+
+.setting:last-child .linkIcon {
+  color: cm_negative_200;
+}
+
+.languageSelect {
+  width: 98%;
+  height: 30px;
+}
+
+.selectBoxes {
+  flex-direction: column;
+  height: 60px;
+  align-items: baseline;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .homeIcon {

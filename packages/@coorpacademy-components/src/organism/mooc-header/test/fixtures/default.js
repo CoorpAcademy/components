@@ -121,7 +121,6 @@ export default {
         title: 'Language',
         type: 'select',
         'aria-label': 'select language',
-        icon: '🌐',
         options: {
           onChange: value => console.log(value),
           values: [
@@ -144,6 +143,16 @@ export default {
         }
       },
       {
+        title: 'My account',
+        'aria-label': 'logout',
+        type: 'link',
+        disabled: true,
+        icon: 'user',
+        options: {
+          href: 'https://google.fr'
+        }
+      },
+      {
         title: 'Godmode',
         type: 'switch',
         'aria-label': 'activate godmode',
@@ -158,18 +167,17 @@ export default {
         type: 'switch',
         icon: 'forward',
         'aria-label': 'activate fast slides',
+        disabled: true,
         options: {
           onChange: value => console.log(value),
           value: false
         }
       },
       {
-        title: 'Se déconnecter',
+        title: 'Log out',
         'aria-label': 'logout',
-        type: 'link',
-        color: '#f73f52',
-        hoverColor: '#C51023',
-        icon: '🚪',
+        type: 'danger-link',
+        icon: 'power-off',
         options: {
           href: 'https://google.fr'
         }

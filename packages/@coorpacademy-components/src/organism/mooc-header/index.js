@@ -558,28 +558,31 @@ class MoocHeader extends React.Component {
           type,
           title,
           name: settingName = index,
-          color,
-          hoverColor,
           'aria-label': ariaLabel,
-          icon
+          icon,
+          disabled = false
         } = setting;
 
         switch (type) {
-          case 'link': {
+          case 'link':
+          case 'danger-link': {
+            const iconView = icon ? (
+              <FontAwesomeIcon icon={icon} className={style.linkIcon} />
+            ) : null;
             settingView = (
-              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
+              <div
+                data-name={`setting-${settingName}`}
+                className={classnames(style.setting, disabled && style.disabled)}
+                key={settingName}
+              >
                 <Link
-                  className={style.link}
+                  className={style.settingLink}
                   href={options.href}
-                  hoverColor={hoverColor}
-                  icon={icon}
                   onClick={this.handleLinkClick}
                   target={options.target || null}
                   aria-label={ariaLabel || title}
-                  style={{
-                    color
-                  }}
                 >
+                  {iconView}
                   {title}
                 </Link>
               </div>
@@ -618,7 +621,7 @@ class MoocHeader extends React.Component {
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
-                className={style.setting}
+                className={classnames(style.setting, disabled && style.disabled)}
                 key={settingName}
                 aria-label={ariaLabel || title}
               >
