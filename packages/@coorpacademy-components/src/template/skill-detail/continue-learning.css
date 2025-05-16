@@ -1,3 +1,8 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_grey_500 from colors;
+
+
 .continueLearningTitle {
   font-size: 16px;
   font-weight: 600;
@@ -6,8 +11,8 @@
 
 .continueLearningNumber {
   border-radius: 50%;
-  background-color: #EAEAEB;
-  color: #515161;
+  background-color: cm_grey_100;
+  color: cm_grey_500;
   padding: 2px 4px;
   margin-left: 8px;
   font-size: 10px;

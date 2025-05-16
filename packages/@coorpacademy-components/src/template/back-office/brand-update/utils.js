@@ -20,7 +20,7 @@ const ICON_PROPS = {
   published: {
     iconName: 'cloud-arrow-up',
     iconColor: COLORS.cm_grey_500,
-    backgroundColor: COLORS.gray,
+    backgroundColor: COLORS.cm_grey_100,
     preset: 'xl'
   },
   archived: {

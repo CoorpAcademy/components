@@ -64,15 +64,13 @@ export default {
           faIcon: {
             name: 'trash',
             color: COLORS.cm_grey_700,
-            size: 14,
-            customStyle: {padding: 0}
+            size: 14
           }
         },
         customStyle: {
           fontWeight: '600',
           borderRadius: '12px',
-          width: 'auto',
-          paddingRight: '8px'
+          width: 'auto'
         }
       }
     ]

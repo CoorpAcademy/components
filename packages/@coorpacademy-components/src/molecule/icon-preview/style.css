@@ -7,7 +7,6 @@
 
 .iconPreview {
     display: flex;
-    padding: 72px 48px 64px 48px;
     flex-direction: column;
     text-align: center; 
     align-items: center;

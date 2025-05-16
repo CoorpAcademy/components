@@ -16,5 +16,9 @@
     "esModuleInterop": true,
     "strict": true,
     "noErrorTruncation": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.stories.tsx"
+  ]
 }

@@ -20,6 +20,7 @@
   text-align: center;
   line-height: normal;
   display: inline-block;
+  min-width: max-content;
 }
 
 .small {

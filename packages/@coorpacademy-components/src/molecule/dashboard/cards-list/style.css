@@ -108,6 +108,7 @@
 .arrow {
   background-color: cm_grey_75;
   border-radius: 8px;
+  padding: 6px 11px;
   cursor: pointer;
   user-select: none;
 }
