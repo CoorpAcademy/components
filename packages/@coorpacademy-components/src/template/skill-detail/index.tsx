@@ -11,7 +11,7 @@ import IconPreview from '../../molecule/icon-preview';
 import ButtonLink from '../../atom/button-link';
 import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
 import {COLORS} from '../../variables/colors';
-import Select, {SelectOptionPropTypes} from '../../atom/select';
+import {SelectOptionPropTypes} from '../../atom/select';
 import AllCourses from './all-courses';
 import style from './style.css';
 

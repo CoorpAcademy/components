@@ -71,10 +71,6 @@ FilterButton.propTypes = {
 
 const AllCourses = (
   props: {
-    dataName?: string;
-    ariaLabel?: string;
-    selected?: boolean;
-    label?: string;
     content: {
       list: CardsGridProps['list'];
       loading?: boolean;
