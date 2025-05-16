@@ -121,6 +121,7 @@ export default {
         title: 'Language',
         type: 'select',
         'aria-label': 'select language',
+        icon: '🌐',
         options: {
           onChange: value => console.log(value),
           values: [
@@ -146,6 +147,7 @@ export default {
         title: 'Godmode',
         type: 'switch',
         'aria-label': 'activate godmode',
+        icon: 'infinity',
         options: {
           onChange: value => console.log(value),
           value: true
@@ -154,6 +156,7 @@ export default {
       {
         title: 'Fast slides',
         type: 'switch',
+        icon: 'forward',
         'aria-label': 'activate fast slides',
         options: {
           onChange: value => console.log(value),
@@ -166,6 +169,7 @@ export default {
         type: 'link',
         color: '#f73f52',
         hoverColor: '#C51023',
+        icon: '🚪',
         options: {
           href: 'https://google.fr'
         }

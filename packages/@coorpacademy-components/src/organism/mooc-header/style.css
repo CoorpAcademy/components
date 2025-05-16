@@ -448,8 +448,8 @@
 
 .settingsWrapper {
   position: absolute;
-  top: 75px;
-  right: 0;
+  top: 54px;
+  right: 20px;
   width: 284px;
   border-radius: 12px;
   border: 1px solid light;
@@ -462,34 +462,11 @@
   display: none;
 }
 
-.settingsWrapper::after,
-.settingsWrapper::before {
-  bottom: 100%;
-  right: 20px;
-  border: solid transparent;
-  content: ' ';
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-
-.settingsWrapper::after {
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: white;
-  border-width: 10px;
-  margin-right: -10px;
-}
-
-.settingsWrapper::before {
-  border-color: rgba(220, 224, 224, 0);
-  border-bottom-color: light;
-  border-width: 11px;
-  margin-right: -11px;
-}
-
 .settingsGroup {
-  padding: 20px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .setting {

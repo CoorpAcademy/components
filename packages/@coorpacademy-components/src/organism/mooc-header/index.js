@@ -99,7 +99,7 @@ class MoocHeader extends React.Component {
         type: PropTypes.oneOf(['select', 'switch', 'link']),
         color: PropTypes.string,
         'aria-label': PropTypes.string,
-        icon: PropTypes.node,
+        icon: PropTypes.string,
         options: PropTypes.shape({
           href: PropTypes.string,
           onChange: PropTypes.func,
@@ -568,11 +568,11 @@ class MoocHeader extends React.Component {
           case 'link': {
             settingView = (
               <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
-                {icon ? <span style={{marginRight: 8}}>{icon}</span> : null}
                 <Link
                   className={style.link}
                   href={options.href}
                   hoverColor={hoverColor}
+                  icon={icon}
                   onClick={this.handleLinkClick}
                   target={options.target || null}
                   aria-label={ariaLabel || title}
@@ -599,7 +599,6 @@ class MoocHeader extends React.Component {
                 className={classnames(style.setting, style.selectBoxes)}
                 key={settingName}
               >
-                {icon ? <span style={{marginRight: 8}}>{icon}</span> : null}
                 <span className={style.label}>{title}</span>
                 <Select {...selectProps} aria-label={ariaLabel || title} />
               </div>
@@ -611,7 +610,11 @@ class MoocHeader extends React.Component {
             switchProps.value = options.value;
             switchProps.id = `input-switch-${index}`;
             switchProps.onChange = options.onChange;
-
+            switchProps.titlePosition = 'left';
+            switchProps.theme = 'newMooc';
+            switchProps.type = 'switch';
+            switchProps.title = title;
+            switchProps.icon = icon;
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
@@ -619,11 +622,7 @@ class MoocHeader extends React.Component {
                 key={settingName}
                 aria-label={ariaLabel || title}
               >
-                {icon ? <span style={{marginRight: 8}}>{icon}</span> : null}
                 <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
-                <span id={`title-id-${settingName}`} className={style.label}>
-                  {title}
-                </span>
               </div>
             );
             break;
