@@ -44,8 +44,10 @@
 }
 
 .leftSide {
-  width: 420px;
-  height: 280px;
+  max-width: 420px;
+  max-height: 280px;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -217,8 +219,10 @@
   }
 
   .leftSide {
-    width: 343px;
-    height: 228px;
+    max-width: 343px;
+    max-height: 228px;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -229,7 +233,6 @@
   }
 
   .rightSide {
-    max-width: 100%;
     width: 100%;
     height: auto;
     display: flex;
@@ -300,7 +303,8 @@
   .leftSide {
     border-radius: 16px;
     padding: 16px 32px 32px 0px;
-    height: 244px;
+    height: 100%;
+    width: 100%;
   }
 
   .backButton {
