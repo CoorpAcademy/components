@@ -4,14 +4,30 @@ import {createGradientBackground} from '../../util/get-background-gradient-color
 import propTypes, {IconPreviewProps} from './types';
 import style from './style.css';
 
-const IconPreview = (props: IconPreviewProps) => {
-  const {icon, title} = props;
+const DEFAULT_GAP = '32px';
+type IconPreviewCustomProps = IconPreviewProps & {
+  customStyle?: React.CSSProperties;
+};
+
+const IconPreview = (props: IconPreviewCustomProps) => {
+  const {icon, title, customStyle = {}} = props;
+
+  // explicit disable to override only if customStyle is provided otherwise merged in style.
+  // eslint-disable-next-line @coorpacademy/coorpacademy/no-overwriting-spread
+  const mergedStyle = {
+    gap: DEFAULT_GAP,
+    padding: '72px 48px 64px 48px',
+    ...customStyle
+  };
+
   return (
     <div
       className={style.iconPreviewWrapper}
-      style={{background: createGradientBackground(icon.color, '93%', '100%')}}
+      style={{
+        background: createGradientBackground(icon.color, '93%', '100%')
+      }}
     >
-      <div className={style.iconPreview}>
+      <div className={style.iconPreview} style={mergedStyle}>
         <div className={style.iconWrapper}>
           <FaIcon
             {...{

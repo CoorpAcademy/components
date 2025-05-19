@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
+@value cm_grey_500 from colors;
 
 .LearningPriorityContainer {
   height: 485px;
@@ -52,8 +53,8 @@
 }
 
 .skillFilterNumberInActive {
-  background-color: #EAEAEB;
-  color: #515161;
+  background-color: cm_grey_100;
+  color: cm_grey_500;
 }
 
 .priorityListWrapper {

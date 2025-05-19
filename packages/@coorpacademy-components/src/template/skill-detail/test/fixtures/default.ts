@@ -10,6 +10,7 @@ export const defaultProps = {
  - The user experience 
  - Connected point of sale
 `,
+  icon: {color: '#AC8E4F', name: 'circle'},
   metrics: {
     score: 60.73738,
     totalContents: 10,
@@ -37,7 +38,7 @@ export const defaultProps = {
         selected: false
       }
     ],
-    onChange: value => console.log(value)
+    onChange: (value: string) => console.log(value)
   },
   sorting: {
     theme: 'skillDetail',
@@ -58,7 +59,7 @@ export const defaultProps = {
         selected: false
       }
     ],
-    onChange: value => console.log(value)
+    onChange: (value: string) => console.log(value)
   },
   onBackClick: () => console.log('Back clicked'),
   onReviewClick: () => console.log('Review clicked'),

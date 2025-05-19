@@ -88,7 +88,7 @@ const ListItem = (
     <div
       className={classnames(
         style.wrapper,
-        isBulkStyle && style.gridLayout,
+        isBulkStyle ? style.gridLayout : style.flexLayout,
         subtitle && style.withSubtitle,
         disabled && style.disabled,
         onClick !== noop && !disabled && style.cursorPointer,
@@ -102,10 +102,10 @@ const ListItem = (
         className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}
       >
         {isPublished && contentType === 'certification' ? orderView : null}
-        <div className={style.leftSection}>
-          {checkable ? <CheckboxWithTitle {...checkbox} /> : null}
-          {leftIcon && !image ? (
-            <div>
+        {leftIcon || image || checkable ? (
+          <div className={style.leftSection}>
+            {checkable ? <CheckboxWithTitle {...checkbox} /> : null}
+            {leftIcon && !image ? (
               <FaIcon
                 iconName={leftIcon.iconName}
                 gradientBackground={leftIcon.gradientBackground || true}
@@ -113,14 +113,14 @@ const ListItem = (
                 preset={leftIcon.preset || 'xl'}
                 borderRadius={leftIcon.borderRadius || '25%'}
               />
-            </div>
-          ) : null}
-          {!leftIcon && image ? (
-            <div className={style.containerImage}>
-              <CardImagePreview image={image} />
-            </div>
-          ) : null}
-        </div>
+            ) : null}
+            {!leftIcon && image ? (
+              <div className={style.containerImage}>
+                <CardImagePreview image={image} />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
             <div className={style.title} title={title}>

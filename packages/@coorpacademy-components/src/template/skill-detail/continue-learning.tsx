@@ -2,11 +2,21 @@ import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, sortBy} from 'lodash/fp';
 import Provider from '../../atom/provider';
-import CardsGrid from '../../organism/cards-grid';
+import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
 import CardsList from '../../molecule/dashboard/cards-list';
 import style from './continue-learning.css';
 
-const ContinueLearning = (props, context) => {
+interface ProviderContext {
+  skin: {
+    common: {
+      primary: string;
+      secondary: string;
+    };
+  };
+  translate: (key: string, options?: any) => string;
+}
+
+const ContinueLearning = (props: {ongoingCourses: CardsGridProps}, context: ProviderContext) => {
   const {ongoingCourses} = props;
   const {translate} = context;
 
