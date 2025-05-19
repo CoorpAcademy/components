@@ -190,6 +190,7 @@
   align-items: center;
   text-decoration: none;
   gap: 8px;
+  white-space: nowrap;
 }
 
 .item.disabled {
