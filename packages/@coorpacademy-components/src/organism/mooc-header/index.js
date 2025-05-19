@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import {
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
-  NovaCompositionCoorpacademyCog as CogIcon,
   NovaCompositionCoorpacademyPlacesHome24 as HomeIcon
 } from '@coorpacademy/nova-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -101,6 +100,7 @@ class MoocHeader extends React.Component {
         type: PropTypes.oneOf(['select', 'switch', 'link']),
         color: PropTypes.string,
         'aria-label': PropTypes.string,
+        icon: PropTypes.string,
         options: PropTypes.shape({
           href: PropTypes.string,
           onChange: PropTypes.func,
@@ -308,7 +308,6 @@ class MoocHeader extends React.Component {
     const moreAriaLabel = translate('More');
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
-    const darkColor = get('common.dark', skin);
 
     if (items) {
       const displayedPages = items.displayed.map((item, index) => {
@@ -532,19 +531,7 @@ class MoocHeader extends React.Component {
               <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
           </div>
-          <div className={style.avatarWrapper}>
-            {notificationPageView}
-            <div className={style.avatar} data-name="user-avatar">
-              <Link
-                href={user.href}
-                className={style.userLink}
-                onClick={this.handleLinkClick}
-                aria-label={user['picture-aria-label']}
-              >
-                <Picture src={user.picture} alt={user.profileAvatarAlt} />
-              </Link>
-            </div>
-          </div>
+          <div className={style.avatarWrapper}>{notificationPageView}</div>
         </div>
       );
     }
@@ -557,26 +544,31 @@ class MoocHeader extends React.Component {
           type,
           title,
           name: settingName = index,
-          color,
-          hoverColor,
-          'aria-label': ariaLabel
+          'aria-label': ariaLabel,
+          icon,
+          disabled = false
         } = setting;
 
         switch (type) {
-          case 'link': {
+          case 'link':
+          case 'danger-link': {
+            const iconView = icon ? (
+              <FontAwesomeIcon icon={icon} className={style.linkIcon} />
+            ) : null;
             settingView = (
-              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
+              <div
+                data-name={`setting-${settingName}`}
+                className={classnames(style.setting, disabled && style.disabled)}
+                key={settingName}
+              >
                 <Link
-                  className={style.link}
+                  className={style.settingLink}
                   href={options.href}
-                  hoverColor={hoverColor}
                   onClick={this.handleLinkClick}
                   target={options.target || null}
                   aria-label={ariaLabel || title}
-                  style={{
-                    color
-                  }}
                 >
+                  {iconView}
                   {title}
                 </Link>
               </div>
@@ -607,18 +599,19 @@ class MoocHeader extends React.Component {
             switchProps.value = options.value;
             switchProps.id = `input-switch-${index}`;
             switchProps.onChange = options.onChange;
-
+            switchProps.titlePosition = 'left';
+            switchProps.theme = 'newMooc';
+            switchProps.type = 'switch';
+            switchProps.title = title;
+            switchProps.icon = icon;
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
-                className={style.setting}
+                className={classnames(style.setting, disabled && style.disabled)}
                 key={settingName}
                 aria-label={ariaLabel || title}
               >
                 <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
-                <span id={`title-id-${settingName}`} className={style.label}>
-                  {title}
-                </span>
               </div>
             );
             break;
@@ -630,14 +623,24 @@ class MoocHeader extends React.Component {
 
       settingsView = (
         <div className={style.settings} ref={this.setMenuSettings}>
-          <CogIcon
-            data-name="settings-toggle"
-            style={{color: darkColor}}
-            className={style.settingsToggle}
-            onClick={this.handleSettingsToggle}
-            aria-expanded={isSettingsOpen}
-            aria-label={settingsAriaLabel}
-          />
+          <div
+            className={classnames(style.userAvatarWrapper, isSettingsOpen && style.userAvatarOpen)}
+          >
+            <Link
+              className={classnames(style.userLinkAvatar)}
+              onClick={this.handleSettingsToggle}
+              aria-expanded={isSettingsOpen}
+              aria-label={settingsAriaLabel}
+              aria-haspopup="true"
+              role="button"
+            >
+              <Picture
+                className={style.avatar}
+                src={user && user.picture}
+                alt={user && user.profileAvatarAlt}
+              />
+            </Link>
+          </div>
           <div className={isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
             <div
               data-name="settings"
