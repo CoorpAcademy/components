@@ -1,4 +1,6 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
 @value orange from colors;
 @value medium from colors;
 @value white from colors;
@@ -9,6 +11,7 @@
 @value black from colors;
 @value cm_primary_blue from colors;
 @value light_blue from colors;
+@value cm_grey_700 from colors;
 
 .defaultStyle {
   display: flex;
@@ -207,4 +210,76 @@
   background-color: cm_primary_blue;
   border-color: cm_primary_blue;
   opacity: 0.4;
+}
+
+.newMooc {
+  composes: defaultStyle;
+  width: 100%;
+}
+
+.newMoocModified {
+  composes: modified;
+}
+
+.newMooc label, .newMoocModified label {
+  height: 24px;
+  border: solid 2px cm_grey_200;
+  margin-right: 16px;
+  background: cm_grey_200;
+}
+
+.newMooc label::after, .newMoocModified label::after {
+  top: 1px;
+  width: 22px;
+  height: 22px;
+}
+
+.newMooc span, .newMoocModified span {
+  font-family: Gilroy;
+  font-weight: bold;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: cm_grey_700;
+}
+
+.newMooc .checkbox:checked ~ label {
+  background: cm_primary_blue;
+  border-color: cm_primary_blue;
+}
+
+.newMooc .checkbox:disabled ~ label {
+  border-color: cm_grey_200;
+  pointer-events: none;
+  background: cm_grey_200;
+  opacity: 0.4;
+}
+
+.newMooc .checkbox:disabled ~ label::after {
+  background: white;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.titleContainer .title { 
+  width: 100%;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}
+
+@media tablet {
+  .icon {
+    display: none;
+  }
 }

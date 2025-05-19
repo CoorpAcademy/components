@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {noop, uniqueId} from 'lodash/fp';
+import {noop, uniqueId, getOr} from 'lodash/fp';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -20,17 +21,20 @@ const InputSwitch = props => {
     requiredSelection = false,
     'data-name': dataName,
     'aria-labelledby': ariaLabelledBy,
-    'aria-label': ariaLabel
+    'aria-label': ariaLabel,
+    icon
   } = props;
 
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
-
   const titleView = title ? (
-    <span id={`title-view-${dataName}`} className={style.title}>
-      {`${title} `}{' '}
-    </span>
+    <div className={icon ? style.titleContainer : null}>
+      {icon ? <FontAwesomeIcon icon={icon} className={style.icon}/> : null}
+      <span id={`title-view-${dataName}`} className={style.title}>
+        {title}
+      </span>
+    </div>
   ) : null;
 
   const descriptionView = description ? (
@@ -43,6 +47,11 @@ const InputSwitch = props => {
         return {
           defaultClass: style.coorpmanager,
           modifiedClass: style.coorpmanagerModified
+        };
+      case 'newMooc':
+        return {
+          defaultClass: style.newMooc,
+          modifiedClass: style.newMoocModified
         };
       case 'mooc':
         return {
@@ -104,9 +113,11 @@ InputSwitch.propTypes = {
   'aria-label': PropTypes.string,
   modified: PropTypes.bool,
   titlePosition: PropTypes.oneOf(['right', 'left']),
-  theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc', 'newMooc']),
   details: PropTypes.string,
   'data-name': PropTypes.string,
-  requiredSelection: PropTypes.bool
+  requiredSelection: PropTypes.bool,
+  icon: PropTypes.string, // nom FontAwesome, optionnel
+  skin: PropTypes.object // pour la couleur brand
 };
 export default InputSwitch;
