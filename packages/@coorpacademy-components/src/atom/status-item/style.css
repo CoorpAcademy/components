@@ -26,6 +26,8 @@
   align-items: center;
   transition: opacity 0.25s ease, font-size 0.25s ease, transform 0.25s ease, line-height 0.25s ease;
   user-select: none;
+  padding: 2px 4px;
+  border-radius: 999px; /*responsive pill*/
 }
 
 .current {
