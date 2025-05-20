@@ -26,7 +26,7 @@ export default {
     onSubmitSearch: () => console.log('onSubmitSearch'),
     onResetSearch: () => console.log('onResetSearch'),
     user: {
-      picture: 'https://scontent-mrs2-2.xx.fbcdn.net/v/t1.6435-1/120761227_1722332637949054_8571977201663070803_n.jpg?stp=cp0_dst-jpg_s80x80_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=0ZdRe3yT0RwQ7kNvwFSiHUv&_nc_oc=AdnYBkMDt2ioIej7NcYf6j50r3VPqg7SER4qFP7TC1PxncWJOif1eyUKvntfv7R6A8zk8tCkbRt6lXtNKnfH97L7&_nc_zt=24&_nc_ht=scontent-mrs2-2.xx&_nc_gid=DC2DI06smfYb1YJXPLK-OQ&oh=00_AfL-GI_R2CzdsTv_O8LUcxznnuZz8BDQBYEcwJwXLa5iyA&oe=684C066B',
+      picture: 'https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg',
       'picture-aria-label': 'My account',
       profileAvatarAlt: 'Your profile picture',
       notifications: {

@@ -554,11 +554,6 @@
   color: cm_negative_200;
 }
 
-.languageSelect {
-  width: 98%;
-  height: 30px;
-}
-
 .selectBoxes {
   flex-direction: column;
   height: auto;
@@ -810,10 +805,6 @@
     border-bottom: 1px solid light;
     flex-shrink: 0;
     flex-direction: column;
-  }
-
-  .links .link {
-    margin-bottom: 10px;
   }
 
   .user {
