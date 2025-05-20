@@ -4,6 +4,7 @@ import InputTextarea from '../../atom/input-textarea';
 import IconPreview from '../../molecule/icon-preview';
 import {SelectOptionPropTypes} from '../../atom/select';
 import {IconPreviewProps} from '../../molecule/icon-preview/types';
+import {ButtonLinkProps} from '../../atom/button-link/types';
 
 const FormPropTypes = {
   title: PropTypes.string,
@@ -206,6 +207,24 @@ export type ContentListItemType = {
     checked: boolean;
     onChange: (value: boolean) => void;
   };
+  secondButtonLink?: ButtonLinkProps;
+};
+
+export type IconPresetType = {
+  iconName?: string;
+  iconColor?: string;
+  preset?: string;
+};
+
+export type CheckboxWithTitleProps = {
+  title?: string;
+  name?: string;
+  checked?: boolean;
+  onChange?: (value: boolean) => void;
+  'aria-label'?: string;
+  'data-name'?: string;
+  icon?: IconPresetType;
+  customStyle?: Record<string, string | number>;
 };
 
 export type ContentPropsType = {
@@ -233,6 +252,8 @@ export type ContentPropsType = {
       onChange: (value: boolean) => void;
     };
   };
+  actionButtons?: ButtonLinkProps[];
+  checkboxWithTitle?: CheckboxWithTitleProps;
 };
 
 export type SkillEditionPropsType = {

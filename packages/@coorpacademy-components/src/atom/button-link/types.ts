@@ -7,7 +7,7 @@ const faIconPropTypes = {
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   size: PropTypes.number,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.object
 };
 
 export const iconPropTypes = {
@@ -20,7 +20,7 @@ const propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   usage: PropTypes.oneOf(['button', 'submit', 'reset']),
   label: PropTypes.string,
-  content: PropTypes.node,
+  content: PropTypes.oneOfType([PropTypes.node, PropTypes.shape({})]),
   'aria-label': PropTypes.string,
   tooltipText: PropTypes.string,
   tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
@@ -37,7 +37,7 @@ const propTypes = {
   hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.object
 };
 
 export type FaIconType = {

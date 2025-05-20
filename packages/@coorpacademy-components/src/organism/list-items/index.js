@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
 import ListItem from '../list-item';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
@@ -135,7 +134,11 @@ const ListItems = ({
         {checkboxWithTitle ? (
           <div className={style.checkboxAndActionsWrapper}>
             <CheckboxWithTitle {...checkboxWithTitle} title={checkboxWithTitle.title} />
-            {actionButtons ? map(action => <ButtonLink {...action} />)(actionButtons) : null}
+            {actionButtons
+              ? actionButtons.map((action, index) => (
+                  <ButtonLink {...action} key={`action-button-key-${index}`} />
+                ))
+              : null}
           </div>
         ) : (
           <div className={style.title}>{titleView}</div>

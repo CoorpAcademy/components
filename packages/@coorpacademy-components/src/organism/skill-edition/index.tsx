@@ -288,7 +288,8 @@ const buildContentItem = ({
   subtitle,
   image,
   tags: {label, iconName},
-  checkbox
+  checkbox,
+  secondButtonLink
 }: ContentListItemType) => ({
   id: ref,
   title,
@@ -308,14 +309,17 @@ const buildContentItem = ({
       }
     }
   ],
-  checkbox
+  checkbox,
+  secondButtonLink
 });
 
 const Content = ({
   title,
   subtitle,
   button,
-  list: {title: listTitle, checkbox, items, search, emptyResult}
+  list: {title: listTitle, checkbox, items, search, emptyResult},
+  actionButtons,
+  checkboxWithTitle
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -337,13 +341,15 @@ const Content = ({
     'aria-label': 'content list items',
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: buttonProps}}),
-      items: map(buildContentItem, items),
+      items: Array.isArray(items) ? map(buildContentItem, items).filter(Boolean) : [],
       type: 'list'
     },
     search: {
       ...search,
       theme: 'coorpmanager'
-    }
+    },
+    actionButtons,
+    checkboxWithTitle
   };
 
   return (
