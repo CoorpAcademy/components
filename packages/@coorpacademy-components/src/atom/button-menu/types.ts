@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import {ButtonLinkProps, IconType, iconPropTypes} from '../button-link/types';
-import Select from '../select';
-import InputSwitch from '../input-switch';
 
 export const buttonPropTypes = {
   'data-name': PropTypes.string,
@@ -14,9 +12,7 @@ export const buttonPropTypes = {
     ...iconPropTypes,
     theme: PropTypes.oneOf(['archived', 'published', 'deleted'])
   }),
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
-  selectProps: PropTypes.shape(Select.propTypes),
-  switchProps: PropTypes.shape(InputSwitch.propTypes)
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 const propTypes = {
