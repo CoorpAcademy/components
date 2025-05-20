@@ -8,7 +8,7 @@ export const buttonPropTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft', 'select', 'switch']),
+  type: PropTypes.oneOf(['default', 'defaultLeft', 'dangerous', 'dangerousLeft']),
   buttonLinkType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   icon: PropTypes.shape({
     ...iconPropTypes,
@@ -30,25 +30,9 @@ export default propTypes;
 export type Theme = 'archived' | 'published' | 'deleted';
 
 export type ButtonProps = Omit<ButtonLinkProps, 'type' | 'icon'> & {
-  type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft' | 'select' | 'switch';
+  type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   buttonLinkType?: ButtonLinkProps['type'];
   icon?: IconType & {theme?: Theme};
-  selectProps?: {
-    options: Array<{
-      value: string;
-      name: string;
-      selected: boolean;
-    }>;
-    onChange: (value: string) => void;
-    title?: string;
-    theme?: string;
-    className?: string;
-  };
-  switchProps?: {
-    value: boolean;
-    id?: string;
-    onChange: (value: boolean) => void;
-  };
 };
 
 export type ButtonMenuProps = {
