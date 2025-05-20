@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
-import StatusItem from '../../atom/status-item';
+import Tag from '../../atom/tag';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 const Tab = ({tab, index, isLightTab}) => {
@@ -10,7 +11,10 @@ const Tab = ({tab, index, isLightTab}) => {
   const selectedStyle = isLightTab ? style.selectedlight : style.selected;
   const unselectedStyle = isLightTab ? style.lighttab : style.tab;
   const className = selected ? selectedStyle : unselectedStyle;
-
+  const tagSelectedStyle = {
+    backgroundColor: COLORS.primary_100,
+    color: COLORS.cm_primary_blue
+  };
   return (
     <div
       data-name={`brand_tab_${snakeCase(title)}`}
@@ -21,7 +25,13 @@ const Tab = ({tab, index, isLightTab}) => {
       <Link href={href}>{title}</Link>
       {status ? (
         <div className={style.statusItemWrapper}>
-          <StatusItem icon="no-answer" value={status} selected={selected} />
+          <Tag
+            {...(selected && {
+              customStyle: tagSelectedStyle
+            })}
+            size="M"
+            label={status}
+          />
         </div>
       ) : null}
     </div>
