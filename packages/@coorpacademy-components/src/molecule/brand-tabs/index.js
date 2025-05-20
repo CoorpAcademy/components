@@ -29,7 +29,7 @@ const Tab = ({tab, index, isLightTab}) => {
             {...(selected && {
               customStyle: tagSelectedStyle
             })}
-            size="M"
+            size="S"
             label={status}
           />
         </div>
