@@ -42,7 +42,7 @@ const buildButtonMenu = ({dataName, label, iconName, iconColor, onClick}: Button
       }
     },
     onClick,
-    type: 'defaultLeft'
+    type: iconName === 'trash' ? 'dangerousLeft' : 'defaultLeft'
   };
 };
 
