@@ -10,7 +10,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
-import Select from '../../atom/select';
+import InputSelect from '../../atom/input-select';
 import Picture from '../../atom/picture';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
@@ -576,20 +576,23 @@ class MoocHeader extends React.Component {
             break;
           }
           case 'select': {
-            const selectProps = {};
-            selectProps.options = options.values;
-            selectProps.title = '';
-            selectProps.theme = 'header';
-            selectProps.onChange = options.onChange;
-            selectProps.className = style.languageSelect;
+            const selectProps = {
+              options: options.values.map(opt => ({
+                value: opt.value,
+                label: opt.name
+              })),
+              value: options.values.find(opt => opt.selected)?.value,
+              onChange: options.onChange,
+              placeholder: title,
+              'aria-label': ariaLabel || title
+            };
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
                 className={classnames(style.setting, style.selectBoxes)}
                 key={settingName}
               >
-                <span className={style.label}>{title}</span>
-                <Select {...selectProps} aria-label={ariaLabel || title} />
+                <InputSelect {...selectProps} />
               </div>
             );
             break;

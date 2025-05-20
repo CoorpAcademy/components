@@ -13,6 +13,7 @@
 @value cm_grey_150 from colors;
 
 .outerWrapper {
+  width: 100%;
   border-radius: 12px;
   transition: box-shadow 0.2s;
 }
