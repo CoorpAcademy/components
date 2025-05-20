@@ -457,7 +457,8 @@
   right: 20px;
   width: 284px;
   border-radius: 12px;
-  border: 1px solid light;
+  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
+
   background: white;
   z-index: 10;
 }
@@ -468,7 +469,7 @@
 }
 
 .settingsGroup {
-  padding: 12px 0px 12px 0px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -482,9 +483,10 @@
   gap: 8px;
   cursor: pointer;
   border-radius: 8px;
-  padding: 0px 12px;
-  margin: 0px 12px;
+  padding: 0px;
+  margin: 0px;
   color: cm_grey_700;
+  padding-left: 16px;
 }
 
 .setting:hover:not(.setting:last-child) {
@@ -493,7 +495,7 @@
 
 .setting:last-child {
   color: cm_negative_300;
-  padding: 10px 0px 0px 0px;
+  padding: 10px 0px 0px 4px;
   border-top: 1px solid light;
 }
 
@@ -559,10 +561,12 @@
 
 .selectBoxes {
   flex-direction: column;
-  height: 60px;
+  height: auto;
   align-items: baseline;
   margin-top: 15px;
   margin-bottom: 10px;
+  width: 100%;
+  padding-left: 0;
 }
 
 .homeIcon {
