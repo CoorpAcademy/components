@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {noop, uniqueId, getOr} from 'lodash/fp';
+import {noop, uniqueId} from 'lodash/fp';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
@@ -30,7 +30,7 @@ const InputSwitch = props => {
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
   const titleView = title ? (
     <div className={icon ? style.titleContainer : null}>
-      {icon ? <FontAwesomeIcon icon={icon} className={style.icon}/> : null}
+      {icon ? <FontAwesomeIcon icon={icon} className={style.icon} /> : null}
       <span id={`title-view-${dataName}`} className={style.title}>
         {title}
       </span>
@@ -117,7 +117,6 @@ InputSwitch.propTypes = {
   details: PropTypes.string,
   'data-name': PropTypes.string,
   requiredSelection: PropTypes.bool,
-  icon: PropTypes.string, // nom FontAwesome, optionnel
-  skin: PropTypes.object // pour la couleur brand
+  icon: PropTypes.string
 };
 export default InputSwitch;

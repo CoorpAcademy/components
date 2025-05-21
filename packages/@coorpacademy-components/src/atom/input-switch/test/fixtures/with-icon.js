@@ -7,4 +7,4 @@ export default {
     type: 'iconswitch',
     onChange: value => console.log('toggle notifications', value)
   }
-}; 
+};
