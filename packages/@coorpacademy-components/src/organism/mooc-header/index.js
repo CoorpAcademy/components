@@ -269,9 +269,12 @@ class MoocHeader extends React.Component {
       'data-name': `item-more-${item.title}`,
       customStyle: item.selected
         ? {
-            color: primaryColor
+            color: primaryColor,
+            padding: '0 16px'
           }
-        : null
+        : {
+            padding: '0 16px'
+          }
     }));
   };
 
