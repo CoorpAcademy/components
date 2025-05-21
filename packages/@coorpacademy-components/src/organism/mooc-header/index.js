@@ -96,7 +96,7 @@ class MoocHeader extends React.Component {
       PropTypes.shape({
         title: PropTypes.string,
         name: PropTypes.string,
-        type: PropTypes.oneOf(['select', 'switch', 'link']),
+        type: PropTypes.oneOf(['select', 'switch', 'link', 'danger-link']),
         color: PropTypes.string,
         'aria-label': PropTypes.string,
         icon: PropTypes.string,
