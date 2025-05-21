@@ -4725,6 +4725,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
       -ms-flex-align: center;
           align-items: center;
   gap: 4px;
+  line-height: 16px;
 }
 
 .container-5qQ7C {
