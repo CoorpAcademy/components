@@ -81,4 +81,5 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  line-height: 16px;
 }

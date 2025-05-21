@@ -19,9 +19,8 @@
 }
 
 .statusItemWrapper {
-  margin-left: 8px;
-  width: 14px;
-  height: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .tab {
@@ -40,7 +39,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
-  margin-right: 16px;
+  gap: 8px;
   border-radius: 5px;
 }
 
