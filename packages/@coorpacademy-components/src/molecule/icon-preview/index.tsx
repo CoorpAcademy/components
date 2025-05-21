@@ -26,6 +26,7 @@ const IconPreview = (props: IconPreviewCustomProps) => {
       style={{
         background: createGradientBackground(icon.color, '93%', '100%')
       }}
+      data-testid="skill-icon"
     >
       <div className={style.iconPreview} style={mergedStyle}>
         <div className={style.iconWrapper}>
