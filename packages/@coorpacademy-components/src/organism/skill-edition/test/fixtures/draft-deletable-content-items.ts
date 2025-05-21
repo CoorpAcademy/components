@@ -40,12 +40,12 @@ const contentData: ContentListItemType[] = [
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
-      hoverBackgroundColor: '#EAEAEB',
+      hoverBackgroundColor: COLORS.cm_grey_100,
       icon: {
         position: 'left',
         faIcon: {
           name: 'trash',
-          color: '#515161',
+          color: COLORS.neutral_500,
           size: 16
         }
       },
@@ -72,12 +72,12 @@ const contentData: ContentListItemType[] = [
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
-      hoverBackgroundColor: '#EAEAEB',
+      hoverBackgroundColor: COLORS.cm_grey_100,
       icon: {
         position: 'left',
         faIcon: {
           name: 'trash',
-          color: '#515161',
+          color: COLORS.neutral_500,
           size: 16
         }
       },
@@ -104,12 +104,12 @@ const contentData: ContentListItemType[] = [
         width: 'fit-content',
         backgroundColor: 'transparent'
       },
-      hoverBackgroundColor: '#EAEAEB',
+      hoverBackgroundColor: COLORS.cm_grey_100,
       icon: {
         position: 'left',
         faIcon: {
           name: 'trash',
-          color: '#515161',
+          color: COLORS.neutral_500,
           size: 16
         }
       },
@@ -152,7 +152,7 @@ const contentProps: ContentPropsType = {
   ],
   checkboxWithTitle: {
     ...checkboxWithTitleProps.props,
-    title: `<span style="color: #1D1D2B;">1</span><span>&nbsp;</span>items selected`,
+    title: `<span style="color: ${COLORS.cm_grey_700};">1</span><span>&nbsp;</span>items selected`,
     customStyle: {...checkboxWithTitleProps.props.customStyle, paddingLeft: '16px'}
   }
 };
