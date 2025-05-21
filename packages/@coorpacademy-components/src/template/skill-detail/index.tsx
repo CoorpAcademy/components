@@ -147,6 +147,7 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
     return (
       <div
         ref={descriptionRef}
+        data-testid="skill-description"
         className={classnames(style.description, !showMore && style.truncate)}
       >
         {description ? <Markdown>{description}</Markdown> : null}
@@ -203,6 +204,7 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
         <div className={style.mainSection}>
           <div className={style.leftSide}>
             <IconPreview
+              data-testid="skill-icon"
               icon={{
                 name: iconName,
                 color: iconColor
