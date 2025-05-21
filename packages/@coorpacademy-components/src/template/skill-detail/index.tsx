@@ -204,7 +204,6 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
         <div className={style.mainSection}>
           <div className={style.leftSide}>
             <IconPreview
-              data-testid="skill-icon"
               icon={{
                 name: iconName,
                 color: iconColor
