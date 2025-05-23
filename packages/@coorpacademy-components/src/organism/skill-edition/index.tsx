@@ -289,7 +289,7 @@ const buildContentItem = ({
   image,
   tags: {label, iconName},
   checkbox,
-  secondButtonLink
+  deleteButton
 }: ContentListItemType) => ({
   id: ref,
   title,
@@ -310,7 +310,25 @@ const buildContentItem = ({
     }
   ],
   checkbox,
-  secondButtonLink
+  secondButtonLink: {
+    ...deleteButton,
+    'data-name': `button-${deleteButton?.label}`,
+    'aria-label': 'Delete',
+    type: 'primary',
+    customStyle: {
+      width: 'fit-content',
+      backgroundColor: 'transparent'
+    },
+    hoverBackgroundColor: COLORS.cm_grey_100,
+    icon: {
+      position: 'left',
+      faIcon: {
+        name: 'trash',
+        color: COLORS.neutral_500,
+        size: 16
+      }
+    }
+  }
 });
 
 const Content = ({
@@ -319,7 +337,7 @@ const Content = ({
   button,
   list: {title: listTitle, checkbox, items, search, emptyResult},
   actionButtons,
-  checkboxWithTitle
+  checkboxWithTitle: checkboxWithTitleProps
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -341,15 +359,32 @@ const Content = ({
     'aria-label': 'content list items',
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: buttonProps}}),
-      items: Array.isArray(items) ? map(buildContentItem, items).filter(Boolean) : [],
+      items: map(buildContentItem, items),
       type: 'list'
     },
     search: {
       ...search,
       theme: 'coorpmanager'
     },
-    actionButtons,
-    checkboxWithTitle
+    actionButtons: map(
+      actionButton => ({
+        ...actionButton,
+        customStyle: {
+          fontWeight: '600',
+          borderRadius: '12px',
+          width: 'auto'
+        }
+      }),
+      actionButtons
+    ),
+    checkboxWithTitle: {
+      ...checkboxWithTitleProps,
+      name: checkboxWithTitleProps?.title,
+      'aria-label': checkboxWithTitleProps?.title,
+      'data-name': checkboxWithTitleProps?.title,
+      customStyle: {fontWeight: 600, color: COLORS.neutral_500, fontSize: '16px'},
+      icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
+    }
   };
 
   return (

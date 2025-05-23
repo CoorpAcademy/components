@@ -1,134 +1,21 @@
+// fichier1.ts
 import {COLORS} from '../../../../variables/colors';
-import {TranslationPropsType, ContentListItemType, ContentPropsType} from '../../types';
-import checkboxWithTitleProps from '../../../../atom/checkbox-with-title/test/fixtures/with-custom-icon';
-import Default, {translationsEmptyProps, contentEmptyProps} from './default';
+import {ContentPropsType, ContentListItemType} from '../../types';
+import Default from './default';
+import {translationsProps, contentData, contentProps} from './draft';
 
-const translationsProps: TranslationPropsType = {
-  ...translationsEmptyProps,
-  button: {
-    ...translationsEmptyProps.button,
-    disabled: false
-  },
-  emptyResult: undefined,
-  items: {
-    fr: {
-      title: '🇫🇷 French',
-      onEditClick: () => console.log('on edit click'),
-      onDeleteClick: () => console.log('on delete click')
-    }
+const updatedContentData: ContentListItemType[] = contentData.map(item => ({
+  ...item,
+  deleteButton: {
+    onClick: () => console.log('Click on delete icon')
   }
-};
+}));
 
-const contentData: ContentListItemType[] = [
-  {
-    ref: 'content_1',
-    title: 'Content 1',
-    subtitle: 'Subtitle 1',
-    image:
-      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-    tags: {label: 'Course', iconName: 'book-open'},
-    checkbox: {
-      checked: false,
-      onChange: (value: boolean) => {
-        console.log(value);
-      }
-    },
-    secondButtonLink: {
-      'aria-label': 'Delete',
-      type: 'primary',
-      customStyle: {
-        width: 'fit-content',
-        backgroundColor: 'transparent'
-      },
-      hoverBackgroundColor: COLORS.cm_grey_100,
-      icon: {
-        position: 'left',
-        faIcon: {
-          name: 'trash',
-          color: COLORS.neutral_500,
-          size: 16
-        }
-      },
-      onClick: () => console.log('Click on delete icon')
-    }
-  },
-  {
-    ref: 'content_2',
-    title: 'Content 2',
-    subtitle: 'Subtitle 2',
-    image:
-      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-    tags: {label: '5’Learning', iconName: 'stopwatch'},
-    checkbox: {
-      checked: false,
-      onChange: (value: boolean) => {
-        console.log(value);
-      }
-    },
-    secondButtonLink: {
-      'aria-label': 'Delete',
-      type: 'primary',
-      customStyle: {
-        width: 'fit-content',
-        backgroundColor: 'transparent'
-      },
-      hoverBackgroundColor: COLORS.cm_grey_100,
-      icon: {
-        position: 'left',
-        faIcon: {
-          name: 'trash',
-          color: COLORS.neutral_500,
-          size: 16
-        }
-      },
-      onClick: () => console.log('Click on delete icon')
-    }
-  },
-  {
-    ref: 'content_3',
-    title: 'Content 3',
-    subtitle: 'Subtitle 3',
-    image:
-      'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-    tags: {label: 'Video', iconName: 'circle-play'},
-    checkbox: {
-      checked: true,
-      onChange: (value: boolean) => {
-        console.log(value);
-      }
-    },
-    secondButtonLink: {
-      'aria-label': 'Delete',
-      type: 'primary',
-      customStyle: {
-        width: 'fit-content',
-        backgroundColor: 'transparent'
-      },
-      hoverBackgroundColor: COLORS.cm_grey_100,
-      icon: {
-        position: 'left',
-        faIcon: {
-          name: 'trash',
-          color: COLORS.neutral_500,
-          size: 16
-        }
-      },
-      onClick: () => console.log('Click on delete icon')
-    }
-  }
-];
-
-const contentProps: ContentPropsType = {
-  ...contentEmptyProps,
+const updatedContentProps: ContentPropsType = {
+  ...contentProps,
   list: {
-    ...contentEmptyProps.list,
-    emptyResult: undefined,
-    items: contentData,
-    checkbox: {
-      title: '1 item selected',
-      checked: false,
-      onChange: (value: boolean) => console.log(value)
-    }
+    ...contentProps.list,
+    items: updatedContentData
   },
   actionButtons: [
     {
@@ -142,18 +29,13 @@ const contentProps: ContentPropsType = {
           color: COLORS.cm_grey_700,
           size: 14
         }
-      },
-      customStyle: {
-        fontWeight: '600',
-        borderRadius: '12px',
-        width: 'auto'
       }
     }
   ],
   checkboxWithTitle: {
-    ...checkboxWithTitleProps.props,
-    title: `<span style="color: ${COLORS.cm_grey_700};">1</span><span>&nbsp;</span>items selected`,
-    customStyle: {...checkboxWithTitleProps.props.customStyle, paddingLeft: '16px'}
+    title: '<span style="color: #1D1D2B;">1</span><span>&nbsp;</span>items selected',
+    checked: true,
+    onChange: value => console.log(value)
   }
 };
 
@@ -191,6 +73,6 @@ export default {
       }
     },
     translations: translationsProps,
-    content: contentProps
+    content: updatedContentProps
   }
 };

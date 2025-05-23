@@ -207,7 +207,7 @@ export type ContentListItemType = {
     checked: boolean;
     onChange: (value: boolean) => void;
   };
-  secondButtonLink?: ButtonLinkProps;
+  deleteButton?: ButtonLinkProps;
 };
 
 export type IconPresetType = {
@@ -218,13 +218,8 @@ export type IconPresetType = {
 
 export type CheckboxWithTitleProps = {
   title?: string;
-  name?: string;
   checked?: boolean;
   onChange?: (value: boolean) => void;
-  'aria-label'?: string;
-  'data-name'?: string;
-  icon?: IconPresetType;
-  customStyle?: Record<string, string | number>;
 };
 
 export type ContentPropsType = {
