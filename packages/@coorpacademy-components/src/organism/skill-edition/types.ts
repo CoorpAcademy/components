@@ -210,12 +210,6 @@ export type ContentListItemType = {
   deleteButton?: ButtonLinkProps;
 };
 
-export type IconPresetType = {
-  iconName?: string;
-  iconColor?: string;
-  preset?: string;
-};
-
 export type CheckboxWithTitleProps = {
   title?: string;
   checked?: boolean;
