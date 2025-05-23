@@ -45,7 +45,7 @@ export type FaIconType = {
   color?: string;
   backgroundColor?: string;
   size?: number;
-  customStyle?: Record<string, unknown>;
+  customStyle?: Record<string, number | string>;
 };
 
 export type IconType = {
@@ -58,7 +58,7 @@ export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
   usage?: 'button' | 'submit' | 'reset';
   label?: string;
-  content?: React.ReactNode;
+  content?: PropTypes.ReactNodeLike;
   'aria-label'?: string;
   tooltipText?: string;
   tooltipPlacement?: 'left' | 'right' | 'top' | 'bottom';
@@ -76,7 +76,7 @@ export type ButtonLinkProps = {
   hoverColor?: string;
   disabled?: boolean;
   className?: string;
-  customStyle?: Record<string, unknown>;
+  customStyle?: Record<string, string | number>;
   useTitle?: boolean;
 };
 

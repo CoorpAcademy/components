@@ -288,7 +288,8 @@ const buildContentItem = ({
   subtitle,
   image,
   tags: {label, iconName},
-  checkbox
+  checkbox,
+  deleteButton
 }: ContentListItemType) => ({
   id: ref,
   title,
@@ -308,14 +309,35 @@ const buildContentItem = ({
       }
     }
   ],
-  checkbox
+  checkbox,
+  secondButtonLink: {
+    ...deleteButton,
+    'data-name': `button-${deleteButton?.label}`,
+    'aria-label': 'Delete',
+    type: 'primary',
+    customStyle: {
+      width: 'fit-content',
+      backgroundColor: 'transparent'
+    },
+    hoverBackgroundColor: COLORS.cm_grey_100,
+    icon: {
+      position: 'left',
+      faIcon: {
+        name: 'trash',
+        color: COLORS.neutral_500,
+        size: 16
+      }
+    }
+  }
 });
 
 const Content = ({
   title,
   subtitle,
   button,
-  list: {title: listTitle, checkbox, items, search, emptyResult}
+  list: {title: listTitle, checkbox, items, search, emptyResult},
+  actionButtons,
+  checkboxWithTitle: checkboxWithTitleProps
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -343,6 +365,25 @@ const Content = ({
     search: {
       ...search,
       theme: 'coorpmanager'
+    },
+    actionButtons: map(
+      actionButton => ({
+        ...actionButton,
+        customStyle: {
+          fontWeight: '600',
+          borderRadius: '12px',
+          width: 'auto'
+        }
+      }),
+      actionButtons
+    ),
+    checkboxWithTitle: {
+      ...checkboxWithTitleProps,
+      name: checkboxWithTitleProps?.title,
+      'aria-label': checkboxWithTitleProps?.title,
+      'data-name': checkboxWithTitleProps?.title,
+      customStyle: {fontWeight: 600, color: COLORS.neutral_500, fontSize: '16px'},
+      icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
     }
   };
 

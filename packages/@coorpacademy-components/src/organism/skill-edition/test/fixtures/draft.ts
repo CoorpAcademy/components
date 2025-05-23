@@ -2,7 +2,7 @@ import {COLORS} from '../../../../variables/colors';
 import {TranslationPropsType, ContentListItemType, ContentPropsType} from '../../types';
 import Default, {translationsEmptyProps, contentEmptyProps} from './default';
 
-const translationsProps: TranslationPropsType = {
+export const translationsProps: TranslationPropsType = {
   ...translationsEmptyProps,
   button: {
     ...translationsEmptyProps.button,
@@ -18,7 +18,7 @@ const translationsProps: TranslationPropsType = {
   }
 };
 
-const contentData: ContentListItemType[] = [
+export const contentData: ContentListItemType[] = [
   {
     ref: 'content_1',
     title: 'Content 1',
@@ -63,7 +63,7 @@ const contentData: ContentListItemType[] = [
   }
 ];
 
-const contentProps: ContentPropsType = {
+export const contentProps: ContentPropsType = {
   ...contentEmptyProps,
   list: {
     ...contentEmptyProps.list,
