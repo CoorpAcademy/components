@@ -593,15 +593,16 @@ class MoocHeader extends React.Component {
             break;
           }
           case 'switch': {
-            const switchProps = {};
-            switchProps.value = options.value;
-            switchProps.id = `input-switch-${index}`;
-            switchProps.onChange = options.onChange;
-            switchProps.titlePosition = 'left';
-            switchProps.theme = 'newMooc';
-            switchProps.type = 'switch';
-            switchProps.title = title;
-            switchProps.icon = icon;
+            const switchProps = {
+              value: options.value,
+              id: `input-switch-${index}`,
+              onChange: options.onChange,
+              titlePosition: 'left',
+              theme: 'newMooc',
+              type: 'switch',
+              title,
+              icon
+            };
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
