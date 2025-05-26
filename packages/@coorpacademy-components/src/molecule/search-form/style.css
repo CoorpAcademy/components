@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+
 .form {
   display: flex;
   justify-content: flex-start;
@@ -23,11 +26,8 @@
   display: none;
 }
 
-.clear {
-  transform: rotate(45deg);
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
+.clearIcon {
+  color: cm_grey_500;
+  width: 12px;
+  height: 14px;
 }
