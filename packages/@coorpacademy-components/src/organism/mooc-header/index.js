@@ -667,6 +667,7 @@ class MoocHeader extends React.Component {
             onSearchFocus={this.handleOnFocus}
             onSearchBlur={this.handleOnBlur}
             search-reset-aria-label={searchResetAriaLabel}
+            theme="mooc"
           />
         </div>
       );

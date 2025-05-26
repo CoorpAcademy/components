@@ -22,18 +22,28 @@ const Search = props => {
     dataTestId
   } = props;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
-  const cmStyle = classnames(style.coorpmanager);
-  const isDefaultTheme = theme === 'default';
+
+  const wrapperClass = classnames({
+    [style.wrapperSearch]: theme === 'default',
+    [style.coorpmanager]: theme === 'coorpmanager',
+    [style.wrapperMooc]: theme === 'mooc'
+  });
+
+  const searchClass = classnames({
+    [style.search]: true,
+    [style.mooc]: theme === 'mooc'
+  });
+
+  const isCoorpManager = theme === 'coorpmanager';
+  const SearchIconComponent = isCoorpManager ? CMSearchIcon : SearchIcon;
+  const showTitle = isCoorpManager;
+  const showClearIcon = value && isCoorpManager;
 
   return (
-    <div className={isDefaultTheme ? style.wrapperSearch : cmStyle}>
+    <div className={wrapperClass}>
       <label htmlFor="search" title={placeholder}>
-        {!isDefaultTheme ? (
-          <CMSearchIcon className={style.searchIcon} />
-        ) : (
-          <SearchIcon className={style.searchIcon} />
-        )}
-        {!isDefaultTheme ? (
+        <SearchIconComponent className={style.searchIcon} />
+        {showTitle ? (
           <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
             {placeholder}
           </span>
@@ -42,7 +52,7 @@ const Search = props => {
       <input
         data-name="search-input"
         data-testid={dataTestId}
-        className={style.search}
+        className={searchClass}
         aria-label={placeholder}
         type="text"
         name="search"
@@ -55,9 +65,7 @@ const Search = props => {
         onChange={noop}
         onBlur={onBlur}
       />
-      {value && !isDefaultTheme ? (
-        <CloseIcon onClick={onClear} className={style.clearIcon} />
-      ) : null}
+      {showClearIcon ? <CloseIcon onClick={onClear} className={style.clearIcon} /> : null}
     </div>
   );
 };
@@ -73,7 +81,7 @@ Search.propTypes = {
   onClear: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  theme: PropTypes.oneOf(['default', 'coorpmanager']),
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
   dataTestId: PropTypes.string
 };
 

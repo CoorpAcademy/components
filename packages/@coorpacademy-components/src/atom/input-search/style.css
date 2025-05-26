@@ -13,6 +13,7 @@
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value brand from colors;
 
 .wrapperSearch {
   display: flex;
@@ -66,6 +67,7 @@
   color: medium;
 }
 
+/* Theme: coorpmanager */
 .coorpmanager {
   position: relative;
 }
@@ -175,6 +177,36 @@
   left: 30px;
   top: 16px;
   line-height: 16px;
+}
+
+/* Theme: mooc */
+.wrapperMooc {
+  display: flex;
+  width: 100%;
+  flex-flow: nowrap;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid brand;
+  border-radius: 12px;
+}
+
+.mooc {
+  background-color: cm_grey_100;
+  border-radius: 12px;
+  height: 44px;
+  margin: 0;
+  padding: 0 15px 0 45px;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  color: cm_grey_700;
+  border: none;
+  outline: none;
+}
+
+.mooc:hover {
+  background-color: cm_grey_150;
 }
 
 input:-webkit-autofill,
