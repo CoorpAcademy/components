@@ -1,12 +1,13 @@
 import React, {useState, useRef, useCallback} from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {IconName} from '@fortawesome/fontawesome-svg-core';
 import style from './style.css';
+import {InputSelectProps, Option, propTypes} from './types';
 
 const COMPONENT_ID = 'input-select';
 
-const InputSelect = ({
+const InputSelect: React.FC<InputSelectProps> = ({
   options = [],
   value,
   onChange,
@@ -17,7 +18,7 @@ const InputSelect = ({
   selectedIcon = 'circle-check'
 }) => {
   const [open, setOpen] = useState(false);
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const componentId = `${COMPONENT_ID}-${
     placeholder?.toLowerCase().replace(/\s+/g, '-') || 'default'
@@ -28,7 +29,7 @@ const InputSelect = ({
   }, []);
 
   const handleOnOptionClick = useCallback(
-    optionValue => {
+    (optionValue: string) => {
       onChange(optionValue);
       setOpen(false);
     },
@@ -37,8 +38,8 @@ const InputSelect = ({
 
   React.useEffect(() => {
     if (!open) return;
-    const handleClickOutside = event => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
         setOpen(false);
       }
     };
@@ -48,24 +49,26 @@ const InputSelect = ({
 
   const selectedOption = options.find(opt => opt.value === value);
 
-  const renderOption = option => {
+  const renderOption = (option: Option) => {
     function handleClick() {
       handleOnOptionClick(option.value);
     }
 
+    const isSelected = option.value === value;
+
     return (
       <li
         key={option.value}
-        className={classnames(style.option, option.value === value && style.selected)}
+        className={classnames(style.option, isSelected && style.selected)}
         role="option"
-        aria-selected={option.value === value}
+        aria-selected={isSelected}
         onClick={handleClick}
       >
         <span className={style.optionIcon}>{option.icon}</span>
         <span className={style.optionLabel}>{option.label}</span>
-        {option.value === value ? (
+        {isSelected ? (
           <span className={style.checkIcon}>
-            <FontAwesomeIcon icon={selectedIcon} />
+            <FontAwesomeIcon icon={selectedIcon as IconName} />
           </span>
         ) : null}
       </li>
@@ -95,7 +98,7 @@ const InputSelect = ({
           <span className={classnames(style.iconWrapper, {[style.open]: open})}>
             <FontAwesomeIcon
               className={classnames(style.icon, {[style.rotated]: open})}
-              icon={iconClosed}
+              icon={iconClosed as IconName}
             />
           </span>
         </button>
@@ -109,20 +112,6 @@ const InputSelect = ({
   );
 };
 
-InputSelect.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired
-    })
-  ),
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  className: PropTypes.string,
-  'aria-label': PropTypes.string,
-  iconClosed: PropTypes.string,
-  selectedIcon: PropTypes.string
-};
+InputSelect.propTypes = propTypes;
 
 export default InputSelect;
