@@ -266,7 +266,7 @@ class MoocHeader extends React.Component {
       disabled: item.disabled,
       type: 'defaultLeft',
       link: {href: item.href},
-      'data-name': `item-more-${item.title}`,
+      'data-name': `item-more-${item.name}`,
       customStyle: {padding: '0 16px', ...(item.selected && {color: primaryColor})}
     }));
   };
