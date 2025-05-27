@@ -5,7 +5,7 @@ export default {
     onSubmit: () => {},
     onReset: () => {},
     search: {
-      value: '',
+      value: 'test',
       placeholder: 'Search',
       'aria-label': 'Search'
     },

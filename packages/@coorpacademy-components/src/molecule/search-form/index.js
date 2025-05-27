@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Search from '../../atom/input-search';
 import style from './style.css';
+import classnames from 'classnames';
 
 const SearchForm = (props, context) => {
   const {
@@ -25,6 +26,13 @@ const SearchForm = (props, context) => {
     [onSubmit]
   );
 
+  const isMooc = theme === 'mooc';
+
+  const clearClassName = search.value
+    ? classnames(style.wrapperClear, isMooc && style.wrapperClearMooc)
+    : style.wrapperNoClear;
+
+
   return (
     <form
       className={style.form}
@@ -45,7 +53,7 @@ const SearchForm = (props, context) => {
         data-name="search-form-reset"
         aria-label={searchResetAriaLabel}
         onClick={onReset}
-        className={search.value ? style.wrapperClear : style.wrapperNoClear}
+        className={clearClassName}
       >
         <FontAwesomeIcon icon="xmark" className={style.clearIcon} />
       </div>

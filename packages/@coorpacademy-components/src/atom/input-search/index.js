@@ -23,49 +23,58 @@ const Search = props => {
   } = props;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
 
+  const isCoorpManager = theme === 'coorpmanager';
+  const isMooc = theme === 'mooc';
+  const isDefault = theme === 'default';
+
   const wrapperClass = classnames({
-    [style.wrapperSearch]: theme === 'default',
-    [style.coorpmanager]: theme === 'coorpmanager',
-    [style.wrapperMooc]: theme === 'mooc'
+    [style.wrapperSearch]: isDefault,
+    [style.coorpmanager]: isCoorpManager,
+    [style.wrapperMooc]: isMooc
+  });
+
+  const wrapperParentClass = classnames({
+    [style.wrapperMoocParent]: isMooc
   });
 
   const searchClass = classnames({
     [style.search]: true,
-    [style.mooc]: theme === 'mooc'
+    [style.moocSearch]: isMooc
   });
 
-  const isCoorpManager = theme === 'coorpmanager';
   const SearchIconComponent = isCoorpManager ? CMSearchIcon : SearchIcon;
   const showTitle = isCoorpManager;
   const showClearIcon = value && isCoorpManager;
 
   return (
-    <div className={wrapperClass}>
-      <label htmlFor="search" title={placeholder}>
-        <SearchIconComponent className={style.searchIcon} />
-        {showTitle ? (
-          <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
-            {placeholder}
-          </span>
-        ) : null}
-      </label>
-      <input
-        data-name="search-input"
-        data-testid={dataTestId}
-        className={searchClass}
-        aria-label={placeholder}
-        type="text"
-        name="search"
-        id="search"
-        placeholder={placeholder}
-        title={placeholder}
-        value={value}
-        onInput={handleChange}
-        onFocus={onFocus}
-        onChange={noop}
-        onBlur={onBlur}
-      />
-      {showClearIcon ? <CloseIcon onClick={onClear} className={style.clearIcon} /> : null}
+    <div className={wrapperParentClass}>
+      <div className={wrapperClass}>
+        <label htmlFor="search" title={placeholder}>
+          <SearchIconComponent className={style.searchIcon} />
+          {showTitle ? (
+            <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
+              {placeholder}
+            </span>
+          ) : null}
+        </label>
+        <input
+          data-name="search-input"
+          data-testid={dataTestId}
+          className={searchClass}
+          aria-label={placeholder}
+          type="text"
+          name="search"
+          id="search"
+          placeholder={placeholder}
+          title={placeholder}
+          value={value}
+          onInput={handleChange}
+          onFocus={onFocus}
+          onChange={noop}
+          onBlur={onBlur}
+        />
+        {showClearIcon ? <CloseIcon onClick={onClear} className={style.clearIcon} /> : null}
+      </div>
     </div>
   );
 };

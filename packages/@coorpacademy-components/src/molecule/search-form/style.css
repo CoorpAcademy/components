@@ -31,3 +31,17 @@
   width: 12px;
   height: 14px;
 }
+
+.wrapperClearMooc {
+  position: absolute;
+  right: 30px;
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
