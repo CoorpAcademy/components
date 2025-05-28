@@ -19,6 +19,7 @@ import Search from '../../atom/input-search';
 import SearchForm from '../../molecule/search-form';
 import ButtonMenuAction from '../../molecule/button-menu-action';
 import {COLORS} from '../../variables/colors';
+import {isMobile as getIsMobile} from '../../util/check-is-mobile';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
@@ -287,6 +288,7 @@ class MoocHeader extends React.Component {
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
     const {translate, skin} = this.context;
+    const isMobile = getIsMobile();
     const {
       'aria-label': logoAriaLabel,
       closeMenuAriaLabel,
@@ -403,31 +405,33 @@ class MoocHeader extends React.Component {
       pagesView = (
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
-          {items.more ? (
-            <div className={style.desktopOnlyMoreMenu}>
-              <ButtonMenuAction
-                button={{
-                  label: moreAriaLabel,
-                  'aria-label': moreAriaLabel,
-                  'data-name': 'item-more'
-                }}
-                type="link"
-                primaryColor={primaryColor}
-                containerCustom={{alignItems: 'flex-start'}}
-                menuWrapper={{
-                  customStyle: {
-                    top: '30px'
-                  }
-                }}
-                menu={{
-                  buttons: this.createMenuButtons(items.more, primaryColor)
-                }}
-              />
-            </div>
-          ) : null}
-          <div className={style.tabletOnlyMoreMenu}>
-            <div className={style.optionsGroup}>{optionsView}</div>
-          </div>
+          {items.more &&
+            (isMobile ? (
+              <div className={style.tabletOnlyMoreMenu}>
+                <div className={style.optionsGroup}>{optionsView}</div>
+              </div>
+            ) : (
+              <div className={style.desktopOnlyMoreMenu}>
+                <ButtonMenuAction
+                  button={{
+                    label: moreAriaLabel,
+                    'aria-label': moreAriaLabel,
+                    'data-name': 'item-more'
+                  }}
+                  type="link"
+                  primaryColor={primaryColor}
+                  containerCustom={{alignItems: 'flex-start'}}
+                  menuWrapper={{
+                    customStyle: {
+                      top: '30px'
+                    }
+                  }}
+                  menu={{
+                    buttons: this.createMenuButtons(items.more, primaryColor)
+                  }}
+                />
+              </div>
+            ))}
         </div>
       );
     }
