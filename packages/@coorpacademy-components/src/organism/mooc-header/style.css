@@ -458,7 +458,6 @@
   width: 284px;
   border-radius: 12px;
   box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
-
   background: white;
   z-index: 10;
 }
@@ -858,6 +857,10 @@
   .open .settingsGroup,
   .open .settings {
     width: 100%;
+  }
+
+  .settingsWrapper {
+    right: 0;
   }
 
   .userAvatarWrapper {
