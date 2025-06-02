@@ -552,9 +552,8 @@ class MoocHeader extends React.Component {
         switch (type) {
           case 'link':
           case 'danger-link': {
-            const iconView = icon ? (
-              <FontAwesomeIcon icon={icon} className={style.linkIcon} />
-            ) : null;
+            const iconView =
+              icon && !isMobile ? <FontAwesomeIcon icon={icon} className={style.linkIcon} /> : null;
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
