@@ -859,4 +859,8 @@
   .open .settings {
     width: 100%;
   }
+
+  .userAvatarWrapper {
+    display: none;
+  }
 }
