@@ -523,6 +523,8 @@
 
 .settingLink {
   font-family: 'Gilroy';
+  width: 100%;
+  height: 100%;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
