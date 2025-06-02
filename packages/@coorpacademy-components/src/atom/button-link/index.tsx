@@ -147,6 +147,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         style={customStyle}
         data-name={dataName}
         data-testid={dataTestId}
+        onClick={handleOnClick}
         aria-label={ariaLabel || label}
         hoverColor={hoverColor}
         hoverBackgroundColor={hoverBackgroundColor}
