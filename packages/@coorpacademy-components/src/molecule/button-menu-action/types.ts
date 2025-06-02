@@ -12,7 +12,8 @@ const ButtonMenuActionPropTypes = {
     )
   }),
   type: PropTypes.oneOf(['button', 'link']),
-  primaryColor: PropTypes.string
+  primaryColor: PropTypes.string,
+  closeOnClick: PropTypes.bool
 };
 export default ButtonMenuActionPropTypes;
 
@@ -26,6 +27,7 @@ export type ButtonMenuActionProps = {
   };
   containerCustom?: Record<string, unknown>;
   primaryColor?: string;
+  closeOnClick?: boolean;
 };
 
 export type ButtonMenuActionPropsFixture = {props: ButtonMenuActionProps};

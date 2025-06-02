@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState, useRef} from 'react';
 import classnames from 'classnames';
 import {noop} from 'lodash/fp';
+import map from 'lodash/fp/map';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ButtonLink from '../../atom/button-link';
 import ButtonMenu from '../../atom/button-menu';
@@ -8,7 +9,15 @@ import propTypes, {ButtonMenuActionProps} from './types';
 import style from './style.css';
 
 const ButtonMenuAction = (props: ButtonMenuActionProps) => {
-  const {button, menu, menuWrapper, type = 'button', primaryColor, containerCustom} = props;
+  const {
+    button,
+    menu,
+    menuWrapper,
+    type = 'button',
+    primaryColor,
+    containerCustom,
+    closeOnClick = false
+  } = props;
   const {onClick = noop} = button;
   const [visible, setVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -31,6 +40,19 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
     };
   }, [visible, containerRef]);
 
+  const menuWithClose = closeOnClick
+    ? {
+        ...menu,
+        buttons: map(
+          btn => ({
+            ...btn,
+            onClick: () => setVisible(false)
+          }),
+          menu.buttons
+        )
+      }
+    : menu;
+
   const _menu = (
     <div
       className={classnames(style.menuWrapper, visible && style.visible)}
@@ -38,7 +60,7 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
       aria-label={menuWrapper?.ariaLabel}
       style={menuWrapper?.customStyle}
     >
-      <ButtonMenu {...menu} />
+      <ButtonMenu {...menuWithClose} />
     </div>
   );
 
