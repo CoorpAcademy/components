@@ -859,12 +859,4 @@
   .open .settings {
     width: 100%;
   }
-
-  .desktopOnlyMoreMenu {
-    display: none;
-  }
-
-  .userAvatarWrapper {
-    display: none;
-  }
 }
