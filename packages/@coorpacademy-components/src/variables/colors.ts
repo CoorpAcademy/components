@@ -32,7 +32,8 @@ export const COLORS = {
   turquoise_100: '#D9F4F7',
   pink_100: '#FAD6DE',
   orange_100: '#FFDCD1',
-  cm_positive_500: '#35CC7F'
+  cm_positive_500: '#35CC7F',
+  purple_500: '#4B0AFF'
 } as const;
 
 export type Colors = typeof COLORS;
