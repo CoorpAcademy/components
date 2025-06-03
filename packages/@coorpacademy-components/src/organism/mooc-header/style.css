@@ -475,7 +475,7 @@
 }
 
 .setting {
-  height: 40px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -559,8 +559,6 @@
   flex-direction: column;
   height: auto;
   align-items: baseline;
-  margin-top: 15px;
-  margin-bottom: 10px;
   width: 100%;
   padding-left: 0;
 }
