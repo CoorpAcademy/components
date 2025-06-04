@@ -4660,6 +4660,85 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   opacity: 0.4;
 }
 
+.newMooc-Zvq8F {
+  width: 100%;
+}
+
+.newMoocModified-V3sO6 {
+}
+
+.newMooc-Zvq8F label, .newMoocModified-V3sO6 label {
+  height: 24px;
+  border: solid 2px #d7d7da;
+  margin-right: 16px;
+  background: #d7d7da;
+}
+
+.newMooc-Zvq8F label::after, .newMoocModified-V3sO6 label::after {
+  top: 1px;
+  width: 22px;
+  height: 22px;
+}
+
+.newMooc-Zvq8F span, .newMoocModified-V3sO6 span {
+  font-family: Gilroy;
+  font-weight: bold;
+  color: #14171A;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #1D1D2B;
+}
+
+.newMooc-Zvq8F .checkbox-KTgQR:checked ~ label {
+  background: #0061FF;
+  border-color: #0061FF;
+}
+
+.newMooc-Zvq8F .checkbox-KTgQR:disabled ~ label {
+  border-color: #d7d7da;
+  pointer-events: none;
+  background: #d7d7da;
+  opacity: 0.4;
+}
+
+.newMooc-Zvq8F .checkbox-KTgQR:disabled ~ label::after {
+  background: #fff;
+}
+
+.titleContainer-nZYuN {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.titleContainer-nZYuN .title-9jnv2 { 
+  width: 100%;
+}
+
+.icon-szFys {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 960px) {
+  .icon-szFys {
+    display: none;
+  }
+}
+
 .tag-XR4R2 {
   border-radius: 24px;
   font-family: "Gilroy";
