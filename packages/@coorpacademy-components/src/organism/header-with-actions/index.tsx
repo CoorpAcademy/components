@@ -4,7 +4,6 @@ import map from 'lodash/fp/map';
 import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Tag from '../../atom/tag';
-import {ButtonLinkProps} from '../../atom/button-link/types';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import headerWithActionsPropTypes, {
   HeaderWithActionsProps,
@@ -54,45 +53,37 @@ const buildActionButton = ({
   iconName,
   iconColor
 }: ButtonActionProps) => {
-  return {
+  const base = {
     type,
     label,
     onClick,
     disabled,
-    icon: {
-      position: 'left' as const,
-      faIcon: {
-        name: iconName,
-        color: iconColor,
-        size: 14,
-        customStyle: {padding: 0}
-      }
-    },
     customStyle: {
       fontWeight: '600',
-      borderRadius: '12px',
-      padding: '0 8px 0 16px'
+      borderRadius: '12px'
     }
   };
-};
 
-const isButtonActionProps = (action: any): action is ButtonActionProps => {
-  return typeof action.iconName === 'string' && typeof action.iconColor === 'string';
+  if (iconName && iconColor) {
+    return {
+      ...base,
+      icon: {
+        position: 'left' as const,
+        faIcon: {
+          name: iconName,
+          color: iconColor,
+          size: 14,
+          customStyle: {padding: 0}
+        }
+      }
+    };
+  }
+
+  return base;
 };
 
 const HeaderWithActions = (props: HeaderWithActionsProps) => {
   const {closeButton, title, tag, saveStatus, bulletPointMenuButton, actionButtons} = props;
-
-  const renderedActionButtons = uncappedMap(
-    (action: ButtonLinkProps | ButtonActionProps, key: string) => {
-      return isButtonActionProps(action) ? (
-        <ButtonLink {...buildActionButton(action)} key={key} />
-      ) : (
-        <ButtonLink {...action} key={key} />
-      );
-    },
-    actionButtons
-  );
 
   return (
     <div className={style.headerWrapper} data-name={getDataName('wrapper')}>
@@ -126,7 +117,9 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
             buttons={uncappedMap(buildButtonMenu, bulletPointMenuButton.buttons)}
           />
         ) : null}
-        {renderedActionButtons}
+        {uncappedMap((action: ButtonActionProps, key: string) => {
+          return <ButtonLink {...buildActionButton(action)} key={key} />;
+        }, actionButtons)}
       </div>
     </div>
   );

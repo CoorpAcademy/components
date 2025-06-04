@@ -1,4 +1,4 @@
-import {ButtonActionProps, HeaderWithActionsPropsFixture} from '../../types';
+import {HeaderWithActionsPropsFixture} from '../../types';
 import {COLORS} from '../../../../variables/colors';
 
 const defaultFixture: HeaderWithActionsPropsFixture = {
@@ -62,7 +62,7 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
         iconName: 'paper-plane',
         iconColor: COLORS.white
       }
-    ] as ButtonActionProps[]
+    ]
   }
 };
 
