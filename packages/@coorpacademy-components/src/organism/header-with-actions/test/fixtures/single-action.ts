@@ -1,4 +1,4 @@
-import {ButtonActionProps, HeaderWithActionsPropsFixture} from '../../types';
+import {HeaderWithActionsPropsFixture} from '../../types';
 import {COLORS} from '../../../../variables/colors';
 
 const singleActionFixture: HeaderWithActionsPropsFixture = {
@@ -26,7 +26,7 @@ const singleActionFixture: HeaderWithActionsPropsFixture = {
         iconName: 'folder-open',
         iconColor: COLORS.cm_grey_700
       }
-    ] as ButtonActionProps[]
+    ]
   }
 };
 
