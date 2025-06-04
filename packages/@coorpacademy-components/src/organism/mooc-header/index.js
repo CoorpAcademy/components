@@ -5,13 +5,12 @@ import classnames from 'classnames';
 import {
   NovaCompositionNavigationBurger as BurgerIcon,
   NovaCompositionNavigationClose as CloseIcon,
-  NovaCompositionCoorpacademyCog as CogIcon,
   NovaCompositionCoorpacademyPlacesHome24 as HomeIcon
 } from '@coorpacademy/nova-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
-import Select from '../../atom/select';
+import InputSelect from '../../atom/input-select';
 import Picture from '../../atom/picture';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
@@ -98,9 +97,10 @@ class MoocHeader extends React.Component {
       PropTypes.shape({
         title: PropTypes.string,
         name: PropTypes.string,
-        type: PropTypes.oneOf(['select', 'switch', 'link']),
+        type: PropTypes.oneOf(['select', 'switch', 'link', 'danger-link']),
         color: PropTypes.string,
         'aria-label': PropTypes.string,
+        icon: PropTypes.string,
         options: PropTypes.shape({
           href: PropTypes.string,
           onChange: PropTypes.func,
@@ -308,7 +308,6 @@ class MoocHeader extends React.Component {
     const moreAriaLabel = translate('More');
     const primaryColor = get('common.primary', skin);
     const mediumColor = get('common.medium', skin);
-    const darkColor = get('common.dark', skin);
 
     if (items) {
       const displayedPages = items.displayed.map((item, index) => {
@@ -532,19 +531,7 @@ class MoocHeader extends React.Component {
               <div className={style.label}>{user.stats.badge.label}</div>
             </Link>
           </div>
-          <div className={style.avatarWrapper}>
-            {notificationPageView}
-            <div className={style.avatar} data-name="user-avatar">
-              <Link
-                href={user.href}
-                className={style.userLink}
-                onClick={this.handleLinkClick}
-                aria-label={user['picture-aria-label']}
-              >
-                <Picture src={user.picture} alt={user.profileAvatarAlt} />
-              </Link>
-            </div>
-          </div>
+          <div className={style.avatarWrapper}>{notificationPageView}</div>
         </div>
       );
     }
@@ -557,26 +544,30 @@ class MoocHeader extends React.Component {
           type,
           title,
           name: settingName = index,
-          color,
-          hoverColor,
-          'aria-label': ariaLabel
+          'aria-label': ariaLabel,
+          icon,
+          disabled = false
         } = setting;
 
         switch (type) {
-          case 'link': {
+          case 'link':
+          case 'danger-link': {
+            const iconView =
+              icon && !isMobile ? <FontAwesomeIcon icon={icon} className={style.linkIcon} /> : null;
             settingView = (
-              <div data-name={`setting-${settingName}`} className={style.setting} key={settingName}>
+              <div
+                data-name={`setting-${settingName}`}
+                className={classnames(style.setting, disabled && style.disabled)}
+                key={settingName}
+              >
                 <Link
-                  className={style.link}
+                  className={style.settingLink}
                   href={options.href}
-                  hoverColor={hoverColor}
                   onClick={this.handleLinkClick}
                   target={options.target || null}
                   aria-label={ariaLabel || title}
-                  style={{
-                    color
-                  }}
                 >
+                  {iconView}
                   {title}
                 </Link>
               </div>
@@ -584,41 +575,46 @@ class MoocHeader extends React.Component {
             break;
           }
           case 'select': {
-            const selectProps = {};
-            selectProps.options = options.values;
-            selectProps.title = '';
-            selectProps.theme = 'header';
-            selectProps.onChange = options.onChange;
-            selectProps.className = style.languageSelect;
+            const selectProps = {
+              options: options.values.map(opt => ({
+                value: opt.value,
+                label: opt.name
+              })),
+              value: options.values.find(opt => opt.selected)?.value,
+              onChange: options.onChange,
+              placeholder: title,
+              'aria-label': ariaLabel || title
+            };
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
                 className={classnames(style.setting, style.selectBoxes)}
                 key={settingName}
               >
-                <span className={style.label}>{title}</span>
-                <Select {...selectProps} aria-label={ariaLabel || title} />
+                <InputSelect {...selectProps} />
               </div>
             );
             break;
           }
           case 'switch': {
-            const switchProps = {};
-            switchProps.value = options.value;
-            switchProps.id = `input-switch-${index}`;
-            switchProps.onChange = options.onChange;
-
+            const switchProps = {
+              value: options.value,
+              id: `input-switch-${index}`,
+              onChange: options.onChange,
+              titlePosition: 'left',
+              theme: 'newMooc',
+              type: 'switch',
+              title,
+              icon
+            };
             settingView = (
               <div
                 data-name={`setting-${settingName}`}
-                className={style.setting}
+                className={classnames(style.setting, disabled && style.disabled)}
                 key={settingName}
                 aria-label={ariaLabel || title}
               >
                 <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
-                <span id={`title-id-${settingName}`} className={style.label}>
-                  {title}
-                </span>
               </div>
             );
             break;
@@ -630,14 +626,24 @@ class MoocHeader extends React.Component {
 
       settingsView = (
         <div className={style.settings} ref={this.setMenuSettings}>
-          <CogIcon
-            data-name="settings-toggle"
-            style={{color: darkColor}}
-            className={style.settingsToggle}
-            onClick={this.handleSettingsToggle}
-            aria-expanded={isSettingsOpen}
-            aria-label={settingsAriaLabel}
-          />
+          <div
+            className={classnames(style.userAvatarWrapper, isSettingsOpen && style.userAvatarOpen)}
+          >
+            <Link
+              className={classnames(style.userLinkAvatar)}
+              onClick={this.handleSettingsToggle}
+              aria-expanded={isSettingsOpen}
+              aria-label={settingsAriaLabel}
+              aria-haspopup="true"
+              role="button"
+            >
+              <Picture
+                className={style.avatar}
+                src={user && user.picture}
+                alt={user && user.profileAvatarAlt}
+              />
+            </Link>
+          </div>
           <div className={isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
             <div
               data-name="settings"

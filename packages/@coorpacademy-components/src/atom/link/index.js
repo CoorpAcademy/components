@@ -21,6 +21,7 @@ const Link = (props, legacyContext) => {
     onMouseLeave = noop,
     download,
     disabled,
+    className,
     ...restProps
   } = props;
 
@@ -58,6 +59,7 @@ const Link = (props, legacyContext) => {
       type="button"
       onClick={disabled ? noop : handleOnClick}
       style={style}
+      className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -70,6 +72,7 @@ const Link = (props, legacyContext) => {
       href={disabled || !href ? undefined : createHref(href)}
       onClick={disabled ? noop : handleOnClick}
       style={style}
+      className={className}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

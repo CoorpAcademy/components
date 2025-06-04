@@ -19,7 +19,11 @@
 @value warning_700 from colors;
 @value red_200 from colors;
 @value negative_600 from colors;
-@vlue cm_negative_200 from colors;
+@value cm_negative_200 from colors;
+@value cm_grey_700 from colors;
+@value cm_negative_300 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
 
 .wrapper {
   min-height: 60px;
@@ -267,10 +271,50 @@
   align-items: center;
 }
 
-.userLink {
-  display: block;
-  height: 100%;
+.userLinkAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 22px;
+  overflow: hidden;
+  background-color: white;
+  padding: 0;
 }
+
+.userLinkAvatar:hover {
+  box-shadow: 0 0 0 2px brand;
+}
+
+.userAvatarOpen {
+  box-shadow: 0 0 0 1px white, 0 0 0 3px brand;
+}
+
+.userAvatarWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.userAvatarWrapper:not(.userAvatarOpen):hover {
+  box-shadow: 0 0 0 2px brand;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+
 .notification {
   width: 36px;
   height: 36px;
@@ -302,19 +346,6 @@
   position: relative;
   margin-left: 20px;
   display: flex;
-}
-
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: medium;
-  border: 1px solid light;
-}
-
-.avatar img {
-  width: 100%;
 }
 
 .notifications {
@@ -417,38 +448,18 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  padding-right: 8px;
-}
-
-.settingsToggle {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-.settingsToggle:hover {
-  color: black;
-}
-
-.settingsToggle::before {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 20px;
+  padding-right: 24px;
 }
 
 .settingsWrapper {
   position: absolute;
-  top: 75px;
-  right: 0;
-  width: 300px;
-  border-radius: 3px;
-  border: 1px solid light;
+  top: 54px;
+  right: 20px;
+  width: 284px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
   background: white;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.02);
+  z-index: 10;
 }
 
 .settingsWrapperHidden {
@@ -456,73 +467,47 @@
   display: none;
 }
 
-.settingsWrapper::after,
-.settingsWrapper::before {
-  bottom: 100%;
-  right: 20px;
-  border: solid transparent;
-  content: ' ';
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-
-.settingsWrapper::after {
-  border-color: rgba(255, 255, 255, 0);
-  border-bottom-color: white;
-  border-width: 10px;
-  margin-right: -10px;
-}
-
-.settingsWrapper::before {
-  border-color: rgba(220, 224, 224, 0);
-  border-bottom-color: light;
-  border-width: 11px;
-  margin-right: -11px;
-}
-
 .settingsGroup {
-  padding: 20px;
-}
-
-.setting {
-  height: 40px;
+  padding: 12px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 12px;
 }
 
-.setting:last-child {
-  font-family: 'Gilroy';
-  font-size: 13px;
-  font-weight: 600;
-  color: medium;
-  height: 40px;
-  border-top: 1px solid light;
+.setting {
+  height: 44px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  padding: 0 30px;
+  justify-content: start;
+  gap: 8px;
   cursor: pointer;
+  border-radius: 8px;
+  padding: 0px;
+  margin: 0px;
+  color: cm_grey_700;
+  padding-left: 16px;
 }
 
-.setting:last-child:hover {
-  color: dark;
+.setting:hover:not(.setting:last-child) {
+  background-color: cm_grey_100;
 }
 
-.languageSelect {
-  width: 98%;
-  height: 30px;
+.setting:last-child {
+  color: cm_negative_300;
+  padding: 10px 0px 0px 4px;
+  border-top: 1px solid light;
 }
 
-.selectBoxes {
-  flex-direction: column;
-  height: 60px;
-  align-items: baseline;
-  margin-top: 15px;
-  margin-bottom: 10px;
+.setting:last-child .settingLink {
+  color: cm_negative_300;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0px 12px;
+}
+
+.setting:last-child:hover .settingLink {
+  background-color: negative_100;
 }
 
 .setting .label {
@@ -536,12 +521,46 @@
   margin-right: 10px;
 }
 
-.setting .link {
+.settingLink {
   font-family: 'Gilroy';
-  font-size: 13px;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
   font-weight: 600;
-  color: dark;
   text-decoration: none;
+  line-height: 20px;
+  color: cm_grey_700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+
+.setting.disabled :hover{
+  background-color: white;
+}
+
+.linkIcon {
+  width: 14px;
+  height: 14px;
+  color: inherit;
+}
+
+.setting:last-child .linkIcon {
+  color: cm_negative_200;
+}
+
+.selectBoxes {
+  flex-direction: column;
+  height: auto;
+  align-items: baseline;
+  width: 100%;
+  padding-left: 0;
 }
 
 .homeIcon {
@@ -787,10 +806,6 @@
     flex-direction: column;
   }
 
-  .links .link {
-    margin-bottom: 10px;
-  }
-
   .user {
     height: auto;
     padding: 10px 0 20px;
@@ -811,14 +826,6 @@
     margin: 0;
     flex-shrink: 0;
     padding-bottom: 40px;
-  }
-
-  .settingsToggle {
-    display: none;
-  }
-
-  .settings div label {
-    margin-right: 0;
   }
 
   .settingsWrapper {
@@ -850,5 +857,13 @@
   .open .settingsGroup,
   .open .settings {
     width: 100%;
+  }
+
+  .settingsWrapper {
+    right: 0;
+  }
+
+  .userAvatarWrapper {
+    display: none;
   }
 }
