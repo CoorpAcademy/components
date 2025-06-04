@@ -87,6 +87,11 @@ class MoocHeader extends React.Component {
           href: PropTypes.string,
           label: PropTypes.string,
           'aria-label': PropTypes.string
+        }),
+        myList: PropTypes.shape({
+          href: PropTypes.string,
+          label: PropTypes.string,
+          'aria-label': PropTypes.string
         })
       })
     }),
@@ -529,6 +534,22 @@ class MoocHeader extends React.Component {
                 />
               </div>
               <div className={style.label}>{user.stats.badge.label}</div>
+            </Link>
+            <Link
+              className={style.stat}
+              data-name="stat-my-list"
+              href={user.stats.myList.href}
+              onClick={this.handleLinkClick}
+              aria-label={user.stats.myList['aria-label']}
+            >
+              <div>
+                <FontAwesomeIcon
+                  icon="list-check"
+                  className={style.icon}
+                  style={{color: COLORS.purple_500}}
+                />
+              </div>
+              <div className={style.label}>{user.stats.myList.label}</div>
             </Link>
           </div>
           <div className={style.avatarWrapper}>{notificationPageView}</div>

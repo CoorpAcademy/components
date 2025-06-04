@@ -32,6 +32,11 @@ export default {
         badge: {
           href: '#',
           label: 'Gold'
+        },
+        myList: {
+          href: '#',
+          label: 'My List',
+          'aria-label': 'My List'
         }
       }
     }

@@ -50,6 +50,11 @@ export default {
           href: '#',
           label: 'Gold',
           'aria-label': 'You have a gold badge'
+        },
+        myList: {
+          href: '#',
+          label: 'My List',
+          'aria-label': 'My List'
         }
       }
     }
