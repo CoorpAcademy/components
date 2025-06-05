@@ -13,15 +13,16 @@ const getButtonContent = (
   content?: string | React.ReactNode,
   hovered?: boolean,
   hoverBackgroundColor?: string,
-  hoverColor?: string
+  hoverColor?: string,
+  customLabelClassName?: string
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
 
   if (!Icon && !faIcon) {
     return (
-      <div className={style.buttonContent}>
-        <span className={style.label}>{content}</span>
+      <div className={(style.buttonContent, customLabelClassName)}>
+        <span className={(style.label, customLabelClassName)}>{content}</span>
       </div>
     );
   }
@@ -77,7 +78,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     onKeyDown = noop,
     className,
     customStyle,
-    useTitle = true
+    useTitle = true,
+    customLabelClassName
   } = props;
   const styleButton = classnames(
     link && style.link,
@@ -154,7 +156,14 @@ const ButtonLink = (props: ButtonLinkProps) => {
         onMouseEnter={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+        {getButtonContent(
+          icon,
+          content ?? label,
+          hovered,
+          hoverBackgroundColor,
+          hoverColor,
+          customLabelClassName
+        )}
         {renderToolTip()}
       </Link>
     );

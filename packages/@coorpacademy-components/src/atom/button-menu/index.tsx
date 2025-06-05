@@ -37,6 +37,7 @@ const Button = (props: ButtonProps) => {
     buttonLinkType,
     icon,
     customStyle = {},
+    customLabelClassName,
     ...rest
   } = props;
   const styleButton = classnames(
@@ -58,7 +59,8 @@ const Button = (props: ButtonProps) => {
     onClick: handleOnClick,
     'data-name': dataName,
     className: styleButton,
-    customStyle: {...customStyle}
+    customStyle: {...customStyle},
+    customLabelClassName
   };
 
   const iconProps = buildCustomIconByTheme(icon);
@@ -69,7 +71,7 @@ const Button = (props: ButtonProps) => {
 Button.propTypes = buttonPropTypes;
 
 const ButtonMenu = (props: ButtonMenuProps) => {
-  const {buttons, 'data-name': dataName} = props;
+  const {buttons, 'data-name': dataName, enableScroll = false} = props;
   const buildButton = useCallback((button: ButtonProps, index) => {
     return <Button {...button} key={button.label + index} />;
   }, []);
@@ -80,8 +82,12 @@ const ButtonMenu = (props: ButtonMenuProps) => {
     [buttons, buildButton]
   );
 
+  const containerStyle = classnames(style.buttonMenuContainer, {
+    [style.scrollable]: enableScroll
+  });
+
   return (
-    <div data-name={dataName} className={style.buttonMenuContainer}>
+    <div data-name={dataName} className={containerStyle}>
       {buttonList}
     </div>
   );
