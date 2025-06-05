@@ -3,6 +3,7 @@
 @value cm_negative_100 from colors;
 @value cm_negative_300 from colors;
 @value negative_100 from colors;
+@value cm_grey_200 from colors;
 
 .buttonMenuContainer {
   display: flex;
@@ -11,10 +12,10 @@
 }
 
 .scrollable {
-  max-height: 280px; /* 6 items * 40px + 5 gaps * 8px */
+  max-height: 280px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: cm_grey_100 transparent;
+  scrollbar-color: cm_grey_200 transparent;
 }
 
 .scrollable::-webkit-scrollbar {
@@ -26,7 +27,7 @@
 }
 
 .scrollable::-webkit-scrollbar-thumb {
-  background-color: cm_grey_100;
+  background-color: cm_grey_200;
   border-radius: 3px;
 }
 

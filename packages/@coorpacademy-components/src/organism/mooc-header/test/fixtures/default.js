@@ -98,7 +98,12 @@ export default {
           selected: false
         },
         {
-          title: 'Bienvenue dans MyLCL LEARNING, votre nouvel espace de formation !',
+          title: 'Bienvenue dans MyLCL LEARNING!',
+          href: '#',
+          selected: false
+        },
+        {
+          title: 'Bienvenue dans MyLCL LEARNING, ',
           href: '#',
           selected: false
         },
@@ -108,7 +113,7 @@ export default {
           selected: false
         },
         {
-          title: 'Bienvenue dans MyLCL LEARNING, votre nouvel espace de formation !',
+          title: 'Bienvenue',
           href: '#',
           selected: false
         },
@@ -118,12 +123,7 @@ export default {
           selected: false
         },
         {
-          title: 'Bienvenue dans MyLCL LEARNING, votre nouvel espace de formation !',
-          href: '#',
-          selected: false
-        },
-        {
-          title: 'Bienvenue dans MyLCL LEARNING, votre nouvel espace de formation !',
+          title: 'Bienvenue dans MyLCL LEARNING',
           href: '#',
           selected: false
         }
