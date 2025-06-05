@@ -23,37 +23,39 @@ const CheckboxWithTitle = props => {
 
   return (
     <div className={style.container} style={{...customStyle}}>
-      <label htmlFor={idCheckbox}>
-        <input
-          type="checkbox"
-          id={idCheckbox}
-          name={name}
-          onChange={handleChange}
-          checked={checked}
-          className={style.checkbox}
-          data-name={dataName}
-          aria-label={ariaLabel}
-        />
-        <div className={style.label}>
-          {checked ? (
-            <FaIcon
-              className={style.icon}
-              iconName={iconName}
-              iconColor={iconColor}
-              preset={preset}
-              customStyle={DEFAULT_ICON_STYLE}
-            />
-          ) : (
-            <FaIcon
-              className={style.icon}
-              iconName={'square'}
-              iconColor={'transparent'}
-              preset="s"
-              customStyle={DEFAULT_ICON_STYLE}
-            />
-          )}
-        </div>
-      </label>
+      {onChange !== noop ? (
+        <label htmlFor={idCheckbox}>
+          <input
+            type="checkbox"
+            id={idCheckbox}
+            name={name}
+            onChange={handleChange}
+            checked={checked}
+            className={style.checkbox}
+            data-name={dataName}
+            aria-label={ariaLabel}
+          />
+          <div className={style.label}>
+            {checked ? (
+              <FaIcon
+                className={style.icon}
+                iconName={iconName}
+                iconColor={iconColor}
+                preset={preset}
+                customStyle={DEFAULT_ICON_STYLE}
+              />
+            ) : (
+              <FaIcon
+                className={style.icon}
+                iconName={'square'}
+                iconColor={'transparent'}
+                preset="s"
+                customStyle={DEFAULT_ICON_STYLE}
+              />
+            )}
+          </div>
+        </label>
+      ) : null}
       {title ? (
         <span
           // eslint-disable-next-line react/no-danger
