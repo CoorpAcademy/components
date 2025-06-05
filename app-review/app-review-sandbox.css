@@ -6522,8 +6522,29 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   gap: 8px;
 }
 
+.scrollable-AHNj5 {
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d7d7da transparent;
+}
+
+.scrollable-AHNj5::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-AHNj5::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-AHNj5::-webkit-scrollbar-thumb {
+  background-color: #d7d7da;
+  border-radius: 3px;
+}
+
 .button-b9cR\+ {
   width: auto;
+  min-height: 40px;
   height: 40px;
   font-family: Gilroy;
   font-size: 14px;
