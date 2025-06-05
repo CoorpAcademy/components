@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import SearchForm from '../../molecule/search-form';
+import Search from '../../atom/input-search';
 
 const propTypes = {
   title: PropTypes.string,
@@ -14,7 +14,7 @@ const propTypes = {
       onClick: PropTypes.func
     })
   ),
-  searchOptions: PropTypes.shape(SearchForm.propTypes)
+  searchOptions: PropTypes.shape(Search.propTypes)
 };
 
 export type FilterCheckboxAndSearchOptions = {
@@ -26,10 +26,21 @@ export type FilterCheckboxAndSearchOptions = {
   onClick: () => void;
 };
 
+type SearchType = {
+  value?: string;
+  placeholder: string;
+  onChange?: () => void;
+  onClear?: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  theme?: 'default' | 'coorpmanager';
+  dataTestId?: string;
+};
+
 export type FilterCheckboxAndSearchProps = {
   title: string;
   onClear: () => void;
-  searchOptions: React.ComponentProps<typeof SearchForm>;
+  searchOptions: SearchType;
   options: FilterCheckboxAndSearchOptions[];
 };
 

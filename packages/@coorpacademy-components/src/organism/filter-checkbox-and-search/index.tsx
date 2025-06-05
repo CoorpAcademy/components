@@ -3,11 +3,11 @@ import {filter, isEmpty, pipe, size, toString} from 'lodash/fp';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
-import SearchForm from '../../molecule/search-form';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import {COLORS} from '../../variables/colors';
+import Search from '../../atom/input-search';
 import style from './style.css';
 import propTypes, {FilterCheckboxAndSearchProps} from './props-types';
 
@@ -70,7 +70,7 @@ const FilterCheckboxAndSearch = (
       </div>
       {searchOptions ? (
         <div className={style.search}>
-          <SearchForm {...searchOptions} />
+          <Search {...searchOptions} />
         </div>
       ) : null}
       <div

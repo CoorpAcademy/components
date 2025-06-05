@@ -7,12 +7,10 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
       console.log('clear filters');
     },
     searchOptions: {
-      search: {
-        placeholder: 'Search for a skill',
-        value: '',
-        onChange: () => {
-          console.log('onChange search');
-        }
+      placeholder: 'Search for a skill',
+      value: '',
+      onChange: () => {
+        console.log('onChange search');
       }
     },
     options: [
