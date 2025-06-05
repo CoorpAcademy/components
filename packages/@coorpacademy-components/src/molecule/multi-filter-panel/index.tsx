@@ -1,7 +1,7 @@
 import React from 'react';
 import {map, size, pipe, filter, flatMap, toString} from 'lodash/fp';
 import FilterChip from '../../organism/filter-chip';
-import FilterCkeckboxAndSearch from '../../organism/filter-checkbox-and-search';
+import FilterCheckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -22,7 +22,7 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
     case 'chip':
       return <FilterChip {...options} />;
     case 'checkbox':
-      return <FilterCkeckboxAndSearch {...options} />;
+      return <FilterCheckboxAndSearch {...options} />;
     default:
       return null;
   }

@@ -26,7 +26,7 @@ const CHECKBOX_TITLE_STYLE = {
 };
 const INITIAL_VISIBLE_OPTIONS = 5;
 
-const FilterCkeckboxAndSearch = (
+const FilterCheckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
@@ -104,7 +104,7 @@ const FilterCkeckboxAndSearch = (
           ))
         )}
       </div>
-      {options.length > INITIAL_VISIBLE_OPTIONS ? (
+      {size(options) > INITIAL_VISIBLE_OPTIONS ? (
         <div>
           <ButtonLink
             label={showMore ? translate('Show less') : translate('Show more')}
@@ -127,10 +127,10 @@ const FilterCkeckboxAndSearch = (
   );
 };
 
-FilterCkeckboxAndSearch.propTypes = propTypes;
+FilterCheckboxAndSearch.propTypes = propTypes;
 
-FilterCkeckboxAndSearch.contextTypes = {
+FilterCheckboxAndSearch.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-export default FilterCkeckboxAndSearch;
+export default FilterCheckboxAndSearch;
