@@ -12,13 +12,15 @@ export const buttonPropTypes = {
     ...iconPropTypes,
     theme: PropTypes.oneOf(['archived', 'published', 'deleted'])
   }),
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  customLabelClassName: PropTypes.string
 };
 
 const propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.shape(buttonPropTypes)).isRequired,
   'data-name': PropTypes.string,
-  'aria-label': PropTypes.string
+  'aria-label': PropTypes.string,
+  enableScroll: PropTypes.bool
 };
 
 export default propTypes;
@@ -29,12 +31,14 @@ export type ButtonProps = Omit<ButtonLinkProps, 'type' | 'icon'> & {
   type?: 'default' | 'defaultLeft' | 'dangerous' | 'dangerousLeft';
   buttonLinkType?: ButtonLinkProps['type'];
   icon?: IconType & {theme?: Theme};
+  customLabelClassName?: string;
 };
 
 export type ButtonMenuProps = {
   buttons: ButtonProps[];
   'data-name'?: string;
   'aria-label'?: string;
+  enableScroll?: boolean;
 };
 
 export type ButtonMenuPropsFixture = {props: ButtonMenuProps};

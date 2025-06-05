@@ -13,21 +13,23 @@ const ButtonMenuActionPropTypes = {
   }),
   type: PropTypes.oneOf(['button', 'link']),
   primaryColor: PropTypes.string,
-  closeOnClick: PropTypes.bool
+  closeOnClick: PropTypes.bool,
+  enableScroll: PropTypes.bool
 };
 export default ButtonMenuActionPropTypes;
 
 export type ButtonMenuActionProps = {
   button: ButtonLinkProps;
   menu: ButtonMenuProps;
-  type?: 'button' | 'link';
   menuWrapper?: {
     ariaLabel?: string;
-    customStyle?: Record<string, unknown>;
+    customStyle?: Record<string, string | number>;
   };
-  containerCustom?: Record<string, unknown>;
+  type?: 'button' | 'link';
   primaryColor?: string;
+  containerCustom?: Record<string, string | number>;
   closeOnClick?: boolean;
+  enableScroll?: boolean;
 };
 
 export type ButtonMenuActionPropsFixture = {props: ButtonMenuActionProps};

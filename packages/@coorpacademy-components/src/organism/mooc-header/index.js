@@ -122,7 +122,8 @@ class MoocHeader extends React.Component {
       })
     ),
     onMenuOpen: PropTypes.func,
-    onMenuClose: PropTypes.func
+    onMenuClose: PropTypes.func,
+    enableScroll: PropTypes.bool
   };
 
   static contextTypes = {
@@ -273,7 +274,11 @@ class MoocHeader extends React.Component {
       type: 'defaultLeft',
       link: {href: item.href},
       'data-name': `item-more-${item.name}`,
-      customStyle: {padding: '0 16px', ...(item.selected && {color: primaryColor})}
+      customStyle: {
+        padding: '0 16px',
+        ...(item.selected && {color: primaryColor})
+      },
+      customLabelClassName: style.buttonContentLabel
     }));
   };
 
@@ -426,9 +431,11 @@ class MoocHeader extends React.Component {
                   primaryColor={primaryColor}
                   containerCustom={{alignItems: 'flex-start'}}
                   closeOnClick
+                  enableScroll
                   menuWrapper={{
                     customStyle: {
-                      top: '30px'
+                      top: '30px',
+                      maxWidth: 360
                     }
                   }}
                   menu={{

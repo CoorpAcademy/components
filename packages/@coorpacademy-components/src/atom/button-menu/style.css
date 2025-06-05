@@ -10,8 +10,29 @@
   gap: 8px;
 }
 
+.scrollable {
+  max-height: 280px; /* 6 items * 40px + 5 gaps * 8px */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: cm_grey_100 transparent;
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: cm_grey_100;
+  border-radius: 3px;
+}
+
 .button {
   width: auto;
+  min-height: 40px;
   height: 40px;
   font-family: Gilroy;
   font-size: 14px;

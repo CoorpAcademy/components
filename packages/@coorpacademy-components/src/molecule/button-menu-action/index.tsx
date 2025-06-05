@@ -16,7 +16,8 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
     type = 'button',
     primaryColor,
     containerCustom,
-    closeOnClick = false
+    closeOnClick = false,
+    enableScroll = false
   } = props;
   const {onClick = noop} = button;
   const [visible, setVisible] = useState(false);
@@ -60,7 +61,7 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
       aria-label={menuWrapper?.ariaLabel}
       style={menuWrapper?.customStyle}
     >
-      <ButtonMenu {...menuWithClose} />
+      <ButtonMenu {...menuWithClose} enableScroll={enableScroll} />
     </div>
   );
 

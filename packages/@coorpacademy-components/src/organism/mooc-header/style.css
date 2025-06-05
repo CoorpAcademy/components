@@ -617,6 +617,13 @@
   justify-content: center;
 }
 
+.buttonContentLabel {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media desktop {
   .item {
     padding: 0 11px;

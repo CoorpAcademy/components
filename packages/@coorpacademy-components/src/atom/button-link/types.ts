@@ -37,7 +37,9 @@ const propTypes = {
   hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  useTitle: PropTypes.bool,
+  customLabelClassName: PropTypes.string
 };
 
 export type FaIconType = {
@@ -78,6 +80,7 @@ export type ButtonLinkProps = {
   className?: string;
   customStyle?: Record<string, string | number>;
   useTitle?: boolean;
+  customLabelClassName?: string;
 };
 
 export type Fixture = {props: ButtonLinkProps};
