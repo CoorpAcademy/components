@@ -6,9 +6,6 @@ export default {
       iconName: 'lock',
       preset: 's',
       iconColor: 'red',
-      customStyle: {
-        padding: 0
-      },
       position: 'right'
     }
   }

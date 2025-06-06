@@ -36,7 +36,6 @@ const items = [
 export default {
   props: {
     checkboxWithTitle: {
-      ...checkboxWithTitleProps.props,
       title: `<span style="color: #1D1D2B;">${
         items.length - 1
       }</span><span>&nbsp;</span>items selected`,

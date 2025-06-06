@@ -20,8 +20,21 @@ const TAG_SIZE = {
   L: style.large
 };
 
-const Tag = ({label, type = 'default', size = 'M', customStyle = {}, icon = {}}) => {
-  const {position, ...iconProps} = icon;
+const defaultIconProps = {
+  position: 'left',
+  preset: 's'
+};
+
+const renderIcon = iconProps => <Icon {...iconProps} />;
+
+const Tag = ({label = '', type = 'default', size = 'M', customStyle = {}, icon = {}}) => {
+  const {iconName} = icon;
+  const {position, ...iconProps} = iconName
+    ? {
+        ...defaultIconProps,
+        ...icon
+      }
+    : {};
 
   return (
     <span
@@ -30,9 +43,9 @@ const Tag = ({label, type = 'default', size = 'M', customStyle = {}, icon = {}})
       style={customStyle}
     >
       <div className={style.content}>
-        {position === 'left' ? <Icon {...iconProps} /> : null}
+        {position === 'left' && iconName && renderIcon(iconProps)}
         <div>{label}</div>
-        {position === 'right' ? <Icon {...iconProps} /> : null}
+        {position === 'right' && iconName && renderIcon(iconProps)}
       </div>
     </span>
   );

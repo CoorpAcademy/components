@@ -7,15 +7,10 @@ const emptySearchSkillFixture: {props: FilterCheckboxAndSearchProps} = {
       console.log('clear filters');
     },
     searchOptions: {
-      search: {
-        placeholder: 'Search for a skill',
-        value: 'qdfqff',
-        onChange: () => {
-          console.log('onChange search');
-        }
-      },
-      onReset: () => {
-        console.log('onReset search');
+      placeholder: 'Search for a skill',
+      value: 'qdfqff',
+      onChange: () => {
+        console.log('onChange search');
       }
     },
     options: []
