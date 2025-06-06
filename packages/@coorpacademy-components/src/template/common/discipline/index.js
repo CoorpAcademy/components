@@ -62,20 +62,12 @@ const Discipline = (props, context) => {
     />
   );
 
-  const disciplineContent =
-    content || !isEmpty(levels) ? (
-      <div className={style.content}>
-        {content ? <ScopeContent content={content} /> : null}
-        {!isEmpty(levels) ? (
-          <DisciplineScope
-            content={level}
-            levels={levels}
-            selected={selected}
-            onClick={changeLevel}
-          />
-        ) : null}
-      </div>
-    ) : null;
+  const disciplineContent = (
+    <div className={style.content}>
+      {content ? <ScopeContent content={content} /> : null}
+      <DisciplineScope content={level} levels={levels} selected={selected} onClick={changeLevel} />
+    </div>
+  );
 
   const disciplineHeader = (
     <div className={style.header}>
