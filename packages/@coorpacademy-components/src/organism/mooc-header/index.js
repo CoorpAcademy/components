@@ -655,6 +655,7 @@ class MoocHeader extends React.Component {
       settingsView = (
         <div className={style.settings} ref={this.setMenuSettings}>
           <div
+            data-name="user-avatar-wrapper"
             className={classnames(style.userAvatarWrapper, isSettingsOpen && style.userAvatarOpen)}
           >
             <Link
