@@ -1,4 +1,5 @@
 import React from 'react';
+import {isEmpty} from 'lodash/fp';
 import ScopeTabs from '../scope-tabs';
 import ScopeContent from '../scope-content';
 import style from './style.css';
@@ -8,7 +9,9 @@ const DisciplineScope = props => {
 
   return (
     <div className={style.scope}>
-      <ScopeTabs onClick={onClick} selected={selected} levels={levels} />
+      {!isEmpty(levels) ? (
+        <ScopeTabs onClick={onClick} selected={selected} levels={levels} />
+      ) : null}
       <ScopeContent content={content} />
     </div>
   );

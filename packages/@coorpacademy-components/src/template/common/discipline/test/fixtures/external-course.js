@@ -1,7 +1,15 @@
+import {uniqueId, update} from 'lodash/fp';
 import disciplinePartners from '../../../../../molecule/discipline-partners/test/fixtures/more-info';
 import externalCourseCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/no-video';
+import Thread from '../../../../../molecule/forum/forum-thread/test/fixtures/default';
+import ForumComment from '../../../../../molecule/forum/forum-comment/test/fixtures/default';
+
 import Default from './default';
+
+const thread = Thread.props;
+
+const threads = [thread].map(update('id', () => uniqueId()));
 
 const {props} = Default;
 const {rating, maxRating} = externalCourseCTA.props;
@@ -41,7 +49,15 @@ export default {
       ]
     },
     onSkillClick: () => console.log('skill clicked'),
-    levels: [],
-    level: {...props.content, title: null, discussion: {}}
+    levels: null,
+    level: {
+      ...props.content,
+      title: null,
+      discussion: {
+        ...ForumComment.props,
+        title: 'Sandbox discussion',
+        threads
+      }
+    }
   }
 };
