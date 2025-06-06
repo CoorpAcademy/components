@@ -83,7 +83,6 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
             onClick: iconEditor.buttonLink.onClick,
             customStyle: {
               borderRadius: '12px',
-              padding: '0 8px 0 16px',
               fontWeight: '500'
             }
           }

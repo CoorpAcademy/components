@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
-import bulletPointMenuButtonPropTypes, {
-  BulletPointMenuButtonProps
-} from '../../molecule/bullet-point-menu-button/types';
-import ButtonLinkPropTypes, {ButtonLinkProps} from '../../atom/button-link/types';
 
-const closeButtonPropTypes = {
-  size: PropTypes.oneOf(['default', 'small', 'responsive']).isRequired,
-  icon: PropTypes.string.isRequired,
-  'data-name': PropTypes.string.isRequired,
-  'aria-label': PropTypes.string.isRequired,
+const ButtonMenuPropTypes = {
+  dataName: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
+  iconColor: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
+
+const ButtonActionPropTypes = {
+  type: PropTypes.oneOf(['primary', 'secondary']),
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  iconName: PropTypes.string,
+  iconColor: PropTypes.string
+};
+
 const headerWithActionsPropTypes = {
-  closeButton: PropTypes.shape(closeButtonPropTypes),
+  closeButton: PropTypes.shape({
+    'aria-label': PropTypes.string,
+    onClick: PropTypes.func.isRequired
+  }),
   title: PropTypes.string.isRequired,
   tag: PropTypes.shape({
     label: PropTypes.oneOf(['Published', 'Ongoing changes', 'Draft', 'Archived']).isRequired,
@@ -23,8 +32,12 @@ const headerWithActionsPropTypes = {
     display: PropTypes.bool.isRequired,
     label: PropTypes.oneOf(['Unsaved changes', 'Saved'])
   }).isRequired,
-  bulletPointMenuButton: PropTypes.shape(bulletPointMenuButtonPropTypes),
-  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonLinkPropTypes)).isRequired
+  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonActionPropTypes)).isRequired,
+  bulletPointMenuButtonPropTypes: PropTypes.shape({
+    buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
+    onClick: PropTypes.func.isRequired,
+    buttonAriaLabel: PropTypes.string
+  })
 };
 
 export default headerWithActionsPropTypes;
@@ -41,11 +54,31 @@ type SaveStatusProps = {
 };
 
 type CloseButtonProps = {
-  size: 'default' | 'small' | 'responsive';
-  icon: string;
-  'data-name': string;
   'aria-label': string;
   onClick: () => void;
+};
+
+export type ButtonMenuProps = {
+  dataName: string;
+  label: string;
+  iconName: string;
+  iconColor: string;
+  onClick: () => void;
+};
+
+type BulletPointMenuButtonProps = {
+  buttons: ButtonMenuProps[];
+  onClick: () => void;
+  buttonAriaLabel: string;
+};
+
+export type ButtonActionProps = {
+  type?: 'primary' | 'secondary';
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  iconName?: string;
+  iconColor?: string;
 };
 
 export type HeaderWithActionsProps = {
@@ -53,7 +86,7 @@ export type HeaderWithActionsProps = {
   title: string;
   tag: TagProps;
   saveStatus: SaveStatusProps;
-  actionButtons: ButtonLinkProps[];
+  actionButtons: ButtonActionProps[];
   bulletPointMenuButton?: BulletPointMenuButtonProps;
 };
 
