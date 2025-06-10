@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 
-export interface Option {
+export type Option = {
   value: string;
   label: string;
   icon?: string | null;
-}
+  'data-name'?: string | null;
+};
 
-export interface InputSelectProps {
+export type InputSelectProps = {
   options: Option[];
   value?: string;
   onChange: (value: string) => void;
@@ -15,12 +16,14 @@ export interface InputSelectProps {
   'aria-label'?: string;
   iconClosed?: string;
   selectedIcon?: string;
-}
+  'button-data-testid'?: string;
+};
 
 const optionPropTypes = {
   value: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  'data-name': PropTypes.string
 };
 
 export const propTypes = {
@@ -31,5 +34,8 @@ export const propTypes = {
   className: PropTypes.string,
   'aria-label': PropTypes.string,
   iconClosed: PropTypes.string,
-  selectedIcon: PropTypes.string
+  selectedIcon: PropTypes.string,
+  'button-data-testid': PropTypes.string
 };
+
+export default propTypes;

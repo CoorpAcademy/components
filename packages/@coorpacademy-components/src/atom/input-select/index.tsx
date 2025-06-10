@@ -3,7 +3,8 @@ import classnames from 'classnames';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {IconName} from '@fortawesome/fontawesome-svg-core';
 import style from './style.css';
-import {InputSelectProps, Option, propTypes} from './types';
+import type {InputSelectProps} from './types';
+import propTypes from './types';
 
 const COMPONENT_ID = 'input-select';
 
@@ -15,7 +16,8 @@ const InputSelect: React.FC<InputSelectProps> = ({
   className,
   'aria-label': ariaLabel,
   iconClosed = 'chevron-down',
-  selectedIcon = 'circle-check'
+  selectedIcon = 'circle-check',
+  'button-data-testid': buttonDataTestId = 'select-input'
 }) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -49,7 +51,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
 
   const selectedOption = options.find(opt => opt.value === value);
 
-  const renderOption = (option: Option) => {
+  const renderOption = (option: InputSelectProps['options'][0]) => {
     function handleClick() {
       handleOnOptionClick(option.value);
     }
@@ -63,6 +65,8 @@ const InputSelect: React.FC<InputSelectProps> = ({
         role="option"
         aria-selected={isSelected}
         onClick={handleClick}
+        data-testid={`option-${option.value}`}
+        data-name={option['data-name']}
       >
         <span className={style.optionIcon}>{option.icon}</span>
         <span className={style.optionLabel}>{option.label}</span>
@@ -90,6 +94,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
           aria-expanded={open}
           aria-controls={open ? `${componentId}-listbox` : undefined}
           id={componentId}
+          data-testid={buttonDataTestId}
         >
           <div className={style.content}>
             <span className={style.label}>{placeholder}</span>
