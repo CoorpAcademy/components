@@ -606,12 +606,14 @@ class MoocHeader extends React.Component {
             const selectProps = {
               options: options.values.map(opt => ({
                 value: opt.value,
-                label: opt.name
+                label: opt.name,
+                'data-name': `setting-${settingName}-option-${opt.value}`
               })),
               value: options.values.find(opt => opt.selected)?.value,
               onChange: options.onChange,
               placeholder: title,
-              'aria-label': ariaLabel || title
+              'aria-label': ariaLabel || title,
+              'button-data-testid': `setting-${settingName}-button`
             };
             settingView = (
               <div
