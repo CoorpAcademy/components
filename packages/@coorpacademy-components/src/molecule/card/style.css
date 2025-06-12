@@ -31,6 +31,7 @@
   animation: fadeIn 1s ease-out forwards;
   cursor: pointer;
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
+  border: 2px solid white;
 }
 
 .defaultStyle[disabled] .favorite {
