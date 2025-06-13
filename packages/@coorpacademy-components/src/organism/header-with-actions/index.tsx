@@ -36,8 +36,7 @@ const buildButtonMenu = ({dataName, label, iconName, iconColor, onClick}: Button
       faIcon: {
         name: iconName,
         color: iconColor,
-        size: 14,
-        customStyle: {padding: 0}
+        size: 14
       }
     },
     onClick,
@@ -72,8 +71,7 @@ const buildActionButton = ({
         faIcon: {
           name: iconName,
           color: iconColor,
-          size: 14,
-          customStyle: {padding: 0}
+          size: 14
         }
       }
     };
