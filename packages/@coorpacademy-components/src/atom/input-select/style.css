@@ -12,6 +12,13 @@
 @value cm_blue_50 from colors;
 @value cm_grey_150 from colors;
 
+.container {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
+}
+
 .outerWrapper {
   width: 100%;
   border-radius: 12px;
@@ -95,18 +102,36 @@
   transform: rotate(180deg);
 }
 
-.menu {
+.menuWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.menuWrapper.showFade::after {
+  content: "";
   position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
-  margin-top: 8px;
-  background: white;
+  width: 100%;
+  height: 36px;
+  background: linear-gradient(to bottom, transparent 0%, #fff 80%);
   border-radius: 12px;
-  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.menu {
+  max-height: 296px;
+  overflow-y: auto;
+  list-style: none;
   z-index: 10;
-  padding: 12px;
+  padding: 0px 12px;
   list-style: none;
   width: 100%;
+  border-radius: 12px;
   box-sizing: border-box;
 }
 
@@ -166,4 +191,4 @@
   color: brand;
   display: inline-flex;
   align-items: center;
-} 
+}

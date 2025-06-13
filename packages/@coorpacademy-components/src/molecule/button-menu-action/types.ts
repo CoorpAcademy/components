@@ -30,6 +30,7 @@ export type ButtonMenuActionProps = {
   containerCustom?: Record<string, string | number>;
   closeOnClick?: boolean;
   enableScroll?: boolean;
+  showFade?: boolean;
 };
 
 export type ButtonMenuActionPropsFixture = {props: ButtonMenuActionProps};
