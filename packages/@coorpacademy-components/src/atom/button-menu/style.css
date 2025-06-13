@@ -11,9 +11,9 @@
   gap: 8px;
 }
 
-.scrollable {
-  max-height: 280px;
-  overflow-y: auto;
+.buttonMenuContainer.scrollable {
+  max-height: 314px; /* 6.75 * 40px (hauteur d'un item) + 8px (gap) */
+  overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: cm_grey_200 transparent;
 }

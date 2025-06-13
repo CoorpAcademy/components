@@ -441,6 +441,7 @@ class MoocHeader extends React.Component {
                   menu={{
                     buttons: this.createMenuButtons(items.more, primaryColor)
                   }}
+                  showFade
                 />
               </div>
             ))}

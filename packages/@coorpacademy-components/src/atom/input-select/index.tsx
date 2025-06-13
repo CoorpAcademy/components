@@ -80,39 +80,47 @@ const InputSelect: React.FC<InputSelectProps> = ({
   };
 
   return (
-    <div
-      className={classnames(style.outerWrapper, {
-        [style.open]: open
-      })}
-    >
-      <div ref={wrapperRef} className={classnames(style.wrapper, className)} aria-label={ariaLabel}>
-        <button
-          type="button"
-          className={style.display}
-          onClick={handleToggle}
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          aria-controls={open ? `${componentId}-listbox` : undefined}
-          id={componentId}
-          data-testid={buttonDataTestId}
+    <div className={style.container}>
+      <div
+        className={classnames(style.outerWrapper, {
+          [style.open]: open
+        })}
+      >
+        <div
+          ref={wrapperRef}
+          className={classnames(style.wrapper, className)}
+          aria-label={ariaLabel}
         >
-          <div className={style.content}>
-            <span className={style.label}>{placeholder}</span>
-            {selectedOption ? <span className={style.value}>{selectedOption.label}</span> : null}
-          </div>
-          <span className={classnames(style.iconWrapper, {[style.open]: open})}>
-            <FontAwesomeIcon
-              className={classnames(style.icon, {[style.rotated]: open})}
-              icon={iconClosed as IconName}
-            />
-          </span>
-        </button>
-        {open ? (
+          <button
+            type="button"
+            className={style.display}
+            onClick={handleToggle}
+            aria-haspopup="listbox"
+            aria-expanded={open}
+            aria-controls={open ? `${componentId}-listbox` : undefined}
+            id={componentId}
+            data-testid={buttonDataTestId}
+          >
+            <div className={style.content}>
+              <span className={style.label}>{placeholder}</span>
+              {selectedOption ? <span className={style.value}>{selectedOption.label}</span> : null}
+            </div>
+            <span className={classnames(style.iconWrapper, {[style.open]: open})}>
+              <FontAwesomeIcon
+                className={classnames(style.icon, {[style.rotated]: open})}
+                icon={iconClosed as IconName}
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+      {open ? (
+        <div className={classnames(style.menuWrapper, style.showFade)}>
           <ul id={`${componentId}-listbox`} className={style.menu} role="listbox">
             {options.map(renderOption)}
           </ul>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 };
