@@ -10,6 +10,7 @@ import {
 import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import ContentBadge from '../../atom/content-badge';
+import Tag from '../../atom/tag';
 import style from './style.css';
 
 export const MODES = {
@@ -22,34 +23,52 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
+const card = (contentType, translate) => {
+  switch (contentType) {
+    case 'chapter':
+      return {label: "5' learning", iconName: 'timer'};
+    case 'scorm':
+      return {label: translate('external_content_scorm'), iconName: 'rectangle-history'};
+    case 'video':
+      return {label: translate('external_content_video'), iconName: 'circle-play'};
+    case 'article':
+      return {label: translate('external_content_article'), iconName: 'file-lines'};
+    case 'podcast':
+      return translate('external_content_podcast');
+    default:
+      return {label: 'Course test', iconName: 'book-open'};
+  }
+};
+
 const ContentTypeInfo = ({mode, type, externalContent}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD) {
     return null;
   }
+  const {label, iconName} = card(type, translate);
+  // if (type === 'chapter') {
+  //   return (
+  //     <div className={style.microLearningIcon}>
+  //       <TimerIcon className={style.timerIcon} />
+  //       <span className={style.microLearninglabel}>{"5' learning"}</span>
+  //     </div>
+  //   );
+  // }
+  // if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
+  //   const textColor = EXTERNAL_CONTENT_ICONS[type].color;
 
-  if (type === 'chapter') {
-    return (
-      <div className={style.microLearningIcon}>
-        <TimerIcon className={style.timerIcon} />
-        <span className={style.microLearninglabel}>{"5' learning"}</span>
-      </div>
-    );
-  }
-  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
-    const textColor = EXTERNAL_CONTENT_ICONS[type].color;
-
-    return (
-      <div className={style.contentTypeInfo} style={{color: textColor}}>
-        {type === 'scorm' ? translate('external_content_scorm') : ''}
-        {type === 'video' ? translate('external_content_video') : ''}
-        {type === 'article' ? translate('external_content_article') : ''}
-        {type === 'podcast' ? translate('external_content_podcast') : ''}
-      </div>
-    );
-  }
-
-  return null;
+  //   return (
+  //     <div className={style.contentTypeInfo} style={{color: textColor}}>
+  //       {type === 'scorm' ? translate('external_content_scorm') : ''}
+  //       {type === 'video' ? translate('external_content_video') : ''}
+  //       {type === 'article' ? translate('external_content_article') : ''}
+  //       {type === 'podcast' ? translate('external_content_podcast') : ''}
+  //     </div>
+  //   );
+  // }
+  // eslint-disable-next-line no-console
+  console.log('label', label, 'iconName', iconName);
+  return <Tag label={label} icon={{iconName}} />;
 };
 
 ContentTypeInfo.contextTypes = {

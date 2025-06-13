@@ -44,6 +44,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
           style={{
             backgroundColor: iconColor
           }}
+          data-testid="card-background-image"
         >
           <IconType className={style.externalIconWithImage} />
         </div>
@@ -182,7 +183,8 @@ const Card = memo(function Card(props, context) {
         return contentType;
     }
   };
-
+  // eslint-disable-next-line no-console
+  console.log('type of card', type);
   return (
     <div
       className={cardStyle}
