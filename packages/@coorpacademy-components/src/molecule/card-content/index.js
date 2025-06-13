@@ -4,10 +4,9 @@ import classnames from 'classnames';
 import {get, isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
-  NovaSolidStatusCheckCircle2 as CheckIcon,
-  NovaCompositionCoorpacademyTimer as TimerIcon
+  NovaSolidStatusCheckCircle2 as CheckIcon
 } from '@coorpacademy/nova-icons';
-import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
+import {isExternalContent} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import ContentBadge from '../../atom/content-badge';
 import Tag from '../../atom/tag';
@@ -34,9 +33,9 @@ const card = (contentType, translate) => {
     case 'article':
       return {label: translate('external_content_article'), iconName: 'file-lines'};
     case 'podcast':
-      return translate('external_content_podcast');
+      return {label: translate('external_content_podcast'), iconName: 'microphone-lines'};
     default:
-      return {label: 'Course test', iconName: 'book-open'};
+      return {label: 'Course', iconName: 'book-open'};
   }
 };
 

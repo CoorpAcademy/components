@@ -14,7 +14,7 @@
   flex: 1 0 auto;
 }
 
-.microLearningIcon {
+/* .microLearningIcon {
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -26,9 +26,9 @@
   flex-direction: column;
   align-self: center;
   margin-top: 35px;
-}
+} */
 
-.timerIcon {
+/* .timerIcon {
   height: 40px;
   width: 40px;
 }
@@ -36,18 +36,18 @@
 .coorpmanager .timerIcon {
   height: 30px;
   width: 30px;
-}
+} */
 
-.microLearningIcon svg {
+/* .microLearningIcon svg {
   background:white;
   border-radius: 50%;
   margin: 0 auto;
   padding: 3px;
   box-sizing: content-box; 
   color: lightBlack;
-}
+} */
 
-.microLearninglabel {
+/* .microLearninglabel {
   font-family: 'Gilroy';
   font-size: 10px;
   font-weight: 800;
@@ -57,7 +57,7 @@
 
 .coorpmanager .microLearninglabel {
   font-size: 6px;
-}
+} */
 
 .infoWrapper {
   display: flex;
@@ -231,7 +231,7 @@
   margin: 0 auto;
 }
 
-.contentTypeInfo {
+/* .contentTypeInfo {
   font-family: 'Gilroy';
   font-size: 10px;
   font-weight: 700;
@@ -239,7 +239,7 @@
 
 .coorpmanager.externalContent .contentTypeInfo {
   font-size: 6px;
-}
+} */
 
 .externalContent .cardInfo {
   flex-grow: 2;
