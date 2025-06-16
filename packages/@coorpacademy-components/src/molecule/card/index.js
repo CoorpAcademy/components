@@ -29,11 +29,25 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
 
-  if ((externalContent && EXTERNAL_CONTENT_ICONS[type]) || type === 'chapter') {
+  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
+    // eslint-disable-next-line no-console
+    console.log('externalContent', externalContent);
     const {iconName, color} = ICONS_TYPES[type];
     const backgroundIcon = (
-      <div className={style.externalIconCircleWrapper}>
-        <FaIcon iconName={iconName} className={style.externalIcon} />
+      <div
+        className={classnames(
+          style.externalIconCircleWrapper,
+          style.externalIconCircleWithImageWrapper
+        )}
+      >
+        <FaIcon
+          iconName={iconName}
+          customStyle={{
+            color: COLORS.white,
+            height: ICON_SIZE,
+            width: ICON_SIZE
+          }}
+        />
       </div>
     );
 
