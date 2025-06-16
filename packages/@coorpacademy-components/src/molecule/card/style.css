@@ -362,7 +362,7 @@
   transition: transform 0.25s ease-in-out;
 }
 
-.externalIcon {
+/* .externalIcon {
   color: white;
   width: 45px;
   height: 45px;
@@ -372,7 +372,7 @@
   color: white;
   width: 23px;
   height: 23px;
-}
+} */
 
 .externalIconCircleWrapper::after {
   animation: pulse 3s linear 0s infinite;
