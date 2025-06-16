@@ -22,10 +22,10 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const card = (contentType, translate) => {
+const getCardInfo = (contentType, translate) => {
   switch (contentType) {
     case 'chapter':
-      return {label: "5' learning", iconName: 'timer'};
+      return {label: "5' learning", iconName: 'stopwatch'};
     case 'scorm':
       return {label: translate('external_content_scorm'), iconName: 'rectangle-history'};
     case 'video':
@@ -39,35 +39,24 @@ const card = (contentType, translate) => {
   }
 };
 
-const ContentTypeInfo = ({mode, type, externalContent}, context) => {
+const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD) {
     return null;
   }
-  const {label, iconName} = card(type, translate);
-  // if (type === 'chapter') {
-  //   return (
-  //     <div className={style.microLearningIcon}>
-  //       <TimerIcon className={style.timerIcon} />
-  //       <span className={style.microLearninglabel}>{"5' learning"}</span>
-  //     </div>
-  //   );
-  // }
-  // if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
-  //   const textColor = EXTERNAL_CONTENT_ICONS[type].color;
-
-  //   return (
-  //     <div className={style.contentTypeInfo} style={{color: textColor}}>
-  //       {type === 'scorm' ? translate('external_content_scorm') : ''}
-  //       {type === 'video' ? translate('external_content_video') : ''}
-  //       {type === 'article' ? translate('external_content_article') : ''}
-  //       {type === 'podcast' ? translate('external_content_podcast') : ''}
-  //     </div>
-  //   );
-  // }
+  const {label, iconName} = getCardInfo(type, translate);
   // eslint-disable-next-line no-console
   console.log('label', label, 'iconName', iconName);
-  return <Tag label={label} icon={{iconName}} />;
+  return (
+    <div className={style.contentTypeInfos}>
+      <Tag size="S" label={label} icon={{iconName}} />
+      {adaptiv ? (
+        <div className={classnames(style.adaptiveIcon, isCourse ? style.iconShadow : null)}>
+          <AdaptivIcon height={25} aria-label={get('adaptive', ariaLabel)} />
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 ContentTypeInfo.contextTypes = {
@@ -76,9 +65,11 @@ ContentTypeInfo.contextTypes = {
 };
 
 ContentTypeInfo.propTypes = {
-  externalContent: PropTypes.bool,
   type: PropTypes.string,
-  mode: PropTypes.string
+  mode: PropTypes.string,
+  adaptiv: PropTypes.bool,
+  ariaLabel: PropTypes.string,
+  isCourse: PropTypes.bool
 };
 
 const CardTitle = ({title, empty, courseContent}) => {
@@ -156,7 +147,6 @@ const ContentInfo = ({
   };
   const externalContent = isExternalContent(type);
   const courseContent = type === 'course';
-  const chapterContent = type === 'chapter';
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -173,12 +163,6 @@ const ContentInfo = ({
       </div>
     ) : null;
 
-  const adaptiveIcon = adaptiv ? (
-    <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
-      <AdaptivIcon height={25} aria-label={get('adaptive', ariaLabel)} />
-    </div>
-  ) : null;
-
   return (
     <div
       data-name="info"
@@ -190,12 +174,10 @@ const ContentInfo = ({
         externalContent ? style.externalContent : null
       )}
     >
-      <ContentTypeInfo mode={mode} type={type} externalContent={externalContent} />
-      <div
-        className={classnames(style.cardInfo, chapterContent ? style.microLearningCardInfo : null)}
-      >
+      <ContentTypeInfo mode={mode} type={type} adaptiv={adaptiv} isCourse={courseContent} />
+      <div className={style.cardInfo}>
         <div className={style.iconWrapper}>
-          {adaptiveIcon}
+          {/* {adaptiveIcon} */}
           {!empty && badgeLabel && badgeCategory && courseContent ? (
             <ContentBadge category={badgeCategory} label={badgeLabel} />
           ) : null}
