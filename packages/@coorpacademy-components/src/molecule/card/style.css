@@ -38,6 +38,7 @@
   z-index: 0;
 }
 
+
 .grid.empty {
   padding-bottom: 25px;
   opacity: 0.6;
@@ -159,7 +160,6 @@
 
 .course .defaultStyle:hover,
 .defaultStyle:hover {
-  background: light;
   cursor: pointer;
   transition: background 0.25s ease-in-out;
 }
