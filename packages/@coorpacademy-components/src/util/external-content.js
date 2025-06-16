@@ -22,8 +22,8 @@ export const EXTERNAL_CONTENT_ICONS = {
 // should replace nova-icons with the new icons below
 export const ICONS_TYPES = {
   scorm: {iconName: 'rectangle-history', color: COLORS.cm_yellow_scorm},
-  article: {iconName: 'file-lines', color: COLORS.cm_bleu_article},
+  article: {iconName: 'file-lines', color: COLORS.cm_bleu_article}, // ok animated resource
   video: {iconName: 'circle-play', color: COLORS.cm_red_video},
-  podcast: {iconName: 'microphone-lines', color: COLORS.cm_violet_podcast},
-  chapter: {iconName: 'stopwatch', color: COLORS.neutral_500}
+  podcast: {iconName: 'microphone-lines', color: COLORS.cm_violet_podcast}, // ok
+  chapter: {iconName: 'stopwatch', color: COLORS.neutral_500} // ok
 };
