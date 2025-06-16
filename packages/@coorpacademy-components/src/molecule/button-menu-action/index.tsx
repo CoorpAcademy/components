@@ -57,7 +57,7 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
 
   const menuWrapperClass = classnames(style.menuWrapper, {
     [style.visible]: visible,
-    [style.showFade]: showFade
+    [style.showFade]: showFade && menuWithClose.buttons && menuWithClose.buttons.length > 6
   });
 
   const _menu = (
