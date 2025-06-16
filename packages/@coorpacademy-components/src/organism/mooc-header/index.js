@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
@@ -298,7 +298,9 @@ class MoocHeader extends React.Component {
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
     const {translate, skin} = this.context;
-    const isMobile = getIsMobile();
+    const userAgent = navigator?.userAgent;
+    const isMobile = getIsMobile(userAgent);
+
     const {
       'aria-label': logoAriaLabel,
       closeMenuAriaLabel,
