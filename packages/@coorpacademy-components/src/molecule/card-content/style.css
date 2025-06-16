@@ -233,6 +233,9 @@
 .contentTypeInfos {
   height: auto;
   text-transform: lowercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .externalContent .cardInfo {
