@@ -12,7 +12,7 @@
 }
 
 .buttonMenuContainer.scrollable {
-  max-height: 314px; /* 6.75 * 40px (hauteur d'un item) + 8px (gap) */
+  max-height: 314px;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: cm_grey_200 transparent;
