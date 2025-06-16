@@ -82,8 +82,10 @@ const ButtonMenu = (props: ButtonMenuProps) => {
     [buttons, buildButton]
   );
 
+  const shouldBeScrollable = enableScroll && buttons && buttons.length > 6;
+
   const containerStyle = classnames(style.buttonMenuContainer, {
-    [style.scrollable]: enableScroll
+    [style.scrollable]: shouldBeScrollable
   });
 
   return (

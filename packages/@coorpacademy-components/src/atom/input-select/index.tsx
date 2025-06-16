@@ -79,6 +79,8 @@ const InputSelect: React.FC<InputSelectProps> = ({
     );
   };
 
+  const shouldBeScrollable = options.length > 6;
+
   return (
     <div className={style.container}>
       <div
@@ -115,7 +117,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
         </div>
       </div>
       {open ? (
-        <div className={classnames(style.menuWrapper, style.showFade)}>
+        <div className={classnames(style.menuWrapper, {[style.showFade]: shouldBeScrollable})}>
           <ul id={`${componentId}-listbox`} className={style.menu} role="listbox">
             {options.map(renderOption)}
           </ul>
