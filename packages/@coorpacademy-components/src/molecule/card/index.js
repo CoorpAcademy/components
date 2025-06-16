@@ -51,7 +51,11 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
         >
           <FaIcon
             iconName={iconName}
-            customStyle={{color: COLORS.white, height: ICON_SIZE, with: ICON_SIZE}}
+            customStyle={{
+              color: COLORS.white,
+              height: ICON_SIZE,
+              width: ICON_SIZE
+            }}
           />
         </div>
       );
