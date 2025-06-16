@@ -10,9 +10,10 @@
 @value xtraLightGrey from colors;
 @value white from colors;
 
+/* 
 .microLearningCardInfo {
   flex: 1 0 auto;
-}
+} */
 
 /* .microLearningIcon {
   display: flex;
@@ -177,11 +178,9 @@
 }
 
 .adaptiveIcon {
-  font-size: 5px;
   width: 25px;
   height: 25px;
   color: lightBlack;
-  margin-right: 5px;
 }
 
 .iconWrapper {
@@ -231,15 +230,10 @@
   margin: 0 auto;
 }
 
-/* .contentTypeInfo {
-  font-family: 'Gilroy';
-  font-size: 10px;
-  font-weight: 700;
+.contentTypeInfos {
+  height: auto;
+  text-transform: lowercase;
 }
-
-.coorpmanager.externalContent .contentTypeInfo {
-  font-size: 6px;
-} */
 
 .externalContent .cardInfo {
   flex-grow: 2;
