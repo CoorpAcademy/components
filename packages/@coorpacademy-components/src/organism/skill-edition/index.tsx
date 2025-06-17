@@ -283,7 +283,7 @@ const Translations = ({
 };
 
 const buildContentItem =
-  (readonly = false) =>
+  (readonly: boolean) =>
   ({
     ref,
     title,
