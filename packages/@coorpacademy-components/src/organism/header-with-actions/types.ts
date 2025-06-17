@@ -9,7 +9,7 @@ const ButtonMenuPropTypes = {
 };
 
 const ButtonActionPropTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary']),
+  type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -17,7 +17,7 @@ const ButtonActionPropTypes = {
   iconColor: PropTypes.string
 };
 
-const headerWithActionsPropTypes = {
+const HeaderWithActionsPropTypes = {
   closeButton: PropTypes.shape({
     'aria-label': PropTypes.string,
     onClick: PropTypes.func.isRequired
@@ -33,14 +33,14 @@ const headerWithActionsPropTypes = {
     label: PropTypes.oneOf(['Unsaved changes', 'Saved'])
   }).isRequired,
   actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonActionPropTypes)).isRequired,
-  bulletPointMenuButtonPropTypes: PropTypes.shape({
+  bulletPointMenuButton: PropTypes.shape({
     buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
     onClick: PropTypes.func.isRequired,
     buttonAriaLabel: PropTypes.string
   })
 };
 
-export default headerWithActionsPropTypes;
+export default HeaderWithActionsPropTypes;
 
 type TagProps = {
   label: 'Published' | 'Ongoing changes' | 'Draft' | 'Archived';
@@ -73,7 +73,7 @@ type BulletPointMenuButtonProps = {
 };
 
 export type ButtonActionProps = {
-  type?: 'primary' | 'secondary';
+  type: 'primary' | 'secondary';
   label: string;
   onClick: () => void;
   disabled?: boolean;

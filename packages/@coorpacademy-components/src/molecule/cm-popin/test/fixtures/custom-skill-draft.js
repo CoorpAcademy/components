@@ -27,11 +27,7 @@ export default {
         faIcon: {
           name: 'floppy-disk',
           color: 'white',
-          size: 14,
-          customStyle: {
-            padding: 0,
-            alignItems: 'baseline'
-          }
+          size: 14
         }
       },
       customStyle: {

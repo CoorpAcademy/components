@@ -5,7 +5,7 @@ import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Tag from '../../atom/tag';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
-import headerWithActionsPropTypes, {
+import HeaderWithActionsPropTypes, {
   HeaderWithActionsProps,
   ButtonMenuProps,
   ButtonActionProps
@@ -123,6 +123,6 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
   );
 };
 
-HeaderWithActions.propTypes = headerWithActionsPropTypes;
+HeaderWithActions.propTypes = HeaderWithActionsPropTypes;
 
 export default HeaderWithActions;
