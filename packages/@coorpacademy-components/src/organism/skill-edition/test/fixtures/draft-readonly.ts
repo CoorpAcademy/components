@@ -1,4 +1,3 @@
-// fichier1.ts
 import {COLORS} from '../../../../variables/colors';
 import {ContentPropsType, ContentListItemType} from '../../types';
 import Default from './default';
