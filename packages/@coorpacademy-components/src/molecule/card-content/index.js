@@ -25,7 +25,7 @@ export const THEMES = {
 const getCardInfo = (contentType, translate) => {
   switch (contentType) {
     case 'chapter':
-      return {label: "5' learning", iconName: 'stopwatch'};
+      return {label: "5'learning", iconName: 'stopwatch'};
     case 'scorm':
       return {label: translate('external_content_scorm'), iconName: 'rectangle-history'};
     case 'video':
@@ -177,7 +177,6 @@ const ContentInfo = ({
       <ContentTypeInfo mode={mode} type={type} adaptiv={adaptiv} isCourse={courseContent} />
       <div className={style.cardInfo}>
         <div className={style.iconWrapper}>
-          {/* {adaptiveIcon} */}
           {!empty && badgeLabel && badgeCategory && courseContent ? (
             <ContentBadge category={badgeCategory} label={badgeLabel} />
           ) : null}
