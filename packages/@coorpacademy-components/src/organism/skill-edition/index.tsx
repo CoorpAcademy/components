@@ -354,7 +354,7 @@ const Content = ({
     type: 'form-group',
     title,
     subtitle,
-    button: buttonProps,
+    button: !readonly ? buttonProps : undefined,
     required: true
   };
 
