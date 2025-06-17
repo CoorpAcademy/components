@@ -29,10 +29,8 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
 
-  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
-    // eslint-disable-next-line no-console
-    console.log('externalContent', externalContent);
-    const {iconName, color} = ICONS_TYPES[type];
+  if ((externalContent && EXTERNAL_CONTENT_ICONS[type]) || type === 'chapter') {
+    const {iconName, iconColor} = ICONS_TYPES[type];
     const backgroundIcon = (
       <div
         className={classnames(
@@ -59,7 +57,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
             style.externalIconCircleWithImageWrapper
           )}
           style={{
-            backgroundColor: color
+            backgroundColor: iconColor
           }}
           data-testid="card-background-image"
         >
@@ -80,7 +78,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
             data-name="cover"
             aria-label={ariaLabel}
             style={{
-              backgroundColor: color,
+              backgroundColor: iconColor,
               backgroundImage: `url('${image}')`
             }}
             className={classnames(style.externalContentHeader, style.externalBackground)}
@@ -96,7 +94,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
           data-name="cover"
           aria-label={ariaLabel}
           style={{
-            backgroundColor: color
+            backgroundColor: iconColor
           }}
           className={style.externalContentHeader}
         >
