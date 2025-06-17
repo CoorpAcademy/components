@@ -82,17 +82,13 @@ const InputSelect: React.FC<InputSelectProps> = ({
   const shouldBeScrollable = options.length > 6;
 
   return (
-    <div className={style.container}>
+    <div className={style.container} ref={wrapperRef}>
       <div
         className={classnames(style.outerWrapper, {
           [style.open]: open
         })}
       >
-        <div
-          ref={wrapperRef}
-          className={classnames(style.wrapper, className)}
-          aria-label={ariaLabel}
-        >
+        <div className={classnames(style.wrapper, className)} aria-label={ariaLabel}>
           <button
             type="button"
             className={style.display}
