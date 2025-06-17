@@ -43,7 +43,8 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
           onClick: () => console.log('click on Delete')
         }
       ],
-      buttonAriaLabel: 'More actions'
+      buttonAriaLabel: 'More actions',
+      disabled: false
     },
     actionButtons: [
       {
