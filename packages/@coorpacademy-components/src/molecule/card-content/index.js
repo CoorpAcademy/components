@@ -39,9 +39,9 @@ const getCardInfo = (contentType, translate) => {
   }
 };
 
-const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse}, context) => {
+const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty}, context) => {
   const {translate} = context;
-  if (mode !== MODES.CARD) {
+  if (mode !== MODES.CARD || empty) {
     return null;
   }
   const {label, iconName} = getCardInfo(type, translate);
@@ -69,7 +69,8 @@ ContentTypeInfo.propTypes = {
   mode: PropTypes.string,
   adaptiv: PropTypes.bool,
   ariaLabel: PropTypes.string,
-  isCourse: PropTypes.bool
+  isCourse: PropTypes.bool,
+  empty: PropTypes.bool
 };
 
 const CardTitle = ({title, empty, courseContent}) => {
@@ -147,6 +148,7 @@ const ContentInfo = ({
   };
   const externalContent = isExternalContent(type);
   const courseContent = type === 'course';
+  const chapterContent = type === 'chapter';
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -171,10 +173,16 @@ const ContentInfo = ({
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
-        externalContent ? style.externalContent : null
+        externalContent || chapterContent || courseContent ? style.externalContent : null
       )}
     >
-      <ContentTypeInfo mode={mode} type={type} adaptiv={adaptiv} isCourse={courseContent} />
+      <ContentTypeInfo
+        mode={mode}
+        type={type}
+        adaptiv={adaptiv}
+        isCourse={courseContent}
+        empty={empty}
+      />
       <div className={style.cardInfo}>
         <div className={style.iconWrapper}>
           {!empty && badgeLabel && badgeCategory && courseContent ? (
