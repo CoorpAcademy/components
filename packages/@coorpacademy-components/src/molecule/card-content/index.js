@@ -39,9 +39,9 @@ const getCardInfo = (contentType, translate) => {
   }
 };
 
-const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty}, context) => {
+const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
   const {translate} = context;
-  if (mode !== MODES.CARD || empty) {
+  if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
     return null;
   }
   const {label, iconName} = getCardInfo(type, translate);
@@ -70,7 +70,8 @@ ContentTypeInfo.propTypes = {
   adaptiv: PropTypes.bool,
   ariaLabel: PropTypes.string,
   isCourse: PropTypes.bool,
-  empty: PropTypes.bool
+  empty: PropTypes.bool,
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 const CardTitle = ({title, empty, courseContent}) => {
@@ -182,6 +183,7 @@ const ContentInfo = ({
         adaptiv={adaptiv}
         isCourse={courseContent}
         empty={empty}
+        theme={theme}
       />
       <div className={style.cardInfo}>
         <div className={style.iconWrapper}>
