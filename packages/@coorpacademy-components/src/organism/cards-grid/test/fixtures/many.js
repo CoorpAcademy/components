@@ -1,6 +1,6 @@
 import {update, uniqueId} from 'lodash/fp';
 
-import card1 from '../../../../molecule/card/test/fixtures/adaptiv';
+import card1 from '../../../../molecule/card/test/fixtures/course-adaptiv';
 import card2 from '../../../../molecule/card/test/fixtures/freerun';
 import card3 from '../../../../molecule/card/test/fixtures/default';
 
