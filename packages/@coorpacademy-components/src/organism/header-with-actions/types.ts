@@ -35,7 +35,6 @@ const HeaderWithActionsPropTypes = {
   actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonActionPropTypes)).isRequired,
   bulletPointMenuButton: PropTypes.shape({
     buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
-    onClick: PropTypes.func.isRequired,
     buttonAriaLabel: PropTypes.string
   })
 };
@@ -68,7 +67,6 @@ export type ButtonMenuProps = {
 
 type BulletPointMenuButtonProps = {
   buttons: ButtonMenuProps[];
-  onClick: () => void;
   buttonAriaLabel: string;
 };
 

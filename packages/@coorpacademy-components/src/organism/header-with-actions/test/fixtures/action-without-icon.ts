@@ -6,6 +6,7 @@ const actionWithoutIconFixture: HeaderWithActionsPropsFixture = {
     ...singleActionFixture.props,
     actionButtons: [
       {
+        type: 'secondary',
         label: 'Archive',
         onClick: () => console.log('click on Archive')
       }

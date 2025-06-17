@@ -113,6 +113,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
           <BulletPointMenuButton
             {...bulletPointMenuButton}
             buttons={uncappedMap(buildButtonMenu, bulletPointMenuButton.buttons)}
+            data-name={getDataName('bullet-point-menu-button')}
           />
         ) : null}
         {uncappedMap((action: ButtonActionProps, key: string) => {
