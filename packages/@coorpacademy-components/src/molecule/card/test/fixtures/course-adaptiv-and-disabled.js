@@ -7,6 +7,7 @@ export default {
     ...cardContent.props,
     certifiedAuthor: false,
     progress: 0,
-    type: 'course'
+    type: 'course',
+    disabled: false
   }
 };
