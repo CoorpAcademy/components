@@ -419,7 +419,8 @@ export const LearningProfileRadarChart = (
     [formatedColors]
   );
 
-  const isMobile_ = getIsMobile();
+  const userAgent = navigator?.userAgent;
+  const isMobile_ = useMemo(() => getIsMobile(userAgent), [userAgent]);
 
   const setIsMobile_ = useCallback(() => {
     setIsMobile(isMobile_ as boolean);
