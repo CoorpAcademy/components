@@ -61,7 +61,7 @@ export default {
         }
       },
       iconEditor: {
-        ...Default.props.skillInformations.iconEditor,
+        title: 'Skill icon',
         iconPreview: {
           title: 'Cloud computing technology',
           icon: {color: COLORS.cm_turquoise_strong, name: 'globe-pointer'}

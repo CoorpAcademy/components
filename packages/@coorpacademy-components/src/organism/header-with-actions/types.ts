@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
-import bulletPointMenuButtonPropTypes, {
-  BulletPointMenuButtonProps
-} from '../../molecule/bullet-point-menu-button/types';
-import ButtonLinkPropTypes, {ButtonLinkProps} from '../../atom/button-link/types';
 
-const closeButtonPropTypes = {
-  size: PropTypes.oneOf(['default', 'small', 'responsive']).isRequired,
-  icon: PropTypes.string.isRequired,
-  'data-name': PropTypes.string.isRequired,
-  'aria-label': PropTypes.string.isRequired,
+const ButtonMenuPropTypes = {
+  dataName: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  iconName: PropTypes.string.isRequired,
+  iconColor: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };
-const headerWithActionsPropTypes = {
-  closeButton: PropTypes.shape(closeButtonPropTypes),
+
+const ButtonActionPropTypes = {
+  type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
+  label: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  iconName: PropTypes.string,
+  iconColor: PropTypes.string
+};
+
+const HeaderWithActionsPropTypes = {
+  closeButton: PropTypes.shape({
+    'aria-label': PropTypes.string,
+    onClick: PropTypes.func.isRequired
+  }),
   title: PropTypes.string.isRequired,
   tag: PropTypes.shape({
     label: PropTypes.oneOf(['Published', 'Ongoing changes', 'Draft', 'Archived']).isRequired,
@@ -23,11 +32,15 @@ const headerWithActionsPropTypes = {
     display: PropTypes.bool.isRequired,
     label: PropTypes.oneOf(['Unsaved changes', 'Saved'])
   }).isRequired,
-  bulletPointMenuButton: PropTypes.shape(bulletPointMenuButtonPropTypes),
-  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonLinkPropTypes)).isRequired
+  actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonActionPropTypes)).isRequired,
+  bulletPointMenuButton: PropTypes.shape({
+    buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
+    buttonAriaLabel: PropTypes.string,
+    disabled: PropTypes.bool.isRequired
+  })
 };
 
-export default headerWithActionsPropTypes;
+export default HeaderWithActionsPropTypes;
 
 type TagProps = {
   label: 'Published' | 'Ongoing changes' | 'Draft' | 'Archived';
@@ -41,11 +54,31 @@ type SaveStatusProps = {
 };
 
 type CloseButtonProps = {
-  size: 'default' | 'small' | 'responsive';
-  icon: string;
-  'data-name': string;
   'aria-label': string;
   onClick: () => void;
+};
+
+export type ButtonMenuProps = {
+  dataName: string;
+  label: string;
+  iconName: string;
+  iconColor: string;
+  onClick: () => void;
+};
+
+type BulletPointMenuButtonProps = {
+  buttons: ButtonMenuProps[];
+  buttonAriaLabel?: string;
+  disabled: boolean;
+};
+
+export type ButtonActionProps = {
+  type: 'primary' | 'secondary';
+  label: string;
+  onClick: () => void;
+  disabled?: boolean;
+  iconName?: string;
+  iconColor?: string;
 };
 
 export type HeaderWithActionsProps = {
@@ -53,7 +86,7 @@ export type HeaderWithActionsProps = {
   title: string;
   tag: TagProps;
   saveStatus: SaveStatusProps;
-  actionButtons: ButtonLinkProps[];
+  actionButtons: ButtonActionProps[];
   bulletPointMenuButton?: BulletPointMenuButtonProps;
 };
 

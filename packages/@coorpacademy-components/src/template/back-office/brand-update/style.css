@@ -41,16 +41,16 @@
 }
 
 .headerSticky {
-  overflow: hidden;
+  padding: 24px 0 5px 0;
   background-color: white;
   position: fixed;
   width: calc(100% - 351px);
   z-index: 999;
-  pointer-events: none;
 }
 
-.header {
-  padding: 24px 0 5px 0;
+.headerDefault {
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .tabs {
