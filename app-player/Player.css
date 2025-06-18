@@ -3546,9 +3546,9 @@
   gap: 8px;
 }
 
-.scrollable-AHNj5 {
-  max-height: 280px;
-  overflow-y: auto;
+.buttonMenuContainer--1ybL.scrollable-AHNj5 {
+  max-height: 314px;
+  overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: #d7d7da transparent;
 }
@@ -5990,6 +5990,18 @@ input:-webkit-autofill:active{
   visibility: hidden;
   opacity: 0;
   overflow: hidden;
+}
+
+.menuWrapper-i67qs.showFade--xMNa::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(80%, #fff));
+  background: linear-gradient(to bottom, transparent 0%, #fff 80%);
 }
 
 .menuWrapper-i67qs > button {
