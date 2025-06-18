@@ -4,6 +4,8 @@ import Default from './default';
 export default {
   props: {
     ...Default.props,
-    ...cardContentAdaptiv.props
+    ...cardContentAdaptiv.props,
+    type: 'course',
+    adaptiv: true
   }
 };
