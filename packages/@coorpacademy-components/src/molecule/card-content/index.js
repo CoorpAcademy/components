@@ -51,7 +51,7 @@ const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme
       <Tag size="S" label={label} icon={{iconName}} />
       {adaptiv ? (
         <div className={classnames(style.adaptiveIcon, isCourse ? style.iconShadow : null)}>
-          <AdaptivIcon height={25} aria-label={get('adaptive', ariaLabel)} />
+          <AdaptivIcon height={20} aria-label={get('adaptive', ariaLabel)} />
         </div>
       ) : null}
     </div>
@@ -184,7 +184,7 @@ const ContentInfo = ({
         empty={empty}
         theme={theme}
       />
-      <div className={style.cardInfo}>
+      <div className={classnames(style.cardInfo, courseContent ? style.cardCourseTitle : null)}>
         <div className={style.iconWrapper}>
           {!empty && badgeLabel && badgeCategory && courseContent ? (
             <ContentBadge category={badgeCategory} label={badgeLabel} />

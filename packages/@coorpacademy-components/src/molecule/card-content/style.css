@@ -66,10 +66,10 @@
   gap: 4px;
   flex-direction: column;
   position: relative;
-  justify-content: center;
-  padding-top: 50%;
+  justify-content: flex-end;
   padding-left: 16px;
   padding-right: 16px;
+  /* padding: 0 16px; */
   width: 100%;
   box-sizing: border-box;
 }
@@ -182,7 +182,7 @@
 
 .adaptiveIcon {
   width: 25px;
-  height: 25px;
+  height: 20px;
   color: lightBlack;
 }
 
@@ -245,9 +245,20 @@
   overflow: hidden;
 }
 
+.externalContent.infoWrapper {
+  padding-top: 50%;
+}
+
 .coorpmanager.externalContent .cardInfo {
   flex-grow: 2;
   max-height: 79px;
+}
+
+.cardInfo.cardCourseTitle {
+  flex-grow: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 
 @media mobile {
