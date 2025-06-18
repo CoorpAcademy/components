@@ -561,6 +561,7 @@
   align-items: baseline;
   width: 100%;
   padding-left: 0;
+  border-radius: 14px;
 }
 
 .homeIcon {

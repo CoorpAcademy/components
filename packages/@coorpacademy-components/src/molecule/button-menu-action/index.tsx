@@ -17,7 +17,8 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
     primaryColor,
     containerCustom,
     closeOnClick = false,
-    enableScroll = false
+    enableScroll = false,
+    showFade = false
   } = props;
   const {onClick = noop} = button;
   const [visible, setVisible] = useState(false);
@@ -54,9 +55,14 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
       }
     : menu;
 
+  const menuWrapperClass = classnames(style.menuWrapper, {
+    [style.visible]: visible,
+    [style.showFade]: showFade && menuWithClose.buttons && menuWithClose.buttons.length > 6
+  });
+
   const _menu = (
     <div
-      className={classnames(style.menuWrapper, visible && style.visible)}
+      className={menuWrapperClass}
       data-name="menu-wrapper"
       aria-label={menuWrapper?.ariaLabel}
       style={menuWrapper?.customStyle}

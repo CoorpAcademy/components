@@ -12,6 +12,14 @@
 @value cm_blue_50 from colors;
 @value cm_grey_150 from colors;
 
+.container {
+  width: 100%;
+  position: relative;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
+}
+
 .outerWrapper {
   width: 100%;
   border-radius: 12px;
@@ -95,19 +103,41 @@
   transform: rotate(180deg);
 }
 
-.menu {
+.menuWrapper {
   position: absolute;
+  top: 52px;
+  left: 0;
+  width: 100%;
+  border-radius: 12px;
+  z-index: 1000;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.07);
+}
+
+.menu {
+  max-height: 322px;
+  overflow-y: scroll;
+  list-style: none;
+  padding: 12px;
+  margin: 0;
+  width: 100%;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.menuWrapper.showFade::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
-  margin-top: 8px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px 0px rgba(0,0,0,0.04);
-  z-index: 10;
-  padding: 12px;
-  list-style: none;
   width: 100%;
-  box-sizing: border-box;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent 0%, #fff 80%);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .option {
@@ -166,4 +196,4 @@
   color: brand;
   display: inline-flex;
   align-items: center;
-} 
+}

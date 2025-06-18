@@ -173,6 +173,31 @@ export default {
               name: 'Pouet3',
               value: 'Pouet3',
               selected: false
+            },
+            {
+              name: 'Pouet4',
+              value: 'Pouet4',
+              selected: false
+            },
+            {
+              name: 'Pouet5',
+              value: 'Pouet5',
+              selected: false
+            },
+            {
+              name: 'Pouet6',
+              value: 'Pouet6',
+              selected: false
+            },
+            {
+              name: 'Pouet7',
+              value: 'Pouet7',
+              selected: false
+            },
+            {
+              name: 'Pouet8',
+              value: 'Pouet8',
+              selected: false
             }
           ]
         }
