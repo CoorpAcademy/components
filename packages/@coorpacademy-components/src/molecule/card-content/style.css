@@ -9,6 +9,7 @@
 @value lightBlack from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
+@value cm_grey_200 from colors;
 
 /* 
 .microLearningCardInfo {
@@ -216,7 +217,7 @@
   border-radius: 2px;
   overflow: hidden;
   margin: 16px auto;
-  background: light;
+  background: cm_grey_200;
 }
 
 .coorpmanager .progressWrapper {

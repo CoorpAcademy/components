@@ -37,7 +37,8 @@ export const COLORS = {
   pink_100: '#FAD6DE',
   orange_100: '#FFDCD1',
   cm_positive_500: '#35CC7F',
-  purple_500: '#4B0AFF'
+  purple_500: '#4B0AFF',
+  cm_grey_200: '#D7D7DA'
 } as const;
 
 export type Colors = typeof COLORS;

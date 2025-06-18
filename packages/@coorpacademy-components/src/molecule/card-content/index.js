@@ -10,6 +10,7 @@ import {isExternalContent} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import ContentBadge from '../../atom/content-badge';
 import Tag from '../../atom/tag';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 export const MODES = {
@@ -45,8 +46,6 @@ const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme
     return null;
   }
   const {label, iconName} = getCardInfo(type, translate);
-  // eslint-disable-next-line no-console
-  console.log('label', label, 'iconName', iconName);
   return (
     <div className={style.contentTypeInfos}>
       <Tag size="S" label={label} icon={{iconName}} />
@@ -142,7 +141,7 @@ const ContentInfo = ({
   theme = 'default',
   'aria-label': ariaLabel
 }) => {
-  const progressBarColor = '#3EC483';
+  const progressBarColor = COLORS.cm_positive_500;
   const inlineProgressValueStyle = {
     backgroundColor: progressBarColor,
     width: `${progress * 100}%`
@@ -174,7 +173,7 @@ const ContentInfo = ({
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
-        externalContent || chapterContent || courseContent ? style.externalContent : null
+        externalContent || chapterContent || courseContent ? style.externalContent : null // generalize css class name
       )}
     >
       <ContentTypeInfo
