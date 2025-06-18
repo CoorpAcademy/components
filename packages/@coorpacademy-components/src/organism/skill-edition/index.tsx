@@ -282,54 +282,62 @@ const Translations = ({
   return <ListItems {...translationProps} />;
 };
 
-const buildContentItem = ({
-  ref,
-  title,
-  subtitle,
-  image,
-  tags: {label, iconName},
-  checkbox,
-  deleteButton
-}: ContentListItemType) => ({
-  id: ref,
-  title,
-  subtitle,
-  image,
-  tags: [
-    {
-      label,
-      type: 'default',
-      icon: {
-        iconName,
-        preset: 's',
-        customStyle: {
-          padding: 0
-        },
-        position: 'left'
-      }
-    }
-  ],
-  checkbox,
-  secondButtonLink: {
-    ...deleteButton,
-    'data-name': `button-${deleteButton?.label}`,
-    'aria-label': 'Delete',
-    type: 'primary',
-    customStyle: {
-      width: 'fit-content',
-      backgroundColor: 'transparent'
-    },
-    hoverBackgroundColor: COLORS.cm_grey_100,
-    icon: {
-      position: 'left',
-      faIcon: {
-        name: 'trash',
-        color: COLORS.neutral_500,
-        size: 16
-      }
-    }
-  }
-});
+const buildContentItem =
+  (readonly: boolean) =>
+  ({
+    ref,
+    title,
+    subtitle,
+    image,
+    tags: {label, iconName},
+    checkbox,
+    deleteButton
+  }: ContentListItemType) => {
+    return {
+      ...(readonly
+        ? {}
+        : {
+            secondButtonLink: {
+              ...deleteButton,
+              'data-name': `button-${deleteButton?.label}`,
+              'aria-label': 'Delete',
+              type: 'primary',
+              customStyle: {
+                width: 'fit-content',
+                backgroundColor: 'transparent'
+              },
+              hoverBackgroundColor: COLORS.cm_grey_100,
+              icon: {
+                position: 'left',
+                faIcon: {
+                  name: 'trash',
+                  color: COLORS.neutral_500,
+                  size: 16
+                }
+              }
+            }
+          }),
+      id: ref,
+      title,
+      subtitle,
+      image,
+      tags: [
+        {
+          label,
+          type: 'default',
+          icon: {
+            iconName,
+            preset: 's',
+            customStyle: {
+              padding: 0
+            },
+            position: 'left'
+          }
+        }
+      ],
+      checkbox: readonly ? undefined : checkbox
+    };
+  };
 
 const Content = ({
   title,
@@ -337,7 +345,8 @@ const Content = ({
   button,
   list: {title: listTitle, checkbox, items, search, emptyResult},
   actionButtons,
-  checkboxWithTitle: checkboxWithTitleProps
+  checkboxWithTitle: checkboxWithTitleProps,
+  readonly = false
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -345,7 +354,7 @@ const Content = ({
     type: 'form-group',
     title,
     subtitle,
-    button: buttonProps,
+    button: !readonly ? buttonProps : undefined,
     required: true
   };
 
@@ -359,32 +368,37 @@ const Content = ({
     'aria-label': 'content list items',
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: buttonProps}}),
-      items: map(buildContentItem, items),
+      items: map(buildContentItem(readonly), items),
       type: 'list'
     },
     search: {
       ...search,
       theme: 'coorpmanager'
     },
-    actionButtons: map(
-      actionButton => ({
-        ...actionButton,
-        customStyle: {
-          fontWeight: '600',
-          borderRadius: '12px',
-          width: 'auto'
+    actionButtons: readonly
+      ? []
+      : map(
+          actionButton => ({
+            ...actionButton,
+            customStyle: {
+              fontWeight: '600',
+              borderRadius: '12px',
+              width: 'auto'
+            }
+          }),
+          actionButtons
+        ),
+
+    checkboxWithTitle: readonly
+      ? undefined
+      : {
+          ...checkboxWithTitleProps,
+          name: checkboxWithTitleProps?.title,
+          'aria-label': checkboxWithTitleProps?.title,
+          'data-name': checkboxWithTitleProps?.title,
+          customStyle: {fontWeight: 600, color: COLORS.neutral_500, fontSize: '16px'},
+          icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
         }
-      }),
-      actionButtons
-    ),
-    checkboxWithTitle: {
-      ...checkboxWithTitleProps,
-      name: checkboxWithTitleProps?.title,
-      'aria-label': checkboxWithTitleProps?.title,
-      'data-name': checkboxWithTitleProps?.title,
-      customStyle: {fontWeight: 600, color: COLORS.neutral_500, fontSize: '16px'},
-      icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
-    }
   };
 
   return (

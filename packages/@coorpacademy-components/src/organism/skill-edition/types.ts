@@ -217,6 +217,7 @@ export type CheckboxWithTitleProps = {
 };
 
 export type ContentPropsType = {
+  readonly?: boolean;
   title: string;
   subtitle: string;
   button: {
