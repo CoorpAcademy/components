@@ -35,7 +35,9 @@ const Notification = props => {
       className={classnames(style.showOverlay, style.notificationWrapper)}
     >
       <div className={style.notification}>
-        <IconType className={style.icon} style={{color: null}} stroke={null} />
+        <div className={style.iconWrapper}>
+          <IconType className={style.icon} style={{color: null}} stroke={null} />
+        </div>
         <div className={style.message}>
           <span role="status">{message}</span>
         </div>
