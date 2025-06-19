@@ -46,7 +46,7 @@
 
 .course {
   composes: defaultStyle;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 256px;
   height: 297px;
 }

@@ -164,7 +164,8 @@ const ContentInfo = ({
         ) : null}
       </div>
     ) : null;
-
+  // eslint-disable-next-line no-console
+  console.log(' adaptiv', adaptiv);
   return (
     <div
       data-name="info"

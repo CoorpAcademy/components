@@ -5,6 +5,8 @@
 @value grey from colors;
 @value dark from colors;
 @value white from colors;
+@value cm_blue_700 from colors;
+@value primary_100 from colors;
 
 .notificationWrapper {
   width: 100%;
@@ -19,7 +21,7 @@
 }
 
 .notification {
-  width: 100px;
+  width: 156px;
   height: 100px;
   background: light;
   position: absolute;
@@ -30,20 +32,26 @@
   padding: 12px 7px 7px;
   box-sizing: border-box;
   color: grey;
+  background: greenyellow;
 }
 
 .showOverlay .notification {
-  animation: scale 3s ease-in-out forwards;
+  animation: scale 30s ease-in-out forwards;
 }
 
 .showOverlay {
-  animation: fadeIn 3s ease-in-out forwards;
+  animation: fadeIn 10s ease-in-out forwards;
 }
 
 .notification .icon {
   font-size: 30px;
-  height: 30px;
+  height: 48px;
   width: 100%;
+  color: cm_blue_700;
+}
+
+.iconWrapper {
+  background-color: primary_100;
 }
 
 .message {
