@@ -37,7 +37,8 @@
 
 .contentWrapper {
   width: calc(100% - 351px);
-  padding: 0 64px 0 64px;
+  padding: 0 64px;
+  height: fit-content;
 }
 
 .headerSticky {

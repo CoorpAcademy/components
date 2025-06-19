@@ -39,24 +39,25 @@ const ContentSkillModal = (props: ContentSkillModalProps) => {
     }),
     [handleCancel, onConfirm]
   );
-  const baseModal = {
+
+  const baseModalProps = {
     title: 'Add content',
     description: 'Add courses, video, interactive and more to this skill',
     headerIcon,
     footer,
     isOpen,
     onClose: handleClose,
+    // fullscreen modal
     customStyle: {
-      padding: 0,
-      height: '60vh',
-      overflow: 'hidden'
+      height: '80vh',
+      width: '80vw'
     }
   };
 
   if (!isOpen) return null;
 
   return (
-    <BaseModal {...baseModal}>
+    <BaseModal {...baseModalProps}>
       <div className={style.container}>
         <div className={style.containerList}>
           <ListItems {...contentList} />

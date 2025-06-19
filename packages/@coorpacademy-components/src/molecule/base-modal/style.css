@@ -24,10 +24,6 @@
 }
 
 .modal {
-  max-width: 71vw;
-  max-height: 86vh;
-  min-width: 450px;
-  min-height: 165px;
   overflow: hidden;
   border-radius: 16px;
   background-color: white;
@@ -77,6 +73,7 @@
   min-height: 100px;
   border-top: 1px solid cm_grey_150;
   border-bottom: 1px solid cm_grey_150;
+  flex: 1;
 }
 
 .bodyWithoutScrollbar {
