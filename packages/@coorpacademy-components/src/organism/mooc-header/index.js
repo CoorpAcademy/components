@@ -154,6 +154,13 @@ class MoocHeader extends React.Component {
     this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
     this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.searchBarRef = null;
+    this.setSearchBarRef = this.setSearchBarRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -164,6 +171,23 @@ class MoocHeader extends React.Component {
     } else {
       document.removeEventListener('click', this._checkOnClose);
       document.removeEventListener('touchstart', this._checkOnClose);
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  setSearchBarRef(ref) {
+    this.searchBarRef = ref;
+  }
+
+  handleClickOutside(event) {
+    const {isFocus} = this.state;
+    if (isFocus) {
+      if (this.searchBarRef && !this.searchBarRef.contains(event.target)) {
+        this.handleOnBlur();
+      }
     }
   }
 
@@ -414,7 +438,7 @@ class MoocHeader extends React.Component {
         );
       });
       pagesView = (
-        <div className={search.value || isFocus ? style.noItems : style.items}>
+        <div className={search.value || style.items}>
           {displayedPages}
           {items.more &&
             (isMobile ? (
@@ -773,15 +797,28 @@ class MoocHeader extends React.Component {
               ) : null}
             </Link>
           </div>
-          {searchFormView}
-          <nav
-            className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
-            data-name="menu-wrapper"
+          <div
+            className={classnames(
+              {[style.rightZone]: !isFocus},
+              {[style.rightZoneFocus]: isFocus},
+              {[style.searchBarActive]: isFocus}
+            )}
           >
-            {pagesView}
-            {userView || linksView}
-            {settingsView}
-          </nav>
+            <div
+              className={isFocus ? style.floatingSearchBar : style.normalSearchBar}
+              ref={this.setSearchBarRef}
+            >
+              {searchFormView}
+            </div>
+            <nav
+              className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
+              data-name="menu-wrapper"
+            >
+              {pagesView}
+              {userView || linksView}
+              {settingsView}
+            </nav>
+          </div>
         </div>
       </header>
     );

@@ -47,17 +47,11 @@
   justify-content: flex-start;
   flex: 1 0 0%;
   height: 100%;
-  border-right: solid 1px light;
-  border-left: solid 1px light;
   background-color: white;
 }
 
 .hiddenSearchBar {
   composes: searchBar;
-}
-
-.noItems {
-  display: none;
 }
 
 .open {
@@ -874,4 +868,46 @@
   .userAvatarWrapper {
     display: none;
   }
+}
+
+.rightZoneFocus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.rightZone{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.searchBarActive .floatingSearchBar {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  max-width: 1000px;
+  width: 100%;
+  z-index: 2000;
+  pointer-events: none;
+  align-items: center;
+}
+
+.searchBarActive .floatingSearchBar > * {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.floatingSearchBar {
+  display: none;
+}
+
+.normalSearchBar {
+  flex: 1 1 0%;
 }
