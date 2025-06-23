@@ -32,7 +32,6 @@ const SearchForm = (props, context) => {
     ? classnames(style.wrapperClear, isMooc && style.wrapperClearMooc)
     : style.wrapperNoClear;
 
-
   return (
     <form
       className={style.form}

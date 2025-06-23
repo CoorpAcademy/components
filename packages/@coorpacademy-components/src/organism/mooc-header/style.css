@@ -898,12 +898,15 @@
   z-index: 2000;
   pointer-events: none;
   align-items: center;
+  background-color: transparent;
 }
 
 .searchBarActive .floatingSearchBar > * {
   pointer-events: auto;
   width: 100%;
   max-width: 936px;
+  background-color: transparent;
+
 }
 
 .floatingSearchBar {
@@ -912,4 +915,16 @@
 
 .normalSearchBar {
   flex: 1 1 0%;
+}
+
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(29, 29, 43, 0.20);
+  backdrop-filter: blur(2px);
+  z-index: 1500;
+  pointer-events: auto;
 }

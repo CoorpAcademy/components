@@ -188,13 +188,16 @@
   align-items: center;
   overflow: hidden;
   border-radius: 12px;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  background: cm_grey_100;
+  padding: 2px;
 }
 
 .wrapperMoocParent {
   width: 100%;
   border-radius: 12px;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  background: transparent;
 }
 
 .moocSearch {
@@ -215,16 +218,13 @@
   background-color: cm_grey_75;
 }
 
+.wrapperMoocParent:focus-within .wrapperMooc {
+  background: transparent;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px brand;
+}
+
 .wrapperMooc:hover {
   box-shadow: 0 0 0 2px brand;
-}
-
-.wrapperMoocParent:focus-within {
-  box-shadow: 0 0 0 2px brand;
-}
-
-.wrapperMoocParent:focus-within .wrapperMooc {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px brand;
 }
 
 .wrapperMooc .clearIcon {

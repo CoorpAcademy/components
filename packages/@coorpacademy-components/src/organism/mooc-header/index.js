@@ -811,6 +811,7 @@ class MoocHeader extends React.Component {
             >
               {searchFormView}
             </div>
+            {isFocus ? <div className={style.searchOverlay} /> : null}
             <nav
               className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
               data-name="menu-wrapper"
