@@ -211,7 +211,7 @@
 .progressWrapper {
   position: relative;
   left: 0;
-  width: 194px;
+  width: 150px;
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
@@ -220,12 +220,9 @@
 }
 
 .coorpmanager .progressWrapper {
+  width: 140px;
   height: 2px;
   margin: 11px auto;
-}
-
-.card .progressWrapper {
-  width: 150px;
 }
 
 .hero .progressWrapper {
