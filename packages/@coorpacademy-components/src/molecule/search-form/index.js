@@ -1,9 +1,9 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import classnames from 'classnames';
 import Search from '../../atom/input-search';
 import style from './style.css';
-import classnames from 'classnames';
 
 const SearchForm = (props, context) => {
   const {
