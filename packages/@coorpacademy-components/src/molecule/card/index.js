@@ -200,8 +200,6 @@ const Card = memo(function Card(props, context) {
         return contentType;
     }
   };
-  // eslint-disable-next-line no-console
-  console.log('type of card', type, 'favorite', favorite);
   return (
     <div
       className={cardStyle}

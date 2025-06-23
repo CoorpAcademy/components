@@ -11,56 +11,6 @@
 @value white from colors;
 @value cm_grey_200 from colors;
 
-/* 
-.microLearningCardInfo {
-  flex: 1 0 auto;
-} */
-
-/* .microLearningIcon {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  margin-top: 53px;
-}
-
-.coorpmanager .microLearningIcon {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  margin-top: 35px;
-} */
-
-/* .timerIcon {
-  height: 40px;
-  width: 40px;
-}
-
-.coorpmanager .timerIcon {
-  height: 30px;
-  width: 30px;
-} */
-
-/* .microLearningIcon svg {
-  background:white;
-  border-radius: 50%;
-  margin: 0 auto;
-  padding: 3px;
-  box-sizing: content-box; 
-  color: lightBlack;
-} */
-
-/* .microLearninglabel {
-  font-family: 'Gilroy';
-  font-size: 10px;
-  font-weight: 800;
-  color: lightBlack;
-  text-transform: uppercase;
-}
-
-.coorpmanager .microLearninglabel {
-  font-size: 6px;
-} */
-
 .infoWrapper {
   display: flex;
   gap: 4px;
