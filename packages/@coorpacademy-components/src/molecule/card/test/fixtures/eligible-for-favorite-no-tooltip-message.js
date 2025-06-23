@@ -15,7 +15,5 @@ export default {
       icon: 'removeFavorite'
     },
     favorite: true
-    // removeFavoriteToolTip: ''
-    // addFavoriteToolTip: ''
   })
 };
