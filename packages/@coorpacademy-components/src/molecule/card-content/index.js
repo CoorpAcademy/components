@@ -6,7 +6,6 @@ import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon
 } from '@coorpacademy/nova-icons';
-import {isExternalContent} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import ContentBadge from '../../atom/content-badge';
 import Tag from '../../atom/tag';
