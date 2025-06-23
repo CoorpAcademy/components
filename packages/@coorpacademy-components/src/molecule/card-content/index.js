@@ -23,21 +23,12 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const getCardInfo = (contentType, translate) => {
-  switch (contentType) {
-    case 'chapter':
-      return {label: "5'learning", iconName: 'stopwatch'};
-    case 'scorm':
-      return {label: translate('external_content_scorm'), iconName: 'rectangle-history'};
-    case 'video':
-      return {label: translate('external_content_video'), iconName: 'circle-play'};
-    case 'article':
-      return {label: translate('external_content_article'), iconName: 'file-lines'};
-    case 'podcast':
-      return {label: translate('external_content_podcast'), iconName: 'microphone-lines'};
-    default:
-      return {label: 'Course', iconName: 'book-open'};
-  }
+const CARD_INFO_MAP = {
+  scorm: {label: 'external_content_scorm', iconName: 'rectangle-history'},
+  video: {label: 'external_content_video', iconName: 'circle-play'},
+  article: {label: 'external_content_article', iconName: 'file-lines'},
+  podcast: {label: 'external_content_podcast', iconName: 'microphone-lines'},
+  course: {label: 'Course', iconName: 'book-open'}
 };
 
 const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
@@ -45,7 +36,9 @@ const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme
   if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
     return null;
   }
-  const {label, iconName} = getCardInfo(type, translate);
+  const [label, iconName] = CARD_INFO_MAP[type]
+    ? [translate(CARD_INFO_MAP[type].label), CARD_INFO_MAP[type].iconName]
+    : [`5'learning`, 'stopwatch'];
   return (
     <div className={style.contentTypeInfos}>
       <Tag size="S" label={label} icon={{iconName}} />
@@ -164,8 +157,6 @@ const ContentInfo = ({
         ) : null}
       </div>
     ) : null;
-  // eslint-disable-next-line no-console
-  console.log(' adaptiv', adaptiv);
   return (
     <div
       data-name="info"

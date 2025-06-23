@@ -46,9 +46,6 @@ const Favorite = (
     [addFavoriteToolTip, removeFavoriteToolTip]
   );
 
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ favorite.js:49 ~ allowToolTip:', allowToolTip);
-
   // to be replaced by useId when React17 is bumped to React18
   const [favoriteButtonAnchorId] = useState(
     allowToolTip ? uuidV5('engaged-battle-', uuidV5.URL) : undefined
@@ -59,8 +56,6 @@ const Favorite = (
     () => (allowToolTip ? (favorite ? removeFavoriteToolTip : addFavoriteToolTip) : null),
     [addFavoriteToolTip, favorite, removeFavoriteToolTip, allowToolTip]
   );
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ favorite.js:63 ~ toolTipContent:', toolTipContent);
 
   const [mouseLeaveTimer, setMouseLeaveTimer] = useState(undefined);
 

@@ -33,8 +33,6 @@ const Notification = props => {
   const {message, icon} = props;
   const IconType = get(icon, NOTIFICATION_ICON);
   const {color, backgroundColor} = get(icon, NOTIFICATIONS_COLORS);
-  // eslint-disable-next-line no-console
-  console.log('color', color, 'backgroundColor', backgroundColor);
   return (
     <div
       data-name="notification"
