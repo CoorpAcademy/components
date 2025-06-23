@@ -16,7 +16,7 @@ const SHOW_BUTTON_STYLE = {
   fontSize: '14px',
   fontWeight: '600',
   fontFamily: 'Gilroy',
-  marginTop: '16px'
+  padding: '0'
 };
 const CHECKBOX_TITLE_STYLE = {
   marginRight: '16px',
@@ -105,23 +105,21 @@ const FilterCheckboxAndSearch = (
         )}
       </div>
       {size(options) > INITIAL_VISIBLE_OPTIONS ? (
-        <div>
-          <ButtonLink
-            label={showMore ? translate('Show less') : translate('Show more')}
-            type="text"
-            icon={{
-              position: 'right',
-              faIcon: {
-                name: showMore ? 'chevron-up' : 'chevron-down',
-                size: 16,
-                color: COLORS.cm_grey_500
-              }
-            }}
-            customStyle={SHOW_BUTTON_STYLE}
-            onClick={handleShowMore}
-            data-testid="filter-checkbox-and-search-show-button"
-          />
-        </div>
+        <ButtonLink
+          label={showMore ? translate('Show less') : translate('Show more')}
+          type="text"
+          icon={{
+            position: 'right',
+            faIcon: {
+              name: showMore ? 'chevron-up' : 'chevron-down',
+              size: 16,
+              color: COLORS.cm_grey_500
+            }
+          }}
+          customStyle={SHOW_BUTTON_STYLE}
+          onClick={handleShowMore}
+          data-testid="filter-checkbox-and-search-show-button"
+        />
       ) : null}
     </div>
   );
