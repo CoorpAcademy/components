@@ -8,11 +8,13 @@
 @value white from colors;
 @value dark from colors;
 @value black from colors;
+@value cm_grey_75 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_150 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value brand from colors;
 
 .wrapperSearch {
   display: flex;
@@ -66,6 +68,7 @@
   color: medium;
 }
 
+/* Theme: coorpmanager */
 .coorpmanager {
   position: relative;
 }
@@ -175,6 +178,62 @@
   left: 30px;
   top: 16px;
   line-height: 16px;
+}
+
+/* Theme: mooc */
+.wrapperMooc {
+  display: flex;
+  flex-flow: nowrap;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.wrapperMoocParent {
+  width: 100%;
+  border-radius: 12px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.moocSearch {
+  background-color: cm_grey_100;
+  border-radius: 12px;
+  height: 44px;
+  margin: 0;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  color: cm_grey_700;
+  padding: 0 0 0 45px;
+  padding-right: 48px;
+  outline: none;
+}
+
+.moocSearch:focus-within {
+  background-color: cm_grey_75;
+}
+
+.wrapperMooc:hover {
+  box-shadow: 0 0 0 2px brand;
+}
+
+.wrapperMoocParent:focus-within {
+  box-shadow: 0 0 0 2px brand;
+}
+
+.wrapperMoocParent:focus-within .wrapperMooc {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px brand;
+}
+
+.wrapperMooc .clearIcon {
+  position: relative;
+  right: 26px;
+  color: cm_grey_400;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
 }
 
 input:-webkit-autofill,

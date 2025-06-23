@@ -22,42 +22,59 @@ const Search = props => {
     dataTestId
   } = props;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
-  const cmStyle = classnames(style.coorpmanager);
-  const isDefaultTheme = theme === 'default';
+
+  const isCoorpManager = theme === 'coorpmanager';
+  const isMooc = theme === 'mooc';
+  const isDefault = theme === 'default';
+
+  const wrapperClass = classnames({
+    [style.wrapperSearch]: isDefault,
+    [style.coorpmanager]: isCoorpManager,
+    [style.wrapperMooc]: isMooc
+  });
+
+  const wrapperParentClass = classnames({
+    [style.wrapperMoocParent]: isMooc
+  });
+
+  const searchClass = classnames({
+    [style.search]: true,
+    [style.moocSearch]: isMooc
+  });
+
+  const SearchIconComponent = isCoorpManager ? CMSearchIcon : SearchIcon;
+  const showTitle = isCoorpManager;
+  const showClearIcon = value && isCoorpManager;
 
   return (
-    <div className={isDefaultTheme ? style.wrapperSearch : cmStyle}>
-      <label htmlFor="search" title={placeholder}>
-        {!isDefaultTheme ? (
-          <CMSearchIcon className={style.searchIcon} />
-        ) : (
-          <SearchIcon className={style.searchIcon} />
-        )}
-        {!isDefaultTheme ? (
-          <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
-            {placeholder}
-          </span>
-        ) : null}
-      </label>
-      <input
-        data-name="search-input"
-        data-testid={dataTestId}
-        className={style.search}
-        aria-label={placeholder}
-        type="text"
-        name="search"
-        id="search"
-        placeholder={placeholder}
-        title={placeholder}
-        value={value}
-        onInput={handleChange}
-        onFocus={onFocus}
-        onChange={noop}
-        onBlur={onBlur}
-      />
-      {value && !isDefaultTheme ? (
-        <CloseIcon onClick={onClear} className={style.clearIcon} />
-      ) : null}
+    <div className={wrapperParentClass}>
+      <div className={wrapperClass}>
+        <label htmlFor="search" title={placeholder}>
+          <SearchIconComponent className={style.searchIcon} />
+          {showTitle ? (
+            <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
+              {placeholder}
+            </span>
+          ) : null}
+        </label>
+        <input
+          data-name="search-input"
+          data-testid={dataTestId}
+          className={searchClass}
+          aria-label={placeholder}
+          type="text"
+          name="search"
+          id="search"
+          placeholder={placeholder}
+          title={placeholder}
+          value={value}
+          onInput={handleChange}
+          onFocus={onFocus}
+          onChange={noop}
+          onBlur={onBlur}
+        />
+        {showClearIcon ? <CloseIcon onClick={onClear} className={style.clearIcon} /> : null}
+      </div>
     </div>
   );
 };
@@ -73,7 +90,7 @@ Search.propTypes = {
   onClear: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  theme: PropTypes.oneOf(['default', 'coorpmanager']),
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
   dataTestId: PropTypes.string
 };
 
