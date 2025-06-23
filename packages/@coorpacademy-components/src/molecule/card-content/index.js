@@ -22,21 +22,20 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const CARD_INFO_MAP = {
-  scorm: {label: 'external_content_scorm', iconName: 'rectangle-history'},
-  video: {label: 'external_content_video', iconName: 'circle-play'},
-  article: {label: 'external_content_article', iconName: 'file-lines'},
-  podcast: {label: 'external_content_podcast', iconName: 'microphone-lines'},
-  course: {label: 'Course', iconName: 'book-open'}
-};
-
 const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
     return null;
   }
+  const CARD_INFO_MAP = {
+    scorm: {label: translate('content_type_scorm'), iconName: 'rectangle-history'},
+    video: {label: translate('content_type_video'), iconName: 'circle-play'},
+    article: {label: translate('content_type_article'), iconName: 'file-lines'},
+    podcast: {label: translate('content_type_podcast'), iconName: 'microphone-lines'},
+    course: {label: translate('content_type_course'), iconName: 'book-open'}
+  };
   const [label, iconName] = CARD_INFO_MAP[type]
-    ? [translate(CARD_INFO_MAP[type].label), CARD_INFO_MAP[type].iconName]
+    ? [CARD_INFO_MAP[type].label, CARD_INFO_MAP[type].iconName]
     : [`5'learning`, 'stopwatch'];
   return (
     <div className={style.contentTypeInfos}>
