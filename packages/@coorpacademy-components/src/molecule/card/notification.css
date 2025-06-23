@@ -14,7 +14,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: color(dark a(75%));
+  background: rgba(29, 29, 43, 0.5);
   position: absolute;
   z-index: 0;
   opacity: 0;
@@ -23,12 +23,11 @@
 
 .notification {
   width: 156px;
-  height: 100px;
   background: light;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -50px 0 0 -78px;
+  transform: translate(-50%, -50%);
   border-radius: 12px;
   padding: 16px;
   box-sizing: border-box;
@@ -60,16 +59,15 @@
   font-size: 30px;
   height: 20px;
   width: 15px;
-  /* color: cm_blue_700; */
 }
 
 .iconWrapper {
-  /* background-color: primary_100; */
-  /* background-color: pink; */
   width: 32px;
+  height: 32px;
   padding: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 12px;
 }
 
@@ -81,7 +79,7 @@
   display: inline-block;
   vertical-align: middle;
   user-select: none;
-  line-height: 16px;
+  line-height: 20px;
   font-size: 14px;
   font-family: 'Gilroy';
   text-align: center;
