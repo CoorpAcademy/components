@@ -139,10 +139,7 @@ const ContentInfo = ({
     backgroundColor: progressBarColor,
     width: `${progress * 100}%`
   };
-  const externalContent = isExternalContent(type);
   const courseContent = type === 'course';
-  const chapterContent = type === 'chapter';
-
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
       <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
@@ -165,7 +162,7 @@ const ContentInfo = ({
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
-        externalContent || chapterContent || courseContent ? style.externalContent : null // generalize css class name
+        style.externalContent
       )}
     >
       <ContentTypeInfo
