@@ -26,19 +26,22 @@
 .small {
   composes: tag;
   font-size: 10px;
-  padding: 2px 5px;
+  padding: 1px 6px;
+  line-height: 12px;
 }
 
 .medium {
   composes: tag;
   font-size: 12px;
-  padding: 4px 8px;
+  padding: 1px 6px;
+  line-height: 16px;
 }
 
 .large {
   composes: tag;
   font-size: 14px;
-  padding: 8px 16px;
+  padding: 2px 6px;
+  line-height: 20px;
 }
 
 .defaultStyle {
