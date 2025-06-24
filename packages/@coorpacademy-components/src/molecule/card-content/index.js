@@ -22,21 +22,37 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
+const ICON_NAME_MAP = {
+  scorm: 'rectangle-history',
+  video: 'circle-play',
+  article: 'file-lines',
+  podcast: 'microphone-lines',
+  course: 'book-open',
+  chapter: 'stopwatch'
+};
 const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
     return null;
   }
-  const CARD_INFO_MAP = {
-    scorm: {label: translate('content_type_scorm'), iconName: 'rectangle-history'},
-    video: {label: translate('content_type_video'), iconName: 'circle-play'},
-    article: {label: translate('content_type_article'), iconName: 'file-lines'},
-    podcast: {label: translate('content_type_podcast'), iconName: 'microphone-lines'},
-    course: {label: translate('content_type_course'), iconName: 'book-open'}
+  const getLabel = contentType => {
+    switch (contentType) {
+      case 'scorm':
+        return translate('content_type_scorm');
+      case 'video':
+        return translate('content_type_video');
+      case 'article':
+        return translate('content_type_article');
+      case 'podcast':
+        return translate('content_type_podcast');
+      case 'course':
+        return translate('content_type_course');
+      default:
+        return `5'learning`;
+    }
   };
-  const [label, iconName] = CARD_INFO_MAP[type]
-    ? [CARD_INFO_MAP[type].label, CARD_INFO_MAP[type].iconName]
-    : [`5'learning`, 'stopwatch'];
+  const label = getLabel(type) || `5'learning`;
+  const iconName = ICON_NAME_MAP[type];
   return (
     <div className={style.contentTypeInfos}>
       <Tag size="S" label={label} icon={{iconName}} />
