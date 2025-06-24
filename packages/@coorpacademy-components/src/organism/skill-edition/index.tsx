@@ -168,8 +168,6 @@ const buildButtonProps = (button: TranslationPropsType['button']) => ({
     backgroundColor: COLORS.cm_blue_50,
     color: COLORS.cm_primary_blue,
     borderRadius: '12px',
-    paddingRight: '8px',
-    paddingleft: '16px',
     fontWeight: 600
   }
 });
