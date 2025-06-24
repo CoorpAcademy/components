@@ -197,7 +197,8 @@
       "diploma": "经过验证的途径"
     },
     "esante-formation": {
-      "diploma": "Learning path"
+      "diploma": "Learning path",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "certificate"
