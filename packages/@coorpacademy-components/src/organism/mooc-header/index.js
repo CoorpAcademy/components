@@ -223,6 +223,7 @@ class MoocHeader extends React.Component {
 
   handleSubmitSearch() {
     const {onSubmitSearch} = this.props;
+    this.setState({isFocus: false});
     if (onSubmitSearch) {
       onSubmitSearch();
     }
