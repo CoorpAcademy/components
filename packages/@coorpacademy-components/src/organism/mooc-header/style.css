@@ -69,7 +69,8 @@
   border-right: none;
 }
 
-.logoWrapper,logoWrapperFocus {
+.logoWrapper,
+.logoWrapperFocus {
   height: 100%;
   background-color: white;
   padding: 10px 16px;
