@@ -197,7 +197,8 @@
       "diploma": "Doğrulanmış yol"
     },
     "esante-formation": {
-      "diploma": "Learning path"
+      "diploma": "Learning path",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "certificate"
