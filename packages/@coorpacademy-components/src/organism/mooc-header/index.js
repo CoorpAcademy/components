@@ -438,7 +438,7 @@ class MoocHeader extends React.Component {
         );
       });
       pagesView = (
-        <div className={search.value || style.items}>
+        <div className={search.value ? style.noItems : style.items}>
           {displayedPages}
           {items.more &&
             (isMobile ? (

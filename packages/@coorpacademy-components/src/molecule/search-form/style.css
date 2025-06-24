@@ -33,15 +33,15 @@
 }
 
 .wrapperClearMooc {
-  position: absolute;
+  position: relative;
   right: 30px;
   width: 14px;
   height: 14px;
-  top: 50%;
+  top: 8px;
   transform: translateY(-50%);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 2002;
 }
