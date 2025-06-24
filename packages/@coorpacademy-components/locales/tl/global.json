@@ -197,7 +197,8 @@
       "diploma": "Napatunayang landas"
     },
     "esante-formation": {
-      "diploma": "Learning path"
+      "diploma": "Learning path",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "certificate"
