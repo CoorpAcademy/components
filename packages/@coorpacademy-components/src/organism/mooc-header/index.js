@@ -743,7 +743,7 @@ class MoocHeader extends React.Component {
           className={isMenuOpen ? style.open : style.header}
         >
           <div
-            className={style.logoWrapper}
+            className={!isFocus ? style.logoWrapper : style.logoWrapperFocus}
             aria-label={toolTipText}
             onMouseOver={this.handleOnMouseOver}
             onMouseLeave={this.handleOnMouseLeave}

@@ -27,6 +27,8 @@
 
 .wrapper {
   min-height: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -37,8 +39,8 @@
   border-bottom: 1px solid light;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
   background-color: white;
 }
 
@@ -655,10 +657,11 @@
     flex-direction: row;
     padding: 0;
     background-color: white;
-    justify-content: flex-start;
+    justify-content: center;
     height: auto;
     align-items: center;
     min-height: 60px;
+    left: 0;
   }
 
   .open {
@@ -868,6 +871,10 @@
   .userAvatarWrapper {
     display: none;
   }
+
+  .logoWrapperFocus {
+    display: none;
+  }
 }
 
 .rightZoneFocus {
@@ -915,6 +922,7 @@
 
 .normalSearchBar {
   flex: 1 1 0%;
+  max-width: 608px;
 }
 
 .searchOverlay {
@@ -927,4 +935,13 @@
   backdrop-filter: blur(2px);
   z-index: 1500;
   pointer-events: auto;
+}
+
+html, body {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
