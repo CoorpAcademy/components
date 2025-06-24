@@ -197,7 +197,8 @@
       "diploma": "검증된 경로"
     },
     "esante-formation": {
-      "diploma": "Learning path"
+      "diploma": "Learning path",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "certificate"
