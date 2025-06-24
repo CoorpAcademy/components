@@ -253,6 +253,10 @@ input:-webkit-autofill:active{
     font-size: 12px;
     color: medium;
   }
+
+  .wrapperMoocParent {
+    min-width: 100%;
+  }
 }
 
 @media mobile {

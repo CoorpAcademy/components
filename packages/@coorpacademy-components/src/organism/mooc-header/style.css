@@ -657,15 +657,74 @@
   }
 }
 
+.rightZoneFocus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.rightZone{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.searchBarActive .floatingSearchBar {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  max-width: 936px;
+  width: 100%;
+  z-index: 2000;
+  pointer-events: none;
+  align-items: center;
+  background-color: transparent;
+}
+
+.searchBarActive .floatingSearchBar > * {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 936px;
+  background-color: transparent;
+}
+
+.floatingSearchBar {
+  display: none;
+}
+
+.normalSearchBar {
+  flex: 1 1 0%;
+  max-width: 608px;
+}
+
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(29, 29, 43, 0.20);
+  backdrop-filter: blur(2px);
+  z-index: 1500;
+  pointer-events: auto;
+}
+
 @media tablet {
   .header {
     flex-direction: row;
-    padding: 0;
     background-color: white;
     justify-content: center;
     height: auto;
     align-items: center;
     min-height: 60px;
+    padding: 0 10px;
   }
 
   .open {
@@ -879,64 +938,23 @@
   .logoWrapperFocus {
     display: none;
   }
-}
 
-.rightZoneFocus {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  margin-right: 20px;
-}
+  .searchBarActive .floatingSearchBar > * {
+   height: auto;
+    min-width: 100%;
+  }
 
-.rightZone{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-right: 20px;
-}
+  .rightZoneFocus {
+    height: auto;
+    min-width: 100%;
+    left: 10px;
+  }
 
-.searchBarActive .floatingSearchBar {
-  display: flex;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  max-width: 936px;
-  width: 100%;
-  z-index: 2000;
-  pointer-events: none;
-  align-items: center;
-  background-color: transparent;
-}
-
-.searchBarActive .floatingSearchBar > * {
-  pointer-events: auto;
-  width: 100%;
-  max-width: 936px;
-  background-color: transparent;
-
-}
-
-.floatingSearchBar {
-  display: none;
-}
-
-.normalSearchBar {
-  flex: 1 1 0%;
-  max-width: 608px;
-}
-
-.searchOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(29, 29, 43, 0.20);
-  backdrop-filter: blur(2px);
-  z-index: 1500;
-  pointer-events: auto;
+  .rightZone{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 0px;
+  }
 }
