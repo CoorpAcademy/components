@@ -197,7 +197,8 @@
       "diploma": "Caminho validado"
     },
     "esante-formation": {
-      "diploma": "Learning path"
+      "diploma": "Learning path",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "certificate"
