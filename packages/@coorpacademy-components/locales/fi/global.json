@@ -197,7 +197,8 @@
       "diploma": "Vahvistettu reitti"
     },
     "esante-formation": {
-      "diploma": "Oppimispolku"
+      "diploma": "Oppimispolku",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "todistus"
