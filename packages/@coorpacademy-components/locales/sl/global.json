@@ -197,7 +197,8 @@
       "diploma": "Potrjena pot"
     },
     "esante-formation": {
-      "diploma": "Učna pot"
+      "diploma": "Učna pot",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "potrdilo"
