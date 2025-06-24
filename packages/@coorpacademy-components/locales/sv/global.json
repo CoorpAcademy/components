@@ -197,7 +197,8 @@
       "diploma": "Validerad väg"
     },
     "esante-formation": {
-      "diploma": "Inlärningsväg"
+      "diploma": "Inlärningsväg",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "certifikat"
