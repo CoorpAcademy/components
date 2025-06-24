@@ -197,7 +197,8 @@
       "diploma": "Parcours validé"
     },
     "esante-formation": {
-      "diploma": "Attestation"
+      "diploma": "Attestation",
+      "rewards": "Attestation"
     },
     "ehc-vd": {
       "diploma": "attestation"
