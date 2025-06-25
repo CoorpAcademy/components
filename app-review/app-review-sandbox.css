@@ -4745,25 +4745,33 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   font-weight: 600;
   text-align: center;
   line-height: normal;
-  display: inline-block;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
+  min-width: 6px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1px 6px;
+
 }
 
 .small-qrAhw {
   font-size: 10px;
-  padding: 2px 5px;
+  line-height: 12px;
 }
 
 .medium-AzNrZ {
   font-size: 12px;
-  padding: 4px 8px;
+  line-height: 16px;
 }
 
 .large-Gb3sp {
   font-size: 14px;
-  padding: 8px 16px;
+  line-height: 20px;
 }
 
 .defaultStyle-sKDJd {
@@ -6772,6 +6780,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .container-ArAhx:hover .label-HkjRm {
@@ -6940,7 +6949,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  gap: 54px;
+  gap: 16px;
   min-height: inherit;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
