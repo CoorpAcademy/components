@@ -704,11 +704,6 @@
   max-width: 936px;
 }
 
-.normalSearchBar {
-  flex: 1 1 0%;
-  max-width: 608px;
-}
-
 .searchOverlay {
   position: fixed;
   top: 0;
