@@ -807,7 +807,9 @@ class MoocHeader extends React.Component {
             )}
           >
             <div
-              className={isFocus ? style.floatingSearchBar : style.normalSearchBar}
+              className={classnames(style.floatingSearchBar, {
+                [style['floatingSearchBar--expanded']]: isFocus
+              })}
               ref={this.setSearchBarRef}
             >
               {searchFormView}

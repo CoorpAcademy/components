@@ -681,8 +681,6 @@
   left: 0;
   top: 0;
   height: 100%;
-  max-width: 936px;
-  width: 100%;
   z-index: 2000;
   pointer-events: none;
   align-items: center;
@@ -697,7 +695,13 @@
 }
 
 .floatingSearchBar {
-  display: none;
+  width: 100%;
+  max-width: 603px;
+  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floatingSearchBar--expanded {
+  max-width: 936px;
 }
 
 .normalSearchBar {
@@ -717,7 +721,7 @@
   pointer-events: auto;
 }
 
-@media tablet {
+@media tablet, mobile {
   .header {
     flex-direction: row;
     background-color: white;
@@ -957,5 +961,14 @@
     justify-content: space-between;
     width: 100%;
     margin-right: 0px;
+  }
+
+  .floatingSearchBar {
+    width: 96%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 100%;
+  }
+  .floatingSearchBar--expanded {
+    width: 100%;
   }
 }
