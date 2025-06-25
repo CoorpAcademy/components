@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {get, isNil, keys} from 'lodash/fp';
+import {get, getOr, isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon
@@ -10,6 +10,7 @@ import Provider from '../../atom/provider';
 import ContentBadge from '../../atom/content-badge';
 import Tag from '../../atom/tag';
 import {COLORS} from '../../variables/colors';
+import {isExternalContent} from '../../util/external-content';
 import style from './style.css';
 
 export const MODES = {
@@ -27,8 +28,7 @@ const ICON_NAME_MAP = {
   video: 'circle-play',
   article: 'file-lines',
   podcast: 'microphone-lines',
-  course: 'book-open',
-  chapter: 'stopwatch'
+  course: 'book-open'
 };
 const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
   const {translate} = context;
@@ -51,8 +51,8 @@ const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme
         return `5'learning`;
     }
   };
-  const label = getLabel(type) || `5'learning`;
-  const iconName = ICON_NAME_MAP[type];
+  const label = getLabel(type);
+  const iconName = getOr('stopwatch', type, ICON_NAME_MAP);
   return (
     <div className={style.contentTypeInfos}>
       <Tag size="S" label={label} icon={{iconName}} />
@@ -154,6 +154,8 @@ const ContentInfo = ({
     width: `${progress * 100}%`
   };
   const courseContent = type === 'course';
+  const chapterContent = type === 'chapter';
+  const externalContent = isExternalContent(type);
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
       <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
@@ -176,7 +178,7 @@ const ContentInfo = ({
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
-        style.externalContent
+        chapterContent || courseContent || externalContent ? style.externalContent : null
       )}
     >
       <ContentTypeInfo
