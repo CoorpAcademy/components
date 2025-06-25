@@ -19,26 +19,30 @@
   font-weight: 600;
   text-align: center;
   line-height: normal;
-  display: inline-block;
-  min-width: max-content;
+  min-width: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+
 }
 
 .small {
   composes: tag;
   font-size: 10px;
-  padding: 2px 5px;
+  line-height: 12px;
 }
 
 .medium {
   composes: tag;
   font-size: 12px;
-  padding: 4px 8px;
+  line-height: 16px;
 }
 
 .large {
   composes: tag;
   font-size: 14px;
-  padding: 8px 16px;
+  line-height: 20px;
 }
 
 .defaultStyle {

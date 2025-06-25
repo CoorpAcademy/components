@@ -122,7 +122,7 @@
 .dataColumnsWrapper {
   display: flex;
   width: 100%;
-  gap: 54px;
+  gap: 16px;
   min-height: inherit;
   justify-content: flex-start;
   align-items: center;

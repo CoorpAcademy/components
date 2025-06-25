@@ -150,7 +150,7 @@ const BaseModal = (props, context) => {
 
   return (
     <div className={style.modalWrapper} data-testid="modal">
-      <div className={style.modal}>
+      <div className={style.modal} style={customStyle}>
         <header className={style.header}>
           {headerIcon?.name ? (
             <div className={style.headerIcon}>
@@ -175,7 +175,6 @@ const BaseModal = (props, context) => {
           className={isScrollbarVisible ? style.body : style.bodyWithoutScrollbar}
           onScroll={onScroll}
           data-testid="modal-body"
-          style={customStyle}
         >
           {children}
         </div>
