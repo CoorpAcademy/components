@@ -1,4 +1,12 @@
 .filtersContainer {
     display: flex;
+    gap: 16px;
+}
+
+.filterOption {
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
+    padding: 12px;
 }
