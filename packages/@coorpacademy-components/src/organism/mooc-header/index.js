@@ -137,7 +137,9 @@ class MoocHeader extends React.Component {
       isSettingsOpen: false,
       isMenuOpen: false,
       isFocus: false,
-      isToolTipOpen: false
+      isToolTipOpen: false,
+      isClosing: false,
+      isClosingStep2: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -157,6 +159,7 @@ class MoocHeader extends React.Component {
     this.searchBarRef = null;
     this.setSearchBarRef = this.setSearchBarRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
   }
 
   componentDidMount() {
@@ -243,9 +246,29 @@ class MoocHeader extends React.Component {
   }
 
   handleOnBlur() {
-    this.setState(prevState => ({
-      isFocus: false
-    }));
+    // Déclenche les deux étapes de fermeture presque simultanément
+    this.setState({
+      isClosing: true
+    });
+    
+    // Démarre la 2ème étape immédiatement après la première
+    requestAnimationFrame(() => {
+      this.setState({
+        isClosing: false,
+        isClosingStep2: true
+      });
+    });
+  }
+
+  handleTransitionEnd(event) {
+    // Vérifie que c'est bien la bonne propriété qui finit sa transition
+    if (event.propertyName === 'max-width' && this.state.isClosingStep2) {
+      // Animation complète terminée, on ferme tout
+      this.setState({
+        isFocus: false,
+        isClosingStep2: false
+      });
+    }
   }
 
   handleOnMenuOpen() {
@@ -321,7 +344,7 @@ class MoocHeader extends React.Component {
       'active-page-aria-label': activePageAriaLabel,
       'group-settings-aria-label': groupAriaLbale
     } = this.props;
-    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
+    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen, isClosing, isClosingStep2} = this.state;
     const {translate, skin} = this.context;
     const userAgent = navigator?.userAgent;
     const isMobile = getIsMobile(userAgent);
@@ -801,20 +824,22 @@ class MoocHeader extends React.Component {
           </div>
           <div
             className={classnames(
-              {[style.rightZone]: !isFocus},
-              {[style.rightZoneFocus]: isFocus},
-              {[style.searchBarActive]: isFocus}
+              {[style.rightZone]: !isFocus && !isClosing && !isClosingStep2},
+              {[style.rightZoneFocus]: isFocus || isClosing || isClosingStep2},
+              {[style.searchBarActive]: isFocus || isClosing || isClosingStep2}
             )}
           >
             <div
               className={classnames(style.floatingSearchBar, {
-                [style['floatingSearchBar--expanded']]: isFocus
+                [style['floatingSearchBar--expanded']]: isFocus && !isClosing && !isClosingStep2,
+                [style['floatingSearchBar--closing']]: isClosing
               })}
               ref={this.setSearchBarRef}
+              onTransitionEnd={this.handleTransitionEnd}
             >
               {searchFormView}
             </div>
-            {isFocus ? <div className={style.searchOverlay} /> : null}
+            {(isFocus || isClosing || isClosingStep2) ? <div className={style.searchOverlay} /> : null}
             <nav
               className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
               data-name="menu-wrapper"

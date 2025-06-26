@@ -191,10 +191,13 @@
   transition: box-shadow 0.3s ease-in-out;
   background: cm_grey_100;
   padding: 2px;
+  width: 100%;
+  flex: 1;
 }
 
 .wrapperMoocParent {
   width: 100%;
+  flex: 1;
   border-radius: 12px;
   transition: box-shadow 0.3s ease-in-out;
   background: transparent;
