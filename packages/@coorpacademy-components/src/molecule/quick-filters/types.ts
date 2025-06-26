@@ -1,5 +1,5 @@
 export type QuickFiltersProps = {
-  optionsList: FilterOption[];
+  filterOptions: FilterOption[];
   filterButton?: string; // to do next : filter button with onClick handler
 };
 
