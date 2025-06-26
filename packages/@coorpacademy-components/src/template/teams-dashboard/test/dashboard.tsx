@@ -22,7 +22,7 @@ test('if isLoading is true, then the loader should be rendered', t => {
 });
 
 test('if isLoading is false, then the dashboard content should be rendered (header and 2 sections)', t => {
-  t.plan(3);
+  t.plan(22);
   const context = {
     translate: (key: string) => {
       t.pass();
