@@ -137,7 +137,9 @@ class MoocHeader extends React.Component {
       isSettingsOpen: false,
       isMenuOpen: false,
       isFocus: false,
-      isToolTipOpen: false
+      isToolTipOpen: false,
+      isClosing: false,
+      isClosingStep2: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -154,6 +156,14 @@ class MoocHeader extends React.Component {
     this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
     this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.searchBarRef = null;
+    this.setSearchBarRef = this.setSearchBarRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -164,6 +174,23 @@ class MoocHeader extends React.Component {
     } else {
       document.removeEventListener('click', this._checkOnClose);
       document.removeEventListener('touchstart', this._checkOnClose);
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  setSearchBarRef(ref) {
+    this.searchBarRef = ref;
+  }
+
+  handleClickOutside(event) {
+    const {isFocus} = this.state;
+    if (isFocus) {
+      if (this.searchBarRef && !this.searchBarRef.contains(event.target)) {
+        this.handleOnBlur();
+      }
     }
   }
 
@@ -199,6 +226,7 @@ class MoocHeader extends React.Component {
 
   handleSubmitSearch() {
     const {onSubmitSearch} = this.props;
+    this.setState({isFocus: false});
     if (onSubmitSearch) {
       onSubmitSearch();
     }
@@ -218,9 +246,29 @@ class MoocHeader extends React.Component {
   }
 
   handleOnBlur() {
-    this.setState(prevState => ({
-      isFocus: false
-    }));
+    // Déclenche les deux étapes de fermeture presque simultanément
+    this.setState({
+      isClosing: true
+    });
+    
+    // Démarre la 2ème étape immédiatement après la première
+    requestAnimationFrame(() => {
+      this.setState({
+        isClosing: false,
+        isClosingStep2: true
+      });
+    });
+  }
+
+  handleTransitionEnd(event) {
+    // Vérifie que c'est bien la bonne propriété qui finit sa transition
+    if (event.propertyName === 'max-width' && this.state.isClosingStep2) {
+      // Animation complète terminée, on ferme tout
+      this.setState({
+        isFocus: false,
+        isClosingStep2: false
+      });
+    }
   }
 
   handleOnMenuOpen() {
@@ -296,7 +344,7 @@ class MoocHeader extends React.Component {
       'active-page-aria-label': activePageAriaLabel,
       'group-settings-aria-label': groupAriaLbale
     } = this.props;
-    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
+    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen, isClosing, isClosingStep2} = this.state;
     const {translate, skin} = this.context;
     const userAgent = navigator?.userAgent;
     const isMobile = getIsMobile(userAgent);
@@ -414,7 +462,7 @@ class MoocHeader extends React.Component {
         );
       });
       pagesView = (
-        <div className={search.value || isFocus ? style.noItems : style.items}>
+        <div className={!user ? style.noItems : style.items}>
           {displayedPages}
           {items.more &&
             (isMobile ? (
@@ -705,6 +753,7 @@ class MoocHeader extends React.Component {
             onSearchFocus={this.handleOnFocus}
             onSearchBlur={this.handleOnBlur}
             search-reset-aria-label={searchResetAriaLabel}
+            theme="mooc"
           />
         </div>
       );
@@ -718,7 +767,7 @@ class MoocHeader extends React.Component {
           className={isMenuOpen ? style.open : style.header}
         >
           <div
-            className={style.logoWrapper}
+            className={!isFocus ? style.logoWrapper : style.logoWrapperFocus}
             aria-label={toolTipText}
             onMouseOver={this.handleOnMouseOver}
             onMouseLeave={this.handleOnMouseLeave}
@@ -773,15 +822,33 @@ class MoocHeader extends React.Component {
               ) : null}
             </Link>
           </div>
-          {searchFormView}
-          <nav
-            className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
-            data-name="menu-wrapper"
+          <div
+            className={classnames(
+              {[style.rightZone]: !isFocus && !isClosing && !isClosingStep2},
+              {[style.rightZoneFocus]: isFocus || isClosing || isClosingStep2},
+              {[style.searchBarActive]: isFocus || isClosing || isClosingStep2}
+            )}
           >
-            {pagesView}
-            {userView || linksView}
-            {settingsView}
-          </nav>
+            <div
+              className={classnames(style.floatingSearchBar, {
+                [style['floatingSearchBar--expanded']]: isFocus && !isClosing && !isClosingStep2,
+                [style['floatingSearchBar--closing']]: isClosing
+              })}
+              ref={this.setSearchBarRef}
+              onTransitionEnd={this.handleTransitionEnd}
+            >
+              {searchFormView}
+            </div>
+            {(isFocus || isClosing || isClosingStep2) ? <div className={style.searchOverlay} /> : null}
+            <nav
+              className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
+              data-name="menu-wrapper"
+            >
+              {pagesView}
+              {userView || linksView}
+              {settingsView}
+            </nav>
+          </div>
         </div>
       </header>
     );
