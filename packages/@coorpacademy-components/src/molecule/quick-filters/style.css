@@ -1,0 +1,4 @@
+.filtersContainer {
+    display: flex;
+    gap: 8px;
+}
