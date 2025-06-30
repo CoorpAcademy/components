@@ -80,6 +80,38 @@ export default {
           console.log('documents selected');
         },
         selected: false
+      },
+      {
+        iconName: 'stopwatch',
+        label: `5'learnin 1`,
+        onClick: () => {
+          console.log(`5'learning selected`);
+        },
+        selected: false
+      },
+      {
+        iconName: 'stopwatch',
+        label: `5'learnin 2`,
+        onClick: () => {
+          console.log(`5'learning selected`);
+        },
+        selected: false
+      },
+      {
+        iconName: 'stopwatch',
+        label: `5'learnin 3`,
+        onClick: () => {
+          console.log(`5'learning selected`);
+        },
+        selected: false
+      },
+      {
+        iconName: 'stopwatch',
+        label: `5'learning`,
+        onClick: () => {
+          console.log(`5'learning selected`);
+        },
+        selected: false
       }
     ]
   }

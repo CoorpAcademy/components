@@ -8,48 +8,53 @@ import {QuickFiltersProps} from './types';
 
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
+  const showNextFilter = filterOptions.length > 9;
   return (
     <div className={style.filtersMainContainer}>
-      <div>
+      {/* <div>
         <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-left'}}} />
-      </div>
-      <div
-        data-name="all-content"
-        className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
-      >
-        <FaIcon
-          {...{
-            iconName: defaultIconName,
-            label: defaultLabel,
-            selected: defaultSelected,
-            onClick: onDefaultClick,
-            iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
-          }}
-        />
-        <span className={style.filterLabel}>{defaultLabel}</span>
-      </div>
-      <div className={style.filterSeparator} />
-      <div className={style.filtersContainer}>
-        {filterOptions.map((filterOption, idx) => {
-          const {iconName, label, selected} = filterOption;
-          return (
-            <div
-              key={idx}
-              className={classNames(style.filterOption, selected && style.filterSelected)}
-            >
-              <FaIcon
-                {...{
-                  iconName,
-                  label,
-                  iconColor: selected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
-                }}
-              />
-              <span>{label}</span>
+      </div> */}
+      <div className={style.filtersList}>
+        <div
+          data-name="all-content"
+          className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
+        >
+          <FaIcon
+            {...{
+              iconName: defaultIconName,
+              label: defaultLabel,
+              selected: defaultSelected,
+              onClick: onDefaultClick,
+              iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
+            }}
+          />
+          <span className={style.filterLabel}>{defaultLabel}</span>
+        </div>
+        <div className={style.filterSeparator} />
+        <div className={style.filtersContainer}>
+          {filterOptions.map((filterOption, idx) => {
+            const {iconName, label, selected} = filterOption;
+            return (
+              <div
+                key={idx}
+                className={classNames(style.filterOption, selected && style.filterSelected)}
+              >
+                <FaIcon
+                  {...{
+                    iconName,
+                    label,
+                    iconColor: selected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
+                  }}
+                />
+                <span>{label}</span>
+              </div>
+            );
+          })}
+          {showNextFilter ? (
+            <div>
+              <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-right'}}} />
             </div>
-          );
-        })}
-        <div>
-          <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-right'}}} />
+          ) : null}
         </div>
       </div>
       {filterButton ? (
