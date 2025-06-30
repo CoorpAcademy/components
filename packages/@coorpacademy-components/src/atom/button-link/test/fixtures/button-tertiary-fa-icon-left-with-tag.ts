@@ -9,7 +9,7 @@ const fixture: Fixture = {
       position: 'left',
       faIcon: {
         name: 'sliders',
-        size: 16,
+        size: 14,
         color: COLORS.cm_grey_700
       }
     },
@@ -20,6 +20,9 @@ const fixture: Fixture = {
         color: COLORS.white,
         backgroundColor: COLORS.cm_primary_blue
       }
+    },
+    customStyle: {
+      border: `2px solid ${COLORS.cm_primary_blue}`
     }
   }
 };

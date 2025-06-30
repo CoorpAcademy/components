@@ -1,3 +1,4 @@
+import {COLORS} from '../../../../variables/colors';
 import Default from './default';
 
 export default {
@@ -9,7 +10,7 @@ export default {
       'data-name': 'open-filters-modal',
       icon: {
         position: 'left',
-        faIcon: {name: 'sliders', size: 16, color: '#4A4A4A'}
+        faIcon: {name: 'sliders', size: 14, color: COLORS.cm_grey_700}
       }
     }
   }
