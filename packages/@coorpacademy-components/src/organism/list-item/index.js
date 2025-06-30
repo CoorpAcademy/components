@@ -123,11 +123,8 @@ const ListItem = (
         ) : null}
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
-            <div 
-              className={style.title} 
-              title={title}
-              dangerouslySetInnerHTML={{__html: title}}
-            />
+            {/* eslint-disable-next-line react/no-danger*/}
+            <div className={style.title} title={title} dangerouslySetInnerHTML={{__html: title}} />
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
