@@ -21,6 +21,7 @@
 .filtersContainer {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 .filterOption, .defaultOption {
@@ -57,5 +58,5 @@
 
 .filterButton {
     margin-left: auto;
-    color: #1D1D2B;
+    color: cm_grey_700;
 }

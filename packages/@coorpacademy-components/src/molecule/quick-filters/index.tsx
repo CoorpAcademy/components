@@ -10,6 +10,9 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
   return (
     <div className={style.filtersMainContainer}>
+      <div>
+        <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-left'}}} />
+      </div>
       <div
         data-name="all-content"
         className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
@@ -45,6 +48,9 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
             </div>
           );
         })}
+        <div>
+          <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-right'}}} />
+        </div>
       </div>
       {filterButton ? (
         <div className={style.filterButton}>

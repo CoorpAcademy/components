@@ -22,7 +22,8 @@ const fixture: Fixture = {
       }
     },
     customStyle: {
-      border: `2px solid ${COLORS.cm_primary_blue}`
+      border: `2px solid ${COLORS.cm_primary_blue}`,
+      borderRadius: '12px'
     }
   }
 };
