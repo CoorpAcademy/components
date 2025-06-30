@@ -24,6 +24,13 @@
     align-items: center;
 }
 
+.filtersList {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    align-items: center;
+    display: flex;
+}
+
 .filterOption, .defaultOption {
     display: flex;
     color: cm_grey_500;

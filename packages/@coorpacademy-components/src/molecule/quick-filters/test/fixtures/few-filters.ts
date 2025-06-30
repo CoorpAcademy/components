@@ -1,0 +1,47 @@
+export default {
+  props: {
+    primaryOption: {
+      defaultLabel: 'All content',
+      defaultIconName: 'grid-2',
+      defaultSelected: true,
+      onDefaultClick: () => {
+        console.log('default All content clicked');
+      }
+    },
+    filterOptions: [
+      {
+        iconName: 'shapes',
+        label: 'Skills',
+        onClick: () => {
+          console.log('skills selected');
+        },
+        selected: false
+      },
+      {
+        iconName: 'wreath-laurel',
+        label: 'Certificates',
+        onClick: () => {
+          console.log('certificates selected');
+        },
+        selected: false
+      },
+      {
+        iconName: 'lines-leaning',
+        label: 'Playlists',
+        onClick: () => {
+          console.log('playlists selected');
+        },
+        selected: false
+      }
+    ],
+    filterButton: {
+      label: 'Filters',
+      'aria-label': 'open-filters-modal',
+      'data-name': 'open-filters-modal',
+      icon: {
+        position: 'left',
+        faIcon: {name: 'sliders', size: 14, color: '#7D7D7D'}
+      }
+    }
+  }
+};
