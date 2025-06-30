@@ -42,7 +42,8 @@
     "test": "npm run lint && npm run test:unit",
     "test:unit": "nyc npm run ava",
     "eslint": "eslint . --ext .js,.json,.ts,.tsx --cache --cache-location \"node_modules/.cache/.eslintcache\"",
-    "typecheck": "tsc --noEmit true"
+    "typecheck": "tsc --noEmit true",
+    "chromatic": "npx chromatic --build-script-name storybook:export"
   },
   "engines": {
     "node": ">=18.12.0"
