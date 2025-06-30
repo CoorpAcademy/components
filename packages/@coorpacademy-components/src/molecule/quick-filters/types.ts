@@ -1,3 +1,5 @@
+import {ButtonLinkProps} from '../../atom/button-link/types';
+
 export type QuickFiltersProps = {
   // all content props
   primaryOption: {
@@ -7,7 +9,7 @@ export type QuickFiltersProps = {
     onDefaultClick: () => void;
   };
   filterOptions: FilterOption[];
-  filterButton?: string; // to do next : filter button with onClick handler‡
+  filterButton?: ButtonLinkProps;
 };
 
 type FilterOption = {
