@@ -5,6 +5,7 @@ import Link from '../link';
 import FaIcon, {DEFAULT_ICON_COLOR, IconProps} from '../icon';
 import {ICONS} from '../../util/button-icons';
 import ToolTip from '../tooltip';
+import Tag from '../tag';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
@@ -14,7 +15,8 @@ const getButtonContent = (
   hovered?: boolean,
   hoverBackgroundColor?: string,
   hoverColor?: string,
-  customLabelClassName?: string
+  customLabelClassName?: string,
+  tagLabel?: string
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
@@ -48,11 +50,11 @@ const getButtonContent = (
   ) : (
     <Icon className={style.icon} theme="coorpmanager" />
   );
-
   return (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
       {content ? <span className={style.label}>{content}</span> : null}
+      {tagLabel ? <Tag label={tagLabel} size="S" /> : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );
@@ -79,7 +81,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
     className,
     customStyle,
     useTitle = true,
-    customLabelClassName
+    customLabelClassName,
+    tagLabel
   } = props;
   const styleButton = classnames(
     link && style.link,
@@ -125,7 +128,6 @@ const ButtonLink = (props: ButtonLinkProps) => {
       />
     );
   };
-
   const _customStyle = useMemo(() => {
     return {
       ...customStyle,
@@ -162,7 +164,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
           hovered,
           hoverBackgroundColor,
           hoverColor,
-          customLabelClassName
+          customLabelClassName,
+          tagLabel
         )}
         {renderToolTip()}
       </Link>
@@ -194,7 +197,15 @@ const ButtonLink = (props: ButtonLinkProps) => {
       tabIndex={0}
       disabled={disabled}
     >
-      {getButtonContent(icon, content ?? label, hovered, hoverBackgroundColor, hoverColor)}
+      {getButtonContent(
+        icon,
+        content ?? label,
+        hovered,
+        hoverBackgroundColor,
+        hoverColor,
+        customLabelClassName,
+        tagLabel
+      )}
       {renderToolTip()}
     </button>
   );
