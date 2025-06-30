@@ -13,7 +13,14 @@ const fixture: Fixture = {
         color: COLORS.cm_grey_700
       }
     },
-    tagLabel: '4'
+    tag: {
+      label: '4',
+      size: 'S',
+      customStyle: {
+        color: COLORS.white,
+        backgroundColor: COLORS.cm_primary_blue
+      }
+    }
   }
 };
 

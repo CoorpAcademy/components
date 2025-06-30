@@ -16,7 +16,7 @@ const getButtonContent = (
   hoverBackgroundColor?: string,
   hoverColor?: string,
   customLabelClassName?: string,
-  tagLabel?: string
+  tag?: React.ComponentProps<typeof Tag>
 ) => {
   const {type, faIcon, position} = icon || {type: '', position: ''};
   const Icon = type && ICONS[type];
@@ -62,7 +62,7 @@ const getButtonContent = (
     <div className={style.buttonContent}>
       {position === 'left' ? iconComponent : null}
       {content ? <span className={style.label}>{content}</span> : null}
-      {tagLabel ? <Tag label={tagLabel} size="S" /> : null}
+      {tag ? <Tag {...tag} /> : null}
       {position === 'right' ? iconComponent : null}
     </div>
   );
@@ -90,7 +90,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     customStyle,
     useTitle = true,
     customLabelClassName,
-    tagLabel
+    tag
   } = props;
   const styleButton = classnames(
     link && style.link,
@@ -173,7 +173,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
           hoverBackgroundColor,
           hoverColor,
           customLabelClassName,
-          tagLabel
+          tag
         )}
         {renderToolTip()}
       </Link>
@@ -212,7 +212,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
         hoverBackgroundColor,
         hoverColor,
         customLabelClassName,
-        tagLabel
+        tag
       )}
       {renderToolTip()}
     </button>
