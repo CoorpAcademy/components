@@ -6,7 +6,7 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 import {QuickFiltersProps} from './types';
 
-const QuickFilters = ({primaryOption, filterOptions}: QuickFiltersProps) => {
+const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
   return (
     <div className={style.filtersMainContainer}>
@@ -46,18 +46,11 @@ const QuickFilters = ({primaryOption, filterOptions}: QuickFiltersProps) => {
           );
         })}
       </div>
-      <div className={style.filterButton}>
-        <ButtonLink
-          type="tertiary"
-          label="Filters"
-          aria-label="open-filters-modal"
-          data-name="open-filters-modal"
-          icon={{
-            position: 'left',
-            faIcon: {name: 'sliders', size: 16, color: COLORS.cm_grey_700}
-          }}
-        />
-      </div>
+      {filterButton ? (
+        <div className={style.filterButton}>
+          <ButtonLink {...filterButton} />
+        </div>
+      ) : null}
     </div>
   );
 };
