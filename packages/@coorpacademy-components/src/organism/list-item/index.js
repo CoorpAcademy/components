@@ -123,9 +123,11 @@ const ListItem = (
         ) : null}
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
-            <div className={style.title} title={title}>
-              {title}
-            </div>
+            <div 
+              className={style.title} 
+              title={title}
+              dangerouslySetInnerHTML={{__html: title}}
+            />
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
