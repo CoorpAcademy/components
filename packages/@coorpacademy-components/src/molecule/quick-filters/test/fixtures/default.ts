@@ -1,14 +1,14 @@
 export default {
   props: {
+    primaryOption: {
+      defaultLabel: 'All content',
+      defaultIconName: 'grid-2',
+      defaultSelected: true,
+      onDefaultClick: () => {
+        console.log('default All content clicked');
+      }
+    },
     filterOptions: [
-      {
-        iconName: 'grid-2',
-        label: 'All content',
-        onClick: () => {
-          console.log('all content selected');
-        },
-        selected: true
-      },
       {
         iconName: 'book-open',
         label: 'Courses',

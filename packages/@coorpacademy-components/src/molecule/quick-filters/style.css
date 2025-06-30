@@ -1,12 +1,34 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+
+.filtersMainContainer {
+    display: flex;
+    align-items: center;
+}
+
 .filtersContainer {
     display: flex;
     gap: 16px;
 }
 
-.filterOption {
-    background-color: aliceblue;
+.filterOption, .onDefaultOption {
     display: flex;
     flex-direction: column;
     gap: 8px;
     padding: 12px;
+}
+
+.filterSeparator {
+    padding: 24px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.filterSeparator::before {
+  content: '';
+  width: 1px;
+  height: 24px;
+  background-color: cm_grey_100;
 }
