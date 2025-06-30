@@ -1,7 +1,18 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
+@value cm_grey_500 from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: cm_grey_500;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
 
 .filtersMainContainer {
+    composes: textBase;
     display: flex;
     align-items: center;
 }
