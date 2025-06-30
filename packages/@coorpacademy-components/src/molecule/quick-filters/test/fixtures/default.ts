@@ -10,6 +10,30 @@ export default {
     },
     filterOptions: [
       {
+        iconName: 'shapes',
+        label: 'Skills',
+        onClick: () => {
+          console.log('skills selected');
+        },
+        selected: false
+      },
+      {
+        iconName: 'wreath-laurel',
+        label: 'Certificates',
+        onClick: () => {
+          console.log('certificates selected');
+        },
+        selected: false
+      },
+      {
+        iconName: 'lines-leaning',
+        label: 'Playlists',
+        onClick: () => {
+          console.log('playlists selected');
+        },
+        selected: false
+      },
+      {
         iconName: 'book-open',
         label: 'Courses',
         onClick: () => {
