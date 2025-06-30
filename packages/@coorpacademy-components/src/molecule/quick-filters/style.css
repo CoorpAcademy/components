@@ -55,8 +55,7 @@
   background-color: cm_grey_100;
 }
 
-/* @media mobile {
-    .filterLabel {
-        font-size: 36px;
-    }
-} */
+.filterButton {
+    margin-left: auto;
+    color: #1D1D2B;
+}

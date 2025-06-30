@@ -81,6 +81,7 @@ export type ButtonLinkProps = {
   customStyle?: Record<string, string | number>;
   useTitle?: boolean;
   customLabelClassName?: string;
+  tagLabel?: string;
 };
 
 export type Fixture = {props: ButtonLinkProps};
