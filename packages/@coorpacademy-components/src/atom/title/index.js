@@ -68,13 +68,19 @@ const Title = props => {
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
 
-  const subtitleSection = subtitle ? <div className={subtitleStyle}>{subtitle}</div> : null;
+  const subtitleSection = subtitle ? (
+    <div
+      className={subtitleStyle}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: subtitle}}
+    />
+  ) : null;
 
   return (
     <div className={style.container}>
       {icon ? <Icon {...icon} className={style.icon} /> : null}
       <div className={style.titleContainer}>
-        <div>
+        <div className={style.titleContent}>
           <div className={titleStyle} data-name={dataName}>
             {title}
             {required ? <span className={style.required}>*</span> : null}
