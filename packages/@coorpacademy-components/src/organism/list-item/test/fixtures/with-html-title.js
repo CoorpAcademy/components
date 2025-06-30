@@ -8,12 +8,6 @@ export default {
       type: 'info'
     },
     subtitle: '15 courses',
-    tags: [
-      {
-        label: 'Documents',
-        type: 'default'
-      }
-    ],
     leftIcon: {
       iconName: 'leaf',
       iconColor: '#35CC7F',
