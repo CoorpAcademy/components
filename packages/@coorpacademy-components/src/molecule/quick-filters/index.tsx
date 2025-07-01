@@ -6,23 +6,34 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 import {QuickFiltersProps} from './types';
 
+const SCROLL_RIGHT_SIZE = 120;
+const SCROLL_LEFT_SIZE = -120;
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
   const showNextFilter = filterOptions.length > 7;
   const filtersListRef = React.useRef<HTMLDivElement>(null);
-  const handleScrollRight = useCallback(() => {
+  const handleScroll = useCallback((direction: number) => {
     if (filtersListRef.current) {
       filtersListRef.current.scrollBy({
-        left: 120,
+        left: direction,
         behavior: 'smooth'
       });
     }
   }, []);
+  const handleScrollRight = useCallback(() => {
+    handleScroll(SCROLL_RIGHT_SIZE);
+  }, [handleScroll]);
+  const handleScrollLeft = useCallback(() => {
+    handleScroll(SCROLL_LEFT_SIZE);
+  }, [handleScroll]);
   return (
     <div className={style.filtersMainContainer}>
-      {/* <div>
-        <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-left'}}} />
-      </div> */}
+      <div className={style.rightArrowButton}>
+        <ButtonLink
+          icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
+          onClick={handleScrollLeft}
+        />
+      </div>
       <div className={style.filtersList} ref={filtersListRef}>
         <div
           data-name="all-content"
@@ -34,6 +45,10 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               label: defaultLabel,
               selected: defaultSelected,
               onClick: onDefaultClick,
+              size: {
+                faSize: 23,
+                wrapperSize: 23
+              },
               iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
             }}
           />
@@ -62,7 +77,13 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
           {showNextFilter ? (
             <div className={style.rightArrowButton}>
               <ButtonLink
-                icon={{position: 'left', faIcon: {name: 'arrow-right'}}}
+                icon={{
+                  position: 'left',
+                  faIcon: {
+                    name: 'arrow-right',
+                    size: 15
+                  }
+                }}
                 onClick={handleScrollRight}
               />
             </div>
