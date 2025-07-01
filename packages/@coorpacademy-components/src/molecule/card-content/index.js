@@ -11,6 +11,7 @@ import ContentBadge from '../../atom/content-badge';
 import Tag from '../../atom/tag';
 import {COLORS} from '../../variables/colors';
 import {isExternalContent} from '../../util/external-content';
+import {ICONS_NAMES_MAP} from '../../util/icons';
 import style from './style.css';
 
 export const MODES = {
@@ -23,13 +24,6 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const ICON_NAME_MAP = {
-  scorm: 'rectangle-history',
-  video: 'circle-play',
-  article: 'file-lines',
-  podcast: 'microphone-lines',
-  course: 'book-open'
-};
 const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
@@ -52,7 +46,7 @@ const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme
     }
   };
   const label = getLabel(type);
-  const iconName = getOr('stopwatch', type, ICON_NAME_MAP);
+  const iconName = getOr('stopwatch', type, ICONS_NAMES_MAP);
   return (
     <div className={style.contentTypeInfos}>
       <Tag size="S" label={label} icon={{iconName}} />
