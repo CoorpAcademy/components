@@ -176,6 +176,30 @@ You may need to install these optional libs depending on which native components
 - `@coorpacademy/react-native-slider`
 - `@react-native-community/blur`
 
+## Visual Testing with Chromatic
+
+We use [Chromatic](https://www.chromatic.com/) for visual regression testing. This helps catch UI changes and ensure consistency across components.
+
+### Setup
+
+1. Copy the example environment file:
+   ```sh
+   cp .env.example .env
+   ```
+
+2. Add your Chromatic project token to the `.env` file:
+   ```sh
+   CHROMATIC_PROJECT_TOKEN=your_token_here
+   ```
+   
+
+3. Run Chromatic:
+   ```sh
+   npm run chromatic
+   ```
+
+This will build your Storybook and upload it to Chromatic for visual testing.
+
 ## Troubleshooting
 
 Error when trying to launch the storybook:

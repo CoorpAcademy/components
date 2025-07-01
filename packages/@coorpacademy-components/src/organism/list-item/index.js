@@ -123,9 +123,14 @@ const ListItem = (
         ) : null}
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
-            <div className={style.title} title={title}>
-              {title}
-            </div>
+            {title ? (
+              <div
+                className={style.title}
+                title={title.replace(/<[^>]*>/g, '')}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{__html: title}}
+              />
+            ) : null}
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
