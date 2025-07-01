@@ -83,7 +83,7 @@
   "modules": "{{count}} modulis",
   "modules_plural": "{{count}} moduliai",
   "modules_completed_mandatory": "Privalomas modulis <span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} baigtas",
-  "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} moduliai baigti",
+  "modules_completed_mandatory_plural": "Privalomi moduliai <span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} baigti",
   "More": "Daugiau",
   "More details": "Daugiau informacijos",
   "New media": "Nauja pamoka",
