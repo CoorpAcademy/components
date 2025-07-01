@@ -132,12 +132,18 @@ const ToolTip = ({
   }, [delayHide]);
 
   const content = useMemo(() => {
-    return isComponent ? (
-      <TooltipContent />
-    ) : (
+    if (isComponent) {
+      return <TooltipContent />;
+    }
+    // For ReactTooltip (when anchorId is provided), don't wrap in <p> to avoid double padding
+    if (anchorId) {
+      return TooltipContent;
+    }
+    // For regular tooltip, keep the <p> wrapper with padding
+    return (
       <p className={classnames([style.tooltipContent, FontSizes[fontSize]])}>{TooltipContent}</p>
     );
-  }, [TooltipContent, fontSize, isComponent]);
+  }, [TooltipContent, fontSize, isComponent, anchorId]);
 
   const anchorElement = useMemo(
     () =>
