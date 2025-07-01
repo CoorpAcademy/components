@@ -124,9 +124,10 @@ const ListItem = (
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
             {title ? (
-              <div 
-                className={style.title} 
+              <div
+                className={style.title}
                 title={title.replace(/<[^>]*>/g, '')}
+                // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{__html: title}}
               />
             ) : null}
