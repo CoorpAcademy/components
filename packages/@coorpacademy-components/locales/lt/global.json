@@ -33,7 +33,7 @@
   "certification_progress_wrapper_subtitle": "Norėdami atrakinti savo apdovanojimus, pasiekite šį tikslą",
   "chapters": "skyriai",
   "Close": "Uždaryti",
-  "clue_stars_to_loose_plural": "Atrakinus užuominą, sumažinamas žvaigždučių, kuriuos galite gauti atsakę į šį klausimą, skaičius, naudojant {{count}} (jei atsakysite teisingai).",
+  "clue_stars_to_loose_plural": "Atskleidus užuominą, žvaigždučių skaičius, kurį galite gauti už šį klausimą, sumažėja {{count}} (jei atsakysite teisingai).",
   "clue_stars_to_loose": "Atrakinus užuominą, sumažinamas žvaigždučių, kuriuos galite gauti atsakę į šį klausimą, skaičius, naudojant {{count}} (jei atsakysite teisingai).",
   "completed": "Užbaigta",
   "confirm_unsubscribe": "Ar tikrai norite atsisakyti prenumeratos?",
