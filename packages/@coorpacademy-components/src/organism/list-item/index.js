@@ -123,17 +123,13 @@ const ListItem = (
         ) : null}
         <div className={style.titleWrapper}>
           <div className={style.titleProviderWrapper}>
-            {title && title.includes('<') && title.includes('>') ? (
+            {title ? (
               <div 
                 className={style.title} 
                 title={title.replace(/<[^>]*>/g, '')}
                 dangerouslySetInnerHTML={{__html: title}}
               />
-            ) : (
-              <div className={style.title} title={title}>
-                {title}
-              </div>
-            )}
+            ) : null}
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
