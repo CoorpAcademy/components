@@ -22,13 +22,16 @@
     display: flex;
     gap: 16px;
     align-items: center;
+    padding-right: 50px;
 }
 
 .filtersList {
-    overflow-x: scroll;
+    overflow-x: auto;
     scrollbar-width: none;
     align-items: center;
     display: flex;
+    flex: 1;
+    position: relative;
 }
 
 .filterOption, .defaultOption {
@@ -37,6 +40,7 @@
     flex-direction: column;
     gap: 8px;
     padding: 12px;
+    flex-shrink: 0;
 }
 
 .filterSelected {
@@ -66,4 +70,18 @@
 .filterButton {
     margin-left: auto;
     color: cm_grey_700;
+}
+
+.rightArrowButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: cm_grey_100;
+    border-radius: 50%;
+    position: sticky;
+    right: 0;
+    /* margin-right: 20px; */
+    box-shadow: -10px 0 10px white;
 }

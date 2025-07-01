@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import classNames from 'classnames';
 import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
@@ -8,13 +8,22 @@ import {QuickFiltersProps} from './types';
 
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
-  const showNextFilter = filterOptions.length > 9;
+  const showNextFilter = filterOptions.length > 7;
+  const filtersListRef = React.useRef<HTMLDivElement>(null);
+  const handleScrollRight = useCallback(() => {
+    if (filtersListRef.current) {
+      filtersListRef.current.scrollBy({
+        left: 120,
+        behavior: 'smooth'
+      });
+    }
+  }, []);
   return (
     <div className={style.filtersMainContainer}>
       {/* <div>
         <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-left'}}} />
       </div> */}
-      <div className={style.filtersList}>
+      <div className={style.filtersList} ref={filtersListRef}>
         <div
           data-name="all-content"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
@@ -51,8 +60,11 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
             );
           })}
           {showNextFilter ? (
-            <div>
-              <ButtonLink icon={{position: 'left', faIcon: {name: 'arrow-right'}}} />
+            <div className={style.rightArrowButton}>
+              <ButtonLink
+                icon={{position: 'left', faIcon: {name: 'arrow-right'}}}
+                onClick={handleScrollRight}
+              />
             </div>
           ) : null}
         </div>
