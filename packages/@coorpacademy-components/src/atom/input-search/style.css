@@ -8,11 +8,13 @@
 @value white from colors;
 @value dark from colors;
 @value black from colors;
+@value cm_grey_75 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_150 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value brand from colors;
 
 .wrapperSearch {
   display: flex;
@@ -66,6 +68,7 @@
   color: medium;
 }
 
+/* Theme: coorpmanager */
 .coorpmanager {
   position: relative;
 }
@@ -177,11 +180,85 @@
   line-height: 16px;
 }
 
+/* Theme: mooc */
+.wrapperMooc {
+  display: flex;
+  flex-flow: nowrap;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease-in-out;
+  background: cm_grey_100;
+  padding: 2px;
+  width: 100%;
+  flex: 1;
+}
+
+.wrapperMoocParent {
+  width: 100%;
+  flex: 1;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease-in-out;
+  background: transparent;
+}
+
+.moocSearch {
+  background-color: cm_grey_100;
+  border-radius: 12px;
+  height: 44px;
+  margin: 0;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  color: cm_grey_700;
+  padding: 0 0 0 45px;
+  padding-right: 48px;
+  outline: none;
+}
+
+.moocSearch:focus-within {
+  background-color: cm_grey_75;
+}
+
+.wrapperMoocParent:focus-within .wrapperMooc {
+  background: transparent;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px brand;
+}
+
+.wrapperMooc:hover {
+  box-shadow: 0 0 0 2px brand;
+}
+
+.wrapperMooc .clearIcon {
+  position: relative;
+  right: 26px;
+  color: cm_grey_400;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
   -webkit-background-clip: text;
+}
+
+/* Correction spécifique pour le thème mooc */
+.moocSearch:-webkit-autofill,
+.moocSearch:-webkit-autofill:hover,
+.moocSearch:-webkit-autofill:focus,
+.moocSearch:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px cm_grey_100 inset !important;
+  -webkit-text-fill-color: cm_grey_700 !important;
+  background-color: cm_grey_100 !important;
+}
+
+.wrapperMoocParent:focus-within .moocSearch:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px cm_grey_75 inset !important;
+  background-color: cm_grey_75 !important;
 }
 
 @media tablet {
@@ -194,6 +271,16 @@ input:-webkit-autofill:active{
     font-size: 12px;
     color: medium;
   }
+
+  .wrapperMoocParent {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .wrapperMooc {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 @media mobile {
@@ -203,5 +290,15 @@ input:-webkit-autofill:active{
 
   .search::placeholder {
     font-size: 12px;
+  }
+
+  .wrapperMoocParent {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .wrapperMooc {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }

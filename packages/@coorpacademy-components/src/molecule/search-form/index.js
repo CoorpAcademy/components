@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
-import {NovaCompositionNavigationMore as ClearIcon} from '@coorpacademy/nova-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import classnames from 'classnames';
 import Search from '../../atom/input-search';
 import style from './style.css';
 
@@ -14,8 +14,11 @@ const SearchForm = (props, context) => {
     search,
     onSearchFocus,
     onSearchBlur,
+    onSearchKeyDown,
+    inputRef,
     'search-reset-aria-label': searchResetAriaLabel,
-    dataTestId
+    dataTestId,
+    theme
   } = props;
   const handleSubmit = useMemo(
     () => evt => {
@@ -24,8 +27,21 @@ const SearchForm = (props, context) => {
     },
     [onSubmit]
   );
-  const {skin} = context;
-  const dark = get('common.dark', skin);
+
+  const handleReset = useMemo(
+    () => evt => {
+      evt.preventDefault();
+      evt.stopPropagation();
+      return onReset && onReset(evt);
+    },
+    [onReset]
+  );
+
+  const isMooc = theme === 'mooc';
+
+  const clearClassName = search.value
+    ? classnames(style.wrapperClear, isMooc && style.wrapperClearMooc)
+    : style.wrapperNoClear;
 
   return (
     <form
@@ -36,14 +52,22 @@ const SearchForm = (props, context) => {
       data-name="searchForm"
       aria-label={search.placeholder}
     >
-      <Search {...search} onFocus={onSearchFocus} onBlur={onSearchBlur} dataTestId={dataTestId} />
+      <Search
+        {...search}
+        onFocus={onSearchFocus}
+        onBlur={onSearchBlur}
+        onKeyDown={onSearchKeyDown}
+        inputRef={inputRef}
+        dataTestId={dataTestId}
+        theme={theme}
+      />
       <div
         data-name="search-form-reset"
         aria-label={searchResetAriaLabel}
-        onClick={onReset}
-        className={search.value ? style.wrapperClear : style.wrapperNoClear}
+        onMouseDown={handleReset}
+        className={clearClassName}
       >
-        <ClearIcon style={{color: dark}} className={style.clear} />
+        <FontAwesomeIcon icon="xmark" className={style.clearIcon} />
       </div>
     </form>
   );
@@ -56,9 +80,12 @@ SearchForm.propTypes = {
   onReset: PropTypes.func,
   onSearchFocus: PropTypes.func,
   onSearchBlur: PropTypes.func,
+  onSearchKeyDown: PropTypes.func,
+  inputRef: PropTypes.func,
   search: PropTypes.shape(Search.propTypes),
   'search-reset-aria-label': PropTypes.string,
-  dataTestId: PropTypes.string
+  dataTestId: PropTypes.string,
+  theme: PropTypes.string
 };
 
 export default SearchForm;

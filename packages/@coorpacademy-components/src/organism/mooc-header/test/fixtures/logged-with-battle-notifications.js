@@ -19,6 +19,7 @@ export default {
     },
     search: {
       ...research,
+      value: 'test',
       onChange: value => console.log(value),
       onFocus: () => console.log('on Focus'),
       onBlur: () => console.log('blur')

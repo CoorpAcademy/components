@@ -133,7 +133,7 @@ test('should reset search results when reset button is clicked', async t => {
       return key;
     }
   };
-  t.plan(3);
+  t.plan(4);
 
   const props = {
     isOpen: true,
@@ -153,8 +153,9 @@ test('should reset search results when reset button is clicked', async t => {
   rerender(<IconPickerModal {...props} />);
   await delay(500);
 
-  const resetButton = container.querySelector('[data-name="search-form-reset"]');
-  fireEvent.click(resetButton);
+  const searchFormReset = container.querySelector('[data-name="search-form-reset"]');
+  t.truthy(searchFormReset);
+  fireEvent.mouseDown(searchFormReset);
 
   await delay(500);
   rerender(<IconPickerModal {...props} />);

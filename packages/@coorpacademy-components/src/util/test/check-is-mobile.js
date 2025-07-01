@@ -41,9 +41,29 @@ test('should return false for non-mobile devices', t => {
   t.falsy(isMobile(navigator.userAgent));
 });
 
-test('should return true for small screen devices', t => {
-  global.window.innerWidth = 768;
+test('should return true for mobile screen devices (<=640px)', t => {
+  global.window.innerWidth = 640;
   t.truthy(isMobile(navigator.userAgent));
+});
+
+test('should return false for tablet screen devices by default (641-960px)', t => {
+  global.window.innerWidth = 800;
+  t.falsy(isMobile(navigator.userAgent));
+});
+
+test('should return true for tablet screen devices when includeTablet=true', t => {
+  global.window.innerWidth = 800;
+  t.truthy(isMobile(navigator.userAgent, true));
+});
+
+test('should return true for mobile screen devices when includeTablet=true', t => {
+  global.window.innerWidth = 500;
+  t.truthy(isMobile(navigator.userAgent, true));
+});
+
+test('should return false for desktop screen devices even with includeTablet=true', t => {
+  global.window.innerWidth = 1200;
+  t.falsy(isMobile(navigator.userAgent, true));
 });
 
 test('should return true for touch devices with mobile user agent', t => {

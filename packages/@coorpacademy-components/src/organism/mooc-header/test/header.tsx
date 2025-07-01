@@ -19,25 +19,32 @@ test('should focus when in searchBar input', t => {
 });
 
 test('should submit when a submit value exists in the searchBar input', t => {
-  t.plan(2);
+  t.plan(3);
 
   const {container} = renderWithContext(<MoocHeader {...defaultFixture.props} />);
-  const searchForm = container.querySelector('[data-name="searchForm"]');
+  const searchForm = container.querySelector('[data-name="searchForm"]') as HTMLInputElement;
+  const searchInput = container.querySelector('[data-name="search-input"]') as HTMLInputElement;
+
   t.truthy(searchForm);
-  fireEvent.submit(searchForm as Element);
+  t.truthy(searchInput);
+
+  fireEvent.keyDown(searchForm, {key: 'Enter', code: 'Enter'});
   t.pass();
 });
 
 test('should launch onResetSearch handler when reset is triggered', t => {
-  t.plan(3);
+  t.plan(2);
   const props = defaultsDeep(defaultFixture.props, {
-    onResetSearch: () => t.pass()
+    onResetSearch: () => t.pass(),
+    search: {
+      ...defaultFixture.props.search,
+      value: 'test search value'
+    }
   });
   const {container} = renderWithContext(<MoocHeader {...props} />);
   const searchFormReset = container.querySelector('[data-name="search-form-reset"]');
   t.truthy(searchFormReset);
-  fireEvent.click(searchFormReset as Element);
-  t.pass();
+  fireEvent.mouseDown(searchFormReset as Element);
 });
 
 test('Launch onMenuOpen & onMenuClose handlers', t => {
