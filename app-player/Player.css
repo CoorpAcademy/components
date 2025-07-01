@@ -1867,6 +1867,12 @@
   width: 100%;
 }
 
+.titleContent--Ukk0 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 .titlePage-j17P1 {
   font-size: 32px;
   line-height: 52px;
