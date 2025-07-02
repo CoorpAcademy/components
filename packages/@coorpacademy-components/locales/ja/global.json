@@ -181,6 +181,11 @@
     "invalid_scorm": "SCORMファイルが有効ではありません",
     "show_errors": "エラーを表示する"
   },
+  "content_type_article": "Article",
+  "content_type_video": "Video",
+  "content_type_podcast": "Podcast",
+  "content_type_scorm": "Animated resource",
+  "content_type_course": "Course",
   "review_this_skill": "このスキルを確認する",
   "review_skill_empty": "まだ復習するスキルがありません",
   "review_skill_empty_description": "異なるスキルを復習するには、まずコースを修了する必要があります。",
