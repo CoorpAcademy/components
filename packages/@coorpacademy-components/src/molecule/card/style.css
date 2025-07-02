@@ -31,11 +31,13 @@
   animation: fadeIn 1s ease-out forwards;
   cursor: pointer;
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
+  border: 2px solid white;
 }
 
 .defaultStyle[disabled] .favorite {
   z-index: 0;
 }
+
 
 .grid.empty {
   padding-bottom: 25px;
@@ -44,27 +46,15 @@
 
 .course {
   composes: defaultStyle;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 256px;
   height: 297px;
 }
 
-.chapter {
-  composes: defaultStyle;
-  border-radius: 8px;
-  width: 203px;
-  height: 297px;
-}
 
 .coorpmanager.course {
   border-radius: 5px;
   width: 172px;
-  height: 201px;
-}
-
-.coorpmanager.chapter {
-  border-radius: 5px;
-  width: 138px;
   height: 201px;
 }
 
@@ -74,18 +64,6 @@
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.chapter .chapterImageWrapper {
-  max-height: 77px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.coorpmanager.chapter .chapterImageWrapper {
-  max-height: 52px;
 }
 
 .defaultStyle .image {
@@ -157,8 +135,7 @@
 }
 
 .course .defaultStyle:hover,
-.chapter .defaultStyle:hover {
-  background: light;
+.defaultStyle:hover {
   cursor: pointer;
   transition: background 0.25s ease-in-out;
 }
@@ -361,18 +338,6 @@
   transition: transform 0.25s ease-in-out;
 }
 
-.externalIcon {
-  color: white;
-  width: 45px;
-  height: 45px;
-}
-
-.coorpmanager .externalIcon {
-  color: white;
-  width: 23px;
-  height: 23px;
-}
-
 .externalIconCircleWrapper::after {
   animation: pulse 3s linear 0s infinite;
   animation-play-state: paused;
@@ -431,19 +396,6 @@
   margin-top: 20px;
 }
 
-.coorpmanager .externalIconWithImage {
-  color: white;
-  width: 25px;
-  height: 25px;
-  padding: 0 0 0 1px;
-}
-
-.externalIconWithImage {
-  color: white;
-  width: 28px;
-  height: 28px;
-}
-
 .externalIconCircleWithImageWrapper::after,
 .externalIconCircleWithImageWrapper::before {
   content: '';
@@ -452,7 +404,6 @@
   top: 0;
   left: 0;
   position: absolute;
-
   border-radius: 50%;
   transform: scale(1);
   opacity: 0;

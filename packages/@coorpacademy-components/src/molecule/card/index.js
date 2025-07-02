@@ -6,9 +6,11 @@ import {
   NovaCompositionCoorpacademyPadlock as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
-import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
+import {isExternalContent, ICONS_TYPES, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import CardContentInfo, {MODES} from '../card-content';
+import FaIcon from '../../atom/icon';
+import {COLORS} from '../../variables/colors';
 import Customer from './customer';
 import Favorite from './favorite';
 import Selectable from './selectable';
@@ -20,17 +22,30 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
+const ICON_SIZE = '28px';
+
 const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) => {
   const externalContent = isExternalContent(type);
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
 
-  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
-    const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
-    const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
+  if ((externalContent && EXTERNAL_CONTENT_ICONS[type]) || type === 'chapter') {
+    const {iconName, iconColor} = ICONS_TYPES[type];
     const backgroundIcon = (
-      <div className={style.externalIconCircleWrapper}>
-        <IconType className={style.externalIcon} />
+      <div
+        className={classnames(
+          style.externalIconCircleWrapper,
+          style.externalIconCircleWithImageWrapper
+        )}
+      >
+        <FaIcon
+          iconName={iconName}
+          customStyle={{
+            color: COLORS.white,
+            height: ICON_SIZE,
+            width: ICON_SIZE
+          }}
+        />
       </div>
     );
 
@@ -44,8 +59,16 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
           style={{
             backgroundColor: iconColor
           }}
+          data-testid="card-background-image"
         >
-          <IconType className={style.externalIconWithImage} />
+          <FaIcon
+            iconName={iconName}
+            customStyle={{
+              color: COLORS.white,
+              height: ICON_SIZE,
+              width: ICON_SIZE
+            }}
+          />
         </div>
       );
 
@@ -85,12 +108,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
     <PicturesIcon className={style.emptyIcon} style={{color: whiteColor}} />
   ) : null;
   return (
-    <div
-      className={classnames(
-        style.imageWrapper,
-        type === 'chapter' ? style.chapterImageWrapper : null
-      )}
-    >
+    <div className={style.imageWrapper}>
       <div
         data-name="cover"
         aria-label={ariaLabel}
@@ -154,7 +172,7 @@ const Card = memo(function Card(props, context) {
   const primaryColor = get('common.primary', skin);
   const cardStyle = classnames(
     THEMES[theme],
-    type === 'chapter' ? style.chapter : style.course,
+    style.course,
     title ? null : style.lazy,
     style.grid,
     empty ? style.empty : null
@@ -182,7 +200,6 @@ const Card = memo(function Card(props, context) {
         return contentType;
     }
   };
-
   return (
     <div
       className={cardStyle}

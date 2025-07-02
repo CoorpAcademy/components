@@ -14,8 +14,6 @@ export default {
       message: 'removed from your list',
       icon: 'removeFavorite'
     },
-    favorite: true,
-    removeFavoriteToolTip: '',
-    addFavoriteToolTip: ''
+    favorite: true
   })
 };

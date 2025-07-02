@@ -1,11 +1,11 @@
 import {update, pipe, set, uniqueId} from 'lodash/fp';
 
-import card1 from '../../../../molecule/card/test/fixtures/adaptiv';
+import card1 from '../../../../molecule/card/test/fixtures/course-adaptiv';
 import card3 from '../../../../molecule/card/test/fixtures/default';
 import card4 from '../../../../molecule/card/test/fixtures/disabled';
 import card5 from '../../../../molecule/card/test/fixtures/freerun';
 import card6 from '../../../../molecule/card/test/fixtures/freerun-and-disabled';
-import card7 from '../../../../molecule/card/test/fixtures/adaptiv-and-disabled';
+import card7 from '../../../../molecule/card/test/fixtures/course-adaptiv-and-disabled';
 import card8 from '../../../../molecule/card/test/fixtures/favorite';
 import card9 from '../../../../molecule/card/test/fixtures/empty';
 import card10 from '../../../../molecule/card/test/fixtures/external-content';

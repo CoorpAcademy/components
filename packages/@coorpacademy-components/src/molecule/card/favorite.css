@@ -8,8 +8,8 @@
 @value black from colors;
 
 .favorite {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   position: absolute;
   right: 8px;
   top: 8px;
@@ -19,9 +19,10 @@
   line-height: 0px;
   box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
   background-color: #ffffff;
-  border-radius: 100%;
+  border-radius: 8px;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .favorite:hover .moreIcon {

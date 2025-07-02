@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {get, isNil, keys} from 'lodash/fp';
+import {get, getOr, isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
-  NovaSolidStatusCheckCircle2 as CheckIcon,
-  NovaCompositionCoorpacademyTimer as TimerIcon
+  NovaSolidStatusCheckCircle2 as CheckIcon
 } from '@coorpacademy/nova-icons';
-import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import ContentBadge from '../../atom/content-badge';
+import Tag from '../../atom/tag';
+import {COLORS} from '../../variables/colors';
+import {isExternalContent} from '../../util/external-content';
+import {ICONS_NAMES_MAP} from '../../util/icons';
 import style from './style.css';
 
 export const MODES = {
@@ -22,34 +24,39 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const ContentTypeInfo = ({mode, type, externalContent}, context) => {
+const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
   const {translate} = context;
-  if (mode !== MODES.CARD) {
+  if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
     return null;
   }
-
-  if (type === 'chapter') {
-    return (
-      <div className={style.microLearningIcon}>
-        <TimerIcon className={style.timerIcon} />
-        <span className={style.microLearninglabel}>{"5' learning"}</span>
-      </div>
-    );
-  }
-  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
-    const textColor = EXTERNAL_CONTENT_ICONS[type].color;
-
-    return (
-      <div className={style.contentTypeInfo} style={{color: textColor}}>
-        {type === 'scorm' ? translate('external_content_scorm') : ''}
-        {type === 'video' ? translate('external_content_video') : ''}
-        {type === 'article' ? translate('external_content_article') : ''}
-        {type === 'podcast' ? translate('external_content_podcast') : ''}
-      </div>
-    );
-  }
-
-  return null;
+  const getLabel = contentType => {
+    switch (contentType) {
+      case 'scorm':
+        return translate('content_type_scorm');
+      case 'video':
+        return translate('content_type_video');
+      case 'article':
+        return translate('content_type_article');
+      case 'podcast':
+        return translate('content_type_podcast');
+      case 'course':
+        return translate('content_type_course');
+      default:
+        return `5'learning`;
+    }
+  };
+  const label = getLabel(type);
+  const iconName = getOr('stopwatch', type, ICONS_NAMES_MAP);
+  return (
+    <div className={style.contentTypeInfos}>
+      <Tag size="S" label={label} icon={{iconName}} />
+      {adaptiv ? (
+        <div className={classnames(style.adaptiveIcon, isCourse ? style.iconShadow : null)}>
+          <AdaptivIcon height={20} aria-label={get('adaptive', ariaLabel)} />
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 ContentTypeInfo.contextTypes = {
@@ -58,9 +65,13 @@ ContentTypeInfo.contextTypes = {
 };
 
 ContentTypeInfo.propTypes = {
-  externalContent: PropTypes.bool,
   type: PropTypes.string,
-  mode: PropTypes.string
+  mode: PropTypes.string,
+  adaptiv: PropTypes.bool,
+  ariaLabel: PropTypes.string,
+  isCourse: PropTypes.bool,
+  empty: PropTypes.bool,
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 const CardTitle = ({title, empty, courseContent}) => {
@@ -131,15 +142,14 @@ const ContentInfo = ({
   theme = 'default',
   'aria-label': ariaLabel
 }) => {
-  const progressBarColor = '#3EC483';
+  const progressBarColor = COLORS.cm_positive_500;
   const inlineProgressValueStyle = {
     backgroundColor: progressBarColor,
     width: `${progress * 100}%`
   };
-  const externalContent = isExternalContent(type);
   const courseContent = type === 'course';
   const chapterContent = type === 'chapter';
-
+  const externalContent = isExternalContent(type);
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
       <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
@@ -154,13 +164,6 @@ const ContentInfo = ({
         ) : null}
       </div>
     ) : null;
-
-  const adaptiveIcon = adaptiv ? (
-    <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
-      <AdaptivIcon height={25} aria-label={get('adaptive', ariaLabel)} />
-    </div>
-  ) : null;
-
   return (
     <div
       data-name="info"
@@ -169,15 +172,19 @@ const ContentInfo = ({
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
-        externalContent ? style.externalContent : null
+        chapterContent || courseContent || externalContent ? style.standardContent : null
       )}
     >
-      <ContentTypeInfo mode={mode} type={type} externalContent={externalContent} />
-      <div
-        className={classnames(style.cardInfo, chapterContent ? style.microLearningCardInfo : null)}
-      >
+      <ContentTypeInfo
+        mode={mode}
+        type={type}
+        adaptiv={adaptiv}
+        isCourse={courseContent}
+        empty={empty}
+        theme={theme}
+      />
+      <div className={classnames(style.cardInfo, courseContent ? style.cardCourseTitle : null)}>
         <div className={style.iconWrapper}>
-          {adaptiveIcon}
           {!empty && badgeLabel && badgeCategory && courseContent ? (
             <ContentBadge category={badgeCategory} label={badgeLabel} />
           ) : null}
