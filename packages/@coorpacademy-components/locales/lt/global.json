@@ -168,7 +168,7 @@
   "review_mode_tooltip_content_part1": "Pasirinkite 1 įgūdį",
   "review_mode_tooltip_content_part2": "Atsakykite į 5 klausimus",
   "review_mode_tooltip_content_part3": "Jūs turite begalines gyvybes",
-  "review_mode_tooltip_content_part4": "Viską sutvarkyk",
+  "review_mode_tooltip_content_part4": "Atsakykite teisingai į visus klausimus",
   "review_mode_available": "Galima peržiūrėti",
   "review_header_step_item": {
     "correct_question": "Ar klausimas {{current}} {{headerStepValue}} teisingas?",
