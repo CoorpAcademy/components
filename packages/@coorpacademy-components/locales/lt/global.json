@@ -173,7 +173,7 @@
   "review_header_step_item": {
     "correct_question": " {{current}}klausimas {{headerStepValue}} yra teisingas",
     "incorrect_question": "{{current}} klausimas {{headerStepValue}} yra neteisingas",
-    "not_answered_question": "Į klausimą {{current}} {{headerStepValue}} dar neatsakyta"
+    "not_answered_question": "{{current}} klausimas {{headerStepValue}} kol kas nėra atsakytas"
   },
   "bulk_import": {
     "errors_number": "Masinio importo klaidų numeris yra {{bulkImportErrorsNumber}}",
