@@ -78,7 +78,7 @@
   "learning_priorities": "Mokymosi prioritetai",
   "learning_priorities_description": "Jūsų svarbiausios mokymosi prioritetų sritys, nustatytos Jūsų įmonės",
   "learning_priorities_brand_description": "Apibrėžkite savo įmonės mokymosi prioritetus pasirinkdami įgūdžius, grojaraščius arba sertifikatus. Jie bus rodomi puslapyje „Mano mokymasis“.",
-  "media_stars_to_win_plural": "Pirmą kartą peržiūrėję pamoką, šiame skyriuje laimėkite papildomų žvaigždučių {{count}} !",
+  "media_stars_to_win_plural": "Pirmą kartą peržiūrėję pamoką, laimėkite {{count}} papildomas(-a) žvaigždutes(-ę) šiame skyriuje !",
   "media_stars_to_win": "Pirmą kartą peržiūrėję pamoką, šiame skyriuje laimėkite papildomą žvaigždutę {{count}} !",
   "modules": "{{count}} modulis",
   "modules_plural": "{{count}} moduliai",
