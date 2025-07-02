@@ -181,6 +181,11 @@
     "invalid_scorm": "Hindi balido ang scorm file",
     "show_errors": "ipakita ang mga pagkakamali"
   },
+  "content_type_article": "Article",
+  "content_type_video": "Video",
+  "content_type_podcast": "Podcast",
+  "content_type_scorm": "Animated resource",
+  "content_type_course": "Course",
   "review_this_skill": "Suriin ang kasanayang ito",
   "review_skill_empty": "Wala ka pang kasanayang rerepasuhin",
   "review_skill_empty_description": "Una kailangan mong kumumpleto ng mga kurso bago ka makapagrepaso ng iba't-ibang kasanayan.",
