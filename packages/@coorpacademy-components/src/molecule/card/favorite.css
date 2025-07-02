@@ -22,6 +22,7 @@
   border-radius: 8px;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .favorite:hover .moreIcon {
