@@ -176,7 +176,7 @@
     "not_answered_question": "{{current}} klausimas {{headerStepValue}} kol kas nėra atsakytas"
   },
   "bulk_import": {
-    "errors_number": "Masinio importo klaidų numeris yra {{bulkImportErrorsNumber}}",
+    "errors_number": "Masinio importavimo klaidų skaičius yra {{bulkImportErrorsNumber}}",
     "valid_scorm": "scorm failas galioja",
     "invalid_scorm": "scorm failas negalioja",
     "show_errors": "rodyti klaidas"
