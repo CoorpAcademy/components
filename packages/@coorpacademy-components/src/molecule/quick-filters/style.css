@@ -1,4 +1,6 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
@@ -72,7 +74,7 @@
     color: cm_grey_700;
 }
 
-.rightArrowButton {
+.leftArrowButton, .rightArrowButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,4 +85,14 @@
     position: sticky;
     right: 0;
     box-shadow: -10px 0 10px white;
+}
+
+@media mobile {
+    .leftArrowButton, .rightArrowButton, .filterButton {
+        display: none;
+    }
+
+    .filtersList{
+        margin-right: 0;
+    }
 }

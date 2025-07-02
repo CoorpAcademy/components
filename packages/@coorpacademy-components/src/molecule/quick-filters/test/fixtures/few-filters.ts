@@ -2,6 +2,7 @@ export default {
   props: {
     primaryOption: {
       defaultLabel: 'All content',
+      defaultValue: 'all-content',
       defaultIconName: 'grid-2',
       defaultSelected: true,
       onDefaultClick: () => {
@@ -12,6 +13,7 @@ export default {
       {
         iconName: 'shapes',
         label: 'Skills',
+        value: 'skills',
         onClick: () => {
           console.log('skills selected');
         },
@@ -20,6 +22,7 @@ export default {
       {
         iconName: 'wreath-laurel',
         label: 'Certificates',
+        value: 'certificates',
         onClick: () => {
           console.log('certificates selected');
         },
@@ -28,6 +31,7 @@ export default {
       {
         iconName: 'lines-leaning',
         label: 'Playlists',
+        value: 'playlists',
         onClick: () => {
           console.log('playlists selected');
         },
