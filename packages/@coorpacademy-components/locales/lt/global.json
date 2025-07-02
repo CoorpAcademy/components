@@ -145,7 +145,7 @@
   "subscription_price": "$ {currency} $ {price} su mokesčiais per mėnesį",
   "subscription_promo_code": "Dabar galite nemokamai ir neribotai naudotis mūsų katalogu iki {{date}} . Norėdami ir toliau juo naudotis po šios datos, užsiprenumeruokite",
   "skill_focus": "Įgūdžių kryptis",
-  "skills_focus": "Įgūdžių orientacija",
+  "skills_focus": "Įgūdžių kryptis",
   "skill_focus_footer_description": "Pasirinkite bent {{skillNumber}} daugiau įgūdžių",
   "skill_focus_footer_error_description": "Atžymėkite bent {{skillNumber}} daugiau įgūdžių",
   "skill_chart_side_panel_content_completed": "Turinys baigtas",
