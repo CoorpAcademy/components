@@ -222,7 +222,7 @@
       "modules": "{{count}} lygis",
       "modules_plural": "{{count}} lygiai",
       "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} privalomas lygis baigtas",
-      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} baigti privalomi lygiai",
+      "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} privalomi lygiai baigti ",
       "certification_module": "lygis, kurį reikia užbaigti"
     }
   }
