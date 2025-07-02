@@ -43,6 +43,8 @@
     gap: 8px;
     padding: 12px;
     flex-shrink: 0;
+    height: 48px;
+    cursor: pointer;
 }
 
 .filterSelected {
