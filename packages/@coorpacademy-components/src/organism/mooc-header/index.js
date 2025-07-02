@@ -249,7 +249,6 @@ class MoocHeader extends React.Component {
   handleSubmitSearch() {
     const {onSubmitSearch} = this.props;
 
-    // Utiliser la ref ou fallback sur querySelector
     const searchInput = this.searchInputRef || document.querySelector('input[name="search"]');
     if (searchInput) {
       searchInput.blur();
@@ -507,7 +506,7 @@ class MoocHeader extends React.Component {
         );
       });
       pagesView = (
-        <div className={!user ? style.noItems : style.items}>
+        <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
           {items.more &&
             (isMobile ? (
@@ -872,7 +871,6 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           {this.isMobile ? (
-            // Version mobile simplifiée
             <>
               <div
                 className={isFocus ? style.mobileSearchContainerFocus : style.mobileSearchContainer}
@@ -897,7 +895,6 @@ class MoocHeader extends React.Component {
               </nav>
             </>
           ) : (
-            // Version desktop avec toutes les animations complexes
             <div
               className={classnames(
                 {[style.rightZone]: !isFocus && !isClosing && !isClosingStep2},
