@@ -246,7 +246,6 @@ input:-webkit-autofill:active{
   -webkit-background-clip: text;
 }
 
-/* Correction spécifique pour le thème mooc */
 .moocSearch:-webkit-autofill,
 .moocSearch:-webkit-autofill:hover,
 .moocSearch:-webkit-autofill:focus,
