@@ -181,6 +181,11 @@
     "invalid_scorm": "scorm-bestand is niet geldig",
     "show_errors": "fouten tonen"
   },
+  "content_type_article": "Article",
+  "content_type_video": "Video",
+  "content_type_podcast": "Podcast",
+  "content_type_scorm": "Animated resource",
+  "content_type_course": "Course",
   "review_this_skill": "Bekijk deze vaardigheid",
   "review_skill_empty": "Je hebt nog geen vaardigheid om te herhalen",
   "review_skill_empty_description": "Je moet eerst cursussen voltooien, voordat je verschillende vaardigheden kunt reviewen.",
