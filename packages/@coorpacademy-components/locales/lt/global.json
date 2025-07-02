@@ -171,7 +171,7 @@
   "review_mode_tooltip_content_part4": "Atsakykite teisingai į visus klausimus",
   "review_mode_available": "Galima peržiūrėti",
   "review_header_step_item": {
-    "correct_question": "Ar klausimas {{current}} {{headerStepValue}} teisingas?",
+    "correct_question": " {{current}}klausimas {{headerStepValue}} yra teisingas",
     "incorrect_question": "{{current}} klausimas {{headerStepValue}} yra neteisingas",
     "not_answered_question": "Į klausimą {{current}} {{headerStepValue}} dar neatsakyta"
   },
