@@ -80,7 +80,7 @@ const Favorite = (
   useEffect(() => {
     if (!toolTipIsVisible) return;
     const hide = () => setToolTipIsVisible(false);
-    if (!window) {
+    if (typeof window === 'undefined') {
       return;
     }
     window.addEventListener('scroll', hide, {passive: true});
