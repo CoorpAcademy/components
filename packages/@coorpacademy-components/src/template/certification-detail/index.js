@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {compact, round, isNil} from 'lodash/fp';
+import {compact, round, isNil, size, pipe, getOr} from 'lodash/fp';
 import Markdown from 'markdown-to-jsx';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
@@ -25,16 +25,22 @@ const CertificationDetail = (props, context) => {
     filters,
     onBackClick,
     onContinueLearningClick,
-    metrics,
     logoUrl,
     diplomaUrl,
     badgeUrl,
-    search
+    search,
+    metrics = {}
   } = props;
   const descriptionRef = useRef(null);
   const {translate} = context;
 
-  const {progression, mandatoryModules, stars, totalModules} = metrics;
+  const {
+    progression,
+    mandatoryModules,
+    stars,
+    totalModules,
+    totalContents = pipe(getOr([], 'list'), size)(certificationCourses)
+  } = metrics;
 
   const [isDescriptionTruncated, setIsDescriptionTruncated] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -130,6 +136,7 @@ const CertificationDetail = (props, context) => {
         />
         <AllCourses
           content={certificationCourses}
+          totalContents={totalContents}
           filters={filters}
           data-name="certification-courses"
           search={search}
@@ -154,7 +161,8 @@ CertificationDetail.propTypes = {
     progression: PropTypes.number,
     stars: PropTypes.number,
     mandatoryModules: PropTypes.number,
-    totalModules: PropTypes.number
+    totalModules: PropTypes.number,
+    totalContents: PropTypes.number
   }),
   diplomaUrl: PropTypes.string,
   badgeUrl: PropTypes.string,

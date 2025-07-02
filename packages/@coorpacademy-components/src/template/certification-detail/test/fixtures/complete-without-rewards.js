@@ -7,7 +7,8 @@ export default {
     diplomaUrl: '',
     metrics: {
       ...defaultProps.props.metrics,
-      stars: 0
+      stars: 0,
+      totalContents: 10
     }
   }
 };
