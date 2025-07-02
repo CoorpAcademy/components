@@ -5000,83 +5000,21 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 .podcast-cphJz {
   background-color: #432ba7;
 }
-.microLearningCardInfo-DF59q {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
-}
-
-.microLearningIcon-F5WTV {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-item-align: center;
-      align-self: center;
-  margin-top: 53px;
-}
-
-.coorpmanager--0FLp .microLearningIcon-F5WTV {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-item-align: center;
-      align-self: center;
-  margin-top: 35px;
-}
-
-.timerIcon-xK52a {
-  height: 40px;
-  width: 40px;
-}
-
-.coorpmanager--0FLp .timerIcon-xK52a {
-  height: 30px;
-  width: 30px;
-}
-
-.microLearningIcon-F5WTV svg {
-  background:#fff;
-  border-radius: 50%;
-  margin: 0 auto;
-  padding: 3px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box; 
-  color: #263238;
-}
-
-.microLearninglabel-7n\+Or {
-  font-family: 'Gilroy';
-  font-size: 10px;
-  font-weight: 800;
-  color: #263238;
-  text-transform: uppercase;
-}
-
-.coorpmanager--0FLp .microLearninglabel-7n\+Or {
-  font-size: 6px;
-}
-
 .infoWrapper-xyta1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 4px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0 16px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-left: 16px;
+  padding-right: 16px;
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5154,7 +5092,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   margin-top: 0px;
 }
 
-.externalContent-cF8ff.coorpmanager--0FLp .author-lJOZZ {
+.standardContent-FoKXK.coorpmanager--0FLp .author-lJOZZ {
   margin-top: 5px;
 }
 
@@ -5182,9 +5120,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 
 .infoWrapper-xyta1.card-I0sfD {
   height: 100%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
 .infoWrapper-xyta1.empty-cn1\+\+ {
@@ -5207,11 +5142,9 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .adaptiveIcon-CWCVg {
-  font-size: 5px;
   width: 25px;
-  height: 25px;
+  height: 20px;
   color: #263238;
-  margin-right: 5px;
 }
 
 .iconWrapper-mZkXC {
@@ -5251,38 +5184,35 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 .progressWrapper-lT6yu {
   position: relative;
   left: 0;
-  width: 194px;
+  width: 150px;
   height: 4px;
   border-radius: 2px;
   overflow: hidden;
   margin: 16px auto;
-  background: #ECEFF1;
+  background: #d7d7da;
 }
 
 .coorpmanager--0FLp .progressWrapper-lT6yu {
+  width: 140px;
   height: 2px;
   margin: 11px auto;
-}
-
-.card-I0sfD .progressWrapper-lT6yu {
-  width: 150px;
 }
 
 .hero-Lz\+xF .progressWrapper-lT6yu {
   margin: 0 auto;
 }
 
-.contentTypeInfo-NZCcf {
-  font-family: 'Gilroy';
-  font-size: 10px;
-  font-weight: 700;
+.contentTypeInfos-LD8CP {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
 }
 
-.coorpmanager--0FLp.externalContent-cF8ff .contentTypeInfo-NZCcf {
-  font-size: 6px;
-}
-
-.externalContent-cF8ff .cardInfo-VZvjW {
+.standardContent-FoKXK .cardInfo-VZvjW {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
@@ -5290,11 +5220,31 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   overflow: hidden;
 }
 
-.coorpmanager--0FLp.externalContent-cF8ff .cardInfo-VZvjW {
+.standardContent-FoKXK.infoWrapper-xyta1 {
+  padding-top: 50%;
+}
+
+.coorpmanager--0FLp.standardContent-FoKXK .cardInfo-VZvjW {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
   max-height: 79px;
+}
+
+.cardInfo-VZvjW.cardCourseTitle-iq\+1u {
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media (max-width: 640px) {
@@ -5378,9 +5328,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
     rgba(0, 0, 0, 0.2) 0%,
     rgba(0, 0, 0, 0) 20%
   );
-}
-.chapterCustomer-1dQpn {
-  padding-top: 10px;
 }
 
 .coorpmanager-qrwmK.customer-WPD0k.chapterCustomer-1dQpn {
@@ -5523,8 +5470,8 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .favorite-V9zMO {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   position: absolute;
   right: 8px;
   top: 8px;
@@ -5535,9 +5482,10 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   -webkit-box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
           box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
   background-color: #ffffff;
-  border-radius: 100%;
+  border-radius: 8px;
   border: none;
   padding: 0;
+  cursor: pointer;
 }
 
 .favorite-V9zMO:hover .moreIcon-tjc54 {
@@ -5717,7 +5665,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(84, 110, 122, 0.75);
+  background: rgba(29, 29, 43, 0.5);
   position: absolute;
   z-index: 0;
   opacity: 0;
@@ -5725,18 +5673,32 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .notification-zcF1Z {
-  width: 100px;
-  height: 100px;
+  width: 156px;
   background: #ECEFF1;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -50px 0 0 -50px;
-  border-radius: 7px;
-  padding: 12px 7px 7px;
+  margin: -78px 0 0 -78px;
+  border-radius: 12px;
+  padding: 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #607D8B;
+  background: #F4F4F5;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .showOverlay-Y58nF .notification-zcF1Z {
@@ -5751,14 +5713,28 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 
 .notification-zcF1Z .icon-T4cfl {
   font-size: 30px;
-  height: 30px;
-  width: 100%;
+  height: 20px;
+  width: 15px;
+}
+
+.iconWrapper-hP1Eg {
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 12px;
 }
 
 .message-0OR\+V {
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
+  line-height: 20px;
 }
 
 .message-0OR\+V span {
@@ -5768,7 +5744,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  line-height: 16px;
+  line-height: 20px;
   font-size: 14px;
   font-family: 'Gilroy';
   text-align: center;
@@ -5894,11 +5870,13 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   cursor: pointer;
   -webkit-box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
           box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
+  border: 2px solid #fff;
 }
 
 .defaultStyle-VsuTx[disabled] .favorite-R9A5z {
   z-index: 0;
 }
+
 
 .grid-esl4m.empty-DDWUS {
   padding-bottom: 25px;
@@ -5906,26 +5884,15 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .course-UnCLv {
-  border-radius: 8px;
+  border-radius: 12px;
   width: 256px;
   height: 297px;
 }
 
-.chapter-\+\+rcB {
-  border-radius: 8px;
-  width: 203px;
-  height: 297px;
-}
 
 .coorpmanager-Pe7tv.course-UnCLv {
   border-radius: 5px;
   width: 172px;
-  height: 201px;
-}
-
-.coorpmanager-Pe7tv.chapter-\+\+rcB {
-  border-radius: 5px;
-  width: 138px;
   height: 201px;
 }
 
@@ -5935,18 +5902,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.chapter-\+\+rcB .chapterImageWrapper-Tprr9 {
-  max-height: 77px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.coorpmanager-Pe7tv.chapter-\+\+rcB .chapterImageWrapper-Tprr9 {
-  max-height: 52px;
 }
 
 .defaultStyle-VsuTx .image-N1blg {
@@ -6041,8 +5996,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .course-UnCLv .defaultStyle-VsuTx:hover,
-.chapter-\+\+rcB .defaultStyle-VsuTx:hover {
-  background: #ECEFF1;
+.defaultStyle-VsuTx:hover {
   cursor: pointer;
   -webkit-transition: background 0.25s ease-in-out;
   transition: background 0.25s ease-in-out;
@@ -6296,18 +6250,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
 }
 
-.externalIcon-uApCm {
-  color: #fff;
-  width: 45px;
-  height: 45px;
-}
-
-.coorpmanager-Pe7tv .externalIcon-uApCm {
-  color: #fff;
-  width: 23px;
-  height: 23px;
-}
-
 .externalIconCircleWrapper-KnlTK::after {
   -webkit-animation: pulse-MDh-i 3s linear 0s infinite;
           animation: pulse-MDh-i 3s linear 0s infinite;
@@ -6382,19 +6324,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   margin-top: 20px;
 }
 
-.coorpmanager-Pe7tv .externalIconWithImage-LNCLl {
-  color: #fff;
-  width: 25px;
-  height: 25px;
-  padding: 0 0 0 1px;
-}
-
-.externalIconWithImage-LNCLl {
-  color: #fff;
-  width: 28px;
-  height: 28px;
-}
-
 .externalIconCircleWithImageWrapper-oxPbg::after,
 .externalIconCircleWithImageWrapper-oxPbg::before {
   content: '';
@@ -6403,7 +6332,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   top: 0;
   left: 0;
   position: absolute;
-
   border-radius: 50%;
   -webkit-transform: scale(1);
           transform: scale(1);
