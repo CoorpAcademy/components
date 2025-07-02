@@ -140,7 +140,7 @@
   "subscription_premium_description_part1": "Jūsų prenumerata bus automatiškai atnaujinta ",
   "subscription_premium_description_part2": "Jums bus nuskaičiuota ši suma: ",
   "subscription_premium_description_part3_with_link": "atšaukti prenumeratą?",
-  "subscription_premium_description_part3": "Ar norite? ",
+  "subscription_premium_description_part3": "Ar norite",
   "subscription_premium_title": "„Coopacademy Premium“",
   "subscription_price": "$ {currency} $ {price} su mokesčiais per mėnesį",
   "subscription_promo_code": "Dabar galite nemokamai ir neribotai naudotis mūsų katalogu iki {{date}} . Norėdami ir toliau juo naudotis po šios datos, užsiprenumeruokite",
