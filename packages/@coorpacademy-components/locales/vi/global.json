@@ -181,6 +181,11 @@
     "invalid_scorm": "tập tin scorm là không hợp lệ",
     "show_errors": "hiển thị lỗi"
   },
+  "content_type_article": "Article",
+  "content_type_video": "Video",
+  "content_type_podcast": "Podcast",
+  "content_type_scorm": "Animated resource",
+  "content_type_course": "Course",
   "review_this_skill": "Xem lại kỹ năng này",
   "review_skill_empty": "Bạn chưa có kỹ năng nào để ôn tập",
   "review_skill_empty_description": "Trước tiên, bạn cần phải hoàn thành các khóa học rồi mới có thể ôn tập các kỹ năng khác nhau.",
