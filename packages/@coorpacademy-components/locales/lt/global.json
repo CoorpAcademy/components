@@ -190,7 +190,7 @@
   "stars": "žvaigždės",
   "questions": "Klausimai",
   "skill_scope_specifier": "<b>{{focusedSkill}}</b>",
-  "focused_skills": "sutelkti įgūdžiai",
+  "focused_skills": "pagrindiniai įgūdžiai",
   "custom":{
     "digitlearning": {
       "comment_aria_label": "Įvertinkite šį kursą",
