@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useRef, useEffect} from 'react';
 import classNames from 'classnames';
 import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
@@ -11,8 +11,9 @@ const SCROLL_LEFT_SIZE = -120;
 
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
-  const showNextFilter = filterOptions.length > 7;
   const filtersListRef = React.useRef<HTMLDivElement>(null);
+  const rightBtnRef = useRef<HTMLDivElement>(null);
+  const leftBtnRef = useRef<HTMLDivElement>(null);
   const handleScroll = useCallback((direction: number) => {
     if (filtersListRef.current) {
       filtersListRef.current.scrollBy({
@@ -27,9 +28,30 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
   const handleScrollLeft = useCallback(() => {
     handleScroll(SCROLL_LEFT_SIZE);
   }, [handleScroll]);
+  useEffect(() => {
+    const list = filtersListRef.current;
+    const btn = rightBtnRef.current;
+    const left = leftBtnRef.current;
+    if (!list || !btn || !left) return;
+
+    const update = () => {
+      btn.style.visibility =
+        list.scrollLeft + list.clientWidth < list.scrollWidth ? 'visible' : 'hidden';
+      left.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
+    };
+
+    list.addEventListener('scroll', update);
+    update();
+    return () => list.removeEventListener('scroll', update);
+  }, [filterOptions]);
   return (
     <div className={style.filtersMainContainer}>
-      <div className={style.leftArrowButton} data-name="scroll-left-button">
+      <div
+        className={style.leftArrowButton}
+        data-name="scroll-left-button"
+        ref={leftBtnRef}
+        style={{visibility: 'hidden'}}
+      >
         <ButtonLink
           icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
           onClick={handleScrollLeft}
@@ -47,8 +69,8 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               selected: defaultSelected,
               onClick: onDefaultClick,
               size: {
-                faSize: 23,
-                wrapperSize: 23
+                faSize: 20,
+                wrapperSize: 20
               },
               iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
             }}
@@ -69,27 +91,34 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
                   {...{
                     iconName,
                     label,
-                    iconColor: selected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
+                    iconColor: selected ? COLORS.cm_grey_700 : COLORS.cm_grey_500,
+                    size: {
+                      faSize: 20,
+                      wrapperSize: 20
+                    }
                   }}
                 />
                 <span>{label}</span>
               </div>
             );
           })}
-          {showNextFilter ? (
-            <div className={style.rightArrowButton} data-name="scroll-right-button">
-              <ButtonLink
-                icon={{
-                  position: 'left',
-                  faIcon: {
-                    name: 'arrow-right',
-                    size: 15
-                  }
-                }}
-                onClick={handleScrollRight}
-              />
-            </div>
-          ) : null}
+          <div
+            className={style.rightArrowButton}
+            data-name="scroll-right-button"
+            ref={rightBtnRef}
+            style={{visibility: 'hidden'}}
+          >
+            <ButtonLink
+              icon={{
+                position: 'left',
+                faIcon: {
+                  name: 'arrow-right',
+                  size: 15
+                }
+              }}
+              onClick={handleScrollRight}
+            />
+          </div>
         </div>
       </div>
       {filterButton ? (
