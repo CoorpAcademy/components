@@ -1,0 +1,61 @@
+{
+    "Review Title": "Peržiūros režimas",
+    "Content Parent Title": "Iš „ {{contentTitle}} “ {{contentType}}",
+    "Validate": "Patvirtinti",
+    "Next Question": "Kitas klausimas",
+    "KLF": "Svarbiausias dalykas",
+    "Correct Answer": "Geras atsakymas",
+    "Wrong Answer": "Neteisingas atsakymas",
+    "You have won": "Jūs laimėjote",
+    "You are now": "Tu dabar esi",
+    "Revise another skill": "Peržiūrėti kitą įgūdį",
+    "Continue reviewing": "Toliau peržiūrėti",
+    "Congratulations!": "Sveikinu!",
+    "aria_label": "Įgūdžių peržiūros šablonas",
+    "Quit Title": "Ar tikrai norite mesti?",
+    "Quit Description Text": "Esate teisingame kelyje! Jei dabar mesite, prarasite savo pažangą.",
+    "Stop learning": "Baigti sesiją",
+    "Continue learning": "Tęsti mokymąsi",
+    "Continue": "Tęsti",
+    "Type here": "Rašykite čia",
+    "Select an answer": "Pasirinkite atsakymą",
+    "answer_the_question": "Atsakykite į klausimą",
+    "presentation": {
+      "aria_label": "Apžvalgos pateikimo konteineris",
+      "title": "Kas yra<br/> Revizijos režimas?",
+      "text": "Informacija dingsta iš jūsų atminties vos tik į ją patenka? Tai visiškai normalu: be kartojimo neįmanoma įsiminti! Kad žinios išliktų ilgalaikėje perspektyvoje, naudokite kartojimo režimą atminčiai atnaujinti!",
+      "button": "Gerai, supratau!",
+      "label_list": {
+        "skills": {
+          "text": "Pasirinkite 1 įgūdį",
+          "tooltip": "Galite peržiūrėti po vieną įgūdį."
+        },
+        "questions": {
+          "text": "Atsakykite į 5 klausimus",
+          "tooltip": "Teisingai atsakykite į 5 klausimus, kad patvirtintumėte savo kartojimo režimo sesiją."
+        },
+        "lifes": { 
+          "text": "Jūs turite begalinį gyvenimą",
+          "tooltip": "Galite atsakyti tiek kartų, kiek norite, kad užbaigtumėte sesiją."
+        },
+        "allright": { 
+          "text":  "Viską sutvarkyk",
+          "tooltip": "Norėdami patvirtinti savo sesiją, turite teisingai atsakyti į kiekvieną klausimą."
+        }
+      }
+    },
+    "list_title": "Įgūdžiai, kuriuos galite peržiūrėti",
+    "list_aria_label": "Įgūdžių peržiūros konteineris",
+    "card": {
+      "aria_label": "Įgūdžių kortelė",
+      "text": "{{total}} klausimai, kuriuos reikia peržiūrėti",
+      "button_text": "Įvertinkite šį įgūdį"
+    },
+    "no_skills": {
+      "title": "Dar neturite įgūdžių taisyti",
+      "text": "Pirmiausia turite baigti kursus, kad galėtumėte peržiūrėti skirtingus įgūdžius."
+    },
+    "Acquired stars animation": "Įsigytų žvaigždžių animacija",
+    "New rank animation": "Nauja rango animacija",
+    "Congratulations confetti animation": "Congratulations confetti animation"
+}
