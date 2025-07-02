@@ -172,7 +172,7 @@ const ContentInfo = ({
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
-        chapterContent || courseContent || externalContent ? style.externalContent : null
+        chapterContent || courseContent || externalContent ? style.standardContent : null
       )}
     >
       <ContentTypeInfo

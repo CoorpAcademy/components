@@ -85,7 +85,7 @@
   margin-top: 0px;
 }
 
-.externalContent.coorpmanager .author {
+.standardContent.coorpmanager .author {
   margin-top: 5px;
 }
 
@@ -185,17 +185,17 @@
   gap: 8px;
 }
 
-.externalContent .cardInfo {
+.standardContent .cardInfo {
   flex-grow: 2;
   max-height: 115px;
   overflow: hidden;
 }
 
-.externalContent.infoWrapper {
+.standardContent.infoWrapper {
   padding-top: 50%;
 }
 
-.coorpmanager.externalContent .cardInfo {
+.coorpmanager.standardContent .cardInfo {
   flex-grow: 2;
   max-height: 79px;
 }
