@@ -177,7 +177,7 @@
   },
   "bulk_import": {
     "errors_number": "Masinio importavimo klaidų skaičius yra {{bulkImportErrorsNumber}}",
-    "valid_scorm": "scorm failas galioja",
+    "valid_scorm": "scorm failas yra tinkamas",
     "invalid_scorm": "scorm failas negalioja",
     "show_errors": "rodyti klaidas"
   },
