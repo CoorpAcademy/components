@@ -1,7 +1,7 @@
 import React, {useCallback, useState, useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {isNil} from 'lodash/fp';
+import {getOr, isNil, pipe, size} from 'lodash/fp';
 import Markdown from 'markdown-to-jsx';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
@@ -27,8 +27,10 @@ const PlaylistDetail = (props, context) => {
     onBackClick,
     onContinueLearningClick,
     search,
+    metrics = {},
     bannerMicrolearning = {}
   } = props;
+  const {totalContents = pipe(getOr([], 'list'), size)(playlistCourses)} = metrics;
   const descriptionRef = useRef(null);
   const {translate} = context;
   const {action: bannerMicrolearningAction, oldSwitchValue} = bannerMicrolearning;
@@ -100,6 +102,7 @@ const PlaylistDetail = (props, context) => {
         </div>
         <AllCourses
           content={playlistCourses}
+          totalContents={totalContents}
           filters={filters}
           sorting={sorting}
           bannerMicrolearning={
@@ -133,6 +136,9 @@ PlaylistDetail.propTypes = {
   filters: PropTypes.shape({
     onChange: PropTypes.func,
     options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes))
+  }),
+  metrics: PropTypes.shape({
+    totalContents: PropTypes.number
   }),
   sorting: PropTypes.shape(Select.propTypes),
   search: PropTypes.shape({

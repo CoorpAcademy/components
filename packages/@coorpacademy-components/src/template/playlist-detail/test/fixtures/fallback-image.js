@@ -21,6 +21,9 @@ export default {
         image: null
       }
     ],
+    metrics: {
+      totalContents: 10
+    },
     description: `**Conditions** - complete the Basics levels of the following courses:
  - The tire e-commerce market
  - The mobile revolution 
