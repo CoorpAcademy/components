@@ -148,7 +148,7 @@
   "skills_focus": "Įgūdžių kryptis",
   "skill_focus_footer_description": "Pasirinkite dar bent {{skillNumber}} įgūdžius (-į)",
   "skill_focus_footer_error_description": "Atžymėkite dar bent {{skillNumber}} įgūdžius (-į)",
-  "skill_chart_side_panel_content_completed": "Turinys užbaigtas",
+  "skill_chart_side_panel_content_completed": "Medžiaga baigta",
   "skill_chart_side_panel_questions_to_review": "Klausimai, kuriuos reikia peržiūrėti",
   "skill_chart_side_panel_learning_hours": "Mokymosi laikas",
   "skill_focused_chip_tooltip": "Šis įgūdis yra dėmesio centre",
