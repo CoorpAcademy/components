@@ -181,6 +181,11 @@
     "invalid_scorm": "scorm datoteka nije ispravna",
     "show_errors": "pokazati greške"
   },
+  "content_type_article": "Article",
+  "content_type_video": "Video",
+  "content_type_podcast": "Podcast",
+  "content_type_scorm": "Animated resource",
+  "content_type_course": "Course",
   "review_this_skill": "Pregledajte ovu vještinu",
   "review_skill_empty": "Još nemaš vještinu za pregled",
   "review_skill_empty_description": "Prvo moraš završiti tečajeve prije nego što možeš pregledavati različite vještine.",
