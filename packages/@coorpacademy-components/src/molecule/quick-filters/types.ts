@@ -1,9 +1,9 @@
 import {ButtonLinkProps} from '../../atom/button-link/types';
 
 export type QuickFiltersProps = {
-  // all content props
   primaryOption: {
     defaultLabel: string;
+    defaultValue: string;
     defaultIconName: string;
     defaultSelected: boolean;
     onDefaultClick: () => void;
@@ -15,6 +15,7 @@ export type QuickFiltersProps = {
 type FilterOption = {
   iconName: string;
   label: string;
+  value: string;
   onClick: () => void;
   selected: boolean;
 };

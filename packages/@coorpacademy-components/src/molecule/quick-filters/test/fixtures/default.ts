@@ -2,6 +2,7 @@ export default {
   props: {
     primaryOption: {
       defaultLabel: 'All content',
+      defaultValue: 'all-content',
       defaultIconName: 'grid-2',
       defaultSelected: true,
       onDefaultClick: () => {
@@ -12,6 +13,7 @@ export default {
       {
         iconName: 'shapes',
         label: 'Skills',
+        value: 'skills',
         onClick: () => {
           console.log('skills selected');
         },
@@ -20,6 +22,7 @@ export default {
       {
         iconName: 'wreath-laurel',
         label: 'Certificates',
+        value: 'certificates',
         onClick: () => {
           console.log('certificates selected');
         },
@@ -28,6 +31,7 @@ export default {
       {
         iconName: 'lines-leaning',
         label: 'Playlists',
+        value: 'playlists',
         onClick: () => {
           console.log('playlists selected');
         },
@@ -36,6 +40,7 @@ export default {
       {
         iconName: 'book-open',
         label: 'Courses',
+        value: 'courses',
         onClick: () => {
           console.log('Courses selected');
         },
@@ -44,6 +49,7 @@ export default {
       {
         iconName: 'stopwatch',
         label: `5'learning`,
+        value: '5-learning',
         onClick: () => {
           console.log(`5'learning selected`);
         },
@@ -52,6 +58,7 @@ export default {
       {
         iconName: 'rectangle-history',
         label: 'Interactives',
+        value: 'interactives',
         onClick: () => {
           console.log('interactives selected');
         },
@@ -60,6 +67,7 @@ export default {
       {
         iconName: 'circle-play',
         label: 'Videos',
+        value: 'videos',
         onClick: () => {
           console.log('videos selected');
         },
@@ -68,6 +76,7 @@ export default {
       {
         iconName: 'circle-play',
         label: 'Podcasts',
+        value: 'podcasts',
         onClick: () => {
           console.log('podcast selected');
         },
@@ -76,6 +85,7 @@ export default {
       {
         iconName: 'file-lines',
         label: 'Documents',
+        value: 'documents',
         onClick: () => {
           console.log('documents selected');
         },
@@ -83,7 +93,8 @@ export default {
       },
       {
         iconName: 'stopwatch',
-        label: `5'learnin 1`,
+        label: "5'learning 1",
+        value: '5-learning-1',
         onClick: () => {
           console.log(`5'learning selected`);
         },
@@ -91,7 +102,8 @@ export default {
       },
       {
         iconName: 'stopwatch',
-        label: `5'learnin 2`,
+        label: `5'learning 2`,
+        value: '5-learning-2',
         onClick: () => {
           console.log(`5'learning selected`);
         },
@@ -100,6 +112,7 @@ export default {
       {
         iconName: 'stopwatch',
         label: `5'learnin 3`,
+        value: '5-learning-3',
         onClick: () => {
           console.log(`5'learning selected`);
         },
@@ -107,7 +120,8 @@ export default {
       },
       {
         iconName: 'stopwatch',
-        label: `5'learning`,
+        label: `5'learning 4`,
+        value: '5-learning-4',
         onClick: () => {
           console.log(`5'learning selected`);
         },

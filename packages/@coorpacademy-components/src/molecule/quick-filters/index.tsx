@@ -8,6 +8,7 @@ import {QuickFiltersProps} from './types';
 
 const SCROLL_RIGHT_SIZE = 120;
 const SCROLL_LEFT_SIZE = -120;
+
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
   const showNextFilter = filterOptions.length > 7;
@@ -28,7 +29,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
   }, [handleScroll]);
   return (
     <div className={style.filtersMainContainer}>
-      <div className={style.rightArrowButton}>
+      <div className={style.leftArrowButton} data-name="scroll-left-button">
         <ButtonLink
           icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
           onClick={handleScrollLeft}
@@ -57,11 +58,12 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
         <div className={style.filterSeparator} />
         <div className={style.filtersContainer}>
           {filterOptions.map((filterOption, idx) => {
-            const {iconName, label, selected} = filterOption;
+            const {iconName, label, selected, value} = filterOption;
             return (
               <div
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
+                data-name={`filter-${value}-${idx}`}
               >
                 <FaIcon
                   {...{
@@ -75,7 +77,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
             );
           })}
           {showNextFilter ? (
-            <div className={style.rightArrowButton}>
+            <div className={style.rightArrowButton} data-name="scroll-right-button">
               <ButtonLink
                 icon={{
                   position: 'left',
@@ -91,7 +93,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
         </div>
       </div>
       {filterButton ? (
-        <div className={style.filterButton}>
+        <div className={style.filterButton} data-name="open-filters-modal-button">
           <ButtonLink {...filterButton} />
         </div>
       ) : null}
