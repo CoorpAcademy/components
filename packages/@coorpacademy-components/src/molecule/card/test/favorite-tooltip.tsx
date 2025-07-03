@@ -21,7 +21,8 @@ test('Should show the tooltip on interaction with the information button', async
     }
   };
 
-  const reactToolTipContent = '[data-testid="favorite-button"] + div p';
+  // ReactTooltip renders at document level, not as a sibling
+  const reactToolTipContent = '[class*="__react_component_tooltip"]';
 
   const {container} = renderWithContext(<Card {...props} />, context);
 
