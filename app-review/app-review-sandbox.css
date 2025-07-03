@@ -513,6 +513,13 @@
   left: 5px;
   max-width: 400px;
   padding: 8px 12px !important;
+  /* Text styling when content is not wrapped in <p> */
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: white;
+  text-align: center;
 }
 
 /* for keyboard navigation, the position can't be obtained from the mouse */
