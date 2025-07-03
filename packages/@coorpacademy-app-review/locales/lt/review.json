@@ -45,7 +45,7 @@
       }
     },
     "list_title": "Įgūdžiai, kuriuos galite peržiūrėti",
-    "list_aria_label": "Įgūdžių peržiūros konteineris",
+    "list_aria_label": "Įgūdžių peržiūros langas",
     "card": {
       "aria_label": "Įgūdžių kortelė",
       "text": "{{total}} klausimai, kuriuos reikia peržiūrėti",
