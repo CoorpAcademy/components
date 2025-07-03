@@ -35,11 +35,11 @@
           "tooltip": "Teisingai atsakykite į 5 klausimus, kad Peržiūros režimo sesija būtų užskaityta. "
         },
         "lifes": { 
-          "text": "Jūs turite neribotą skaičių gyvybių.",
+          "text": "Jūs turite neribotą skaičių gyvybių",
           "tooltip": "Galite atsakyti tiek kartų, kiek norite, kad užbaigtumėte sesiją."
         },
         "allright": { 
-          "text":  "Viską sutvarkyk",
+          "text":  "Atsakykite teisingai į visus klausimus",
           "tooltip": "Norėdami patvirtinti savo sesiją, turite teisingai atsakyti į kiekvieną klausimą."
         }
       }
