@@ -40,7 +40,7 @@
         },
         "allright": { 
           "text":  "Atsakykite teisingai į visus klausimus",
-          "tooltip": "Norėdami patvirtinti savo sesiją, turite teisingai atsakyti į kiekvieną klausimą."
+          "tooltip": "Norint užbaigti sesiją, būtina teisingai atsakyti į kiekvieną klausimą."
         }
       }
     },
