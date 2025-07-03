@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {v5 as uuidV5} from 'uuid';
@@ -76,6 +76,16 @@ const Favorite = (
       }, 500)
     );
   }, []);
+
+  useEffect(() => {
+    if (!toolTipIsVisible) return;
+    const hide = () => setToolTipIsVisible(false);
+    if (typeof window === 'undefined') {
+      return;
+    }
+    window.addEventListener('scroll', hide, {passive: true});
+    return () => window.removeEventListener('scroll', hide);
+  }, [toolTipIsVisible]);
 
   const handleKeyPress = useCallback(
     event => {
