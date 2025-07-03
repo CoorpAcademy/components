@@ -1,11 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import ReactDOM from 'react-dom';
 import get from 'lodash/fp/get';
 import PropTypes from 'prop-types';
+import browserEnv from 'browser-env';
 import {mockTranslate} from '@coorpacademy/translate';
 import {render} from '@testing-library/react-native';
 import Provider from '../../atom/provider';
 import {TemplateContext} from '../../template/app-review/template-context';
+
+// Set up browser environment for DOM operations
+browserEnv();
 
 export const context = {
   skin: {
@@ -27,7 +31,7 @@ const renderComponent = (t, Component, fixture) => {
   const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
   try {
-    return ReactDOM.renderToStaticMarkup(wrappedVTree);
+    return ReactDOM.renderToString(wrappedVTree);
   } catch (e) {
     console.log(`[------ ❌ [web rendering]---> error for ${Component.name}`);
     console.log(e);

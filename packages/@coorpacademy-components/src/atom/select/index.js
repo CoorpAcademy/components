@@ -64,6 +64,7 @@ const Select = (props, legacyContext) => {
     onChange,
     multiple = false,
     disabled,
+    readOnly,
     required,
     description,
     theme,
@@ -82,8 +83,18 @@ const Select = (props, legacyContext) => {
 
   const [isArrowUp, setIsArrowUp] = useState(false);
 
-  const handleSelectOnFocus = useCallback(() => setIsArrowUp(true), []);
-  const handleSelectOnBlur = useCallback(() => setIsArrowUp(false), []);
+  const isNonInteractive = disabled || readOnly;
+
+  const handleSelectOnFocus = useCallback(() => {
+    if (!isNonInteractive) {
+      setIsArrowUp(true);
+    }
+  }, [isNonInteractive]);
+  const handleSelectOnBlur = useCallback(() => {
+    if (!isNonInteractive) {
+      setIsArrowUp(false);
+    }
+  }, [isNonInteractive]);
 
   const selectOption = (option, index) => {
     return (
@@ -131,14 +142,18 @@ const Select = (props, legacyContext) => {
     () =>
       multiple
         ? e => {
-            setIsArrowUp(false);
-            onChange(map(get('value'), e.target.selectedOptions));
+            if (!isNonInteractive && onChange) {
+              setIsArrowUp(false);
+              onChange(map(get('value'), e.target.selectedOptions));
+            }
           }
         : e => {
-            setIsArrowUp(false);
-            onChange(e.target.value);
+            if (!isNonInteractive && onChange) {
+              setIsArrowUp(false);
+              onChange(e.target.value);
+            }
           },
-    [onChange, multiple]
+    [onChange, multiple, isNonInteractive]
   );
 
   const black = useMemo(() => getOr('#14171A', 'common.black', skin), [skin]);
@@ -162,9 +177,11 @@ const Select = (props, legacyContext) => {
       classnames(
         theme && theme !== 'coorpmanager' ? themeStyle[theme] : behaviorClassName,
         selected ? style.selected : style.unselected,
+        disabled ? style.disabled : null,
+        readOnly ? style.readOnly : null,
         className
       ),
-    [behaviorClassName, className, selected, theme]
+    [behaviorClassName, className, selected, theme, disabled, readOnly]
   );
 
   const labelSize = useMemo(() => size(selectedLabel), [selectedLabel]);
@@ -234,12 +251,12 @@ const Select = (props, legacyContext) => {
           value={selected}
           multiple={multiple}
           disabled={disabled}
-          onClick={handleSelectOnFocus}
-          onBlur={handleSelectOnBlur}
+          onClick={isNonInteractive ? undefined : handleSelectOnFocus}
+          onBlur={isNonInteractive ? undefined : handleSelectOnBlur}
           // onBlur does not handle completely an out of bounds click
           // ex: select is Opened and a click is done outside, cancelling the select
           // that doesn't count as a Blur, so an onMouseLeave is needed
-          onMouseLeave={handleSelectOnBlur}
+          onMouseLeave={isNonInteractive ? undefined : handleSelectOnBlur}
           data-testid="native-select"
         >
           {optionList}
@@ -272,6 +289,7 @@ Select.propTypes = {
   className: PropTypes.string,
   borderClassName: PropTypes.string,
   disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
   multiple: PropTypes.bool,
   description: PropTypes.string,
   required: PropTypes.bool,

@@ -665,3 +665,64 @@ div.player:hover span.selectSpan {
 .skillDetail.no-label .selectBox {
   max-width: 100%;
 }
+
+/*
+  Disabled state
+*/
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.disabled .selectWrapper {
+  cursor: not-allowed;
+}
+
+.disabled .selectBox {
+  cursor: not-allowed !important;
+  background-color: xtraLightGrey;
+}
+
+.disabled .arrow,
+.disabled .selectedArrow {
+  cursor: not-allowed;
+}
+
+.disabled:hover .arrow,
+.disabled:hover .selectedArrow {
+  color: inherit;
+}
+
+/*
+  ReadOnly state - keeps visual appearance but prevents interaction
+*/
+
+.readOnly .selectBox {
+  cursor: default;
+}
+
+.readOnly .selectWrapper {
+  cursor: default;
+  position: relative;
+}
+
+.readOnly .selectWrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  cursor: default;
+}
+
+.readOnly .selectWrapper * {
+  cursor: default;
+}
+
+.readOnly .arrow,
+.readOnly .selectedArrow {
+  cursor: default;
+}

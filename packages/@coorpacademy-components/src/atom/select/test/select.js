@@ -39,7 +39,7 @@ test('classnames: should pass the styles pertinent to a player theme, text color
   t.truthy(selectSpan);
   t.is(selectSpan.className, 'select__selectSpan select__noLabelCommon');
 
-  unmount(); // to allow rendering on next test
+  unmount();
 });
 
 test('text color: should not use skin color (selected, invalid option, player), long label', t => {
@@ -60,7 +60,7 @@ test('text color: should not use skin color (selected, invalid option, player), 
   t.truthy(selectSpan);
   t.is(selectSpan.className, 'select__selectSpan select__noLabelCommon select__longLabel');
 
-  unmount(); // to allow rendering on next test
+  unmount();
 });
 
 test('after onClick, arrow up icon should be shown, then arrow down on blur/mouse leave', async t => {

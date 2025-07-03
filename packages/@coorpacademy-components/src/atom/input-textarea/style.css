@@ -25,6 +25,10 @@
   composes: defaultStyle;
 }
 
+.readonly {
+  composes: defaultStyle;
+}
+
 .defaultStyle label {
   display: flex;
   align-items: center;
@@ -54,6 +58,15 @@
   margin-left: 20px;
   width: 500px;
   resize: none;
+}
+
+.readonly textarea {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+  caret-color: transparent;
 }
 
 .error textarea {
@@ -351,6 +364,30 @@
 
 .coorpmanager.disabled {
   opacity: 0.5;
+}
+
+.coorpmanager.readonly textarea {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
+  caret-color: transparent;
+}
+
+.coorpmanager.readonly:focus-within textarea::placeholder {
+  color: transparent !important;
+}
+
+.coorpmanager.readonly:focus-within .title.noValue {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: cm_grey_700 !important;
+  top: auto !important;
+}
+
+.coorpmanager.readonly label:hover:before {
+  background-color: cm_grey_100 !important;
 }
 
 .coorpmanager .infoIconWrapper {

@@ -67,6 +67,22 @@ const BaseModal = (props, context) => {
     };
   }, [children, detectScrollbar]);
 
+  // Handle escape key press
+  useEffect(() => {
+    if (!isOpen || !onClose) return;
+
+    const handleEscape = event => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   const Footer = useCallback(() => {
     if (isEmpty(footer)) return null;
     if (typeof footer === 'function') return footer();

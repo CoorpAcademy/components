@@ -67,6 +67,7 @@ export const contentProps: ContentPropsType = {
   ...contentEmptyProps,
   list: {
     ...contentEmptyProps.list,
+    title: '3 items',
     emptyResult: undefined,
     items: contentData,
     checkbox: {

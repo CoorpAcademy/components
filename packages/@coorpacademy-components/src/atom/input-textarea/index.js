@@ -9,6 +9,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
+import {v5 as uuidV5} from 'uuid';
 
 const themeStyle = {
   setup: style.setup,
@@ -29,6 +30,7 @@ const InputTextarea = props => {
     valid,
     description,
     disabled,
+    readOnly = false,
     modified = false
   } = props;
 
@@ -59,18 +61,27 @@ const InputTextarea = props => {
   const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
 
   return (
-    <div className={classnames(mainClass, className, disabled && style.disabled)}>
+    <div
+      className={classnames(
+        mainClass,
+        className,
+        disabled && style.disabled,
+        readOnly && style.readonly
+      )}
+    >
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
           {propsTitle}
           {toolTipView}
         </span>
         <textarea
+          id={uuidV5('textarea-', uuidV5.URL)}
           name={name}
           value={value}
           placeholder={placeholder}
           onChange={handleChange}
           disabled={disabled}
+          readOnly={readOnly}
           data-testid={name}
         />
         {errorIconView}
@@ -88,6 +99,7 @@ InputTextarea.propTypes = {
   name: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle)),
   disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
   value: PropTypes.string,
   hint: PropTypes.string,
   error: PropTypes.string,

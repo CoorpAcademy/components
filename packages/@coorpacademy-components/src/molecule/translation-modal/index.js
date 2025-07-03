@@ -7,12 +7,12 @@ import InputText from '../../atom/input-text';
 import TextArea from '../../atom/input-textarea';
 import style from './style.css';
 
-const renderInputGroup = ({title, inputProps, textAreaProps, disabled}) => {
+const renderInputGroup = ({title, inputProps, textAreaProps, readOnly, disabled}) => {
   return (
     <div className={style.inputGroup}>
       <div className={style.title}>{title}</div>
-      <InputText {...inputProps} disabled={disabled} />
-      <TextArea {...textAreaProps} disabled={disabled} />
+      <InputText readOnly={readOnly} disabled={disabled} {...inputProps} />
+      <TextArea readOnly={readOnly} disabled={disabled} {...textAreaProps} />
     </div>
   );
 };
@@ -51,7 +51,7 @@ const TranslationModal = (props, context) => {
         confirmButton: {
           onConfirm,
           label: translate('confirm'),
-          iconName: 'plus',
+          iconName: 'check',
           disabled,
           color: COLORS.cm_primary_blue
         }
@@ -80,7 +80,8 @@ const TranslationModal = (props, context) => {
             title: inputLanguage,
             inputProps: sourceInputText,
             textAreaProps: sourceTextArea,
-            disabled: true
+            readOnly: true,
+            disabled
           })}
 
           <div className={style.separator} />
@@ -89,7 +90,8 @@ const TranslationModal = (props, context) => {
             title: outputLanguage,
             inputProps: targetInputText,
             textAreaProps: targetTextArea,
-            disabled: readOnly
+            readOnly,
+            disabled
           })}
         </div>
       </div>

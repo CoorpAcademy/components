@@ -4,22 +4,21 @@ import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
-import Provider, {GetTranslateFromContext} from '../provider';
+import {useWebContext} from '../provider';
 import {WebContextValues} from '../provider/web-context';
 import style from './style.css';
 import propTypes, {StatusItemProps} from './types';
 
-const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
-  const {icon, current, value} = props;
-  const translate = GetTranslateFromContext(legacyContext);
+const Content = (props: StatusItemProps & {translate: WebContextValues['translate']}) => {
+  const {icon, current, value, translate} = props;
   let child;
   let contentAriaLabel;
   switch (icon) {
     case 'no-answer':
       child = value;
-      contentAriaLabel = translate('review_header_step_item.not_answered_question', {
+      contentAriaLabel = translate?.('review_header_step_item.not_answered_question', {
         current: current ? 'current ' : '',
-        headerStepValue: value
+        headerStepValue: value as string
       });
       break;
 
@@ -28,9 +27,9 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         <RightIcon
           className={classnames(style.rightIcon, current && style.currentRightIcon)}
           role="status"
-          aria-label={translate('review_header_step_item.correct_question', {
+          aria-label={translate?.('review_header_step_item.correct_question', {
             current: current ? 'current ' : '',
-            headerStepValue: value
+            headerStepValue: value as string
           })}
         />
       );
@@ -41,9 +40,9 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         <WrongIcon
           className={classnames(style.wrongIcon, current && style.currentWrongIcon)}
           role="alert"
-          aria-label={translate('review_header_step_item.incorrect_question', {
+          aria-label={translate?.('review_header_step_item.incorrect_question', {
             current: current ? 'current ' : '',
-            headerStepValue: value
+            headerStepValue: value as string
           })}
         />
       );
@@ -51,8 +50,8 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
 
     case 'errors-number':
       child = value;
-      contentAriaLabel = translate('bulk_import.errors_number', {
-        bulkImportErrorsNumber: value
+      contentAriaLabel = translate?.('bulk_import.errors_number', {
+        bulkImportErrorsNumber: value as string
       });
       break;
 
@@ -61,7 +60,7 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         <RightIcon
           className={classnames(style.validIcon)}
           role="status"
-          aria-label={translate('bulk_import.valid_scorm')}
+          aria-label={translate?.('bulk_import.valid_scorm')}
         />
       );
       break;
@@ -71,7 +70,7 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
         <WrongIcon
           className={classnames(style.invalidIcon)}
           role="alert"
-          aria-label={translate('bulk_import.invalid_scorm')}
+          aria-label={translate?.('bulk_import.invalid_scorm')}
         />
       );
       break;
@@ -94,6 +93,9 @@ const Content = (props: StatusItemProps, legacyContext: WebContextValues) => {
 
 const StatusItem = (props: StatusItemProps) => {
   const {icon, current, selected} = props;
+  const context = useWebContext();
+  const translate = context.translate || ((key: string) => key);
+
   return (
     <div
       className={classnames(
@@ -108,17 +110,12 @@ const StatusItem = (props: StatusItemProps) => {
       )}
       data-name="status-item"
     >
-      <Content {...props} />
+      <Content {...props} translate={translate} />
     </div>
   );
 };
 
 Content.propTypes = propTypes;
-
-Content.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
-};
 
 StatusItem.propTypes = propTypes;
 

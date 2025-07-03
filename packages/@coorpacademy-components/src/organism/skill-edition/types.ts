@@ -55,14 +55,20 @@ const translationPropTypes = PropTypes.shape({
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       onEditClick: PropTypes.func.isRequired,
-      onDeleteClick: PropTypes.func.isRequired
+      onDeleteClick: PropTypes.func,
+      readOnly: PropTypes.bool
     }).isRequired
   ),
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     disabled: PropTypes.bool
-  }).isRequired
+  }).isRequired,
+  emptyResult: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string
+  }),
+  readOnly: PropTypes.bool
 });
 
 const contentPropTypes = PropTypes.shape({
@@ -73,6 +79,7 @@ const contentPropTypes = PropTypes.shape({
     onClick: PropTypes.func.isRequired
   }).isRequired,
   list: PropTypes.shape({
+    title: PropTypes.string,
     items: PropTypes.arrayOf(
       PropTypes.shape({
         ref: PropTypes.string.isRequired,
@@ -86,7 +93,11 @@ const contentPropTypes = PropTypes.shape({
         checkbox: PropTypes.shape({
           checked: PropTypes.bool.isRequired,
           onChange: PropTypes.func.isRequired
-        }).isRequired
+        }).isRequired,
+        deleteButton: PropTypes.shape({
+          label: PropTypes.string,
+          onClick: PropTypes.func
+        })
       }).isRequired
     ),
     search: PropTypes.shape({
@@ -104,7 +115,14 @@ const contentPropTypes = PropTypes.shape({
       onChange: PropTypes.func.isRequired
     })
   }).isRequired,
-  isFetching: PropTypes.bool
+  isFetching: PropTypes.bool,
+  actionButtons: PropTypes.arrayOf(PropTypes.object),
+  checkboxWithTitle: PropTypes.shape({
+    title: PropTypes.string,
+    checked: PropTypes.bool,
+    onChange: PropTypes.func
+  }),
+  readOnly: PropTypes.bool
 });
 
 const SkillEditionPropTypes = {
@@ -114,7 +132,8 @@ const SkillEditionPropTypes = {
   }).isRequired,
   translations: translationPropTypes.isRequired,
   content: contentPropTypes.isRequired,
-  isFetching: PropTypes.bool
+  isFetching: PropTypes.bool,
+  readOnly: PropTypes.bool
 };
 
 export default SkillEditionPropTypes;
@@ -182,7 +201,8 @@ export type TranslationPropsType = {
     [ref: string]: {
       title: string;
       onEditClick: () => void;
-      onDeleteClick: () => void;
+      onDeleteClick?: () => void;
+      readOnly?: boolean;
     };
   };
   button: {
@@ -194,6 +214,7 @@ export type TranslationPropsType = {
     title: string;
     description: string;
   };
+  readOnly?: boolean;
 };
 
 export type ContentListItemType = {
@@ -219,7 +240,6 @@ export type CheckboxWithTitleProps = {
 };
 
 export type ContentPropsType = {
-  readonly?: boolean;
   title: string;
   subtitle: string;
   button: {
@@ -247,6 +267,7 @@ export type ContentPropsType = {
   actionButtons?: ButtonLinkProps[];
   checkboxWithTitle?: CheckboxWithTitleProps;
   isFetching?: boolean;
+  readOnly?: boolean;
 };
 
 export type SkillEditionPropsType = {
@@ -254,6 +275,7 @@ export type SkillEditionPropsType = {
   translations: TranslationPropsType;
   content: ContentPropsType;
   isFetching?: boolean;
+  readOnly?: boolean;
 };
 
 export type InputTextProps = {
@@ -282,6 +304,7 @@ export type InputTextareaProps = {
   name?: string;
   theme?: keyof typeof themeStyle;
   disabled?: boolean;
+  readOnly?: boolean;
   value?: string;
   hint?: string;
   error?: string;

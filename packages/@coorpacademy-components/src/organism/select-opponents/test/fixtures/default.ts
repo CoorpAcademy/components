@@ -42,7 +42,7 @@ export default {
               selected: false
             }
           ],
-          onChange: (value: any) => console.log('onChange', value),
+          onChange: (value: unknown) => console.log('onChange', value),
           onError: () => true,
           childType: 'select-multiple'
         }

@@ -411,3 +411,30 @@
   top: 23%;
   box-shadow: 0 0 1px grey;
 }
+
+.readOnly input {
+  caret-color: transparent;
+  cursor: default;
+  user-select: none;
+}
+
+.readOnly.coorpmanager input {
+  caret-color: transparent;
+  cursor: default;
+  user-select: none;
+}
+
+.readOnly.coorpmanager:focus-within input::placeholder {
+  color: transparent !important;
+}
+
+.readOnly.coorpmanager:focus-within .title.noValue {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: cm_grey_700 !important;
+  top: 14px !important;
+}
+
+.readOnly.coorpmanager input:hover {
+  background-color: cm_grey_100 !important;
+}

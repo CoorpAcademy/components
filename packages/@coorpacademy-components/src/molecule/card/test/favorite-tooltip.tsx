@@ -31,7 +31,7 @@ test('Should show the tooltip on interaction with the information button', async
   t.truthy(favoriteButton);
   fireEvent.mouseEnter(favoriteButton);
 
-  let reactToolTip: Element | null = container.querySelector(reactToolTipContent) as Element;
+  let reactToolTip: Element | null = document.querySelector(reactToolTipContent) as Element;
   t.truthy(reactToolTip);
 
   fireEvent.mouseOver(reactToolTip);
@@ -39,24 +39,24 @@ test('Should show the tooltip on interaction with the information button', async
   fireEvent.mouseLeave(favoriteButton);
   await delay(500);
 
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = document.querySelector(reactToolTipContent);
   t.falsy(reactToolTip);
 
   fireEvent.mouseEnter(favoriteButton);
   fireEvent.keyDown(favoriteButton, {key: 'Escape'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = document.querySelector(reactToolTipContent);
   t.falsy(reactToolTip);
 
   fireEvent.keyDown(favoriteButton, {key: 'A'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = document.querySelector(reactToolTipContent);
   t.falsy(reactToolTip);
 
   fireEvent.keyDown(favoriteButton, {key: 'Enter'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = document.querySelector(reactToolTipContent);
   t.truthy(reactToolTip);
 
   fireEvent.keyDown(favoriteButton, {key: 'Tab'});
-  reactToolTip = container.querySelector(reactToolTipContent);
+  reactToolTip = document.querySelector(reactToolTipContent);
   t.falsy(reactToolTip);
 
   t.pass();

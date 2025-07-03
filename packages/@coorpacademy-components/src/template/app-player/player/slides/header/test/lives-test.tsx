@@ -1,4 +1,4 @@
-import test from 'ava';
+import test, {ExecutionContext} from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {render} from '@testing-library/react';
@@ -9,7 +9,11 @@ import infiniteLivesFixture from './fixtures/infinite-lives';
 
 browserEnv();
 
-const livesVisible = (t: any, Component: any, fixture: any) => {
+const livesVisible = (
+  t: ExecutionContext,
+  Component: React.ComponentType<any>,
+  fixture: {props: any}
+) => {
   const {lives} = fixture.props;
   const shouldDisplayLives = lives !== undefined && lives !== null && lives.count !== null;
 
