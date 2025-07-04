@@ -51,7 +51,7 @@ const TranslationModal = (props, context) => {
         confirmButton: {
           onConfirm,
           label: translate('confirm'),
-          iconName: 'plus',
+          iconName: 'check',
           disabled,
           color: COLORS.cm_primary_blue
         }

@@ -176,14 +176,37 @@ const buildTranslationItems = (
   {
     title: itemTitle,
     onEditClick,
-    onDeleteClick
-  }: {title: string; onEditClick: () => void; onDeleteClick: () => void},
+    onDeleteClick,
+    readonly = false
+  }: {title: string; onEditClick: () => void; onDeleteClick: () => void; readonly?: boolean},
   index: number
 ) => ({
+  ...(readonly
+    ? {}
+    : {
+        secondButtonLink: {
+          'aria-label': 'Delete',
+          type: 'primary',
+          customStyle: {
+            width: 'fit-content',
+            backgroundColor: 'transparent'
+          },
+          hoverBackgroundColor: COLORS.cm_grey_100,
+          icon: {
+            position: 'left',
+            faIcon: {
+              name: 'trash',
+              color: COLORS.cm_grey_500,
+              size: 16
+            }
+          },
+          onClick: onDeleteClick
+        }
+      }),
   id: index,
   title: itemTitle,
   buttonLink: {
-    'aria-label': 'Edit',
+    'aria-label': readonly ? 'View' : 'Edit',
     type: 'primary',
     customStyle: {
       width: 'fit-content',
@@ -193,30 +216,12 @@ const buildTranslationItems = (
     icon: {
       position: 'left',
       faIcon: {
-        name: 'edit',
+        name: readonly ? 'eye' : 'edit',
         color: COLORS.cm_grey_500,
         size: 16
       }
     },
     onClick: onEditClick
-  },
-  secondButtonLink: {
-    'aria-label': 'Delete',
-    type: 'primary',
-    customStyle: {
-      width: 'fit-content',
-      backgroundColor: 'transparent'
-    },
-    hoverBackgroundColor: COLORS.cm_grey_100,
-    icon: {
-      position: 'left',
-      faIcon: {
-        name: 'trash',
-        color: COLORS.cm_grey_500,
-        size: 16
-      }
-    },
-    onClick: onDeleteClick
   }
 });
 
@@ -226,7 +231,8 @@ const Translations = ({
   items,
   button,
   localesOptions,
-  emptyResult
+  emptyResult,
+  readonly = false
 }: TranslationPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -270,10 +276,10 @@ const Translations = ({
     'aria-label': title,
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: translationMenuAction}}),
-      items: uncappedMap(buildTranslationItems, items),
+      items: uncappedMap((item, index) => buildTranslationItems({...item, readonly}, index), items),
       type: 'list'
     },
-    buttonMenuAction: translationMenuAction
+    buttonMenuAction: readonly ? undefined : translationMenuAction
   };
 
   return <ListItems {...translationProps} />;
@@ -407,13 +413,13 @@ const Content = ({
 };
 
 const SkillEdition = (props: SkillEditionPropsType) => {
-  const {skillInformations, translations, content} = props;
+  const {skillInformations, translations, content, readonly} = props;
 
   return (
     <div className={style.container}>
       <SkillInformations {...skillInformations} />
-      <Translations {...translations} />
-      <Content {...content} />
+      <Translations {...translations} readonly={readonly} />
+      <Content {...content} readonly={readonly} />
     </div>
   );
 };

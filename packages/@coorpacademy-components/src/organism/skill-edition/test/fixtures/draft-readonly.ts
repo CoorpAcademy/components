@@ -12,8 +12,7 @@ const updatedContentProps: ContentPropsType = {
   list: {
     ...contentProps.list,
     items: updatedContentData
-  },
-  readonly: true
+  }
 };
 
 export default {
@@ -50,6 +49,7 @@ export default {
       }
     },
     translations: translationsProps,
-    content: updatedContentProps
+    content: updatedContentProps,
+    readonly: true
   }
 };

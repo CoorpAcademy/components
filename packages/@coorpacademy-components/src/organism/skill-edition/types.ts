@@ -217,7 +217,6 @@ export type CheckboxWithTitleProps = {
 };
 
 export type ContentPropsType = {
-  readonly?: boolean;
   title: string;
   subtitle: string;
   button: {
@@ -250,6 +249,7 @@ export type SkillEditionPropsType = {
   skillInformations: SkillInformationsProps;
   translations: TranslationPropsType;
   content: ContentPropsType;
+  readonly?: boolean;
 };
 
 export type InputTextProps = {
