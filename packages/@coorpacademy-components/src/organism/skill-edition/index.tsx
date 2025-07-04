@@ -1,5 +1,5 @@
 import React from 'react';
-import {includes, isEmpty, keys, map} from 'lodash/fp';
+import {includes, isEmpty, keys, map, omit} from 'lodash/fp';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
@@ -21,12 +21,13 @@ const buildFormField = (
   type: 'text' | 'textarea',
   readonly?: boolean
 ) => {
+  const fieldWithoutOverrides = omit(['type', 'theme', 'size'], field);
   return {
+    ...(type === 'text' ? {readOnly: readonly} : {readonly}),
+    ...fieldWithoutOverrides,
     type,
     theme: 'coorpmanager',
-    size: 'large',
-    ...(type === 'text' ? {readOnly: readonly} : {readonly}),
-    ...field
+    size: 'large'
   };
 };
 

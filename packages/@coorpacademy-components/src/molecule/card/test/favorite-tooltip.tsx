@@ -31,7 +31,6 @@ test('Should show the tooltip on interaction with the information button', async
   t.truthy(favoriteButton);
   fireEvent.mouseEnter(favoriteButton);
 
-  // ReactTooltip renders to document body, not within container
   let reactToolTip: Element | null = document.querySelector(reactToolTipContent) as Element;
   t.truthy(reactToolTip);
 

@@ -118,37 +118,29 @@ test('disabled select should not change arrow icon on click and should not call 
   const user = userEvent.setup({document});
   const nativeSelect = getByTestId('native-select');
 
-  // Check that the select is disabled
   t.true(nativeSelect.disabled);
 
-  // Check that disabled class is applied
   const selectDiv = container.querySelector('.select__disabled');
   t.truthy(selectDiv);
 
-  // Arrow should be down initially
   t.truthy(getByTestId('select-arrow-down-icon'));
 
-  // Try to click on the select
   try {
     await user.click(nativeSelect);
   } catch (e) {
-    // May fail due to disabled state, which is expected
+    // May fail due to disabled state
   }
 
-  // Arrow should still be down (not changed to up)
   t.truthy(getByTestId('select-arrow-down-icon'));
 
-  // onChange should not have been called
   t.false(onChangeCalled);
 
-  // Try to change value
   try {
     await user.selectOptions(nativeSelect, 'Pouet3');
   } catch (e) {
     // Expected to fail due to disabled state
   }
 
-  // onChange should still not have been called
   t.false(onChangeCalled);
 
   unmount();

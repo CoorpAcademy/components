@@ -30,6 +30,8 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
       event.preventDefault();
       onClick();
       // Emit event to close other menus
+      // had to do it this way becasuse state is handled per item.
+      // meaning > item has knowledge of other items state.
       const customEvent = new CustomEvent(MENU_TOGGLE_EVENT, {
         detail: {menuId: menuIdRef.current}
       });
@@ -40,7 +42,6 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
     [onClick, visible]
   );
 
-  // Listen for other menus opening
   useEffect(() => {
     const handleMenuToggle = (event: Event) => {
       const customEvent = event as CustomEvent;

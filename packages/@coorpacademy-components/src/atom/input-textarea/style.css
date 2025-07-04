@@ -191,14 +191,6 @@
   padding-left: 13px;
 }
 
-.cockpit.readonly textarea {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  cursor: default;
-}
-
 /******************************* coorpmanager theme ***************************************/
 
 

@@ -37,9 +37,32 @@ items[2].tabs = [
   }
 ];
 
+// Create readonly header with published state and only archive action
+const readonlyHeader = {
+  ...HeaderWithActionsProps.props,
+  tag: {
+    label: 'Published',
+    type: 'success',
+    size: 'S'
+  },
+  saveStatus: {
+    display: false
+  },
+  bulletPointMenuButton: null,
+  actionButtons: [
+    {
+      label: 'Archive',
+      onClick: 'onClick() {}',
+      type: 'secondary',
+      iconName: 'folder-open',
+      iconColor: '#1D1D2B'
+    }
+  ]
+};
+
 export default {
   props: {
-    header: {...HeaderWithActionsProps.props, type: 'header-with-actions'},
+    header: {...readonlyHeader, type: 'header-with-actions'},
     items,
     content: {...SkillEditionReadonly.props, type: 'skill-edition'}
   }
