@@ -111,7 +111,7 @@ test('disabled select should not change arrow icon on click and should not call 
     onChangeCalled = true;
   };
 
-  const {getByTestId, container} = render(
+  const {getByTestId, container, unmount} = render(
     <Select {...disabledFixture.props} onChange={handleOnChange} />
   );
 

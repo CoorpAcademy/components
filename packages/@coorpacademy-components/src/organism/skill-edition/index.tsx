@@ -22,11 +22,11 @@ const buildFormField = (
   readonly?: boolean
 ) => {
   return {
-    ...field,
     type,
     theme: 'coorpmanager',
     size: 'large',
-    ...(type === 'text' ? {readOnly: readonly} : {readonly})
+    ...(type === 'text' ? {readOnly: readonly} : {readonly}),
+    ...field
   };
 };
 
@@ -72,26 +72,27 @@ const SkillInformations = (skillInformations: SkillInformationsProps & {readonly
     field: {
       iconPreview: iconEditor.iconPreview,
       inputText: {...iconEditor.inputText, readOnly: readonly},
-      buttonLink: iconEditor.buttonLink && !readonly
-        ? {
-            type: 'secondary',
-            label: iconEditor.buttonLink.label,
-            ariaLabel: iconEditor.buttonLink.ariaLabel,
-            dataName: 'open-icon-modal-button',
-            icon: {
-              position: 'left',
-              faIcon: {
-                name: 'arrows-rotate',
-                size: 16
+      buttonLink:
+        iconEditor.buttonLink && !readonly
+          ? {
+              type: 'secondary',
+              label: iconEditor.buttonLink.label,
+              ariaLabel: iconEditor.buttonLink.ariaLabel,
+              dataName: 'open-icon-modal-button',
+              icon: {
+                position: 'left',
+                faIcon: {
+                  name: 'arrows-rotate',
+                  size: 16
+                }
+              },
+              onClick: iconEditor.buttonLink.onClick,
+              customStyle: {
+                borderRadius: '12px',
+                fontWeight: '500'
               }
-            },
-            onClick: iconEditor.buttonLink.onClick,
-            customStyle: {
-              borderRadius: '12px',
-              fontWeight: '500'
             }
-          }
-        : undefined,
+          : undefined,
       size: 'large'
     },
     childType: 'iconEditor'
@@ -282,7 +283,13 @@ const Translations = ({
     'aria-label': title,
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: translationMenuAction}}),
-      items: uncappedMap((item, index) => buildTranslationItems({...item, readonly}, index), items),
+      items: uncappedMap(
+        (
+          item: {title: string; onEditClick: () => void; onDeleteClick: () => void},
+          index: number
+        ) => buildTranslationItems({...item, readonly}, index),
+        items
+      ),
       type: 'list'
     },
     buttonMenuAction: readonly ? undefined : translationMenuAction
