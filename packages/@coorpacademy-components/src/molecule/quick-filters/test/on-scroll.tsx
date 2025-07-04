@@ -1,8 +1,8 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {cleanup, render} from '@testing-library/react';
-import QuickFilters from '..';
+import {cleanup, render, act, fireEvent} from '@testing-library/react';
+import QuickFilters, {handleScroll} from '..';
 import defaultProps from './fixtures/default';
 import someFiltersSelected from './fixtures/with-filter-button-some-filters-selected';
 
@@ -42,15 +42,17 @@ test.afterEach(() => {
   cleanup();
 });
 
+test('handleScroll should scroll the list by the given direction and call scrollBy of listRef', t => {
+  const listRef = {current: {scrollBy: (options: {left: number}) => t.is(options.left, 120)}};
+  handleScroll(120, listRef as React.RefObject<HTMLDivElement>);
+});
+
+test('handleScroll should not throw an error when listRef is null', t => {
+  const emptyListRef = {current: null};
+  t.notThrows(() => handleScroll(120, emptyListRef as React.RefObject<HTMLDivElement>));
+});
+
 test('filterButton is displayed when filterButton props is provided', t => {
-  // const propsWithFilterButton = {
-  //   ...defaultProps,
-  //   filterButton: {
-  //     label: 'Open filters',
-  //     onClick: noop,
-  //     iconName: 'filter'
-  //   }
-  // };
   const {container} = render(<QuickFilters {...defaultProps.props} />);
   const filterButton = container.querySelector('[data-name="scroll-left-button"]') as HTMLElement;
   t.truthy(filterButton);
@@ -92,4 +94,43 @@ test('rightArrowButton is hidden when scrollWidth is superior to scrollLeft and 
   const rightArrow = container.querySelector('[data-name="scroll-right-button"]') as HTMLElement;
   t.truthy(rightArrow);
   t.is(rightArrow.style.visibility, 'hidden');
+});
+
+test('click on leftArrowButton should call handleScroll with right size scroll', t => {
+  const {container} = render(<QuickFilters {...defaultProps.props} />);
+  const list = container.querySelector('[data-name="filters-options-list"]') as HTMLElement;
+  t.truthy(list);
+
+  const calls: Array<{left: number; behavior: 'smooth'}> = [];
+  list.scrollBy = (opts: any) => calls.push(opts);
+
+  const wrapper = container.querySelector('[data-name="scroll-left-button"]') as HTMLElement;
+  t.truthy(wrapper);
+  const btn = wrapper.querySelector('button') as HTMLElement;
+  t.truthy(btn);
+
+  act(() => {
+    fireEvent.click(btn);
+  });
+
+  t.deepEqual(calls, [{left: -120, behavior: 'smooth'}]);
+});
+test('click on rightArrowButton should call handleScroll with right size scroll', t => {
+  const {container} = render(<QuickFilters {...defaultProps.props} />);
+  const list = container.querySelector('[data-name="filters-options-list"]') as HTMLElement;
+  t.truthy(list);
+
+  const calls: Array<{left: number; behavior: 'smooth'}> = [];
+  list.scrollBy = (opts: any) => calls.push(opts);
+
+  const wrapper = container.querySelector('[data-name="scroll-right-button"]') as HTMLElement;
+  t.truthy(wrapper);
+  const btn = wrapper.querySelector('button') as HTMLElement;
+  t.truthy(btn);
+
+  act(() => {
+    fireEvent.click(btn);
+  });
+
+  t.deepEqual(calls, [{left: 120, behavior: 'smooth'}]);
 });
