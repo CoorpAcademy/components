@@ -43,8 +43,9 @@
     gap: 8px;
     padding: 12px;
     flex-shrink: 0;
-    height: 48px;
+    height: 72px;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .filterSelected {
@@ -82,16 +83,27 @@
     justify-content: center;
     width: 36px;
     height: 36px;
+    cursor: pointer;
     background-color: cm_grey_100;
     border-radius: 50%;
     position: sticky;
-    right: 0;
-    box-shadow: -10px 0 10px white;
+    z-index: 1;
+    transform: translateY(-10%);
+}
+
+.rightArrowButton {
+  right: 0;                     
+  box-shadow: -10px 0 10px white;
+}
+
+.leftArrowButton {
+  left: 0;                      
+  box-shadow: 10px 0 10px white;
 }
 
 @media mobile {
     .leftArrowButton, .rightArrowButton, .filterButton {
-        display: none;
+        display: none!important;
     }
 
     .filtersList{

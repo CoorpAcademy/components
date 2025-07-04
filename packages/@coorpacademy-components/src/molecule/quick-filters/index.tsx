@@ -8,26 +8,26 @@ import {QuickFiltersProps} from './types';
 
 const SCROLL_RIGHT_SIZE = 120;
 const SCROLL_LEFT_SIZE = -120;
-
+export const handleScroll = (direction: number, listRef: React.RefObject<HTMLDivElement>) => {
+  if (listRef.current) {
+    listRef.current.scrollBy({
+      left: direction,
+      behavior: 'smooth'
+    });
+  }
+};
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
   const filtersListRef = React.useRef<HTMLDivElement>(null);
   const rightBtnRef = useRef<HTMLDivElement>(null);
   const leftBtnRef = useRef<HTMLDivElement>(null);
-  const handleScroll = useCallback((direction: number) => {
-    if (filtersListRef.current) {
-      filtersListRef.current.scrollBy({
-        left: direction,
-        behavior: 'smooth'
-      });
-    }
-  }, []);
+
   const handleScrollRight = useCallback(() => {
-    handleScroll(SCROLL_RIGHT_SIZE);
-  }, [handleScroll]);
+    handleScroll(SCROLL_RIGHT_SIZE, filtersListRef);
+  }, [filtersListRef]);
   const handleScrollLeft = useCallback(() => {
-    handleScroll(SCROLL_LEFT_SIZE);
-  }, [handleScroll]);
+    handleScroll(SCROLL_LEFT_SIZE, filtersListRef);
+  }, [filtersListRef]);
   useEffect(() => {
     const list = filtersListRef.current;
     const btn = rightBtnRef.current;
@@ -38,6 +38,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
       btn.style.visibility =
         list.scrollLeft + list.clientWidth < list.scrollWidth ? 'visible' : 'hidden';
       left.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
+      left.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
     };
 
     list.addEventListener('scroll', update);
@@ -55,9 +56,10 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
         <ButtonLink
           icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
           onClick={handleScrollLeft}
+          customStyle={{height: '36px'}}
         />
       </div>
-      <div className={style.filtersList} ref={filtersListRef}>
+      <div className={style.filtersList} ref={filtersListRef} data-name="filters-options-list">
         <div
           data-name="all-content"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
@@ -117,6 +119,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
                 }
               }}
               onClick={handleScrollRight}
+              customStyle={{height: '36px'}}
             />
           </div>
         </div>
