@@ -16,12 +16,17 @@ import propTypes, {
 } from './types';
 import style from './style.css';
 
-const buildFormField = (field: InputTextareaProps | InputTextProps, type: 'text' | 'textarea') => {
+const buildFormField = (
+  field: InputTextareaProps | InputTextProps,
+  type: 'text' | 'textarea',
+  readonly?: boolean
+) => {
   return {
     ...field,
     type,
     theme: 'coorpmanager',
-    size: 'large'
+    size: 'large',
+    ...(type === 'text' ? {readOnly: readonly} : {readonly})
   };
 };
 
@@ -53,8 +58,8 @@ const buildTitleAndInputField = ({
   };
 };
 
-const SkillInformations = (skillInformations: SkillInformationsProps) => {
-  const {form, iconEditor} = skillInformations;
+const SkillInformations = (skillInformations: SkillInformationsProps & {readonly?: boolean}) => {
+  const {form, iconEditor, readonly} = skillInformations;
   const {select, inputTextArea, inputText} = form;
 
   const iconEditorProps = {
@@ -66,8 +71,8 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
     },
     field: {
       iconPreview: iconEditor.iconPreview,
-      inputText: iconEditor.inputText,
-      buttonLink: iconEditor.buttonLink
+      inputText: {...iconEditor.inputText, readOnly: readonly},
+      buttonLink: iconEditor.buttonLink && !readonly
         ? {
             type: 'secondary',
             label: iconEditor.buttonLink.label,
@@ -106,7 +111,8 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
         'aria-label': select.field['aria-label'],
         onChange: select.field.onChange,
         theme: 'skillDetail',
-        size: 'large'
+        size: 'large',
+        disabled: readonly
       }
     },
     {
@@ -115,14 +121,14 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
         required: true,
         childType: 'inputText'
       }),
-      field: buildFormField(inputText.field, 'text')
+      field: buildFormField(inputText.field, 'text', readonly)
     },
     {
       ...buildTitleAndInputField({
         title: inputTextArea.title,
         childType: 'inputTextArea'
       }),
-      field: buildFormField(inputTextArea.field, 'textarea')
+      field: buildFormField(inputTextArea.field, 'textarea', readonly)
     }
   ];
 
@@ -376,7 +382,9 @@ const Content = ({
     },
     search: {
       ...search,
-      theme: 'coorpmanager'
+      theme: 'coorpmanager',
+      // Keep search interactive even in readonly mode
+      disabled: false
     },
     actionButtons: readonly
       ? []
@@ -417,7 +425,7 @@ const SkillEdition = (props: SkillEditionPropsType) => {
 
   return (
     <div className={style.container}>
-      <SkillInformations {...skillInformations} />
+      <SkillInformations {...skillInformations} readonly={readonly} />
       <Translations {...translations} readonly={readonly} />
       <Content {...content} readonly={readonly} />
     </div>
