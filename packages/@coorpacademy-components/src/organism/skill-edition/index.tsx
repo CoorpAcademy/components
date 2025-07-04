@@ -196,7 +196,7 @@ const buildTranslationItems = (
             position: 'left',
             faIcon: {
               name: 'trash',
-              color: COLORS.cm_grey_500,
+              color: COLORS.neutral_500,
               size: 16
             }
           },
@@ -217,7 +217,7 @@ const buildTranslationItems = (
       position: 'left',
       faIcon: {
         name: readonly ? 'eye' : 'edit',
-        color: COLORS.cm_grey_500,
+        color: COLORS.neutral_500,
         size: 16
       }
     },
