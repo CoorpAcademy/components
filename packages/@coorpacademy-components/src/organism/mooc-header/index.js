@@ -123,7 +123,8 @@ class MoocHeader extends React.Component {
     ),
     onMenuOpen: PropTypes.func,
     onMenuClose: PropTypes.func,
-    enableScroll: PropTypes.bool
+    enableScroll: PropTypes.bool,
+    searchIconAriaLabel: PropTypes.string
   };
 
   static contextTypes = {
@@ -283,16 +284,19 @@ class MoocHeader extends React.Component {
         isFocus: false
       });
     } else {
-      this.setState({
-        isClosing: true
-      });
-
-      requestAnimationFrame(() => {
-        this.setState({
-          isClosing: false,
-          isClosingStep2: true
-        });
-      });
+      this.setState(
+        {
+          isClosing: true
+        },
+        () => {
+          requestAnimationFrame(() => {
+            this.setState({
+              isClosing: false,
+              isClosingStep2: true
+            });
+          });
+        }
+      );
     }
   }
 
@@ -386,7 +390,8 @@ class MoocHeader extends React.Component {
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
       'active-page-aria-label': activePageAriaLabel,
-      'group-settings-aria-label': groupAriaLbale
+      'group-settings-aria-label': groupAriaLbale,
+      searchIconAriaLabel
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen, isClosing, isClosingStep2} =
       this.state;
@@ -799,6 +804,7 @@ class MoocHeader extends React.Component {
             inputRef={this.setSearchInputRef}
             search-reset-aria-label={searchResetAriaLabel}
             theme="mooc"
+            searchIconAriaLabel={searchIconAriaLabel}
           />
         </div>
       );

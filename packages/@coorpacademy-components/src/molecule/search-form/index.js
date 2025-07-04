@@ -1,8 +1,8 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import Search from '../../atom/input-search';
+import Icon from '../../atom/icon';
 import style from './style.css';
 
 const SearchForm = (props, context) => {
@@ -18,7 +18,8 @@ const SearchForm = (props, context) => {
     inputRef,
     'search-reset-aria-label': searchResetAriaLabel,
     dataTestId,
-    theme
+    theme,
+    searchIconAriaLabel
   } = props;
   const handleSubmit = useMemo(
     () => evt => {
@@ -60,6 +61,7 @@ const SearchForm = (props, context) => {
         inputRef={inputRef}
         dataTestId={dataTestId}
         theme={theme}
+        searchIconAriaLabel={searchIconAriaLabel}
       />
       <div
         data-name="search-form-reset"
@@ -67,7 +69,7 @@ const SearchForm = (props, context) => {
         onMouseDown={handleReset}
         className={clearClassName}
       >
-        <FontAwesomeIcon icon="xmark" className={style.clearIcon} />
+        <Icon iconName="xmark" className={style.clearIcon} aria-label={searchResetAriaLabel} />
       </div>
     </form>
   );
@@ -85,7 +87,8 @@ SearchForm.propTypes = {
   search: PropTypes.shape(Search.propTypes),
   'search-reset-aria-label': PropTypes.string,
   dataTestId: PropTypes.string,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  searchIconAriaLabel: PropTypes.string
 };
 
 export default SearchForm;

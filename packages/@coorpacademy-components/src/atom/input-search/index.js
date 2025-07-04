@@ -26,7 +26,8 @@ const Search = props => {
     onKeyDown,
     inputRef,
     theme = 'default',
-    dataTestId
+    dataTestId,
+    searchIconAriaLabel
   } = props;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
 
@@ -70,6 +71,8 @@ const Search = props => {
             className={style.searchIcon}
             data-name="search-icon"
             onMouseDown={handleMouseDown}
+            aria-label={searchIconAriaLabel}
+            role="img"
           />
           {showTitle ? (
             <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
@@ -115,7 +118,8 @@ Search.propTypes = {
   onKeyDown: PropTypes.func,
   inputRef: PropTypes.func,
   theme: PropTypes.oneOf(['default', 'coorpmanager', 'mooc']),
-  dataTestId: PropTypes.string
+  dataTestId: PropTypes.string,
+  searchIconAriaLabel: PropTypes.string
 };
 
 export default Search;
