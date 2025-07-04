@@ -27,18 +27,21 @@
 
 .wrapper {
   min-height: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
   position: fixed;
   width: 100%;
   height: 60px;
+  left: 0;
   box-sizing: border-box;
   border-bottom: 1px solid light;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
   background-color: white;
 }
 
@@ -47,8 +50,6 @@
   justify-content: flex-start;
   flex: 1 0 0%;
   height: 100%;
-  border-right: solid 1px light;
-  border-left: solid 1px light;
   background-color: white;
 }
 
@@ -656,15 +657,139 @@
   }
 }
 
-@media tablet {
+.rightZoneFocus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.rightZone{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-right: 20px;
+}
+
+.searchBarActive .floatingSearchBar {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 2000;
+  pointer-events: none;
+  align-items: center;
+  background-color: transparent;
+}
+
+.searchBarActive .floatingSearchBar > * {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 936px;
+  background-color: transparent;
+}
+
+.floatingSearchBar {
+  width: 100%;
+  max-width: 400px;
+  transition: max-width 0.3s ease;
+}
+
+.floatingSearchBar--expanded {
+  max-width: 936px;
+}
+
+.floatingSearchBar--closing {
+  max-width: 603px;
+}
+
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(29, 29, 43, 0.20);
+  backdrop-filter: blur(2px);
+  z-index: 1500;
+  pointer-events: auto;
+}
+
+@media tablet, mobile {
   .header {
     flex-direction: row;
-    padding: 0;
     background-color: white;
-    justify-content: flex-start;
+    justify-content: center;
     height: auto;
     align-items: center;
     min-height: 60px;
+    padding: 0 10px;
+  }
+
+  .mobileSearchContainer {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    max-width: calc(100% - 20px);
+    transition: max-width 0.3s ease;
+  }
+
+  .mobileSearchContainerFocus {
+    position: fixed;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    width: 100%;
+    z-index: 15;
+    background-color: transparent;
+    border-radius: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transition: max-width 0.3s ease;
+  }
+
+  .searchBar {
+    background-color: transparent;
+
+  }
+
+  .logoWrapperMobileHidden {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .logoWrapperMobileHidden .navMobile {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .mobileSearchOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    animation: overlayFadeIn 0.3s ease;
+  }
+
+  @keyframes overlayFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .open {
@@ -677,6 +802,9 @@
     background-color: white;
     z-index: 2;
     margin: 0 8px 0 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateX(0);
   }
 
   .logo {
@@ -685,6 +813,7 @@
 
   .navMobile {
     display: flex;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     align-items: center;
     cursor: pointer;
     flex: 0 1 auto;
@@ -873,5 +1002,49 @@
 
   .userAvatarWrapper {
     display: none;
+  }
+
+
+
+  .searchBarActive .floatingSearchBar > * {
+    height: auto;
+    width: 100%;
+  }
+
+  .rightZoneFocus {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    z-index: 1500;
+    position: absolute;
+  }
+
+  .rightZone{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    margin-right: 0px;
+    padding: 0 10px;
+  }
+
+  .floatingSearchBar {
+    width: 100%;
+    transition: all 0.3s ease;
+    z-index: 1600;
+    position: relative;
+  }
+  
+  .floatingSearchBar--expanded {
+    width: calc(100vw - 20px);
+    position: fixed;
+    left: 50vw;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 1600;
   }
 }

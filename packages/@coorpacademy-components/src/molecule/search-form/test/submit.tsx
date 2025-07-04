@@ -2,7 +2,12 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faXmark} from '@fortawesome/pro-solid-svg-icons';
 import SearchForm from '..';
+
+// Add xmark icon to FontAwesome library for tests
+library.add(faXmark);
 
 browserEnv();
 

@@ -123,7 +123,8 @@ class MoocHeader extends React.Component {
     ),
     onMenuOpen: PropTypes.func,
     onMenuClose: PropTypes.func,
-    enableScroll: PropTypes.bool
+    enableScroll: PropTypes.bool,
+    searchIconAriaLabel: PropTypes.string
   };
 
   static contextTypes = {
@@ -133,11 +134,14 @@ class MoocHeader extends React.Component {
 
   constructor(props) {
     super(props);
+    this.isMobile = getIsMobile(navigator?.userAgent, true); // true = inclure les tablettes
     this.state = {
       isSettingsOpen: false,
       isMenuOpen: false,
       isFocus: false,
-      isToolTipOpen: false
+      isToolTipOpen: false,
+      isClosing: false,
+      isClosingStep2: false
     };
 
     this.handleSettingsToggle = this.handleSettingsToggle.bind(this);
@@ -154,6 +158,17 @@ class MoocHeader extends React.Component {
     this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
     this.handleOnMouseLeave = this.handleOnMouseLeave.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleSearchKeyDown = this.handleSearchKeyDown.bind(this);
+    this.searchBarRef = null;
+    this.searchInputRef = null;
+    this.setSearchBarRef = this.setSearchBarRef.bind(this);
+    this.setSearchInputRef = this.setSearchInputRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.handleTransitionEnd = this.handleTransitionEnd.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -164,6 +179,41 @@ class MoocHeader extends React.Component {
     } else {
       document.removeEventListener('click', this._checkOnClose);
       document.removeEventListener('touchstart', this._checkOnClose);
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  setSearchBarRef(ref) {
+    this.searchBarRef = ref;
+  }
+
+  setSearchInputRef(ref) {
+    this.searchInputRef = ref;
+  }
+
+  handleClickOutside(event) {
+    const {isFocus} = this.state;
+    if (isFocus) {
+      if (event.target.getAttribute('data-name') === 'mobile-overlay') {
+        return;
+      }
+
+      const resetButton =
+        event.target.getAttribute('data-name') === 'search-form-reset' ||
+        event.target.closest('[data-name="search-form-reset"]');
+
+      if (resetButton) {
+        return;
+      }
+
+      if (this.searchBarRef && this.searchBarRef.contains(event.target)) {
+        return;
+      }
+
+      this.handleOnBlur();
     }
   }
 
@@ -199,6 +249,17 @@ class MoocHeader extends React.Component {
 
   handleSubmitSearch() {
     const {onSubmitSearch} = this.props;
+
+    const searchInput = this.searchInputRef || document.querySelector('input[name="search"]');
+    if (searchInput) {
+      searchInput.blur();
+    }
+
+    this.setState({
+      isFocus: false,
+      isClosing: false,
+      isClosingStep2: false
+    });
     if (onSubmitSearch) {
       onSubmitSearch();
     }
@@ -218,9 +279,36 @@ class MoocHeader extends React.Component {
   }
 
   handleOnBlur() {
-    this.setState(prevState => ({
-      isFocus: false
-    }));
+    if (this.isMobile) {
+      this.setState({
+        isFocus: false
+      });
+    } else {
+      this.setState(
+        {
+          isClosing: true
+        },
+        () => {
+          requestAnimationFrame(() => {
+            this.setState({
+              isClosing: false,
+              isClosingStep2: true
+            });
+          });
+        }
+      );
+    }
+  }
+
+  handleTransitionEnd(event) {
+    const {isClosingStep2} = this.state;
+    if ((event.propertyName === 'max-width' || event.propertyName === 'width') && isClosingStep2) {
+      this.setState({
+        isFocus: false,
+        isClosing: false,
+        isClosingStep2: false
+      });
+    }
   }
 
   handleOnMenuOpen() {
@@ -267,6 +355,13 @@ class MoocHeader extends React.Component {
     }
   }
 
+  handleSearchKeyDown(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      this.handleSubmitSearch();
+    }
+  }
+
   createMenuButtons = (items, primaryColor) => {
     return items.map(item => ({
       label: item.title,
@@ -284,6 +379,7 @@ class MoocHeader extends React.Component {
 
   render() {
     if (isEmpty(this.props)) return null;
+
     const {
       logo = {},
       pages: items,
@@ -294,12 +390,13 @@ class MoocHeader extends React.Component {
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
       'active-page-aria-label': activePageAriaLabel,
-      'group-settings-aria-label': groupAriaLbale
+      'group-settings-aria-label': groupAriaLbale,
+      searchIconAriaLabel
     } = this.props;
-    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen} = this.state;
+    const {isFocus, isSettingsOpen, isMenuOpen, isToolTipOpen, isClosing, isClosingStep2} =
+      this.state;
     const {translate, skin} = this.context;
-    const userAgent = navigator?.userAgent;
-    const isMobile = getIsMobile(userAgent);
+    const isMobile = this.isMobile;
 
     const {
       'aria-label': logoAriaLabel,
@@ -566,7 +663,6 @@ class MoocHeader extends React.Component {
         </div>
       );
     }
-
     if (settings) {
       const settingsElements = settings.map((setting, index) => {
         let settingView = null;
@@ -696,7 +792,7 @@ class MoocHeader extends React.Component {
       searchFormView = (
         <div
           data-name="Search-Bar"
-          className={isMenuOpen ? style.hiddenSearchBar : style.searchBar}
+          className={isMenuOpen && !this.isMobile ? style.hiddenSearchBar : style.searchBar}
         >
           <SearchForm
             search={search}
@@ -704,7 +800,11 @@ class MoocHeader extends React.Component {
             onReset={this.handleResetSearch}
             onSearchFocus={this.handleOnFocus}
             onSearchBlur={this.handleOnBlur}
+            onSearchKeyDown={this.handleSearchKeyDown}
+            inputRef={this.setSearchInputRef}
             search-reset-aria-label={searchResetAriaLabel}
+            theme="mooc"
+            searchIconAriaLabel={searchIconAriaLabel}
           />
         </div>
       );
@@ -718,7 +818,10 @@ class MoocHeader extends React.Component {
           className={isMenuOpen ? style.open : style.header}
         >
           <div
-            className={style.logoWrapper}
+            className={classnames(
+              style.logoWrapper,
+              this.isMobile && isFocus && style.logoWrapperMobileHidden
+            )}
             aria-label={toolTipText}
             onMouseOver={this.handleOnMouseOver}
             onMouseLeave={this.handleOnMouseLeave}
@@ -773,15 +876,61 @@ class MoocHeader extends React.Component {
               ) : null}
             </Link>
           </div>
-          {searchFormView}
-          <nav
-            className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
-            data-name="menu-wrapper"
-          >
-            {pagesView}
-            {userView || linksView}
-            {settingsView}
-          </nav>
+          {this.isMobile ? (
+            <>
+              <div
+                className={isFocus ? style.mobileSearchContainerFocus : style.mobileSearchContainer}
+                ref={this.setSearchBarRef}
+              >
+                {searchFormView}
+              </div>
+              {isFocus ? (
+                <div
+                  className={style.mobileSearchOverlay}
+                  onClick={this.handleOnBlur}
+                  data-name="mobile-overlay"
+                />
+              ) : null}
+              <nav
+                className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
+                data-name="menu-wrapper"
+              >
+                {pagesView}
+                {userView || linksView}
+                {settingsView}
+              </nav>
+            </>
+          ) : (
+            <div
+              className={classnames(
+                {[style.rightZone]: !isFocus && !isClosing && !isClosingStep2},
+                {[style.rightZoneFocus]: isFocus || isClosing || isClosingStep2},
+                {[style.searchBarActive]: isFocus || isClosing || isClosingStep2}
+              )}
+            >
+              <div
+                className={classnames(style.floatingSearchBar, {
+                  [style['floatingSearchBar--expanded']]: isFocus && !isClosing && !isClosingStep2,
+                  [style['floatingSearchBar--closing']]: isClosing
+                })}
+                ref={this.setSearchBarRef}
+                onTransitionEnd={this.handleTransitionEnd}
+              >
+                {searchFormView}
+              </div>
+              {isFocus || isClosing || isClosingStep2 ? (
+                <div className={style.searchOverlay} onClick={this.handleOnBlur} />
+              ) : null}
+              <nav
+                className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
+                data-name="menu-wrapper"
+              >
+                {pagesView}
+                {userView || linksView}
+                {settingsView}
+              </nav>
+            </div>
+          )}
         </div>
       </header>
     );
