@@ -1,7 +1,10 @@
 import test from 'ava';
+import browserEnv from 'browser-env';
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {cleanup, render} from '@testing-library/react';
 import QuickFilters from '..';
+
+browserEnv();
 
 const defaultProps = {
   primaryOption: {
@@ -134,28 +137,75 @@ const defaultProps = {
   ]
 };
 
-test('clicking left arrow calls scrollBy with -120', t => {
-  const {container} = render(<QuickFilters {...defaultProps} />);
-  const list = container.querySelector(`.${'filtersList'}`) || container.querySelector('div');
-  const calls: any[] = [];
-  if (list) list.scrollBy = (opts: any) => calls.push(opts);
+const mockComputedStyle = () => {
+  Object.defineProperty(window, 'getComputedStyle', {
+    value: (el: HTMLElement) => ({visibility: el.style.visibility}),
+    configurable: true
+  });
+};
 
-  const leftBtn = container.querySelector('[data-name="scroll-left-button"]') as HTMLDivElement;
-  t.truthy(leftBtn);
-  fireEvent.click(leftBtn);
+let clientWidth = 0;
+let scrollWidth = 0;
+let scrollLeft = 0;
 
-  t.deepEqual(calls, [{left: -120, behavior: 'smooth'}]);
+test.before(() => {
+  mockComputedStyle();
+  Object.defineProperty(HTMLElement.prototype, 'clientWidth', {
+    get() {
+      return clientWidth;
+    }
+  });
+  Object.defineProperty(HTMLElement.prototype, 'scrollWidth', {
+    get() {
+      return scrollWidth;
+    }
+  });
+  Object.defineProperty(HTMLElement.prototype, 'scrollLeft', {
+    get() {
+      return scrollLeft;
+    },
+    configurable: true
+  });
 });
 
-test('clicking right arrow calls scrollBy with 120', t => {
+test.afterEach(() => {
+  cleanup();
+});
+
+test('leftArrow and rightArrow should be hidden when filters is setup', t => {
   const {container} = render(<QuickFilters {...defaultProps} />);
-  const list = container.querySelector(`.${'filtersList'}`) || container.querySelector('div');
-  const calls: any[] = [];
-  if (list) list.scrollBy = (opts: any) => calls.push(opts);
+  const leftArrow = container.querySelector('[data-name="scroll-left-button"]') as HTMLElement;
+  const rightArrow = container.querySelector('[data-name="scroll-right-button"]') as HTMLElement;
+  t.truthy(leftArrow);
+  t.truthy(rightArrow);
+  t.is(leftArrow.style.visibility, 'hidden');
+  t.is(rightArrow.style.visibility, 'hidden');
+});
 
-  const rightBtn = container.querySelector('[data-name="scroll-right-button"]') as HTMLDivElement;
-  t.truthy(rightBtn);
-  fireEvent.click(rightBtn);
+test('leftArrowButton is visible when scroll update is permitted', t => {
+  scrollLeft = 120; // default user behavior pixel scrolled
+  const {container} = render(<QuickFilters {...defaultProps} />);
+  const leftArrow = container.querySelector('[data-name="scroll-left-button"]') as HTMLElement;
+  t.truthy(leftArrow);
+  t.is(leftArrow.style.visibility, 'visible');
+});
 
-  t.deepEqual(calls, [{left: 120, behavior: 'smooth'}]);
+test('rightArrowButton is visible when scrollWidth is inferior to scrollLeft and clientWidth', t => {
+  scrollWidth = 200;
+  clientWidth = 100;
+  scrollLeft = 1;
+  const {container} = render(<QuickFilters {...defaultProps} />);
+  const rightArrow = container.querySelector('[data-name="scroll-right-button"]') as HTMLElement;
+  t.truthy(rightArrow);
+  t.is(rightArrow.style.visibility, 'visible');
+});
+
+test('rightArrowButton is hidden when scrollWidth is superior to scrollLeft and clientWidth', t => {
+  scrollWidth = 100;
+  clientWidth = 200;
+  scrollLeft = 1;
+  const {container} = render(<QuickFilters {...defaultProps} />);
+  const rightArrow = container.querySelector('[data-name="scroll-right-button"]') as HTMLElement;
+  t.truthy(rightArrow);
+  t.is(rightArrow.style.visibility, 'hidden');
 });
