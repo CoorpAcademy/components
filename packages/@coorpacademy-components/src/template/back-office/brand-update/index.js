@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import find from 'lodash/fp/find';
+import some from 'lodash/fp/some';
 import classNames from 'classnames';
 import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
@@ -263,10 +265,18 @@ const BrandUpdate = props => {
   const popinView = buildPopin(popin);
   const titleView = buildTitle(title);
 
+  const hasVisibleBulletPointMenu =
+    content.type === 'list-content' &&
+    pipe(
+      getOr([], 'content.items'),
+      some(pipe(getOr([], 'bulletPointMenuButton.buttons'), buttons => buttons.length > 0))
+    )(content);
+
   const contentStyle = classNames([
     style.content,
     !isEmpty(notifications) && style.contentWithNotifications,
-    contentFixHeight && style.contentFixHeight
+    contentFixHeight && style.contentFixHeight,
+    hasVisibleBulletPointMenu && style.contentListWithBulletPointMenu
   ]);
 
   return (

@@ -109,6 +109,11 @@
 .contentFixHeight {
   height: calc(100% - 124px);
 }
+
+.contentListWithBulletPointMenu {
+  overflow: visible;
+}
+
 .selectedElement {
   font-size: 12px;
   background-color: cm_grey_100;
