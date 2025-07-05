@@ -5,9 +5,13 @@ import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import {convert} from 'css-color-function';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {fas} from '@fortawesome/pro-solid-svg-icons';
+import {library} from '@fortawesome/fontawesome-svg-core';
 import Provider from '../provider';
 import {COLORS} from '../../variables/colors';
 import style from './style.css';
+
+library.add(fas);
 
 const LUMINOSITY_DELTA = 0.08;
 const {cm_primary_blue: DEFAULT_BACKGROUND_COLOR} = COLORS;
