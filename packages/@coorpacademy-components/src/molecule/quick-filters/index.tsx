@@ -38,6 +38,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
       btn.style.visibility =
         list.scrollLeft + list.clientWidth < list.scrollWidth ? 'visible' : 'hidden';
       left.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
+      left.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
     };
 
     list.addEventListener('scroll', update);

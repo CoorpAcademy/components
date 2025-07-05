@@ -91,7 +91,7 @@
 
 @media mobile {
     .leftArrowButton, .rightArrowButton, .filterButton {
-        display: none;
+        display: none!important;
     }
 
     .filtersList{
