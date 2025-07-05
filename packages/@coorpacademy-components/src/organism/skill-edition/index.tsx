@@ -1,5 +1,5 @@
 import React from 'react';
-import {includes, isEmpty, keys, map} from 'lodash/fp';
+import {includes, isEmpty, keys, map, omit} from 'lodash/fp';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
@@ -16,9 +16,15 @@ import propTypes, {
 } from './types';
 import style from './style.css';
 
-const buildFormField = (field: InputTextareaProps | InputTextProps, type: 'text' | 'textarea') => {
+const buildFormField = (
+  field: InputTextareaProps | InputTextProps,
+  type: 'text' | 'textarea',
+  readonly?: boolean
+) => {
+  const fieldWithoutOverrides = omit(['type', 'theme', 'size'], field);
   return {
-    ...field,
+    ...(type === 'text' ? {readOnly: readonly} : {readonly}),
+    ...fieldWithoutOverrides,
     type,
     theme: 'coorpmanager',
     size: 'large'
@@ -53,8 +59,8 @@ const buildTitleAndInputField = ({
   };
 };
 
-const SkillInformations = (skillInformations: SkillInformationsProps) => {
-  const {form, iconEditor} = skillInformations;
+const SkillInformations = (skillInformations: SkillInformationsProps & {readonly?: boolean}) => {
+  const {form, iconEditor, readonly} = skillInformations;
   const {select, inputTextArea, inputText} = form;
 
   const iconEditorProps = {
@@ -66,27 +72,28 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
     },
     field: {
       iconPreview: iconEditor.iconPreview,
-      inputText: iconEditor.inputText,
-      buttonLink: iconEditor.buttonLink
-        ? {
-            type: 'secondary',
-            label: iconEditor.buttonLink.label,
-            ariaLabel: iconEditor.buttonLink.ariaLabel,
-            dataName: 'open-icon-modal-button',
-            icon: {
-              position: 'left',
-              faIcon: {
-                name: 'arrows-rotate',
-                size: 16
+      inputText: {...iconEditor.inputText, readOnly: readonly},
+      buttonLink:
+        iconEditor.buttonLink && !readonly
+          ? {
+              type: 'secondary',
+              label: iconEditor.buttonLink.label,
+              ariaLabel: iconEditor.buttonLink.ariaLabel,
+              dataName: 'open-icon-modal-button',
+              icon: {
+                position: 'left',
+                faIcon: {
+                  name: 'arrows-rotate',
+                  size: 16
+                }
+              },
+              onClick: iconEditor.buttonLink.onClick,
+              customStyle: {
+                borderRadius: '12px',
+                fontWeight: '500'
               }
-            },
-            onClick: iconEditor.buttonLink.onClick,
-            customStyle: {
-              borderRadius: '12px',
-              fontWeight: '500'
             }
-          }
-        : undefined,
+          : undefined,
       size: 'large'
     },
     childType: 'iconEditor'
@@ -106,7 +113,8 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
         'aria-label': select.field['aria-label'],
         onChange: select.field.onChange,
         theme: 'skillDetail',
-        size: 'large'
+        size: 'large',
+        disabled: readonly
       }
     },
     {
@@ -115,14 +123,14 @@ const SkillInformations = (skillInformations: SkillInformationsProps) => {
         required: true,
         childType: 'inputText'
       }),
-      field: buildFormField(inputText.field, 'text')
+      field: buildFormField(inputText.field, 'text', readonly)
     },
     {
       ...buildTitleAndInputField({
         title: inputTextArea.title,
         childType: 'inputTextArea'
       }),
-      field: buildFormField(inputTextArea.field, 'textarea')
+      field: buildFormField(inputTextArea.field, 'textarea', readonly)
     }
   ];
 
@@ -176,14 +184,37 @@ const buildTranslationItems = (
   {
     title: itemTitle,
     onEditClick,
-    onDeleteClick
-  }: {title: string; onEditClick: () => void; onDeleteClick: () => void},
+    onDeleteClick,
+    readonly = false
+  }: {title: string; onEditClick: () => void; onDeleteClick: () => void; readonly?: boolean},
   index: number
 ) => ({
+  ...(readonly
+    ? {}
+    : {
+        secondButtonLink: {
+          'aria-label': 'Delete',
+          type: 'primary',
+          customStyle: {
+            width: 'fit-content',
+            backgroundColor: 'transparent'
+          },
+          hoverBackgroundColor: COLORS.cm_grey_100,
+          icon: {
+            position: 'left',
+            faIcon: {
+              name: 'trash',
+              color: COLORS.neutral_500,
+              size: 16
+            }
+          },
+          onClick: onDeleteClick
+        }
+      }),
   id: index,
   title: itemTitle,
   buttonLink: {
-    'aria-label': 'Edit',
+    'aria-label': readonly ? 'View' : 'Edit',
     type: 'primary',
     customStyle: {
       width: 'fit-content',
@@ -193,30 +224,12 @@ const buildTranslationItems = (
     icon: {
       position: 'left',
       faIcon: {
-        name: 'edit',
-        color: COLORS.cm_grey_500,
+        name: readonly ? 'eye' : 'edit',
+        color: COLORS.neutral_500,
         size: 16
       }
     },
     onClick: onEditClick
-  },
-  secondButtonLink: {
-    'aria-label': 'Delete',
-    type: 'primary',
-    customStyle: {
-      width: 'fit-content',
-      backgroundColor: 'transparent'
-    },
-    hoverBackgroundColor: COLORS.cm_grey_100,
-    icon: {
-      position: 'left',
-      faIcon: {
-        name: 'trash',
-        color: COLORS.cm_grey_500,
-        size: 16
-      }
-    },
-    onClick: onDeleteClick
   }
 });
 
@@ -226,7 +239,8 @@ const Translations = ({
   items,
   button,
   localesOptions,
-  emptyResult
+  emptyResult,
+  readonly = false
 }: TranslationPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -270,10 +284,16 @@ const Translations = ({
     'aria-label': title,
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: translationMenuAction}}),
-      items: uncappedMap(buildTranslationItems, items),
+      items: uncappedMap(
+        (
+          item: {title: string; onEditClick: () => void; onDeleteClick: () => void},
+          index: number
+        ) => buildTranslationItems({...item, readonly}, index),
+        items
+      ),
       type: 'list'
     },
-    buttonMenuAction: translationMenuAction
+    buttonMenuAction: readonly ? undefined : translationMenuAction
   };
 
   return <ListItems {...translationProps} />;
@@ -370,7 +390,9 @@ const Content = ({
     },
     search: {
       ...search,
-      theme: 'coorpmanager'
+      theme: 'coorpmanager',
+      // Keep search interactive even in readonly mode
+      disabled: false
     },
     actionButtons: readonly
       ? []
@@ -407,13 +429,13 @@ const Content = ({
 };
 
 const SkillEdition = (props: SkillEditionPropsType) => {
-  const {skillInformations, translations, content} = props;
+  const {skillInformations, translations, content, readonly} = props;
 
   return (
     <div className={style.container}>
-      <SkillInformations {...skillInformations} />
-      <Translations {...translations} />
-      <Content {...content} />
+      <SkillInformations {...skillInformations} readonly={readonly} />
+      <Translations {...translations} readonly={readonly} />
+      <Content {...content} readonly={readonly} />
     </div>
   );
 };

@@ -411,3 +411,15 @@
   top: 23%;
   box-shadow: 0 0 1px grey;
 }
+
+.readOnly input {
+  caret-color: transparent;
+  cursor: default;
+  user-select: none;
+}
+
+.readOnly.coorpmanager input {
+  caret-color: transparent;
+  cursor: default;
+  user-select: none;
+}

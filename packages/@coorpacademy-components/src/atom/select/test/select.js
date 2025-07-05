@@ -8,6 +8,7 @@ import userEvent from '@testing-library/user-event';
 import Select from '..';
 import playerFixture from './fixtures/player';
 import defaultFixture from './fixtures/default';
+import disabledFixture from './fixtures/disabled';
 
 browserEnv();
 
@@ -39,7 +40,7 @@ test('classnames: should pass the styles pertinent to a player theme, text color
   t.truthy(selectSpan);
   t.is(selectSpan.className, 'select__selectSpan select__noLabelCommon');
 
-  unmount(); // to allow rendering on next test
+  unmount();
 });
 
 test('text color: should not use skin color (selected, invalid option, player), long label', t => {
@@ -60,15 +61,19 @@ test('text color: should not use skin color (selected, invalid option, player), 
   t.truthy(selectSpan);
   t.is(selectSpan.className, 'select__selectSpan select__noLabelCommon select__longLabel');
 
-  unmount(); // to allow rendering on next test
+  unmount();
 });
 
 test('after onClick, arrow up icon should be shown, then arrow down on blur/mouse leave', async t => {
-  const {getByTestId} = render(<Select {...defaultFixture.props} />);
+  const {getByTestId, queryByTestId, unmount} = render(<Select {...defaultFixture.props} />);
 
   const user = userEvent.setup({document});
   const nativeSelect = getByTestId('native-select');
 
+  // Initially, arrow down should be shown
+  t.falsy(queryByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-down-icon'));
+
   try {
     await user.selectOptions(nativeSelect, 'Pouet3');
   } catch (e) {
@@ -80,10 +85,13 @@ test('after onClick, arrow up icon should be shown, then arrow down on blur/mous
     }
   }
 
-  t.truthy(getByTestId('select-arrow-up-icon'));
+  // After clicking, arrow up should be shown
+  t.truthy(queryByTestId('select-arrow-up-icon'));
+  t.falsy(queryByTestId('select-arrow-down-icon'));
 
   fireEvent.mouseLeave(nativeSelect);
-  t.truthy(getByTestId('select-arrow-down-icon'));
+  t.falsy(queryByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-down-icon'));
 
   try {
     await user.selectOptions(nativeSelect, 'Pouet3');
@@ -96,8 +104,53 @@ test('after onClick, arrow up icon should be shown, then arrow down on blur/mous
     }
   }
 
-  t.truthy(getByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-up-icon'));
+  t.falsy(queryByTestId('select-arrow-down-icon'));
 
   fireEvent.blur(nativeSelect);
+  t.falsy(queryByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-down-icon'));
+
+  unmount();
+});
+
+test('disabled select should not change arrow icon on click and should not call onChange', async t => {
+  let onChangeCalled = false;
+  const handleOnChange = () => {
+    onChangeCalled = true;
+  };
+
+  const {getByTestId, container, unmount} = render(
+    <Select {...disabledFixture.props} onChange={handleOnChange} />
+  );
+
+  const user = userEvent.setup({document});
+  const nativeSelect = getByTestId('native-select');
+
+  t.true(nativeSelect.disabled);
+
+  const selectDiv = container.querySelector('.select__disabled');
+  t.truthy(selectDiv);
+
   t.truthy(getByTestId('select-arrow-down-icon'));
+
+  try {
+    await user.click(nativeSelect);
+  } catch (e) {
+    // May fail due to disabled state
+  }
+
+  t.truthy(getByTestId('select-arrow-down-icon'));
+
+  t.false(onChangeCalled);
+
+  try {
+    await user.selectOptions(nativeSelect, 'Pouet3');
+  } catch (e) {
+    // Expected to fail due to disabled state
+  }
+
+  t.false(onChangeCalled);
+
+  unmount();
 });

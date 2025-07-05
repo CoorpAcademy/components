@@ -30,6 +30,7 @@ const InputText = props => {
     theme = 'default',
     description,
     disabled,
+    readOnly = false,
     modified = false,
     title: propsTitle,
     'data-name': dataName = 'input-text',
@@ -69,6 +70,7 @@ const InputText = props => {
         mainClass,
         className,
         disabled && style.disabled,
+        readOnly && style.readOnly,
         isNil(propsTitle) && style.isNoTitle
       )}
     >
@@ -89,6 +91,7 @@ const InputText = props => {
           value={value}
           onInput={handleChange}
           disabled={disabled}
+          readOnly={readOnly}
           onChange={noop}
           data-name={dataName}
           aria-label={ariaLabel}
@@ -117,6 +120,7 @@ InputText.propTypes = {
   defaultValue: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle)),
   disabled: PropTypes.bool,
+  readOnly: PropTypes.bool,
   value: PropTypes.string,
   hint: PropTypes.string,
   error: PropTypes.string,

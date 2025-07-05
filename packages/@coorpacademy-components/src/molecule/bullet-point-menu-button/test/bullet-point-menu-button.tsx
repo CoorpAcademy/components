@@ -8,6 +8,18 @@ import BulletPointMenuButton from '..';
 import {BulletPointMenuButtonProps} from '../types';
 
 browserEnv();
+
+// Mock window.dispatchEvent to avoid CustomEvent issues in test environment
+const originalDispatchEvent = window.dispatchEvent;
+window.dispatchEvent = function (event: Event) {
+  // If it's a CustomEvent with type 'bulletPointMenuToggle', just return true
+  if (event && event.type === 'bulletPointMenuToggle') {
+    return true;
+  }
+  // Otherwise call the original
+  return originalDispatchEvent.call(this, event);
+};
+
 const translate = identity;
 
 test('should launch onClick, should find the button menu and have clickable buttons', t => {
@@ -85,7 +97,7 @@ test('should launch onClick, should open and close the menu', t => {
     context: {translate}
   });
 
-  let button = container.querySelector('[data-name="bullet-point-button"]');
+  const button = container.querySelector('[data-name="bullet-point-button"]');
   t.truthy(button);
   t.falsy(
     container.querySelector('[data-name="button-menu"]'),
@@ -96,9 +108,9 @@ test('should launch onClick, should open and close the menu', t => {
   const menu = container.querySelector('[data-name="button-menu"]') as Element;
   t.truthy(menu, 'Menu should appear after click');
 
-  button = container.querySelector('[data-name="bullet-point-button"]');
-  t.truthy(button);
-  fireEvent.click(button as Element); // close menu
+  const buttonAfterMenuOpen = container.querySelector('[data-name="bullet-point-button"]');
+  t.truthy(buttonAfterMenuOpen);
+  fireEvent.click(buttonAfterMenuOpen as Element); // close menu
 
   t.falsy(
     container.querySelector('[data-name="button-menu"]'),

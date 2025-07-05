@@ -29,6 +29,7 @@ const InputTextarea = props => {
     valid,
     description,
     disabled,
+    readonly,
     modified = false
   } = props;
 
@@ -59,7 +60,14 @@ const InputTextarea = props => {
   const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
 
   return (
-    <div className={classnames(mainClass, className, disabled && style.disabled)}>
+    <div
+      className={classnames(
+        mainClass,
+        className,
+        disabled && style.disabled,
+        readonly && style.readonly
+      )}
+    >
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
           {propsTitle}
@@ -71,7 +79,9 @@ const InputTextarea = props => {
           placeholder={placeholder}
           onChange={handleChange}
           disabled={disabled}
+          readOnly={readonly}
           data-testid={name}
+          style={readonly ? {caretColor: 'transparent'} : undefined}
         />
         {errorIconView}
         {validIconView}
@@ -88,6 +98,7 @@ InputTextarea.propTypes = {
   name: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle)),
   disabled: PropTypes.bool,
+  readonly: PropTypes.bool,
   value: PropTypes.string,
   hint: PropTypes.string,
   error: PropTypes.string,

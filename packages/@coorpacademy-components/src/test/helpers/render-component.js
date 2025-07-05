@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
+import ReactDOMServer from 'react-dom/server';
 import get from 'lodash/fp/get';
 import PropTypes from 'prop-types';
 import {mockTranslate} from '@coorpacademy/translate';
@@ -27,7 +27,7 @@ const renderComponent = (t, Component, fixture) => {
   const wrappedVTree = <Provider {...context}>{vTree}</Provider>;
 
   try {
-    return ReactDOM.renderToStaticMarkup(wrappedVTree);
+    return ReactDOMServer.renderToStaticMarkup(wrappedVTree);
   } catch (e) {
     console.log(`[------ ❌ [web rendering]---> error for ${Component.name}`);
     console.log(e);

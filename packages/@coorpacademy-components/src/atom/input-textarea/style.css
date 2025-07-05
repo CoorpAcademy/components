@@ -25,6 +25,10 @@
   composes: defaultStyle;
 }
 
+.readonly {
+  composes: defaultStyle;
+}
+
 .defaultStyle label {
   display: flex;
   align-items: center;
@@ -54,6 +58,14 @@
   margin-left: 20px;
   width: 500px;
   resize: none;
+}
+
+.readonly textarea {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
 }
 
 .error textarea {
@@ -351,6 +363,14 @@
 
 .coorpmanager.disabled {
   opacity: 0.5;
+}
+
+.coorpmanager.readonly textarea {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: default;
 }
 
 .coorpmanager .infoIconWrapper {
