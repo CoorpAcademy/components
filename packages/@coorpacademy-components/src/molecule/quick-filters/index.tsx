@@ -4,7 +4,7 @@ import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
-import {QuickFiltersProps} from './types';
+import {QuickFiltersProps, propTypes} from './types';
 
 const SCROLL_RIGHT_SIZE = 120;
 const SCROLL_LEFT_SIZE = -120;
@@ -32,6 +32,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
     const list = filtersListRef.current;
     const btn = rightBtnRef.current;
     const left = leftBtnRef.current;
+    /* istanbul ignore next */ // not testable without complex mocking useRef
     if (!list || !btn || !left) return;
 
     const update = () => {
@@ -47,21 +48,17 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
   }, [filterOptions]);
   return (
     <div className={style.filtersMainContainer}>
-      <div
-        className={style.leftArrowButton}
-        data-name="scroll-left-button"
-        ref={leftBtnRef}
-        style={{visibility: 'hidden'}}
-      >
+      <div className={style.leftArrowButton} ref={leftBtnRef} style={{visibility: 'hidden'}}>
         <ButtonLink
           icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
           onClick={handleScrollLeft}
           customStyle={{height: '36px'}}
+          data-testid="scroll-left-button"
         />
       </div>
-      <div className={style.filtersList} ref={filtersListRef} data-name="filters-options-list">
+      <div className={style.filtersList} ref={filtersListRef} data-testid="filters-options-list">
         <div
-          data-name="all-content"
+          data-testid="all-option"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
         >
           <FaIcon
@@ -87,7 +84,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               <div
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
-                data-name={`filter-${value}-${idx}`}
+                data-testid={`filter-${value}-${idx}`}
               >
                 <FaIcon
                   {...{
@@ -104,12 +101,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               </div>
             );
           })}
-          <div
-            className={style.rightArrowButton}
-            data-name="scroll-right-button"
-            ref={rightBtnRef}
-            style={{visibility: 'hidden'}}
-          >
+          <div className={style.rightArrowButton} ref={rightBtnRef} style={{visibility: 'hidden'}}>
             <ButtonLink
               icon={{
                 position: 'left',
@@ -120,17 +112,19 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               }}
               onClick={handleScrollRight}
               customStyle={{height: '36px'}}
+              data-testid="scroll-right-button"
             />
           </div>
         </div>
       </div>
       {filterButton ? (
-        <div className={style.filterButton} data-name="open-filters-modal-button">
-          <ButtonLink {...filterButton} />
+        <div className={style.filterButton}>
+          <ButtonLink {...filterButton} data-testid="open-filters-modal-button" />
         </div>
       ) : null}
     </div>
   );
 };
 
+QuickFilters.propTypes = propTypes;
 export default QuickFilters;
