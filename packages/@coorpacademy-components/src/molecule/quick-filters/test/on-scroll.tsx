@@ -8,7 +8,7 @@ import someFiltersSelected from './fixtures/with-filter-button-some-filters-sele
 
 browserEnv();
 
-let getByTestId: ReturnType<typeof render>['getByTestId']; // avoid
+let getByTestId: ReturnType<typeof render>['getByTestId']; // avoid DOM concurrency
 
 const mockComputedStyle = () => {
   Object.defineProperty(window, 'getComputedStyle', {
@@ -63,25 +63,20 @@ test('filterButton is displayed when filterButton props is provided', t => {
 test('click on leftArrowButton should call handleScroll with right size scroll', t => {
   const list = getByTestId('filters-options-list');
   t.truthy(list);
-
-  const calls: Array<{left: number; behavior: 'smooth'}> = [];
-  list.scrollBy = (opts: any) => calls.push(opts);
-
+  const calls: scrollByOptions[] = [];
+  list.scrollBy = (opts: scrollByOptions[]) => calls.push(opts);
   const leftArrowButton = getByTestId('scroll-left-button');
   act(() => {
     fireEvent.click(leftArrowButton);
   });
-
   t.deepEqual(calls, [{left: -120, behavior: 'smooth'}]);
 });
 
 test('click on rightArrowButton should call handleScroll with right size scroll', t => {
   const list = getByTestId('filters-options-list');
   t.truthy(list);
-
-  const calls: Array<{left: number; behavior: 'smooth'}> = [];
-  list.scrollBy = (opts: any) => calls.push(opts);
-
+  const calls: scrollByOptions[] = [];
+  list.scrollBy = (opts: scrollByOptions[]) => calls.push(opts);
   const rightArrowButton = getByTestId('scroll-right-button');
   act(() => {
     fireEvent.click(rightArrowButton);

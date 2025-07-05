@@ -12,6 +12,11 @@ export type QuickFiltersProps = {
   filterButton?: ButtonLinkProps;
 };
 
+export type scrollByOptions = {
+  left: number;
+  behaviour: string;
+};
+
 type FilterOption = {
   iconName: string;
   label: string;
