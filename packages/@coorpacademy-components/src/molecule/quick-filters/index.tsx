@@ -45,8 +45,6 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
     update();
     return () => list.removeEventListener('scroll', update);
   }, [filterOptions]);
-  // eslint-disable-next-line no-console
-  console.log('(filtersListRef.current)', filtersListRef.current);
   return (
     <div className={style.filtersMainContainer}>
       <div
@@ -58,6 +56,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
         <ButtonLink
           icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
           onClick={handleScrollLeft}
+          customStyle={{height: '36px'}}
         />
       </div>
       <div className={style.filtersList} ref={filtersListRef} data-name="filters-options-list">
@@ -120,6 +119,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
                 }
               }}
               onClick={handleScrollRight}
+              customStyle={{height: '36px'}}
             />
           </div>
         </div>
