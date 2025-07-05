@@ -4,7 +4,7 @@ import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
-import {QuickFiltersProps} from './types';
+import {QuickFiltersProps, propTypes} from './types';
 
 const SCROLL_RIGHT_SIZE = 120;
 const SCROLL_LEFT_SIZE = -120;
@@ -57,7 +57,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
       </div>
       <div className={style.filtersList} ref={filtersListRef} data-testid="filters-options-list">
         <div
-          data-name="all-content"
+          data-testid="all-option"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
         >
           <FaIcon
@@ -83,7 +83,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               <div
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
-                data-name={`filter-${value}-${idx}`}
+                data-testid={`filter-${value}-${idx}`}
               >
                 <FaIcon
                   {...{
@@ -125,4 +125,5 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
   );
 };
 
+QuickFilters.propTypes = propTypes;
 export default QuickFilters;

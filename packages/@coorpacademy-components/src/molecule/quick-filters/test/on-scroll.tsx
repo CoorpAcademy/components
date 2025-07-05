@@ -1,9 +1,9 @@
-/* eslint-disable ava/no-only-test */
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {cleanup, render, act, fireEvent} from '@testing-library/react';
 import QuickFilters, {handleScroll} from '..';
+import {ScrollByOptions} from '../types';
 import someFiltersSelected from './fixtures/with-filter-button-some-filters-selected';
 
 browserEnv();
@@ -42,12 +42,23 @@ test.before(() => {
 
 test.beforeEach(() => {
   cleanup();
+  Object.defineProperty(HTMLElement.prototype, 'scrollBy', {
+    configurable: true,
+    writable: true,
+    value(this: HTMLElement, opts: ScrollByOptions) {
+      calls.push(opts);
+    }
+  });
   ({getByTestId} = render(<QuickFilters {...someFiltersSelected.props} />));
+});
+
+test.afterEach(() => {
+  cleanup();
 });
 
 test('handleScroll should scroll the list by the given direction and call scrollBy of listRef', t => {
   const listRef = {current: {scrollBy: (options: {left: number}) => t.is(options.left, 120)}};
-  handleScroll(120, listRef as React.RefObject<HTMLDivElement>);
+  handleScroll(120, listRef as unknown as React.RefObject<HTMLDivElement>);
 });
 
 test('handleScroll should not throw an error when listRef is null', t => {
@@ -60,26 +71,27 @@ test('filterButton is displayed when filterButton props is provided', t => {
   t.truthy(filterButton);
 });
 
-test('click on leftArrowButton should call handleScroll with right size scroll', t => {
-  const list = getByTestId('filters-options-list');
-  t.truthy(list);
-  const calls: scrollByOptions[] = [];
-  list.scrollBy = (opts: scrollByOptions[]) => calls.push(opts);
-  const leftArrowButton = getByTestId('scroll-left-button');
+test('click on leftArrowButton should call handleScroll with left size scroll', t => {
+  const calls: ScrollByOptions[] = [];
+  const list = getByTestId('filters-options-list') as HTMLElement;
+  list.scrollBy = opts => calls.push(opts);
+
+  const leftArrow = getByTestId('scroll-left-button');
   act(() => {
-    fireEvent.click(leftArrowButton);
+    fireEvent.click(leftArrow);
   });
+
   t.deepEqual(calls, [{left: -120, behavior: 'smooth'}]);
 });
 
 test('click on rightArrowButton should call handleScroll with right size scroll', t => {
-  const list = getByTestId('filters-options-list');
-  t.truthy(list);
-  const calls: scrollByOptions[] = [];
-  list.scrollBy = (opts: scrollByOptions[]) => calls.push(opts);
-  const rightArrowButton = getByTestId('scroll-right-button');
+  const calls: ScrollByOptions[] = [];
+  const list = getByTestId('filters-options-list') as HTMLElement;
+  list.scrollBy = opts => calls.push(opts);
+
+  const rightArrow = getByTestId('scroll-right-button');
   act(() => {
-    fireEvent.click(rightArrowButton);
+    fireEvent.click(rightArrow);
   });
 
   t.deepEqual(calls, [{left: 120, behavior: 'smooth'}]);
