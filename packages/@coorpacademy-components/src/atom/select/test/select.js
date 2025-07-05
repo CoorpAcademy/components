@@ -65,7 +65,7 @@ test('text color: should not use skin color (selected, invalid option, player), 
 });
 
 test('after onClick, arrow up icon should be shown, then arrow down on blur/mouse leave', async t => {
-  const {getByTestId, unmount} = render(<Select {...defaultFixture.props} />);
+  const {getByTestId, queryByTestId, unmount} = render(<Select {...defaultFixture.props} />);
 
   const user = userEvent.setup({document});
   const nativeSelect = getByTestId('native-select');
@@ -81,10 +81,12 @@ test('after onClick, arrow up icon should be shown, then arrow down on blur/mous
     }
   }
 
-  t.truthy(getByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-up-icon'));
+  t.falsy(queryByTestId('select-arrow-down-icon'));
 
   fireEvent.mouseLeave(nativeSelect);
-  t.truthy(getByTestId('select-arrow-down-icon'));
+  t.falsy(queryByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-down-icon'));
 
   try {
     await user.selectOptions(nativeSelect, 'Pouet3');
@@ -97,10 +99,12 @@ test('after onClick, arrow up icon should be shown, then arrow down on blur/mous
     }
   }
 
-  t.truthy(getByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-up-icon'));
+  t.falsy(queryByTestId('select-arrow-down-icon'));
 
   fireEvent.blur(nativeSelect);
-  t.truthy(getByTestId('select-arrow-down-icon'));
+  t.falsy(queryByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-down-icon'));
 
   unmount();
 });
