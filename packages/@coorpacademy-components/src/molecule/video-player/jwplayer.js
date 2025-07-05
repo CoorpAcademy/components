@@ -52,7 +52,7 @@ class JWPlayer extends React.Component {
     });
     const shouldStart = includes('autoplay', changes);
     if (shouldStart) {
-      if (isFunction(window.jwplayer)) {
+      if (typeof window !== 'undefined' && isFunction(window.jwplayer)) {
         window.jwplayer(prevProps.jwpOptions.playerId).play();
       }
     }

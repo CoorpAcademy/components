@@ -27,7 +27,7 @@ const SkillPickerModal = (props, context) => {
   const detectScrollbar = true;
   const [sortedSkills, setSortedSkills] = useState(sortBy(skill => skillsLocales[skill], skills));
   const [currentSort, setCurrentSort] = useState('alphabetical');
-  const [selectedSkillList, setSelectedSkillList] = useState(selectedSkills);
+  const [selectedSkillList, setSelectedSkillList] = useState(selectedSkills || []);
 
   const handleCancel = useCallback(() => {
     setSelectedSkillList(selectedSkills);

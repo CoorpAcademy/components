@@ -70,6 +70,10 @@ test('after onClick, arrow up icon should be shown, then arrow down on blur/mous
   const user = userEvent.setup({document});
   const nativeSelect = getByTestId('native-select');
 
+  // Initially, arrow down should be shown
+  t.falsy(queryByTestId('select-arrow-up-icon'));
+  t.truthy(queryByTestId('select-arrow-down-icon'));
+
   try {
     await user.selectOptions(nativeSelect, 'Pouet3');
   } catch (e) {
@@ -81,6 +85,7 @@ test('after onClick, arrow up icon should be shown, then arrow down on blur/mous
     }
   }
 
+  // After clicking, arrow up should be shown
   t.truthy(queryByTestId('select-arrow-up-icon'));
   t.falsy(queryByTestId('select-arrow-down-icon'));
 
