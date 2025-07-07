@@ -4,7 +4,7 @@ import React from 'react';
 import {cleanup, render, act, fireEvent} from '@testing-library/react';
 import QuickFilters, {handleScroll} from '..';
 import {ScrollByOptions} from '../types';
-import someFiltersSelected from './fixtures/with-filter-button-filter-selected';
+import someFiltersSelected from './fixtures/many-categorize-with-filters-selected';
 
 browserEnv();
 

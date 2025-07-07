@@ -3,11 +3,12 @@ import classNames from 'classnames';
 import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
+import {ButtonLinkProps} from '../../atom/button-link/types';
 import style from './style.css';
 import {QuickFiltersProps, propTypes} from './types';
 
-const SCROLL_RIGHT_SIZE = 120;
-const SCROLL_LEFT_SIZE = -120;
+const SCROLL_RIGHT_SIZE = 380;
+const SCROLL_LEFT_SIZE = -380;
 export const handleScroll = (direction: number, listRef: React.RefObject<HTMLDivElement>) => {
   if (listRef.current) {
     listRef.current.scrollBy({
@@ -15,6 +16,23 @@ export const handleScroll = (direction: number, listRef: React.RefObject<HTMLDiv
       behavior: 'smooth'
     });
   }
+};
+
+const getFilterButton = (filterButtonProps: ButtonLinkProps | undefined) => {
+  if (!filterButtonProps) return null;
+  const {tag} = filterButtonProps;
+  return (
+    <div className={tag ? style.filterButtonWrapper : ''}>
+      <div className={style.filterButton}>
+        <ButtonLink
+          {...filterButtonProps}
+          data-testid="open-filters-modal-button"
+          customStyle={{borderRadius: '12px'}}
+          className={tag ? style.selected : style.unSelected}
+        />
+      </div>
+    </div>
+  );
 };
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
@@ -36,16 +54,23 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
     if (!list || !leftButton || !rightButton) return;
 
     const update = () => {
+      const rightArrowWidth = rightButton.offsetWidth;
       rightButton.style.visibility =
-        list.scrollLeft + list.clientWidth < list.scrollWidth ? 'visible' : 'hidden';
+        list.scrollLeft + list.clientWidth < list.scrollWidth - rightArrowWidth
+          ? 'visible'
+          : 'hidden';
       leftButton.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
       leftButton.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
     };
-
     list.addEventListener('scroll', update);
+    window.addEventListener('resize', update);
     update();
-    return () => list.removeEventListener('scroll', update);
+    return () => {
+      list.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, [filterOptions]);
+
   return (
     <div className={style.filtersMainContainer}>
       <div className={style.leftArrowButton} ref={leftBtnRef} style={{visibility: 'hidden'}}>
@@ -117,11 +142,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
           </div>
         </div>
       </div>
-      {filterButton ? (
-        <div className={style.filterButton}>
-          <ButtonLink {...filterButton} data-testid="open-filters-modal-button" />
-        </div>
-      ) : null}
+      {getFilterButton(filterButton)}
     </div>
   );
 };
