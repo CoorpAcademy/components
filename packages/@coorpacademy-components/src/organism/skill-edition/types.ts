@@ -103,7 +103,8 @@ const contentPropTypes = PropTypes.shape({
       checked: PropTypes.bool.isRequired,
       onChange: PropTypes.func.isRequired
     })
-  }).isRequired
+  }).isRequired,
+  isFetching: PropTypes.bool
 });
 
 const SkillEditionPropTypes = {
@@ -245,6 +246,7 @@ export type ContentPropsType = {
   };
   actionButtons?: ButtonLinkProps[];
   checkboxWithTitle?: CheckboxWithTitleProps;
+  isFetching?: boolean;
 };
 
 export type SkillEditionPropsType = {
