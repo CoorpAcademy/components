@@ -344,7 +344,8 @@ const Content = ({
   list: {title: listTitle, checkbox, items, search, emptyResult},
   actionButtons,
   checkboxWithTitle: checkboxWithTitleProps,
-  readonly = false
+  readonly = false,
+  isFetching = false
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -396,7 +397,8 @@ const Content = ({
           'data-name': checkboxWithTitleProps?.title,
           customStyle: {fontWeight: 600, color: COLORS.neutral_500, fontSize: '16px'},
           icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
-        }
+        },
+    isFetching
   };
 
   return (
