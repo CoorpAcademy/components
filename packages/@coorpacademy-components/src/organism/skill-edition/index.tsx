@@ -5,6 +5,7 @@ import ListItems from '../list-items';
 import Title from '../../atom/title';
 import TitleAndInput from '../title-and-input';
 import {COLORS} from '../../variables/colors';
+import Loader from '../../atom/loader';
 import propTypes, {
   TranslationPropsType,
   SkillEditionPropsType,
@@ -407,9 +408,13 @@ const Content = ({
 };
 
 const SkillEdition = (props: SkillEditionPropsType) => {
-  const {skillInformations, translations, content} = props;
+  const {skillInformations, translations, content, isFetching} = props;
 
-  return (
+  return isFetching ? (
+    <div className={style.loaderContainer}>
+      <Loader className={style.loader} theme="coorpmanager" />
+    </div>
+  ) : (
     <div className={style.container}>
       <SkillInformations {...skillInformations} />
       <Translations {...translations} />
