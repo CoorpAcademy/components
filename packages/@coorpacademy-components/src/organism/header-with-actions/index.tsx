@@ -81,9 +81,10 @@ const buildActionButton = ({
 };
 
 const HeaderWithActions = (props: HeaderWithActionsProps) => {
-  const {closeButton, title, tag, saveStatus, bulletPointMenuButton, actionButtons} = props;
+  const {closeButton, title, tag, saveStatus, bulletPointMenuButton, actionButtons, isFetching} =
+    props;
 
-  return (
+  return !isFetching ? (
     <div className={style.headerWrapper} data-name={getDataName('wrapper')}>
       <div
         className={style.titleAndButtonWrapper}
@@ -121,7 +122,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
         }, actionButtons)}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 HeaderWithActions.propTypes = HeaderWithActionsPropTypes;

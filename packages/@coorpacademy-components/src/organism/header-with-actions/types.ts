@@ -37,7 +37,8 @@ const HeaderWithActionsPropTypes = {
     buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
     buttonAriaLabel: PropTypes.string,
     disabled: PropTypes.bool.isRequired
-  })
+  }),
+  isFetching: PropTypes.bool
 };
 
 export default HeaderWithActionsPropTypes;
@@ -88,6 +89,7 @@ export type HeaderWithActionsProps = {
   saveStatus: SaveStatusProps;
   actionButtons: ButtonActionProps[];
   bulletPointMenuButton?: BulletPointMenuButtonProps;
+  isFetching?: boolean;
 };
 
 export type HeaderWithActionsPropsFixture = {props: HeaderWithActionsProps};

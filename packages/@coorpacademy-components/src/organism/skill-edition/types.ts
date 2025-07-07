@@ -112,7 +112,8 @@ const SkillEditionPropTypes = {
     iconEditor: PropTypes.shape(IconEditorPropTypes).isRequired
   }).isRequired,
   translations: translationPropTypes.isRequired,
-  content: contentPropTypes.isRequired
+  content: contentPropTypes.isRequired,
+  isFetching: PropTypes.bool
 };
 
 export default SkillEditionPropTypes;
@@ -250,6 +251,7 @@ export type SkillEditionPropsType = {
   skillInformations: SkillInformationsProps;
   translations: TranslationPropsType;
   content: ContentPropsType;
+  isFetching?: boolean;
 };
 
 export type InputTextProps = {
