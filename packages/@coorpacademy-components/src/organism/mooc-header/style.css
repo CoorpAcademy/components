@@ -57,10 +57,6 @@
   composes: searchBar;
 }
 
-.noItems {
-  display: none;
-}
-
 .open {
   composes: header;
 }
