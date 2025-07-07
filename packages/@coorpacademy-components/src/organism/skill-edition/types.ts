@@ -251,7 +251,7 @@ export type SkillEditionPropsType = {
   skillInformations: SkillInformationsProps;
   translations: TranslationPropsType;
   content: ContentPropsType;
-  isFetching: boolean;
+  isFetching?: boolean;
 };
 
 export type InputTextProps = {

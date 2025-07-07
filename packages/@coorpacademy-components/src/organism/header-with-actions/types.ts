@@ -89,7 +89,7 @@ export type HeaderWithActionsProps = {
   saveStatus: SaveStatusProps;
   actionButtons: ButtonActionProps[];
   bulletPointMenuButton?: BulletPointMenuButtonProps;
-  isFetching: boolean;
+  isFetching?: boolean;
 };
 
 export type HeaderWithActionsPropsFixture = {props: HeaderWithActionsProps};
