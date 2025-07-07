@@ -4,7 +4,7 @@ export default {
       defaultLabel: 'All content',
       defaultValue: 'all-content',
       defaultIconName: 'grid-2',
-      defaultSelected: true,
+      defaultSelected: false,
       onDefaultClick: () => {
         console.log('default All content clicked');
       }
@@ -17,7 +17,7 @@ export default {
         onClick: () => {
           console.log('skills selected');
         },
-        selected: false
+        selected: true
       },
       {
         iconName: 'wreath-laurel',

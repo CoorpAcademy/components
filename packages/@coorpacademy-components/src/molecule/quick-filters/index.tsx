@@ -30,16 +30,16 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
   }, [filtersListRef]);
   useEffect(() => {
     const list = filtersListRef.current;
-    const btn = rightBtnRef.current;
-    const left = leftBtnRef.current;
+    const rightButton = rightBtnRef.current;
+    const leftButton = leftBtnRef.current;
     /* istanbul ignore next */ // not testable without complex mocking useRef
-    if (!list || !btn || !left) return;
+    if (!list || !leftButton || !rightButton) return;
 
     const update = () => {
-      btn.style.visibility =
+      rightButton.style.visibility =
         list.scrollLeft + list.clientWidth < list.scrollWidth ? 'visible' : 'hidden';
-      left.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
-      left.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
+      leftButton.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
+      leftButton.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
     };
 
     list.addEventListener('scroll', update);

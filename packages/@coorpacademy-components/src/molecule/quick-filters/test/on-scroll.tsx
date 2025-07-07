@@ -4,7 +4,7 @@ import React from 'react';
 import {cleanup, render, act, fireEvent} from '@testing-library/react';
 import QuickFilters, {handleScroll} from '..';
 import {ScrollByOptions} from '../types';
-import someFiltersSelected from './fixtures/with-filter-button-some-filters-selected';
+import someFiltersSelected from './fixtures/with-filter-button-filter-selected';
 
 browserEnv();
 
@@ -16,9 +16,9 @@ const mockComputedStyle = () => {
   });
 };
 
-const clientWidth = 0;
-const scrollWidth = 0;
-const scrollLeft = 0;
+let clientWidth = 0;
+let scrollWidth = 0;
+let scrollLeft = 0;
 
 test.before(() => {
   mockComputedStyle();
@@ -100,4 +100,18 @@ test('click on rightArrowButton should call handleScroll with right size scroll'
   });
 
   t.deepEqual(calls, [{left: 120, behavior: 'smooth'}]);
+});
+
+test('rightArrowButton is visible when scrollWidth is inferior to scrollLeft and clientWidth', t => {
+  scrollWidth = 200;
+  clientWidth = 100;
+  scrollLeft = 1;
+  const list = getByTestId('filters-options-list');
+  act(() => {
+    fireEvent.scroll(list);
+  });
+  const rightArrow = getByTestId('scroll-right-button');
+  const rightArrowWrapper = rightArrow.parentElement as HTMLElement; // the ref is in the parent element
+  t.truthy(rightArrowWrapper);
+  t.is(window.getComputedStyle(rightArrowWrapper).visibility, 'visible');
 });
