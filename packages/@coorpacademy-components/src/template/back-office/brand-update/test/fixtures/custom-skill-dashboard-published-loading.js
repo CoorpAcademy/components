@@ -1,4 +1,4 @@
-import listItemsProps from '../../../../../organism/list-items/test/fixtures/custom-skill-loading';
+import listItemsProps from '../../../../../organism/list-items/test/fixtures/custom-skill';
 import Default from './custom-skill-dashboard-published';
 
 export default {
@@ -6,6 +6,8 @@ export default {
     ...Default.props,
     content: {
       ...listItemsProps.props,
+      content: {},
+      isFetching: true,
       type: 'list-content'
     }
   }

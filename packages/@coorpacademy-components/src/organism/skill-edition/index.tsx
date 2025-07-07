@@ -410,7 +410,7 @@ const Content = ({
 };
 
 const SkillEdition = (props: SkillEditionPropsType) => {
-  const {skillInformations, translations, content, isFetching} = props;
+  const {skillInformations, translations, content, isFetching = false} = props;
 
   return isFetching ? (
     <div className={style.loaderContainer}>

@@ -47,7 +47,8 @@ export const contentEmptyProps: ContentPropsType = {
         console.log(value);
       }
     }
-  }
+  },
+  isFetching: false
 };
 
 export default {
@@ -103,6 +104,7 @@ export default {
       }
     },
     translations: translationsEmptyProps,
-    content: contentEmptyProps
+    content: contentEmptyProps,
+    isFetching: false
   }
 };

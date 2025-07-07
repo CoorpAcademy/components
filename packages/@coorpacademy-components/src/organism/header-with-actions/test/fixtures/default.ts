@@ -62,7 +62,8 @@ const defaultFixture: HeaderWithActionsPropsFixture = {
         iconName: 'paper-plane',
         iconColor: COLORS.white
       }
-    ]
+    ],
+    isFetching: false
   }
 };
 
