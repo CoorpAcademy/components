@@ -22,6 +22,7 @@ export default {
       onBlur: () => console.log('blur'),
       'search-reset-aria-label': 'reset search input value'
     },
+    searchIconAriaLabel: 'search icon mooc header',
     onSubmitSearch: () => console.log('onSubmitSearch'),
     onResetSearch: () => console.log('onResetSearch'),
     themes: [
