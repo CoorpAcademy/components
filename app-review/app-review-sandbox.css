@@ -8522,6 +8522,7 @@ border-top: 1px solid #ECEFF1;
   color: #90A4AE;
 }
 
+/* Theme: coorpmanager */
 .coorpmanager-7KyeM {
   position: relative;
 }
@@ -8682,11 +8683,104 @@ border-top: 1px solid #ECEFF1;
   line-height: 16px;
 }
 
+/* Theme: mooc */
+.wrapperMooc-JHwtv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: nowrap;
+      flex-flow: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  background: #EAEAEB;
+  padding: 2px;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.wrapperMoocParent-7JuVi {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 12px;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  background: transparent;
+}
+
+.moocSearch-qfdSj {
+  background-color: #EAEAEB;
+  border-radius: 12px;
+  height: 44px;
+  margin: 0;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1D1D2B;
+  padding: 0 0 0 45px;
+  padding-right: 48px;
+  outline: none;
+}
+
+.moocSearch-qfdSj:focus-within {
+  background-color: #F4F4F5;
+}
+
+.wrapperMoocParent-7JuVi:focus-within .wrapperMooc-JHwtv {
+  background: transparent;
+  -webkit-box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px #00B0FF;
+          box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px #00B0FF;
+}
+
+.wrapperMooc-JHwtv:hover {
+  -webkit-box-shadow: 0 0 0 2px #00B0FF;
+          box-shadow: 0 0 0 2px #00B0FF;
+}
+
+.wrapperMooc-JHwtv .clearIcon-xUjAP {
+  position: relative;
+  right: 26px;
+  color: #9999A8;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
   -webkit-background-clip: text;
+}
+
+.moocSearch-qfdSj:-webkit-autofill,
+.moocSearch-qfdSj:-webkit-autofill:hover,
+.moocSearch-qfdSj:-webkit-autofill:focus,
+.moocSearch-qfdSj:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #EAEAEB inset !important;
+  -webkit-text-fill-color: #1D1D2B !important;
+  background-color: #EAEAEB !important;
+}
+
+.wrapperMoocParent-7JuVi:focus-within .moocSearch-qfdSj:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #F4F4F5 inset !important;
+  background-color: #F4F4F5 !important;
 }
 
 @media (max-width: 960px) {
@@ -8719,6 +8813,18 @@ input:-webkit-autofill:active{
     font-size: 12px;
     color: #90A4AE;
   }
+
+  .wrapperMoocParent-7JuVi {
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .wrapperMooc-JHwtv {
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
 }
 
 @media (max-width: 640px) {
@@ -8744,6 +8850,18 @@ input:-webkit-autofill:active{
 
   .search-ki1-M::placeholder {
     font-size: 12px;
+  }
+
+  .wrapperMoocParent-7JuVi {
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  .wrapperMooc-JHwtv {
+    max-width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 }
 
