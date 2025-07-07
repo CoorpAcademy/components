@@ -1,5 +1,5 @@
-import {COLORS} from '../../../../variables/colors';
 import {QuickFiltersProps} from '../../types';
+import {COLORS} from '../../../../variables/colors';
 import defaultProps from './default';
 import noFilterSelected from './few-filter-with-filter-button-no-selected';
 
@@ -30,7 +30,7 @@ const filterSelected: QuickFiltersProps = {
     },
     {
       iconName: 'stopwatch',
-      label: `5'learnin 1`,
+      label: `5'learning`,
       value: '5-learning',
       onClick: () => {
         console.log(`5'learning selected`);
@@ -72,19 +72,50 @@ const filterSelected: QuickFiltersProps = {
         console.log(`5'learning selected`);
       },
       selected: false
+    },
+    {
+      iconName: 'stopwatch',
+      label: `5'learning 6`,
+      value: '5-learning-6',
+      onClick: () => {
+        console.log(`5'learning selected`);
+      },
+      selected: false
+    },
+    {
+      iconName: 'stopwatch',
+      label: `5'learning 7`,
+      value: '5-learning-7',
+      onClick: () => {
+        console.log(`5'learning selected`);
+      },
+      selected: false
+    },
+    {
+      iconName: 'stopwatch',
+      label: `5'learning 8`,
+      value: '5-learning-8',
+      onClick: () => {
+        console.log(`5'learning selected`);
+      },
+      selected: false
+    },
+    {
+      iconName: 'stopwatch',
+      label: `5'learning 9`,
+      value: '5-learning-9',
+      onClick: () => {
+        console.log(`5'learning selected`);
+      },
+      selected: false
     }
   ],
   filterButton: {
     label: 'Filters',
     'aria-label': 'open-filters-modal',
     'data-name': 'open-filters-modal',
-    icon: {
-      position: 'left',
-      faIcon: {name: 'sliders', size: 14}
-    },
     tag: {
       label: '4',
-      size: 'S',
       customStyle: {
         color: COLORS.white,
         backgroundColor: COLORS.cm_primary_blue

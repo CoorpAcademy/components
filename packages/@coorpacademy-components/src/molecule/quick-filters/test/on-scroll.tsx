@@ -50,13 +50,13 @@ test.afterEach(() => {
 });
 
 test('handleScroll should scroll the list by the given direction and call scrollBy of listRef', t => {
-  const listRef = {current: {scrollBy: (options: {left: number}) => t.is(options.left, 120)}};
-  handleScroll(120, listRef as unknown as React.RefObject<HTMLDivElement>);
+  const listRef = {current: {scrollBy: (options: {left: number}) => t.is(options.left, 380)}};
+  handleScroll(380, listRef as unknown as React.RefObject<HTMLDivElement>);
 });
 
 test('handleScroll should not throw an error when listRef is null', t => {
   const emptyListRef = {current: null};
-  t.notThrows(() => handleScroll(120, emptyListRef as React.RefObject<HTMLDivElement>));
+  t.notThrows(() => handleScroll(380, emptyListRef as React.RefObject<HTMLDivElement>));
 });
 
 test('filterButton is displayed when filterButton props is provided', t => {
@@ -80,7 +80,7 @@ test('click on leftArrowButton should call handleScroll with left size scroll', 
     fireEvent.click(leftArrow);
   });
 
-  t.deepEqual(calls, [{left: -120, behavior: 'smooth'}]);
+  t.deepEqual(calls, [{left: -380, behavior: 'smooth'}]);
 });
 
 test('click on rightArrowButton should call handleScroll with right size scroll', t => {
@@ -99,7 +99,7 @@ test('click on rightArrowButton should call handleScroll with right size scroll'
     fireEvent.click(rightArrow);
   });
 
-  t.deepEqual(calls, [{left: 120, behavior: 'smooth'}]);
+  t.deepEqual(calls, [{left: 380, behavior: 'smooth'}]);
 });
 
 test('rightArrowButton is visible when scrollWidth is inferior to scrollLeft and clientWidth', t => {

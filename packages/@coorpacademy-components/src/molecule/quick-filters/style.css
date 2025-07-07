@@ -34,7 +34,6 @@
     flex: 1;
     position: relative;
     margin-right: 40px;
-    width: 100%;
 }
 
 .filterOption, .defaultOption {
@@ -109,16 +108,8 @@
     box-sizing: border-box;
 }
 
-.selected {
-    color: cm_grey_700;
-}
-
-.unSelected {
-    color: cm_grey_500;
-}
-
 @media mobile {
-    .leftArrowButton, .rightArrowButton, .filterButton {
+    .leftArrowButton, .rightArrowButton, .filterButton, .filterButtonWrapper {
         display: none!important;
     }
 

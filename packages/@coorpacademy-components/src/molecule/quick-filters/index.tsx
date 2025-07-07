@@ -26,14 +26,22 @@ const getFilterButton = (filterButtonProps: ButtonLinkProps | undefined) => {
       <div className={style.filterButton}>
         <ButtonLink
           {...filterButtonProps}
+          icon={{
+            position: 'left',
+            faIcon: {
+              name: 'sliders',
+              size: 14,
+              color: tag ? COLORS.cm_grey_700 : COLORS.neutral_500
+            }
+          }}
           data-testid="open-filters-modal-button"
           customStyle={{borderRadius: '12px'}}
-          className={tag ? style.selected : style.unSelected}
         />
       </div>
     </div>
   );
 };
+
 const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
   const filtersListRef = React.useRef<HTMLDivElement>(null);
@@ -62,6 +70,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
       leftButton.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
       leftButton.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
     };
+
     list.addEventListener('scroll', update);
     window.addEventListener('resize', update);
     update();
@@ -96,7 +105,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
                 faSize: 20,
                 wrapperSize: 20
               },
-              iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.cm_grey_500
+              iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.neutral_500
             }}
           />
           <span className={style.filterLabel}>{defaultLabel}</span>
@@ -115,7 +124,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
                   {...{
                     iconName,
                     label,
-                    iconColor: selected ? COLORS.cm_grey_700 : COLORS.cm_grey_500,
+                    iconColor: selected ? COLORS.cm_grey_700 : COLORS.neutral_500,
                     size: {
                       faSize: 20,
                       wrapperSize: 20
