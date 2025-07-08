@@ -73,7 +73,8 @@ export default {
       ],
       more: [
         {
-          title: 'Bienvenue dans MyLCL LEARNING, votre nouvel espace de formation !',
+          title: 'Bienvenue dans <u>MyLCL LEARNING</u>, votre nouvel espace de formation !',
+          'aria-label': 'Bienvenue dans MyLCL LEARNING, votre nouvel espace de formation !',
           href: '#',
           selected: false
         },

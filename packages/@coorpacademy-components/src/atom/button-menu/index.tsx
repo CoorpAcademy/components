@@ -30,6 +30,7 @@ const buildCustomIconByTheme = (icon: ButtonProps['icon']) => {
 const Button = (props: ButtonProps) => {
   const {
     'data-name': dataName,
+    'aria-label': ariaLabel,
     disabled,
     label,
     onClick = noop,
@@ -52,7 +53,7 @@ const Button = (props: ButtonProps) => {
 
   const buttonLinkProps = {
     ...rest,
-    'aria-label': label,
+    'aria-label': ariaLabel || label,
     disabled,
     label,
     type: buttonLinkType,
