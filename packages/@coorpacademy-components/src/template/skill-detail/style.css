@@ -124,7 +124,7 @@
   align-self: stretch;
   color: cm_grey_400;
   display: block;
-  white-space: nowrap;
+  white-space: normal;
   height: 100%;
 }
 

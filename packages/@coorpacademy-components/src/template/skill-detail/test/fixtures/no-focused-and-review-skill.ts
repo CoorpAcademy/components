@@ -4,7 +4,7 @@ export default {
   props: {
     ...defaultProps,
     description:
-      'Conflict management is the skill of handling disagreements constructively through effective communication, active listening, and finding mutually beneficial resolutions. It helps navigate tensions, foster collaboration, and maintain a positive environment by preventing conflicts from escalating.',
+      'Coordinating tasks and activities, either individually or as part of a project, paying attention to detail as well as to the big picture, in order to maximise productivity and performance while maintaining a balanced life for everyone.',
     focused: false,
     availableForReview: false
   }
