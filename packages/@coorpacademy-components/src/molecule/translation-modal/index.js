@@ -81,7 +81,6 @@ const TranslationModal = (props, context) => {
             inputProps: sourceInputText,
             textAreaProps: sourceTextArea,
             readOnly: true,
-            disabled
           })}
 
           <div className={style.separator} />
@@ -91,7 +90,6 @@ const TranslationModal = (props, context) => {
             inputProps: targetInputText,
             textAreaProps: targetTextArea,
             readOnly: readOnly,
-            disabled: disabled
           })}
         </div>
       </div>
