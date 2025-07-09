@@ -48,7 +48,7 @@
     "list_aria_label": "Įgūdžių kartojimo langas",
     "card": {
       "aria_label": "Įgūdžių kortelė",
-      "text": "{{total}} klausimai, kuriuos reikia peržiūrėti",
+      "text": "{{total}} klausimai, kuriuos reikia kartoti",
       "button_text": "Peržiūrėkite šį įgūdį"
     },
     "no_skills": {
