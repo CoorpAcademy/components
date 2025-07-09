@@ -45,7 +45,7 @@
       }
     },
     "list_title": "Įgūdžiai, kuriuos galite kartoti",
-    "list_aria_label": "Įgūdžių peržiūros langas",
+    "list_aria_label": "Įgūdžių kartojimo langas",
     "card": {
       "aria_label": "Įgūdžių kortelė",
       "text": "{{total}} klausimai, kuriuos reikia peržiūrėti",
