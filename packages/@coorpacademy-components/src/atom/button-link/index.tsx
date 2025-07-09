@@ -22,7 +22,15 @@ const getButtonContent = (
   if (!Icon && !faIcon) {
     return (
       <div className={(style.buttonContent, customLabelClassName)}>
-        <span className={(style.label, customLabelClassName)}>{content}</span>
+        {typeof content === 'string' ? (
+          <span
+            className={(style.label, customLabelClassName)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: content}}
+          />
+        ) : (
+          <span className={(style.label, customLabelClassName)}>{content}</span>
+        )}
       </div>
     );
   }

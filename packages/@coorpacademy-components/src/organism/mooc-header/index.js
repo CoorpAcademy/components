@@ -41,6 +41,7 @@ class MoocHeader extends React.Component {
         PropTypes.shape({
           target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
           title: PropTypes.string,
+          'aria-label': PropTypes.string,
           name: PropTypes.string,
           href: PropTypes.string,
           selected: PropTypes.bool,
@@ -53,6 +54,7 @@ class MoocHeader extends React.Component {
         PropTypes.shape({
           target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
           title: PropTypes.string,
+          'aria-label': PropTypes.string,
           name: PropTypes.string,
           href: PropTypes.string,
           selected: PropTypes.bool,
@@ -365,6 +367,7 @@ class MoocHeader extends React.Component {
   createMenuButtons = (items, primaryColor) => {
     return items.map(item => ({
       label: item.title,
+      'aria-label': item['aria-label'],
       disabled: item.disabled,
       type: 'defaultLeft',
       link: {href: item.href},
