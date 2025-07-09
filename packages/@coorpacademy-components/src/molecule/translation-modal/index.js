@@ -11,8 +11,8 @@ const renderInputGroup = ({title, inputProps, textAreaProps, readOnly, disabled}
   return (
     <div className={style.inputGroup}>
       <div className={style.title}>{title}</div>
-      <InputText readOnly={readOnly} disabled={disabled} {...inputProps} />
-      <TextArea readOnly={readOnly} disabled={disabled} {...textAreaProps} />
+      <InputText {...inputProps} readOnly={readOnly} disabled={disabled} />
+      <TextArea {...textAreaProps} readOnly={readOnly} disabled={disabled} />
     </div>
   );
 };
@@ -90,8 +90,8 @@ const TranslationModal = (props, context) => {
             title: outputLanguage,
             inputProps: targetInputText,
             textAreaProps: targetTextArea,
-            readOnly,
-            disabled
+            readOnly: false,
+            disabled: false
           })}
         </div>
       </div>

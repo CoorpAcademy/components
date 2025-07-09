@@ -7,9 +7,9 @@ import {
   NovaSolidStatusClose as ErrorIcon,
   NovaCompositionCoorpacademyInformationIcon as InfoIcon
 } from '@coorpacademy/nova-icons';
+import {v5 as uuidV5} from 'uuid';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
-import {v5 as uuidV5} from 'uuid';
 
 const themeStyle = {
   setup: style.setup,

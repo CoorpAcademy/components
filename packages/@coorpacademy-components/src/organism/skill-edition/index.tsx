@@ -25,7 +25,7 @@ const buildFormField = (
   const fieldWithoutOverrides = omit(['type', 'theme', 'size', 'readOnly'], field);
   return {
     ...fieldWithoutOverrides,
-    readOnly: readOnly,
+    readOnly,
     type,
     theme: 'coorpmanager',
     size: 'large'
@@ -73,7 +73,7 @@ const SkillInformations = (skillInformations: SkillInformationsProps & {readOnly
     },
     field: {
       iconPreview: iconEditor.iconPreview,
-      inputText: {...iconEditor.inputText, readOnly: readOnly},
+      inputText: {...iconEditor.inputText, readOnly},
       buttonLink:
         iconEditor.buttonLink && !readOnly
           ? {
@@ -115,7 +115,7 @@ const SkillInformations = (skillInformations: SkillInformationsProps & {readOnly
         onChange: select.field.onChange,
         theme: 'skillDetail',
         size: 'large',
-        readOnly: readOnly
+        readOnly
       }
     },
     {
@@ -190,50 +190,49 @@ const buildTranslationItems = (
   }: {title: string; onEditClick: () => void; onDeleteClick?: () => void; readOnly?: boolean},
   index: number
 ) => {
-  
   return {
-  ...(!readOnly && onDeleteClick
-    ? {
-        secondButtonLink: {
-          'aria-label': 'Delete',
-          type: 'primary',
-          customStyle: {
-            width: 'fit-content',
-            backgroundColor: 'transparent'
-          },
-          hoverBackgroundColor: COLORS.cm_grey_100,
-          icon: {
-            position: 'left',
-            faIcon: {
-              name: 'trash',
-              color: COLORS.neutral_500,
-              size: 16
-            }
-          },
-          onClick: onDeleteClick
+    ...(!readOnly && onDeleteClick
+      ? {
+          secondButtonLink: {
+            'aria-label': 'Delete',
+            type: 'primary',
+            customStyle: {
+              width: 'fit-content',
+              backgroundColor: 'transparent'
+            },
+            hoverBackgroundColor: COLORS.cm_grey_100,
+            icon: {
+              position: 'left',
+              faIcon: {
+                name: 'trash',
+                color: COLORS.neutral_500,
+                size: 16
+              }
+            },
+            onClick: onDeleteClick
+          }
         }
-      }
-    : {}),
-  id: index,
-  title: itemTitle,
-  buttonLink: {
-    'aria-label': readOnly ? 'View Custom SKill' : 'Edit Custom Skill',
-    type: 'primary',
-    customStyle: {
-      width: 'fit-content',
-      backgroundColor: 'transparent'
-    },
-    hoverBackgroundColor: COLORS.cm_grey_100,
-    icon: {
-      position: 'left',
-      faIcon: {
-        name: readOnly ? 'eye' : 'edit',
-        color: COLORS.neutral_500,
-        size: 16
-      }
-    },
-    onClick: onEditClick
-  }
+      : {}),
+    id: index,
+    title: itemTitle,
+    buttonLink: {
+      'aria-label': readOnly ? 'View Custom SKill' : 'Edit Custom Skill',
+      type: 'primary',
+      customStyle: {
+        width: 'fit-content',
+        backgroundColor: 'transparent'
+      },
+      hoverBackgroundColor: COLORS.cm_grey_100,
+      icon: {
+        position: 'left',
+        faIcon: {
+          name: readOnly ? 'eye' : 'edit',
+          color: COLORS.neutral_500,
+          size: 16
+        }
+      },
+      onClick: onEditClick
+    }
   };
 };
 
@@ -246,15 +245,6 @@ const Translations = ({
   emptyResult,
   readOnly = false
 }: TranslationPropsType) => {
-  console.log('[SkillEdition Translations] Props:', {
-    readOnly,
-    itemKeys: items ? Object.keys(items) : [],
-    items: items ? Object.entries(items).map(([key, item]) => ({
-      key,
-      hasOnDeleteClick: 'onDeleteClick' in item,
-      itemReadOnly: item.readOnly
-    })) : []
-  });
   const buttonProps = buildButtonProps(button);
 
   const translationMenuAction = {
