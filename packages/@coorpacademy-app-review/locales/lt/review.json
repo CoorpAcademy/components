@@ -32,7 +32,7 @@
         },
         "questions": {
           "text": "Atsakykite į 5 klausimus",
-          "tooltip": "Teisingai atsakykite į 5 klausimus, kad Peržiūros režimo sesija būtų užskaityta. "
+          "tooltip": "Teisingai atsakykite į 5 klausimus, kad Kartojimosi režimo sesija būtų užskaityta. "
         },
         "lifes": { 
           "text": "Jūs turite neribotą skaičių gyvybių",
