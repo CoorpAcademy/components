@@ -51,6 +51,6 @@ export default {
     },
     translations: translationsProps,
     content: updatedContentProps,
-    readOnly:true
+    readOnly: true
   }
 };

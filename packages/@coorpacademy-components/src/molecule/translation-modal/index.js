@@ -8,13 +8,11 @@ import TextArea from '../../atom/input-textarea';
 import style from './style.css';
 
 const renderInputGroup = ({title, inputProps, textAreaProps, readOnly, disabled}) => {
-  
   return (
     <div className={style.inputGroup}>
       <div className={style.title}>{title}</div>
-            <InputText {...inputProps} readOnly={readOnly} disabled={disabled} />
+      <InputText {...inputProps} readOnly={readOnly} disabled={disabled} />
       <TextArea {...textAreaProps} readOnly={readOnly} disabled={disabled} />
-
     </div>
   );
 };
@@ -80,7 +78,7 @@ const TranslationModal = (props, context) => {
             title: inputLanguage,
             inputProps: sourceInputText,
             textAreaProps: sourceTextArea,
-            readOnly: true,
+            readOnly: true
           })}
 
           <div className={style.separator} />
@@ -89,7 +87,7 @@ const TranslationModal = (props, context) => {
             title: outputLanguage,
             inputProps: targetInputText,
             textAreaProps: targetTextArea,
-            readOnly: readOnly,
+            readOnly
           })}
         </div>
       </div>
