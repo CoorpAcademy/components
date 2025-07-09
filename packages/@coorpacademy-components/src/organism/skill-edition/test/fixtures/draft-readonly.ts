@@ -50,6 +50,7 @@ export default {
       }
     },
     translations: translationsProps,
-    content: updatedContentProps
+    content: updatedContentProps,
+    readOnly:true
   }
 };

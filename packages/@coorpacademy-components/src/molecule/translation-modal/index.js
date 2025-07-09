@@ -8,20 +8,13 @@ import TextArea from '../../atom/input-textarea';
 import style from './style.css';
 
 const renderInputGroup = ({title, inputProps, textAreaProps, readOnly, disabled}) => {
-  // When value is empty and readonly, show placeholder as value
-  const inputPropsWithPlaceholder = (!inputProps.value && readOnly && inputProps.placeholder) 
-    ? {...inputProps, value: inputProps.placeholder, className: style.placeholderAsValue}
-    : inputProps;
   
-  const textAreaPropsWithPlaceholder = (!textAreaProps.value && readOnly && textAreaProps.placeholder)
-    ? {...textAreaProps, value: textAreaProps.placeholder, className: style.placeholderAsValue}
-    : textAreaProps;
-    
   return (
     <div className={style.inputGroup}>
       <div className={style.title}>{title}</div>
-      <InputText {...inputPropsWithPlaceholder} readOnly={readOnly} disabled={disabled} />
-      <TextArea {...textAreaPropsWithPlaceholder} readOnly={readOnly} disabled={disabled} />
+            <InputText {...inputProps} readOnly={readOnly} disabled={disabled} />
+      <TextArea {...textAreaProps} readOnly={readOnly} disabled={disabled} />
+
     </div>
   );
 };
