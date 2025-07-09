@@ -12,7 +12,8 @@ const updatedContentProps: ContentPropsType = {
   list: {
     ...contentProps.list,
     items: updatedContentData
-  }
+  },
+  readOnly: true
 };
 
 export default {
@@ -21,7 +22,7 @@ export default {
       form: {
         ...Default.props.skillInformations.form,
         inputText: {
-          ...Default.pradonlyops.skillInformations.form.inputText,
+          ...Default.props.skillInformations.form.inputText,
           field: {
             ...Default.props.skillInformations.form.inputText.field,
             value: 'Cloud computing technology'
@@ -49,7 +50,6 @@ export default {
       }
     },
     translations: translationsProps,
-    content: updatedContentProps,
-    readOnly: true
+    content: updatedContentProps
   }
 };

@@ -53,7 +53,7 @@ const Chip = (props, context) => {
   const hoverStyle = isHovered ? {backgroundColor: hoveredSelectedBgColor} : {};
 
   const defaultIcon = selected ? 'fa-check' : 'fa-plus';
-  const color = selected ? COLORS.white : COLORS.cm_grey_400;
+  const color = selected ? COLORS.white : COLORS.cm_grey_700;
 
   return (
     <div
