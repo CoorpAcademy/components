@@ -49,7 +49,7 @@
     "card": {
       "aria_label": "Įgūdžių kortelė",
       "text": "{{total}} klausimai, kuriuos reikia kartoti",
-      "button_text": "Peržiūrėkite šį įgūdį"
+      "button_text": "Kartokite šį įgūdį"
     },
     "no_skills": {
       "title": "Dar neturite įgūdžių, kuriuos reikėtų peržiūrėti",
