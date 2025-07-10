@@ -88,12 +88,14 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
           onClick={handleScrollLeft}
           customStyle={{height: '36px'}}
           data-testid="scroll-left-button"
+          aria-label="show previous filters"
         />
       </div>
       <div className={style.filtersList} ref={filtersListRef} data-testid="filters-options-list">
         <div
           data-testid="all-option"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
+          aria-label="default filter option"
         >
           <FaIcon
             {...{
@@ -119,6 +121,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
                 data-testid={`filter-${value}-${idx}`}
+                aria-label={`filter option ${label}`}
               >
                 <FaIcon
                   {...{
@@ -147,6 +150,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               onClick={handleScrollRight}
               customStyle={{height: '36px'}}
               data-testid="scroll-right-button"
+              aria-label="show next filters"
             />
           </div>
         </div>

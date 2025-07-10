@@ -14,12 +14,7 @@ const fixture: Fixture = {
       }
     },
     tag: {
-      label: '4',
-      size: 'S',
-      customStyle: {
-        color: COLORS.white,
-        backgroundColor: COLORS.cm_primary_blue
-      }
+      label: '4'
     },
     customStyle: {
       border: `2px solid ${COLORS.cm_primary_blue}`,
