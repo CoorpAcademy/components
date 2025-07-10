@@ -96,43 +96,31 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
           data-testid="all-option"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
           aria-label="default filter option"
+          onClick={onDefaultClick}
         >
           <FaIcon
-            {...{
-              iconName: defaultIconName,
-              label: defaultLabel,
-              selected: defaultSelected,
-              onClick: onDefaultClick,
-              size: {
-                faSize: 20,
-                wrapperSize: 20
-              },
-              iconColor: defaultSelected ? COLORS.cm_grey_700 : COLORS.neutral_500
-            }}
+            iconName={defaultIconName}
+            size={{faSize: 20, wrapperSize: 20}}
+            iconColor={defaultSelected ? COLORS.cm_grey_700 : COLORS.neutral_500}
           />
           <span className={style.filterLabel}>{defaultLabel}</span>
         </div>
         <div className={style.filterSeparator} />
         <div className={style.filtersContainer}>
           {filterOptions.map((filterOption, idx) => {
-            const {iconName, label, selected, value} = filterOption;
+            const {iconName, label, selected, value, onClick} = filterOption;
             return (
               <div
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
                 data-testid={`filter-${value}-${idx}`}
                 aria-label={`filter option ${label}`}
+                onClick={onClick}
               >
                 <FaIcon
-                  {...{
-                    iconName,
-                    label,
-                    iconColor: selected ? COLORS.cm_grey_700 : COLORS.neutral_500,
-                    size: {
-                      faSize: 20,
-                      wrapperSize: 20
-                    }
-                  }}
+                  iconName={iconName}
+                  iconColor={selected ? COLORS.cm_grey_700 : COLORS.neutral_500}
+                  size={{faSize: 20, wrapperSize: 20}}
                 />
                 <span>{label}</span>
               </div>
