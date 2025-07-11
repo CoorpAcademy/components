@@ -9,7 +9,10 @@ export type QuickFiltersProps = {
     defaultIconName: string;
     defaultSelected: boolean;
     onDefaultClick: () => void;
+    defaultAriaLabel: string;
   };
+  nextFilterAriaLabel: string;
+  previousFilterAriaLabel: string;
   filterOptions: FilterOption[];
   filterButton?: ButtonLinkProps;
 };
@@ -25,6 +28,7 @@ type FilterOption = {
   value: string;
   onClick: () => void;
   selected: boolean;
+  ariaLabel: string;
 };
 
 export const propTypes = {

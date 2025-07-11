@@ -6,10 +6,13 @@ const defaultProps: QuickFiltersProps = {
     defaultValue: 'all-content',
     defaultIconName: 'grid-2',
     defaultSelected: true,
+    defaultAriaLabel: 'default filter icon',
     onDefaultClick: () => {
       console.log('default All content clicked');
     }
   },
+  nextFilterAriaLabel: 'show next filters',
+  previousFilterAriaLabel: 'show previous filters',
   filterOptions: [
     {
       iconName: 'shapes',
@@ -18,7 +21,8 @@ const defaultProps: QuickFiltersProps = {
       onClick: () => {
         console.log('skills selected');
       },
-      selected: false
+      selected: false,
+      ariaLabel: 'skills filter aria label'
     },
     {
       iconName: 'book-open',
@@ -27,7 +31,8 @@ const defaultProps: QuickFiltersProps = {
       onClick: () => {
         console.log('Courses selected');
       },
-      selected: false
+      selected: false,
+      ariaLabel: 'courses filter aria label'
     },
     {
       label: `5'learning`,
@@ -36,7 +41,8 @@ const defaultProps: QuickFiltersProps = {
       selected: false,
       onClick: () => {
         console.log(`5'learning selected`);
-      }
+      },
+      ariaLabel: '5 learning aria label'
     },
     {
       iconName: 'rectangle-history',
@@ -45,7 +51,8 @@ const defaultProps: QuickFiltersProps = {
       onClick: () => {
         console.log('interactives selected');
       },
-      selected: false
+      selected: false,
+      ariaLabel: 'interactives aria label'
     },
     {
       iconName: 'circle-play',
@@ -54,7 +61,8 @@ const defaultProps: QuickFiltersProps = {
       onClick: () => {
         console.log('videos selected');
       },
-      selected: false
+      selected: false,
+      ariaLabel: 'videos aria label'
     }
   ]
 };

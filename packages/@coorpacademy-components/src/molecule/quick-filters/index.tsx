@@ -42,8 +42,15 @@ const getFilterButton = (filterButtonProps: ButtonLinkProps | undefined) => {
   );
 };
 
-const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFiltersProps) => {
-  const {defaultLabel, defaultIconName, defaultSelected, onDefaultClick} = primaryOption;
+const QuickFilters = ({
+  primaryOption,
+  filterOptions,
+  filterButton,
+  nextFilterAriaLabel,
+  previousFilterAriaLabel
+}: QuickFiltersProps) => {
+  const {defaultLabel, defaultIconName, defaultSelected, defaultAriaLabel, onDefaultClick} =
+    primaryOption;
   const filtersListRef = React.useRef<HTMLDivElement>(null);
   const rightBtnRef = useRef<HTMLDivElement>(null);
   const leftBtnRef = useRef<HTMLDivElement>(null);
@@ -88,39 +95,39 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
           onClick={handleScrollLeft}
           customStyle={{height: '36px'}}
           data-testid="scroll-left-button"
-          aria-label="show previous filters"
+          aria-label={previousFilterAriaLabel}
         />
       </div>
       <div className={style.filtersList} ref={filtersListRef} data-testid="filters-options-list">
         <div
           data-testid="all-option"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}
-          aria-label="default filter option"
           onClick={onDefaultClick}
         >
           <FaIcon
             iconName={defaultIconName}
             size={{faSize: 20, wrapperSize: 20}}
             iconColor={defaultSelected ? COLORS.cm_grey_700 : COLORS.neutral_500}
+            aria-label={defaultAriaLabel}
           />
           <span className={style.filterLabel}>{defaultLabel}</span>
         </div>
         <div className={style.filterSeparator} />
         <div className={style.filtersContainer}>
           {filterOptions.map((filterOption, idx) => {
-            const {iconName, label, selected, value, onClick} = filterOption;
+            const {iconName, label, selected, value, onClick, ariaLabel} = filterOption;
             return (
               <div
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
                 data-testid={`filter-${value}-${idx}`}
-                aria-label={`filter option ${label}`}
                 onClick={onClick}
               >
                 <FaIcon
                   iconName={iconName}
                   iconColor={selected ? COLORS.cm_grey_700 : COLORS.neutral_500}
                   size={{faSize: 20, wrapperSize: 20}}
+                  aria-label={ariaLabel}
                 />
                 <span>{label}</span>
               </div>
@@ -138,7 +145,7 @@ const QuickFilters = ({primaryOption, filterOptions, filterButton}: QuickFilters
               onClick={handleScrollRight}
               customStyle={{height: '36px'}}
               data-testid="scroll-right-button"
-              aria-label="show next filters"
+              aria-label={nextFilterAriaLabel}
             />
           </div>
         </div>
