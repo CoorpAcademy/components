@@ -109,14 +109,17 @@ const buildNotifications = notifications => {
   );
 };
 
-const buildHeader = header =>
-  header.type === 'header-with-actions' ? (
+const buildHeader = header => {
+  if (!header) return null;
+
+  return header.type === 'header-with-actions' ? (
     <HeaderWithActions {...header} />
   ) : (
     <div className={style.headerDefault}>
       <Header {...header} />
     </div>
   );
+};
 
 const buildDefaultPopin = popin => {
   const {theme, icon: popinIcon, secondButton: popinSecondButton} = popin;

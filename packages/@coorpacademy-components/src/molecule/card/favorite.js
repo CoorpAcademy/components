@@ -87,6 +87,19 @@ const Favorite = (
     return () => window.removeEventListener('scroll', hide);
   }, [toolTipIsVisible]);
 
+  // Hide tooltip when favorite state changes
+  // This prevents showing stale tooltip content
+  useEffect(() => {
+    if (toolTipIsVisible) {
+      setToolTipIsVisible(false);
+    }
+    if (mouseLeaveTimer) {
+      clearTimeout(mouseLeaveTimer);
+      setMouseLeaveTimer(undefined);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [favorite]);
+
   const handleKeyPress = useCallback(
     event => {
       toggleStateOnKeyPress(toolTipIsVisible, setToolTipIsVisible, buttonRef)(event);
