@@ -2480,6 +2480,67 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   max-width: 100%;
 }
 
+/*
+  Disabled state
+*/
+
+.disabled-i4pbJ {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.disabled-i4pbJ .selectWrapper-V14mW {
+  cursor: not-allowed;
+}
+
+.disabled-i4pbJ .selectBox-iV6-P {
+  cursor: not-allowed !important;
+  background-color: #FAFAFA;
+}
+
+.disabled-i4pbJ .arrow-VNkl8,
+.disabled-i4pbJ .selectedArrow-BAKwP {
+  cursor: not-allowed;
+}
+
+.disabled-i4pbJ:hover .arrow-VNkl8,
+.disabled-i4pbJ:hover .selectedArrow-BAKwP {
+  color: inherit;
+}
+
+/*
+  ReadOnly state - keeps visual appearance but prevents interaction
+*/
+
+.readOnly-FO\+AL .selectBox-iV6-P {
+  cursor: default;
+}
+
+.readOnly-FO\+AL .selectWrapper-V14mW {
+  cursor: default;
+  position: relative;
+}
+
+.readOnly-FO\+AL .selectWrapper-V14mW::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  cursor: default;
+}
+
+.readOnly-FO\+AL .selectWrapper-V14mW * {
+  cursor: default;
+}
+
+.readOnly-FO\+AL .arrow-VNkl8,
+.readOnly-FO\+AL .selectedArrow-BAKwP {
+  cursor: default;
+}
+
 @media (max-width: 640px) {
   .wrapper-UwL7K {
     width: 100%;
