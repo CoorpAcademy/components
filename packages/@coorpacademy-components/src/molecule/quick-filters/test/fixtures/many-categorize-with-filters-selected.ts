@@ -17,7 +17,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`certificates selected`);
       },
-      selected: true
+      selected: true,
+      ariaLabel: 'certificates aria label'
     },
     {
       iconName: 'lines-leaning',
@@ -26,7 +27,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log('playlists selected');
       },
-      selected: false
+      selected: false,
+      ariaLabel: 'playlists aria label'
     },
     {
       iconName: 'stopwatch',
@@ -35,7 +37,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning aria label'
     },
     {
       iconName: 'stopwatch',
@@ -44,7 +47,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 2 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -53,7 +57,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 3 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -62,7 +67,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 4 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -71,7 +77,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 5 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -80,7 +87,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 6 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -89,7 +97,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 7 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -98,7 +107,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 8 aria label'
     },
     {
       iconName: 'stopwatch',
@@ -107,7 +117,8 @@ const filterSelected: QuickFiltersProps = {
       onClick: () => {
         console.log(`5'learning selected`);
       },
-      selected: false
+      selected: false,
+      ariaLabel: '5 learning 9 aria label'
     }
   ],
   filterButton: {
@@ -121,6 +132,8 @@ const filterSelected: QuickFiltersProps = {
         backgroundColor: COLORS.cm_primary_blue
       }
     }
-  }
+  },
+  nextFilterAriaLabel: 'show next filters',
+  previousFilterAriaLabel: 'show previous filters'
 };
 export default {props: filterSelected};

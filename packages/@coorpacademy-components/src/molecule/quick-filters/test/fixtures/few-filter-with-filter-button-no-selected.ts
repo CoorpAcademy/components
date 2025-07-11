@@ -13,7 +13,8 @@ const noFilterSelected: QuickFiltersProps = {
       selected: false,
       onClick: () => {
         console.log('podcast selected');
-      }
+      },
+      ariaLabel: 'podcasts aria label'
     },
     {
       label: 'Documents',
@@ -22,7 +23,8 @@ const noFilterSelected: QuickFiltersProps = {
       selected: false,
       onClick: () => {
         console.log('documents selected');
-      }
+      },
+      ariaLabel: 'documents aria label'
     }
   ],
   filterButton: {
