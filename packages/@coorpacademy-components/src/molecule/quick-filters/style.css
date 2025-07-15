@@ -1,0 +1,119 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value cm_grey_100 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+@value cm_primary_blue from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.filtersMainContainer {
+    composes: textBase;
+    display: flex;
+    align-items: center;
+}
+
+.filtersContainer {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.filtersList {
+    overflow-x: auto;
+    scrollbar-width: none;
+    align-items: center;
+    display: flex;
+    flex: 1;
+    position: relative;
+    margin-right: 40px;
+}
+
+.filterOption, .defaultOption {
+    display: flex;
+    color: cm_grey_500;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    flex-shrink: 0;
+    height: 72px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.filterSelected {
+    color: cm_grey_700;
+    border-bottom: 2px solid cm_primary_blue;
+}
+
+.filterLabel {
+    min-width: 70px;
+}
+
+.filterSeparator {
+    padding: 24px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.filterSeparator::before {
+  content: '';
+  width: 1px;
+  height: 24px;
+  background-color: cm_grey_100;
+}
+
+.filterButton {
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.leftArrowButton, .rightArrowButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    background-color: cm_grey_100;
+    border-radius: 50%;
+    position: sticky;
+    z-index: 1;
+    transform: translateY(-10%);
+}
+
+.rightArrowButton {
+  right: 0;         
+  box-shadow: -20px 0 40px 40px white, 30px  0 40px 40px white;
+}
+
+.leftArrowButton {
+  left: 0;          
+  box-shadow: 20px 0 40px 40px white;
+}
+
+.filterButtonWrapper {
+    padding: 2px;
+    border-radius: 16px;
+    border: 2px solid cm_primary_blue;
+    box-sizing: border-box;
+}
+
+@media mobile {
+    .leftArrowButton, .rightArrowButton, .filterButton, .filterButtonWrapper {
+        display: none!important;
+    }
+
+    .filtersList{
+        margin-right: 0;
+    }
+}

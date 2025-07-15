@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {keys} from 'lodash/fp';
 import {ICONS} from '../../util/button-icons';
+import Tag from '../tag';
 
 const faIconPropTypes = {
   name: PropTypes.string.isRequired,
@@ -81,6 +82,7 @@ export type ButtonLinkProps = {
   customStyle?: Record<string, string | number>;
   useTitle?: boolean;
   customLabelClassName?: string;
+  tag?: React.ComponentProps<typeof Tag>;
 };
 
 export type Fixture = {props: ButtonLinkProps};
