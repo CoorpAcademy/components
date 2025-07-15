@@ -31,7 +31,8 @@ const Chip = (props, context) => {
     customIcon,
     onClick,
     leftIcon,
-    backgroundColor = DEFAULT_BACKGROUND_COLOR
+    backgroundColor = DEFAULT_BACKGROUND_COLOR,
+    customStyle
   } = props;
   const {skin} = context;
   const skinColor = get('common.primary', skin);
@@ -60,7 +61,8 @@ const Chip = (props, context) => {
       className={classnames(style.container, !selected && style.unselected)}
       style={{
         ...(selected && selectedBgColor ? {backgroundColor: selectedBgColor} : {}),
-        ...(selected && hoverStyle)
+        ...(selected && hoverStyle),
+        ...customStyle
       }}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
@@ -101,7 +103,8 @@ Chip.propTypes = {
   customIcon: PropTypes.string,
   backgroundColor: PropTypes.string,
   onClick: PropTypes.func,
-  leftIcon: PropTypes.string
+  leftIcon: PropTypes.string,
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default Chip;
