@@ -47,7 +47,8 @@ const QuickFilters = ({
   filterOptions,
   filterButton,
   nextFilterAriaLabel,
-  previousFilterAriaLabel
+  previousFilterAriaLabel,
+  filterOptionsAriaLabel
 }: QuickFiltersProps) => {
   const {defaultLabel, defaultIconName, defaultSelected, defaultAriaLabel, onDefaultClick} =
     primaryOption;
@@ -98,7 +99,12 @@ const QuickFilters = ({
           aria-label={previousFilterAriaLabel}
         />
       </div>
-      <div className={style.filtersList} ref={filtersListRef} data-testid="filters-options-list">
+      <div
+        className={style.filtersList}
+        ref={filtersListRef}
+        data-testid="filters-options-list"
+        aria-label={filterOptionsAriaLabel}
+      >
         <div
           data-testid="all-option"
           className={classNames(style.defaultOption, defaultSelected && style.filterSelected)}

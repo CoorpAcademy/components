@@ -13,6 +13,7 @@ const defaultProps: QuickFiltersProps = {
   },
   nextFilterAriaLabel: 'show next filters',
   previousFilterAriaLabel: 'show previous filters',
+  filterOptionsAriaLabel: 'filters options list aria label',
   filterOptions: [
     {
       iconName: 'shapes',

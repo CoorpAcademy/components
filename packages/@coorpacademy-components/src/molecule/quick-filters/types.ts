@@ -13,6 +13,7 @@ export type QuickFiltersProps = {
   };
   nextFilterAriaLabel: string;
   previousFilterAriaLabel: string;
+  filterOptionsAriaLabel: string;
   filterOptions: FilterOption[];
   filterButton?: ButtonLinkProps;
 };
@@ -37,15 +38,20 @@ export const propTypes = {
     defaultValue: PropTypes.string,
     defaultIconName: PropTypes.string,
     defaultSelected: PropTypes.bool,
+    defaultAriaLabel: PropTypes.string,
     onDefaultClick: PropTypes.func
-  }).isRequired,
+  }),
+  nextFilterAriaLabel: PropTypes.string,
+  previousFilterAriaLabel: PropTypes.string,
+  filterOptionsAriaLabel: PropTypes.string,
   filterOptions: PropTypes.arrayOf(
     PropTypes.shape({
       iconName: PropTypes.string,
       label: PropTypes.string,
       value: PropTypes.string,
       onClick: PropTypes.func,
-      selected: PropTypes.bool
+      selected: PropTypes.bool,
+      ariaLabel: PropTypes.string
     })
   ),
   filterButton: PropTypes.shape(ButtonLink.propTypes)
