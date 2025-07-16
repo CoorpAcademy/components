@@ -6,7 +6,9 @@ import filterCheckboxAndSearchProptypes, {
 
 const propTypes = {
   title: PropTypes.string,
+  showSelectedFilters: PropTypes.bool,
   onClearAll: PropTypes.func,
+  onRemoveSelectedFilter: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
@@ -33,8 +35,27 @@ export type OptionsCheckboxProps = {
 
 export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps;
 
+export type SelectedFilter = {
+  icon: string;
+  label: string;
+  selected: boolean;
+  type: string;
+};
+
+export type SelectedFilterItem = {
+  // returned by allSelectedFilters
+  label?: string;
+  selected: boolean;
+  icon?: string;
+  type?: string;
+  value?: string;
+  ref?: string;
+  count?: number;
+};
 export type MultiFilterPanelProps = {
   title: string;
+  showSelectedFilters?: boolean;
+  onRemoveSelectedFilter?: (filterId: string) => void;
   onClearAll: () => void;
   options: FilterOptionsProps[];
 };

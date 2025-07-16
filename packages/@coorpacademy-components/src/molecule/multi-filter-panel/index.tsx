@@ -7,7 +7,9 @@ import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import {WebContextValues} from '../../atom/provider/web-context';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
-import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
+import Chip from '../../atom/chip';
+import {COLORS} from '../../variables/colors';
+import propTypes, {MultiFilterPanelProps, FilterOptionsProps, SelectedFilter} from './prop-types';
 import style from './style.css';
 
 // @ts-expect-error convert is not recognized by the types
@@ -28,17 +30,43 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
   }
 };
 
+const buildSelectedFilterChips = (
+  selectedFilters: SelectedFilter[],
+  onRemoveSelectedFilter?: (filterId: string) => void
+) => {
+  return (
+    <div className={style.selectedFiltersContainer} data-testid="selected-filters-container">
+      {selectedFilters.map((filterItem: SelectedFilter, index: number) => {
+        const {label} = filterItem;
+        return (
+          <Chip
+            key={index}
+            onClick={onRemoveSelectedFilter}
+            text={label}
+            backgroundColor={COLORS.cm_grey_150}
+            customIcon={'xmark'}
+            customStyle={{height: '28px', padding: '4px 8px'}}
+          />
+        );
+      })}
+    </div>
+  );
+};
+
 const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
-  const {title, onClearAll, options} = props;
+  const {title, onClearAll, options, showSelectedFilters = false, onRemoveSelectedFilter} = props;
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ index.tsx:34 ~ MultiFilterPanel ~ showSelectedFilters:', showSelectedFilters);
   const translate = GetTranslateFromContext(context);
   const allSelectedFilters = pipe(
     map('options'),
     flatMap('options'),
-    filter({selected: true}),
-    size
-  )(options);
-  const hasSelectedFilters = allSelectedFilters > 0;
+    filter({selected: true})
+  )(options) as SelectedFilter[];
 
+  // eslint-disable-next-line no-console
+  console.log('🚀 ~ index.tsx:43 ~ MultiFilterPanel ~ allSelectedFilters:', allSelectedFilters);
+  const hasSelectedFilters = size(allSelectedFilters) > 0;
   const filters = uncappedMap((filterOptions: FilterOptionsProps, i: number) => {
     const isLastItem = i + 1 === size(options);
 
@@ -56,7 +84,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
         <div className={style.titleContainer}>
           <Title title={title} type="form-group" titleSize="standard-light-weight" />
           {hasSelectedFilters ? (
-            <Tag label={toString(allSelectedFilters)} type="info" size="S" />
+            <Tag label={toString(size(allSelectedFilters))} type="info" size="S" />
           ) : null}
         </div>
         {hasSelectedFilters ? (
@@ -72,7 +100,12 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
           </div>
         ) : null}
       </div>
-
+      {showSelectedFilters && hasSelectedFilters ? (
+        <>
+          <div>{buildSelectedFilterChips(allSelectedFilters, onRemoveSelectedFilter)}</div>
+          {FilterSeparator}
+        </>
+      ) : null}
       {filters}
     </>
   );
