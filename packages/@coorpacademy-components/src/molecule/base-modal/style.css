@@ -103,6 +103,7 @@
 .button {
   border-radius: 12px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 @media mobile {
