@@ -1,15 +1,22 @@
 import {FilterSwitchProps} from '../../prop-types';
 
 const filterSwitchProps: FilterSwitchProps = {
-  title: 'Language',
-  onClear: () => console.log('click language'),
+  headerTitle: 'Options',
+  onClear: () => console.log('clear options'),
   options: [
     {
-      title: 'Show all languages',
-      value: false, // checked
+      title: 'Only show new content',
+      value: true,
+      onChange: (value: string) => console.log('toggle show content', value),
+      ariaLabel: 'toggle show new content',
+      theme: 'newMooc'
+    },
+    {
+      title: 'Hide completed',
+      value: false,
       theme: 'newMooc',
-      type: 'iconswitch',
-      onChange: (value: string) => console.log('toggle show language', value)
+      onChange: (value: string) => console.log('toggle hide completed', value),
+      ariaLabel: 'hide completed content aria label'
     }
   ]
 };
