@@ -1,18 +1,18 @@
 import {FilterSwitchProps} from '../../prop-types';
 
 const filterSwitchProps: FilterSwitchProps = {
-  headerTitle: 'Options',
+  title: 'Options',
   onClear: () => console.log('clear options'),
   options: [
     {
-      title: 'Only show new content',
+      label: 'Only show new content',
       value: true,
       onChange: (value: string) => console.log('toggle show content', value),
       ariaLabel: 'toggle show new content',
       theme: 'newMooc'
     },
     {
-      title: 'Hide completed',
+      label: 'Hide completed',
       value: false,
       theme: 'newMooc',
       onChange: (value: string) => console.log('toggle hide completed', value),

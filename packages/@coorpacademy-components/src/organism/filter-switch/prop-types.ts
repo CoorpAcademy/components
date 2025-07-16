@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  headerTitle: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   onClear: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
       value: PropTypes.bool.isRequired,
       onChange: PropTypes.func.isRequired,
       theme: PropTypes.string.isRequired,
@@ -15,10 +15,10 @@ const propTypes = {
 };
 
 export type FilterSwitchProps = {
-  headerTitle: string;
+  title: string;
   onClear: () => void;
   options: {
-    title: string;
+    label: string;
     value: boolean;
     onChange: (value: string) => void;
     theme: string;

@@ -3,6 +3,7 @@ import filterChipProptypes, {FilterChipProps} from '../../organism/filter-chip/p
 import filterCheckboxAndSearchProptypes, {
   FilterCheckboxAndSearchProps
 } from '../../organism/filter-checkbox-and-search/props-types';
+import {FilterSwitchProps} from '../../organism/filter-switch/prop-types';
 
 const propTypes = {
   title: PropTypes.string,
@@ -33,25 +34,23 @@ export type OptionsCheckboxProps = {
   options: FilterCheckboxAndSearchProps;
 };
 
-export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps;
+export type OptionsSwitchProps = {
+  type: 'switch';
+  options: FilterSwitchProps;
+};
+
+export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps | OptionsSwitchProps;
 
 export type SelectedFilter = {
   icon: string;
   label: string;
   selected: boolean;
   type: string;
+  count?: number;
+  value?: boolean;
+  ref?: string;
 };
 
-export type SelectedFilterItem = {
-  // returned by allSelectedFilters
-  label?: string;
-  selected: boolean;
-  icon?: string;
-  type?: string;
-  value?: string;
-  ref?: string;
-  count?: number;
-};
 export type MultiFilterPanelProps = {
   title: string;
   showSelectedFilters?: boolean;

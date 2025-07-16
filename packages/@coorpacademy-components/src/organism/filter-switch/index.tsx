@@ -10,7 +10,7 @@ import propTypes, {FilterSwitchProps} from './prop-types';
 import style from './style.css';
 
 const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
-  const {headerTitle, onClear, options} = props;
+  const {title, onClear, options} = props;
   const selectedFiltersCount = pipe(filter({value: true}), size)(options);
   const hasSelectedFilters = selectedFiltersCount > 0;
   const translate = GetTranslateFromContext(context);
@@ -19,7 +19,7 @@ const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
     <div>
       <div className={style.header}>
         <div className={style.titleContainer}>
-          <Title title={headerTitle} />
+          <Title title={title} />
           {hasSelectedFilters ? (
             <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
           ) : null}
@@ -39,11 +39,11 @@ const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
       </div>
       <div className={style.optionsContainer}>
         {options.map(optionItem => {
-          const {title, value, onChange, ariaLabel} = optionItem;
+          const {label, value, onChange, ariaLabel} = optionItem;
           return (
-            <div key={title}>
+            <div key={label}>
               <InputSwitch
-                title={title}
+                title={label}
                 value={value}
                 theme={'newMooc'}
                 onChange={onChange}
