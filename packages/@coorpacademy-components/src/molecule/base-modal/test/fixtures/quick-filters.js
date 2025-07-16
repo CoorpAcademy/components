@@ -3,6 +3,8 @@ import {COLORS} from '../../../../variables/colors';
 import MultiFilterPanel from '../../../multi-filter-panel';
 import quickFilters from '../../../multi-filter-panel/test/fixtures/quick-filters';
 
+const ChildComponentFixture = () => <MultiFilterPanel {...quickFilters.props} />; // isolate props for testing
+
 export default {
   props: {
     title: 'Filters',
@@ -11,8 +13,7 @@ export default {
       backgroundColor: COLORS.primary_100,
       color: COLORS.cm_blue_700
     },
-    detectScrollbar: true,
-    children: <MultiFilterPanel {...quickFilters.props} />,
+    children: <ChildComponentFixture />,
     isOpen: true,
     footer: {
       cancelButton: {
@@ -27,6 +28,11 @@ export default {
         color: COLORS.cm_primary_blue
       }
     },
-    onClose: () => console.log('close modal')
+    onClose: () => console.log('close modal'),
+    detectScrollbar: true,
+    customStyle: {
+      maxHeight: '756px',
+      width: '660px'
+    }
   }
 };

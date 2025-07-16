@@ -3,7 +3,7 @@ import filterChipProptypes, {FilterChipProps} from '../../organism/filter-chip/p
 import filterCheckboxAndSearchProptypes, {
   FilterCheckboxAndSearchProps
 } from '../../organism/filter-checkbox-and-search/props-types';
-import {FilterSwitchProps} from '../../organism/filter-switch/prop-types';
+import filterSwitchProptypes, {FilterSwitchProps} from '../../organism/filter-switch/prop-types';
 
 const propTypes = {
   title: PropTypes.string,
@@ -19,6 +19,10 @@ const propTypes = {
       PropTypes.shape({
         type: PropTypes.oneOf(['checkbox']),
         options: PropTypes.shape(filterCheckboxAndSearchProptypes)
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['switch']),
+        options: PropTypes.shape(filterSwitchProptypes)
       })
     ])
   )

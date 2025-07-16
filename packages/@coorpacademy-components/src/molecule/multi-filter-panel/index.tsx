@@ -58,8 +58,6 @@ const buildSelectedFilterChips = (
 
 const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
   const {title, onClearAll, options, showSelectedFilters = false, onRemoveSelectedFilter} = props;
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ index.tsx:34 ~ MultiFilterPanel ~ showSelectedFilters:', showSelectedFilters);
   const translate = GetTranslateFromContext(context);
   const allSelectedFilters = pipe(
     map('options'),
@@ -72,8 +70,6 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
     filter({value: true})
   )(options) as SelectedFilter[];
   const allCombinedFilters = concat(allSwitchFilters)(allSelectedFilters);
-  // eslint-disable-next-line no-console
-  console.log('🚀 ~ index.tsx:76 ~ MultiFilterPanel ~ allCombinedFilters:', allCombinedFilters);
   const hasSelectedFilters = size(allCombinedFilters) > 0;
   const filters = uncappedMap((filterOptions: FilterOptionsProps, i: number) => {
     const isLastItem = i + 1 === size(options);
