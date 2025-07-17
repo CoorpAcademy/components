@@ -26,4 +26,10 @@
     flex-wrap: wrap;
     flex-direction: column;
     gap: 8px;
+    width: 100%;
+}
+
+.switchOption label {
+    background-color: red;
+    margin: 0;
 }

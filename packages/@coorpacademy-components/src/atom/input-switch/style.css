@@ -260,6 +260,10 @@
   background: white;
 }
 
+.newMoocTitleContainer {
+  width: 100%;
+}
+
 .titleContainer {
   display: flex;
   align-items: center;

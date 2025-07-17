@@ -41,7 +41,7 @@ const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
         {options.map(optionItem => {
           const {label, value, onChange, ariaLabel} = optionItem;
           return (
-            <div key={label}>
+            <div key={label} className={style.switchOption}>
               <InputSwitch
                 title={label}
                 value={value}
