@@ -55,6 +55,7 @@ const Chip = (props, context) => {
 
   const defaultIcon = selected ? 'fa-check' : 'fa-plus';
   const color = selected ? COLORS.white : COLORS.cm_grey_700;
+  const showIcon = customIcon !== 'none';
 
   return (
     <div
@@ -83,11 +84,13 @@ const Chip = (props, context) => {
           ) : null}
         </div>
       </div>
-      <FontAwesomeIcon
-        style={{color}}
-        icon={customIcon ? `fa-${customIcon}` : defaultIcon}
-        fontSize={ICON_SIZE}
-      />
+      {showIcon ? (
+        <FontAwesomeIcon
+          style={{color}}
+          icon={customIcon ? `fa-${customIcon}` : defaultIcon}
+          fontSize={ICON_SIZE}
+        />
+      ) : null}
     </div>
   );
 };
