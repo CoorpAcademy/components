@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500 from colors;
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -30,6 +33,9 @@
 }
 
 .switchOption label {
-    background-color: red;
     margin: 0;
+}
+
+.switchOption span {
+    color: cm_grey_500;
 }

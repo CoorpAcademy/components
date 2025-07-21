@@ -23,8 +23,8 @@ export default {
       },
       confirmButton: {
         onConfirm: () => console.log('show results'),
-        label: 'Show 243 results',
-        iconName: 'search',
+        label: 'Loading',
+        iconName: 'spinner-third',
         disabled: false,
         color: COLORS.cm_primary_blue
       }

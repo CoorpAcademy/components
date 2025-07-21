@@ -1,10 +1,12 @@
 import {MultiFilterPanelProps} from '../../prop-types';
 import filterCheckboxSelected from '../../../../organism/filter-checkbox-and-search/test/fixtures/filters-selected';
 import FilterSwitchProps from '../../../../organism/filter-switch/test/fixtures/default';
+import noIconChipsProps from '../../../../organism/filter-chip/test/fixtures/no-icons';
 
 export const multiFilterPanelProps: MultiFilterPanelProps = {
   title: 'Filters selected',
   onClearAll: () => console.log('click on clear all filters'),
+  onRemoveSelectedFilter: () => console.log('click on remove filter'),
   showSelectedFilters: true,
   options: [
     {
@@ -25,33 +27,7 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
     },
     {
       type: 'chip',
-      options: {
-        title: 'Duration',
-        onClear: () => console.log('clear filters'),
-        options: [
-          {
-            label: 'Short (>5mins)',
-            type: 'short-duration',
-            selected: false,
-            icon: 'fa-book-open',
-            onClick: () => console.log('click on Courses filter')
-          },
-          {
-            label: 'Medium (5-15mins)',
-            type: 'medium-duration',
-            selected: false,
-            icon: 'fa-stopwatch',
-            onClick: () => console.log('click on 5 filter')
-          },
-          {
-            label: 'Long (15mins+)',
-            type: 'long-duration',
-            selected: false,
-            icon: 'fa-stopwatch',
-            onClick: () => console.log('click on 5 filter')
-          }
-        ]
-      }
+      options: noIconChipsProps.props
     },
     {
       type: 'switch',

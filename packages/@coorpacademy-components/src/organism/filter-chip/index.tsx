@@ -37,7 +37,7 @@ const FilterChip = (props: FilterChipProps, context: WebContextValues) => {
         ) : null}
       </div>
       <div className={style.optionsContainer}>
-        {map(({icon, label, onClick, type, selected}) => {
+        {map(({icon, label, onClick, type, selected, customIcon}) => {
           function handleClick() {
             onClick(type);
           }
@@ -49,6 +49,7 @@ const FilterChip = (props: FilterChipProps, context: WebContextValues) => {
               key={label}
               selected={selected}
               onClick={handleClick}
+              customIcon={customIcon}
             />
           );
         }, options)}

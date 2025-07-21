@@ -9,6 +9,7 @@ const propTypes = {
       type: PropTypes.string,
       selected: PropTypes.bool,
       icon: PropTypes.string,
+      customIcon: PropTypes.string,
       onClick: PropTypes.func
     })
   )
@@ -21,7 +22,8 @@ export type FilterChipProps = {
     label: string;
     type: string;
     selected: boolean;
-    icon: string;
+    icon?: string;
+    customIcon?: string;
     onClick: (type: string) => void;
   }[];
 };
