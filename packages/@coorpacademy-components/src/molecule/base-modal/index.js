@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty, get, debounce} from 'lodash/fp';
 import {convert} from 'css-color-function';
+import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
@@ -167,7 +168,7 @@ const BaseModal = (props, context) => {
   return (
     <div className={style.modalWrapper} data-testid="modal">
       <div className={style.modal} style={customStyle}>
-        <header className={style.header}>
+        <header className={classnames(style.header, !description && style.headerCentered)}>
           {headerIcon?.name ? (
             <div className={style.headerIcon}>
               <Icon

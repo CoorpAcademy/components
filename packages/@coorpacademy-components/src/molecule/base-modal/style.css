@@ -37,6 +37,10 @@
   position: relative;
 }
 
+.headerCentered {
+    align-items: center;
+}
+
 .headerIcon {
   border-radius: 12px;
   overflow: hidden;
