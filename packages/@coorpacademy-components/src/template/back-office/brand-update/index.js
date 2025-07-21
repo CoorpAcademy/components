@@ -269,7 +269,7 @@ const BrandUpdate = props => {
   const titleView = buildTitle(title);
 
   const hasVisibleBulletPointMenu =
-    content.type === 'list-content' &&
+    content?.type === 'list-content' &&
     pipe(
       getOr([], 'content.items'),
       some(pipe(getOr([], 'bulletPointMenuButton.buttons'), buttons => buttons.length > 0))
