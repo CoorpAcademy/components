@@ -23,7 +23,33 @@ export const items = [
     href: '#brand/samsung/editorialization',
     type: 'collapsibleTab',
     open: false,
-    selected: false
+    selected: false,
+    tabs: [
+      {
+        title: 'Dashboard',
+        href: '#brand/samsung/editorialization/dashboard',
+        selected: false,
+        type: 'simpleTab'
+      },
+      {
+        title: 'Content',
+        href: '#brand/samsung/editorialization/content',
+        selected: false,
+        type: 'simpleTab'
+      },
+      {
+        title: 'Look & feel',
+        href: '#brand/samsung/editorialization/look-and-feel',
+        selected: false,
+        type: 'simpleTab'
+      },
+      {
+        title: 'Explore',
+        href: '#brand/samsung/editorialization/explore',
+        selected: false,
+        type: 'simpleTab'
+      }
+    ]
   },
   {
     title: 'Content Creation',
