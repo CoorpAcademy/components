@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import {getOr, isEmpty} from 'lodash/fp';
+import {getOr, isEmpty, keys} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
@@ -90,7 +90,7 @@ const SearchPage = (props, context) => {
   );
 
   // Convert sections object to array and sort by order
-  const sectionsArray = Object.keys(sections).map(key => ({
+  const sectionsArray = keys(sections).map(key => ({
     key,
     ...sections[key]
   }));
