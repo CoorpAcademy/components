@@ -46,6 +46,7 @@ const buildSelectedFilterChips = (
             key={index}
             onClick={onRemoveSelectedFilter}
             text={label}
+            textColor={COLORS.neutral_500}
             backgroundColor={COLORS.cm_grey_150}
             customIcon={'xmark'}
             customStyle={{height: '28px', padding: '4px 8px'}}

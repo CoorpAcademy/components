@@ -27,6 +27,7 @@ const Chip = (props, context) => {
   const {
     text,
     subText,
+    textColor,
     selected = false,
     customIcon,
     onClick,
@@ -54,7 +55,8 @@ const Chip = (props, context) => {
   const hoverStyle = isHovered ? {backgroundColor: hoveredSelectedBgColor} : {};
 
   const defaultIcon = selected ? 'fa-check' : 'fa-plus';
-  const color = selected ? COLORS.white : COLORS.cm_grey_700;
+  const defaultTextColor = textColor ? textColor : COLORS.cm_grey_700;
+  const color = selected ? COLORS.white : defaultTextColor;
   const showIcon = customIcon !== 'none';
 
   return (
@@ -102,6 +104,7 @@ Chip.contextTypes = {
 Chip.propTypes = {
   text: PropTypes.string,
   subText: PropTypes.string,
+  textColor: PropTypes.string,
   selected: PropTypes.bool,
   customIcon: PropTypes.string,
   backgroundColor: PropTypes.string,

@@ -7,6 +7,7 @@ const propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       type: PropTypes.string,
+      textColor: PropTypes.string,
       selected: PropTypes.bool,
       icon: PropTypes.string,
       customIcon: PropTypes.string,
@@ -23,6 +24,7 @@ export type FilterChipProps = {
     type: string;
     selected: boolean;
     icon?: string;
+    textColor?: string;
     customIcon?: string;
     onClick: (type: string) => void;
   }[];

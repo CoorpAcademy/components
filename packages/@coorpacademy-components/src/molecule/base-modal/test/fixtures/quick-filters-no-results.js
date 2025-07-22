@@ -15,6 +15,7 @@ export default {
     },
     children: <ChildComponentFixture />,
     isOpen: true,
+    showSelectedFilters: true,
     footer: {
       cancelButton: {
         onCancel: () => console.log('Clear search'),
@@ -23,17 +24,17 @@ export default {
       },
       confirmButton: {
         onConfirm: () => console.log('show results'),
-        label: 'Show 243 results',
-        iconName: 'search',
-        disabled: false,
+        label: 'No results with selected filters',
+        disabled: true,
         color: COLORS.cm_primary_blue
       }
     },
     onClose: () => console.log('close modal'),
     detectScrollbar: true,
     customStyle: {
-      maxHeight: '756px',
-      width: '660px'
+      width: '660px',
+      maxWidth: '660px',
+      maxHeight: '90vh'
     }
   }
 };

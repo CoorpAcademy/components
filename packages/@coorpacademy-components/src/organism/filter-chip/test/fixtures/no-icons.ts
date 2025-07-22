@@ -1,3 +1,4 @@
+import {COLORS} from '../../../../variables/colors';
 import {FilterChipProps} from '../../prop-types';
 
 const noIconsChipsProps: FilterChipProps = {
@@ -7,6 +8,7 @@ const noIconsChipsProps: FilterChipProps = {
     {
       label: 'Short (>5mins)',
       type: 'short-duration',
+      textColor: COLORS.neutral_500,
       selected: false,
       onClick: () => console.log('click on short-duration'),
       customIcon: 'none'
@@ -14,6 +16,7 @@ const noIconsChipsProps: FilterChipProps = {
     {
       label: 'Medium (5-15mins)',
       type: 'medium-duration',
+      textColor: COLORS.neutral_500,
       selected: true,
       onClick: () => console.log('click on medium-duration'),
       customIcon: 'none'
@@ -21,6 +24,7 @@ const noIconsChipsProps: FilterChipProps = {
     {
       label: 'Long (+15mins)',
       type: 'long-duration',
+      textColor: COLORS.neutral_500,
       selected: false,
       onClick: () => console.log('click on long-duration'),
       customIcon: 'none'
