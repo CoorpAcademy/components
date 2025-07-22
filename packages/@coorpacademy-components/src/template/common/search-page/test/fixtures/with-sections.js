@@ -103,6 +103,7 @@ export default {
       freshContent: {
         title: 'New & Fresh Content',
         cards: newContentCards,
+        count: 5,
         showMore: 'See all',
         onShowMore: () => console.log('Show more new content'),
         order: 0,
@@ -115,6 +116,7 @@ export default {
       certifications: {
         title: 'Certifications',
         cards: certificationsCards,
+        count: 4,
         showMore: 'See all',
         onShowMore: () => console.log('Show more certifications'),
         order: 1,
@@ -127,6 +129,7 @@ export default {
       skills: {
         title: 'Skills',
         cards: skillsCards,
+        count: 4,
         showMore: 'See all',
         onShowMore: () => console.log('Show more skills'),
         order: 2,
@@ -139,6 +142,7 @@ export default {
       playlists: {
         title: 'Playlists',
         cards: playlistsCards,
+        count: 21,
         showMore: 'See all',
         onShowMore: () => console.log('Show more playlists'),
         order: 3,

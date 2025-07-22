@@ -40,12 +40,15 @@ const SearchPage = (props, context) => {
   const renderSection = section => {
     if (!section || isEmpty(section.cards)) return null;
 
+    // Use count from props, fallback to cards.length
+    const sectionCount = section.count || section.cards.length;
+
     // Create title with count tag
     const titleWithCount = (
       <div className={style.sectionTitle}>
         <span>{section.title}</span>
         <Tag
-          label={section.cards.length.toString()}
+          label={sectionCount.toString()}
           type="default"
           size="S"
           customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
@@ -193,6 +196,7 @@ SearchPage.propTypes = {
       onShowMore: PropTypes.func,
       order: PropTypes.number,
       display: PropTypes.bool,
+      count: PropTypes.number,
       'arrows-aria-label': PropTypes.shape({
         showMoreOnLeftAriaLabel: PropTypes.string,
         showMoreOnRightAriaLabel: PropTypes.string
