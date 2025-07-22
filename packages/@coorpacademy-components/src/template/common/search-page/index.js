@@ -6,7 +6,13 @@ import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
 import CardsGrid from '../../../organism/cards-grid';
 import CardsList from '../../../molecule/dashboard/cards-list';
+import CertificationCard from '../../../molecule/certification-card';
+import LearnerSkillCard from '../../../molecule/learner-skill-card';
 import CMPopin from '../../../molecule/cm-popin';
+import Tag from '../../../atom/tag';
+import {cardPropTypes} from '../../../molecule/card';
+import LearningPriorityCard from '../../../molecule/learning-priority-card';
+import {COLORS} from '../../../variables/colors';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
@@ -21,14 +27,51 @@ const SearchPage = (props, context) => {
     moreFilterAriaLabel,
     filterGroupAriaLabel,
     sortAriaLabel,
-    popinWithCards
+    popinWithCards,
+    sections = {}
   } = props;
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const nodeRef = useRef(null);
   const recommendationsView = isEmpty(recommendations) ? null : <CardsList {...recommendations} />;
 
-  const cardsView = isEmpty(cards.list) ? (
+  // Helper function to render content sections
+  const renderSection = section => {
+    if (!section || isEmpty(section.cards)) return null;
+
+    // Create title with count tag
+    const titleWithCount = (
+      <div className={style.sectionTitle}>
+        <span>{section.title}</span>
+        <Tag
+          label={section.cards.length.toString()}
+          type="default"
+          size="S"
+          customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
+        />
+      </div>
+    );
+
+    const sectionProps = {
+      ...section,
+      title: titleWithCount,
+      dataName: `${section.key}-section`
+    };
+
+    // Use CardsList with appropriate type for all sections
+    if (section.key === 'certifications') {
+      return <CardsList {...sectionProps} type="certifications" />;
+    }
+
+    if (section.key === 'skills') {
+      return <CardsList {...sectionProps} type="skills" />;
+    }
+
+    // For new content and playlists, use standard cards
+    return <CardsList {...sectionProps} />;
+  };
+
+  const cardsView = isEmpty(cards?.list) ? (
     <div>
       <div className={style.noresults}>
         <div className={style.noresultstxt}>{noresultsfound}</div>
@@ -46,21 +89,64 @@ const SearchPage = (props, context) => {
     <CardsGrid {...cards} />
   );
 
+  // Convert sections object to array and sort by order
+  const sectionsArray = Object.keys(sections).map(key => ({
+    key,
+    ...sections[key]
+  }));
+  const sortedSections = sectionsArray.sort((a, b) => a.order - b.order);
+
+  const hasSections = sortedSections.length > 0;
+
+  const contentGridSection =
+    cards && !isEmpty(cards.list) ? (
+      <div className={style.contentSection}>
+        <div className={style.sectionHeader}>
+          <div className={style.sectionTitle}>
+            <span>Content</span>
+            <Tag
+              label={cards.list.length.toString()}
+              type="default"
+              size="S"
+              customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
+            />
+          </div>
+          <div className={style.contentGrid}>
+            {' '}
+            <CardsGrid {...cards} />
+          </div>
+        </div>
+      </div>
+    ) : null;
+
   return (
     <div>
-      <Filters
-        {...searchFilters}
-        moreSortAriaLabel={moreSortAriaLabel}
-        moreFilterAriaLabel={moreFilterAriaLabel}
-        filterGroupAriaLabel={filterGroupAriaLabel}
-        sortAriaLabel={sortAriaLabel}
-      />
-      <div data-name="searchResult" className={style.cardsWrapper}>
-        <div className={style.title} role="status">
-          {title}
+      {searchFilters ? (
+        <Filters
+          {...searchFilters}
+          moreSortAriaLabel={moreSortAriaLabel}
+          moreFilterAriaLabel={moreFilterAriaLabel}
+          filterGroupAriaLabel={filterGroupAriaLabel}
+          sortAriaLabel={sortAriaLabel}
+        />
+      ) : null}
+
+      {hasSections ? (
+        <div data-name="explorerSections" className={style.sectionsWrapper}>
+          {sortedSections.map((section, index) => (
+            <div key={`${section.key}-${index}`}>{renderSection(section)}</div>
+          ))}
+          {contentGridSection}
         </div>
-        {cardsView}
-      </div>
+      ) : (
+        <div data-name="searchResult" className={style.cardsWrapper}>
+          <div className={style.title} role="status">
+            {title}
+          </div>
+          {cardsView}
+        </div>
+      )}
+
       {popinWithCards ? (
         <div className={style.popinWithCards} ref={nodeRef}>
           <CMPopin {...popinWithCards} />
@@ -85,7 +171,28 @@ SearchPage.propTypes = {
   moreFilterAriaLabel: PropTypes.string,
   filterGroupAriaLabel: PropTypes.string,
   sortAriaLabel: PropTypes.string,
-  popinWithCards: PropTypes.shape(CMPopin.propTypes)
+  popinWithCards: PropTypes.shape(CMPopin.propTypes),
+  sections: PropTypes.objectOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      cards: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.shape(cardPropTypes),
+          PropTypes.shape(LearnerSkillCard.propTypes),
+          PropTypes.shape(CertificationCard.propTypes),
+          PropTypes.shape(LearningPriorityCard.propTypes)
+        ])
+      ),
+      showMore: PropTypes.string,
+      onShowMore: PropTypes.func,
+      order: PropTypes.number,
+      display: PropTypes.bool,
+      'arrows-aria-label': PropTypes.shape({
+        showMoreOnLeftAriaLabel: PropTypes.string,
+        showMoreOnRightAriaLabel: PropTypes.string
+      })
+    })
+  )
 };
 
 export default SearchPage;

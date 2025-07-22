@@ -22,6 +22,8 @@ import {
 import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
 import LearningPriorityCard from '../../learning-priority-card';
+import CertificationCard from '../../certification-card';
+import LearnerSkillCard from '../../learner-skill-card';
 import Icon from '../../../atom/icon';
 import style from './style.css';
 
@@ -108,7 +110,7 @@ class CardsList extends React.PureComponent {
       showMoreOnLeftAriaLabel: PropTypes.string,
       showMoreOnRightAriaLabel: PropTypes.string
     }),
-    type: PropTypes.oneOf(['cards', 'learningPrioritiesCards']),
+    type: PropTypes.oneOf(['cards', 'learningPrioritiesCards', 'skills', 'certifications']),
     // eslint-disable-next-line react/forbid-prop-types
     testingSizes: PropTypes.any
   };
@@ -314,13 +316,19 @@ class CardsList extends React.PureComponent {
     const cardsView = pipe(
       toPairs,
       map(([key, card]) => {
+        let CardComponent = Card;
+
+        if (card && type === 'learningPrioritiesCards') {
+          CardComponent = LearningPriorityCard;
+        } else if (card && type === 'skills') {
+          CardComponent = LearnerSkillCard;
+        } else if (card && type === 'certifications') {
+          CardComponent = CertificationCard;
+        }
+
         return (
           <div className={style.card} key={key}>
-            {card && type === 'learningPrioritiesCards' ? (
-              <LearningPriorityCard {...card} dataName={`${dataName}-${key}`} />
-            ) : (
-              <Card {...card} dataName={`${dataName}-${key}`} />
-            )}
+            <CardComponent {...card} dataName={`${dataName}-${key}`} />
           </div>
         );
       })
