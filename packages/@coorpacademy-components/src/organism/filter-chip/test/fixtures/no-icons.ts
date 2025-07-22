@@ -3,6 +3,7 @@ import {FilterChipProps} from '../../prop-types';
 
 const noIconsChipsProps: FilterChipProps = {
   title: 'Duration',
+  titleAriaLabel: 'Display the duration filter',
   onClear: () => console.log('click on clear button'),
   options: [
     {

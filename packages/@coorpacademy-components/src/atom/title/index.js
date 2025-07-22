@@ -63,7 +63,8 @@ const Title = props => {
     icon,
     tag,
     button,
-    required
+    required,
+    ariaLabel
   } = props;
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
@@ -81,7 +82,7 @@ const Title = props => {
       {icon ? <Icon {...icon} className={style.icon} /> : null}
       <div className={style.titleContainer}>
         <div className={style.titleContent}>
-          <div className={titleStyle} data-name={dataName}>
+          <div className={titleStyle} data-name={dataName} aria-label={ariaLabel}>
             {title}
             {required ? <span className={style.required}>*</span> : null}
             {tag ? <Tag {...tag} /> : null}
@@ -97,6 +98,7 @@ const Title = props => {
 Title.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  ariaLabel: PropTypes.string,
   type: PropTypes.oneOf(['page', 'form-group']),
   'data-name': PropTypes.string,
   titleSize: PropTypes.oneOf([

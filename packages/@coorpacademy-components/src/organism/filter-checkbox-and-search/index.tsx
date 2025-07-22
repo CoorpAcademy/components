@@ -30,7 +30,7 @@ const FilterCheckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
-  const {title, searchOptions, onClear, options} = props;
+  const {title, titleAriaLabel, searchOptions, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
@@ -51,7 +51,7 @@ const FilterCheckboxAndSearch = (
           className={style.titleAndTagWrapper}
           data-testid="filter-checkbox-and-searh-title-and-tag-wrapper"
         >
-          <Title title={title} />
+          <Title title={title} ariaLabel={titleAriaLabel} />
           {hasSelectedFilters ? (
             <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
           ) : null}

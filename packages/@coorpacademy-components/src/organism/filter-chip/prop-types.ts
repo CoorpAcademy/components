@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   title: PropTypes.string,
+  titleAriaLabel: PropTypes.string,
   onClear: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -18,6 +19,7 @@ const propTypes = {
 
 export type FilterChipProps = {
   title: string;
+  titleAriaLabel?: string;
   onClear: () => void;
   options: {
     label: string;

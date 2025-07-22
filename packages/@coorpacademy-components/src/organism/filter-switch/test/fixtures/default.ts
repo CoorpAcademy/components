@@ -2,6 +2,7 @@ import {FilterSwitchProps} from '../../prop-types';
 
 const filterSwitchProps: FilterSwitchProps = {
   title: 'Options',
+  titleAriaLabel: 'Display the options filter',
   onClear: () => console.log('clear options'),
   options: [
     {

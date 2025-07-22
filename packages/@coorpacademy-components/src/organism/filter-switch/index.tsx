@@ -11,7 +11,7 @@ import propTypes, {FilterSwitchProps} from './prop-types';
 import style from './style.css';
 
 const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
-  const {title, onClear, options} = props;
+  const {title, titleAriaLabel, onClear, options} = props;
   const selectedFiltersCount = pipe(filter({value: true}), size)(options);
   const hasSelectedFilters = selectedFiltersCount > 0;
   const translate = GetTranslateFromContext(context);
@@ -20,7 +20,7 @@ const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
     <div>
       <div className={style.header}>
         <div className={style.titleContainer}>
-          <Title title={title} />
+          <Title title={title} ariaLabel={titleAriaLabel} />
           {hasSelectedFilters ? (
             <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
           ) : null}

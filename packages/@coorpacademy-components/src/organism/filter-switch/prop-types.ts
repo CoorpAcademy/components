@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
+  titleAriaLabel: PropTypes.string,
   onClear: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -16,6 +17,7 @@ const propTypes = {
 
 export type FilterSwitchProps = {
   title: string;
+  titleAriaLabel?: string;
   onClear: () => void;
   options: {
     label: string;

@@ -11,7 +11,7 @@ import propTypes, {FilterChipProps} from './prop-types';
 import style from './style.css';
 
 const FilterChip = (props: FilterChipProps, context: WebContextValues) => {
-  const {options, title, onClear} = props;
+  const {options, titleAriaLabel, title, onClear} = props;
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
   const hasSelectedFilters = selectedFiltersCount > 0;
   const translate = GetTranslateFromContext(context);
@@ -19,7 +19,7 @@ const FilterChip = (props: FilterChipProps, context: WebContextValues) => {
     <>
       <div className={style.header}>
         <div className={style.titleContainer}>
-          <Title title={title} />
+          <Title title={title} ariaLabel={titleAriaLabel} />
           {hasSelectedFilters ? (
             <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
           ) : null}
