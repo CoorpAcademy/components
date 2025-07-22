@@ -215,7 +215,9 @@ const MyLearning = (props, context) => {
       icon: {iconName: 'clock', backgroundColor: COLORS.pink_100}
     },
     {
-      title: translate('skill_chart_side_panel_questions_to_review'),
+      title: translate('skill_chart_side_panel_questions_to_review', {
+        count: ''
+      }),
       value: `${questionsToReviewData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'circle-question', backgroundColor: COLORS.orange_100}
@@ -503,16 +505,16 @@ const MyLearning = (props, context) => {
                 return (
                   <div key={index}>
                     <LearnerSkillCard
-                      skillTitle={skillsLocales[skill]}
+                      title={skillsLocales[skill]}
                       cardIndex={index}
                       focus={selectedSkills.includes(skill)}
+                      progress={score}
                       metrics={{
-                        score,
                         content,
                         questionsToReview
                       }}
                       icon={{color, name}}
-                      onExploreClick={handleExploreSkill}
+                      onClick={handleExploreSkill}
                     />
                   </div>
                 );

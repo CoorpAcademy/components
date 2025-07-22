@@ -14,6 +14,8 @@
   "clue_stars_to_loose_plural": "การปลดล็อกคำใบ้จะลดจำนวนดาวที่คุณได้รับในคำถามข้อนี้ {{count}} ดวง (ถ้าคุณตอบถูก)",
   "clue_stars_to_loose": "การปลดล็อกคำใบ้จะลดจำนวนดาวที่คุณได้รับในคำถามข้อนี้ {{count}} ดวง (ถ้าคุณตอบถูก)",
   "confirm_unsubscribe": "แน่ใจหรือว่าคุณต้องการยกเลิกสมาชิก",
+  "content": "<b>{{count}}</b> เนื้อหา",
+  "content_plural": "<b>{{count}}</b> เนื้อหา",
   "cookies_details": "เว็บไซต์นี้ใช้คุกกี้เพื่อให้เราสามารถมอบประสบการณ์การเรียนรู้ที่ดีที่สุดให้คุณได้ หากต้องการอ่านเรื่องคุกกี้ที่เราใช้และวิธีที่เราใช้ข้อมูลของคุณเพิ่มเติม โปรดอ่าน",
   "cookies_policy": "นโยบายว่าด้วยความเป็นส่วนตัวและคุกกี้",
   "cookies_title": "วิธีที่เราใช้คุกกี้:",
@@ -70,6 +72,8 @@
   "subscription_premium_title": "Coorpacademy Premium",
   "subscription_price": "${currency}${price} รวมภาษีรายเดือน",
   "subscription_promo_code": "ตอนนี้คุณสามารถเข้าถึงแค็ตตาล็อกของเราไม่จำกัดฟรีจนถึง {{date}} หากต้องการใช้แค็ตตาล็อกหลังจากวันที่ดังกล่าว โปรดสมัครสมาชิก",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> คำถามที่ต้องตรวจสอบ",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> คำถามที่ต้องตรวจสอบ",
   "This message has been removed by its author": "ข้อความนี้ถูกผู้เขียนลบ",
   "unsubscribe": "ยกเลิกสมาชิก Coorpacademy",
   "Validated": "ตรวจสอบความถูกต้องแล้ว",
@@ -95,7 +99,7 @@
   "post_comment_aria_label": "โพสต์ความคิดเห็นของคุณ",
   "validate_aria_label": "ตรวจสอบคำตอบของคุณแล้วไปยังขั้นตอนถัดไป",
   "stars": "ดาว",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Rate this course",
       "diploma": "Validated pathway"
@@ -116,7 +120,7 @@
       "diploma": "Certificat"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     }
   }
 }

@@ -42,7 +42,8 @@
   "cookies_title": "W jaki sposób wykorzystujemy pliki cookie:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Kursy",
-  "content": "treść",
+  "content": "<b>{{count}}</b> treść",
+  "content_plural": "<b>{{count}}</b> treści",
   "courses_completed": "Ukończone kursy",
   "continue_learning": "Kontynuuj naukę",
   "learning_priority_modal_title": "Nowy priorytet edukacyjny",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Wybierz jeszcze co najmniej {{skillNumber}} umiejętności",
   "skill_focus_footer_error_description": "Cofnij wybór co najmniej {{skillNumber}} umiejętności",
   "skill_chart_side_panel_content_completed": "Treść ukończona",
-  "skill_chart_side_panel_questions_to_review": "Pytania do sprawdzenia",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> pytanie do sprawdzenia",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> pytania do sprawdzenia",
   "skill_chart_side_panel_learning_hours": "Czas nauki",
   "skill_focused_chip_tooltip": "Ta umiejętność jest skupiona",
   "selected": "wybrane",
@@ -196,7 +198,7 @@
   "questions": "Pytania",
   "skill_scope_specifier": "na <b>{{focusedSkill}}</b>",
   "focused_skills": "wybrane umiejętności",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Oceń ten kurs",
       "diploma": "Sprawdzona ścieżka"
@@ -219,7 +221,7 @@
       "diploma": "Certyfikat"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Dodatkowe informacje o Twoim certyfikacie"

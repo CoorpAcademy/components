@@ -8,6 +8,7 @@ import style from './style.css';
 
 const CertificationCard = (props, context) => {
   const {
+    type,
     label,
     locales: {conditionDescriptionProgress, tag},
     goal: {title},
@@ -15,6 +16,7 @@ const CertificationCard = (props, context) => {
     imgUrl,
     onClick
   } = props;
+  if (type !== 'certification') return null;
   const {translate} = context;
   const isInprogress = progress < 100;
   const progressLabel = isInprogress ? translate('in_progress') : translate('completed');
@@ -31,7 +33,7 @@ const CertificationCard = (props, context) => {
     },
     customStyle: {padding: 0}
   };
-
+  const certificationIcon = {iconName: 'wreath-laurel'};
   return (
     <div className={style.container} data-name={`certification-card-${label}`} onClick={onClick}>
       {progress > 0 ? (
@@ -49,11 +51,15 @@ const CertificationCard = (props, context) => {
       </div>
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>
-          <Tag label={tag} size="S" />
+          <Tag label={tag} size="S" icon={certificationIcon} />
           <div className={style.title} data-name="certification-title">
             {title}
           </div>
-          <div className={style.moduleCount}>{conditionDescriptionProgress}</div>
+          <div
+            className={style.moduleCount}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: conditionDescriptionProgress}}
+          />
         </div>
         <ProgressBar
           className={style.customProgressBar}
@@ -72,6 +78,7 @@ CertificationCard.contextTypes = {
 };
 
 CertificationCard.propTypes = {
+  type: PropTypes.oneOf(['certification']).isRequired,
   label: PropTypes.string,
   goal: PropTypes.shape({
     title: PropTypes.string,

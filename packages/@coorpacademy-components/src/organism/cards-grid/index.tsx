@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import Card from '../../molecule/card';
 import Loader from '../../atom/loader';
+import CertificationCard from '../../molecule/certification-card';
+import PlaylistCard from '../../molecule/playlist-card';
+import LearnerSkillCard from '../../molecule/learner-skill-card';
 import style from './style.css';
 
 export interface CardProps {
@@ -36,6 +39,34 @@ export interface CardProps {
   'badge-aria-label'?: string;
   'disabled-aria-label'?: string;
   'card-content-aria-label'?: string;
+  cardIndex?: number;
+  focus?: boolean;
+  metrics?: {
+    content?: number;
+    questionsToReview?: number;
+  };
+  icon?: {
+    color: string;
+    name: string;
+  };
+  label?: string;
+  goal?: {
+    title?: string;
+    condition?: {
+      nbDone?: number;
+    };
+  };
+  imgUrl?: string;
+  locales?: {
+    conditionDescriptionProgress?: string;
+    tag?: string;
+    playlistTag?: string;
+    coursesLabel?: string;
+  };
+  coverImages?: {
+    url: string;
+    title: string;
+  }[];
 }
 
 export interface CardsGridProps {
@@ -53,13 +84,27 @@ const CardsGrid = (props: CardsGridProps) => {
     </div>
   ) : null;
 
-  const cards = map(cardProps => {
-    return (
+  const renderCardByType = (cardProps: any) => {
+    switch (cardProps.type) {
+      case 'skill':
+        return <LearnerSkillCard {...cardProps} />;
+      case 'certification':
+        return <CertificationCard {...cardProps} />;
+      case 'playlist':
+        return <PlaylistCard {...cardProps} />;
+      default:
+        return <Card {...cardProps} />;
+    }
+  };
+
+  const cards = map(
+    cardProps => (
       <div data-name="cardGrid" className={style.card} key={cardProps.key}>
-        <Card {...cardProps} />
+        {renderCardByType(cardProps)}
       </div>
-    );
-  }, list);
+    ),
+    list
+  );
 
   return (
     <div className={style.defaultStyle} style={customStyle}>
@@ -70,8 +115,15 @@ const CardsGrid = (props: CardsGridProps) => {
 };
 
 CardsGrid.propTypes = {
-  // @ts-expect-error component is not typed & wrapped into memo
-  list: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
+  list: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      // @ts-expect-error component is not typed & wrapped into memo
+      PropTypes.shape(Card.propTypes),
+      PropTypes.shape(LearnerSkillCard.propTypes),
+      PropTypes.shape(CertificationCard.propTypes),
+      PropTypes.shape(PlaylistCard.propTypes)
+    ])
+  ),
   customStyle: PropTypes.objectOf(PropTypes.string),
   loading: PropTypes.bool
 };
