@@ -82,7 +82,6 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
       </div>
     );
   }, options);
-
   return (
     <>
       <div className={style.header}>
@@ -101,6 +100,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
               data-name="filters-all-clear-button"
               aria-label="filters all clear button"
               onClick={onClearAll}
+              hoverColor={COLORS.primary_600}
             />
           </div>
         ) : null}

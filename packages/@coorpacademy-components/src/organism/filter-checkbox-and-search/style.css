@@ -2,6 +2,7 @@
 @value cm_grey_500 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
 
 .container {
     display: flex;

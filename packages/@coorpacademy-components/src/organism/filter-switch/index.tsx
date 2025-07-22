@@ -6,6 +6,7 @@ import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
+import {COLORS} from '../../variables/colors';
 import propTypes, {FilterSwitchProps} from './prop-types';
 import style from './style.css';
 
@@ -33,6 +34,7 @@ const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
               data-name="filter-chip-clear-button"
               aria-label="filter chip clear button"
               onClick={onClear}
+              hoverColor={COLORS.cm_grey_700}
             />
           </div>
         ) : null}

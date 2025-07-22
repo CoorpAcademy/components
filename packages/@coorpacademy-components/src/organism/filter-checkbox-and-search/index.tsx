@@ -64,6 +64,7 @@ const FilterCheckboxAndSearch = (
               data-testid="filter-checkbox-and-search-clear-button"
               onClick={onClear}
               customStyle={CLEAR_BUTTON_STYLE}
+              hoverColor={COLORS.cm_grey_700}
             />
           </div>
         ) : null}
