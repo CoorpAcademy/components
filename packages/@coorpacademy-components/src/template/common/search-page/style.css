@@ -65,11 +65,11 @@
   background: white;
 }
 
-.sectionsWrapper > * {
+.sectionItem {
   margin-bottom: 40px;
 }
 
-.sectionsWrapper > *:last-child {
+.contentSectionItem {
   margin-bottom: 20px;
 }
 
@@ -112,10 +112,8 @@
 
 .contentSection .sectionHeader {
   padding: 0;
-  margin: 16px 0 8px 0;
+  margin: 16px auto 8px auto;
   max-width: 1080px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   line-height: 20px;
   align-items: start;
@@ -123,9 +121,7 @@
 
 .contentGrid {
   max-width: 1090px;
-  margin: auto;
-  margin-left: -8px;
-  margin-right: 0;
+  margin: auto 0 auto -8px;
   box-sizing: border-box;
 }
 
