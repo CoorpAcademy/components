@@ -3,6 +3,7 @@ import Search from '../../atom/input-search';
 
 const propTypes = {
   title: PropTypes.string,
+  titleAriaLabel: PropTypes.string,
   onClear: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -39,6 +40,7 @@ type SearchType = {
 
 export type FilterCheckboxAndSearchProps = {
   title: string;
+  titleAriaLabel?: string;
   onClear: () => void;
   searchOptions: SearchType;
   options: FilterCheckboxAndSearchOptions[];

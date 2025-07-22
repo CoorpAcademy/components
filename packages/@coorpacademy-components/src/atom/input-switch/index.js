@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
@@ -29,7 +30,12 @@ const InputSwitch = props => {
   const isDisabled = disabled ? 'disabled' : '';
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
   const titleView = title ? (
-    <div className={icon ? style.titleContainer : null}>
+    <div
+      className={classNames(
+        icon ? style.titleContainer : null,
+        theme === 'newMooc' ? style.newMoocTitleContainer : null
+      )}
+    >
       {icon ? <FontAwesomeIcon icon={icon} className={style.icon} /> : null}
       <span id={`title-view-${dataName}`} className={style.title}>
         {title}

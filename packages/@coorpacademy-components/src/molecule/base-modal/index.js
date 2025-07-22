@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty, get, debounce} from 'lodash/fp';
 import {convert} from 'css-color-function';
+import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Icon from '../../atom/icon';
 import ButtonLink from '../../atom/button-link';
@@ -11,6 +12,7 @@ import style from './style.css';
 const BaseModal = (props, context) => {
   const {
     title,
+    titleAriaLabel,
     description,
     headerIcon,
     children,
@@ -167,7 +169,7 @@ const BaseModal = (props, context) => {
   return (
     <div className={style.modalWrapper} data-testid="modal">
       <div className={style.modal} style={customStyle}>
-        <header className={style.header}>
+        <header className={classnames(style.header, !description && style.headerCentered)}>
           {headerIcon?.name ? (
             <div className={style.headerIcon}>
               <Icon
@@ -179,7 +181,9 @@ const BaseModal = (props, context) => {
             </div>
           ) : null}
           <div className={style.headerContent}>
-            <div className={style.headerTitle}>{title}</div>
+            <div className={style.headerTitle} aria-label={titleAriaLabel}>
+              {title}
+            </div>
             {description ? <div className={style.headerDescription}>{description}</div> : null}
           </div>
           <div className={style.headerCloseIcon} onClick={handleOnClose} data-testid="close-icon">
@@ -206,6 +210,7 @@ BaseModal.contextTypes = {
 
 BaseModal.propTypes = {
   title: PropTypes.string,
+  titleAriaLabel: PropTypes.string,
   headerIcon: PropTypes.shape({
     name: PropTypes.string,
     color: PropTypes.string,

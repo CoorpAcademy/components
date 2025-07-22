@@ -31,3 +31,11 @@
     align-self: stretch;
     margin: 24px 0;
 }
+
+
+.selectedFiltersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
