@@ -43,6 +43,7 @@ const playlistsCards = [
     ...playlistCard.props,
     title: 'Mastering the Art of Learning',
     courseCount: 78,
+    progress: 65,
     imgUrl:
       'https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   },
@@ -50,6 +51,7 @@ const playlistsCards = [
     ...playlistCard.props,
     title: 'Pathway to Success: Learn and Grow',
     courseCount: 45,
+    progress: 30,
     imgUrl:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   },
@@ -57,6 +59,7 @@ const playlistsCards = [
     ...playlistCard.props,
     title: 'Unlocking Knowledge: A Journey',
     courseCount: 32,
+    progress: 85,
     imgUrl:
       'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   }
