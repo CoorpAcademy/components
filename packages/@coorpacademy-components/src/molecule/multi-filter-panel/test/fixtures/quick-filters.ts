@@ -13,6 +13,7 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
       type: 'switch',
       options: {
         title: 'Language',
+        titleAriaLabel: 'Display the language filter',
         onClear: () => console.log('clear language filters'),
         options: [
           {

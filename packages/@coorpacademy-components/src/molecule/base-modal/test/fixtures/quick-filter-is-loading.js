@@ -8,6 +8,7 @@ const ChildComponentFixture = () => <MultiFilterPanel {...quickFilters.props} />
 export default {
   props: {
     title: 'Filters',
+    titleAriaLabel: 'Display the filters',
     headerIcon: {
       name: 'sliders',
       backgroundColor: COLORS.primary_100,

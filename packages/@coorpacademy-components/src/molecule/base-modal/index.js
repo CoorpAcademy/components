@@ -12,6 +12,7 @@ import style from './style.css';
 const BaseModal = (props, context) => {
   const {
     title,
+    titleAriaLabel,
     description,
     headerIcon,
     children,
@@ -180,7 +181,9 @@ const BaseModal = (props, context) => {
             </div>
           ) : null}
           <div className={style.headerContent}>
-            <div className={style.headerTitle}>{title}</div>
+            <div className={style.headerTitle} aria-label={titleAriaLabel}>
+              {title}
+            </div>
             {description ? <div className={style.headerDescription}>{description}</div> : null}
           </div>
           <div className={style.headerCloseIcon} onClick={handleOnClose} data-testid="close-icon">
@@ -207,6 +210,7 @@ BaseModal.contextTypes = {
 
 BaseModal.propTypes = {
   title: PropTypes.string,
+  titleAriaLabel: PropTypes.string,
   headerIcon: PropTypes.shape({
     name: PropTypes.string,
     color: PropTypes.string,

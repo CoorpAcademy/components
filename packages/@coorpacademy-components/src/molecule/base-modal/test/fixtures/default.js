@@ -4,6 +4,7 @@ import {COLORS} from '../../../../variables/colors';
 export default {
   props: {
     title: 'Modal header',
+    titleAriaLabel: 'Modal header aria label',
     headerIcon: {
       name: 'eyes',
       backgroundColor: COLORS.purple_100

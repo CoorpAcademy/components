@@ -33,6 +33,10 @@
     width: 100%;
 }
 
+.switchOption {
+    cursor: pointer;
+}
+
 .switchOption label {
     margin: 0;
 }
