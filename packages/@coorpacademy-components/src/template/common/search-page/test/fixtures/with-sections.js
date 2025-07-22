@@ -2,6 +2,7 @@ import {defaultsDeep} from 'lodash/fp';
 import standardCard from '../../../../../molecule/card/test/fixtures/default';
 import certificationCard from '../../../../../molecule/certification-card/test/fixtures/default';
 import skillCard from '../../../../../molecule/learner-skill-card/test/fixtures/default';
+import playlistCard from '../../../../../molecule/playlist-card/test/fixtures/default';
 import filters from '../../../../../molecule/filters/test/fixtures/default';
 import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
 
@@ -39,22 +40,25 @@ const skillsCards = [
 
 const playlistsCards = [
   {
-    ...standardCard.props,
+    ...playlistCard.props,
     title: 'Mastering the Art of Learning',
-    type: 'playlist',
-    author: 'Playlist'
+    courseCount: 78,
+    imgUrl:
+      'https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   },
   {
-    ...standardCard.props,
+    ...playlistCard.props,
     title: 'Pathway to Success: Learn and Grow',
-    type: 'playlist',
-    author: 'Playlist'
+    courseCount: 45,
+    imgUrl:
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   },
   {
-    ...standardCard.props,
+    ...playlistCard.props,
     title: 'Unlocking Knowledge: A Journey',
-    type: 'playlist',
-    author: 'Playlist'
+    courseCount: 32,
+    imgUrl:
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   }
 ];
 

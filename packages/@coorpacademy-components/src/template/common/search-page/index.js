@@ -8,6 +8,7 @@ import CardsGrid from '../../../organism/cards-grid';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import CertificationCard from '../../../molecule/certification-card';
 import LearnerSkillCard from '../../../molecule/learner-skill-card';
+import PlaylistCard from '../../../molecule/playlist-card';
 import CMPopin from '../../../molecule/cm-popin';
 import Tag from '../../../atom/tag';
 import {cardPropTypes} from '../../../molecule/card';
@@ -67,7 +68,11 @@ const SearchPage = (props, context) => {
       return <CardsList {...sectionProps} type="skills" />;
     }
 
-    // For new content and playlists, use standard cards
+    if (section.key === 'playlists') {
+      return <CardsList {...sectionProps} type="playlists" />;
+    }
+
+    // For new content, use standard cards
     return <CardsList {...sectionProps} />;
   };
 
@@ -180,6 +185,7 @@ SearchPage.propTypes = {
           PropTypes.shape(cardPropTypes),
           PropTypes.shape(LearnerSkillCard.propTypes),
           PropTypes.shape(CertificationCard.propTypes),
+          PropTypes.shape(PlaylistCard.propTypes),
           PropTypes.shape(LearningPriorityCard.propTypes)
         ])
       ),

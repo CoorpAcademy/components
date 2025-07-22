@@ -24,6 +24,7 @@ import Card, {cardPropTypes} from '../../card';
 import LearningPriorityCard from '../../learning-priority-card';
 import CertificationCard from '../../certification-card';
 import LearnerSkillCard from '../../learner-skill-card';
+import PlaylistCard from '../../playlist-card';
 import Icon from '../../../atom/icon';
 import style from './style.css';
 
@@ -110,7 +111,13 @@ class CardsList extends React.PureComponent {
       showMoreOnLeftAriaLabel: PropTypes.string,
       showMoreOnRightAriaLabel: PropTypes.string
     }),
-    type: PropTypes.oneOf(['cards', 'learningPrioritiesCards', 'skills', 'certifications']),
+    type: PropTypes.oneOf([
+      'cards',
+      'learningPrioritiesCards',
+      'skills',
+      'certifications',
+      'playlists'
+    ]),
     // eslint-disable-next-line react/forbid-prop-types
     testingSizes: PropTypes.any
   };
@@ -324,6 +331,8 @@ class CardsList extends React.PureComponent {
           CardComponent = LearnerSkillCard;
         } else if (card && type === 'certifications') {
           CardComponent = CertificationCard;
+        } else if (card && type === 'playlists') {
+          CardComponent = PlaylistCard;
         }
 
         return (
