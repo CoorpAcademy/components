@@ -70,17 +70,6 @@ export const certificationSection = {
   }
 };
 
-export default {
-  props: {
-    sections: [
-      freshContentSection.props,
-      skillsSection.props,
-      playlistSection.props,
-      certificationSection.props
-    ],
-    onDrop: (dragged, dropped) => {
-      console.log('Explore section reordered');
-      console.log({dragged, dropped});
-    }
-  }
-};
+// This fixture is for testing individual SetupSection components
+// Use the first section (Fresh Content) as the default export
+export default freshContentSection;
