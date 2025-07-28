@@ -1,6 +1,6 @@
 import {defaultsDeep, cloneDeep} from 'lodash/fp';
 import ExploreFormGroup from '../../../../../molecule/brand-form-group/test/fixtures/explore';
-import Default, {items} from './default';
+import Default from './default';
 
 const props = cloneDeep(Default.props);
 const groups = [ExploreFormGroup.props]; // Explore form group with new content types
