@@ -185,7 +185,7 @@
   "content_type_video": "Video",
   "content_type_podcast": "Podcast",
   "content_type_scorm": "Resursă animată",
-  "content_type_course": "Course",
+  "content_type_course": "Curs",
   "review_this_skill": "Examinați această abilitate",
   "review_skill_empty": "Nu aveți nicio abilitate de recapitulat deocamdată",
   "review_skill_empty_description": "Mai întâi trebuie să finalizați cursurile înainte de a putea recapitula diferite abilități.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Atestare"
     },
     "ehc-vd": {
       "diploma": "certificate"
