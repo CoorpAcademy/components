@@ -184,8 +184,8 @@
   "content_type_article": "Հոդված",
   "content_type_video": "Տեսանյութ",
   "content_type_podcast": "Փոդքասթ",
-  "content_type_scorm": "Animated resource",
-  "content_type_course": "Course",
+  "content_type_scorm": "Անիմացիոն ռեսուրս",
+  "content_type_course": "Դասընթաց",
   "review_this_skill": "Վերանայեք այս հմտությունը",
   "review_skill_empty": "Դեռևս վերանայելու հմտություն չունեք",
   "review_skill_empty_description": "Սկզբում դուք պետք է ավարտեք դասընթացները, որպեսզի կարողանաք վերանայել տարբեր հմտություններ:",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Վկայագիր"
     },
     "ehc-vd": {
       "diploma": "certificate"
