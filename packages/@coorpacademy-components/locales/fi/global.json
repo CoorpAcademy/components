@@ -185,7 +185,7 @@
   "content_type_video": "Video",
   "content_type_podcast": "Podcast",
   "content_type_scorm": "Animoitu resurssi",
-  "content_type_course": "Course",
+  "content_type_course": "Kurssi",
   "review_this_skill": "Tarkista tämä taito",
   "review_skill_empty": "Sinulla ei ole vielä kerrattavia valmiuksia",
   "review_skill_empty_description": "Sinun on ensin suoritettava kursseja ennen kuin voit kerrata eri valmiuksia.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Oppimispolku",
-      "rewards": "Attestation"
+      "rewards": "Todistus"
     },
     "ehc-vd": {
       "diploma": "todistus"
