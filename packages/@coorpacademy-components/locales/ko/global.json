@@ -184,8 +184,8 @@
   "content_type_article": "기사",
   "content_type_video": "동영상",
   "content_type_podcast": "팟캐스트",
-  "content_type_scorm": "Animated resource",
-  "content_type_course": "Course",
+  "content_type_scorm": "애니메이션 리소스",
+  "content_type_course": "강의",
   "review_this_skill": "이 기술을 검토하세요",
   "review_skill_empty": "아직 수정할 기술이 없습니다.",
   "review_skill_empty_description": "다양한 기술을 복습하려면 먼저 과정을 끝내야 합니다.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "증명"
     },
     "ehc-vd": {
       "diploma": "certificate"
