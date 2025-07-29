@@ -185,7 +185,7 @@
   "content_type_video": "Videoposnetek",
   "content_type_podcast": "Podkast",
   "content_type_scorm": "Animirani vir",
-  "content_type_course": "Course",
+  "content_type_course": "Tečaj",
   "review_this_skill": "Preglejte to veščino",
   "review_skill_empty": "Nimate še nobene veščine za preverjanje",
   "review_skill_empty_description": "Najprej morate opraviti tečaje, preden lahko preverite različna znanja.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Učna pot",
-      "rewards": "Attestation"
+      "rewards": "Potrdilo"
     },
     "ehc-vd": {
       "diploma": "potrdilo"
