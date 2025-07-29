@@ -184,8 +184,8 @@
   "content_type_article": "Artykuł",
   "content_type_video": "Wideo",
   "content_type_podcast": "Podcast",
-  "content_type_scorm": "Animated resource",
-  "content_type_course": "Course",
+  "content_type_scorm": "Zasób animowany",
+  "content_type_course": "Kurs",
   "review_this_skill": "Przejrzyj tę umiejętność",
   "review_skill_empty": "Nie masz jeszcze umiejętności do utrwalenia",
   "review_skill_empty_description": "Aby utrwalać wybrane umiejętności, najpierw musisz ukończyć kursy.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Zaświadczenie"
     },
     "ehc-vd": {
       "diploma": "certificate"
