@@ -181,11 +181,11 @@
     "invalid_scorm": "SCORM-файл є недійсним",
     "show_errors": "показати помилки"
   },
-  "content_type_article": "Article",
-  "content_type_video": "Video",
-  "content_type_podcast": "Podcast",
-  "content_type_scorm": "Animated resource",
-  "content_type_course": "Course",
+  "content_type_article": "Стаття",
+  "content_type_video": "Відео",
+  "content_type_podcast": "Подкаст",
+  "content_type_scorm": "Анімований ресурс",
+  "content_type_course": "Курс",
   "review_this_skill": "Перегляньте цей навик",
   "review_skill_empty": "У вас ще немає навичок для перегляду",
   "review_skill_empty_description": "Спочатку вам потрібно пройти курси, перш ніж ви зможете переглянути різні навички.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Атестація"
     },
     "ehc-vd": {
       "diploma": "certificate"
