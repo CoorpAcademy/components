@@ -58,7 +58,7 @@ export type SelectedFilter = {
 export type MultiFilterPanelProps = {
   title: string;
   showSelectedFilters?: boolean;
-  onRemoveSelectedFilter?: (filterId: string) => void;
+  onRemoveSelectedFilter?: () => void;
   onClearAll: () => void;
   options: FilterOptionsProps[];
 };

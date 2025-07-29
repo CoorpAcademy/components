@@ -1,5 +1,5 @@
 import React from 'react';
-import {map, size, pipe, filter, flatMap, toString, concat} from 'lodash/fp';
+import {map, size, pipe, filter, flatMap, toString} from 'lodash/fp';
 import FilterChip from '../../organism/filter-chip';
 import FilterCheckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import Title from '../../atom/title';
@@ -33,9 +33,9 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
   }
 };
 
-const buildSelectedFilterChips = (
+const buildAllSelectedFilterChips = (
   selectedFilters: SelectedFilter[],
-  onRemoveSelectedFilter?: (filterId: string) => void
+  onRemoveSelectedFilter?: () => void
 ) => {
   return (
     <div className={style.selectedFiltersContainer} data-testid="selected-filters-container">
@@ -60,18 +60,12 @@ const buildSelectedFilterChips = (
 const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
   const {title, onClearAll, options, showSelectedFilters = false, onRemoveSelectedFilter} = props;
   const translate = GetTranslateFromContext(context);
-  const allSelectedFilters = pipe(
+  const allSelectedFilters: SelectedFilter[] = pipe(
     map('options'),
     flatMap('options'),
-    filter({selected: true})
-  )(options) as SelectedFilter[];
-  const allSwitchFilters = pipe(
-    map('options'),
-    flatMap('options'),
-    filter({value: true})
-  )(options) as SelectedFilter[];
-  const allCombinedFilters = concat(allSwitchFilters)(allSelectedFilters);
-  const hasSelectedFilters = size(allCombinedFilters) > 0;
+    filter(filterOptions => filterOptions.selected || filterOptions.value === true)
+  )(options);
+  const hasSelectedFilters = size(allSelectedFilters) > 0;
   const filters = uncappedMap((filterOptions: FilterOptionsProps, i: number) => {
     const isLastItem = i + 1 === size(options);
 
@@ -88,7 +82,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
         <div className={style.titleContainer}>
           <Title title={title} type="form-group" titleSize="standard-light-weight" />
           {hasSelectedFilters ? (
-            <Tag label={toString(size(allCombinedFilters))} type="info" size="S" />
+            <Tag label={toString(size(allSelectedFilters))} type="info" size="S" />
           ) : null}
         </div>
         {hasSelectedFilters ? (
@@ -107,7 +101,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
       </div>
       {showSelectedFilters && hasSelectedFilters ? (
         <>
-          <div>{buildSelectedFilterChips(allCombinedFilters, onRemoveSelectedFilter)}</div>
+          <div>{buildAllSelectedFilterChips(allSelectedFilters, onRemoveSelectedFilter)}</div>
           {FilterSeparator}
         </>
       ) : null}
