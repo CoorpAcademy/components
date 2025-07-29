@@ -181,11 +181,11 @@
     "invalid_scorm": "scorm súbor je neplatný",
     "show_errors": "zobraziť chyby"
   },
-  "content_type_article": "Article",
+  "content_type_article": "Článok",
   "content_type_video": "Video",
   "content_type_podcast": "Podcast",
-  "content_type_scorm": "Animated resource",
-  "content_type_course": "Course",
+  "content_type_scorm": "Animovaný zdroj",
+  "content_type_course": "Kurz",
   "review_this_skill": "Skontrolujte túto zručnosť",
   "review_skill_empty": "Zatiaľ nemáte žiadne zručnosti na kontrolu",
   "review_skill_empty_description": "Najprv musíte dokončiť kurzy, následne si môžete vyskúšať rôzne zručnosti.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Osvedčenie"
     },
     "ehc-vd": {
       "diploma": "certificate"
