@@ -185,7 +185,7 @@
   "content_type_video": "Video",
   "content_type_podcast": "Podcast",
   "content_type_scorm": "Risorsa animata",
-  "content_type_course": "Course",
+  "content_type_course": "Corso",
   "review_this_skill": "Rivedi questa abilità",
   "review_skill_empty": "Non hai ancora la capacità di rivedere",
   "review_skill_empty_description": "Per prima cosa devi completare i corsi prima di poter rivedere le diverse competenze.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Attestazione"
     },
     "ehc-vd": {
       "diploma": "certificate"
