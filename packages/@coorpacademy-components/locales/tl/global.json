@@ -185,7 +185,7 @@
   "content_type_video": "Video",
   "content_type_podcast": "Podcast",
   "content_type_scorm": "Animated na mapagkukunan",
-  "content_type_course": "Course",
+  "content_type_course": "kurso",
   "review_this_skill": "Suriin ang kasanayang ito",
   "review_skill_empty": "Wala ka pang kasanayang rerepasuhin",
   "review_skill_empty_description": "Una kailangan mong kumumpleto ng mga kurso bago ka makapagrepaso ng iba't-ibang kasanayan.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Pagpapatunay"
     },
     "ehc-vd": {
       "diploma": "certificate"
