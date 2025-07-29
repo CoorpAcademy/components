@@ -184,8 +184,8 @@
   "content_type_article": "Članak",
   "content_type_video": "Videozapis",
   "content_type_podcast": "Podcast",
-  "content_type_scorm": "Animated resource",
-  "content_type_course": "Course",
+  "content_type_scorm": "Animirani resurs",
+  "content_type_course": "Kurs",
   "review_this_skill": "Pregledajte ovu vještinu",
   "review_skill_empty": "Još nemate vještinu za reviziju",
   "review_skill_empty_description": "Prvo morate završiti kurseve prije nego što možete provjeriti različite vještine.",
@@ -203,7 +203,7 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Ovjera"
     },
     "ehc-vd": {
       "diploma": "certificate"
