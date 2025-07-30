@@ -1,8 +1,7 @@
 export default {
   props: {
     isOpen: true,
-    onCancel: () => {},
-    onConfirm: () => {},
+    onClick: iconName => console.log(`Icon clicked: ${iconName}`),
     onClose: () => {}
   }
 };

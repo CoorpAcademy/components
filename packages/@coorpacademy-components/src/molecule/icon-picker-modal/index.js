@@ -6,37 +6,24 @@ import BaseModal from '../base-modal';
 import SelectIcon from '../../atom/select-icon';
 import Provider from '../../atom/provider';
 import SearchForm from '../search-form';
-import {COLORS} from '../../variables/colors';
 import style from './style.css';
 import useIconSearch from './use-icon-search';
 
 const ICONS_PER_LOAD = 48;
 
 const IconPickerModal = (props, context) => {
-  const {isOpen, onCancel, onConfirm, onClose} = props;
+  const {isOpen, onClose, onClick} = props;
   const {translate} = context;
 
-  const [selectedIcon, setSelectedIcon] = useState(null);
   const [displayedIcons, setDisplayedIcons] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const allIcons = useMemo(() => pipe(values, map(get('iconName')), uniq)(fas), []);
   const {searchValue, searchResults, handleSearch, handleReset} = useIconSearch(allIcons);
 
-  const handleCancel = useCallback(() => {
-    onCancel();
-  }, [onCancel]);
-
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
-
-  const handleIconClick = useCallback(
-    iconName => () => {
-      setSelectedIcon(prevSelectedIcon => (prevSelectedIcon === iconName ? null : iconName));
-    },
-    []
-  );
 
   const loadMoreIcons = useCallback(() => {
     const nextIndex = currentIndex + ICONS_PER_LOAD;
@@ -64,40 +51,26 @@ const IconPickerModal = (props, context) => {
     () =>
       pipe(
         entries,
-        map(([index, iconName]) => (
-          <SelectIcon
-            key={`icon-${index}`}
-            size="responsive"
-            data-name={`icon-${index}`}
-            aria-label={iconName}
-            faIcon={iconName}
-            onClick={handleIconClick(iconName)}
-            options={{isSelected: selectedIcon === iconName}}
-          />
-        ))
-      )(displayedIcons),
-    [displayedIcons, selectedIcon, handleIconClick]
-  );
+        map(([index, iconName]) => {
+          function handleIconClick() {
+            return onClick(iconName);
+          }
 
-  const footer = useMemo(() => {
-    return {
-      cancelButton: {
-        onCancel: handleCancel,
-        label: translate('cancel')
-      },
-      confirmButton: {
-        onConfirm: () => {
-          onConfirm(selectedIcon);
-          setSelectedIcon(null);
-          onClose();
-        },
-        label: translate('confirm'),
-        iconName: 'plus',
-        disabled: selectedIcon === null,
-        color: COLORS.cm_primary_blue
-      }
-    };
-  }, [handleCancel, onConfirm, onClose, translate, selectedIcon]);
+          return (
+            <SelectIcon
+              key={`icon-${iconName}`}
+              size="responsive"
+              data-name={`icon-${iconName}`}
+              aria-label={iconName}
+              faIcon={iconName}
+              onClick={handleIconClick}
+              options={{}}
+            />
+          );
+        })
+      )(displayedIcons),
+    [displayedIcons, onClick]
+  );
 
   if (!isOpen) return null;
 
@@ -108,7 +81,6 @@ const IconPickerModal = (props, context) => {
       isOpen={isOpen}
       onClose={handleClose}
       onScroll={handleScroll}
-      footer={footer}
       headerIcon={{
         name: 'arrows-rotate',
         backgroundColor: '#D6E6FF'
@@ -156,8 +128,7 @@ IconPickerModal.contextTypes = {
 
 IconPickerModal.propTypes = {
   isOpen: PropTypes.bool,
-  onCancel: PropTypes.func,
-  onConfirm: PropTypes.func,
+  onClick: PropTypes.func,
   onClose: PropTypes.func
 };
 
