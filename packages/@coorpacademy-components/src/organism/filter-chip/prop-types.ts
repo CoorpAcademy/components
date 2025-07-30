@@ -17,19 +17,21 @@ const propTypes = {
   )
 };
 
+export type FilterChipOptionsProps = {
+  label: string;
+  type: string;
+  selected: boolean;
+  icon?: string;
+  textColor?: string;
+  customIcon?: string;
+  onClick: (type: string) => void;
+};
+
 export type FilterChipProps = {
   title: string;
   titleAriaLabel?: string;
   onClear: () => void;
-  options: {
-    label: string;
-    type: string;
-    selected: boolean;
-    icon?: string;
-    textColor?: string;
-    customIcon?: string;
-    onClick: (type: string) => void;
-  }[];
+  options: FilterChipOptionsProps[];
 };
 
 export default propTypes;

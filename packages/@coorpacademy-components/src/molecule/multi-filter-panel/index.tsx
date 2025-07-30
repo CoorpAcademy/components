@@ -10,8 +10,16 @@ import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import Chip from '../../atom/chip';
 import {COLORS} from '../../variables/colors';
 import FilterSwitch from '../../organism/filter-switch';
-import propTypes, {MultiFilterPanelProps, FilterOptionsProps, SelectedFilter} from './prop-types';
+import {FilterCheckboxAndSearchOptions} from '../../organism/filter-checkbox-and-search/props-types';
+import {FilterChipOptionsProps} from '../../organism/filter-chip/prop-types';
+import {FilterSwitchOptionsProps} from '../../organism/filter-switch/prop-types';
 import style from './style.css';
+import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
+
+type SelectedFilter =
+  | FilterChipOptionsProps
+  | FilterSwitchOptionsProps
+  | FilterCheckboxAndSearchOptions;
 
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
@@ -35,16 +43,21 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
 
 const buildAllSelectedFilterChips = (
   selectedFilters: SelectedFilter[],
-  onRemoveSelectedFilter?: () => void
+  onRemoveSelectedFilter: (label: string) => void
 ) => {
   return (
     <div className={style.selectedFiltersContainer} data-testid="selected-filters-container">
-      {selectedFilters.map((filterItem: SelectedFilter, index: number) => {
+      {selectedFilters.map((filterItem: SelectedFilter) => {
         const {label} = filterItem;
+
+        function handleClick() {
+          return onRemoveSelectedFilter(label);
+        }
+
         return (
           <Chip
-            key={index}
-            onClick={onRemoveSelectedFilter}
+            key={label}
+            onClick={handleClick}
             text={label}
             textColor={COLORS.neutral_500}
             backgroundColor={COLORS.cm_grey_150}
@@ -58,7 +71,7 @@ const buildAllSelectedFilterChips = (
 };
 
 const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
-  const {title, onClearAll, options, showSelectedFilters = false, onRemoveSelectedFilter} = props;
+  const {title, onClearAll, options, onRemoveSelectedFilter = false} = props;
   const translate = GetTranslateFromContext(context);
   const allSelectedFilters: SelectedFilter[] = pipe(
     map('options'),
@@ -99,7 +112,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
           </div>
         ) : null}
       </div>
-      {showSelectedFilters && hasSelectedFilters ? (
+      {onRemoveSelectedFilter && hasSelectedFilters ? (
         <>
           <div>{buildAllSelectedFilterChips(allSelectedFilters, onRemoveSelectedFilter)}</div>
           {FilterSeparator}

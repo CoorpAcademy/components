@@ -55,6 +55,7 @@ const Chip = (props, context) => {
   const hoverStyle = isHovered ? {backgroundColor: hoveredSelectedBgColor} : {};
 
   const defaultIcon = selected ? 'fa-check' : 'fa-plus';
+  const showIcon = customIcon !== 'none';
   const color = selected ? COLORS.white : textColor;
 
   return (
@@ -84,7 +85,7 @@ const Chip = (props, context) => {
           ) : null}
         </div>
       </div>
-      {customIcon ? (
+      {showIcon ? (
         <FontAwesomeIcon
           style={{color}}
           icon={customIcon ? `fa-${customIcon}` : defaultIcon}

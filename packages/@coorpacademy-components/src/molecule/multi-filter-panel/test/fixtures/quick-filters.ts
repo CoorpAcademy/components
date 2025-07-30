@@ -4,10 +4,8 @@ import FilterSwitchProps from '../../../../organism/filter-switch/test/fixtures/
 import noIconChipsProps from '../../../../organism/filter-chip/test/fixtures/no-icons';
 
 export const multiFilterPanelProps: MultiFilterPanelProps = {
-  title: 'Filters selected',
+  title: 'Filters',
   onClearAll: () => console.log('click on clear all filters'),
-  onRemoveSelectedFilter: () => console.log('click on remove filter'),
-  showSelectedFilters: true,
   options: [
     {
       type: 'switch',

@@ -3,9 +3,8 @@ import {multiFilterPanelProps as defaultProps} from './default';
 
 export const multiFilterPanelProps: MultiFilterPanelProps = {
   ...defaultProps,
-  showSelectedFilters: true,
-  onRemoveSelectedFilter: () => {
-    console.log('remove selected filter');
+  onRemoveSelectedFilter: (label: string) => {
+    console.log('remove selected filter', label);
   }
 };
 

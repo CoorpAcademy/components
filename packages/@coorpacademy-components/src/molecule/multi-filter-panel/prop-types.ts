@@ -7,7 +7,6 @@ import filterSwitchProptypes, {FilterSwitchProps} from '../../organism/filter-sw
 
 const propTypes = {
   title: PropTypes.string,
-  showSelectedFilters: PropTypes.bool,
   onClearAll: PropTypes.func,
   onRemoveSelectedFilter: PropTypes.func,
   options: PropTypes.arrayOf(
@@ -45,20 +44,9 @@ export type OptionsSwitchProps = {
 
 export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps | OptionsSwitchProps;
 
-export type SelectedFilter = {
-  icon: string;
-  label: string;
-  selected: boolean;
-  type: string;
-  count?: number;
-  value?: boolean;
-  ref?: string;
-};
-
 export type MultiFilterPanelProps = {
   title: string;
-  showSelectedFilters?: boolean;
-  onRemoveSelectedFilter?: () => void;
+  onRemoveSelectedFilter?: (label: string) => void;
   onClearAll: () => void;
   options: FilterOptionsProps[];
 };

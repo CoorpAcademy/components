@@ -16,7 +16,6 @@ export default {
     },
     children: <ChildComponentFixture />,
     isOpen: true,
-    showSelectedFilters: true,
     footer: {
       cancelButton: {
         onCancel: () => console.log('Clear search'),

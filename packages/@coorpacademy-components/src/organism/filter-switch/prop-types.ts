@@ -15,17 +15,19 @@ const propTypes = {
   )
 };
 
+export type FilterSwitchOptionsProps = {
+  label: string;
+  value: boolean;
+  onChange: (value: string) => void;
+  theme: string;
+  ariaLabel: string;
+};
+
 export type FilterSwitchProps = {
   title: string;
   titleAriaLabel?: string;
   onClear: () => void;
-  options: {
-    label: string;
-    value: boolean;
-    onChange: (value: string) => void;
-    theme: string;
-    ariaLabel: string;
-  }[];
+  options: FilterSwitchOptionsProps[];
 };
 
 export default propTypes;
