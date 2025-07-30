@@ -9,25 +9,6 @@ import {renderWithContext} from '../../../util/render-with-context';
 
 browserEnv();
 
-test('should call onCancel when cancel button is clicked', t => {
-  const context = {
-    translate: key => {
-      return key;
-    }
-  };
-  t.plan(1);
-
-  const props = {
-    isOpen: true,
-    onCancel: () => t.pass(),
-    onConfirm: () => {},
-    onClose: () => {}
-  };
-  const {container} = renderWithContext(<IconPickerModal {...props} />, context);
-  const cancelButton = container.querySelector("[aria-label='__cancel']");
-  fireEvent.click(cancelButton);
-});
-
 test('should call onClose when close button is clicked', t => {
   const context = {
     translate: key => {
@@ -38,8 +19,6 @@ test('should call onClose when close button is clicked', t => {
 
   const props = {
     isOpen: true,
-    onCancel: () => {},
-    onConfirm: () => {},
     onClose: () => t.pass()
   };
   const {container} = renderWithContext(<IconPickerModal {...props} />, context);
@@ -47,7 +26,7 @@ test('should call onClose when close button is clicked', t => {
   fireEvent.click(closeButton);
 });
 
-test('should call onConfirm with selected icon when confirm button is clicked', t => {
+test('should call onClick when icon is clicked', t => {
   const context = {
     translate: key => {
       return key;
@@ -57,8 +36,7 @@ test('should call onConfirm with selected icon when confirm button is clicked', 
 
   const props = {
     isOpen: true,
-    onCancel: () => {},
-    onConfirm: () => t.pass(),
+    onClick: () => t.pass(),
     onClose: () => {}
   };
 
@@ -66,9 +44,6 @@ test('should call onConfirm with selected icon when confirm button is clicked', 
 
   const icon = container.querySelector('[data-testid="button-icon-1"]');
   fireEvent.click(icon);
-
-  const confirmButton = container.querySelector("[aria-label='__confirm']");
-  fireEvent.click(confirmButton);
 });
 
 test('IconPickerModal should load more icons on scroll', async t => {
@@ -76,8 +51,6 @@ test('IconPickerModal should load more icons on scroll', async t => {
 
   const props = {
     isOpen: true,
-    onCancel: () => {},
-    onConfirm: () => {},
     onClose: () => {}
   };
 
@@ -108,8 +81,6 @@ test('should update search results on search input change', async t => {
 
   const props = {
     isOpen: true,
-    onCancel: () => {},
-    onConfirm: () => {},
     onClose: () => {}
   };
 
@@ -137,8 +108,6 @@ test('should reset search results when reset button is clicked', async t => {
 
   const props = {
     isOpen: true,
-    onCancel: () => {},
-    onConfirm: () => {},
     onClose: () => {}
   };
 
