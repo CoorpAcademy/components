@@ -2,6 +2,7 @@ export default {
   props: {
     type: 'form-group',
     title: 'Learning priorities',
+    ariaLabel: 'aria label for learning priorities',
     subtitle: 'Your top learning priorities defined by your company',
     icon: {
       iconName: 'sign-post',

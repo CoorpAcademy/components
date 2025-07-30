@@ -3,6 +3,7 @@ import {FilterCheckboxAndSearchProps} from '../../props-types';
 const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
   props: {
     title: 'Skills',
+    titleAriaLabel: 'Display the skills filter',
     onClear: () => {
       console.log('clear filters');
     },

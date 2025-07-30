@@ -1,22 +1,23 @@
 import React from 'react';
-import {filter, map, pipe, size, toString} from 'lodash/fp';
-import Chip from '../../atom/chip';
+import {filter, pipe, size, toString} from 'lodash/fp';
 import Title from '../../atom/title';
+import InputSwitch from '../../atom/input-switch';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
 import {COLORS} from '../../variables/colors';
-import propTypes, {FilterChipProps} from './prop-types';
+import propTypes, {FilterSwitchProps} from './prop-types';
 import style from './style.css';
 
-const FilterChip = (props: FilterChipProps, context: WebContextValues) => {
-  const {options, titleAriaLabel, title, onClear} = props;
-  const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
+const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
+  const {title, titleAriaLabel, onClear, options} = props;
+  const selectedFiltersCount = pipe(filter({value: true}), size)(options);
   const hasSelectedFilters = selectedFiltersCount > 0;
   const translate = GetTranslateFromContext(context);
+
   return (
-    <>
+    <div>
       <div className={style.header}>
         <div className={style.titleContainer}>
           <Title title={title} ariaLabel={titleAriaLabel} />
@@ -39,32 +40,29 @@ const FilterChip = (props: FilterChipProps, context: WebContextValues) => {
         ) : null}
       </div>
       <div className={style.optionsContainer}>
-        {map(({icon, label, onClick, textColor, type, selected, customIcon}) => {
-          function handleClick() {
-            onClick(type);
-          }
-
+        {options.map(optionItem => {
+          const {label, value, onChange, ariaLabel} = optionItem;
           return (
-            <Chip
-              leftIcon={icon}
-              text={label}
-              textColor={textColor}
-              key={label}
-              selected={selected}
-              onClick={handleClick}
-              customIcon={customIcon}
-            />
+            <div key={label} className={style.switchOption}>
+              <InputSwitch
+                title={label}
+                value={value}
+                theme={'newMooc'}
+                onChange={onChange}
+                aria-label={ariaLabel}
+              />
+            </div>
           );
-        }, options)}
+        })}
       </div>
-    </>
+    </div>
   );
 };
 
-FilterChip.propTypes = propTypes;
+FilterSwitch.propTypes = propTypes;
 
-FilterChip.contextTypes = {
+FilterSwitch.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-export default FilterChip;
+export default FilterSwitch;

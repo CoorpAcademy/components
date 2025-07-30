@@ -27,11 +27,13 @@ const Chip = (props, context) => {
   const {
     text,
     subText,
+    textColor = COLORS.cm_grey_700,
     selected = false,
     customIcon,
     onClick,
     leftIcon,
-    backgroundColor = DEFAULT_BACKGROUND_COLOR
+    backgroundColor = DEFAULT_BACKGROUND_COLOR,
+    customStyle
   } = props;
   const {skin} = context;
   const skinColor = get('common.primary', skin);
@@ -53,14 +55,16 @@ const Chip = (props, context) => {
   const hoverStyle = isHovered ? {backgroundColor: hoveredSelectedBgColor} : {};
 
   const defaultIcon = selected ? 'fa-check' : 'fa-plus';
-  const color = selected ? COLORS.white : COLORS.cm_grey_700;
+  const showIcon = customIcon !== 'none';
+  const color = selected ? COLORS.white : textColor;
 
   return (
     <div
       className={classnames(style.container, !selected && style.unselected)}
       style={{
         ...(selected && selectedBgColor ? {backgroundColor: selectedBgColor} : {}),
-        ...(selected && hoverStyle)
+        ...(selected && hoverStyle),
+        ...customStyle
       }}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
@@ -81,11 +85,13 @@ const Chip = (props, context) => {
           ) : null}
         </div>
       </div>
-      <FontAwesomeIcon
-        style={{color}}
-        icon={customIcon ? `fa-${customIcon}` : defaultIcon}
-        fontSize={ICON_SIZE}
-      />
+      {showIcon ? (
+        <FontAwesomeIcon
+          style={{color}}
+          icon={customIcon ? `fa-${customIcon}` : defaultIcon}
+          fontSize={ICON_SIZE}
+        />
+      ) : null}
     </div>
   );
 };
@@ -97,11 +103,13 @@ Chip.contextTypes = {
 Chip.propTypes = {
   text: PropTypes.string,
   subText: PropTypes.string,
+  textColor: PropTypes.string,
   selected: PropTypes.bool,
   customIcon: PropTypes.string,
   backgroundColor: PropTypes.string,
   onClick: PropTypes.func,
-  leftIcon: PropTypes.string
+  leftIcon: PropTypes.string,
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
 };
 
 export default Chip;

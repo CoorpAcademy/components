@@ -37,6 +37,10 @@
   position: relative;
 }
 
+.headerCentered {
+    align-items: center;
+}
+
 .headerIcon {
   border-radius: 12px;
   overflow: hidden;
@@ -103,6 +107,7 @@
 .button {
   border-radius: 12px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 @media mobile {

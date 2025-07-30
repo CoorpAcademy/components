@@ -17,14 +17,14 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
         onClear: () => console.log('clear filters'),
         options: [
           {
-            label: 'Courses',
+            label: 'Courses 2',
             type: 'course',
             selected: false,
             icon: 'fa-book-open',
             onClick: () => console.log('click on Courses filter')
           },
           {
-            label: "5'learning",
+            label: "5'learning 2",
             type: 'chapter',
             selected: false,
             icon: 'fa-stopwatch',
@@ -40,14 +40,14 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
         onClear: () => console.log('clear filters'),
         options: [
           {
-            label: 'Courses',
+            label: 'Courses 3',
             type: 'course',
             selected: true,
             icon: 'fa-book-open',
             onClick: () => console.log('click on Courses filter')
           },
           {
-            label: "5'learning",
+            label: "5'learning 3",
             type: 'chapter',
             selected: false,
             icon: 'fa-stopwatch',
