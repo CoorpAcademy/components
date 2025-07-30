@@ -4826,7 +4826,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 .newMooc-Zvq8F span, .newMoocModified-V3sO6 span {
   font-family: Gilroy;
   font-weight: bold;
-  color: #14171A;
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
@@ -4847,6 +4846,10 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 
 .newMooc-Zvq8F .checkbox-KTgQR:disabled ~ label::after {
   background: #fff;
+}
+
+.newMoocTitleContainer-G45mn {
+  width: 100%;
 }
 
 .titleContainer-nZYuN {
