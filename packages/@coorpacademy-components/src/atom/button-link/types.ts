@@ -67,7 +67,7 @@ export type ButtonLinkProps = {
   tooltipPlacement?: 'left' | 'right' | 'top' | 'bottom';
   'data-name'?: string;
   'data-testid'?: string;
-  icon?: IconType;
+  icon?: IconType | IconType[];
   onClick?: () => void;
   onKeyDown?: () => void;
   link?: {
