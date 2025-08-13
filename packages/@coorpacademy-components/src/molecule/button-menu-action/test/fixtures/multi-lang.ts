@@ -15,16 +15,14 @@ const defaultFixture: ButtonMenuActionPropsFixture = {
       'aria-label': 'aria button',
       'data-name': 'button-menu-action',
       onClick: () => console.log('click on FR button'),
-      icon: [
-        {
-          position: 'left',
-          faIcon: {
-            name: 'globe',
-            color: COLORS.neutral_700,
-            size: 14
-          }
+      icon: {
+        position: 'left',
+        faIcon: {
+          name: 'globe',
+          color: COLORS.neutral_700,
+          size: 14
         }
-      ],
+      },
       customStyle: {
         width: 'fit-content',
         color: COLORS.neutral_500,

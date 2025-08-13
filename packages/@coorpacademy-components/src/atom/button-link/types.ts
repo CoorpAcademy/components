@@ -27,7 +27,10 @@ const propTypes = {
   tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
   'data-name': PropTypes.string,
   'data-testid': PropTypes.string,
-  icon: PropTypes.shape(iconPropTypes),
+  icon: PropTypes.oneOfType([
+    PropTypes.shape(iconPropTypes),
+    PropTypes.arrayOf(PropTypes.shape(iconPropTypes))
+  ]),
   onClick: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,

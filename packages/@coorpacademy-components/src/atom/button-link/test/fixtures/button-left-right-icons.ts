@@ -6,22 +6,24 @@ const fixture: Fixture = {
     label: 'FR',
     'aria-label': 'aria button',
     'data-name': 'default-button',
-    icon: [{
-      position: 'left',
-      faIcon: {
-        name: 'globe',
-        size: 14,
-        color: '#515161'
+    icon: [
+      {
+        position: 'left',
+        faIcon: {
+          name: 'globe',
+          size: 14,
+          color: '#515161'
+        }
+      },
+      {
+        position: 'right',
+        faIcon: {
+          name: 'truck',
+          size: 14,
+          color: '#515161'
+        }
       }
-    },
-    {
-      position: 'right',
-      faIcon: {
-        name: 'chevron-down',
-        size: 14,
-        color: '#515161'
-      }
-    }],
+    ],
     onClick: () => console.log('click')
   }
 };
