@@ -8,7 +8,7 @@ const faIconPropTypes = {
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   size: PropTypes.number,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.object
 };
 
 export const iconPropTypes = {
@@ -41,8 +41,8 @@ const propTypes = {
   hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
-  contentCustomStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  customStyle: PropTypes.object,
+  contentCustomStyle: PropTypes.object,
   useTitle: PropTypes.bool,
   customLabelClassName: PropTypes.string
 };
