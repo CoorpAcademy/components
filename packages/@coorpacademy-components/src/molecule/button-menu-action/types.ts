@@ -19,7 +19,9 @@ const ButtonMenuActionPropTypes = {
 export default ButtonMenuActionPropTypes;
 
 export type ButtonMenuActionProps = {
-  button: ButtonLinkProps;
+  button: ButtonLinkProps & {
+    withChevron?: boolean;
+  };
   menu: ButtonMenuProps;
   menuWrapper?: {
     ariaLabel?: string;
