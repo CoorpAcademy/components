@@ -8,7 +8,7 @@
   justify-content: space-between;
   background-color: light;
   border-radius: 3px 3px 0 0;
-  overflow: hidden;
+  align-items: center;
 }
 
 .backIcon {
