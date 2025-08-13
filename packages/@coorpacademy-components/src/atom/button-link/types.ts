@@ -39,6 +39,7 @@ const propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  contentCustomStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   useTitle: PropTypes.bool,
   customLabelClassName: PropTypes.string
 };
@@ -48,7 +49,7 @@ export type FaIconType = {
   color?: string;
   backgroundColor?: string;
   size?: number;
-  customStyle?: Record<string, number | string>;
+  customStyle?: React.CSSProperties;
 };
 
 export type IconType = {
@@ -79,7 +80,8 @@ export type ButtonLinkProps = {
   hoverColor?: string;
   disabled?: boolean;
   className?: string;
-  customStyle?: Record<string, string | number>;
+  customStyle?: React.CSSProperties;
+  contentCustomStyle?: React.CSSProperties;
   useTitle?: boolean;
   customLabelClassName?: string;
   tag?: React.ComponentProps<typeof Tag>;

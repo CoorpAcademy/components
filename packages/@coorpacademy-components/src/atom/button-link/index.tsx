@@ -78,7 +78,8 @@ const getButtonContent = (
   hoverBackgroundColor?: string,
   hoverColor?: string,
   customLabelClassName?: string,
-  tag?: React.ComponentProps<typeof Tag>
+  tag?: React.ComponentProps<typeof Tag>,
+  contentCustomStyle?: React.CSSProperties
 ) => {
   // eslint-disable-next-line no-nested-ternary
   const iconArr = !isEmpty(icon) ? (Array.isArray(icon) ? icon : [icon]) : [];
@@ -97,9 +98,11 @@ const getButtonContent = (
     return renderNoIcons(content, customLabelClassName);
 
   return (
-    <div className={style.buttonContent}>
+    <div className={style.buttonContent} style={contentCustomStyle}>
       {renderIcon(leftIcon, {hovered, hoverBackgroundColor, hoverColor})}
-      {content ? <span className={classnames(style.label, customLabelClassName)}>{content}</span> : null}
+      {content ? (
+        <span className={classnames(style.label, customLabelClassName)}>{content}</span>
+      ) : null}
       {tag ? <Tag {...tag} /> : null}
       {renderIcon(rightIcon, {hovered, hoverBackgroundColor, hoverColor})}
     </div>
@@ -126,6 +129,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     onKeyDown = noop,
     className,
     customStyle,
+    contentCustomStyle,
     useTitle = true,
     customLabelClassName,
     tag
@@ -211,7 +215,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
           hoverBackgroundColor,
           hoverColor,
           customLabelClassName,
-          tag
+          tag,
+          contentCustomStyle
         )}
         {renderToolTip()}
       </Link>
@@ -250,7 +255,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
         hoverBackgroundColor,
         hoverColor,
         customLabelClassName,
-        tag
+        tag,
+        contentCustomStyle
       )}
       {renderToolTip()}
     </button>

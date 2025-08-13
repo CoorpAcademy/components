@@ -34,7 +34,30 @@ const defaultFixture: ButtonMenuActionPropsFixture = {
     },
     menu: {
       buttons: [
-        {...buttonBase, label: 'French', 'data-name': 'label-french-button'},
+        {
+          ...buttonBase,
+          label: 'French',
+          'data-name': 'label-french-button',
+          icon: {
+            position: 'right',
+            faIcon: {
+              name: 'check',
+              color: COLORS.white,
+              backgroundColor: COLORS.cm_primary_blue,
+              size: 10,
+              customStyle: {
+                padding: '0px',
+                height: '16px',
+                width: '16px'
+              }
+            }
+          },
+          customStyle: {backgroundColor: COLORS.cm_blue_50},
+          contentCustomStyle: {
+            width: '100%',
+            justifyContent: 'space-between'
+          }
+        },
         {...buttonBase, label: 'Spanish', 'data-name': 'label-spanish-button'},
         {...buttonBase, label: 'Italian', 'data-name': 'label-italian-button'},
         {...buttonBase, label: 'German', 'data-name': 'label-german-button'},
