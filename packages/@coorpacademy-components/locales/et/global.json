@@ -203,7 +203,8 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Kinnitamine"
+      "rewards": "Kinnitamine",
+      "More": "More"
     },
     "ehc-vd": {
       "diploma": "certificate"
