@@ -45,6 +45,8 @@ const buttonMenuActionProps = multiLangOptions => {
       label: upperCase(currentLang),
       'aria-label': `${currentLang}-button`,
       'data-name': 'button-multi-lang',
+      // no need specific function on click
+      // (visibility) open/close menu is handle in the component ButtonMenuAction itself
       onClick: () => null,
       icon: {
         position: 'left',
