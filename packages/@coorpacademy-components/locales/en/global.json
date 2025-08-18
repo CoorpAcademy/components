@@ -203,7 +203,8 @@
     },
     "esante-formation": {
       "diploma": "Learning path",
-      "rewards": "Attestation"
+      "rewards": "Attestation",
+      "More": "More"
     },
     "ehc-vd": {
       "diploma": "certificate"
