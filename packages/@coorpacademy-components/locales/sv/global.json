@@ -203,7 +203,8 @@
     },
     "esante-formation": {
       "diploma": "Inlärningsväg",
-      "rewards": "Intyg"
+      "rewards": "Intyg",
+      "More": "More"
     },
     "ehc-vd": {
       "diploma": "certifikat"
