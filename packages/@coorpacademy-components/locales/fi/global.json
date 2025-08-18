@@ -203,7 +203,8 @@
     },
     "esante-formation": {
       "diploma": "Oppimispolku",
-      "rewards": "Todistus"
+      "rewards": "Todistus",
+      "More": "More"
     },
     "ehc-vd": {
       "diploma": "todistus"
