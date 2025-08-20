@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map, upperCase, size} from 'lodash/fp';
+import {isEmpty, map, upperCase, size, pipe, getOr} from 'lodash/fp';
 import Link from '../../../../../atom/link';
 import ButtonMenuAction from '../../../../../molecule/button-menu-action';
 import {COLORS} from '../../../../../variables/colors';
@@ -91,7 +91,7 @@ const SlidesHeader = (props = {}, context = undefined) => {
         <Learner content={content} subcontent={subcontent} mode={mode} />
       ) : null}
       {type === HEADER_TYPE.MICROLEARNING ? <Microlearning content={content} mode={mode} /> : null}
-      {isEmpty(multiLang) || size(multiLang.supportedLangs) <= 1 ? null : (
+      {pipe(getOr([], 'supportedLangs'), size)(multiLang) <= 1 ? null : (
         <ButtonMenuAction {...buttonMenuActionProps(multiLang)} />
       )}
       {lives ? <Lives count={lives.count} /> : null}

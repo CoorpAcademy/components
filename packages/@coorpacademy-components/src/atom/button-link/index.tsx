@@ -1,5 +1,5 @@
 import React, {useCallback, useState, useMemo} from 'react';
-import {isEmpty, noop} from 'lodash/fp';
+import {find, isEmpty, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
 import FaIcon, {DEFAULT_ICON_COLOR, IconProps} from '../icon';
@@ -84,8 +84,8 @@ const getButtonContent = (
   // eslint-disable-next-line no-nested-ternary
   const iconArr = !isEmpty(icon) ? (Array.isArray(icon) ? icon : [icon]) : [];
 
-  const leftIcon = iconArr.find(({position}) => position === 'left');
-  const rightIcon = iconArr.find(({position}) => position === 'right');
+  const leftIcon = find({position: 'left'}, iconArr);
+  const rightIcon = find({position: 'right'}, iconArr);
 
   // no fa icons
   // nor ICONS
