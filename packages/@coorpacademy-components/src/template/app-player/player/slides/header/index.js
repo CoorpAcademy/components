@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map, upperCase, size, pipe, getOr} from 'lodash/fp';
+import {map, upperCase, size, pipe, getOr} from 'lodash/fp';
 import Link from '../../../../../atom/link';
 import ButtonMenuAction from '../../../../../molecule/button-menu-action';
 import {COLORS} from '../../../../../variables/colors';
