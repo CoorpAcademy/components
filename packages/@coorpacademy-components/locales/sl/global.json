@@ -33,7 +33,7 @@
   "certification_progress_wrapper_subtitle": "Če želite odkleniti nagrade, dosezite naslednji cilj",
   "chapters": "poglavja",
   "Close": "Zapri",
-  "clue_stars_to_loose_plural": "Odklepanje namiga zmanjša število zvezdic, ki jih lahko dobite pri tem vprašanju za {{count}} (če ste pravilno razumeli)",
+  "clue_stars_to_loose_plural": "Odkritje namiga zmanjša število zvezdic, ki jih lahko pridobite pri tem vprašanju, za {{count}} (če odgovorite pravilno)",
   "clue_stars_to_loose": "Odklepanje namiga zmanjša število zvezdic, ki jih lahko dobite pri tem vprašanju za {{count}} (če ste pravilno razumeli)",
   "completed": "Dokončano",
   "confirm_unsubscribe": "Ste prepričani, da se želite odjaviti?",
