@@ -84,7 +84,7 @@
   "modules_plural": "{{count}} moduły",
   "modules_completed_mandatory": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> obowiązkowy moduł ukończony",
   "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span> ukończone moduły obowiązkowe",
-  "More": "Więcej",
+  "More": "Dowiedz się więcej",
   "More details": "Więcej szczegółów",
   "New media": "Nowa lekcja",
   "No Selected Dashboard": "Nie wybrano pulpitu nawigacyjnego",
