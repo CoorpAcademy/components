@@ -61,7 +61,8 @@ const headerProps =
       },
       subcontent: headerSubcontent(engineRef, state),
       lives: hide ? false : {count},
-      mode: options.mode || 'default'
+      mode: options.mode || 'default',
+      multiLang: options.multiLang
     };
   };
 

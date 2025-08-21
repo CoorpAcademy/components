@@ -3,7 +3,10 @@ import ButtonLinkPropTypes, {ButtonLinkProps} from '../../atom/button-link/types
 import ButtonMenuPropTypes, {ButtonMenuProps} from '../../atom/button-menu/types';
 
 const ButtonMenuActionPropTypes = {
-  button: PropTypes.shape(ButtonLinkPropTypes).isRequired,
+  button: PropTypes.shape({
+    ...ButtonLinkPropTypes,
+    withChevron: PropTypes.bool
+  }).isRequired,
   menu: PropTypes.shape(ButtonMenuPropTypes).isRequired,
   menuWrapper: PropTypes.shape({
     ariaLabel: PropTypes.string,
@@ -14,12 +17,16 @@ const ButtonMenuActionPropTypes = {
   type: PropTypes.oneOf(['button', 'link']),
   primaryColor: PropTypes.string,
   closeOnClick: PropTypes.bool,
-  enableScroll: PropTypes.bool
+  enableScroll: PropTypes.bool,
+  containerCustom: PropTypes.object,
+  showFade: PropTypes.bool
 };
 export default ButtonMenuActionPropTypes;
 
 export type ButtonMenuActionProps = {
-  button: ButtonLinkProps;
+  button: ButtonLinkProps & {
+    withChevron?: boolean;
+  };
   menu: ButtonMenuProps;
   menuWrapper?: {
     ariaLabel?: string;
