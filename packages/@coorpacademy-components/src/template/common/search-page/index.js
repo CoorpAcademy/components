@@ -142,13 +142,9 @@ const SearchPage = (props, context) => {
       {hasSections ? (
         <div data-name="explorerSections" className={style.sectionsWrapper}>
           {sortedSections.map((section, index) => (
-            <div key={`${section.key}-${index}`} className={style.sectionItem}>
-              {renderSection(section)}
-            </div>
+            <div key={`${section.key}-${index}`}>{renderSection(section)}</div>
           ))}
-          {contentGridSection ? (
-            <div className={style.contentSectionItem}>{contentGridSection}</div>
-          ) : null}
+          {contentGridSection ? <div>{contentGridSection}</div> : null}
         </div>
       ) : (
         <div data-name="searchResult" className={style.cardsWrapper}>

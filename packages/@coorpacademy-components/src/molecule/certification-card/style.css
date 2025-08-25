@@ -14,7 +14,7 @@
   min-width: 288px;
   background-color: #FFF;
   border: 2px solid #FFF;
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -53,7 +53,7 @@
 }
 
 .container:hover {
-  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
 
   .imageContainer {
     width: 244px;

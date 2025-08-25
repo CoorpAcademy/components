@@ -65,14 +65,6 @@
   background: white;
 }
 
-.sectionItem {
-  margin-bottom: 40px;
-}
-
-.contentSectionItem {
-  margin-bottom: 20px;
-}
-
 .sectionTitle {
   display: flex;
   align-items: center;

@@ -31,7 +31,7 @@ const CertificationCard = (props, context) => {
     },
     customStyle: {padding: 0}
   };
-
+  const certificationIcon = {iconName: 'wreath-laurel'};
   return (
     <div className={style.container} data-name={`certification-card-${label}`} onClick={onClick}>
       {progress > 0 ? (
@@ -49,7 +49,7 @@ const CertificationCard = (props, context) => {
       </div>
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>
-          <Tag label={tag} size="S" />
+          <Tag label={tag} size="S" icon={certificationIcon} />
           <div className={style.title} data-name="certification-title">
             {title}
           </div>

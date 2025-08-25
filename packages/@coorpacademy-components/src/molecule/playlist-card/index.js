@@ -4,33 +4,33 @@ import {COLORS} from '../../variables/colors';
 import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import ProgressBar from '../progress-bar';
+import PlaylistDetailCover from '../playlist-detail-cover';
 import style from './style.css';
 
 const PlaylistCard = (props, context) => {
   const {
     label,
     title,
-    courseCount,
     progress = 0,
-    imgUrl,
+    coverImages,
     onClick,
     locales: {playlistTag, coursesLabel}
   } = props;
 
+  const cover = coverImages ? (
+    <PlaylistDetailCover className={style.cover} images={coverImages} />
+  ) : null;
+  const icon = {iconName: 'lines-leaning'};
   return (
     <div className={style.container} data-name={`playlist-card-${label}`} onClick={onClick}>
-      <div className={style.imageContainer}>
-        <img src={imgUrl} />
-      </div>
+      <div className={style.imageContainer}>{cover}</div>
       <div className={style.detailWrapper}>
         <div className={style.titleWrapper}>
-          <Tag label={playlistTag} size="S" />
+          <Tag label={playlistTag} size="S" icon={icon} />
           <div className={style.title} data-name="playlist-title">
             {title}
           </div>
-          <div className={style.courseCount}>
-            {courseCount} {coursesLabel}
-          </div>
+          <div className={style.courseCount}>{coursesLabel}</div>
         </div>
         <ProgressBar
           className={style.customProgressBar}
@@ -51,9 +51,8 @@ PlaylistCard.contextTypes = {
 PlaylistCard.propTypes = {
   label: PropTypes.string,
   title: PropTypes.string.isRequired,
-  courseCount: PropTypes.number.isRequired,
   progress: PropTypes.number,
-  imgUrl: PropTypes.string.isRequired,
+  coverImages: PlaylistDetailCover.propTypes.images,
   onClick: PropTypes.func,
   locales: PropTypes.shape({
     playlistTag: PropTypes.string,
