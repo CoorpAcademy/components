@@ -27,7 +27,7 @@ export default {
     onClick: () => console.log('Playlist card clicked'),
     locales: {
       playlistTag: 'Playlist',
-      coursesLabel: '5 courses'
+      coursesLabel: '<b>5</b> courses'
     }
   }
 };

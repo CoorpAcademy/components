@@ -11,7 +11,7 @@ export default {
     onClick: () => console.log('Business Learning card clicked'),
     locales: {
       playlistTag: 'Playlist',
-      coursesLabel: '10 courses'
+      coursesLabel: '<b>10</b> courses'
     }
   }
 };

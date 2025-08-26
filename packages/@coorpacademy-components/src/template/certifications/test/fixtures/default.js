@@ -12,7 +12,7 @@ export const defaultProps = {
       imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
       onClick: () => console.log('click'),
       locales: {
-        conditionDescriptionProgress: '23 modules to complete'
+        conditionDescriptionProgress: '<b>23</b> modules to complete'
       }
     },
     {
@@ -27,7 +27,7 @@ export const defaultProps = {
       imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
       onClick: () => console.log('click'),
       locales: {
-        conditionDescriptionProgress: '13 modules to complete'
+        conditionDescriptionProgress: '<b>13</b> modules to complete'
       }
     },
     {
@@ -42,7 +42,7 @@ export const defaultProps = {
       imgUrl: 'https://onboarding.coorpacademy.com/api/v1/goals/cert_iMavih1I9g.svg',
       onClick: () => console.log('click'),
       locales: {
-        conditionDescriptionProgress: '10 modules to complete'
+        conditionDescriptionProgress: '<b>10</b> modules to complete'
       }
     }
   ],

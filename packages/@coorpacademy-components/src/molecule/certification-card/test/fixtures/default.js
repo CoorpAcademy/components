@@ -11,7 +11,7 @@ export const defaultProps = {
   onClick: () => console.log('click'),
   locales: {
     tag: 'Certification',
-    conditionDescriptionProgress: '1 module to complete'
+    conditionDescriptionProgress: '<b>1</b> module to complete'
   }
 };
 

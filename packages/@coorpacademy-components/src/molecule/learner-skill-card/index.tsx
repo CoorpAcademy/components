@@ -30,7 +30,6 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
   const {score, content, questionsToReview = 0} = metrics;
   const translate = GetTranslateFromContext(context);
   const {color, name} = icon;
-  const questionsLocale = translate('skill_chart_side_panel_questions_to_review') as string;
   const [badgeIconName, badgeLocale, tagTextColor, tagBackgroundColor] = focus
     ? ['bullseye-arrow', translate('skill_focus') as string, COLORS.purple_700, COLORS.purple_100]
     : ['shapes', translate('skill') as string, COLORS.neutral_500, COLORS.cm_grey_100];
@@ -105,9 +104,11 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
               {skillTitle}
             </div>
             <div className={style.contentAndQuestionsWrapper}>
-              <div data-name="learner-skill-card-skill-content-number">
-                {content} {translate('content')}
-              </div>
+              <div
+                data-name="learner-skill-card-skill-content-number"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{__html: translate('content', {count: content})}}
+              />
               {questionsToReview ? (
                 <div
                   className={style.skillInformation}
@@ -121,10 +122,15 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
                       size: {faSize: 4, wrapperSize: 0}
                     }}
                   />
-                  <span data-name="learner-skill-card-questions-to-review">
-                    {questionsToReview}
-                  </span>
-                  &nbsp;{questionsLocale}
+                  <span
+                    data-name="learner-skill-card-questions-to-review"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: translate('skill_chart_side_panel_questions_to_review', {
+                        count: questionsToReview
+                      })
+                    }}
+                  />
                 </div>
               ) : null}
             </div>

@@ -30,7 +30,11 @@ const PlaylistCard = (props, context) => {
           <div className={style.title} data-name="playlist-title">
             {title}
           </div>
-          <div className={style.courseCount}>{coursesLabel}</div>
+          <div
+            className={style.courseCount}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: coursesLabel}}
+          />
         </div>
         <ProgressBar
           className={style.customProgressBar}

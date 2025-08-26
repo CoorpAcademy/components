@@ -53,7 +53,11 @@ const CertificationCard = (props, context) => {
           <div className={style.title} data-name="certification-title">
             {title}
           </div>
-          <div className={style.moduleCount}>{conditionDescriptionProgress}</div>
+          <div
+            className={style.moduleCount}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: conditionDescriptionProgress}}
+          />
         </div>
         <ProgressBar
           className={style.customProgressBar}
