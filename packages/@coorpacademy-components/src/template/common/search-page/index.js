@@ -21,6 +21,7 @@ const SearchPage = (props, context) => {
     title,
     searchFilters,
     cards,
+    count,
     noresultsfound,
     clearFilters,
     recommendations,
@@ -106,26 +107,22 @@ const SearchPage = (props, context) => {
 
   const hasSections = sortedSections.length > 0;
 
-  const contentGridSection =
-    cards && !isEmpty(cards.list) ? (
-      <div className={style.contentSection}>
-        <div className={style.sectionHeader}>
-          <div className={style.sectionTitle}>
-            <span>Content</span>
-            <Tag
-              label={cards.list.length.toString()}
-              type="default"
-              size="S"
-              customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
-            />
-          </div>
-          <div className={style.contentGrid}>
-            {' '}
-            <CardsGrid {...cards} />
-          </div>
+  const contentGridSection = (
+    <div className={style.contentSection}>
+      <div className={style.sectionHeader}>
+        <div className={style.sectionTitle}>
+          <span>{title}</span>
+          <Tag
+            label={count || cards.list.length.toString()}
+            type="default"
+            size="S"
+            customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
+          />
         </div>
+        <div className={style.contentGrid}> {cardsView}</div>
       </div>
-    ) : null;
+    </div>
+  );
 
   return (
     <div>
@@ -173,6 +170,7 @@ SearchPage.propTypes = {
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),
   cards: PropTypes.shape(CardsGrid.propTypes),
+  count: PropTypes.number,
   clearFilters: PropTypes.shape(Button.propTypes),
   recommendations: PropTypes.shape(CardsList.propTypes),
   moreSortAriaLabel: PropTypes.string,

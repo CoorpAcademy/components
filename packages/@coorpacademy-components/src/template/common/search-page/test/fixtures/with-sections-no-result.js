@@ -1,8 +1,9 @@
 import {defaultsDeep} from 'lodash/fp';
 import standardCard from '../../../../../molecule/card/test/fixtures/default';
 import filters from '../../../../../molecule/filters/test/fixtures/default';
-import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
+import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/default';
 
+const recommendations = CardsList.props;
 const newContentCards = [
   {...standardCard.props, badge: 'new', title: 'Mastering Digital Innovations'},
   {
@@ -17,11 +18,13 @@ const newContentCards = [
 
 export default {
   props: {
-    title: 'Explorer (890 items)',
+    title: 'Catalogue : 0 résultat',
     searchFilters: defaultsDeep(filters.props, {
       openFilters: true
     }),
-    cards: cardsGrid.props,
+    cards: {
+      list: []
+    },
     moreSortAriaLabel: 'show or hide sortBy options',
     moreFilterAriaLabel: 'show or hide sortBy options',
     filterGroupAriaLabel: 'Apply filtering options to refine search results',
@@ -40,6 +43,8 @@ export default {
           showMoreOnRightAriaLabel: 'Next new content'
         }
       }
-    }
+    },
+    noresultsfound: 'Sorry no result available',
+    recommendations
   }
 };
