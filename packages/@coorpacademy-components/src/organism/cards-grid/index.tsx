@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {map, uniqueId} from 'lodash/fp';
 import Card from '../../molecule/card';
 import Loader from '../../atom/loader';
-import LearnerSkillCard from '../../../lib/molecule/learner-skill-card';
 import CertificationCard from '../../molecule/certification-card';
 import PlaylistCard from '../../molecule/playlist-card';
+import LearnerSkillCard from '../../molecule/learner-skill-card';
 import style from './style.css';
 
 export interface CardProps {
@@ -40,11 +40,8 @@ export interface CardProps {
   'disabled-aria-label'?: string;
   'card-content-aria-label'?: string;
   cardIndex?: number;
-  skillTitle?: string;
-  skillAriaLabel?: string;
   focus?: boolean;
   metrics?: {
-    score?: number;
     content?: number;
     questionsToReview?: number;
   };
@@ -52,7 +49,6 @@ export interface CardProps {
     color: string;
     name: string;
   };
-  onExploreClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   label?: string;
   goal?: {
     title?: string;
