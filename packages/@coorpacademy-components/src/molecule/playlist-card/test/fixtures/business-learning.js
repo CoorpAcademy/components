@@ -1,5 +1,6 @@
 export default {
   props: {
+    type: 'playlist',
     label: 'business-learning-essentials',
     title: 'Business Learning Essentials',
     progress: 30,

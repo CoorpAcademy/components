@@ -9,6 +9,7 @@ import style from './style.css';
 
 const PlaylistCard = (props, context) => {
   const {
+    type,
     label,
     title,
     progress = 0,
@@ -16,7 +17,7 @@ const PlaylistCard = (props, context) => {
     onClick,
     locales: {playlistTag, coursesLabel}
   } = props;
-
+  if (type !== 'playlist') return null;
   const cover = coverImages ? (
     <PlaylistDetailCover className={style.cover} images={coverImages} />
   ) : null;
@@ -53,6 +54,7 @@ PlaylistCard.contextTypes = {
 };
 
 PlaylistCard.propTypes = {
+  type: PropTypes.oneOf(['playlist']).isRequired,
   label: PropTypes.string,
   title: PropTypes.string.isRequired,
   progress: PropTypes.number,

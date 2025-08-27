@@ -3,6 +3,7 @@ import {COLORS} from '../../../../variables/colors';
 
 const defaultProps: LearnerSkillCardProps = {
   'aria-label': 'Learner Skill Card',
+  type: 'skill',
   cardIndex: 0,
   skillTitle: 'Critical thinking and analysis ',
   skillAriaLabel: 'Skill aria label',

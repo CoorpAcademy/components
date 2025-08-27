@@ -1,5 +1,6 @@
 export default {
   props: {
+    type: 'playlist',
     label: 'mastering-art-learning',
     title: 'Mastering the Art of Learning',
     progress: 65,

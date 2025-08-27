@@ -8,6 +8,7 @@ import style from './style.css';
 
 const CertificationCard = (props, context) => {
   const {
+    type,
     label,
     locales: {conditionDescriptionProgress, tag},
     goal: {title},
@@ -15,6 +16,7 @@ const CertificationCard = (props, context) => {
     imgUrl,
     onClick
   } = props;
+  if (type !== 'certification') return null;
   const {translate} = context;
   const isInprogress = progress < 100;
   const progressLabel = isInprogress ? translate('in_progress') : translate('completed');
@@ -76,6 +78,7 @@ CertificationCard.contextTypes = {
 };
 
 CertificationCard.propTypes = {
+  type: PropTypes.oneOf(['certification']).isRequired,
   label: PropTypes.string,
   goal: PropTypes.shape({
     title: PropTypes.string,

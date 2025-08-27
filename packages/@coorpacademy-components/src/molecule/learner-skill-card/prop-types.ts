@@ -34,6 +34,7 @@ export type LearnerSkillCardProps = {
     name: string;
   };
   onExploreClick: () => void;
+  type: 'skill';
 };
 
 export default propTypes;

@@ -215,7 +215,9 @@ const MyLearning = (props, context) => {
       icon: {iconName: 'clock', backgroundColor: COLORS.pink_100}
     },
     {
-      title: translate('skill_chart_side_panel_questions_to_review'),
+      title: translate('skill_chart_side_panel_questions_to_review', {
+        count: questionsToReviewData || 0
+      }),
       value: `${questionsToReviewData}`,
       legend: skillChartPaneLegends,
       icon: {iconName: 'circle-question', backgroundColor: COLORS.orange_100}

@@ -26,7 +26,7 @@ interface ProviderContext {
       secondary: string;
     };
   };
-  translate: (key: string) => string;
+  translate: (key: string, options?: any) => string;
 }
 
 export const ContinueLearningButton = (
@@ -253,8 +253,11 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
 
             {questionsToReview > 0 ? (
               <div className={style.skillInformation}>
-                <span>{questionsToReview}</span>
-                &nbsp;{translate('skill_chart_side_panel_questions_to_review')}
+                <span>
+                  {translate('skill_chart_side_panel_questions_to_review', {
+                    count: questionsToReview
+                  })}
+                </span>
               </div>
             ) : null}
 

@@ -80,7 +80,7 @@
 }
 
 .sectionHeader {
-  max-width: 1080px;
+  max-width: 1090px;
   margin: auto;
   padding: 16px 30px 8px;
   box-sizing: border-box;
@@ -105,7 +105,7 @@
 .contentSection .sectionHeader {
   padding: 0;
   margin: 16px auto 8px auto;
-  max-width: 1080px;
+  max-width: 1090px;
   display: flex;
   line-height: 20px;
   align-items: start;

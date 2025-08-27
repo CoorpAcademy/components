@@ -1,4 +1,5 @@
 export const defaultProps = {
+  type: 'certification',
   label: 'label',
   goal: {
     title: 'IA Technology : asses your knowledge on high end tech',
