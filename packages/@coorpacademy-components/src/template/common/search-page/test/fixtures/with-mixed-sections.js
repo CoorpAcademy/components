@@ -6,10 +6,35 @@ import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog'
 
 const newContentCards = [
   {...standardCard.props, badge: 'new', title: 'Digital Innovations'},
+  {...standardCard.props, badge: 'new', title: 'Future of Learning', author: 'Coorpacademy'},
+  {...standardCard.props, badge: 'new', title: 'Digital Innovations'},
+  {...standardCard.props, badge: 'new', title: 'Future of Learning', author: 'Coorpacademy'},
   {...standardCard.props, badge: 'new', title: 'Future of Learning', author: 'Coorpacademy'}
 ];
 
 const certificationsCards = [
+  {
+    ...certificationCard.props,
+    imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
+    goal: {title: 'Digital Leadership Certification', condition: {nbDone: 1}}
+  },
+  {
+    ...certificationCard.props,
+    imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
+    goal: {title: 'AI Technology Assessment', condition: {nbDone: 1}},
+    progress: 67
+  },
+  {
+    ...certificationCard.props,
+    imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
+    goal: {title: 'Digital Leadership Certification', condition: {nbDone: 1}}
+  },
+  {
+    ...certificationCard.props,
+    imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',
+    goal: {title: 'AI Technology Assessment', condition: {nbDone: 1}},
+    progress: 67
+  },
   {
     ...certificationCard.props,
     imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg',

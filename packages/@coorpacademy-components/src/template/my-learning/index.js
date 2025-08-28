@@ -216,7 +216,7 @@ const MyLearning = (props, context) => {
     },
     {
       title: translate('skill_chart_side_panel_questions_to_review', {
-        count: questionsToReviewData || 0
+        count: ''
       }),
       value: `${questionsToReviewData}`,
       legend: skillChartPaneLegends,
@@ -505,16 +505,16 @@ const MyLearning = (props, context) => {
                 return (
                   <div key={index}>
                     <LearnerSkillCard
-                      skillTitle={skillsLocales[skill]}
+                      title={skillsLocales[skill]}
                       cardIndex={index}
                       focus={selectedSkills.includes(skill)}
+                      progress={score}
                       metrics={{
-                        score,
                         content,
                         questionsToReview
                       }}
                       icon={{color, name}}
-                      onExploreClick={handleExploreSkill}
+                      onClick={handleExploreSkill}
                     />
                   </div>
                 );

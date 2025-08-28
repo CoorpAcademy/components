@@ -8,7 +8,11 @@ const SkillsChartSideInformationItem = ({title, value, legend, icon: iconProps})
   <div className={style.InformationElement}>
     <div className={style.titleContainer}>
       <Icon {...defaults({preset: 's'}, iconProps)} />
-      <div className={style.title}>{title}</div>
+      <div
+        className={style.title}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: title}}
+      />
     </div>
     <div className={style.value}>{value}</div>
     <div className={style.legend}>

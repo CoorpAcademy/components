@@ -35,6 +35,11 @@ const skillsCards = [
     ...skillCard.props,
     skillTitle: 'People and Team Management',
     metrics: {content: 34, score: 90, questionsToReview: 5}
+  },
+  {
+    ...skillCard.props,
+    skillTitle: 'People and Team Management',
+    metrics: {content: 34, score: 90, questionsToReview: 5}
   }
 ];
 
@@ -62,6 +67,14 @@ const playlistsCards = [
     progress: 85,
     imgUrl:
       'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
+  },
+  {
+    ...playlistCard.props,
+    title: 'Unlocking Knowledge: A Journey',
+    courseCount: 32,
+    progress: 85,
+    imgUrl:
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'
   }
 ];
 
@@ -81,6 +94,12 @@ const certificationsCards = [
     ...certificationCard.props,
     goal: {title: 'Modern Management Skills', condition: {nbDone: 1}},
     progress: 100,
+    imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg'
+  },
+  {
+    ...certificationCard.props,
+    goal: {title: 'Data Analysis Certification', condition: {nbDone: 1}},
+    progress: 23,
     imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg'
   },
   {
@@ -119,7 +138,7 @@ export default {
       certifications: {
         title: 'Certifications',
         cards: certificationsCards,
-        count: 4,
+        count: 7,
         showMore: 'See all',
         onShowMore: () => console.log('Show more certifications'),
         order: 1,
