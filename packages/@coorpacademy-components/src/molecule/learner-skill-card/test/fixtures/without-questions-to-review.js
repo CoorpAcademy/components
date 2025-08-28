@@ -1,10 +1,8 @@
-import {LearnerSkillCardProps} from '../../prop-types';
 import defaultProps from './default';
 
-const withoutQuestionsToReview: LearnerSkillCardProps = {
+const withoutQuestionsToReview = {
   ...defaultProps.props,
   metrics: {
-    score: 65,
     content: 85
   }
 };

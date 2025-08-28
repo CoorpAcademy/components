@@ -42,7 +42,8 @@
   "cookies_title": "Hoe we cookies gebruiken",
   "Create a new cohort": "Create a new cohort",
   "courses": "Cursussen",
-  "content": "inhoud",
+  "content": "<b>{{count}}</b> inhoud",
+  "content_plural": "<b>{{count}}</b> inhoudsitems",
   "courses_completed": "Cursussen voltooid",
   "continue_learning": "Ga door met leren",
   "learning_priority_modal_title": "Nieuwe leerprioriteit",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Selecteer ten minste {{skillNumber}} extra vaardigheden",
   "skill_focus_footer_error_description": "Deselecteer ten minste {{skillNumber}} extra vaardigheden",
   "skill_chart_side_panel_content_completed": "Inhoud voltooid",
-  "skill_chart_side_panel_questions_to_review": "Vragen om te beoordelen",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> vraag om te bekijken",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> vragen om te bekijken",
   "skill_chart_side_panel_learning_hours": "Leertijd",
   "skill_focused_chip_tooltip": "Deze vaardigheid is gefocust",
   "selected": "geselecteerd",
@@ -196,7 +198,7 @@
   "questions": "Vragen",
   "skill_scope_specifier": "op <b>{{focusedSkill}}</b>",
   "focused_skills": "gefocuste vaardigheden",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Beoordeel deze cursus",
       "diploma": "Gevalideerd traject"
@@ -219,7 +221,7 @@
       "diploma": "Certificaat"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "De aanvullende informatie over uw certificaat"

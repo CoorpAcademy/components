@@ -42,7 +42,8 @@
   "cookies_title": "Cách chúng tôi sử dụng cookie:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Khóa học",
-  "content": "nội dung",
+  "content": "<b>{{count}}</b> nội dung",
+  "content_plural": "<b>{{count}}</b> nội dung",
   "courses_completed": "Đã hoàn thành các khóa học",
   "continue_learning": "Tiếp tục học",
   "learning_priority_modal_title": "Ưu tiên học tập mới",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Chọn thêm ít nhất {{skillNumber}} kỹ năng nữa",
   "skill_focus_footer_error_description": "Bỏ chọn thêm ít nhất {{skillNumber}} kỹ năng nữa",
   "skill_chart_side_panel_content_completed": "Nội dung đã hoàn thành",
-  "skill_chart_side_panel_questions_to_review": "Câu hỏi để xem xét",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> câu hỏi cần xem lại",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> câu hỏi cần xem lại",
   "skill_chart_side_panel_learning_hours": "Thời gian học tập",
   "skill_focused_chip_tooltip": "Kỹ năng này tập trung",
   "selected": "đã chọn",
@@ -196,7 +198,7 @@
   "questions": "Câu hỏi",
   "skill_scope_specifier": "vào <b>{{focusedSkill}}</b>",
   "focused_skills": "kỹ năng được chú trọng",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Đánh giá khóa học này",
       "diploma": "Lộ trình đã được xác thực"
@@ -219,7 +221,7 @@
       "diploma": "Chứng chỉ"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Thông tin bổ sung về chứng chỉ của bạn"

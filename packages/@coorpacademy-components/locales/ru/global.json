@@ -42,7 +42,8 @@
   "cookies_title": "Как мы используем файлы cookie:",
   "Create a new cohort": "Создать новый сегмент",
   "courses": "Курсы",
-  "content": "содержание",
+  "content": "<b>{{count}}</b> материал",
+  "content_plural": "<b>{{count}}</b> материалы",
   "courses_completed": "Курсы завершены",
   "continue_learning": "Продолжить обучение",
   "learning_priority_modal_title": "Новый приоритет обучения",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Выберите как минимум ещё {{skillNumber}} навыка(-ов)",
   "skill_focus_footer_error_description": "Отмените выбор как минимум ещё {{skillNumber}} навыков",
   "skill_chart_side_panel_content_completed": "Содержание завершено",
-  "skill_chart_side_panel_questions_to_review": "Вопросы для повторения",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> вопрос на проверку",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> вопросов на проверку",
   "skill_chart_side_panel_learning_hours": "Время обучения",
   "skill_focused_chip_tooltip": "Фокус на этот навык ",
   "selected": "выбрано",
@@ -196,7 +198,7 @@
   "questions": "Вопросы",
   "skill_scope_specifier": "на <b>{{focusedSkill}}</b>",
   "focused_skills": "выбранные навыки",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Оцените этот курс",
       "diploma": "Проверенный путь"
@@ -219,7 +221,7 @@
       "diploma": "Сертификат"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Дополнительная информация о вашем сертификате"

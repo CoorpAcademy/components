@@ -42,7 +42,8 @@
   "cookies_title": "Kaip mes naudojame slapukus:",
   "Create a new cohort": "Sukurti naują kohortą",
   "courses": "Kursai",
-  "content": "turinys",
+  "content": "<b>{{count}}</b> turinys",
+  "content_plural": "<b>{{count}}</b> turiniai",
   "courses_completed": "Baigti kursai",
   "continue_learning": "Tęsti mokymąsi",
   "learning_priority_modal_title": "Naujas mokymosi prioritetas",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Pasirinkite dar bent {{skillNumber}} įgūdžius (-į)",
   "skill_focus_footer_error_description": "Atžymėkite dar bent {{skillNumber}} įgūdžius (-į)",
   "skill_chart_side_panel_content_completed": "Medžiaga baigta",
-  "skill_chart_side_panel_questions_to_review": "Klausimai, kuriuos reikia kartoti",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> klausimas peržiūrai",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> klausimai peržiūrai",
   "skill_chart_side_panel_learning_hours": "Mokymosi laikas",
   "skill_focused_chip_tooltip": "Šis įgūdis yra dėmesio centre",
   "selected": "pasirinktas",
@@ -196,7 +198,7 @@
   "questions": "Klausimai",
   "skill_scope_specifier": "<b>{{focusedSkill}}</b>",
   "focused_skills": "pagrindiniai įgūdžiai",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Įvertinkite šį kursą",
       "diploma": "Patvirtintas kelias"
@@ -219,7 +221,7 @@
       "diploma": "Sertifikatas"
     },
     "mylcl-learning": {
-       "diploma": "mokymosi kelias"
+      "diploma": "mokymosi kelias"
     },
     "who": {
       "badge": "Papildoma informacija apie jūsų sertifikatą"

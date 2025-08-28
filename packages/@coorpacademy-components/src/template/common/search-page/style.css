@@ -7,6 +7,7 @@
 @value dark from colors;
 @value black from colors;
 @value white from colors;
+@value cm_grey_500 from colors;
 
 .cardsWrapper {
   display: block;
@@ -55,6 +56,68 @@
   z-index: 7;
 }
 
+.sectionsWrapper {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 0;
+  background: white;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 600;
+  color: dark;
+}
+
+.contentSection .sectionTitle {
+  margin-bottom: 16px;
+}
+
+.sectionHeader {
+  max-width: 1100px;
+  margin: auto;
+  padding: 16px 30px 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-content: start;
+}
+
+.contentSection {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background: white;
+  padding: 16px 30px 8px;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.contentSection .sectionHeader {
+  padding: 0;
+  margin: 16px auto 8px auto;
+  max-width: 1100px;
+  display: flex;
+  line-height: 20px;
+  align-items: start;
+}
+
+.contentGrid {
+  max-width: 1100px;
+  width: 100%;
+  margin: auto 0 auto -8px;
+  box-sizing: border-box;
+}
+
 @media mobile {
   .cardsWrapper {
     padding: 5px 0;
@@ -62,5 +125,9 @@
 
   .title {
     display: none;
+  }
+
+  .contentSection {
+    padding: 16px 8px 0px;
   }
 }

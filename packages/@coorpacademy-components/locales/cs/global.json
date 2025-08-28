@@ -42,7 +42,8 @@
   "cookies_title": "Jak využíváme soubory cookie:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Kurzy",
-  "content": "obsah",
+  "content": "<b>{{count}}</b> obsah",
+  "content_plural": "<b>{{count}}</b> obsahy",
   "courses_completed": "Dokončené kurzy",
   "continue_learning": "Pokračujte v učení",
   "learning_priority_modal_title": "Nová priorita učení",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Vyberte alespoň {{skillNumber}} dalších dovedností",
   "skill_focus_footer_error_description": "Zrušte výběr alespoň {{skillNumber}} dalších dovedností",
   "skill_chart_side_panel_content_completed": "Obsah dokončen",
-  "skill_chart_side_panel_questions_to_review": "Otázky ke kontrole",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> otázka k revizi",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> otázky k revizi",
   "skill_chart_side_panel_learning_hours": "Čas na učení",
   "skill_focused_chip_tooltip": "Tato dovednost je zaměřena",
   "selected": "vybráno",
@@ -196,7 +198,7 @@
   "questions": "Otázky",
   "skill_scope_specifier": " na <b>{{focusedSkill}}</b>",
   "focused_skills": "zaměřených dovedností",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Ohodnoťte tento kurz",
       "diploma": "Ověřená cesta"
@@ -219,7 +221,7 @@
       "diploma": "Certifikát"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Další informace o vašem certifikátu"

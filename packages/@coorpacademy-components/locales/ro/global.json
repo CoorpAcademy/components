@@ -42,7 +42,8 @@
   "cookies_title": "Cum folosim modulele cookie:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Cursuri",
-  "content": "conţinut",
+  "content": "<b>{{count}}</b> conținut",
+  "content_plural": "<b>{{count}}</b> conținuturi",
   "courses_completed": "Cursuri finalizate",
   "continue_learning": "Continuați să învățați",
   "learning_priority_modal_title": "Noua prioritate de invatare",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Selectați cel puțin încă {{skillNumber}} abilități",
   "skill_focus_footer_error_description": "Deselectați cel puțin încă {{skillNumber}} abilități",
   "skill_chart_side_panel_content_completed": "Conținut finalizat",
-  "skill_chart_side_panel_questions_to_review": "Întrebări de revizuit",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> întrebare de revizuit",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> întrebări de revizuit",
   "skill_chart_side_panel_learning_hours": "Timp de învățare",
   "skill_focused_chip_tooltip": "Această abilitate este concentrată",
   "selected": "selectate",
@@ -196,7 +198,7 @@
   "questions": "Întrebări",
   "skill_scope_specifier": "pe <b>{{focusedSkill}}</b>",
   "focused_skills": "abilități focalizate",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Evaluează acest curs",
       "diploma": "Calea validată"
@@ -219,7 +221,7 @@
       "diploma": "Certificat"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Informațiile suplimentare despre certificatul dvs"

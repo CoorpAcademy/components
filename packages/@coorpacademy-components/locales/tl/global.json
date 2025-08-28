@@ -42,7 +42,8 @@
   "cookies_title": "Paano namin ginagamit ang cookies:",
   "Create a new cohort": "Lumikha ng isang bagong cohort",
   "courses": "Mga Kurso",
-  "content": "nilalaman",
+  "content": "<b>{{count}}</b> nilalaman",
+  "content_plural": "<b>{{count}}</b> mga nilalaman",
   "courses_completed": "Mga kursong nakumpleto",
   "continue_learning": "Ipagpatuloy ang pag-aaral",
   "learning_priority_modal_title": "Bagong priority sa pag-aaral",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Pumili ng hindi bababa sa {{skillNumber}} pang kasanayan",
   "skill_focus_footer_error_description": "Alisin sa pagkakapili ang hindi bababa sa {{skillNumber}} pang kasanayan",
   "skill_chart_side_panel_content_completed": "Nakumpleto ang Nilalaman",
-  "skill_chart_side_panel_questions_to_review": "Mga tanong na susuriin",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> tanong na rerepasuhin",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> mga tanong na rerepasuhin",
   "skill_chart_side_panel_learning_hours": "Oras ng pag-aaral",
   "skill_focused_chip_tooltip": "Ang kasanayang ito ay nakatuon",
   "selected": "napili",
@@ -196,7 +198,7 @@
   "questions": "Mga Tanong",
   "skill_scope_specifier": "sa <b>{{focusedSkill}}</b>",
   "focused_skills": "mga kasanayang pinagtuunan ng pansin",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "I-rate ang kursong ito",
       "diploma": "Napatunayang landas"
@@ -219,7 +221,7 @@
       "diploma": "Sertipiko"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Karagdagang impormasyon tungkol sa iyong sertipiko"

@@ -42,7 +42,8 @@
   "cookies_title": "Hogyan használjuk a sütiket:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Kurzus",
-  "content": "tartalom",
+  "content": "<b>{{count}}</b> tartalom",
+  "content_plural": "<b>{{count}}</b> tartalmak",
   "courses_completed": "Teljesített kurzusok",
   "continue_learning": "Folytassa a tanulást",
   "learning_priority_modal_title": "Új tanulási prioritás",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Válassz még legalább {{skillNumber}} további képességet",
   "skill_focus_footer_error_description": "Vond vissza még legalább {{skillNumber}} képesség megjelölését",
   "skill_chart_side_panel_content_completed": "A tartalom elkészült",
-  "skill_chart_side_panel_questions_to_review": "Felülvizsgálandó kérdések",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> felülvizsgálandó kérdés",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> felülvizsgálandó kérdések",
   "skill_chart_side_panel_learning_hours": "Tanulási idő",
   "skill_focused_chip_tooltip": "Ez a készség koncentrált",
   "selected": "megjelölve",
@@ -196,7 +198,7 @@
   "questions": "Kérdések",
   "skill_scope_specifier": "<b>{{focusedSkill}}</b>",
   "focused_skills": "célzott képességek",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Értékelje ezt a tanfolyamot",
       "diploma": "Ellenőrzött útvonal"
@@ -219,7 +221,7 @@
       "diploma": "Bizonyítvány"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "További információk a tanúsítványról"
