@@ -6,7 +6,7 @@ export default {
   props: {
     createHref: '#',
     search: {
-      value: '',
+      value: 'eric.sampaio@coorpacademy.com',
       placeholder: 'Name, last name…',
       onChange: () => {}
     },
