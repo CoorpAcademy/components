@@ -51,7 +51,8 @@ const Search = props => {
   });
 
   const wrapperParentClass = classnames({
-    [style.wrapperMoocParent]: isMooc
+    [style.wrapperMoocParent]: isMooc,
+    [style.wrapperCoorpManamerParent]: isCoorpManager
   });
 
   const searchClass = classnames({

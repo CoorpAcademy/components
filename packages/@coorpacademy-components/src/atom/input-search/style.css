@@ -203,6 +203,10 @@
   background: transparent;
 }
 
+.wrapperCoorpManamerParent {
+  width: 100%;
+}
+
 .moocSearch {
   background-color: cm_grey_100;
   border-radius: 12px;

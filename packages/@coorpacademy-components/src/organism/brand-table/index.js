@@ -39,7 +39,7 @@ const BrandTable = props => {
   ) : null;
   const searchView = search ? (
     <div className={style.searchWrapper}>
-      <Search {...search} />
+      <Search {...search} theme={'coorpmanager'} />
     </div>
   ) : null;
 
