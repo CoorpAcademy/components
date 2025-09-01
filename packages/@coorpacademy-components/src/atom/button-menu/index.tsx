@@ -37,8 +37,6 @@ const Button = (props: ButtonProps) => {
     type = 'default',
     buttonLinkType,
     icon,
-    customStyle = {},
-    customLabelClassName,
     ...rest
   } = props;
   const styleButton = classnames(
@@ -59,9 +57,7 @@ const Button = (props: ButtonProps) => {
     type: buttonLinkType,
     onClick: handleOnClick,
     'data-name': dataName,
-    className: styleButton,
-    customStyle: {...customStyle},
-    customLabelClassName
+    className: styleButton
   };
 
   const iconProps = buildCustomIconByTheme(icon);

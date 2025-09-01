@@ -8,7 +8,7 @@ const faIconPropTypes = {
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   size: PropTypes.number,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.object
 };
 
 export const iconPropTypes = {
@@ -27,7 +27,10 @@ const propTypes = {
   tooltipPlacement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
   'data-name': PropTypes.string,
   'data-testid': PropTypes.string,
-  icon: PropTypes.shape(iconPropTypes),
+  icon: PropTypes.oneOfType([
+    PropTypes.shape(iconPropTypes),
+    PropTypes.arrayOf(PropTypes.shape(iconPropTypes))
+  ]),
   onClick: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
@@ -38,7 +41,8 @@ const propTypes = {
   hoverColor: PropTypes.string,
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  customStyle: PropTypes.object,
+  contentCustomStyle: PropTypes.object,
   useTitle: PropTypes.bool,
   customLabelClassName: PropTypes.string
 };
@@ -48,7 +52,7 @@ export type FaIconType = {
   color?: string;
   backgroundColor?: string;
   size?: number;
-  customStyle?: Record<string, number | string>;
+  customStyle?: React.CSSProperties;
 };
 
 export type IconType = {
@@ -67,7 +71,7 @@ export type ButtonLinkProps = {
   tooltipPlacement?: 'left' | 'right' | 'top' | 'bottom';
   'data-name'?: string;
   'data-testid'?: string;
-  icon?: IconType;
+  icon?: IconType | IconType[];
   onClick?: () => void;
   onKeyDown?: () => void;
   link?: {
@@ -79,7 +83,8 @@ export type ButtonLinkProps = {
   hoverColor?: string;
   disabled?: boolean;
   className?: string;
-  customStyle?: Record<string, string | number>;
+  customStyle?: React.CSSProperties;
+  contentCustomStyle?: React.CSSProperties;
   useTitle?: boolean;
   customLabelClassName?: string;
   tag?: React.ComponentProps<typeof Tag>;

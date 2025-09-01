@@ -26,6 +26,7 @@ export const COLORS = {
   neutral_75: ' #F4F4F5',
   neutral_400: ' #9999A8',
   neutral_500: '#515161',
+  neutral_700: '#1D1D2B',
   cm_red_video: '#E8335E',
   cm_bleu_article: '#365FCD',
   cm_yellow_scorm: '#FFB800',
