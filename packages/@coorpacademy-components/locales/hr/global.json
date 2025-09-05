@@ -43,7 +43,7 @@
   "Create a new cohort": "Stvorite novu skupinu",
   "courses": "Tečajevi",
   "content": "<b>{{count}}</b> sadržaj",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> sadržaja",
   "courses_completed": "Završeni tečajevi",
   "continue_learning": "Nastavite učiti",
   "learning_priority_modal_title": "Novi prioritet učenja",
