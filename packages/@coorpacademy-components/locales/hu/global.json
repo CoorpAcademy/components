@@ -42,7 +42,7 @@
   "cookies_title": "Hogyan használjuk a sütiket:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Kurzus",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> tartalom",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Teljesített kurzusok",
   "continue_learning": "Folytassa a tanulást",
