@@ -42,8 +42,8 @@
   "cookies_title": "我们如何使用 cookies：",
   "Create a new cohort": "Create a new cohort",
   "courses": "课程",
-  "content": "<b>{{count}}</b> 内容",
-  "content_plural": "<b>{{count}}</b> 内容",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "已完成的课程",
   "continue_learning": "继续学习",
   "learning_priority_modal_title": "新的学习重点",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "选择至少 {{skillNumber}} 项技能",
   "skill_focus_footer_error_description": "取消选择至少 {{skillNumber}} 项技能",
   "skill_chart_side_panel_content_completed": "内容已完成",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> 待审核问题",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> 待审核问题",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "学习时间",
   "skill_focused_chip_tooltip": "此技能重点",
   "selected": "已选定",
@@ -198,7 +198,7 @@
   "questions": "问题",
   "skill_scope_specifier": "关于<b>{{focusedSkill}}</b>",
   "focused_skills": "已重点关注的技能",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "评价此课程",
       "diploma": "经过验证的途径"
@@ -221,7 +221,7 @@
       "diploma": "Certificate"
     },
     "mylcl-learning": {
-      "diploma": "learning path"
+       "diploma": "learning path"
     },
     "who": {
       "badge": "有关您证书的附加信息"
