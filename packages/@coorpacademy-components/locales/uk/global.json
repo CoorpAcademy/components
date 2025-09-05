@@ -42,8 +42,8 @@
   "cookies_title": "Як користуватися файлами cookies:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Курси",
-  "content": "<b>{{count}}</b> вміст",
-  "content_plural": "<b>{{count}}</b> матеріали",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Завершені курси",
   "continue_learning": "Продовжуйте навчання",
   "learning_priority_modal_title": "Новий пріоритет навчання",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "Виберіть ще принаймні {{skillNumber}} навички",
   "skill_focus_footer_error_description": "Приберіть вибір ще принаймні {{skillNumber}} навичок",
   "skill_chart_side_panel_content_completed": "Зміст завершено",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> питання на перегляд",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> питань на перегляд",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Час навчання",
   "skill_focused_chip_tooltip": "Ця навичка зосереджена",
   "selected": "вибрано",
@@ -198,7 +198,7 @@
   "questions": "Питання",
   "skill_scope_specifier": "на <b>{{focusedSkill}}</b>",
   "focused_skills": "навички розвитку",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "Оцініть цей курс",
       "diploma": "Перевірений шлях"
@@ -221,7 +221,7 @@
       "diploma": "Сертифікат"
     },
     "mylcl-learning": {
-      "diploma": "learning path"
+       "diploma": "learning path"
     },
     "who": {
       "badge": "Додаткова інформація про ваш сертифікат"
