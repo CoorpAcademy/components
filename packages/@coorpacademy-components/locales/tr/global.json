@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Kurslar",
   "content": "<b>{{count}}</b> içerik",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> içerikler",
   "courses_completed": "Tamamlanan kurslar",
   "continue_learning": "Öğrenmeye devam et",
   "learning_priority_modal_title": "Yeni öğrenme önceliği",
