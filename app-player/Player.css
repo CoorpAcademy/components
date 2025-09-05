@@ -1227,7 +1227,10 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding: 1px 6px;
+}
 
+.label-eWb2D::first-letter {
+  text-transform: uppercase;
 }
 
 .small-qrAhw {
@@ -3460,6 +3463,535 @@
     margin: 25px auto 0;
   }
 }
+.background-Auu-X {
+  width: 100%;
+  height: 25px;
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-6tk5n {
+  background-color: #00B0FF;
+  border-radius: 5px;
+  height: 100%;
+  -webkit-animation: progressbar-nG8EY 2s ease-in-out;
+          animation: progressbar-nG8EY 2s ease-in-out;
+}
+
+.texts-A8yqj {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-7PDL9 {
+  font-family: "Gilroy";
+  font-size: 13px;
+  text-transform: none;
+}
+
+.description-9XDbr {
+  margin-left: 10px;
+}
+
+.percentage-svrTN {
+  margin-right: 10px;
+}
+.step-ebOKr {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0px;
+          flex: 1 1 0px;
+  border-right: 2px solid #FAFAFA;
+}
+.step-ebOKr:last-child {
+  opacity: 0;
+}
+.steps-Xx08q {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@-webkit-keyframes progressbar-nG8EY {
+  0% {
+    width: 0;
+  }
+}
+
+@keyframes progressbar-nG8EY {
+  0% {
+    width: 0;
+  }
+}
+
+.container-we1yz {
+  font-family: "Gilroy";
+  font-style: normal;
+  border-radius: 12px;
+  width: 345px;
+  height: 309px;
+  min-width: 288px;
+  background-color: #FFF;
+  border: 2px solid #FFF;
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.imageSection-U-OFD {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #FAFAFA;
+  height: 160px;
+  width: auto;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  
+  .imageContainer-d2tZR {
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+  }
+}
+
+.imageContainer-d2tZR {
+  width: 202px;
+  height: 112px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}
+
+.container-we1yz:hover {
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+          box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+
+  .imageContainer-d2tZR {
+    width: 244px;
+    height: 136px;
+  }
+
+  .imageWrapper-mSxQ\+ {
+    background-color: #F4F4F5;
+  }
+}
+.detailWrapper-YVDhN {
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.titleWrapper-IlqwO {
+  width: 100%;
+}
+
+.title-tu5jC {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  margin-top: 4px;
+}
+
+.moduleCount-zTWAW {
+  margin-top: 4px;
+  color: #9999A8;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+
+  span {
+    color: #515161;
+  }
+}
+
+.customProgressBar-8DGXO {
+  width: 269px;
+  height: 4px;
+  background-color: #EAEAEB;
+}
+.container-3E-b6 {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.imagesWrapper-CWA34 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.image--7WW1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.container-q8gDP {
+  font-family: "Gilroy";
+  font-style: normal;
+  border-radius: 12px;
+  width: 345px;
+  height: 309px;
+  min-width: 288px;
+  background-color: #FFF;
+  border: 2px solid #FFF;
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+}
+
+.cover-0KpHL{
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.imageContainer-tzsRB {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 160px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.imageContainer-tzsRB::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: rgba(29, 29, 43, 0.5); 
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.container-q8gDP:hover .imageContainer-tzsRB::after {
+  background: rgba(29, 29, 43, 0); 
+}
+.container-q8gDP:hover {
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+          box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+}
+
+.detailWrapper-m3k4l {
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.titleWrapper-6ZggU {
+  width: 100%;
+}
+
+.title-wYlZe {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  margin-top: 4px;
+  color: #333;
+}
+
+.courseCount-fs0IA {
+  margin-top: 4px;
+  color: #9999A8;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+
+  span {
+    color: #515161;
+  }
+}
+
+.customProgressBar-pOAsk {
+  width: 269px;
+  height: 4px;
+  background-color: #EAEAEB;
+}
+@-webkit-keyframes progressbar-G5GOO {
+  0% {
+    width: 0;
+  }
+}
+
+@keyframes progressbar-G5GOO {
+  0% {
+    width: 0;
+  }
+}
+
+.textBase-c45lQ {
+  font-family: "Gilroy";
+  font-style: normal;
+}
+
+.learnerSkillCardContainer-KZyAh {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 258px;
+  height: 220px;
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
+          box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.04);
+  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  border-radius: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+
+.learnerSkillCardContainer-KZyAh:hover {
+  -webkit-box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
+          box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10); 
+}
+
+.skillInformation-0f1Rw {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9999A8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+
+.skillTitleWrapper-2CBo5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 68px;
+}
+
+.skillTitle-bipSs {
+  font-weight: 600;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.skillFocusBadge-FNoiy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 12px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 24px;
+  padding: 2px 4px;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 600;
+}
+
+.progressWrapper-zki7A {
+  position: absolute;
+  bottom: 16px;
+  left: 40px;
+  width: 178px;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #ECEFF1;
+}
+
+.progressInformations-jtYKr {
+  padding: 16px 24px;
+}
+
+.contentAndQuestionsWrapper-\+UQkN {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #9999A8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.iconWrapper-A1-ti {
+  border-radius: 12px;
+}
+
+.iconHeaderWrapper-qFTAm {
+  padding: 12px 0 12px 16px;
+  border-radius: 12px 12px 0 0;
+  border: 2px solid #fff;
+  background-position-y: -2px;
+  background-repeat: repeat-x;
+  background-color: #fff;
+}
+
+.learnerSkillCardContainer-KZyAh:hover .iconHeaderWrapper-qFTAm {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.learnerSkillCardContent-VmQcb {
+  padding: 16px;
+  padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.questionWrapper-4v\+vl {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
 .defaultStyle-WF2iB {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5240,89 +5772,6 @@
 .selected-tqO95 {
   background-color: #D6E6FF;
   color: #0061FF;
-}
-
-.background-Auu-X {
-  width: 100%;
-  height: 25px;
-  background-color: #FAFAFA;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-6tk5n {
-  background-color: #00B0FF;
-  border-radius: 5px;
-  height: 100%;
-  -webkit-animation: progressbar-nG8EY 2s ease-in-out;
-          animation: progressbar-nG8EY 2s ease-in-out;
-}
-
-.texts-A8yqj {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: absolute;
-  top: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.text-7PDL9 {
-  font-family: "Gilroy";
-  font-size: 13px;
-  text-transform: none;
-}
-
-.description-9XDbr {
-  margin-left: 10px;
-}
-
-.percentage-svrTN {
-  margin-right: 10px;
-}
-.step-ebOKr {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0px;
-          flex: 1 1 0px;
-  border-right: 2px solid #FAFAFA;
-}
-.step-ebOKr:last-child {
-  opacity: 0;
-}
-.steps-Xx08q {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-@-webkit-keyframes progressbar-nG8EY {
-  0% {
-    width: 0;
-  }
-}
-
-@keyframes progressbar-nG8EY {
-  0% {
-    width: 0;
-  }
 }
 
 .container-0LDjd {
