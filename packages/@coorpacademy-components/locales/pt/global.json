@@ -42,8 +42,8 @@
   "cookies_title": "De que forma usamos cookies:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Cursos",
-  "content": "<b>{{count}}</b> conteúdo",
-  "content_plural": "<b>{{count}}</b> conteúdos",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Cursos concluídos",
   "continue_learning": "Continuar aprendendo",
   "learning_priority_modal_title": "Nova prioridade de aprendizagem",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "Selecione pelo menos mais {{skillNumber}} competências",
   "skill_focus_footer_error_description": "Remova a seleção de pelo menos mais {{skillNumber}} competências",
   "skill_chart_side_panel_content_completed": "Conteúdo concluído",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> pergunta para revisar",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> perguntas para revisar",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Tempo de aprendizagem",
   "skill_focused_chip_tooltip": "Esta habilidade é focada",
   "selected": "selecionada(s)",
@@ -198,7 +198,7 @@
   "questions": "Questões",
   "skill_scope_specifier": "em <b>{{focusedSkill}}</b>",
   "focused_skills": "competências com foco",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "Avalie este curso",
       "diploma": "Caminho validado"
@@ -221,7 +221,7 @@
       "diploma": "Certificado"
     },
     "mylcl-learning": {
-      "diploma": "learning path"
+       "diploma": "learning path"
     },
     "who": {
       "badge": "As informações adicionais sobre o seu certificado"
