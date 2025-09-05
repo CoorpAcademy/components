@@ -43,7 +43,7 @@
   "Create a new cohort": "Ստեղծել նոր խումբ",
   "courses": "Դասընթացներ",
   "content": "<b>{{count}}</b> բովանդակություն",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> բովանդակություններ",
   "courses_completed": "Դասընթացներն ավարտված են",
   "continue_learning": "Շարունակեք սովորել",
   "learning_priority_modal_title": "Նոր ուսուցման առաջնահերթություն",
