@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "课程",
   "content": "<b>{{count}}</b> 内容",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> 内容",
   "courses_completed": "已完成的课程",
   "continue_learning": "继续学习",
   "learning_priority_modal_title": "新的学习重点",
