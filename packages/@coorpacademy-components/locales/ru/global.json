@@ -42,7 +42,7 @@
   "cookies_title": "Как мы используем файлы cookie:",
   "Create a new cohort": "Создать новый сегмент",
   "courses": "Курсы",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> материал",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Курсы завершены",
   "continue_learning": "Продолжить обучение",
