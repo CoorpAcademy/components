@@ -42,8 +42,8 @@
   "cookies_title": "당사가 쿠키를 사용하는 방법:",
   "Create a new cohort": "Create a new cohort",
   "courses": "과정( or 과목)",
-  "content": "<b>{{count}}</b> 콘텐츠",
-  "content_plural": "<b>{{count}}</b> 콘텐츠",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "이수한 과정",
   "continue_learning": "계속 학습",
   "learning_priority_modal_title": "새로운 학습 우선순위",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "최소 {{skillNumber}}개 이상의 기술을 선택하세요",
   "skill_focus_footer_error_description": "최소 {{skillNumber}}개 이상의 기술을 선택 해제하세요.",
   "skill_chart_side_panel_content_completed": "콘텐츠 완료",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> 검토할 질문",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> 검토할 질문들",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "학습시간",
   "skill_focused_chip_tooltip": "이 스킬은 집중",
   "selected": "선택됨",
@@ -198,7 +198,7 @@
   "questions": "질문",
   "skill_scope_specifier": "<b>{focusedSkill}</b>에 관해",
   "focused_skills": "집중한 기술",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "이 강좌를 평가해 주세요",
       "diploma": "검증된 경로"
@@ -221,7 +221,7 @@
       "diploma": "인증서"
     },
     "mylcl-learning": {
-      "diploma": "learning path"
+       "diploma": "learning path"
     },
     "who": {
       "badge": "인증서에 대한 추가 정보"
