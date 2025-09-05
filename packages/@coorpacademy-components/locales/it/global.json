@@ -42,8 +42,8 @@
   "cookies_title": "Come utilizziamo i cookie:",
   "Create a new cohort": "Create a new cohort",
   "courses": "Corsi",
-  "content": "<b>{{count}}</b> contenuto",
-  "content_plural": "<b>{{count}}</b> contenuti",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Corsi completati",
   "continue_learning": "Continua ad imparare",
   "learning_priority_modal_title": "Nuova priorità di apprendimento",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "Seleziona almeno {{skillNumber}} altre competenze",
   "skill_focus_footer_error_description": "Deseleziona almeno {{skillNumber}} altre competenze",
   "skill_chart_side_panel_content_completed": "Contenuto completato",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> domanda da rivedere",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> domande da rivedere",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Tempo di apprendimento",
   "skill_focused_chip_tooltip": "Questa abilità è focalizzata",
   "selected": "selezionato",
@@ -198,7 +198,7 @@
   "questions": "Domande\n",
   "skill_scope_specifier": "su <b>{{focusedSkill}}</b>",
   "focused_skills": "competenze messe a fuoco",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "Vota questo corso",
       "diploma": "Percorso convalidato"
@@ -221,7 +221,7 @@
       "diploma": "Certificato"
     },
     "mylcl-learning": {
-      "diploma": "learning path"
+       "diploma": "learning path"
     },
     "who": {
       "badge": "Le informazioni aggiuntive sul tuo certificato"
