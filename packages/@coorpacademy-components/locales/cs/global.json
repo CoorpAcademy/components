@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Kurzy",
   "content": "<b>{{count}}</b> obsah",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> obsahy",
   "courses_completed": "Dokončené kurzy",
   "continue_learning": "Pokračujte v učení",
   "learning_priority_modal_title": "Nová priorita učení",
