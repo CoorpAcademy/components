@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Cursussen",
   "content": "<b>{{count}}</b> inhoud",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> inhoudsitems",
   "courses_completed": "Cursussen voltooid",
   "continue_learning": "Ga door met leren",
   "learning_priority_modal_title": "Nieuwe leerprioriteit",
