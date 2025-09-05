@@ -42,7 +42,8 @@
   "cookies_title": "Kako koristimo kolačiće:",
   "Create a new cohort": "Stvorite novu skupinu",
   "courses": "Tečajevi",
-  "content": "sadržaj",
+  "content": "<b>{{count}}</b> sadržaj",
+  "content_plural": "<b>{{count}}</b> sadržaja",
   "courses_completed": "Završeni tečajevi",
   "continue_learning": "Nastavite učiti",
   "learning_priority_modal_title": "Novi prioritet učenja",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Odaberi još najmanje {{skillNumber}} vještina",
   "skill_focus_footer_error_description": "Poništi odabir najmanje još {{skillNumber}} vještina",
   "skill_chart_side_panel_content_completed": "Sadržaj dovršen",
-  "skill_chart_side_panel_questions_to_review": "Pitanja za pregled",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> pitanje za pregled",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> pitanja za pregled",
   "skill_chart_side_panel_learning_hours": "Vrijeme učenja",
   "skill_focused_chip_tooltip": "Ova vještina je fokusirana",
   "selected": "odabrano",
@@ -196,7 +198,7 @@
   "questions": "Pitanja",
   "skill_scope_specifier": "na <b>{{focusedSkill}}</b>",
   "focused_skills": "fokusirane vještine",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Ocijenite ovaj tečaj",
       "diploma": "Validirani put"
@@ -219,7 +221,7 @@
       "diploma": "Potvrda"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "Dodatne informacije o vašem certifikatu"

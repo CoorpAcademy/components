@@ -3,6 +3,7 @@
 @value cm_grey_100 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 @value cm_grey_75 from colors;
 
 .container {
@@ -20,50 +21,45 @@
   flex-direction: column;
   cursor: pointer;
   transition: all 0.5s ease-out;
+  overflow: hidden;
 }
 
-.imageSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: xtraLightGrey;
-  height: 160px;
-  width: auto;
-  transition: all 0.5s ease-out;
+.cover{
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  
-  .imageContainer {
-    transition: all 0.5s ease-out;
-  }
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .imageContainer {
-  width: 202px;
-  height: 112px;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+  height: 160px;
+  width: 100%;
+  cursor: pointer;
 }
 
+.imageContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  background: color(cm_grey_700 a(50%)); 
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  transition: all 0.5s ease-out;
+}
+
+.container:hover .imageContainer::after {
+  background: color(cm_grey_700 a(0%)); 
+}
 .container:hover {
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.10);
-
-  .imageContainer {
-    width: 244px;
-    height: 136px;
-  }
-
-  .imageWrapper {
-    background-color: cm_grey_75;
-  }
 }
+
 .detailWrapper {
   padding: 16px;
   display: flex;
@@ -82,9 +78,10 @@
   font-weight: 600;
   line-height: 22px;
   margin-top: 4px;
+  color: #333;
 }
 
-.moduleCount {
+.courseCount {
   margin-top: 4px;
   color: cm_grey_400;
   font-size: 12px;

@@ -1,12 +1,13 @@
 import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {EXTERNAL_COURSE_TYPES} from '../../util/external-content';
 import style from './style.css';
 
 const FALLBACK_PATH =
   'https://s3.eu-west-1.amazonaws.com/static.coorpacademy.com/assets/images/cover-fallback-external-$TYPE.png';
 
-const PlaylistDetailCover = ({images}) => {
+const PlaylistDetailCover = ({images, className}) => {
   const [firstColumnImages, secondColumnImages] = useMemo(() => {
     const imagesClone = [...images];
     return [imagesClone.splice(0, imagesClone.length / 2), imagesClone];
@@ -23,7 +24,7 @@ const PlaylistDetailCover = ({images}) => {
   }, []);
 
   return (
-    <div className={style.container}>
+    <div className={classNames(style.container, className)}>
       {images.length === 1 ? (
         <div className={style.image} style={buildImageStyle(images[0])} />
       ) : (
@@ -50,7 +51,8 @@ PlaylistDetailCover.propTypes = {
       type: PropTypes.oneOf(EXTERNAL_COURSE_TYPES),
       image: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  className: PropTypes.string
 };
 
 export default PlaylistDetailCover;

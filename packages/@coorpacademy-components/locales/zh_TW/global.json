@@ -42,7 +42,8 @@
   "cookies_title": "我們如何使用 Cookies：",
   "Create a new cohort": "Create a new cohort",
   "courses": "課程",
-  "content": "內容",
+  "content": "<b>{{count}}</b> 內容",
+  "content_plural": "<b>{{count}}</b> 內容",
   "courses_completed": "課程已完成",
   "continue_learning": "繼續學習",
   "learning_priority_modal_title": "新的學習重點",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "至少選擇 {{skillNumber}} 項技能",
   "skill_focus_footer_error_description": "至少取消選擇 {{skillNumber}} 項技能",
   "skill_chart_side_panel_content_completed": "內容已完成",
-  "skill_chart_side_panel_questions_to_review": "需要審查的問題",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> 待審核問題",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> 待審核問題",
   "skill_chart_side_panel_learning_hours": "學習時間",
   "skill_focused_chip_tooltip": "這個技能是重點",
   "selected": "已選取",
@@ -196,7 +198,7 @@
   "questions": "問題",
   "skill_scope_specifier": "關於 <b>{{focusedSkill}}</b>",
   "focused_skills": "聚焦技能",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "評量本課程",
       "diploma": "驗證途徑"
@@ -219,7 +221,7 @@
       "diploma": "Certificate"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "有關您證書的附加信息"

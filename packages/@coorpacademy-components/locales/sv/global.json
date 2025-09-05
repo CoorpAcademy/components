@@ -42,7 +42,8 @@
   "cookies_title": "Hur vi använder cookies:",
   "Create a new cohort": "Skapa en ny årskull",
   "courses": "Kurser",
-  "content": "innehåll",
+  "content": "<b>{{count}}</b> innehåll",
+  "content_plural": "<b>{{count}}</b> innehåll",
   "courses_completed": "Slutförda kurser",
   "continue_learning": "Fortsätt lära dig",
   "learning_priority_modal_title": "Ny inlärningsprioritet",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "Välj minst {{skillNumber}} färdigheter till",
   "skill_focus_footer_error_description": "Avmarkera minst {{skillNumber}} färdigheter till",
   "skill_chart_side_panel_content_completed": "Innehållet slutfört",
-  "skill_chart_side_panel_questions_to_review": "Frågor att granska",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> fråga att granska",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> frågor att granska",
   "skill_chart_side_panel_learning_hours": "Lärtid",
   "skill_focused_chip_tooltip": "Denna färdighet är fokuserad",
   "selected": "valda",
@@ -196,7 +198,7 @@
   "questions": "Frågor",
   "skill_scope_specifier": "på <b>{{focusedSkill}}</b>",
   "focused_skills": "färdighet i fokus",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "Betygsätt denna kurs",
       "diploma": "Validerad väg"
@@ -219,7 +221,7 @@
       "diploma": "Certifikat"
     },
     "mylcl-learning": {
-       "diploma": "inlärningsväg"
+      "diploma": "inlärningsväg"
     },
     "who": {
       "badge": "Ytterligare information om ditt certifikat"

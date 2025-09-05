@@ -11,14 +11,14 @@ import defaultProps from './fixtures/default';
 browserEnv();
 
 const context = {
-  translate: (key: string) => {
+  translate: key => {
     return key;
   }
 };
 
-const mockComputedStyle = (backgroundImage: string) => {
+const mockComputedStyle = backgroundImage => {
   Object.defineProperty(window, 'getComputedStyle', {
-    value: (element: HTMLElement) => ({
+    value: element => ({
       backgroundImage:
         element.dataset.testid === 'learner-skill-card-icon-header-wrapper' ? backgroundImage : ''
     })
@@ -37,7 +37,7 @@ test('should set background to hovered background on mouseEnter', t => {
   cleanup();
   mockComputedStyle(DEFAULT_BACKGROUND);
   const {getByTestId} = renderWithContext(
-    <LearnerSkillCard {...defaultProps.props} onExploreClick={noop} />,
+    <LearnerSkillCard {...defaultProps.props} onClick={noop} />,
     context
   );
 
@@ -60,7 +60,7 @@ test('should set background to defaultBackground on mouseLeave', t => {
   cleanup();
   mockComputedStyle(HOVERED_BACKGROUND);
   const {getByTestId} = renderWithContext(
-    <LearnerSkillCard {...defaultProps.props} onExploreClick={noop} />,
+    <LearnerSkillCard {...defaultProps.props} onClick={noop} />,
     context
   );
 

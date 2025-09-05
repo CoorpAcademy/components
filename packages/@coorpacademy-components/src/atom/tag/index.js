@@ -44,7 +44,7 @@ const Tag = ({label = '', type = 'default', size = 'M', customStyle = {}, icon =
     >
       <div className={style.content}>
         {position === 'left' && iconName && renderIcon(iconProps)}
-        <div>{label}</div>
+        <div className={style.label}>{label}</div>
         {position === 'right' && iconName && renderIcon(iconProps)}
       </div>
     </span>

@@ -13,7 +13,21 @@ import card11 from '../../../../molecule/card/test/fixtures/article';
 import card12 from '../../../../molecule/card/test/fixtures/video';
 import card13 from '../../../../molecule/card/test/fixtures/podcast';
 
+import learnerSkillCard from '../../../../molecule/learner-skill-card/test/fixtures/default';
+import certificationCard from '../../../../molecule/certification-card/test/fixtures/default';
+import playlistCard from '../../../../molecule/playlist-card/test/fixtures/default';
+
 const list = [
+  learnerSkillCard.props,
+  learnerSkillCard.props,
+  learnerSkillCard.props,
+  learnerSkillCard.props,
+  certificationCard.props,
+  certificationCard.props,
+  certificationCard.props,
+  playlistCard.props,
+  playlistCard.props,
+  playlistCard.props,
   card1.props,
   card3.props,
   card4.props,
@@ -25,7 +39,10 @@ const list = [
   card12.props,
   card8.props,
   card9.props,
-  card13.props
+  card13.props,
+  learnerSkillCard.props,
+  certificationCard.props,
+  playlistCard.props
 ].map(
   pipe(
     update('key', () => uniqueId()),

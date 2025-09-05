@@ -42,7 +42,8 @@
   "cookies_title": "クッキーの使用方法：",
   "Create a new cohort": "Create a new cohort",
   "courses": "コース",
-  "content": "コンテンツ",
+  "content": "<b>{{count}}</b> コンテンツ",
+  "content_plural": "<b>{{count}}</b> コンテンツ",
   "courses_completed": "コースを修了しました",
   "continue_learning": "学習を続ける",
   "learning_priority_modal_title": "新たな学習の優先順位",
@@ -149,7 +150,8 @@
   "skill_focus_footer_description": "少なくとも{{skillNumber}}つ以上のスキルを選択してください",
   "skill_focus_footer_error_description": "少なくとも{{skillNumber}}つ以上のスキルの選択を解除してください",
   "skill_chart_side_panel_content_completed": "コンテンツ完了",
-  "skill_chart_side_panel_questions_to_review": "確認すべき質問",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> レビューする質問",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> レビューする質問",
   "skill_chart_side_panel_learning_hours": "学習時間",
   "skill_focused_chip_tooltip": "このスキルは集中的である",
   "selected": "選択済み",
@@ -196,7 +198,7 @@
   "questions": "質問",
   "skill_scope_specifier": "<b>{{focusedSkill}}</b>で",
   "focused_skills": "フォーカスしたスキル",
-  "custom":{
+  "custom": {
     "digitlearning": {
       "comment_aria_label": "このコースを評価する",
       "diploma": "検証済みの経路"
@@ -219,7 +221,7 @@
       "diploma": "証明書"
     },
     "mylcl-learning": {
-       "diploma": "learning path"
+      "diploma": "learning path"
     },
     "who": {
       "badge": "証明書に関する追加情報"

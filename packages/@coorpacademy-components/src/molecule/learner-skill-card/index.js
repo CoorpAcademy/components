@@ -1,40 +1,38 @@
 import React, {useCallback, useMemo, useRef} from 'react';
+import PropTypes from 'prop-types';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
-import {WebContextValues} from '../../atom/provider/web-context';
 import ProgressBar from '../progress-bar';
 import {COLORS} from '../../variables/colors';
 import {createGradientBackground} from '../../util/get-background-gradient-color';
 import FaIcon from '../../atom/icon';
-import propTypes, {LearnerSkillCardProps} from './prop-types';
 import style from './style.css';
 
 const MAX_SCORE = 100;
 
-export const updateBackgroundImage = (ref: React.RefObject<HTMLDivElement>, background: string) => {
+export const updateBackgroundImage = (ref, background) => {
   if (ref.current) {
     ref.current.style.backgroundImage = background;
   }
 };
-
-const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValues) => {
+const LearnerSkillCard = (props, context) => {
   const {
     'aria-label': ariaLabel,
     cardIndex,
-    skillTitle,
-    skillAriaLabel,
+    title,
+    label,
     focus,
     metrics,
+    progress = 0,
     icon,
-    onExploreClick
+    onClick
   } = props;
-  const {score, content, questionsToReview = 0} = metrics;
+  const {content, questionsToReview = 0} = metrics;
   const translate = GetTranslateFromContext(context);
   const {color, name} = icon;
-  const questionsLocale = translate('skill_chart_side_panel_questions_to_review') as string;
   const [badgeIconName, badgeLocale, tagTextColor, tagBackgroundColor] = focus
-    ? ['bullseye-arrow', translate('skill_focus') as string, COLORS.purple_700, COLORS.purple_100]
-    : ['shapes', translate('skill') as string, COLORS.neutral_500, COLORS.cm_grey_100];
-  const headerBackgroundRef = useRef<HTMLDivElement | null>(null);
+    ? ['bullseye-arrow', translate('skill_focus'), COLORS.purple_700, COLORS.purple_100]
+    : ['shapes', translate('skill'), COLORS.neutral_500, COLORS.cm_grey_100];
+  const headerBackgroundRef = useRef(null);
   const defaultBackground = useMemo(() => createGradientBackground(color, '93%', '100%'), [color]);
   const focusBackground = useMemo(() => createGradientBackground(color, '83%', '100%'), [color]);
   const handleMouseEnter = useCallback(() => {
@@ -46,7 +44,8 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
   return (
     <div
       data-testid={`learner-skill-card-wrapper-${cardIndex}`}
-      onClick={onExploreClick}
+      data-name={`skill-card-${label}`}
+      onClick={onClick}
       className={style.learnerSkillCardContainer}
       aria-label={ariaLabel}
       onMouseEnter={handleMouseEnter}
@@ -100,14 +99,16 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
             <div
               data-name="skill-card-title"
               className={style.skillTitle}
-              aria-label={skillAriaLabel || skillTitle}
+              aria-label={ariaLabel || title}
             >
-              {skillTitle}
+              {title}
             </div>
             <div className={style.contentAndQuestionsWrapper}>
-              <div data-name="learner-skill-card-skill-content-number">
-                {content} {translate('content')}
-              </div>
+              <div
+                data-name="learner-skill-card-skill-content-number"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{__html: translate('content', {count: content})}}
+              />
               {questionsToReview ? (
                 <div
                   className={style.skillInformation}
@@ -121,10 +122,15 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
                       size: {faSize: 4, wrapperSize: 0}
                     }}
                   />
-                  <span data-name="learner-skill-card-questions-to-review">
-                    {questionsToReview}
-                  </span>
-                  &nbsp;{questionsLocale}
+                  <span
+                    data-name="learner-skill-card-questions-to-review"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: translate('skill_chart_side_panel_questions_to_review', {
+                        count: questionsToReview
+                      })
+                    }}
+                  />
                 </div>
               ) : null}
             </div>
@@ -133,7 +139,7 @@ const LearnerSkillCard = (props: LearnerSkillCardProps, context: WebContextValue
       </div>
       <div className={style.progressInformations}>
         <ProgressBar
-          value={score}
+          value={progress}
           displayInfo={false}
           max={MAX_SCORE}
           className={style.progressWrapper}
@@ -148,6 +154,22 @@ LearnerSkillCard.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-LearnerSkillCard.propTypes = propTypes;
-
+LearnerSkillCard.propTypes = {
+  type: PropTypes.oneOf(['skill']).isRequired,
+  title: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  'aria-label': PropTypes.string,
+  cardIndex: PropTypes.number,
+  focus: PropTypes.bool,
+  progress: PropTypes.number,
+  metrics: PropTypes.shape({
+    content: PropTypes.number,
+    questionsToReview: PropTypes.number
+  }),
+  icon: PropTypes.shape({
+    color: PropTypes.string,
+    name: PropTypes.string
+  }),
+  onClick: PropTypes.func
+};
 export default LearnerSkillCard;
