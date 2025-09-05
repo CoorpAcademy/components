@@ -42,7 +42,7 @@
   "cookies_title": "Miten käytämme evästeitä:",
   "Create a new cohort": "Luo uusi kohortti",
   "courses": "Kurssit",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> sisältö",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Suoritetut kurssit",
   "continue_learning": "Jatka oppimista",
