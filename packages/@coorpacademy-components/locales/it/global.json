@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Corsi",
   "content": "<b>{{count}}</b> contenuto",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> contenuti",
   "courses_completed": "Corsi completati",
   "continue_learning": "Continua ad imparare",
   "learning_priority_modal_title": "Nuova priorità di apprendimento",
