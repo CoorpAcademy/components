@@ -150,7 +150,7 @@
   "skill_focus_footer_description": "Selecciona al menos {{skillNumber}} habilidades más",
   "skill_focus_footer_error_description": "Quita de la selección al menos {{skillNumber}} habilidades más",
   "skill_chart_side_panel_content_completed": "Contenido completado",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> pregunta para revisar",
   "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Tiempo de aprender",
   "skill_focused_chip_tooltip": "Esta habilidad está enfocada",
