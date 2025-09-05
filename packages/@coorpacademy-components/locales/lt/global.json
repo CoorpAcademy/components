@@ -43,7 +43,7 @@
   "Create a new cohort": "Sukurti naują kohortą",
   "courses": "Kursai",
   "content": "<b>{{count}}</b> content",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> turiniai",
   "courses_completed": "Baigti kursai",
   "continue_learning": "Tęsti mokymąsi",
   "learning_priority_modal_title": "Naujas mokymosi prioritetas",
