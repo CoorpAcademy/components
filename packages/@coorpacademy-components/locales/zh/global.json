@@ -42,7 +42,7 @@
   "cookies_title": "我们如何使用 cookies：",
   "Create a new cohort": "Create a new cohort",
   "courses": "课程",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> 内容",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "已完成的课程",
   "continue_learning": "继续学习",
