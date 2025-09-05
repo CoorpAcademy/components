@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Khóa học",
   "content": "<b>{{count}}</b> nội dung",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> nội dung",
   "courses_completed": "Đã hoàn thành các khóa học",
   "continue_learning": "Tiếp tục học",
   "learning_priority_modal_title": "Ưu tiên học tập mới",
