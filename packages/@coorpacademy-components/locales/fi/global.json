@@ -42,8 +42,8 @@
   "cookies_title": "Miten käytämme evästeitä:",
   "Create a new cohort": "Luo uusi kohortti",
   "courses": "Kurssit",
-  "content": "<b>{{count}}</b> sisältö",
-  "content_plural": "<b>{{count}}</b> sisältöä",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Suoritetut kurssit",
   "continue_learning": "Jatka oppimista",
   "learning_priority_modal_title": "Uusi oppimisprioriteetti",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "Valitse vähintään {{skillNumber}} valmiutta enemmän",
   "skill_focus_footer_error_description": "Poista vielä vähintään {{skillNumber}} valmiuden valinta",
   "skill_chart_side_panel_content_completed": "Sisältö valmis",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> kysymys tarkistettavaksi",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> kysymystä tarkistettavaksi",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Oppimisaika",
   "skill_focused_chip_tooltip": "Tämä taito on keskittynyt",
   "selected": "valittu",
@@ -198,7 +198,7 @@
   "questions": "Kysymykset",
   "skill_scope_specifier": "valmiudessa <b>{{focusedSkill}}</b>",
   "focused_skills": "osaamisen painopisteet",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "Arvioi tämä kurssi",
       "diploma": "Vahvistettu reitti"
@@ -221,7 +221,7 @@
       "diploma": "Todistus"
     },
     "mylcl-learning": {
-      "diploma": "oppimispolku"
+       "diploma": "oppimispolku"
     },
     "who": {
       "badge": "Lisätietoja todistuksestasi"
