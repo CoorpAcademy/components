@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "コース",
   "content": "<b>{{count}}</b> コンテンツ",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> コンテンツ",
   "courses_completed": "コースを修了しました",
   "continue_learning": "学習を続ける",
   "learning_priority_modal_title": "新たな学習の優先順位",
