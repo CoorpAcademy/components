@@ -42,8 +42,8 @@
   "cookies_title": "Kuidas kasutame küpsiseid:",
   "Create a new cohort": "Loo uus grupp",
   "courses": "Kursused",
-  "content": "<b>{{count}}</b> sisu",
-  "content_plural": "<b>{{count}}</b> sisud",
+  "content": "<b>{{count}}</b> content",
+  "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Lõpetatud kursused",
   "continue_learning": "Jätkake õppimist",
   "learning_priority_modal_title": "Uus õppimise prioriteet",
@@ -150,8 +150,8 @@
   "skill_focus_footer_description": "Vali vähemalt veel {{skillNumber}} oskust",
   "skill_focus_footer_error_description": "Tühista veel vähemalt {{skillNumber}} oskuse valik",
   "skill_chart_side_panel_content_completed": "Sisu valmis",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> küsimus üle vaadata",
-  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> küsimust üle vaadata",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Õppimise aeg",
   "skill_focused_chip_tooltip": "See oskus on keskendunud",
   "selected": "valitud",
@@ -198,7 +198,7 @@
   "questions": "Küsimused",
   "skill_scope_specifier": "seoses oskusega <b>{{focusedSkill}}</b>",
   "focused_skills": "fookusoskused",
-  "custom": {
+  "custom":{
     "digitlearning": {
       "comment_aria_label": "Hinda seda kursust",
       "diploma": "Valideeritud rada"
@@ -221,7 +221,7 @@
       "diploma": "Tunnistus"
     },
     "mylcl-learning": {
-      "diploma": "learning path"
+       "diploma": "learning path"
     },
     "who": {
       "badge": "Täiendav teave teie sertifikaadi kohta"
