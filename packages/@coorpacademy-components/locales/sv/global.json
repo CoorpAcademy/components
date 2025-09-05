@@ -43,7 +43,7 @@
   "Create a new cohort": "Skapa en ny årskull",
   "courses": "Kurser",
   "content": "<b>{{count}}</b> innehåll",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> innehåll",
   "courses_completed": "Slutförda kurser",
   "continue_learning": "Fortsätt lära dig",
   "learning_priority_modal_title": "Ny inlärningsprioritet",
