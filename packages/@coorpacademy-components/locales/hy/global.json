@@ -42,7 +42,7 @@
   "cookies_title": "Ինչպես ենք մենք օգտագործում cookies-ը.",
   "Create a new cohort": "Ստեղծել նոր խումբ",
   "courses": "Դասընթացներ",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> բովանդակություն",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Դասընթացներն ավարտված են",
   "continue_learning": "Շարունակեք սովորել",
