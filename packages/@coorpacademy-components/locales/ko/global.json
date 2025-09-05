@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "과정( or 과목)",
   "content": "<b>{{count}}</b> 콘텐츠",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> 콘텐츠",
   "courses_completed": "이수한 과정",
   "continue_learning": "계속 학습",
   "learning_priority_modal_title": "새로운 학습 우선순위",
