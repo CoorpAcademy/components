@@ -43,7 +43,7 @@
   "Create a new cohort": "Lumikha ng isang bagong cohort",
   "courses": "Mga Kurso",
   "content": "<b>{{count}}</b> nilalaman",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> mga nilalaman",
   "courses_completed": "Mga kursong nakumpleto",
   "continue_learning": "Ipagpatuloy ang pag-aaral",
   "learning_priority_modal_title": "Bagong priority sa pag-aaral",
