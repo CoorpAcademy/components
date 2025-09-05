@@ -43,7 +43,7 @@
   "Create a new cohort": "Create a new cohort",
   "courses": "Cursuri",
   "content": "<b>{{count}}</b> conținut",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> conținuturi",
   "courses_completed": "Cursuri finalizate",
   "continue_learning": "Continuați să învățați",
   "learning_priority_modal_title": "Noua prioritate de invatare",
