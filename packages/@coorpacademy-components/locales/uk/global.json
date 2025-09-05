@@ -150,7 +150,7 @@
   "skill_focus_footer_description": "Виберіть ще принаймні {{skillNumber}} навички",
   "skill_focus_footer_error_description": "Приберіть вибір ще принаймні {{skillNumber}} навичок",
   "skill_chart_side_panel_content_completed": "Зміст завершено",
-  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> question to review",
+  "skill_chart_side_panel_questions_to_review": "<b>{{count}}</b> питання на перегляд",
   "skill_chart_side_panel_questions_to_review_plural": "<b>{{count}}</b> questions to review",
   "skill_chart_side_panel_learning_hours": "Час навчання",
   "skill_focused_chip_tooltip": "Ця навичка зосереджена",
