@@ -43,7 +43,7 @@
   "Create a new cohort": "Создать новый сегмент",
   "courses": "Курсы",
   "content": "<b>{{count}}</b> материал",
-  "content_plural": "<b>{{count}}</b> contents",
+  "content_plural": "<b>{{count}}</b> материалы",
   "courses_completed": "Курсы завершены",
   "continue_learning": "Продолжить обучение",
   "learning_priority_modal_title": "Новый приоритет обучения",
