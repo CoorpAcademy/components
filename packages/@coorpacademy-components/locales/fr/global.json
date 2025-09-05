@@ -42,7 +42,7 @@
   "cookies_title": "Comment nous utilisons les cookies :",
   "Create a new cohort": "Créer une nouvelle cohorte",
   "courses": "Cours",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> contenu",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "Cours terminés",
   "continue_learning": "Continuer à apprendre",
