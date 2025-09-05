@@ -42,7 +42,7 @@
   "cookies_title": "クッキーの使用方法：",
   "Create a new cohort": "Create a new cohort",
   "courses": "コース",
-  "content": "<b>{{count}}</b> content",
+  "content": "<b>{{count}}</b> コンテンツ",
   "content_plural": "<b>{{count}}</b> contents",
   "courses_completed": "コースを修了しました",
   "continue_learning": "学習を続ける",
