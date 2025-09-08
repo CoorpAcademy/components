@@ -1,10 +1,11 @@
-import React, {useCallback, useEffect, useState, useRef} from 'react';
+import React, {useCallback, useEffect, useState, useRef, useMemo} from 'react';
 import classnames from 'classnames';
 import {noop} from 'lodash/fp';
 import map from 'lodash/fp/map';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import ButtonLink from '../../atom/button-link';
 import ButtonMenu from '../../atom/button-menu';
+import {COLORS} from '../../variables/colors';
 import propTypes, {ButtonMenuActionProps} from './types';
 import style from './style.css';
 
@@ -20,7 +21,7 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
     enableScroll = false,
     showFade = false
   } = props;
-  const {onClick = noop} = button;
+  const {onClick = noop, withChevron = false} = button;
   const [visible, setVisible] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -71,6 +72,31 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
     </div>
   );
 
+  const buttonProps = useMemo(() => {
+    if (!withChevron) return button;
+
+    // to handle array/object/undefined
+    // eslint-disable-next-line no-nested-ternary
+    const baseIcons = Array.isArray(button.icon) ? button.icon : button.icon ? [button.icon] : [];
+
+    const chevronIcon = {
+      position: 'right' as const,
+      faIcon: {
+        name: visible ? 'chevron-up' : 'chevron-down',
+        color: COLORS.neutral_700,
+        size: 14
+      }
+    };
+
+    // remove right icon if exists
+    const icons = [...baseIcons.filter(i => i && i.position !== 'right'), chevronIcon];
+
+    return {
+      ...button,
+      icon: icons
+    };
+  }, [button, withChevron, visible]);
+
   return (
     <div
       className={style.container}
@@ -95,7 +121,7 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
           />
         </div>
       ) : (
-        <ButtonLink {...button} onClick={toggleVisibility} />
+        <ButtonLink {...buttonProps} onClick={toggleVisibility} />
       )}
       {_menu}
     </div>

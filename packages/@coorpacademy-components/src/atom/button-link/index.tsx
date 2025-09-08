@@ -1,5 +1,5 @@
 import React, {useCallback, useState, useMemo} from 'react';
-import {noop} from 'lodash/fp';
+import {find, isEmpty, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
 import FaIcon, {DEFAULT_ICON_COLOR, IconProps} from '../icon';
@@ -9,61 +9,102 @@ import Tag from '../tag';
 import propTypes, {ButtonLinkProps, IconType} from './types';
 import style from './style.css';
 
+const renderNoIcons = (
+  content: string | React.ReactNode | undefined,
+  customClass: string | undefined
+) => (
+  <div className={classnames(style.buttonContent, customClass)}>
+    {typeof content === 'string' ? (
+      <span
+        className={classnames(style.label, customClass)}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: content}}
+      />
+    ) : (
+      <span className={classnames(style.label, customClass)}>{content}</span>
+    )}
+  </div>
+);
+
+const buildFaIcon = (
+  faIcon: IconType['faIcon'],
+  hoverOptions: {hovered?: boolean; hoverBackgroundColor?: string; hoverColor?: string}
+) => {
+  if (isEmpty(faIcon)) return null;
+
+  const {name, size, backgroundColor, customStyle, color} = faIcon;
+  const {hovered, hoverBackgroundColor, hoverColor} = hoverOptions;
+
+  return (
+    <FaIcon
+      {...({
+        iconName: name,
+        iconColor: hovered && hoverColor ? hoverColor : color ?? DEFAULT_ICON_COLOR,
+        // eslint-disable-next-line no-nested-ternary
+        backgroundColor: !backgroundColor
+          ? null
+          : hovered && hoverBackgroundColor
+          ? hoverBackgroundColor
+          : backgroundColor,
+        size: {
+          faSize: size,
+          wrapperSize: size
+        },
+        customStyle
+      } as IconProps)}
+    />
+  );
+};
+
+const renderIcon = (
+  icon: IconType | undefined,
+  options: {hovered?: boolean; hoverBackgroundColor?: string; hoverColor?: string}
+) => {
+  if (isEmpty(icon)) return null;
+
+  const {type, faIcon} = icon;
+  const Icon = type && ICONS[type];
+
+  if (faIcon) return buildFaIcon(faIcon, options);
+  if (Icon) return <Icon className={style.icon} theme="coorpmanager" />;
+
+  return null;
+};
+
 const getButtonContent = (
-  icon?: IconType,
+  icon?: IconType | IconType[],
   content?: string | React.ReactNode,
   hovered?: boolean,
   hoverBackgroundColor?: string,
   hoverColor?: string,
   customLabelClassName?: string,
-  tag?: React.ComponentProps<typeof Tag>
+  tag?: React.ComponentProps<typeof Tag>,
+  contentCustomStyle?: React.CSSProperties
 ) => {
-  const {type, faIcon, position} = icon || {type: '', position: ''};
-  const Icon = type && ICONS[type];
+  // eslint-disable-next-line no-nested-ternary
+  const iconArr = !isEmpty(icon) ? (Array.isArray(icon) ? icon : [icon]) : [];
 
-  if (!Icon && !faIcon) {
-    return (
-      <div className={(style.buttonContent, customLabelClassName)}>
-        {typeof content === 'string' ? (
-          <span
-            className={(style.label, customLabelClassName)}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: content}}
-          />
-        ) : (
-          <span className={(style.label, customLabelClassName)}>{content}</span>
-        )}
-      </div>
-    );
-  }
+  const leftIcon = find({position: 'left'}, iconArr);
+  const rightIcon = find({position: 'right'}, iconArr);
 
-  const iconComponent = faIcon ? (
-    <FaIcon
-      {...({
-        iconName: faIcon.name,
-        iconColor: hovered && hoverColor ? hoverColor : faIcon.color ?? DEFAULT_ICON_COLOR,
-        // eslint-disable-next-line no-nested-ternary
-        backgroundColor: !faIcon?.backgroundColor
-          ? null
-          : hovered && hoverBackgroundColor
-          ? hoverBackgroundColor
-          : faIcon.backgroundColor,
-        size: {
-          faSize: faIcon.size,
-          wrapperSize: faIcon.size
-        },
-        customStyle: faIcon.customStyle
-      } as IconProps)}
-    />
-  ) : (
-    <Icon className={style.icon} theme="coorpmanager" />
-  );
+  // no fa icons
+  // nor ICONS
+  if (
+    !leftIcon?.faIcon &&
+    !(leftIcon?.type && ICONS[leftIcon.type]) &&
+    !rightIcon?.faIcon &&
+    !(rightIcon?.type && ICONS[rightIcon.type])
+  )
+    return renderNoIcons(content, customLabelClassName);
+
   return (
-    <div className={style.buttonContent}>
-      {position === 'left' ? iconComponent : null}
-      {content ? <span className={style.label}>{content}</span> : null}
+    <div className={style.buttonContent} style={contentCustomStyle}>
+      {renderIcon(leftIcon, {hovered, hoverBackgroundColor, hoverColor})}
+      {content ? (
+        <span className={classnames(style.label, customLabelClassName)}>{content}</span>
+      ) : null}
       {tag ? <Tag {...tag} /> : null}
-      {position === 'right' ? iconComponent : null}
+      {renderIcon(rightIcon, {hovered, hoverBackgroundColor, hoverColor})}
     </div>
   );
 };
@@ -88,6 +129,7 @@ const ButtonLink = (props: ButtonLinkProps) => {
     onKeyDown = noop,
     className,
     customStyle,
+    contentCustomStyle,
     useTitle = true,
     customLabelClassName,
     tag
@@ -173,7 +215,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
           hoverBackgroundColor,
           hoverColor,
           customLabelClassName,
-          tag
+          tag,
+          contentCustomStyle
         )}
         {renderToolTip()}
       </Link>
@@ -212,7 +255,8 @@ const ButtonLink = (props: ButtonLinkProps) => {
         hoverBackgroundColor,
         hoverColor,
         customLabelClassName,
-        tag
+        tag,
+        contentCustomStyle
       )}
       {renderToolTip()}
     </button>

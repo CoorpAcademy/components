@@ -35,7 +35,7 @@ const defaultFixture: ButtonMenuActionPropsFixture = {
         color: COLORS.cm_primary_blue,
         borderRadius: '12px',
         paddingRight: '8px',
-        paddingleft: '16px',
+        paddingLeft: '16px',
         fontWeight: 600
       }
     },
