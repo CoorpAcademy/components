@@ -16,16 +16,6 @@ const defaultProps: QuickFiltersProps = {
   filterOptionsAriaLabel: 'filters options list aria label',
   filterOptions: [
     {
-      iconName: 'shapes',
-      label: 'Skills',
-      value: 'skills',
-      onClick: () => {
-        console.log('skills selected');
-      },
-      selected: false,
-      ariaLabel: 'skills filter aria label'
-    },
-    {
       iconName: 'book-open',
       label: 'Courses',
       value: 'courses',

@@ -1,10 +1,9 @@
-import {defaultsDeep} from 'lodash/fp';
 import standardCard from '../../../../../molecule/card/test/fixtures/default';
 import certificationCard from '../../../../../molecule/certification-card/test/fixtures/default';
 import skillCard from '../../../../../molecule/learner-skill-card/test/fixtures/default';
 import playlistCard from '../../../../../molecule/playlist-card/test/fixtures/default';
-import filters from '../../../../../molecule/filters/test/fixtures/default';
 import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
+import quickFilters from '../../../../../molecule/quick-filters/test/fixtures/many-categorize-with-filters-selected';
 
 // Create different card types for each section
 const newContentCards = [
@@ -113,9 +112,8 @@ const certificationsCards = [
 export default {
   props: {
     title: 'Explorer (3690 items)',
-    searchFilters: defaultsDeep(filters.props, {
-      openFilters: true
-    }),
+    searchFilters: null,
+    quickFilters: quickFilters.props,
     cards: cardsGrid.props,
     moreSortAriaLabel: 'show or hide sortBy options',
     moreFilterAriaLabel: 'show or hide sortBy options',

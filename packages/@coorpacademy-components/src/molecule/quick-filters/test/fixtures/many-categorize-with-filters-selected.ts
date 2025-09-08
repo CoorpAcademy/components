@@ -9,7 +9,16 @@ const filterSelected: QuickFiltersProps = {
     defaultSelected: false
   },
   filterOptions: [
-    ...noFilterSelected.props.filterOptions,
+    {
+      iconName: 'shapes',
+      label: 'Skills',
+      value: 'skills',
+      onClick: () => {
+        console.log('skills selected');
+      },
+      selected: false,
+      ariaLabel: 'skills filter aria label'
+    },
     {
       iconName: 'wreath-laurel',
       label: 'Certificates',
@@ -30,96 +39,7 @@ const filterSelected: QuickFiltersProps = {
       selected: false,
       ariaLabel: 'playlists aria label'
     },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning`,
-      value: '5-learning',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 2`,
-      value: '5-learning 2',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 2 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 3`,
-      value: '5-learning 3',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 3 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 4`,
-      value: '5-learning-4',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 4 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 5`,
-      value: '5-learning-5',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 5 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 6`,
-      value: '5-learning-6',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 6 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 7`,
-      value: '5-learning-7',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 7 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 8`,
-      value: '5-learning-8',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 8 aria label'
-    },
-    {
-      iconName: 'stopwatch',
-      label: `5'learning 9`,
-      value: '5-learning-9',
-      onClick: () => {
-        console.log(`5'learning selected`);
-      },
-      selected: false,
-      ariaLabel: '5 learning 9 aria label'
-    }
+    ...noFilterSelected.props.filterOptions
   ],
   filterButton: {
     label: 'Filters',

@@ -14,12 +14,14 @@ import Tag from '../../../atom/tag';
 import {cardPropTypes} from '../../../molecule/card';
 import LearningPriorityCard from '../../../molecule/learning-priority-card';
 import {COLORS} from '../../../variables/colors';
+import QuickFilters from '../../../molecule/quick-filters';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
   const {
     title,
     searchFilters,
+    quickFilters,
     cards,
     count,
     noresultsfound,
@@ -125,7 +127,7 @@ const SearchPage = (props, context) => {
   );
 
   return (
-    <div>
+    <div data-name="filters" className={quickFilters ? style.quickFilters : null}>
       {searchFilters ? (
         <Filters
           {...searchFilters}
@@ -134,7 +136,9 @@ const SearchPage = (props, context) => {
           filterGroupAriaLabel={filterGroupAriaLabel}
           sortAriaLabel={sortAriaLabel}
         />
-      ) : null}
+      ) : (
+        <QuickFilters {...quickFilters} />
+      )}
 
       {hasSections ? (
         <div data-name="explorerSections" className={style.sectionsWrapper}>
@@ -171,6 +175,7 @@ SearchPage.propTypes = {
   noresultsfound: PropTypes.string,
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),
+  quickFilters: PropTypes.shape(QuickFilters.propTypes),
   cards: PropTypes.shape(CardsGrid.propTypes),
   count: PropTypes.number,
   clearFilters: PropTypes.shape(Button.propTypes),
