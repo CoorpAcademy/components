@@ -31,6 +31,13 @@
   margin: 8px 0;
 }
 
+.quickFilters {
+  position: relative;
+  max-width: 1080px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
 .title {
   font-family: "Gilroy";
   font-size: 20px;
