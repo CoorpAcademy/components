@@ -3,13 +3,13 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value dark from colors;
 @value black from colors;
 @value lightMediumGray from colors;
 @value medium from colors;
 @value light from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_75 from colors;
+@value cm_grey_500 from colors;
 
 .wrapper {
   padding: 16px 30px 8px;
@@ -47,7 +47,7 @@
   display: flex;
   align-items: center;
   flex-grow: 1;
-  color: dark;
+  color: cm_grey_500;
 }
 
 .titleNode {
@@ -71,13 +71,13 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color: dark;
+  color: cm_grey_500;
   padding-right: 16px;
   margin-right: 16px;
 }
 .showMoreBar {
   composes: showMore;
-  border-right: 1px solid color(dark a(70%));
+  border-right: 1px solid color(cm_grey_500 a(70%));
   height: 16px;
   margin: auto 16px auto auto;
   padding-top: 2px;

@@ -1,9 +1,12 @@
 import React, {useCallback, useRef, useEffect} from 'react';
 import classNames from 'classnames';
+import {get} from 'lodash/fp';
 import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import {ButtonLinkProps} from '../../atom/button-link/types';
+import {WebContextValues} from '../../atom/provider/web-context';
+import Provider, {GetSkinFromContext} from '../../atom/provider';
 import style from './style.css';
 import {QuickFiltersProps, propTypes} from './types';
 
@@ -18,14 +21,20 @@ export const handleScroll = (direction: number, listRef: React.RefObject<HTMLDiv
   }
 };
 
-const getFilterButton = (filterButtonProps: ButtonLinkProps | undefined) => {
+const getFilterButton = (
+  filterButtonProps: ButtonLinkProps | undefined,
+  primarySkinColor: string
+) => {
   if (!filterButtonProps) return null;
-  const {tag} = filterButtonProps;
+  const {tag, ...rest} = filterButtonProps;
   return (
-    <div className={tag ? style.filterButtonWrapper : ''}>
+    <div
+      className={style.filterButtonWrapper}
+      style={{borderColor: tag?.label ? primarySkinColor : 'transparent'}}
+    >
       <div className={style.filterButton}>
         <ButtonLink
-          {...filterButtonProps}
+          {...rest}
           icon={{
             position: 'left',
             faIcon: {
@@ -34,6 +43,15 @@ const getFilterButton = (filterButtonProps: ButtonLinkProps | undefined) => {
               color: tag ? COLORS.cm_grey_700 : COLORS.neutral_500
             }
           }}
+          tag={
+            tag
+              ? {
+                  label: tag.label,
+                  customStyle: {backgroundColor: primarySkinColor, color: '#FFFFFF'}
+                }
+              : undefined
+          }
+          className={style.filterButton}
           data-testid="open-filters-modal-button"
           customStyle={{borderRadius: '12px'}}
         />
@@ -42,14 +60,19 @@ const getFilterButton = (filterButtonProps: ButtonLinkProps | undefined) => {
   );
 };
 
-const QuickFilters = ({
-  primaryOption,
-  filterOptions,
-  filterButton,
-  nextFilterAriaLabel,
-  previousFilterAriaLabel,
-  filterOptionsAriaLabel
-}: QuickFiltersProps) => {
+const QuickFilters = (
+  {
+    primaryOption,
+    filterOptions,
+    filterButton,
+    nextFilterAriaLabel,
+    previousFilterAriaLabel,
+    filterOptionsAriaLabel
+  }: QuickFiltersProps,
+  context: WebContextValues
+) => {
+  const skin = GetSkinFromContext(context);
+  const primarySkinColor = get('common.primary', skin);
   const {defaultLabel, defaultIconName, defaultSelected, defaultAriaLabel, onDefaultClick} =
     primaryOption;
   const filtersListRef = React.useRef<HTMLDivElement>(null);
@@ -89,11 +112,12 @@ const QuickFilters = ({
   }, [filterOptions]);
 
   return (
-    <div className={style.filtersMainContainer}>
+    <div className={style.filtersMainContainer} data-name="search">
       <div className={style.leftArrowButton} ref={leftBtnRef} style={{visibility: 'hidden'}}>
         <ButtonLink
           icon={{position: 'left', faIcon: {name: 'arrow-left', size: 15}}}
           onClick={handleScrollLeft}
+          className={style.leftArrowButton}
           customStyle={{height: '36px'}}
           data-testid="scroll-left-button"
           aria-label={previousFilterAriaLabel}
@@ -113,10 +137,10 @@ const QuickFilters = ({
           <FaIcon
             iconName={defaultIconName}
             size={{faSize: 20, wrapperSize: 20}}
-            iconColor={defaultSelected ? COLORS.cm_grey_700 : COLORS.neutral_500}
             aria-label={defaultAriaLabel}
           />
           <span className={style.filterLabel}>{defaultLabel}</span>
+          <div className={style.bar} style={{background: primarySkinColor}} />
         </div>
         <div className={style.filterSeparator} />
         <div className={style.filtersContainer}>
@@ -127,15 +151,16 @@ const QuickFilters = ({
                 key={idx}
                 className={classNames(style.filterOption, selected && style.filterSelected)}
                 data-testid={`filter-${value}-${idx}`}
+                style={{borderBottomColor: primarySkinColor}}
                 onClick={onClick}
               >
                 <FaIcon
                   iconName={iconName}
-                  iconColor={selected ? COLORS.cm_grey_700 : COLORS.neutral_500}
                   size={{faSize: 20, wrapperSize: 20}}
                   aria-label={ariaLabel}
                 />
                 <span>{label}</span>
+                <div className={style.bar} style={{background: primarySkinColor}} />
               </div>
             );
           })}
@@ -148,6 +173,7 @@ const QuickFilters = ({
                   size: 15
                 }
               }}
+              className={style.rightArrowButton}
               onClick={handleScrollRight}
               customStyle={{height: '36px'}}
               data-testid="scroll-right-button"
@@ -156,10 +182,13 @@ const QuickFilters = ({
           </div>
         </div>
       </div>
-      {getFilterButton(filterButton)}
+      {getFilterButton(filterButton, primarySkinColor)}
     </div>
   );
 };
 
 QuickFilters.propTypes = propTypes;
+QuickFilters.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 export default QuickFilters;
