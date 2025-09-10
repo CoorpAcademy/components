@@ -127,7 +127,7 @@ const SearchPage = (props, context) => {
   );
 
   return (
-    <div data-name="filters" className={quickFilters ? style.quickFilters : null}>
+    <div data-name="filters">
       {searchFilters ? (
         <Filters
           {...searchFilters}
@@ -136,9 +136,8 @@ const SearchPage = (props, context) => {
           filterGroupAriaLabel={filterGroupAriaLabel}
           sortAriaLabel={sortAriaLabel}
         />
-      ) : (
-        <QuickFilters {...quickFilters} />
-      )}
+      ) : null}
+      {quickFilters ? <QuickFilters {...quickFilters} /> : null}
 
       {hasSections ? (
         <div data-name="explorerSections" className={style.sectionsWrapper}>

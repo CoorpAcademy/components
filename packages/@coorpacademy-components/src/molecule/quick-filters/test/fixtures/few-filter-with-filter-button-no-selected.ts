@@ -34,9 +34,6 @@ const noFilterSelected: QuickFiltersProps = {
     icon: {
       position: 'left',
       faIcon: {name: 'sliders', size: 14, color: COLORS.neutral_500}
-    },
-    customStyle: {
-      borderRadius: '12px'
     }
   }
 };
