@@ -9211,10 +9211,6 @@ border-top: 1px solid #ECEFF1;
           align-items: center;
   overflow: hidden;
   border-radius: 12px;
-  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
-  transition: -webkit-box-shadow 0.3s ease-in-out;
-  transition: box-shadow 0.3s ease-in-out;
-  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
   background: #EAEAEB;
   padding: 2px;
   width: 100%;
@@ -9260,14 +9256,8 @@ border-top: 1px solid #ECEFF1;
 
 .wrapperMoocParent-7JuVi:focus-within .wrapperMooc-JHwtv {
   background: transparent;
-  -webkit-box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px #00B0FF;
-          box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px #00B0FF;
 }
 
-.wrapperMooc-JHwtv:hover {
-  -webkit-box-shadow: 0 0 0 2px #00B0FF;
-          box-shadow: 0 0 0 2px #00B0FF;
-}
 
 .wrapperMooc-JHwtv .clearIcon-xUjAP {
   position: relative;
