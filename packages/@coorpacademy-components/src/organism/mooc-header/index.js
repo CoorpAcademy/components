@@ -758,10 +758,16 @@ class MoocHeader extends React.Component {
 
       settingsView = (
         <div className={style.settings} ref={this.setMenuSettings}>
-          <div
-            data-name="user-avatar-wrapper"
-            className={classnames(style.userAvatarWrapper, isSettingsOpen && style.userAvatarOpen)}
-          >
+          <div data-name="user-avatar-wrapper" className={style.userAvatarWrapper}>
+            <div
+              className={classnames(style.userAvatarBoxShadow, isSettingsOpen && style.open)}
+              style={{
+                boxShadow: isSettingsOpen
+                  ? `0 0 0 1px white, 0 0 0 3px ${primaryColor}`
+                  : `0 0 0 2px ${primaryColor}`,
+                transition: 'box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1)'
+              }}
+            />
             <Link
               className={classnames(style.userLinkAvatar)}
               onClick={this.handleSettingsToggle}
