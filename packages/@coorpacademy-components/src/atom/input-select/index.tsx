@@ -2,23 +2,29 @@ import React, {useState, useRef, useCallback} from 'react';
 import classnames from 'classnames';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {IconName} from '@fortawesome/fontawesome-svg-core';
+import {get} from 'lodash/fp';
+import {WebContextValues} from '../provider/web-context';
+import Provider, {GetSkinFromContext} from '../provider';
 import style from './style.css';
 import type {InputSelectProps} from './types';
 import propTypes from './types';
 
 const COMPONENT_ID = 'input-select';
 
-const InputSelect: React.FC<InputSelectProps> = ({
-  options = [],
-  value,
-  onChange,
-  placeholder,
-  className,
-  'aria-label': ariaLabel,
-  iconClosed = 'chevron-down',
-  selectedIcon = 'circle-check',
-  'button-data-testid': buttonDataTestId = 'select-input'
-}) => {
+const InputSelect = (props: InputSelectProps, context: WebContextValues) => {
+  const {
+    options = [],
+    value,
+    onChange,
+    placeholder,
+    className,
+    'aria-label': ariaLabel,
+    iconClosed = 'chevron-down',
+    selectedIcon = 'circle-check',
+    'button-data-testid': buttonDataTestId = 'select-input'
+  } = props;
+  const skin = GetSkinFromContext(context);
+  const primaryColor = get('common.primary', skin);
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -68,11 +74,12 @@ const InputSelect: React.FC<InputSelectProps> = ({
         data-testid={`option-${option.value}`}
         data-name={option['data-name']}
       >
+        <div className={style.backgroundOption} style={{backgroundColor: primaryColor}} />
         <span className={style.optionIcon}>{option.icon}</span>
         <span className={style.optionLabel}>{option.label}</span>
         {isSelected ? (
           <span className={style.checkIcon}>
-            <FontAwesomeIcon icon={selectedIcon as IconName} />
+            <FontAwesomeIcon icon={selectedIcon as IconName} color={primaryColor} />
           </span>
         ) : null}
       </li>
@@ -84,33 +91,37 @@ const InputSelect: React.FC<InputSelectProps> = ({
   return (
     <div className={style.container} ref={wrapperRef}>
       <div
+        style={{
+          boxShadow: open
+            ? `0 0 0 2px white, 0 0 0 4px${primaryColor}`
+            : `0 0 0 2px ${primaryColor}`
+        }}
         className={classnames(style.outerWrapper, {
           [style.open]: open
         })}
-      >
-        <div className={classnames(style.wrapper, className)} aria-label={ariaLabel}>
-          <button
-            type="button"
-            className={style.display}
-            onClick={handleToggle}
-            aria-haspopup="listbox"
-            aria-expanded={open}
-            aria-controls={open ? `${componentId}-listbox` : undefined}
-            id={componentId}
-            data-testid={buttonDataTestId}
-          >
-            <div className={style.content}>
-              <span className={style.label}>{placeholder}</span>
-              {selectedOption ? <span className={style.value}>{selectedOption.label}</span> : null}
-            </div>
-            <span className={classnames(style.iconWrapper, {[style.open]: open})}>
-              <FontAwesomeIcon
-                className={classnames(style.icon, {[style.rotated]: open})}
-                icon={iconClosed as IconName}
-              />
-            </span>
-          </button>
-        </div>
+      />
+      <div className={classnames(style.wrapper, className)} aria-label={ariaLabel}>
+        <button
+          type="button"
+          className={style.display}
+          onClick={handleToggle}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-controls={open ? `${componentId}-listbox` : undefined}
+          id={componentId}
+          data-testid={buttonDataTestId}
+        >
+          <div className={style.content}>
+            <span className={style.label}>{placeholder}</span>
+            {selectedOption ? <span className={style.value}>{selectedOption.label}</span> : null}
+          </div>
+          <span className={classnames(style.iconWrapper, {[style.open]: open})}>
+            <FontAwesomeIcon
+              className={classnames(style.icon, {[style.rotated]: open})}
+              icon={iconClosed as IconName}
+            />
+          </span>
+        </button>
       </div>
       {open ? (
         <div className={classnames(style.menuWrapper, {[style.showFade]: shouldBeScrollable})}>
@@ -124,5 +135,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
 };
 
 InputSelect.propTypes = propTypes;
-
+InputSelect.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 export default InputSelect;

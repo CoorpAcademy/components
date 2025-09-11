@@ -14,7 +14,6 @@
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
-@value brand from colors;
 
 .wrapperSearch {
   display: flex;
@@ -188,7 +187,6 @@
   align-items: center;
   overflow: hidden;
   border-radius: 12px;
-  transition: box-shadow 0.3s ease-in-out;
   background: cm_grey_100;
   padding: 2px;
   width: 100%;
@@ -227,12 +225,8 @@
 
 .wrapperMoocParent:focus-within .wrapperMooc {
   background: transparent;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0), 0 0 0 2px brand;
 }
 
-.wrapperMooc:hover {
-  box-shadow: 0 0 0 2px brand;
-}
 
 .wrapperMooc .clearIcon {
   position: relative;

@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -6,7 +6,7 @@ import {
   NovaCompositionCoorpacademySearch as SearchIcon,
   NovaSolidStatusClose as CloseIcon
 } from '@coorpacademy/nova-icons';
-import {noop, isEmpty} from 'lodash/fp';
+import {noop, isEmpty, get} from 'lodash/fp';
 import Provider from '../provider';
 import style from './style.css';
 
@@ -15,7 +15,28 @@ const handleMouseDown = e => {
   e.stopPropagation();
 };
 
-const Search = props => {
+function useHoverAndFocusWithin() {
+  const [isFocusWithin, setIsFocusWithin] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const ref = useRef(null);
+
+  return {
+    ref,
+    isFocusWithin,
+    hovered,
+    onMouseEnter: () => setHovered(true),
+    onMouseLeave: () => setHovered(false),
+    onFocus: () => setIsFocusWithin(true),
+    onBlur: e => {
+      if (ref.current && !ref.current.contains(e.relatedTarget)) {
+        setIsFocusWithin(false);
+      }
+    }
+  };
+}
+
+const Search = (props, context) => {
   const {
     value,
     placeholder,
@@ -29,8 +50,18 @@ const Search = props => {
     dataTestId,
     searchIconAriaLabel
   } = props;
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
-
+  const {
+    ref,
+    isFocusWithin,
+    onFocus: onSearchFocus,
+    onBlur: onSearchBlur,
+    hovered,
+    onMouseEnter,
+    onMouseLeave
+  } = useHoverAndFocusWithin();
   const handleKeyDown = useMemo(
     () => e => {
       if (onKeyDown) {
@@ -65,8 +96,28 @@ const Search = props => {
   const showClearIcon = value && isCoorpManager;
 
   return (
-    <div className={wrapperParentClass}>
-      <div className={wrapperClass}>
+    <div
+      className={wrapperParentClass}
+      ref={ref}
+      onFocus={onSearchFocus}
+      onBlur={onSearchBlur}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <div
+        className={wrapperClass}
+        style={
+          isMooc
+            ? {
+                boxShadow:
+                  isFocusWithin || hovered
+                    ? `0 0 0 2px ${primaryColor}`
+                    : `0 0 0 2px white, 0 0 0 2px ${primaryColor}`,
+                transition: 'box-shadow 0.3s ease-in-out'
+              }
+            : undefined
+        }
+      >
         <label htmlFor="search" title={placeholder}>
           <SearchIconComponent
             className={style.searchIcon}

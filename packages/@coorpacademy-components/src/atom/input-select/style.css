@@ -6,7 +6,6 @@
 @value cm_negative_300 from colors;
 @value white from colors;
 @value cm_grey_100 from colors;
-@value brand from colors;
 @value cm_primary_blue from colors;
 @value primary_100 from colors;
 @value cm_blue_50 from colors;
@@ -23,15 +22,18 @@
 .outerWrapper {
   width: 100%;
   border-radius: 12px;
-  transition: box-shadow 0.2s;
+  transition: all 0.2s;
+  opacity: 0;
+  position: absolute;
+  height: 100%;
 }
 
-.outerWrapper:hover {
-  box-shadow: 0 0 0 2px brand;
+.container:hover  .outerWrapper {
+  opacity: 1;
 }
 
 .outerWrapper.open {
-  box-shadow: 0 0 0 2px white, 0 0 0 4px brand;
+  opacity: 1;
 }
 
 .wrapper {
@@ -157,17 +159,26 @@
   box-sizing: border-box;
   border-radius: 12px;
   margin-bottom: 4px;
+  position: relative;
+  overflow: hidden;
 }
 
-.option.selected {
-  background-color: color(brand lightness(95%));
+.option.selected .backgroundOption{
+  opacity: 0.1;
 }
 
-.option.selected:hover,
-.option.selected:focus {
-  background-color: color(brand lightness(90%));
+.option.selected:hover .backgroundOption,
+.option.selected:focus .backgroundOption{
+  opacity: 0.2;
 }
-
+.backgroundOption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0
+}
 .option:hover:not(.selected),
 .option:focus:not(.selected) {
   background: cm_grey_100;
@@ -193,7 +204,6 @@
 }
 
 .checkIcon {
-  color: brand;
   display: inline-flex;
   align-items: center;
 }
