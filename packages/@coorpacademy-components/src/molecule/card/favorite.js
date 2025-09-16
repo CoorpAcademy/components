@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {v5 as uuidV5} from 'uuid';
 import {get, has, isEmpty, noop} from 'lodash/fp';
-import {
-  NovaCompositionNavigationMore as MoreIcon,
-  NovaCompositionCoorpacademyCheck as CheckIcon
-} from '@coorpacademy/nova-icons';
 import Provider, {GetSkinFromContext, GetTranslateFromContext} from '../../atom/provider';
 import ToolTip, {toggleStateOnKeyPress} from '../../atom/tooltip';
 import Button from '../../atom/button';
+import FaIcon from '../../atom/icon';
 import style from './favorite.css';
 
 const Favorite = (
@@ -37,7 +34,6 @@ const Favorite = (
 
   const primaryColor = get('common.primary', skin);
   const darkColor = get('common.dark', skin);
-  const brandColor = get('common.brand', skin);
 
   const buttonRef = useRef(null);
 
@@ -80,6 +76,7 @@ const Favorite = (
   useEffect(() => {
     if (!toolTipIsVisible) return;
     const hide = () => setToolTipIsVisible(false);
+    /* istanbul ignore next: guard for non-browser envs; not testable in jsdom */
     if (typeof window === 'undefined') {
       return;
     }
@@ -114,26 +111,24 @@ const Favorite = (
   const icon = useMemo(
     () =>
       favorite ? (
-        <CheckIcon
-          // eslint-disable-next-line css-modules/no-undef-class
-          className={style.checkIcon}
-          style={{color: brandColor}}
-          width={13}
-          height={13}
+        <FaIcon
+          iconName={'check'}
+          iconColor={primaryColor}
+          size={{faSize: 14, wrapperSize: 14}}
           data-testid="favorite-check-icon"
           aria-label={ariaLabel.removeFromFavorite}
         />
       ) : (
-        <MoreIcon
+        <FaIcon
+          iconName={'plus'}
+          iconColor={darkColor}
           className={style.moreIcon}
-          style={{color: darkColor}}
-          width={13}
-          height={13}
+          size={{faSize: 14, wrapperSize: 14}}
           data-testid="favorite-add-icon"
           aria-label={ariaLabel.addToFavorite}
         />
       ),
-    [ariaLabel.addToFavorite, ariaLabel.removeFromFavorite, brandColor, darkColor, favorite]
+    [ariaLabel.addToFavorite, ariaLabel.removeFromFavorite, primaryColor, darkColor, favorite]
   );
 
   return (

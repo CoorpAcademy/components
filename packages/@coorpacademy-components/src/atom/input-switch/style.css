@@ -215,6 +215,7 @@
 .newMooc {
   composes: defaultStyle;
   width: 100%;
+  gap: 16px;
 }
 
 .newMoocModified {
@@ -241,6 +242,8 @@
   font-weight: 600;
   line-height: 20px;
   color: cm_grey_700;
+  width: auto;
+  margin: 0px;
 }
 
 .newMooc .checkbox:checked ~ label {

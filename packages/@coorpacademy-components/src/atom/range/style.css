@@ -2,11 +2,15 @@
 @value light from colors;
 @value dark from colors;
 @value white from colors;
-@value brand from colors;
+@value cm_grey_400 from colors;
+@value surface_input_neutral_strong from colors;
 
 .containerWrapper {
   padding: 15px;
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .container {
@@ -27,7 +31,7 @@
 .rail {
   composes: track;
   width: 0;
-  background-color: brand;
+  background-color: cm_grey_400;
 }
 
 .animatedRail {
@@ -55,3 +59,37 @@
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
 }
+
+.inputsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.moocInput {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: auto;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: surface_input_neutral_strong;
+  font-size: 16px;
+  cursor: default;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.inputHint {
+  color: cm_grey_400;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.inputValue {
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
+

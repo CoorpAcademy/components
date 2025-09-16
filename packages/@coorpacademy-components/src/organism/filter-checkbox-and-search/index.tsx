@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {filter, isEmpty, pipe, size, toString} from 'lodash/fp';
+import {filter, getOr, isEmpty, pipe, size, toString} from 'lodash/fp';
+import {convert} from 'css-color-function';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -30,7 +31,9 @@ const FilterCheckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
-  const {title, titleAriaLabel, searchOptions, onClear, options} = props;
+  const {skin} = context;
+  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
+  const {id, title, titleAriaLabel, searchOptions, onClear, options, emptySearchResult} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
@@ -45,7 +48,11 @@ const FilterCheckboxAndSearch = (
   }, [options, showMore]);
 
   return (
-    <div data-testid="filter-checkbox-and-search-container" className={style.container}>
+    <div
+      data-name={id}
+      data-testid="filter-checkbox-and-search-container"
+      className={style.container}
+    >
       <div className={style.header} data-testid="filter-checkbox-and-search-header">
         <div
           className={style.titleAndTagWrapper}
@@ -53,7 +60,15 @@ const FilterCheckboxAndSearch = (
         >
           <Title title={title} ariaLabel={titleAriaLabel} />
           {hasSelectedFilters ? (
-            <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
+            <Tag
+              label={toString(selectedFiltersCount)}
+              type="info"
+              size="S"
+              customStyle={{
+                color: primaryColor,
+                backgroundColor: convert(`color(${primaryColor} lightness(92%))`)
+              }}
+            />
           ) : null}
         </div>
         {hasSelectedFilters ? (
@@ -83,7 +98,7 @@ const FilterCheckboxAndSearch = (
             className={style.emptySearchResult}
             data-testid="filter-checkbox-and-search-empty-message"
           >
-            No results... Try adjusting your search.
+            {emptySearchResult}
           </p>
         ) : (
           visibleOptions.map(({value, label, selected, count, onClick}, index) => (
@@ -94,19 +109,23 @@ const FilterCheckboxAndSearch = (
             >
               <CheckboxWithTitle
                 key={value}
+                value={value}
                 title={label}
                 onChange={onClick}
                 name={label}
                 checked={selected}
                 customStyle={CHECKBOX_TITLE_STYLE}
               />
-              <p className={style.optionCount}>{count}</p>
+              <p data-name={'counter'} className={style.optionCount}>
+                {count}
+              </p>
             </div>
           ))
         )}
       </div>
       {size(options) > INITIAL_VISIBLE_OPTIONS ? (
         <ButtonLink
+          data-name={'show-more-button'}
           label={showMore ? translate('Show less') : translate('Show more')}
           type="text"
           icon={{
@@ -129,7 +148,8 @@ const FilterCheckboxAndSearch = (
 FilterCheckboxAndSearch.propTypes = propTypes;
 
 FilterCheckboxAndSearch.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 export default FilterCheckboxAndSearch;

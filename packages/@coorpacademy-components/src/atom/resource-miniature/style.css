@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value lightMediumGray from colors;
+@value lightMediumGrey from colors;
 @value white from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -30,7 +30,7 @@
   width: 70px;
   height: 45px;
   border: 1px solid ;
-  box-shadow: 1px 1px 3px lightMediumGray;
+  box-shadow: 1px 1px 3px lightMediumGrey;
 }
 
 .poster {
@@ -39,7 +39,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: lightMediumGray;
+  background-color: lightMediumGrey;
 }
 
 .icon {
