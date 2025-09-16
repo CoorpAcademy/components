@@ -11,8 +11,6 @@ const defaultProps: QuickFiltersProps = {
       console.log('default All content clicked');
     }
   },
-  nextFilterAriaLabel: 'show next filters',
-  previousFilterAriaLabel: 'show previous filters',
   filterOptionsAriaLabel: 'filters options list aria label',
   filterOptions: [
     {

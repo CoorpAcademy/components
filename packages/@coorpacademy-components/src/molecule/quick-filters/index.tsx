@@ -10,8 +10,8 @@ import Provider, {GetSkinFromContext} from '../../atom/provider';
 import style from './style.css';
 import {QuickFiltersProps, propTypes} from './types';
 
-const SCROLL_RIGHT_SIZE = 380;
-const SCROLL_LEFT_SIZE = -380;
+const SCROLL_RIGHT_SIZE = 400;
+const SCROLL_LEFT_SIZE = -400;
 export const handleScroll = (direction: number, listRef: React.RefObject<HTMLDivElement>) => {
   if (listRef.current) {
     listRef.current.scrollBy({
@@ -61,14 +61,7 @@ const getFilterButton = (
 };
 
 const QuickFilters = (
-  {
-    primaryOption,
-    filterOptions,
-    filterButton,
-    nextFilterAriaLabel,
-    previousFilterAriaLabel,
-    filterOptionsAriaLabel
-  }: QuickFiltersProps,
+  {primaryOption, filterOptions, filterButton, filterOptionsAriaLabel}: QuickFiltersProps,
   context: WebContextValues
 ) => {
   const skin = GetSkinFromContext(context);
@@ -94,12 +87,13 @@ const QuickFilters = (
 
     const update = () => {
       const rightArrowWidth = rightButton.offsetWidth;
-      rightButton.style.visibility =
-        list.scrollLeft + list.clientWidth < list.scrollWidth - rightArrowWidth
-          ? 'visible'
-          : 'hidden';
-      leftButton.style.visibility = list.scrollLeft > 0 ? 'visible' : 'hidden';
-      leftButton.style.display = list.scrollLeft > 0 ? 'flex' : 'none';
+      const showingRightButton =
+        list.scrollLeft + list.clientWidth < list.scrollWidth - rightArrowWidth;
+      const showingLeftButton = list.scrollLeft > 0;
+      rightButton.style.visibility = showingRightButton ? 'visible' : 'hidden';
+      rightButton.style.opacity = showingRightButton ? '1' : '0';
+      leftButton.style.visibility = showingLeftButton ? 'visible' : 'hidden';
+      leftButton.style.opacity = showingLeftButton ? '1' : '0';
     };
 
     list.addEventListener('scroll', update);
@@ -120,7 +114,6 @@ const QuickFilters = (
           className={style.leftArrowButton}
           customStyle={{height: '36px'}}
           data-testid="scroll-left-button"
-          aria-label={previousFilterAriaLabel}
         />
       </div>
       <div
@@ -177,7 +170,6 @@ const QuickFilters = (
               onClick={handleScrollRight}
               customStyle={{height: '36px'}}
               data-testid="scroll-right-button"
-              aria-label={nextFilterAriaLabel}
             />
           </div>
         </div>

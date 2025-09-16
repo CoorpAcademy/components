@@ -37,7 +37,9 @@ const SearchPage = (props, context) => {
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const nodeRef = useRef(null);
-  const recommendationsView = isEmpty(recommendations) ? null : <CardsList {...recommendations} />;
+  const recommendationsView = isEmpty(recommendations) ? null : (
+    <CardsList {...recommendations} customStyle={{padding: 0}} />
+  );
 
   // Helper function to render content sections
   const renderSection = section => {

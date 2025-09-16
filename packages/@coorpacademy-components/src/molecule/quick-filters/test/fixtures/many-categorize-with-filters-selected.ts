@@ -53,8 +53,6 @@ const filterSelected: QuickFiltersProps = {
       }
     }
   },
-  nextFilterAriaLabel: 'show next filters',
-  previousFilterAriaLabel: 'show previous filters',
   filterOptionsAriaLabel: 'filter options list aria label'
 };
 export default {props: filterSelected};

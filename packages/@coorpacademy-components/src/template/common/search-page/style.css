@@ -11,6 +11,8 @@
 .cardsWrapper {
   display: block;
   width: 100%;
+  max-width: 1100px;
+  margin: 0px auto;
   height: auto;
   box-sizing: border-box;
   padding: 0 0 16px;
