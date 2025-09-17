@@ -11,20 +11,8 @@ const defaultProps: QuickFiltersProps = {
       console.log('default All content clicked');
     }
   },
-  nextFilterAriaLabel: 'show next filters',
-  previousFilterAriaLabel: 'show previous filters',
   filterOptionsAriaLabel: 'filters options list aria label',
   filterOptions: [
-    {
-      iconName: 'shapes',
-      label: 'Skills',
-      value: 'skills',
-      onClick: () => {
-        console.log('skills selected');
-      },
-      selected: false,
-      ariaLabel: 'skills filter aria label'
-    },
     {
       iconName: 'book-open',
       label: 'Courses',

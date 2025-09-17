@@ -14,12 +14,14 @@ import Tag from '../../../atom/tag';
 import {cardPropTypes} from '../../../molecule/card';
 import LearningPriorityCard from '../../../molecule/learning-priority-card';
 import {COLORS} from '../../../variables/colors';
+import QuickFilters from '../../../molecule/quick-filters';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
   const {
     title,
     searchFilters,
+    quickFilters,
     cards,
     count,
     noresultsfound,
@@ -35,7 +37,9 @@ const SearchPage = (props, context) => {
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   const nodeRef = useRef(null);
-  const recommendationsView = isEmpty(recommendations) ? null : <CardsList {...recommendations} />;
+  const recommendationsView = isEmpty(recommendations) ? null : (
+    <CardsList {...recommendations} customStyle={{padding: 0}} />
+  );
 
   // Helper function to render content sections
   const renderSection = section => {
@@ -125,7 +129,7 @@ const SearchPage = (props, context) => {
   );
 
   return (
-    <div>
+    <div data-name="filters">
       {searchFilters ? (
         <Filters
           {...searchFilters}
@@ -135,6 +139,7 @@ const SearchPage = (props, context) => {
           sortAriaLabel={sortAriaLabel}
         />
       ) : null}
+      {quickFilters ? <QuickFilters {...quickFilters} /> : null}
 
       {hasSections ? (
         <div data-name="explorerSections" className={style.sectionsWrapper}>
@@ -171,6 +176,7 @@ SearchPage.propTypes = {
   noresultsfound: PropTypes.string,
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),
+  quickFilters: PropTypes.shape(QuickFilters.propTypes),
   cards: PropTypes.shape(CardsGrid.propTypes),
   count: PropTypes.number,
   clearFilters: PropTypes.shape(Button.propTypes),

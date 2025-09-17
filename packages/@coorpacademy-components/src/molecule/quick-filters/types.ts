@@ -11,8 +11,6 @@ export type QuickFiltersProps = {
     onDefaultClick: () => void;
     defaultAriaLabel: string;
   };
-  nextFilterAriaLabel: string;
-  previousFilterAriaLabel: string;
   filterOptionsAriaLabel: string;
   filterOptions: FilterOption[];
   filterButton?: ButtonLinkProps;
@@ -41,8 +39,6 @@ export const propTypes = {
     defaultAriaLabel: PropTypes.string,
     onDefaultClick: PropTypes.func
   }),
-  nextFilterAriaLabel: PropTypes.string,
-  previousFilterAriaLabel: PropTypes.string,
   filterOptionsAriaLabel: PropTypes.string,
   filterOptions: PropTypes.arrayOf(
     PropTypes.shape({

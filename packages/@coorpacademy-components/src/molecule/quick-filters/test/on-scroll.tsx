@@ -80,7 +80,7 @@ test('click on leftArrowButton should call handleScroll with left size scroll', 
     fireEvent.click(leftArrow);
   });
 
-  t.deepEqual(calls, [{left: -380, behavior: 'smooth'}]);
+  t.deepEqual(calls, [{left: -400, behavior: 'smooth'}]);
 });
 
 test('click on rightArrowButton should call handleScroll with right size scroll', t => {
@@ -99,7 +99,7 @@ test('click on rightArrowButton should call handleScroll with right size scroll'
     fireEvent.click(rightArrow);
   });
 
-  t.deepEqual(calls, [{left: 380, behavior: 'smooth'}]);
+  t.deepEqual(calls, [{left: 400, behavior: 'smooth'}]);
 });
 
 test('rightArrowButton is visible when scrollWidth is inferior to scrollLeft and clientWidth', t => {

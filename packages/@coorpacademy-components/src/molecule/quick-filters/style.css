@@ -1,6 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value cm_grey_75 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
@@ -18,6 +19,27 @@
     composes: textBase;
     display: flex;
     align-items: center;
+    max-width: 1080px;
+    margin: auto;
+    box-sizing: content-box;
+    position: sticky;
+    padding: 20px 20px 0px 20px;
+    margin: 0px 20px;
+    left: calc(50% - 560px);
+    top: 40px;
+    background: #fff;
+    z-index: 1;
+}
+
+.filtersMainContainer:after {
+  content: '';
+  position: absolute;
+  top: 92px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, #fff 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .filtersContainer {
@@ -36,6 +58,15 @@
     margin-right: 40px;
 }
 
+.bar {
+  height: 3px;
+  width: 0;
+  bottom: 0;
+  position: absolute;
+  left: 50%;
+  transition: all 0.2s ease-out;
+}
+
 .filterOption, .defaultOption {
     display: flex;
     color: cm_grey_500;
@@ -46,11 +77,38 @@
     height: 72px;
     cursor: pointer;
     box-sizing: border-box;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.filterOption:hover, .defaultOption:hover , .filterOption:hover svg, .defaultOption:hover svg {
+    color: cm_grey_700;
+}
+
+.filterOption:hover .bar, .defaultOption:hover .bar { 
+  left: -8px;
+  right: -8px;
+  width: calc(100% + 16px);
+}
+
+.filterOption svg, .defaultOption svg {
+    color: cm_grey_500;
+    transition: color 0.3s;
 }
 
 .filterSelected {
     color: cm_grey_700;
-    border-bottom: 2px solid cm_primary_blue;
+    position: relative;
+}
+
+.filterSelected svg{
+    color: cm_grey_700;
+}
+
+.filterSelected .bar {
+  left: -8px;
+  right: -8px;
+  width: calc(100% + 16px);
 }
 
 .filterLabel {
@@ -75,8 +133,15 @@
 .filterButton {
     margin-left: auto;
     box-sizing: border-box;
+    background-color: cm_grey_75;
+    color: cm_grey_500;
+    border-radius: 15px;
 }
 
+.filterButton:hover {
+    background-color: cm_grey_100;
+    color: cm_grey_700;
+}
 .leftArrowButton, .rightArrowButton {
     display: flex;
     align-items: center;
@@ -84,27 +149,43 @@
     width: 36px;
     height: 36px;
     cursor: pointer;
-    background-color: cm_grey_100;
-    border-radius: 50%;
+    background-color: cm_grey_75;
+    color: cm_grey_500;
     position: sticky;
     z-index: 1;
+    transition: all 0.3s;
     transform: translateY(-10%);
 }
 
+
+.leftArrowButton:hover, .rightArrowButton:hover {
+  background-color: cm_grey_100;
+  color: cm_grey_700;
+} 
+
+.leftArrowButton:hover svg, .rightArrowButton:hover svg {
+  color: cm_grey_700;
+} 
+.leftArrowButton svg, .rightArrowButton svg {
+  color: cm_grey_500;
+  transition: all 0.3s;
+} 
+
 .rightArrowButton {
   right: 0;         
-  box-shadow: -20px 0 40px 40px white, 30px  0 40px 40px white;
+  box-shadow: 0px 0 40px 30px white;
 }
 
 .leftArrowButton {
   left: 0;          
-  box-shadow: 20px 0 40px 40px white;
+  box-shadow: 0px 0 40px 30px white;
 }
 
 .filterButtonWrapper {
     padding: 2px;
     border-radius: 16px;
-    border: 2px solid cm_primary_blue;
+    border-width: 2px;
+    border-style: solid;
     box-sizing: border-box;
 }
 
