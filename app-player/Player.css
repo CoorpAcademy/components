@@ -8334,7 +8334,7 @@ _:-ms-fullscreen
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  color: #546E7A;
+  color: #515161;
 }
 
 .titleNode-9dooC {
@@ -8363,12 +8363,12 @@ _:-ms-fullscreen
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #546E7A;
+  color: #515161;
   padding-right: 16px;
   margin-right: 16px;
 }
 .showMoreBar-U-E2m {
-  border-right: 1px solid rgba(84, 110, 122, 0.7);
+  border-right: 1px solid rgba(81, 81, 97, 0.7);
   height: 16px;
   margin: auto 16px auto auto;
   padding-top: 2px;
