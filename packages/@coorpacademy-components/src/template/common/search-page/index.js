@@ -15,6 +15,8 @@ import {cardPropTypes} from '../../../molecule/card';
 import LearningPriorityCard from '../../../molecule/learning-priority-card';
 import {COLORS} from '../../../variables/colors';
 import QuickFilters from '../../../molecule/quick-filters';
+import BaseModal from '../../../molecule/base-modal';
+import MultiFilterPanel from '../../../molecule/multi-filter-panel';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
@@ -32,7 +34,8 @@ const SearchPage = (props, context) => {
     filterGroupAriaLabel,
     sortAriaLabel,
     popinWithCards,
-    sections = {}
+    sections = {},
+    filtersModal
   } = props;
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -164,6 +167,14 @@ const SearchPage = (props, context) => {
           <CMPopin {...popinWithCards} />
         </div>
       ) : null}
+
+      {filtersModal ? (
+        <BaseModal {...filtersModal}>
+          {filtersModal.filterPanelProps ? (
+            <MultiFilterPanel {...filtersModal.filterPanelProps} />
+          ) : null}
+        </BaseModal>
+      ) : null}
     </div>
   );
 };
@@ -186,6 +197,7 @@ SearchPage.propTypes = {
   filterGroupAriaLabel: PropTypes.string,
   sortAriaLabel: PropTypes.string,
   popinWithCards: PropTypes.shape(CMPopin.propTypes),
+  filtersModal: PropTypes.shape(BaseModal.propTypes),
   sections: PropTypes.objectOf(
     PropTypes.shape({
       title: PropTypes.string,
