@@ -169,14 +169,11 @@ const SearchPage = (props, context) => {
       ) : null}
 
       {filtersModal ? (
-        <BaseModal
-          {...filtersModal}
-          children={
-            filtersModal.filterPanelProps ? (
-              <MultiFilterPanel {...filtersModal.filterPanelProps} />
-            ) : null
-          }
-        />
+        <BaseModal {...filtersModal}>
+          {filtersModal.filterPanelProps ? (
+            <MultiFilterPanel {...filtersModal.filterPanelProps} />
+          ) : null}
+        </BaseModal>
       ) : null}
     </div>
   );
