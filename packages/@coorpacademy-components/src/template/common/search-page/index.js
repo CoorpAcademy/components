@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import {getOr, isEmpty, keys, map, pipe, size, sortBy} from 'lodash/fp';
+import {getOr, isEmpty, keys, map, pipe, sortBy} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
@@ -35,7 +35,9 @@ const SearchPage = (props, context) => {
     sortAriaLabel,
     popinWithCards,
     sections = {},
-    filtersModal
+    filtersModal,
+    searchMessage,
+    newVersion = false
   } = props;
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
@@ -112,8 +114,6 @@ const SearchPage = (props, context) => {
     sortBy('order')
   )(sections);
 
-  const hasSections = size(sortedSections) > 0;
-
   const contentGridSection = (
     <div className={style.contentSection}>
       <div className={style.sectionHeader}>
@@ -143,8 +143,28 @@ const SearchPage = (props, context) => {
         />
       ) : null}
       {quickFilters ? <QuickFilters {...quickFilters} /> : null}
-
-      {hasSections ? (
+      {searchMessage ? (
+        <div className={style.searchMessageWrapper}>
+          <span
+            className={style.searchMessage}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: searchMessage}}
+          />
+          <Button
+            {...clearFilters}
+            data-name="searchMeassageClear"
+            className={style.clear}
+            style={{
+              background: 'transparent',
+              color: defaultColor,
+              padding: '0 5px',
+              fontSize: '14px'
+            }}
+            type="link"
+          />
+        </div>
+      ) : null}
+      {newVersion ? (
         <div data-name="explorerSections" className={style.sectionsWrapper}>
           {sortedSections.map((section, index) => (
             <div data-name={`section-${section.key}`} key={`${section.key}-${index}`}>
@@ -184,6 +204,8 @@ SearchPage.contextTypes = {
 };
 
 SearchPage.propTypes = {
+  newVersion: PropTypes.bool,
+  searchMessage: PropTypes.string,
   noresultsfound: PropTypes.string,
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),

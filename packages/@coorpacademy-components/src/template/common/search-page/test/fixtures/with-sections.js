@@ -4,6 +4,8 @@ import skillCard from '../../../../../molecule/learner-skill-card/test/fixtures/
 import playlistCard from '../../../../../molecule/playlist-card/test/fixtures/default';
 import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
 import quickFilters from '../../../../../molecule/quick-filters/test/fixtures/many-categorize-with-filters-selected';
+import clearFilter from '../../../../../atom/button/test/fixtures/clear';
+import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/default';
 
 // Create different card types for each section
 const newContentCards = [
@@ -109,9 +111,13 @@ const certificationsCards = [
   }
 ];
 
+const clearFilters = clearFilter.props;
+const recommendations = CardsList.props;
+
 export default {
   props: {
     title: 'Explorer (3690 items)',
+    searchMessage: '<b>57</b> results for <b>"Marketing"</b>',
     searchFilters: null,
     quickFilters: quickFilters.props,
     cards: cardsGrid.props,
@@ -119,6 +125,7 @@ export default {
     moreFilterAriaLabel: 'show or hide sortBy options',
     filterGroupAriaLabel: 'Apply filtering options to refine search results',
     sortAriaLabel: 'show more sort options',
+    newVersion: true,
     sections: {
       freshContent: {
         title: 'New & Fresh Content',
@@ -172,6 +179,8 @@ export default {
           showMoreOnRightAriaLabel: 'Next playlists'
         }
       }
-    }
+    },
+    clearFilters,
+    recommendations
   }
 };
