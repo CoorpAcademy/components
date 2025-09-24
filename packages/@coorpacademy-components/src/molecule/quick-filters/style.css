@@ -113,6 +113,8 @@
 
 .filterLabel {
     min-width: 70px;
+    user-select: none;
+    text-align: center;
 }
 
 .filterSeparator {

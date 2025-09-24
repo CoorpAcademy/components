@@ -11,12 +11,38 @@
 .cardsWrapper {
   display: block;
   width: 100%;
-  max-width: 1100px;
   margin: 0px auto;
   height: auto;
   box-sizing: border-box;
   padding: 0 0 16px;
   background: white;
+}
+
+.searchMessageWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  width: 100%;
+  margin: 60px auto 0px;
+  position: relative;
+  align-items: baseline;
+}
+
+.searchMessage {
+  font-family: "Gilroy";
+  font-size: 18px;
+  font-weight: 400;
+  color: cm_grey_500;
+  padding: 0 10px;
+  display: block;
+  line-height: 28px;
+  user-select: none;
+}
+
+.clear {
+  min-width: auto;
+  line-height: 28px;
 }
 
 .noresults {
