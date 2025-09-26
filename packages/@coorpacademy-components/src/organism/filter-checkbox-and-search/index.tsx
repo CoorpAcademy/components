@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {filter, isEmpty, pipe, size, toString} from 'lodash/fp';
+import {filter, getOr, isEmpty, pipe, size, toString} from 'lodash/fp';
+import {convert} from 'css-color-function';
 import Title from '../../atom/title';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
@@ -30,6 +31,8 @@ const FilterCheckboxAndSearch = (
   props: FilterCheckboxAndSearchProps,
   context: WebContextValues
 ) => {
+  const {skin} = context;
+  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const {title, titleAriaLabel, searchOptions, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
@@ -53,7 +56,15 @@ const FilterCheckboxAndSearch = (
         >
           <Title title={title} ariaLabel={titleAriaLabel} />
           {hasSelectedFilters ? (
-            <Tag label={toString(selectedFiltersCount)} type="info" size="S" />
+            <Tag
+              label={toString(selectedFiltersCount)}
+              type="info"
+              size="S"
+              customStyle={{
+                color: primaryColor,
+                backgroundColor: convert(`color(${primaryColor} lightness(92%))`)
+              }}
+            />
           ) : null}
         </div>
         {hasSelectedFilters ? (
@@ -129,7 +140,8 @@ const FilterCheckboxAndSearch = (
 FilterCheckboxAndSearch.propTypes = propTypes;
 
 FilterCheckboxAndSearch.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 export default FilterCheckboxAndSearch;

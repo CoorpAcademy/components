@@ -1,5 +1,6 @@
 import React from 'react';
-import {map, size, pipe, filter, flatMap, toString} from 'lodash/fp';
+import {map, size, pipe, filter, flatMap, toString, getOr} from 'lodash/fp';
+import {convert} from 'css-color-function';
 import FilterChip from '../../organism/filter-chip';
 import FilterCheckboxAndSearch from '../../organism/filter-checkbox-and-search';
 import Title from '../../atom/title';
@@ -24,7 +25,6 @@ type SelectedFilter =
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
 
-const CLEAR_ALL_BUTTON_STYLE = {fontWeight: 'normal', padding: 0};
 const FilterSeparator = <div className={style.filterSeparator} />;
 
 const buildFilters = (filterOptions: FilterOptionsProps) => {
@@ -71,6 +71,8 @@ const buildAllSelectedFilterChips = (
 };
 
 const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
+  const {skin} = context;
+  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const {title, onClearAll, options, onRemoveSelectedFilter = false} = props;
   const translate = GetTranslateFromContext(context);
   const allSelectedFilters: SelectedFilter[] = pipe(
@@ -95,13 +97,21 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
         <div className={style.titleContainer}>
           <Title title={title} type="form-group" titleSize="standard-light-weight" />
           {hasSelectedFilters ? (
-            <Tag label={toString(size(allSelectedFilters))} type="info" size="S" />
+            <Tag
+              label={toString(size(allSelectedFilters))}
+              type="info"
+              size="S"
+              customStyle={{
+                color: primaryColor,
+                backgroundColor: convert(`color(${primaryColor} lightness(92%))`)
+              }}
+            />
           ) : null}
         </div>
         {hasSelectedFilters ? (
           <div className={style.buttonContainer}>
             <ButtonLink
-              customStyle={CLEAR_ALL_BUTTON_STYLE}
+              customStyle={{fontWeight: 'normal', padding: 0, color: primaryColor}}
               label={translate('clear_all')}
               type="text"
               data-name="filters-all-clear-button"
@@ -126,7 +136,8 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
 MultiFilterPanel.propTypes = propTypes;
 
 MultiFilterPanel.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 export default MultiFilterPanel;

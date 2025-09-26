@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, isEmpty, keys, map, pipe, sortBy} from 'lodash/fp';
+import {convert} from 'css-color-function';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
@@ -40,7 +41,7 @@ const SearchPage = (props, context) => {
     newVersion = false
   } = props;
   const {skin} = context;
-  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const defaultColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const nodeRef = useRef(null);
   const recommendationsView = isEmpty(recommendations) ? null : (
     <CardsList {...recommendations} customStyle={{padding: 0}} />
@@ -189,7 +190,21 @@ const SearchPage = (props, context) => {
       ) : null}
 
       {filtersModal ? (
-        <BaseModal {...filtersModal}>
+        <BaseModal
+          {...filtersModal}
+          headerIcon={{
+            name: filtersModal.headerIcon.name,
+            backgroundColor: convert(`color(${defaultColor} lightness(92%))`),
+            color: defaultColor
+          }}
+          footer={{
+            cancelButton: filtersModal.footer.cancelButton,
+            confirmButton: {
+              ...filtersModal.footer.confirmButton,
+              color: defaultColor
+            }
+          }}
+        >
           {filtersModal.filterPanelProps ? (
             <MultiFilterPanel {...filtersModal.filterPanelProps} />
           ) : null}
