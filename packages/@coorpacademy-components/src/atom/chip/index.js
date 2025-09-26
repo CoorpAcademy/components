@@ -2,7 +2,7 @@ import React, {useMemo, useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import {convert} from 'css-color-function';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/pro-solid-svg-icons';
@@ -32,12 +32,15 @@ const Chip = (props, context) => {
     customIcon,
     onClick,
     leftIcon,
-    backgroundColor = DEFAULT_BACKGROUND_COLOR,
+    backgroundColor,
     customStyle
   } = props;
   const {skin} = context;
-  const skinColor = get('common.primary', skin);
-  const selectedBgColor = backgroundColor === 'skin' && skinColor ? skinColor : backgroundColor;
+  const skinColor = getOr(DEFAULT_BACKGROUND_COLOR, 'common.primary', skin);
+  const selectedBgColor =
+    backgroundColor === 'skin' && skinColor
+      ? skinColor
+      : backgroundColor || DEFAULT_BACKGROUND_COLOR;
   const hoveredSelectedBgColor = calculateHoveredSelectedBgColor(selectedBgColor);
 
   const [isHovered, setIsHovered] = useState(false);

@@ -1,12 +1,14 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {noop, uniqueId} from 'lodash/fp';
+import {getOr, noop, uniqueId} from 'lodash/fp';
 import FaIcon from '../icon';
+import {COLORS} from '../../variables/colors';
+import Provider from '../provider';
 import style from './style.css';
 
 const DEFAULT_ICON_STYLE = {padding: '0', width: '20px', height: '20px'};
 
-const CheckboxWithTitle = props => {
+const CheckboxWithTitle = (props, context) => {
   const {
     title,
     name,
@@ -17,6 +19,8 @@ const CheckboxWithTitle = props => {
     icon = {iconName: 'check', iconColor: 'white', preset: 's'},
     customStyle = {}
   } = props;
+  const {skin} = context;
+  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const {iconName, iconColor, preset} = icon;
   const idCheckbox = useMemo(() => uniqueId('input-checkbox-'), []);
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
@@ -35,7 +39,10 @@ const CheckboxWithTitle = props => {
             data-name={dataName}
             aria-label={ariaLabel}
           />
-          <div className={style.label}>
+          <div
+            className={style.label}
+            style={checked ? {background: primaryColor, borderColor: primaryColor} : null}
+          >
             {checked ? (
               <FaIcon
                 className={style.icon}
@@ -79,5 +86,9 @@ CheckboxWithTitle.propTypes = {
     preset: PropTypes.string
   }),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+};
+
+CheckboxWithTitle.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 export default CheckboxWithTitle;

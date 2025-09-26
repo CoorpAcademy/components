@@ -17,9 +17,7 @@ export default {
       title: 'Filters',
       titleAriaLabel: 'Display the filters',
       headerIcon: {
-        name: 'sliders',
-        backgroundColor: COLORS.primary_100,
-        color: COLORS.cm_blue_700
+        name: 'sliders'
       },
       filterPanelProps: multiFilterPanelProps.props,
       isOpen: true,
