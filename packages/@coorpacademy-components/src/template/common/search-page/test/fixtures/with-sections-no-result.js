@@ -25,6 +25,7 @@ export default {
     cards: {
       list: []
     },
+    newVersion: true,
     moreSortAriaLabel: 'show or hide sortBy options',
     moreFilterAriaLabel: 'show or hide sortBy options',
     filterGroupAriaLabel: 'Apply filtering options to refine search results',

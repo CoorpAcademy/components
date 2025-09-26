@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import {getOr, isEmpty, keys, map, pipe, size, sortBy} from 'lodash/fp';
+import {getOr, isEmpty, keys, map, pipe, sortBy} from 'lodash/fp';
+import {convert} from 'css-color-function';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';
@@ -15,6 +16,8 @@ import {cardPropTypes} from '../../../molecule/card';
 import LearningPriorityCard from '../../../molecule/learning-priority-card';
 import {COLORS} from '../../../variables/colors';
 import QuickFilters from '../../../molecule/quick-filters';
+import BaseModal from '../../../molecule/base-modal';
+import MultiFilterPanel from '../../../molecule/multi-filter-panel';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
@@ -32,10 +35,13 @@ const SearchPage = (props, context) => {
     filterGroupAriaLabel,
     sortAriaLabel,
     popinWithCards,
-    sections = {}
+    sections = {},
+    filtersModal,
+    searchMessage,
+    newVersion = false
   } = props;
   const {skin} = context;
-  const defaultColor = getOr('#00B0FF', 'common.primary', skin);
+  const defaultColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const nodeRef = useRef(null);
   const recommendationsView = isEmpty(recommendations) ? null : (
     <CardsList {...recommendations} customStyle={{padding: 0}} />
@@ -109,8 +115,6 @@ const SearchPage = (props, context) => {
     sortBy('order')
   )(sections);
 
-  const hasSections = size(sortedSections) > 0;
-
   const contentGridSection = (
     <div className={style.contentSection}>
       <div className={style.sectionHeader}>
@@ -140,8 +144,28 @@ const SearchPage = (props, context) => {
         />
       ) : null}
       {quickFilters ? <QuickFilters {...quickFilters} /> : null}
-
-      {hasSections ? (
+      {searchMessage ? (
+        <div className={style.searchMessageWrapper}>
+          <span
+            className={style.searchMessage}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: searchMessage}}
+          />
+          <Button
+            {...clearFilters}
+            data-name="searchMeassageClear"
+            className={style.clear}
+            style={{
+              background: 'transparent',
+              color: defaultColor,
+              padding: '0 5px',
+              fontSize: '14px'
+            }}
+            type="link"
+          />
+        </div>
+      ) : null}
+      {newVersion ? (
         <div data-name="explorerSections" className={style.sectionsWrapper}>
           {sortedSections.map((section, index) => (
             <div data-name={`section-${section.key}`} key={`${section.key}-${index}`}>
@@ -164,6 +188,28 @@ const SearchPage = (props, context) => {
           <CMPopin {...popinWithCards} />
         </div>
       ) : null}
+
+      {filtersModal ? (
+        <BaseModal
+          {...filtersModal}
+          headerIcon={{
+            name: filtersModal.headerIcon.name,
+            backgroundColor: convert(`color(${defaultColor} lightness(92%))`),
+            color: defaultColor
+          }}
+          footer={{
+            cancelButton: filtersModal.footer.cancelButton,
+            confirmButton: {
+              ...filtersModal.footer.confirmButton,
+              color: defaultColor
+            }
+          }}
+        >
+          {filtersModal.filterPanelProps ? (
+            <MultiFilterPanel {...filtersModal.filterPanelProps} />
+          ) : null}
+        </BaseModal>
+      ) : null}
     </div>
   );
 };
@@ -173,6 +219,8 @@ SearchPage.contextTypes = {
 };
 
 SearchPage.propTypes = {
+  newVersion: PropTypes.bool,
+  searchMessage: PropTypes.string,
   noresultsfound: PropTypes.string,
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),
@@ -186,6 +234,7 @@ SearchPage.propTypes = {
   filterGroupAriaLabel: PropTypes.string,
   sortAriaLabel: PropTypes.string,
   popinWithCards: PropTypes.shape(CMPopin.propTypes),
+  filtersModal: PropTypes.shape(BaseModal.propTypes),
   sections: PropTypes.objectOf(
     PropTypes.shape({
       title: PropTypes.string,
