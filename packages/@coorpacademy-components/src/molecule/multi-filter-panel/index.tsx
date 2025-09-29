@@ -11,8 +11,19 @@ import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import Chip from '../../atom/chip';
 import {COLORS} from '../../variables/colors';
 import FilterSwitch from '../../organism/filter-switch';
+import FilterRange from '../../organism/filter-range';
+import {FilterCheckboxAndSearchOptions} from '../../organism/filter-checkbox-and-search/props-types';
+import {FilterChipOptionsProps} from '../../organism/filter-chip/prop-types';
+import {FilterSwitchOptionsProps} from '../../organism/filter-switch/prop-types';
+import {FilterRangeOptionsProps} from '../../organism/filter-range/prop-types';
 import style from './style.css';
-import propTypes, {MultiFilterPanelProps, FilterOptionsProps, SelectedFilter} from './prop-types';
+import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
+
+type SelectedFilter =
+  | FilterChipOptionsProps
+  | FilterSwitchOptionsProps
+  | FilterCheckboxAndSearchOptions
+  | FilterRangeOptionsProps;
 
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
@@ -28,6 +39,8 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
       return <FilterCheckboxAndSearch {...options} />;
     case 'switch':
       return <FilterSwitch {...options} />;
+    case 'range':
+      return <FilterRange {...options} />;
     default:
       return null;
   }
@@ -85,9 +98,9 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
   return (
     <>
       <div className={style.header}>
-        <div className={style.titleContainer}>
-          <Title title={title} type="form-group" titleSize="standard-light-weight" />
-          {hasSelectedFilters ? (
+        {hasSelectedFilters ? (
+          <div className={style.titleContainer}>
+            <Title title={title} type="form-group" titleSize="standard-light-weight" />
             <Tag
               label={toString(size(allSelectedFilters))}
               type="info"
@@ -97,8 +110,8 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
                 backgroundColor: convert(`color(${primaryColor} lightness(92%))`)
               }}
             />
-          ) : null}
-        </div>
+          </div>
+        ) : null}
         {hasSelectedFilters ? (
           <div className={style.buttonContainer}>
             <ButtonLink

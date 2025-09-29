@@ -7,10 +7,8 @@ import filterCheckboxAndSearchProptypes, {
   FilterCheckboxAndSearchOptions,
   FilterCheckboxAndSearchProps
 } from '../../organism/filter-checkbox-and-search/props-types';
-import filterSwitchProptypes, {
-  FilterSwitchOptionsProps,
-  FilterSwitchProps
-} from '../../organism/filter-switch/prop-types';
+import filterSwitchProptypes, {FilterSwitchOptionsProps, FilterSwitchProps} from '../../organism/filter-switch/prop-types';
+import filterRangeProptypes, {FilterRangeProps} from '../../organism/filter-range/prop-types';
 
 const propTypes = {
   title: PropTypes.string,
@@ -29,6 +27,10 @@ const propTypes = {
       PropTypes.shape({
         type: PropTypes.oneOf(['switch']),
         options: PropTypes.shape(filterSwitchProptypes)
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['range']),
+        options: PropTypes.shape(filterRangeProptypes)
       })
     ])
   )
@@ -49,7 +51,12 @@ export type OptionsSwitchProps = {
   options: FilterSwitchProps;
 };
 
-export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps | OptionsSwitchProps;
+export type OptionsRangeProps = {
+  type: 'range';
+  options: FilterRangeProps;
+};
+
+export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps | OptionsSwitchProps | OptionsRangeProps;
 
 export type SelectedFilter =
   | FilterChipOptionsProps

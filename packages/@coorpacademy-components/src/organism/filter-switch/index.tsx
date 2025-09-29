@@ -52,10 +52,18 @@ const FilterSwitch = (props: FilterSwitchProps, context: WebContextValues) => {
       </div>
       <div className={style.optionsContainer}>
         {options.map(optionItem => {
-          const {label, value, onChange, ariaLabel} = optionItem;
+          const {label, value, onChange, ariaLabel, id} = optionItem;
+          // Use provided id or generate fallback id
+          const switchId =
+            id ||
+            `filter-switch-${label
+              .toLowerCase()
+              .replace(/\s+/g, '-')
+              .replace(/[^a-z0-9-]/g, '')}`;
           return (
             <div key={label} className={style.switchOption}>
               <InputSwitch
+                id={switchId}
                 title={label}
                 value={value}
                 theme={'newMooc'}
