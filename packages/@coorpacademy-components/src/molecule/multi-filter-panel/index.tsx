@@ -1,5 +1,5 @@
 import React from 'react';
-import {map, size, pipe, filter, flatMap, toString, getOr} from 'lodash/fp';
+import {map, size, pipe, filter, flatMap, toString, getOr, noop} from 'lodash/fp';
 import {convert} from 'css-color-function';
 import FilterChip from '../../organism/filter-chip';
 import FilterCheckboxAndSearch from '../../organism/filter-checkbox-and-search';
@@ -11,16 +11,8 @@ import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import Chip from '../../atom/chip';
 import {COLORS} from '../../variables/colors';
 import FilterSwitch from '../../organism/filter-switch';
-import {FilterCheckboxAndSearchOptions} from '../../organism/filter-checkbox-and-search/props-types';
-import {FilterChipOptionsProps} from '../../organism/filter-chip/prop-types';
-import {FilterSwitchOptionsProps} from '../../organism/filter-switch/prop-types';
 import style from './style.css';
-import propTypes, {MultiFilterPanelProps, FilterOptionsProps} from './prop-types';
-
-type SelectedFilter =
-  | FilterChipOptionsProps
-  | FilterSwitchOptionsProps
-  | FilterCheckboxAndSearchOptions;
+import propTypes, {MultiFilterPanelProps, FilterOptionsProps, SelectedFilter} from './prop-types';
 
 // @ts-expect-error convert is not recognized by the types
 const uncappedMap = map.convert({cap: false});
@@ -43,15 +35,14 @@ const buildFilters = (filterOptions: FilterOptionsProps) => {
 
 const buildAllSelectedFilterChips = (
   selectedFilters: SelectedFilter[],
-  onRemoveSelectedFilter: (label: string) => void
+  onRemoveSelectedFilter: (filterItem: SelectedFilter) => void
 ) => {
   return (
     <div className={style.selectedFiltersContainer} data-testid="selected-filters-container">
       {selectedFilters.map((filterItem: SelectedFilter) => {
         const {label} = filterItem;
-
         function handleClick() {
-          return onRemoveSelectedFilter(label);
+          return onRemoveSelectedFilter(filterItem);
         }
 
         return (
@@ -73,7 +64,7 @@ const buildAllSelectedFilterChips = (
 const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValues) => {
   const {skin} = context;
   const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
-  const {title, onClearAll, options, onRemoveSelectedFilter = false} = props;
+  const {title, onClearAll, options, onRemoveSelectedFilter = noop} = props;
   const translate = GetTranslateFromContext(context);
   const allSelectedFilters: SelectedFilter[] = pipe(
     map('options'),
@@ -122,7 +113,7 @@ const MultiFilterPanel = (props: MultiFilterPanelProps, context: WebContextValue
           </div>
         ) : null}
       </div>
-      {onRemoveSelectedFilter && hasSelectedFilters ? (
+      {hasSelectedFilters ? (
         <>
           <div>{buildAllSelectedFilterChips(allSelectedFilters, onRemoveSelectedFilter)}</div>
           {FilterSeparator}

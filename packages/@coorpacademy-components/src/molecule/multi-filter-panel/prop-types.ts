@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types';
-import filterChipProptypes, {FilterChipProps} from '../../organism/filter-chip/prop-types';
+import filterChipProptypes, {
+  FilterChipOptionsProps,
+  FilterChipProps
+} from '../../organism/filter-chip/prop-types';
 import filterCheckboxAndSearchProptypes, {
+  FilterCheckboxAndSearchOptions,
   FilterCheckboxAndSearchProps
 } from '../../organism/filter-checkbox-and-search/props-types';
-import filterSwitchProptypes, {FilterSwitchProps} from '../../organism/filter-switch/prop-types';
+import filterSwitchProptypes, {
+  FilterSwitchOptionsProps,
+  FilterSwitchProps
+} from '../../organism/filter-switch/prop-types';
 
 const propTypes = {
   title: PropTypes.string,
@@ -44,9 +51,14 @@ export type OptionsSwitchProps = {
 
 export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps | OptionsSwitchProps;
 
+export type SelectedFilter =
+  | FilterChipOptionsProps
+  | FilterSwitchOptionsProps
+  | FilterCheckboxAndSearchOptions;
+
 export type MultiFilterPanelProps = {
   title: string;
-  onRemoveSelectedFilter?: (label: string) => void;
+  onRemoveSelectedFilter?: (filterItem: SelectedFilter) => void;
   onClearAll: () => void;
   options: FilterOptionsProps[];
 };
