@@ -8,7 +8,7 @@ import filterCheckboxAndSearchProptypes, {
   FilterCheckboxAndSearchProps
 } from '../../organism/filter-checkbox-and-search/props-types';
 import filterSwitchProptypes, {FilterSwitchOptionsProps, FilterSwitchProps} from '../../organism/filter-switch/prop-types';
-import filterRangeProptypes, {FilterRangeProps} from '../../organism/filter-range/prop-types';
+import filterRangeProptypes, {FilterRangeProps, FilterRangeOptionsProps} from '../../organism/filter-range/prop-types';
 
 const propTypes = {
   title: PropTypes.string,
@@ -61,7 +61,8 @@ export type FilterOptionsProps = OptionsChipProps | OptionsCheckboxProps | Optio
 export type SelectedFilter =
   | FilterChipOptionsProps
   | FilterSwitchOptionsProps
-  | FilterCheckboxAndSearchOptions;
+  | FilterCheckboxAndSearchOptions
+  | FilterRangeOptionsProps;
 
 export type MultiFilterPanelProps = {
   title: string;
