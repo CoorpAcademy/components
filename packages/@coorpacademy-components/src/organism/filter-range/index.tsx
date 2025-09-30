@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import Range from '../../atom/range';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
@@ -14,6 +14,32 @@ const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
   const {title, titleAriaLabel, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
   const {min, max, step, value, minLabel, maxLabel, onChange, theme} = options;
+
+  const [isDragging, setIsDragging] = useState(false);
+  const [pendingValue, setPendingValue] = useState<number[] | null>(null);
+
+  const handleRangeChange = useCallback(
+    (newValue: number[]) => {
+      if (isDragging) {
+        setPendingValue(newValue);
+      } else {
+        onChange(newValue);
+      }
+    },
+    [isDragging, onChange]
+  );
+
+  const handleMouseDown = useCallback(() => {
+    setIsDragging(true);
+  }, []);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+    if (pendingValue) {
+      onChange(pendingValue);
+      setPendingValue(null);
+    }
+  }, [pendingValue, onChange]);
 
   const hasValue = value && value.length > 0 && (value[0] !== min || value[1] !== max);
 
@@ -38,17 +64,23 @@ const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
           />
         ) : null}
       </div>
-      <div className={style.rangeContainer}>
+      <div
+        className={style.rangeContainer}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUp}
+      >
         <Range
           multi
           theme={theme || 'mooc'}
           min={min}
           max={max}
           step={step}
-          value={value}
+          value={pendingValue || value}
           minLabel={minLabel}
           maxLabel={maxLabel}
-          onChange={onChange}
+          onChange={handleRangeChange}
         />
       </div>
     </div>
