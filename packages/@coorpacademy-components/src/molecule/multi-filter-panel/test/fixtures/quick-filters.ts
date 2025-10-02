@@ -21,6 +21,8 @@ export const multiFilterPanelProps: MultiFilterPanelProps = {
           value: [20, 80],
           minLabel: 'Min',
           maxLabel: 'Max',
+          maxValueLabel: '120+',
+          minValueLabel: '0-',
           onChange: (value: number[]) => console.log('duration changed', value),
           theme: 'mooc',
           selected: true

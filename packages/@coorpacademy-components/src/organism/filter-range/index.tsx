@@ -13,7 +13,8 @@ const CLEAR_BUTTON_STYLE = {fontWeight: 'normal', padding: 0, width: 'auto'};
 const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
   const {title, titleAriaLabel, onClear, options} = props;
   const translate = GetTranslateFromContext(context);
-  const {min, max, step, value, minLabel, maxLabel, onChange, theme} = options;
+  const {min, max, step, value, minLabel, maxLabel, onChange, theme, minValueLabel, maxValueLabel} =
+    options;
 
   const [isDragging, setIsDragging] = useState(false);
   const [pendingValue, setPendingValue] = useState<number[] | null>(null);
@@ -80,6 +81,8 @@ const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
           value={pendingValue || value}
           minLabel={minLabel}
           maxLabel={maxLabel}
+          minValueLabel={minValueLabel}
+          maxValueLabel={maxValueLabel}
           onChange={handleRangeChange}
         />
       </div>

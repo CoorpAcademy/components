@@ -26,6 +26,8 @@ export type FilterRangeOptionsProps = {
   value: number[];
   minLabel?: string;
   maxLabel?: string;
+  minValueLabel?: string;
+  maxValueLabel?: string;
   onChange: (value: number[]) => void;
   theme?: string;
   selected?: boolean;
