@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useRef} from 'react';
 import Range from '../../atom/range';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
@@ -18,6 +18,7 @@ const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
 
   const [isDragging, setIsDragging] = useState(false);
   const [pendingValue, setPendingValue] = useState<number[] | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handleRangeChange = useCallback(
     (newValue: number[]) => {
@@ -30,17 +31,26 @@ const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
     [isDragging, onChange]
   );
 
-  const handleMouseDown = useCallback(() => {
-    setIsDragging(true);
-  }, []);
-
-  const handleMouseUp = useCallback(() => {
+  const finalize = useCallback(() => {
     setIsDragging(false);
     if (pendingValue) {
       onChange(pendingValue);
       setPendingValue(null);
     }
   }, [pendingValue, onChange]);
+
+  const handlePointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    containerRef.current?.setPointerCapture(e.pointerId);
+    setIsDragging(true);
+  }, []);
+
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      containerRef.current?.releasePointerCapture(e.pointerId);
+      finalize();
+    },
+    [finalize]
+  );
 
   const hasValue = value && value.length > 0 && (value[0] !== min || value[1] !== max);
 
@@ -66,11 +76,10 @@ const FilterRange = (props: FilterRangeProps, context: WebContextValues) => {
         ) : null}
       </div>
       <div
+        ref={containerRef}
         className={style.rangeContainer}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onTouchStart={handleMouseDown}
-        onTouchEnd={handleMouseUp}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
       >
         <Range
           multi
