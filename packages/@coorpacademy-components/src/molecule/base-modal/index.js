@@ -165,10 +165,13 @@ const BaseModal = (props, context) => {
     e?.stopPropagation();
     onClose();
   }
+  function handleModalOnClick(e) {
+    e?.stopPropagation();
+  }
 
   return (
-    <div className={style.modalWrapper} data-testid="modal">
-      <div className={style.modal} style={customStyle}>
+    <div className={style.modalWrapper} data-testid="modal" onClick={handleOnClose}>
+      <div className={style.modal} style={customStyle} onClick={handleModalOnClick}>
         <header className={classnames(style.header, !description && style.headerCentered)}>
           {headerIcon?.name ? (
             <div className={style.headerIcon}>
