@@ -2,7 +2,7 @@ export default {
   props: {
     title: 'Filters',
     onClearAll: () => console.log('onClearAll'),
-    onRemoveSelectedFilter: (label) => console.log('onRemoveSelectedFilter', label),
+    onRemoveSelectedFilter: label => console.log('onRemoveSelectedFilter', label),
     options: [
       {
         type: 'range',
@@ -18,7 +18,7 @@ export default {
             value: [20, 80],
             minLabel: 'Min',
             maxLabel: 'Max',
-            onChange: (value) => console.log('onChange duration', value),
+            onChange: value => console.log('onChange duration', value),
             theme: 'mooc',
             selected: true
           }
@@ -35,13 +35,13 @@ export default {
               label: 'JavaScript',
               type: 'javascript',
               selected: true,
-              onClick: (type) => console.log('onClick', type)
+              onClick: type => console.log('onClick', type)
             },
             {
               label: 'React',
               type: 'react',
               selected: false,
-              onClick: (type) => console.log('onClick', type)
+              onClick: type => console.log('onClick', type)
             }
           ]
         }

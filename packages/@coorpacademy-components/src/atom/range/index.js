@@ -98,6 +98,8 @@ class Range extends React.Component {
     step: PropTypes.number,
     minLabel: PropTypes.string,
     maxLabel: PropTypes.string,
+    minValueLabel: PropTypes.string,
+    maxValueLabel: PropTypes.string,
     HammerForTestingMin: RenderHandles.propTypes.HammerForTestingMin,
     HammerForTestingMax: RenderHandles.propTypes.HammerForTestingMax
   };
@@ -218,6 +220,10 @@ class Range extends React.Component {
       theme = 'default',
       minLabel = 'Min',
       maxLabel = 'Max',
+      min,
+      max,
+      minValueLabel,
+      maxValueLabel,
       HammerForTestingMin,
       HammerForTestingMax
     } = this.props;
@@ -274,12 +280,16 @@ class Range extends React.Component {
             {multi ? (
               <div className={style.moocInput} data-testid="min-value">
                 <span className={style.inputHint}>{minLabel}</span>
-                <span className={style.inputValue}>{minActualValue}</span>
+                <span className={style.inputValue}>
+                  {minActualValue === min && !!minValueLabel ? minValueLabel : minActualValue}
+                </span>
               </div>
             ) : null}
             <div className={style.moocInput} data-testid="max-value">
               <span className={style.inputHint}>{maxLabel}</span>
-              <span className={style.inputValue}>{maxActualValue}</span>
+              <span className={style.inputValue}>
+                {maxActualValue === max && !!maxValueLabel ? maxValueLabel : maxActualValue}
+              </span>
             </div>
           </div>
         </div>

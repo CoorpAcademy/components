@@ -6,8 +6,10 @@ export default {
     min: 0,
     max: 120,
     step: 1,
-    minLabel: 'Min',
-    maxLabel: 'Max',
+    minLabel: 'MIN',
+    maxLabel: 'MAX',
+    maxValueLabel: '120+',
+    minValueLabel: '0-',
     onChange: (...args) => console.log('onChange', ...args),
     onChangeEnd: (...args) => console.log('onChangeEnd', ...args)
   }
