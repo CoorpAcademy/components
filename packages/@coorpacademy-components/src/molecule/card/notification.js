@@ -2,25 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, keys} from 'lodash/fp';
-import {
-  NovaSolidLoginLocked as LockIcon,
-  NovaSolidLocksLockUnlock1 as UnlockIcon,
-  NovaCompositionCoorpacademyCheck as CheckIcon,
-  NovaSolidStatusClose as CloseIcon
-} from '@coorpacademy/nova-icons';
 import {COLORS} from '../../variables/colors';
+import FaIcon from '../../atom/icon';
 import style from './notification.css';
 
 const NOTIFICATION_ICON = {
-  addFavorite: CheckIcon,
-  removeFavorite: CloseIcon,
-  lock: LockIcon,
-  unlock: UnlockIcon
-};
-
-const NOTIFICATIONS_COLORS = {
-  addFavorite: {color: COLORS.cm_blue_700, backgroundColor: COLORS.primary_100},
-  removeFavorite: {color: COLORS.neutral_500, backgroundColor: COLORS.cm_grey_100}
+  addFavorite: {iconName: 'check', color: COLORS.cm_blue_700, backgroundColor: COLORS.primary_100},
+  removeFavorite: {
+    iconName: 'xmark',
+    color: COLORS.neutral_500,
+    backgroundColor: COLORS.cm_grey_100
+  }
 };
 
 const handleOverlayClick = e => {
@@ -31,8 +23,7 @@ const handleOverlayClick = e => {
 
 const Notification = props => {
   const {message, icon} = props;
-  const IconType = get(icon, NOTIFICATION_ICON);
-  const {color, backgroundColor} = get(icon, NOTIFICATIONS_COLORS);
+  const {iconName, color, backgroundColor} = get(icon, NOTIFICATION_ICON);
   return (
     <div
       data-name="notification"
@@ -42,7 +33,12 @@ const Notification = props => {
     >
       <div className={style.notification}>
         <div className={style.iconWrapper} style={{backgroundColor}}>
-          <IconType className={style.icon} style={{color}} stroke={null} />
+          <FaIcon
+            iconName={iconName}
+            color={color}
+            size={{faSize: 20, wrapperSize: 20}}
+            aria-label={icon}
+          />
         </div>
         <div className={style.message}>
           <span role="status">{message}</span>
