@@ -1,9 +1,11 @@
-import React, {useRef} from 'react';
+import React, {useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, isEmpty, keys, map, pipe, sortBy} from 'lodash/fp';
 import {convert} from 'css-color-function';
+import classNames from 'classnames';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
+import ButtonLink from '../../../atom/button-link';
 import Filters from '../../../molecule/filters';
 import CardsGrid from '../../../organism/cards-grid';
 import CardsList from '../../../molecule/dashboard/cards-list';
@@ -28,6 +30,7 @@ const SearchPage = (props, context) => {
     cards,
     count,
     noresultsfound,
+    noresultsfoundDescription,
     clearFilters,
     recommendations,
     moreSortAriaLabel,
@@ -93,13 +96,17 @@ const SearchPage = (props, context) => {
   const cardsView = isEmpty(cards?.list) ? (
     <div>
       <div className={style.noresults}>
-        <div className={style.noresultstxt}>{noresultsfound}</div>
-        <Button
+        <div className={style.noresultsTitle}>{noresultsfound}</div>
+        <div className={style.noresultsDescription}>{noresultsfoundDescription}</div>
+        <ButtonLink
           {...clearFilters}
           data-name="searchPageClear"
-          className={style.clear}
-          style={{background: defaultColor}}
-          type="link"
+          className={classNames(style.clear, style.center)}
+          hoverBackgroundColor={convert(`hsl(from ${defaultColor} h s calc(l*(1 - 0.08)))`)}
+          customStyle={{
+            backgroundColor: defaultColor,
+            color: 'white'
+          }}
         />
       </div>
       {recommendationsView}
@@ -131,7 +138,7 @@ const SearchPage = (props, context) => {
       </div>
     </div>
   );
-
+  const handleclearFiltersOnClick = useCallback(() => clearFilters.onClick(), [clearFilters]);
   return (
     <div data-name="filters">
       {searchFilters ? (
@@ -152,7 +159,8 @@ const SearchPage = (props, context) => {
             dangerouslySetInnerHTML={{__html: searchMessage}}
           />
           <Button
-            {...clearFilters}
+            submitValue={clearFilters.label}
+            onClick={handleclearFiltersOnClick}
             data-name="searchMeassageClear"
             className={style.clear}
             style={{
@@ -222,12 +230,13 @@ SearchPage.propTypes = {
   newVersion: PropTypes.bool,
   searchMessage: PropTypes.string,
   noresultsfound: PropTypes.string,
+  noresultsfoundDescription: PropTypes.string,
   title: PropTypes.string,
   searchFilters: PropTypes.shape(Filters.propTypes),
   quickFilters: PropTypes.shape(QuickFilters.propTypes),
   cards: PropTypes.shape(CardsGrid.propTypes),
   count: PropTypes.number,
-  clearFilters: PropTypes.shape(Button.propTypes),
+  clearFilters: PropTypes.shape(ButtonLink.propTypes),
   recommendations: PropTypes.shape(CardsList.propTypes),
   moreSortAriaLabel: PropTypes.string,
   moreFilterAriaLabel: PropTypes.string,

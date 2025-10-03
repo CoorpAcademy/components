@@ -6,17 +6,27 @@ const recommendations = CardsList.props;
 
 export default {
   props: {
-    title: 'Catalogue : 0 résultat',
+    title: 'My list',
     searchFilters,
     clearFilters: {
-      label: 'Clear filters',
+      label: 'Explore content',
       onClick: () => console.log('clear all filter'),
-      type: 'primary'
+      type: 'primary',
+      icon: {
+        position: 'left',
+        faIcon: {
+          name: 'compass',
+          size: 16,
+          color: 'white'
+        }
+      }
     },
     cards: {
       list: []
     },
-    noresultsfound: 'Sorry no result available',
+    newVerion: true,
+    noresultsfound: 'No content in your list',
+    noresultsfoundDescription: 'Check out some content to add to your list and save it for later!',
     recommendations
   }
 };

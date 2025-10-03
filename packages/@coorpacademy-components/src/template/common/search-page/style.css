@@ -7,6 +7,7 @@
 @value black from colors;
 @value white from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 
 .cardsWrapper {
   display: block;
@@ -45,6 +46,10 @@
   line-height: 28px;
 }
 
+.center {
+  margin: 32px auto 0px;
+}
+
 .noresults {
   font-family: "Gilroy";
   border-top: solid 1px xtraLightGrey;
@@ -68,14 +73,31 @@
 }
 
 .noresults > .clear {
-  border-radius: 45px;
   height: 40px;
   line-height: 40px;
   width: auto;
 }
 
-.noresultstxt {
-  color: black;
+.noresultsTitle {
+  font-family: Gilroy;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: bottom;
+  color: cm_grey_700;
+}
+
+.noresultsDescription {
+  font-family: Gilroy;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: bottom;
+  color: cm_grey_500;
 }
 
 .popinWithCards {

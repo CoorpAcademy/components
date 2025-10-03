@@ -4,7 +4,6 @@ import skillCard from '../../../../../molecule/learner-skill-card/test/fixtures/
 import playlistCard from '../../../../../molecule/playlist-card/test/fixtures/default';
 import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
 import quickFilters from '../../../../../molecule/quick-filters/test/fixtures/many-categorize-with-filters-selected';
-import clearFilter from '../../../../../atom/button/test/fixtures/clear';
 import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/default';
 
 // Create different card types for each section
@@ -110,8 +109,6 @@ const certificationsCards = [
     imgUrl: 'https://onboarding-staging.coorpacademy.com/api/v1/goals/cert_gNzNSfjCqQ.svg'
   }
 ];
-
-const clearFilters = clearFilter.props;
 const recommendations = CardsList.props;
 
 export default {
@@ -180,7 +177,11 @@ export default {
         }
       }
     },
-    clearFilters,
+    clearFilters: {
+      label: 'Clear filters',
+      onClick: () => console.log('clear all filter'),
+      type: 'primary'
+    },
     recommendations
   }
 };
