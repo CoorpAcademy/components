@@ -11,7 +11,7 @@ const valueOnTrack = (track, x) => {
 };
 
 const extractStateFromProps = props => {
-  const {multi = false, value = multi ? [0, 1] : 0, min = 0, max = 100} = props;
+  const {multi = false, value = multi ? [0, 1] : 0, min = 0, max = 1} = props;
 
   const toNormalized = actualValue => (actualValue - min) / (max - min);
 
@@ -133,13 +133,14 @@ class Range extends React.Component {
   }
 
   normalizedToActual(normalizedValue) {
-    const {min = 0, max = 100} = this.props;
+    const {min = 0, max = 1} = this.props;
     return min + normalizedValue * (max - min);
   }
 
   roundToStep(value) {
-    const {step = 1} = this.props;
-    return Math.round(value / step) * step;
+    const {step = 0.1} = this.props;
+    const precision = 10;
+    return Number((Math.round(value / step) * step).toFixed(precision));
   }
 
   handleMinChange(e) {

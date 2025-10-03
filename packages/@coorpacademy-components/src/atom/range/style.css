@@ -2,7 +2,7 @@
 @value light from colors;
 @value dark from colors;
 @value white from colors;
-@value brand from colors;
+@value cm_grey_400 from colors;
 @value surface_input_neutral_strong from colors;
 
 .containerWrapper {
@@ -31,7 +31,7 @@
 .rail {
   composes: track;
   width: 0;
-  background-color: brand;
+  background-color: cm_grey_400;
 }
 
 .animatedRail {
