@@ -256,6 +256,15 @@ SearchPage.propTypes = {
           PropTypes.shape(LearningPriorityCard.propTypes)
         ])
       ),
+      tabs: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          count: PropTypes.number,
+          'aria-label': PropTypes.string,
+          onClick: PropTypes.func,
+          isActive: PropTypes.bool
+        })
+      ),
       showMore: PropTypes.string,
       onShowMore: PropTypes.func,
       order: PropTypes.number,

@@ -50,6 +50,35 @@
   color: cm_grey_500;
 }
 
+.tabs{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  
+} 
+
+.tab{
+  font-family: Gilroy;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 5px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0px 8px 0px 0px;
+  background-color: var(--bg);
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+.tab:hover {
+  background-color: var(--hover-bg);
+}
+
 .titleNode {
   flex-grow: 1;
 }
