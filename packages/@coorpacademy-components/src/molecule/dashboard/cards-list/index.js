@@ -402,10 +402,10 @@ class CardsList extends React.PureComponent {
           style={{
             // variable CSS consommée par .tab:hover
             '--hover-bg': convert(
-              `color(${tab.isActive ? primaryColor : COLORS.cm_grey_400} a(0.1))`
+              `color(${tab.isActive ? primaryColor : COLORS.cm_grey_500} a(0.15))`
             ),
             '--bg': tab.isActive ? convert(`color(${primaryColor} a(0.07))`) : 'transparent',
-            color: tab.isActive ? primaryColor : COLORS.cm_grey_400
+            color: tab.isActive ? primaryColor : COLORS.cm_grey_500
           }}
         >
           <IconView contentType={contentType} />
@@ -417,8 +417,8 @@ class CardsList extends React.PureComponent {
               size="S"
               customStyle={{
                 backgroundColor: tab.isActive
-                  ? convert(`color(${primaryColor} a(0.2))`)
-                  : COLORS.cm_grey_100,
+                  ? convert(`color(${primaryColor} a(0.25))`)
+                  : COLORS.cm_grey_200,
                 color: tab.isActive ? primaryColor : COLORS.cm_grey_500
               }}
             />

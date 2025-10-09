@@ -21,7 +21,7 @@ const createStyle = (icon: StatusItemProps['icon'], current?: boolean): StyleShe
       backgroundColor = COLORS.cm_positive_500;
       break;
     case 'wrong':
-      backgroundColor = COLORS.negative;
+      backgroundColor = COLORS.cm_negative_100;
       break;
     case 'no-answer':
     default:

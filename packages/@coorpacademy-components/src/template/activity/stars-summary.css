@@ -3,7 +3,7 @@
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
-@value lightMediumGray from colors;
+@value lightMediumGrey from colors;
 @value medium from colors;
 @value transparent from colors;
 @value white from colors;
@@ -116,7 +116,7 @@
 }
 
 .circle {
-    box-shadow: 0 0px 4px 0 color(lightMediumGray a(70%));
+    box-shadow: 0 0px 4px 0 color(lightMediumGrey a(70%));
     border: solid 1px light;
     border-radius: 50%;
     cursor: pointer;
