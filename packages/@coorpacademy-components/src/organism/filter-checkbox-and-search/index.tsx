@@ -33,7 +33,7 @@ const FilterCheckboxAndSearch = (
 ) => {
   const {skin} = context;
   const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
-  const {title, titleAriaLabel, searchOptions, onClear, options} = props;
+  const {title, titleAriaLabel, searchOptions, onClear, options, emptySearchResult} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
@@ -94,7 +94,7 @@ const FilterCheckboxAndSearch = (
             className={style.emptySearchResult}
             data-testid="filter-checkbox-and-search-empty-message"
           >
-            No results... Try adjusting your search.
+            {emptySearchResult}
           </p>
         ) : (
           visibleOptions.map(({value, label, selected, count, onClick}, index) => (

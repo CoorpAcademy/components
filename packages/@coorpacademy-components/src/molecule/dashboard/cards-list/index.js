@@ -14,7 +14,6 @@ import {
   findIndex,
   findLastIndex
 } from 'lodash/fp';
-import {convert} from 'css-color-function';
 import PropTypes from 'prop-types';
 import {
   NovaSolidContentContentBook1 as LearnerIcon,
@@ -27,8 +26,7 @@ import CertificationCard from '../../certification-card';
 import LearnerSkillCard from '../../learner-skill-card';
 import PlaylistCard from '../../playlist-card';
 import Icon from '../../../atom/icon';
-import {COLORS} from '../../../variables/colors';
-import Tag from '../../../atom/tag';
+import Tabs from '../../tabs';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -107,15 +105,7 @@ class CardsList extends React.PureComponent {
         PropTypes.shape(LearningPriorityCard.propTypes)
       ])
     ),
-    tabs: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string,
-        count: PropTypes.number,
-        'aria-label': PropTypes.string,
-        onClick: PropTypes.func,
-        isActive: PropTypes.bool
-      })
-    ),
+    tabs: PropTypes.shape(Tabs.propTypes),
     customStyle: PropTypes.objectOf(PropTypes.string),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
@@ -211,11 +201,6 @@ class CardsList extends React.PureComponent {
     const {cards = []} = this.props;
     this.updatePaginationState(cards);
   }
-
-  /* istanbul ignore next */
-  handleTabClick = tab => e => {
-    if (tab && typeof tab.onClick === 'function') tab.onClick(e);
-  };
 
   /* istanbul ignore next */
   updatePaginationState(cards) {
@@ -337,7 +322,6 @@ class CardsList extends React.PureComponent {
     const {skin} = this.context;
     const {maxPages} = this.state;
     const dark = getOr('#90A4AE', 'common.dark', skin);
-    const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
     const cardsView = pipe(
       toPairs,
@@ -389,51 +373,8 @@ class CardsList extends React.PureComponent {
       ) : (
         <span className={style.titleNode}>{title}</span>
       );
-    const createTab = (index, tab) => {
-      return (
-        <div
-          key={index}
-          className={style.tab}
-          role="tab"
-          tabIndex={0}
-          aria-selected={tab.isActive}
-          aria-label={tab['aria-label'] || tab.title}
-          onClick={this.handleTabClick(tab)}
-          style={{
-            // variable CSS consommée par .tab:hover
-            '--hover-bg': convert(
-              `color(${tab.isActive ? primaryColor : COLORS.cm_grey_500} a(0.15))`
-            ),
-            '--bg': tab.isActive ? convert(`color(${primaryColor} a(0.07))`) : 'transparent',
-            color: tab.isActive ? primaryColor : COLORS.cm_grey_500
-          }}
-        >
-          <IconView contentType={contentType} />
-          <span>{tab.title}</span>
-          {typeof tab.count === 'number' ? (
-            <Tag
-              label={tab.count.toString()}
-              type="default"
-              size="S"
-              customStyle={{
-                backgroundColor: tab.isActive
-                  ? convert(`color(${primaryColor} a(0.25))`)
-                  : COLORS.cm_grey_200,
-                color: tab.isActive ? primaryColor : COLORS.cm_grey_500
-              }}
-            />
-          ) : null}
-        </div>
-      );
-    };
-    const tabsView = tabs ? (
-      <div className={style.tabs} role="tablist">
-        {tabs &&
-          tabs.map((tab, index) => {
-            return createTab(index, tab);
-          })}
-      </div>
-    ) : null;
+
+    const tabsView = tabs ? <Tabs {...tabs} /> : null;
 
     const hasPages = maxPages > 0;
     const showMoreView =

@@ -5,6 +5,8 @@ import playlistCard from '../../../../../molecule/playlist-card/test/fixtures/de
 import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog';
 import quickFilters from '../../../../../molecule/quick-filters/test/fixtures/many-categorize-with-filters-selected';
 import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/default';
+import contentTabs from '../../../../../molecule/tabs/test/fixtures/default';
+import playlistTabs from '../../../../../molecule/tabs/test/fixtures/playlists';
 
 // Create different card types for each section
 const newContentCards = [
@@ -123,6 +125,7 @@ export default {
     filterGroupAriaLabel: 'Apply filtering options to refine search results',
     sortAriaLabel: 'show more sort options',
     newVersion: true,
+    tabs: contentTabs.props,
     sections: {
       freshContent: {
         title: 'New & Fresh Content',
@@ -167,22 +170,7 @@ export default {
         title: 'Playlists',
         cards: playlistsCards,
         count: 21,
-        tabs: [
-          {
-            title: 'Playlists by {brand} ',
-            count: 34,
-            'aria-label': 'All playlists',
-            onClick: () => console.log('All playlists'),
-            isActive: true
-          },
-          {
-            title: 'Generic playlists',
-            count: 23,
-            'aria-label': 'Playlists in progress',
-            onClick: () => console.log('Playlists in progress'),
-            isActive: false
-          }
-        ],
+        tabs: playlistTabs.props,
         showMore: 'See all',
         onShowMore: () => console.log('Show more playlists'),
         order: 3,

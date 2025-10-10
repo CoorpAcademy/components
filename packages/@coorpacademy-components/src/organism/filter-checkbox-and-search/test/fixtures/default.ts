@@ -14,6 +14,7 @@ const defaultFilterCheckboxFixtures: {props: FilterCheckboxAndSearchProps} = {
         console.log('onChange search');
       }
     },
+    emptySearchResult: 'No results... Try adjusting your search.',
     options: [
       {
         label: 'Active listening',

@@ -20,6 +20,7 @@ import {COLORS} from '../../../variables/colors';
 import QuickFilters from '../../../molecule/quick-filters';
 import BaseModal from '../../../molecule/base-modal';
 import MultiFilterPanel from '../../../molecule/multi-filter-panel';
+import Tabs from '../../../molecule/tabs';
 import style from './style.css';
 
 const SearchPage = (props, context) => {
@@ -41,7 +42,8 @@ const SearchPage = (props, context) => {
     sections = {},
     filtersModal,
     searchMessage,
-    newVersion = false
+    newVersion = false,
+    tabs
   } = props;
   const {skin} = context;
   const defaultColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
@@ -93,6 +95,8 @@ const SearchPage = (props, context) => {
     return <CardsList {...sectionProps} />;
   };
 
+  const tabsView = tabs ? <Tabs {...tabs} /> : null;
+
   const cardsView = isEmpty(cards?.list) ? (
     <div>
       <div className={style.noresults}>
@@ -122,18 +126,21 @@ const SearchPage = (props, context) => {
     sortBy('order')
   )(sections);
 
+  const titleView = (
+    <div className={style.sectionTitle}>
+      <span>{title}</span>
+      <Tag
+        label={count || cards.list.length.toString()}
+        type="default"
+        size="S"
+        customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
+      />
+    </div>
+  );
   const contentGridSection = (
     <div className={style.contentSection}>
       <div className={style.sectionHeader}>
-        <div className={style.sectionTitle}>
-          <span>{title}</span>
-          <Tag
-            label={count || cards.list.length.toString()}
-            type="default"
-            size="S"
-            customStyle={{backgroundColor: COLORS.cm_grey_100, color: COLORS.neutral_500}}
-          />
-        </div>
+        {tabsView ? tabsView : titleView}
         <div className={style.contentGrid}> {cardsView}</div>
       </div>
     </div>
@@ -244,6 +251,7 @@ SearchPage.propTypes = {
   sortAriaLabel: PropTypes.string,
   popinWithCards: PropTypes.shape(CMPopin.propTypes),
   filtersModal: PropTypes.shape(BaseModal.propTypes),
+  tabs: PropTypes.shape(Tabs.propTypes),
   sections: PropTypes.objectOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -256,15 +264,7 @@ SearchPage.propTypes = {
           PropTypes.shape(LearningPriorityCard.propTypes)
         ])
       ),
-      tabs: PropTypes.arrayOf(
-        PropTypes.shape({
-          title: PropTypes.string,
-          count: PropTypes.number,
-          'aria-label': PropTypes.string,
-          onClick: PropTypes.func,
-          isActive: PropTypes.bool
-        })
-      ),
+      tabs: PropTypes.shape(Tabs.propTypes),
       showMore: PropTypes.string,
       onShowMore: PropTypes.func,
       order: PropTypes.number,
