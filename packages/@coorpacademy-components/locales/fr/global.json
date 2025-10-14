@@ -223,6 +223,9 @@
     "mylcl-learning": {
        "diploma": "parcours"
     },
+    "savoirsdavenirs": {
+      "diploma": "Diploma"
+    },
     "who": {
       "badge": "Les informations complémentaires sur votre certificat"
     },
