@@ -33,7 +33,7 @@ const FilterCheckboxAndSearch = (
 ) => {
   const {skin} = context;
   const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
-  const {title, titleAriaLabel, searchOptions, onClear, options, emptySearchResult} = props;
+  const {id, title, titleAriaLabel, searchOptions, onClear, options, emptySearchResult} = props;
   const translate = GetTranslateFromContext(context);
   const [showMore, setShowMore] = useState(false);
   const selectedFiltersCount = pipe(filter({selected: true}), size)(options);
@@ -48,7 +48,11 @@ const FilterCheckboxAndSearch = (
   }, [options, showMore]);
 
   return (
-    <div data-testid="filter-checkbox-and-search-container" className={style.container}>
+    <div
+      data-name={id}
+      data-testid="filter-checkbox-and-search-container"
+      className={style.container}
+    >
       <div className={style.header} data-testid="filter-checkbox-and-search-header">
         <div
           className={style.titleAndTagWrapper}
@@ -112,13 +116,16 @@ const FilterCheckboxAndSearch = (
                 checked={selected}
                 customStyle={CHECKBOX_TITLE_STYLE}
               />
-              <p className={style.optionCount}>{count}</p>
+              <p data-name={'counter'} className={style.optionCount}>
+                {count}
+              </p>
             </div>
           ))
         )}
       </div>
       {size(options) > INITIAL_VISIBLE_OPTIONS ? (
         <ButtonLink
+          data-name={'show-more-button'}
           label={showMore ? translate('Show less') : translate('Show more')}
           type="text"
           icon={{

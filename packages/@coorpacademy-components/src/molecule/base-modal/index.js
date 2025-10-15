@@ -101,7 +101,7 @@ const BaseModal = (props, context) => {
     const buttonConfirmColor = color || get('common.primary', skin);
 
     return (
-      <div className={style.footer}>
+      <div className={style.footer} data-name="modal-footer">
         <div className={style.footerCTAWrapper}>
           {onCancel && cancelLabel ? (
             <ButtonLink
@@ -111,7 +111,7 @@ const BaseModal = (props, context) => {
                 onClick: onCancel,
                 label: cancelLabel,
                 disabled: cancelDisabled,
-                'data-testid': `button-link-${cancelLabel}`
+                'data-testid': `button-link-cancel`
               }}
             />
           ) : null}
@@ -142,7 +142,7 @@ const BaseModal = (props, context) => {
                         }
                       }
                     : {}),
-                  'data-testid': `button-link-${confirmLabel}`
+                  'data-testid': `button-link-confirm`
                 }}
               />
             </div>
