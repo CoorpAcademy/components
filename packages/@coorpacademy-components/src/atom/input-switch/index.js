@@ -102,10 +102,13 @@ const InputSwitch = (props, context) => {
           />
         </div>
       </div>
-      <div className={!details ? style.alignedTextContainer : null}>
-        {titlePosition === 'right' ? titleView : null}
-        {details ? <div className={style.detailsTxt}>{details}</div> : null}
-      </div>
+      {details || titlePosition === 'right' ? (
+        <div className={!details ? style.alignedTextContainer : null}>
+          {titlePosition === 'right' ? titleView : null}
+          {details ? <div className={style.detailsTxt}>{details}</div> : null}
+        </div>
+      ) : null}
+
       {descriptionView}
     </div>
   );

@@ -10,6 +10,7 @@ const DEFAULT_ICON_STYLE = {padding: '0', width: '20px', height: '20px'};
 
 const CheckboxWithTitle = (props, context) => {
   const {
+    value,
     title,
     name,
     checked,
@@ -31,6 +32,7 @@ const CheckboxWithTitle = (props, context) => {
         <label htmlFor={idCheckbox}>
           <input
             type="checkbox"
+            data-value={value}
             id={idCheckbox}
             name={name}
             onChange={handleChange}
@@ -74,6 +76,7 @@ const CheckboxWithTitle = (props, context) => {
 };
 
 CheckboxWithTitle.propTypes = {
+  value: PropTypes.string,
   title: PropTypes.string,
   name: PropTypes.string,
   checked: PropTypes.bool,

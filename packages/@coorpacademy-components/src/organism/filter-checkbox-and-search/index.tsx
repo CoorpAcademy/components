@@ -105,6 +105,7 @@ const FilterCheckboxAndSearch = (
             >
               <CheckboxWithTitle
                 key={value}
+                value={value}
                 title={label}
                 onChange={onClick}
                 name={label}
