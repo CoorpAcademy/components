@@ -23,7 +23,7 @@ test('should call onCancel when cancel button is clicked', t => {
   };
 
   const {container} = renderWithContext(<ContentSkillModal {...props} />);
-  const cancelButton = container.querySelector("[data-testid='button-link-Cancel']");
+  const cancelButton = container.querySelector("[data-testid='button-link-cancel']");
   t.truthy(cancelButton);
   fireEvent.click(cancelButton);
   t.pass();
