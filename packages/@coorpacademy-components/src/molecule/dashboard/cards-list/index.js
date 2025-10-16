@@ -26,6 +26,7 @@ import CertificationCard from '../../certification-card';
 import LearnerSkillCard from '../../learner-skill-card';
 import PlaylistCard from '../../playlist-card';
 import Icon from '../../../atom/icon';
+import Tabs from '../../tabs';
 import style from './style.css';
 
 const ShowMoreLink = props => {
@@ -104,6 +105,7 @@ class CardsList extends React.PureComponent {
         PropTypes.shape(LearningPriorityCard.propTypes)
       ])
     ),
+    tabs: PropTypes.shape(Tabs.propTypes),
     customStyle: PropTypes.objectOf(PropTypes.string),
     onScroll: PropTypes.func,
     onShowMore: PropTypes.func,
@@ -307,6 +309,7 @@ class CardsList extends React.PureComponent {
   render() {
     const {
       title,
+      tabs,
       showMore,
       cards,
       customStyle = {},
@@ -371,6 +374,8 @@ class CardsList extends React.PureComponent {
         <span className={style.titleNode}>{title}</span>
       );
 
+    const tabsView = tabs ? <Tabs {...tabs} /> : null;
+
     const hasPages = maxPages > 0;
     const showMoreView =
       hasPages && showMore && onShowMore ? (
@@ -401,7 +406,7 @@ class CardsList extends React.PureComponent {
         <div className={style.list}>
           <div>
             <div data-name="header" className={style.header}>
-              {titleView}
+              {tabsView ? tabsView : titleView}
               {switchPagesView}
             </div>
             <div

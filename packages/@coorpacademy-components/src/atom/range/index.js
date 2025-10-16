@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {noop, set, clamp} from 'lodash/fp';
+import {noop, set, clamp, getOr} from 'lodash/fp';
+import Provider from '../provider';
 import Handle from './handle';
 import style from './style.css';
 
@@ -10,10 +11,22 @@ const valueOnTrack = (track, x) => {
 };
 
 const extractStateFromProps = props => {
-  const {multi = false, value = multi ? [0, 1] : 0} = props;
+  const {multi = false, value = multi ? [0, 1] : 0, min = 0, max = 1} = props;
+
+  const toNormalized = actualValue => (actualValue - min) / (max - min);
+
+  let normalizedValue;
+  if (multi) {
+    normalizedValue = Array.isArray(value)
+      ? value.map(toNormalized)
+      : [toNormalized(0), toNormalized(value)];
+  } else {
+    normalizedValue = toNormalized(value);
+  }
+
   return {
     multi,
-    value: multi ? value : [0, value]
+    value: multi ? normalizedValue : [0, normalizedValue]
   };
 };
 
@@ -79,28 +92,34 @@ class Range extends React.Component {
     onChange: PropTypes.func,
     onChangeEnd: PropTypes.func,
     multi: PropTypes.bool,
+    theme: PropTypes.oneOf(['default', 'mooc']),
+    min: PropTypes.number,
+    max: PropTypes.number,
+    step: PropTypes.number,
+    minLabel: PropTypes.string,
+    maxLabel: PropTypes.string,
+    minValueLabel: PropTypes.string,
+    maxValueLabel: PropTypes.string,
     HammerForTestingMin: RenderHandles.propTypes.HammerForTestingMin,
-    HammerForTestingMax: RenderHandles.propTypes.HammerForTestingMax,
-    // eslint-disable-next-line react/no-unused-prop-types
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
+    HammerForTestingMax: RenderHandles.propTypes.HammerForTestingMax
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
   };
 
   static getDerivedStateFromProps(props, state) {
     const {pending} = state;
-
     if (pending) return null;
-
     return extractStateFromProps(props);
   }
 
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       ...extractStateFromProps(props),
       pending: false
     };
-
     this.handleClick = this.handleClick.bind(this);
     this.setRefTrack = this.setRefTrack.bind(this);
     this.handleMinChange = this.handleMinChange.bind(this);
@@ -111,6 +130,17 @@ class Range extends React.Component {
 
   setRefTrack(track) {
     this.track = track;
+  }
+
+  normalizedToActual(normalizedValue) {
+    const {min = 0, max = 1} = this.props;
+    return min + normalizedValue * (max - min);
+  }
+
+  roundToStep(value) {
+    const {step = 0.1} = this.props;
+    const precision = 10;
+    return Number((Math.round(value / step) * step).toFixed(precision));
   }
 
   handleMinChange(e) {
@@ -143,11 +173,8 @@ class Range extends React.Component {
 
   handleChange(value, valueIndex, pending) {
     const {value: prevValue} = this.state;
-
     const newValue = set(valueIndex, value, prevValue);
-
     const [minValue, maxValue] = newValue;
-
     const nextValue = minValue > maxValue ? prevValue : newValue;
 
     this.triggerChange(nextValue, pending);
@@ -159,10 +186,9 @@ class Range extends React.Component {
 
   triggerChange(newValues, pending) {
     const {onChange = noop, onChangeEnd = onChange, multi = false} = this.props;
-
     const handle = pending ? onChange : onChangeEnd;
-
-    return handle(multi ? newValues : newValues[1]);
+    const actualValues = newValues.map(val => this.roundToStep(this.normalizedToActual(val)));
+    return handle(multi ? actualValues : actualValues[1]);
   }
 
   handleClick(e) {
@@ -172,8 +198,7 @@ class Range extends React.Component {
       value: [left, right],
       multi
     } = this.state;
-    const x = e.clientX;
-    const newValue = valueOnTrack(this.track, x);
+    const newValue = valueOnTrack(this.track, e.clientX);
 
     if (!multi) return this.handleChange(newValue, 1, false);
 
@@ -192,39 +217,89 @@ class Range extends React.Component {
       value: [left, right],
       pending
     } = this.state;
+    const {
+      theme = 'default',
+      minLabel = 'Min',
+      maxLabel = 'Max',
+      min,
+      max,
+      minValueLabel,
+      maxValueLabel,
+      HammerForTestingMin,
+      HammerForTestingMax
+    } = this.props;
+
     const railWidth = right - left;
     const railLeft = left;
-    const railStyle = {
-      backgroundColor: '#9999A8',
-      width: `${railWidth * 100}%`,
-      left: `${railLeft * 100}%`
-    };
 
-    const {HammerForTestingMin, HammerForTestingMax} = this.props;
+    const {skin} = this.context;
+    const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+    const railStyle =
+      theme === 'mooc'
+        ? {
+            backgroundColor: primaryColor,
+            width: `${railWidth * 100}%`,
+            left: `${railLeft * 100}%`
+          }
+        : {
+            width: `${railWidth * 100}%`,
+            left: `${railLeft * 100}%`
+          };
+
+    const minActualValue = this.roundToStep(this.normalizedToActual(left));
+    const maxActualValue = this.roundToStep(this.normalizedToActual(right));
+
+    const sliderComponent = (
+      <div className={style.container}>
+        <div
+          data-testid="track"
+          className={style.track}
+          data-name="sliderTrack"
+          ref={this.setRefTrack}
+        />
+        <div className={pending ? style.rail : style.animatedRail} style={railStyle} />
+        <RenderHandles
+          HammerForTestingMin={HammerForTestingMin}
+          HammerForTestingMax={HammerForTestingMax}
+          left={left}
+          right={right}
+          pending={pending}
+          multi={multi}
+          onHandleMinChange={this.handleMinChange}
+          onHandleMinChangeEnd={this.handleMinChangeEnd}
+          onHandleMaxChange={this.handleMaxChange}
+          onHandleMaxChangeEnd={this.handleMaxChangeEnd}
+        />
+      </div>
+    );
+
+    if (theme === 'mooc') {
+      return (
+        <div data-testid="slider" className={style.containerWrapper}>
+          <div onClick={this.handleClick}>{sliderComponent}</div>
+          <div className={style.inputsRow}>
+            {multi ? (
+              <div className={style.moocInput} data-testid="min-value">
+                <span className={style.inputHint}>{minLabel}</span>
+                <span className={style.inputValue}>
+                  {minActualValue === min && !!minValueLabel ? minValueLabel : minActualValue}
+                </span>
+              </div>
+            ) : null}
+            <div className={style.moocInput} data-testid="max-value">
+              <span className={style.inputHint}>{maxLabel}</span>
+              <span className={style.inputValue}>
+                {maxActualValue === max && !!maxValueLabel ? maxValueLabel : maxActualValue}
+              </span>
+            </div>
+          </div>
+        </div>
+      );
+    }
 
     return (
       <div data-testid="slider" className={style.containerWrapper} onClick={this.handleClick}>
-        <div className={style.container}>
-          <div
-            data-testid="track"
-            className={style.track}
-            data-name="sliderTrack"
-            ref={this.setRefTrack}
-          />
-          <div className={pending ? style.rail : style.animatedRail} style={railStyle} />
-          <RenderHandles
-            HammerForTestingMin={HammerForTestingMin}
-            HammerForTestingMax={HammerForTestingMax}
-            left={left}
-            right={right}
-            pending={pending}
-            multi={multi}
-            onHandleMinChange={this.handleMinChange}
-            onHandleMinChangeEnd={this.handleMinChangeEnd}
-            onHandleMaxChange={this.handleMaxChange}
-            onHandleMaxChangeEnd={this.handleMaxChangeEnd}
-          />
-        </div>
+        {sliderComponent}
       </div>
     );
   }

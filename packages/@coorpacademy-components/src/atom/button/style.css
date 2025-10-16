@@ -3,7 +3,7 @@
 @value xtraLightGrey from colors;
 @value light from colors;
 @value white from colors;
-@value lightMediumGray from colors;
+@value lightMediumGrey from colors;
 
 .button {
   composes: hoverFill from './hover-fill.css';
@@ -41,7 +41,7 @@
 }
 
 .disabledAnchor {
-  background-color: lightMediumGray;
+  background-color: lightMediumGrey;
   min-width: 200px;
   text-transform: inherit;
   border-radius: 2px;

@@ -4,6 +4,7 @@ import defaultProps from './default';
 const filterCheckboxSelected: {props: FilterCheckboxAndSearchProps} = {
   props: {
     ...defaultProps.props,
+    id: 'skills-filter',
     options: [
       {
         ...defaultProps.props.options[0],

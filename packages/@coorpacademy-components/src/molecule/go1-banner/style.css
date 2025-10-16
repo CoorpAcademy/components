@@ -4,11 +4,11 @@
 @value colors: "../../variables/colors.css";
 @value go1_primary_hover from colors;
 @value go1_primary from colors;
-@value go1_backgound from colors;
+@value go1_background from colors;
 @value white from colors;
 
 .background {
-  background: go1_backgound;
+  background: go1_background;
   border-radius: 8px;
   width: 100%;
   min-height: 246px;
@@ -40,7 +40,7 @@
 }
 
 .ctaButton a {
- color: go1_backgound;
+ color: go1_background;
 }
 
 .title {

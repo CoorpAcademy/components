@@ -15,6 +15,7 @@ const propTypes = {
       onClick: PropTypes.func
     })
   ),
+  emptySearchResult: PropTypes.string,
   searchOptions: PropTypes.shape(Search.propTypes)
 };
 
@@ -39,10 +40,12 @@ type SearchType = {
 };
 
 export type FilterCheckboxAndSearchProps = {
+  id?: string;
   title: string;
   titleAriaLabel?: string;
   onClear: () => void;
   searchOptions: SearchType;
+  emptySearchResult?: string;
   options: FilterCheckboxAndSearchOptions[];
 };
 

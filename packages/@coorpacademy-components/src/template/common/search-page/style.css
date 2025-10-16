@@ -7,16 +7,47 @@
 @value black from colors;
 @value white from colors;
 @value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 
 .cardsWrapper {
   display: block;
   width: 100%;
-  max-width: 1100px;
   margin: 0px auto;
   height: auto;
   box-sizing: border-box;
   padding: 0 0 16px;
   background: white;
+}
+
+.searchMessageWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  width: 100%;
+  margin: 60px auto 0px;
+  position: relative;
+  align-items: baseline;
+}
+
+.searchMessage {
+  font-family: "Gilroy";
+  font-size: 18px;
+  font-weight: 400;
+  color: cm_grey_500;
+  padding: 0 10px;
+  display: block;
+  line-height: 28px;
+  user-select: none;
+}
+
+.clear {
+  min-width: auto;
+  line-height: 28px;
+}
+
+.center {
+  margin: 32px auto 0px;
 }
 
 .noresults {
@@ -42,14 +73,31 @@
 }
 
 .noresults > .clear {
-  border-radius: 45px;
   height: 40px;
   line-height: 40px;
   width: auto;
 }
 
-.noresultstxt {
-  color: black;
+.noresultsTitle {
+  font-family: Gilroy;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: bottom;
+  color: cm_grey_700;
+}
+
+.noresultsDescription {
+  font-family: Gilroy;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: bottom;
+  color: cm_grey_500;
 }
 
 .popinWithCards {
