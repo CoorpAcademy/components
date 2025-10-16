@@ -40,7 +40,7 @@ type SearchType = {
 };
 
 export type FilterCheckboxAndSearchProps = {
-  id: string;
+  id?: string;
   title: string;
   titleAriaLabel?: string;
   onClear: () => void;
