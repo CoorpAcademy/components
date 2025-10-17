@@ -88,7 +88,7 @@ const Html = (props: Props) => {
     }
   };
 
-  const tagsStyles: MixedStyleRecord = {
+  const tagsStyles = {
     ...styles,
     h1: {fontSize},
     h2: {fontSize},
@@ -98,7 +98,7 @@ const Html = (props: Props) => {
     h6: {fontSize},
     a: {color: anchorTextColor},
     img: imageStyle || {}
-  };
+  } as MixedStyleRecord;
 
   let baseFontStyle: TextStyle = useMemo(
     () => ({fontSize, color: theme.colors.black}),

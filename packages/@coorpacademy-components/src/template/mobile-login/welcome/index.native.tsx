@@ -30,8 +30,8 @@ type StyleSheetType = {
   actions: ViewStyle;
   buttons: ViewStyle;
   button: ViewStyle;
-  qrCodeIcon: ViewStyle;
-  mailIcon: ViewStyle;
+  qrCodeIcon: ViewStyle & {fill?: string};
+  mailIcon: ViewStyle & {fill?: string};
   ctaQrCode: ViewStyle;
   ctaQrCodeText: TextStyle;
   ctaReceiveMail: ViewStyle;
@@ -42,7 +42,7 @@ type StyleSheetType = {
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
-  StyleSheet.create({
+  StyleSheet.create<StyleSheetType>({
     wrapper: {
       top: 0,
       bottom: 0,
@@ -145,7 +145,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#fff',
       height: 14,
       width: 14
-    },
+    } as ViewStyle & {fill?: string},
     ctaReceiveMail: {
       backgroundColor: '#eaeaeb'
     },
@@ -160,7 +160,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#1D1D2B',
       height: 12,
       width: 16
-    },
+    } as ViewStyle & {fill?: string},
     help: {
       flexDirection: 'row',
       justifyContent: 'center'
@@ -172,7 +172,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       marginLeft: 5,
       textDecorationLine: 'underline',
       color: '#9999A8'
-    }
+    } as ViewStyle & {textDecorationLine: string}
   });
 
 export type Props = {

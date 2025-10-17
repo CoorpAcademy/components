@@ -1,4 +1,4 @@
-import {View, StyleSheet, TextInput, ViewStyle} from 'react-native';
+import {View, StyleSheet, TextInput, ViewStyle, TextStyle} from 'react-native';
 import React, {useState, useEffect, useCallback} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
@@ -20,7 +20,7 @@ interface Props {
 
 type StyleSheetType = {
   input: ViewStyle;
-  text: ViewStyle;
+  text: TextStyle;
   spaced: ViewStyle;
   fullWitdh: ViewStyle;
 };

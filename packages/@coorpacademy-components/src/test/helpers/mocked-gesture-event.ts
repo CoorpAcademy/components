@@ -2,9 +2,9 @@ import noop from 'lodash/fp/noop';
 import {GestureResponderEvent} from 'react-native';
 
 const mockedGestureEvent: GestureResponderEvent = {
-  target: 0,
+  target: null as any,
   type: '',
-  currentTarget: 0,
+  currentTarget: null as any,
   bubbles: false,
   cancelable: false,
   defaultPrevented: false,

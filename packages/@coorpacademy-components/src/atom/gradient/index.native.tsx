@@ -44,16 +44,14 @@ const Gradient = ({
   }
 
   return (
-    (
-      <LinearGradient
-        colors={calculatedColors}
-        style={_style}
-        pointerEvents={pointerEvents}
-        testID={testID}
-      >
-        {children}
-      </LinearGradient>
-    ) || null
+    <LinearGradient
+      colors={calculatedColors}
+      style={_style}
+      pointerEvents={pointerEvents}
+      testID={testID}
+    >
+      {children}
+    </LinearGradient>
   );
 };
 

@@ -37,7 +37,7 @@ export type Props = {
 
 type StyleSheetType = {
   container: ViewStyle;
-  text: ViewStyle;
+  text: TextStyle;
 };
 
 const ICON_WIDTH = 15;
@@ -125,7 +125,7 @@ const Select = (props: Props) => {
 
   let textStyles: TextStyle = {
     ...styleSheet.text,
-    ...textStyle
+    ...(textStyle ? StyleSheet.flatten(textStyle) : {})
   };
 
   let color;

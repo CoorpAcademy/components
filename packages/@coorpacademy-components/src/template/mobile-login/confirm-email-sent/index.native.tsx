@@ -18,7 +18,7 @@ type StyleSheetType = {
   wrapper: ViewStyle;
   content: ViewStyle;
   backButton: ViewStyle;
-  closeIcon: ViewStyle;
+  closeIcon: ViewStyle & {fill?: string};
   gradients: ViewStyle;
   gradient: ViewStyle;
   gradient2: ViewStyle;
@@ -27,14 +27,14 @@ type StyleSheetType = {
   ctaWrapper: ViewStyle;
   ctaOpenInbox: ViewStyle;
   ctaOpenInboxText: TextStyle;
-  mailIcon: ViewStyle;
+  mailIcon: ViewStyle & {fill?: string};
   checkIconWrapper: ViewStyle;
   checkIconInnerWrapper: ViewStyle;
-  checkIcon: ViewStyle;
+  checkIcon: ViewStyle & {fill?: string};
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
-  StyleSheet.create({
+  StyleSheet.create<StyleSheetType>({
     wrapper: {
       top: 0,
       bottom: 0,
@@ -54,7 +54,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#515161',
       width: 20,
       height: 20
-    },
+    } as ViewStyle & {fill?: string},
     gradients: {
       position: 'absolute',
       top: 0,
@@ -107,7 +107,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#fff',
       width: 12,
       height: 12
-    },
+    } as ViewStyle & {fill?: string},
     title: {
       color: '#1D1D2B',
       fontWeight: '600',
@@ -150,7 +150,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#fff',
       height: 14,
       width: 14
-    }
+    } as ViewStyle & {fill?: string}
   });
 
 export type Props = {
