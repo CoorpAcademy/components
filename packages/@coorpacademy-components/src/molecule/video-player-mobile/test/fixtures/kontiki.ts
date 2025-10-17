@@ -16,7 +16,7 @@ const fixture: Fixture = {
           playlist: [
             {
               file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-              tracks: [{file: '', label: ''}]
+              tracks: [{file: '', label: '', kind: 'thumbnails'}]
             }
           ]
         }
