@@ -26,6 +26,7 @@ export default {
     moreFilterAriaLabel: 'show or hide sortBy options',
     filterGroupAriaLabel: 'Apply filtering options to refine search results',
     sortAriaLabel: 'show more sort options',
+    newVersion: true,
     sections: {
       freshContent: {
         title: 'New & Fresh Content',

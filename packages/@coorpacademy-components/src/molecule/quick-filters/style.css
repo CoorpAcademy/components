@@ -113,6 +113,8 @@
 
 .filterLabel {
     min-width: 70px;
+    user-select: none;
+    text-align: center;
 }
 
 .filterSeparator {
@@ -190,10 +192,13 @@
 }
 
 @media mobile {
-    .leftArrowButton, .rightArrowButton, .filterButton, .filterButtonWrapper {
+    .leftArrowButton, .rightArrowButton {
         display: none!important;
     }
-
+    .filtersMainContainer {
+        margin: 0px;
+        padding: 20px 0px 0px 0px;
+    }
     .filtersList{
         margin-right: 0;
     }

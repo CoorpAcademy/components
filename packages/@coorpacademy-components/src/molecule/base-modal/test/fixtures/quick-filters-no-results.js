@@ -25,8 +25,7 @@ export default {
       confirmButton: {
         onConfirm: () => console.log('show results'),
         label: 'No results with selected filters',
-        disabled: true,
-        color: COLORS.cm_primary_blue
+        disabled: true
       }
     },
     onClose: () => console.log('close modal'),

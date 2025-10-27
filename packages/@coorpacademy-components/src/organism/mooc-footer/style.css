@@ -8,7 +8,7 @@
 @value black from colors;
 @value transparent from colors;
 @value lightBlack from colors;
-@value lightMediumGray from colors;
+@value lightMediumGrey from colors;
 
 .headSpacingContainer {
   width: 100%;
@@ -83,7 +83,7 @@
 
 .sectionTitle {
   padding-top: 16px;
-  color: lightMediumGray;
+  color: lightMediumGrey;
   font-size: 16px;
   font-weight: 300;
   font-stretch: normal;

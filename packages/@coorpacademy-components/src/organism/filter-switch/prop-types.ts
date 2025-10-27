@@ -10,7 +10,8 @@ const propTypes = {
       value: PropTypes.bool.isRequired,
       onChange: PropTypes.func.isRequired,
       theme: PropTypes.string.isRequired,
-      ariaLabel: PropTypes.string.isRequired
+      ariaLabel: PropTypes.string.isRequired,
+      id: PropTypes.string
     })
   )
 };
@@ -21,6 +22,7 @@ export type FilterSwitchOptionsProps = {
   onChange: (value: string) => void;
   theme: string;
   ariaLabel: string;
+  id?: string;
 };
 
 export type FilterSwitchProps = {

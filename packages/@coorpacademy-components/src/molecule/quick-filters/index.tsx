@@ -152,7 +152,7 @@ const QuickFilters = (
                   size={{faSize: 20, wrapperSize: 20}}
                   aria-label={ariaLabel}
                 />
-                <span>{label}</span>
+                <span className={style.filterLabel}>{label}</span>
                 <div className={style.bar} style={{background: primarySkinColor}} />
               </div>
             );

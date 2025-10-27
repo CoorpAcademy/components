@@ -38,7 +38,7 @@ const FilterButton = props => {
   const buttonProps = {
     customStyle: {
       backgroundColor: active ? convert(`color(${primarySkinColor} a(0.07))`) : 'transparent',
-      color: active ? primarySkinColor : '#9999A8',
+      color: active ? primarySkinColor : COLORS.cm_grey_400,
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out',
       width: 'fit-content'
     },

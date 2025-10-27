@@ -6,6 +6,7 @@ import {
   NovaLineContentEditionPencil2 as PencilIcon
 } from '@coorpacademy/nova-icons';
 import Provider, {GetSkinFromContext} from '../provider';
+import {COLORS} from '../../variables/colors';
 import InputPreview from './input-preview';
 import style from './style.css';
 
@@ -32,7 +33,7 @@ const InputHtml = (props, legacyContext) => {
   );
 
   const skin = GetSkinFromContext(legacyContext);
-  const mediumColor = getOr('#999999', 'common.medium', skin);
+  const mediumColor = getOr(COLORS.cm_grey_400, 'common.medium', skin);
 
   const {title, placeholder, error, description, disabled} = props;
 

@@ -1,12 +1,14 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {noop, uniqueId} from 'lodash/fp';
+import {getOr, noop, uniqueId} from 'lodash/fp';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import getClassState from '../../util/get-class-state';
+import {COLORS} from '../../variables/colors';
+import Provider from '../provider';
 import style from './style.css';
 
-const InputSwitch = props => {
+const InputSwitch = (props, context) => {
   const {
     title,
     name,
@@ -25,7 +27,8 @@ const InputSwitch = props => {
     'aria-label': ariaLabel,
     icon
   } = props;
-
+  const {skin} = context;
+  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
@@ -95,13 +98,17 @@ const InputSwitch = props => {
             tabIndex={0}
             aria-label={ariaLabel}
             title={ariaLabel}
+            style={value ? {background: primaryColor, borderColor: primaryColor} : null}
           />
         </div>
       </div>
-      <div className={!details ? style.alignedTextContainer : null}>
-        {titlePosition === 'right' ? titleView : null}
-        {details ? <div className={style.detailsTxt}>{details}</div> : null}
-      </div>
+      {details || titlePosition === 'right' ? (
+        <div className={!details ? style.alignedTextContainer : null}>
+          {titlePosition === 'right' ? titleView : null}
+          {details ? <div className={style.detailsTxt}>{details}</div> : null}
+        </div>
+      ) : null}
+
       {descriptionView}
     </div>
   );
@@ -125,4 +132,9 @@ InputSwitch.propTypes = {
   requiredSelection: PropTypes.bool,
   icon: PropTypes.string
 };
+
+InputSwitch.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 export default InputSwitch;

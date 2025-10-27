@@ -76,7 +76,7 @@
   overflow: hidden;
   align-items: flex-start;
   flex-shrink: 0;
-  color: var(--font-font-color-tertiary, #9999A8);
+  color: var(--font-font-color-tertiary, cm_grey_400);
   text-overflow: ellipsis;
   font-family: Gilroy;
   font-size: 14px;
