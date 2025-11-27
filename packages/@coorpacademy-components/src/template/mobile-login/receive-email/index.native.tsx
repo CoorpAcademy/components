@@ -7,7 +7,8 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  View
+  View,
+  ViewStyle
 } from 'react-native';
 import {
   NovaCompositionNavigationLeftArrow as ArrowIcon,
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     fill: '#515161',
     width: 24,
     height: 15
-  },
+  } as ViewStyle & {fill?: string},
   mailIconWrapper: {
     backgroundColor: '#f1f6fe',
     width: 64,
@@ -57,14 +58,14 @@ const styles = StyleSheet.create({
     fill: '#0061ff',
     width: 24,
     height: 18
-  },
+  } as ViewStyle & {fill?: string},
   innerMailIcon: {
     fill: '#515161',
     width: 16,
     height: 12,
     marginTop: -30,
     marginLeft: 16
-  },
+  } as ViewStyle & {fill?: string},
   title: {
     color: '#1D1D2B',
     fontSize: 24,
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     marginRight: 8
-  },
+  } as ViewStyle & {fill?: string},
   ctaText: {
     color: '#fff',
     fontWeight: '700',

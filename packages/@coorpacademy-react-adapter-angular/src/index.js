@@ -1,12 +1,17 @@
 import {mapKeys} from 'lodash/fp';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 const DefaultProvider = props => props.children;
 
 const link = (Provider, Component) => (scope, element, attrs) => {
+  let root = null;
+
   const update = vTree => {
-    ReactDOM.render(vTree, element[0]);
+    if (!root) {
+      root = ReactDOM.createRoot(element[0]);
+    }
+    root.render(vTree);
   };
 
   const refresh = (context = {}, props = {}) => {
@@ -22,7 +27,12 @@ const link = (Provider, Component) => (scope, element, attrs) => {
   scope.$watch('context', () => refresh(scope.context, scope.props), true);
   scope.$watch('props', () => refresh(scope.context, scope.props), true);
 
-  scope.$on('$destroy', () => ReactDOM.unmountComponentAtNode(element[0]));
+  scope.$on('$destroy', () => {
+    if (root) {
+      root.unmount();
+      root = null;
+    }
+  });
 };
 
 const createDirective = (app, componentName, Provider, Component) => {

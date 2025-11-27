@@ -121,7 +121,7 @@ type StyleSheetType = {
   questionHeading: ViewStyle;
   questionOriginContainer: ViewStyle;
   questionOrigin: TextStyle;
-  questionTextContainer: ViewStyle;
+  questionTextContainer: TextStyle;
   questionText: TextStyle;
   questionHelpContainer: ViewStyle;
   questionHelp: TextStyle;

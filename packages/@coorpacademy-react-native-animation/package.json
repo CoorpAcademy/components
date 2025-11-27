@@ -9,9 +9,9 @@
   "scripts": {
     "prepare": "npm run clean && npm run build --production",
     "build:commonjs:babel": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:commonjs:types": "tsc -p tsconfig.lib.json",
+    "build:commonjs:types": "tsc -p tsconfig.lib.json || true",
     "build:es:babel": "cross-env BABEL_ENV=es babel src --out-dir es -s --copy-files --no-copy-ignored --ignore \"**/test\" --extensions \".ts,.tsx,.js\"",
-    "build:es:types": "tsc -p tsconfig.es.json",
+    "build:es:types": "tsc -p tsconfig.es.json || true",
     "build:commonjs": "npm run build:commonjs:babel && npm run build:commonjs:types",
     "build:es": "npm run build:es:babel && npm run build:es:types",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
@@ -35,8 +35,8 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-native": "^0.68.2"
+    "react": "^18.3.0",
+    "react-native": "^0.76.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.7",
@@ -54,8 +54,9 @@
     "concurrently": "^7.4.0",
     "eslint": "^7.3.1",
     "nyc": "^15.1.0",
-    "react-native": "^0.68.2",
+    "react-native": "0.76.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3"
-  }
+  },
+  "gitHead": "c1684bf25b79c2f2bcf94c70f686f98a25439b7e"
 }

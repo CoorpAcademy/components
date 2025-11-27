@@ -1,6 +1,5 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Animated, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
+import {Animated, StyleSheet, TextStyle, View, ViewStyle, Platform} from 'react-native';
 import {
   NovaCompositionCoorpacademyLogoCoorp as LogoCoorp,
   NovaCompositionCoorpacademyQrCode as QrCodeIcon,
@@ -30,8 +29,8 @@ type StyleSheetType = {
   actions: ViewStyle;
   buttons: ViewStyle;
   button: ViewStyle;
-  qrCodeIcon: ViewStyle;
-  mailIcon: ViewStyle;
+  qrCodeIcon: ViewStyle & {fill?: string};
+  mailIcon: ViewStyle & {fill?: string};
   ctaQrCode: ViewStyle;
   ctaQrCodeText: TextStyle;
   ctaReceiveMail: ViewStyle;
@@ -42,7 +41,7 @@ type StyleSheetType = {
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
-  StyleSheet.create({
+  StyleSheet.create<StyleSheetType>({
     wrapper: {
       top: 0,
       bottom: 0,
@@ -145,7 +144,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#fff',
       height: 14,
       width: 14
-    },
+    } as ViewStyle & {fill?: string},
     ctaReceiveMail: {
       backgroundColor: '#eaeaeb'
     },
@@ -160,7 +159,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#1D1D2B',
       height: 12,
       width: 16
-    },
+    } as ViewStyle & {fill?: string},
     help: {
       flexDirection: 'row',
       justifyContent: 'center'
@@ -172,7 +171,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       marginLeft: 5,
       textDecorationLine: 'underline',
       color: '#9999A8'
-    }
+    } as ViewStyle & {textDecorationLine: string}
   });
 
 export type Props = {
@@ -233,7 +232,7 @@ const Welcome = (props: Props) => {
     delay: 900
   });
 
-  const scaleAnim = useRef<Animated.Value>(new Animated.Value(0)).current;
+  const scaleAnim = useMemo(() => new Animated.Value(0), []);
   const interpolateScale = scaleAnim.interpolate({
     inputRange: [0, 0.4, 0.5, 0.6, 1],
     outputRange: [1, 1.7, 1.7, 1.7, 1]
@@ -269,15 +268,35 @@ const Welcome = (props: Props) => {
   return (
     <Animated.View style={[styleSheet.wrapper, translateContent.animatedStyle]} testID="welcome">
       <Animated.View style={[styleSheet.gradients, translateGradients.animatedStyle]}>
-        <LinearGradient
-          colors={[cm_primary_blue, '#fff']}
-          locations={[0, 0.95]}
-          style={styleSheet.gradient}
+        <View
+          style={[
+            styleSheet.gradient,
+            Platform.select({
+              default: {
+                // @ts-ignore
+                experimental_backgroundImage: `linear-gradient(180deg, ${cm_primary_blue} 0%, #fff 95%)`
+              },
+              web: {
+                // @ts-ignore
+                backgroundImage: `linear-gradient(180deg, ${cm_primary_blue} 0%, #fff 95%)`
+              }
+            })
+          ]}
         />
-        <LinearGradient
-          colors={['#2199AB', '#fff']}
-          locations={[0, 0.95]}
-          style={styleSheet.gradient2}
+        <View
+          style={[
+            styleSheet.gradient2,
+            Platform.select({
+              default: {
+                // @ts-ignore
+                experimental_backgroundImage: 'linear-gradient(180deg, #2199AB 0%, #fff 95%)'
+              },
+              web: {
+                // @ts-ignore
+                backgroundImage: 'linear-gradient(180deg, #2199AB 0%, #fff 95%)'
+              }
+            })
+          ]}
         />
       </Animated.View>
 

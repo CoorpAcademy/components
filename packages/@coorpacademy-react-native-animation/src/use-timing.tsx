@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useRef, useCallback, useEffect} from 'react';
 import {Animated} from 'react-native';
 
 export type AnimationParams = Omit<Animated.TimingAnimationConfig, 'useNativeDriver'> & {
@@ -23,39 +23,65 @@ type Timing = {
 };
 
 const useTiming = (params: AnimationParams): Timing => {
-  const {fromValue = 0, toValue = 100, onComplete, ...othersParams} = params;
-  const ref = useRef<Animated.Value>(new Animated.Value(fromValue)).current;
+  const {fromValue = 0, toValue = 100, onComplete, duration, delay, easing} = params;
 
-  const timing = Animated.timing(ref, {
-    ...othersParams,
-    toValue,
-    useNativeDriver: true
-  });
+  const animatedValue = useRef(new Animated.Value(fromValue)).current;
 
-  const revertTiming = Animated.timing(ref, {
-    ...othersParams,
-    toValue: fromValue,
-    useNativeDriver: true
-  });
+  // Créer les animations et les mémoriser
+  const timingRef = useRef<Animated.CompositeAnimation | null>(null);
+  const revertTimingRef = useRef<Animated.CompositeAnimation | null>(null);
 
-  const reset = () => ref.setValue(fromValue);
-  const start = (cb?: Animated.EndCallback) => {
-    reset();
-    timing.start((result: Animated.EndResult) => {
+  // Recréer les animations seulement si les paramètres changent
+  useEffect(() => {
+    timingRef.current = Animated.timing(animatedValue, {
+      toValue,
+      duration,
+      delay,
+      easing,
+      useNativeDriver: true
+    });
+
+    revertTimingRef.current = Animated.timing(animatedValue, {
+      toValue: fromValue,
+      duration,
+      delay,
+      easing,
+      useNativeDriver: true
+    });
+  }, [animatedValue, toValue, fromValue, duration, delay, easing]);
+
+  // Cleanup: stop animations on unmount
+  useEffect(() => {
+    return () => {
+      timingRef.current?.stop();
+      revertTimingRef.current?.stop();
+    };
+  }, []);
+
+  const start = useCallback((cb?: Animated.EndCallback) => {
+    animatedValue.setValue(fromValue);
+    timingRef.current?.start((result: Animated.EndResult) => {
       onComplete?.();
       return cb?.(result);
     });
-  };
+  }, [animatedValue, fromValue, onComplete]);
+
+  const reset = useCallback(() => {
+    animatedValue.setValue(fromValue);
+  }, [animatedValue, fromValue]);
+
+  const revert = useCallback((cb?: Animated.EndCallback) => {
+    revertTimingRef.current?.start(cb);
+  }, []);
 
   const animation = {
-    ...timing,
-    onComplete,
     start,
+    stop: () => timingRef.current?.stop(),
     reset,
-    revert: revertTiming.start
+    revert
   };
 
-  return {animation, ref};
+  return {animation: animation as any, ref: animatedValue};
 };
 
 export default useTiming;

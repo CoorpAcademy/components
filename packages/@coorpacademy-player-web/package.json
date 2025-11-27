@@ -28,7 +28,7 @@
     "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox/webpack.config.js"
   },
   "engines": {
-    "node": ">=18.12.0"
+    "node": ">=24.11.0"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
@@ -48,16 +48,16 @@
     "glob": "^8.0.3",
     "html-webpack-plugin": "^5.5.0",
     "nyc": "^15.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "redux": "^4.2.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
   },
   "dependencies": {
     "@coorpacademy/components": "11.40.18",
@@ -68,5 +68,6 @@
     "@coorpacademy/translate": "6.3.0",
     "eslint": "^8.24.0",
     "lodash": "^4.17.21"
-  }
+  },
+  "gitHead": "29f13812e3372805621babab2977b2d9036580eb"
 }

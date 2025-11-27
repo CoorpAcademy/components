@@ -8,9 +8,7 @@ export interface Props {
 }
 
 type StyleSheetType = {
-  logo: {
-    width: string;
-  };
+  logo: ViewStyle;
 };
 
 const styles: StyleSheetType = StyleSheet.create({

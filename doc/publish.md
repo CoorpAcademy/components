@@ -80,10 +80,17 @@ If the publish failed because of a `lerna` error that resembles the following me
 Then you can re-try the canary publish, you have take the version that follows the `-alpha.` string,
 `13` in this example, add one version to that number `14`now and run the command as follows `--preid alpha.THE_NEXT_VERSION`:
 
-```
+```sh
 npm run publish:canary -- --preid alpha.14
 ```
 
+Immediately after, revert the versions
+
+```sh
+git checkout -- packages/*/package.json
+```
+
+Canaries are test versions published on npm, not meant to be tracked in git. Your branch keeps the real versions, and users who want to try the canary explicitly install it.
 
 ### mooc
 
@@ -114,12 +121,13 @@ Warning ⚠️ : remove from package.json `^` as it might not install the expect
 
 ### canary known issues
 
-hashes issues https://github.com/lerna/lerna/issues/277
+hashes issues <https://github.com/lerna/lerna/issues/277>
 
 ## 2 - Release
-- ### Prerequisite 
 
-  - Have merged your PR on `master` 
+- ### Prerequisite
+
+  - Have merged your PR on `master`
 
   - Be at lerna root, checkout and pull master
 
@@ -127,22 +135,27 @@ hashes issues https://github.com/lerna/lerna/issues/277
     > git checkout master
     > git pull origin master
     ```
+
     - **warning:** if you have conflicts, be sure to reset your branch to `origin/master` before proceeding!
 
       ```
       > git reset --hard origin/master
       ```
 
-  - Check that you are connected to NPM 
+  - Check that you are connected to NPM
 
     ```
     > npm whoami
     ```
-      - If not: 
+
+    - If not:
+
         ```
         > npm login
         ```
+
   - Check that you haven't a package-lock at the root of the project. If the package-lock exists, delete it:
+
     ```
     > git clean -xdf
     ```
@@ -200,6 +213,7 @@ you have to revert the commit and delete the tags before to run the publish agai
 ```
 
 if your release is successful, but the packages don't make it to npmjs.com, republish the packages manually by going to each package that should have been released, and for each of them, do :
+
 ```
  > npm publish
 ```
@@ -225,6 +239,16 @@ If so, you may need to remove the current tag (be sure to play with `canary` onl
 
 then publish with a new `preid`
 
+### 1. Publish a canary (temporarily modifies the package.json files)
+
+```sh
+npx lerna publish --canary --exact --cd-version=patch --skip-git --preid react18
 ```
-> npx lerna publish --canary --exact --cd-version=patch --skip-git --preid alpha2
+
+### 2. Immediately after, revert the versions
+
+```sh
+git checkout -- packages/*/package.json
 ```
+
+Canaries are test versions published on npm, not meant to be tracked in git. Your branch keeps the real versions, and users who want to try the canary explicitly install it (@canary or @react18).

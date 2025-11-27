@@ -1,5 +1,5 @@
 import {
-  TouchableOpacity,
+  Pressable,
   TouchableHighlight,
   ViewStyle,
   LayoutChangeEvent,
@@ -122,14 +122,22 @@ const Touchable = (props: Props) => {
     );
   }
 
+  const computedActiveOpacity = (isWithoutFeedback && 1) || activeOpacity || (disabled ? 1 : 0.2);
+
   return (
-    <TouchableOpacity
+    <Pressable
       {...props}
       accessibilityLabel={accessibilityLabel}
       hitSlop={hitSlop}
       onPress={handlePress}
       onLongPress={handleLongPress}
-      activeOpacity={(isWithoutFeedback && 1) || activeOpacity || (disabled ? 1 : 0.2)}
+      style={({pressed}) => {
+        const baseStyle = Array.isArray(props.style) ? props.style : [props.style];
+        if (pressed && computedActiveOpacity !== 1) {
+          return [...baseStyle, {opacity: computedActiveOpacity}];
+        }
+        return baseStyle;
+      }}
     />
   );
 };

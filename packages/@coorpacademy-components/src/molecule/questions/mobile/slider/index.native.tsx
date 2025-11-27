@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
-import Slider from '@coorpacademy/react-native-slider';
+import Slider from '@react-native-community/slider';
 
 import {Theme} from '../../../../variables/theme.native';
 import Text from '../../../../atom/text/index.native';

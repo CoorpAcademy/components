@@ -25,19 +25,19 @@ export type Props = {
 type StyleSheetType = {
   popin: ViewStyle;
   content: ViewStyle;
-  icon: ViewStyle;
+  icon: ViewStyle & {fill?: string};
   iconWrapper: ViewStyle;
   button: ViewStyle;
   buttonText: TextStyle;
   closeButton: ViewStyle;
-  closeIcon: ViewStyle;
+  closeIcon: ViewStyle & {fill?: string};
   title: TextStyle;
   description1: TextStyle;
   description2: TextStyle;
 };
 
 const createStyleSheet = (brandTheme: Brand, theme: Theme) =>
-  StyleSheet.create({
+  StyleSheet.create<StyleSheetType>({
     popin: {
       position: 'absolute',
       top: 0,
@@ -65,7 +65,7 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme) =>
       width: 60,
       height: 60,
       fill: brandTheme.colors?.primary
-    },
+    } as ViewStyle & {fill?: string},
     title: {
       textAlign: 'center',
       lineHeight: 24,
@@ -122,7 +122,7 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme) =>
       width: '100%',
       height: '100%',
       fill: '#aeaeae'
-    }
+    } as ViewStyle & {fill?: string}
   });
 
 const PopinIntro = (props: Props) => {

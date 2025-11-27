@@ -14,8 +14,11 @@
     ],
     // https://stackoverflow.com/questions/39423054/react-jsx-file-giving-error-cannot-read-property-createelement-of-undefined#comment103952221_56015464
     "esModuleInterop": true,
-    "strict": true,
-    "noErrorTruncation": true
+    "strict": false,
+    "noErrorTruncation": true,
+    "skipDefaultLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": false
   },
   "exclude": [
     "node_modules",

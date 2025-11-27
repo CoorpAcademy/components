@@ -1,6 +1,5 @@
 import React, {ReactNode} from 'react';
-import {ViewStyle} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {View, ViewStyle, StyleSheet, Platform} from 'react-native';
 import Color from 'colorjs.io';
 
 export type Props = {
@@ -22,9 +21,18 @@ const Gradient = ({
   testID,
   pointerEvents
 }: Props) => {
-  let calculatedColors = colors;
-  if (colors.length === 1) {
-    const [raw] = colors;
+  // Validate colors array - ensure all values are valid strings
+  const validColors = colors?.filter(c => c && typeof c === 'string') || [];
+
+  // Fallback if no valid colors provided
+  if (validColors.length === 0) {
+    console.warn('Gradient: No valid colors provided, using transparent fallback');
+    return <>{children}</>;
+  }
+
+  let calculatedColors = validColors;
+  if (validColors.length === 1) {
+    const [raw] = validColors;
     const transparent = new Color(raw).to('srgb');
     transparent.alpha = 0;
 
@@ -34,26 +42,35 @@ const Gradient = ({
         : [raw, raw, transparent.toString()];
   }
 
-  const _style = [];
+  const _style: ViewStyle[] = [];
 
   if (style) {
-    _style.push(style);
+    _style.push(style as ViewStyle);
   }
   if (height) {
     _style.push({height});
   }
 
+  // Build CSS gradient string (vertical by default)
+  const gradientString = `linear-gradient(180deg, ${calculatedColors.join(', ')})`;
+
+  const gradientStyle: ViewStyle = Platform.select({
+    default: {
+      // @ts-ignore - experimental_backgroundImage is not yet in types
+      experimental_backgroundImage: gradientString
+    },
+    web: {
+      // @ts-ignore
+      backgroundImage: gradientString
+    }
+  });
+
+  const combinedStyle = StyleSheet.flatten([gradientStyle, ..._style]);
+
   return (
-    (
-      <LinearGradient
-        colors={calculatedColors}
-        style={_style}
-        pointerEvents={pointerEvents}
-        testID={testID}
-      >
-        {children}
-      </LinearGradient>
-    ) || null
+    <View style={combinedStyle} pointerEvents={pointerEvents} testID={testID}>
+      {children}
+    </View>
   );
 };
 

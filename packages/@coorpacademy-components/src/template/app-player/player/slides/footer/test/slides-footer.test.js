@@ -2,7 +2,7 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import Adapter from '@cfaester/enzyme-adapter-react-18';
 import SlidesFooter from '..';
 import defaultFixture from './fixtures/default';
 import mediaSelectedFixture from './fixtures/media-selected';
