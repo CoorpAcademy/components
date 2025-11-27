@@ -1,7 +1,7 @@
 import React, {CSSProperties} from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {fas} from '@fortawesome/pro-solid-svg-icons';
+import {fas} from '@fortawesome/free-solid-svg-icons';
 import {IconName, library} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';

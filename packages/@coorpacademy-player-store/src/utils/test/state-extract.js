@@ -849,6 +849,28 @@ test('getCurrentExitNode should get current exit node from state with counters',
   });
 });
 
+test('getCurrentExitNode should handle HTML content without crashing', t => {
+  const exitNode = {
+    ref: 'successExitNode',
+    title: 'Congratulations!',
+    description: 'Your transcript will be updated.<br/>Thanks for your patience.'
+  };
+  const progression = {
+    state: {nextContent: {ref: 'successExitNode'}, variables: {}}
+  };
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {0: progression}),
+    set('data.exitNodes.entities', {successExitNode: exitNode})
+  )({});
+
+  t.deepEqual(getCurrentExitNode(state), {
+    ref: 'successExitNode',
+    title: 'Congratulations!',
+    description: 'Your transcript will be updated.<br/>Thanks for your patience.'
+  });
+});
+
 test('getCurrentExitNode should return undefined if no progression is found', t => {
   const state = set('ui.current.progressionId', '0')({});
   t.is(getCurrentExitNode(state), undefined);

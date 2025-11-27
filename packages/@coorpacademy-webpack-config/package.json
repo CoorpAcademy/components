@@ -49,5 +49,6 @@
     "nyc": "^15.1.0",
     "webpack": "^5.97.1"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "gitHead": "c1684bf25b79c2f2bcf94c70f686f98a25439b7e"
 }

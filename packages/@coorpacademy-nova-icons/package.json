@@ -13,12 +13,12 @@
     "test": "npm run lint && npm run flow",
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "flow": "flow",
-    "pregenerate:icons": "rm -rf src/components",
+    "pregenerate:icons": "rimraf src/components",
     "generate:icons": "babel-node scripts/generate-icons.js",
-    "prebuild:babel:commonjs": "rm -rf lib",
+    "clean:build": "rimraf lib es",
     "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
-    "prebuild:babel:es": "rm -rf es",
     "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "prebuild:babel": "npm run clean:build",
     "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
     "build:types:commonjs": "flow-copy-source src lib --ignore '**/test/**/*.js'",
     "build:types:es": "flow-copy-source src es --ignore '**/test/**/*.js'",
@@ -27,8 +27,8 @@
   },
   "author": "CoorpAcademy",
   "peerDependencies": {
-    "react": "^17.0.2",
-    "react-native-svg": "^9.4.0"
+    "react": "^18.3.0",
+    "react-native-svg": ">=9.4.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
@@ -57,7 +57,8 @@
     "glob": "^7.1.6",
     "lodash": "^4.17.21",
     "mkdirp": "^1.0.4",
-    "react": "^17.0.2",
+    "react": "18.3.1",
     "react-native-svg": "^9.13.6"
-  }
+  },
+  "gitHead": "c1684bf25b79c2f2bcf94c70f686f98a25439b7e"
 }

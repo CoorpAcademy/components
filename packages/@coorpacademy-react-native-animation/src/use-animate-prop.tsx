@@ -13,7 +13,10 @@ const useAnimateProp = (params: AnimatePropParams): AnimateProp => {
   const animatedStyle = {[property]: ref};
 
   const translateX: AnimateProp = {
-    ...animation,
+    start: animation.start,
+    stop: animation.stop,
+    reset: animation.reset,
+    revert: animation.revert,
     animatedStyle
   };
 

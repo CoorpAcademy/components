@@ -120,7 +120,10 @@ const Loader = (props: Props) => {
       )
     ]);
 
-    _animation.start();
+    // Start animation in next tick to avoid React 18 frozen object error
+    setTimeout(() => {
+      _animation.start();
+    }, 0);
 
     return () => {
       _animation.stop();

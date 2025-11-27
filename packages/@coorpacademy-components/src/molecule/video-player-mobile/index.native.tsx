@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import JWPlayer from 'react-native-jw-media-player';
-import Youtube from 'react-native-youtube';
+import JWPlayer from '@jwplayer/jwplayer-react-native';
+import YoutubePlayer from 'react-native-youtube-iframe';
 import {Vimeo} from 'react-native-vimeo-iframe';
 import {useTemplateContext} from '../../template/app-review/template-context';
 
@@ -41,14 +41,11 @@ const VideoSwitch = ({media, autoplay}: Props) => {
         </View>
       ) : null;
     case 'application/youtube':
-      return (
-        <Youtube
-          apiKey={brandTheme.youtube?.apiKey || ''}
-          style={styleSheet.container}
-          videoId={media.videoId}
-          play={autoplay}
-        />
-      );
+      return media.videoId ? (
+        <View style={styleSheet.container}>
+          <YoutubePlayer height={300} play={autoplay} videoId={media.videoId} />
+        </View>
+      ) : null;
     default:
       return <Text>{`video mimeType ${media.mimeType} is not handled`}</Text>;
   }

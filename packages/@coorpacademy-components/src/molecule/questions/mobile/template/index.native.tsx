@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {TextStyle, View, ViewStyle} from 'react-native';
+import {TextStyle, View, ViewStyle, Text} from 'react-native';
 
 import trim from 'lodash/fp/trim';
 
@@ -152,10 +152,21 @@ const Item = (props: ItemProps) => {
     }
   }
 
+  const textValue = part.value === ' ' ? part.value : trim(part.value || '');
+
+  // Use native Text for simple text, Html for content with HTML tags
+  if (textValue.includes('<')) {
+    return (
+      <Html key={id} fontSize={theme.fontSize.regular} testID={id} style={styles.htmlText}>
+        {textValue}
+      </Html>
+    );
+  }
+
   return (
-    <Html key={id} fontSize={theme.fontSize.regular} testID={id} style={styles.htmlText}>
-      {part.value === ' ' ? part.value : trim(part.value || '')}
-    </Html>
+    <Text key={id} testID={id} style={styles.htmlText}>
+      {textValue}
+    </Text>
   );
 };
 

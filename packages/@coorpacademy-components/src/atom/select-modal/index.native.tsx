@@ -37,7 +37,7 @@ export type Props = {
 
 type StyleSheetType = {
   container: ViewStyle;
-  text: ViewStyle;
+  text: TextStyle;
 };
 
 const ICON_WIDTH = 15;
@@ -125,7 +125,7 @@ const Select = (props: Props) => {
 
   let textStyles: TextStyle = {
     ...styleSheet.text,
-    ...textStyle
+    ...(textStyle ? StyleSheet.flatten(textStyle) : {})
   };
 
   let color;
@@ -144,8 +144,9 @@ const Select = (props: Props) => {
         onPress={handleFocus}
         analyticsID={analyticsID}
         testID={`${testID}-input`}
+        style={style}
       >
-        <View style={[styleSheet.container, style]}>
+        <View style={styleSheet.container}>
           <Text style={textStyles}>{text}</Text>
           <Space type="tiny" />
           <ArrowDown

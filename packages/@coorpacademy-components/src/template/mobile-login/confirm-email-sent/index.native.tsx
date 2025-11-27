@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Animated, Dimensions, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {Animated, Dimensions, StyleSheet, TextStyle, View, ViewStyle, Platform} from 'react-native';
 import {
   NovaSolidStatusClose as CloseIcon,
   NovaCompositionCoorpacademyCheck as CheckIcon,
@@ -18,7 +17,7 @@ type StyleSheetType = {
   wrapper: ViewStyle;
   content: ViewStyle;
   backButton: ViewStyle;
-  closeIcon: ViewStyle;
+  closeIcon: ViewStyle & {fill?: string};
   gradients: ViewStyle;
   gradient: ViewStyle;
   gradient2: ViewStyle;
@@ -27,14 +26,14 @@ type StyleSheetType = {
   ctaWrapper: ViewStyle;
   ctaOpenInbox: ViewStyle;
   ctaOpenInboxText: TextStyle;
-  mailIcon: ViewStyle;
+  mailIcon: ViewStyle & {fill?: string};
   checkIconWrapper: ViewStyle;
   checkIconInnerWrapper: ViewStyle;
-  checkIcon: ViewStyle;
+  checkIcon: ViewStyle & {fill?: string};
 };
 
 const createStyleSheet = (theme: Theme): StyleSheetType =>
-  StyleSheet.create({
+  StyleSheet.create<StyleSheetType>({
     wrapper: {
       top: 0,
       bottom: 0,
@@ -54,7 +53,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#515161',
       width: 20,
       height: 20
-    },
+    } as ViewStyle & {fill?: string},
     gradients: {
       position: 'absolute',
       top: 0,
@@ -107,7 +106,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#fff',
       width: 12,
       height: 12
-    },
+    } as ViewStyle & {fill?: string},
     title: {
       color: '#1D1D2B',
       fontWeight: '600',
@@ -150,7 +149,7 @@ const createStyleSheet = (theme: Theme): StyleSheetType =>
       fill: '#fff',
       height: 14,
       width: 14
-    }
+    } as ViewStyle & {fill?: string}
   });
 
 export type Props = {
@@ -202,15 +201,35 @@ const ConfirmEmailSent = (props: Props) => {
   return (
     <Animated.View style={styleSheet.wrapper}>
       <Animated.View style={[styleSheet.gradients, translateGradients.animatedStyle]}>
-        <LinearGradient
-          colors={['#179c57', '#fff0']}
-          locations={[0, 0.5]}
-          style={styleSheet.gradient}
+        <View
+          style={[
+            styleSheet.gradient,
+            Platform.select({
+              default: {
+                // @ts-ignore
+                experimental_backgroundImage: 'linear-gradient(180deg, #179c57 0%, #fff0 50%)'
+              },
+              web: {
+                // @ts-ignore
+                backgroundImage: 'linear-gradient(180deg, #179c57 0%, #fff0 50%)'
+              }
+            })
+          ]}
         />
-        <LinearGradient
-          colors={['#18BB98', '#18BB9800']}
-          locations={[0, 1]}
-          style={styleSheet.gradient2}
+        <View
+          style={[
+            styleSheet.gradient2,
+            Platform.select({
+              default: {
+                // @ts-ignore
+                experimental_backgroundImage: 'linear-gradient(180deg, #18BB98 0%, #18BB9800 100%)'
+              },
+              web: {
+                // @ts-ignore
+                backgroundImage: 'linear-gradient(180deg, #18BB98 0%, #18BB9800 100%)'
+              }
+            })
+          ]}
         />
       </Animated.View>
       <Animated.View style={[styleSheet.content, fadeInContent.animatedStyle]}>

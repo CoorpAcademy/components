@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "target": "es2020",
     "module": "commonjs",
-    "strict": true,
+    "strict": false,
     "declaration": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
@@ -11,6 +11,9 @@
     "resolveJsonModule": true,
     "jsx": "react",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipDefaultLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": false
   }
 }

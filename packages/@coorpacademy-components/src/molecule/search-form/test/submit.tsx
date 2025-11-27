@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faXmark} from '@fortawesome/pro-solid-svg-icons';
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 import SearchForm from '..';
 
 // Add xmark icon to FontAwesome library for tests

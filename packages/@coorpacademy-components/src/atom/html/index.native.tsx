@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
+import {View, ViewStyle, ImageStyle, TextStyle, useWindowDimensions} from 'react-native';
 import RenderHTML, {
   CustomRendererProps,
   MixedStyleRecord,
@@ -54,6 +54,7 @@ type Styles = {
 
 const Html = (props: Props) => {
   const templateContext = useTemplateContext();
+  const {width: contentWidth} = useWindowDimensions();
   const [isDisabledBaseFontStyleColor, disableBaseFontStyleColor] = useState<boolean>(false);
   const {theme} = templateContext;
   const {
@@ -88,7 +89,7 @@ const Html = (props: Props) => {
     }
   };
 
-  const tagsStyles: MixedStyleRecord = {
+  const tagsStyles = {
     ...styles,
     h1: {fontSize},
     h2: {fontSize},
@@ -98,7 +99,7 @@ const Html = (props: Props) => {
     h6: {fontSize},
     a: {color: anchorTextColor},
     img: imageStyle || {}
-  };
+  } as MixedStyleRecord;
 
   let baseFontStyle: TextStyle = useMemo(
     () => ({fontSize, color: theme.colors.black}),
@@ -175,6 +176,7 @@ const Html = (props: Props) => {
             ? `<span>${children}</span>`
             : `${children}`
         }}
+        contentWidth={contentWidth}
         tagsStyles={tagsStyles}
         baseFontStyle={{
           ...baseFontStyle,

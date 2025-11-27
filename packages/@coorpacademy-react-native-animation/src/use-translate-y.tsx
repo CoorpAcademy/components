@@ -8,7 +8,10 @@ const useTranslateY = (animationParams: AnimationParams): TranslateY => {
   const animatedStyle = {transform: [{translateY: ref}]};
 
   const translateY: TranslateY = {
-    ...animation,
+    start: animation.start,
+    stop: animation.stop,
+    reset: animation.reset,
+    revert: animation.revert,
     animatedStyle
   };
 
