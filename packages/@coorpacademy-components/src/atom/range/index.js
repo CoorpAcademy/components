@@ -138,9 +138,13 @@ class Range extends React.Component {
   }
 
   roundToStep(value) {
-    const {step = 0.1} = this.props;
+    const {step} = this.props;
     const precision = 10;
-    return Number((Math.round(value / step) * step).toFixed(precision));
+    if (!step) {
+      return Number(value.toFixed(precision));
+    } else {
+      return Number((Math.round(value / step) * step).toFixed(precision));
+    }
   }
 
   handleMinChange(e) {

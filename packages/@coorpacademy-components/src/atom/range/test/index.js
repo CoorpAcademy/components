@@ -58,6 +58,7 @@ const macro = (
   const component = (
     <Range
       {...props}
+      step={0.1}
       HammerForTestingMin={HammerForTestingMin}
       HammerForTestingMax={HammerForTestingMax}
       onChange={validChange}
@@ -130,7 +131,7 @@ test('should move handle when range is clicked (single)', t => {
     t.is(value, 0.2);
   };
 
-  const component = <Range value={0.5} onChange={onChange} />;
+  const component = <Range value={0.5} step={0.1} onChange={onChange} />;
 
   const {getByTestId, unmount} = render(component);
 
@@ -159,7 +160,7 @@ test('should move closest handle when range is clicked (multi)', t => {
   };
 
   const {getByTestId, rerender, unmount} = render(
-    <Range value={[0.3, 0.7]} onChange={onChange} multi />
+    <Range value={[0.3, 0.7]} onChange={onChange} step={0.1} multi />
   );
 
   const track = getByTestId('track');
@@ -168,19 +169,19 @@ test('should move closest handle when range is clicked (multi)', t => {
   const slider = getByTestId('slider');
   fireEvent.click(slider, {...defaultEvent, clientX: 1020});
 
-  rerender(<Range value={[0.2, 0.7]} onChange={onChange} multi />);
+  rerender(<Range value={[0.2, 0.7]} onChange={onChange} step={0.1} multi />);
   fireEvent.click(slider, {...defaultEvent, clientX: 1090});
 
-  rerender(<Range value={[0.2, 0.9]} onChange={onChange} multi />);
-  fireEvent.click(slider, {...defaultEvent, clientX: 1040});
+  rerender(<Range value={[0.2, 0.9]} onChange={onChange} step={0.1} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1042});
 
-  rerender(<Range value={[0.4, 0.9]} onChange={onChange} multi />);
-  fireEvent.click(slider, {...defaultEvent, clientX: 1070});
+  rerender(<Range value={[0.4, 0.9]} onChange={onChange} step={0.1} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1072});
 
-  rerender(<Range value={[0.4, 0.7]} onChange={onChange} multi />);
+  rerender(<Range value={[0.4, 0.7]} onChange={onChange} step={0.1} multi />);
   fireEvent.click(slider, {...defaultEvent, clientX: 1000});
 
-  rerender(<Range value={[0, 0.7]} onChange={onChange} multi />);
+  rerender(<Range value={[0, 0.7]} onChange={onChange} step={0.1} multi />);
   fireEvent.click(slider, {...defaultEvent, clientX: 1100});
 
   unmount();
@@ -191,7 +192,9 @@ test('should moveleft handle if the two handles have the same values and the cli
     t.deepEqual(value, [0.4, 0.5]);
   };
 
-  const {getByTestId, unmount} = render(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
+  const {getByTestId, unmount} = render(
+    <Range value={[0.5, 0.5]} onChange={onChange} step={0.1} multi />
+  );
 
   const track = getByTestId('track');
   track.getBoundingClientRect = () => ({left: 0, right: 100});
@@ -207,13 +210,74 @@ test('should move right handle if the two handles have the same values and the c
     t.deepEqual(value, [0.5, 0.6]);
   };
 
-  const {getByTestId, unmount} = render(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
+  const {getByTestId, unmount} = render(
+    <Range value={[0.5, 0.5]} onChange={onChange} step={0.1} multi />
+  );
 
   const track = getByTestId('track');
   track.getBoundingClientRect = () => ({left: 0, right: 100});
 
   const slider = getByTestId('slider');
   fireEvent.click(slider, {...defaultEvent, clientX: 60});
+
+  unmount();
+});
+
+test('should move right handle if the two handles have the same values and the click is on the right (without step)', t => {
+  const onChange = value => {
+    t.deepEqual(value, [0.5, 0.66]);
+  };
+
+  const {getByTestId, unmount} = render(<Range value={[0.5, 0.5]} onChange={onChange} multi />);
+
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 0, right: 100});
+
+  const slider = getByTestId('slider');
+  fireEvent.click(slider, {...defaultEvent, clientX: 66});
+
+  unmount();
+});
+
+test('should move closest handle when range is clicked (multi) without step', t => {
+  const expectedValues = [
+    [0.15, 0.75],
+    [0.15, 0.99],
+    [0.45, 0.99],
+    [0.45, 0.75],
+    [0.05, 0.75],
+    [0.05, 1]
+  ];
+  t.plan(expectedValues.length);
+  const onChange = value => {
+    const expectedValue = expectedValues.shift();
+    t.deepEqual(value, expectedValue);
+  };
+
+  const {getByTestId, rerender, unmount} = render(
+    <Range value={[0.3, 0.75]} onChange={onChange} multi />
+  );
+
+  const track = getByTestId('track');
+  track.getBoundingClientRect = () => ({left: 1000, right: 1100});
+
+  const slider = getByTestId('slider');
+  fireEvent.click(slider, {...defaultEvent, clientX: 1015});
+
+  rerender(<Range value={[0.15, 0.75]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1099});
+
+  rerender(<Range value={[0.25, 0.99]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1045});
+
+  rerender(<Range value={[0.45, 0.95]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1075});
+
+  rerender(<Range value={[0.45, 0.75]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1005});
+
+  rerender(<Range value={[0.05, 0.75]} onChange={onChange} multi />);
+  fireEvent.click(slider, {...defaultEvent, clientX: 1100});
 
   unmount();
 });
