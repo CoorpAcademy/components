@@ -19,8 +19,6 @@ import {
   toString as _toString,
   isNil
 } from 'lodash/fp';
-// eslint-disable-next-line lodash-fp/use-fp
-import {template} from 'lodash';
 import type {
   Answer,
   Choice,
@@ -393,14 +391,15 @@ export const getCurrentExitNode = (state: State): ExitNode | void => {
   const ref = progression.state.nextContent.ref;
   const counters = getOr({}, 'state.variables', progression);
 
-  const translateWithCounters = templateValue =>
-    templateValue
-      ? // eslint-disable-next-line lodash-fp/no-extraneous-args
-        template(templateValue, {
-          interpolate: /{{([\s\S]+?)}}/g,
-          imports: {}
-        })(counters)
-      : null;
+  // Use simple string replacement instead of lodash template
+  // to avoid SyntaxError when content contains HTML (e.g., <br/>)
+  const translateWithCounters = (templateValue: ?string): ?string => {
+    if (!templateValue) return null;
+    return templateValue.replace(/{{([\s\S]+?)}}/g, (match: string, key: string): string => {
+      const trimmedKey = key.trim();
+      return counters[trimmedKey] !== undefined ? counters[trimmedKey] : match;
+    });
+  };
 
   return pipe(
     getExitNode(ref),
