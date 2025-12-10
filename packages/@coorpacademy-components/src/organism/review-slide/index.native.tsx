@@ -321,11 +321,14 @@ const Slide = (props: ReviewSlideProps) => {
   } = slide;
 
   if (loading) {
-    return <View style={slideStyle.slide} />;
+    return <View style={slideStyle.slide} pointerEvents={isFirstSlide ? 'auto' : 'none'} />;
   }
 
   return (
-    <Animated.View style={[slideStyle.slide, animatedStyle]}>
+    <Animated.View
+      style={[slideStyle.slide, animatedStyle]}
+      pointerEvents={isFirstSlide ? 'auto' : 'none'}
+    >
       <Question
         questionOrigin={parentContentTitle}
         questionText={questionText}
