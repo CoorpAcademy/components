@@ -54,7 +54,7 @@ const Selection = (props: DropZoneProps) => {
       key={item._id}
       squeezed
       isSelected
-      testID={`choice-${item._id}`}
+      testID={`choice-${item._id}-selected`}
       onPress={onPress(item)}
       questionType="qcmDrag"
     >
