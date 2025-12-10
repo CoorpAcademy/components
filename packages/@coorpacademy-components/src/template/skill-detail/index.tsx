@@ -253,11 +253,14 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
 
             {questionsToReview > 0 ? (
               <div className={style.skillInformation}>
-                <span>
-                  {translate('skill_chart_side_panel_questions_to_review', {
-                    count: questionsToReview
-                  })}
-                </span>
+                <span
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
+                    __html: translate('skill_chart_side_panel_questions_to_review', {
+                      count: questionsToReview
+                    })
+                  }}
+                />
               </div>
             ) : null}
 
