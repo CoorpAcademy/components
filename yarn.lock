@@ -3245,10 +3245,10 @@
   resolved "https://registry.yarnpkg.com/@jsamr/react-native-li/-/react-native-li-2.3.1.tgz#12a5b5f6e3971cec77b96bee58104eed0ae9314a"
   integrity sha512-Qbo4NEj48SQ4k8FZJHFE2fgZDKTWaUGmVxcIQh3msg5JezLdTMMHuRRDYctfdHI6L0FZGObmEv3haWbIvmol8w==
 
-"@jwplayer/jwplayer-react-native@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@jwplayer/jwplayer-react-native/-/jwplayer-react-native-1.1.3.tgz#3afd05815fe262fc5972dacaaf13a057cfdbd055"
-  integrity sha512-io4dNEmtippZzmJijz/EsZTTRq0eVEVFethv0I2xVa19M1eVLPZUJKHKl4U79gWwR1HovEv1GOOtTsKstHKk3w==
+"@jwplayer/jwplayer-react-native@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@jwplayer/jwplayer-react-native/-/jwplayer-react-native-1.2.0.tgz#cb3a0ae34ce1848b4c722023d9a280cd46c6d8ad"
+  integrity sha512-VDP6wEUgJcbAN7FM/PYBxtKO/04pn/esIsvMXjjIz3Vm84ymtab0NNdQH4S5CtSKcBX0ucHuwF9dHqTJYR3fTA==
   dependencies:
     lodash.isequalwith "^4.4.0"
 
