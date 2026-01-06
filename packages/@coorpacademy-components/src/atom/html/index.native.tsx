@@ -69,38 +69,6 @@ const Html = (props: Props) => {
     numberOfLines
   } = props;
 
-  // Don't use StyleSheet there, it's not a react style
-  const styles: Styles = {
-    p: {
-      marginVertical: 0,
-      textAlign: 'center'
-    },
-    u: {
-      textDecorationLine: 'underline'
-    },
-    i: {
-      fontStyle: 'italic'
-    },
-    b: {
-      fontWeight: theme.fontWeight.bold
-    },
-    s: {
-      textDecorationLine: 'line-through'
-    }
-  };
-
-  const tagsStyles = {
-    ...styles,
-    h1: {fontSize},
-    h2: {fontSize},
-    h3: {fontSize},
-    h4: {fontSize},
-    h5: {fontSize},
-    h6: {fontSize},
-    a: {color: anchorTextColor},
-    img: imageStyle || {}
-  } as MixedStyleRecord;
-
   let baseFontStyle: TextStyle = useMemo(
     () => ({fontSize, color: theme.colors.black}),
     [fontSize, theme]
@@ -124,13 +92,44 @@ const Html = (props: Props) => {
     }
   }
 
+  // Don't use StyleSheet there, it's not a react style
+  const styles: Styles = {
+    p: {
+      marginVertical: 0,
+      textAlign: 'center'
+    },
+    u: {
+      textDecorationLine: 'underline'
+    },
+    i: {
+      fontStyle: 'italic'
+    },
+    b: {
+      fontWeight: theme.fontWeight.bold
+    },
+    s: {
+      textDecorationLine: 'line-through'
+    }
+  };
+
+  const tagsStyles = {
+    ...styles,
+    body: {color: baseFontStyle.color},
+    h1: {fontSize},
+    h2: {fontSize},
+    h3: {fontSize},
+    h4: {fontSize},
+    h5: {fontSize},
+    h6: {fontSize},
+    a: {color: anchorTextColor},
+    img: imageStyle || {}
+  } as MixedStyleRecord;
+
   const SpanRenderer = useCallback(
     (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
-      <Text numberOfLines={numberOfLines} style={baseFontStyle}>
-        {_children}
-      </Text>
+      <Text numberOfLines={numberOfLines}>{_children}</Text>
     ),
-    [numberOfLines, baseFontStyle]
+    [numberOfLines]
   );
 
   interface HtmlAttrib extends CustomRendererProps<TBlock> {
