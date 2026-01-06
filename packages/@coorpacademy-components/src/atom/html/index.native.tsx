@@ -126,9 +126,11 @@ const Html = (props: Props) => {
 
   const SpanRenderer = useCallback(
     (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
-      <Text numberOfLines={numberOfLines}>{_children}</Text>
+      <Text numberOfLines={numberOfLines} style={baseFontStyle}>
+        {_children}
+      </Text>
     ),
-    [numberOfLines]
+    [numberOfLines, baseFontStyle]
   );
 
   interface HtmlAttrib extends CustomRendererProps<TBlock> {
