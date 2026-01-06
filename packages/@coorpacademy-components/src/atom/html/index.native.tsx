@@ -53,6 +53,7 @@ type Styles = {
 };
 
 const Html = (props: Props) => {
+  console.log('v3 --> Html component, baseFontStyle.color applied to body tag');
   const templateContext = useTemplateContext();
   const {width: contentWidth} = useWindowDimensions();
   const [isDisabledBaseFontStyleColor, disableBaseFontStyleColor] = useState<boolean>(false);
