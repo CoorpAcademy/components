@@ -52,7 +52,7 @@ const reducer = (
           showCorrectionPopin: false,
           pendingAnswerRequest: false
         })
-      )(state);
+      )(state) as UISlideState;
     }
     case EDIT_QCM:
     case EDIT_QCM_GRAPHIC:
@@ -70,13 +70,13 @@ const reducer = (
       return pipe(
         set([action.meta.slideRef, 'validateButton'], false),
         set([action.meta.slideRef, 'pendingAnswerRequest'], true)
-      )(state);
+      )(state) as UISlideState;
     }
     case CORRECTION_FETCH_SUCCESS: {
       return pipe(
         set([action.meta.slideRef, 'animateCorrectionPopin'], true),
         set([action.meta.slideRef, 'showCorrectionPopin'], true)
-      )(state);
+      )(state) as UISlideState;
     }
     case NEXT_SLIDE: {
       const {currentSlideRef, nextSlideRef} = action.payload;
@@ -85,7 +85,7 @@ const reducer = (
         set([currentSlideRef, 'animateCorrectionPopin'], false),
         set([currentSlideRef, 'animationType'], action.payload.animationType),
         set([currentSlideRef, 'showCorrectionPopin'], false)
-      )(state);
+      )(state) as UISlideState;
     }
     case POST_PROGRESSION_REQUEST: {
       return initialState;
