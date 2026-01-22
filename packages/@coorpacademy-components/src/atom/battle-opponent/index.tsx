@@ -47,8 +47,8 @@ const BattleOpponent = (
 
   const handleMouseOver = useCallback(() => {
     mouseLeaveTimer && clearTimeout(mouseLeaveTimer);
-    // @ts-expect-error (error: focus does not exists on type never)
-    /* istanbul ignore next */ has(['current', 'focus'], buttonRef) && buttonRef.current.focus();
+    /* istanbul ignore next */ has(['current', 'focus'], buttonRef) &&
+      (buttonRef.current as HTMLButtonElement | null)?.focus();
     setToolTipIsVisible(true);
   }, [mouseLeaveTimer]);
 
@@ -56,8 +56,8 @@ const BattleOpponent = (
     setMouseLeaveTimer(
       setTimeout(() => {
         setToolTipIsVisible(false);
-        // @ts-expect-error (error: blur does not exists on type never)
-        /* istanbul ignore next */ has(['current', 'blur'], buttonRef) && buttonRef.current.blur();
+        /* istanbul ignore next */ has(['current', 'blur'], buttonRef) &&
+          (buttonRef.current as HTMLButtonElement | null)?.blur();
       }, 500) as unknown as number
     );
   }, []);

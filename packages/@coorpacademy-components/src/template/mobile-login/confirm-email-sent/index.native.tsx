@@ -213,7 +213,7 @@ const ConfirmEmailSent = (props: Props) => {
                 // @ts-ignore
                 backgroundImage: 'linear-gradient(180deg, #179c57 0%, #fff0 50%)'
               }
-            })
+            }) as ViewStyle
           ]}
         />
         <View
@@ -228,7 +228,7 @@ const ConfirmEmailSent = (props: Props) => {
                 // @ts-ignore
                 backgroundImage: 'linear-gradient(180deg, #18BB98 0%, #18BB9800 100%)'
               }
-            })
+            }) as ViewStyle
           ]}
         />
       </Animated.View>

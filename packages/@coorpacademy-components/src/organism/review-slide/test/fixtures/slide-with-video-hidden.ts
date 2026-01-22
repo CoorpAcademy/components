@@ -16,7 +16,7 @@ const fixture: Fixture = {
       answerUI: pipe(
         set('media.loading', true),
         set('media.mimeType', 'application/jwplayer')
-      )(qcmGraphic),
+      )(qcmGraphic) as typeof qcmGraphic,
       animateCorrectionPopin: false,
       showCorrectionPopin: false
     },

@@ -2,7 +2,7 @@ import React, {CSSProperties} from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {fas} from '@fortawesome/free-solid-svg-icons';
-import {IconName, library} from '@fortawesome/fontawesome-svg-core';
+import {IconName, library, IconPack} from '@fortawesome/fontawesome-svg-core';
 import toLower from 'lodash/fp/toLower';
 import merge from 'lodash/fp/merge';
 import getOr from 'lodash/fp/getOr';
@@ -10,7 +10,7 @@ import {convert} from 'css-color-function';
 import {createGradientBackground} from '../../util/get-background-gradient-color';
 import style from './style.css';
 
-library.add(fas);
+library.add(fas as IconPack);
 
 export const DEFAULT_PRESET = 'm';
 export const ICON_LUMINOSITY = 32;
@@ -123,7 +123,7 @@ export const propTypes = {
 //   defaultProps?: Partial<IconProps>;
 // };
 
-Icon.propTypes = propTypes;
+Icon.propTypes = propTypes as React.WeakValidationMap<IconProps>;
 // MemoizedIcon.propTypes = Icon.propTypes;
 
 export default Icon;

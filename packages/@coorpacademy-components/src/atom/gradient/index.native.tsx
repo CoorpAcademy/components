@@ -54,7 +54,7 @@ const Gradient = ({
   // Build CSS gradient string (vertical by default)
   const gradientString = `linear-gradient(180deg, ${calculatedColors.join(', ')})`;
 
-  const gradientStyle: ViewStyle = Platform.select({
+  const gradientStyle = Platform.select({
     default: {
       // @ts-ignore - experimental_backgroundImage is not yet in types
       experimental_backgroundImage: gradientString
@@ -65,7 +65,7 @@ const Gradient = ({
     }
   });
 
-  const combinedStyle = StyleSheet.flatten([gradientStyle, ..._style]);
+  const combinedStyle = StyleSheet.flatten([gradientStyle as ViewStyle, ..._style]);
 
   return (
     <View style={combinedStyle} pointerEvents={pointerEvents} testID={testID}>

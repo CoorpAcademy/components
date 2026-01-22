@@ -70,7 +70,7 @@ test('should dispatch NEXT_SLIDE action when nextSlide is called and the progres
   const stateWithWrongAnswer = pipe(
     set(['data', 'progression', 'state', 'isCorrect'], false),
     set(['data', 'progression', 'state', 'allAnswers', 0, 'isCorrect'], false)
-  )(state);
+  )(state) as StoreState;
 
   const expectedActions = [
     {

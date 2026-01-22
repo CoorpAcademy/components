@@ -22,12 +22,12 @@ const reducer = (
   switch (action.type) {
     case CORRECTION_FETCH_REQUEST: {
       const {meta} = action;
-      return set([meta.slideRef], null, state) as CorrectionsState;
+      return set([meta.slideRef], null, state) as unknown as CorrectionsState;
     }
     case CORRECTION_FETCH_SUCCESS: {
       const {meta} = action;
       const correction = action.payload;
-      return set([meta.slideRef], correction, state) as CorrectionsState;
+      return set([meta.slideRef], correction, state) as unknown as CorrectionsState;
     }
     case POST_PROGRESSION_REQUEST: {
       return initialState;

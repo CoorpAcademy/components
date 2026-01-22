@@ -280,7 +280,7 @@ const Welcome = (props: Props) => {
                 // @ts-ignore
                 backgroundImage: `linear-gradient(180deg, ${cm_primary_blue} 0%, #fff 95%)`
               }
-            })
+            }) as ViewStyle
           ]}
         />
         <View
@@ -295,7 +295,7 @@ const Welcome = (props: Props) => {
                 // @ts-ignore
                 backgroundImage: 'linear-gradient(180deg, #2199AB 0%, #fff 95%)'
               }
-            })
+            }) as ViewStyle
           ]}
         />
       </Animated.View>

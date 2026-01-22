@@ -88,7 +88,7 @@ const CorrectionPopin = ({
 
   if (!showCorrectionPopin) return null;
 
-  const klf = getOr(undefined, 'klf', correctionPopinProps);
+  const klf = correctionPopinProps.klf;
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
   const onClick = get(['next', 'onClick'], correctionPopinProps);
