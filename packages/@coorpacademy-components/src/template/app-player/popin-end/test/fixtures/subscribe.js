@@ -13,7 +13,10 @@ export default defaultsDeep(correct, {
           title: 'Abonnement Coorpacademy',
           href: '#'
         },
-        card: Card.props
+        card: {
+          ...Card.props,
+          type: 'cards'
+        }
       }
     }
   }

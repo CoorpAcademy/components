@@ -8,7 +8,7 @@ import Button from '../../../atom/button';
 import Link from '../../../atom/link';
 import Discussion from '../../../organism/discussion';
 import Loader from '../../../atom/loader';
-import Card from '../../../molecule/card';
+import Card, {cardPropTypes} from '../../../molecule/card';
 import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import PopinHeader from '../popin-header';
@@ -69,7 +69,7 @@ const NextCourse = ({title, prefix, card}) => (
 NextCourse.propTypes = {
   title: PropTypes.string,
   prefix: PropTypes.string,
-  card: PropTypes.shape(CardsList.propTypes)
+  card: PropTypes.shape(cardPropTypes)
 };
 
 const Subscribe = ({title, description, button, card}) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {map, upperCase, size, pipe, getOr} from 'lodash/fp';
 import Link from '../../../../../atom/link';
+import Icon from '../../../../../atom/icon';
 import ButtonMenuAction from '../../../../../molecule/button-menu-action';
 import {COLORS} from '../../../../../variables/colors';
 import Learner from './learner';
@@ -83,7 +84,8 @@ const buttonMenuActionProps = multiLangOptions => {
 };
 
 const SlidesHeader = (props = {}, context = undefined) => {
-  const {type, content, subcontent, lives, mode, multiLang} = props;
+  const {type, content, subcontent, lives, mode, multiLang, help} = props;
+  const handleHelpClick = help && help.onClick ? help.onClick : null;
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
@@ -91,10 +93,24 @@ const SlidesHeader = (props = {}, context = undefined) => {
         <Learner content={content} subcontent={subcontent} mode={mode} />
       ) : null}
       {type === HEADER_TYPE.MICROLEARNING ? <Microlearning content={content} mode={mode} /> : null}
-      {pipe(getOr([], 'supportedLangs'), size)(multiLang) <= 1 ? null : (
-        <ButtonMenuAction {...buttonMenuActionProps(multiLang)} />
-      )}
-      {lives ? <Lives count={lives.count} /> : null}
+      <div className={style.actions}>
+        {pipe(getOr([], 'supportedLangs'), size)(multiLang) <= 1 ? null : (
+          <ButtonMenuAction {...buttonMenuActionProps(multiLang)} />
+        )}
+        {help && help.onClick ? (
+          <button
+            type="button"
+            title={help.title}
+            className={style.helpButton}
+            onClick={handleHelpClick}
+            aria-label={help.title}
+            data-name="help-button"
+          >
+            <Icon iconName="circle-question" iconColor={COLORS.cm_primary_blue} preset="xl" />
+          </button>
+        ) : null}
+        {lives ? <Lives count={lives.count} /> : null}
+      </div>
     </div>
   );
 };
@@ -121,6 +137,10 @@ SlidesHeader.propTypes = {
         label: PropTypes.string.isRequired
       })
     )
+  }),
+  help: PropTypes.shape({
+    onClick: PropTypes.func,
+    title: PropTypes.string
   })
 };
 

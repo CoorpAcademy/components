@@ -1,0 +1,108 @@
+@value colors: "../../../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_blue_50 from colors;
+@value cm_grey_75 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+@value transparent from colors;
+
+
+:global(.coorp-tourguide-dialog) {
+  font-family: Gilroy;
+  font-weight: 900;
+  font-style: Solid;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-prev-btn.disabled) {
+  opacity: 0;
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-next-btn) {
+  cursor: pointer;
+  border-color: transparent;
+  vertical-align: middle;
+  color: cm_primary_blue;
+  background-color: cm_blue_50;
+  font-family: Gilroy;
+  font-weight: 900;
+  font-style: Solid;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 8px 10px;
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-prev-btn) {
+  cursor: pointer;
+  border-color: transparent;
+  vertical-align: middle;
+  color: cm_grey_500;
+  background-color: cm_grey_75;
+  font-family: Gilroy;
+  font-weight: 900;
+  font-style: Solid;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 8px 10px;
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-next-btn:hover) {
+  color: color(cm_primary_blue a(75%));
+  background-color: color(cm_blue_50 a(75%));
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-prev-btn:hover) {
+  color: color(cm_grey_500 a(75%));
+  background-color: color(cm_grey_75 a(75%));
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-title) {
+  color: cm_grey_700;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  vertical-align: bottom;
+  padding-top: 15px;
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-close-btn) {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: black;
+}
+
+:global(.coorp-tourguide-dialog #tg-dialog-body) {
+  font-weight: 600;
+  font-style: SemiBold;
+  line-height: 20px;
+  letter-spacing: 0px;
+  vertical-align: bottom;
+  color: cm_grey_500;
+}
+
+:global(.coorp-tourguide-dialog .tg-dialog-footer) {
+  justify-content: space-between;
+}
+
+:global(.coorp-tourguide-dialog .tg-dialog-footer-sup) {
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: bottom;
+  color: cm_grey_400;
+  position: absolute;
+  top: 20px;
+  left: 14px;
+}

@@ -7,6 +7,7 @@ import runApp from './run-app';
 import createStore from './store';
 import {selectMapStateToVNode} from './map-state-to-props';
 import {createStateToVNode, views} from './views';
+import createTourguideSync from './tourguide-sync';
 
 const createUpdate = (container, store, options) => _selectMapStateToVNode => {
   const {getState} = store;
@@ -23,6 +24,7 @@ const createUpdate = (container, store, options) => _selectMapStateToVNode => {
 const create = options => {
   const {container} = options;
   const store = createStore(options);
+  const unsubscribeTourguideSync = createTourguideSync(options, store);
 
   let update = createUpdate(container, store, options)(selectMapStateToVNode);
   let unsubscribe = store.subscribe(update);
@@ -48,6 +50,7 @@ const create = options => {
 
     unsubscribe: () => {
       unmountComponentAtNode(container);
+      unsubscribeTourguideSync();
       return unsubscribe();
     }
   };

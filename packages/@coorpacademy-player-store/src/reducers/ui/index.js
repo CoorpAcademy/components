@@ -6,6 +6,7 @@ import corrections from './corrections';
 import current from './current';
 import location from './location';
 import route from './route';
+import tourguide from './tourguide';
 
 export default combineReducers({
   answers,
@@ -14,5 +15,6 @@ export default combineReducers({
   corrections,
   current,
   location,
-  route
+  route,
+  tourguide
 });

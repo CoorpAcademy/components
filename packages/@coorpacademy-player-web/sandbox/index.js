@@ -1,5 +1,6 @@
 import createTranslate from '@coorpacademy/translate';
 import localesComponents from '@coorpacademy/components/locales/en/global';
+import {noop} from 'lodash/fp';
 import localesAppPlayer from '../locales/en/player';
 import {create as createApp} from '../src';
 import Services from './services';
@@ -34,9 +35,20 @@ const hash = window.location.hash;
 const search = window.location.search;
 const pathname = window.location.pathname;
 const progressionId = (/[?/#]([^/]*)$/.exec(hash || search || pathname) || [])[1] || '0';
+const isScorm = progressionId !== 'livesDisabled';
+
+const multiLang = isScorm
+  ? {
+      currentLang: 'en',
+      supportedLangs: ['en', 'fr'].map(code => ({code, label: code.toUpperCase()})),
+      onClick: noop
+    }
+  : undefined;
 
 create({
   container: document.getElementById('player'),
   progression: progressionId,
-  Vimeo: window.Vimeo
+  Vimeo: window.Vimeo,
+  mode: isScorm ? 'scorm' : undefined,
+  multiLang
 });

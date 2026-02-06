@@ -1,6 +1,7 @@
 export const defaultProps = {
   certifications: [
     {
+      type: 'certification',
       label: 'label',
       goal: {
         title: 'IA Technology : asses your knowledge on high end tech',
@@ -16,6 +17,7 @@ export const defaultProps = {
       }
     },
     {
+      type: 'certification',
       label: 'label2',
       goal: {
         title: 'Crisis management : learn how to manage a crisis',
@@ -31,6 +33,7 @@ export const defaultProps = {
       }
     },
     {
+      type: 'certification',
       label: 'label3',
       goal: {
         title: 'Business development',

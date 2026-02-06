@@ -46,6 +46,9 @@ import {
   getQuestionMedia,
   getContextMedia,
   isContentAdaptive,
+  isFirstSlide,
+  isTourguideEligible,
+  shouldAutoShowTourguide,
   getVideoTracks,
   getPrevAnswer,
   getRedirectURLAfterEnd
@@ -1462,6 +1465,46 @@ test('getContextMedia should return video media from state', t => {
 test('isContentAdaptive should return if content is adaptive or not with slide in nextContent', t => {
   t.true(isContentAdaptive(getStateWithContent(true)));
   t.false(isContentAdaptive(getStateWithContent(false)));
+});
+test('isTourguideEligible should return true only for scorm and non-adaptive', t => {
+  const nonAdaptiveState = getStateWithContent(false);
+  const adaptiveState = getStateWithContent(true);
+
+  t.true(isTourguideEligible(nonAdaptiveState, {mode: 'scorm'}));
+  t.false(isTourguideEligible(nonAdaptiveState, {mode: 'default'}));
+  t.false(isTourguideEligible(adaptiveState, {mode: 'scorm'}));
+});
+test('isTourguideEligible should return false when options are omitted', t => {
+  const state = getStateWithContent(false);
+  t.false(isTourguideEligible(state));
+});
+test('isFirstSlide should return true when current step is 1', t => {
+  const state = getStateWithContent(false, {step: {current: 1}});
+  t.true(isFirstSlide(state));
+});
+test('isFirstSlide should return false when steps are missing', t => {
+  const state = set('ui.current.progressionId', null, {});
+  t.false(isFirstSlide(state));
+});
+test('shouldAutoShowTourguide should return true when eligible and first slide', t => {
+  const state = set(
+    ['ui', 'route', '12'],
+    'answer',
+    getStateWithContent(false, {step: {current: 1}})
+  );
+  t.true(shouldAutoShowTourguide(state, {mode: 'scorm'}, {hasTourGuideBeenShown: false}));
+});
+test('shouldAutoShowTourguide should return false when already autoShown', t => {
+  const state = getStateWithContent(false, {step: {current: 1}});
+  t.false(shouldAutoShowTourguide(state, {mode: 'scorm'}, {hasTourGuideBeenShown: true}));
+});
+test('shouldAutoShowTourguide should return false when options are omitted', t => {
+  const state = set(
+    ['ui', 'route', '12'],
+    'answer',
+    getStateWithContent(false, {step: {current: 1}})
+  );
+  t.false(shouldAutoShowTourguide(state));
 });
 test('isContentAdaptive should return if content is adaptive or not with unknown slide in nextContent', t => {
   t.false(isContentAdaptive(getStateWithContent(true, {}, {ref: 'unknownSlide', type: 'slide'})));

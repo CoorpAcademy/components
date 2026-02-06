@@ -6,7 +6,7 @@ export default {
     ...Default.props,
     content: {
       ...listItemsProps.props,
-      content: {},
+      content: listItemsProps.props.content,
       isFetching: true,
       type: 'list-content'
     }

@@ -9,10 +9,17 @@ import infiniteLivesFixture from './fixtures/infinite-lives';
 
 browserEnv();
 
+type LivesFixtureProps = {
+  lives?: {
+    count?: number | null;
+  } | null;
+  [key: string]: unknown;
+};
+
 const livesVisible = (
   t: ExecutionContext,
-  Component: React.ComponentType<any>,
-  fixture: {props: any}
+  Component: React.ComponentType<LivesFixtureProps>,
+  fixture: {props: LivesFixtureProps}
 ) => {
   const {lives} = fixture.props;
   const shouldDisplayLives = lives !== undefined && lives !== null && lives.count !== null;

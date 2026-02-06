@@ -6,13 +6,15 @@ import mapStateToErrorPopinProps from '../error-popin';
 
 test('should return error popin props if any call fails', t => {
   t.plan(2);
-  global.window = {
-    location: {
+  Object.defineProperty(global.window, 'location', {
+    value: {
       reload: () => {
         t.pass();
       }
-    }
-  };
+    },
+    // Allow redefinition across tests; jsdom's location is non-configurable by default.
+    configurable: true
+  });
   const props = mapStateToErrorPopinProps({dispatch: identity})({
     data: {
       progressions: {
@@ -38,13 +40,15 @@ test('should return error popin props if any call fails', t => {
 
 test('should return error popin props if content calls fail', t => {
   t.plan(2);
-  global.window = {
-    location: {
+  Object.defineProperty(global.window, 'location', {
+    value: {
       reload: () => {
         t.pass();
       }
-    }
-  };
+    },
+    // Allow redefinition across tests; jsdom's location is non-configurable by default.
+    configurable: true
+  });
   const props = mapStateToErrorPopinProps({dispatch: identity})({
     data: {
       contents: {

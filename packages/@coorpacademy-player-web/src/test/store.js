@@ -34,11 +34,9 @@ test('should apply redux-thunk', async t => {
 
 test('should enable devtools', t => {
   t.plan(1);
-  global.window = {
-    __REDUX_DEVTOOLS_EXTENSION__: () => {
-      t.pass();
-      return f => f;
-    }
+  global.window.__REDUX_DEVTOOLS_EXTENSION__ = () => {
+    t.pass();
+    return f => f;
   };
 
   createStore(state => state, 'state', createMiddlewares(appOptions));

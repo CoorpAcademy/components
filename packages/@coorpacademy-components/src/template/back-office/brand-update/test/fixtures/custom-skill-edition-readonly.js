@@ -52,7 +52,7 @@ const readonlyHeader = {
   actionButtons: [
     {
       label: 'Archive',
-      onClick: 'onClick() {}',
+      onClick: () => console.log('archive'),
       type: 'secondary',
       iconName: 'folder-open',
       iconColor: '#1D1D2B'

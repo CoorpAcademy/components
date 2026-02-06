@@ -6,7 +6,12 @@ export default {
     items: {
       type: 'content',
       list: {
-        list: [{}, {}, {}, {}]
+        list: [
+          {key: 'loading-card-1'},
+          {key: 'loading-card-2'},
+          {key: 'loading-card-3'},
+          {key: 'loading-card-4'}
+        ]
       }
     }
   }

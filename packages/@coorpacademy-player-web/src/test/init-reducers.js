@@ -35,7 +35,13 @@ test(
         progressionId: null
       },
       location: {},
-      route: {}
+      route: {},
+      tourguide: {
+        visible: false,
+        step: 0,
+        hasTourGuideBeenShown: false,
+        forceStart: false
+      }
     }
   }
 );

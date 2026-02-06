@@ -12,7 +12,8 @@ const initProgression: ProgressionFromAPI = {
     ref: skillRef
   },
   engine: {
-    ref: 'review'
+    ref: 'review',
+    version: '1'
   },
   _id: '123456123456',
   state: {
@@ -37,7 +38,8 @@ const result: ProgressionFromAPI = {
     ref: skillRef
   },
   engine: {
-    ref: 'review'
+    ref: 'review',
+    version: '1'
   },
   _id: '123456123456',
   state: {

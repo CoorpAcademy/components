@@ -505,6 +505,7 @@ const MyLearning = (props, context) => {
                 return (
                   <div key={index}>
                     <LearnerSkillCard
+                      type="skill"
                       title={skillsLocales[skill]}
                       cardIndex={index}
                       focus={selectedSkills.includes(skill)}

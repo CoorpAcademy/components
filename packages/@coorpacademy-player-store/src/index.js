@@ -81,6 +81,7 @@ export * from './actions/ui/extra-life';
 export * from './actions/ui/location';
 export * from './actions/ui/progressions';
 export * from './actions/ui/route';
+export * from './actions/ui/tourguide';
 export * from './actions/ui/video';
 export {CONTENT_TYPE, ENGINES, VIDEO_TRACK_KIND, VIDEO_TRACK_TYPE} from './definitions/models';
 

@@ -50,7 +50,11 @@ import type {
   Recommendation,
   VideoTrack
 } from '../definitions/models';
-import type {ReduxState as State} from '../definitions/redux';
+import type {
+  ReduxState as State,
+  TourguideEligibilityOptions,
+  TourguideState
+} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
@@ -591,6 +595,33 @@ export const getProgressionSteps = (state: State): ProgressionSteps | null => {
     current: getOr(0, 'state.step.current')(progression),
     total: getNbSlides(state)
   };
+};
+
+export const isTourguideEligible = (
+  state: State,
+  options: TourguideEligibilityOptions = {}
+): boolean => {
+  const isScorm = options.mode === 'scorm';
+  const isAdaptive = isContentAdaptive(state);
+  return isScorm && !isAdaptive;
+};
+
+export const isFirstSlide = (state: State): boolean => {
+  const steps = getProgressionSteps(state);
+  return steps ? steps.current <= 1 : false;
+};
+
+export const shouldAutoShowTourguide = (
+  state: State,
+  options: TourguideEligibilityOptions = {},
+  tourguideState: TourguideState = {}
+): boolean => {
+  const isQuestionTab = getRoute(state) === 'answer';
+  const hasAutoShown = Boolean(tourguideState.hasTourGuideBeenShown);
+
+  return (
+    isFirstSlide(state) && isQuestionTab && isTourguideEligible(state, options) && !hasAutoShown
+  );
 };
 
 export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');

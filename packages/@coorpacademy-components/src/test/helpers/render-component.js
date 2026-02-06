@@ -4,8 +4,12 @@ import get from 'lodash/fp/get';
 import PropTypes from 'prop-types';
 import {mockTranslate} from '@coorpacademy/translate';
 import {render} from '@testing-library/react-native';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/pro-solid-svg-icons';
 import Provider from '../../atom/provider';
 import {TemplateContext} from '../../template/app-review/template-context';
+
+library.add(fas);
 
 export const context = {
   skin: {
@@ -32,6 +36,7 @@ const renderComponent = (t, Component, fixture) => {
     console.log(`[------ ❌ [web rendering]---> error for ${Component.name}`);
     console.log(e);
     console.log('-------------------]');
+    throw e;
   }
 };
 
