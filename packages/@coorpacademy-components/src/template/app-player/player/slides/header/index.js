@@ -85,7 +85,7 @@ const buttonMenuActionProps = multiLangOptions => {
 
 const SlidesHeader = (props = {}, context = undefined) => {
   const {type, content, subcontent, lives, mode, multiLang, help} = props;
-  const handleHelpClick = help && help.onClick ? help.onClick : null;
+  const handleHelpClick = help?.onClick ?? null;
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>

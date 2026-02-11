@@ -142,7 +142,8 @@ const TourGuideManager = ({
       return undefined;
     }
   })();
-  if (runtimeProcess?.env?.NODE_ENV === 'test') {
+  const isTestEnv = runtimeProcess?.env?.NODE_ENV === 'test';
+  if (isTestEnv) {
     __test__.__clientRef = clientRef;
   }
   const hasStartedRef = useRef(false);
