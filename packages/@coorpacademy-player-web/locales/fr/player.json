@@ -62,12 +62,12 @@
   "Tourguide step 4 content": "Un indice peut vous aider à répondre à la question. 💡",
   "Tourguide step 5 title": "Vous pouvez changer de langue !",
   "Tourguide step 5 content": "Utilisez ce menu pour changer de langue à tout moment dans l’expérience. 🌍",
-  "Tourguide step 6 title": "Besoin d'aide plus tard ?",
-  "Tourguide step 6 content": "Vous pouvez rouvrir cette visite guidée en cliquant sur le bouton Aide. 💡",
-  "Tourguide step 7 title": "Vous avez le droit de vous tromper !",
-  "Tourguide step 7 content": "À chaque mauvaise réponse, vous perdez une vie. 💔<br/>Mais ce n'est pas fini, vous pouvez continuer !",
-  "Tourguide next": "Suivant →",
+  "Tourguide step 6 title": "Need help later?",
+  "Tourguide step 6 content": "You can reopen this tour guide anytime by clicking the Help button. 💡",
+  "Tourguide step 7 title": "You are allowed to make mistakes!",
+  "Tourguide step 7 content": "For each wrong answer, you lose a life. 💔<br/>But it's not game over, you can keep going!",
+  "Tourguide next": "Next →",
   "Tourguide prev": "←",
-  "Tourguide finish": "Commencer →",
-  "Help": "Aide"
+  "Tourguide finish": "Get started →",
+  "Help": "Help"
 }
