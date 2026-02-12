@@ -23,7 +23,10 @@ export default defaultsDeep(correct, {
         type: 'nextCourse',
         prefix: 'Next chapter:',
         title: 'Le prochain chapitre qui a un titre vraiment trop long',
-        card: Card.props
+        card: {
+          ...Card.props,
+          type: 'cards'
+        }
       },
       header: {
         type: 'popinEnd',

@@ -49,7 +49,7 @@ const SearchPage = (props, context) => {
   const defaultColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const nodeRef = useRef(null);
   const recommendationsView = isEmpty(recommendations) ? null : (
-    <CardsList {...recommendations} customStyle={{padding: 0}} />
+    <CardsList {...recommendations} customStyle={{padding: '0'}} />
   );
 
   // Helper function to render content sections

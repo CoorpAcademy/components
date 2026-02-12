@@ -9,21 +9,26 @@ import defaultFixture from './fixtures/default';
 browserEnv();
 
 test('should call the onChange function with the value of the target', t => {
+  t.plan(1);
+  const onChange = value => {
+    t.is(value, 'newvalue');
+  };
+
   const {getByTestId, unmount} = render(
-    <InputTextarea {...defaultFixture.props} name="textarea-test" />
+    <InputTextarea {...defaultFixture.props} name="textarea-test" onChange={onChange} />
   );
 
   fireEvent.change(getByTestId('textarea-test'), {target: {value: 'newvalue'}});
-  t.is(getByTestId('textarea-test').value, 'newvalue');
-
   unmount();
 });
 
 test('should not crash if the onChange function has not been specified', t => {
-  const {getByTestId} = render(
+  const {getByTestId, unmount} = render(
     <InputTextarea {...omit('onChange', defaultFixture.props)} name="textarea-test" />
   );
 
-  fireEvent.change(getByTestId('textarea-test'), {target: {value: 'newvalue'}});
-  t.is(getByTestId('textarea-test').value, 'newvalue');
+  t.notThrows(() => {
+    fireEvent.change(getByTestId('textarea-test'), {target: {value: 'newvalue'}});
+  });
+  unmount();
 });

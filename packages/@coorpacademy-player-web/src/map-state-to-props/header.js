@@ -1,10 +1,14 @@
-import {get, getOr, indexOf} from 'lodash/fp';
+import {get, getOr, identity, indexOf} from 'lodash/fp';
 import {
   getCurrentChapter,
   getEngine,
   getLives,
   getCurrentContent,
-  back
+  getRoute,
+  selectRoute,
+  back,
+  showTourguide,
+  isTourguideEligible
 } from '@coorpacademy/player-store';
 
 const headerContent = (engineRef, state) => {
@@ -46,6 +50,25 @@ const headerSubcontent = (engineRef, state) => {
   }
 };
 
+const buildHelpProps = (state, options, dispatch) => {
+  const isQuestionTab = getRoute(state) === 'answer';
+  const translate = getOr(identity, 'translate', options);
+  const canShowHelp = isTourguideEligible(state, options);
+  if (!canShowHelp) {
+    return null;
+  }
+  return {
+    onClick: () => {
+      if (!isQuestionTab) {
+        dispatch(selectRoute('answer'));
+      }
+      dispatch(showTourguide(undefined, true));
+    },
+    ariaLabel: translate('Help'),
+    title: translate('Help')
+  };
+};
+
 const headerProps =
   (options, {dispatch}) =>
   state => {
@@ -61,8 +84,9 @@ const headerProps =
       },
       subcontent: headerSubcontent(engineRef, state),
       lives: hide ? false : {count},
-      mode: options.mode || 'default',
-      multiLang: options.multiLang
+      mode: getOr('default', 'mode', options),
+      multiLang: get('multiLang', options),
+      help: buildHelpProps(state, options, dispatch)
     };
   };
 

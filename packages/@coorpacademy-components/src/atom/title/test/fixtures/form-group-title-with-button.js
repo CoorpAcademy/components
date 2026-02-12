@@ -12,6 +12,7 @@ export default {
         position: 'left',
         faIcon: {
           name: 'plus',
+          size: 12,
           color: 'white',
           customStyle: {
             padding: 0

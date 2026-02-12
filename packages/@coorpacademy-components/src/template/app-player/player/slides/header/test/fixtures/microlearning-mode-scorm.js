@@ -8,6 +8,21 @@ export default {
     lives: {
       count: 1
     },
-    mode: 'scorm'
+    mode: 'scorm',
+    multiLang: {
+      currentLang: 'en',
+      onClick: code => console.log(`onClick ${code}`),
+      supportedLangs: [
+        {code: 'fr', label: 'French'},
+        {code: 'en', label: 'English'},
+        {code: 'es', label: 'Spanish'},
+        {code: 'it', label: 'Italian'},
+        {code: 'de', label: 'German'}
+      ]
+    },
+    help: {
+      onClick: () => console.log('onClick help'),
+      title: 'Help'
+    }
   }
 };

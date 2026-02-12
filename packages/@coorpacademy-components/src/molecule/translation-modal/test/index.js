@@ -66,21 +66,50 @@ test('should call onConfirm with selected icon when confirm button is clicked', 
   fireEvent.click(confirmButton);
 });
 
+test('should render null when isOpen is false', t => {
+  const context = {
+    translate: key => {
+      return key;
+    }
+  };
+
+  const {container} = renderWithContext(
+    <TranslationModal {...internalProps} isOpen={false} />,
+    context
+  );
+
+  t.is(container.innerHTML, '');
+});
+
 test('should call handleInputChange on input change', async t => {
   const context = {
     translate: key => {
       return key;
     }
   };
-  t.plan(2);
+  t.plan(3);
 
-  const {container} = renderWithContext(<TranslationModal {...internalProps} />, context);
+  const onChange = value => {
+    t.is(value, 'banana');
+  };
+  const customProps = {
+    ...internalProps,
+    target: {
+      ...internalProps.target,
+      inputText: {
+        ...internalProps.target.inputText,
+        onChange
+      }
+    }
+  };
 
-  const textInput = container.querySelector('[data-name="input-text"]');
+  const {container} = renderWithContext(<TranslationModal {...customProps} />, context);
+
+  const textInput = container.querySelectorAll('[data-name="input-text"]')[1];
   t.truthy(textInput);
   fireEvent.input(textInput, {target: {value: 'banana'}});
   await delay(500);
-  t.is(textInput.value, 'banana');
+  t.is(textInput.value, internalProps.target.inputText.value);
 });
 
 test('should call handleTextAreaChange on textarea change', async t => {
@@ -89,13 +118,27 @@ test('should call handleTextAreaChange on textarea change', async t => {
       return key;
     }
   };
-  t.plan(2);
+  t.plan(3);
 
-  const {container} = renderWithContext(<TranslationModal {...internalProps} />, context);
+  const onChange = value => {
+    t.is(value, 'banana');
+  };
+  const customProps = {
+    ...internalProps,
+    target: {
+      ...internalProps.target,
+      textArea: {
+        ...internalProps.target.textArea,
+        onChange
+      }
+    }
+  };
+
+  const {container} = renderWithContext(<TranslationModal {...customProps} />, context);
 
   const textArea = container.querySelector('[data-testid="Description target"]');
   t.truthy(textArea);
-  fireEvent.input(textArea, {target: {value: 'banana'}});
+  fireEvent.change(textArea, {target: {value: 'banana'}});
   await delay(500);
-  t.is(textArea.value, 'banana');
+  t.is(textArea.value, internalProps.target.textArea.value);
 });

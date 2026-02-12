@@ -73,9 +73,24 @@ type Ui = {
   current: {
     progressionId: ProgressionId
   },
+  tourguide: {
+    visible: boolean,
+    step: number,
+    hasTourGuideBeenShown: boolean,
+    forceStart: boolean
+  },
   route: {
     [id: ProgressionId]: 'answer' | 'correction'
   }
+};
+
+type TourguideEligibilityOptions = {
+  mode?: string
+};
+
+type TourguideState = {
+  hasTourGuideBeenShown?: boolean,
+  forceStart?: boolean
 };
 
 // Keep it no-strict because some of apps can extend this one
@@ -126,5 +141,7 @@ export type {
   ReduxState,
   Resource,
   ThunkAction,
+  TourguideEligibilityOptions,
+  TourguideState,
   Ui
 };

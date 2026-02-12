@@ -23,6 +23,10 @@ export default {
         {code: 'it', label: 'Italian'},
         {code: 'de', label: 'German'}
       ]
+    },
+    help: {
+      onClick: () => console.log('onClick help'),
+      title: 'Help'
     }
   }
 };

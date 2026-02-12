@@ -1,5 +1,5 @@
 @value colors: "../../../../../variables/colors.css";
-@value light from colors;
+@value light, cm_primary_blue from colors;
 
 .wrapper {
   width: 100%;
@@ -9,6 +9,23 @@
   background-color: light;
   border-radius: 3px 3px 0 0;
   align-items: center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin: 0px;
+}
+
+.helpButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: cm_primary_blue;
 }
 
 .backIcon {

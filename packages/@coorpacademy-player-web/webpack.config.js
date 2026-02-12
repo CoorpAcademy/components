@@ -36,4 +36,4 @@ module.exports = pipe(
     port: 8080
   }),
   update('resolve.modules', concat([path.join(__dirname, 'node_modules')]))
-)(generateConfig(process.env.NODE_ENV));
+)(generateConfig(process.env.NODE_ENV, {esModule: false}));

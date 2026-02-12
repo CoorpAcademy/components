@@ -24,7 +24,10 @@ export default defaultsDeep(correct, {
         type: 'nextCourse',
         prefix: 'Next chapter:',
         title: '<p align="right"> وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه</p>',
-        card: Card.props
+        card: {
+          ...Card.props,
+          type: 'cards'
+        }
       },
       header: {
         type: 'popinEnd',
