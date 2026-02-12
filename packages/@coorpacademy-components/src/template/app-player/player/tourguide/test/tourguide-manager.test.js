@@ -53,6 +53,10 @@ test('serialize helpers normalize content and build stable keys', t => {
   ]);
   t.true(stepsKey.includes('body|1|group-a|A'));
   t.true(stepsKey.includes('.foo|2|g|B'));
+  const stepsKeyWithMissingFields = serializeSteps([
+    createStep({target: null, order: null, group: null, content: 'C'})
+  ]);
+  t.true(stepsKeyWithMissingFields.includes('|||C'));
   t.is(serializeSteps(), '');
 
   t.is(serializeOptions({b: 2, a: 1}), 'a:1|b:2');
@@ -74,6 +78,22 @@ test('does not create client when steps are empty', t => {
   let unmount;
   act(() => {
     ({unmount} = render(<TourGuideManager steps={[]} testClientFactory={testClientFactory} />));
+  });
+  unmount();
+  cleanup();
+  t.false(called);
+});
+
+test('does not create client when steps are missing', t => {
+  let called = false;
+  const testClientFactory = () => {
+    called = true;
+    return createClient();
+  };
+
+  let unmount;
+  act(() => {
+    ({unmount} = render(<TourGuideManager testClientFactory={testClientFactory} />));
   });
   unmount();
   cleanup();
@@ -308,10 +328,174 @@ test('recreates client when steps/options change and exits before restarting', a
   cleanup();
 });
 
+test('updates steps clone when steps change', async t => {
+  const createdSteps = [];
+  const client = createClient();
+  const testClientFactory = options => {
+    createdSteps.push(options.steps);
+    return client;
+  };
+
+  let rerender;
+  act(() => {
+    ({rerender} = render(
+      <TourGuideManager
+        steps={[createStep({content: 'A'})]}
+        testClientFactory={testClientFactory}
+      />
+    ));
+  });
+
+  act(() => {
+    rerender(
+      <TourGuideManager
+        steps={[createStep({content: 'B'})]}
+        testClientFactory={testClientFactory}
+      />
+    );
+  });
+  await flushEffects();
+
+  t.is(createdSteps.length, 2);
+  t.is(createdSteps[0][0].content, 'A');
+  t.is(createdSteps[1][0].content, 'B');
+  cleanup();
+});
+
+test('handles null steps and re-clones when steps are provided later', async t => {
+  const createdSteps = [];
+  const client = createClient();
+  const testClientFactory = options => {
+    createdSteps.push(options.steps);
+    return client;
+  };
+
+  let rerender;
+  act(() => {
+    ({rerender} = render(<TourGuideManager steps={null} testClientFactory={testClientFactory} />));
+  });
+
+  act(() => {
+    rerender(
+      <TourGuideManager
+        steps={[createStep({content: 'C'})]}
+        testClientFactory={testClientFactory}
+      />
+    );
+  });
+  await flushEffects();
+
+  t.is(createdSteps.length, 1);
+  t.is(createdSteps[0][0].content, 'C');
+  cleanup();
+});
+
+test('re-clones steps when target changes', async t => {
+  const createdSteps = [];
+  const client = createClient();
+  const testClientFactory = options => {
+    createdSteps.push(options.steps);
+    return client;
+  };
+
+  let rerender;
+  act(() => {
+    ({rerender} = render(
+      <TourGuideManager
+        steps={[createStep({target: '.foo'})]}
+        testClientFactory={testClientFactory}
+      />
+    ));
+  });
+
+  act(() => {
+    rerender(
+      <TourGuideManager
+        steps={[createStep({target: '.bar'})]}
+        testClientFactory={testClientFactory}
+      />
+    );
+  });
+  await flushEffects();
+
+  t.is(createdSteps.length, 2);
+  t.is(createdSteps[0][0].target, '.foo');
+  t.is(createdSteps[1][0].target, '.bar');
+  cleanup();
+});
+
+test('re-clones steps when order changes', async t => {
+  const createdSteps = [];
+  const client = createClient();
+  const testClientFactory = options => {
+    createdSteps.push(options.steps);
+    return client;
+  };
+
+  let rerender;
+  act(() => {
+    ({rerender} = render(
+      <TourGuideManager steps={[createStep({order: 1})]} testClientFactory={testClientFactory} />
+    ));
+  });
+
+  act(() => {
+    rerender(
+      <TourGuideManager steps={[createStep({order: 2})]} testClientFactory={testClientFactory} />
+    );
+  });
+  await flushEffects();
+
+  t.is(createdSteps.length, 2);
+  t.is(createdSteps[0][0].order, 1);
+  t.is(createdSteps[1][0].order, 2);
+  cleanup();
+});
+
+test('autoStart false exits after starting once', async t => {
+  let startCalls = 0;
+  let exitCalls = 0;
+  const client = createClient();
+  client.start = () => {
+    startCalls += 1;
+    client.isVisible = true;
+    return Promise.resolve();
+  };
+  client.exit = () => {
+    exitCalls += 1;
+    return Promise.resolve();
+  };
+
+  const testClientFactory = () => client;
+  let rerender;
+  act(() => {
+    ({rerender} = render(
+      <TourGuideManager steps={[createStep()]} autoStart testClientFactory={testClientFactory} />
+    ));
+  });
+  await flushEffects();
+  t.is(startCalls, 1);
+
+  act(() => {
+    rerender(
+      <TourGuideManager
+        steps={[createStep()]}
+        autoStart={false}
+        testClientFactory={testClientFactory}
+      />
+    );
+  });
+  await flushEffects();
+
+  t.is(exitCalls, 2);
+  cleanup();
+});
+
 test('callbacks are wired and exit callback is fired once', async t => {
   const client = createClient();
   const testClientFactory = () => client;
   let stepChangeCount = 0;
+  let startCount = 0;
   let exitCount = 0;
   let finishCount = 0;
 
@@ -323,6 +507,9 @@ test('callbacks are wired and exit callback is fired once', async t => {
         group="g"
         onStepChange={index => {
           if (index === 2) stepChangeCount += 1;
+        }}
+        onStart={() => {
+          startCount += 1;
         }}
         onExit={() => {
           exitCount += 1;
@@ -342,6 +529,7 @@ test('callbacks are wired and exit callback is fired once', async t => {
   client._globalFinishCallback();
 
   t.is(stepChangeCount, 1);
+  t.is(startCount, 1);
   t.is(exitCount, 1);
   t.is(finishCount, 1);
   cleanup();
@@ -365,7 +553,7 @@ test('cleanup removes dialog/backdrop when not visible without calling exit', as
 
   const testClientFactory = () => client;
   const {unmount} = render(
-    <TourGuideManager steps={[createStep()]} testClientFactory={testClientFactory} />
+    <TourGuideManager steps={[createStep()]} testClientFactory={testClientFactory} testMode />
   );
 
   if (__test__.__clientRef) {

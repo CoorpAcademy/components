@@ -113,7 +113,14 @@ export const TourGuideConfigPropType = PropTypes.shape({
   steps: PropTypes.arrayOf(TourGuideStepPropType).isRequired,
   options: TourGuideOptionsPropType,
   group: PropTypes.string,
-  autoStart: PropTypes.bool
+  autoStart: PropTypes.bool,
+  forceStart: PropTypes.bool,
+  startStep: PropTypes.number,
+  onStepChange: PropTypes.func,
+  onStart: PropTypes.func,
+  onExit: PropTypes.func,
+  onFinish: PropTypes.func,
+  testMode: PropTypes.bool
 });
 
 // TourGuideManager is a React-only controller:
@@ -128,21 +135,16 @@ const TourGuideManager = ({
   forceStart = false,
   startStep,
   onStepChange,
+  onStart,
   onExit,
   onFinish,
   // Unit-test injection point to avoid using the real TourGuideClient.
-  testClientFactory
+  testClientFactory,
+  testMode = false
 }) => {
   const clientRef = useRef(null);
   // Expose refs for unit tests without relying on globals.
-  const runtimeProcess = (() => {
-    try {
-      return new Function('return this')().process;
-    } catch (error) {
-      return undefined;
-    }
-  })();
-  const isTestEnv = runtimeProcess?.env?.NODE_ENV === 'test';
+  const isTestEnv = Boolean(testMode);
   if (isTestEnv) {
     __test__.__clientRef = clientRef;
   }
@@ -150,6 +152,7 @@ const TourGuideManager = ({
   const hasExitedRef = useRef(false);
   const startStepRef = useRef(startStep);
   const onStepChangeRef = useRef(onStepChange);
+  const onStartRef = useRef(onStart);
   const onExitRef = useRef(onExit);
   const onFinishRef = useRef(onFinish);
   const sanitizedOptions = useMemo(() => {
@@ -176,9 +179,10 @@ const TourGuideManager = ({
   useEffect(() => {
     startStepRef.current = startStep;
     onStepChangeRef.current = onStepChange;
+    onStartRef.current = onStart;
     onExitRef.current = onExit;
     onFinishRef.current = onFinish;
-  }, [startStep, onStepChange, onExit, onFinish]);
+  }, [startStep, onStepChange, onStart, onExit, onFinish]);
 
   useEffect(() => {
     // Avoid client creation on the server or with empty steps.
@@ -260,6 +264,9 @@ const TourGuideManager = ({
       const start = () => {
         // Mark as started before calling into the library to avoid double-start.
         hasStartedRef.current = true;
+        if (onStartRef.current) {
+          onStartRef.current(client.activeStep, group);
+        }
         client.start(group).catch(() => {});
       };
       start();
@@ -282,9 +289,11 @@ TourGuideManager.propTypes = {
   forceStart: PropTypes.bool,
   startStep: PropTypes.number,
   onStepChange: PropTypes.func,
+  onStart: PropTypes.func,
   onExit: PropTypes.func,
   onFinish: PropTypes.func,
-  testClientFactory: PropTypes.func
+  testClientFactory: PropTypes.func,
+  testMode: PropTypes.bool
 };
 
 export default TourGuideManager;
