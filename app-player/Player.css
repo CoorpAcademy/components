@@ -918,6 +918,23 @@
   align-items: center;
 }
 
+.actions-Ze3tx {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  margin: 0px;
+}
+
+.helpButton-PaNCh {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  color: #0061FF;
+}
+
 .backIcon-DlGHL {
   width: 16px;
   height: 16px;
@@ -1585,6 +1602,31 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.actions-Ze3tx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0px;
+  margin: 0px;
+}
+
+.helpButton-PaNCh {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0061FF;
 }
 
 .backIcon-DlGHL {
@@ -11392,9 +11434,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   margin-bottom: 8px;
   margin-right: 8px;
   overflow: hidden;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word;
@@ -11509,9 +11550,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
 .answerText-ruLsW {
   position: relative;
   color: #06265B;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word;
@@ -11645,9 +11685,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word;
@@ -12639,6 +12678,422 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   .question-6ZOTF {
     margin-top: 54px;
   }
+}
+
+/* TourGuideJS styles */
+
+[data-tg-tour] {
+  scroll-margin: 30px 0;
+}
+
+.tg-backdrop {
+  position: absolute;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+  z-index: 99;
+  border-radius: 7px;
+  -webkit-box-shadow: rgba(33, 33, 33, 0.8) 0 0 1px 2px, rgba(33, 33, 33, 0.8) 0 0 0 1000vh;
+          box-shadow: rgba(33, 33, 33, 0.8) 0 0 1px 2px, rgba(33, 33, 33, 0.8) 0 0 0 1000vh;
+  border: 1px solid rgba(193, 192, 232, 0.5);
+  top: 50vh;
+  left: 50vw;
+  width: 0;
+  height: 0;
+}
+
+.tg-backdrop.tg-backdrop-animate {
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.tg-backdrop.allow-interaction {
+  pointer-events: none;
+}
+
+.tg-dialog {
+  border-radius: 12px;
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+  min-height: 120px;
+  background: #fff;
+  color: #252525;
+  max-width: 340px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 9999;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.tg-dialog .tg-dialog-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 25px 25px 0 25px;
+}
+
+.tg-dialog .tg-dialog-header .tg-dialog-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.tg-dialog .tg-dialog-header .tg-dialog-title + .tg-dialog-body {
+  padding: 18.75px 25px 18.75px 25px;
+}
+
+.tg-dialog .tg-dialog-header .tg-dialog-close-btn {
+  width: 12px;
+  height: 12px;
+  margin-left: 10px;
+  opacity: 0.4;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tg-dialog .tg-dialog-header .tg-dialog-close-btn:hover {
+  opacity: 0.8;
+}
+
+.tg-dialog .tg-dialog-header .tg-dialog-close-btn:focus {
+  opacity: 1;
+}
+
+.tg-dialog .tg-dialog-header .tg-dialog-spinner {
+  display: none;
+  opacity: 0.4;
+  margin-top: -1px;
+  -webkit-animation: tg-spin-j20WC 1s linear infinite;
+  animation: tg-spin-j20WC 1s linear infinite;
+}
+
+@keyframes tg-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+.tg-dialog .tg-dialog-progress-bar {
+  background: #f1f1f1;
+  height: 5px;
+  display: block;
+  margin-top: 18.75px;
+  position: relative;
+}
+
+.tg-dialog .tg-dialog-progress-bar > .tg-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 4px;
+  background: #414144;
+  height: 100%;
+  display: block;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.tg-dialog .tg-dialog-body {
+  padding: 25px;
+  font-weight: 400;
+}
+
+.tg-dialog .tg-dialog-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px 0;
+  margin-bottom: 10px;
+  border-top: 1px solid #dedee7;
+  border-bottom: 1px solid #dedee7;
+}
+
+.tg-dialog .tg-dialog-dots > span.tg-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: #c2c7ce;
+  border-radius: 12px;
+  margin: 0 4px;
+}
+
+.tg-dialog .tg-dialog-dots > span.tg-dot.tg-dot-active {
+  background: #5362d9;
+}
+
+.tg-dialog .tg-dialog-footer {
+  padding: 12.5px 25px 25px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tg-dialog .tg-dialog-footer button.tg-dialog-btn {
+  padding: 5px 10px;
+  border: 1px solid #cbcfd5;
+  color: #6f727e;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.tg-dialog .tg-dialog-footer button.tg-dialog-btn + button {
+  margin-left: auto;
+}
+
+.tg-dialog .tg-dialog-footer button.tg-dialog-btn.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.tg-dialog .tg-dialog-footer button.tg-dialog-btn:hover {
+  color: #464852;
+  border: 1px solid #b5b7c2;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.tg-dialog .tg-dialog-footer button.tg-dialog-btn:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.tg-dialog .tg-dialog-footer button.tg-dialog-btn:active {
+  color: #4655cb;
+  background: #f1f2ff;
+  border: 1px solid #5362d9;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.tg-dialog .tg-dialog-footer .tg-dialog-footer-sup {
+  margin: 0 auto;
+  padding: 0 10px;
+  text-align: center;
+  line-height: 1;
+}
+
+.tg-dialog .tg-dialog-footer .tg-dialog-footer-sup .tg-step-progress {
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0 auto;
+  opacity: 0.4;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.tg-dialog .tg-dialog-footer .tg-dialog-footer-sup .tg-dialog-dots {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.tg-dialog .tg-dialog-footer .tg-dialog-footer-sup .tg-dialog-dots > span.tg-dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 3px;
+}
+
+.tg-dialog .tg-dialog-footer .tg-dialog-footer-sup .tg-dialog-dots + .tg-step-progress {
+  margin-top: 10px;
+  font-size: 0.68rem;
+}
+
+.tg-dialog .tg-arrow {
+  position: absolute;
+  background: #fff;
+  width: 9px;
+  height: 9px;
+  border-radius: 1px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.tg-dialog.tg-dialog-fixed {
+  -webkit-transition: none;
+  transition: none;
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
+}
+
+.tg-dialog.animate-position {
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.tg-dialog.tg-dialog-loading .tg-dialog-header .tg-dialog-title {
+  opacity: 0.4;
+}
+
+.tg-dialog.tg-dialog-loading .tg-dialog-header .tg-dialog-close-btn {
+  display: none;
+}
+
+.tg-dialog.tg-dialog-loading .tg-dialog-header .tg-dialog-spinner {
+  display: inline-block;
+}
+
+.tg-dialog.tg-dialog-loading .tg-dialog-body {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.tg-dialog.tg-dialog-loading .tg-dialog-footer {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.tg-no-interaction * {
+  pointer-events: none !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
+}
+
+.tg-no-interaction .tg-dialog,
+.tg-no-interaction .tg-active-element,
+.tg-dialog *,
+.tg-active-element * {
+  pointer-events: auto !important;
+  -webkit-user-select: text !important;
+     -moz-user-select: text !important;
+      -ms-user-select: text !important;
+          user-select: text !important;
+}
+
+/* Custom styles for Coorpacademy */
+
+.coorp-tourguide-dialog {
+  font-family: Gilroy;
+  font-weight: 900;
+  font-style: Solid;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.coorp-tourguide-dialog #tg-dialog-prev-btn.disabled {
+  opacity: 0;
+}
+
+.coorp-tourguide-dialog #tg-dialog-next-btn {
+  cursor: pointer;
+  border-color: transparent;
+  vertical-align: middle;
+  color: #0061FF;
+  background-color: #f1f6fe;
+  font-family: Gilroy;
+  font-weight: 900;
+  font-style: Solid;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 8px 10px;
+}
+
+.coorp-tourguide-dialog #tg-dialog-prev-btn {
+  cursor: pointer;
+  border-color: transparent;
+  vertical-align: middle;
+  color: #515161;
+  background-color: #F4F4F5;
+  font-family: Gilroy;
+  font-weight: 900;
+  font-style: Solid;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 8px 10px;
+}
+
+.coorp-tourguide-dialog #tg-dialog-next-btn:hover {
+  color: rgba(0, 97, 255, 0.75);
+  background-color: rgba(241, 246, 254, 0.75);
+}
+
+.coorp-tourguide-dialog #tg-dialog-prev-btn:hover {
+  color: rgba(81, 81, 97, 0.75);
+  background-color: rgba(244, 244, 245, 0.75);
+}
+
+.coorp-tourguide-dialog #tg-dialog-title {
+  color: #1D1D2B;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  vertical-align: bottom;
+  padding-top: 15px;
+}
+
+.coorp-tourguide-dialog #tg-dialog-close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: black;
+}
+
+.coorp-tourguide-dialog #tg-dialog-body {
+  font-weight: 600;
+  font-style: SemiBold;
+  line-height: 20px;
+  letter-spacing: 0px;
+  vertical-align: bottom;
+  color: #515161;
+}
+
+.coorp-tourguide-dialog .tg-dialog-footer {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.coorp-tourguide-dialog .tg-dialog-footer-sup {
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  vertical-align: bottom;
+  color: #9999A8;
+  position: absolute;
+  top: 20px;
+  left: 14px;
 }
 
 .wrapper-LTMRC {

@@ -778,8 +778,7 @@
 .cardContainer-IgQci {
   -webkit-animation: fadeIn-fs4s9 2s ease-in-out forwards;
           animation: fadeIn-fs4s9 2s ease-in-out forwards;
-  -webkit-backdrop-filter: blur(36px);
-          backdrop-filter: blur(36px);
+  backdrop-filter: blur(36px);
   border-radius: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2797,9 +2796,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   margin-bottom: 8px;
   margin-right: 8px;
   overflow: hidden;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word;
@@ -2914,9 +2912,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
 .answerText-ruLsW {
   position: relative;
   color: #06265B;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word;
@@ -3050,9 +3047,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-all;
   word-break: break-all;
   word-break: break-word;
@@ -3668,9 +3664,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   font-weight: 600;
   font-size: 24px;
   line-height: 24px;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-word;
   word-break: break-word;
 }
@@ -3702,9 +3697,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   font-weight: 900;
   font-size: 14px;
   line-height: 17px;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
   -ms-word-break: break-word;
   word-break: break-word;
 }
