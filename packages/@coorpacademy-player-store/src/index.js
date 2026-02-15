@@ -3,6 +3,7 @@
 
 import ReduxThunkMemoized from './middlewares/redux-thunk-memoized';
 import ErrorLogger from './middlewares/error-logger';
+import TourguideTrackingLogger from './middlewares/tourguide-tracking-logger';
 
 import data from './reducers/data';
 import ui from './reducers/ui';
@@ -58,7 +59,7 @@ import type {UiCurrentState} from './reducers/ui/current';
 import type {DataProgressionState} from './reducers/data/progressions';
 
 const reducers = {data, ui};
-const middlewares = {ErrorLogger, ReduxThunkMemoized};
+const middlewares = {ErrorLogger, TourguideTrackingLogger, ReduxThunkMemoized};
 
 export * from './utils/state-extract';
 export * from './actions/api/analytics';
@@ -82,6 +83,7 @@ export * from './actions/ui/location';
 export * from './actions/ui/progressions';
 export * from './actions/ui/route';
 export * from './actions/ui/tourguide';
+export * from './actions/ui/tourguide-tracking';
 export * from './actions/ui/video';
 export {CONTENT_TYPE, ENGINES, VIDEO_TRACK_KIND, VIDEO_TRACK_TYPE} from './definitions/models';
 

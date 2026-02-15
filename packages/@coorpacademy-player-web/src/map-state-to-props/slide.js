@@ -9,10 +9,32 @@ import {cloneDeep, filter, get, map, pipe, size} from 'lodash/fp';
 import createPlayerStateToProps from './player';
 import mapStateToErrorPopinProps from './error-popin';
 
-const TOUR_GROUP = 'app-player-intro-fixture';
+const TOUR_GROUP = 'app-player-question-tour-guide';
+const TOURGUIDE_TRACK_STARTED = 'ui/tourguide/track-started';
+const TOURGUIDE_TRACK_STEP_VIEWED = 'ui/tourguide/track-step-viewed';
+const TOURGUIDE_TRACK_COMPLETED = 'ui/tourguide/track-completed';
+const TOURGUIDE_TRACK_DISMISSED = 'ui/tourguide/track-dismissed';
+
+const trackTourguideStarted = (group, stepTracking) => ({
+  type: TOURGUIDE_TRACK_STARTED,
+  payload: {group, ...stepTracking}
+});
+const trackTourguideStepViewed = (group, stepTracking) => ({
+  type: TOURGUIDE_TRACK_STEP_VIEWED,
+  payload: {group, ...stepTracking}
+});
+const trackTourguideCompleted = (group, stepTracking) => ({
+  type: TOURGUIDE_TRACK_COMPLETED,
+  payload: {group, ...stepTracking}
+});
+const trackTourguideDismissed = (group, stepTracking) => ({
+  type: TOURGUIDE_TRACK_DISMISSED,
+  payload: {group, ...stepTracking}
+});
 
 const createTutorialSteps = translate => [
   {
+    ref: 'page',
     target: 'body',
     title: translate('Tourguide step 1 title'),
     content: translate('Tourguide step 1 content'),
@@ -20,6 +42,7 @@ const createTutorialSteps = translate => [
     group: TOUR_GROUP
   },
   {
+    ref: 'slide',
     target: '[data-name="slide"]',
     title: translate('Tourguide step 2 title'),
     content: translate('Tourguide step 2 content'),
@@ -27,6 +50,7 @@ const createTutorialSteps = translate => [
     group: TOUR_GROUP
   },
   {
+    ref: 'media',
     target: '[data-type="media"]',
     title: translate('Tourguide step 3 title'),
     content: translate('Tourguide step 3 content'),
@@ -34,6 +58,7 @@ const createTutorialSteps = translate => [
     group: TOUR_GROUP
   },
   {
+    ref: 'clue',
     target: '[data-type="clue"]',
     title: translate('Tourguide step 4 title'),
     content: translate('Tourguide step 4 content'),
@@ -41,6 +66,7 @@ const createTutorialSteps = translate => [
     group: TOUR_GROUP
   },
   {
+    ref: 'language',
     target: '[data-name="button-multi-lang"]',
     title: translate('Tourguide step 5 title'),
     content: translate('Tourguide step 5 content'),
@@ -48,6 +74,7 @@ const createTutorialSteps = translate => [
     group: TOUR_GROUP
   },
   {
+    ref: 'help',
     target: '[data-name="help-button"]',
     title: translate('Tourguide step 6 title'),
     content: translate('Tourguide step 6 content'),
@@ -55,6 +82,7 @@ const createTutorialSteps = translate => [
     group: TOUR_GROUP
   },
   {
+    ref: 'life',
     target: '[data-name="life"]',
     title: translate('Tourguide step 7 title'),
     content: translate('Tourguide step 7 content'),
@@ -98,6 +126,16 @@ const tourguideStateToProps = (state, options, store) => {
     }),
     map(cloneDeep)
   )(createTutorialSteps(translate));
+  const getStepTracking = stepIndex => {
+    const totalSteps = stepsForTour.length;
+    const isValidIndex = typeof stepIndex === 'number' && stepIndex >= 0 && stepIndex < totalSteps;
+    const stepRef = isValidIndex ? stepsForTour[stepIndex].ref : null;
+    return {
+      stepRef,
+      stepNumber: isValidIndex ? stepIndex + 1 : null,
+      totalSteps
+    };
+  };
 
   if (!tourguideVisible) {
     return null;
@@ -109,8 +147,18 @@ const tourguideStateToProps = (state, options, store) => {
     autoStart: tourguideVisible,
     forceStart: tourguideForceStart,
     startStep: tourguideStep,
-    onStepChange: step => store.dispatch(setTourguideStep(step)),
-    onExit: () => store.dispatch(hideTourguide()),
+    onStart: () =>
+      store.dispatch(trackTourguideStarted(TOUR_GROUP, getStepTracking(tourguideStep))),
+    onStepChange: step => {
+      store.dispatch(trackTourguideStepViewed(TOUR_GROUP, getStepTracking(step)));
+      store.dispatch(setTourguideStep(step));
+    },
+    onExit: () => {
+      store.dispatch(trackTourguideDismissed(TOUR_GROUP, getStepTracking(tourguideStep)));
+      store.dispatch(hideTourguide());
+    },
+    onFinish: () =>
+      store.dispatch(trackTourguideCompleted(TOUR_GROUP, getStepTracking(tourguideStep))),
     options: {
       closeButton: false,
       nextLabel: translate('Tourguide next'),

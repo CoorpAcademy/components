@@ -260,7 +260,13 @@ const CMPopin = props => {
         {buildIcon()}
         <div className={style.contentSection}>
           {renderContentTitle()}
-          {descriptionText ? <div className={style.descriptionText}>{descriptionText}</div> : null}
+          {descriptionText ? (
+            <div
+              className={style.descriptionText}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: descriptionText}}
+            />
+          ) : null}
         </div>
         {link ? <Link {...link} /> : null}
       </div>
