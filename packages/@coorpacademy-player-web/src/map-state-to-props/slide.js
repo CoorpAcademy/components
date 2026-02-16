@@ -3,34 +3,17 @@ import {
   getLives,
   hideTourguide,
   isTourguideEligible,
-  setTourguideStep
+  setTourguideStep,
+  trackTourguideCompleted,
+  trackTourguideDismissed,
+  trackTourguideStarted,
+  trackTourguideStepViewed
 } from '@coorpacademy/player-store';
 import {cloneDeep, filter, get, map, pipe, size} from 'lodash/fp';
 import createPlayerStateToProps from './player';
 import mapStateToErrorPopinProps from './error-popin';
 
 const TOUR_GROUP = 'app-player-question-tour-guide';
-const TOURGUIDE_TRACK_STARTED = 'ui/tourguide/track-started';
-const TOURGUIDE_TRACK_STEP_VIEWED = 'ui/tourguide/track-step-viewed';
-const TOURGUIDE_TRACK_COMPLETED = 'ui/tourguide/track-completed';
-const TOURGUIDE_TRACK_DISMISSED = 'ui/tourguide/track-dismissed';
-
-const trackTourguideStarted = (group, stepTracking) => ({
-  type: TOURGUIDE_TRACK_STARTED,
-  payload: {group, ...stepTracking}
-});
-const trackTourguideStepViewed = (group, stepTracking) => ({
-  type: TOURGUIDE_TRACK_STEP_VIEWED,
-  payload: {group, ...stepTracking}
-});
-const trackTourguideCompleted = (group, stepTracking) => ({
-  type: TOURGUIDE_TRACK_COMPLETED,
-  payload: {group, ...stepTracking}
-});
-const trackTourguideDismissed = (group, stepTracking) => ({
-  type: TOURGUIDE_TRACK_DISMISSED,
-  payload: {group, ...stepTracking}
-});
 
 const createTutorialSteps = translate => [
   {
