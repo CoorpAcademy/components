@@ -353,21 +353,23 @@ const ContentLayout = (props, context) => {
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
 
   return (
-    <div className={noPaddingRessources} data-name="slide" style={{backgroundColor: 'white'}}>
-      <div
-        data-name="question"
-        className={classnames(
-          selectedTab === 'context' ? style.contextTitle : style.question,
-          style.innerHTML
-        )}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: selectedTab === 'context' ? slideContext.title : question
-        }}
-      />
-      {help && selectedTab === 'answer' && type !== 'qcmDrag' ? <Help help={help} /> : null}
-      <ContentType {...props} />
-      <ValidateButton {...props} />
+    <div className={style.slideWrapper}>
+      <div className={noPaddingRessources} data-name="slide" style={{backgroundColor: 'white'}}>
+        <div
+          data-name="question"
+          className={classnames(
+            selectedTab === 'context' ? style.contextTitle : style.question,
+            style.innerHTML
+          )}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: selectedTab === 'context' ? slideContext.title : question
+          }}
+        />
+        {help && selectedTab === 'answer' && type !== 'qcmDrag' ? <Help help={help} /> : null}
+        <ContentType {...props} />
+        <ValidateButton {...props} />
+      </div>
     </div>
   );
 };

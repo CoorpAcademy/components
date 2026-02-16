@@ -41,6 +41,9 @@ test(
         step: 0,
         hasTourGuideBeenShown: false,
         forceStart: false
+      },
+      tourguideTracking: {
+        lastEvent: null
       }
     }
   }

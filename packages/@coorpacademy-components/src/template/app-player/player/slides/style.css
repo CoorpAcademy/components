@@ -24,7 +24,12 @@
   margin: 0 auto;
   margin-bottom: 80px;
 }
-
+.slideWrapper {
+  background-color: white;
+  padding: 36px 32px 32px;
+  border-radius: 0px 0px 3px 3px;
+  width: 100%;
+}
 .contentProgression {
   display: flex;
   flex-grow: 1;
@@ -37,10 +42,9 @@
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
-  padding: 36px 32px 32px;
+  padding: 0 0 0 0;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 0px 0px 3px 3px;
   z-index: 0;
 }
 
@@ -301,16 +305,18 @@
     width: 100%;
     margin-top: 12px;
   }
-
+  .slideWrapper {
+    padding: 32px 0px 16px;
+  }
   .contentWrapper {
-    padding: 32px 8px 16px;
+    padding: 0px 8px 0px;
     margin-bottom: 80px;
     overflow-y: auto;
   }
 
   .contentWrapperNoPadding {
     composes: contentWrapper;
-    padding: 32px 0 16px;
+    padding: 0px 0px 0px;
   }
 
   .question {

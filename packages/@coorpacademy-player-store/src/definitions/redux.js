@@ -79,6 +79,17 @@ type Ui = {
     hasTourGuideBeenShown: boolean,
     forceStart: boolean
   },
+  tourguideTracking: {
+    lastEvent: null | {
+      type: string,
+      payload: {
+        group?: string,
+        stepRef?: ?string,
+        stepNumber?: ?number,
+        totalSteps?: number
+      }
+    }
+  },
   route: {
     [id: ProgressionId]: 'answer' | 'correction'
   }
