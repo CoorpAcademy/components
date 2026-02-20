@@ -15,7 +15,7 @@ test('logs tracking actions', t => {
   let calls = 0;
   const stepTracking = {stepRef: 'step-a', stepNumber: 1, totalSteps: 3};
   const logger = {
-    info: payload => {
+    info: (message, payload) => {
       calls += 1;
       t.deepEqual(payload, {
         details: {
@@ -23,6 +23,7 @@ test('logs tracking actions', t => {
           payload: {group: 'g', ...stepTracking}
         }
       });
+      t.is(message, 'tourguide tracking');
     }
   };
   const store = createStoreWithLogger(logger);
