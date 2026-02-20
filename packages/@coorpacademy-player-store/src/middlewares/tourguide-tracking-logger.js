@@ -17,15 +17,7 @@ const logTourguideAction = (Logger, action) => {
     return;
   }
 
-  Logger.info(
-    {
-      details: {
-        type: action.type,
-        payload: action.payload
-      }
-    },
-    'tourguide tracking'
-  );
+  Logger.info('tourguide tracking', {details: {type: action.type, payload: action.payload}});
 };
 
 const createHandler = (Logger, next) => action => {
