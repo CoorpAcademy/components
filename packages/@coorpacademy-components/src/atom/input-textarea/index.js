@@ -83,6 +83,7 @@ const InputTextarea = props => {
           disabled={disabled}
           readOnly={readOnly}
           data-testid={name}
+          tabIndex={0}
         />
         {errorIconView}
         {validIconView}
