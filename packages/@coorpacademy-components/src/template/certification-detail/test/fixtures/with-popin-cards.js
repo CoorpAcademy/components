@@ -1,12 +1,9 @@
 import popinWithCards from '../../../../molecule/cm-popin/test/fixtures/popin-with-cards';
-import {defaultProps} from './default';
+import Default from './default';
 
 export default {
   props: {
-    ...defaultProps,
-    description: null,
-    focused: false,
-    availableForReview: false,
+    ...Default.props,
     popinWithCards: popinWithCards.props
   }
 };

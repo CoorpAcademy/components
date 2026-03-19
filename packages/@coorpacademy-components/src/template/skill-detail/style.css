@@ -286,7 +286,10 @@
     width: 100%;
   }
 }
-
+.popinWithCards {
+  position: relative;
+  z-index: 7;
+}
 
 @media mobile {
 

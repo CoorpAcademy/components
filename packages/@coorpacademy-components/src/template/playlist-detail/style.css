@@ -90,6 +90,11 @@
   margin-top: 24px;
 }
 
+.popinWithCards {
+  position: relative;
+  z-index: 7;
+}
+
 @media tablet {
   .ctaContainer {
     flex-direction: column;
