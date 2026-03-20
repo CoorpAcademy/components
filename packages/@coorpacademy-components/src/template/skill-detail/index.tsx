@@ -12,6 +12,8 @@ import ButtonLink from '../../atom/button-link';
 import CardsGrid, {CardsGridProps} from '../../organism/cards-grid';
 import {COLORS} from '../../variables/colors';
 import {SelectOptionPropTypes} from '../../atom/select';
+import {CMPopinProps} from '../../molecule/cm-popin/types';
+import CMPopin from '../../molecule/cm-popin';
 import AllCourses from './all-courses';
 import style from './style.css';
 
@@ -105,6 +107,7 @@ interface SkillDetailProps {
     onChange: () => void;
   };
   bannerMicrolearning?: BannerMicrolearning;
+  popinWithCards: CMPopinProps;
 }
 const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
   const {
@@ -122,7 +125,8 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
     onReviewClick,
     onContinueLearningClick,
     search,
-    bannerMicrolearning
+    bannerMicrolearning,
+    popinWithCards
   } = props;
 
   const {score = 0, questionsToReview = 0, totalContents = 0} = metrics;
@@ -314,6 +318,11 @@ const SkillDetail = (props: SkillDetailProps, context: ProviderContext) => {
           search={search}
         />
       </div>
+      {popinWithCards ? (
+        <div className={style.popinWithCards}>
+          <CMPopin {...popinWithCards} />
+        </div>
+      ) : null}
     </div>
   );
 };

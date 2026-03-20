@@ -107,6 +107,11 @@
   color: cm_grey_400;
 }
 
+.popinWithCards {
+  position: relative;
+  z-index: 7;
+}
+
 @media tablet {
   .ctaContainer {
     flex-direction: column;

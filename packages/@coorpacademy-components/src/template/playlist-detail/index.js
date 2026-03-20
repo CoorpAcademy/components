@@ -9,6 +9,7 @@ import Select, {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
+import CMPopin from '../../molecule/cm-popin';
 import AllCourses from '../skill-detail/all-courses';
 import PlaylistDetailCover from '../../molecule/playlist-detail-cover';
 import {ContinueLearningButton} from '../skill-detail';
@@ -28,7 +29,8 @@ const PlaylistDetail = (props, context) => {
     onContinueLearningClick,
     search,
     metrics = {},
-    bannerMicrolearning = {}
+    bannerMicrolearning = {},
+    popinWithCards
   } = props;
   const {totalContents = pipe(getOr([], 'list'), size)(playlistCourses)} = metrics;
   const descriptionRef = useRef(null);
@@ -117,6 +119,11 @@ const PlaylistDetail = (props, context) => {
           search={search}
         />
       </div>
+      {popinWithCards ? (
+        <div className={style.popinWithCards}>
+          <CMPopin {...popinWithCards} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -150,7 +157,8 @@ PlaylistDetail.propTypes = {
   bannerMicrolearning: PropTypes.shape({
     action: PropTypes.func,
     oldSwitchValue: PropTypes.bool
-  })
+  }),
+  popinWithCards: PropTypes.shape(CMPopin.propTypes)
 };
 
 export default PlaylistDetail;

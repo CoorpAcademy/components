@@ -9,6 +9,7 @@ import {SelectOptionPropTypes} from '../../atom/select';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Icon from '../../atom/icon';
 import CardsGrid from '../../organism/cards-grid';
+import CMPopin from '../../molecule/cm-popin';
 import AllCourses from '../skill-detail/all-courses';
 import {ContinueLearningButton} from '../skill-detail';
 import ProgressWrapper from '../../molecule/progress-wrapper';
@@ -29,7 +30,8 @@ const CertificationDetail = (props, context) => {
     diplomaUrl,
     badgeUrl,
     search,
-    metrics = {}
+    metrics = {},
+    popinWithCards
   } = props;
   const descriptionRef = useRef(null);
   const {translate} = context;
@@ -142,6 +144,11 @@ const CertificationDetail = (props, context) => {
           search={search}
         />
       </div>
+      {popinWithCards ? (
+        <div className={style.popinWithCards}>
+          <CMPopin {...popinWithCards} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -177,7 +184,8 @@ CertificationDetail.propTypes = {
   search: PropTypes.shape({
     oldValue: PropTypes.string,
     onChange: PropTypes.func
-  })
+  }),
+  popinWithCards: PropTypes.shape(CMPopin.propTypes)
 };
 
 export default CertificationDetail;
