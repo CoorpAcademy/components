@@ -22,7 +22,7 @@ const fixture: Fixture = {
         ...JwplayerFixture.props,
         type: 'video'
       })
-    )(RestackedSlides.props)
+    )(RestackedSlides.props) as typeof RestackedSlides.props
   }
 };
 

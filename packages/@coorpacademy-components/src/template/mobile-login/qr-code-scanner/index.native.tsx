@@ -130,7 +130,7 @@ const explanationsStyle = StyleSheet.create({
     fill: '#000',
     height: 14,
     width: 14
-  },
+  } as ViewStyle & {fill?: string},
   titleText: {
     fontWeight: '600',
     color: '#1D1D2B',
@@ -169,7 +169,10 @@ const explanationsStyle = StyleSheet.create({
   }
 });
 
-const Corner = (props: {position: ViewStyle; lineLength: Animated.AnimatedInterpolation}) => {
+const Corner = (props: {
+  position: ViewStyle;
+  lineLength: Animated.AnimatedInterpolation<number>;
+}) => {
   const {position, lineLength} = props;
 
   return (

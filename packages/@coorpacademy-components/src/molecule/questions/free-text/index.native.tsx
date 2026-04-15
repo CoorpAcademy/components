@@ -1,4 +1,4 @@
-import {View, StyleSheet, TextInput, ViewStyle} from 'react-native';
+import {View, StyleSheet, TextInput, ViewStyle, TextStyle} from 'react-native';
 import React, {useState, useEffect, useCallback} from 'react';
 import {useTemplateContext} from '../../../template/app-review/template-context';
 import {ANALYTICS_EVENT_TYPE, Analytics} from '../../../variables/analytics';
@@ -20,7 +20,7 @@ interface Props {
 
 type StyleSheetType = {
   input: ViewStyle;
-  text: ViewStyle;
+  text: TextStyle;
   spaced: ViewStyle;
   fullWitdh: ViewStyle;
 };
@@ -106,18 +106,20 @@ const FreeText = (props: Props) => {
 
   return (
     <View style={[styleSheet.spaced, fullWidth && styleSheet.fullWitdh]}>
-      <TextInput
-        style={[styleSheet.input, styleSheet.text]}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChangeText={onChange}
-        placeholder={translations.typeHere}
-        placeholderTextColor={PLACEHOLDER_COLOR}
-        value={value}
-        testID={testID}
-        editable={!isDisabled}
-        selectTextOnFocus={!isDisabled}
-      />
+      <View style={styleSheet.input}>
+        <TextInput
+          style={styleSheet.text}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChangeText={onChange}
+          placeholder={translations.typeHere}
+          placeholderTextColor={PLACEHOLDER_COLOR}
+          value={value}
+          testID={testID}
+          editable={!isDisabled}
+          selectTextOnFocus={!isDisabled}
+        />
+      </View>
     </View>
   );
 };

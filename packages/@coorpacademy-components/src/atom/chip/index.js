@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import {convert} from 'css-color-function';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {fas} from '@fortawesome/pro-solid-svg-icons';
+import {fas} from '@fortawesome/free-solid-svg-icons';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import Provider from '../provider';
 import {COLORS} from '../../variables/colors';

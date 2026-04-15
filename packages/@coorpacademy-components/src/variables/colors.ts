@@ -1,7 +1,7 @@
 export const COLORS = {
   cm_grey_100: '#EAEAEB',
   negative: '#F73F52',
-  cm_negative_100: '#ed3436;',
+  cm_negative_100: '#ed3436',
   cm_negative_200: '#B81400',
   cm_positive_200: '#05944F',
   white: '#FFFFFF',

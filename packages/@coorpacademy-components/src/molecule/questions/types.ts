@@ -1,4 +1,4 @@
-import {Config} from 'react-native-jw-media-player';
+import {Config} from '@jwplayer/jwplayer-react-native';
 import {ChoiceItem} from '../../atom/select-modal/index.native';
 
 type Url = string;

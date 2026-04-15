@@ -16,7 +16,7 @@ test('should call the onFavoriteClick function with click on favorite icon (favo
   const props = pipe(
     set('onFavoriteClick', () => t.pass()),
     set('favorite', true)
-  )(defaultFixture.props);
+  )(defaultFixture.props) as typeof defaultFixture.props;
 
   const {container} = renderWithContext(<Card {...props} />);
   const favoriteSection = container.querySelector('[data-name="favorite"]');
@@ -30,7 +30,7 @@ test('should call the onFavoriteClick function with click on favorite icon (favo
   const props = pipe(
     set('onFavoriteClick', () => t.pass()),
     set('favorite', false)
-  )(defaultFixture.props);
+  )(defaultFixture.props) as typeof defaultFixture.props;
 
   const {container} = renderWithContext(<Card {...props} />);
   const favoriteSection = container.querySelector('[data-name="favorite"]');
@@ -54,7 +54,7 @@ test('should call onClick with locked card', t => {
     set('disabled', true),
     set('onClick', () => t.pass()),
     set('onFavoriteClick', () => t.fail())
-  )(defaultFixture.props);
+  )(defaultFixture.props) as typeof defaultFixture.props;
 
   const {container} = renderWithContext(<Card {...props} />);
   const card = container.querySelector('[data-name="card"]');
@@ -73,7 +73,7 @@ test('should call onClick with unlocked card', t => {
     set('disabled', false),
     set('onClick', () => t.pass()),
     set('onFavoriteClick', () => t.pass())
-  )(defaultFixture.props);
+  )(defaultFixture.props) as typeof defaultFixture.props;
 
   const {container} = renderWithContext(<Card {...props} />);
   const card = container.querySelector('[data-name="card"]');
@@ -90,7 +90,7 @@ test('should show notification', t => {
   const props = pipe(
     set('favorite', true),
     set('onFavoriteClick', () => t.fail())
-  )(notificationFixture.props);
+  )(notificationFixture.props) as typeof notificationFixture.props;
 
   const {container} = renderWithContext(<Card {...props} />);
   const notification = container.querySelector('[data-name="notification"]');

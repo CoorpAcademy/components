@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import {keys} from 'lodash/fp';
 import {ICONS} from '../../util/button-icons';
@@ -65,7 +66,7 @@ export type ButtonLinkProps = {
   type?: 'primary' | 'secondary' | 'tertiary' | 'text' | 'dangerous';
   usage?: 'button' | 'submit' | 'reset';
   label?: string;
-  content?: PropTypes.ReactNodeLike;
+  content?: React.ReactNode;
   'aria-label'?: string;
   tooltipText?: string;
   tooltipPlacement?: 'left' | 'right' | 'top' | 'bottom';

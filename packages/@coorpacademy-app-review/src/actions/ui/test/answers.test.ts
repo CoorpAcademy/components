@@ -66,7 +66,7 @@ const buildInitialState = (state: StoreState, question: SlideFromAPI): StoreStat
     set(['data', 'progression', 'state', 'nextContent', 'ref'], question._id),
     set(['data', 'slides', question._id], question),
     set(['ui', 'currentSlideRef'], question._id)
-  )(state);
+  )(state) as StoreState;
 };
 
 test('editAnswer should throw an Error if the slide is not found', async t => {

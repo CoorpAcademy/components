@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {View, StyleSheet, ViewStyle, TextStyle, Text} from 'react-native';
 
 import Html from '../html/index.native';
 import ImageBackground from '../image-background/index.native';
@@ -66,7 +66,7 @@ const createStyleSheet = (theme: Theme, squeezed: boolean): StyleSheetType =>
     },
     text: {
       fontSize: squeezed ? theme.fontSize.medium : theme.fontSize.regular,
-      fontWeight: theme.fontWeight.bold,
+      fontWeight: '700',
       color: theme.colors.black,
       textAlign: 'center'
     },
@@ -177,9 +177,13 @@ const Choice = ({
 
         {children ? (
           <View style={textWrapperStyle}>
-            <Html style={textStyle} isTextCentered>
-              {children}
-            </Html>
+            {children.includes('<') ? (
+              <Html style={textStyle} isTextCentered>
+                {children}
+              </Html>
+            ) : (
+              <Text style={Object.assign({}, ...textStyle)}>{children}</Text>
+            )}
           </View>
         ) : null}
       </View>

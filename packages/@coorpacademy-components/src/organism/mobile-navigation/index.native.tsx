@@ -48,7 +48,7 @@ type StyleSheetType = {
   dotShadow: ViewStyle;
 };
 
-const createStyleSheet = (theme: Theme): StyleSheetType =>
+const createStyleSheet = (theme: Theme) =>
   StyleSheet.create({
     container: {
       position: 'absolute',
@@ -139,7 +139,7 @@ const NavigationBar = ({items, selectedItemIndex}: Props) => {
   const {theme} = templateContext;
 
   useEffect(() => {
-    const _stylesheet = createStyleSheet(theme);
+    const _stylesheet = createStyleSheet(theme) as StyleSheetType;
     setStylesheet(_stylesheet);
   }, [theme]);
 

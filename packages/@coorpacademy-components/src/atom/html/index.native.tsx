@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {View, ViewStyle, ImageStyle, TextStyle} from 'react-native';
+import {View, ViewStyle, ImageStyle, TextStyle, useWindowDimensions} from 'react-native';
 import RenderHTML, {
   CustomRendererProps,
   MixedStyleRecord,
@@ -54,6 +54,7 @@ type Styles = {
 
 const Html = (props: Props) => {
   const templateContext = useTemplateContext();
+  const {width: contentWidth} = useWindowDimensions();
   const [isDisabledBaseFontStyleColor, disableBaseFontStyleColor] = useState<boolean>(false);
   const {theme} = templateContext;
   const {
@@ -67,38 +68,6 @@ const Html = (props: Props) => {
     isTextCentered,
     numberOfLines
   } = props;
-
-  // Don't use StyleSheet there, it's not a react style
-  const styles: Styles = {
-    p: {
-      marginVertical: 0,
-      textAlign: 'center'
-    },
-    u: {
-      textDecorationLine: 'underline'
-    },
-    i: {
-      fontStyle: 'italic'
-    },
-    b: {
-      fontWeight: theme.fontWeight.bold
-    },
-    s: {
-      textDecorationLine: 'line-through'
-    }
-  };
-
-  const tagsStyles: MixedStyleRecord = {
-    ...styles,
-    h1: {fontSize},
-    h2: {fontSize},
-    h3: {fontSize},
-    h4: {fontSize},
-    h5: {fontSize},
-    h6: {fontSize},
-    a: {color: anchorTextColor},
-    img: imageStyle || {}
-  };
 
   let baseFontStyle: TextStyle = useMemo(
     () => ({fontSize, color: theme.colors.black}),
@@ -122,6 +91,39 @@ const Html = (props: Props) => {
       };
     }
   }
+
+  // Don't use StyleSheet there, it's not a react style
+  const styles: Styles = {
+    p: {
+      marginVertical: 0,
+      textAlign: 'center'
+    },
+    u: {
+      textDecorationLine: 'underline'
+    },
+    i: {
+      fontStyle: 'italic'
+    },
+    b: {
+      fontWeight: theme.fontWeight.bold
+    },
+    s: {
+      textDecorationLine: 'line-through'
+    }
+  };
+
+  const tagsStyles = {
+    ...styles,
+    body: {color: baseFontStyle.color},
+    h1: {fontSize},
+    h2: {fontSize},
+    h3: {fontSize},
+    h4: {fontSize},
+    h5: {fontSize},
+    h6: {fontSize},
+    a: {color: anchorTextColor},
+    img: imageStyle || {}
+  } as MixedStyleRecord;
 
   const SpanRenderer = useCallback(
     (htmlAttribs: CustomRendererProps<TBlock>, _children: string) => (
@@ -175,6 +177,7 @@ const Html = (props: Props) => {
             ? `<span>${children}</span>`
             : `${children}`
         }}
+        contentWidth={contentWidth}
         tagsStyles={tagsStyles}
         baseFontStyle={{
           ...baseFontStyle,

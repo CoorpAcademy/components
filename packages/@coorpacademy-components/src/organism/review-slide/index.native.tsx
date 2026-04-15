@@ -88,7 +88,7 @@ const CorrectionPopin = ({
 
   if (!showCorrectionPopin) return null;
 
-  const klf = getOr(undefined, 'klf', correctionPopinProps);
+  const klf = correctionPopinProps.klf;
   const information = getOr({label: '', message: ''}, 'information', correctionPopinProps);
   const next = get('next', correctionPopinProps);
   const onClick = get(['next', 'onClick'], correctionPopinProps);
@@ -121,7 +121,7 @@ type StyleSheetType = {
   questionHeading: ViewStyle;
   questionOriginContainer: ViewStyle;
   questionOrigin: TextStyle;
-  questionTextContainer: ViewStyle;
+  questionTextContainer: TextStyle;
   questionText: TextStyle;
   questionHelpContainer: ViewStyle;
   questionHelp: TextStyle;
@@ -321,11 +321,14 @@ const Slide = (props: ReviewSlideProps) => {
   } = slide;
 
   if (loading) {
-    return <View style={slideStyle.slide} />;
+    return <View style={slideStyle.slide} pointerEvents={isFirstSlide ? 'auto' : 'none'} />;
   }
 
   return (
-    <Animated.View style={[slideStyle.slide, animatedStyle]}>
+    <Animated.View
+      style={[slideStyle.slide, animatedStyle]}
+      pointerEvents={isFirstSlide ? 'auto' : 'none'}
+    >
       <Question
         questionOrigin={parentContentTitle}
         questionText={questionText}

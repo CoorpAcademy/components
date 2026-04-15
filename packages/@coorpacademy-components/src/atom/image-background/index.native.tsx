@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import {
   ImageBackground as ImageBackgroundBase,
+  ImageBackgroundProps,
   StyleSheet,
   ViewStyle,
   ImageStyle
@@ -65,7 +66,7 @@ const ImageBackground = ({
 
     return (
       <ImageBackgroundBase
-        {...remainingProps}
+        {...(remainingProps as ImageBackgroundProps)}
         source={resizedSource}
         style={[styles.image, style]}
         testID={testID}
@@ -79,7 +80,7 @@ const ImageBackground = ({
 
   return (
     <ImageBackgroundBase
-      {...props}
+      {...(props as ImageBackgroundProps)}
       source={resizedSource}
       style={[styles.image, style]}
       testID={testID}
