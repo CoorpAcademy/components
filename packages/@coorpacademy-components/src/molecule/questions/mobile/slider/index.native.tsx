@@ -1,12 +1,11 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useMemo, useCallback} from 'react';
 import {View, StyleSheet, ViewStyle, TextStyle} from 'react-native';
-import Slider from '@react-native-community/slider';
 
 import {Theme} from '../../../../variables/theme.native';
 import Text from '../../../../atom/text/index.native';
 import {useTemplateContext} from '../../../../template/app-review/template-context';
-import {BOX_STYLE} from '../../../../variables/shadow';
 import {Brand} from '../../../../variables/brand.native';
+import NativeSlider from '../../../../molecule/native-slider/index.native';
 
 export type OnSlidingCompleteFunction = (value: number) => void;
 
@@ -28,8 +27,7 @@ type StyleSheetType = {
   valuesContainer: ViewStyle;
   leftValue: ViewStyle;
   rightValue: ViewStyle;
-  track: ViewStyle;
-  thumb: ViewStyle;
+  slider: ViewStyle;
 };
 
 const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
@@ -63,18 +61,9 @@ const createStyleSheet = (brandTheme: Brand, theme: Theme): StyleSheetType =>
       flex: 1,
       alignItems: 'flex-end'
     },
-    track: {
-      height: 10,
-      borderRadius: theme.radius.button
-    },
-    thumb: {
-      ...BOX_STYLE,
-      width: 30,
-      height: 30,
-      borderRadius: 30 / 2,
-      borderWidth: 5,
-      backgroundColor: brandTheme?.colors?.primary,
-      borderColor: 'white'
+    slider: {
+      height: 68,
+      marginVertical: 10
     }
   });
 
@@ -89,27 +78,33 @@ const QuestionSlider = (props: Props) => {
     onSlidingComplete,
     testID
   } = props;
+
   const templateContext = useTemplateContext();
   const {brandTheme, theme} = templateContext;
-  const [styleSheet, setStylesheet] = useState<StyleSheetType | null>(null);
   const [value, setValue] = useState<number>(storeValue);
 
-  const handleSlidingComplete = useCallback(() => {
-    onSlidingComplete(value);
-  }, [onSlidingComplete, value]);
+  const styleSheet = useMemo(
+    () => createStyleSheet(brandTheme, theme),
+    [brandTheme, theme]
+  );
 
-  useEffect(() => {
-    const _stylesheet = createStyleSheet(brandTheme, theme);
-    setStylesheet(_stylesheet);
-  }, [brandTheme, theme]);
+  const handleValueChange = useCallback((v: number) => {
+    setValue(v);
+  }, []);
 
-  if (!styleSheet) {
-    return null;
-  }
+  const handleSlidingComplete = useCallback(
+    (finalValue: number) => {
+      setValue(finalValue);
+      onSlidingComplete(finalValue);
+    },
+    [onSlidingComplete]
+  );
+
+  const primaryColor = brandTheme?.colors?.primary || '#007AFF';
 
   const textStyle: TextStyle = {
     ...styleSheet.header,
-    color: brandTheme?.colors?.primary
+    color: primaryColor
   };
 
   return (
@@ -117,16 +112,16 @@ const QuestionSlider = (props: Props) => {
       <Text style={textStyle} testID="slider-value">
         {value}
       </Text>
-      <Slider
-        step={step || 1}
+      <NativeSlider
+        min={min}
+        max={max}
         value={value}
-        onValueChange={setValue}
-        maximumValue={max}
-        minimumValue={min}
+        step={step || 1}
+        activeTrackColor={primaryColor}
+        thumbColor={primaryColor}
+        onValueChange={handleValueChange}
         onSlidingComplete={handleSlidingComplete}
-        minimumTrackTintColor={brandTheme?.colors?.primary}
-        trackStyle={styleSheet.track}
-        thumbStyle={[styleSheet.thumb]}
+        style={styleSheet.slider}
         testID="slider"
       />
       <View style={styleSheet.valuesContainer} testID="slider-values-container">

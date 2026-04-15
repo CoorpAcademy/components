@@ -24,6 +24,9 @@ const engine: ReviewEngine = {
 
 export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   {
+    slideId: sliderSlide._id
+  },
+  {
     slideId: freeTextSlide._id
   },
   {
@@ -31,9 +34,6 @@ export const fetchSlidesToReviewBySkillRefResponse: SlideIdFromAPI[] = [
   },
   {
     slideId: qcmSlide._id
-  },
-  {
-    slideId: sliderSlide._id
   },
   {
     slideId: templateSlide._id

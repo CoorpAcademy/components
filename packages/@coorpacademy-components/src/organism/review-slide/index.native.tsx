@@ -203,6 +203,7 @@ const Question = (props: QuestionProps) => {
 
   if (!answerUI || !questionText || !style) return null;
 
+  const isSlider = answerUI.model?.type === 'slider';
   const hasVideoOrImage =
     answerUI.media?.type && [TYPE_VIDEO, TYPE_IMAGE].includes(answerUI.media.type);
 
@@ -223,23 +224,30 @@ const Question = (props: QuestionProps) => {
           <Html style={style.questionHelp}>{get('help', answerUI)}</Html>
         </View>
       </View>
-      <ScrollView
-        style={style.choicesScrollView}
-        contentContainerStyle={style.choicesScrollContent}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      >
-        {!isKeyboardVisible && hasVideoOrImage ? (
-          <MediaView media={answerUI.media} autoplay={autoplayMedia} />
-        ) : null}
-        <View
-          style={{
-            marginTop: hasVideoOrImage ? 30 : 0
-          }}
-        >
+      {isSlider ? (
+        <View style={[style.choicesScrollView, style.choicesScrollContent]}>
           <Answer {...answerUI} />
         </View>
-      </ScrollView>
+      ) : (
+        <ScrollView
+          style={style.choicesScrollView}
+          contentContainerStyle={style.choicesScrollContent}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+          nestedScrollEnabled
+        >
+          {!isKeyboardVisible && hasVideoOrImage ? (
+            <MediaView media={answerUI.media} autoplay={autoplayMedia} />
+          ) : null}
+          <View
+            style={{
+              marginTop: hasVideoOrImage ? 30 : 0
+            }}
+          >
+            <Answer {...answerUI} />
+          </View>
+        </ScrollView>
+      )}
     </>
   );
 };
@@ -310,7 +318,6 @@ const Slide = (props: ReviewSlideProps) => {
     [num, width, isKeyboardVisible]
   );
   const isFirstSlide = num === 1;
-
   const {
     loading,
     parentContentTitle,
