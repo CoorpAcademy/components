@@ -1,6 +1,6 @@
 @value colors: "../../../../variables/colors.css";
-@value cm_primary_blue from colors;
 @value cm_blue_50 from colors;
+@value cm_blue_700 from colors;
 @value cm_grey_75 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
@@ -302,7 +302,7 @@
   cursor: pointer;
   border-color: transparent;
   vertical-align: middle;
-  color: cm_primary_blue;
+  color: cm_blue_700;
   background-color: cm_blue_50;
   font-family: Gilroy;
   font-weight: 900;
@@ -329,12 +329,12 @@
 }
 
 :global(.coorp-tourguide-dialog #tg-dialog-next-btn:hover) {
-  color: color(cm_primary_blue a(75%));
+  color: cm_blue_700;
   background-color: color(cm_blue_50 a(75%));
 }
 
 :global(.coorp-tourguide-dialog #tg-dialog-prev-btn:hover) {
-  color: color(cm_grey_500 a(75%));
+  color: cm_grey_500;
   background-color: color(cm_grey_75 a(75%));
 }
 

@@ -5,7 +5,6 @@
 @value light from colors;
 @value orangeAdd from colors;
 @value grey from colors;
-@value positive from colors;
 @value black from colors;
 @value medium from colors;
 @value white from colors;
@@ -92,7 +91,6 @@
 
 .highlighted {
   composes: logo;
-  background-color: positive;
 }
 
 .title {

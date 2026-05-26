@@ -4,7 +4,7 @@ import {defaultsDeep, get, getOr} from 'lodash/fp';
 import {SrcPropType, ColorPropType, HexPropType} from '../../util/proptypes';
 import WebContext, {useWebContext} from './web-context';
 
-const DEFAULT_SKIN = {
+export const DEFAULT_SKIN = {
   common: {
     good: '#24b694',
     bad: '#ed1c24',

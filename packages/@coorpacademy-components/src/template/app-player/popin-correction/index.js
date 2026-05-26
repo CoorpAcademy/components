@@ -72,29 +72,37 @@ AssistanceLink.propTypes = {
   onClick: PropTypes.func
 };
 
-const Question = ({header, answer, answerPrefix}) => (
-  <div className={style.question}>
-    <p
-      className={classnames(style.questionHeader, style.innerHTML)}
-      // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{__html: header}}
-    />
-    <div className={style.answerWrapper}>
-      <CheckIcon className={style.checkIcon} />
-      {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
-      <span
-        className={classnames(style.answer, style.innerHTML)}
+const Question = ({header, answer, answerPrefix}, {skin}) => {
+  const positive = get('common.positive', skin);
+
+  return (
+    <div className={style.question}>
+      <p
+        className={classnames(style.questionHeader, style.innerHTML)}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: answer}}
+        dangerouslySetInnerHTML={{__html: header}}
       />
+      <div className={style.answerWrapper} style={{color: positive}}>
+        <CheckIcon className={style.checkIcon} />
+        {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
+        <span
+          className={classnames(style.answer, style.innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: answer}}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 Question.propTypes = {
   header: PropTypes.string,
   answerPrefix: PropTypes.string,
   answer: PropTypes.string
+};
+
+Question.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 class PopinCorrection extends Component {

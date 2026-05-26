@@ -8,7 +8,6 @@
 @value medium from colors;
 @value white from colors;
 @value light from colors;
-@value positive from colors;
 @value dark from colors;
 
 .summaryWrapper {
@@ -176,7 +175,6 @@
 }
 
 .subscribeButton {
-  background-color: positive;
   border-radius: 30px;
   text-transform: none;
   width: auto;
@@ -360,7 +358,7 @@
 }
 
 .commentSectionLink:hover {
-  color: medium;
+  color: grey;
 }
 
 .innerHTML {

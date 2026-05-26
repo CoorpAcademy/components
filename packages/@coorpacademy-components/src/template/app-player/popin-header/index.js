@@ -200,10 +200,17 @@ const getLinkStyle = ({gameOver, extraLifeGranted}) => {
     return null;
   }
 };
-const renderIconStatusScorm = failed => {
+const renderIconStatusScorm = (failed, {positive, negative, white}) => {
   return (
-    <div className={failed ? style.iconCloseContainer : style.iconSuccessContainer}>
-      {failed ? <Close className={style.failIcon} /> : <CheckIcon className={style.checkIcon} />}
+    <div
+      className={failed ? style.iconCloseContainer : style.iconSuccessContainer}
+      style={{backgroundColor: failed ? negative : positive}}
+    >
+      {failed ? (
+        <Close className={style.failIcon} style={{color: white}} />
+      ) : (
+        <CheckIcon className={style.checkIcon} style={{color: white}} />
+      )}
     </div>
   );
 };
@@ -218,8 +225,19 @@ const buildDefaultOrScormStyle = (
   if (mode === 'scorm') return styleScorm;
   return defaultStyle;
 };
-const CorrectionPart = props => {
+
+const getScormSubtitleStyle = ({mode, failed, positive, negative}) => {
+  if (mode !== 'scorm') return null;
+  return {
+    color: failed ? negative : positive
+  };
+};
+
+const CorrectionPart = (props, {skin}) => {
   const {failed, corrections, title, subtitle, stars, rank, gameOver, mode = 'default'} = props;
+  const positive = get('common.positive', skin);
+  const negative = get('common.negative', skin);
+  const white = get('common.white', skin);
   const isLoading = isNil(failed);
   const className = buildClass(
     failed,
@@ -229,9 +247,19 @@ const CorrectionPart = props => {
     style.resultContenantContainerScorm,
     mode
   );
+  const statusStyle =
+    mode === 'scorm' || isLoading
+      ? null
+      : {
+          backgroundColor: failed ? negative : positive
+        };
+  const scormSubtitleStyle = getScormSubtitleStyle({mode, failed, positive, negative});
+
   return (
-    <div data-name="correctionSection" className={className}>
-      {mode === 'scorm' && !isLoading && renderIconStatusScorm(failed)}
+    <div data-name="correctionSection" className={className} style={statusStyle}>
+      {mode === 'scorm' && !isLoading
+        ? renderIconStatusScorm(failed, {positive, negative, white})
+        : null}
       <div
         className={buildDefaultOrScormStyle(
           style.titlesWrapper,
@@ -253,6 +281,7 @@ const CorrectionPart = props => {
           dangerouslySetInnerHTML={{__html: title}}
         />
         <h2
+          style={scormSubtitleStyle}
           className={buildDefaultOrScormStyle(
             style.subtitle,
             style.resultSubtitleScorm,
@@ -271,6 +300,10 @@ const CorrectionPart = props => {
   );
 };
 
+CorrectionPart.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
 CorrectionPart.propTypes = {
   ...IconsPart.propTypes,
   failed: PropTypes.bool,
@@ -284,6 +317,8 @@ CorrectionPart.propTypes = {
 
 const NextQuestionPart = (props, context) => {
   const {cta, type, extraLifeGranted, gameOver, failed = false, lives = 0, mode} = props;
+  const {skin} = context;
+  const negative = get('common.negative', skin);
   const {title, nextStepTitle, showNextLevel = false, ...linkProps} = cta || {};
   let dataNext;
 
@@ -329,6 +364,7 @@ const NextQuestionPart = (props, context) => {
     <Link
       {...linkProps}
       className={classnames(style.nextSection, getLinkStyle({gameOver, extraLifeGranted}))}
+      style={gameOver ? {backgroundColor: negative} : null}
       data-name="nextLink"
       data-popin={type}
       data-next={dataNext}
@@ -342,6 +378,10 @@ const NextQuestionPart = (props, context) => {
       </div>
     </Link>
   ) : null;
+};
+
+NextQuestionPart.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 NextQuestionPart.propTypes = {

@@ -2,19 +2,13 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value colors: '../../../variables/colors.css';
-@value negative from colors;
 @value light from colors;
 @value grey from colors;
-@value positive from colors;
 @value medium from colors;
 @value dark from colors;
 @value black from colors;
 @value transparent from colors;
 @value cm_grey_75 from colors;
-@value lightGreen from colors;
-@value cm_green_50 from colors;
-@value cm_negative_100 from colors;
-@value cm_negative_50 from colors;
 @value white from colors;
 
 .header {
@@ -59,12 +53,10 @@
 
 .correctionSectionSuccess {
   composes: correctionSectionLoading;
-  background-color: positive;
 }
 
 .correctionSectionEndSuccess {
   composes: correctionSectionLoading;
-  background-color: positive;
 }
 
 .correctionSectionEndSuccess .titleElement {
@@ -73,12 +65,10 @@
 
 .correctionSectionFail {
   composes: correctionSectionLoading;
-  background-color: negative;
 }
 
 .correctionSectionFailGameOver {
   composes: correctionSectionFail;
-  background-color: negative;
 }
 
 .wrapper {
@@ -219,7 +209,6 @@
   font-weight: 700;
   font-size: 42px;
   line-height: 52px;
-  color: lightGreen;
   margin-bottom: 0px;
   margin-top: 0px;
 }
@@ -238,7 +227,6 @@
   font-weight: 700;
   font-size: 42px;
   line-height: 52px;
-  color: cm_negative_100;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -247,7 +235,6 @@
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background-color: cm_negative_50;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -257,19 +244,16 @@
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background-color: cm_green_50;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 24px 0 40px
 }
 .failIcon {
-  color: cm_negative_100;
   height: 22px;
   width: 22px;
 }
 .checkIcon {
-  color: lightGreen;
   height: 22px;
   width: 22px;
 }
@@ -299,7 +283,7 @@
   background-color: light;
   animation: showNextButton 0.6s;
   text-decoration: none;
-  color: medium;
+  color: dark;
   border-left: solid 1px light;
 }
 
@@ -309,7 +293,6 @@
 }
 
 .gameOver {
-  background-color: negative;
 }
 
 .gameOver .nextButton {
@@ -322,7 +305,7 @@
 
 .oneMoreLife {
   background-color: light;
-  color: medium;
+  color: dark;
   transition: background 0.6s linear 1.6s, color 0.3s linear 1.6s;
 }
 
@@ -371,7 +354,7 @@
   font-size: 12px;
   font-weight: 600;
   text-align: center;
-  color: medium;
+  color: dark;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

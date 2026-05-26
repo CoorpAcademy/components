@@ -2,7 +2,7 @@
 @value mobile from breakpoints;
 @value colors: "../../../../../variables/colors.css";
 @value dark from colors;
-@value medium from colors;
+@value grey from colors;
 
 .content {
   min-width: 0;
@@ -17,8 +17,8 @@
 }
 
 .content:hover {
-  color: medium;
-  stroke: medium;
+  color: grey;
+  stroke: grey;
 }
 
 .contentScorm {

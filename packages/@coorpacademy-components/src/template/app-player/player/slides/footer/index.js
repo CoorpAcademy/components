@@ -79,6 +79,7 @@ class Button extends React.Component {
     const {hovered} = this.state;
     const grey = get('common.grey', skin);
     const primaryColor = get('common.primary', skin);
+    const positiveColor = get('common.positive', skin);
     const {disabled, notify, selected, highlighted, title, type, onClick} = this.props;
     const colorIcon = selected ? primaryColor : grey;
     const selectedColor = (selected && {borderTopColor: primaryColor}) || {};
@@ -114,7 +115,10 @@ class Button extends React.Component {
           ...selectedColor
         }}
       >
-        <div className={highlighted ? style.highlighted : style.logo}>
+        <div
+          className={highlighted ? style.highlighted : style.logo}
+          style={highlighted ? {backgroundColor: positiveColor} : null}
+        >
           {notifyView}
           <IconType
             style={{

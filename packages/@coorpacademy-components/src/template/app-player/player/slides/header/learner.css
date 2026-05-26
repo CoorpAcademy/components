@@ -4,7 +4,7 @@
 @value xtraLightGrey from colors;
 @value dark from colors;
 @value light from colors;
-@value medium from colors;
+@value grey from colors;
 
 .wrapper {
   min-width: 0;
@@ -31,8 +31,8 @@
 }
 
 .contentWrapper:hover {
-  color: medium;
-  stroke: medium;
+  color: grey;
+  stroke: grey;
 }
 
 .content {

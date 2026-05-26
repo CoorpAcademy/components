@@ -2,10 +2,7 @@
 @value dark from colors;
 @value grey from colors;
 @value xtraLightGrey from colors;
-@value medium from colors;
-@value positive from colors;
 @value white from colors;
-@value brand from colors;
 @value tablet, mobile from "../../../variables/breakpoints.css";
 
 @keyframes fadeInBackground {
@@ -113,14 +110,13 @@
 
 .questionHeader {
   composes: text;
-  color: medium;
+  color: dark;
   padding: 5px 22px;
 }
 
 .answerWrapper {
   display: flex;
   flex-flow: row;
-  color: positive;
   justify-content: flex-start;
   align-items: flex-start;
   min-height: 25px;

@@ -72,8 +72,9 @@ NextCourse.propTypes = {
   card: PropTypes.shape(cardPropTypes)
 };
 
-const Subscribe = ({title, description, button, card}) => {
+const Subscribe = ({title, description, button, card}, {skin}) => {
   const {title: buttonTitle, ...linkProps} = button;
+  const positive = get('common.positive', skin);
   return (
     <div className={style.subscribeWrapper}>
       <div className={style.subscribeTexts}>
@@ -88,6 +89,7 @@ const Subscribe = ({title, description, button, card}) => {
             {...linkProps}
             type="link"
             className={style.subscribeButton}
+            style={{backgroundColor: positive}}
             submitValue={buttonTitle}
           />
         </div>
@@ -102,6 +104,10 @@ const Subscribe = ({title, description, button, card}) => {
 Subscribe.propTypes = {
   ...Button.propTypes.propTypes,
   title: Button.propTypes.submitValue
+};
+
+Subscribe.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 const actions = {
