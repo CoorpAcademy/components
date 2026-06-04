@@ -983,8 +983,8 @@
 }
 
 .contentWrapper-Q8SS9:hover {
-  color: #90A4AE;
-  stroke: #90A4AE;
+  color: #607D8B;
+  stroke: #607D8B;
 }
 
 .content-RoRBZ {
@@ -1100,8 +1100,8 @@
 }
 
 .content-atcZV:hover {
-  color: #90A4AE;
-  stroke: #90A4AE;
+  color: #607D8B;
+  stroke: #607D8B;
 }
 
 .contentScorm-SCEV8 {
@@ -8605,11 +8605,9 @@ _:-ms-fullscreen
 }
 
 .correctionSectionSuccess-8hTNO {
-  background-color: #3EC483;
 }
 
 .correctionSectionEndSuccess-CYydN {
-  background-color: #3EC483;
 }
 
 .correctionSectionEndSuccess-CYydN .titleElement-kpcww {
@@ -8617,11 +8615,9 @@ _:-ms-fullscreen
 }
 
 .correctionSectionFail-VqQSg {
-  background-color: #F73F52;
 }
 
 .correctionSectionFailGameOver-8GUmn {
-  background-color: #F73F52;
 }
 
 .wrapper-89AYj {
@@ -8811,7 +8807,6 @@ _:-ms-fullscreen
   font-weight: 700;
   font-size: 42px;
   line-height: 52px;
-  color: #66BB6A;
   margin-bottom: 0px;
   margin-top: 0px;
 }
@@ -8830,7 +8825,6 @@ _:-ms-fullscreen
   font-weight: 700;
   font-size: 42px;
   line-height: 52px;
-  color: #ed3436;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -8839,7 +8833,6 @@ _:-ms-fullscreen
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background-color: #ffe5e6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8855,7 +8848,6 @@ _:-ms-fullscreen
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  background-color: #e8fcf8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8868,12 +8860,10 @@ _:-ms-fullscreen
   margin: 0 24px 0 40px
 }
 .failIcon-j7Bax {
-  color: #ed3436;
   height: 22px;
   width: 22px;
 }
 .checkIcon-eBUX- {
-  color: #66BB6A;
   height: 22px;
   width: 22px;
 }
@@ -8924,7 +8914,7 @@ _:-ms-fullscreen
   -webkit-animation: showNextButton-4\+Rpi 0.6s;
           animation: showNextButton-4\+Rpi 0.6s;
   text-decoration: none;
-  color: #90A4AE;
+  color: #546E7A;
   border-left: solid 1px #ECEFF1;
 }
 
@@ -8934,7 +8924,6 @@ _:-ms-fullscreen
 }
 
 .gameOver-IBg6x {
-  background-color: #F73F52;
 }
 
 .gameOver-IBg6x .nextButton-AfF2R {
@@ -8947,7 +8936,7 @@ _:-ms-fullscreen
 
 .oneMoreLife-tq7ln {
   background-color: #ECEFF1;
-  color: #90A4AE;
+  color: #546E7A;
   -webkit-transition: background 0.6s linear 1.6s, color 0.3s linear 1.6s;
   transition: background 0.6s linear 1.6s, color 0.3s linear 1.6s;
 }
@@ -9013,7 +9002,7 @@ _:-ms-fullscreen
   font-size: 12px;
   font-weight: 600;
   text-align: center;
-  color: #90A4AE;
+  color: #546E7A;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -9364,7 +9353,6 @@ _:-ms-fullscreen
 }
 
 .subscribeButton-m0atz {
-  background-color: #3EC483;
   border-radius: 30px;
   text-transform: none;
   width: auto;
@@ -9582,7 +9570,7 @@ _:-ms-fullscreen
 }
 
 .commentSectionLink-cShtg:hover {
-  color: #90A4AE;
+  color: #607D8B;
 }
 
 .innerHTML-zoj0q {
@@ -10060,7 +10048,7 @@ _:-ms-fullscreen
 }
 
 .questionHeader-3cajz {
-  color: #90A4AE;
+  color: #546E7A;
   padding: 5px 22px;
 }
 
@@ -10072,7 +10060,6 @@ _:-ms-fullscreen
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
-  color: #3EC483;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -11418,7 +11405,7 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 600;
-  color: #90A4AE;
+  color: #546E7A;
 }
 
 .choice-uw5xR {
@@ -12229,7 +12216,6 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
 }
 
 .highlighted-Ju-0i {
-  background-color: #3EC483;
 }
 
 .title-KZeAP {
@@ -12317,9 +12303,8 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
 }
 
 .error-\+xLmY {
-  color: #F73F52;
   text-align: center;
-  border: solid 2px #F73F52;
+  border: solid 2px;
   padding: 36px 32px 32px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -12471,7 +12456,7 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   font-family: "Gilroy";
   font-size: 15px;
   font-weight: 500;
-  color: #90A4AE;
+  color: #546E7A;
   -webkit-box-flex: 0.1;
       -ms-flex-positive: 0.1;
           flex-grow: 0.1;
@@ -13018,7 +13003,7 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   cursor: pointer;
   border-color: transparent;
   vertical-align: middle;
-  color: #0061FF;
+  color: #0042AD;
   background-color: #f1f6fe;
   font-family: Gilroy;
   font-weight: 900;
@@ -13045,12 +13030,12 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
 }
 
 .coorp-tourguide-dialog #tg-dialog-next-btn:hover {
-  color: rgba(0, 97, 255, 0.75);
+  color: #0042AD;
   background-color: rgba(241, 246, 254, 0.75);
 }
 
 .coorp-tourguide-dialog #tg-dialog-prev-btn:hover {
-  color: rgba(81, 81, 97, 0.75);
+  color: #515161;
   background-color: rgba(244, 244, 245, 0.75);
 }
 
