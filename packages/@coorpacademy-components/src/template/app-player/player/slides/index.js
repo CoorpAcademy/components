@@ -410,14 +410,17 @@ LoadedLayout.propTypes = {
  * Errors
  */
 
-const ErrorMessage = ({errorMsg}) => (
+const ErrorMessage = ({errorMsg, color}) => (
   <div className={style.contentWrapper}>
-    <div className={style.error}>{errorMsg}</div>
+    <div className={style.error} style={{color, borderColor: color}}>
+      {errorMsg}
+    </div>
   </div>
 );
 
 ErrorMessage.propTypes = {
-  errorMsg: PropTypes.string
+  errorMsg: PropTypes.string,
+  color: PropTypes.string
 };
 
 const Content = ({error, ...props}) =>
@@ -435,6 +438,7 @@ const SlidesPlayer = (props, context) => {
   const {header, step, buttons, showNewMedia = false, showReviewLesson = false} = props;
   const {skin} = context;
   const stepColor = get('common.primary', skin);
+  const negativeColor = get('common.negative', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
   const {onClick = identity} = mediaButton;
   return (
@@ -444,7 +448,7 @@ const SlidesPlayer = (props, context) => {
         {step ? <Step step={step} color={stepColor} /> : null}
         {showNewMedia && !showReviewLesson ? <NewMedia onClick={onClick} step={step} /> : null}
         {showReviewLesson && !showNewMedia ? <ReviewLesson onClick={onClick} /> : null}
-        <Content {...props} />
+        <Content {...props} color={negativeColor} />
       </div>
       <Footer buttons={buttons} />
     </div>

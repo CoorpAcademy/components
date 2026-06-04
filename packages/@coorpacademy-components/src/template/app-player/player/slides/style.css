@@ -7,7 +7,6 @@
 @value black from colors;
 @value grey from colors;
 @value brand from colors;
-@value negative from colors;
 @value orangeAdd from colors;
 @value white from colors; 
 
@@ -53,9 +52,8 @@
 }
 
 .error {
-  color: negative;
   text-align: center;
-  border: solid 2px negative;
+  border: solid 2px;
   padding: 36px 32px 32px;
   box-sizing: border-box;
   width: 80%;
@@ -183,7 +181,7 @@
   font-family: "Gilroy";
   font-size: 15px;
   font-weight: 500;
-  color: medium;
+  color: dark;
   flex-grow: 0.1;
   margin: 4px 0 10px;
   text-align: center;
