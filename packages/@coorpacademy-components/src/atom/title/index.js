@@ -82,7 +82,7 @@ const Title = props => {
       {icon ? <Icon {...icon} className={style.icon} /> : null}
       <div className={style.titleContainer}>
         <div className={style.titleContent}>
-          <div className={titleStyle} data-name={dataName} aria-label={ariaLabel}>
+          <div className={titleStyle} data-name={dataName} role="group" aria-label={ariaLabel}>
             {title}
             {required ? <span className={style.required}>*</span> : null}
             {tag ? <Tag {...tag} /> : null}

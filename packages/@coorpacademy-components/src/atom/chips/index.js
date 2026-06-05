@@ -9,6 +9,13 @@ import {
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
+const handleChipKeyDown = onClick => event => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    onClick();
+  }
+};
+
 const Chips = props => {
   const {text, information, selected = false, onClick} = props;
 
@@ -18,6 +25,9 @@ const Chips = props => {
     <div
       className={classnames(style.container, selected ? style.selected : style.unselected)}
       onClick={handleClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={handleChipKeyDown(onClick)}
       aria-label={`${text} ${information}`}
       data-name={text}
     >

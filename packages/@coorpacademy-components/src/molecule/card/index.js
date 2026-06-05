@@ -76,6 +76,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
         <div className={style.imageWrapper}>
           <div
             data-name="cover"
+            role="img"
             aria-label={ariaLabel}
             style={{
               backgroundColor: iconColor,
@@ -92,6 +93,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
       <div className={style.imageWrapper}>
         <div
           data-name="cover"
+          role="img"
           aria-label={ariaLabel}
           style={{
             backgroundColor: iconColor
@@ -111,6 +113,7 @@ const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) =
     <div className={style.imageWrapper}>
       <div
         data-name="cover"
+        role="img"
         aria-label={ariaLabel}
         className={style.image}
         style={{
@@ -183,6 +186,7 @@ const Card = memo(function Card(props, context) {
     <div className={style.lockContent}>
       <LockIcon className={style.lockIcon} height={48} />
       <span
+        role="group"
         aria-label={disabledArialabel}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: disabledContent}}
@@ -208,6 +212,7 @@ const Card = memo(function Card(props, context) {
       data-type={getType(type)}
       disabled={disabled}
       onClick={handleClick}
+      role="group"
       aria-label={cardArialabel}
     >
       <CardBackground type={type} image={image} empty={empty} aria-label={backgroundAriaLabel} />
@@ -249,12 +254,17 @@ const Card = memo(function Card(props, context) {
         aria-label={cardContentLabelAriaLabel}
       />
       {badge ? (
-        <div className={style.badge} style={inlineBadgeStyle} aria-label={badgeAriaLabel}>
+        <div
+          className={style.badge}
+          style={inlineBadgeStyle}
+          role="group"
+          aria-label={badgeAriaLabel}
+        >
           {badge}
         </div>
       ) : null}
       {disabled ? (
-        <div className={style.lockWrapper} aria-label={disabledArialabel}>
+        <div className={style.lockWrapper} role="group" aria-label={disabledArialabel}>
           {lock}
         </div>
       ) : null}

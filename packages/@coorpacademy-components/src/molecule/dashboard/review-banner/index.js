@@ -23,14 +23,10 @@ const ReviewBanner = React.memo(function ReviewBanner(props) {
             />
           </div>
           <div className={style.middle}>
-            <span className={style.title} data-name="review-banner-title" aria-label="{title}">
+            <span className={style.title} data-name="review-banner-title">
               {title}
             </span>
-            <span
-              className={style.subtitle}
-              data-name="review-banner-subtitle"
-              aria-label="{subtitle}"
-            >
+            <span className={style.subtitle} data-name="review-banner-subtitle">
               {subtitle}
             </span>
             <ButtonLink {...buttonProps} className={style.cta} />

@@ -39,6 +39,7 @@ const QCMImage = (props, legacyContext) => {
           <div
             className={style.imageWrapper}
             data-name="answerImage"
+            role="img"
             aria-label={ariaLabel || title}
             title={ariaLabel || title}
             style={{

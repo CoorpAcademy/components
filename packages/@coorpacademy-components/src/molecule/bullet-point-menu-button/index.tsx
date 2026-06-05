@@ -92,7 +92,13 @@ const BulletPointMenuButton = (props: BulletPointMenuButtonProps) => {
   );
 
   const menu = visible ? (
-    <div className={menuStyle} data-name="menu-wrapper" aria-label={menuAriaLabel} ref={wrapperRef}>
+    <div
+      className={menuStyle}
+      data-name="menu-wrapper"
+      role="group"
+      aria-label={menuAriaLabel}
+      ref={wrapperRef}
+    >
       <ButtonMenu {...menuProps} />
     </div>
   ) : null;

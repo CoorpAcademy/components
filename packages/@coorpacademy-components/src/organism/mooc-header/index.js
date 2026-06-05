@@ -744,6 +744,7 @@ class MoocHeader extends React.Component {
                 data-name={`setting-${settingName}`}
                 className={classnames(style.setting, disabled && style.disabled)}
                 key={settingName}
+                role="group"
                 aria-label={ariaLabel || title}
               >
                 <InputSwitch {...switchProps} aria-labelledby={`title-id-${settingName}`} />
@@ -831,6 +832,7 @@ class MoocHeader extends React.Component {
               style.logoWrapper,
               this.isMobile && isFocus && style.logoWrapperMobileHidden
             )}
+            role="group"
             aria-label={toolTipText}
             onMouseOver={this.handleOnMouseOver}
             onMouseLeave={this.handleOnMouseLeave}
@@ -866,7 +868,7 @@ class MoocHeader extends React.Component {
             >
               <Picture src={logoUrl} alt={logoAriaLabel} />
               {isToolTipOpen ? (
-                <div aria-label={toolTipText} tabIndex={0} data-testid="home-tooltip">
+                <div role="group" aria-label={toolTipText} tabIndex={0} data-testid="home-tooltip">
                   <div
                     aria-label={`${toolTipText} ${closeToolTipInformationTextAriaLabel}`}
                     role="tooltip"

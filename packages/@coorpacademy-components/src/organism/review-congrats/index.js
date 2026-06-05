@@ -35,6 +35,7 @@ const ReviewCongrats = props => {
   return (
     <div
       className={style.mainContainer}
+      role="group"
       aria-label={ariaLabel}
       data-name={dataName}
       data-testid="congrats"

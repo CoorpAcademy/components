@@ -111,7 +111,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
               <p className={style.saveStatus}>{saveStatus.label}</p>
             ) : null}
           </div>
-          <h3 className={style.title} aria-label={title} data-name={getDataName('title')}>
+          <h3 className={style.title} data-name={getDataName('title')}>
             {title}
           </h3>
         </div>

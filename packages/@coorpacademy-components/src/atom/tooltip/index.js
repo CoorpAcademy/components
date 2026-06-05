@@ -55,6 +55,7 @@ const ToolTipWrapper = ({
       <div
         className={coorpToolTipClasses}
         data-testid="tooltip"
+        role="group"
         aria-label={closeToolTipInformationTextAriaLabel}
         onMouseOver={handleContentMouseOver}
       >

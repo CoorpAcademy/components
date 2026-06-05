@@ -62,10 +62,16 @@ const SkillCard = (props, context) => {
   );
 
   return (
-    <div className={style.skillCardWrapper} data-name="skill-card-wrapper" aria-label={ariaLabel}>
+    <div
+      className={style.skillCardWrapper}
+      data-name="skill-card-wrapper"
+      role="group"
+      aria-label={ariaLabel}
+    >
       <div
         data-name="skill-title"
         className={style.skillTitle}
+        role="group"
         aria-label={skillAriaLabel || skillTitle}
         style={{
           background: titleBackground
@@ -77,6 +83,7 @@ const SkillCard = (props, context) => {
         <div
           className={style.questionReviseText}
           data-name="questions-to-revise-label"
+          role="group"
           aria-label={reviseAriaLabel || reviseLabel}
         >
           <QuestionIcon className={style.questionReviseIcon} width={16} height={16} />

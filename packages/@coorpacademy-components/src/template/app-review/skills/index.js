@@ -19,7 +19,7 @@ const ReviewSkills = props => {
   } = props;
 
   return (
-    <div className={style.containerReviewSkill} aria-label={ariaLabel}>
+    <div className={style.containerReviewSkill} role="group" aria-label={ariaLabel}>
       <div className={style.title}>{title}</div>
       {isLoading ? (
         <div className={style.loaderContainer}>

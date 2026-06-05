@@ -9,7 +9,7 @@ import defaultFixture from './fixtures/default';
 browserEnv();
 
 test('onClick should be reachable, should match given aria-label', t => {
-  t.plan(5);
+  t.plan(6);
   let answerWasClicked = false;
   defaultFixture.props.answers[1] = {
     ...defaultFixture.props.answers[1],
@@ -23,6 +23,7 @@ test('onClick should be reachable, should match given aria-label', t => {
     '[data-name="answerGraphic"]:nth-child(2) :nth-child(2) :nth-child(1)'
   ) as Element;
   t.truthy(secondAnswer);
+  t.is(secondAnswer.getAttribute('role'), 'img');
   t.is(
     secondAnswer.getAttribute('aria-label'),
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sut labore et dolore magna aliqua.'

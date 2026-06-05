@@ -42,6 +42,7 @@ const LearningPriorityCard = (props: LearningPriorityCardPropTypes, context: Web
   return (
     <div
       className={style.container}
+      role="group"
       aria-label={`learning priority card ${title}`}
       data-name={`learning-priority-card-${title}`}
     >
