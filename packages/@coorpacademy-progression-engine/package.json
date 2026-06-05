@@ -30,7 +30,7 @@
     "prepare": "npm run clean && npm run build --production"
   },
   "engines": {
-    "node": ">=18.12.0"
+    "node": ">=22"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
