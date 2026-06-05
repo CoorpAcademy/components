@@ -100,11 +100,12 @@ const InputSelect = (props: InputSelectProps, context: WebContextValues) => {
           [style.open]: open
         })}
       />
-      <div className={classnames(style.wrapper, className)} aria-label={ariaLabel}>
+      <div className={classnames(style.wrapper, className)}>
         <button
           type="button"
           className={style.display}
           onClick={handleToggle}
+          aria-label={ariaLabel}
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-controls={open ? `${componentId}-listbox` : undefined}

@@ -184,7 +184,7 @@ const BaseModal = (props, context) => {
             </div>
           ) : null}
           <div className={style.headerContent}>
-            <div className={style.headerTitle} aria-label={titleAriaLabel}>
+            <div className={style.headerTitle} role="group" aria-label={titleAriaLabel}>
               {title}
             </div>
             {description ? <div className={style.headerDescription}>{description}</div> : null}

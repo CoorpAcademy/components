@@ -8,7 +8,7 @@ const InputTextWithTitle = props => {
   const inputTextClass = inputText.size === 'small' ? style.smallInputText : style.defaultInputText;
 
   return (
-    <div className={style.container} data-name={dataName} aria-label={ariaLabel}>
+    <div className={style.container} data-name={dataName} role="group" aria-label={ariaLabel}>
       {title ? <span className={style.title}>{title}</span> : null}
       <div className={inputTextClass}>
         <InputText {...inputText} />

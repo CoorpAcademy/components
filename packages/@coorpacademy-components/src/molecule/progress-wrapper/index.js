@@ -53,6 +53,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
     <div
       className={style[`detailsSection${index}`]}
       data-name={type}
+      role="group"
       aria-label={`${type} informations`}
     >
       <div className={style.detailsInfo}>
@@ -69,6 +70,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
     <div
       className={style[`detailsSection${index}`]}
       data-name={type}
+      role="group"
       aria-label={`${type} informations`}
     >
       <img
@@ -114,6 +116,7 @@ const ProgressWrapper = (
     <div
       className={style.container}
       data-name="prgress-wrapper"
+      role="group"
       aria-label="progress wrapper section"
     >
       <div className={style.titleContainer}>

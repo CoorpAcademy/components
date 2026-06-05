@@ -106,6 +106,7 @@ const AuthorName = ({author, empty, courseContent, certifiedAuthor, 'aria-label'
     <div
       data-name="author"
       title={author}
+      role="group"
       aria-label={ariaLabel}
       className={classnames(
         style.author,

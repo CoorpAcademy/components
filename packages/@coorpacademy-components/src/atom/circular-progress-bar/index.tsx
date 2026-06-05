@@ -43,7 +43,15 @@ const CircularProgressBar = ({
   );
 
   return (
-    <div className={style.container} aria-label={ariaLabel} data-name={dataName}>
+    <div
+      className={style.container}
+      role="progressbar"
+      aria-label={ariaLabel}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={progression}
+      data-name={dataName}
+    >
       <svg className={style.svg} width={size} height={size}>
         <ProgressionGradient />
         <circle

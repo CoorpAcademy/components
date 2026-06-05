@@ -120,6 +120,7 @@ const QuickFilters = (
         className={style.filtersList}
         ref={filtersListRef}
         data-testid="filters-options-list"
+        role="group"
         aria-label={filterOptionsAriaLabel}
       >
         <div

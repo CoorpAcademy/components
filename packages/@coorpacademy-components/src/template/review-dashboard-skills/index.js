@@ -8,7 +8,7 @@ const ReviewDashboardSkills = props => {
   const {'aria-label': ariaLabel, reviewPresentation, reviewSkills} = props;
 
   return (
-    <div className={style.reviewDashboardContainer} aria-label={ariaLabel}>
+    <div className={style.reviewDashboardContainer} role="group" aria-label={ariaLabel}>
       <div className={style.reviewPresentationContainer}>
         <ReviewPresentation {...reviewPresentation} />
       </div>

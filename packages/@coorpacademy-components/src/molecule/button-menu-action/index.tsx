@@ -65,6 +65,7 @@ const ButtonMenuAction = (props: ButtonMenuActionProps) => {
     <div
       className={menuWrapperClass}
       data-name="menu-wrapper"
+      role="group"
       aria-label={menuWrapper?.ariaLabel}
       style={menuWrapper?.customStyle}
     >

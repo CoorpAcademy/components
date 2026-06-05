@@ -17,6 +17,14 @@ const LUMINOSITY_DELTA = 0.08;
 const {cm_primary_blue: DEFAULT_BACKGROUND_COLOR} = COLORS;
 const ICON_SIZE = '12px';
 
+const handleChipKeyDown = onClick => event => {
+  if (!onClick) return;
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    onClick(event);
+  }
+};
+
 export const calculateHoveredSelectedBgColor = (
   selectedBgColor,
   luminosityDelta = LUMINOSITY_DELTA
@@ -72,6 +80,9 @@ const Chip = (props, context) => {
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      role={onClick ? 'button' : 'group'}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={handleChipKeyDown(onClick)}
       aria-label={text}
       data-name={`chip-${text}`}
     >

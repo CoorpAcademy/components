@@ -105,14 +105,15 @@ const ReviewCorrectionPopin = props => {
           </div>
         </div>
         <div className={style.feedbackSection}>
-          <div className={style.information} aria-label="answer-information">
+          <div className={style.information} role="group" aria-label="answer-information">
             <div className={style.labelContainer}>
-              <span className={style.label} aria-label={information.label}>
+              <span className={style.label} role="group" aria-label={information.label}>
                 {information.label}
               </span>
             </div>
             <span
               className={style.message}
+              role="group"
               aria-label={information.message}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: information.message}}

@@ -22,9 +22,19 @@ const CourseSection = props => {
   } = props;
 
   return (
-    <div className={style.container} aria-label={ariaLabelTitle} data-name={`course-section-${id}`}>
+    <div
+      className={style.container}
+      role="group"
+      aria-label={ariaLabelTitle}
+      data-name={`course-section-${id}`}
+    >
       <div className={style.wrapper}>
-        <span className={style.position} aria-label={coursePosition} data-name="position">
+        <span
+          className={style.position}
+          role="group"
+          aria-label={coursePosition}
+          data-name="position"
+        >
           {position}
         </span>
         <div className={style.containerImage}>
@@ -32,7 +42,7 @@ const CourseSection = props => {
         </div>
         <div className={style.containerInfos}>
           <div className={style.title}>{title}</div>
-          <span className={style.author} aria-label={ariaLabelAuthor}>
+          <span className={style.author} role="group" aria-label={ariaLabelAuthor}>
             {author}
           </span>
         </div>

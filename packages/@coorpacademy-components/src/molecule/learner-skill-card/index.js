@@ -14,6 +14,15 @@ export const updateBackgroundImage = (ref, background) => {
     ref.current.style.backgroundImage = background;
   }
 };
+
+const handleCardKeyDown = onClick => event => {
+  if (!onClick) return;
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    onClick(event);
+  }
+};
+
 const LearnerSkillCard = (props, context) => {
   const {
     'aria-label': ariaLabel,
@@ -46,6 +55,9 @@ const LearnerSkillCard = (props, context) => {
       data-testid={`learner-skill-card-wrapper-${cardIndex}`}
       data-name={`skill-card-${label}`}
       onClick={onClick}
+      role={onClick ? 'button' : 'group'}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={handleCardKeyDown(onClick)}
       className={style.learnerSkillCardContainer}
       aria-label={ariaLabel}
       onMouseEnter={handleMouseEnter}
@@ -99,6 +111,7 @@ const LearnerSkillCard = (props, context) => {
             <div
               data-name="skill-card-title"
               className={style.skillTitle}
+              role="group"
               aria-label={ariaLabel || title}
             >
               {title}

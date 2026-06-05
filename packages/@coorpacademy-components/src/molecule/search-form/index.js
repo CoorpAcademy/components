@@ -37,6 +37,13 @@ const SearchForm = (props, context) => {
     },
     [onReset]
   );
+  const handleResetKeyDown = useMemo(
+    () => evt => {
+      if (evt.key !== 'Enter' && evt.key !== ' ') return;
+      return handleReset(evt);
+    },
+    [handleReset]
+  );
 
   const isMooc = theme === 'mooc';
 
@@ -65,8 +72,11 @@ const SearchForm = (props, context) => {
       />
       <div
         data-name="search-form-reset"
+        role="button"
+        tabIndex={0}
         aria-label={searchResetAriaLabel}
         onMouseDown={handleReset}
+        onKeyDown={handleResetKeyDown}
         className={clearClassName}
       >
         <Icon iconName="xmark" className={style.clearIcon} aria-label={searchResetAriaLabel} />

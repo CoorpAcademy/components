@@ -18,7 +18,7 @@ const Customer = props => {
   );
 
   return (
-    <div className={className} disabled={disabled} aria-label={ariaLabel}>
+    <div className={className} disabled={disabled} role="group" aria-label={ariaLabel}>
       <div className={style.content}>
         {coorpOriginal ? <span className={style.coorp}>Coorp </span> : null}
         {coorpOriginal ? <span className={style.original}>Original </span> : null}

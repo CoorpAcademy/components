@@ -77,7 +77,7 @@ const ListItem = (
 
   const orderView =
     order !== null && order !== undefined ? (
-      <div className={style.order} aria-label={ariaLabel}>
+      <div className={style.order} role="group" aria-label={ariaLabel}>
         {order + 1}
       </div>
     ) : null;

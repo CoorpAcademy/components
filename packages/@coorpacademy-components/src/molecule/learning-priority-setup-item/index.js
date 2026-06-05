@@ -29,6 +29,7 @@ const LearningPrioritySetupItem = (props, context) => {
   return (
     <div
       className={style.container}
+      role="group"
       aria-label={ariaLabel}
       data-name={`learning-priority-setup-item-${id}`}
     >

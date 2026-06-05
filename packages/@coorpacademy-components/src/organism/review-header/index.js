@@ -29,9 +29,20 @@ const ReviewHeader = (props, legacyContext) => {
   );
 
   return (
-    <div className={style.headerWrapper} data-name="review-header" aria-label={ariaLabel}>
+    <div
+      className={style.headerWrapper}
+      data-name="review-header"
+      role="group"
+      aria-label={ariaLabel}
+    >
       <div className={style.titlesWrapper}>
-        <div className={style.title} title={mode} aria-label={mode} data-name="review-header-mode">
+        <div
+          className={style.title}
+          title={mode}
+          role="group"
+          aria-label={mode}
+          data-name="review-header-mode"
+        >
           {mode}
         </div>
         <div
@@ -40,6 +51,7 @@ const ReviewHeader = (props, legacyContext) => {
             color: primarySkinColor
           }}
           title={skillName}
+          role="group"
           aria-label={skillName}
           data-name="review-header-skill-name"
         >

@@ -49,7 +49,7 @@ const ReviewPresentation = props => {
   const {'aria-label': ariaLabel, reviewTitle, reviewText, labelsList} = props;
 
   return (
-    <div className={style.reviewWrapper} aria-label={ariaLabel}>
+    <div className={style.reviewWrapper} role="group" aria-label={ariaLabel}>
       <div
         className={style.reviewTitle}
         // eslint-disable-next-line react/no-danger

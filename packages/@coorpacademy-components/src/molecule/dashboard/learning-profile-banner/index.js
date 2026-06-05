@@ -22,18 +22,10 @@ const LearningProfileBanner = React.memo(function LearningProfileBanner(props) {
             <img className={style.image} src={BOOK_IMG_URL} alt="Notebook image" />
           </div>
           <div className={style.middle}>
-            <span
-              className={style.title}
-              data-name="learning-profile-banner-title"
-              aria-label="{title}"
-            >
+            <span className={style.title} data-name="learning-profile-banner-title">
               {title}
             </span>
-            <span
-              className={style.subtitle}
-              data-name="learning-profile-banner-subtitle"
-              aria-label="{subtitle}"
-            >
+            <span className={style.subtitle} data-name="learning-profile-banner-subtitle">
               {subtitle}
             </span>
             <ButtonLink {...buttonProps} className={style.cta} />

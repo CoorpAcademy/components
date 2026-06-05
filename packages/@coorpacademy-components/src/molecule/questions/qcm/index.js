@@ -7,6 +7,14 @@ import Provider, {GetSkinFromContext} from '../../../atom/provider';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
+const handleAnswerKeyDown = onClick => event => {
+  if (!onClick) return;
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    onClick(event);
+  }
+};
+
 const QCM = (props, legacyContext) => {
   const {answers, groupAriaLabel} = props;
   const longestAnswer = maxBy(({title}) => title.length, answers);
@@ -23,10 +31,13 @@ const QCM = (props, legacyContext) => {
         return (
           <div
             data-name="answer"
+            role="button"
+            tabIndex={0}
             aria-label={ariaLabel || title}
             title={ariaLabel || title}
             className={classnames(longAnswerClass, style.innerHTML, selectedAnswerClass)}
             onClick={onClick}
+            onKeyDown={handleAnswerKeyDown(onClick)}
             style={{
               ...(selected && {
                 boxShadow: `0 4px 16px ${getShadowBoxColorFromPrimary(primarySkinColor)}`
