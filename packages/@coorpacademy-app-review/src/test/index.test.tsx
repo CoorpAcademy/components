@@ -1,4 +1,4 @@
-import browserEnv from 'browser-env';
+import './utils/setup-browser-env';
 import identity from 'lodash/fp/identity';
 import test from 'ava';
 import type {ExecutionContext} from 'ava';
@@ -10,8 +10,6 @@ import {appendVideoOptions} from '../../sandbox/options';
 import type {AppOptions} from '../types/common';
 import AppReview from '..';
 import {sleep} from './utils/sleep';
-
-browserEnv({pretendToBeVisual: true});
 
 const elementExists = (foundElements: NodeListOf<Element>): Element =>
   foundElements && foundElements[0];

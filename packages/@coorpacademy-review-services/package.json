@@ -3,7 +3,7 @@
   "version": "1.7.1",
   "description": "",
   "engines": {
-    "node": ">=18.12.0"
+    "node": ">=22"
   },
   "license": "UNLICENSED",
   "scripts": {
