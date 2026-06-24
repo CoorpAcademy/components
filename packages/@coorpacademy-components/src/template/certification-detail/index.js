@@ -29,6 +29,8 @@ const CertificationDetail = (props, context) => {
     logoUrl,
     diplomaUrl,
     badgeUrl,
+    linkedinShareUrl,
+    onLinkedinShareClick,
     search,
     metrics = {},
     popinWithCards
@@ -128,7 +130,9 @@ const CertificationDetail = (props, context) => {
             },
             badgeUrl && {
               type: 'badge',
-              downloadUrl: badgeUrl
+              downloadUrl: badgeUrl,
+              linkedinShareUrl,
+              onLinkedinShareClick
             },
             stars && {
               type: 'stars',
@@ -173,6 +177,8 @@ CertificationDetail.propTypes = {
   }),
   diplomaUrl: PropTypes.string,
   badgeUrl: PropTypes.string,
+  linkedinShareUrl: PropTypes.string,
+  onLinkedinShareClick: PropTypes.func,
   ongoingCoursesAvailable: PropTypes.bool,
   certificationCourses: PropTypes.shape(CardsGrid.propTypes),
   filters: PropTypes.shape({
