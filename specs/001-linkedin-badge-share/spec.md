@@ -65,7 +65,9 @@ description — this spec delivers that button.
 ## 4. Non-functional requirements
 - **Accessibility:** the button shall expose `aria-label` and a stable
   `data-name="publish-linkedin-button"` for E2E selection (constitution P5).
-- **i18n:** the new key shall exist in all 30 locale `global.json` files (constitution P3).
+- **i18n:** the new key shall be added to the **`en` Transifex source** only
+  (`locales/en/global.json`, `.tx/config` `source_lang=en`); the other 29 locales are produced by
+  the `transifex-integration` bot after merge to `master` (constitution P3).
 - **Compat:** the new props shall be optional; default render is byte-for-byte unchanged
   (constitution P6).
 - **Bundle:** no new third-party dependency — reuse the existing LinkedIn nova-icon.
@@ -99,5 +101,6 @@ description — this spec delivers that button.
 - [ADDED] `progress-wrapper` badge `DetailSection`: optional "Publish on LinkedIn" button.
 - [ADDED] `progress-wrapper` prop: `sections[].linkedinShareUrl`, `sections[].onLinkedinShareClick`.
 - [ADDED] `certification-detail` props: `linkedinShareUrl`, `onLinkedinShareClick`.
-- [ADDED] locale key `publish_on_linkedin` in 30 `global.json` files.
+- [ADDED] locale key `publish_on_linkedin` in the `en` source (`locales/en/global.json`); the
+  other 29 locales are translated by Transifex after merge — not hand-edited.
 - [MODIFIED] none of the existing render paths (additive only).

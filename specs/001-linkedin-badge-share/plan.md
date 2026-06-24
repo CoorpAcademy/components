@@ -18,7 +18,7 @@ release → MOOC bump.
 |------|-------|----------------------|
 | P1 Presentational / consumer-injected URL | ✅ | URL + callback are props; no URL building in component |
 | P2 Functional & immutable | ✅ | `useCallback` for the handler, `lodash/fp`, no mutation |
-| P3 i18n complete (30 locales) | ✅ | `publish_on_linkedin` added everywhere; FR/EN real, rest EN fallback |
+| P3 i18n (Transifex) | ✅ | `publish_on_linkedin` added to the `en` source only; the `transifex-integration` bot translates the other 29 after merge (`.tx/config` `source_lang=en`) |
 | P4 Test-first AVA + Testing Library | ✅ | Failing tests written before source; story + fixtures added |
 | P5 Accessibility | ✅ | `aria-label`, `data-name`, `rel="noopener noreferrer"` |
 | P6 Backward compatibility | ✅ | New props optional; absent → unchanged render |
@@ -76,8 +76,9 @@ linkedinShareUrl?: string
 onLinkedinShareClick?: () => void
 ```
 
-**Translate contract:** `translate('publish_on_linkedin')` → "Publier sur LinkedIn" (fr) /
-"Publish on LinkedIn" (en).
+**Translate contract:** `translate('publish_on_linkedin')` → "Publish on LinkedIn" (en source).
+FR and the other 28 are delivered by Transifex after merge; "Publier sur LinkedIn" is the expected
+FR translation (set in Transifex, not committed here).
 
 **LinkedIn URL (built by MOOC, documented for the integrator, not implemented here):**
 `https://www.linkedin.com/sharing/share-offsite/?url=<encodeURIComponent(publicBadgeUrl)>`

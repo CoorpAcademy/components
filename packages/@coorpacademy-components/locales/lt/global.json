@@ -236,6 +236,5 @@
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}} privalomi lygiai baigti ",
       "certification_module": "lygis, kurį reikia užbaigti"
     }
-  },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  }
 }

@@ -18,15 +18,18 @@
 - [x] 0.2 Deps already installed; nova-icons `NovaCompositionCoorpacademyLinkedin` export verified to resolve.
 - [x] 0.3 Baseline confirmed green for the touched areas (targeted ava + full eslint + `tsc --noEmit` clean).
 
-## 1. Locales (i18n first — establishes the contract) — *satisfies: spec §4 i18n, P3*
-- [x] 1.1 Guard test added at `src/test/publish-on-linkedin-key.js` (ava only discovers `src/**/test/**`,
-  so it lives under `src/test/`, not `locales/test/`): asserts `publish_on_linkedin` exists in all 30
-  `locales/*/global.json`, fr="Publier sur LinkedIn", en="Publish on LinkedIn". — *spec §3 S1 line 4, R2*
-- [x] 1.2 Added `"publish_on_linkedin": "Publier sur LinkedIn"` to `locales/fr/global.json`.
-- [x] 1.3 Added `"publish_on_linkedin": "Publish on LinkedIn"` to `locales/en/global.json`.
-- [x] 1.4 [P] Added EN fallback to the other 28 `global.json` files (incl. zh_TW) via a minimal,
-  JSON-validated 1-line insert per file (30 files, +60/-30).
-- [x] 1.5 Guard test green (3 assertions pass).
+## 1. Locales — **`en` source only; Transifex owns the rest** — *satisfies: spec §4 i18n, P3*
+> Validated against the repo: `.tx/config` `source_lang=en`; `transifex-integration[bot]` commits
+> `Translate global.json in <lang>` per language (incl. `fr`) after merge to `master`; the past
+> feature `0bceefba8` (#3021) touched **only** `en/global.json`. So a feature PR edits `en` only —
+> editing target locales by hand is overwritten by the bot. (`createTranslate` throwIfMissing=true,
+> so a missing key surfaces once it reaches the storybook, not in unit tests.)
+- [x] 1.1 Guard test `src/test/publish-on-linkedin-key.js` (under `src/test/` so ava discovers it):
+  asserts `publish_on_linkedin` exists in the **`en` source** with value "Publish on LinkedIn". — *R2*
+- [x] 1.2 Added `"publish_on_linkedin": "Publish on LinkedIn"` to `locales/en/global.json` (source).
+- [x] 1.3 FR ("Publier sur LinkedIn") + the other 28 are produced by Transifex after merge — **not**
+  hand-edited (an earlier attempt that touched all 30 was reverted to match the workflow).
+- [x] 1.4 Guard test + `src/test/locales.js` "all en keys used" macro green.
 
 ## 2. ProgressWrapper — badge LinkedIn button (TDD) — *satisfies: spec §3 S1, S2, S3, §5*
 - [x] 2.1 Added fixture `molecule/progress-wrapper/test/fixtures/badge-with-linkedin.js`

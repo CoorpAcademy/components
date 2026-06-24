@@ -236,6 +236,5 @@
       "modules_completed_mandatory_plural": "<span data-name=\"progress-stats\" style=\"color=#515161;padding-right: 4px;\">{{count}} / {{total}}</span>強制等級已完成",
       "certification_module": "完成等級"
     }
-  },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  }
 }
