@@ -15,6 +15,10 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
+// LinkedIn brand colors so the share CTA reads unmistakably as LinkedIn.
+const LINKEDIN_BLUE = '#0A66C2';
+const LINKEDIN_BLUE_HOVER = '#004182';
+
 const DetailSection = (
   {index, type, isLocked, downloadUrl, stars, linkedinShareUrl, onLinkedinShareClick},
   context
@@ -36,13 +40,14 @@ const DetailSection = (
     'data-name': 'publish-linkedin-button',
     'aria-label': translate('publish_on_linkedin'),
     customStyle: {
-      backgroundColor: convert(`color(${primarySkinColor} a(0.07))`),
-      color: primarySkinColor,
+      backgroundColor: LINKEDIN_BLUE,
+      color: COLORS.white,
       width: 'auto',
       transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
     },
-    hoverBackgroundColor: primarySkinColor,
+    hoverBackgroundColor: LINKEDIN_BLUE_HOVER,
     hoverColor: COLORS.white,
+    // The nova LinkedIn glyph uses fill: currentColor, so it inherits the white label color.
     icon: {
       position: 'left',
       type: 'linkedin'
