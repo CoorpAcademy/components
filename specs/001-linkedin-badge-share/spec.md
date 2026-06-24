@@ -92,10 +92,18 @@ description — this spec delivers that button.
 ## 7. Open questions
 - [RESOLVED] LinkedIn flow = open `share-offsite` or "add to profile" URL injected by the
   consumer; component stays URL-agnostic.
-- [RESOLVED] Scope = FR primary (Savoirs d'Avenir is FR-only) but key added to all locales.
-- [NEEDS CLARIFICATION (MOOC-side, not blocking this component spec): exact LinkedIn URL
-  template — simple `share-offsite/?url=` vs `profile/add?startTask=CERTIFICATION_NAME` — and
-  whether a Coorpacademy LinkedIn `organizationId` is available.]
+- [RESOLVED] Scope = FR primary (Savoirs d'Avenir is FR-only); key added to the `en` Transifex
+  source only — translations (incl. FR) delivered by the `transifex-integration` bot after merge.
+- [RESOLVED via live validation] **LinkedIn URL template (MOOC-side):** use
+  `share-offsite/?url=<public cert/landing page>` where that page exposes **Open Graph tags**
+  (`og:title` = cert name, `og:image` = badge, `og:description`) so LinkedIn renders a rich preview
+  card. The `profile/add?startTask=CERTIFICATION_NAME&…` flow is **NOT recommended**: LinkedIn
+  deprecated its autofill, so the cert params no longer pre-fill ([LinkedIn Help](https://www.linkedin.com/help/linkedin/answer/a528030)).
+  **Validation finding:** clicking the button correctly opens LinkedIn's composer for the logged-in
+  user (✅ component works), **but the share is empty until the injected URL points at an
+  OG-tagged public page** — the raw S3 badge image is not scrapeable (R1). So the MOOC must
+  (a) expose a public cert page with OG meta (badge as `og:image`) and (b) inject its
+  `share-offsite` URL. Until then the demo fixture opens an empty composer — that is expected.
 
 ## 8. Change log
 - [ADDED] `progress-wrapper` badge `DetailSection`: optional "Publish on LinkedIn" button.
