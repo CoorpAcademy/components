@@ -18,10 +18,10 @@ import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionNavigationArrowLeft as ArrowLeft,
   NovaLineFilesOfficeFileOfficePdf as PDF,
-  NovaSolidContentEditionDelete1 as DeleteIcon,
-  NovaCompositionCoorpacademyLinkedin as LinkedinIcon
+  NovaSolidContentEditionDelete1 as DeleteIcon
 } from '@coorpacademy/nova-icons';
 import Loader from '../atom/loader';
+import LinkedinIcon from './linkedin-icon';
 
 export const ICONS = {
   add: AddIcon,
