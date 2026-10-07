@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.46.23",
+  "version": "0.46.24",
   "description": "",
   "engines": {
     "node": ">=22"
@@ -35,11 +35,11 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "dependencies": {
-    "@coorpacademy/components": "11.40.23",
-    "@coorpacademy/progression-engine": "11.8.1",
+    "@coorpacademy/components": "11.40.24",
+    "@coorpacademy/progression-engine": "11.8.2",
     "@coorpacademy/redux-task": "1.2.0",
-    "@coorpacademy/review-services": "1.7.1",
-    "@coorpacademy/review-services-mocks": "1.7.2",
+    "@coorpacademy/review-services": "1.7.2",
+    "@coorpacademy/review-services-mocks": "1.7.3",
     "@coorpacademy/translate": "6.3.0",
     "cross-fetch": "^3.1.5",
     "jwt-decode": "^3.1.2",
