@@ -15,11 +15,44 @@ import style from './style.css';
 
 const uncappedMap = map.convert({cap: false});
 
-const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => {
+// LinkedIn brand colors so the share CTA reads unmistakably as LinkedIn.
+const LINKEDIN_BLUE = '#0A66C2';
+const LINKEDIN_BLUE_HOVER = '#004182';
+
+const DetailSection = (
+  {index, type, isLocked, downloadUrl, stars, linkedinShareUrl, onLinkedinShareClick},
+  context
+) => {
   const {translate} = context;
   const skin = GetSkinFromContext(context);
   const primarySkinColor = get('common.primary', skin);
   const isTypeStars = type === 'stars';
+  const showLinkedinButton = type === 'badge' && !isEmpty(linkedinShareUrl) && !isLocked;
+
+  const linkedinButtonProps = {
+    label: translate('publish_on_linkedin'),
+    link: {
+      target: '_blank',
+      href: linkedinShareUrl,
+      rel: 'noopener noreferrer'
+    },
+    onClick: onLinkedinShareClick,
+    'data-name': 'publish-linkedin-button',
+    'aria-label': translate('publish_on_linkedin'),
+    customStyle: {
+      backgroundColor: LINKEDIN_BLUE,
+      color: COLORS.white,
+      width: 'auto',
+      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+    },
+    hoverBackgroundColor: LINKEDIN_BLUE_HOVER,
+    hoverColor: COLORS.white,
+    // The nova LinkedIn glyph uses fill: currentColor, so it inherits the white label color.
+    icon: {
+      position: 'left',
+      type: 'linkedin'
+    }
+  };
 
   const downloadButtonProps = {
     label: translate('download'),
@@ -90,6 +123,7 @@ const DetailSection = ({index, type, isLocked, downloadUrl, stars}, context) => 
 
         <div className={style.buttonContainer}>
           <ButtonLink {...downloadButtonProps} />
+          {showLinkedinButton ? <ButtonLink {...linkedinButtonProps} /> : null}
         </div>
       </div>
     </div>
@@ -204,7 +238,9 @@ const ProgressWrapper = (
 const commonDetailSectionPropTypes = {
   type: PropTypes.oneOf(['diploma', 'badge', 'stars']),
   downloadUrl: PropTypes.string,
-  stars: PropTypes.number
+  stars: PropTypes.number,
+  linkedinShareUrl: PropTypes.string,
+  onLinkedinShareClick: PropTypes.func
 };
 
 DetailSection.contextTypes = {

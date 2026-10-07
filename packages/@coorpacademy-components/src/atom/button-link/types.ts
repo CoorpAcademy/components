@@ -35,7 +35,8 @@ const propTypes = {
   link: PropTypes.shape({
     href: PropTypes.string,
     download: PropTypes.bool,
-    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
+    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+    rel: PropTypes.string
   }),
   hoverBackgroundColor: PropTypes.string,
   hoverColor: PropTypes.string,
@@ -78,6 +79,7 @@ export type ButtonLinkProps = {
     href?: string;
     download?: boolean;
     target?: '_self' | '_blank' | '_parent' | '_top';
+    rel?: string;
   };
   hoverBackgroundColor?: string;
   hoverColor?: string;

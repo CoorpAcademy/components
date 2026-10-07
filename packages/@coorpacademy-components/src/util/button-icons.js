@@ -21,6 +21,7 @@ import {
   NovaSolidContentEditionDelete1 as DeleteIcon
 } from '@coorpacademy/nova-icons';
 import Loader from '../atom/loader';
+import LinkedinIcon from './linkedin-icon';
 
 export const ICONS = {
   add: AddIcon,
@@ -43,5 +44,6 @@ export const ICONS = {
   pdf: PDF,
   back: ArrowLeft,
   delete: DeleteIcon,
+  linkedin: LinkedinIcon,
   loader: Loader
 };
