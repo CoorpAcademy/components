@@ -76,6 +76,19 @@ test(
 );
 
 test(
+  'should store recommendation context separately from cards',
+  macro,
+  reducer,
+  {},
+  {
+    type: RECO_FETCH_SUCCESS,
+    meta: {id: 'foo'},
+    payload: {cards: levelRecommendations.list, context: {destination: 'learning-plan'}}
+  },
+  {entities: {foo: {cards: levelRecommendations.list, context: {destination: 'learning-plan'}}}}
+);
+
+test(
   'should remove null on failure',
   macro,
   reducer,

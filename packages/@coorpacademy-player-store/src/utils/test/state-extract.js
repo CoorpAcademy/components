@@ -40,6 +40,7 @@ import {
   getNextContent,
   getVideoUri,
   getRecommendations,
+  getRecommendationContext,
   getRoute,
   hasViewedAResourceAtThisStep,
   hasSeenLesson,
@@ -627,13 +628,27 @@ test('getRoute should return current route for current progression', t => {
 });
 
 test('getRecommendations should return recommendations for current progression', t => {
+  const cards = [{title: 'A course'}];
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {0: {}}),
-    set('data.recommendations.entities.0', 'plop')
+    set('data.recommendations.entities.0', cards)
   )({});
 
-  t.is(getRecommendations(state), 'plop');
+  t.is(getRecommendations(state), cards);
+  t.is(getRecommendationContext(state), undefined);
+});
+
+test('getRecommendations should keep context separate from cards', t => {
+  const cards = [{title: 'A course'}];
+  const context = {destination: 'learning-plan'};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.recommendations.entities.0', {cards, context})
+  )({});
+
+  t.is(getRecommendations(state), cards);
+  t.is(getRecommendationContext(state), context);
 });
 
 test('getCurrentProgression should get current progression from state', t => {

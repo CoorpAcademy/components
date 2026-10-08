@@ -24,6 +24,7 @@ import {
   getEndRank,
   getLives,
   getNextContent,
+  getRecommendationContext,
   getRecommendations,
   getStartRank,
   isCommentSent,
@@ -290,7 +291,52 @@ const popinEndStateToProps = (options, store) => {
       }
     };
 
-    return props;
+    const popinEnd = options.popinEnd;
+    if (!popinEnd) {
+      return props;
+    }
+
+    const overrides =
+      typeof popinEnd === 'function'
+        ? popinEnd({
+            recommendations: getRecommendations(state),
+            recommendationContext: getRecommendationContext(state),
+            exitNode,
+            recommendationTitle: get('summary.recommendation.title', props),
+            headerCta: get('summary.header.cta', props)
+          })
+        : popinEnd;
+    if (!overrides) {
+      return props;
+    }
+
+    const hasRecommendationTitle =
+      overrides.recommendationTitle !== undefined && props.summary.recommendation;
+    const hasHeaderCta = !!overrides.headerCta;
+    if (!hasRecommendationTitle && !hasHeaderCta) return props;
+
+    const currentHeaderCta = props.summary.header.cta || {};
+    const replacesAction =
+      hasHeaderCta &&
+      (Object.prototype.hasOwnProperty.call(overrides.headerCta, 'onClick') ||
+        Object.prototype.hasOwnProperty.call(overrides.headerCta, 'href'));
+    const headerCta = hasHeaderCta
+      ? {
+          ...(replacesAction ? {title: currentHeaderCta.title} : currentHeaderCta),
+          ...overrides.headerCta
+        }
+      : currentHeaderCta;
+
+    return {
+      ...props,
+      summary: {
+        ...props.summary,
+        header: hasHeaderCta ? {...props.summary.header, cta: headerCta} : props.summary.header,
+        recommendation: hasRecommendationTitle
+          ? {...props.summary.recommendation, title: overrides.recommendationTitle}
+          : props.summary.recommendation
+      }
+    };
   };
 };
 
