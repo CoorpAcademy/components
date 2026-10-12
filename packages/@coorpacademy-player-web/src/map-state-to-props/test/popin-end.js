@@ -89,6 +89,209 @@ test('should create a "Next Level" CTA after success on learner progression', as
   t.is(comment.edition.postDisabled, true);
 });
 
+test('should use the usual popin labels without overrides', t => {
+  const state = set(
+    'data.recommendations.entities.idProgression1234.0.source',
+    'another application',
+    popinLearnerSuccess
+  );
+  const props = popinEnd(options, {dispatch: createDispatch(state)})(state);
+
+  t.is(props.summary.header.cta.title, '__Next level');
+  t.is(props.summary.recommendation.title, '__Related subjects');
+});
+
+test('should expose recommendation context separately from cards to overrides', t => {
+  const cards = [{title: 'A course'}];
+  const context = {destination: 'learning-plan'};
+  const state = set(
+    'data.recommendations.entities.idProgression1234',
+    {cards, context},
+    popinLearnerSuccess
+  );
+  let received;
+  const props = popinEnd(
+    {
+      ...options,
+      popinEnd: current => {
+        received = current;
+        return {recommendationTitle: 'Continue learning:'};
+      }
+    },
+    {dispatch: createDispatch(state)}
+  )(state);
+
+  t.is(received.recommendationContext, context);
+  t.is(received.recommendations, cards);
+  t.is(props.summary.recommendation.cards[0].title, 'A course');
+  t.is(props.summary.recommendation.cards[0].destination, undefined);
+  t.is(props.summary.recommendation.title, 'Continue learning:');
+});
+
+test('should override the recommendation title alone', t => {
+  const props = popinEnd(
+    {...options, popinEnd: {recommendationTitle: 'More to explore:'}},
+    {dispatch: createDispatch(popinLearnerSuccess)}
+  )(popinLearnerSuccess);
+
+  t.is(props.summary.header.cta.title, '__Next level');
+  t.is(props.summary.recommendation.title, 'More to explore:');
+});
+
+test('should replace the header button label and click action alone', t => {
+  let clicked = false;
+  const props = popinEnd(
+    {
+      ...options,
+      popinEnd: {
+        headerCta: {
+          title: 'Open my learning plan',
+          onClick: () => {
+            clicked = true;
+          }
+        }
+      }
+    },
+    {dispatch: createDispatch(popinLearnerSuccess)}
+  )(popinLearnerSuccess);
+
+  t.is(props.summary.header.cta.title, 'Open my learning plan');
+  t.falsy(props.summary.header.cta.showNextLevel);
+  t.is(props.summary.recommendation.title, '__Related subjects');
+  t.is(props.summary.footer.title, '__Back to home');
+  props.summary.header.cta.onClick();
+  t.true(clicked);
+});
+
+test('should add a header button when the current popin has none', t => {
+  const state = set('data.exitNodes.entities.successExitNode.type', 'pending', popinLearnerSuccess);
+  let clicked = false;
+  const props = popinEnd(
+    {
+      ...options,
+      popinEnd: {
+        headerCta: {
+          title: 'Open my learning plan',
+          onClick: () => {
+            clicked = true;
+          }
+        }
+      }
+    },
+    {dispatch: createDispatch(state)}
+  )(state);
+
+  t.is(props.summary.header.cta.title, 'Open my learning plan');
+  props.summary.header.cta.onClick();
+  t.true(clicked);
+});
+
+test('should allow a header button label override while keeping its click action', async t => {
+  const state = set('data.nextContent.entities.idProgression1234', null, popinLearnerSuccess);
+  const props = popinEnd(
+    {...options, popinEnd: {headerCta: {title: 'Return to my dashboard'}}},
+    {dispatch: createDispatch(state)}
+  )(state);
+
+  t.is(props.summary.header.cta.title, 'Return to my dashboard');
+  t.deepEqual(map('type')(await props.summary.header.cta.onClick()), [
+    '@@location/EXIT_REQUEST',
+    '@@location/EXIT_FAILURE'
+  ]);
+});
+
+test('should allow a header button click override while keeping its label', t => {
+  const state = set('data.nextContent.entities.idProgression1234', null, popinLearnerSuccess);
+  let clicked = false;
+  const props = popinEnd(
+    {
+      ...options,
+      popinEnd: {
+        headerCta: {
+          onClick: () => {
+            clicked = true;
+          }
+        }
+      }
+    },
+    {dispatch: createDispatch(state)}
+  )(state);
+
+  t.is(props.summary.header.cta.title, '__Back to home');
+  props.summary.header.cta.onClick();
+  t.true(clicked);
+});
+
+test('should resolve overrides from the current end popin context', t => {
+  const state = popinLearnerSuccess;
+  const props = popinEnd(
+    {
+      ...options,
+      popinEnd: ({recommendations, exitNode, recommendationTitle, headerCta}) => {
+        t.is(exitNode.type, 'success');
+        t.is(recommendations.length, 3);
+        t.is(recommendationTitle, '__Related subjects');
+        t.is(headerCta.title, '__Next level');
+        return {recommendationTitle: 'Suggested next steps:'};
+      }
+    },
+    {dispatch: createDispatch(state)}
+  )(state);
+
+  t.is(props.summary.recommendation.title, 'Suggested next steps:');
+  t.is(props.summary.header.cta.title, '__Next level');
+});
+
+test('should keep the retry action when the override returns nothing', t => {
+  const props = popinEnd(
+    {...options, popinEnd: () => undefined},
+    {dispatch: createDispatch(popinLearnerFailure)}
+  )(popinLearnerFailure);
+
+  t.is(props.summary.header.cta.title, '__Retry level');
+  t.is(props.summary.recommendation, null);
+});
+
+test('should keep an explicit redirect when the override returns nothing', t => {
+  const props = popinEnd(
+    {...options, popinEnd: () => undefined},
+    {dispatch: createDispatch(popinLearnerSuccessWithRedirection)}
+  )(popinLearnerSuccessWithRedirection);
+
+  t.is(props.summary.header.cta.title, '__Click to continue');
+  t.is(props.summary.header.cta.href, 'http://www.google.com');
+});
+
+test('should allow the caller to keep a redirect while changing only the recommendation title', t => {
+  const props = popinEnd(
+    {
+      ...options,
+      popinEnd: ({headerCta}) => {
+        t.is(headerCta.href, 'http://www.google.com');
+        return {recommendationTitle: 'Continue exploring:'};
+      }
+    },
+    {dispatch: createDispatch(popinLearnerSuccessWithRedirection)}
+  )(popinLearnerSuccessWithRedirection);
+
+  t.is(props.summary.header.cta.href, 'http://www.google.com');
+  t.is(props.summary.recommendation.title, 'Continue exploring:');
+});
+
+test('should leave an absent recommendation unchanged', t => {
+  const state = set(
+    `data.recommendations.entities.${getCurrentProgressionId(popinLearnerFailure)}`,
+    undefined,
+    popinLearnerFailure
+  );
+  const props = popinEnd(
+    {...options, popinEnd: {recommendationTitle: 'Other courses:'}},
+    {dispatch: createDispatch(state)}
+  )(state);
+
+  t.is(props.summary.recommendation, null);
+});
+
 test('should write, send, and go see a comment after success on learner progression', async t => {
   const state = pipe(
     set('data.comments.entities.idProgression1234.isSent', true),

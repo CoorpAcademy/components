@@ -55,6 +55,7 @@ import type {
   TourguideEligibilityOptions,
   TourguideState
 } from '../definitions/redux';
+import type {RecommendationResult} from '../definitions/services/recommendations';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
@@ -480,9 +481,20 @@ export const getRoute = (state: State): string => {
   return get(['ui', 'route', progressionId], state);
 };
 
-export const getRecommendations = (state: State): Array<Recommendation> => {
+const getRecommendationResult = (state: State): RecommendationResult | null | void => {
   const id = getCurrentProgressionId(state);
   return get(`data.recommendations.entities.${id}`, state);
+};
+
+export const getRecommendations = (state: State): Array<Recommendation> | void => {
+  const result = getRecommendationResult(state);
+  if (Array.isArray(result)) return result;
+  return result ? get('cards')(result) : undefined;
+};
+
+export const getRecommendationContext = (state: State): {[string]: mixed} | void => {
+  const result = getRecommendationResult(state);
+  return result && !Array.isArray(result) ? get('context')(result) : undefined;
 };
 
 export const getNextContent = (state: State): Content | void => {

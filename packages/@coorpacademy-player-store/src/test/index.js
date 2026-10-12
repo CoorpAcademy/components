@@ -64,6 +64,7 @@ test('it should expose all api', t => {
       'extractClue',
       'getCurrentClue',
       'getRoute',
+      'getRecommendationContext',
       'getRecommendations',
       'getNextContent',
       'getStartRank',
