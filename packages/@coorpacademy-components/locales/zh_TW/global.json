@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "文憑"
+      "diploma": "文憑",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "有關您證書的附加信息"
