@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "Diplomă"
+      "diploma": "Diplomă",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Informațiile suplimentare despre certificatul dvs"
