@@ -224,7 +224,8 @@
        "diploma": "oppimispolku"
     },
     "savoirsdavenirs": {
-      "diploma": "Tutkintotodistus"
+      "diploma": "Tutkintotodistus",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Lisätietoja todistuksestasi"
