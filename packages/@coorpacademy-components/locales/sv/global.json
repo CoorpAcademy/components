@@ -224,7 +224,8 @@
        "diploma": "inlärningsväg"
     },
     "savoirsdavenirs": {
-      "diploma": "Diplom"
+      "diploma": "Diplom",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Ytterligare information om ditt certifikat"
