@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "졸업 증서"
+      "diploma": "졸업 증서",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "인증서에 대한 추가 정보"
