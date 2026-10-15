@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "ディプロマ"
+      "diploma": "ディプロマ",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "証明書に関する追加情報"
