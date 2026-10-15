@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "Oklevél"
+      "diploma": "Oklevél",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "További információk a tanúsítványról"
