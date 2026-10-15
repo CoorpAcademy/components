@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "Bằng cấp"
+      "diploma": "Bằng cấp",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Thông tin bổ sung về chứng chỉ của bạn"
