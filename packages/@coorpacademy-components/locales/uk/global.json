@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "Диплом"
+      "diploma": "Диплом",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Додаткова інформація про ваш сертифікат"
