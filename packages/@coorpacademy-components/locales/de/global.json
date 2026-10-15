@@ -224,7 +224,8 @@
        "diploma": "learning path"
     },
     "savoirsdavenirs": {
-      "diploma": "Diplom"
+      "diploma": "Diplom",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Die zusätzlichen Informationen zu Ihrem Zertifikat"

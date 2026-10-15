@@ -224,7 +224,8 @@
        "diploma": "parcours"
     },
     "savoirsdavenirs": {
-      "diploma": "Attestation"
+      "diploma": "Attestation",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Les informations complémentaires sur votre certificat"
