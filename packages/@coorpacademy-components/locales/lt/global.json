@@ -224,7 +224,8 @@
        "diploma": "mokymosi kelias"
     },
     "savoirsdavenirs": {
-      "diploma": "Diplomas"
+      "diploma": "Diplomas",
+      "learning_priorities_description": "\u200C"
     },
     "who": {
       "badge": "Papildoma informacija apie jūsų sertifikatą"
