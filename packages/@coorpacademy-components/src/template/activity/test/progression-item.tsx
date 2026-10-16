@@ -41,3 +41,14 @@ test('should not crash if onClick is not sent', t => {
   t.truthy(link);
   fireEvent.click(link);
 });
+
+test('should display the completion date when provided', t => {
+  const props = {
+    ...omit('ref', defaultFixture.props.progressions[1]),
+    completionDate: '16 Oct 2026'
+  };
+  const {container} = render(<ProgressionItem {...props} />);
+
+  const completionDate = container.querySelector('[data-name="activityCompletionDate"]');
+  t.is(completionDate && completionDate.textContent, '16 Oct 2026');
+});

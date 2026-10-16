@@ -142,17 +142,29 @@
   cursor: pointer;
 }
 
+.metadata {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.completionDate {
+  font-family: 'Gilroy';
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
 .level {
-  height: 17px;
   font-family: 'Gilroy';
   font-size: 12px;
   font-weight: 100;
   text-align: right;
   color: dark;
-  position: relative;
-  right: 0;
   text-transform: capitalize;
-  flex: auto;
 }
 
 @media tablet, mobile {

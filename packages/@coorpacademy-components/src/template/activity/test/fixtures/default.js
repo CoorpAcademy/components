@@ -65,6 +65,7 @@ export default {
         disabled: false,
         label: 'Prospectives',
         level: 'Coach',
+        completionDate: '16 Oct 2026',
         state: 'Redo this course',
         type: 'chapter',
         adaptive: true,

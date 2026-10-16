@@ -47,7 +47,8 @@ const ProgressionItem = (props, legacyContext) => {
     state,
     type,
     steps = 0,
-    adaptiveAriaLabel
+    adaptiveAriaLabel,
+    completionDate
   } = props;
 
   const dark = get('common.dark', skin);
@@ -120,7 +121,18 @@ const ProgressionItem = (props, legacyContext) => {
       />
       <div className={style.state}>
         {link}
-        <span className={style.level}>{level}</span>
+        <div className={style.metadata}>
+          {completionDate ? (
+            <span
+              data-name="activityCompletionDate"
+              className={style.completionDate}
+              style={{backgroundColor: primary, color: white}}
+            >
+              {completionDate}
+            </span>
+          ) : null}
+          <span className={style.level}>{level}</span>
+        </div>
       </div>
     </div>
   );
@@ -135,6 +147,7 @@ ProgressionItem.propTypes = {
   label: PropTypes.string.isRequired,
   level: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
+  completionDate: PropTypes.string,
   adaptiveAriaLabel: PropTypes.string,
   type: PropTypes.string.isRequired,
   adaptive: PropTypes.bool.isRequired,
