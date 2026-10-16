@@ -115,3 +115,18 @@
     transform: scale(0.5, 0.5);
   }
 }
+
+.dueNotification {
+  position: absolute;
+  top: 64px;
+  left: 8px;
+  max-width: calc(100% - 16px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dueNotification > span {
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+}

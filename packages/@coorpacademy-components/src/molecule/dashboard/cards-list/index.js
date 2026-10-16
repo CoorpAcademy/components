@@ -21,6 +21,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
+import AssignmentCard from '../../assignment-card';
 import LearningPriorityCard from '../../learning-priority-card';
 import CertificationCard from '../../certification-card';
 import LearnerSkillCard from '../../learner-skill-card';
@@ -102,6 +103,7 @@ class CardsList extends React.PureComponent {
     cards: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.shape(cardPropTypes),
+        PropTypes.shape(AssignmentCard.propTypes),
         PropTypes.shape(LearningPriorityCard.propTypes)
       ])
     ),
@@ -116,6 +118,7 @@ class CardsList extends React.PureComponent {
     type: PropTypes.oneOf([
       'cards',
       'learningPrioritiesCards',
+      'assignments',
       'skills',
       'certifications',
       'playlists'
@@ -328,7 +331,9 @@ class CardsList extends React.PureComponent {
       map(([key, card]) => {
         let CardComponent = Card;
 
-        if (card && type === 'learningPrioritiesCards') {
+        if (card && type === 'assignments') {
+          CardComponent = AssignmentCard;
+        } else if (card && type === 'learningPrioritiesCards') {
           CardComponent = LearningPriorityCard;
         } else if (card && type === 'skills') {
           CardComponent = LearnerSkillCard;
