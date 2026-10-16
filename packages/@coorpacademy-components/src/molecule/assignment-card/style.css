@@ -1,0 +1,80 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value cm_grey_500 from colors;
+@value cm_yellow_400 from colors;
+@value cm_negative_200 from colors;
+@value cm_positive_200 from colors;
+
+.wrapper {
+  width: 256px;
+  max-width: 100%;
+  min-width: 0;
+  font-family: "Gilroy";
+  overflow-wrap: anywhere;
+}
+
+.wrapper.certification {
+  width: 345px;
+}
+
+.cardFrame {
+  position: relative;
+}
+
+/* Opaque on purpose: it sits on the card image (or the certification image area). */
+.duePill {
+  position: absolute;
+  top: 64px;
+  left: 12px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100% - 24px);
+  padding: 4px 10px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.certification .duePill {
+  top: 12px;
+}
+
+.todo {
+  color: cm_grey_500;
+}
+
+.dueSoon {
+  color: cm_yellow_400;
+}
+
+.overdue {
+  color: cm_negative_200;
+}
+
+.done {
+  color: cm_positive_200;
+}
+
+.endDate {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.assignments {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.assignments li + li {
+  margin-top: 4px;
+}
