@@ -6,6 +6,7 @@ import Autocomplete from '../../atom/autocomplete';
 import Select from '../../atom/select';
 import SelectMultiple from '../select-multiple';
 import InputText from '../../atom/input-text';
+import InputDate from '../../atom/input-date';
 import InputColor from '../../atom/input-color';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputReadonly from '../../atom/input-readonly';
@@ -72,6 +73,8 @@ const buildInput = field => {
       return <SetupSlider {...field} />;
     case 'sections':
       return <SetupSections {...field} />;
+    case 'date':
+      return <InputDate {...field} />;
     case 'text':
     case 'password':
       return <InputText {...field} />;
@@ -229,6 +232,11 @@ BrandFormGroup.propTypes = {
       PropTypes.shape({
         ...SetupSections.propTypes,
         type: PropTypes.oneOf(['sections'])
+      }),
+      PropTypes.shape({
+        ...InputDate.propTypes,
+        type: PropTypes.oneOf(['date']),
+        size: PropTypes.oneOf(keys(inputContainerStyle))
       }),
       PropTypes.shape({
         ...InputText.propTypes,
