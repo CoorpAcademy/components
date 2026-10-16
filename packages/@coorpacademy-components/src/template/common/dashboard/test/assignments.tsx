@@ -29,7 +29,7 @@ test('assignments section renders prop title, subtitle, icon, three cards and co
   ].forEach(text => {
     t.truthy(view.getByText(text));
   });
-  t.is(view.container.querySelectorAll('[data-name="card"]').length, 3);
+  t.is(view.container.querySelectorAll('[data-name="assignment-card"]').length, 3);
   view.unmount();
 });
 
