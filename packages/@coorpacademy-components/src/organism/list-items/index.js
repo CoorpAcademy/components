@@ -4,6 +4,7 @@ import isNil from 'lodash/fp/isNil';
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
 import ListItem from '../list-item';
+import AssignmentRow from '../../molecule/assignment-row';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
@@ -32,7 +33,7 @@ const buildTitleView = title => {
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   const {items, itemType, onDrop, isDraggable = false, tableHeader} = content;
   const itemsView =
-    isDraggable && items.length > 1 ? (
+    itemType !== 'assignment' && isDraggable && items.length > 1 ? (
       <DraggableList
         items={items.map(item => ({...item, contentType: itemType}))}
         itemType="list-item"
@@ -41,12 +42,16 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     ) : (
       items.map((item, index) => (
         <li key={item.id} className={style.item} data-name={`content-${index}`}>
-          <ListItem
-            {...item}
-            order={null}
-            contentType={itemType}
-            data-name={`list-item-${index}`}
-          />
+          {itemType === 'assignment' ? (
+            <AssignmentRow {...item} data-name={`list-item-${index}`} />
+          ) : (
+            <ListItem
+              {...item}
+              order={null}
+              contentType={itemType}
+              data-name={`list-item-${index}`}
+            />
+          )}
         </li>
       ))
     );
@@ -175,7 +180,12 @@ ListItems.propTypes = {
   selectMultiple: PropTypes.shape(SelectMultiple.propTypes),
   content: PropTypes.oneOfType([
     PropTypes.shape({
-      items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
+      items: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.shape(ListItem.propTypes),
+          PropTypes.shape(AssignmentRow.propTypes)
+        ])
+      ),
       type: PropTypes.oneOf(['list']),
       itemType: PropTypes.string,
       onDrop: PropTypes.func,

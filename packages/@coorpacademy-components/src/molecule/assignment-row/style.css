@@ -1,0 +1,92 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey, cm_grey_400, cm_grey_700 from colors;
+
+.wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+  padding: 24px;
+  border-radius: 12px;
+  background-color: color(xtraLightGrey a(90%));
+  color: cm_grey_700;
+  font-family: Gilroy;
+  font-size: 14px;
+  line-height: 20px;
+  overflow-wrap: anywhere;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.title {
+  min-width: 0;
+  flex: 1 1 240px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.status {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.details,
+.sync {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  color: cm_grey_400;
+}
+
+.details > div,
+.sync > span {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.completion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.actions > button {
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media mobile {
+  .wrapper {
+    padding: 16px;
+  }
+
+  .details,
+  .sync {
+    flex-direction: column;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+}
