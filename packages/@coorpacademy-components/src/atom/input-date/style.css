@@ -1,0 +1,72 @@
+.defaultStyle {
+  composes: defaultStyle from '../input-text/style.css';
+}
+
+.setup {
+  composes: setup from '../input-text/style.css';
+}
+
+.cockpit {
+  composes: cockpit from '../input-text/style.css';
+}
+
+.coorpmanager {
+  composes: coorpmanager from '../input-text/style.css';
+}
+
+.input {
+  composes: input from '../input-text/style.css';
+}
+
+.title {
+  composes: title from '../input-text/style.css';
+}
+
+.isNoTitle {
+  composes: isNoTitle from '../input-text/style.css';
+}
+
+.error {
+  composes: error from '../input-text/style.css';
+}
+
+.modified {
+  composes: modified from '../input-text/style.css';
+}
+
+.disabled {
+  composes: disabled from '../input-text/style.css';
+}
+
+.hint {
+  composes: hint from '../input-text/style.css';
+}
+
+.container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.fieldRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.fieldRow > label {
+  min-width: 0;
+  margin-right: 0;
+}
+
+.suffix {
+  flex-shrink: 0;
+  margin-left: 8px;
+  font-family: 'Gilroy';
+  font-size: 12px;
+}
+
+.help {
+  padding-top: 8px;
+  font-family: 'Gilroy';
+  font-size: 12px;
+}
