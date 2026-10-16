@@ -12,6 +12,7 @@ import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
 import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
 import Title from '../../../atom/title';
+import Link from '../../../atom/link';
 import style from './style.css';
 
 const Hero = React.memo(function Hero({hero, welcome}) {
@@ -67,6 +68,45 @@ const Dashboard = (props, context) => {
           />
         );
       }
+      case 'assignments': {
+        const {cards = [], title, subtitle, icon, emptyState} = section;
+        const handleEmptyLinkClick = emptyState && emptyState.link && emptyState.link.onClick;
+        return (
+          <section className={style.assignments}>
+            <CardsList
+              {...section}
+              cards={cards}
+              title={
+                <Title
+                  type="form-group"
+                  title={title}
+                  subtitle={subtitle}
+                  icon={
+                    icon || {
+                      iconName: 'clipboard-list',
+                      iconColor: '#A32700',
+                      borderRadius: '12px',
+                      backgroundColor: '#FFDCD1'
+                    }
+                  }
+                  tag={{label: String(cards.length), size: 'S'}}
+                />
+              }
+              arrows-aria-label={showMoreOnLeftOrRightAriaLabel}
+            />
+            {cards.length === 0 && emptyState ? (
+              <div className={style.assignmentsEmpty}>
+                <p>{emptyState.message}</p>
+                {emptyState.link ? (
+                  <Link href={emptyState.link.href} onClick={handleEmptyLinkClick}>
+                    {emptyState.link.label}
+                  </Link>
+                ) : null}
+              </div>
+            ) : null}
+          </section>
+        );
+      }
       case 'cards':
         return <CardsList {...section} arrows-aria-label={showMoreOnLeftOrRightAriaLabel} />;
       case 'news':
@@ -113,6 +153,21 @@ Dashboard.propTypes = {
   welcome: Hero.propTypes.welcome,
   sections: PropTypes.arrayOf(
     PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.oneOf(['assignments']),
+        title: PropTypes.string,
+        subtitle: PropTypes.string,
+        icon: Title.propTypes.icon,
+        cards: CardsList.propTypes.cards,
+        emptyState: PropTypes.shape({
+          message: PropTypes.string,
+          link: PropTypes.shape({
+            label: PropTypes.string,
+            href: PropTypes.string,
+            onClick: PropTypes.func
+          })
+        })
+      }),
       PropTypes.shape(BattleRequestList.propTypes),
       PropTypes.shape(CardsList.propTypes),
       PropTypes.shape(NewsList.propTypes),

@@ -22,3 +22,14 @@
     height: 200px;
   }
 }
+
+.assignments {
+  width: 100%;
+}
+
+.assignmentsEmpty {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px 24px;
+  font-family: "Gilroy";
+}

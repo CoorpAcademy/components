@@ -1,0 +1,25 @@
+.wrapper {
+  width: 256px;
+  max-width: 100%;
+  min-width: 0;
+  font-family: "Gilroy";
+  overflow-wrap: anywhere;
+}
+
+.endDate {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.assignments {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.assignments li + li {
+  margin-top: 4px;
+}
