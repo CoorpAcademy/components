@@ -3,21 +3,22 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
-import tagStyle from '../../../atom/tag/style.css';
 import notificationStyle from '../../card/notification.css';
+import style from '../style.css';
 import card from '../../card/test/fixtures/default';
 import AssignmentCard from '..';
 import shared from './fixtures/shared-content';
+import overdueCertification from './fixtures/overdue';
 
 browserEnv();
 
 test('each due state shows supplied text, distinct tag style and end date', t => {
   [
-    {state: 'todo', message: 'To complete', style: tagStyle.defaultStyle},
-    {state: 'dueSoon', message: 'Due within seven days', style: tagStyle.warning},
-    {state: 'overdue', message: 'Deadline passed', style: tagStyle.failure},
-    {state: 'done', message: 'Completed', style: tagStyle.success}
-  ].forEach(({state, message, style}) => {
+    {state: 'todo', message: 'To complete', className: style.todo},
+    {state: 'dueSoon', message: 'Due within seven days', className: style.dueSoon},
+    {state: 'overdue', message: 'Deadline passed', className: style.overdue},
+    {state: 'done', message: 'Completed', className: style.done}
+  ].forEach(({state, message, className}) => {
     const view = render(
       <AssignmentCard
         {...card.props}
@@ -27,9 +28,14 @@ test('each due state shows supplied text, distinct tag style and end date', t =>
       />,
       {wrapper: wrappingComponent}
     );
-    const badge = view.getByText(message).closest('[data-name^="content-tag-"]');
+    // @adw asg-cmp-04#R1: the due pill is the card's own opaque pill, not a back-office tag over the image.
+    const badge = view.getByText(message).closest('[data-name="due-state"]');
     t.truthy(badge);
-    style.split(' ').forEach((className: string) => t.true(badge?.classList.contains(className)));
+    t.is(badge?.getAttribute('data-type'), state);
+    t.true(badge?.classList.contains(style.duePill));
+    t.true(badge?.classList.contains(className));
+    t.falsy(view.getByText(message).closest('[data-name^="content-tag-"]'));
+    t.falsy(view.getByText(message).closest('[data-name="notification"]'));
     t.truthy(view.getByText('Ends 24 October'));
     view.unmount();
   });
@@ -49,10 +55,8 @@ test('due badge stays visible and its click reaches the card callback', t => {
     {wrapper: wrappingComponent}
   );
   const badge = view.getByText('Almost due');
-  const notification = badge.closest('[data-name="notification"]');
-  t.true(notification?.classList.contains(notificationStyle.dueNotification));
-  t.false(notification?.classList.contains(notificationStyle.showOverlay));
-  t.false(notification?.classList.contains(notificationStyle.notificationWrapper));
+  t.truthy(badge.closest('[data-name="due-state"]'));
+  t.falsy(view.container.querySelector('[data-name="notification"]'));
   fireEvent.click(badge);
   t.is(clicks, 1);
   view.unmount();
@@ -141,6 +145,7 @@ test('missing notification and unsupported due states never invent a badge or da
     );
     t.truthy(view.getByText('From Mass'));
     t.falsy(view.container.querySelector('[data-name="notification"]'));
+    t.falsy(view.container.querySelector('[data-name="due-state"]'));
     t.falsy(view.queryByRole('list'));
     t.notThrows(() => fireEvent.click(view.getByText('From Mass')));
     view.unmount();
@@ -168,10 +173,8 @@ test('immutable metadata preserves duplicate titles and clears on an ordinary-ca
     ['Same assignment < & >', 'Same assignment < & >']
   );
   t.is(view.container.querySelectorAll('[data-name="card"]').length, 1);
-  const badge = view.getByText('Translated deadline').closest('[data-name^="content-tag-"]');
-  tagStyle.success
-    .split(' ')
-    .forEach((className: string) => t.true(badge?.classList.contains(className)));
+  const badge = view.getByText('Translated deadline').closest('[data-name="due-state"]');
+  t.true(badge?.classList.contains(style.done));
   t.truthy(view.getByText('Finished on the supplied date'));
   t.is(notification.icon, 'overdue');
   view.rerender(<AssignmentCard {...card.props} />);
@@ -208,6 +211,7 @@ test('unknown states suppress due notifications and retain both favorite overlay
     t.falsy(view.queryByText('Old overdue badge'));
     t.falsy(view.queryByText('Unsupported deadline'));
     t.falsy(view.container.querySelector('[data-name="notification"]'));
+    t.falsy(view.container.querySelector('[data-name="due-state"]'));
   });
   ['addFavorite', 'removeFavorite'].forEach(icon => {
     view.rerender(
@@ -221,11 +225,61 @@ test('unknown states suppress due notifications and retain both favorite overlay
     const message = view.getByText('Favorite changed');
     const overlay = message.closest('[data-name="notification"]');
     t.is(overlay?.getAttribute('data-type'), icon);
-    t.false(overlay?.classList.contains(notificationStyle.dueNotification));
+    t.true(overlay?.classList.contains(notificationStyle.notificationWrapper));
+    t.falsy(view.container.querySelector('[data-name="due-state"]'));
     fireEvent.click(message);
     t.is(clicks, 0);
   });
   fireEvent.click(view.getByText('From Mass'));
   t.is(clicks, 1);
+  view.unmount();
+});
+
+// @adw asg-cmp-04#R1: a certification assignment renders the certification card, not a course card.
+test('a certification assignment renders the certification card with its pill, date and assignments', t => {
+  let clicks = 0;
+  const view = render(
+    <AssignmentCard
+      {...overdueCertification.props}
+      onClick={() => {
+        clicks++;
+      }}
+    />,
+    {wrapper: wrappingComponent}
+  );
+  const {certificationCard} = overdueCertification.props;
+  t.truthy(view.container.querySelector('[data-name^="certification-card-"]'));
+  t.falsy(view.container.querySelector('[data-name="card"]'));
+  t.is(
+    view.getByText(certificationCard.goal.title).getAttribute('data-name'),
+    'certification-title'
+  );
+  t.falsy(view.queryByText("5'learning"));
+  t.is(
+    view.getByText('Overdue').closest('[data-name="due-state"]')?.getAttribute('data-type'),
+    'overdue'
+  );
+  t.truthy(view.getByText('Ended 10 October'));
+  t.truthy(view.getByText('Safety onboarding'));
+  fireEvent.click(view.getByText(certificationCard.goal.title));
+  t.is(clicks, 1);
+  view.unmount();
+});
+
+// @adw asg-cmp-04#R1: course and level assignments keep the catalogue card and its light title.
+test('a course assignment keeps the catalogue card', t => {
+  const view = render(
+    <AssignmentCard
+      {...card.props}
+      type="course"
+      dueState="todo"
+      notification={{message: 'To complete', icon: 'todo'}}
+    />,
+    {
+      wrapper: wrappingComponent
+    }
+  );
+  t.truthy(view.container.querySelector('[data-name="card"]'));
+  t.falsy(view.container.querySelector('[data-name^="certification-card-"]'));
   view.unmount();
 });
