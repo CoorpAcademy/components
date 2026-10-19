@@ -58,6 +58,10 @@
   margin-right: 0;
 }
 
+.fieldRow .input {
+  display: block;
+}
+
 .suffix {
   flex-shrink: 0;
   margin-left: 8px;
