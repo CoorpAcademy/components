@@ -18,9 +18,11 @@ import article from './fixtures/article';
 
 browserEnv();
 
-// The catalogue card's type chip is a MOOC translation key (`__content_type_course` under
-// mockTranslate), not copy from these components: leave the keys out of the absence check.
-const readable = container => readableWords(container).replace(/__[a-z_]+/g, '');
+// The catalogue card's type chip is a MOOC translation key (`__content_type_video` under
+// mockTranslate), not copy from these components: leave the keys out of the absence check, except
+// the course key, which a module card must never show (AQ19: its chip says « Module »).
+const readable = container =>
+  readableWords(container).replace(/__(?!content_type_course)[a-z_]+/g, '');
 test.afterEach.always(cleanup);
 
 const mount = props => render(<AssignmentCard {...props} />, {wrapper: wrappingComponent});
@@ -107,4 +109,27 @@ test.serial('R5: a click on the card or on its pill calls onClick', t => {
   fireEvent.click(view.container.querySelector('[data-name="card"]'));
   fireEvent.click(view.container.querySelector('[data-name="due-state"]'));
   t.is(clicks, 2);
+});
+
+const typeChip = container => container.querySelector('[class*="contentTypeInfos"]').textContent;
+
+test.serial("R2: a module card's type chip reads « Module », never « Course » (AQ19)", t => {
+  [todo, dueSoon].forEach(fixture => {
+    t.is(fixture.props.type, 'course');
+    t.is(typeChip(mount(fixture.props).container), 'Module');
+    cleanup();
+  });
+});
+
+test.serial('R2: other content types keep their own type label', t => {
+  [
+    [scorm, '__content_type_scorm'],
+    [podcast, '__content_type_podcast'],
+    [article, '__content_type_article'],
+    [done, '__content_type_video'],
+    [overdue, "5'learning"]
+  ].forEach(([fixture, label]) => {
+    t.is(typeChip(mount(fixture.props).container), label);
+    cleanup();
+  });
 });

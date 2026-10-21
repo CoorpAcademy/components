@@ -16,9 +16,11 @@ import loading from './fixtures/loading';
 
 browserEnv();
 
-// The catalogue card's type chip is a MOOC translation key (`__content_type_course` under
-// mockTranslate), not copy from these components: leave the keys out of the absence check.
-const readable = container => readableWords(container).replace(/__[a-z_]+/g, '');
+// The catalogue card's type chip is a MOOC translation key (`__content_type_video` under
+// mockTranslate), not copy from these components: leave the keys out of the absence check, except
+// the course key, which a module card must never show (AQ19: its chip says « Module »).
+const readable = container =>
+  readableWords(container).replace(/__(?!content_type_course)[a-z_]+/g, '');
 test.afterEach.always(cleanup);
 
 const mount = props => render(<MyAssignments {...props} />, {wrapper: wrappingComponent});
