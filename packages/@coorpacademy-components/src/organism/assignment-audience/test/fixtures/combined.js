@@ -27,9 +27,9 @@ export default {
       subtitle: 'Learners of these populations, including those who join later.',
       label: 'Populations',
       options: [
-        {name: 'Managers FR', value: 'managers-fr', selected: true},
-        {name: 'Managers DE', value: 'managers-de', selected: true},
-        {name: 'Sales EMEA', value: 'sales-emea', selected: false}
+        {name: 'Managers FR', value: 'managers-fr', selected: true, count: '412'},
+        {name: 'Managers DE', value: 'managers-de', selected: true, count: '236'},
+        {name: 'Sales EMEA', value: 'sales-emea', selected: false, count: '1,204'}
       ],
       onChange: options => console.log('populations', options)
     },

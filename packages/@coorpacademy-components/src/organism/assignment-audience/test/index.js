@@ -87,6 +87,29 @@ test.serial('R3: toggling everyone calls onChange with the new value', t => {
   t.deepEqual(calls, [true]);
 });
 
+test.serial('each selected population shows as a chip with its count', t => {
+  const view = mount(combined.props);
+  const chips = block(view, 'population-chips');
+  t.truthy(within(chips).getByText('Managers FR'));
+  t.truthy(within(chips).getByText('412'));
+  t.truthy(within(chips).getByText('Managers DE'));
+  t.truthy(within(chips).getByText('236'));
+  t.is(within(chips).queryByText('Sales EMEA'), null);
+});
+
+test.serial('removing a population chip calls onChange with the other selected options', t => {
+  const calls = [];
+  const view = mount({
+    ...combined.props,
+    populations: {...combined.props.populations, onChange: value => calls.push(value)}
+  });
+  fireEvent.click(within(block(view, 'population-chips')).getByText('Managers FR'));
+  t.deepEqual(
+    calls[0].map(option => option.value),
+    ['managers-de']
+  );
+});
+
 test.serial('R3: selecting a population calls onChange with the selected options', t => {
   const calls = [];
   const view = mount({

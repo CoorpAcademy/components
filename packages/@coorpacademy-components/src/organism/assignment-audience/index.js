@@ -151,6 +151,9 @@ const AssignmentAudience = ({
       ),
     [populations]
   );
+  const selectedPopulations = populations.options.filter(option => option.selected);
+  const handleRemovePopulation = populationValue => () =>
+    populations.onChange(selectedPopulations.filter(option => option.value !== populationValue));
 
   // The native input receives both a browse and a drop, and fires change for each.
   const handleFileChange = useCallback(
@@ -206,6 +209,20 @@ const AssignmentAudience = ({
             disabled={disabled}
             onChange={handlePopulations}
           />
+          {selectedPopulations.length > 0 ? (
+            <div className={style.chips} data-name="population-chips">
+              {selectedPopulations.map(option => (
+                <Chip
+                  key={option.value}
+                  text={option.name}
+                  subText={option.count === undefined ? undefined : `${option.count}`}
+                  selected
+                  customIcon="times"
+                  onClick={disabled ? undefined : handleRemovePopulation(option.value)}
+                />
+              ))}
+            </div>
+          ) : null}
         </Block>
         <Block
           name="upload"
@@ -339,7 +356,9 @@ AssignmentAudience.propTypes = {
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
-        selected: PropTypes.bool
+        selected: PropTypes.bool,
+        // The population's learner count, formatted by the app, shown on its chip
+        count: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
       })
     ).isRequired,
     // Receives the selected options, with selected: true
