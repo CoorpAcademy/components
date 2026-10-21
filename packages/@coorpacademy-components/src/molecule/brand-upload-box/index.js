@@ -10,8 +10,6 @@ class BrandUploadBox extends React.Component {
     name: PropTypes.string,
     description: PropTypes.string,
     browse: PropTypes.string,
-    // The native input's accept list, e.g. ".xlsx,.csv"; absent = any file
-    accept: PropTypes.string,
     status: PropTypes.oneOf(['default', 'loading']),
     onLoad: PropTypes.func
   };
@@ -47,7 +45,7 @@ class BrandUploadBox extends React.Component {
 
     let content;
 
-    const {description = '', browse = '', accept, onLoad, name} = this.props;
+    const {description = '', browse = '', onLoad, name} = this.props;
     const brandColor = get('common.brand', skin);
 
     switch (status) {
@@ -71,7 +69,6 @@ class BrandUploadBox extends React.Component {
               <input
                 type="file"
                 name={name}
-                accept={accept}
                 className={style.inputFile}
                 onChange={onLoad}
                 onDragEnter={this.handleDragStart}
