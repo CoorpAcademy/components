@@ -39,6 +39,20 @@ test.serial('R2: each due state renders its pill label and style', t => {
   t.is(new Set(classes).size, 4);
 });
 
+test.serial('R2: each pill icon carries its state colour', t => {
+  const colours = [todo, dueSoon, overdue, done].map(fixture => {
+    const view = mount(fixture.props);
+    const svg = view.container.querySelector('[data-name="due-state"] svg');
+    const colour = svg.getAttribute('color');
+    cleanup();
+    return colour;
+  });
+  t.deepEqual(
+    colours.map(c => c.toLowerCase()),
+    ['#515161', '#bd7e00', '#b81400', '#05944f']
+  );
+});
+
 test.serial('R2: the hover tooltip carries the due date label as given', t => {
   Object.values(fixtures).forEach(fixture => {
     const view = mount(fixture.props);

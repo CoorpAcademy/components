@@ -47,7 +47,7 @@ const DueSection = ({sectionKey, title, subtitle, cards, onCardClick}) => {
   return (
     <section className={style.section} data-name="due-section" data-key={sectionKey}>
       <div className={style.sectionHead}>
-        <FaIcon iconName={iconName} color={color} size={{faSize: 16, wrapperSize: 16}} />
+        <FaIcon iconName={iconName} iconColor={color} size={{faSize: 16, wrapperSize: 16}} />
         <h2 className={style.sectionTitle}>{title}</h2>
         <Tag label={String(cards.length)} size="S" />
         {subtitle ? <span className={style.sectionSubtitle}>{subtitle}</span> : null}

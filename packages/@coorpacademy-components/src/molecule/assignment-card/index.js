@@ -35,7 +35,7 @@ const AssignmentCard = props => {
           className={classnames(style.duePill, className)}
           onClick={onClick}
         >
-          <FaIcon iconName={iconName} color={color} size={{faSize: 12, wrapperSize: 12}} />
+          <FaIcon iconName={iconName} iconColor={color} size={{faSize: 12, wrapperSize: 12}} />
           <span>{dueStateLabel}</span>
         </div>
         <div data-name="due-date" className={style.tooltip}>
