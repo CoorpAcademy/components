@@ -13,31 +13,21 @@ const toTitleTags = (tags = []) =>
     .filter(Boolean)
     .map(({key, label}) => ({label, type: getAssignmentTagType(key)}));
 
-// A click on one of the row's own buttons (Tracking, the "…" menu and its items) is not a row click.
-const ignoringButtons = onClick =>
-  onClick ? event => (event.target.closest('button') ? undefined : onClick(event)) : undefined;
-
-const stoppingPropagation = buttonLink =>
-  buttonLink && {
-    ...buttonLink,
-    onClick: event => {
-      event.stopPropagation();
-      if (buttonLink.onClick) buttonLink.onClick(event);
-    }
-  };
+// A click on one of the row's own controls (the Tracking button or link, the "…" menu and its
+// items) is not a row click.
+const ignoringControls = onClick =>
+  onClick ? event => (event.target.closest('button, a') ? undefined : onClick(event)) : undefined;
 
 export const toListItemProps = ({
   infoTags,
   onClick,
-  buttonLink,
   leftIcon = {iconName: 'calendar-check'},
   ...props
 }) => ({
   ...props,
   leftIcon,
   titleTags: toTitleTags(infoTags),
-  buttonLink: stoppingPropagation(buttonLink),
-  onClick: ignoringButtons(onClick)
+  onClick: ignoringControls(onClick)
 });
 
 // The Coorpmanager assignment list row ("row C"): the Skills list row (organism/list-item) with

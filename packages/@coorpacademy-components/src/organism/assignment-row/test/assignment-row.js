@@ -157,6 +157,18 @@ test.serial(
   }
 );
 
+test.serial('a Tracking link is not a row click either', t => {
+  let row = 0;
+  const props = {
+    ...upToDate.props,
+    onClick: () => row++,
+    buttonLink: {...upToDate.props.buttonLink, onClick: undefined, link: {href: '#tracking'}}
+  };
+  const {container} = render(<AssignmentRow {...props} />, options);
+  fireEvent.click(within(container).getByText('Tracking'));
+  t.is(row, 0);
+});
+
 const openMenu = container =>
   fireEvent.click(container.querySelector('[data-name^="bullet-point-menu-button"]'));
 
