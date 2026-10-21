@@ -16,14 +16,27 @@ const assertTag = (t, status, type) => {
 };
 
 [
+  // Assignment lifecycle (edit-page and tracking headers only, never on a list row: A1.4 Q3)
+  ['draft', 'progress'],
   ['upcoming', 'info'],
   ['active', 'success'],
   ['ended', 'default'],
   ['disabled', 'warning'],
+  // List-row information tags (A1.4: « Ongoing changes », AQ37 « N modules unavailable »)
+  ['ongoingChanges', 'progress'],
+  ['unavailable', 'warning'],
+  // Sync, only when not up to date (S1): there is no "up to date" key
   ['processing', 'progress'],
+  ['syncError', 'failure'],
+  // Learner row in the tracking table
+  ['assigned', 'default'],
+  ['inProgress', 'info'],
+  ['completed', 'success'],
+  ['removed', 'default'],
+  // Computed learner flags, never statuses
   ['dueSoon', 'warning'],
   ['overdue', 'failure'],
-  ['completed', 'success']
+  ['late', 'warning']
 ].forEach(([status, type]) => {
   test(`maps ${status} to ${type}`, t => {
     assertTag(t, status, type);
@@ -31,7 +44,15 @@ const assertTag = (t, status, type) => {
 });
 
 test('falls back for unknown and prototype-property names', t => {
-  ['unknown', 'toString', 'constructor', '__proto__', 'hasOwnProperty'].forEach(status => {
+  [
+    'unknown',
+    'completedLate',
+    'upToDate',
+    'toString',
+    'constructor',
+    '__proto__',
+    'hasOwnProperty'
+  ].forEach(status => {
     assertTag(t, status, 'default');
   });
 });

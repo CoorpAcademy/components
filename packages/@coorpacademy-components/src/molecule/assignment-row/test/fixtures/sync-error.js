@@ -1,14 +1,9 @@
-import Default from './default';
+import fixture from './default';
 
 export default {
   props: {
-    ...Default.props,
-    title:
-      'An extended translated assignment title explaining essential security practices across international teams',
-    sync: {
-      state: 'error',
-      label: 'Synchronization failed',
-      message: 'The audience could not be synchronized. Try again.'
-    }
+    ...fixture.props,
+    tags: [{key: 'syncError', label: 'Sync error'}],
+    progress: {value: 42, label: '42% completed · Last sync failed: learners service timeout'}
   }
 };

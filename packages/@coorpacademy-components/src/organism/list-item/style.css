@@ -4,6 +4,8 @@
 @value xtraLightGrey from colors;
 @value primaryAdd1 from colors;
 @value cm_grey_75 from colors;
+@value cm_grey_100 from colors;
+@value cm_positive_100 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
@@ -153,4 +155,45 @@
 .checked {
   border: 2px solid cm_primary_blue;
   padding: 10px 14px;
+}
+
+.titleTags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.details {
+  composes: subtitle;
+  font-weight: 500;
+  color: cm_grey_500;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.progressBar {
+  width: 220px;
+  min-width: 220px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: cm_grey_100;
+}
+
+.progressBar > div:first-child {
+  border-radius: 4px;
+  background-color: cm_positive_100;
+  animation: none;
+}
+
+.progressLabel {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: cm_grey_400;
 }

@@ -11,6 +11,7 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import {COLORS} from '../../variables/colors';
 import CardImagePreview from '../../atom/card-image-preview';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
+import ProgressBar from '../../molecule/progress-bar';
 import style from './style.css';
 
 const ListItem = (
@@ -24,6 +25,9 @@ const ListItem = (
     selected,
     selectedColor,
     subtitle,
+    titleTags,
+    details,
+    progress,
     dataColumns,
     order,
     'aria-label': ariaLabel,
@@ -134,8 +138,29 @@ const ListItem = (
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
+            {!isEmpty(titleTags) ? (
+              <div className={style.titleTags} data-name="title-tags">
+                {titleTags.map((tag, index) => (
+                  <div key={index} className={style.tag}>
+                    <Tag {...tag} />
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
           {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
+          {details ? <div className={style.details}>{details}</div> : null}
+          {progress ? (
+            <div className={style.progress} data-name="list-item-progress">
+              <ProgressBar
+                className={style.progressBar}
+                value={progress.value}
+                max={100}
+                displayInfo={false}
+              />
+              <span className={style.progressLabel}>{progress.label}</span>
+            </div>
+          ) : null}
         </div>
         {dataColumnsView}
       </div>
@@ -170,6 +195,20 @@ ListItem.contextTypes = {
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  // Tags shown right after the title (the assignment list row, asg-cmp-02)
+  titleTags: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      type: PropTypes.oneOf(['info', 'success', 'failure', 'warning', 'progress', 'default'])
+    })
+  ),
+  // A second line under the subtitle
+  details: PropTypes.string,
+  // A thin completion bar (0 to 100) with its label
+  progress: PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired
+  }),
   'data-name': PropTypes.string,
   provider: PropTypes.shape({
     label: PropTypes.string,

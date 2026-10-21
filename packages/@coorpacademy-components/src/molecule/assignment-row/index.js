@@ -1,99 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AssignmentStatusTag from '../assignment-status-tag';
-import ProgressBar from '../progress-bar';
-import ButtonLink from '../../atom/button-link';
-import style from './style.css';
+import find from 'lodash/fp/find';
+import ListItem from '../../organism/list-item';
+import {getAssignmentTagType} from '../assignment-status-tag';
 
-const completionPropType = (props, propName, componentName) => {
-  const completion = props[propName];
-  if (Number.isFinite(completion) && completion >= 0 && completion <= 100) return null;
-  return new Error(
-    `Invalid prop ${propName} supplied to ${componentName}: expected a finite number from 0 to 100.`
-  );
-};
+// Row tags appear only when they add information (A1.4 Q3), in this order. There is no lifecycle
+// tag (the list tab says it, INFO) and no "up to date" sync tag (S1).
+const ROW_TAG_KEYS = ['ongoingChanges', 'unavailable', 'processing', 'syncError'];
 
-const AssignmentRow = ({
-  title,
-  status,
-  statusLabel,
-  audienceSummary,
-  dateRange,
-  completion,
-  sync,
-  actions = [],
-  'data-name': dataName = 'assignment-row'
-}) => {
-  const actionButtons = actions.map(({label, onClick, disabled, danger}, index) => (
-    <ButtonLink
-      key={`${label}-${index}`}
-      label={label}
-      content={<span>{label}</span>}
-      type={danger ? 'dangerous' : 'tertiary'}
-      disabled={disabled}
-      onClick={onClick}
-    />
-  ));
+const toTitleTags = (tags = []) =>
+  ROW_TAG_KEYS.map(key => find({key}, tags))
+    .filter(Boolean)
+    .map(({key, label}) => ({label, type: getAssignmentTagType(key)}));
 
-  return (
-    <div className={style.wrapper} data-name={dataName}>
-      <div className={style.heading}>
-        <div className={style.title} data-name="assignment-title">
-          {title}
-        </div>
-        <div className={style.status} data-name="assignment-status">
-          <AssignmentStatusTag status={status} label={statusLabel} />
-        </div>
-      </div>
-      <div className={style.details}>
-        <div data-name="assignment-audience">{audienceSummary}</div>
-        <div data-name="assignment-dates">{dateRange}</div>
-      </div>
-      <div
-        className={style.completion}
-        data-name="assignment-completion"
-        role="progressbar"
-        aria-label={title}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={completion}
-      >
-        <ProgressBar value={completion} max={100} displayInfo={false} />
-        <span>{`${completion}%`}</span>
-      </div>
-      <div className={style.sync} data-name="assignment-sync" data-sync-state={sync.state}>
-        <span>{sync.label}</span>
-        {sync.message ? <span>{sync.message}</span> : null}
-      </div>
-      {actions.length > 0 ? (
-        <div className={style.actions} data-name="assignment-actions">
-          {actionButtons}
-        </div>
-      ) : null}
-    </div>
-  );
-};
+// A click on one of the row's own buttons (Tracking, the "…" menu and its items) is not a row click.
+const ignoringButtons = onClick =>
+  onClick ? event => (event.target.closest('button') ? undefined : onClick(event)) : undefined;
+
+const stoppingPropagation = buttonLink =>
+  buttonLink && {
+    ...buttonLink,
+    onClick: event => {
+      event.stopPropagation();
+      if (buttonLink.onClick) buttonLink.onClick(event);
+    }
+  };
+
+export const toListItemProps = ({
+  tags,
+  onClick,
+  buttonLink,
+  leftIcon = {iconName: 'calendar-check'},
+  ...props
+}) => ({
+  ...props,
+  leftIcon,
+  titleTags: toTitleTags(tags),
+  buttonLink: stoppingPropagation(buttonLink),
+  onClick: ignoringButtons(onClick)
+});
+
+// The Coorpmanager assignment list row ("row C"): the Skills list row (organism/list-item) with
+// the information tags beside the title, a contents line and a thin progress bar.
+const AssignmentRow = props => <ListItem {...toListItemProps(props)} />;
 
 AssignmentRow.propTypes = {
-  title: PropTypes.string.isRequired,
-  status: PropTypes.string,
-  statusLabel: PropTypes.string.isRequired,
-  audienceSummary: PropTypes.string.isRequired,
-  dateRange: PropTypes.string.isRequired,
-  completion: completionPropType,
-  sync: PropTypes.shape({
-    state: PropTypes.oneOf(['running', 'done', 'error']).isRequired,
-    label: PropTypes.string.isRequired,
-    message: PropTypes.string
-  }).isRequired,
-  actions: PropTypes.arrayOf(
+  title: ListItem.propTypes.title,
+  // The audience summary and the date range, e.g. "Managers FR · 02 Nov 2026 – 15 Dec 2026 (GMT)"
+  subtitle: ListItem.propTypes.subtitle,
+  // The contents line, e.g. "6 modules · 2 external · 2 chapters"
+  details: ListItem.propTypes.details,
+  // Completion (0 to 100) and its label; absent on a draft
+  progress: ListItem.propTypes.progress,
+  tags: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired,
-      disabled: PropTypes.bool,
-      danger: PropTypes.bool
+      key: PropTypes.oneOf(ROW_TAG_KEYS).isRequired,
+      label: PropTypes.string.isRequired
     })
   ),
+  leftIcon: ListItem.propTypes.leftIcon,
+  // The « Tracking » button (or « Edit » on a draft)
+  buttonLink: ListItem.propTypes.buttonLink,
+  bulletPointMenuButton: ListItem.propTypes.bulletPointMenuButton,
+  // A click on the row opens the tracking page
+  onClick: PropTypes.func,
+  id: PropTypes.string,
   'data-name': PropTypes.string
 };
 
