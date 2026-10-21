@@ -44,6 +44,24 @@ const Block = ({name, title, subtitle, aside, children}: BlockProps) => (
   </section>
 );
 
+// A sample of the file to upload: the column header and two example logins.
+const TemplatePreview = ({header, rows = []}: {header: string; rows?: string[]}) => (
+  <table className={style.templatePreview} data-name="upload-template-preview">
+    <thead>
+      <tr>
+        <th scope="col">{header}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map(row => (
+        <tr key={row}>
+          <td>{row}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+);
+
 const AssignmentAudience = ({
   title,
   subtitle,
@@ -177,30 +195,33 @@ const AssignmentAudience = ({
             ) : null
           }
         >
-          <div
-            className={upload.status === 'done' ? undefined : style.dropzone}
-            aria-busy={loading}
-            aria-live="polite"
-            data-name="upload-dropzone"
-          >
-            {upload.status === 'done' ? (
-              <UploadResult {...upload} />
-            ) : (
-              <InputFileDraggable
-                name="assignment-audience-file"
-                filesTypes={ACCEPTED_FILES}
-                description={upload.dropzone?.description}
-                uploadLabel={upload.dropzone?.browse}
-                errorButtonLabel={upload.dropzone?.browse}
-                dragAndDropLabel={upload.dropzone?.dropLabel}
-                loadingLabel={upload.dropzone?.loadingLabel}
-                loading={loading}
-                disabled={disabled}
-                error={upload.status === 'error' ? upload.error : ''}
-                onChange={handleFileChange}
-                onReset={handleCancelCheck}
-              />
-            )}
+          <div className={style.upload}>
+            {upload.templatePreview ? <TemplatePreview {...upload.templatePreview} /> : null}
+            <div
+              className={upload.status === 'done' ? style.uploadMain : style.dropzone}
+              aria-busy={loading}
+              aria-live="polite"
+              data-name="upload-dropzone"
+            >
+              {upload.status === 'done' ? (
+                <UploadResult {...upload} />
+              ) : (
+                <InputFileDraggable
+                  name="assignment-audience-file"
+                  filesTypes={ACCEPTED_FILES}
+                  description={upload.dropzone?.description}
+                  uploadLabel={upload.dropzone?.browse}
+                  errorButtonLabel={upload.dropzone?.browse}
+                  dragAndDropLabel={upload.dropzone?.dropLabel}
+                  loadingLabel={upload.dropzone?.loadingLabel}
+                  loading={loading}
+                  disabled={disabled}
+                  error={upload.status === 'error' ? upload.error : ''}
+                  onChange={handleFileChange}
+                  onReset={handleCancelCheck}
+                />
+              )}
+            </div>
           </div>
         </Block>
         <Block name="individuals" title={individuals.title}>

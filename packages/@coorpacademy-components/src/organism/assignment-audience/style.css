@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100, cm_grey_500, cm_grey_700 from colors;
+@value cm_grey_75, cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700 from colors;
 
 .container {
   display: flex;
@@ -67,9 +67,46 @@
   opacity: 0.5;
 }
 
+/* The template preview column, then the uploader or the uploaded file */
+.upload {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.uploadMain {
+  flex: 1;
+  min-width: 0;
+}
+
 /* The Coorpmanager uploader fills its parent's height */
 .dropzone {
+  composes: uploadMain;
   height: 220px;
+}
+
+.templatePreview {
+  flex: 0 0 150px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid cm_grey_200;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 12px;
+  text-align: left;
+}
+
+.templatePreview th,
+.templatePreview td {
+  padding: 6px 10px;
+  border-top: 1px solid cm_grey_100;
+}
+
+.templatePreview th {
+  border-top: 0;
+  background-color: cm_grey_75;
+  font-weight: 700;
 }
 
 .chips {

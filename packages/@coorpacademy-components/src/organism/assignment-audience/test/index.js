@@ -294,3 +294,27 @@ test.serial('an error shows in the uploader and is announced', t => {
   t.truthy(within(dropzone).getByText(uploadError.props.upload.error));
   t.is(block(error, 'upload-summary'), null);
 });
+
+test.serial('a template preview sits left of the upload, before and after the file', t => {
+  [idle, uploadDone].forEach(fixture => {
+    const view = mount(fixture.props);
+    const preview = block(view, 'upload-template-preview');
+    const {header, rows: samples} = fixture.props.upload.templatePreview;
+    t.deepEqual(
+      [...preview.querySelectorAll('th, td')].map(cell => cell.textContent),
+      [header, ...samples]
+    );
+    cleanup();
+  });
+  const upload = {...idle.props.upload, templatePreview: undefined};
+  const without = mount({...idle.props, upload});
+  t.is(block(without, 'upload-template-preview'), null);
+});
+
+test.serial('the uploaded file shows as a card with its spreadsheet icon', t => {
+  const view = mount(uploadDone.props);
+  const card = block(view, 'upload-file');
+  t.truthy(card.querySelector('svg[data-icon="file-excel"]'));
+  t.truthy(within(card).getByText(uploadDone.props.upload.file.name));
+  t.truthy(within(card).getByText(uploadDone.props.upload.file.detail));
+});

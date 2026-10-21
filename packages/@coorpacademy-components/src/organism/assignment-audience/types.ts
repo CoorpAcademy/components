@@ -79,6 +79,11 @@ const AssignmentAudiencePropTypes = {
       label: PropTypes.string,
       href: PropTypes.string
     }),
+    // A sample of the expected file, shown left of the upload: a header and example values
+    templatePreview: PropTypes.shape({
+      header: PropTypes.string.isRequired,
+      rows: PropTypes.arrayOf(PropTypes.string)
+    }),
     // The Coorpmanager uploader's texts: the hint, the button, the drop text, the loader text
     dropzone: PropTypes.shape({
       description: PropTypes.string,
@@ -169,6 +174,7 @@ export type AssignmentAudienceProps = {
     title?: string;
     subtitle?: string;
     templateLink?: {label?: string; href?: string};
+    templatePreview?: {header: string; rows?: string[]};
     dropzone?: {
       description?: string;
       browse?: string;

@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100, cm_grey_400, cm_grey_700, white from colors;
+@value cm_grey_50, cm_grey_100, cm_grey_300, cm_grey_400, cm_grey_700, cm_primary_blue, white from colors;
 
 .muted {
   composes: muted from "./style.css";
@@ -9,46 +9,57 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 16px;
-  border: 1px solid cm_grey_100;
-  border-radius: 8px;
 }
 
 .file {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px dashed cm_grey_300;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .fileName {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
+  color: cm_grey_700;
+}
+
+/* The file name takes the free width; the actions sit at the right edge. */
+.fileText {
+  min-width: 0;
 }
 
 .fileActions {
   display: flex;
   gap: 8px;
+  margin-left: auto;
 }
 
 .summary {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
 }
 
 .toggle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
-  align-self: flex-start;
-  padding: 0;
+  width: 100%;
+  padding: 12px 16px;
   border: 0;
-  background: none;
+  border-radius: 12px;
+  background-color: cm_grey_50;
   font-family: Gilroy;
   font-size: 14px;
-  font-weight: 600;
-  color: cm_grey_700;
+  font-weight: 700;
+  color: cm_primary_blue;
+  text-align: left;
   cursor: pointer;
 }
 

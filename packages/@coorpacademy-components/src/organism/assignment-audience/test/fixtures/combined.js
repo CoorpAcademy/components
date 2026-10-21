@@ -37,6 +37,7 @@ export default {
       subtitle:
         'One login column. xlsx, xls or csv, up to 5,000 rows. Unknown, ambiguous and inactive logins are reported before you save.',
       templateLink: {label: 'Download template', href: '/assignment-learners-template.xlsx'},
+      templatePreview: {header: 'login', rows: ['j.okafor', 'm.weber']},
       dropzone: {
         description: 'xlsx, xls or csv, one login column, up to 5,000 rows',
         browse: 'Choose a file',
