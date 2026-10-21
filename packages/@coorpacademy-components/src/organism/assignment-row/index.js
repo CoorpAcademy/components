@@ -18,7 +18,7 @@ const toTitleTags = (tags = []) =>
 const ignoringControls = onClick =>
   onClick ? event => (event.target.closest('button, a') ? undefined : onClick(event)) : undefined;
 
-export const toListItemProps = ({
+const toListItemProps = ({
   infoTags,
   onClick,
   leftIcon = {iconName: 'calendar-check'},

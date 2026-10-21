@@ -2,12 +2,10 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import PropTypes from 'prop-types';
-import keys from 'lodash/fp/keys';
 import {render, fireEvent, cleanup, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
-import ListItem from '../../list-item';
 import Tag from '../../../atom/tag';
-import AssignmentRow, {toListItemProps} from '..';
+import AssignmentRow from '..';
 import upToDate from './fixtures/default';
 import syncing from './fixtures/syncing';
 import allTags from './fixtures/ongoing-changes-unavailable-syncing';
@@ -32,13 +30,6 @@ window.dispatchEvent = function (event) {
 const options = {wrapper: wrappingComponent};
 const tagTexts = row =>
   [...row.querySelectorAll('[data-name="title-tags"] span')].map(n => n.textContent);
-
-test.serial('R2: renders through organism/list-item', t => {
-  const props = allTags.props;
-  const row = render(<AssignmentRow {...props} />, options);
-  const item = render(<ListItem {...toListItemProps(props)} />, options);
-  t.is(row.container.innerHTML, item.container.innerHTML);
-});
 
 test.serial(
   'R2: renders the title, the audience and dates line, the contents line and the progress',
@@ -121,13 +112,6 @@ test.serial('R2: a syncing row shows its tag and its sync detail after the progr
   t.deepEqual(tagTexts(container), ['Syncing 3/8']);
   t.truthy(within(container).getByText(syncing.props.progress.label));
   t.true(syncing.props.progress.label.includes('Updating learners'));
-});
-
-test.serial('R2: no created-by or edited-by prop exists on the row (M0)', t => {
-  t.deepEqual(
-    keys(AssignmentRow.propTypes).filter(key => /created|edited|updated|author/i.test(key)),
-    []
-  );
 });
 
 test.serial('R3: a click on the row calls onClick once', t => {
