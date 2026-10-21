@@ -11,6 +11,12 @@ import AssignmentRow, {toListItemProps} from '..';
 import upToDate from './fixtures/default';
 import syncing from './fixtures/syncing';
 import allTags from './fixtures/ongoing-changes-unavailable-syncing';
+import draft from './fixtures/draft';
+import disabled from './fixtures/disabled-assignment';
+import ongoingChanges from './fixtures/ongoing-changes';
+import syncError from './fixtures/sync-error';
+import unavailable from './fixtures/unavailable';
+import upcoming from './fixtures/upcoming';
 
 browserEnv();
 test.afterEach(cleanup);
@@ -175,14 +181,68 @@ test.serial('R3: a menu action calls its onClick and never the row onClick', t =
   t.is(row, 0);
 });
 
+const menuLabels = container => {
+  openMenu(container);
+  return [...container.querySelectorAll('[data-name="menu-wrapper"] button')].map(
+    b => b.textContent
+  );
+};
+
+test.serial('R3: a published row menu reads Tracking, Edit, Duplicate, Disable (4b)', t => {
+  const {container} = render(<AssignmentRow {...upToDate.props} />, options);
+  t.deepEqual(menuLabels(container), ['Tracking', 'Edit', 'Duplicate', 'Disable']);
+});
+
+test.serial('R3: a disabled row menu reads Tracking, Edit, Duplicate, Enable (4b, AQ38)', t => {
+  const {container} = render(<AssignmentRow {...disabled.props} />, options);
+  t.deepEqual(menuLabels(container), ['Tracking', 'Edit', 'Duplicate', 'Enable']);
+});
+
 test.serial(
-  'R3: the menu passes its buttons through unchanged (Delete only on a never-published draft, C6)',
+  'R3: a draft row has an Edit button and a menu with Publish and a danger Delete (4c)',
   t => {
-    const {container} = render(<AssignmentRow {...upToDate.props} />, options);
-    openMenu(container);
-    const labels = [...container.querySelectorAll('[data-name="menu-wrapper"] button')].map(
-      b => b.textContent
+    const {container} = render(<AssignmentRow {...draft.props} />, options);
+    t.truthy(within(container).getByRole('button', {name: 'Edit'}));
+    t.deepEqual(menuLabels(container), ['Publish', 'Delete']);
+    const {buttons} = draft.props.bulletPointMenuButton;
+    t.deepEqual(
+      buttons.map(({label, type}) => [label, type]),
+      [
+        ['Publish', 'default'],
+        ['Delete', 'dangerous']
+      ]
     );
-    t.deepEqual(labels, ['Tracking', 'Edit', 'Duplicate', 'Archive']);
+  }
+);
+
+test.serial('R2: a draft row shows no tag and no progress, the tab says Draft (Q3)', t => {
+  const {container} = render(<AssignmentRow {...draft.props} />, options);
+  t.is(container.querySelector('[data-name="title-tags"]'), null);
+  t.is(container.querySelector('[data-name="list-item-progress"]'), null);
+  t.notRegex(container.textContent, /draft/i);
+});
+
+test.serial(
+  'R3: no row menu says Archive or Unarchive, and Delete is on the draft row only (4b, C6)',
+  t => {
+    const fixtures = {
+      upToDate,
+      syncing,
+      allTags,
+      draft,
+      disabled,
+      ongoingChanges,
+      syncError,
+      unavailable,
+      upcoming
+    };
+    Object.entries(fixtures).forEach(([name, fixture]) => {
+      const labels = (fixture.props.bulletPointMenuButton?.buttons ?? []).map(b => b.label);
+      t.false(
+        labels.some(label => /archive/i.test(label)),
+        `${name}: ${labels}`
+      );
+      t.is(labels.includes('Delete'), name === 'draft', `${name}: ${labels}`);
+    });
   }
 );
