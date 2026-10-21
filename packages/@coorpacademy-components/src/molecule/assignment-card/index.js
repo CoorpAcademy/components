@@ -28,17 +28,19 @@ const AssignmentCard = props => {
   return (
     <div data-name="assignment-card" className={style.wrapper}>
       <Card {...cardProps} onClick={onClick} />
-      <div
-        data-name="due-state"
-        data-type={dueState}
-        className={classnames(style.duePill, className)}
-        onClick={onClick}
-      >
-        <FaIcon iconName={iconName} color={color} size={{faSize: 12, wrapperSize: 12}} />
-        <span>{dueStateLabel}</span>
-      </div>
-      <div data-name="due-date" role="tooltip" className={style.tooltip}>
-        {dueDateLabel}
+      <div className={style.slot}>
+        <div
+          data-name="due-state"
+          data-type={dueState}
+          className={classnames(style.duePill, className)}
+          onClick={onClick}
+        >
+          <FaIcon iconName={iconName} color={color} size={{faSize: 12, wrapperSize: 12}} />
+          <span>{dueStateLabel}</span>
+        </div>
+        <div data-name="due-date" className={style.tooltip}>
+          {dueDateLabel}
+        </div>
       </div>
     </div>
   );

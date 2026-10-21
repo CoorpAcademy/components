@@ -43,7 +43,13 @@ test.serial('R2: the hover tooltip carries the due date label as given', t => {
   Object.values(fixtures).forEach(fixture => {
     const view = mount(fixture.props);
     const tooltip = view.container.querySelector('[data-name="due-date"]');
-    t.is(tooltip.getAttribute('role'), 'tooltip');
+    // No role="tooltip": a global [role=tooltip] style repaints it white and moves it off the card.
+    t.is(tooltip.getAttribute('role'), null);
+    // Anchored on the pill's slot, so it always opens right above the pill.
+    t.is(
+      tooltip.parentElement,
+      view.container.querySelector('[data-name="due-state"]').parentElement
+    );
     t.is(tooltip.textContent, fixture.props.dueDateLabel);
     cleanup();
   });
