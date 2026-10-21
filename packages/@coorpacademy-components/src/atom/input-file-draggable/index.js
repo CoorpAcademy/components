@@ -35,7 +35,9 @@ const InputFileDraggable = ({
   filesNumber = 0,
   multiple = false,
   required = false,
-  onClick
+  onClick,
+  dragAndDropLabel,
+  loadingLabel
 }) => {
   const handleReset = useCallback(
     e => {
@@ -78,6 +80,8 @@ const InputFileDraggable = ({
         pdfButtonLabel={pdfButtonLabel}
         pdfButtonAriaLabel={pdfButtonAriaLabel}
         multiple={multiple}
+        dragAndDropLabel={dragAndDropLabel}
+        loadingLabel={loadingLabel}
       >
         {(onDragStart, onDragStop) => (
           <input
