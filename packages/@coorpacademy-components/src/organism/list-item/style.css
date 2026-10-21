@@ -64,6 +64,10 @@
   text-align: left;
 }
 
+.titleBeforeTags {
+  flex: 0 1 auto;
+}
+
 .subtitle {
   font-size: 12px;
   font-style: normal;
@@ -189,8 +193,4 @@
   font-weight: 600;
   line-height: 16px;
   color: cm_grey_400;
-}
-
-.titleBeforeTags {
-  flex: 0 1 auto;
 }

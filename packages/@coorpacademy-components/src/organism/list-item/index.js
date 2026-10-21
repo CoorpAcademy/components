@@ -147,8 +147,8 @@ const ListItem = (
             ) : null}
             {!isEmpty(titleTags) ? (
               <div className={style.titleTags} data-name="title-tags">
-                {titleTags.map((tag, index) => (
-                  <div key={index} className={style.tag}>
+                {titleTags.map(tag => (
+                  <div key={tag.label} className={style.tag}>
                     <Tag {...tag} />
                   </div>
                 ))}
@@ -203,11 +203,11 @@ ListItem.contextTypes = {
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  // Tags shown right after the title (the assignment list row, asg-cmp-02)
+  // Tags shown right after the title
   titleTags: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string,
-      type: PropTypes.oneOf(['info', 'success', 'failure', 'warning', 'progress', 'default'])
+      label: PropTypes.string.isRequired,
+      type: Tag.propTypes.type
     })
   ),
   // A second line under the subtitle
