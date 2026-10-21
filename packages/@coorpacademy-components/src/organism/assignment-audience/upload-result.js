@@ -70,25 +70,27 @@ const UploadResult = ({
       </button>
     ) : null}
     {expanded ? (
-      <table className={style.table} data-name="upload-rows">
-        <thead>
-          <tr>
-            <th scope="col">{columns.login}</th>
-            <th scope="col">{columns.status}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map(({login, status}, index) => (
-            // A file can hold the same login twice: the index keeps keys unique.
-            <tr key={`${index}-${login}`}>
-              <td className={style.login}>{login}</td>
-              <td>
-                <Tag type={STATUS_TAG_TYPES[status]} label={statusLabels[status]} size="S" />
-              </td>
+      <div className={style.rowsScroll}>
+        <table className={style.table} data-name="upload-rows">
+          <thead>
+            <tr>
+              <th scope="col">{columns.login}</th>
+              <th scope="col">{columns.status}</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map(({login, status}, index) => (
+              // A file can hold the same login twice: the index keeps keys unique.
+              <tr key={`${index}-${login}`}>
+                <td className={style.login}>{login}</td>
+                <td>
+                  <Tag type={STATUS_TAG_TYPES[status]} label={statusLabels[status]} size="S" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     ) : null}
   </div>
 );

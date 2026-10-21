@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100, cm_grey_400, cm_grey_700 from colors;
+@value cm_grey_100, cm_grey_400, cm_grey_700, white from colors;
 
 .muted {
   composes: muted from "./style.css";
@@ -52,6 +52,12 @@
   cursor: pointer;
 }
 
+/* A file holds up to 5,000 rows: the table scrolls, its header stays visible. */
+.rowsScroll {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -60,6 +66,9 @@
 }
 
 .table th {
+  position: sticky;
+  top: 0;
+  background-color: white;
   font-size: 12px;
   font-weight: 600;
   color: cm_grey_400;
