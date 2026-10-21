@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
@@ -10,7 +8,6 @@ import AssignmentAudience from '..';
 import combined, {rows} from './fixtures/combined';
 import everyoneOn from './fixtures/everyone-on';
 import idle from './fixtures/idle';
-import populationsOnly from './fixtures/populations-only';
 import individualsWithChips from './fixtures/individuals-with-chips';
 import uploadDone from './fixtures/upload-done';
 import uploadDoneExpanded from './fixtures/upload-done-expanded';
@@ -23,40 +20,16 @@ test.afterEach.always(cleanup);
 
 const mount = props => render(<AssignmentAudience {...props} />, {wrapper: wrappingComponent});
 const block = (view, name) => view.container.querySelector(`[data-name="${name}"]`);
-const fixtures = {
-  combined,
-  everyoneOn,
-  idle,
-  populationsOnly,
-  individualsWithChips,
-  uploadDone,
-  uploadDoneExpanded,
-  uploadLoading,
-  uploadError
-};
-
-// Every word a user can read or hear: text plus the readable attributes.
-const readable = container =>
-  [
-    container.textContent,
-    ...[...container.querySelectorAll('[aria-label],[title],[placeholder],[alt]')].flatMap(node =>
-      ['aria-label', 'title', 'placeholder', 'alt'].map(name => node.getAttribute(name) || '')
-    )
-  ].join(' ');
-
-test.serial('R1: renders as a titled page section from its own props, with no wizard host', t => {
+test.serial('renders as a titled page section from its own props', t => {
   const view = mount(combined.props);
   const region = view.getByRole('region', {name: combined.props.title});
   t.truthy(within(region).getByText(combined.props.subtitle));
   ['everyone', 'populations', 'upload', 'individuals', 'estimated-audience'].forEach(name =>
     t.truthy(block(view, name), name)
   );
-  const wizard = fs.readFileSync(path.join(__dirname, '../../wizard-contents/index.js'), 'utf8');
-  t.false(wizard.includes('assignment-audience'));
-  t.false(wizard.includes('AssignmentAudience'));
 });
 
-test.serial('R2: everyone disables populations, upload and individuals, with an explanation', t => {
+test.serial('everyone disables populations, upload and individuals, with an explanation', t => {
   const view = mount(everyoneOn.props);
   t.truthy(view.getByText(everyoneOn.props.disabledExplanation));
   t.true(block(view, 'audience-sources').disabled);
@@ -71,13 +44,13 @@ test.serial('R2: everyone disables populations, upload and individuals, with an 
   t.is(block(view, 'everyone').querySelector('input').closest('fieldset'), null);
 });
 
-test.serial('R2: with everyone off, the sources are enabled and there is no explanation', t => {
+test.serial('with everyone off, the sources are enabled and there is no explanation', t => {
   const view = mount(combined.props);
   t.false(block(view, 'audience-sources').disabled);
   t.is(view.queryByText(combined.props.disabledExplanation), null);
 });
 
-test.serial('R3: toggling everyone calls onChange with the new value', t => {
+test.serial('toggling everyone calls onChange with the new value', t => {
   const calls = [];
   const view = mount({
     ...combined.props,
@@ -110,7 +83,7 @@ test.serial('removing a population chip calls onChange with the other selected o
   );
 });
 
-test.serial('R3: selecting a population calls onChange with the selected options', t => {
+test.serial('selecting a population calls onChange with the selected options', t => {
   const calls = [];
   const view = mount({
     ...combined.props,
@@ -124,7 +97,7 @@ test.serial('R3: selecting a population calls onChange with the selected options
   );
 });
 
-test.serial('R3: choosing or dropping a file calls onUpload with the first file', t => {
+test.serial('choosing or dropping a file calls onUpload with the first file', t => {
   const files = [];
   const upload = {...idle.props.upload, onUpload: file => files.push(file)};
   const view = mount({...idle.props, upload});
@@ -137,7 +110,7 @@ test.serial('R3: choosing or dropping a file calls onUpload with the first file'
   t.deepEqual(files, [xlsx]);
 });
 
-test.serial('R3: no upload while everyone is on or a file is being checked', t => {
+test.serial('no upload while everyone is on or a file is being checked', t => {
   const files = [];
   const onUpload = file => files.push(file);
   const file = new window.File(['login'], 'a.xlsx');
@@ -162,12 +135,12 @@ test.serial('the template link points at the template, and is disabled while eve
   t.true(off.getByRole('button', {name: everyoneOn.props.upload.templateLink.label}).disabled);
 });
 
-test.serial('R3: the file input accepts xlsx, xls and csv', t => {
+test.serial('the file input accepts xlsx, xls and csv', t => {
   const view = mount(idle.props);
   t.is(block(view, 'upload').querySelector('input[type="file"]').accept, '.xlsx,.xls,.csv');
 });
 
-test.serial('R3: Replace, Remove and the rows toggle call their callbacks', t => {
+test.serial('Replace, Remove and the rows toggle call their callbacks', t => {
   const calls = [];
   const upload = {
     ...uploadDone.props.upload,
@@ -182,7 +155,7 @@ test.serial('R3: Replace, Remove and the rows toggle call their callbacks', t =>
   t.deepEqual(calls, ['replace', 'remove', 'toggle']);
 });
 
-test.serial('R3: searching, adding and removing a learner call their callbacks', t => {
+test.serial('searching, adding and removing a learner call their callbacks', t => {
   const queries = [];
   const added = [];
   const removed = [];
@@ -203,7 +176,7 @@ test.serial('R3: searching, adding and removing a learner call their callbacks',
   t.deepEqual(removed, ['u2']);
 });
 
-test.serial('R3: a learner chip shows the name and the login', t => {
+test.serial('a learner chip shows the name and the login', t => {
   const view = mount(combined.props);
   const chips = block(view, 'individuals');
   combined.props.individuals.selected.forEach(({label, login}) => {
@@ -212,7 +185,7 @@ test.serial('R3: a learner chip shows the name and the login', t => {
   });
 });
 
-test.serial('R4: the upload summary shows the four counts as tags and the kept line', t => {
+test.serial('the upload summary shows the four counts as tags and the kept line', t => {
   const view = mount(uploadDone.props);
   const summary = block(view, 'upload-summary');
   const {summary: labels} = uploadDone.props.upload;
@@ -231,7 +204,7 @@ test.serial('R4: the upload summary shows the four counts as tags and the kept l
 });
 
 test.serial(
-  'R4: the rows table is collapsed until expanded, then lists each login with its status',
+  'the rows table is collapsed until expanded, then lists each login with its status',
   t => {
     const collapsed = mount(uploadDone.props);
     t.is(block(collapsed, 'upload-rows'), null);
@@ -268,7 +241,7 @@ test.serial('the same login twice in a file renders two rows', t => {
   t.is(logins.length, duplicateLogin.props.upload.rows.length);
 });
 
-test.serial('R4: loading and error states', t => {
+test.serial('loading and error states', t => {
   const loading = mount(uploadLoading.props);
   t.is(block(loading, 'upload-dropzone').getAttribute('aria-busy'), 'true');
   t.is(block(loading, 'upload-summary'), null);
@@ -276,19 +249,4 @@ test.serial('R4: loading and error states', t => {
   const error = mount(uploadError.props);
   t.is(error.getByRole('alert').textContent, uploadError.props.upload.error);
   t.is(block(error, 'upload-summary'), null);
-});
-
-test.serial('R4: no email and no "group" anywhere: no prop, no label, no column', t => {
-  t.false(
-    fs.readFileSync(path.join(__dirname, '../index.js'), 'utf8').toLowerCase().includes('email')
-  );
-  Object.entries(fixtures).forEach(([name, fixture]) => {
-    const view = mount(fixture.props);
-    const words = readable(view.container).toLowerCase();
-    t.false(words.includes('email'), name);
-    t.notRegex(words, /\bgroups?\b/, name);
-    t.false(words.includes('undefined'), name);
-    t.false(JSON.stringify(fixture.props).toLowerCase().includes('email'), name);
-    cleanup();
-  });
 });

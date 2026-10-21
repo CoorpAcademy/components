@@ -1,6 +1,6 @@
 import combined from './combined';
 
-// Upload result collapsed (pick c): count tags, the kept line and the "Show all" toggle.
+// Upload result, collapsed: the file line, the count tags, the kept line and the "Show all" toggle.
 export default {
   props: {
     ...combined.props,

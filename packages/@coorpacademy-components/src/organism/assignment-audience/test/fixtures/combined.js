@@ -1,6 +1,5 @@
-// The audience section of the one-page assignment form (N7, prototype cm-form `audience()`):
-// everyone, populations, a file of learner logins (K1, result c) and individual learners.
-// Copy comes from the app; there is no email anywhere (L4).
+// The audience section of the one-page assignment form: everyone, populations, a file of learner
+// logins and individual learners. Every string comes from the app. The file is keyed on login.
 export const rows = [
   {login: 'j.okafor', status: 'valid'},
   {login: 'm.weber', status: 'valid'},
