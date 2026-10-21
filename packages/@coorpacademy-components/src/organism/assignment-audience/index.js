@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import InputSwitch from '../../atom/input-switch';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -136,16 +136,9 @@ const AssignmentAudience = ({
   individuals,
   total
 }) => {
-  const uploadRef = useRef(null);
   const disabled = everyone.value;
   const loading = upload.status === 'loading';
   const {value = '', suggestions = [], selected = []} = individuals;
-
-  // BrandUploadBox does not forward `accept` to its native input.
-  useEffect(() => {
-    const input = uploadRef.current && uploadRef.current.querySelector('input[type="file"]');
-    if (input) input.accept = ACCEPTED_FILES;
-  });
 
   const handleEveryone = useCallback(newValue => everyone.onChange(newValue), [everyone]);
   const handlePopulations = useCallback(
@@ -158,21 +151,14 @@ const AssignmentAudience = ({
     [populations]
   );
 
-  const uploadFirst = useCallback(
-    files => {
-      if (disabled || loading || !files || !files[0]) return;
-      upload.onUpload(files[0]);
+  // The native input receives both a browse and a drop, and fires change for each.
+  const handleFileChange = useCallback(
+    event => {
+      const file = event.target.files && event.target.files[0];
+      if (disabled || loading || !file) return;
+      upload.onUpload(file);
     },
     [disabled, loading, upload]
-  );
-  const handleFileChange = useCallback(event => uploadFirst(event.target.files), [uploadFirst]);
-  const handleDragOver = useCallback(event => event.preventDefault(), []);
-  const handleDrop = useCallback(
-    event => {
-      event.preventDefault();
-      uploadFirst(event.dataTransfer && event.dataTransfer.files);
-    },
-    [uploadFirst]
   );
 
   const availableSuggestions = useMemo(
@@ -226,24 +212,23 @@ const AssignmentAudience = ({
           subtitle={upload.subtitle}
           aside={
             upload.templateLink ? (
-              <a className={style.link} href={upload.templateLink.href} download>
-                {upload.templateLink.label}
-              </a>
+              <ButtonLink
+                type="text"
+                label={upload.templateLink.label}
+                link={disabled ? undefined : {href: upload.templateLink.href, download: true}}
+                disabled={disabled}
+                data-name="upload-template-link"
+              />
             ) : null
           }
         >
-          <div
-            ref={uploadRef}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
-            aria-busy={loading}
-            data-name="upload-dropzone"
-          >
+          <div aria-busy={loading} data-name="upload-dropzone">
             {upload.status === 'done' ? (
               <UploadResult upload={upload} />
             ) : (
               <BrandUploadBox
                 name="assignment-audience-file"
+                accept={ACCEPTED_FILES}
                 description={upload.dropzone.description}
                 browse={upload.dropzone.browse}
                 status={loading ? 'loading' : 'default'}

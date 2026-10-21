@@ -67,13 +67,6 @@
   opacity: 0.5;
 }
 
-.link {
-  font-size: 14px;
-  font-weight: 600;
-  color: cm_primary_blue;
-  white-space: nowrap;
-}
-
 .result {
   display: flex;
   flex-direction: column;

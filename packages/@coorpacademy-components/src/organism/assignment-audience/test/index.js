@@ -106,11 +106,36 @@ test.serial('R3: choosing or dropping a file calls onUpload with the first file'
   const view = mount({...idle.props, upload});
   const xlsx = new window.File(['login'], 'a.xlsx');
   const csv = new window.File(['login'], 'b.csv');
+  // A drop on the native input lands as a change event, like a browse.
   fireEvent.change(block(view, 'upload').querySelector('input[type="file"]'), {
     target: {files: [xlsx, csv]}
   });
-  fireEvent.drop(block(view, 'upload-dropzone'), {dataTransfer: {files: [csv, xlsx]}});
-  t.deepEqual(files, [xlsx, csv]);
+  t.deepEqual(files, [xlsx]);
+});
+
+test.serial('R3: no upload while everyone is on or a file is being checked', t => {
+  const files = [];
+  const onUpload = file => files.push(file);
+  const file = new window.File(['login'], 'a.xlsx');
+  [
+    {...everyoneOn.props, upload: {...everyoneOn.props.upload, onUpload}},
+    {...uploadLoading.props, upload: {...uploadLoading.props.upload, onUpload}}
+  ].forEach(props => {
+    const view = mount(props);
+    const input = view.container.querySelector('input[type="file"]');
+    if (input) fireEvent.change(input, {target: {files: [file]}});
+    cleanup();
+  });
+  t.deepEqual(files, []);
+});
+
+test.serial('the template link points at the template, and is disabled while everyone is on', t => {
+  const enabled = mount(idle.props);
+  const link = enabled.getByRole('link', {name: idle.props.upload.templateLink.label});
+  t.is(link.getAttribute('href'), idle.props.upload.templateLink.href);
+  cleanup();
+  const off = mount(everyoneOn.props);
+  t.true(off.getByRole('button', {name: everyoneOn.props.upload.templateLink.label}).disabled);
 });
 
 test.serial('R3: the file input accepts xlsx, xls and csv', t => {
