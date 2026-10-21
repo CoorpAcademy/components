@@ -11,23 +11,44 @@ export const trackingButton = {
   onClick: () => console.log('Open the tracking page')
 };
 
+// Disable reverses with Enable: archive under the hood, but the UI says Disable/Enable (AQ38).
+const sharedActions = [
+  {label: 'Tracking', icon: menuIcon('chart-simple'), onClick: () => console.log('Tracking')},
+  {label: 'Edit', icon: menuIcon('pen'), onClick: () => console.log('Edit')},
+  {label: 'Duplicate', icon: menuIcon('copy'), onClick: () => console.log('Duplicate')}
+];
+
 export const publishedMenu = {
   buttonAriaLabel: 'More actions',
   menuAriaLabel: 'Assignment actions',
   buttons: [
-    {label: 'Tracking', icon: menuIcon('chart-simple'), onClick: () => console.log('Tracking')},
-    {label: 'Edit', icon: menuIcon('pen'), onClick: () => console.log('Edit')},
-    {label: 'Duplicate', icon: menuIcon('copy'), onClick: () => console.log('Duplicate')},
-    {label: 'Archive', icon: menuIcon('folder-open'), onClick: () => console.log('Archive')}
+    ...sharedActions,
+    {label: 'Disable', icon: menuIcon('ban'), onClick: () => console.log('Disable')}
   ]
 };
 
+export const disabledMenu = {
+  ...publishedMenu,
+  buttons: [
+    ...sharedActions,
+    {label: 'Enable', icon: menuIcon('circle-check'), onClick: () => console.log('Enable')}
+  ]
+};
+
+// The certification draft row's menu (Skills and Certifications): Publish, and Delete in the
+// danger style. Delete exists on a draft only: a published-once assignment is never deleted (C6).
 export const draftMenu = {
   ...publishedMenu,
   buttons: [
-    {label: 'Edit', icon: menuIcon('pen'), onClick: () => console.log('Edit')},
-    {label: 'Duplicate', icon: menuIcon('copy'), onClick: () => console.log('Duplicate')},
     {
+      'data-name': 'assignment-publish-button',
+      label: 'Publish',
+      type: 'default',
+      icon: menuIcon('paper-plane'),
+      onClick: () => console.log('Publish')
+    },
+    {
+      'data-name': 'assignment-delete-button',
       label: 'Delete',
       type: 'dangerous',
       icon: menuIcon('trash', '#991100'),

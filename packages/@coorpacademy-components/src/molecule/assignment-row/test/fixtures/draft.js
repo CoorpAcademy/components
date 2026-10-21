@@ -1,13 +1,19 @@
-import fixture, {draftMenu} from './default';
+import {draftMenu} from './default';
 
-// Under the Drafts tab: no Draft tag (Q3), no progress (never published, never synced).
-// Delete is offered on a never-published draft only (A1.7 C6).
+// Under the Drafts tab, as a certification draft row: an « Edit » button and a « … » menu with
+// Publish and Delete. No Draft tag (Q3: the tab says it, unlike the certification list), no
+// progress (never published, never synced).
 export default {
   props: {
     title: 'GDPR refresher 2027',
     subtitle: 'Everyone',
     details: '1 external',
-    buttonLink: {...fixture.props.buttonLink, label: 'Edit', icon: undefined},
+    buttonLink: {
+      label: 'Edit',
+      type: 'secondary',
+      icon: {position: 'left', type: 'edit'},
+      onClick: () => console.log('Open the edit page')
+    },
     bulletPointMenuButton: draftMenu,
     onClick: () => console.log('Open the edit page')
   }

@@ -1,6 +1,7 @@
-import fixture, {publishedMenu} from './default';
+import fixture, {disabledMenu} from './default';
 
-// Under the Disabled tab: the tab says it, so the row has no tag (Q3, INFO).
+// Under the Disabled tab: the tab says it, so the row has no tag (Q3, INFO). Enable reverses
+// Disable (AQ38).
 export default {
   props: {
     ...fixture.props,
@@ -8,11 +9,6 @@ export default {
     subtitle: 'Sales EMEA · 05 Jan 2026 – 31 Mar 2026 (GMT)',
     details: '2 modules',
     progress: {value: 87, label: '87% completed'},
-    bulletPointMenuButton: {
-      ...publishedMenu,
-      buttons: publishedMenu.buttons.map(button =>
-        button.label === 'Archive' ? {...button, label: 'Unarchive'} : button
-      )
-    }
+    bulletPointMenuButton: disabledMenu
   }
 };
