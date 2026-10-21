@@ -229,6 +229,7 @@ test.serial('R4: no email and no "group" anywhere: no prop, no label, no column'
     const words = readable(view.container).toLowerCase();
     t.false(words.includes('email'), name);
     t.notRegex(words, /\bgroups?\b/, name);
+    t.false(words.includes('undefined'), name);
     t.false(JSON.stringify(fixture.props).toLowerCase().includes('email'), name);
     cleanup();
   });

@@ -8,6 +8,7 @@ import ButtonLink from '../../atom/button-link';
 import Chip from '../../atom/chip';
 import Tag from '../../atom/tag';
 import FaIcon from '../../atom/icon';
+import {COLORS} from '../../variables/colors';
 import style from './style.css';
 
 // A file row resolves to one of four statuses, keyed on login (L4). A never-connected account is
@@ -20,6 +21,7 @@ const STATUS_TAG_TYPES = {
 };
 const STATUSES = ['valid', 'unknown', 'ambiguous', 'inactive'];
 const ACCEPTED_FILES = '.xlsx,.xls,.csv';
+const REMOVE_STYLE = {color: COLORS.cm_negative_200};
 
 const Block = ({name, title, subtitle, aside, children}) => (
   <section data-name={name} className={style.block}>
@@ -69,7 +71,12 @@ const UploadResult = ({upload}) => {
         </div>
         <div className={style.fileActions}>
           <ButtonLink type="text" label={replaceLabel} onClick={onReplace} />
-          <ButtonLink type="dangerous" label={removeLabel} onClick={onRemove} />
+          <ButtonLink
+            type="text"
+            label={removeLabel}
+            onClick={onRemove}
+            customStyle={REMOVE_STYLE}
+          />
         </div>
       </div>
       <div className={style.summary} data-name="upload-summary">
@@ -257,7 +264,7 @@ const AssignmentAudience = ({
         </Block>
         <Block name="individuals" title={individuals.title}>
           <Autocomplete
-            placeholder={individuals.placeholder}
+            title={individuals.placeholder}
             theme="coorpmanager"
             value={value}
             suggestions={availableSuggestions.map(learner => ({
