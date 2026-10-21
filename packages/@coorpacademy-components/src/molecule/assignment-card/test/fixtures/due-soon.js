@@ -1,13 +1,12 @@
-import fixture from './default';
+import {module} from './default';
 
 export default {
   props: {
-    ...fixture.props,
-    title: 'Leadership level',
-    type: 'course',
+    ...module,
+    title: 'Cybersecurity reflexes',
+    progress: 0.5,
     dueState: 'dueSoon',
-    notification: {message: 'Due soon', icon: 'dueSoon'},
-    endDateLabel: 'Ends 20 October',
-    assignments: fixture.props.assignments.map(assignment => ({...assignment}))
+    dueStateLabel: 'Due soon',
+    dueDateLabel: 'Due Sat 24 Oct'
   }
 };

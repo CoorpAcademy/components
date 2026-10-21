@@ -6,11 +6,10 @@ export default {
     sections: [
       {
         ...fixture.props.sections[0],
-        icon: undefined,
         cards: [],
         emptyState: {
-          message: 'You have no assignments yet',
-          link: {label: 'View all assignments', href: '/my-assignments', onClick: () => {}}
+          message: 'Nothing to do right now. You’re all caught up.',
+          link: {label: 'See finished modules', onClick: () => console.log('go to /assigned')}
         }
       }
     ]

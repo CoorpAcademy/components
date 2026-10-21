@@ -1,21 +1,13 @@
-import certificationFixture from '../../../certification-card/test/fixtures/default';
-import fixture from './default';
-
+// An external video that is finished: the hover shows the completion date, never the due date (L0).
 export default {
   props: {
-    ...fixture.props,
-    title: 'Completed certification',
-    type: 'certification',
-    certificationCard: {
-      ...certificationFixture.props,
-      label: 'completed-certification',
-      goal: {title: 'Completed certification', condition: {nbDone: 3}},
-      progress: 100,
-      locales: {tag: 'Certification', conditionDescriptionProgress: 'All modules completed'}
-    },
+    type: 'video',
+    title: 'GDPR in 10 minutes',
+    author: 'Coorpacademy',
+    progress: 1,
+    onClick: () => console.log('open the video'),
     dueState: 'done',
-    notification: {message: 'Completed', icon: 'done'},
-    endDateLabel: 'Ended 1 October',
-    assignments: fixture.props.assignments.map(assignment => ({...assignment}))
+    dueStateLabel: 'Completed',
+    dueDateLabel: 'Completed Thu 22 Oct'
   }
 };

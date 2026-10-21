@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {get, has, keys} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import FaIcon from '../../atom/icon';
 import Card, {cardPropTypes} from '../card';
-import CertificationCard from '../certification-card';
 import style from './style.css';
 
-// Opaque pills: the card image sits behind them, so a translucent back-office tag is unreadable.
+// The status pill is the card's own opaque pill (never atom/tag, never Card's notification slot):
+// it sits on the card image, where a translucent tag is unreadable. No "completed late" state (L0).
 const DUE_STATES = {
   todo: {iconName: 'circle', color: COLORS.cm_grey_500, className: style.todo},
   dueSoon: {iconName: 'clock', color: COLORS.cm_yellow_400, className: style.dueSoon},
@@ -20,85 +19,38 @@ const DUE_STATES = {
   done: {iconName: 'circle-check', color: COLORS.cm_positive_200, className: style.done}
 };
 
-const FAVORITE_ICONS = ['addFavorite', 'removeFavorite'];
-
-const DuePill = ({dueState, message, onClick}) => {
+// A module the learner was asked to complete: the catalogue card of its type (module, chapter,
+// scorm, article, video, podcast), one status pill in the same slot on every format, and the due
+// date (or, once finished, the completion date) in a tooltip on hover (N2). Never an assignment.
+const AssignmentCard = props => {
+  const {dueState, dueStateLabel, dueDateLabel, onClick, ...cardProps} = props;
   const {iconName, color, className} = DUE_STATES[dueState];
   return (
-    <div
-      data-name="due-state"
-      data-type={dueState}
-      className={classnames(style.duePill, className)}
-      onClick={onClick}
-    >
-      <FaIcon iconName={iconName} color={color} size={{faSize: 12, wrapperSize: 12}} />
-      <span>{message}</span>
-    </div>
-  );
-};
-
-DuePill.propTypes = {
-  dueState: PropTypes.oneOf(keys(DUE_STATES)),
-  message: PropTypes.string,
-  onClick: PropTypes.func
-};
-
-const AssignmentCard = props => {
-  const {
-    onClick = () => {},
-    dueState,
-    notification,
-    endDateLabel,
-    assignments = [],
-    certificationCard,
-    type
-  } = props;
-  const favoriteNotification = FAVORITE_ICONS.includes(get('icon', notification))
-    ? notification
-    : undefined;
-  const hasDuePill = has(dueState, DUE_STATES) && !!get('message', notification);
-  const isCertification = type === 'certification' && !!certificationCard;
-  return (
-    <div
-      data-name="assignment-card"
-      className={classnames(style.wrapper, isCertification ? style.certification : null)}
-    >
-      <div className={style.cardFrame}>
-        {isCertification ? (
-          <CertificationCard {...certificationCard} type="certification" onClick={onClick} />
-        ) : (
-          <Card
-            {...props}
-            notification={hasDuePill ? undefined : favoriteNotification}
-            onClick={onClick}
-          />
-        )}
-        {hasDuePill ? (
-          <DuePill dueState={dueState} message={notification.message} onClick={onClick} />
-        ) : null}
+    <div data-name="assignment-card" className={style.wrapper}>
+      <Card {...cardProps} onClick={onClick} />
+      <div
+        data-name="due-state"
+        data-type={dueState}
+        className={classnames(style.duePill, className)}
+        onClick={onClick}
+      >
+        <FaIcon iconName={iconName} color={color} size={{faSize: 12, wrapperSize: 12}} />
+        <span>{dueStateLabel}</span>
       </div>
-      {endDateLabel ? <div className={style.endDate}>{endDateLabel}</div> : null}
-      {assignments.length > 0 ? (
-        <ul className={style.assignments}>
-          {assignments.map(({title}, index) => (
-            <li key={`${title}-${index}`}>{title}</li>
-          ))}
-        </ul>
-      ) : null}
+      <div data-name="due-date" role="tooltip" className={style.tooltip}>
+        {dueDateLabel}
+      </div>
     </div>
   );
 };
 
 AssignmentCard.propTypes = {
   ...cardPropTypes,
-  notification: PropTypes.shape({
-    message: PropTypes.string,
-    icon: PropTypes.oneOf([...FAVORITE_ICONS, ...keys(DUE_STATES)])
-  }),
-  dueState: PropTypes.string,
-  endDateLabel: PropTypes.string,
-  assignments: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string})),
-  certificationCard: PropTypes.shape(CertificationCard.propTypes)
+  dueState: PropTypes.oneOf(['todo', 'dueSoon', 'overdue', 'done']).isRequired,
+  // The pill label: « To do », « Due soon », « Overdue », « Completed »
+  dueStateLabel: PropTypes.string.isRequired,
+  // Shown on hover, as given: "Due Sat 24 Oct", or "Completed Thu 22 Oct" once finished
+  dueDateLabel: PropTypes.string.isRequired
 };
 
 export default AssignmentCard;
