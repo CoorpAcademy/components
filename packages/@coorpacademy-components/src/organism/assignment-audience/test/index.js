@@ -14,6 +14,7 @@ import uploadDoneExpanded from './fixtures/upload-done-expanded';
 import uploadLoading from './fixtures/upload-loading';
 import uploadError from './fixtures/upload-error';
 import duplicateLogin from './fixtures/upload-done-duplicate-login';
+import everyoneOnWithSources from './fixtures/everyone-on-with-sources';
 
 browserEnv();
 test.afterEach.always(cleanup);
@@ -42,6 +43,24 @@ test.serial('everyone disables populations, upload and individuals, with an expl
     .querySelectorAll('input')
     .forEach(input => t.is(input.closest('fieldset'), sources));
   t.is(block(view, 'everyone').querySelector('input').closest('fieldset'), null);
+});
+
+test.serial('with everyone on, population and learner chips cannot be removed', t => {
+  const calls = [];
+  const view = mount({
+    ...everyoneOnWithSources.props,
+    populations: {...everyoneOnWithSources.props.populations, onChange: () => calls.push('pop')},
+    individuals: {...everyoneOnWithSources.props.individuals, onRemove: () => calls.push('learner')}
+  });
+  t.is(
+    within(block(view, 'audience-sources')).queryAllByRole('button', {
+      name: /Managers|Camille|Pedro/
+    }).length,
+    0
+  );
+  fireEvent.click(within(block(view, 'population-chips')).getByText('Managers FR'));
+  fireEvent.click(view.getByText('Camille Durand'));
+  t.deepEqual(calls, []);
 });
 
 test.serial('with everyone off, the sources are enabled and there is no explanation', t => {
