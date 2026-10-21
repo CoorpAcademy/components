@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import has from 'lodash/fp/has';
+import keys from 'lodash/fp/keys';
 import Tag from '../../atom/tag';
 
 // One status vocabulary for every assignment surface. Labels come from the consumer.
@@ -27,8 +29,10 @@ const TAG_TYPES = {
   late: 'warning'
 };
 
+export const ASSIGNMENT_TAG_KEYS = keys(TAG_TYPES);
+
 export const getAssignmentTagType = status =>
-  Object.prototype.hasOwnProperty.call(TAG_TYPES, status) ? TAG_TYPES[status] : 'default';
+  has(status, TAG_TYPES) ? TAG_TYPES[status] : 'default';
 
 const AssignmentStatusTag = ({status, label}) => (
   <Tag type={getAssignmentTagType(status)} label={label} />

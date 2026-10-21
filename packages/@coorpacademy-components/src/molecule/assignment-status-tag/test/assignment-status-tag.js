@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {render, cleanup} from '@testing-library/react';
 import Tag from '../../../atom/tag';
-import AssignmentStatusTag, {getAssignmentTagType} from '..';
+import AssignmentStatusTag, {ASSIGNMENT_TAG_KEYS, getAssignmentTagType} from '..';
 
 browserEnv();
 test.afterEach(cleanup);
@@ -15,7 +15,7 @@ const assertTag = (t, status, type) => {
   t.is(actual.container.innerHTML, expected.container.innerHTML);
 };
 
-[
+const MAPPING = [
   // Assignment lifecycle (edit-page and tracking headers only, never on a list row: A1.4 Q3)
   ['draft', 'progress'],
   ['upcoming', 'info'],
@@ -37,10 +37,16 @@ const assertTag = (t, status, type) => {
   ['dueSoon', 'warning'],
   ['overdue', 'failure'],
   ['late', 'warning']
-].forEach(([status, type]) => {
+];
+
+MAPPING.forEach(([status, type]) => {
   test(`maps ${status} to ${type}`, t => {
     assertTag(t, status, type);
   });
+});
+
+test('exports every mapped key', t => {
+  t.deepEqual([...ASSIGNMENT_TAG_KEYS].sort(), MAPPING.map(([status]) => status).sort());
 });
 
 test('falls back for unknown and prototype-property names', t => {
