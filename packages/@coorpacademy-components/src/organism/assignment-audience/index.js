@@ -111,8 +111,9 @@ const UploadResult = ({upload}) => {
             </tr>
           </thead>
           <tbody>
-            {rows.map(({login, status}) => (
-              <tr key={login}>
+            {rows.map(({login, status}, index) => (
+              // A file can hold the same login twice: the index keeps keys unique.
+              <tr key={`${index}-${login}`}>
                 <td className={style.login}>{login}</td>
                 <td>
                   <Tag type={STATUS_TAG_TYPES[status]} label={statusLabels[status]} size="S" />

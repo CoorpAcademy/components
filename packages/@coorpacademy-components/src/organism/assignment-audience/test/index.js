@@ -16,6 +16,7 @@ import uploadDone from './fixtures/upload-done';
 import uploadDoneExpanded from './fixtures/upload-done-expanded';
 import uploadLoading from './fixtures/upload-loading';
 import uploadError from './fixtures/upload-error';
+import duplicateLogin from './fixtures/upload-done-duplicate-login';
 
 browserEnv();
 test.afterEach.always(cleanup);
@@ -234,6 +235,15 @@ test.serial(
     );
   }
 );
+
+test.serial('the same login twice in a file renders two rows', t => {
+  const view = mount(duplicateLogin.props);
+  const logins = [...block(view, 'upload-rows').querySelectorAll('tbody tr td:first-child')].map(
+    td => td.textContent
+  );
+  t.is(logins.filter(login => login === 'jdoe').length, 2);
+  t.is(logins.length, duplicateLogin.props.upload.rows.length);
+});
 
 test.serial('R4: loading and error states', t => {
   const loading = mount(uploadLoading.props);
