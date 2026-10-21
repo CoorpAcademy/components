@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import has from 'lodash/fp/has';
 import keys from 'lodash/fp/keys';
 import Tag from '../../atom/tag';
+import propTypes, {AssignmentStatusTagProps, TagType} from './types';
 
 // One status vocabulary for every assignment surface. Labels come from the consumer.
-const TAG_TYPES = {
+const TAG_TYPES: Record<string, TagType> = {
   // Assignment lifecycle: edit-page and tracking headers only, never on a list row
   draft: 'progress',
   upcoming: 'info',
@@ -31,16 +31,13 @@ const TAG_TYPES = {
 
 export const ASSIGNMENT_TAG_KEYS = keys(TAG_TYPES);
 
-export const getAssignmentTagType = status =>
-  has(status, TAG_TYPES) ? TAG_TYPES[status] : 'default';
+export const getAssignmentTagType = (status?: string | null): TagType =>
+  status && has(status, TAG_TYPES) ? TAG_TYPES[status] : 'default';
 
-const AssignmentStatusTag = ({status, label}) => (
+const AssignmentStatusTag = ({status, label}: AssignmentStatusTagProps) => (
   <Tag type={getAssignmentTagType(status)} label={label} />
 );
 
-AssignmentStatusTag.propTypes = {
-  status: PropTypes.string,
-  label: PropTypes.string.isRequired
-};
+AssignmentStatusTag.propTypes = propTypes;
 
 export default AssignmentStatusTag;
