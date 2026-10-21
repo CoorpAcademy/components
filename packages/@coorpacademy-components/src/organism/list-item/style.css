@@ -197,3 +197,7 @@
   line-height: 16px;
   color: cm_grey_400;
 }
+
+.titleBeforeTags {
+  flex: 0 1 auto;
+}
