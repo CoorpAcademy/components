@@ -3,8 +3,10 @@
 const IMAGE =
   'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90';
 
+// A module is a level (type 'course'): its chip says « Module », never « Course » (AQ19).
 export const module = {
   type: 'course',
+  typeLabel: 'Module',
   image: IMAGE,
   title: 'Fire safety basics',
   author: 'Coorpacademy',

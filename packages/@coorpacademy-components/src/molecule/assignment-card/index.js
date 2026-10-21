@@ -48,6 +48,8 @@ const AssignmentCard = props => {
 
 AssignmentCard.propTypes = {
   ...cardPropTypes,
+  // The type chip's label. A module (type 'course') passes « Module »: never « Course » (AQ19).
+  typeLabel: cardPropTypes.typeLabel,
   dueState: PropTypes.oneOf(['todo', 'dueSoon', 'overdue', 'done']).isRequired,
   // The pill label: « To do », « Due soon », « Overdue », « Completed »
   dueStateLabel: PropTypes.string.isRequired,
