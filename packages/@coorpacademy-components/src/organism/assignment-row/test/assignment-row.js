@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
 import {render, fireEvent, cleanup, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
-import ListItem from '../../../organism/list-item';
+import ListItem from '../../list-item';
 import Tag from '../../../atom/tag';
 import AssignmentRow, {toListItemProps} from '..';
 import upToDate from './fixtures/default';

@@ -4,7 +4,7 @@ import React from 'react';
 import {render, fireEvent, cleanup, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import ListItem from '../../list-item';
-import AssignmentRow from '../../../molecule/assignment-row';
+import AssignmentRow from '../../assignment-row';
 import ListItems from '..';
 import certification from './fixtures/published-certification';
 import assignments from './fixtures/assignments';

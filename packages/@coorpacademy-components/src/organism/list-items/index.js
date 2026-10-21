@@ -4,7 +4,7 @@ import isNil from 'lodash/fp/isNil';
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
 import ListItem from '../list-item';
-import AssignmentRow from '../../molecule/assignment-row';
+import AssignmentRow from '../assignment-row';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';

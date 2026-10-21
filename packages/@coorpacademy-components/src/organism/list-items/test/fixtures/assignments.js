@@ -1,8 +1,8 @@
-import UpToDate from '../../../../molecule/assignment-row/test/fixtures/default';
-import Syncing from '../../../../molecule/assignment-row/test/fixtures/syncing';
-import SyncError from '../../../../molecule/assignment-row/test/fixtures/sync-error';
-import Unavailable from '../../../../molecule/assignment-row/test/fixtures/unavailable';
-import AllTags from '../../../../molecule/assignment-row/test/fixtures/ongoing-changes-unavailable-syncing';
+import UpToDate from '../../../assignment-row/test/fixtures/default';
+import Syncing from '../../../assignment-row/test/fixtures/syncing';
+import SyncError from '../../../assignment-row/test/fixtures/sync-error';
+import Unavailable from '../../../assignment-row/test/fixtures/unavailable';
+import AllTags from '../../../assignment-row/test/fixtures/ongoing-changes-unavailable-syncing';
 
 // The Active tab of the Coorpmanager Assignments list: the tab gives the state, so no row has a
 // lifecycle tag (INFO); tags show only when they add information (Q3).

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import find from 'lodash/fp/find';
-import ListItem from '../../organism/list-item';
-import {getAssignmentTagType} from '../assignment-status-tag';
+import ListItem from '../list-item';
+import {getAssignmentTagType} from '../../molecule/assignment-status-tag';
 
 // Row tags appear only when they add information (A1.4 Q3), in this order. There is no lifecycle
 // tag (the list tab says it, INFO) and no "up to date" sync tag (S1).
