@@ -1,5 +1,4 @@
 import React, {useCallback, useMemo} from 'react';
-import PropTypes from 'prop-types';
 import uniqueId from 'lodash/fp/uniqueId';
 import InputSwitch from '../../atom/input-switch';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -8,11 +7,24 @@ import Autocomplete from '../../atom/autocomplete';
 import ButtonLink from '../../atom/button-link';
 import Chip from '../../atom/chip';
 import UploadResult from './upload-result';
+import AssignmentAudiencePropTypes, {
+  AssignmentAudienceProps,
+  Learner,
+  PopulationOption
+} from './types';
 import style from './style.css';
 
 const ACCEPTED_FILES = '.xlsx,.xls,.csv';
 
-const Block = ({name, title, subtitle, aside, children}) => (
+type BlockProps = {
+  name: string;
+  title?: string;
+  subtitle?: string;
+  aside?: React.ReactNode;
+  children?: React.ReactNode;
+};
+
+const Block = ({name, title, subtitle, aside, children}: BlockProps) => (
   <section data-name={name} className={style.block}>
     {title ? (
       <div className={style.blockHead}>
@@ -27,14 +39,6 @@ const Block = ({name, title, subtitle, aside, children}) => (
   </section>
 );
 
-Block.propTypes = {
-  name: PropTypes.string,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  aside: PropTypes.node,
-  children: PropTypes.node
-};
-
 const AssignmentAudience = ({
   title,
   subtitle,
@@ -44,7 +48,7 @@ const AssignmentAudience = ({
   upload,
   individuals,
   total
-}) => {
+}: AssignmentAudienceProps) => {
   const disabled = everyone.value;
   const loading = upload.status === 'loading';
   const {onChange: onEveryoneChange} = everyone;
@@ -53,9 +57,12 @@ const AssignmentAudience = ({
   const {value = '', suggestions = [], selected = [], onSearch, onAdd, onRemove} = individuals;
   const titleId = useMemo(() => uniqueId('assignment-audience-title-'), []);
 
-  const handleEveryone = useCallback(newValue => onEveryoneChange(newValue), [onEveryoneChange]);
+  const handleEveryone = useCallback(
+    (newValue: boolean) => onEveryoneChange(newValue),
+    [onEveryoneChange]
+  );
   const handlePopulations = useCallback(
-    choices =>
+    (choices: PopulationOption[]) =>
       onPopulationsChange(
         populationOptions
           .filter(option => choices.some(choice => choice.value === option.value))
@@ -68,14 +75,14 @@ const AssignmentAudience = ({
     [populationOptions]
   );
   const handleRemovePopulation = useCallback(
-    populationValue => () =>
+    (populationValue: string) => () =>
       onPopulationsChange(selectedPopulations.filter(option => option.value !== populationValue)),
     [selectedPopulations, onPopulationsChange]
   );
 
   // The native input receives both a browse and a drop, and fires change for each.
   const handleFileChange = useCallback(
-    event => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files && event.target.files[0];
       if (disabled || loading || !file) return;
       onUpload(file);
@@ -87,15 +94,18 @@ const AssignmentAudience = ({
     () => suggestions.filter(suggestion => !selected.some(learner => learner.id === suggestion.id)),
     [suggestions, selected]
   );
-  const handleSearch = useCallback(event => onSearch(event.target.value), [onSearch]);
+  const handleSearch = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => onSearch(event.target.value),
+    [onSearch]
+  );
   const handleAdd = useCallback(
-    ({suggestion}) => {
+    ({suggestion}: {suggestion: {value: string}}) => {
       const learner = availableSuggestions.find(item => item.id === suggestion.value);
       if (learner) onAdd(learner);
     },
     [availableSuggestions, onAdd]
   );
-  const handleRemove = useCallback(id => () => onRemove(id), [onRemove]);
+  const handleRemove = useCallback((id: string) => () => onRemove(id), [onRemove]);
 
   return (
     <section className={style.container} data-name="assignment-audience" aria-labelledby={titleId}>
@@ -164,8 +174,8 @@ const AssignmentAudience = ({
               <BrandUploadBox
                 name="assignment-audience-file"
                 accept={ACCEPTED_FILES}
-                description={upload.dropzone.description}
-                browse={upload.dropzone.browse}
+                description={upload.dropzone?.description}
+                browse={upload.dropzone?.browse}
                 status={loading ? 'loading' : 'default'}
                 onLoad={handleFileChange}
               />
@@ -196,7 +206,7 @@ const AssignmentAudience = ({
           />
           {selected.length > 0 ? (
             <div className={style.chips}>
-              {selected.map(learner => (
+              {selected.map((learner: Learner) => (
                 <Chip
                   key={learner.id}
                   text={learner.label}
@@ -218,76 +228,6 @@ const AssignmentAudience = ({
   );
 };
 
-const learnerType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  login: PropTypes.string.isRequired
-});
-
-AssignmentAudience.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-  disabledExplanation: PropTypes.string,
-  everyone: PropTypes.shape({
-    title: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.bool.isRequired,
-    // Receives the new boolean
-    onChange: PropTypes.func.isRequired
-  }).isRequired,
-  populations: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    label: PropTypes.string,
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired,
-        selected: PropTypes.bool,
-        // The population's learner count, formatted by the app, shown on its chip
-        count: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      })
-    ).isRequired,
-    // Receives the selected options, with selected: true
-    onChange: PropTypes.func.isRequired
-  }).isRequired,
-  upload: PropTypes.shape({
-    // The file line and the result, once checked
-    ...UploadResult.propTypes,
-    // Also read here, for the line shown while the file is being checked
-    file: UploadResult.propTypes.file,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    templateLink: PropTypes.shape({
-      label: PropTypes.string,
-      href: PropTypes.string
-    }),
-    dropzone: PropTypes.shape({
-      description: PropTypes.string,
-      browse: PropTypes.string
-    }),
-    status: PropTypes.oneOf(['idle', 'loading', 'done', 'error']).isRequired,
-    error: PropTypes.string,
-    // Receives the first File. Parsing and login resolution belong to the consumer.
-    onUpload: PropTypes.func.isRequired
-  }).isRequired,
-  individuals: PropTypes.shape({
-    title: PropTypes.string,
-    placeholder: PropTypes.string,
-    value: PropTypes.string,
-    suggestions: PropTypes.arrayOf(learnerType),
-    selected: PropTypes.arrayOf(learnerType),
-    // Receives the query, searched by name or login
-    onSearch: PropTypes.func.isRequired,
-    // Receives the original {id, label, login} suggestion
-    onAdd: PropTypes.func.isRequired,
-    // Receives the learner id
-    onRemove: PropTypes.func.isRequired
-  }).isRequired,
-  total: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    detail: PropTypes.string
-  }).isRequired
-};
+AssignmentAudience.propTypes = AssignmentAudiencePropTypes;
 
 export default AssignmentAudience;

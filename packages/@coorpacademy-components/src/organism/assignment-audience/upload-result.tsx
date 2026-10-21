@@ -1,21 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import keys from 'lodash/fp/keys';
 import ButtonLink from '../../atom/button-link';
 import Tag from '../../atom/tag';
 import FaIcon from '../../atom/icon';
 import {COLORS} from '../../variables/colors';
+import {STATUSES, UploadResultProps, UploadResultPropTypes, UploadRowStatus} from './types';
 import style from './upload-result.css';
 
-// Each file row resolves to one of four statuses. A never-connected account is `valid` and added
-// with no warning; a deactivated account is `inactive`, skipped and reported.
-export const STATUS_TAG_TYPES = {
+const STATUS_TAG_TYPES: Record<UploadRowStatus, 'success' | 'failure' | 'warning'> = {
   valid: 'success',
   unknown: 'failure',
   ambiguous: 'warning',
   inactive: 'warning'
 };
-export const STATUSES = keys(STATUS_TAG_TYPES);
 // ButtonLink's text type sets its own colour; customStyle is the prop it lets win over it.
 const REMOVE_STYLE = {color: COLORS.cm_negative_200};
 
@@ -33,12 +29,12 @@ const UploadResult = ({
   removeLabel,
   onReplace,
   onRemove
-}) => (
+}: UploadResultProps) => (
   <div className={style.result}>
     <div className={style.file} data-name="upload-file">
       <div>
-        <div className={style.fileName}>{file.name}</div>
-        {file.detail ? <div className={style.muted}>{file.detail}</div> : null}
+        <div className={style.fileName}>{file?.name}</div>
+        {file?.detail ? <div className={style.muted}>{file.detail}</div> : null}
       </div>
       <div className={style.fileActions}>
         <ButtonLink type="text" label={replaceLabel} onClick={onReplace} />
@@ -95,37 +91,6 @@ const UploadResult = ({
   </div>
 );
 
-const labelsByStatus = PropTypes.shape({
-  valid: PropTypes.string,
-  unknown: PropTypes.string,
-  ambiguous: PropTypes.string,
-  inactive: PropTypes.string
-});
-
-UploadResult.propTypes = {
-  file: PropTypes.shape({name: PropTypes.string, detail: PropTypes.string}),
-  // The four count labels, formatted by the app, e.g. {valid: '201 valid', unknown: '6 unknown'}
-  summary: labelsByStatus,
-  keptLabel: PropTypes.string,
-  toggleLabel: PropTypes.string,
-  expanded: PropTypes.bool,
-  onToggleRows: PropTypes.func,
-  columns: PropTypes.shape({
-    login: PropTypes.string,
-    status: PropTypes.string
-  }),
-  // The status tag label of a row
-  statusLabels: labelsByStatus,
-  rows: PropTypes.arrayOf(
-    PropTypes.shape({
-      login: PropTypes.string.isRequired,
-      status: PropTypes.oneOf(STATUSES).isRequired
-    })
-  ),
-  replaceLabel: PropTypes.string,
-  removeLabel: PropTypes.string,
-  onReplace: PropTypes.func,
-  onRemove: PropTypes.func
-};
+UploadResult.propTypes = UploadResultPropTypes;
 
 export default UploadResult;
