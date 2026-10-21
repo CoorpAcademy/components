@@ -14,6 +14,13 @@ import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import ProgressBar from '../../molecule/progress-bar';
 import style from './style.css';
 
+// The thin completion bar: ProgressBar styles its inner bar through its `style` prop.
+const THIN_PROGRESS_STYLE = {
+  backgroundColor: COLORS.cm_positive_500,
+  borderRadius: '4px',
+  animation: 'none'
+};
+
 const ListItem = (
   {
     buttonLink,
@@ -156,6 +163,7 @@ const ListItem = (
                 className={style.progressBar}
                 value={progress.value}
                 max={100}
+                style={THIN_PROGRESS_STYLE}
                 displayInfo={false}
               />
               <span className={style.progressLabel}>{progress.label}</span>
