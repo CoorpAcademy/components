@@ -180,12 +180,7 @@ ListItems.propTypes = {
   selectMultiple: PropTypes.shape(SelectMultiple.propTypes),
   content: PropTypes.oneOfType([
     PropTypes.shape({
-      items: PropTypes.arrayOf(
-        PropTypes.oneOfType([
-          PropTypes.shape(ListItem.propTypes),
-          PropTypes.shape(AssignmentRow.propTypes)
-        ])
-      ),
+      items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
       type: PropTypes.oneOf(['list']),
       itemType: PropTypes.string,
       onDrop: PropTypes.func,

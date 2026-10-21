@@ -4,6 +4,6 @@ import fixture from './default';
 export default {
   props: {
     ...fixture.props,
-    tags: [{key: 'ongoingChanges', label: 'Ongoing changes'}]
+    infoTags: [{key: 'ongoingChanges', label: 'Ongoing changes'}]
   }
 };

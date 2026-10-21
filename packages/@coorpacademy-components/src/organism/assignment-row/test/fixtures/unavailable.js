@@ -4,6 +4,6 @@ import fixture from './default';
 export default {
   props: {
     ...fixture.props,
-    tags: [{key: 'unavailable', label: '2 modules unavailable'}]
+    infoTags: [{key: 'unavailable', label: '2 modules unavailable'}]
   }
 };

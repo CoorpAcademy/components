@@ -27,7 +27,7 @@ const stoppingPropagation = buttonLink =>
   };
 
 export const toListItemProps = ({
-  tags,
+  infoTags,
   onClick,
   buttonLink,
   leftIcon = {iconName: 'calendar-check'},
@@ -35,7 +35,7 @@ export const toListItemProps = ({
 }) => ({
   ...props,
   leftIcon,
-  titleTags: toTitleTags(tags),
+  titleTags: toTitleTags(infoTags),
   buttonLink: stoppingPropagation(buttonLink),
   onClick: ignoringButtons(onClick)
 });
@@ -52,7 +52,7 @@ AssignmentRow.propTypes = {
   details: ListItem.propTypes.details,
   // Completion (0 to 100) and its label; absent on a draft
   progress: ListItem.propTypes.progress,
-  tags: PropTypes.arrayOf(
+  infoTags: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.oneOf(ROW_TAG_KEYS).isRequired,
       label: PropTypes.string.isRequired

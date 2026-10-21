@@ -67,8 +67,8 @@ test.serial(
 );
 
 test.serial('R2: the information tags render beside the title, in a fixed order', t => {
-  const shuffled = [...allTags.props.tags].reverse();
-  const {container} = render(<AssignmentRow {...allTags.props} tags={shuffled} />, options);
+  const shuffled = [...allTags.props.infoTags].reverse();
+  const {container} = render(<AssignmentRow {...allTags.props} infoTags={shuffled} />, options);
   t.deepEqual(tagTexts(container), ['Ongoing changes', '2 modules unavailable', 'Syncing 3/8']);
   const tags = container.querySelector('[data-name="title-tags"]');
   t.is(
@@ -85,7 +85,7 @@ test.serial('R2: each information tag has its mapped tag type', t => {
     ['syncError', 'failure']
   ].forEach(([key, type]) => {
     const {container, unmount} = render(
-      <AssignmentRow {...upToDate.props} tags={[{key, label: `Label ${key}`}]} />,
+      <AssignmentRow {...upToDate.props} infoTags={[{key, label: `Label ${key}`}]} />,
       options
     );
     const expected = render(<Tag type={type} label={`Label ${key}`} />);
@@ -106,13 +106,13 @@ test.serial('R2: the row refuses a lifecycle tag, the tab says it (Q3, INFO)', t
     PropTypes.resetWarningCache();
     PropTypes.checkPropTypes(
       AssignmentRow.propTypes,
-      {...upToDate.props, tags: [{key, label: key}]},
+      {...upToDate.props, infoTags: [{key, label: key}]},
       'prop',
       'AssignmentRow'
     );
     console.error = originalError;
     t.is(errors.length, 1, key);
-    t.true(errors[0].includes(`\`tags[0].key\` of value \`${key}\``));
+    t.true(errors[0].includes(`\`infoTags[0].key\` of value \`${key}\``));
   });
 });
 
