@@ -1,6 +1,6 @@
 import fixture from './default';
 
-// A published assignment with an unpublished edit (A1.4, as the Certification and Skill lists).
+// A published assignment with an unpublished edit (as in the Certification and Skill lists).
 export default {
   props: {
     ...fixture.props,

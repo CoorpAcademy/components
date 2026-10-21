@@ -1,6 +1,6 @@
 import fixture from './default';
 
-// Modules hidden in the brand or no longer visible to the audience, computed on read (AQ37).
+// Modules hidden in the brand or no longer visible to the audience, computed on read.
 export default {
   props: {
     ...fixture.props,

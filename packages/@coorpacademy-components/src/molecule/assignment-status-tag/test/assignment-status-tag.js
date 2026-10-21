@@ -16,16 +16,16 @@ const assertTag = (t, status, type) => {
 };
 
 const MAPPING = [
-  // Assignment lifecycle (edit-page and tracking headers only, never on a list row: A1.4 Q3)
+  // Assignment lifecycle (edit-page and tracking headers only, never on a list row)
   ['draft', 'progress'],
   ['upcoming', 'info'],
   ['active', 'success'],
   ['ended', 'default'],
   ['disabled', 'warning'],
-  // List-row information tags (A1.4: « Ongoing changes », AQ37 « N modules unavailable »)
+  // List-row information tags: « Ongoing changes », « N modules unavailable »
   ['ongoingChanges', 'progress'],
   ['unavailable', 'warning'],
-  // Sync, only when not up to date (S1): there is no "up to date" key
+  // Sync, only when not up to date: there is no "up to date" key
   ['processing', 'progress'],
   ['syncError', 'failure'],
   // Learner row in the tracking table

@@ -1,4 +1,4 @@
-// Active tab, sync up to date: no tag at all (S1, Q3, INFO). No created/edited-by (M0).
+// Active tab, sync up to date: no tag at all. Created/edited-by live in the tracking header.
 const menuIcon = (name, color = '#515161') => ({
   position: 'left',
   faIcon: {name, color, size: 14, customStyle: {padding: 0}}
@@ -11,7 +11,7 @@ export const trackingButton = {
   onClick: () => console.log('Open the tracking page')
 };
 
-// Disable reverses with Enable: archive under the hood, but the UI says Disable/Enable (AQ38).
+// « Enable » reverses « Disable »: an archive under the hood, but the UI says Disable / Enable.
 const sharedActions = [
   {label: 'Tracking', icon: menuIcon('chart-simple'), onClick: () => console.log('Tracking')},
   {label: 'Edit', icon: menuIcon('pen'), onClick: () => console.log('Edit')},
@@ -36,7 +36,7 @@ export const disabledMenu = {
 };
 
 // The certification draft row's menu (Skills and Certifications): Publish, and Delete in the
-// danger style. Delete exists on a draft only: a published-once assignment is never deleted (C6).
+// danger style. Delete exists on a draft only: an assignment published once is never deleted.
 export const draftMenu = {
   ...publishedMenu,
   buttons: [

@@ -1,7 +1,6 @@
 import fixture, {disabledMenu} from './default';
 
-// Under the Disabled tab: the tab says it, so the row has no tag (Q3, INFO). Enable reverses
-// Disable (AQ38).
+// Under the Disabled tab: the tab says it, so the row has no tag. « Enable » reverses « Disable ».
 export default {
   props: {
     ...fixture.props,

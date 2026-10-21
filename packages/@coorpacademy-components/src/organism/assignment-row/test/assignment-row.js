@@ -32,7 +32,7 @@ const tagTexts = row =>
   [...row.querySelectorAll('[data-name="title-tags"] span')].map(n => n.textContent);
 
 test.serial(
-  'R2: renders the title, the audience and dates line, the contents line and the progress',
+  'renders the title, the audience and dates line, the contents line and the progress',
   t => {
     const {container} = render(<AssignmentRow {...upToDate.props} />, options);
     const view = within(container);
@@ -47,17 +47,14 @@ test.serial(
   }
 );
 
-test.serial(
-  'R2: an up-to-date row with no information renders no tag and no sync text (S1, Q3)',
-  t => {
-    const {container} = render(<AssignmentRow {...upToDate.props} />, options);
-    t.is(container.querySelector('[data-name="title-tags"]'), null);
-    t.is(container.querySelectorAll('[data-name="tag"], .tag').length, 0);
-    t.notRegex(container.textContent, /up to date/i);
-  }
-);
+test.serial('an up-to-date row with no information renders no tag and no sync text', t => {
+  const {container} = render(<AssignmentRow {...upToDate.props} />, options);
+  t.is(container.querySelector('[data-name="title-tags"]'), null);
+  t.is(container.querySelectorAll('[data-name="tag"], .tag').length, 0);
+  t.notRegex(container.textContent, /up to date/i);
+});
 
-test.serial('R2: the information tags render beside the title, in a fixed order', t => {
+test.serial('the information tags render beside the title, in a fixed order', t => {
   const shuffled = [...allTags.props.infoTags].reverse();
   const {container} = render(<AssignmentRow {...allTags.props} infoTags={shuffled} />, options);
   t.deepEqual(tagTexts(container), ['Ongoing changes', '2 modules unavailable', 'Syncing 3/8']);
@@ -68,7 +65,7 @@ test.serial('R2: the information tags render beside the title, in a fixed order'
   );
 });
 
-test.serial('R2: each information tag has its mapped tag type', t => {
+test.serial('each information tag has its mapped tag type', t => {
   [
     ['ongoingChanges', 'progress'],
     ['unavailable', 'warning'],
@@ -89,7 +86,7 @@ test.serial('R2: each information tag has its mapped tag type', t => {
   });
 });
 
-test.serial('R2: the row refuses a lifecycle tag, the tab says it (Q3, INFO)', t => {
+test.serial('the row refuses a lifecycle tag, the tab already says it', t => {
   ['draft', 'upcoming', 'active', 'ended', 'disabled', 'upToDate'].forEach(key => {
     const errors = [];
     const originalError = console.error;
@@ -107,14 +104,14 @@ test.serial('R2: the row refuses a lifecycle tag, the tab says it (Q3, INFO)', t
   });
 });
 
-test.serial('R2: a syncing row shows its tag and its sync detail after the progress label', t => {
+test.serial('a syncing row shows its tag and its sync detail after the progress label', t => {
   const {container} = render(<AssignmentRow {...syncing.props} />, options);
   t.deepEqual(tagTexts(container), ['Syncing 3/8']);
   t.truthy(within(container).getByText(syncing.props.progress.label));
   t.true(syncing.props.progress.label.includes('Updating learners'));
 });
 
-test.serial('R3: a click on the row calls onClick once', t => {
+test.serial('a click on the row calls onClick once', t => {
   let calls = 0;
   const {container} = render(
     <AssignmentRow {...upToDate.props} onClick={() => calls++} />,
@@ -124,22 +121,19 @@ test.serial('R3: a click on the row calls onClick once', t => {
   t.is(calls, 1);
 });
 
-test.serial(
-  'R3: the Tracking button calls its onClick, and the row onClick is not called twice',
-  t => {
-    let row = 0;
-    let tracking = 0;
-    const props = {
-      ...upToDate.props,
-      onClick: () => row++,
-      buttonLink: {...upToDate.props.buttonLink, onClick: () => tracking++}
-    };
-    const {container} = render(<AssignmentRow {...props} />, options);
-    fireEvent.click(within(container).getByRole('button', {name: 'Tracking'}));
-    t.is(tracking, 1);
-    t.is(row, 0);
-  }
-);
+test.serial('the Tracking button calls its onClick, and the row onClick is not called twice', t => {
+  let row = 0;
+  let tracking = 0;
+  const props = {
+    ...upToDate.props,
+    onClick: () => row++,
+    buttonLink: {...upToDate.props.buttonLink, onClick: () => tracking++}
+  };
+  const {container} = render(<AssignmentRow {...props} />, options);
+  fireEvent.click(within(container).getByRole('button', {name: 'Tracking'}));
+  t.is(tracking, 1);
+  t.is(row, 0);
+});
 
 test.serial('a Tracking link is not a row click either', t => {
   let row = 0;
@@ -156,7 +150,7 @@ test.serial('a Tracking link is not a row click either', t => {
 const openMenu = container =>
   fireEvent.click(container.querySelector('[data-name^="bullet-point-menu-button"]'));
 
-test.serial('R3: a menu action calls its onClick and never the row onClick', t => {
+test.serial('a menu action calls its onClick and never the row onClick', t => {
   let row = 0;
   let edit = 0;
   const bulletPointMenuButton = {
@@ -184,61 +178,55 @@ const menuLabels = container => {
   );
 };
 
-test.serial('R3: a published row menu reads Tracking, Edit, Duplicate, Disable (4b)', t => {
+test.serial('a published row menu reads Tracking, Edit, Duplicate, Disable', t => {
   const {container} = render(<AssignmentRow {...upToDate.props} />, options);
   t.deepEqual(menuLabels(container), ['Tracking', 'Edit', 'Duplicate', 'Disable']);
 });
 
-test.serial('R3: a disabled row menu reads Tracking, Edit, Duplicate, Enable (4b, AQ38)', t => {
+test.serial('a disabled row menu reads Tracking, Edit, Duplicate, Enable', t => {
   const {container} = render(<AssignmentRow {...disabled.props} />, options);
   t.deepEqual(menuLabels(container), ['Tracking', 'Edit', 'Duplicate', 'Enable']);
 });
 
-test.serial(
-  'R3: a draft row has an Edit button and a menu with Publish and a danger Delete (4c)',
-  t => {
-    const {container} = render(<AssignmentRow {...draft.props} />, options);
-    t.truthy(within(container).getByRole('button', {name: 'Edit'}));
-    t.deepEqual(menuLabels(container), ['Publish', 'Delete']);
-    const {buttons} = draft.props.bulletPointMenuButton;
-    t.deepEqual(
-      buttons.map(({label, type}) => [label, type]),
-      [
-        ['Publish', 'default'],
-        ['Delete', 'dangerous']
-      ]
-    );
-  }
-);
+test.serial('a draft row has an Edit button and a menu with Publish and a danger Delete', t => {
+  const {container} = render(<AssignmentRow {...draft.props} />, options);
+  t.truthy(within(container).getByRole('button', {name: 'Edit'}));
+  t.deepEqual(menuLabels(container), ['Publish', 'Delete']);
+  const {buttons} = draft.props.bulletPointMenuButton;
+  t.deepEqual(
+    buttons.map(({label, type}) => [label, type]),
+    [
+      ['Publish', 'default'],
+      ['Delete', 'dangerous']
+    ]
+  );
+});
 
-test.serial('R2: a draft row shows no tag and no progress, the tab says Draft (Q3)', t => {
+test.serial('a draft row shows no tag and no progress, the tab says Draft', t => {
   const {container} = render(<AssignmentRow {...draft.props} />, options);
   t.is(container.querySelector('[data-name="title-tags"]'), null);
   t.is(container.querySelector('[data-name="list-item-progress"]'), null);
   t.notRegex(container.textContent, /draft/i);
 });
 
-test.serial(
-  'R3: no row menu says Archive or Unarchive, and Delete is on the draft row only (4b, C6)',
-  t => {
-    const fixtures = {
-      upToDate,
-      syncing,
-      allTags,
-      draft,
-      disabled,
-      ongoingChanges,
-      syncError,
-      unavailable,
-      upcoming
-    };
-    Object.entries(fixtures).forEach(([name, fixture]) => {
-      const labels = (fixture.props.bulletPointMenuButton?.buttons ?? []).map(b => b.label);
-      t.false(
-        labels.some(label => /archive/i.test(label)),
-        `${name}: ${labels}`
-      );
-      t.is(labels.includes('Delete'), name === 'draft', `${name}: ${labels}`);
-    });
-  }
-);
+test.serial('no row menu says Archive or Unarchive, and Delete is on the draft row only', t => {
+  const fixtures = {
+    upToDate,
+    syncing,
+    allTags,
+    draft,
+    disabled,
+    ongoingChanges,
+    syncError,
+    unavailable,
+    upcoming
+  };
+  Object.entries(fixtures).forEach(([name, fixture]) => {
+    const labels = (fixture.props.bulletPointMenuButton?.buttons ?? []).map(b => b.label);
+    t.false(
+      labels.some(label => /archive/i.test(label)),
+      `${name}: ${labels}`
+    );
+    t.is(labels.includes('Delete'), name === 'draft', `${name}: ${labels}`);
+  });
+});

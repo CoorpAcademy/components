@@ -5,7 +5,7 @@ import Unavailable from '../../../assignment-row/test/fixtures/unavailable';
 import AllTags from '../../../assignment-row/test/fixtures/ongoing-changes-unavailable-syncing';
 
 // The Active tab of the Coorpmanager Assignments list: the tab gives the state, so no row has a
-// lifecycle tag (INFO); tags show only when they add information (Q3).
+// lifecycle tag; tags show only when they add information.
 export default {
   props: {
     title: '5 active assignments',

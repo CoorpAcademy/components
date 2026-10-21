@@ -1,8 +1,8 @@
 import {draftMenu} from './default';
 
 // Under the Drafts tab, as a certification draft row: an « Edit » button and a « … » menu with
-// Publish and Delete. No Draft tag (Q3: the tab says it, unlike the certification list), no
-// progress (never published, never synced).
+// « Publish » and « Delete ». No Draft tag (the tab says it, unlike the certification list) and
+// no progress (never published, never synced).
 export default {
   props: {
     title: 'GDPR refresher 2027',

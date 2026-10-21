@@ -4,8 +4,8 @@ import find from 'lodash/fp/find';
 import ListItem from '../list-item';
 import {getAssignmentTagType} from '../../molecule/assignment-status-tag';
 
-// Row tags appear only when they add information (A1.4 Q3), in this order. There is no lifecycle
-// tag (the list tab says it, INFO) and no "up to date" sync tag (S1).
+// Row tags appear only when they add information, in this order. There is no lifecycle tag (the
+// list tab already says it) and no "up to date" sync tag (only syncing or a sync error shows).
 const ROW_TAG_KEYS = ['ongoingChanges', 'unavailable', 'processing', 'syncError'];
 
 const toTitleTags = (tags = []) =>
@@ -30,7 +30,7 @@ const toListItemProps = ({
   onClick: ignoringControls(onClick)
 });
 
-// The Coorpmanager assignment list row ("row C"): the Skills list row (organism/list-item) with
+// The Coorpmanager assignment list row: the Skills list row (organism/list-item) with
 // the information tags beside the title, a contents line and a thin progress bar.
 const AssignmentRow = props => <ListItem {...toListItemProps(props)} />;
 
