@@ -125,6 +125,7 @@ const MyAssignments = ({
       <div className={style.container}>
         {title ? <Title type="page" title={title} /> : null}
         <Tabs
+          compact
           items={tabs.map(({key, label, count, selected, onClick}) => ({
             key,
             title: label,

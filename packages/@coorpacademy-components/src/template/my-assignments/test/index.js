@@ -6,6 +6,7 @@ import React from 'react';
 import {render, fireEvent, cleanup, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import readableWords from '../../../test/helpers/readable';
+import tabsStyle from '../../../molecule/tabs/style.css';
 import MyAssignments from '..';
 import todo, {sections} from './fixtures/default';
 import withoutOverdue from './fixtures/todo-without-overdue';
@@ -28,6 +29,11 @@ const sectionTitles = view =>
   [...view.container.querySelectorAll('[data-name="due-section"]')].map(section =>
     section.getAttribute('data-key')
   );
+test.serial('the To do and Finished tabs are as wide as their label', t => {
+  const view = mount(todo.props);
+  view.getAllByRole('tab').forEach(tab => t.true(tab.classList.contains(tabsStyle.compact)));
+});
+
 test.serial('R3: two tabs, To do and Finished, each with its count', t => {
   const view = mount(todo.props);
   const tabs = view.getAllByRole('tab');
