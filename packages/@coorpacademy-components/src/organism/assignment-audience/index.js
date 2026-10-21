@@ -134,7 +134,7 @@ const AssignmentAudience = ({
                   text={option.name}
                   subText={option.count === undefined ? undefined : `${option.count}`}
                   selected
-                  customIcon="times"
+                  customIcon={disabled ? 'none' : 'times'}
                   onClick={disabled ? undefined : handleRemovePopulation(option.value)}
                 />
               ))}
@@ -202,7 +202,7 @@ const AssignmentAudience = ({
                   text={learner.label}
                   subText={learner.login}
                   selected
-                  customIcon="times"
+                  customIcon={disabled ? 'none' : 'times'}
                   onClick={disabled ? undefined : handleRemove(learner.id)}
                 />
               ))}

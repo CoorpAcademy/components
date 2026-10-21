@@ -63,6 +63,14 @@ test.serial('with everyone on, population and learner chips cannot be removed', 
   t.deepEqual(calls, []);
 });
 
+test.serial('a chip shows its remove cross only while it can be removed', t => {
+  const crosses = props =>
+    mount(props).container.querySelectorAll('[data-name^="chip-"] > :last-child:not(div)').length;
+  t.is(crosses(combined.props), 4);
+  cleanup();
+  t.is(crosses(everyoneOnWithSources.props), 0);
+});
+
 test.serial('with everyone off, the sources are enabled and there is no explanation', t => {
   const view = mount(combined.props);
   t.false(block(view, 'audience-sources').disabled);
