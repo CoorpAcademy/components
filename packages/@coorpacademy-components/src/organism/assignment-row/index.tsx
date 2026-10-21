@@ -2,6 +2,7 @@ import React from 'react';
 import find from 'lodash/fp/find';
 import ListItem from '../list-item';
 import {getAssignmentTagType} from '../../molecule/assignment-status-tag';
+import {ButtonProps} from '../../atom/button-menu/types';
 import propTypes, {AssignmentRowProps, InfoTag, ROW_TAG_KEYS} from './types';
 
 const toTitleTags = (tags: InfoTag[] = []) =>
@@ -17,15 +18,33 @@ const ignoringControls = (onClick?: AssignmentRowProps['onClick']) =>
         (event.target as Element).closest('button, a') ? undefined : onClick(event)
     : undefined;
 
+// The menu items are left-aligned, as in the Skills list rows, so their fixed-width icons line
+// up in one column whatever the label lengths. Delete keeps its danger colour.
+const LEFT_ALIGNED: Record<string, ButtonProps['type']> = {
+  default: 'defaultLeft',
+  dangerous: 'dangerousLeft'
+};
+
+const leftAligned = (menu: AssignmentRowProps['bulletPointMenuButton']) =>
+  menu && {
+    ...menu,
+    buttons: menu.buttons.map(({type = 'default', ...button}) => ({
+      ...button,
+      type: LEFT_ALIGNED[type] ?? type
+    }))
+  };
+
 const toListItemProps = ({
   infoTags,
   onClick,
+  bulletPointMenuButton,
   leftIcon = {iconName: 'calendar-check'},
   ...props
 }: AssignmentRowProps) => ({
   ...props,
   leftIcon,
   titleTags: toTitleTags(infoTags),
+  bulletPointMenuButton: leftAligned(bulletPointMenuButton),
   onClick: ignoringControls(onClick)
 });
 

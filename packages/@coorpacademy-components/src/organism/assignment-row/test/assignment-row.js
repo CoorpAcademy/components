@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {render, fireEvent, cleanup, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import Tag from '../../../atom/tag';
+import ButtonMenu from '../../../atom/button-menu';
 import AssignmentRow from '..';
 import upToDate from './fixtures/default';
 import syncing from './fixtures/syncing';
@@ -200,6 +201,35 @@ test.serial('a draft row has an Edit button and a menu with Publish and a danger
       ['Delete', 'dangerous']
     ]
   );
+});
+
+// The menu items are left-aligned, as in the Skills list rows, so their fixed-width icons
+// line up in one column whatever the label lengths; Delete keeps its danger colour.
+test.serial('the menu items are left-aligned so their icons line up', t => {
+  const reference = render(
+    <ButtonMenu
+      buttons={[
+        {label: 'Left', type: 'defaultLeft'},
+        {label: 'Danger left', type: 'dangerousLeft'}
+      ]}
+    />
+  );
+  const [left, dangerLeft] = [...reference.container.querySelectorAll('button')].map(
+    b => b.className
+  );
+  reference.unmount();
+  const menuClasses = props => {
+    const {container, unmount} = render(<AssignmentRow {...props} />, options);
+    openMenu(container);
+    const classes = [...container.querySelectorAll('[data-name="menu-wrapper"] button')].map(
+      b => b.className
+    );
+    unmount();
+    return classes;
+  };
+  t.deepEqual(menuClasses(upToDate.props), [left, left, left, left]);
+  t.deepEqual(menuClasses(disabled.props), [left, left, left, left]);
+  t.deepEqual(menuClasses(draft.props), [left, dangerLeft]);
 });
 
 test.serial('a draft row shows no tag and no progress, the tab says Draft', t => {
