@@ -162,9 +162,16 @@ test.serial('the template link points at the template, and is disabled while eve
   t.true(off.getByRole('button', {name: everyoneOn.props.upload.templateLink.label}).disabled);
 });
 
-test.serial('the file input accepts xlsx, xls and csv', t => {
+test.serial('the empty state is the Coorpmanager uploader, accepting xlsx, xls and csv', t => {
   const view = mount(idle.props);
-  t.is(block(view, 'upload').querySelector('input[type="file"]').accept, '.xlsx,.xls,.csv');
+  const uploader = block(view, 'upload').querySelector('[data-name="drag-and-drop-wrapper"]');
+  t.truthy(uploader);
+  t.truthy(within(uploader).getByText(idle.props.upload.dropzone.dropLabel));
+  t.truthy(within(uploader).getByText(idle.props.upload.dropzone.description));
+  t.is(
+    uploader.querySelector('input[type="file"]').accept,
+    'text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+  );
 });
 
 test.serial('Replace, Remove and the rows toggle call their callbacks', t => {
@@ -268,12 +275,22 @@ test.serial('the same login twice in a file renders two rows', t => {
   t.is(logins.length, duplicateLogin.props.upload.rows.length);
 });
 
-test.serial('loading and error states', t => {
-  const loading = mount(uploadLoading.props);
-  t.is(block(loading, 'upload-dropzone').getAttribute('aria-busy'), 'true');
+test.serial('loading shows the uploader loader with its label; its cross cancels the check', t => {
+  let removed = 0;
+  const upload = {...uploadLoading.props.upload, onRemove: () => removed++};
+  const loading = mount({...uploadLoading.props, upload});
+  const dropzone = block(loading, 'upload-dropzone');
+  t.is(dropzone.getAttribute('aria-busy'), 'true');
+  t.truthy(within(dropzone).getByText(upload.dropzone.loadingLabel));
   t.is(block(loading, 'upload-summary'), null);
-  cleanup();
+  fireEvent.click(dropzone.querySelector('[data-name="reset-content-icon"]'));
+  t.is(removed, 1);
+});
+
+test.serial('an error shows in the uploader and is announced', t => {
   const error = mount(uploadError.props);
-  t.is(error.getByRole('alert').textContent, uploadError.props.upload.error);
+  const dropzone = block(error, 'upload-dropzone');
+  t.is(dropzone.getAttribute('aria-live'), 'polite');
+  t.truthy(within(dropzone).getByText(uploadError.props.upload.error));
   t.is(block(error, 'upload-summary'), null);
 });

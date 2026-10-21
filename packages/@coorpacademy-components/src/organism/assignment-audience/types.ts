@@ -79,9 +79,12 @@ const AssignmentAudiencePropTypes = {
       label: PropTypes.string,
       href: PropTypes.string
     }),
+    // The Coorpmanager uploader's texts: the hint, the button, the drop text, the loader text
     dropzone: PropTypes.shape({
       description: PropTypes.string,
-      browse: PropTypes.string
+      browse: PropTypes.string,
+      dropLabel: PropTypes.string,
+      loadingLabel: PropTypes.string
     }),
     status: PropTypes.oneOf(['idle', 'loading', 'done', 'error']).isRequired,
     error: PropTypes.string,
@@ -166,7 +169,12 @@ export type AssignmentAudienceProps = {
     title?: string;
     subtitle?: string;
     templateLink?: {label?: string; href?: string};
-    dropzone?: {description?: string; browse?: string};
+    dropzone?: {
+      description?: string;
+      browse?: string;
+      dropLabel?: string;
+      loadingLabel?: string;
+    };
     status: 'idle' | 'loading' | 'done' | 'error';
     error?: string;
     onUpload: (file: File) => void;

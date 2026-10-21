@@ -21,7 +21,7 @@ const InputFileDraggable = ({
   disabled = false,
   disableHoverTooltip = false,
   onChange,
-  onReset = null,
+  onReset,
   name,
   labelLink,
   labelButtonLink,
@@ -138,7 +138,11 @@ InputFileDraggable.propTypes = {
   buttonAriaLabel: PropTypes.string,
   errorButtonLabel: PropTypes.string,
   labelLink: PropTypes.string,
-  hrefLink: PropTypes.string
+  labelButtonLink: PropTypes.string,
+  hrefLink: PropTypes.string,
+  filesNumber: PropTypes.number,
+  required: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default InputFileDraggable;

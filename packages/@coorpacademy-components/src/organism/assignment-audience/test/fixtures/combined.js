@@ -38,8 +38,10 @@ export default {
         'One login column. xlsx, xls or csv, up to 5,000 rows. Unknown, ambiguous and inactive logins are reported before you save.',
       templateLink: {label: 'Download template', href: '/assignment-learners-template.xlsx'},
       dropzone: {
-        description: 'xlsx, xls or csv, one login column',
-        browse: 'Choose a file or drop it here'
+        description: 'xlsx, xls or csv, one login column, up to 5,000 rows',
+        browse: 'Choose a file',
+        dropLabel: 'Drop the file here',
+        loadingLabel: 'Checking the logins…'
       },
       status: 'done',
       onUpload: file => console.log('upload', file),

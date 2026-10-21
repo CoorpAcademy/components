@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100, cm_grey_500, cm_grey_700, cm_negative_200 from colors;
+@value cm_grey_100, cm_grey_500, cm_grey_700 from colors;
 
 .container {
   display: flex;
@@ -67,11 +67,9 @@
   opacity: 0.5;
 }
 
-.error {
-  margin: 8px 0 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: cm_negative_200;
+/* The Coorpmanager uploader fills its parent's height */
+.dropzone {
+  height: 220px;
 }
 
 .chips {

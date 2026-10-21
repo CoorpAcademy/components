@@ -2,7 +2,7 @@ import React, {useCallback, useMemo} from 'react';
 import uniqueId from 'lodash/fp/uniqueId';
 import InputSwitch from '../../atom/input-switch';
 import SelectMultiple from '../../molecule/select-multiple';
-import BrandUploadBox from '../../molecule/brand-upload-box';
+import InputFileDraggable from '../../atom/input-file-draggable';
 import Autocomplete from '../../atom/autocomplete';
 import ButtonLink from '../../atom/button-link';
 import Chip from '../../atom/chip';
@@ -14,7 +14,12 @@ import AssignmentAudiencePropTypes, {
 } from './types';
 import style from './style.css';
 
-const ACCEPTED_FILES = '.xlsx,.xls,.csv';
+// csv, xls and xlsx, as the types FilesPropType knows
+const ACCEPTED_FILES = [
+  'text/csv',
+  'application/vnd.ms-excel',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+].join(',');
 
 type BlockProps = {
   name: string;
@@ -53,7 +58,7 @@ const AssignmentAudience = ({
   const loading = upload.status === 'loading';
   const {onChange: onEveryoneChange} = everyone;
   const {options: populationOptions, onChange: onPopulationsChange} = populations;
-  const {onUpload} = upload;
+  const {onUpload, onRemove: onRemoveFile} = upload;
   const {value = '', suggestions = [], selected = [], onSearch, onAdd, onRemove} = individuals;
   const titleId = useMemo(() => uniqueId('assignment-audience-title-'), []);
 
@@ -89,6 +94,11 @@ const AssignmentAudience = ({
     },
     [disabled, loading, onUpload]
   );
+
+  // The loader's cross cancels the check: the file is dropped, as with Remove.
+  const handleCancelCheck = useCallback(() => {
+    if (onRemoveFile) onRemoveFile();
+  }, [onRemoveFile]);
 
   const availableSuggestions = useMemo(
     () => suggestions.filter(suggestion => !selected.some(learner => learner.id === suggestion.id)),
@@ -167,30 +177,31 @@ const AssignmentAudience = ({
             ) : null
           }
         >
-          <div aria-busy={loading} data-name="upload-dropzone">
+          <div
+            className={upload.status === 'done' ? undefined : style.dropzone}
+            aria-busy={loading}
+            aria-live="polite"
+            data-name="upload-dropzone"
+          >
             {upload.status === 'done' ? (
               <UploadResult {...upload} />
             ) : (
-              <BrandUploadBox
+              <InputFileDraggable
                 name="assignment-audience-file"
-                accept={ACCEPTED_FILES}
+                filesTypes={ACCEPTED_FILES}
                 description={upload.dropzone?.description}
-                browse={upload.dropzone?.browse}
-                status={loading ? 'loading' : 'default'}
-                onLoad={handleFileChange}
+                uploadLabel={upload.dropzone?.browse}
+                errorButtonLabel={upload.dropzone?.browse}
+                dragAndDropLabel={upload.dropzone?.dropLabel}
+                loadingLabel={upload.dropzone?.loadingLabel}
+                loading={loading}
+                disabled={disabled}
+                error={upload.status === 'error' ? upload.error : ''}
+                onChange={handleFileChange}
+                onReset={handleCancelCheck}
               />
             )}
           </div>
-          {loading && upload.file ? (
-            <p className={style.muted} role="status">
-              {upload.file.name} · {upload.file.detail}
-            </p>
-          ) : null}
-          {upload.status === 'error' ? (
-            <p className={style.error} role="alert">
-              {upload.error}
-            </p>
-          ) : null}
         </Block>
         <Block name="individuals" title={individuals.title}>
           <Autocomplete
