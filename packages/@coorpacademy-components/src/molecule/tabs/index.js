@@ -1,6 +1,7 @@
 import React from 'react';
 import {convert} from 'css-color-function';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import Provider from '../../atom/provider';
 import {COLORS} from '../../variables/colors';
@@ -14,7 +15,7 @@ const handleTabKeyDown = tab => e => {
   if (e.key === 'Enter') handleTabClick(tab)(e);
 };
 const Tabs = (props, context) => {
-  const {items = []} = props;
+  const {items = [], compact = false} = props;
   const {skin} = context;
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
@@ -22,7 +23,7 @@ const Tabs = (props, context) => {
     return (
       <div
         key={index}
-        className={style.tab}
+        className={classnames(style.tab, compact && style.compact)}
         role="tab"
         tabIndex={0}
         aria-selected={tab.isActive}
@@ -79,7 +80,9 @@ Tabs.propTypes = {
       onClick: PropTypes.func,
       isActive: PropTypes.bool
     })
-  )
+  ),
+  // Tabs as wide as their label, for short labels (no 160px minimum)
+  compact: PropTypes.bool
 };
 
 export default Tabs;

@@ -23,6 +23,10 @@
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
+.compact {
+  min-width: 0;
+}
+
 .tab:hover {
   background-color: var(--hover-bg);
 }
