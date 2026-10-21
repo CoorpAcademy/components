@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100, cm_grey_400, cm_grey_500, cm_grey_700, cm_negative_200, cm_primary_blue from colors;
+@value cm_grey_100, cm_grey_500, cm_grey_700, cm_negative_200 from colors;
 
 .container {
   display: flex;
@@ -65,76 +65,6 @@
 
 .sources:disabled {
   opacity: 0.5;
-}
-
-.result {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 16px;
-  border: 1px solid cm_grey_100;
-  border-radius: 8px;
-}
-
-.file {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-
-.fileName {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.fileActions {
-  display: flex;
-  gap: 8px;
-}
-
-.summary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  align-self: flex-start;
-  padding: 0;
-  border: 0;
-  background: none;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-weight: 600;
-  color: cm_grey_700;
-  cursor: pointer;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 14px;
-}
-
-.table th {
-  font-size: 12px;
-  font-weight: 600;
-  color: cm_grey_400;
-}
-
-.table th,
-.table td {
-  padding: 8px 12px;
-  border-bottom: 1px solid cm_grey_100;
-}
-
-.login {
-  font-family: Menlo, Consolas, monospace;
 }
 
 .error {

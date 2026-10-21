@@ -1,27 +1,16 @@
 import React, {useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
+import uniqueId from 'lodash/fp/uniqueId';
 import InputSwitch from '../../atom/input-switch';
 import SelectMultiple from '../../molecule/select-multiple';
 import BrandUploadBox from '../../molecule/brand-upload-box';
 import Autocomplete from '../../atom/autocomplete';
 import ButtonLink from '../../atom/button-link';
 import Chip from '../../atom/chip';
-import Tag from '../../atom/tag';
-import FaIcon from '../../atom/icon';
-import {COLORS} from '../../variables/colors';
+import UploadResult from './upload-result';
 import style from './style.css';
 
-// A file row resolves to one of four statuses, keyed on login (L4). A never-connected account is
-// `valid` and added with no warning; a deactivated account is `inactive`, skipped and reported (AQ26).
-const STATUS_TAG_TYPES = {
-  valid: 'success',
-  unknown: 'failure',
-  ambiguous: 'warning',
-  inactive: 'warning'
-};
-const STATUSES = ['valid', 'unknown', 'ambiguous', 'inactive'];
 const ACCEPTED_FILES = '.xlsx,.xls,.csv';
-const REMOVE_STYLE = {color: COLORS.cm_negative_200};
 
 const Block = ({name, title, subtitle, aside, children}) => (
   <section data-name={name} className={style.block}>
@@ -46,87 +35,6 @@ Block.propTypes = {
   children: PropTypes.node
 };
 
-const UploadResult = ({upload}) => {
-  const {
-    file,
-    summary = {},
-    keptLabel,
-    toggleLabel,
-    expanded = false,
-    onToggleRows,
-    columns = {},
-    statusLabels = {},
-    rows = [],
-    replaceLabel,
-    removeLabel,
-    onReplace,
-    onRemove
-  } = upload;
-  return (
-    <div className={style.result}>
-      <div className={style.file} data-name="upload-file">
-        <div>
-          <div className={style.fileName}>{file.name}</div>
-          {file.detail ? <div className={style.muted}>{file.detail}</div> : null}
-        </div>
-        <div className={style.fileActions}>
-          <ButtonLink type="text" label={replaceLabel} onClick={onReplace} />
-          <ButtonLink
-            type="text"
-            label={removeLabel}
-            onClick={onRemove}
-            customStyle={REMOVE_STYLE}
-          />
-        </div>
-      </div>
-      <div className={style.summary} data-name="upload-summary">
-        {STATUSES.filter(status => summary[status]).map(status => (
-          <div key={status}>
-            <Tag type={STATUS_TAG_TYPES[status]} label={summary[status]} />
-          </div>
-        ))}
-      </div>
-      {keptLabel ? <p className={style.muted}>{keptLabel}</p> : null}
-      {toggleLabel ? (
-        <button
-          type="button"
-          className={style.toggle}
-          aria-expanded={expanded}
-          onClick={onToggleRows}
-          data-name="upload-rows-toggle"
-        >
-          <FaIcon
-            iconName={expanded ? 'chevron-down' : 'chevron-right'}
-            size={{faSize: 12, wrapperSize: 12}}
-          />
-          {toggleLabel}
-        </button>
-      ) : null}
-      {expanded ? (
-        <table className={style.table} data-name="upload-rows">
-          <thead>
-            <tr>
-              <th scope="col">{columns.login}</th>
-              <th scope="col">{columns.status}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map(({login, status}, index) => (
-              // A file can hold the same login twice: the index keeps keys unique.
-              <tr key={`${index}-${login}`}>
-                <td className={style.login}>{login}</td>
-                <td>
-                  <Tag type={STATUS_TAG_TYPES[status]} label={statusLabels[status]} size="S" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : null}
-    </div>
-  );
-};
-
 const AssignmentAudience = ({
   title,
   subtitle,
@@ -139,53 +47,62 @@ const AssignmentAudience = ({
 }) => {
   const disabled = everyone.value;
   const loading = upload.status === 'loading';
-  const {value = '', suggestions = [], selected = []} = individuals;
+  const {onChange: onEveryoneChange} = everyone;
+  const {options: populationOptions, onChange: onPopulationsChange} = populations;
+  const {onUpload} = upload;
+  const {value = '', suggestions = [], selected = [], onSearch, onAdd, onRemove} = individuals;
+  const titleId = useMemo(() => uniqueId('assignment-audience-title-'), []);
 
-  const handleEveryone = useCallback(newValue => everyone.onChange(newValue), [everyone]);
+  const handleEveryone = useCallback(newValue => onEveryoneChange(newValue), [onEveryoneChange]);
   const handlePopulations = useCallback(
     choices =>
-      populations.onChange(
-        populations.options
+      onPopulationsChange(
+        populationOptions
           .filter(option => choices.some(choice => choice.value === option.value))
           .map(option => ({...option, selected: true}))
       ),
-    [populations]
+    [populationOptions, onPopulationsChange]
   );
-  const selectedPopulations = populations.options.filter(option => option.selected);
-  const handleRemovePopulation = populationValue => () =>
-    populations.onChange(selectedPopulations.filter(option => option.value !== populationValue));
+  const selectedPopulations = useMemo(
+    () => populationOptions.filter(option => option.selected),
+    [populationOptions]
+  );
+  const handleRemovePopulation = useCallback(
+    populationValue => () =>
+      onPopulationsChange(selectedPopulations.filter(option => option.value !== populationValue)),
+    [selectedPopulations, onPopulationsChange]
+  );
 
   // The native input receives both a browse and a drop, and fires change for each.
   const handleFileChange = useCallback(
     event => {
       const file = event.target.files && event.target.files[0];
       if (disabled || loading || !file) return;
-      upload.onUpload(file);
+      onUpload(file);
     },
-    [disabled, loading, upload]
+    [disabled, loading, onUpload]
   );
 
   const availableSuggestions = useMemo(
     () => suggestions.filter(suggestion => !selected.some(learner => learner.id === suggestion.id)),
     [suggestions, selected]
   );
-  const handleSearch = useCallback(
-    event => individuals.onSearch(event.target.value),
-    [individuals]
-  );
+  const handleSearch = useCallback(event => onSearch(event.target.value), [onSearch]);
   const handleAdd = useCallback(
     ({suggestion}) => {
       const learner = availableSuggestions.find(item => item.id === suggestion.value);
-      if (learner) individuals.onAdd(learner);
+      if (learner) onAdd(learner);
     },
-    [individuals, availableSuggestions]
+    [availableSuggestions, onAdd]
   );
-  const handleRemove = useCallback(id => () => individuals.onRemove(id), [individuals]);
+  const handleRemove = useCallback(id => () => onRemove(id), [onRemove]);
 
   return (
-    <section className={style.container} data-name="assignment-audience" aria-label={title}>
+    <section className={style.container} data-name="assignment-audience" aria-labelledby={titleId}>
       <div className={style.head}>
-        <h2 className={style.title}>{title}</h2>
+        <h2 id={titleId} className={style.title}>
+          {title}
+        </h2>
         {subtitle ? <p className={style.subtitle}>{subtitle}</p> : null}
       </div>
       <Block name="everyone" title={everyone.title}>
@@ -242,7 +159,7 @@ const AssignmentAudience = ({
         >
           <div aria-busy={loading} data-name="upload-dropzone">
             {upload.status === 'done' ? (
-              <UploadResult upload={upload} />
+              <UploadResult {...upload} />
             ) : (
               <BrandUploadBox
                 name="assignment-audience-file"
@@ -306,36 +223,6 @@ const learnerType = PropTypes.shape({
   label: PropTypes.string.isRequired,
   login: PropTypes.string.isRequired
 });
-const statusLabelsType = PropTypes.shape({
-  valid: PropTypes.string,
-  unknown: PropTypes.string,
-  ambiguous: PropTypes.string,
-  inactive: PropTypes.string
-});
-
-const uploadResultShape = {
-  file: PropTypes.shape({name: PropTypes.string, detail: PropTypes.string}),
-  // The four count labels, e.g. {valid: '201 valid', unknown: '6 unknown'}
-  summary: statusLabelsType,
-  keptLabel: PropTypes.string,
-  toggleLabel: PropTypes.string,
-  expanded: PropTypes.bool,
-  onToggleRows: PropTypes.func,
-  columns: PropTypes.shape({login: PropTypes.string, status: PropTypes.string}),
-  statusLabels: statusLabelsType,
-  rows: PropTypes.arrayOf(
-    PropTypes.shape({
-      login: PropTypes.string.isRequired,
-      status: PropTypes.oneOf(STATUSES).isRequired
-    })
-  ),
-  replaceLabel: PropTypes.string,
-  removeLabel: PropTypes.string,
-  onReplace: PropTypes.func,
-  onRemove: PropTypes.func
-};
-
-UploadResult.propTypes = {upload: PropTypes.shape(uploadResultShape)};
 
 AssignmentAudience.propTypes = {
   title: PropTypes.string.isRequired,
@@ -365,13 +252,20 @@ AssignmentAudience.propTypes = {
     onChange: PropTypes.func.isRequired
   }).isRequired,
   upload: PropTypes.shape({
-    ...uploadResultShape,
-    // Also shown while the file is being checked
-    file: uploadResultShape.file,
+    // The file line and the result, once checked
+    ...UploadResult.propTypes,
+    // Also read here, for the line shown while the file is being checked
+    file: UploadResult.propTypes.file,
     title: PropTypes.string,
     subtitle: PropTypes.string,
-    templateLink: PropTypes.shape({label: PropTypes.string, href: PropTypes.string}),
-    dropzone: PropTypes.shape({description: PropTypes.string, browse: PropTypes.string}),
+    templateLink: PropTypes.shape({
+      label: PropTypes.string,
+      href: PropTypes.string
+    }),
+    dropzone: PropTypes.shape({
+      description: PropTypes.string,
+      browse: PropTypes.string
+    }),
     status: PropTypes.oneOf(['idle', 'loading', 'done', 'error']).isRequired,
     error: PropTypes.string,
     // Receives the first File. Parsing and login resolution belong to the consumer.
