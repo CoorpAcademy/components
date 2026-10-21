@@ -1,13 +1,13 @@
-import populationsOnly from './populations-only';
+import fixture from './upload-done';
+import {idleUpload} from './idle';
 
 export default {
   props: {
-    ...populationsOnly.props,
-    populations: {...populationsOnly.props.populations, options: []},
+    ...fixture.props,
     upload: {
-      ...populationsOnly.props.upload,
+      ...idleUpload,
       status: 'error',
-      error: 'The file could not be evaluated. Please try again.'
+      error: 'This file has no login column. Use the template and try again.'
     },
     total: {label: 'Estimated audience: 0 learners'}
   }

@@ -4,69 +4,156 @@ import InputSwitch from '../../atom/input-switch';
 import SelectMultiple from '../../molecule/select-multiple';
 import BrandUploadBox from '../../molecule/brand-upload-box';
 import Autocomplete from '../../atom/autocomplete';
+import ButtonLink from '../../atom/button-link';
 import Chip from '../../atom/chip';
 import Tag from '../../atom/tag';
+import FaIcon from '../../atom/icon';
 import style from './style.css';
 
-const EVALUATION = {
-  valid: {label: 'Valid', type: 'success'},
-  inactive: {label: 'Inactive', type: 'warning'},
-  invalid: {label: 'Invalid', type: 'failure'},
-  notFound: {label: 'Not found', type: 'failure'},
-  shared: {label: 'Shared', type: 'info'}
+// A file row resolves to one of four statuses, keyed on login (L4). A never-connected account is
+// `valid` and added with no warning; a deactivated account is `inactive`, skipped and reported (AQ26).
+const STATUS_TAG_TYPES = {
+  valid: 'success',
+  unknown: 'failure',
+  ambiguous: 'warning',
+  inactive: 'warning'
 };
-const SUMMARY_KEYS = ['valid', 'inactive', 'invalid', 'notFound', 'shared'];
+const STATUSES = ['valid', 'unknown', 'ambiguous', 'inactive'];
+const ACCEPTED_FILES = '.xlsx,.xls,.csv';
+
+const Block = ({name, title, subtitle, aside, children}) => (
+  <section data-name={name} className={style.block}>
+    {title ? (
+      <div className={style.blockHead}>
+        <div>
+          <h3 className={style.blockTitle}>{title}</h3>
+          {subtitle ? <p className={style.blockSubtitle}>{subtitle}</p> : null}
+        </div>
+        {aside}
+      </div>
+    ) : null}
+    {children}
+  </section>
+);
+
+Block.propTypes = {
+  name: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  aside: PropTypes.node,
+  children: PropTypes.node
+};
+
+const UploadResult = ({upload}) => {
+  const {
+    file,
+    summary = {},
+    keptLabel,
+    toggleLabel,
+    expanded = false,
+    onToggleRows,
+    columns = {},
+    statusLabels = {},
+    rows = [],
+    replaceLabel,
+    removeLabel,
+    onReplace,
+    onRemove
+  } = upload;
+  return (
+    <div className={style.result}>
+      <div className={style.file} data-name="upload-file">
+        <div>
+          <div className={style.fileName}>{file.name}</div>
+          {file.detail ? <div className={style.muted}>{file.detail}</div> : null}
+        </div>
+        <div className={style.fileActions}>
+          <ButtonLink type="text" label={replaceLabel} onClick={onReplace} />
+          <ButtonLink type="dangerous" label={removeLabel} onClick={onRemove} />
+        </div>
+      </div>
+      <div className={style.summary} data-name="upload-summary">
+        {STATUSES.filter(status => summary[status]).map(status => (
+          <div key={status}>
+            <Tag type={STATUS_TAG_TYPES[status]} label={summary[status]} />
+          </div>
+        ))}
+      </div>
+      {keptLabel ? <p className={style.muted}>{keptLabel}</p> : null}
+      {toggleLabel ? (
+        <button
+          type="button"
+          className={style.toggle}
+          aria-expanded={expanded}
+          onClick={onToggleRows}
+          data-name="upload-rows-toggle"
+        >
+          <FaIcon
+            iconName={expanded ? 'chevron-down' : 'chevron-right'}
+            size={{faSize: 12, wrapperSize: 12}}
+          />
+          {toggleLabel}
+        </button>
+      ) : null}
+      {expanded ? (
+        <table className={style.table} data-name="upload-rows">
+          <thead>
+            <tr>
+              <th scope="col">{columns.login}</th>
+              <th scope="col">{columns.status}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(({login, status}) => (
+              <tr key={login}>
+                <td className={style.login}>{login}</td>
+                <td>
+                  <Tag type={STATUS_TAG_TYPES[status]} label={statusLabels[status]} size="S" />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : null}
+    </div>
+  );
+};
 
 const AssignmentAudience = ({
+  title,
+  subtitle,
+  disabledExplanation,
   everyone,
   populations,
   upload,
   individuals,
-  total,
-  disabledExplanation = 'Other audience selections are disabled while everyone is selected.'
+  total
 }) => {
   const uploadRef = useRef(null);
   const disabled = everyone.value;
   const loading = upload.status === 'loading';
-  const {options = []} = populations;
   const {value = '', suggestions = [], selected = []} = individuals;
-  const {summary = {}, rows = []} = upload;
 
-  // BrandUploadBox does not forward accept to its native input.
+  // BrandUploadBox does not forward `accept` to its native input.
   useEffect(() => {
     const input = uploadRef.current && uploadRef.current.querySelector('input[type="file"]');
-    if (input) input.accept = '.xlsx,.csv';
-  }, [loading]);
+    if (input) input.accept = ACCEPTED_FILES;
+  });
 
-  const handleEveryone = useCallback(
-    newValue => {
-      if (everyone.onChange) everyone.onChange(newValue);
-    },
-    [everyone]
-  );
-  const availableSuggestions = useMemo(
-    () =>
-      disabled
-        ? []
-        : suggestions.filter(suggestion => !selected.some(learner => learner.id === suggestion.id)),
-    [disabled, suggestions, selected]
-  );
-
+  const handleEveryone = useCallback(newValue => everyone.onChange(newValue), [everyone]);
   const handlePopulations = useCallback(
-    choices => {
-      if (disabled || !populations.onChange) return;
+    choices =>
       populations.onChange(
-        options
+        populations.options
           .filter(option => choices.some(choice => choice.value === option.value))
           .map(option => ({...option, selected: true}))
-      );
-    },
-    [disabled, options, populations]
+      ),
+    [populations]
   );
 
   const uploadFirst = useCallback(
     files => {
-      if (disabled || loading || !files || !files[0] || !upload.onUpload) return;
+      if (disabled || loading || !files || !files[0]) return;
       upload.onUpload(files[0]);
     },
     [disabled, loading, upload]
@@ -81,30 +168,30 @@ const AssignmentAudience = ({
     [uploadFirst]
   );
 
+  const availableSuggestions = useMemo(
+    () => suggestions.filter(suggestion => !selected.some(learner => learner.id === suggestion.id)),
+    [suggestions, selected]
+  );
   const handleSearch = useCallback(
-    event => {
-      if (!disabled && individuals.onSearch) individuals.onSearch(event.target.value);
-    },
-    [disabled, individuals]
+    event => individuals.onSearch(event.target.value),
+    [individuals]
   );
   const handleAdd = useCallback(
     ({suggestion}) => {
-      if (disabled || !individuals.onAdd) return;
       const learner = availableSuggestions.find(item => item.id === suggestion.value);
       if (learner) individuals.onAdd(learner);
     },
-    [disabled, individuals, availableSuggestions]
+    [individuals, availableSuggestions]
   );
-  const handleRemove = useCallback(
-    id => () => {
-      if (!disabled && individuals.onRemove) individuals.onRemove(id);
-    },
-    [disabled, individuals]
-  );
+  const handleRemove = useCallback(id => () => individuals.onRemove(id), [individuals]);
 
   return (
-    <div className={style.container} data-name="assignment-audience">
-      <section data-name="everyone">
+    <section className={style.container} data-name="assignment-audience" aria-label={title}>
+      <div className={style.head}>
+        <h2 className={style.title}>{title}</h2>
+        {subtitle ? <p className={style.subtitle}>{subtitle}</p> : null}
+      </div>
+      <Block name="everyone" title={everyone.title}>
         <InputSwitch
           title={everyone.label}
           value={everyone.value}
@@ -113,180 +200,188 @@ const AssignmentAudience = ({
           data-name="assignment-everyone"
           aria-label={everyone.label}
         />
-      </section>
-      {disabled ? <p className={style.explanation}>{disabledExplanation}</p> : null}
-      <fieldset disabled={disabled} className={style.sources}>
-        <legend className={style.legend}>Audience sources</legend>
-        <section data-name="populations" className={style.section}>
+        {disabled ? <p className={style.explanation}>{disabledExplanation}</p> : null}
+      </Block>
+      <fieldset disabled={disabled} className={style.sources} data-name="audience-sources">
+        <Block name="populations" title={populations.title} subtitle={populations.subtitle}>
           <SelectMultiple
-            title={populations.title}
-            options={options}
+            title={populations.label}
+            options={populations.options}
             multiple
             theme="coorpmanager"
             disabled={disabled}
             onChange={handlePopulations}
           />
-        </section>
-        <section
-          data-name="upload"
-          className={style.section}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
-          aria-busy={loading}
-        >
-          <h3 className={style.title}>Upload learner emails</h3>
-          <div ref={uploadRef}>
-            <BrandUploadBox
-              name="assignment-audience-file"
-              description="Upload an xlsx or CSV file"
-              browse="Choose a file or drop it here"
-              status={loading ? 'loading' : 'default'}
-              onLoad={handleFileChange}
-            />
-          </div>
-          {upload.templateHref ? (
-            <p>
-              <a href={upload.templateHref} download>
-                Download template
+        </Block>
+        <Block
+          name="upload"
+          title={upload.title}
+          subtitle={upload.subtitle}
+          aside={
+            upload.templateLink ? (
+              <a className={style.link} href={upload.templateLink.href} download>
+                {upload.templateLink.label}
               </a>
+            ) : null
+          }
+        >
+          <div
+            ref={uploadRef}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+            aria-busy={loading}
+            data-name="upload-dropzone"
+          >
+            {upload.status === 'done' ? (
+              <UploadResult upload={upload} />
+            ) : (
+              <BrandUploadBox
+                name="assignment-audience-file"
+                description={upload.dropzone.description}
+                browse={upload.dropzone.browse}
+                status={loading ? 'loading' : 'default'}
+                onLoad={handleFileChange}
+              />
+            )}
+          </div>
+          {loading && upload.file ? (
+            <p className={style.muted} role="status">
+              {upload.file.name} · {upload.file.detail}
             </p>
           ) : null}
-          {loading ? <p role="status">Evaluating emails…</p> : null}
-          {upload.status === 'error' ? <p role="alert">{upload.error || 'Upload failed'}</p> : null}
-          {upload.status === 'done' ? (
-            <div aria-live="polite">
-              <ul
-                data-name="upload-summary"
-                className={style.summary}
-                aria-label="Email evaluation summary"
-              >
-                {SUMMARY_KEYS.map(key => (
-                  <li key={key}>
-                    {EVALUATION[key].label}: {summary[key] === undefined ? 0 : summary[key]}
-                  </li>
-                ))}
-              </ul>
-              {rows.length > 0 ? (
-                <div className={style.preview}>
-                  <table data-name="upload-preview" className={style.table}>
-                    <caption className={style.caption}>Evaluated learner emails</caption>
-                    <thead>
-                      <tr>
-                        <th scope="col">Email</th>
-                        <th scope="col">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rows.map((row, index) => {
-                        const status = SUMMARY_KEYS.includes(row.status)
-                          ? EVALUATION[row.status]
-                          : {
-                              label: row.status,
-                              type: 'default'
-                            };
-                        return (
-                          <tr key={`${row.email}-${index}`}>
-                            <td>{row.email}</td>
-                            <td>
-                              <Tag {...status} size="S" />
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              ) : null}
-            </div>
+          {upload.status === 'error' ? (
+            <p className={style.error} role="alert">
+              {upload.error}
+            </p>
           ) : null}
-        </section>
-        <section data-name="individuals" className={style.section}>
+        </Block>
+        <Block name="individuals" title={individuals.title}>
           <Autocomplete
-            title="Individual learners"
-            placeholder="Search learners by name"
+            placeholder={individuals.placeholder}
             theme="coorpmanager"
             value={value}
             suggestions={availableSuggestions.map(learner => ({
-              name: learner.label,
+              name: `${learner.label} · ${learner.login}`,
               value: learner.id
             }))}
             onInput={handleSearch}
             onSuggestionSelected={handleAdd}
           />
-          <div className={style.chips}>
-            {selected.map(learner => (
-              <Chip
-                key={learner.id}
-                text={learner.label}
-                selected
-                customIcon="times"
-                onClick={disabled ? undefined : handleRemove(learner.id)}
-              />
-            ))}
-          </div>
-        </section>
+          {selected.length > 0 ? (
+            <div className={style.chips}>
+              {selected.map(learner => (
+                <Chip
+                  key={learner.id}
+                  text={learner.label}
+                  subText={learner.login}
+                  selected
+                  customIcon="times"
+                  onClick={disabled ? undefined : handleRemove(learner.id)}
+                />
+              ))}
+            </div>
+          ) : null}
+        </Block>
       </fieldset>
-      <p className={style.total} data-name="estimated-audience" aria-live="polite">
-        {total.label}
-      </p>
-    </div>
+      <div className={style.total} data-name="estimated-audience" aria-live="polite">
+        <span className={style.totalLabel}>{total.label}</span>
+        {total.detail ? <span className={style.muted}>{total.detail}</span> : null}
+      </div>
+    </section>
   );
 };
 
 const learnerType = PropTypes.shape({
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  login: PropTypes.string.isRequired
+});
+const statusLabelsType = PropTypes.shape({
+  valid: PropTypes.string,
+  unknown: PropTypes.string,
+  ambiguous: PropTypes.string,
+  inactive: PropTypes.string
 });
 
+const uploadResultShape = {
+  file: PropTypes.shape({name: PropTypes.string, detail: PropTypes.string}),
+  // The four count labels, e.g. {valid: '201 valid', unknown: '6 unknown'}
+  summary: statusLabelsType,
+  keptLabel: PropTypes.string,
+  toggleLabel: PropTypes.string,
+  expanded: PropTypes.bool,
+  onToggleRows: PropTypes.func,
+  columns: PropTypes.shape({login: PropTypes.string, status: PropTypes.string}),
+  statusLabels: statusLabelsType,
+  rows: PropTypes.arrayOf(
+    PropTypes.shape({
+      login: PropTypes.string.isRequired,
+      status: PropTypes.oneOf(STATUSES).isRequired
+    })
+  ),
+  replaceLabel: PropTypes.string,
+  removeLabel: PropTypes.string,
+  onReplace: PropTypes.func,
+  onRemove: PropTypes.func
+};
+
+UploadResult.propTypes = {upload: PropTypes.shape(uploadResultShape)};
+
 AssignmentAudience.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  disabledExplanation: PropTypes.string,
   everyone: PropTypes.shape({
-    value: PropTypes.bool.isRequired,
+    title: PropTypes.string,
     label: PropTypes.string.isRequired,
-    // Receives a boolean.
-    onChange: PropTypes.func
+    value: PropTypes.bool.isRequired,
+    // Receives the new boolean
+    onChange: PropTypes.func.isRequired
   }).isRequired,
   populations: PropTypes.shape({
     title: PropTypes.string,
+    subtitle: PropTypes.string,
+    label: PropTypes.string,
     options: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         selected: PropTypes.bool
       })
-    ),
-    // Receives the selected original options with selected: true.
-    onChange: PropTypes.func
+    ).isRequired,
+    // Receives the selected options, with selected: true
+    onChange: PropTypes.func.isRequired
   }).isRequired,
   upload: PropTypes.shape({
-    // Receives the first File; parsing and evaluation belong to the consumer.
-    onUpload: PropTypes.func,
-    templateHref: PropTypes.string,
+    ...uploadResultShape,
+    // Also shown while the file is being checked
+    file: uploadResultShape.file,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    templateLink: PropTypes.shape({label: PropTypes.string, href: PropTypes.string}),
+    dropzone: PropTypes.shape({description: PropTypes.string, browse: PropTypes.string}),
     status: PropTypes.oneOf(['idle', 'loading', 'done', 'error']).isRequired,
-    summary: PropTypes.shape({
-      valid: PropTypes.number,
-      inactive: PropTypes.number,
-      invalid: PropTypes.number,
-      notFound: PropTypes.number,
-      shared: PropTypes.number
-    }),
-    rows: PropTypes.arrayOf(
-      PropTypes.shape({email: PropTypes.string.isRequired, status: PropTypes.string.isRequired})
-    ),
-    error: PropTypes.string
+    error: PropTypes.string,
+    // Receives the first File. Parsing and login resolution belong to the consumer.
+    onUpload: PropTypes.func.isRequired
   }).isRequired,
   individuals: PropTypes.shape({
+    title: PropTypes.string,
+    placeholder: PropTypes.string,
     value: PropTypes.string,
     suggestions: PropTypes.arrayOf(learnerType),
     selected: PropTypes.arrayOf(learnerType),
-    // Receives the query string, including an empty string when clearing.
-    onSearch: PropTypes.func,
-    // Receives the original {id, label} suggestion.
-    onAdd: PropTypes.func,
-    // Receives the selected learner id.
-    onRemove: PropTypes.func
+    // Receives the query, searched by name or login
+    onSearch: PropTypes.func.isRequired,
+    // Receives the original {id, label, login} suggestion
+    onAdd: PropTypes.func.isRequired,
+    // Receives the learner id
+    onRemove: PropTypes.func.isRequired
   }).isRequired,
-  total: PropTypes.shape({label: PropTypes.string.isRequired}).isRequired,
-  disabledExplanation: PropTypes.string
+  total: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    detail: PropTypes.string
+  }).isRequired
 };
 
 export default AssignmentAudience;

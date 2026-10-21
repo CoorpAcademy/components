@@ -1,555 +1,235 @@
+import fs from 'fs';
+import path from 'path';
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {cleanup, createEvent, fireEvent, render} from '@testing-library/react';
-import AssignmentAudience from '..';
+import {cleanup, fireEvent, render, within} from '@testing-library/react';
+import Tag from '../../../atom/tag';
 import {wrappingComponent} from '../../../test/helpers/render-component';
-import combined from './fixtures/combined';
+import AssignmentAudience from '..';
+import combined, {rows} from './fixtures/combined';
+import everyoneOn from './fixtures/everyone-on';
+import idle from './fixtures/idle';
+import populationsOnly from './fixtures/populations-only';
+import individualsWithChips from './fixtures/individuals-with-chips';
+import uploadDone from './fixtures/upload-done';
+import uploadDoneExpanded from './fixtures/upload-done-expanded';
+import uploadLoading from './fixtures/upload-loading';
+import uploadError from './fixtures/upload-error';
 
 browserEnv();
 test.afterEach.always(cleanup);
 
 const mount = props => render(<AssignmentAudience {...props} />, {wrapper: wrappingComponent});
-const section = (view, name) => view.container.querySelector(`[data-name="${name}"]`);
-const picker = view => section(view, 'populations').querySelector('[data-name="select-languages"]');
-const checkboxes = view => section(view, 'populations').querySelectorAll('input[type="checkbox"]');
-const fileInput = view => view.container.querySelector('input[type="file"]');
-const everyoneInput = view => section(view, 'everyone').querySelector('input');
+const block = (view, name) => view.container.querySelector(`[data-name="${name}"]`);
+const fixtures = {
+  combined,
+  everyoneOn,
+  idle,
+  populationsOnly,
+  individualsWithChips,
+  uploadDone,
+  uploadDoneExpanded,
+  uploadLoading,
+  uploadError
+};
 
-test.serial('everyone toggles with a boolean and waits for new props', t => {
-  const calls = [];
-  const props = {
-    ...combined.props,
-    everyone: {...combined.props.everyone, onChange: value => calls.push(value)}
-  };
-  const view = mount(props);
-  fireEvent.click(everyoneInput(view));
-  t.deepEqual(calls, [true]);
-  t.false(everyoneInput(view).checked);
-  view.rerender(<AssignmentAudience {...props} everyone={{...props.everyone, value: true}} />);
-  t.true(everyoneInput(view).checked);
-  fireEvent.click(everyoneInput(view));
-  t.deepEqual(calls, [true, false]);
-  t.true(everyoneInput(view).checked);
-});
+// Every word a user can read or hear: text plus the readable attributes.
+const readable = container =>
+  [
+    container.textContent,
+    ...[...container.querySelectorAll('[aria-label],[title],[placeholder],[alt]')].flatMap(node =>
+      ['aria-label', 'title', 'placeholder', 'alt'].map(name => node.getAttribute(name) || '')
+    )
+  ].join(' ');
 
-test.serial('population selection emits normalized selected options without mutating props', t => {
-  const calls = [];
-  const options = combined.props.populations.options.map(option => Object.freeze({...option}));
-  const props = {
-    ...combined.props,
-    populations: {...combined.props.populations, options, onChange: value => calls.push(value)}
-  };
-  const view = mount(props);
-  fireEvent.click(picker(view));
-  fireEvent.click(checkboxes(view)[1]);
-  t.deepEqual(calls, [
-    [
-      {name: 'Sales', value: 'sales', selected: true},
-      {name: 'Engineering', value: 'engineering', selected: true}
-    ]
-  ]);
-  t.false(checkboxes(view)[1].checked);
-  view.rerender(
-    <AssignmentAudience {...props} populations={{...props.populations, options: calls[0]}} />
+test.serial('R1: renders as a titled page section from its own props, with no wizard host', t => {
+  const view = mount(combined.props);
+  const region = view.getByRole('region', {name: combined.props.title});
+  t.truthy(within(region).getByText(combined.props.subtitle));
+  ['everyone', 'populations', 'upload', 'individuals', 'estimated-audience'].forEach(name =>
+    t.truthy(block(view, name), name)
   );
-  t.true(checkboxes(view)[1].checked);
-  fireEvent.click(checkboxes(view)[0]);
-  t.deepEqual(calls[1], [{name: 'Engineering', value: 'engineering', selected: true}]);
-  t.deepEqual(options, [
-    {name: 'Sales', value: 'sales', selected: true},
-    {name: 'Engineering', value: 'engineering', selected: false}
-  ]);
+  const wizard = fs.readFileSync(path.join(__dirname, '../../wizard-contents/index.js'), 'utf8');
+  t.false(wizard.includes('assignment-audience'));
+  t.false(wizard.includes('AssignmentAudience'));
 });
 
-test.serial('file selection and drop each emit exactly the first File', t => {
+test.serial('R2: everyone disables populations, upload and individuals, with an explanation', t => {
+  const view = mount(everyoneOn.props);
+  t.truthy(view.getByText(everyoneOn.props.disabledExplanation));
+  t.true(block(view, 'audience-sources').disabled);
+  // Disabled through <fieldset disabled> (browsers disable every descendant control; this
+  // jsdom does not compute :disabled through a fieldset, so the test asserts the containment).
+  const sources = block(view, 'audience-sources');
+  t.is(block(view, 'upload').querySelector('input[type="file"]').closest('fieldset'), sources);
+  t.is(view.getByTestId('autocomplete-input').closest('fieldset'), sources);
+  block(view, 'populations')
+    .querySelectorAll('input')
+    .forEach(input => t.is(input.closest('fieldset'), sources));
+  t.is(block(view, 'everyone').querySelector('input').closest('fieldset'), null);
+});
+
+test.serial('R2: with everyone off, the sources are enabled and there is no explanation', t => {
+  const view = mount(combined.props);
+  t.false(block(view, 'audience-sources').disabled);
+  t.is(view.queryByText(combined.props.disabledExplanation), null);
+});
+
+test.serial('R3: toggling everyone calls onChange with the new value', t => {
   const calls = [];
   const view = mount({
     ...combined.props,
-    upload: {...combined.props.upload, onUpload: file => calls.push(file)}
+    everyone: {...combined.props.everyone, onChange: value => calls.push(value)}
   });
-  const csv = new window.File(['email'], 'learners.csv', {type: 'text/csv'});
-  const xlsx = new window.File(['xlsx'], 'learners.xlsx');
-  const input = fileInput(view);
-  t.is(input.accept, '.xlsx,.csv');
-  t.false(input.multiple);
-  fireEvent.change(input, {target: {files: [csv, xlsx]}});
-  const dragover = createEvent.dragOver(section(view, 'upload'));
-  fireEvent(section(view, 'upload'), dragover);
-  t.true(dragover.defaultPrevented);
-  const drop = createEvent.drop(input, {dataTransfer: {files: [xlsx, csv]}});
-  fireEvent(input, drop);
-  t.true(drop.defaultPrevented);
-  t.deepEqual(calls, [csv, xlsx]);
-  fireEvent.change(input, {target: {files: []}});
-  fireEvent.drop(input, {dataTransfer: {files: []}});
-  t.is(calls.length, 2);
+  fireEvent.click(block(view, 'everyone').querySelector('input'));
+  t.deepEqual(calls, [true]);
 });
 
-test.serial('search emits one query string including clearing', t => {
+test.serial('R3: selecting a population calls onChange with the selected options', t => {
   const calls = [];
-  const props = {
+  const view = mount({
     ...combined.props,
-    individuals: {...combined.props.individuals, value: '', onSearch: value => calls.push(value)}
-  };
-  const view = mount(props);
-  const input = view.getByTestId('autocomplete-input');
-  fireEvent.focus(input);
-  fireEvent.input(input, {target: {value: 'Alex'}});
-  t.deepEqual(calls, ['Alex']);
-  view.rerender(
-    <AssignmentAudience {...props} individuals={{...props.individuals, value: 'Alex'}} />
+    populations: {...combined.props.populations, onChange: value => calls.push(value)}
+  });
+  fireEvent.click(block(view, 'populations').querySelector('[data-name="select-languages"]'));
+  fireEvent.click(block(view, 'populations').querySelectorAll('input[type="checkbox"]')[2]);
+  t.deepEqual(
+    calls[0].map(option => option.value),
+    ['managers-fr', 'managers-de', 'sales-emea']
   );
-  t.is(input.value, 'Alex');
-  fireEvent.input(input, {target: {value: ''}});
-  t.deepEqual(calls, ['Alex', '']);
-  view.rerender(<AssignmentAudience {...props} />);
-  t.is(input.value, '');
 });
 
-test.serial('learner selection emits original suggestion and removal emits id', t => {
+test.serial('R3: choosing or dropping a file calls onUpload with the first file', t => {
+  const files = [];
+  const upload = {...idle.props.upload, onUpload: file => files.push(file)};
+  const view = mount({...idle.props, upload});
+  const xlsx = new window.File(['login'], 'a.xlsx');
+  const csv = new window.File(['login'], 'b.csv');
+  fireEvent.change(block(view, 'upload').querySelector('input[type="file"]'), {
+    target: {files: [xlsx, csv]}
+  });
+  fireEvent.drop(block(view, 'upload-dropzone'), {dataTransfer: {files: [csv, xlsx]}});
+  t.deepEqual(files, [xlsx, csv]);
+});
+
+test.serial('R3: the file input accepts xlsx, xls and csv', t => {
+  const view = mount(idle.props);
+  t.is(block(view, 'upload').querySelector('input[type="file"]').accept, '.xlsx,.xls,.csv');
+});
+
+test.serial('R3: Replace, Remove and the rows toggle call their callbacks', t => {
+  const calls = [];
+  const upload = {
+    ...uploadDone.props.upload,
+    onReplace: () => calls.push('replace'),
+    onRemove: () => calls.push('remove'),
+    onToggleRows: () => calls.push('toggle')
+  };
+  const view = mount({...uploadDone.props, upload});
+  fireEvent.click(view.getByRole('button', {name: upload.replaceLabel}));
+  fireEvent.click(view.getByRole('button', {name: upload.removeLabel}));
+  fireEvent.click(view.getByRole('button', {name: upload.toggleLabel}));
+  t.deepEqual(calls, ['replace', 'remove', 'toggle']);
+});
+
+test.serial('R3: searching, adding and removing a learner call their callbacks', t => {
+  const queries = [];
   const added = [];
   const removed = [];
-  const props = {
-    ...combined.props,
-    individuals: {
-      ...combined.props.individuals,
-      onAdd: value => added.push(value),
-      onRemove: id => removed.push(id)
-    }
+  const individuals = {
+    ...individualsWithChips.props.individuals,
+    onSearch: query => queries.push(query),
+    onAdd: learner => added.push(learner),
+    onRemove: id => removed.push(id)
   };
-  const view = mount(props);
-  fireEvent.focus(view.getByTestId('autocomplete-input'));
-  t.is(view.getAllByRole('option').length, 1);
-  fireEvent.click(view.getByRole('option'));
-  t.is(added.length, 1);
-  t.is(added[0], props.individuals.suggestions[0]);
-  const chip = view.getByRole('button', {name: 'Sam Lee'});
-  fireEvent.click(chip);
-  fireEvent.keyDown(chip, {key: 'Enter'});
-  fireEvent.keyDown(chip, {key: ' '});
-  t.deepEqual(removed, ['sam', 'sam', 'sam']);
-  view.rerender(
-    <AssignmentAudience
-      {...props}
-      individuals={{...props.individuals, selected: [...props.individuals.selected, added[0]]}}
-    />
-  );
-  fireEvent.focus(view.getByTestId('autocomplete-input'));
-  t.is(view.queryAllByRole('option').length, 0);
-  t.is(added.length, 1);
+  const view = mount({...individualsWithChips.props, individuals});
+  const input = view.getByTestId('autocomplete-input');
+  fireEvent.input(input, {target: {value: 'marc'}});
+  t.deepEqual(queries, ['marc']);
+  fireEvent.focus(input);
+  fireEvent.click(view.getAllByRole('option')[1]);
+  t.deepEqual(added, [individuals.suggestions[1]]);
+  fireEvent.click(view.getByText('Pedro Costa'));
+  t.deepEqual(removed, ['u2']);
 });
 
-test.serial('everyone disables all three inputs and explains why', t => {
-  const calls = [];
-  const record = value => calls.push(value);
-  const props = {
-    ...combined.props,
-    everyone: {...combined.props.everyone, onChange: record},
-    populations: {...combined.props.populations, onChange: record},
-    upload: {...combined.props.upload, onUpload: record},
-    individuals: {...combined.props.individuals, onSearch: record, onAdd: record, onRemove: record}
-  };
-  const view = mount(props);
-  fireEvent.click(picker(view));
-  fireEvent.focus(view.getByTestId('autocomplete-input'));
-  view.rerender(<AssignmentAudience {...props} everyone={{...props.everyone, value: true}} />);
-  t.truthy(view.getByText('Other audience selections are disabled while everyone is selected.'));
-  const disabledInputs = view.container.querySelectorAll('fieldset input');
-  t.true(disabledInputs.length >= 4);
-  disabledInputs.forEach(input => t.true(input.matches(':disabled')));
-  t.false(everyoneInput(view).matches(':disabled'));
-  fireEvent.click(picker(view));
-  fireEvent.click(checkboxes(view)[1]);
-  fireEvent.input(view.getByTestId('autocomplete-input'), {target: {value: 'Other'}});
-  const file = new window.File([''], 'learners.csv');
-  fireEvent.change(fileInput(view), {target: {files: [file]}});
-  fireEvent.drop(section(view, 'upload'), {dataTransfer: {files: [file]}});
-  fireEvent.click(view.getByRole('group', {name: 'Sam Lee'}));
-  t.is(view.queryAllByRole('option').length, 0);
-  t.is(view.queryByRole('button', {name: 'Sam Lee'}), null);
-  t.false(view.getByRole('group', {name: 'Sam Lee'}).hasAttribute('tabindex'));
-  t.deepEqual(calls, []);
-  t.truthy(view.getByText('valid@example.com'));
-  view.rerender(<AssignmentAudience {...props} />);
-  t.false(fileInput(view).disabled);
-  t.false(fileInput(view).closest('fieldset').disabled);
-  t.true(checkboxes(view)[0].checked);
-  fireEvent.click(checkboxes(view)[1]);
-  fireEvent.input(view.getByTestId('autocomplete-input'), {target: {value: 'Alex'}});
-  fireEvent.drop(section(view, 'upload'), {dataTransfer: {files: [file]}});
-  t.is(calls.length, 3);
-  view.rerender(
-    <AssignmentAudience
-      {...props}
-      everyone={{...props.everyone, value: true}}
-      disabledExplanation="Everyone takes precedence"
-    />
-  );
-  t.truthy(view.getByText('Everyone takes precedence'));
+test.serial('R3: a learner chip shows the name and the login', t => {
+  const view = mount(combined.props);
+  const chips = block(view, 'individuals');
+  combined.props.individuals.selected.forEach(({label, login}) => {
+    t.truthy(within(chips).getByText(label));
+    t.truthy(within(chips).getByText(login));
+  });
+});
+
+test.serial('R4: the upload summary shows the four counts as tags and the kept line', t => {
+  const view = mount(uploadDone.props);
+  const summary = block(view, 'upload-summary');
+  const {summary: labels} = uploadDone.props.upload;
+  [
+    ['valid', 'success'],
+    ['unknown', 'failure'],
+    ['ambiguous', 'warning'],
+    ['inactive', 'warning']
+  ].forEach(([status, type], index) => {
+    const expected = render(<Tag type={type} label={labels[status]} />);
+    t.is(summary.children[index].innerHTML, expected.container.innerHTML, status);
+    expected.unmount();
+  });
+  t.truthy(view.getByText(uploadDone.props.upload.keptLabel));
+  t.truthy(view.getByText(uploadDone.props.upload.file.name));
 });
 
 test.serial(
-  'loading blocks both upload paths without blocking population or learner selection',
+  'R4: the rows table is collapsed until expanded, then lists each login with its status',
   t => {
-    const uploads = [];
-    const selections = [];
-    const learners = [];
-    const view = mount({
-      ...combined.props,
-      upload: {...combined.props.upload, status: 'loading', onUpload: file => uploads.push(file)},
-      populations: {...combined.props.populations, onChange: value => selections.push(value)},
-      individuals: {...combined.props.individuals, onAdd: value => learners.push(value)}
-    });
-    const file = new window.File([''], 'learners.csv');
-    t.truthy(view.getByText('Evaluating emails…'));
-    const input = fileInput(view);
-    if (input) {
-      t.true(input.matches(':disabled'));
-      fireEvent.change(input, {target: {files: [file]}});
-    }
-    fireEvent.drop(section(view, 'upload'), {dataTransfer: {files: [file]}});
-    fireEvent.click(picker(view));
-    fireEvent.click(checkboxes(view)[1]);
-    fireEvent.focus(view.getByTestId('autocomplete-input'));
-    fireEvent.click(view.getByRole('option'));
-    t.deepEqual(uploads, []);
-    t.is(selections.length, 1);
-    t.is(learners.length, 1);
+    const collapsed = mount(uploadDone.props);
+    t.is(block(collapsed, 'upload-rows'), null);
+    t.is(
+      collapsed
+        .getByRole('button', {name: uploadDone.props.upload.toggleLabel})
+        .getAttribute('aria-expanded'),
+      'false'
+    );
+    cleanup();
+    const expanded = mount(uploadDoneExpanded.props);
+    const table = block(expanded, 'upload-rows');
+    const cells = [...table.querySelectorAll('tbody tr')].map(tr =>
+      [...tr.querySelectorAll('td')].map(td => td.textContent)
+    );
+    const {statusLabels} = uploadDoneExpanded.props.upload;
+    t.deepEqual(
+      cells,
+      rows.map(({login, status}) => [login, statusLabels[status]])
+    );
+    t.deepEqual(
+      [...table.querySelectorAll('th')].map(th => th.textContent),
+      ['Login', 'Status']
+    );
   }
 );
 
-test.serial('preview renders five supplied counters including zero and all row status tags', t => {
-  const view = mount({
-    ...combined.props,
-    upload: {
-      ...combined.props.upload,
-      rows: [...combined.props.upload.rows, {email: 'pending@example.com', status: 'Pending'}]
-    }
+test.serial('R4: loading and error states', t => {
+  const loading = mount(uploadLoading.props);
+  t.is(block(loading, 'upload-dropzone').getAttribute('aria-busy'), 'true');
+  t.is(block(loading, 'upload-summary'), null);
+  cleanup();
+  const error = mount(uploadError.props);
+  t.is(error.getByRole('alert').textContent, uploadError.props.upload.error);
+  t.is(block(error, 'upload-summary'), null);
+});
+
+test.serial('R4: no email and no "group" anywhere: no prop, no label, no column', t => {
+  t.false(
+    fs.readFileSync(path.join(__dirname, '../index.js'), 'utf8').toLowerCase().includes('email')
+  );
+  Object.entries(fixtures).forEach(([name, fixture]) => {
+    const view = mount(fixture.props);
+    const words = readable(view.container).toLowerCase();
+    t.false(words.includes('email'), name);
+    t.notRegex(words, /\bgroups?\b/, name);
+    t.false(JSON.stringify(fixture.props).toLowerCase().includes('email'), name);
+    cleanup();
   });
-  const summary = section(view, 'upload-summary');
-  ['Valid: 12', 'Inactive: 2', 'Invalid: 0', 'Not found: 3', 'Shared: 1'].forEach(label =>
-    t.true(summary.textContent.includes(label))
-  );
-  ['Valid', 'Inactive', 'Invalid', 'Not found', 'Shared', 'Pending'].forEach(label =>
-    t.truthy(view.container.querySelector(`[data-name="content-tag-${label}"]`))
-  );
-  t.is(view.getAllByRole('row').length, 7);
-  t.truthy(view.getByRole('columnheader', {name: 'Email'}));
-  t.truthy(view.getByRole('columnheader', {name: 'Status'}));
-  t.truthy(view.getByText('Estimated audience: 42 learners'));
-  t.is(
-    view.getByRole('link', {name: 'Download template'}).getAttribute('href'),
-    '/audience-template.csv'
-  );
-  t.true(view.getByRole('link', {name: 'Download template'}).hasAttribute('download'));
-});
-
-test.serial('error is plain text and permits retry', t => {
-  const calls = [];
-  const view = mount({
-    ...combined.props,
-    upload: {
-      ...combined.props.upload,
-      status: 'error',
-      error: '<b>Upload failed</b>',
-      onUpload: file => calls.push(file)
-    }
-  });
-  t.truthy(view.getByText('<b>Upload failed</b>'));
-  t.is(view.container.querySelector('b'), null);
-  t.false(fileInput(view).disabled);
-  t.false(fileInput(view).closest('fieldset').disabled);
-  const file = new window.File([''], 'retry.csv');
-  fireEvent.change(fileInput(view), {target: {files: [file]}});
-  t.deepEqual(calls, [file]);
-});
-
-test.serial('controlled rerender replaces query selections preview and total', t => {
-  const view = mount(combined.props);
-  view.rerender(
-    <AssignmentAudience
-      {...combined.props}
-      populations={{
-        ...combined.props.populations,
-        options: [{name: 'HR', value: 'hr', selected: true}]
-      }}
-      individuals={{
-        ...combined.props.individuals,
-        value: 'New query',
-        selected: [{id: 'new', label: 'New learner'}]
-      }}
-      upload={{
-        ...combined.props.upload,
-        summary: {valid: 99},
-        rows: [{email: 'new@example.com', status: 'valid'}]
-      }}
-      total={{label: 'Estimated audience: 1000 learners'}}
-    />
-  );
-  t.is(view.getByTestId('autocomplete-input').value, 'New query');
-  t.is(view.queryByText('Sam Lee'), null);
-  t.truthy(view.getByRole('button', {name: 'New learner'}));
-  t.truthy(view.getByText('new@example.com'));
-  t.is(view.queryByText('valid@example.com'), null);
-  t.true(section(view, 'upload-summary').textContent.includes('Valid: 99'));
-  t.truthy(view.getByText('Estimated audience: 1000 learners'));
-  t.true(checkboxes(view)[0].checked);
-});
-
-test.serial('empty arrays and omitted optional upload details render safely', t => {
-  const props = {
-    ...combined.props,
-    populations: {...combined.props.populations, options: []},
-    individuals: {...combined.props.individuals, value: undefined, selected: [], suggestions: []},
-    upload: {status: 'done'}
-  };
-  const view = mount(props);
-  t.is(view.getByTestId('autocomplete-input').value, '');
-  ['Valid: 0', 'Inactive: 0', 'Invalid: 0', 'Not found: 0', 'Shared: 0'].forEach(label =>
-    t.true(section(view, 'upload-summary').textContent.includes(label))
-  );
-  t.is(view.queryAllByRole('row').length, 0);
-  view.rerender(<AssignmentAudience {...props} upload={{status: 'idle', error: 'stale error'}} />);
-  t.is(view.queryByText('stale error'), null);
-  t.is(section(view, 'upload-summary'), null);
-  t.truthy(fileInput(view));
-});
-
-test.serial('unknown row statuses including object property names render neutral tags', t => {
-  const view = mount({
-    ...combined.props,
-    upload: {
-      ...combined.props.upload,
-      rows: [{email: 'pending@example.com', status: 'constructor'}]
-    }
-  });
-  const tag = view.container.querySelector('[data-name="content-tag-constructor"]');
-  t.truthy(tag);
-  t.true(tag.className.includes('defaultStyle'));
-});
-
-test.serial('upload transitions hide stale results and allow retry after loading', t => {
-  const uploads = [];
-  const props = {
-    ...combined.props,
-    upload: {...combined.props.upload, onUpload: file => uploads.push(file), error: 'Stale error'}
-  };
-  const view = mount(props);
-  t.truthy(section(view, 'upload-preview'));
-  t.is(view.queryByRole('alert'), null);
-  view.rerender(<AssignmentAudience {...props} upload={{...props.upload, status: 'loading'}} />);
-  t.is(section(view, 'upload-preview'), null);
-  t.is(section(view, 'upload-summary'), null);
-  t.is(view.queryByRole('alert'), null);
-  t.is(section(view, 'upload').getAttribute('aria-busy'), 'true');
-  t.truthy(view.getByRole('status'));
-  const file = new window.File(['email'], 'retry.xlsx');
-  const blockedDrop = createEvent.drop(section(view, 'upload'), {dataTransfer: {files: [file]}});
-  fireEvent(section(view, 'upload'), blockedDrop);
-  t.true(blockedDrop.defaultPrevented);
-  t.deepEqual(uploads, []);
-
-  view.rerender(
-    <AssignmentAudience {...props} upload={{...props.upload, status: 'error', error: ''}} />
-  );
-  t.is(view.getByRole('alert').textContent, 'Upload failed');
-  t.is(view.queryByRole('status'), null);
-  t.is(section(view, 'upload-preview'), null);
-  t.is(section(view, 'upload-summary'), null);
-  t.is(section(view, 'upload').getAttribute('aria-busy'), 'false');
-  t.is(fileInput(view).accept, '.xlsx,.csv');
-  fireEvent.change(fileInput(view), {target: {files: [file]}});
-  fireEvent.drop(section(view, 'upload'), {dataTransfer: {files: [file]}});
-  t.deepEqual(uploads, [file, file]);
-
-  view.rerender(<AssignmentAudience {...props} upload={{...props.upload, status: 'idle'}} />);
-  t.is(view.queryByRole('alert'), null);
-  t.is(view.queryByRole('status'), null);
-  t.is(section(view, 'upload-preview'), null);
-  t.is(section(view, 'upload-summary'), null);
-  t.is(fileInput(view).accept, '.xlsx,.csv');
-});
-
-test.serial('same-name populations remain distinct and the final selection can be cleared', t => {
-  const calls = [];
-  const updatedCalls = [];
-  const options = [
-    Object.freeze({name: 'Regional staff', value: 'emea', selected: true}),
-    Object.freeze({name: 'Regional staff', value: 'apac', selected: false})
-  ];
-  const props = {
-    ...combined.props,
-    populations: {title: 'Populations', options, onChange: value => calls.push(value)}
-  };
-  const view = mount(props);
-  fireEvent.click(picker(view));
-  fireEvent.click(checkboxes(view)[0]);
-  t.deepEqual(calls, [[]]);
-  t.true(checkboxes(view)[0].checked);
-  const clearedOptions = options.map(option => ({...option, selected: false}));
-  view.rerender(
-    <AssignmentAudience
-      {...props}
-      populations={{
-        ...props.populations,
-        options: clearedOptions,
-        onChange: value => updatedCalls.push(value)
-      }}
-    />
-  );
-  t.false(checkboxes(view)[0].checked);
-  fireEvent.click(checkboxes(view)[1]);
-  t.deepEqual(updatedCalls, [[{name: 'Regional staff', value: 'apac', selected: true}]]);
-  t.deepEqual(calls, [[]]);
-  t.false(checkboxes(view)[1].checked);
-  t.true(options[0].selected);
-  t.false(options[1].selected);
-});
-
-test.serial('same-name learners are added by keyboard and removed by their own id', async t => {
-  const added = [];
-  const removed = [];
-  const suggestions = Object.freeze([
-    Object.freeze({id: 'alex-emea', label: 'Alex Rivers'}),
-    Object.freeze({id: 'alex-apac', label: 'Alex Rivers'})
-  ]);
-  const props = {
-    ...combined.props,
-    individuals: {
-      value: 'Alex',
-      suggestions,
-      selected: [{id: 'alex-emea', label: 'Alex Rivers (selected)'}],
-      onAdd: learner => added.push(learner),
-      onRemove: id => removed.push(id)
-    }
-  };
-  const view = mount(props);
-  const input = view.getByTestId('autocomplete-input');
-  fireEvent.focus(input);
-  t.is(view.getAllByRole('option').length, 1);
-  t.is(view.getByRole('option').textContent, 'Alex Rivers');
-  fireEvent.keyDown(input, {key: 'ArrowDown', keyCode: 40});
-  fireEvent.keyDown(input, {key: 'Enter', keyCode: 13});
-  // Let the autocomplete finish its selection event before the next user interaction.
-  await new Promise(resolve => {
-    setTimeout(resolve, 0);
-  });
-  t.is(added.length, 1);
-  t.is(added[0], suggestions[1]);
-  t.is(input.value, 'Alex');
-  t.is(view.queryByRole('button', {name: 'Alex Rivers'}), null);
-  view.rerender(
-    <AssignmentAudience
-      {...props}
-      individuals={{...props.individuals, selected: [...props.individuals.selected, added[0]]}}
-    />
-  );
-  fireEvent.focus(input);
-  t.is(view.queryAllByRole('option').length, 0);
-  fireEvent.click(view.getByRole('button', {name: 'Alex Rivers'}));
-  t.deepEqual(removed, ['alex-apac']);
-  t.truthy(view.getByRole('button', {name: 'Alex Rivers'}));
-  view.rerender(<AssignmentAudience {...props} />);
-  t.is(view.queryByRole('button', {name: 'Alex Rivers'}), null);
-  t.truthy(view.getByRole('button', {name: 'Alex Rivers (selected)'}));
-  fireEvent.blur(input);
-  fireEvent.focus(input);
-  t.is(view.getAllByRole('option').length, 1);
-  t.deepEqual(removed, ['alex-apac']);
-});
-
-test.serial('non-file drops are prevented without uploading and later file drops still work', t => {
-  const uploads = [];
-  const view = mount({
-    ...combined.props,
-    upload: {...combined.props.upload, onUpload: file => uploads.push(file)}
-  });
-  const target = section(view, 'upload');
-  [undefined, {}, {files: null}, {files: []}].forEach(dataTransfer => {
-    const event = createEvent.drop(target, dataTransfer ? {dataTransfer} : {});
-    fireEvent(target, event);
-    t.true(event.defaultPrevented);
-  });
-  fireEvent.change(fileInput(view), {target: {files: null}});
-  t.deepEqual(uploads, []);
-  const file = new window.File(['email'], 'learners.csv');
-  const files = {0: file, length: 1, item: index => (index === 0 ? file : null)};
-  fireEvent.drop(target, {dataTransfer: {files}});
-  t.is(uploads.length, 1);
-  t.is(uploads[0], file);
-});
-
-test.serial('omitted callbacks leave audience controls safe and controlled', t => {
-  const props = {
-    ...combined.props,
-    everyone: {value: false, label: 'Everyone'},
-    populations: {title: 'Populations', options: combined.props.populations.options},
-    upload: {status: 'idle'},
-    individuals: {
-      value: 'Alex',
-      suggestions: [{id: 'alex', label: 'Alex Rivers'}],
-      selected: [{id: 'sam', label: 'Sam Lee'}]
-    }
-  };
-  const view = mount(props);
-  fireEvent.click(everyoneInput(view));
-  fireEvent.click(picker(view));
-  fireEvent.click(checkboxes(view)[1]);
-  const file = new window.File([''], 'learners.csv');
-  fireEvent.change(fileInput(view), {target: {files: [file]}});
-  fireEvent.drop(section(view, 'upload'), {dataTransfer: {files: [file]}});
-  const input = view.getByTestId('autocomplete-input');
-  fireEvent.focus(input);
-  fireEvent.input(input, {target: {value: 'Other'}});
-  fireEvent.click(view.getByRole('option'));
-  fireEvent.click(view.getByRole('button', {name: 'Sam Lee'}));
-  view.rerender(<AssignmentAudience {...props} />);
-  t.false(everyoneInput(view).checked);
-  t.true(checkboxes(view)[0].checked);
-  t.false(checkboxes(view)[1].checked);
-  t.is(input.value, 'Alex');
-  t.truthy(view.getByRole('button', {name: 'Sam Lee'}));
-  t.is(view.queryByRole('button', {name: 'Alex Rivers'}), null);
-  t.is(view.queryByRole('link', {name: 'Download template'}), null);
-});
-
-test.serial('duplicate email rows keep their supplied order and individual status tags', t => {
-  const view = mount({
-    ...combined.props,
-    upload: {
-      status: 'done',
-      rows: [
-        {email: 'same@example.com', status: 'shared'},
-        {email: 'same@example.com', status: 'invalid'},
-        {email: 'same@example.com', status: 'valid'},
-        {email: 'same@example.com', status: 'notFound'},
-        {email: 'same@example.com', status: 'inactive'},
-        {email: '<b>unresolved</b>', status: '<em>Review</em>'}
-      ]
-    }
-  });
-  const rows = view.getAllByRole('row').slice(1);
-  t.deepEqual(
-    rows.map(row => [...row.querySelectorAll('td')].map(cell => cell.textContent)),
-    [
-      ['same@example.com', 'Shared'],
-      ['same@example.com', 'Invalid'],
-      ['same@example.com', 'Valid'],
-      ['same@example.com', 'Not found'],
-      ['same@example.com', 'Inactive'],
-      ['<b>unresolved</b>', '<em>Review</em>']
-    ]
-  );
-  ['info', 'failure', 'success', 'failure', 'warning', 'defaultStyle'].forEach((type, index) => {
-    const tag = rows[index].querySelector('[data-name^="content-tag-"]');
-    t.truthy(tag);
-    t.true(tag.className.includes(type));
-  });
-  t.is(section(view, 'upload-preview').querySelector('b, em'), null);
-  t.is(view.getAllByText('same@example.com').length, 5);
-  t.deepEqual(
-    [...section(view, 'upload-summary').querySelectorAll('li')].map(item => item.textContent),
-    ['Valid: 0', 'Inactive: 0', 'Invalid: 0', 'Not found: 0', 'Shared: 0']
-  );
 });

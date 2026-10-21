@@ -1,38 +1,89 @@
+// The audience section of the one-page assignment form (N7, prototype cm-form `audience()`):
+// everyone, populations, a file of learner logins (K1, result c) and individual learners.
+// Copy comes from the app; there is no email anywhere (L4).
+export const rows = [
+  {login: 'j.okafor', status: 'valid'},
+  {login: 'm.weber', status: 'valid'},
+  {login: 'c.durand', status: 'valid'},
+  {login: 'jdoe', status: 'unknown'},
+  {login: 'a.martin', status: 'ambiguous'},
+  {login: 'l.chen', status: 'inactive'}
+];
+
 export default {
   props: {
-    everyone: {value: false, label: 'Everyone in the brand', onChange: value => console.log(value)},
+    title: 'Audience',
+    subtitle: 'Who must complete these modules.',
+    disabledExplanation:
+      'Every learner of the platform is assigned. Turn this off to pick an audience.',
+    everyone: {
+      value: false,
+      label: 'Assign to every learner of the platform',
+      title: 'Everyone',
+      onChange: value => console.log('everyone', value)
+    },
     populations: {
       title: 'Populations',
+      subtitle: 'Learners of these populations, including those who join later.',
+      label: 'Populations',
       options: [
-        {name: 'Sales', value: 'sales', selected: true},
-        {name: 'Engineering', value: 'engineering', selected: false}
+        {name: 'Managers FR', value: 'managers-fr', selected: true},
+        {name: 'Managers DE', value: 'managers-de', selected: true},
+        {name: 'Sales EMEA', value: 'sales-emea', selected: false}
       ],
-      onChange: options => console.log(options)
+      onChange: options => console.log('populations', options)
     },
     upload: {
+      title: 'Upload a list of learners',
+      subtitle:
+        'One login column. xlsx, xls or csv, up to 5,000 rows. Unknown, ambiguous and inactive logins are reported before you save.',
+      templateLink: {label: 'Download template', href: '/assignment-learners-template.xlsx'},
+      dropzone: {
+        description: 'xlsx, xls or csv, one login column',
+        browse: 'Choose a file or drop it here'
+      },
       status: 'done',
-      onUpload: file => console.log(file),
-      templateHref: '/audience-template.csv',
-      summary: {valid: 12, inactive: 2, invalid: 0, notFound: 3, shared: 1},
-      rows: [
-        {email: 'valid@example.com', status: 'valid'},
-        {email: 'inactive@example.com', status: 'inactive'},
-        {email: 'invalid@example.com', status: 'invalid'},
-        {email: 'unknown@example.com', status: 'notFound'},
-        {email: 'shared@example.com', status: 'shared'}
-      ]
+      onUpload: file => console.log('upload', file),
+      file: {name: 'managers-q4.xlsx', detail: '214 rows · checked against logins just now'},
+      replaceLabel: 'Replace',
+      removeLabel: 'Remove',
+      onReplace: () => console.log('replace'),
+      onRemove: () => console.log('remove'),
+      summary: {
+        valid: '201 valid',
+        unknown: '6 unknown',
+        ambiguous: '3 ambiguous',
+        inactive: '4 inactive'
+      },
+      keptLabel: 'Only the 201 valid learners are kept.',
+      toggleLabel: 'Show all 214 rows · 13 need attention',
+      expanded: false,
+      onToggleRows: () => console.log('toggle rows'),
+      columns: {login: 'Login', status: 'Status'},
+      statusLabels: {
+        valid: 'Valid',
+        unknown: 'Unknown',
+        ambiguous: 'Ambiguous',
+        inactive: 'Inactive'
+      },
+      rows
     },
     individuals: {
-      value: 'Alex',
-      suggestions: [
-        {id: 'alex', label: 'Alex Rivers'},
-        {id: 'sam', label: 'Sam Lee'}
+      title: 'Individual learners',
+      placeholder: 'Search learners by name or login',
+      value: '',
+      suggestions: [],
+      selected: [
+        {id: 'u1', label: 'Camille Durand', login: 'camille.durand'},
+        {id: 'u2', label: 'Pedro Costa', login: 'p.costa'}
       ],
-      selected: [{id: 'sam', label: 'Sam Lee'}],
-      onSearch: query => console.log(query),
-      onAdd: learner => console.log(learner),
-      onRemove: id => console.log(id)
+      onSearch: query => console.log('search', query),
+      onAdd: learner => console.log('add', learner),
+      onRemove: id => console.log('remove', id)
     },
-    total: {label: 'Estimated audience: 42 learners'}
+    total: {
+      label: 'Estimated audience: 849 learners',
+      detail: '412 Managers FR · 236 Managers DE · 201 from file · 2 picked · 4 counted once'
+    }
   }
 };

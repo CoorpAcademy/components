@@ -1,10 +1,11 @@
 import combined from './combined';
+import {idleUpload} from './idle';
 
 export default {
   props: {
     ...combined.props,
-    upload: {...combined.props.upload, status: 'idle', summary: undefined, rows: []},
-    individuals: {...combined.props.individuals, value: '', selected: [], suggestions: []},
-    total: {label: 'Estimated audience: 24 learners'}
+    upload: idleUpload,
+    individuals: {...combined.props.individuals, selected: []},
+    total: {label: 'Estimated audience: 648 learners', detail: '412 Managers FR · 236 Managers DE'}
   }
 };

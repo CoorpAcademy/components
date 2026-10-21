@@ -8,7 +8,6 @@ import WizardSummary from '../../molecule/wizard-summary';
 import BrandForm from '../brand-form';
 import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
-import AssignmentAudience from '../assignment-audience';
 import CourseSelection from '../course-selection';
 import CourseSections from '../../molecule/course-sections';
 import BrandTabs from '../../molecule/brand-tabs';
@@ -71,8 +70,6 @@ const buildView = content => {
       return <ContentTranslate {...content} />;
     case 'populations':
       return <OrganismSearchAndChipsResults {...content} />;
-    case 'assignment-audience':
-      return <AssignmentAudience {...content} />;
     case 'courses':
       return <CourseSelection {...content} />;
     case 'organize-courses':
@@ -223,10 +220,6 @@ WizardContents.propTypes = {
     PropTypes.shape({
       ...OrganismSearchAndChipsResults.propTypes,
       type: PropTypes.oneOf(['populations'])
-    }),
-    PropTypes.shape({
-      ...AssignmentAudience.propTypes,
-      type: PropTypes.oneOf(['assignment-audience'])
     }),
     PropTypes.shape({
       ...CourseSelection.propTypes,

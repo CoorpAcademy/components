@@ -1,11 +1,17 @@
-import populationsOnly from './populations-only';
 import combined from './combined';
+import fixture from './idle';
 
 export default {
   props: {
-    ...populationsOnly.props,
-    populations: {...populationsOnly.props.populations, options: []},
-    individuals: combined.props.individuals,
-    total: {label: 'Estimated audience: 1 learner'}
+    ...fixture.props,
+    individuals: {
+      ...combined.props.individuals,
+      value: 'mar',
+      suggestions: [
+        {id: 'u3', label: 'Marie Leroy', login: 'm.leroy'},
+        {id: 'u4', label: 'Marco Bianchi', login: 'marco.b'}
+      ]
+    },
+    total: {label: 'Estimated audience: 2 learners', detail: '2 picked'}
   }
 };
