@@ -94,6 +94,13 @@ class MoocHeader extends React.Component {
           href: PropTypes.string,
           label: PropTypes.string,
           'aria-label': PropTypes.string
+        }),
+        battles: PropTypes.shape({
+          href: PropTypes.string,
+          label: PropTypes.string,
+          'aria-label': PropTypes.string,
+          counter: PropTypes.number,
+          disabled: PropTypes.bool
         })
       })
     }),
@@ -661,6 +668,28 @@ class MoocHeader extends React.Component {
               </div>
               <div className={style.label}>{user.stats.myList.label}</div>
             </Link>
+            {user.stats.battles ? (
+              <Link
+                className={classnames(style.stat, user.stats.battles.disabled && style.disabled)}
+                data-name="stat-battles"
+                href={user.stats.battles.href}
+                disabled={user.stats.battles.disabled}
+                onClick={this.handleLinkClick}
+                aria-label={user.stats.battles['aria-label']}
+              >
+                <div className={style.statIcon}>
+                  <FontAwesomeIcon icon="bolt" className={style.icon} style={{color: '#FF7043'}} />
+                  {user.stats.battles.counter > 0 ? (
+                    <span data-name="stat-battles-counter" className={style.statBadge}>
+                      <span className={style.counter}>
+                        {user.stats.battles.counter > 99 ? '99+' : user.stats.battles.counter}
+                      </span>
+                    </span>
+                  ) : null}
+                </div>
+                <div className={style.label}>{user.stats.battles.label}</div>
+              </Link>
+            ) : null}
           </div>
           <div className={style.avatarWrapper}>{notificationPageView}</div>
         </div>
