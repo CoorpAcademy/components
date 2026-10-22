@@ -103,12 +103,41 @@ test.serial('R5: every content type renders molecule/card with the pill in the s
   t.is(new Set(slots).size, 1);
 });
 
-test.serial('R5: a click on the card or on its pill calls onClick', t => {
+test.serial('a click on the card calls onClick; the pill has no click handler of its own', t => {
   let clicks = 0;
   const view = mount({...todo.props, onClick: () => clicks++});
-  fireEvent.click(view.container.querySelector('[data-name="card"]'));
   fireEvent.click(view.container.querySelector('[data-name="due-state"]'));
-  t.is(clicks, 2);
+  t.is(clicks, 0);
+  fireEvent.click(view.container.querySelector('[data-name="card"]'));
+  t.is(clicks, 1);
+});
+
+test.serial('the pill and its slot let a click through to the card', t => {
+  const css = fs.readFileSync(path.join(__dirname, '../style.css'), 'utf8');
+  t.regex(css, /\.slot\s*{[^}]*pointer-events:\s*none/);
+});
+
+test.serial('the pill is described by the due date, so it is read without hover', t => {
+  Object.values(fixtures).forEach(fixture => {
+    const view = mount(fixture.props);
+    const pill = view.container.querySelector('[data-name="due-state"]');
+    const date = view.container.querySelector('[data-name="due-date"]');
+    t.truthy(date.id);
+    t.notRegex(date.id, /\s/);
+    t.is(pill.getAttribute('aria-describedby'), date.id);
+    t.is(date.textContent, fixture.props.dueDateLabel);
+    t.is(pill.getAttribute('role'), null);
+    t.is(date.getAttribute('role'), null);
+    cleanup();
+  });
+});
+
+test.serial('two cards of one module in a list get distinct due-date ids', t => {
+  const view = mount({...todo.props, dataName: 'assignments-0'});
+  const first = view.container.querySelector('[data-name="due-date"]').id;
+  cleanup();
+  const other = mount({...todo.props, dataName: 'assignments-1'});
+  t.not(other.container.querySelector('[data-name="due-date"]').id, first);
 });
 
 const typeChip = container => container.querySelector('[class*="contentTypeInfos"]').textContent;

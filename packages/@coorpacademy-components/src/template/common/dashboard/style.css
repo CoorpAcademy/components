@@ -1,7 +1,5 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value tablet from breakpoints;
-@value colors: "../../../variables/colors.css";
-@value cm_grey_500 from colors;
 
 .wrapper {
   width: 100%;
@@ -23,40 +21,4 @@
   .hero {
     height: 200px;
   }
-}
-
-.assignments {
-  width: 100%;
-}
-
-.assignmentsEmpty {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 16px 24px;
-  font-family: "Gilroy";
-}
-
-.assignmentsHeader {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.seeAll {
-  padding: 0;
-  margin-right: 16px;
-  border: 0;
-  background: none;
-  font-family: 'Gilroy';
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  color: cm_grey_500;
-  cursor: pointer;
-}
-
-.seeAll:hover {
-  text-decoration: underline;
-  color: black;
 }

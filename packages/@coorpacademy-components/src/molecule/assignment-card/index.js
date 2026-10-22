@@ -22,9 +22,15 @@ const DUE_STATES = {
 // A module the learner was asked to complete: the catalogue card of its type (module, chapter,
 // scorm, article, video, podcast), one status pill in the same slot on every format, and the due
 // date (or, once finished, the completion date) in a tooltip on hover (N2). Never an assignment.
+// The pill is described by the due date, so it is read without hover. React 17 has no useId: the
+// id derives from the card's dataName (its rank in a list) and its title, never with whitespace.
+const dueDateId = (dataName, title) =>
+  ['due-date', dataName, title].filter(Boolean).join('-').replace(/\s+/g, '-');
+
 const AssignmentCard = props => {
   const {dueState, dueStateLabel, dueDateLabel, onClick, ...cardProps} = props;
   const {iconName, color, className} = DUE_STATES[dueState];
+  const dateId = dueDateId(cardProps.dataName, cardProps.title);
   return (
     <div data-name="assignment-card" className={style.wrapper}>
       <Card {...cardProps} onClick={onClick} />
@@ -33,12 +39,12 @@ const AssignmentCard = props => {
           data-name="due-state"
           data-type={dueState}
           className={classnames(style.duePill, className)}
-          onClick={onClick}
+          aria-describedby={dateId}
         >
           <FaIcon iconName={iconName} iconColor={color} size={{faSize: 12, wrapperSize: 12}} />
           <span>{dueStateLabel}</span>
         </div>
-        <div data-name="due-date" className={style.tooltip}>
+        <div id={dateId} data-name="due-date" className={style.tooltip}>
           {dueDateLabel}
         </div>
       </div>

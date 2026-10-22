@@ -93,3 +93,48 @@ test('should show handles', t => {
 
   unmount();
 });
+
+const showMoreProps = (onShowMore: () => void) => ({
+  cards: times(() => Card.props, 2),
+  showMore: 'See all',
+  onShowMore
+});
+
+test('with no page, the show-more link is absent by default', t => {
+  const {container, queryByText, unmount} = mountCardsList(showMoreProps(noop), undefined);
+  checkInternalProp(container, 'max-pages', 0, t);
+  t.is(queryByText('See all'), null);
+  unmount();
+});
+
+test('alwaysShowMore renders the show-more link with no page, and it calls onShowMore', t => {
+  let clicks = 0;
+  const {container, getAllByText, unmount} = mountCardsList(
+    {...showMoreProps(() => clicks++), alwaysShowMore: true},
+    undefined
+  );
+  checkInternalProp(container, 'max-pages', 0, t);
+  t.is(container.querySelector('[data-name="card-list-right-arrow"]'), null);
+  const links = getAllByText('See all');
+  t.is(links.length, 1);
+  fireEvent.click(links[0]);
+  t.is(clicks, 1);
+  unmount();
+});
+
+test('alwaysShowMore keeps a single show-more link when the list has pages', t => {
+  const testingSizes = {
+    offsetWidth: 300,
+    scrollLeft: 0,
+    maxPages: 1,
+    possiblePositions: [0, 272],
+    possiblePages: [0, 1]
+  };
+  const {container, getAllByText, unmount} = mountCardsList(
+    {...showMoreProps(noop), alwaysShowMore: true},
+    testingSizes
+  );
+  t.truthy(container.querySelector('[data-name="card-list-right-arrow"]'));
+  t.is(getAllByText('See all').length, 1);
+  unmount();
+});

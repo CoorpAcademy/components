@@ -100,6 +100,8 @@ class CardsList extends React.PureComponent {
     dataName: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     showMore: PropTypes.string,
+    // Show the « show more » link even when every card fits (no page)
+    alwaysShowMore: PropTypes.bool,
     cards: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.shape(cardPropTypes),
@@ -314,6 +316,7 @@ class CardsList extends React.PureComponent {
       title,
       tabs,
       showMore,
+      alwaysShowMore = false,
       cards,
       customStyle = {},
       onShowMore,
@@ -383,7 +386,7 @@ class CardsList extends React.PureComponent {
 
     const hasPages = maxPages > 0;
     const showMoreView =
-      hasPages && showMore && onShowMore ? (
+      (hasPages || alwaysShowMore) && showMore && onShowMore ? (
         <ShowMoreLink
           className={hasPages ? style.showMoreBar : style.showMore}
           onShowMore={onShowMore}
@@ -396,7 +399,9 @@ class CardsList extends React.PureComponent {
         {showMoreView}
         {arrows}
       </div>
-    ) : null;
+    ) : (
+      showMoreView
+    );
 
     return (
       <div

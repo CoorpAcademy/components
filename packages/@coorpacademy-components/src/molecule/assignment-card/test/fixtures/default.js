@@ -7,6 +7,8 @@ const IMAGE =
 export const module = {
   type: 'course',
   typeLabel: 'Module',
+  badgeCategory: 'base',
+  badgeLabel: 'basic',
   image: IMAGE,
   title: 'Fire safety basics',
   author: 'Coorpacademy',

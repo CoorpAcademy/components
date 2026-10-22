@@ -18,8 +18,11 @@ export default {
         key: 'assignments',
         type: 'assignments',
         title: 'Assigned to you',
+        // Every open module, whatever the number of cards loaded in the strip
+        count: 8,
         cards,
-        seeAll: {label: 'See all', onClick: () => console.log('go to /assigned')}
+        showMore: 'See all',
+        onShowMore: () => console.log('go to /assigned')
       }
     ]
   }

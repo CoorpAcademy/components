@@ -62,11 +62,29 @@ test.serial(
       const node = view.container.querySelector(`[data-key="${section.key}"]`);
       t.truthy(within(node).getByRole('heading', {name: section.title}));
       t.truthy(within(node).getByText(section.subtitle));
-      t.truthy(within(node).getByText(String(section.cards.length)));
+      t.truthy(within(node).getByText(String(section.count)));
       t.is(node.querySelectorAll('[data-name="assignment-card"]').length, section.cards.length);
     });
   }
 );
+
+test.serial('a due section tag shows its count, not the number of cards loaded', t => {
+  const [overdue, ...rest] = sections;
+  const view = mount({...todo.props, sections: [{...overdue, count: 12}, ...rest]});
+  const head = view.container.querySelector('[data-key="overdue"] [class*="sectionHead"]');
+  t.truthy(within(head).getByText('12'));
+  t.is(within(head).queryByText(String(overdue.cards.length)), null);
+});
+
+test.serial('every card of the page describes its pill with a distinct due-date id', t => {
+  const view = mount(todo.props);
+  const ids = [...view.container.querySelectorAll('[data-name="due-state"]')].map(pill =>
+    pill.getAttribute('aria-describedby')
+  );
+  t.is(ids.length, 6);
+  t.is(new Set(ids).size, ids.length);
+  ids.forEach(id => t.truthy(view.container.ownerDocument.getElementById(id)));
+});
 
 test.serial('R3: an empty section is not rendered', t => {
   const view = mount(withoutOverdue.props);

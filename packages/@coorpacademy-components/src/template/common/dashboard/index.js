@@ -12,7 +12,6 @@ import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
 import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
 import Title from '../../../atom/title';
-import Link from '../../../atom/link';
 import AssignmentCard from '../../../molecule/assignment-card';
 import style from './style.css';
 
@@ -77,44 +76,22 @@ const Dashboard = (props, context) => {
         );
       }
       case 'assignments': {
-        // « Assigned to you » (T1): a strip with arrows and « See all » (V1). « See all » sits in
-        // the title row, so it shows even when the strip fits; the arrows follow when it overflows.
-        const {cards = [], title, seeAll, emptyState, ...cardsList} = section;
-        const handleSeeAllClick = seeAll && seeAll.onClick;
-        const handleEmptyLinkClick = emptyState && emptyState.link && emptyState.link.onClick;
+        // « Assigned to you »: a strip with arrows, and « See all » even when the strip fits. The
+        // count is every open module, not the cards loaded in the strip.
         return (
-          <section className={style.assignments} data-name="assignments-section">
-            <CardsList
-              {...cardsList}
-              cards={cards}
-              title={
-                <div className={style.assignmentsHeader}>
-                  <Title
-                    type="form-group"
-                    title={title}
-                    icon={ASSIGNED_ICON}
-                    tag={{label: String(cards.length), size: 'S'}}
-                  />
-                  {seeAll ? (
-                    <button type="button" className={style.seeAll} onClick={handleSeeAllClick}>
-                      {seeAll.label}
-                    </button>
-                  ) : null}
-                </div>
-              }
-              arrows-aria-label={showMoreOnLeftOrRightAriaLabel}
-            />
-            {cards.length === 0 && emptyState ? (
-              <div className={style.assignmentsEmpty}>
-                <p>{emptyState.message}</p>
-                {emptyState.link ? (
-                  <Link href={emptyState.link.href} onClick={handleEmptyLinkClick}>
-                    {emptyState.link.label}
-                  </Link>
-                ) : null}
-              </div>
-            ) : null}
-          </section>
+          <CardsList
+            {...section}
+            title={
+              <Title
+                type="form-group"
+                title={section.title}
+                icon={ASSIGNED_ICON}
+                tag={{label: String(section.count), size: 'S'}}
+              />
+            }
+            alwaysShowMore
+            arrows-aria-label={showMoreOnLeftOrRightAriaLabel}
+          />
         );
       }
       case 'cards':
@@ -167,17 +144,13 @@ Dashboard.propTypes = {
         type: PropTypes.oneOf(['assignments']),
         // « Assigned to you »
         title: PropTypes.string,
+        // Every open module, whatever the number of cards loaded
+        count: PropTypes.number.isRequired,
         // Open modules only, already sorted by the MOOC (N3)
         cards: PropTypes.arrayOf(PropTypes.shape(AssignmentCard.propTypes)),
-        seeAll: PropTypes.shape({label: PropTypes.string, onClick: PropTypes.func}),
-        emptyState: PropTypes.shape({
-          message: PropTypes.string,
-          link: PropTypes.shape({
-            label: PropTypes.string,
-            href: PropTypes.string,
-            onClick: PropTypes.func
-          })
-        })
+        // « See all », to the assignments page
+        showMore: PropTypes.string,
+        onShowMore: PropTypes.func
       }),
       PropTypes.shape(BattleRequestList.propTypes),
       PropTypes.shape(CardsList.propTypes),

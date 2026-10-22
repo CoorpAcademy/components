@@ -42,14 +42,14 @@ Grid.propTypes = {
   'data-name': PropTypes.string
 };
 
-const DueSection = ({sectionKey, title, subtitle, cards, onCardClick}) => {
+const DueSection = ({sectionKey, title, subtitle, count, cards, onCardClick}) => {
   const {iconName, color} = SECTIONS[sectionKey];
   return (
     <section className={style.section} data-name="due-section" data-key={sectionKey}>
       <div className={style.sectionHead}>
         <FaIcon iconName={iconName} iconColor={color} size={{faSize: 16, wrapperSize: 16}} />
         <h2 className={style.sectionTitle}>{title}</h2>
-        <Tag label={String(cards.length)} size="S" />
+        <Tag label={String(count)} size="S" />
         {subtitle ? <span className={style.sectionSubtitle}>{subtitle}</span> : null}
       </div>
       <Grid cards={cards} onCardClick={onCardClick} />
@@ -61,6 +61,7 @@ DueSection.propTypes = {
   sectionKey: PropTypes.oneOf(SECTION_KEYS),
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  count: PropTypes.number,
   cards: Grid.propTypes.cards,
   onCardClick: PropTypes.func
 };
@@ -112,6 +113,7 @@ const MyAssignments = ({
         sectionKey={section.key}
         title={section.title}
         subtitle={section.subtitle}
+        count={section.count}
         cards={section.cards}
         onCardClick={onCardClick}
       />
@@ -161,6 +163,8 @@ MyAssignments.propTypes = {
       title: PropTypes.string,
       // A date range label, e.g. "Wed 21 Oct – Wed 28 Oct"
       subtitle: PropTypes.string,
+      // Every module of the section, whatever the number of cards loaded
+      count: PropTypes.number.isRequired,
       cards: Grid.propTypes.cards.isRequired
     })
   ),

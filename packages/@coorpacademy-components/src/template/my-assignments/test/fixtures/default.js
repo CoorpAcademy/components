@@ -25,17 +25,25 @@ export const tabs = (selected, todoCount = 6, doneCount = 3) => [
 ];
 
 export const sections = [
-  {key: 'overdue', title: 'Overdue', subtitle: 'Due before Wed 21 Oct', cards: [overdue.props]},
+  {
+    key: 'overdue',
+    title: 'Overdue',
+    subtitle: 'Due before Wed 21 Oct',
+    count: 1,
+    cards: [overdue.props]
+  },
   {
     key: 'dueThisWeek',
     title: 'Due this week',
     subtitle: 'Wed 21 Oct – Wed 28 Oct',
+    count: 2,
     cards: [dueSoon.props, podcast.props]
   },
   {
     key: 'dueAfterThisWeek',
     title: 'Due after this week',
     subtitle: 'From Thu 29 Oct',
+    count: 3,
     cards: [todo.props, scorm.props, article.props]
   }
 ];

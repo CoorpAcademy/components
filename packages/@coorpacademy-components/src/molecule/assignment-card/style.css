@@ -17,9 +17,11 @@
 /*
  * One slot on every format (N2), as in the validated prototype: left 12px, top 85px, inside the
  * image or icon header, below the « Coorp original » banner and the favourite check. The pill is
- * opaque, so it reads over the image and over the icon circle's decorative halo.
+ * opaque, so it reads over the image and over the icon circle's decorative halo. Clicks go
+ * through the slot to the card underneath; the tooltip still shows on the wrapper's hover.
  */
 .slot {
+  pointer-events: none;
   position: absolute;
   top: 85px;
   left: 12px;
@@ -42,7 +44,6 @@
   font-weight: 600;
   line-height: 16px;
   white-space: nowrap;
-  cursor: pointer;
 }
 
 .todo {
