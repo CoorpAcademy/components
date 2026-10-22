@@ -30,6 +30,33 @@ test.serial('renders as a titled page section from its own props', t => {
   );
 });
 
+test.serial('the section title is a level-2 heading and each block title a level-3 one', t => {
+  const view = mount(combined.props);
+  t.truthy(view.getByRole('heading', {level: 2, name: combined.props.title}));
+  const {everyone, populations, upload, individuals} = combined.props;
+  [everyone, populations, upload, individuals].forEach(({title}) =>
+    t.truthy(view.getByRole('heading', {level: 3, name: title}), title)
+  );
+});
+
+test.serial('removable chips are named by the remove label and their name', t => {
+  const view = mount(combined.props);
+  const {populations, individuals} = combined.props;
+  t.truthy(view.getByRole('button', {name: `${populations.removeLabel} Managers FR`}));
+  t.truthy(view.getByRole('button', {name: `${individuals.removeLabel} Camille Durand`}));
+});
+
+test.serial('the disabled sources are described by the explanation', t => {
+  const on = mount(everyoneOn.props);
+  const sources = block(on, 'audience-sources');
+  const explanation = on.getByText(everyoneOn.props.disabledExplanation);
+  t.truthy(explanation.id);
+  t.is(sources.getAttribute('aria-describedby'), explanation.id);
+  cleanup();
+  const off = mount(combined.props);
+  t.is(block(off, 'audience-sources').getAttribute('aria-describedby'), null);
+});
+
 test.serial('everyone disables populations, upload and individuals, with an explanation', t => {
   const view = mount(everyoneOn.props);
   t.truthy(view.getByText(everyoneOn.props.disabledExplanation));
@@ -174,19 +201,18 @@ test.serial('the empty state is the Coorpmanager uploader, accepting xlsx, xls a
   );
 });
 
-test.serial('Replace, Remove and the rows toggle call their callbacks', t => {
+test.serial('Remove and the rows toggle call their callbacks; there is no Replace', t => {
   const calls = [];
   const upload = {
     ...uploadDone.props.upload,
-    onReplace: () => calls.push('replace'),
     onRemove: () => calls.push('remove'),
     onToggleRows: () => calls.push('toggle')
   };
   const view = mount({...uploadDone.props, upload});
-  fireEvent.click(view.getByRole('button', {name: upload.replaceLabel}));
+  t.is(view.queryByRole('button', {name: 'Replace'}), null);
   fireEvent.click(view.getByRole('button', {name: upload.removeLabel}));
   fireEvent.click(view.getByRole('button', {name: upload.toggleLabel}));
-  t.deepEqual(calls, ['replace', 'remove', 'toggle']);
+  t.deepEqual(calls, ['remove', 'toggle']);
 });
 
 test.serial('searching, adding and removing a learner call their callbacks', t => {

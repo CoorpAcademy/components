@@ -9,6 +9,6 @@ export default {
       options: combined.props.populations.options.map(option => ({...option, selected: false}))
     },
     individuals: {...combined.props.individuals, selected: []},
-    total: {label: 'Estimated audience: 201 learners', detail: '201 from file'}
+    total: {label: 'Estimated audience: 3 learners', detail: '3 from file'}
   }
 };

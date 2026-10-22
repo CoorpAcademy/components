@@ -4,7 +4,7 @@ import InputSwitch from '../../atom/input-switch';
 import SelectMultiple from '../../molecule/select-multiple';
 import InputFileDraggable from '../../atom/input-file-draggable';
 import Autocomplete from '../../atom/autocomplete';
-import ButtonLink from '../../atom/button-link';
+import Title from '../../atom/title';
 import Chip from '../../atom/chip';
 import UploadResult from './upload-result';
 import AssignmentAudiencePropTypes, {
@@ -25,19 +25,23 @@ type BlockProps = {
   name: string;
   title?: string;
   subtitle?: string;
-  aside?: React.ReactNode;
+  // The Title's right-hand ButtonLink
+  button?: Record<string, unknown>;
   children?: React.ReactNode;
 };
 
-const Block = ({name, title, subtitle, aside, children}: BlockProps) => (
+const Block = ({name, title, subtitle, button, children}: BlockProps) => (
   <section data-name={name} className={style.block}>
     {title ? (
       <div className={style.blockHead}>
-        <div>
-          <h3 className={style.blockTitle}>{title}</h3>
-          {subtitle ? <p className={style.blockSubtitle}>{subtitle}</p> : null}
-        </div>
-        {aside}
+        <Title
+          type="form-group"
+          titleSize="medium"
+          title={title}
+          subtitle={subtitle}
+          button={button}
+          headingLevel={3}
+        />
       </div>
     ) : null}
     {children}
@@ -62,6 +66,10 @@ const TemplatePreview = ({header, rows = []}: {header: string; rows?: string[]})
   </table>
 );
 
+// A removable chip says what a click does, e.g. « Remove Camille Durand »; no label, its text.
+const chipLabel = (removeLabel: string | undefined, name: string) =>
+  removeLabel ? `${removeLabel} ${name}` : undefined;
+
 const AssignmentAudience = ({
   title,
   subtitle,
@@ -78,12 +86,7 @@ const AssignmentAudience = ({
   const {options: populationOptions, onChange: onPopulationsChange} = populations;
   const {onUpload, onRemove: onRemoveFile} = upload;
   const {value = '', suggestions = [], selected = [], onSearch, onAdd, onRemove} = individuals;
-  const titleId = useMemo(() => uniqueId('assignment-audience-title-'), []);
-
-  const handleEveryone = useCallback(
-    (newValue: boolean) => onEveryoneChange(newValue),
-    [onEveryoneChange]
-  );
+  const explanationId = useMemo(() => uniqueId('assignment-audience-explanation-'), []);
   const handlePopulations = useCallback(
     (choices: PopulationOption[]) =>
       onPopulationsChange(
@@ -136,25 +139,35 @@ const AssignmentAudience = ({
   const handleRemove = useCallback((id: string) => () => onRemove(id), [onRemove]);
 
   return (
-    <section className={style.container} data-name="assignment-audience" aria-labelledby={titleId}>
-      <div className={style.head}>
-        <h2 id={titleId} className={style.title}>
-          {title}
-        </h2>
-        {subtitle ? <p className={style.subtitle}>{subtitle}</p> : null}
-      </div>
+    <section className={style.container} data-name="assignment-audience" aria-label={title}>
+      <Title
+        type="form-group"
+        titleSize="xl-strong"
+        title={title}
+        subtitle={subtitle}
+        headingLevel={2}
+      />
       <Block name="everyone" title={everyone.title}>
         <InputSwitch
           title={everyone.label}
           value={everyone.value}
-          onChange={handleEveryone}
+          onChange={onEveryoneChange}
           theme="coorpmanager"
           data-name="assignment-everyone"
           aria-label={everyone.label}
         />
-        {disabled ? <p className={style.explanation}>{disabledExplanation}</p> : null}
+        {disabled ? (
+          <p id={explanationId} className={style.explanation}>
+            {disabledExplanation}
+          </p>
+        ) : null}
       </Block>
-      <fieldset disabled={disabled} className={style.sources} data-name="audience-sources">
+      <fieldset
+        disabled={disabled}
+        aria-describedby={disabled && disabledExplanation ? explanationId : undefined}
+        className={style.sources}
+        data-name="audience-sources"
+      >
         <Block name="populations" title={populations.title} subtitle={populations.subtitle}>
           <SelectMultiple
             title={populations.label}
@@ -173,6 +186,7 @@ const AssignmentAudience = ({
                   subText={option.count === undefined ? undefined : `${option.count}`}
                   selected
                   customIcon={disabled ? 'none' : 'times'}
+                  ariaLabel={disabled ? undefined : chipLabel(populations.removeLabel, option.name)}
                   onClick={disabled ? undefined : handleRemovePopulation(option.value)}
                 />
               ))}
@@ -183,16 +197,16 @@ const AssignmentAudience = ({
           name="upload"
           title={upload.title}
           subtitle={upload.subtitle}
-          aside={
-            upload.templateLink ? (
-              <ButtonLink
-                type="text"
-                label={upload.templateLink.label}
-                link={disabled ? undefined : {href: upload.templateLink.href, download: true}}
-                disabled={disabled}
-                data-name="upload-template-link"
-              />
-            ) : null
+          button={
+            upload.templateLink
+              ? {
+                  type: 'text',
+                  label: upload.templateLink.label,
+                  link: disabled ? undefined : {href: upload.templateLink.href, download: true},
+                  disabled,
+                  'data-name': 'upload-template-link'
+                }
+              : undefined
           }
         >
           <div className={style.upload}>
@@ -245,6 +259,9 @@ const AssignmentAudience = ({
                   subText={learner.login}
                   selected
                   customIcon={disabled ? 'none' : 'times'}
+                  ariaLabel={
+                    disabled ? undefined : chipLabel(individuals.removeLabel, learner.label)
+                  }
                   onClick={disabled ? undefined : handleRemove(learner.id)}
                 />
               ))}

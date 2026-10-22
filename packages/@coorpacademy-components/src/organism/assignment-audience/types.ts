@@ -31,9 +31,7 @@ export const UploadResultPropTypes = {
       status: PropTypes.oneOf(STATUSES).isRequired
     })
   ),
-  replaceLabel: PropTypes.string,
   removeLabel: PropTypes.string,
-  onReplace: PropTypes.func,
   onRemove: PropTypes.func
 };
 
@@ -67,11 +65,13 @@ const AssignmentAudiencePropTypes = {
         count: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
       })
     ).isRequired,
+    // Prefixes a removable chip's accessible name, e.g. 'Remove' → « Remove Managers FR »
+    removeLabel: PropTypes.string,
     // Receives the selected options, with selected: true
     onChange: PropTypes.func.isRequired
   }).isRequired,
   upload: PropTypes.shape({
-    // The file line and the result, once checked; `file` also shows while it is being checked
+    // The file line and the result, once the file is checked
     ...UploadResultPropTypes,
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -102,6 +102,8 @@ const AssignmentAudiencePropTypes = {
     value: PropTypes.string,
     suggestions: PropTypes.arrayOf(learnerType),
     selected: PropTypes.arrayOf(learnerType),
+    // Prefixes a removable chip's accessible name, e.g. 'Remove' → « Remove Camille Durand »
+    removeLabel: PropTypes.string,
     // Receives the query, searched by name or login
     onSearch: PropTypes.func.isRequired,
     // Receives the original {id, label, login} suggestion
@@ -134,9 +136,7 @@ export type UploadResultProps = {
   columns?: {login?: string; status?: string};
   statusLabels?: LabelsByStatus;
   rows?: UploadRow[];
-  replaceLabel?: string;
   removeLabel?: string;
-  onReplace?: () => void;
   onRemove?: () => void;
 };
 
@@ -168,6 +168,7 @@ export type AssignmentAudienceProps = {
     subtitle?: string;
     label?: string;
     options: PopulationOption[];
+    removeLabel?: string;
     onChange: (selected: PopulationOption[]) => void;
   };
   upload: UploadResultProps & {
@@ -191,6 +192,7 @@ export type AssignmentAudienceProps = {
     value?: string;
     suggestions?: Learner[];
     selected?: Learner[];
+    removeLabel?: string;
     onSearch: (query: string) => void;
     onAdd: (learner: Learner) => void;
     onRemove: (id: string) => void;

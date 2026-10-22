@@ -30,12 +30,12 @@ export default {
         {name: 'Managers DE', value: 'managers-de', selected: true, count: '236'},
         {name: 'Sales EMEA', value: 'sales-emea', selected: false, count: '1,204'}
       ],
+      removeLabel: 'Remove',
       onChange: options => console.log('populations', options)
     },
     upload: {
       title: 'Upload a list of learners',
-      subtitle:
-        'One login column. xlsx, xls or csv, up to 5,000 rows. Unknown, ambiguous and inactive logins are reported before you save.',
+      subtitle: 'Unknown, ambiguous and inactive logins are reported before you save.',
       templateLink: {label: 'Download template', href: '/assignment-learners-template.xlsx'},
       templatePreview: {header: 'login', rows: ['j.okafor', 'm.weber']},
       dropzone: {
@@ -46,19 +46,17 @@ export default {
       },
       status: 'done',
       onUpload: file => console.log('upload', file),
-      file: {name: 'managers-q4.xlsx', detail: '214 rows · checked against logins just now'},
-      replaceLabel: 'Replace',
+      file: {name: 'managers-q4.xlsx', detail: '6 rows · checked against logins just now'},
       removeLabel: 'Remove',
-      onReplace: () => console.log('replace'),
       onRemove: () => console.log('remove'),
       summary: {
-        valid: '201 valid',
-        unknown: '6 unknown',
-        ambiguous: '3 ambiguous',
-        inactive: '4 inactive'
+        valid: '3 valid',
+        unknown: '1 unknown',
+        ambiguous: '1 ambiguous',
+        inactive: '1 inactive'
       },
-      keptLabel: 'Only the 201 valid learners are kept.',
-      toggleLabel: 'Show all 214 rows · 13 need attention',
+      keptLabel: 'Only the 3 valid learners are kept.',
+      toggleLabel: 'Show all 6 rows · 3 need attention',
       expanded: false,
       onToggleRows: () => console.log('toggle rows'),
       columns: {login: 'Login', status: 'Status'},
@@ -75,6 +73,7 @@ export default {
       placeholder: 'Search learners by name or login',
       value: '',
       suggestions: [],
+      removeLabel: 'Remove',
       selected: [
         {id: 'u1', label: 'Camille Durand', login: 'camille.durand'},
         {id: 'u2', label: 'Pedro Costa', login: 'p.costa'}
@@ -84,8 +83,8 @@ export default {
       onRemove: id => console.log('remove', id)
     },
     total: {
-      label: 'Estimated audience: 849 learners',
-      detail: '412 Managers FR · 236 Managers DE · 201 from file · 2 picked · 4 counted once'
+      label: 'Estimated audience: 649 learners',
+      detail: '412 Managers FR · 236 Managers DE · 3 from file · 2 picked · 4 counted once'
     }
   }
 };

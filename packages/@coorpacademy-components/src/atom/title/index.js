@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash/fp';
+import classnames from 'classnames';
 import Icon from '../icon';
 import Tag from '../tag';
 import ButtonLink from '../button-link';
@@ -64,10 +65,21 @@ const Title = props => {
     tag,
     button,
     required,
-    ariaLabel
+    ariaLabel,
+    headingLevel
   } = props;
   const titleStyle = getTitleStyle(type, titleSize);
   const subtitleStyle = getSubtitleStyle(type, subtitleSize);
+
+  const titleContent = (
+    <>
+      {title}
+      {required ? <span className={style.required}>*</span> : null}
+      {tag ? <Tag {...tag} /> : null}
+    </>
+  );
+  // Opt-in: the title as a real heading for the document outline; same look as the group div.
+  const Heading = headingLevel ? `h${headingLevel}` : null;
 
   const subtitleSection = subtitle ? (
     <div
@@ -82,11 +94,19 @@ const Title = props => {
       {icon ? <Icon {...icon} className={style.icon} /> : null}
       <div className={style.titleContainer}>
         <div className={style.titleContent}>
-          <div className={titleStyle} data-name={dataName} role="group" aria-label={ariaLabel}>
-            {title}
-            {required ? <span className={style.required}>*</span> : null}
-            {tag ? <Tag {...tag} /> : null}
-          </div>
+          {headingLevel ? (
+            <Heading
+              className={classnames(titleStyle, style.heading)}
+              data-name={dataName}
+              aria-label={ariaLabel}
+            >
+              {titleContent}
+            </Heading>
+          ) : (
+            <div className={titleStyle} data-name={dataName} role="group" aria-label={ariaLabel}>
+              {titleContent}
+            </div>
+          )}
           {subtitleSection}
         </div>
         {!isEmpty(button) ? <ButtonLink {...button} /> : null}
@@ -121,6 +141,7 @@ Title.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
   tag: PropTypes.shape(Tag.propTypes),
   button: PropTypes.shape(ButtonLink.propTypes),
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  headingLevel: PropTypes.oneOf([1, 2, 3, 4, 5, 6])
 };
 export default Title;
