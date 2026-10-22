@@ -5,15 +5,14 @@ import {cleanup, fireEvent, render, within} from '@testing-library/react';
 import Tag from '../../../atom/tag';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import AssignmentAudience from '..';
-import combined, {rows} from './fixtures/combined';
+import combined from './fixtures/combined';
 import everyoneOn from './fixtures/everyone-on';
 import idle from './fixtures/idle';
 import individualsWithChips from './fixtures/individuals-with-chips';
 import uploadDone from './fixtures/upload-done';
-import uploadDoneExpanded from './fixtures/upload-done-expanded';
+import uploadDoneAllValid from './fixtures/upload-done-all-valid';
 import uploadLoading from './fixtures/upload-loading';
 import uploadError from './fixtures/upload-error';
-import duplicateLogin from './fixtures/upload-done-duplicate-login';
 import everyoneOnWithSources from './fixtures/everyone-on-with-sources';
 
 browserEnv();
@@ -201,18 +200,18 @@ test.serial('the empty state is the Coorpmanager uploader, accepting xlsx, xls a
   );
 });
 
-test.serial('Remove and the rows toggle call their callbacks; there is no Replace', t => {
+test.serial('Remove and the report download call their callbacks; there is no Replace', t => {
   const calls = [];
   const upload = {
     ...uploadDone.props.upload,
     onRemove: () => calls.push('remove'),
-    onToggleRows: () => calls.push('toggle')
+    report: {...uploadDone.props.upload.report, onDownload: () => calls.push('download')}
   };
   const view = mount({...uploadDone.props, upload});
   t.is(view.queryByRole('button', {name: 'Replace'}), null);
   fireEvent.click(view.getByRole('button', {name: upload.removeLabel}));
-  fireEvent.click(view.getByRole('button', {name: upload.toggleLabel}));
-  t.deepEqual(calls, ['remove', 'toggle']);
+  fireEvent.click(view.getByRole('button', {name: upload.report.label}));
+  t.deepEqual(calls, ['remove', 'download']);
 });
 
 test.serial('searching, adding and removing a learner call their callbacks', t => {
@@ -263,42 +262,22 @@ test.serial('the upload summary shows the four counts as tags and the kept line'
   t.truthy(view.getByText(uploadDone.props.upload.file.name));
 });
 
-test.serial(
-  'the rows table is collapsed until expanded, then lists each login with its status',
-  t => {
-    const collapsed = mount(uploadDone.props);
-    t.is(block(collapsed, 'upload-rows'), null);
-    t.is(
-      collapsed
-        .getByRole('button', {name: uploadDone.props.upload.toggleLabel})
-        .getAttribute('aria-expanded'),
-      'false'
-    );
-    cleanup();
-    const expanded = mount(uploadDoneExpanded.props);
-    const table = block(expanded, 'upload-rows');
-    const cells = [...table.querySelectorAll('tbody tr')].map(tr =>
-      [...tr.querySelectorAll('td')].map(td => td.textContent)
-    );
-    const {statusLabels} = uploadDoneExpanded.props.upload;
-    t.deepEqual(
-      cells,
-      rows.map(({login, status}) => [login, statusLabels[status]])
-    );
-    t.deepEqual(
-      [...table.querySelectorAll('th')].map(th => th.textContent),
-      ['Login', 'Status']
-    );
-  }
-);
-
-test.serial('the same login twice in a file renders two rows', t => {
-  const view = mount(duplicateLogin.props);
-  const logins = [...block(view, 'upload-rows').querySelectorAll('tbody tr td:first-child')].map(
-    td => td.textContent
+test.serial('the result lists no rows: the logins not kept are a download, not a table', t => {
+  const view = mount(uploadDone.props);
+  const result = block(view, 'upload-result');
+  t.is(result.querySelector('table'), null);
+  t.is(result.querySelector('[aria-expanded]'), null);
+  t.truthy(
+    within(block(view, 'upload-report')).getByRole('button', {
+      name: uploadDone.props.upload.report.label
+    })
   );
-  t.is(logins.filter(login => login === 'jdoe').length, 2);
-  t.is(logins.length, duplicateLogin.props.upload.rows.length);
+});
+
+test.serial('nothing to download when every login is kept', t => {
+  const view = mount(uploadDoneAllValid.props);
+  t.is(block(view, 'upload-report'), null);
+  t.truthy(view.getByText(uploadDoneAllValid.props.upload.keptLabel));
 });
 
 test.serial('loading shows the uploader loader with its label; its cross cancels the check', t => {
@@ -321,14 +300,16 @@ test.serial('an error shows in the uploader and is announced', t => {
   t.is(block(error, 'upload-summary'), null);
 });
 
-test.serial('a template preview sits left of the upload, before and after the file', t => {
+test.serial('a template preview sits left of the upload: a header and a list, no table', t => {
   [idle, uploadDone].forEach(fixture => {
     const view = mount(fixture.props);
     const preview = block(view, 'upload-template-preview');
     const {header, rows: samples} = fixture.props.upload.templatePreview;
+    t.is(preview.closest('table') || preview.querySelector('table'), null);
+    t.is(preview.firstChild.textContent, header);
     t.deepEqual(
-      [...preview.querySelectorAll('th, td')].map(cell => cell.textContent),
-      [header, ...samples]
+      [...preview.querySelectorAll('li')].map(item => item.textContent),
+      samples
     );
     cleanup();
   });

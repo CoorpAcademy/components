@@ -1,14 +1,5 @@
 // The audience section of the one-page assignment form: everyone, populations, a file of learner
 // logins and individual learners. Every string comes from the app. The file is keyed on login.
-export const rows = [
-  {login: 'j.okafor', status: 'valid'},
-  {login: 'm.weber', status: 'valid'},
-  {login: 'c.durand', status: 'valid'},
-  {login: 'jdoe', status: 'unknown'},
-  {login: 'a.martin', status: 'ambiguous'},
-  {login: 'l.chen', status: 'inactive'}
-];
-
 export default {
   props: {
     title: 'Audience',
@@ -56,17 +47,10 @@ export default {
         inactive: '1 inactive'
       },
       keptLabel: 'Only the 3 valid learners are kept.',
-      toggleLabel: 'Show all 6 rows · 3 need attention',
-      expanded: false,
-      onToggleRows: () => console.log('toggle rows'),
-      columns: {login: 'Login', status: 'Status'},
-      statusLabels: {
-        valid: 'Valid',
-        unknown: 'Unknown',
-        ambiguous: 'Ambiguous',
-        inactive: 'Inactive'
-      },
-      rows
+      report: {
+        label: 'Download the 3 logins not kept, with their reason (xlsx)',
+        onDownload: () => console.log('download report')
+      }
     },
     individuals: {
       title: 'Individual learners',

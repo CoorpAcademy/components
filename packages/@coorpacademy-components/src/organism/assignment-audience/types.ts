@@ -19,18 +19,11 @@ export const UploadResultPropTypes = {
   // The four count labels, formatted by the app, e.g. {valid: '201 valid', unknown: '6 unknown'}
   summary: labelsByStatus,
   keptLabel: PropTypes.string,
-  toggleLabel: PropTypes.string,
-  expanded: PropTypes.bool,
-  onToggleRows: PropTypes.func,
-  columns: PropTypes.shape({login: PropTypes.string, status: PropTypes.string}),
-  // The status tag label of a row
-  statusLabels: labelsByStatus,
-  rows: PropTypes.arrayOf(
-    PropTypes.shape({
-      login: PropTypes.string.isRequired,
-      status: PropTypes.oneOf(STATUSES).isRequired
-    })
-  ),
+  // The logins not kept, with their reason, as a file the app builds: offered only when some are
+  report: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    onDownload: PropTypes.func.isRequired
+  }),
   removeLabel: PropTypes.string,
   onRemove: PropTypes.func
 };
@@ -121,21 +114,11 @@ export default AssignmentAudiencePropTypes;
 
 type LabelsByStatus = Partial<Record<UploadRowStatus, string>>;
 
-export type UploadRow = {
-  login: string;
-  status: UploadRowStatus;
-};
-
 export type UploadResultProps = {
   file?: {name?: string; detail?: string};
   summary?: LabelsByStatus;
   keptLabel?: string;
-  toggleLabel?: string;
-  expanded?: boolean;
-  onToggleRows?: () => void;
-  columns?: {login?: string; status?: string};
-  statusLabels?: LabelsByStatus;
-  rows?: UploadRow[];
+  report?: {label: string; onDownload: () => void};
   removeLabel?: string;
   onRemove?: () => void;
 };

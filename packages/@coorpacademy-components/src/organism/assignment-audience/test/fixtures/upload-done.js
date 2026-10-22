@@ -1,6 +1,6 @@
 import combined from './combined';
 
-// Upload result, collapsed: the file line, the count tags, the kept line and the "Show all" toggle.
+// Upload result: the file line, the count tags, the kept line and the download of the logins not kept.
 export default {
   props: {
     ...combined.props,

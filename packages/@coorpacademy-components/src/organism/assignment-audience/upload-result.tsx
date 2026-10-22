@@ -16,20 +16,27 @@ const STATUS_TAG_TYPES: Record<UploadRowStatus, 'success' | 'failure' | 'warning
 const REMOVE_STYLE = {color: COLORS.cm_negative_200};
 const FILE_ICON_SIZE = {faSize: 22, wrapperSize: 22};
 
+// Up to 5,000 rows: the logins not kept go to a file the admin can fix and upload again.
+const Report = ({label, onDownload}: NonNullable<UploadResultProps['report']>) => (
+  <div data-name="upload-report">
+    <ButtonLink
+      type="text"
+      label={label}
+      onClick={onDownload}
+      icon={{position: 'left', faIcon: {name: 'download', size: 14}}}
+    />
+  </div>
+);
+
 const UploadResult = ({
   file,
   summary = {},
   keptLabel,
-  toggleLabel,
-  expanded = false,
-  onToggleRows,
-  columns = {},
-  statusLabels = {},
-  rows = [],
+  report,
   removeLabel,
   onRemove
 }: UploadResultProps) => (
-  <div className={style.result}>
+  <div className={style.result} data-name="upload-result">
     <div className={style.file} data-name="upload-file">
       <FaIcon iconName="file-excel" iconColor={COLORS.cm_positive_200} size={FILE_ICON_SIZE} />
       <div className={style.fileText}>
@@ -48,45 +55,7 @@ const UploadResult = ({
       ))}
       {keptLabel ? <span className={style.muted}>{keptLabel}</span> : null}
     </div>
-    {toggleLabel ? (
-      // A native button: ButtonLink does not forward aria-expanded.
-      <button
-        type="button"
-        className={style.toggle}
-        aria-expanded={expanded}
-        onClick={onToggleRows}
-        data-name="upload-rows-toggle"
-      >
-        <FaIcon
-          iconName={expanded ? 'chevron-down' : 'chevron-right'}
-          size={{faSize: 12, wrapperSize: 12}}
-        />
-        {toggleLabel}
-      </button>
-    ) : null}
-    {expanded ? (
-      <div className={style.rowsScroll}>
-        <table className={style.table} data-name="upload-rows">
-          <thead>
-            <tr>
-              <th scope="col">{columns.login}</th>
-              <th scope="col">{columns.status}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map(({login, status}, index) => (
-              // A file can hold the same login twice: the index keeps keys unique.
-              <tr key={`${index}-${login}`}>
-                <td className={style.login}>{login}</td>
-                <td>
-                  <Tag type={STATUS_TAG_TYPES[status]} label={statusLabels[status]} size="S" />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    ) : null}
+    {report ? <Report {...report} /> : null}
   </div>
 );
 

@@ -67,26 +67,31 @@
 
 .templatePreview {
   flex: 0 0 150px;
-  border-collapse: separate;
-  border-spacing: 0;
   border: 1px solid cm_grey_200;
   border-radius: 8px;
   overflow: hidden;
   font-family: Menlo, Consolas, monospace;
   font-size: 12px;
-  text-align: left;
 }
 
-.templatePreview th,
-.templatePreview td {
+.templateHeader,
+.templateRows li {
   padding: 6px 10px;
-  border-top: 1px solid cm_grey_100;
 }
 
-.templatePreview th {
-  border-top: 0;
+.templateHeader {
   background-color: cm_grey_75;
   font-weight: 700;
+}
+
+.templateRows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.templateRows li {
+  border-top: 1px solid cm_grey_100;
 }
 
 .chips {

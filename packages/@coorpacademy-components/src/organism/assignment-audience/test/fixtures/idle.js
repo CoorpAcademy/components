@@ -1,10 +1,7 @@
 import omit from 'lodash/fp/omit';
 import combined from './combined';
 
-const upload = omit(
-  ['file', 'summary', 'keptLabel', 'toggleLabel', 'rows', 'error'],
-  combined.props.upload
-);
+const upload = omit(['file', 'summary', 'keptLabel', 'report', 'error'], combined.props.upload);
 
 // Nothing uploaded yet.
 export const idleUpload = {...upload, status: 'idle'};

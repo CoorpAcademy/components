@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_50, cm_grey_100, cm_grey_300, cm_grey_400, cm_grey_700, cm_primary_blue, white from colors;
+@value cm_grey_300, cm_grey_700 from colors;
 
 .muted {
   composes: muted from "./style.css";
@@ -45,53 +45,3 @@
   align-items: center;
   gap: 8px;
 }
-
-.toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px 16px;
-  border: 0;
-  border-radius: 12px;
-  background-color: cm_grey_50;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-weight: 700;
-  color: cm_primary_blue;
-  text-align: left;
-  cursor: pointer;
-}
-
-/* A file holds up to 5,000 rows: the table scrolls, its header stays visible. */
-.rowsScroll {
-  max-height: 320px;
-  overflow-y: auto;
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 14px;
-}
-
-.table th {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  font-size: 12px;
-  font-weight: 600;
-  color: cm_grey_400;
-}
-
-.table th,
-.table td {
-  padding: 8px 12px;
-  border-bottom: 1px solid cm_grey_100;
-}
-
-.login {
-  font-family: Menlo, Consolas, monospace;
-}
-

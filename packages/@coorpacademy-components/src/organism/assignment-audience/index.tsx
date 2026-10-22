@@ -48,22 +48,16 @@ const Block = ({name, title, subtitle, button, children}: BlockProps) => (
   </section>
 );
 
-// A sample of the file to upload: the column header and two example logins.
+// A sample of the file to upload: its one column, a header and two example logins.
 const TemplatePreview = ({header, rows = []}: {header: string; rows?: string[]}) => (
-  <table className={style.templatePreview} data-name="upload-template-preview">
-    <thead>
-      <tr>
-        <th scope="col">{header}</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div className={style.templatePreview} data-name="upload-template-preview">
+    <div className={style.templateHeader}>{header}</div>
+    <ul className={style.templateRows}>
       {rows.map(row => (
-        <tr key={row}>
-          <td>{row}</td>
-        </tr>
+        <li key={row}>{row}</li>
       ))}
-    </tbody>
-  </table>
+    </ul>
+  </div>
 );
 
 // A removable chip says what a click does, e.g. « Remove Camille Durand »; no label, its text.
