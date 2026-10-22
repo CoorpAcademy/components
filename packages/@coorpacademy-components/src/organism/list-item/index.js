@@ -11,7 +11,15 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import {COLORS} from '../../variables/colors';
 import CardImagePreview from '../../atom/card-image-preview';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
+import ProgressBar from '../../molecule/progress-bar';
 import style from './style.css';
+
+// The thin completion bar: ProgressBar styles its inner bar through its `style` prop.
+const THIN_PROGRESS_STYLE = {
+  backgroundColor: COLORS.cm_positive_500,
+  borderRadius: '4px',
+  animation: 'none'
+};
 
 const ListItem = (
   {
@@ -24,6 +32,9 @@ const ListItem = (
     selected,
     selectedColor,
     subtitle,
+    titleTags,
+    details,
+    progress,
     dataColumns,
     order,
     'aria-label': ariaLabel,
@@ -125,7 +136,7 @@ const ListItem = (
           <div className={style.titleProviderWrapper}>
             {title ? (
               <div
-                className={style.title}
+                className={classnames(style.title, !isEmpty(titleTags) && style.titleBeforeTags)}
                 title={title.replace(/<[^>]*>/g, '')}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{__html: title}}
@@ -134,8 +145,30 @@ const ListItem = (
             {!isEmpty(provider) ? (
               <Tag label={provider.label} type={provider.type} className={style.providerTag} />
             ) : null}
+            {!isEmpty(titleTags) ? (
+              <div className={style.titleTags} data-name="title-tags">
+                {titleTags.map(tag => (
+                  <div key={tag.label} className={style.tag}>
+                    <Tag {...tag} />
+                  </div>
+                ))}
+              </div>
+            ) : null}
           </div>
           {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
+          {details ? <div className={style.details}>{details}</div> : null}
+          {progress ? (
+            <div className={style.progress} data-name="list-item-progress">
+              <ProgressBar
+                className={style.progressBar}
+                value={progress.value}
+                max={100}
+                style={THIN_PROGRESS_STYLE}
+                displayInfo={false}
+              />
+              <span className={style.progressLabel}>{progress.label}</span>
+            </div>
+          ) : null}
         </div>
         {dataColumnsView}
       </div>
@@ -170,6 +203,20 @@ ListItem.contextTypes = {
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  // Tags shown right after the title
+  titleTags: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      type: Tag.propTypes.type
+    })
+  ),
+  // A second line under the subtitle
+  details: PropTypes.string,
+  // A thin completion bar (0 to 100) with its label
+  progress: PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired
+  }),
   'data-name': PropTypes.string,
   provider: PropTypes.shape({
     label: PropTypes.string,

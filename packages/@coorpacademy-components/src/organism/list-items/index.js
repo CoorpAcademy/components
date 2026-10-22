@@ -4,6 +4,7 @@ import isNil from 'lodash/fp/isNil';
 import map from 'lodash/fp/map';
 import isEmpty from 'lodash/fp/isEmpty';
 import ListItem from '../list-item';
+import AssignmentRow from '../assignment-row';
 import DraggableList from '../../molecule/draggable-list';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
@@ -41,12 +42,16 @@ const buildListItemsView = (content, ariaLabel, selectMultiple) => {
     ) : (
       items.map((item, index) => (
         <li key={item.id} className={style.item} data-name={`content-${index}`}>
-          <ListItem
-            {...item}
-            order={null}
-            contentType={itemType}
-            data-name={`list-item-${index}`}
-          />
+          {itemType === 'assignment' ? (
+            <AssignmentRow {...item} data-name={`list-item-${index}`} />
+          ) : (
+            <ListItem
+              {...item}
+              order={null}
+              contentType={itemType}
+              data-name={`list-item-${index}`}
+            />
+          )}
         </li>
       ))
     );
