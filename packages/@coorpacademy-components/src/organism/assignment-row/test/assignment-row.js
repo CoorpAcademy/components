@@ -197,14 +197,15 @@ test.serial('a draft row has an Edit button and a menu with Publish and a danger
   t.deepEqual(
     buttons.map(({label, type}) => [label, type]),
     [
-      ['Publish', 'default'],
-      ['Delete', 'dangerous']
+      ['Publish', 'defaultLeft'],
+      ['Delete', 'dangerousLeft']
     ]
   );
 });
 
 // The menu items are left-aligned, as in the Skills list rows, so their fixed-width icons
-// line up in one column whatever the label lengths; Delete keeps its danger colour.
+// line up in one column whatever the label lengths; Delete keeps its danger colour. The
+// consumer picks button-menu's left types; the row passes them through.
 test.serial('the menu items are left-aligned so their icons line up', t => {
   const reference = render(
     <ButtonMenu
@@ -230,6 +231,24 @@ test.serial('the menu items are left-aligned so their icons line up', t => {
   t.deepEqual(menuClasses(upToDate.props), [left, left, left, left]);
   t.deepEqual(menuClasses(disabled.props), [left, left, left, left]);
   t.deepEqual(menuClasses(draft.props), [left, dangerLeft]);
+});
+
+test.serial('the row keeps the menu button types its consumer passes', t => {
+  const centred = render(<ButtonMenu buttons={[{label: 'Centred', type: 'default'}]} />);
+  const centredClass = centred.container.querySelector('button').className;
+  centred.unmount();
+  const {container} = render(
+    <AssignmentRow
+      {...upToDate.props}
+      bulletPointMenuButton={{
+        ...upToDate.props.bulletPointMenuButton,
+        buttons: [{label: 'Centred', type: 'default', onClick: () => {}}]
+      }}
+    />,
+    options
+  );
+  openMenu(container);
+  t.is(container.querySelector('[data-name="menu-wrapper"] button').className, centredClass);
 });
 
 test.serial('a draft row shows no tag and no progress, the tab says Draft', t => {

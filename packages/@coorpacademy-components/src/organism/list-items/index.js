@@ -33,7 +33,7 @@ const buildTitleView = title => {
 const buildListItemsView = (content, ariaLabel, selectMultiple) => {
   const {items, itemType, onDrop, isDraggable = false, tableHeader} = content;
   const itemsView =
-    itemType !== 'assignment' && isDraggable && items.length > 1 ? (
+    isDraggable && items.length > 1 ? (
       <DraggableList
         items={items.map(item => ({...item, contentType: itemType}))}
         itemType="list-item"

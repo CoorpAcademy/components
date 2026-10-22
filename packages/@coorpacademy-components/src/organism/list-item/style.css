@@ -161,10 +161,8 @@
 }
 
 .titleTags {
-  display: flex;
+  composes: titleProviderWrapper;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
 }
 
 .details {
@@ -189,8 +187,6 @@
 }
 
 .progressLabel {
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 16px;
-  color: cm_grey_400;
+  composes: subtitle;
+  margin: 0;
 }

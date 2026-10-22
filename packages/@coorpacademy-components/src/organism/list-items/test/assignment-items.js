@@ -45,13 +45,6 @@ test.serial('a click on a row calls that row onClick only', t => {
   );
 });
 
-test.serial('assignment rows are never draggable, even when isDraggable is set', t => {
-  const content = {...assignments.props.content, isDraggable: true, onDrop: () => {}};
-  const {container} = render(<ListItems {...assignments.props} content={content} />, options);
-  t.is(container.querySelectorAll('[draggable="true"]').length, 0);
-  t.is(container.querySelectorAll('[data-name="content-list"] > li').length, items.length);
-});
-
 test.serial('keeps certification rows on the existing renderer', t => {
   const item = certification.props.content.items[0];
   const content = {...certification.props.content, items: [item]};

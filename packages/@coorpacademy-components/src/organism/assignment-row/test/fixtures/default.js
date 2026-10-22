@@ -12,27 +12,30 @@ export const trackingButton = {
 };
 
 // « Enable » reverses « Disable »: an archive under the hood, but the UI says Disable / Enable.
+// Menu items take button-menu's left types, as in the Skills list rows, so their fixed-width
+// icons line up in one column whatever the label lengths.
+const action = (label, icon) => ({
+  label,
+  type: 'defaultLeft',
+  icon: menuIcon(icon),
+  onClick: () => console.log(label)
+});
+
 const sharedActions = [
-  {label: 'Tracking', icon: menuIcon('chart-simple'), onClick: () => console.log('Tracking')},
-  {label: 'Edit', icon: menuIcon('pen'), onClick: () => console.log('Edit')},
-  {label: 'Duplicate', icon: menuIcon('copy'), onClick: () => console.log('Duplicate')}
+  action('Tracking', 'chart-simple'),
+  action('Edit', 'pen'),
+  action('Duplicate', 'copy')
 ];
 
 export const publishedMenu = {
   buttonAriaLabel: 'More actions',
   menuAriaLabel: 'Assignment actions',
-  buttons: [
-    ...sharedActions,
-    {label: 'Disable', icon: menuIcon('ban'), onClick: () => console.log('Disable')}
-  ]
+  buttons: [...sharedActions, action('Disable', 'ban')]
 };
 
 export const disabledMenu = {
   ...publishedMenu,
-  buttons: [
-    ...sharedActions,
-    {label: 'Enable', icon: menuIcon('circle-check'), onClick: () => console.log('Enable')}
-  ]
+  buttons: [...sharedActions, action('Enable', 'circle-check')]
 };
 
 // The certification draft row's menu (Skills and Certifications): Publish, and Delete in the
@@ -43,14 +46,14 @@ export const draftMenu = {
     {
       'data-name': 'assignment-publish-button',
       label: 'Publish',
-      type: 'default',
+      type: 'defaultLeft',
       icon: menuIcon('paper-plane'),
       onClick: () => console.log('Publish')
     },
     {
       'data-name': 'assignment-delete-button',
       label: 'Delete',
-      type: 'dangerous',
+      type: 'dangerousLeft',
       icon: menuIcon('trash', '#991100'),
       onClick: () => console.log('Delete')
     }
