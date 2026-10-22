@@ -1,0 +1,84 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100, cm_grey_500, cm_grey_800, cm_primary_blue from colors;
+
+.backgroundContainer {
+  background-color: white;
+  min-height: 100%;
+  width: 100%;
+  font-family: "Gilroy";
+}
+
+.container {
+  margin: 48px auto;
+  padding: 0 16px;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  max-width: calc(1080px + 32px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(256px, 100%), 1fr));
+  gap: 24px 16px;
+  margin-top: 16px;
+}
+
+.section {
+  margin-top: 32px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid cm_grey_100;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  color: cm_grey_800;
+}
+
+.sectionSubtitle {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: cm_grey_500;
+}
+
+.empty {
+  max-width: 502px;
+  margin: 0 auto;
+  padding: 72px 16px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: cm_grey_800;
+}
+
+.emptyMessage {
+  margin: 8px 0 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: cm_grey_500;
+}
+
+.emptyLink {
+  font-size: 14px;
+  font-weight: 700;
+  color: cm_primary_blue;
+}

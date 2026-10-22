@@ -21,6 +21,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Card, {cardPropTypes} from '../../card';
+import AssignmentCard from '../../assignment-card';
 import LearningPriorityCard from '../../learning-priority-card';
 import CertificationCard from '../../certification-card';
 import LearnerSkillCard from '../../learner-skill-card';
@@ -99,9 +100,12 @@ class CardsList extends React.PureComponent {
     dataName: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     showMore: PropTypes.string,
+    // Show the « show more » link even when every card fits (no page)
+    alwaysShowMore: PropTypes.bool,
     cards: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.shape(cardPropTypes),
+        PropTypes.shape(AssignmentCard.propTypes),
         PropTypes.shape(LearningPriorityCard.propTypes)
       ])
     ),
@@ -116,6 +120,7 @@ class CardsList extends React.PureComponent {
     type: PropTypes.oneOf([
       'cards',
       'learningPrioritiesCards',
+      'assignments',
       'skills',
       'certifications',
       'playlists'
@@ -311,6 +316,7 @@ class CardsList extends React.PureComponent {
       title,
       tabs,
       showMore,
+      alwaysShowMore = false,
       cards,
       customStyle = {},
       onShowMore,
@@ -328,7 +334,9 @@ class CardsList extends React.PureComponent {
       map(([key, card]) => {
         let CardComponent = Card;
 
-        if (card && type === 'learningPrioritiesCards') {
+        if (card && type === 'assignments') {
+          CardComponent = AssignmentCard;
+        } else if (card && type === 'learningPrioritiesCards') {
           CardComponent = LearningPriorityCard;
         } else if (card && type === 'skills') {
           CardComponent = LearnerSkillCard;
@@ -378,7 +386,7 @@ class CardsList extends React.PureComponent {
 
     const hasPages = maxPages > 0;
     const showMoreView =
-      hasPages && showMore && onShowMore ? (
+      (hasPages || alwaysShowMore) && showMore && onShowMore ? (
         <ShowMoreLink
           className={hasPages ? style.showMoreBar : style.showMore}
           onShowMore={onShowMore}
@@ -391,7 +399,9 @@ class CardsList extends React.PureComponent {
         {showMoreView}
         {arrows}
       </div>
-    ) : null;
+    ) : (
+      showMoreView
+    );
 
     return (
       <div

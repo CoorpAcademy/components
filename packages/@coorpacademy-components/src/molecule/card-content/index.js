@@ -24,7 +24,10 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme}, context) => {
+const ContentTypeInfo = (
+  {mode, type, typeLabel, adaptiv, ariaLabel, isCourse, empty, theme},
+  context
+) => {
   const {translate} = context;
   if (mode !== MODES.CARD || empty || theme === 'coorpmanager') {
     return null;
@@ -45,7 +48,7 @@ const ContentTypeInfo = ({mode, type, adaptiv, ariaLabel, isCourse, empty, theme
         return `5'learning`;
     }
   };
-  const label = getLabel(type);
+  const label = typeLabel || getLabel(type);
   const iconName = getOr('stopwatch', type, ICONS_NAMES_MAP);
   return (
     <div className={style.contentTypeInfos}>
@@ -66,6 +69,7 @@ ContentTypeInfo.contextTypes = {
 
 ContentTypeInfo.propTypes = {
   type: PropTypes.string,
+  typeLabel: PropTypes.string,
   mode: PropTypes.string,
   adaptiv: PropTypes.bool,
   ariaLabel: PropTypes.string,
@@ -138,6 +142,7 @@ const ContentInfo = ({
   progress,
   title,
   type,
+  typeLabel,
   badgeCategory,
   badgeLabel,
   theme = 'default',
@@ -179,6 +184,7 @@ const ContentInfo = ({
       <ContentTypeInfo
         mode={mode}
         type={type}
+        typeLabel={typeLabel}
         adaptiv={adaptiv}
         isCourse={courseContent}
         empty={empty}
@@ -217,6 +223,8 @@ ContentInfo.propTypes = {
   progress: PropTypes.number,
   title: PropTypes.string,
   type: PropTypes.string,
+  // Replaces the type chip's own label when given (e.g. « Module » on a learner assignment card)
+  typeLabel: PropTypes.string,
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
   badgeLabel: ContentBadge.propTypes.label,

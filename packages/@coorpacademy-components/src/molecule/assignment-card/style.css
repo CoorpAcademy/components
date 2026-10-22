@@ -1,0 +1,98 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_800 from colors;
+@value cm_yellow_400 from colors;
+@value cm_negative_200 from colors;
+@value cm_positive_200 from colors;
+
+/* The catalogue card is 256 × 297 on every format, so the card height already lines up. */
+.wrapper {
+  position: relative;
+  width: 256px;
+  max-width: 100%;
+  font-family: "Gilroy";
+}
+
+/*
+ * One slot on every format (N2), as in the validated prototype: left 12px, top 85px, inside the
+ * image or icon header, below the « Coorp original » banner and the favourite check. The pill is
+ * opaque, so it reads over the image and over the icon circle's decorative halo. Clicks go
+ * through the slot to the card underneath; the tooltip still shows on the wrapper's hover.
+ */
+.slot {
+  pointer-events: none;
+  position: absolute;
+  top: 85px;
+  left: 12px;
+  z-index: 2;
+  max-width: calc(100% - 24px);
+}
+
+.duePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-sizing: border-box;
+  height: 24px;
+  max-width: 100%;
+  padding: 0 10px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.todo {
+  color: cm_grey_500;
+}
+
+.dueSoon {
+  color: cm_yellow_400;
+}
+
+.overdue {
+  color: cm_negative_200;
+}
+
+.done {
+  color: cm_positive_200;
+}
+
+/* The due date, on hover only, right above the pill. */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 2px;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: cm_grey_800;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.12s, transform 0.12s;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 18px;
+  border: 6px solid transparent;
+  border-top-color: cm_grey_800;
+}
+
+.wrapper:hover .tooltip,
+.wrapper:focus-within .tooltip {
+  opacity: 1;
+  transform: none;
+}

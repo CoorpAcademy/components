@@ -146,6 +146,7 @@ const Card = memo(function Card(props, context) {
     adaptiv,
     disabled: hidden = false,
     type = 'course',
+    typeLabel,
     title,
     author,
     customer,
@@ -248,6 +249,7 @@ const Card = memo(function Card(props, context) {
         progress={progress}
         title={title}
         type={type}
+        typeLabel={typeLabel}
         badgeCategory={badgeCategory}
         badgeLabel={badgeLabel}
         theme={theme}
@@ -282,6 +284,7 @@ export const cardPropTypes = {
   disabled: PropTypes.bool,
   adaptiv: PropTypes.bool,
   type: PropTypes.string,
+  typeLabel: CardContentInfo.propTypes.typeLabel,
   title: PropTypes.string,
   author: PropTypes.string,
   certifiedAuthor: PropTypes.bool,

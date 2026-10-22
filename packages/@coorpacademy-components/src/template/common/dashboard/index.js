@@ -12,7 +12,15 @@ import CMPopin from '../../../molecule/cm-popin';
 import ReviewBanner from '../../../molecule/dashboard/review-banner';
 import LearningProfileBanner from '../../../molecule/dashboard/learning-profile-banner';
 import Title from '../../../atom/title';
+import AssignmentCard from '../../../molecule/assignment-card';
 import style from './style.css';
+
+const ASSIGNED_ICON = {
+  iconName: 'clipboard-list',
+  iconColor: '#A32700',
+  borderRadius: '12px',
+  backgroundColor: '#FFDCD1'
+};
 
 const Hero = React.memo(function Hero({hero, welcome}) {
   return <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>;
@@ -67,6 +75,25 @@ const Dashboard = (props, context) => {
           />
         );
       }
+      case 'assignments': {
+        // « Assigned to you »: a strip with arrows, and « See all » even when the strip fits. The
+        // count is every open module, not the cards loaded in the strip.
+        return (
+          <CardsList
+            {...section}
+            title={
+              <Title
+                type="form-group"
+                title={section.title}
+                icon={ASSIGNED_ICON}
+                tag={{label: String(section.count), size: 'S'}}
+              />
+            }
+            alwaysShowMore
+            arrows-aria-label={showMoreOnLeftOrRightAriaLabel}
+          />
+        );
+      }
       case 'cards':
         return <CardsList {...section} arrows-aria-label={showMoreOnLeftOrRightAriaLabel} />;
       case 'news':
@@ -113,6 +140,18 @@ Dashboard.propTypes = {
   welcome: Hero.propTypes.welcome,
   sections: PropTypes.arrayOf(
     PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.oneOf(['assignments']),
+        // « Assigned to you »
+        title: PropTypes.string,
+        // Every open module, whatever the number of cards loaded
+        count: PropTypes.number.isRequired,
+        // Open modules only, already sorted by the MOOC (N3)
+        cards: PropTypes.arrayOf(PropTypes.shape(AssignmentCard.propTypes)),
+        // « See all », to the assignments page
+        showMore: PropTypes.string,
+        onShowMore: PropTypes.func
+      }),
       PropTypes.shape(BattleRequestList.propTypes),
       PropTypes.shape(CardsList.propTypes),
       PropTypes.shape(NewsList.propTypes),

@@ -3,6 +3,7 @@ export type CardsListProps = {
   dataName: string;
   title: string | React.ReactNode;
   showMore: string;
+  alwaysShowMore?: boolean;
   cards: Record<string, unknown>[];
   customStyle: Record<string, unknown>;
   onScroll: (skip: number, limit: number) => void;
