@@ -2226,6 +2226,10 @@
   gap: 0;
 }
 
+.heading-SLXbU {
+  margin: 0;
+}
+
 .level-H02M\+ {
   font-family: Gilroy;
   padding: 2px 6px;
@@ -4510,6 +4514,12 @@
   text-align: left;
 }
 
+.titleBeforeTags-qbaTM {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
 .subtitle-J2KLF {
   font-size: 12px;
   font-style: normal;
@@ -4621,6 +4631,39 @@
 .checked-FqIBX {
   border: 2px solid #0061FF;
   padding: 10px 14px;
+}
+
+.titleTags-K8X-R {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.details-ZAdVg {
+  font-weight: 500;
+  color: #515161;
+}
+
+.progress-V9W0O {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.progressBar-O2zof {
+  width: 220px;
+  min-width: 220px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #EAEAEB;
+}
+
+.progressLabel-jpzWL {
+  margin: 0;
 }
 
 .draggable-QNgaT {
@@ -8215,6 +8258,108 @@ _:-ms-fullscreen
 .innerHTML-mx5Ea {
 }
 
+/* The catalogue card is 256 × 297 on every format, so the card height already lines up. */
+.wrapper-uoe4N {
+  position: relative;
+  width: 256px;
+  max-width: 100%;
+  font-family: "Gilroy";
+}
+
+/*
+ * One slot on every format (N2), as in the validated prototype: left 12px, top 85px, inside the
+ * image or icon header, below the « Coorp original » banner and the favourite check. The pill is
+ * opaque, so it reads over the image and over the icon circle's decorative halo. Clicks go
+ * through the slot to the card underneath; the tooltip still shows on the wrapper's hover.
+ */
+.slot-wetMD {
+  pointer-events: none;
+  position: absolute;
+  top: 85px;
+  left: 12px;
+  z-index: 2;
+  max-width: calc(100% - 24px);
+}
+
+.duePill-eDsZr {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 24px;
+  max-width: 100%;
+  padding: 0 10px;
+  border-radius: 12px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+          box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.todo-CBTJx {
+  color: #515161;
+}
+
+.dueSoon-pAUo7 {
+  color: #bd7e00;
+}
+
+.overdue-id0Er {
+  color: #b81400;
+}
+
+.done-q-fIb {
+  color: #05944F;
+}
+
+/* The due date, on hover only, right above the pill. */
+.tooltip-HLZ6R {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 2px;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: #171721;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  -webkit-transition: opacity 0.12s, -webkit-transform 0.12s;
+  transition: opacity 0.12s, -webkit-transform 0.12s;
+  transition: opacity 0.12s, transform 0.12s;
+  transition: opacity 0.12s, transform 0.12s, -webkit-transform 0.12s;
+}
+
+.tooltip-HLZ6R::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 18px;
+  border: 6px solid transparent;
+  border-top-color: #171721;
+}
+
+.wrapper-uoe4N:hover .tooltip-HLZ6R,
+.wrapper-uoe4N:focus-within .tooltip-HLZ6R {
+  opacity: 1;
+  -webkit-transform: none;
+          transform: none;
+}
+
 .container-CoXgg {
   position: relative;
   display: -webkit-box;
@@ -8362,6 +8507,10 @@ _:-ms-fullscreen
   background-color: var(--bg);
   -webkit-transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.compact-GpLdY {
+  min-width: 0;
 }
 
 .tab-NC52D:hover {

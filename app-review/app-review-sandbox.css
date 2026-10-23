@@ -5075,6 +5075,10 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   gap: 0;
 }
 
+.heading-SLXbU {
+  margin: 0;
+}
+
 .level-H02M\+ {
   font-family: Gilroy;
   padding: 2px 6px;
@@ -7453,6 +7457,12 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   text-align: left;
 }
 
+.titleBeforeTags-qbaTM {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
 .subtitle-J2KLF {
   font-size: 12px;
   font-style: normal;
@@ -7564,6 +7574,39 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 .checked-FqIBX {
   border: 2px solid #0061FF;
   padding: 10px 14px;
+}
+
+.titleTags-K8X-R {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.details-ZAdVg {
+  font-weight: 500;
+  color: #515161;
+}
+
+.progress-V9W0O {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.progressBar-O2zof {
+  width: 220px;
+  min-width: 220px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #EAEAEB;
+}
+
+.progressLabel-jpzWL {
+  margin: 0;
 }
 
 .draggable-QNgaT {
