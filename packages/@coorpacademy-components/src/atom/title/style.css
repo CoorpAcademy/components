@@ -142,3 +142,7 @@
   color: cm_negative_300; 
   gap: 0;
 }
+
+.heading {
+  margin: 0;
+}

@@ -41,7 +41,8 @@ const Chip = (props, context) => {
     onClick,
     leftIcon,
     backgroundColor,
-    customStyle
+    customStyle,
+    ariaLabel
   } = props;
   const {skin} = context;
   const skinColor = getOr(DEFAULT_BACKGROUND_COLOR, 'common.primary', skin);
@@ -83,7 +84,7 @@ const Chip = (props, context) => {
       role={onClick ? 'button' : 'group'}
       tabIndex={onClick ? 0 : undefined}
       onKeyDown={handleChipKeyDown(onClick)}
-      aria-label={text}
+      aria-label={ariaLabel || text}
       data-name={`chip-${text}`}
     >
       <div className={style.left}>
@@ -123,7 +124,9 @@ Chip.propTypes = {
   backgroundColor: PropTypes.string,
   onClick: PropTypes.func,
   leftIcon: PropTypes.string,
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  // Names the chip for assistive tech, e.g. what a click does; the text by default
+  ariaLabel: PropTypes.string
 };
 
 export default Chip;

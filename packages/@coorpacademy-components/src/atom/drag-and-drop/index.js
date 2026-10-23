@@ -36,7 +36,10 @@ class DragAndDrop extends React.Component {
     errorButtonLabel: PropTypes.string,
     pdfButtonLabel: PropTypes.string,
     pdfButtonAriaLabel: PropTypes.string,
-    multiple: PropTypes.bool
+    multiple: PropTypes.bool,
+    // The text inside the drop zone and under the loader; English by default
+    dragAndDropLabel: PropTypes.string,
+    loadingLabel: PropTypes.string
   };
 
   constructor(props) {
@@ -80,7 +83,9 @@ class DragAndDrop extends React.Component {
       disabled = false,
       pdfButtonLabel,
       pdfButtonAriaLabel,
-      multiple
+      multiple,
+      dragAndDropLabel = 'Drag & Drop here',
+      loadingLabel = 'Uploading'
     } = this.props;
     const {dragging} = this.state;
 
@@ -154,7 +159,7 @@ class DragAndDrop extends React.Component {
           <div className={style.loader}>
             <Loader theme="coorpmanager" />
           </div>
-          <span className={style.loaderText}>Uploading</span>
+          <span className={style.loaderText}>{loadingLabel}</span>
         </div>
       );
     } else {
@@ -242,7 +247,7 @@ class DragAndDrop extends React.Component {
                 <FileUploadIcon className={style.icon} />
               )}
               {description ? <div className={style.description}>{description}</div> : null}
-              {error ? null : <div className={style.dragAndDropLabel}>{'Drag & Drop here'}</div>}
+              {error ? null : <div className={style.dragAndDropLabel}>{dragAndDropLabel}</div>}
             </div>
             {button}
             <div>{children(this.handleDragStart, this.handleDragStop)}</div>

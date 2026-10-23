@@ -21,7 +21,7 @@ const InputFileDraggable = ({
   disabled = false,
   disableHoverTooltip = false,
   onChange,
-  onReset = null,
+  onReset,
   name,
   labelLink,
   labelButtonLink,
@@ -35,7 +35,9 @@ const InputFileDraggable = ({
   filesNumber = 0,
   multiple = false,
   required = false,
-  onClick
+  onClick,
+  dragAndDropLabel,
+  loadingLabel
 }) => {
   const handleReset = useCallback(
     e => {
@@ -78,6 +80,8 @@ const InputFileDraggable = ({
         pdfButtonLabel={pdfButtonLabel}
         pdfButtonAriaLabel={pdfButtonAriaLabel}
         multiple={multiple}
+        dragAndDropLabel={dragAndDropLabel}
+        loadingLabel={loadingLabel}
       >
         {(onDragStart, onDragStop) => (
           <input
@@ -134,7 +138,11 @@ InputFileDraggable.propTypes = {
   buttonAriaLabel: PropTypes.string,
   errorButtonLabel: PropTypes.string,
   labelLink: PropTypes.string,
-  hrefLink: PropTypes.string
+  labelButtonLink: PropTypes.string,
+  hrefLink: PropTypes.string,
+  filesNumber: PropTypes.number,
+  required: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default InputFileDraggable;

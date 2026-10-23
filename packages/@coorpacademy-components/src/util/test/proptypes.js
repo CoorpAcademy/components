@@ -86,6 +86,12 @@ test('FilesPropType should pass when correct image type is passed', validMacro, 
   'image/*'
 ]);
 
+test('FilesPropType should pass for spreadsheet types', validMacro, FilesPropType, [
+  'application/vnd.ms-excel',
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  'text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+]);
+
 test(
   'FilesPropType should throw error when incorrect image type is passed: misspelled',
   failMacro,

@@ -1,0 +1,115 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_75, cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700 from colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  width: 100%;
+  font-family: Gilroy;
+  color: cm_grey_700;
+}
+
+.muted {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: cm_grey_500;
+}
+
+.block {
+  min-width: 0;
+}
+
+.blockHead {
+  margin-bottom: 12px;
+}
+
+.explanation {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.sources {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sources:disabled {
+  opacity: 0.5;
+}
+
+/* The template preview column, then the uploader or the uploaded file */
+.upload {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.uploadMain {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The Coorpmanager uploader fills its parent's height */
+.dropzone {
+  composes: uploadMain;
+  height: 220px;
+}
+
+.templatePreview {
+  flex: 0 0 150px;
+  border: 1px solid cm_grey_200;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.templateHeader,
+.templateRows li {
+  padding: 6px 10px;
+}
+
+.templateHeader {
+  background-color: cm_grey_75;
+  font-weight: 700;
+}
+
+.templateRows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.templateRows li {
+  border-top: 1px solid cm_grey_100;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 16px;
+  border-top: 1px solid cm_grey_100;
+}
+
+.totalLabel {
+  font-size: 16px;
+  font-weight: 700;
+}
