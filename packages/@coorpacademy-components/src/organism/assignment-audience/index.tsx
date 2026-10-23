@@ -14,6 +14,9 @@ import AssignmentAudiencePropTypes, {
 } from './types';
 import style from './style.css';
 
+// ButtonLink is full width by default: in the Title row it would squeeze the title column.
+const FIT_CONTENT = {width: 'fit-content'};
+
 // csv, xls and xlsx, as the types FilesPropType knows
 const ACCEPTED_FILES = [
   'text/csv',
@@ -198,7 +201,8 @@ const AssignmentAudience = ({
                   label: upload.templateLink.label,
                   link: disabled ? undefined : {href: upload.templateLink.href, download: true},
                   disabled,
-                  'data-name': 'upload-template-link'
+                  'data-name': 'upload-template-link',
+                  customStyle: FIT_CONTENT
                 }
               : undefined
           }

@@ -14,6 +14,8 @@ const STATUS_TAG_TYPES: Record<UploadRowStatus, 'success' | 'failure' | 'warning
 };
 // ButtonLink's text type sets its own colour; customStyle is the prop it lets win over it.
 const REMOVE_STYLE = {color: COLORS.cm_negative_200};
+// ButtonLink is full width by default, which centres the link under the file card.
+const FIT_CONTENT = {width: 'fit-content'};
 const FILE_ICON_SIZE = {faSize: 22, wrapperSize: 22};
 
 // Up to 5,000 rows: the logins not kept go to a file the admin can fix and upload again.
@@ -24,6 +26,7 @@ const Report = ({label, onDownload}: NonNullable<UploadResultProps['report']>) =
       label={label}
       onClick={onDownload}
       icon={{position: 'left', faIcon: {name: 'download', size: 14}}}
+      customStyle={FIT_CONTENT}
     />
   </div>
 );
