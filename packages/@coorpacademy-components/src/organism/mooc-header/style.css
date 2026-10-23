@@ -442,6 +442,17 @@
   margin-top: 1px;
 }
 
+.statIcon {
+  position: relative;
+}
+
+.statBadge {
+  composes: itemBadge;
+  position: absolute;
+  top: -8px;
+  left: 10px;
+}
+
 .stat .label {
   font-family: 'Gilroy';
   font-size: 12px;
