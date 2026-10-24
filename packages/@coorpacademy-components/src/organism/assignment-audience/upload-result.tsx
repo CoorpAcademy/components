@@ -1,17 +1,13 @@
 import React from 'react';
+import upperFirst from 'lodash/fp/upperFirst';
 import ButtonLink from '../../atom/button-link';
 import Tag from '../../atom/tag';
 import FaIcon from '../../atom/icon';
+import {getAssignmentTagType} from '../../molecule/assignment-status-tag';
 import {COLORS} from '../../variables/colors';
-import {STATUSES, UploadResultProps, UploadResultPropTypes, UploadRowStatus} from './types';
+import {STATUSES, UploadResultProps, UploadResultPropTypes} from './types';
 import style from './upload-result.css';
 
-const STATUS_TAG_TYPES: Record<UploadRowStatus, 'success' | 'failure' | 'warning'> = {
-  valid: 'success',
-  unknown: 'failure',
-  ambiguous: 'warning',
-  inactive: 'warning'
-};
 // ButtonLink's text type sets its own colour; customStyle is the prop it lets win over it.
 const REMOVE_STYLE = {color: COLORS.cm_negative_200};
 // ButtonLink is full width by default, which centres the link under the file card.
@@ -53,7 +49,7 @@ const UploadResult = ({
     <div className={style.summary} data-name="upload-summary">
       {STATUSES.filter(status => summary[status]).map(status => (
         <div key={status}>
-          <Tag type={STATUS_TAG_TYPES[status]} label={summary[status]} />
+          <Tag type={getAssignmentTagType(`login${upperFirst(status)}`)} label={summary[status]} />
         </div>
       ))}
       {keptLabel ? <span className={style.muted}>{keptLabel}</span> : null}

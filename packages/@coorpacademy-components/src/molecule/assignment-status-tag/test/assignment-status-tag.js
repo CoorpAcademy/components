@@ -22,6 +22,11 @@ const MAPPING = [
   ['active', 'success'],
   ['ended', 'default'],
   ['disabled', 'warning'],
+  // Login resolution in an audience upload
+  ['loginValid', 'success'],
+  ['loginUnknown', 'failure'],
+  ['loginAmbiguous', 'warning'],
+  ['loginInactive', 'warning'],
   // List-row information tags: « Ongoing changes », « N modules unavailable »
   ['ongoingChanges', 'progress'],
   ['unavailable', 'warning'],
