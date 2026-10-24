@@ -17,3 +17,40 @@
   margin: 0px auto;
 }
 
+
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue, cm_blue_50, cm_grey_400 from colors;
+
+.segmented {
+  composes: container;
+  flex-wrap: nowrap;
+  border: 0;
+  height: 36px;
+  gap: 4px;
+}
+
+.segmentedOption {
+  composes: label from "./item.css";
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: cm_grey_400;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.43;
+  white-space: nowrap;
+}
+
+.segmentedOption[aria-checked="true"] {
+  color: cm_primary_blue;
+  background: cm_blue_50;
+}
+
+.segmentedOption:focus {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 2px;
+}

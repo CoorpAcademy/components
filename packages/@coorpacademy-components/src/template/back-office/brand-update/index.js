@@ -9,6 +9,7 @@ import find from 'lodash/fp/find';
 import some from 'lodash/fp/some';
 import classNames from 'classnames';
 import BrandTabs from '../../../molecule/brand-tabs';
+import RadioGroup from '../../../atom/radio-group';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
@@ -175,7 +176,7 @@ const buildDocumentation = documentation => {
   );
 };
 
-const buildTabs = items => {
+const buildTabs = (items, scopeControl) => {
   const selectedTab = pipe(
     find(e => e.selected),
     get('tabs'),
@@ -184,6 +185,18 @@ const buildTabs = items => {
 
   const showTabs = selectedTab ? find(e => e.selected, selectedTab.subTabs) : undefined;
   if (!showTabs) return null;
+  if (scopeControl) {
+    return (
+      <div className={classNames(style.tabs, style.tabsWithScope)}>
+        <div className={style.tabsNavigation}>
+          <BrandTabs type="light" tabs={selectedTab.subTabs} />
+        </div>
+        <div className={style.scopeControl}>
+          <RadioGroup {...scopeControl} />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={style.tabs}>
       <BrandTabs type="light" tabs={selectedTab.subTabs} />
@@ -254,7 +267,8 @@ const BrandUpdate = props => {
     onItemClick,
     documentation,
     contentFixHeight,
-    title
+    title,
+    scopeControl
   } = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
@@ -262,7 +276,7 @@ const BrandUpdate = props => {
   const notificationsView = buildNotifications(notifications);
   const documentationView = buildDocumentation(documentation);
   const headerView = buildHeader(header, notifications);
-  const tabsView = buildTabs(items);
+  const tabsView = buildTabs(items, scopeControl);
   const contentView = buildContentView(content);
   const detailsView = buildDetailsView(details);
   const popinView = buildPopin(popin);
@@ -439,7 +453,8 @@ BrandUpdate.propTypes = {
   }),
   onItemClick: PropTypes.func,
   contentFixHeight: PropTypes.bool,
-  title: PropTypes.shape(Title.propTypes)
+  title: PropTypes.shape(Title.propTypes),
+  scopeControl: PropTypes.shape(RadioGroup.propTypes)
 };
 
 export default BrandUpdate;
