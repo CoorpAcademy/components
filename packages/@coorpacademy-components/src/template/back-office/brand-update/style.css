@@ -208,3 +208,21 @@
     margin: 0 auto;
   }
 }
+
+.tabsWithScope {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.tabsNavigation {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.scopeControl {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
