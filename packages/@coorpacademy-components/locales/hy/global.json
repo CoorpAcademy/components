@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "Դիպլոմ",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "Ձեր վկայականի մասին լրացուցիչ տեղեկություններ"
@@ -238,5 +238,5 @@
       "certification_module": "մակարդակ՝ ավարտելու համար"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "Հրապարակել LinkedIn-ում"
 }
