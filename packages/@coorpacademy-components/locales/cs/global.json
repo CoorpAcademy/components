@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "Diplom",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "Další informace o vašem certifikátu"
@@ -238,5 +238,5 @@
       "certification_module": "úroveň dokončit"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "Publikovat na LinkedInu"
 }
