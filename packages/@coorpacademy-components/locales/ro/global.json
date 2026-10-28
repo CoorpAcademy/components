@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "Diplomă",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "Informațiile suplimentare despre certificatul dvs"
@@ -238,5 +238,5 @@
       "certification_module": "nivel de finalizat"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "Publică pe LinkedIn"
 }
