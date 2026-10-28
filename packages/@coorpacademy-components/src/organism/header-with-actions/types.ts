@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import AssignmentStatusTagPropTypes from '../../molecule/assignment-status-tag/types';
+import Breadcrumbs from '../../molecule/breadcrumbs';
 
 const ButtonMenuPropTypes = {
   dataName: PropTypes.string,
@@ -23,15 +25,18 @@ const HeaderWithActionsPropTypes = {
     onClick: PropTypes.func.isRequired
   }),
   title: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTagPropTypes)),
+  subtitle: PropTypes.string,
+  breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   tag: PropTypes.shape({
     label: PropTypes.oneOf(['Published', 'Ongoing changes', 'Draft', 'Archived']).isRequired,
     type: PropTypes.oneOf(['success', 'progress', 'warning']).isRequired,
     size: PropTypes.string.isRequired
-  }).isRequired,
+  }),
   saveStatus: PropTypes.shape({
     display: PropTypes.bool.isRequired,
     label: PropTypes.oneOf(['Unsaved changes', 'Saved'])
-  }).isRequired,
+  }),
   actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonActionPropTypes)).isRequired,
   bulletPointMenuButton: PropTypes.shape({
     buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
@@ -85,8 +90,11 @@ export type ButtonActionProps = {
 export type HeaderWithActionsProps = {
   closeButton: CloseButtonProps;
   title: string;
-  tag: TagProps;
-  saveStatus: SaveStatusProps;
+  tags?: Array<{status?: string; label: string}>;
+  subtitle?: string;
+  breadcrumbs?: Array<{title: string; href?: string}>;
+  tag?: TagProps;
+  saveStatus?: SaveStatusProps;
   actionButtons: ButtonActionProps[];
   bulletPointMenuButton?: BulletPointMenuButtonProps;
   isFetching?: boolean;
