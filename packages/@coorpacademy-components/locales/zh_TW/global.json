@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "文憑",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "有關您證書的附加信息"
@@ -238,5 +238,5 @@
       "certification_module": "完成等級"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "在領英上發布"
 }
