@@ -34,6 +34,12 @@
   transition: box-shadow 0.5s linear;
 }
 
+.radio:disabled,
+.radio:disabled + .title {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .title {
   font-family: "Gilroy";
   font-weight: 700;
@@ -46,4 +52,25 @@
   color: black;
 }
 
+.withExample {
+  flex-direction: column;
+  align-items: flex-start;
+}
 
+.example {
+  composes: extraSmallSubtitleFormGroup from "../title/style.css";
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.withHint {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hint {
+  composes: extraSmallSubtitleFormGroup from "../title/style.css";
+  font-style: normal;
+  margin-top: 4px;
+  margin-left: 40px;
+}
