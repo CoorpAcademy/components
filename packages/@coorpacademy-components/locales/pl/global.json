@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "Dyplom",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "Dodatkowe informacje o Twoim certyfikacie"
@@ -238,5 +238,5 @@
       "certification_module": "poziom do ukończenia"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "Opublikuj na LinkedIn"
 }
