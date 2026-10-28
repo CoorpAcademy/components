@@ -1,5 +1,5 @@
-import bo04 from './bo-04-shape';
+import everyoneAndPopulations from './everyone-and-populations';
 
 export default {
-  props: {...bo04.props, error: 'Choose an audience to publish.'}
+  props: {...everyoneAndPopulations.props, error: 'Choose an audience to publish.'}
 };
