@@ -6,3 +6,4 @@ import Loading from './template/app-player/loading';
 import PopinNoAccess from './template/app-player/popin-no-access';
 
 export {Provider, PopinEnd, PopinCorrection, Loading, Player, PopinNoAccess};
+export {default as ContentSelectionList} from './organism/content-selection-list';

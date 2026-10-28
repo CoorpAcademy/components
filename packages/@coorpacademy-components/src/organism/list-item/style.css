@@ -190,3 +190,18 @@
   composes: subtitle;
   margin: 0;
 }
+
+.imageWithOverlay {
+  position: relative;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  overflow: hidden;
+  pointer-events: none;
+}
