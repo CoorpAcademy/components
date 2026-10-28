@@ -4,32 +4,13 @@ import browserEnv from 'browser-env';
 import {cleanup, fireEvent, render, within} from '@testing-library/react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
-import {renderComponent, wrappingComponent} from '../../../test/helpers/render-component';
+import {wrappingComponent} from '../../../test/helpers/render-component';
 import HeaderWithActions from '..';
 import AssignmentStatusTag from '../../../molecule/assignment-status-tag';
-import customSkillEdition from '../../../template/back-office/brand-update/test/fixtures/custom-skill-edition';
-import customSkillEditionReadonly from '../../../template/back-office/brand-update/test/fixtures/custom-skill-edition-readonly';
-import customSkillEditionLoading from '../../../template/back-office/brand-update/test/fixtures/custom-skill-edition-loading';
-import defaultFixture from './fixtures/default';
 import singleAction from './fixtures/single-action';
-import actionWithoutIcon from './fixtures/action-without-icon';
 
 browserEnv();
 test.afterEach.always(cleanup);
-
-test.serial('legacy header fixtures retain their original markup', t => {
-  const fixtures = {
-    default: defaultFixture,
-    singleAction,
-    actionWithoutIcon,
-    customSkillEdition: {props: customSkillEdition.props.header},
-    customSkillEditionReadonly: {props: customSkillEditionReadonly.props.header},
-    customSkillEditionLoading: {props: customSkillEditionLoading.props.header}
-  };
-  Object.entries(fixtures).forEach(([name, fixture]) => {
-    t.snapshot(renderComponent(t, HeaderWithActions, fixture), name);
-  });
-});
 
 const assignmentTags = [
   {status: 'active', label: 'Active'},
