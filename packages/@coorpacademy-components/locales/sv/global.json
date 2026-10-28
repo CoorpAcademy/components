@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "Diplom",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "Ytterligare information om ditt certifikat"
@@ -238,5 +238,5 @@
       "certification_module": "nivå att slutföra"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "Publicera på LinkedIn"
 }
