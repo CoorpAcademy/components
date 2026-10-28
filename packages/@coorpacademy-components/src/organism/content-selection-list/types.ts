@@ -28,6 +28,7 @@ export const ContentSelectionListPropTypes = {
         }).isRequired,
         deleteButton: PropTypes.shape({
           label: PropTypes.string,
+          'aria-label': PropTypes.string,
           onClick: PropTypes.func
         })
       }).isRequired
@@ -48,6 +49,7 @@ export const ContentSelectionListPropTypes = {
     })
   }).isRequired,
   error: PropTypes.string,
+  hiddenLabel: PropTypes.string,
   isFetching: PropTypes.bool,
   actionButtons: PropTypes.arrayOf(PropTypes.object),
   checkboxWithTitle: PropTypes.shape({
@@ -84,6 +86,7 @@ export type CheckboxWithTitleProps = {
 
 export type ContentPropsType = {
   error?: string;
+  hiddenLabel?: string;
   title: string;
   subtitle?: string;
   button: {

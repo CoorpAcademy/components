@@ -7,6 +7,7 @@ import {translationsProps, contentData, contentProps} from './draft';
 const updatedContentData: ContentListItemType[] = contentData.map(item => ({
   ...item,
   deleteButton: {
+    'aria-label': 'Delete',
     onClick: () => console.log('Click on delete icon')
   }
 }));

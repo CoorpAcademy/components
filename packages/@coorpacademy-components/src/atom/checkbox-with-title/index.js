@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {getOr, noop, uniqueId} from 'lodash/fp';
 import FaIcon from '../icon';
 import {COLORS} from '../../variables/colors';
@@ -18,7 +19,8 @@ const CheckboxWithTitle = (props, context) => {
     'data-name': dataName,
     'aria-label': ariaLabel,
     icon = {iconName: 'check', iconColor: 'white', preset: 's'},
-    customStyle = {}
+    customStyle = {},
+    className
   } = props;
   const {skin} = context;
   const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
@@ -27,7 +29,7 @@ const CheckboxWithTitle = (props, context) => {
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   return (
-    <div className={style.container} style={{...customStyle}}>
+    <div className={classnames(style.container, className)} style={{...customStyle}}>
       {onChange !== noop ? (
         <label htmlFor={idCheckbox}>
           <input
@@ -88,7 +90,8 @@ CheckboxWithTitle.propTypes = {
     iconColor: PropTypes.string,
     preset: PropTypes.string
   }),
-  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number]))
+  customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  className: PropTypes.string
 };
 
 CheckboxWithTitle.contextTypes = {

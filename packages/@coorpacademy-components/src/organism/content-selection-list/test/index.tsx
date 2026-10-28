@@ -17,6 +17,7 @@ test.afterEach.always(cleanup);
 
 const props: ContentPropsType = {
   title: 'Contents',
+  hiddenLabel: 'Hidden',
   button: {label: 'Add content', onClick: noop},
   checkboxWithTitle: {title: '24 items', checked: false, onChange: noop},
   actionButtons: [{label: 'Delete', onClick: noop}],
@@ -28,7 +29,7 @@ const props: ContentPropsType = {
       image: 'https://static.coorpacademy.com/content/leadership.jpg',
       tags: {label: 'Module', iconName: 'book-open'},
       checkbox: {checked: false, onChange: noop},
-      deleteButton: {label: 'Delete', onClick: noop}
+      deleteButton: {'aria-label': 'Delete', onClick: noop}
     }))
   }
 };
@@ -101,7 +102,7 @@ test.serial('batch Delete calls only its action callback and row Delete only tha
   const calls: string[] = [];
   const items = props.list.items!.map((item, i) => ({
     ...item,
-    deleteButton: {label: 'Delete', onClick: () => calls.push(`row-${i}`)}
+    deleteButton: {'aria-label': 'Delete', onClick: () => calls.push(`row-${i}`)}
   }));
   const view = mount({
     ...props,
@@ -148,7 +149,7 @@ test.serial('hidden row keeps checkbox and delete operable without forcing check
     withItem({
       hidden: true,
       checkbox: {checked: false, onChange: value => calls.push(value)},
-      deleteButton: {label: 'Delete', onClick: () => calls.push('delete')}
+      deleteButton: {'aria-label': 'Delete', onClick: () => calls.push('delete')}
     })
   );
   const checkbox = within(row(view)).getByRole('checkbox') as HTMLInputElement;
@@ -159,6 +160,26 @@ test.serial('hidden row keeps checkbox and delete operable without forcing check
   fireEvent.click(checkbox);
   fireEvent.click(button);
   t.deepEqual(calls, [true, 'delete']);
+});
+
+test.serial('row delete takes its accessible name from the deleteButton props', t => {
+  const view = mount(withItem({deleteButton: {'aria-label': 'Remove Leadership', onClick: noop}}));
+  t.truthy(within(row(view)).getByRole('button', {name: 'Remove Leadership'}));
+  t.is(within(row(view)).queryByRole('button', {name: 'Delete'}), null);
+});
+
+test.serial('hidden badge label comes from the hiddenLabel prop', t => {
+  const view = mount({...withItem({hidden: true}), hiddenLabel: 'Masqué'});
+  t.truthy(within(row(view)).getByText('Masqué'));
+  t.is(view.queryByText('Hidden'), null);
+});
+
+test.serial('select-all checkbox is styled by a class, not inline style', t => {
+  const view = mount();
+  const label = view.getByText('24 items');
+  const root = label.parentElement as HTMLElement;
+  t.falsy(root.getAttribute('style'));
+  t.true(root.classList.length > 1);
 });
 
 test.serial('hidden false or absent renders no overlay or badge', t => {
@@ -281,7 +302,7 @@ test.serial(
       ...item,
       hidden: i === 0,
       checkbox: {checked: i === 0, onChange: () => calls.push('stale selection')},
-      deleteButton: {label: 'Delete', onClick: () => calls.push('stale delete')}
+      deleteButton: {'aria-label': 'Delete', onClick: () => calls.push('stale delete')}
     }));
     const view = mount({...props, list: {items}});
     const hiddenCheckbox = within(row(view)).getByRole('checkbox');
@@ -295,7 +316,7 @@ test.serial(
               checked: item.checkbox.checked,
               onChange: value => calls.push(item.ref, value)
             },
-            deleteButton: {label: 'Delete', onClick: () => calls.push(`delete ${item.ref}`)}
+            deleteButton: {'aria-label': 'Delete', onClick: () => calls.push(`delete ${item.ref}`)}
           }))
         }}
       />

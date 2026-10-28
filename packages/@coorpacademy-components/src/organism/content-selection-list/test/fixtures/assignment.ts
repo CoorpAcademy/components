@@ -19,7 +19,7 @@ const props: ContentPropsType = {
     ].map(item => ({
       ...item,
       tags: {label: 'Module', iconName: 'book-open'},
-      deleteButton: {onClick: () => console.log('Delete', item.ref)}
+      deleteButton: {'aria-label': 'Delete', onClick: () => console.log('Delete', item.ref)}
     }))
   }
 };

@@ -1,10 +1,12 @@
 import React from 'react';
+import classnames from 'classnames';
 import {isEmpty, map} from 'lodash/fp';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import Notification from '../../atom/notification';
 import {COLORS} from '../../variables/colors';
 import {contentContainer} from '../skill-edition/styles';
+import style from './style.css';
 import {ContentPropsType, ContentListItemType, ContentSelectionListPropTypes} from './types';
 
 export const buildButtonProps = (button: {
@@ -37,7 +39,7 @@ export const buildButtonProps = (button: {
 });
 
 const buildContentItem =
-  (readOnly: boolean) =>
+  (readOnly: boolean, hiddenLabel?: string) =>
   ({
     ref,
     title,
@@ -56,7 +58,6 @@ const buildContentItem =
             secondButtonLink: {
               ...deleteButton,
               'data-name': `button-${deleteButton?.label}`,
-              'aria-label': 'Delete',
               type: 'primary',
               customStyle: {
                 width: 'fit-content',
@@ -74,7 +75,7 @@ const buildContentItem =
             }
           }),
       imageOverlay: hidden ? 'hidden' : undefined,
-      contentBadge: hidden ? {category: 'hidden', label: 'Hidden'} : undefined,
+      contentBadge: hidden ? {category: 'hidden', label: hiddenLabel} : undefined,
       details: hint,
       id: ref,
       title,
@@ -102,12 +103,13 @@ const ContentSelectionList = ({
   title,
   subtitle,
   button,
-  list: {title: listTitle, checkbox, items, search, emptyResult},
+  list: {title: listTitle, items, search, emptyResult},
   actionButtons,
   checkboxWithTitle: checkboxWithTitleProps,
   readOnly = false,
   isFetching = false,
-  error
+  error,
+  hiddenLabel
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps(button);
 
@@ -120,16 +122,11 @@ const ContentSelectionList = ({
   };
 
   const listProps = {
-    ...(!isEmpty(checkbox) && {
-      ...checkbox,
-      icon: {iconName: 'minus', iconColor: COLORS.white, preset: 's'},
-      customStyle: {fontWeight: 600, color: COLORS.cm_grey_500, fontSize: '16px'}
-    }),
     title: listTitle,
     'aria-label': 'content list items',
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: buttonProps}}),
-      items: map(buildContentItem(readOnly), items),
+      items: map(buildContentItem(readOnly, hiddenLabel), items),
       type: 'list'
     },
     search: search
@@ -161,14 +158,14 @@ const ContentSelectionList = ({
           name: checkboxWithTitleProps?.title,
           'aria-label': checkboxWithTitleProps?.title,
           'data-name': checkboxWithTitleProps?.title,
-          customStyle: {fontWeight: 600, color: COLORS.neutral_500, fontSize: '16px'},
+          className: style.checkboxWithTitle,
           icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
         },
     isFetching
   };
 
   return (
-    <div className={contentContainer}>
+    <div className={classnames(contentContainer, style.list)}>
       <Title {...titleProps} />
       {error ? (
         <div role="alert">
