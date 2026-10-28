@@ -53,3 +53,45 @@
   display: flex;
   gap: 10px;
 }
+
+.assignmentTitleRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.assignmentTitle {
+  composes: title;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.assignmentTags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.extendedTitleAndButtonWrapper {
+  composes: titleAndButtonWrapper;
+  min-width: 0;
+  flex: 1;
+}
+
+.extendedTitleWrapper {
+  composes: titleWrapper;
+  min-width: 0;
+  width: 100%;
+}
+
+.subtitle {
+  composes: saveStatus;
+  font-size: 12px;
+  line-height: 18px;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

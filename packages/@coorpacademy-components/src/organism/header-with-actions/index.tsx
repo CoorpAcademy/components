@@ -4,6 +4,8 @@ import map from 'lodash/fp/map';
 import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Tag from '../../atom/tag';
+import AssignmentStatusTag from '../../molecule/assignment-status-tag';
+import Breadcrumbs from '../../molecule/breadcrumbs';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import HeaderWithActionsPropTypes, {
   HeaderWithActionsProps,
@@ -85,16 +87,24 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
     closeButton,
     title,
     tag,
+    tags,
+    subtitle,
+    breadcrumbs,
     saveStatus,
     bulletPointMenuButton,
     actionButtons,
     isFetching = false
   } = props;
+  const hasSubtitle = Boolean(subtitle?.trim());
+  const hasBreadcrumbs = !isEmpty(breadcrumbs);
+  const hasAdditionalContent = tags !== undefined || hasSubtitle || hasBreadcrumbs;
 
   return !isFetching ? (
     <div className={style.headerWrapper} data-name={getDataName('wrapper')}>
       <div
-        className={style.titleAndButtonWrapper}
+        className={
+          hasAdditionalContent ? style.extendedTitleAndButtonWrapper : style.titleAndButtonWrapper
+        }
         data-name={getDataName('title-and-button-wrapper')}
       >
         <ButtonLinkIcon
@@ -104,16 +114,42 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
           })}
           className={style.button}
         />
-        <div className={style.titleWrapper}>
+        <div className={hasAdditionalContent ? style.extendedTitleWrapper : style.titleWrapper}>
+          {hasBreadcrumbs ? (
+            <div data-name={getDataName('breadcrumbs')}>
+              <Breadcrumbs breadcrumbs={breadcrumbs} />
+            </div>
+          ) : null}
           <div className={style.statusWrapper}>
-            <Tag {...tag} />
-            {saveStatus.display && saveStatus.label ? (
+            {tags === undefined && tag ? <Tag {...tag} /> : null}
+            {saveStatus?.display && saveStatus.label ? (
               <p className={style.saveStatus}>{saveStatus.label}</p>
             ) : null}
           </div>
-          <h3 className={style.title} data-name={getDataName('title')}>
-            {title}
-          </h3>
+          {tags !== undefined ? (
+            <div className={style.assignmentTitleRow}>
+              <h3 className={style.assignmentTitle} data-name={getDataName('title')}>
+                {title}
+              </h3>
+              <div className={style.assignmentTags} data-name={getDataName('tags')}>
+                {tags.map((assignmentTag, index) => (
+                  <AssignmentStatusTag
+                    {...assignmentTag}
+                    key={`${assignmentTag.status}-${assignmentTag.label}-${index}`}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <h3 className={style.title} data-name={getDataName('title')}>
+              {title}
+            </h3>
+          )}
+          {hasSubtitle ? (
+            <p className={style.subtitle} data-name={getDataName('subtitle')}>
+              {subtitle}
+            </p>
+          ) : null}
         </div>
       </div>
       <div className={style.buttonsWrapper} data-name={getDataName('buttons-wrapper')}>
