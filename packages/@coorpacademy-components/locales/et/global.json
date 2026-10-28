@@ -225,7 +225,7 @@
     },
     "savoirsdavenirs": {
       "diploma": "Diplom",
-      "learning_priorities_description": "\u200C"
+      "learning_priorities_description": "‌"
     },
     "who": {
       "badge": "Täiendav teave teie sertifikaadi kohta"
@@ -238,5 +238,5 @@
       "certification_module": "taseme lõpetamiseks"
     }
   },
-  "publish_on_linkedin": "Publish on LinkedIn"
+  "publish_on_linkedin": "Avalda LinkedInis"
 }
