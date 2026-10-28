@@ -12,7 +12,10 @@ const labelsByStatus = PropTypes.shape({
   inactive: PropTypes.string
 });
 
-const fileType = PropTypes.shape({name: PropTypes.string, detail: PropTypes.string});
+const fileType = PropTypes.shape({
+  name: PropTypes.string,
+  detail: PropTypes.string
+});
 
 export const UploadResultPropTypes = {
   file: fileType,
@@ -38,13 +41,27 @@ const AssignmentAudiencePropTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   disabledExplanation: PropTypes.string,
+  team: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }),
+  invalidTargets: PropTypes.arrayOf(
+    PropTypes.shape({
+      ref: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      onRemove: PropTypes.func.isRequired
+    })
+  ),
+  invalidLabel: PropTypes.string,
+  error: PropTypes.string,
+  disabled: PropTypes.bool,
   everyone: PropTypes.shape({
     title: PropTypes.string,
     label: PropTypes.string.isRequired,
     value: PropTypes.bool.isRequired,
     // Receives the new boolean
     onChange: PropTypes.func.isRequired
-  }).isRequired,
+  }),
   populations: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
@@ -62,7 +79,7 @@ const AssignmentAudiencePropTypes = {
     removeLabel: PropTypes.string,
     // Receives the selected options, with selected: true
     onChange: PropTypes.func.isRequired
-  }).isRequired,
+  }),
   upload: PropTypes.shape({
     // The file line and the result, once the file is checked
     ...UploadResultPropTypes,
@@ -88,7 +105,7 @@ const AssignmentAudiencePropTypes = {
     error: PropTypes.string,
     // Receives the first File. Parsing and login resolution belong to the consumer.
     onUpload: PropTypes.func.isRequired
-  }).isRequired,
+  }),
   individuals: PropTypes.shape({
     title: PropTypes.string,
     placeholder: PropTypes.string,
@@ -103,11 +120,11 @@ const AssignmentAudiencePropTypes = {
     onAdd: PropTypes.func.isRequired,
     // Receives the learner id
     onRemove: PropTypes.func.isRequired
-  }).isRequired,
+  }),
   total: PropTypes.shape({
     label: PropTypes.string.isRequired,
     detail: PropTypes.string
-  }).isRequired
+  })
 };
 
 export default AssignmentAudiencePropTypes;
@@ -140,13 +157,18 @@ export type AssignmentAudienceProps = {
   title: string;
   subtitle?: string;
   disabledExplanation?: string;
-  everyone: {
+  team?: {label: string; name: string};
+  invalidTargets?: Array<{ref: string; label: string; onRemove: () => void}>;
+  invalidLabel?: string;
+  error?: string;
+  disabled?: boolean;
+  everyone?: {
     title?: string;
     label: string;
     value: boolean;
     onChange: (value: boolean) => void;
   };
-  populations: {
+  populations?: {
     title?: string;
     subtitle?: string;
     label?: string;
@@ -154,7 +176,7 @@ export type AssignmentAudienceProps = {
     removeLabel?: string;
     onChange: (selected: PopulationOption[]) => void;
   };
-  upload: UploadResultProps & {
+  upload?: UploadResultProps & {
     title?: string;
     subtitle?: string;
     templateLink?: {label?: string; href?: string};
@@ -169,7 +191,7 @@ export type AssignmentAudienceProps = {
     error?: string;
     onUpload: (file: File) => void;
   };
-  individuals: {
+  individuals?: {
     title?: string;
     placeholder?: string;
     value?: string;
@@ -180,7 +202,7 @@ export type AssignmentAudienceProps = {
     onAdd: (learner: Learner) => void;
     onRemove: (id: string) => void;
   };
-  total: {label: string; detail?: string};
+  total?: {label: string; detail?: string};
 };
 
 export type AssignmentAudiencePropsFixture = {props: AssignmentAudienceProps};
