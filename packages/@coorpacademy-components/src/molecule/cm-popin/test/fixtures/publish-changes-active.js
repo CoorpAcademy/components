@@ -7,9 +7,9 @@ export default {
         title: 'Modules:',
         counterText: '2 added · 1 removed',
         items: [
-          {type: 'text', text: '+ Clear communication'},
-          {type: 'text', text: '+ Giving feedback'},
-          {type: 'text', text: '− Introduction to management'}
+          {type: 'text', text: 'Introduction to management', diff: 'removed', diffLabel: 'Removed'},
+          {type: 'text', text: 'Clear communication', diff: 'added', diffLabel: 'Added'},
+          {type: 'text', text: 'Giving feedback', diff: 'added', diffLabel: 'Added'}
         ]
       },
       {

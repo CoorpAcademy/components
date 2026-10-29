@@ -109,3 +109,39 @@ test.serial('non-inline summaries keep their action callback and disclosure togg
     cleanup();
   });
 });
+
+test.serial('diff items render as added and removed lines with a marker and a hidden label', t => {
+  const {container, getByText} = renderWithContext(
+    <WizardSummary
+      inline
+      sections={[
+        {
+          title: 'Modules:',
+          counterText: '2 added · 1 removed',
+          items: [
+            {
+              type: 'text',
+              text: 'Introduction to management',
+              diff: 'removed',
+              diffLabel: 'Removed'
+            },
+            {type: 'text', text: 'Clear communication', diff: 'added', diffLabel: 'Added'},
+            {type: 'text', text: 'Giving feedback', diff: 'added', diffLabel: 'Added'},
+            {type: 'text', text: 'A plain line'}
+          ]
+        }
+      ]}
+    />
+  );
+  const lines = container.querySelectorAll('li');
+  t.is(lines.length, 4);
+  t.is(lines[0].getAttribute('data-diff'), 'removed');
+  t.is(lines[1].getAttribute('data-diff'), 'added');
+  t.is(lines[3].getAttribute('data-diff'), null);
+  const marker = line => line.querySelector('[aria-hidden="true"]');
+  t.is(marker(lines[0]).textContent, '−');
+  t.is(marker(lines[1]).textContent, '+');
+  t.is(marker(lines[3]), null);
+  t.is(lines[0].textContent, '−RemovedIntroduction to management');
+  t.truthy(getByText('Clear communication'));
+});

@@ -21,9 +21,9 @@ const sections = [
     title: 'Modules:',
     counterText: '2 added · 1 removed',
     items: [
-      {type: 'text', text: '+ Clear communication'},
-      {type: 'text', text: '+ Giving feedback'},
-      {type: 'text', text: '− Introduction to management'}
+      {type: 'text', text: 'Introduction to management', diff: 'removed', diffLabel: 'Removed'},
+      {type: 'text', text: 'Clear communication', diff: 'added', diffLabel: 'Added'},
+      {type: 'text', text: 'Giving feedback', diff: 'added', diffLabel: 'Added'}
     ]
   },
   {
@@ -55,9 +55,9 @@ test.serial(
     [
       'Modules:',
       '2 added · 1 removed',
-      '+ Clear communication',
-      '+ Giving feedback',
-      '− Introduction to management',
+      'Clear communication',
+      'Giving feedback',
+      'Introduction to management',
       'Learners:',
       '12 added · 3 removed · 640 unchanged',
       removalNote
@@ -180,14 +180,14 @@ test.serial('active, upcoming and failed previews expose their respective impact
 
 test.serial('impact updates remove stale sections and warnings', t => {
   const {rerender, getByText, getByRole, queryByText, queryByRole} = renderPopin(active.props);
-  t.truthy(getByText('+ Clear communication'));
+  t.truthy(getByText('Clear communication'));
 
   rerender(<CMPopin {...failed.props} />);
   t.true(
     getByRole('alert').textContent.includes('The impact of this change could not be computed.')
   );
   t.is(queryByText('Modules:'), null);
-  t.is(queryByText('+ Clear communication'), null);
+  t.is(queryByText('Clear communication'), null);
 
   rerender(<CMPopin {...props} sections={sections} />);
   t.is(queryByRole('alert'), null);

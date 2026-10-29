@@ -8,6 +8,9 @@ import ButtonLink from '../../atom/button-link';
 import ContentBadge from '../../atom/content-badge';
 import style from './style.css';
 
+const DIFF_MARKERS = {added: '+', removed: '−'};
+const DIFF_CLASSES = {added: style.added, removed: style.removed};
+
 const buildItemsOfSection = items => {
   return items.map((item, index) => {
     const {type} = item;
@@ -39,7 +42,22 @@ const buildItemsOfSection = items => {
       }
       case 'text':
       default: {
-        const {text, unsaved = false} = item;
+        const {text, unsaved = false, diff, diffLabel} = item;
+        if (diff === 'added' || diff === 'removed')
+          return (
+            <li
+              key={`${item.text}-${index}`}
+              data-name={item.title}
+              data-diff={diff}
+              className={classnames(style.diffLine, DIFF_CLASSES[diff])}
+            >
+              <span className={style.diffMarker} aria-hidden="true">
+                {DIFF_MARKERS[diff]}
+              </span>
+              {diffLabel ? <span className={style.visuallyHidden}>{diffLabel}</span> : null}
+              <span className={classnames(style.diffText, unsaved && style.unsaved)}>{text}</span>
+            </li>
+          );
         return (
           <li key={`${item.text}-${index}`} data-name={item.title}>
             <span className={classnames(style.valueSimpleText, unsaved && style.unsaved)}>
@@ -211,7 +229,11 @@ WizardSummary.propTypes = {
           PropTypes.shape({
             type: PropTypes.string,
             text: PropTypes.string,
-            unsaved: PropTypes.bool
+            unsaved: PropTypes.bool,
+            // A diff line: green « + » when added, red « − » when removed
+            diff: PropTypes.oneOf(['added', 'removed']),
+            // Read by screen readers in place of the marker, e.g. 'Added' / 'Removed'
+            diffLabel: PropTypes.string
           }),
           PropTypes.shape({
             type: PropTypes.string,
