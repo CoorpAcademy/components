@@ -5,6 +5,12 @@ import MultiFilterPanelPropTypes, {
 } from '../../molecule/multi-filter-panel/prop-types';
 
 const ModalPropTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  cancelLabel: PropTypes.string,
+  confirmLabel: PropTypes.string,
+  disabled: PropTypes.bool,
+  error: PropTypes.string,
   isOpen: PropTypes.bool,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
@@ -12,7 +18,14 @@ const ModalPropTypes = {
 };
 
 const ContentSkillModalPropTypes = {
-  contentList: PropTypes.shape(ListItems.propTypes).isRequired,
+  contentList: PropTypes.shape({
+    ...ListItems.propTypes,
+    selectAll: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      disabled: PropTypes.bool,
+      onClick: PropTypes.func.isRequired
+    })
+  }).isRequired,
   filters: PropTypes.shape(MultiFilterPanelPropTypes).isRequired,
   modal: PropTypes.shape(ModalPropTypes).isRequired
 };
@@ -20,6 +33,12 @@ const ContentSkillModalPropTypes = {
 export default ContentSkillModalPropTypes;
 
 type ModalProps = {
+  title?: string;
+  description?: string;
+  cancelLabel?: string;
+  confirmLabel?: string;
+  disabled?: boolean;
+  error?: string;
   isOpen: boolean;
   onCancel: () => void;
   onConfirm: () => void;
@@ -27,7 +46,13 @@ type ModalProps = {
 };
 
 export type ContentSkillModalProps = {
-  contentList: React.ComponentProps<typeof ListItems>;
+  contentList: React.ComponentProps<typeof ListItems> & {
+    selectAll?: {
+      label: string;
+      disabled?: boolean;
+      onClick: () => void;
+    };
+  };
   filters: MultiFilterPanelProps;
   modal: ModalProps;
 };

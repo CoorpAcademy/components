@@ -13,6 +13,7 @@ import CardImagePreview from '../../atom/card-image-preview';
 import Selectable from '../../molecule/card/selectable';
 import ContentBadge from '../../atom/content-badge';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
+import InputCheckbox from '../../atom/input-checkbox';
 import ProgressBar from '../../molecule/progress-bar';
 import style from './style.css';
 
@@ -50,6 +51,7 @@ const ListItem = (
     imageOverlay,
     contentBadge,
     checkbox,
+    subItems,
     'data-name': dataName
   },
   context
@@ -100,114 +102,137 @@ const ListItem = (
   const extractedIndex = pipe(split('-'), last)(dataName);
 
   return (
-    <div
-      className={classnames(
-        style.wrapper,
-        isBulkStyle ? style.gridLayout : style.flexLayout,
-        subtitle && style.withSubtitle,
-        disabled && style.disabled,
-        onClick !== noop && !disabled && style.cursorPointer,
-        checkbox?.checked && style.checked
-      )}
-      onClick={!disabled ? onClick : undefined}
-      style={selectedStyle}
-      data-name={dataName}
-    >
+    <>
       <div
-        className={classnames(style.dataColumnsWrapper, isOverflowHidden && style.hiddenOverflowX)}
+        className={classnames(
+          style.wrapper,
+          isBulkStyle ? style.gridLayout : style.flexLayout,
+          subtitle && style.withSubtitle,
+          disabled && style.disabled,
+          onClick !== noop && !disabled && style.cursorPointer,
+          checkbox?.checked && style.checked
+        )}
+        onClick={!disabled ? onClick : undefined}
+        style={selectedStyle}
+        data-name={dataName}
       >
-        {isPublished && contentType === 'certification' ? orderView : null}
-        {leftIcon || image || checkable ? (
-          <div className={style.leftSection}>
-            {checkable ? <CheckboxWithTitle {...checkbox} /> : null}
-            {leftIcon && !image ? (
-              <FaIcon
-                iconName={leftIcon.iconName}
-                gradientBackground={leftIcon.gradientBackground || true}
-                iconColor={leftIcon.iconColor || primarySelectedColor}
-                preset={leftIcon.preset || 'xl'}
-                borderRadius={leftIcon.borderRadius || '25%'}
-              />
-            ) : null}
-            {!leftIcon && image ? (
-              <div
-                className={classnames(style.containerImage, imageOverlay && style.imageWithOverlay)}
-              >
-                <CardImagePreview image={image} />
-                {imageOverlay === 'hidden' ? (
-                  <div
-                    className={style.imageOverlay}
-                    aria-hidden="true"
-                    data-name="content-image-overlay"
-                  >
-                    <Selectable isSelected hidden />
-                  </div>
-                ) : null}
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-        <div className={style.titleWrapper}>
-          <div className={style.titleProviderWrapper}>
-            {title ? (
-              <div
-                className={classnames(style.title, !isEmpty(titleTags) && style.titleBeforeTags)}
-                title={title.replace(/<[^>]*>/g, '')}
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{__html: title}}
-              />
-            ) : null}
-            {!isEmpty(provider) ? (
-              <Tag label={provider.label} type={provider.type} className={style.providerTag} />
-            ) : null}
-            {!isEmpty(titleTags) ? (
-              <div className={style.titleTags} data-name="title-tags">
-                {titleTags.map(tag => (
-                  <div key={tag.label} className={style.tag}>
-                    <Tag {...tag} />
-                  </div>
-                ))}
-              </div>
-            ) : null}
-          </div>
-          {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
-          {details ? <div className={style.details}>{details}</div> : null}
-          {progress ? (
-            <div className={style.progress} data-name="list-item-progress">
-              <ProgressBar
-                className={style.progressBar}
-                value={progress.value}
-                max={100}
-                style={THIN_PROGRESS_STYLE}
-                displayInfo={false}
-              />
-              <span className={style.progressLabel}>{progress.label}</span>
+        <div
+          className={classnames(
+            style.dataColumnsWrapper,
+            isOverflowHidden && style.hiddenOverflowX
+          )}
+        >
+          {isPublished && contentType === 'certification' ? orderView : null}
+          {leftIcon || image || checkable ? (
+            <div className={style.leftSection}>
+              {checkable ? <CheckboxWithTitle {...checkbox} /> : null}
+              {leftIcon && !image ? (
+                <FaIcon
+                  iconName={leftIcon.iconName}
+                  gradientBackground={leftIcon.gradientBackground || true}
+                  iconColor={leftIcon.iconColor || primarySelectedColor}
+                  preset={leftIcon.preset || 'xl'}
+                  borderRadius={leftIcon.borderRadius || '25%'}
+                />
+              ) : null}
+              {!leftIcon && image ? (
+                <div
+                  className={classnames(
+                    style.containerImage,
+                    imageOverlay && style.imageWithOverlay
+                  )}
+                >
+                  <CardImagePreview image={image} />
+                  {imageOverlay === 'hidden' ? (
+                    <div
+                      className={style.imageOverlay}
+                      aria-hidden="true"
+                      data-name="content-image-overlay"
+                    >
+                      <Selectable isSelected hidden />
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           ) : null}
+          <div className={style.titleWrapper}>
+            <div className={style.titleProviderWrapper}>
+              {title ? (
+                <div
+                  className={classnames(style.title, !isEmpty(titleTags) && style.titleBeforeTags)}
+                  title={title.replace(/<[^>]*>/g, '')}
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{__html: title}}
+                />
+              ) : null}
+              {!isEmpty(provider) ? (
+                <Tag label={provider.label} type={provider.type} className={style.providerTag} />
+              ) : null}
+              {!isEmpty(titleTags) ? (
+                <div className={style.titleTags} data-name="title-tags">
+                  {titleTags.map(tag => (
+                    <div key={tag.label} className={style.tag}>
+                      <Tag {...tag} />
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+            {subtitle ? <div className={style.subtitle}>{subtitle}</div> : null}
+            {details ? <div className={style.details}>{details}</div> : null}
+            {progress ? (
+              <div className={style.progress} data-name="list-item-progress">
+                <ProgressBar
+                  className={style.progressBar}
+                  value={progress.value}
+                  max={100}
+                  style={THIN_PROGRESS_STYLE}
+                  displayInfo={false}
+                />
+                <span className={style.progressLabel}>{progress.label}</span>
+              </div>
+            ) : null}
+          </div>
+          {dataColumnsView}
         </div>
-        {dataColumnsView}
+        <div className={style.settings}>
+          {tagsView}
+          {contentBadge ? <ContentBadge {...contentBadge} /> : null}
+          {selected ? (
+            <FaIcon
+              iconName="circle-check"
+              iconColor={primarySelectedColor}
+              backgroundColor={COLORS.white}
+              size={{faSize: 16, wrapperSize: 16}}
+            />
+          ) : null}
+          {buttonLink ? <ButtonLink {...buttonLink} /> : null}
+          {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
+          {!isEmpty(bulletPointMenuButton) ? (
+            <BulletPointMenuButton
+              {...bulletPointMenuButton}
+              data-name={`bullet-point-menu-button-${extractedIndex}`}
+            />
+          ) : null}
+        </div>
       </div>
-      <div className={style.settings}>
-        {tagsView}
-        {contentBadge ? <ContentBadge {...contentBadge} /> : null}
-        {selected ? (
-          <FaIcon
-            iconName="circle-check"
-            iconColor={primarySelectedColor}
-            backgroundColor={COLORS.white}
-            size={{faSize: 16, wrapperSize: 16}}
-          />
-        ) : null}
-        {buttonLink ? <ButtonLink {...buttonLink} /> : null}
-        {secondButtonLink ? <ButtonLink {...secondButtonLink} /> : null}
-        {!isEmpty(bulletPointMenuButton) ? (
-          <BulletPointMenuButton
-            {...bulletPointMenuButton}
-            data-name={`bullet-point-menu-button-${extractedIndex}`}
-          />
-        ) : null}
-      </div>
-    </div>
+      {!isEmpty(subItems) ? (
+        <ul className={style.subItems} data-name="list-item-sub-items">
+          {subItems.map(item => (
+            <li className={style.subItem} key={item.ref}>
+              <InputCheckbox
+                {...item.checkbox}
+                title={item.title}
+                disabled={item.disabled}
+                theme="coorpmanager"
+                titleStyle="inherit"
+              />
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </>
   );
 };
 
@@ -309,7 +334,18 @@ ListItem.propTypes = {
   imageOverlay: PropTypes.oneOf(['hidden']),
   contentBadge: PropTypes.shape(ContentBadge.propTypes),
   image: PropTypes.string,
-  checkbox: PropTypes.shape(CheckboxWithTitle.propTypes)
+  checkbox: PropTypes.shape(CheckboxWithTitle.propTypes),
+  subItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      ref: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      checkbox: PropTypes.shape({
+        checked: PropTypes.bool.isRequired,
+        onChange: PropTypes.func.isRequired
+      }).isRequired,
+      disabled: PropTypes.bool
+    })
+  )
 };
 
 export default ListItem;

@@ -9,7 +9,20 @@ import propTypes, {ContentSkillModalProps} from './types';
 
 const ContentSkillModal = (props: ContentSkillModalProps) => {
   const {contentList, filters, modal} = props;
-  const {isOpen, onCancel, onConfirm, onClose} = modal;
+  const {selectAll, ...listProps} = contentList;
+  const buttonLink = selectAll ? {...selectAll, type: 'secondary'} : listProps.buttonLink;
+  const {
+    isOpen,
+    onCancel,
+    onConfirm,
+    onClose,
+    title = 'Add content',
+    description = 'Add courses, video, interactive and more to this skill',
+    cancelLabel = 'Cancel',
+    confirmLabel = 'Add',
+    error,
+    disabled = false
+  } = modal;
 
   const handleCancel = useCallback(() => {
     onCancel();
@@ -25,24 +38,26 @@ const ContentSkillModal = (props: ContentSkillModalProps) => {
   };
   const footer = useMemo(
     () => ({
+      text: error,
+      isError: Boolean(error),
       cancelButton: {
         onCancel: handleCancel,
-        label: 'Cancel'
+        label: cancelLabel
       },
       confirmButton: {
         onConfirm,
-        label: 'Add',
+        label: confirmLabel,
         iconName: 'plus',
-        disabled: false,
+        disabled,
         color: COLORS.cm_primary_blue
       }
     }),
-    [handleCancel, onConfirm]
+    [handleCancel, onConfirm, cancelLabel, confirmLabel, error, disabled]
   );
 
   const baseModalProps = {
-    title: 'Add content',
-    description: 'Add courses, video, interactive and more to this skill',
+    title,
+    description,
     headerIcon,
     footer,
     isOpen,
@@ -60,7 +75,7 @@ const ContentSkillModal = (props: ContentSkillModalProps) => {
     <BaseModal {...baseModalProps}>
       <div className={style.container}>
         <div className={style.containerList}>
-          <ListItems {...contentList} />
+          <ListItems {...listProps} buttonLink={buttonLink} />
         </div>
         <div className={style.filtersContainer}>
           <MultiFilterPanel {...filters} />
