@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
+@value cm_positive_100, cm_positive_200, cm_negative_100, cm_negative_200 from colors;
 @value cm_primary_blue from colors;
 @value cm_grey_50 from colors;
 @value cm_grey_300 from colors;
@@ -30,6 +31,12 @@
 
 .summary {
   height: calc(100% - 90px);
+}
+
+.inline {
+  font-family: Gilroy;
+  width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .unsaved {
@@ -128,7 +135,8 @@
   text-align: center;
 }
 
-.container ul {
+.container ul,
+.inline ul {
   list-style: none;
   padding: 0px;
   margin: 0px;
@@ -241,4 +249,49 @@
   .summarySections {
     max-height: 500px;
   }
+}
+
+.diffLine {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 4px 0 0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.added {
+  background-color: color(cm_positive_100 a(15%));
+}
+
+.removed {
+  background-color: color(cm_negative_100 a(12%));
+}
+
+.diffMarker {
+  min-width: 10px;
+  font-weight: bold;
+}
+
+.added .diffMarker {
+  color: cm_positive_200;
+}
+
+.removed .diffMarker {
+  color: cm_negative_200;
+}
+
+.diffText {
+  min-width: 0;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
