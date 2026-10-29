@@ -18,6 +18,9 @@ import style from './style.css';
 
 const THEMES = {COCKPIT: 'cockpit'};
 
+const SORT_ARROWS = {asc: '▲', desc: '▼'};
+const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
+
 const createOptionsView = (_options, hasOptions) => {
   const optionsView = _options.map((option, oIndex) => {
     const {onChange, selected} = option;
@@ -74,7 +77,20 @@ const Table = (props, context) => {
   const mediumColor = get('common.medium', skin);
 
   const headerView = columns.map((column, cIndex) => {
-    const {title, filtered, info = '', options = []} = column;
+    const {title, filtered, info = '', options = [], order, onClick} = column;
+
+    if (onClick) {
+      return (
+        <th title={info} key={cIndex} aria-sort={ARIA_SORT[order] || 'none'}>
+          <button type="button" className={style.sortButton} onClick={onClick}>
+            <span>{title}</span>
+            <span className={style.sortArrow} aria-hidden="true">
+              {SORT_ARROWS[order] || ''}
+            </span>
+          </button>
+        </th>
+      );
+    }
 
     const hasOptions = options.length > 0;
 
@@ -214,6 +230,9 @@ Table.propTypes = {
       title: PropTypes.string.isRequired,
       info: PropTypes.string,
       filtered: PropTypes.bool,
+      // A sortable column: its header is a button showing ▲ (asc), ▼ (desc) or nothing ('')
+      order: PropTypes.oneOf(['asc', 'desc', '']),
+      onClick: PropTypes.func,
       options: PropTypes.arrayOf(
         PropTypes.shape({
           title: PropTypes.string.isRequired,

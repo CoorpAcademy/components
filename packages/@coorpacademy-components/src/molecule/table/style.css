@@ -275,3 +275,21 @@
   vertical-align: middle;
   padding-right: 4px;
 }
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sortArrow {
+  font-size: 10px;
+  min-width: 10px;
+}

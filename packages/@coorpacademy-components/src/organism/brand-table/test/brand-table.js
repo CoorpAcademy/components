@@ -10,22 +10,15 @@ browserEnv();
 test.afterEach(cleanup);
 
 test.serial(
-  'renders tagged learner cells with search, pagination and due-date sort callbacks',
+  'renders tagged learner cells with search, pagination and sortable column headers',
   t => {
-    const calls = [0, 0];
+    const clicks = [];
     const props = {
       ...assignmentLearners.props,
-      columns: assignmentLearners.props.columns.map((column, index) =>
-        index === 3
-          ? {
-              ...column,
-              options: column.options.map((option, optionIndex) => ({
-                ...option,
-                onChange: () => calls[optionIndex]++
-              }))
-            }
-          : column
-      )
+      columns: assignmentLearners.props.columns.map(column => ({
+        ...column,
+        onClick: () => clicks.push(column.title)
+      }))
     };
     const {container} = render(<BrandTable {...props} />, {
       wrapper: wrappingComponent
@@ -33,18 +26,22 @@ test.serial(
     const view = within(container);
     t.truthy(view.getByRole('heading', {name: 'Learners'}));
     t.deepEqual(
-      [...container.querySelectorAll('thead th label')].map(label => label.textContent),
-      ['Learner', 'Status', 'Progress', 'Due date', 'Completed on', 'Last reminder']
+      [...container.querySelectorAll('thead th')].map(th => th.getAttribute('aria-sort')),
+      ['none', 'none', 'none', 'ascending', 'none', 'none']
+    );
+    t.deepEqual(
+      [...container.querySelectorAll('thead th button')].map(button => button.textContent),
+      ['Learner', 'Status', 'Progress', 'Due date▲', 'Completed on', 'Last reminder']
     );
     const rows = container.querySelectorAll('tbody tr');
     t.is(rows.length, 4);
     t.deepEqual(
       [...rows].map(row => row.cells[0].textContent),
       [
-        'Alice Martin · alice.martin@example.com',
-        'Ben Dupont · ben.dupont@example.com',
-        'Carla Lopez · carla.lopez@example.com',
-        'David Chen · david.chen@example.com'
+        'Alice Martin · alice.martin',
+        'Ben Dupont · ben.dupont',
+        'Carla Lopez · carla.lopez',
+        'David Chen · david.chen'
       ]
     );
     const tagsIn = cell =>
@@ -68,12 +65,10 @@ test.serial(
     t.truthy(view.getByText('1-4 on 24'));
     t.truthy(container.querySelector('a[href="#learners-page-2"]'));
     t.truthy(container.querySelector('a[href="#learners-page-1"]'));
-    fireEvent.click(view.getByLabelText('Due date'));
-    fireEvent.click(view.getByRole('button', {name: 'Sort oldest first'}));
-    t.deepEqual(calls, [1, 0]);
-    fireEvent.click(view.getByRole('button', {name: 'Sort newest first'}));
-    t.deepEqual(calls, [1, 1]);
-    t.is(rows[0].cells[0].textContent, 'Alice Martin · alice.martin@example.com');
+    fireEvent.click(view.getByRole('button', {name: /^Due date/}));
+    fireEvent.click(view.getByRole('button', {name: /^Completed on/}));
+    t.deepEqual(clicks, ['Due date', 'Completed on']);
+    t.is(rows[0].cells[0].textContent, 'Alice Martin · alice.martin');
   }
 );
 
@@ -101,7 +96,7 @@ test.serial('replaces tagged learner rows with consumer search results and an em
   rerender(<BrandTable {...filteredProps} />);
   const rows = container.querySelectorAll('tbody tr');
   t.is(rows.length, 1);
-  t.is(rows[0].cells[0].textContent, 'David Chen · david.chen@example.com');
+  t.is(rows[0].cells[0].textContent, 'David Chen · david.chen');
   t.is(rows[0].cells[1].textContent, 'Completed');
   t.is(rows[0].cells[4].textContent, '12 Nov 2026Late');
   t.deepEqual(

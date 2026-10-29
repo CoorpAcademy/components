@@ -11,23 +11,17 @@ export default {
       previousHref: '#learners-page-1'
     },
     columns: [
-      {title: 'Learner'},
-      {title: 'Status'},
-      {title: 'Progress'},
-      {
-        title: 'Due date',
-        options: [
-          {title: 'Sort oldest first', onChange: () => {}, selected: true},
-          {title: 'Sort newest first', onChange: () => {}, selected: false}
-        ]
-      },
-      {title: 'Completed on'},
-      {title: 'Last reminder'}
+      {title: 'Learner', order: '', onClick: () => {}},
+      {title: 'Status', order: '', onClick: () => {}},
+      {title: 'Progress', order: '', onClick: () => {}},
+      {title: 'Due date', order: 'asc', onClick: () => {}},
+      {title: 'Completed on', order: '', onClick: () => {}},
+      {title: 'Last reminder', order: '', onClick: () => {}}
     ],
     rows: [
       {
         fields: [
-          'Alice Martin · alice.martin@example.com',
+          'Alice Martin · alice.martin',
           {tags: [{status: 'assigned', label: 'Not started'}]},
           '0 / 3 modules',
           '20 Nov 2026',
@@ -37,7 +31,7 @@ export default {
       },
       {
         fields: [
-          'Ben Dupont · ben.dupont@example.com',
+          'Ben Dupont · ben.dupont',
           {
             tags: [
               {status: 'inProgress', label: 'In progress'},
@@ -52,7 +46,7 @@ export default {
       },
       {
         fields: [
-          'Carla Lopez · carla.lopez@example.com',
+          'Carla Lopez · carla.lopez',
           {tags: [{status: 'completed', label: 'Completed'}]},
           '3 / 3 modules',
           '10 Nov 2026',
@@ -62,7 +56,7 @@ export default {
       },
       {
         fields: [
-          'David Chen · david.chen@example.com',
+          'David Chen · david.chen',
           {tags: [{status: 'completed', label: 'Completed'}]},
           '3 / 3 modules',
           '10 Nov 2026',

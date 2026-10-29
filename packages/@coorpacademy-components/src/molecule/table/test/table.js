@@ -340,3 +340,49 @@ test.serial('keeps rich cells aligned with edit links and legacy icons in both t
     });
   });
 });
+
+test.serial('a column with onClick renders a sort button showing its order, and aria-sort', t => {
+  const clicks = [];
+  const {getByRole, container} = render(
+    <Table
+      editable={false}
+      columns={[
+        {title: 'Learner'},
+        {title: 'Due date', order: 'asc', onClick: () => clicks.push('due')},
+        {title: 'Completed on', order: 'desc', onClick: () => clicks.push('completed')},
+        {title: 'Last reminder', order: '', onClick: () => clicks.push('reminder')}
+      ]}
+      rows={[{fields: ['Alice Martin · alice.martin', '20 Nov 2026', '-', '-']}]}
+    />,
+    options
+  );
+  const headers = container.querySelectorAll('th');
+  t.is(headers[0].getAttribute('aria-sort'), null);
+  t.is(headers[1].getAttribute('aria-sort'), 'ascending');
+  t.is(headers[2].getAttribute('aria-sort'), 'descending');
+  t.is(headers[3].getAttribute('aria-sort'), 'none');
+  t.truthy(headers[1].textContent.includes('▲'));
+  t.truthy(headers[2].textContent.includes('▼'));
+  t.false(headers[3].textContent.includes('▲') || headers[3].textContent.includes('▼'));
+  getByRole('button', {name: /Due date/}).click();
+  getByRole('button', {name: /Completed on/}).click();
+  t.deepEqual(clicks, ['due', 'completed']);
+});
+
+test.serial('a column with options keeps the existing menu and no sort button', t => {
+  const {container, queryByRole} = render(
+    <Table
+      editable={false}
+      columns={[
+        {
+          title: 'Name',
+          options: [{title: 'Sort A -> Z', onChange: () => {}, selected: true}]
+        }
+      ]}
+      rows={[{fields: ['Michel']}]}
+    />,
+    options
+  );
+  t.is(queryByRole('button', {name: /^Name/}), null);
+  t.truthy(container.querySelector(`.${style.options}`));
+});
