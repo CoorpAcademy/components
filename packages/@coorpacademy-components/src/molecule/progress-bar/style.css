@@ -66,3 +66,59 @@
     width: 0;
   }
 }
+
+@value white, cm_grey_200 from colors;
+
+.segmented {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.segmentedSubtitle {
+  composes: subtitleFormGroup from "../../atom/title/style.css";
+}
+
+.segmentedBar {
+  display: flex;
+  gap: 2px;
+  width: 100%;
+  height: 25px;
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.segmentedBar:empty {
+  background-color: cm_grey_200;
+}
+
+.segment {
+  flex: 0 1 auto;
+  min-width: 0;
+  height: 100%;
+}
+
+.segmentedLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legendItem {
+  composes: subtitleFormGroup from "../../atom/title/style.css";
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.legendSwatch {
+  flex: 0 0 12px;
+  height: 12px;
+  border-radius: 4px;
+}
