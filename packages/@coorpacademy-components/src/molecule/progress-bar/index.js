@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {times} from 'lodash/fp';
+import {sumBy, times} from 'lodash/fp';
 import Title from '../../atom/title';
 import style from './style.css';
 
@@ -29,7 +29,7 @@ const ProgressBar = props => {
   } = props;
 
   if (segments !== undefined && segments !== null) {
-    const total = segments.reduce((sum, segment) => sum + segment.value, 0);
+    const total = sumBy('value', segments);
     return (
       <div className={classnames(style.segmented, className)}>
         {title || subtitle ? (
