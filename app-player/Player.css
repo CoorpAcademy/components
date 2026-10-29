@@ -4951,83 +4951,6 @@
   }
 }
 
-.radio-PUgo7 {
-  visibility: hidden;
-  display: none;
-}
-
-.normal-N-szs {
-  flex: 1 1 0;
-  line-height: 30px;
-  color: white;
-  cursor: pointer;
-  min-width: 33%;
-}
-
-.label-rfh3o {
-  display: flex;
-  cursor: pointer;
-  color: white;
-  font-family: "Gilroy";
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.labelSpan-edjtR {
-  width: 100%;
-  padding: 0 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-  box-sizing: border-box;
-  user-select: none;
-}
-
-.normal-N-szs:last-child {
-  border-right-width: 0;
-}
-
-.setup-qudrJ.normal-N-szs{
-  border-right: solid 1px;
-}
-
-.coorpmanager-Y98qp label {
-  flex-grow: 0;
-  box-sizing: border-box;;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  text-align: left;
-  height: 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  
-  border-radius: 5px;
-}
-.coorpmanager-Y98qp.normal-N-szs{
-  border: 0px;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.coorpmanager-Y98qp .label-rfh3o.selected-4chu- .labelSpan-edjtR{
-  color: #0061FF;
-  background-color: #f1f6fe;
-}
-.coorpmanager-Y98qp .labelSpan-edjtR {
-  color: #9999A8;
-  background-color: transparent;
-  padding: 8px 16px;
-  transition: color 0.5s linear;
-}
 .container-VRVTs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5062,6 +4985,11 @@
 }
 
 .segmentedOption-mfBV1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  font-family: "Gilroy";
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
