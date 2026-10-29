@@ -32,6 +32,12 @@
   height: calc(100% - 90px);
 }
 
+.inline {
+  font-family: Gilroy;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .unsaved {
   color: cm_yellow_200;
 }
@@ -128,7 +134,8 @@
   text-align: center;
 }
 
-.container ul {
+.container ul,
+.inline ul {
   list-style: none;
   padding: 0px;
   margin: 0px;

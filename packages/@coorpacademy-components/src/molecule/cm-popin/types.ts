@@ -7,6 +7,7 @@ import Link from '../../atom/link';
 import {TitleProps} from '../../atom/title/types';
 import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
+import WizardSummary from '../wizard-summary';
 import {ICONS} from '../../util/button-icons';
 import {propTypes as iconPropTypes} from '../../atom/icon';
 
@@ -50,6 +51,8 @@ const propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.shape(iconPropTypes)]),
   backgroundImageUrl: PropTypes.string,
   descriptionText: PropTypes.string,
+  sections: WizardSummary.propTypes.sections,
+  warning: PropTypes.string,
   cookieTitle: PropTypes.string,
   headerSubtitle: PropTypes.string,
   descriptionBtnTxt: PropTypes.string,
@@ -88,6 +91,8 @@ export type CMPopinProps = {
   onClose?: () => void;
   popinHeader?: PopinHeaderProps;
   descriptionText: string;
+  sections?: PropTypes.InferProps<typeof WizardSummary.propTypes>['sections'];
+  warning?: string;
   firstButton?: QuitPopinButton;
   secondButton?: QuitPopinButton;
   items?: {

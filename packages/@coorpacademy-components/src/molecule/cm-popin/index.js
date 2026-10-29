@@ -21,6 +21,8 @@ import CardsGrid from '../../organism/cards-grid';
 import ListItems from '../../organism/list-items';
 import Link from '../../atom/link';
 import Icon from '../../atom/icon';
+import WizardSummary from '../wizard-summary';
+import Notification from '../../atom/notification';
 import style from './style.css';
 import propTypes from './types';
 
@@ -53,6 +55,8 @@ const CMPopin = props => {
     icon,
     backgroundImageUrl,
     descriptionText,
+    sections,
+    warning,
     thirdButton,
     cookieTitle,
     descriptionBtnTxt,
@@ -92,8 +96,11 @@ const CMPopin = props => {
     }
   }, [handleCloseButton, mode, onClose]);
 
+  const hasImpact =
+    (mode === 'alert' || mode === 'information') && (!isEmpty(sections) || Boolean(warning));
   const wrapperPopinStyle = classNames(
     style.popin,
+    hasImpact && style.popinImpact,
     mode === 'cookie' && style.popinCookie,
     mode === 'list' && style.popinFilesList,
     mode === 'items' && style.popinItems
@@ -309,15 +316,32 @@ const CMPopin = props => {
     );
   };
 
+  const renderImpact = () => {
+    if (mode !== 'alert' && mode !== 'information') return null;
+    return (
+      <>
+        {!isEmpty(sections) ? <WizardSummary sections={sections} inline /> : null}
+        {warning ? (
+          <div role="alert">
+            <Notification type="warning" message={warning} />
+          </div>
+        ) : null}
+      </>
+    );
+  };
+
   return (
     <div
-      className={mode !== 'cookie' ? style.background : null}
+      className={
+        mode !== 'cookie' ? classNames(style.background, hasImpact && style.impactBackground) : null
+      }
       style={backgroundImageStyle}
       data-name={'cm-popin-container'}
     >
       <div className={wrapperPopinStyle} ref={nodeRef}>
         {renderHeader()}
         {renderContent()}
+        {renderImpact()}
         {descriptionBtnTxt ? <div className={style.descriptionBtn}>{descriptionBtnTxt}</div> : null}
         {renderItems()}
         {renderBtnSwitch()}

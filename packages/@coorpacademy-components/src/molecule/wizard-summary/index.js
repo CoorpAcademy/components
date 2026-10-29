@@ -122,7 +122,7 @@ const checkOnClose = (checked, summaryElement, onCloseSummary, clickEvent) => {
 };
 
 const WizardSummary = props => {
-  const {title, sections, action, side} = props;
+  const {title, sections, action, side, inline = false} = props;
   const sectionsView = buildSections(sections);
   const idSwitch = uniqueId('open-summary-wizard');
   const summaryElement = useRef(null);
@@ -147,6 +147,8 @@ const WizardSummary = props => {
     }
     setChecked(!checked);
   }, [checked]);
+
+  if (inline) return <div className={style.inline}>{sectionsView}</div>;
 
   return (
     <div className={style.container} ref={summaryElement}>
@@ -193,6 +195,7 @@ BuildAction.propTypes = {
 };
 
 WizardSummary.propTypes = {
+  inline: PropTypes.bool,
   title: PropTypes.string,
   side: PropTypes.string,
   sections: PropTypes.arrayOf(

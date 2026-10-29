@@ -68,6 +68,23 @@
   gap: 0;
 }
 
+.impactBackground {
+  padding: 16px;
+}
+
+.popin.popinImpact {
+  width: 400px;
+  max-width: 100%;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.popinImpact > * {
+  flex-shrink: 0;
+}
+
 
 .message {
   display: flex;
