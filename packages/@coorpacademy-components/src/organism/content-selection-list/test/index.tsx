@@ -439,3 +439,119 @@ test.serial('hint and error render markup characters literally', t => {
     t.true(errors[0].includes(`expected \`${type}\``));
   });
 });
+
+test.serial('disabled keeps all controls visible but inactive', t => {
+  let calls = 0;
+  const value: ContentPropsType = {
+    ...props,
+    disabled: true,
+    button: {...props.button, onClick: () => calls++},
+    checkboxWithTitle: {...props.checkboxWithTitle, onChange: () => calls++},
+    actionButtons: [{label: 'Delete selected', onClick: () => calls++}],
+    list: {
+      ...props.list,
+      search: {value: '', placeholder: 'Search modules', onChange: () => calls++},
+      items: props.list.items!.map(item => ({
+        ...item,
+        hidden: true,
+        checkbox: {...item.checkbox, onChange: () => calls++}
+      }))
+    }
+  };
+  const view = mount(value);
+  const controls = [...view.container.querySelectorAll('input, button')];
+  t.true(controls.length >= 8);
+  t.deepEqual(
+    controls.filter(control => !control.matches(':disabled')).map(control => control.outerHTML),
+    []
+  );
+  t.is(view.getAllByRole('checkbox').length, 3);
+  fireEvent.click(view.getByRole('checkbox', {name: '24 items'}));
+  t.is(calls, 0);
+  view.rerender(
+    <ContentSelectionList
+      {...value}
+      disabled={false}
+      button={{...value.button, disabled: true}}
+      list={{...value.list, search: {...value.list.search!, disabled: true}}}
+    />
+  );
+  t.true(view.getByRole('button', {name: 'Add content'}).matches(':disabled'));
+  t.true(view.getByRole('textbox').matches(':disabled'));
+  t.false(view.getByRole('checkbox', {name: '24 items'}).matches(':disabled'));
+});
+test.serial('disabled also blocks empty-list Add', t => {
+  const view = mount({
+    ...props,
+    disabled: true,
+    list: {items: [], emptyResult: {title: 'No modules', description: 'Add modules'}}
+  });
+  t.true(
+    view.getAllByRole('button', {name: 'Add content'}).every(button => button.matches(':disabled'))
+  );
+});
+
+test.serial('clearing list disabled preserves row selection deletion and batch action locks', t => {
+  const calls: unknown[] = [];
+  const value: ContentPropsType = {
+    ...props,
+    button: {...props.button, onClick: () => calls.push('add')},
+    checkboxWithTitle: {
+      title: '24 items',
+      checked: true,
+      disabled: true,
+      onChange: checked => calls.push(['all', checked])
+    },
+    actionButtons: [
+      {label: 'Locked action', disabled: true, onClick: () => calls.push('locked-action')},
+      {label: 'Editable action', onClick: () => calls.push('action')}
+    ],
+    list: {
+      ...props.list,
+      search: {value: '', placeholder: 'Search modules', onChange: query => calls.push(query)},
+      items: props.list.items!.map((item, index) => ({
+        ...item,
+        hidden: true,
+        checkbox: {
+          checked: true,
+          disabled: index === 0,
+          onChange: checked => calls.push(['row', index, checked])
+        },
+        deleteButton: {
+          'aria-label': `Remove module ${index}`,
+          disabled: index === 0,
+          onClick: () => calls.push(['delete', index])
+        }
+      }))
+    }
+  };
+  const view = mount({...value, disabled: true});
+  const checkboxes = view.getAllByRole('checkbox');
+  t.is(checkboxes.length, 3);
+  t.true(checkboxes.every(checkbox => (checkbox as HTMLInputElement).checked));
+  view.getAllByRole('button').forEach(button => {
+    t.true(button.matches(':disabled'));
+    fireEvent.click(button);
+  });
+  checkboxes.forEach(checkbox => fireEvent.click(checkbox));
+  fireEvent.input(view.getByRole('textbox'), {target: {value: 'cloud'}});
+  t.deepEqual(calls, []);
+  view.rerender(<ContentSelectionList {...value} disabled={false} />);
+  const locked = [
+    view.getByRole('checkbox', {name: '24 items'}),
+    within(row(view)).getByRole('checkbox'),
+    view.getByRole('button', {name: 'Remove module 0'}),
+    view.getByRole('button', {name: 'Locked action'})
+  ];
+  locked.forEach(control => {
+    t.true(control.matches(':disabled'));
+    fireEvent.click(control);
+  });
+  t.deepEqual(calls, []);
+  t.false(view.getByRole('button', {name: 'Add content'}).matches(':disabled'));
+  t.false(view.getByRole('textbox').matches(':disabled'));
+  fireEvent.click(within(row(view, 1)).getByRole('checkbox'));
+  fireEvent.click(view.getByRole('button', {name: 'Remove module 1'}));
+  fireEvent.click(view.getByRole('button', {name: 'Editable action'}));
+  t.deepEqual(calls, [['row', 1, false], ['delete', 1], 'action']);
+});

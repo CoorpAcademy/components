@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import {ButtonLinkProps} from '../../atom/button-link/types';
 
 export const ContentSelectionListPropTypes = {
+  disabled: PropTypes.bool,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
     onClick: PropTypes.func.isRequired
   }).isRequired,
   list: PropTypes.shape({
@@ -24,11 +26,13 @@ export const ContentSelectionListPropTypes = {
         }).isRequired,
         checkbox: PropTypes.shape({
           checked: PropTypes.bool.isRequired,
+          disabled: PropTypes.bool,
           onChange: PropTypes.func.isRequired
         }).isRequired,
         deleteButton: PropTypes.shape({
           label: PropTypes.string,
           'aria-label': PropTypes.string,
+          disabled: PropTypes.bool,
           onClick: PropTypes.func
         })
       }).isRequired
@@ -36,6 +40,7 @@ export const ContentSelectionListPropTypes = {
     search: PropTypes.shape({
       value: PropTypes.string.isRequired,
       placeholder: PropTypes.string.isRequired,
+      disabled: PropTypes.bool,
       onChange: PropTypes.func.isRequired
     }),
     emptyResult: PropTypes.shape({
@@ -45,6 +50,7 @@ export const ContentSelectionListPropTypes = {
     checkbox: PropTypes.shape({
       title: PropTypes.string.isRequired,
       checked: PropTypes.bool.isRequired,
+      disabled: PropTypes.bool,
       onChange: PropTypes.func.isRequired
     })
   }).isRequired,
@@ -55,6 +61,7 @@ export const ContentSelectionListPropTypes = {
   checkboxWithTitle: PropTypes.shape({
     title: PropTypes.string,
     checked: PropTypes.bool,
+    disabled: PropTypes.bool,
     onChange: PropTypes.func
   }),
   readOnly: PropTypes.bool
@@ -73,6 +80,7 @@ export type ContentListItemType = {
   };
   checkbox: {
     checked: boolean;
+    disabled?: boolean;
     onChange: (value: boolean) => void;
   };
   deleteButton?: ButtonLinkProps;
@@ -81,16 +89,19 @@ export type ContentListItemType = {
 export type CheckboxWithTitleProps = {
   title?: string;
   checked?: boolean;
+  disabled?: boolean;
   onChange?: (value: boolean) => void;
 };
 
 export type ContentPropsType = {
+  disabled?: boolean;
   error?: string;
   hiddenLabel?: string;
   title: string;
   subtitle?: string;
   button: {
     label: string;
+    disabled?: boolean;
     onClick: () => void;
   };
   list: {
@@ -99,6 +110,7 @@ export type ContentPropsType = {
     search?: {
       value: string;
       placeholder: string;
+      disabled?: boolean;
       onChange: (value: string) => void;
     };
     emptyResult?: {
@@ -108,6 +120,7 @@ export type ContentPropsType = {
     checkbox?: {
       title: string;
       checked: boolean;
+      disabled?: boolean;
       onChange: (value: boolean) => void;
     };
   };

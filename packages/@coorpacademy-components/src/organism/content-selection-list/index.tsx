@@ -39,7 +39,7 @@ export const buildButtonProps = (button: {
 });
 
 const buildContentItem =
-  (readOnly: boolean, hiddenLabel?: string) =>
+  (readOnly: boolean, hiddenLabel?: string, disabled = false) =>
   ({
     ref,
     title,
@@ -57,6 +57,7 @@ const buildContentItem =
         : {
             secondButtonLink: {
               ...deleteButton,
+              disabled: disabled || deleteButton?.disabled,
               'data-name': `button-${deleteButton?.label}`,
               type: 'primary',
               customStyle: {
@@ -95,7 +96,7 @@ const buildContentItem =
           }
         }
       ],
-      checkbox: readOnly ? undefined : checkbox
+      checkbox: readOnly ? undefined : {...checkbox, disabled: disabled || checkbox.disabled}
     };
   };
 
@@ -107,11 +108,12 @@ const ContentSelectionList = ({
   actionButtons,
   checkboxWithTitle: checkboxWithTitleProps,
   readOnly = false,
+  disabled = false,
   isFetching = false,
   error,
   hiddenLabel
 }: ContentPropsType) => {
-  const buttonProps = buildButtonProps(button);
+  const buttonProps = buildButtonProps({...button, disabled: disabled || button.disabled});
 
   const titleProps = {
     type: 'form-group',
@@ -126,15 +128,14 @@ const ContentSelectionList = ({
     'aria-label': 'content list items',
     content: {
       ...(!isEmpty(emptyResult) && {emptyResult: {...emptyResult, button: buttonProps}}),
-      items: map(buildContentItem(readOnly, hiddenLabel), items),
+      items: map(buildContentItem(readOnly, hiddenLabel, disabled), items),
       type: 'list'
     },
     search: search
       ? {
           ...search,
           theme: 'coorpmanager',
-          // Keep search interactive even in readOnly mode
-          disabled: false
+          disabled: disabled || search.disabled
         }
       : undefined,
     actionButtons: readOnly
@@ -142,6 +143,7 @@ const ContentSelectionList = ({
       : map(
           actionButton => ({
             ...actionButton,
+            disabled: disabled || actionButton.disabled,
             customStyle: {
               fontWeight: '600',
               borderRadius: '12px',
@@ -155,6 +157,7 @@ const ContentSelectionList = ({
       ? undefined
       : {
           ...checkboxWithTitleProps,
+          disabled: disabled || checkboxWithTitleProps?.disabled,
           name: checkboxWithTitleProps?.title,
           'aria-label': checkboxWithTitleProps?.title,
           'data-name': checkboxWithTitleProps?.title,

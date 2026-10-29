@@ -30,6 +30,7 @@ import ExpandibleActionableTable from '../../../molecule/expandible-actionable-t
 import BulkInfos from '../../../molecule/bulk-infos';
 import Title from '../../../atom/title';
 import SkillEdition from '../../../organism/skill-edition';
+import AssignmentEdition from '../../../organism/assignment-edition';
 import IconPickerModal from '../../../molecule/icon-picker-modal';
 import TranslationModal from '../../../molecule/translation-modal';
 import ContentSkillModal from '../../../organism/content-skill-modal';
@@ -239,6 +240,8 @@ const buildContentView = content => {
       return <BrandLearningPriorities {...content} />;
     case 'skill-edition':
       return <SkillEdition {...content} />;
+    case 'assignment-edition':
+      return <AssignmentEdition {...content} />;
   }
 };
 
@@ -421,6 +424,11 @@ BrandUpdate.propTypes = {
       ...SkillEdition.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['skill-edition'])
+    }),
+    PropTypes.shape({
+      ...AssignmentEdition.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['assignment-edition'])
     })
   ]),
   documentation: PropTypes.shape({

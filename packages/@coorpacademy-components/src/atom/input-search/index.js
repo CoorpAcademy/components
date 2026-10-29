@@ -39,6 +39,7 @@ function useHoverAndFocusWithin() {
 const Search = (props, context) => {
   const {
     value,
+    disabled = false,
     placeholder,
     onChange = noop,
     onClear = noop,
@@ -52,7 +53,12 @@ const Search = (props, context) => {
   } = props;
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
-  const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
+  const handleChange = useMemo(
+    () => e => {
+      if (!disabled) onChange(e.target.value);
+    },
+    [disabled, onChange]
+  );
   const {
     ref,
     isFocusWithin,
@@ -144,13 +150,16 @@ const Search = (props, context) => {
           placeholder={placeholder}
           title={placeholder}
           value={value}
+          disabled={disabled}
           onInput={handleChange}
           onFocus={onFocus}
           onChange={noop}
           onBlur={onBlur}
           onKeyDown={handleKeyDown}
         />
-        {showClearIcon ? <CloseIcon onClick={onClear} className={style.clearIcon} /> : null}
+        {showClearIcon ? (
+          <CloseIcon onClick={disabled ? undefined : onClear} className={style.clearIcon} />
+        ) : null}
       </div>
     </div>
   );
@@ -162,6 +171,7 @@ Search.contextTypes = {
 
 Search.propTypes = {
   value: PropTypes.string,
+  disabled: PropTypes.bool,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   onClear: PropTypes.func,

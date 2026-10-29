@@ -30,6 +30,7 @@ const InputText = props => {
     theme = 'default',
     description,
     disabled,
+    maxLength,
     readOnly = false,
     modified = false,
     title: propsTitle,
@@ -91,6 +92,7 @@ const InputText = props => {
           value={value}
           onInput={handleChange}
           disabled={disabled}
+          maxLength={maxLength}
           readOnly={readOnly}
           onChange={noop}
           data-name={dataName}
@@ -119,6 +121,7 @@ InputText.propTypes = {
   placeholder: PropTypes.string,
   defaultValue: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle)),
+  maxLength: PropTypes.number,
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
   value: PropTypes.string,

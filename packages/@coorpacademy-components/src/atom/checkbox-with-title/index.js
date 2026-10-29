@@ -15,6 +15,7 @@ const CheckboxWithTitle = (props, context) => {
     title,
     name,
     checked,
+    disabled = false,
     onChange = noop,
     'data-name': dataName,
     'aria-label': ariaLabel,
@@ -26,7 +27,12 @@ const CheckboxWithTitle = (props, context) => {
   const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const {iconName, iconColor, preset} = icon;
   const idCheckbox = useMemo(() => uniqueId('input-checkbox-'), []);
-  const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
+  const handleChange = useMemo(
+    () => e => {
+      if (!disabled) onChange(e.target.checked);
+    },
+    [disabled, onChange]
+  );
 
   return (
     <div className={classnames(style.container, className)} style={{...customStyle}}>
@@ -39,6 +45,7 @@ const CheckboxWithTitle = (props, context) => {
             name={name}
             onChange={handleChange}
             checked={checked}
+            disabled={disabled}
             className={style.checkbox}
             data-name={dataName}
             aria-label={ariaLabel}
@@ -82,6 +89,7 @@ CheckboxWithTitle.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
