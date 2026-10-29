@@ -5,6 +5,9 @@ export const propTypes = {
   title: PropTypes.shape(Title.propTypes).isRequired,
   name: PropTypes.string,
   checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  example: PropTypes.string,
+  hint: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string
@@ -20,6 +23,9 @@ export type RadioWithTitleProps = {
   };
   name?: string;
   checked: boolean;
+  disabled?: boolean;
+  example?: string;
+  hint?: string;
   onChange: (value: boolean) => void;
   'aria-label': string;
   'data-name'?: string;

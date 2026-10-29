@@ -1,16 +1,33 @@
 import React, {useCallback} from 'react';
 import {uniqueId} from 'lodash/fp';
+import classnames from 'classnames';
 import Title from '../title';
 import style from './style.css';
 import {propTypes, RadioWithTitleProps} from './types';
 
 const RadioWithTitle = (props: RadioWithTitleProps) => {
-  const {title, name, checked, onChange, 'data-name': dataName, 'aria-label': ariaLabel} = props;
+  const {
+    title,
+    name,
+    checked,
+    disabled,
+    example,
+    hint,
+    onChange,
+    'data-name': dataName,
+    'aria-label': ariaLabel
+  } = props;
   const idRadio = uniqueId('input-radio-');
-  const handleChange = useCallback(e => onChange(e.target.checked), [onChange]);
+  const hintId = hint ? `${idRadio}-hint` : undefined;
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (!disabled) onChange(e.target.checked);
+    },
+    [disabled, onChange]
+  );
 
   return (
-    <div className={style.container}>
+    <div className={classnames(style.container, {[style.withHint]: hint})}>
       <label htmlFor={idRadio}>
         <input
           type="radio"
@@ -18,14 +35,22 @@ const RadioWithTitle = (props: RadioWithTitleProps) => {
           name={name}
           onChange={handleChange}
           checked={checked}
+          disabled={disabled}
           className={style.radio}
           data-name={dataName}
           aria-label={ariaLabel}
+          aria-describedby={hintId}
         />
-        <span className={style.title}>
+        <span className={classnames(style.title, {[style.withExample]: example})}>
           <Title {...title} titleSize={'small'} subtitleSize={'extra-small'} />
+          {example ? <span className={style.example}>{example}</span> : null}
         </span>
       </label>
+      {hint ? (
+        <span id={hintId} className={style.hint}>
+          {hint}
+        </span>
+      ) : null}
     </div>
   );
 };
