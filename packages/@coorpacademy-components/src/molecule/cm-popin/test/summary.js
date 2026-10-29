@@ -14,18 +14,23 @@ import failed from './fixtures/publish-changes-preview-failed';
 browserEnv();
 test.afterEach.always(cleanup);
 
-const removalNote = 'Removed learners are kept in tracking as “Removed by an edit”.';
+const removalNote =
+  'Removed learners keep their progress and stay in tracking, under “Removed” (removed by an edit). They no longer see this assignment.';
 const sections = [
   {
     title: 'Modules:',
-    counterText: '+2 · −1',
+    counterText: '2 added · 1 removed',
     items: [
       {type: 'text', text: '+ Clear communication'},
       {type: 'text', text: '+ Giving feedback'},
       {type: 'text', text: '− Introduction to management'}
     ]
   },
-  {title: 'Learners:', counterText: '+12 · −3', items: [{type: 'text', text: removalNote}]}
+  {
+    title: 'Learners:',
+    counterText: '12 added · 3 removed · 640 unchanged',
+    items: [{type: 'text', text: removalNote}]
+  }
 ];
 const props = {
   content: 'Publish changes?',
@@ -49,12 +54,12 @@ test.serial(
     });
     [
       'Modules:',
-      '+2 · −1',
+      '2 added · 1 removed',
       '+ Clear communication',
       '+ Giving feedback',
       '− Introduction to management',
       'Learners:',
-      '+12 · −3',
+      '12 added · 3 removed · 640 unchanged',
       removalNote
     ].forEach(text => {
       t.truthy(getByText(text));
@@ -164,8 +169,8 @@ test.serial('active, upcoming and failed previews expose their respective impact
       t.is(queryByText('Modules:'), null);
       t.is(queryByText('Learners:'), null);
     } else {
-      t.truthy(getByText('+2 · −1'));
-      t.truthy(getByText('+12 · −3'));
+      t.truthy(getByText('2 added · 1 removed'));
+      t.truthy(getByText('12 added · 3 removed · 640 unchanged'));
       t.truthy(getByText(removalNote));
       t.is(queryByRole('alert'), null);
     }

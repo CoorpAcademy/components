@@ -5,7 +5,7 @@ export default {
     sections: [
       {
         title: 'Modules:',
-        counterText: '+2 · −1',
+        counterText: '2 added · 1 removed',
         items: [
           {type: 'text', text: '+ Clear communication'},
           {type: 'text', text: '+ Giving feedback'},
@@ -14,11 +14,11 @@ export default {
       },
       {
         title: 'Learners:',
-        counterText: '+12 · −3',
+        counterText: '12 added · 3 removed · 640 unchanged',
         items: [
           {
             type: 'text',
-            text: 'Removed learners are kept in tracking as “Removed by an edit”.'
+            text: 'Removed learners keep their progress and stay in tracking, under “Removed” (removed by an edit). They no longer see this assignment.'
           }
         ]
       }
