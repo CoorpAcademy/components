@@ -55,6 +55,12 @@
 
 .readonly {}
 
+.cellContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .table:not(.readonly) tbody tr:hover {
   background-color: xtraLightGrey;
 }

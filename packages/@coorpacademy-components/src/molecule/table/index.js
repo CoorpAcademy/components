@@ -13,6 +13,7 @@ import {
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
+import AssignmentStatusTag from '../assignment-status-tag';
 import style from './style.css';
 
 const THEMES = {COCKPIT: 'cockpit'};
@@ -136,7 +137,19 @@ const Table = (props, context) => {
 
     const tableRows = fields.map((field, fIndex) => {
       if (!field) return <td key={fIndex}>{''}</td>;
-      return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
+      if (isString(field) || field.icon) {
+        return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
+      }
+      return (
+        <td key={fIndex}>
+          <span className={style.cellContent}>
+            {field.text}
+            {(field.tags || []).map((tag, tagIndex) => (
+              <AssignmentStatusTag {...tag} key={tagIndex} />
+            ))}
+          </span>
+        </td>
+      );
     });
 
     if (editable) {
@@ -184,8 +197,12 @@ Table.propTypes = {
       fields: PropTypes.arrayOf(
         PropTypes.oneOfType([
           PropTypes.string,
-          PropTypes.shape({icon: PropTypes.string}),
-          PropTypes.shape({icon: PropTypes.string, title: PropTypes.string})
+          PropTypes.shape({
+            icon: PropTypes.string,
+            title: PropTypes.string,
+            text: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTag.propTypes))
+          })
         ])
       ),
       editHref: PropTypes.string,
