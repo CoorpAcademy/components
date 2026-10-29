@@ -4,7 +4,13 @@ import InputTextarea from '../../atom/input-textarea';
 import IconPreview from '../../molecule/icon-preview';
 import {SelectOptionPropTypes} from '../../atom/select';
 import {IconPreviewProps} from '../../molecule/icon-preview/types';
-import {ButtonLinkProps} from '../../atom/button-link/types';
+import {ContentPropsType, ContentSelectionListPropTypes} from '../content-selection-list/types';
+
+export {
+  ContentListItemType,
+  CheckboxWithTitleProps,
+  ContentPropsType
+} from '../content-selection-list/types';
 
 const FormPropTypes = {
   title: PropTypes.string,
@@ -71,67 +77,13 @@ const translationPropTypes = PropTypes.shape({
   readOnly: PropTypes.bool
 });
 
-const contentPropTypes = PropTypes.shape({
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  button: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
-  }).isRequired,
-  list: PropTypes.shape({
-    title: PropTypes.string,
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        ref: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
-        tags: PropTypes.shape({
-          label: PropTypes.string.isRequired,
-          iconName: PropTypes.string.isRequired
-        }).isRequired,
-        checkbox: PropTypes.shape({
-          checked: PropTypes.bool.isRequired,
-          onChange: PropTypes.func.isRequired
-        }).isRequired,
-        deleteButton: PropTypes.shape({
-          label: PropTypes.string,
-          onClick: PropTypes.func
-        })
-      }).isRequired
-    ),
-    search: PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      placeholder: PropTypes.string.isRequired,
-      onChange: PropTypes.func.isRequired
-    }).isRequired,
-    emptyResult: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
-    }),
-    checkbox: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      checked: PropTypes.bool.isRequired,
-      onChange: PropTypes.func.isRequired
-    })
-  }).isRequired,
-  isFetching: PropTypes.bool,
-  actionButtons: PropTypes.arrayOf(PropTypes.object),
-  checkboxWithTitle: PropTypes.shape({
-    title: PropTypes.string,
-    checked: PropTypes.bool,
-    onChange: PropTypes.func
-  }),
-  readOnly: PropTypes.bool
-});
-
 const SkillEditionPropTypes = {
   skillInformations: PropTypes.shape({
     form: PropTypes.shape(FormPropTypes).isRequired,
     iconEditor: PropTypes.shape(IconEditorPropTypes).isRequired
   }).isRequired,
   translations: translationPropTypes.isRequired,
-  content: contentPropTypes.isRequired,
+  content: PropTypes.shape(ContentSelectionListPropTypes).isRequired,
   isFetching: PropTypes.bool,
   readOnly: PropTypes.bool
 };
@@ -214,59 +166,6 @@ export type TranslationPropsType = {
     title: string;
     description: string;
   };
-  readOnly?: boolean;
-};
-
-export type ContentListItemType = {
-  ref: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  tags: {
-    label: string;
-    iconName: string;
-  };
-  checkbox: {
-    checked: boolean;
-    onChange: (value: boolean) => void;
-  };
-  deleteButton?: ButtonLinkProps;
-};
-
-export type CheckboxWithTitleProps = {
-  title?: string;
-  checked?: boolean;
-  onChange?: (value: boolean) => void;
-};
-
-export type ContentPropsType = {
-  title: string;
-  subtitle: string;
-  button: {
-    label: string;
-    onClick: () => void;
-  };
-  list: {
-    title?: string;
-    items?: ContentListItemType[];
-    search: {
-      value: string;
-      placeholder: string;
-      onChange: (value: string) => void;
-    };
-    emptyResult?: {
-      title: string;
-      description: string;
-    };
-    checkbox?: {
-      title: string;
-      checked: boolean;
-      onChange: (value: boolean) => void;
-    };
-  };
-  actionButtons?: ButtonLinkProps[];
-  checkboxWithTitle?: CheckboxWithTitleProps;
-  isFetching?: boolean;
   readOnly?: boolean;
 };
 

@@ -10,6 +10,8 @@ import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import {COLORS} from '../../variables/colors';
 import CardImagePreview from '../../atom/card-image-preview';
+import Selectable from '../../molecule/card/selectable';
+import ContentBadge from '../../atom/content-badge';
 import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import ProgressBar from '../../molecule/progress-bar';
 import style from './style.css';
@@ -45,6 +47,8 @@ const ListItem = (
     onClick = noop,
     leftIcon,
     image,
+    imageOverlay,
+    contentBadge,
     checkbox,
     'data-name': dataName
   },
@@ -126,8 +130,19 @@ const ListItem = (
               />
             ) : null}
             {!leftIcon && image ? (
-              <div className={style.containerImage}>
+              <div
+                className={classnames(style.containerImage, imageOverlay && style.imageWithOverlay)}
+              >
                 <CardImagePreview image={image} />
+                {imageOverlay === 'hidden' ? (
+                  <div
+                    className={style.imageOverlay}
+                    aria-hidden="true"
+                    data-name="content-image-overlay"
+                  >
+                    <Selectable isSelected hidden />
+                  </div>
+                ) : null}
               </div>
             ) : null}
           </div>
@@ -174,6 +189,7 @@ const ListItem = (
       </div>
       <div className={style.settings}>
         {tagsView}
+        {contentBadge ? <ContentBadge {...contentBadge} /> : null}
         {selected ? (
           <FaIcon
             iconName="circle-check"
@@ -290,6 +306,8 @@ ListItem.propTypes = {
     size: PropTypes.number,
     wrapperSize: PropTypes.number
   }),
+  imageOverlay: PropTypes.oneOf(['hidden']),
+  contentBadge: PropTypes.shape(ContentBadge.propTypes),
   image: PropTypes.string,
   checkbox: PropTypes.shape(CheckboxWithTitle.propTypes)
 };
