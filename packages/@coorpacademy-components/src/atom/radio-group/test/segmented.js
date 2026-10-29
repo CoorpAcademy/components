@@ -6,6 +6,7 @@ import userEvent from '@testing-library/user-event';
 import {spy} from 'sinon';
 import forEach from 'lodash/fp/forEach';
 import RadioGroup from '..';
+import itemStyle from '../item.css';
 import {renderComponent, wrappingComponent} from '../../../test/helpers/render-component';
 import Default from './fixtures/default';
 import LastSelected from './fixtures/last-selected';
@@ -275,4 +276,11 @@ test.serial('legacy list props retain existing rendering and callbacks', t => {
     },
     [Default, LastSelected, Empty]
   );
+});
+
+test.serial('an unchecked option does not inherit the white list-item label colour', t => {
+  const {getAllByRole} = render(<RadioGroup {...props} />, {wrapper: wrappingComponent});
+  forEach(option => {
+    t.false(option.classList.contains(itemStyle.label), option.textContent);
+  }, getAllByRole('radio'));
 });

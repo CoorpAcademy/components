@@ -30,7 +30,9 @@
 }
 
 .segmentedOption {
-  composes: label from "./item.css";
+  display: flex;
+  cursor: pointer;
+  font-family: "Gilroy";
   align-items: center;
   justify-content: center;
   height: 36px;
