@@ -13,9 +13,13 @@ import {
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
+import AssignmentStatusTag from '../assignment-status-tag';
 import style from './style.css';
 
 const THEMES = {COCKPIT: 'cockpit'};
+
+const SORT_ARROWS = {asc: '▲', desc: '▼'};
+const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
 
 const createOptionsView = (_options, hasOptions) => {
   const optionsView = _options.map((option, oIndex) => {
@@ -73,7 +77,20 @@ const Table = (props, context) => {
   const mediumColor = get('common.medium', skin);
 
   const headerView = columns.map((column, cIndex) => {
-    const {title, filtered, info = '', options = []} = column;
+    const {title, filtered, info = '', options = [], order, onClick} = column;
+
+    if (onClick) {
+      return (
+        <th title={info} key={cIndex} aria-sort={ARIA_SORT[order] || 'none'}>
+          <button type="button" className={style.sortButton} onClick={onClick}>
+            <span>{title}</span>
+            <span className={style.sortArrow} aria-hidden="true">
+              {SORT_ARROWS[order] || ''}
+            </span>
+          </button>
+        </th>
+      );
+    }
 
     const hasOptions = options.length > 0;
 
@@ -136,7 +153,19 @@ const Table = (props, context) => {
 
     const tableRows = fields.map((field, fIndex) => {
       if (!field) return <td key={fIndex}>{''}</td>;
-      return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
+      if (isString(field) || field.icon) {
+        return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
+      }
+      return (
+        <td key={fIndex}>
+          <span className={style.cellContent}>
+            {field.text}
+            {(field.tags || []).map((tag, tagIndex) => (
+              <AssignmentStatusTag {...tag} key={tagIndex} />
+            ))}
+          </span>
+        </td>
+      );
     });
 
     if (editable) {
@@ -184,8 +213,12 @@ Table.propTypes = {
       fields: PropTypes.arrayOf(
         PropTypes.oneOfType([
           PropTypes.string,
-          PropTypes.shape({icon: PropTypes.string}),
-          PropTypes.shape({icon: PropTypes.string, title: PropTypes.string})
+          PropTypes.shape({
+            icon: PropTypes.string,
+            title: PropTypes.string,
+            text: PropTypes.string,
+            tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTag.propTypes))
+          })
         ])
       ),
       editHref: PropTypes.string,
@@ -197,6 +230,9 @@ Table.propTypes = {
       title: PropTypes.string.isRequired,
       info: PropTypes.string,
       filtered: PropTypes.bool,
+      // A sortable column: its header is a button showing ▲ (asc), ▼ (desc) or nothing ('')
+      order: PropTypes.oneOf(['asc', 'desc', '']),
+      onClick: PropTypes.func,
       options: PropTypes.arrayOf(
         PropTypes.shape({
           title: PropTypes.string.isRequired,

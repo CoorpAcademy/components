@@ -55,6 +55,12 @@
 
 .readonly {}
 
+.cellContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .table:not(.readonly) tbody tr:hover {
   background-color: xtraLightGrey;
 }
@@ -268,4 +274,22 @@
 .cockpit .videosubtitle {
   vertical-align: middle;
   padding-right: 4px;
+}
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sortArrow {
+  font-size: 10px;
+  min-width: 10px;
 }
