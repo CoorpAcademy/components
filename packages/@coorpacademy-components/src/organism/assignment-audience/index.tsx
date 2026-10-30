@@ -6,6 +6,9 @@ import Banner from '../../molecule/banner';
 import InputFileDraggable from '../../atom/input-file-draggable';
 import Autocomplete from '../../atom/autocomplete';
 import Title from '../../atom/title';
+import ButtonLink from '../../atom/button-link';
+import Search from '../../atom/input-search';
+import Table from '../../molecule/table';
 import Chip from '../../atom/chip';
 import UploadResult from './upload-result';
 import AssignmentAudiencePropTypes, {
@@ -81,7 +84,8 @@ const AssignmentAudience = ({
   populations,
   upload,
   individuals,
-  total
+  total,
+  assigned
 }: AssignmentAudienceProps) => {
   const sourcesDisabled = disabled || Boolean(everyone?.value);
   const loading = upload?.status === 'loading';
@@ -166,6 +170,28 @@ const AssignmentAudience = ({
     },
     [sourcesDisabled, onRemove]
   );
+
+  const handleAssignedToggle = useCallback(() => {
+    if (!disabled) assigned?.onToggle();
+  }, [disabled, assigned]);
+  const handleAssignedFilter = useCallback(
+    (key: string) => () => {
+      if (!disabled) assigned?.onFilter(key);
+    },
+    [disabled, assigned]
+  );
+  const handleAssignedSearch = useCallback(
+    (query: string) => {
+      if (!disabled) assigned?.search.onChange(query);
+    },
+    [disabled, assigned]
+  );
+  const handleAssignedPrevious = useCallback(() => {
+    if (!disabled) assigned?.pagination.onPrevious?.();
+  }, [disabled, assigned]);
+  const handleAssignedNext = useCallback(() => {
+    if (!disabled) assigned?.pagination.onNext?.();
+  }, [disabled, assigned]);
 
   return (
     <section className={style.container} data-name="assignment-audience" aria-label={title}>
@@ -362,6 +388,104 @@ const AssignmentAudience = ({
         <div className={style.total} data-name="estimated-audience" aria-live="polite">
           <span className={style.totalLabel}>{total.label}</span>
           {total.detail ? <span className={style.muted}>{total.detail}</span> : null}
+        </div>
+      ) : null}
+      {assigned ? (
+        <div className={style.assignedCard} data-name="assigned-learners">
+          {assigned.notice ? (
+            <div role="status">
+              <Banner type="info" message={assigned.notice} />
+            </div>
+          ) : null}
+          <fieldset disabled={disabled} className={style.assignedControls}>
+            <Block
+              name="assigned-header"
+              title={assigned.title}
+              subtitle={assigned.subtitle}
+              button={{
+                label: assigned.toggleLabel,
+                type: 'secondary',
+                className: style.assignedButton,
+                disabled,
+                onClick: handleAssignedToggle
+              }}
+            />
+            {assigned.expanded ? (
+              <>
+                <div className={style.assignedFilters}>
+                  {assigned.filters.map(filter => (
+                    <button
+                      key={filter.key}
+                      type="button"
+                      aria-pressed={filter.selected}
+                      className={
+                        filter.selected ? style.assignedFilterSelected : style.assignedFilter
+                      }
+                      disabled={disabled}
+                      onClick={handleAssignedFilter(filter.key)}
+                    >
+                      {filter.label}
+                    </button>
+                  ))}
+                </div>
+                <div className={style.assignedToolbar}>
+                  <div className={style.assignedSearch}>
+                    <Search
+                      value={assigned.search.value}
+                      placeholder={assigned.search.placeholder}
+                      onChange={handleAssignedSearch}
+                    />
+                  </div>
+                  <div className={style.assignedPagination}>
+                    <span>{assigned.pagination.label}</span>
+                    <ButtonLink
+                      label="‹"
+                      type="secondary"
+                      className={style.assignedButton}
+                      disabled={disabled || !assigned.pagination.onPrevious}
+                      onClick={handleAssignedPrevious}
+                    />
+                    <ButtonLink
+                      label="›"
+                      type="secondary"
+                      className={style.assignedButton}
+                      disabled={disabled || !assigned.pagination.onNext}
+                      onClick={handleAssignedNext}
+                    />
+                  </div>
+                </div>
+                {assigned.rows.length > 0 ? (
+                  <div className={style.assignedTable}>
+                    <Table
+                      editable={false}
+                      columns={[...assigned.columns.map(column => ({title: column})), {title: ''}]}
+                      rows={assigned.rows.map(row => ({
+                        id: row.id,
+                        fields: [
+                          ...row.fields,
+                          row.action
+                            ? {
+                                action: {
+                                  ...row.action,
+                                  onClick: () => {
+                                    if (!disabled) row.action?.onClick();
+                                  }
+                                }
+                              }
+                            : {text: row.actionText ?? ''}
+                        ]
+                      }))}
+                    />
+                  </div>
+                ) : (
+                  <p className={style.muted}>{assigned.emptyLabel}</p>
+                )}
+                {assigned.footnote ? (
+                  <p className={style.assignedFootnote}>{assigned.footnote}</p>
+                ) : null}
+              </>
+            ) : null}
+          </fieldset>
         </div>
       ) : null}
     </section>
