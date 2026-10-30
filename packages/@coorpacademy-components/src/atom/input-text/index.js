@@ -97,6 +97,7 @@ const InputText = props => {
           onChange={noop}
           data-name={dataName}
           aria-label={ariaLabel}
+          tabIndex={0}
         />
         {inputColor && !error && value ? (
           <span
