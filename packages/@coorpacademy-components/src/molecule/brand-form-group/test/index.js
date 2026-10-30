@@ -180,3 +180,20 @@ test.serial('submits ISO values by name without leaking field metadata', t => {
     [['assignmentStart', '2026-11-03']]
   );
 });
+
+test.serial('group error follows title and precedes fields', t => {
+  const view = render(
+    <BrandFormGroup
+      title="Information"
+      error="Missing title"
+      fields={[{type: 'text', title: 'Name'}]}
+    />
+  );
+  const alert = view.getByRole('alert');
+  t.true(Boolean(view.getByText('Information').compareDocumentPosition(alert) & 4));
+  t.true(Boolean(alert.compareDocumentPosition(view.getByRole('textbox')) & 4));
+  view.rerender(<BrandFormGroup title="Information" fields={[{type: 'text', title: 'Name'}]} />);
+  t.is(view.queryByRole('alert'), null);
+  t.truthy(view.getByText('Information'));
+  t.truthy(view.getByRole('textbox'));
+});

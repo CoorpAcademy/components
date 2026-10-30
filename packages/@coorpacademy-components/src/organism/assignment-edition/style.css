@@ -1,0 +1,27 @@
+@value colors: "../../variables/colors.css";
+@value white, cm_grey_100 from colors;
+
+.container {
+  composes: container from '../skill-edition/style.css';
+  gap: 24px;
+}
+
+.content {
+  composes: contentContainer from '../skill-edition/style.css';
+}
+
+.loaderContainer {
+  composes: loaderContainer from '../skill-edition/style.css';
+}
+
+.loader {
+  composes: loader from '../skill-edition/style.css';
+}
+
+.card {
+  padding: 32px;
+  border: 1px solid cm_grey_100;
+  border-radius: 12px;
+  background: white;
+  scroll-margin-top: 16px;
+}

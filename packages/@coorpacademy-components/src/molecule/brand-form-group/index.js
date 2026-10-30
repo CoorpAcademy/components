@@ -21,6 +21,7 @@ import InputFileDraggable from '../../atom/input-file-draggable';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
 import Title from '../../atom/title';
+import Banner from '../banner';
 import Roles from '../coorp-manager-roles';
 import TitleAndCheckBoxWrapper from '../title-and-checkbox-wrapper';
 import ButtonLink from '../../atom/button-link';
@@ -132,6 +133,7 @@ const defineLayoutClass = layout => {
 const BrandFormGroup = props => {
   const {
     title,
+    error,
     subtitle = '',
     fieldsLayout = '',
     groupLayout = '',
@@ -144,6 +146,11 @@ const BrandFormGroup = props => {
     fields
   );
   const layout = useMemo(() => defineLayoutClass(fieldsLayout), [fieldsLayout]);
+  const errorView = error ? (
+    <div role="alert">
+      <Banner type="error" message={error} />
+    </div>
+  ) : null;
 
   return (
     <div
@@ -159,6 +166,7 @@ const BrandFormGroup = props => {
           type={'form-group'}
         />
       </div>
+      {errorView}
       <div className={layout}>{fieldsList}</div>
     </div>
   );
@@ -166,6 +174,7 @@ const BrandFormGroup = props => {
 
 BrandFormGroup.propTypes = {
   title: PropTypes.string,
+  error: PropTypes.string,
   subtitle: PropTypes.string,
   titleSize: PropTypes.string,
   subtitleSize: PropTypes.string,
