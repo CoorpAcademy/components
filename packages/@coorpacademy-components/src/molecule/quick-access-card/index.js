@@ -10,6 +10,7 @@ import {
   NovaSolidContentEditionFlash as MassiveBattleIcon,
   NovaSolidApplicationsWindowApplication5 as CmsIcon,
   NovaSolidBusinessBusinessGraphLine2 as AnalyticsIcon,
+  NovaCompositionCoorpacademyClockTime as AssignmentsIcon,
   NovaCompositionNavigationArrowRight as ActionIcon,
   NovaCompositionCoorpacademyOpenInNewTab as NewTabIcon,
   NovaLinePhoneMobilePhone as MobilePhone,
@@ -27,6 +28,8 @@ const {cm_primary_blue} = COLORS;
 
 const getIcon = feature => {
   switch (feature) {
+    case 'assignments':
+      return AssignmentsIcon;
     case 'manage_users':
       return ManageUserIcon;
     case 'upload_users':
@@ -62,6 +65,12 @@ const getIcon = feature => {
 
 const getBackgroudRadialColors = feature => {
   switch (feature) {
+    case 'assignments':
+      return {
+        iconBackgroundColor: '#FF7043',
+        degrees: '14',
+        iconColor: null
+      };
     case 'manage_users':
     case 'upload_users':
       return {
@@ -211,6 +220,7 @@ QuickAccessCard.propTypes = {
   openInNewTab: PropTypes.bool,
   isMoocCard: PropTypes.bool,
   feature: PropTypes.oneOf([
+    'assignments',
     'analytics',
     'cms',
     'cockpit',
