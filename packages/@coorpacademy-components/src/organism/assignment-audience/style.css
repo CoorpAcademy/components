@@ -113,3 +113,88 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+@value cm_primary_blue, cm_grey_50 from colors;
+
+.assignedCard {
+  border: 1px solid cm_grey_200;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.assignedControls {
+  composes: sources;
+  gap: 16px;
+}
+
+.assignedButton {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.assignedFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.assignedFilter {
+  composes: button from "../../atom/button-link/style.css";
+  display: inline-flex;
+  width: auto;
+  border: 1px solid cm_grey_200;
+  background: cm_grey_50;
+  color: cm_grey_700;
+}
+
+.assignedFilterSelected {
+  composes: assignedFilter;
+  color: cm_primary_blue;
+  border-color: cm_primary_blue;
+}
+
+.assignedFilter:focus-visible,
+.assignedButton:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 2px;
+}
+
+.assignedToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.assignedSearch {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.assignedPagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.assignedTable {
+  min-width: 0;
+}
+
+.assignedTable table {
+  width: 100%;
+}
+
+.assignedTable tbody td:last-child {
+  text-align: right;
+  color: cm_grey_500;
+}
+
+.assignedFootnote {
+  composes: muted;
+  margin: 0;
+}

@@ -2,7 +2,7 @@ import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {render, cleanup} from '@testing-library/react';
+import {render, cleanup, fireEvent, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import Tag from '../../../atom/tag';
 import Table from '..';
@@ -10,6 +10,8 @@ import style from '../style.css';
 import defaultFixture from './fixtures/default';
 import readonlyFixture from './fixtures/readonly';
 import cockpitFixture from './fixtures/cockpit-theme';
+import noOptionsFixture from './fixtures/no-options';
+import taggedFixture from './fixtures/tagged-cells';
 
 browserEnv();
 test.afterEach(cleanup);
@@ -138,7 +140,11 @@ test.serial('updates repeated tags in consumer order and removes them on rerende
   rerender(
     <Table
       editable={false}
-      rows={[{fields: [{text: '13 Nov 2026', tags: [...originalTags].reverse()}, 'Unchanged']}]}
+      rows={[
+        {
+          fields: [{text: '13 Nov 2026', tags: [...originalTags].reverse()}, 'Unchanged']
+        }
+      ]}
     />
   );
   t.is(container.querySelector('tbody td').textContent, '13 Nov 2026Past dueFlagFlag');
@@ -151,7 +157,11 @@ test.serial('updates repeated tags in consumer order and removes them on rerende
   rerender(
     <Table
       editable={false}
-      rows={[{fields: [{tags: [{status: 'inProgress', label: 'Flag'}]}, 'Unchanged']}]}
+      rows={[
+        {
+          fields: [{tags: [{status: 'inProgress', label: 'Flag'}]}, 'Unchanged']
+        }
+      ]}
     />
   );
   t.is(container.querySelector('tbody td').textContent, 'Flag');
@@ -309,7 +319,10 @@ test.serial('keeps rich cells aligned with edit links and legacy icons in both t
                   ]
                 },
                 {icon: 'videosubtitle', title: 'French'},
-                {text: '12 Nov 2026', tags: [{status: 'late', label: 'Late'}]}
+                {
+                  text: '12 Nov 2026',
+                  tags: [{status: 'late', label: 'Late'}]
+                }
               ]
             }
           ]}
@@ -348,9 +361,21 @@ test.serial('a column with onClick renders a sort button showing its order, and 
       editable={false}
       columns={[
         {title: 'Learner'},
-        {title: 'Due date', order: 'asc', onClick: () => clicks.push('due')},
-        {title: 'Completed on', order: 'desc', onClick: () => clicks.push('completed')},
-        {title: 'Last reminder', order: '', onClick: () => clicks.push('reminder')}
+        {
+          title: 'Due date',
+          order: 'asc',
+          onClick: () => clicks.push('due')
+        },
+        {
+          title: 'Completed on',
+          order: 'desc',
+          onClick: () => clicks.push('completed')
+        },
+        {
+          title: 'Last reminder',
+          order: '',
+          onClick: () => clicks.push('reminder')
+        }
       ]}
       rows={[{fields: ['Alice Martin · alice.martin', '20 Nov 2026', '-', '-']}]}
     />,
@@ -385,4 +410,248 @@ test.serial('a column with options keeps the existing menu and no sort button', 
   );
   t.is(queryByRole('button', {name: /^Name/}), null);
   t.truthy(container.querySelector(`.${style.options}`));
+});
+
+test.serial('action cells render native non-submit buttons and call only their own callback', t => {
+  const calls = [];
+  const view = render(
+    <form
+      onSubmit={event => {
+        event.preventDefault();
+        calls.push('submit');
+      }}
+    >
+      <Table
+        editable={false}
+        columns={[{title: 'Name'}, {title: ''}]}
+        rows={[
+          {
+            fields: [
+              'Alice',
+              {
+                action: {
+                  label: 'Remove',
+                  variant: 'danger',
+                  onClick: () => calls.push('alice')
+                }
+              }
+            ]
+          },
+          {
+            fields: [
+              'Bob',
+              {
+                action: {
+                  label: 'Undo',
+                  variant: 'neutral',
+                  onClick: () => calls.push('bob')
+                }
+              }
+            ]
+          }
+        ]}
+      />
+    </form>,
+    options
+  );
+  ['Remove', 'Undo'].forEach((name, index) => {
+    const button = view.getByRole('button', {name});
+    t.is(button.tagName, 'BUTTON');
+    t.is(button.type, 'button');
+    t.true(button.closest('td').classList.contains(style.actionCell));
+    t.is(button.className, index ? style.neutralAction : style.dangerAction);
+    fireEvent.click(button);
+  });
+  t.deepEqual(calls, ['alice', 'bob']);
+});
+
+test.serial('action labels render as text and action cells coexist with legacy fields', t => {
+  [false, true].forEach(editable => {
+    const view = render(
+      <Table
+        editable={editable}
+        columns={Array.from({length: 5}, () => ({title: ''}))}
+        rows={[
+          {
+            editHref: '/edit',
+            fields: [
+              'Alice',
+              '',
+              {icon: 'draft'},
+              {text: 'Today', tags: [{status: 'late', label: 'Late'}]},
+              {
+                action: {
+                  label: '<b>Remove</b>',
+                  variant: 'danger',
+                  onClick: () => {}
+                }
+              }
+            ]
+          }
+        ]}
+      />,
+      options
+    );
+    const row = view.container.querySelector('tbody tr');
+    const cells = [...row.cells].slice(editable ? 1 : 0);
+    t.deepEqual(
+      cells.map(cell => cell.textContent),
+      ['Alice', '', '', 'TodayLate', '<b>Remove</b>']
+    );
+    t.truthy(cells[2].querySelector('svg'));
+    t.truthy(within(cells[3]).getByText('Late'));
+    t.is(cells[4].querySelector('b'), null);
+    t.is(row.querySelectorAll('a').length, editable ? 1 : 0);
+    t.is(row.cells.length, editable ? 6 : 5);
+    view.unmount();
+  });
+});
+
+test.serial('action PropTypes require label callback and supported variant', t => {
+  const valid = {label: 'Remove', variant: 'danger', onClick: () => {}};
+  ['danger', 'neutral'].forEach(variant =>
+    t.notThrows(() =>
+      PropTypes.checkPropTypes(
+        Table.propTypes,
+        {rows: [{fields: [{action: {...valid, variant}}]}]},
+        'prop',
+        'Table'
+      )
+    )
+  );
+  [
+    {...valid, label: 3},
+    {...valid, onClick: undefined},
+    {...valid, variant: 'primary'}
+  ].forEach(action => {
+    PropTypes.resetWarningCache();
+    t.throws(
+      () =>
+        PropTypes.checkPropTypes(Table.propTypes, {rows: [{fields: [{action}]}]}, 'prop', 'Table'),
+      {message: /Invalid prop/}
+    );
+  });
+  PropTypes.resetWarningCache();
+});
+
+test.serial(
+  'a reused cell switches actions variants and legacy content on controlled updates',
+  t => {
+    const calls = [];
+    const firstAction = Object.freeze({
+      label: 'Remove',
+      variant: 'danger',
+      onClick: () => calls.push('remove')
+    });
+    const table = field => (
+      <Table
+        editable={false}
+        columns={[{title: 'Learner action'}]}
+        rows={[{fields: Object.freeze([field])}]}
+      />
+    );
+    const view = render(table(Object.freeze({action: firstAction})), options);
+    fireEvent.click(view.getByRole('button', {name: 'Remove'}));
+    view.rerender(
+      table({
+        action: {
+          label: 'Undo',
+          variant: 'neutral',
+          onClick: () => calls.push('undo')
+        },
+        text: 'Hidden text',
+        tags: [{label: 'Hidden tag', status: 'removed'}]
+      })
+    );
+    t.is(view.queryByRole('button', {name: 'Remove'}), null);
+    t.is(view.queryByText('Hidden text'), null);
+    t.is(view.queryByText('Hidden tag'), null);
+    const undo = view.getByRole('button', {name: 'Undo'});
+    t.is(undo.className, style.neutralAction);
+    fireEvent.click(undo);
+    view.rerender(
+      table({
+        text: 'Removed learner',
+        tags: [{status: 'removed', label: 'Removed'}]
+      })
+    );
+    t.is(view.queryByRole('button'), null);
+    t.is(view.container.querySelector('tbody td').textContent, 'Removed learnerRemoved');
+    t.is(view.container.querySelector(`.${style.actionCell}`), null);
+    view.rerender(table({icon: 'draft', action: firstAction}));
+    t.truthy(view.container.querySelector('tbody td svg'));
+    t.is(view.queryByRole('button'), null);
+    t.is(view.container.querySelector(`.${style.actionCell}`), null);
+    view.rerender(table(''));
+    t.is(view.container.querySelector('tbody td').textContent, '');
+    t.is(view.container.querySelector('tbody td svg'), null);
+    view.rerender(table({action: firstAction}));
+    t.is(view.getByRole('button', {name: 'Remove'}).className, style.dangerAction);
+    fireEvent.click(view.getByRole('button', {name: 'Remove'}));
+    t.deepEqual(calls, ['remove', 'undo', 'remove']);
+  }
+);
+
+test.serial(
+  'action fields still reject malformed legacy metadata and missing action members',
+  t => {
+    const action = {label: 'Remove', variant: 'danger', onClick: () => {}};
+    const invalidFields = [
+      {action, text: 42},
+      {action, icon: 42},
+      {action, tags: 'Late'},
+      {action, tags: [{status: 'late'}]},
+      {action, tags: [{label: 42}]},
+      {action: {...action, label: undefined}},
+      {action: {...action, onClick: true}},
+      {action: {...action, variant: undefined}}
+    ];
+    invalidFields.forEach(field => {
+      PropTypes.resetWarningCache();
+      t.throws(
+        () =>
+          PropTypes.checkPropTypes(Table.propTypes, {rows: [{fields: [field]}]}, 'prop', 'Table'),
+        {message: /Invalid prop `rows\[0\]\.fields\[0\]`/}
+      );
+    });
+    PropTypes.resetWarningCache();
+  }
+);
+
+test.serial('legacy table fixtures retain their cells controls and themes', t => {
+  [defaultFixture, noOptionsFixture, readonlyFixture, cockpitFixture, taggedFixture].forEach(
+    ({props}) => {
+      const view = render(<Table {...props} />, options);
+      t.is(view.container.querySelectorAll('tbody tr').length, props.rows.length);
+      t.is(
+        view.container.querySelectorAll('thead th').length,
+        props.columns.length + (props.editable === false ? 0 : 1)
+      );
+      props.rows.forEach((row, index) => {
+        const tr = view.container.querySelectorAll('tbody tr')[index];
+        t.is(tr.cells.length, row.fields.length + (props.editable === false ? 0 : 1));
+        t.is(tr.querySelectorAll('a').length, props.editable === false ? 0 : 1);
+        t.is(tr.classList.contains(style.highlighted), Boolean(row.highlighted));
+        row.fields.forEach((field, fieldIndex) => {
+          const cell = tr.cells[fieldIndex + (props.editable === false ? 0 : 1)];
+          if (typeof field === 'string') t.is(cell.textContent, field);
+          else if (field && field.icon)
+            t.truthy(cell.querySelector('svg') || cell.querySelector('span'));
+          else if (field) {
+            t.true(cell.textContent.includes(field.text || ''));
+            (field.tags || []).forEach(tag => t.truthy(within(cell).getByText(tag.label)));
+          }
+        });
+      });
+      props.columns.forEach(column => t.truthy(view.getAllByText(column.title).length));
+      t.truthy(
+        view.container.querySelector(
+          props.theme === 'cockpit' ? `.${style.cockpit}` : `.${style.wrapper}`
+        )
+      );
+      t.is(view.container.querySelector(`.${style.actionCell}`), null);
+      t.is(view.queryByRole('button', {name: /Remove|Undo/}), null);
+      view.unmount();
+    }
+  );
 });

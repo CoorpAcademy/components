@@ -121,6 +121,47 @@ const AssignmentAudiencePropTypes = {
     // Receives the learner id
     onRemove: PropTypes.func.isRequired
   }),
+  assigned: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    expanded: PropTypes.bool.isRequired,
+    toggleLabel: PropTypes.string.isRequired,
+    onToggle: PropTypes.func.isRequired,
+    notice: PropTypes.string,
+    filters: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        selected: PropTypes.bool.isRequired
+      }).isRequired
+    ).isRequired,
+    onFilter: PropTypes.func.isRequired,
+    search: PropTypes.shape({
+      value: PropTypes.string.isRequired,
+      placeholder: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired
+    }).isRequired,
+    pagination: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      onPrevious: PropTypes.func,
+      onNext: PropTypes.func
+    }).isRequired,
+    columns: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+    rows: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        fields: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+        action: PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          onClick: PropTypes.func.isRequired,
+          variant: PropTypes.oneOf(['danger', 'neutral']).isRequired
+        }),
+        actionText: PropTypes.string
+      }).isRequired
+    ).isRequired,
+    footnote: PropTypes.string,
+    emptyLabel: PropTypes.string.isRequired
+  }),
   total: PropTypes.shape({
     label: PropTypes.string.isRequired,
     detail: PropTypes.string
@@ -151,6 +192,28 @@ export type Learner = {
   id: string;
   label: string;
   login: string;
+};
+
+export type AssignedLearnersProps = {
+  title: string;
+  subtitle?: string;
+  expanded: boolean;
+  toggleLabel: string;
+  onToggle: () => void;
+  notice?: string;
+  filters: Array<{key: string; label: string; selected: boolean}>;
+  onFilter: (key: string) => void;
+  search: {value: string; placeholder: string; onChange: (value: string) => void};
+  pagination: {label: string; onPrevious?: () => void; onNext?: () => void};
+  columns: string[];
+  rows: Array<{
+    id: string;
+    fields: string[];
+    action?: {label: string; onClick: () => void; variant: 'danger' | 'neutral'};
+    actionText?: string;
+  }>;
+  footnote?: string;
+  emptyLabel: string;
 };
 
 export type AssignmentAudienceProps = {
@@ -202,6 +265,7 @@ export type AssignmentAudienceProps = {
     onAdd: (learner: Learner) => void;
     onRemove: (id: string) => void;
   };
+  assigned?: AssignedLearnersProps;
   total?: {label: string; detail?: string};
 };
 

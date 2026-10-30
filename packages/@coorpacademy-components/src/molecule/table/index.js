@@ -156,6 +156,20 @@ const Table = (props, context) => {
       if (isString(field) || field.icon) {
         return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
       }
+      if (field.action) {
+        const {label, onClick, variant} = field.action;
+        return (
+          <td key={fIndex} className={style.actionCell}>
+            <button
+              type="button"
+              className={variant === 'danger' ? style.dangerAction : style.neutralAction}
+              onClick={onClick}
+            >
+              {label}
+            </button>
+          </td>
+        );
+      }
       return (
         <td key={fIndex}>
           <span className={style.cellContent}>
@@ -214,6 +228,11 @@ Table.propTypes = {
         PropTypes.oneOfType([
           PropTypes.string,
           PropTypes.shape({
+            action: PropTypes.shape({
+              label: PropTypes.string.isRequired,
+              onClick: PropTypes.func.isRequired,
+              variant: PropTypes.oneOf(['danger', 'neutral']).isRequired
+            }),
             icon: PropTypes.string,
             title: PropTypes.string,
             text: PropTypes.string,
