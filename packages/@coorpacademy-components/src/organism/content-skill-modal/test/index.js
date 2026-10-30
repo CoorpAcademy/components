@@ -14,6 +14,10 @@ import loadingFixture from './fixtures/loading';
 import emptyFixture from './fixtures/empty-search';
 import assignmentFixture from './fixtures/assignment-modules';
 
+const COHESION = 'Ensuring team cohesion and well-being';
+const BASE_MODULE = `${COHESION} · Base`;
+const ADVANCED_MODULE = `${COHESION} · Advanced`;
+
 browserEnv();
 test.afterEach.always(cleanup);
 
@@ -88,7 +92,6 @@ test.serial('should not render the modal if isOpen is false', t => {
     t.is(view.getByTestId('button-link-cancel').textContent, 'Cancel');
     t.is(view.getByTestId('button-link-confirm').textContent, 'Add');
     t.false(view.getByTestId('button-link-confirm').disabled);
-    t.is(view.container.querySelector('[data-name="list-item-sub-items"]'), null);
     t.is(view.queryByText(/^Select all /), null);
     t.is(view.container.querySelector(`.${baseModalStyle.footerDescriptionError}`), null);
     if (fixture === loadingFixture) {
@@ -483,7 +486,6 @@ test.serial('zero results retain the empty state and disabled select all zero', 
     />
   );
   t.truthy(view.getByText(base.contentList.content.emptyResult.title));
-  t.is(view.container.querySelector('[data-name="list-item-sub-items"]'), null);
   const button = view.getByRole('button', {name: 'Select all 0'});
   t.true(button.disabled);
   fireEvent.click(button);
@@ -498,10 +500,10 @@ test.serial('loading and result replacement preserve the supplied select all act
     selectAll: {label: 'Select all 25', onClick: () => calls.push('select all')}
   };
   const view = renderWithContext(<ContentSkillModal {...base} contentList={contentList} />);
-  t.true(view.getByLabelText('Getting started').checked);
+  t.true(view.getByLabelText(BASE_MODULE).checked);
   view.rerender(<ContentSkillModal {...base} contentList={{...contentList, isFetching: true}} />);
   t.truthy(view.container.querySelector('[data-name="loader"]'));
-  t.is(view.queryByLabelText('Getting started'), null);
+  t.is(view.queryByLabelText(BASE_MODULE), null);
   fireEvent.click(view.getByRole('button', {name: 'Select all 25'}));
   view.rerender(
     <ContentSkillModal
@@ -511,52 +513,48 @@ test.serial('loading and result replacement preserve the supplied select all act
         isFetching: false,
         content: {
           ...contentList.content,
-          items: contentList.content.items.map(course => ({
-            ...course,
-            subItems: course.subItems.map(item => ({
-              ...item,
-              checkbox: {...item.checkbox, checked: false}
-            }))
+          items: contentList.content.items.map(item => ({
+            ...item,
+            checkbox: {...item.checkbox, checked: false}
           }))
         }
       }}
     />
   );
   t.is(view.container.querySelector('[data-name="loader"]'), null);
-  t.false(view.getByLabelText('Getting started').checked);
+  t.false(view.getByLabelText(BASE_MODULE).checked);
   t.false(view.getByRole('button', {name: 'Select all 25'}).disabled);
   t.deepEqual(calls, ['select all']);
 });
 
-test.serial('module rows flow through modal and ListItems', t => {
+test.serial('each module is its own row with its level badge and its own checkbox', t => {
   const calls = [];
   const base = assignmentFixture.props;
-  const course = base.contentList.content.items[0];
-  const props = {
-    ...base,
-    contentList: {
-      ...base.contentList,
-      content: {
-        ...base.contentList.content,
-        items: [
-          {
-            ...course,
-            onClick: () => calls.push('course'),
-            checkbox: {checked: false, onChange: () => calls.push('parent')},
-            subItems: course.subItems.map((item, index) => ({
-              ...item,
-              checkbox: {...item.checkbox, onChange: checked => calls.push([index, checked])}
-            }))
-          }
-        ]
-      }
-    }
-  };
-  const view = renderWithContext(<ContentSkillModal {...props} />);
-  const list = view.container.querySelector('[data-name="list-item-sub-items"]');
-  t.truthy(list.closest(`.${modalStyle.containerList}`));
-  t.is(list.querySelectorAll('input[type="checkbox"]').length, 3);
-  fireEvent.click(view.getByLabelText('Working together'));
+  const items = base.contentList.content.items.map((item, index) => ({
+    ...item,
+    checkbox: {...item.checkbox, onChange: checked => calls.push([index, checked])}
+  }));
+  const view = renderWithContext(
+    <ContentSkillModal
+      {...base}
+      contentList={{...base.contentList, content: {...base.contentList.content, items}}}
+    />
+  );
+  const rows = view.container.querySelectorAll(
+    `.${modalStyle.containerList} [data-name="content-list"] > li`
+  );
+  t.is(rows.length, 4);
+  t.deepEqual(
+    [...rows].map(row => row.querySelector('input[type="checkbox"]').getAttribute('aria-label')),
+    [BASE_MODULE, ADVANCED_MODULE, `${COHESION} · Coach`, 'Managing conflict in a team · Base']
+  );
+  t.deepEqual(
+    [...rows].map(row => row.textContent.match(/Base|Advanced|Coach|Hidden/g)),
+    [['Base'], ['Advanced'], ['Coach'], ['Hidden']]
+  );
+  t.truthy(rows[3].querySelector('[data-name="content-image-overlay"]'));
+  t.is(rows[0].querySelector('[data-name="content-image-overlay"]'), null);
+  fireEvent.click(view.getByLabelText(ADVANCED_MODULE));
   t.deepEqual(calls, [[1, true]]);
 });
 
@@ -587,8 +585,8 @@ test.serial(
     t.is(view.getByTestId('button-link-confirm').textContent, 'Assign');
     t.is(view.getByTestId('button-link-cancel').textContent, 'Cancel assignment');
     t.true(view.getByTestId('button-link-confirm').disabled);
-    t.true(view.getByLabelText('Getting started').checked);
-    t.false(view.getByLabelText('Working together').checked);
+    t.true(view.getByLabelText(BASE_MODULE).checked);
+    t.false(view.getByLabelText(ADVANCED_MODULE).checked);
     t.truthy(view.container.querySelector(`.${modalStyle.filtersContainer}`));
     fireEvent.click(view.getByRole('button', {name: 'Select all 25'}));
     fireEvent.click(view.getByTestId('button-link-confirm'));
