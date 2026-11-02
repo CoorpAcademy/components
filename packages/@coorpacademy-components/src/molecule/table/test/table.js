@@ -1,4 +1,7 @@
 import test from 'ava';
+import {readFileSync} from 'fs';
+import path from 'path';
+import postcss from 'postcss';
 import browserEnv from 'browser-env';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -7,11 +10,13 @@ import {wrappingComponent} from '../../../test/helpers/render-component';
 import Tag from '../../../atom/tag';
 import Table from '..';
 import style from '../style.css';
+import checkboxStyle from '../../../atom/input-checkbox/style.css';
 import defaultFixture from './fixtures/default';
 import readonlyFixture from './fixtures/readonly';
 import cockpitFixture from './fixtures/cockpit-theme';
 import noOptionsFixture from './fixtures/no-options';
 import taggedFixture from './fixtures/tagged-cells';
+import actionFixture from './fixtures/action-cells';
 
 browserEnv();
 test.afterEach(cleanup);
@@ -685,5 +690,353 @@ test.serial('legacy table fixtures retain their cells controls and themes', t =>
       t.is(view.queryByRole('button', {name: /Remove|Undo/}), null);
       view.unmount();
     }
+  );
+});
+
+test.serial(
+  'legacy tables without selection retain columns menus edit links actions and themes',
+  t => {
+    [
+      defaultFixture,
+      readonlyFixture,
+      cockpitFixture,
+      noOptionsFixture,
+      taggedFixture,
+      actionFixture
+    ].forEach(({props}) => {
+      const view = render(<Table {...props} />, options);
+      const extra = props.editable === false ? 0 : 1;
+      t.is(view.container.querySelectorAll('thead th').length, props.columns.length + extra);
+      [...view.container.querySelectorAll('tbody tr')].forEach((row, index) => {
+        t.is(row.cells.length, props.rows[index].fields.length + extra);
+        t.is(row.querySelectorAll('a').length, extra);
+      });
+      t.is(view.container.querySelector('[data-name="checkbox-input"]'), null);
+      t.is(
+        view.container.querySelectorAll(`.${style.options}`).length,
+        props.columns.filter(column => column.options && column.options.length).length
+      );
+      t.is(
+        view.container.querySelectorAll(`.${style.actionCell}`).length,
+        props.rows.reduce(
+          (count, row) => count + row.fields.filter(field => field && field.action).length,
+          0
+        )
+      );
+      t.true(
+        view.container.firstChild.classList.contains(
+          props.theme === 'cockpit' ? style.cockpit : style.wrapper
+        )
+      );
+      view.unmount();
+    });
+  }
+);
+
+const selectDescriptor = (ariaLabel, checked = false, onChange = () => {}) => ({
+  ariaLabel,
+  checked,
+  onChange
+});
+
+test.serial(
+  'selection introduced on a later row updates callbacks and removes its column cleanly',
+  t => {
+    const calls = [];
+    const props = {
+      editable: false,
+      columns: [{title: 'Name'}],
+      rows: [{fields: ['Alice']}, {fields: ['Bob']}]
+    };
+    const view = render(<Table {...props} />, options);
+    const rowCells = () =>
+      [...view.container.querySelectorAll('tbody tr')].map(row => row.cells.length);
+    t.deepEqual(rowCells(), [1, 1]);
+    view.rerender(
+      <Table
+        {...props}
+        rows={[
+          props.rows[0],
+          {
+            ...props.rows[1],
+            select: selectDescriptor('Select Bob', false, value => calls.push(['old', value]))
+          }
+        ]}
+      />
+    );
+    t.deepEqual(rowCells(), [2, 2]);
+    t.is(view.container.querySelectorAll('th').length, 2);
+    t.is(view.container.querySelector('th').textContent, '');
+    t.is(view.container.querySelector('tbody td').childElementCount, 0);
+    fireEvent.click(
+      within(view.container).getByRole('checkbox', {name: 'Select Bob'}).closest('label')
+    );
+    t.deepEqual(calls, [['old', true]]);
+
+    view.rerender(
+      <Table
+        {...props}
+        selectAll={{...selectDescriptor('Disabled page', true), disabled: true}}
+        rows={[
+          props.rows[0],
+          {
+            ...props.rows[1],
+            select: selectDescriptor('Renamed Bob', true, value => calls.push(['new', value]))
+          }
+        ]}
+      />
+    );
+    t.is(within(view.container).queryByRole('checkbox', {name: 'Select Bob'}), null);
+    const row = within(view.container).getByRole('checkbox', {name: 'Renamed Bob'});
+    t.true(row.checked);
+    t.false(row.disabled);
+    const header = within(view.container).getByRole('checkbox', {name: 'Disabled page'});
+    t.true(header.checked);
+    t.true(header.disabled);
+    header.click();
+    fireEvent.click(row.closest('label'));
+    t.deepEqual(calls, [
+      ['old', true],
+      ['new', false]
+    ]);
+    view.rerender(<Table {...props} />);
+    t.deepEqual(rowCells(), [1, 1]);
+    t.is(view.container.querySelectorAll('th').length, 1);
+    t.is(view.container.querySelector('[data-name="checkbox-input"]'), null);
+    t.truthy(within(view.container).getByRole('checkbox', {name: 'Name'}));
+    t.deepEqual(
+      [...view.container.querySelectorAll('tbody td')].map(cell => cell.textContent),
+      ['Alice', 'Bob']
+    );
+  }
+);
+
+test.serial(
+  'table preserves independently supplied header state on empty and fully selected pages',
+  t => {
+    const calls = [];
+    const props = {
+      editable: false,
+      columns: [{title: 'Name'}],
+      selectAll: selectDescriptor('Page', false, (...args) => calls.push(args)),
+      rows: [{fields: ['Alice'], select: selectDescriptor('Alice', true)}]
+    };
+    const view = render(<Table {...props} />, options);
+    t.false(within(view.container).getByRole('checkbox', {name: 'Page'}).checked);
+    t.true(within(view.container).getByRole('checkbox', {name: 'Alice'}).checked);
+    view.rerender(<Table {...props} rows={[]} selectAll={{...props.selectAll, checked: true}} />);
+    const header = within(view.container).getByRole('checkbox', {name: 'Page'});
+    t.true(header.checked);
+    t.false(header.disabled);
+    t.is(view.container.querySelectorAll('thead th').length, 2);
+    t.is(view.container.querySelectorAll('tbody tr').length, 0);
+    fireEvent.click(header);
+    t.deepEqual(calls, [[false]]);
+    t.true(header.checked);
+  }
+);
+
+test.serial('selection prepends named controlled header and row checkboxes', t => {
+  [false, true].forEach(editable => {
+    const calls = [];
+    const props = {
+      editable,
+      columns: [{title: 'Name'}],
+      selectAll: selectDescriptor('Select page', false, value => calls.push(['page', value])),
+      rows: [
+        {
+          fields: ['Alice'],
+          editHref: '/alice',
+          select: selectDescriptor('Alice', true, value => calls.push(['alice', value]))
+        }
+      ]
+    };
+    const view = render(<Table {...props} />, options);
+    const region = within(view.container);
+    const header = region.getByRole('checkbox', {name: 'Select page'});
+    const row = region.getByRole('checkbox', {name: 'Alice'});
+    t.false(header.checked);
+    t.true(row.checked);
+    t.is(header.closest('th').cellIndex, 0);
+    t.is(row.closest('td').cellIndex, 0);
+    t.is(view.container.querySelector('tbody tr').cells[editable ? 2 : 1].textContent, 'Alice');
+    if (editable) t.truthy(view.container.querySelector('tbody tr').cells[1].querySelector('a'));
+    fireEvent.click(header);
+    fireEvent.click(row);
+    t.deepEqual(calls, [
+      ['page', true],
+      ['alice', false]
+    ]);
+    t.false(header.checked);
+    t.true(row.checked);
+    view.rerender(
+      <Table
+        {...props}
+        selectAll={{...props.selectAll, checked: true}}
+        rows={[{...props.rows[0], select: {...props.rows[0].select, checked: false}}]}
+      />
+    );
+    t.true(header.checked);
+    t.false(row.checked);
+    view.unmount();
+  });
+});
+
+test.serial(
+  'selection cells stay aligned when only selectAll or only row.select is supplied',
+  t => {
+    [undefined, 'cockpit'].forEach(theme => {
+      ['header', 'row', 'neither'].forEach(mode => {
+        const view = render(
+          <Table
+            theme={theme}
+            editable={false}
+            columns={[{title: 'Name'}]}
+            selectAll={mode === 'header' ? selectDescriptor('Page') : undefined}
+            rows={[
+              {fields: ['Alice'], select: mode === 'row' ? selectDescriptor('Alice') : undefined},
+              {fields: ['Bob']}
+            ]}
+          />,
+          options
+        );
+        const count = mode === 'neither' ? 1 : 2;
+        t.is(view.container.querySelectorAll('th').length, count);
+        [...view.container.querySelectorAll('tbody tr')].forEach(row =>
+          t.is(row.cells.length, count)
+        );
+        if (mode !== 'neither') {
+          t.true(view.container.querySelector('th').classList.contains(style.selectionCell));
+          t.is(view.container.querySelector('tbody tr:last-child td').textContent, '');
+        }
+        view.unmount();
+      });
+    });
+  }
+);
+
+test.serial('disabled selection cannot toggle and has a distinct disabled style', t => {
+  const calls = [];
+  const view = render(
+    <Table
+      editable={false}
+      rows={[
+        {
+          fields: ['Deleted'],
+          select: {
+            ...selectDescriptor('Deleted', false, value => calls.push(value)),
+            disabled: true
+          }
+        }
+      ]}
+    />,
+    options
+  );
+  const input = within(view.container).getByRole('checkbox', {name: 'Deleted'});
+  t.true(input.disabled);
+  input.click();
+  fireEvent.click(input.closest('label').querySelector('[data-name="checkbox-label"]'));
+  t.deepEqual(calls, []);
+  const css = postcss.parse(
+    readFileSync(path.join(__dirname, '../../../atom/input-checkbox/style.css'), 'utf8')
+  );
+  const rule = css.nodes.find(node => node.selector === '.checkbox:disabled + .label');
+  t.truthy(rule.nodes.find(node => node.prop === 'opacity' && node.value === '0.4'));
+});
+
+test.serial('selection layout centres the checkbox without inheriting 42px line-height', t => {
+  const view = render(
+    <Table
+      columns={[{title: 'Name'}]}
+      selectAll={selectDescriptor('Page')}
+      rows={[{fields: ['Alice'], select: selectDescriptor('Alice')}]}
+    />,
+    options
+  );
+  [...view.container.querySelectorAll('th:first-child, td:first-child')].forEach(cell => {
+    t.true(cell.classList.contains(style.selectionCell));
+    t.truthy(cell.querySelector(`.${style.selectionControl}`));
+    const input = cell.querySelector('input');
+    t.true(input.closest('label').classList.contains(checkboxStyle.hiddenTitle));
+    t.true(
+      input.closest('label').querySelector('span').className.includes(checkboxStyle.accessibleTitle)
+    );
+  });
+  const css = postcss.parse(readFileSync(path.join(__dirname, '../style.css'), 'utf8'));
+  const rules = css.nodes.filter(node => node.type === 'rule');
+  const cells = rules.find(
+    rule =>
+      rule.selector.includes('.table thead th.selectionCell') &&
+      rule.selector.includes('.table tbody td.selectionCell')
+  );
+  t.truthy(cells);
+  const declaration = (rule, prop, value) =>
+    t.true(
+      rule.nodes.some(node => node.prop === prop && node.value === value),
+      `${prop}: ${value}`
+    );
+  [
+    ['text-align', 'center'],
+    ['vertical-align', 'middle'],
+    ['line-height', 'normal'],
+    ['width', '48px'],
+    ['min-width', '48px'],
+    ['padding', '8px']
+  ].forEach(([prop, value]) => declaration(cells, prop, value));
+  t.true(
+    rules.indexOf(cells) > rules.findIndex(rule => rule.selector === '.cockpit tr td:first-child')
+  );
+  const control = rules.find(rule => rule.selector === '.selectionControl');
+  [
+    ['display', 'flex'],
+    ['align-items', 'center'],
+    ['justify-content', 'center']
+  ].forEach(([prop, value]) => declaration(control, prop, value));
+  const atomCss = readFileSync(
+    path.join(__dirname, '../../../atom/input-checkbox/style.css'),
+    'utf8'
+  );
+  t.regex(atomCss, /\.hiddenTitle input\s*\{[^}]*display:\s*block/);
+  t.regex(
+    atomCss,
+    /composes: visuallyHidden from "\.\.\/\.\.\/molecule\/wizard-summary\/style.css"/
+  );
+  t.regex(atomCss, /\.hiddenTitle input:focus-visible \+ \.label\s*\{[^}]*outline:/);
+});
+
+test.serial('selection descriptors validate required fields and optional absence', t => {
+  const valid = selectDescriptor('Learner');
+  [
+    {},
+    {...valid, checked: undefined},
+    {...valid, checked: 'yes'},
+    {...valid, ariaLabel: undefined},
+    {...valid, ariaLabel: 4},
+    {...valid, onChange: undefined},
+    {...valid, disabled: 'yes'}
+  ].forEach(descriptor => {
+    ['selectAll', 'row'].forEach(location => {
+      PropTypes.resetWarningCache();
+      t.throws(
+        () =>
+          PropTypes.checkPropTypes(
+            Table.propTypes,
+            location === 'row' ? {rows: [{select: descriptor}]} : {selectAll: descriptor},
+            'prop',
+            'Table'
+          ),
+        {message: /select/}
+      );
+    });
+  });
+  PropTypes.resetWarningCache();
+  t.notThrows(() => PropTypes.checkPropTypes(Table.propTypes, {}, 'prop', 'Table'));
+  t.notThrows(() =>
+    PropTypes.checkPropTypes(
+      Table.propTypes,
+      {selectAll: valid, rows: [{select: valid}]},
+      'prop',
+      'Table'
+    )
   );
 });

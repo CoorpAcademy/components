@@ -209,3 +209,11 @@
   line-height: 1.2;
   color: cm_negative_100;
 }
+
+.assignedSelectionBar,
+.assignedSelectionNotice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}

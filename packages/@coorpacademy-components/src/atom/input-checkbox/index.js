@@ -24,7 +24,8 @@ const InputCheckbox = props => {
     modified = false,
     theme = 'default',
     title: propsTitle,
-    noLabelMargins = false
+    noLabelMargins = false,
+    hideTitle = false
   } = props;
 
   const titleStyleClassName = titleStylesClassNames[titleStyle];
@@ -47,10 +48,14 @@ const InputCheckbox = props => {
   );
 
   return (
-    <label className={className} htmlFor={idCheckbox} data-name="checkbox-input-label">
+    <label
+      className={hideTitle ? classnames(className, style.hiddenTitle) : className}
+      htmlFor={idCheckbox}
+      data-name="checkbox-input-label"
+    >
       <input
         type="checkbox"
-        className={style.checkbox}
+        className={hideTitle ? classnames(style.checkbox, style.focusableInput) : style.checkbox}
         name={title}
         id={idCheckbox}
         checked={checked}
@@ -64,7 +69,7 @@ const InputCheckbox = props => {
       >
         <CheckIcon className={style.icon} />
       </div>
-      <span className={titleStyleClassName} title={title}>
+      <span className={hideTitle ? style.accessibleTitle : titleStyleClassName} title={title}>
         {title}
       </span>
     </label>
@@ -80,6 +85,7 @@ InputCheckbox.propTypes = {
   onChange: PropTypes.func,
   modified: PropTypes.bool,
   noLabelMargins: PropTypes.bool,
+  hideTitle: PropTypes.bool,
   theme: PropTypes.oneOf(['coorpmanager', 'default']),
   titleStyle: PropTypes.oneOf(keys(titleStylesClassNames))
 };
