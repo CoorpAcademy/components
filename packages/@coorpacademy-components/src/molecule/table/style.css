@@ -299,9 +299,19 @@
   text-align: right;
 }
 
+/* A row's state (e.g. « Removed in this edit ») sits before its action, on one line. */
+.actionCell > * {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.actionState {
+  margin-right: 16px;
+  font-weight: 400;
+}
+
 .actionLink {
   width: fit-content;
-  margin-left: auto;
 }
 
 .dangerAction {

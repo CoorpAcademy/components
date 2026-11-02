@@ -164,7 +164,7 @@ test.serial('frozen mixed rows retain their order and render learner text litera
       id: 'action',
       fields: Object.freeze(['<b>Élise</b>', 'same@login']),
       action,
-      actionText: 'Must not replace the action'
+      actionText: 'Removed in this edit'
     }),
     Object.freeze({
       id: 'text',
@@ -197,13 +197,13 @@ test.serial('frozen mixed rows retain their order and render learner text litera
       [...row.cells].map(cell => cell.textContent)
     ),
     [
-      ['<b>Élise</b>', 'same@login', '<b>Retirer 李</b>'],
+      ['<b>Élise</b>', 'same@login', 'Removed in this edit<b>Retirer 李</b>'],
       ['李', 'same@login', '<i>Deleted</i>'],
       ['', '', '']
     ]
   );
   t.is(region.querySelector('table b, table i'), null);
-  t.is(within(region).queryByText('Must not replace the action'), null);
+  t.truthy(within(region).getByText('Removed in this edit'));
   t.is(within(region).getAllByRole('button', {name: '<b>Retirer 李</b>'}).length, 1);
   fireEvent.click(within(region).getByRole('button', {name: '<b>Retirer 李</b>'}));
   t.is(removals, 1);
@@ -570,6 +570,32 @@ test.serial('assigned row actions remove or undo only their row without an edit 
   });
   t.deepEqual(calls, ['alice', 'bob']);
   t.is(card(view).querySelectorAll('tbody tr').length, 2);
+});
+
+test.serial('a row shows its state next to the action it allows, whatever the filter', t => {
+  let undone = 0;
+  const assigned = assignedProps({
+    rows: [
+      {
+        id: 'removed',
+        fields: ['Alice Martin', 'alice.martin'],
+        actionText: 'Removed in this edit',
+        action: {label: 'Undo', variant: 'neutral', onClick: () => undone++}
+      }
+    ]
+  });
+  const view = mount(propsWith(assigned));
+  const cell = card(view).querySelector('tbody td:last-child');
+  const undo = within(cell).getByRole('button', {name: 'Undo'});
+  t.is(cell.textContent, 'Removed in this editUndo');
+  t.true(
+    Boolean(
+      within(cell).getByText('Removed in this edit').compareDocumentPosition(undo) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    )
+  );
+  fireEvent.click(undo);
+  t.is(undone, 1);
 });
 
 test.serial('actionText is muted text without an action button', t => {

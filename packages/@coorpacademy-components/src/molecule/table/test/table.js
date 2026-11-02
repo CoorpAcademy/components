@@ -469,6 +469,34 @@ test.serial(
   }
 );
 
+test.serial('an action cell shows its state text before the action', t => {
+  const calls = [];
+  const view = render(
+    <Table
+      editable={false}
+      columns={[{title: 'Name'}, {title: ''}]}
+      rows={[
+        {
+          fields: [
+            'Alice',
+            {
+              text: 'Removed in this edit',
+              action: {label: 'Undo', variant: 'neutral', onClick: () => calls.push('undo')}
+            }
+          ]
+        }
+      ]}
+    />,
+    options
+  );
+  const cell = view.container.querySelector('tbody td:last-child');
+  t.true(cell.classList.contains(style.actionCell));
+  t.is(cell.textContent, 'Removed in this editUndo');
+  t.true(view.getByText('Removed in this edit').className.includes(style.actionState));
+  fireEvent.click(view.getByRole('button', {name: 'Undo'}));
+  t.deepEqual(calls, ['undo']);
+});
+
 test.serial('action labels render as text and action cells coexist with legacy fields', t => {
   [false, true].forEach(editable => {
     const view = render(
@@ -563,12 +591,12 @@ test.serial(
           variant: 'neutral',
           onClick: () => calls.push('undo')
         },
-        text: 'Hidden text',
+        text: 'Removed in this edit',
         tags: [{label: 'Hidden tag', status: 'removed'}]
       })
     );
     t.is(view.queryByRole('button', {name: 'Remove'}), null);
-    t.is(view.queryByText('Hidden text'), null);
+    t.truthy(view.getByText('Removed in this edit'), 'the state shows next to the action');
     t.is(view.queryByText('Hidden tag'), null);
     const undo = view.getByRole('button', {name: 'Undo'});
     t.true(undo.className.includes(style.neutralAction));

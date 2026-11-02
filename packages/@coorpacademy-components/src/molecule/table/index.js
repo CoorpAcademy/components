@@ -172,6 +172,7 @@ const Table = (props, context) => {
         const {className, color, icon} = ACTION_LOOKS[variant];
         return (
           <td key={fIndex} className={style.actionCell}>
+            {field.text ? <span className={style.actionState}>{field.text}</span> : null}
             <ButtonLink
               type="text"
               label={label}

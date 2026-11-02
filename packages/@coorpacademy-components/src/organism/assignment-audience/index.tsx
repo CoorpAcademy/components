@@ -465,6 +465,8 @@ const AssignmentAudience = ({
                           ...row.fields,
                           row.action
                             ? {
+                                // A row shows its state next to the action it allows, in every filter.
+                                text: row.actionText,
                                 action: {
                                   ...row.action,
                                   onClick: () => {

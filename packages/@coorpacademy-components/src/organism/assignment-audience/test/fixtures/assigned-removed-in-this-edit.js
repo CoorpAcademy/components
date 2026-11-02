@@ -18,6 +18,7 @@ export default {
       pagination: {label: '1–3 of 3'},
       rows: expanded.props.assigned.rows.slice(0, 3).map(row => ({
         ...row,
+        actionText: 'Removed in this edit',
         action: {
           label: 'Undo',
           variant: 'neutral',
