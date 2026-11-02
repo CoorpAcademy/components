@@ -293,3 +293,46 @@
   font-size: 10px;
   min-width: 10px;
 }
+
+
+.actionCell {
+  text-align: right;
+}
+
+/* A row's state (e.g. « Removed in this edit ») sits before its action, on one line. */
+.actionCell > * {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.actionState {
+  margin-right: 16px;
+  font-weight: 400;
+}
+
+.actionLink {
+  width: fit-content;
+}
+
+@value cm_negative_200, cm_primary_blue from colors;
+
+.dangerAction {
+  composes: actionLink;
+}
+
+.neutralAction {
+  composes: actionLink;
+}
+
+.actionCell .dangerAction {
+  color: cm_negative_200;
+}
+
+.actionCell .neutralAction {
+  color: cm_primary_blue;
+}
+
+.actionLink:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

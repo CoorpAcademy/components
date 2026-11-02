@@ -13,10 +13,23 @@ import {
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
+import ButtonLink from '../../atom/button-link';
+import {COLORS} from '../../variables/colors';
 import AssignmentStatusTag from '../assignment-status-tag';
 import style from './style.css';
 
 const THEMES = {COCKPIT: 'cockpit'};
+
+/**
+ * The look of a row action, by variant: a discreet text link with a pictogram (Eric's review of
+ * #3054), red with a bin to remove, blue with a back arrow to undo.
+ */
+const ACTION_LOOKS = {
+  danger: {className: style.dangerAction, color: COLORS.cm_negative_200, icon: 'trash'},
+  neutral: {className: style.neutralAction, color: COLORS.cm_primary_blue, icon: 'rotate-left'}
+};
+// The link colour is static CSS (`dangerAction` / `neutralAction`); `color` only feeds the
+// pictogram, which button-link colours through its `faIcon` prop.
 
 const SORT_ARROWS = {asc: '▲', desc: '▼'};
 const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
@@ -156,6 +169,22 @@ const Table = (props, context) => {
       if (isString(field) || field.icon) {
         return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
       }
+      if (field.action) {
+        const {label, onClick, variant} = field.action;
+        const {className, color, icon} = ACTION_LOOKS[variant];
+        return (
+          <td key={fIndex} className={style.actionCell}>
+            {field.text ? <span className={style.actionState}>{field.text}</span> : null}
+            <ButtonLink
+              type="text"
+              label={label}
+              onClick={onClick}
+              className={className}
+              icon={{position: 'left', faIcon: {name: icon, size: 14, color}}}
+            />
+          </td>
+        );
+      }
       return (
         <td key={fIndex}>
           <span className={style.cellContent}>
@@ -214,6 +243,11 @@ Table.propTypes = {
         PropTypes.oneOfType([
           PropTypes.string,
           PropTypes.shape({
+            action: PropTypes.shape({
+              label: PropTypes.string.isRequired,
+              onClick: PropTypes.func.isRequired,
+              variant: PropTypes.oneOf(['danger', 'neutral']).isRequired
+            }),
             icon: PropTypes.string,
             title: PropTypes.string,
             text: PropTypes.string,
