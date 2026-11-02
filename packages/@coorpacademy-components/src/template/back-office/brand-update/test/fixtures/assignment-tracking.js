@@ -1,3 +1,4 @@
+import omit from 'lodash/fp/omit';
 import Header from '../../../../../organism/header-with-actions/test/fixtures/assignment-tracking';
 import Table from '../../../../../organism/brand-table/test/fixtures/assignment-learners';
 import Panel from '../../../../../molecule/skills-chart-side-information-panel/test/fixtures/coorpmanager';
@@ -13,7 +14,8 @@ export default {
   props: {
     ...Shell.props,
     header: {
-      ...Header.props,
+      // No breadcrumb on the tracking header: the close button goes back to the list (spec A1.17).
+      ...omit('breadcrumbs', Header.props),
       type: 'header-with-actions',
       subtitle:
         '02–20 Nov 2026 · Created by jdoe on 02 Nov 2026 · Last edited by asmith 3 days ago · Last synced 22 Nov 2026'
