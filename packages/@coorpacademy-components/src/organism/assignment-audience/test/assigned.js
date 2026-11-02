@@ -563,9 +563,10 @@ test.serial('assigned row actions remove or undo only their row without an edit 
       name: index ? 'Undo' : 'Remove'
     });
     t.is(button.type, 'button');
-    t.is(button.className, index ? tableStyle.neutralAction : tableStyle.dangerAction);
+    t.true(button.className.includes(index ? tableStyle.neutralAction : tableStyle.dangerAction));
     fireEvent.click(button);
-    t.is(row.querySelector('a, svg'), null);
+    t.is(row.querySelector('a'), null);
+    t.true([...row.querySelectorAll('svg')].every(svg => button.contains(svg)));
   });
   t.deepEqual(calls, ['alice', 'bob']);
   t.is(card(view).querySelectorAll('tbody tr').length, 2);

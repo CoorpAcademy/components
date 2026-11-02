@@ -294,31 +294,25 @@
   min-width: 10px;
 }
 
-@value cm_negative_200, cm_primary_blue from colors;
 
 .actionCell {
   text-align: right;
 }
 
-.actionButton {
-  composes: button from "../../atom/button-link/style.css";
-  display: inline-flex;
-  width: auto;
-  background: transparent;
-  border: 1px solid currentColor;
+.actionLink {
+  width: fit-content;
+  margin-left: auto;
 }
 
 .dangerAction {
-  composes: actionButton;
-  color: cm_negative_200;
+  composes: actionLink;
 }
 
 .neutralAction {
-  composes: actionButton;
-  color: cm_primary_blue;
+  composes: actionLink;
 }
 
-.actionButton:focus-visible {
+.actionLink:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }

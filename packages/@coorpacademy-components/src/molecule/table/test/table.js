@@ -412,58 +412,62 @@ test.serial('a column with options keeps the existing menu and no sort button', 
   t.truthy(container.querySelector(`.${style.options}`));
 });
 
-test.serial('action cells render native non-submit buttons and call only their own callback', t => {
-  const calls = [];
-  const view = render(
-    <form
-      onSubmit={event => {
-        event.preventDefault();
-        calls.push('submit');
-      }}
-    >
-      <Table
-        editable={false}
-        columns={[{title: 'Name'}, {title: ''}]}
-        rows={[
-          {
-            fields: [
-              'Alice',
-              {
-                action: {
-                  label: 'Remove',
-                  variant: 'danger',
-                  onClick: () => calls.push('alice')
+test.serial(
+  'action cells render discreet non-submit links with a pictogram and call only their own callback',
+  t => {
+    const calls = [];
+    const view = render(
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          calls.push('submit');
+        }}
+      >
+        <Table
+          editable={false}
+          columns={[{title: 'Name'}, {title: ''}]}
+          rows={[
+            {
+              fields: [
+                'Alice',
+                {
+                  action: {
+                    label: 'Remove',
+                    variant: 'danger',
+                    onClick: () => calls.push('alice')
+                  }
                 }
-              }
-            ]
-          },
-          {
-            fields: [
-              'Bob',
-              {
-                action: {
-                  label: 'Undo',
-                  variant: 'neutral',
-                  onClick: () => calls.push('bob')
+              ]
+            },
+            {
+              fields: [
+                'Bob',
+                {
+                  action: {
+                    label: 'Undo',
+                    variant: 'neutral',
+                    onClick: () => calls.push('bob')
+                  }
                 }
-              }
-            ]
-          }
-        ]}
-      />
-    </form>,
-    options
-  );
-  ['Remove', 'Undo'].forEach((name, index) => {
-    const button = view.getByRole('button', {name});
-    t.is(button.tagName, 'BUTTON');
-    t.is(button.type, 'button');
-    t.true(button.closest('td').classList.contains(style.actionCell));
-    t.is(button.className, index ? style.neutralAction : style.dangerAction);
-    fireEvent.click(button);
-  });
-  t.deepEqual(calls, ['alice', 'bob']);
-});
+              ]
+            }
+          ]}
+        />
+      </form>,
+      options
+    );
+    ['Remove', 'Undo'].forEach((name, index) => {
+      const button = view.getByRole('button', {name});
+      t.is(button.tagName, 'BUTTON');
+      t.is(button.type, 'button');
+      t.true(button.closest('td').classList.contains(style.actionCell));
+      t.true(button.className.includes(index ? style.neutralAction : style.dangerAction));
+      t.truthy(button.querySelector('svg'), `${name} shows its pictogram`);
+      fireEvent.click(button);
+    });
+    t.deepEqual(calls, ['alice', 'bob']);
+  }
+);
 
 test.serial('action labels render as text and action cells coexist with legacy fields', t => {
   [false, true].forEach(editable => {
@@ -567,7 +571,7 @@ test.serial(
     t.is(view.queryByText('Hidden text'), null);
     t.is(view.queryByText('Hidden tag'), null);
     const undo = view.getByRole('button', {name: 'Undo'});
-    t.is(undo.className, style.neutralAction);
+    t.true(undo.className.includes(style.neutralAction));
     fireEvent.click(undo);
     view.rerender(
       table({
@@ -586,7 +590,7 @@ test.serial(
     t.is(view.container.querySelector('tbody td').textContent, '');
     t.is(view.container.querySelector('tbody td svg'), null);
     view.rerender(table({action: firstAction}));
-    t.is(view.getByRole('button', {name: 'Remove'}).className, style.dangerAction);
+    t.true(view.getByRole('button', {name: 'Remove'}).className.includes(style.dangerAction));
     fireEvent.click(view.getByRole('button', {name: 'Remove'}));
     t.deepEqual(calls, ['remove', 'undo', 'remove']);
   }

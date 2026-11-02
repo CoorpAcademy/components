@@ -13,10 +13,21 @@ import {
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
+import ButtonLink from '../../atom/button-link';
+import {COLORS} from '../../variables/colors';
 import AssignmentStatusTag from '../assignment-status-tag';
 import style from './style.css';
 
 const THEMES = {COCKPIT: 'cockpit'};
+
+/**
+ * The look of a row action, by variant: a discreet text link with a pictogram (Eric's review of
+ * #3054), red with a bin to remove, blue with a back arrow to undo.
+ */
+const ACTION_LOOKS = {
+  danger: {className: style.dangerAction, color: COLORS.cm_negative_200, icon: 'trash'},
+  neutral: {className: style.neutralAction, color: COLORS.cm_primary_blue, icon: 'rotate-left'}
+};
 
 const SORT_ARROWS = {asc: '▲', desc: '▼'};
 const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
@@ -158,15 +169,17 @@ const Table = (props, context) => {
       }
       if (field.action) {
         const {label, onClick, variant} = field.action;
+        const {className, color, icon} = ACTION_LOOKS[variant];
         return (
           <td key={fIndex} className={style.actionCell}>
-            <button
-              type="button"
-              className={variant === 'danger' ? style.dangerAction : style.neutralAction}
+            <ButtonLink
+              type="text"
+              label={label}
               onClick={onClick}
-            >
-              {label}
-            </button>
+              className={className}
+              customStyle={{color}}
+              icon={{position: 'left', faIcon: {name: icon, size: 14, color}}}
+            />
           </td>
         );
       }
