@@ -274,22 +274,15 @@ test.serial('fetching and emptyResult still render as before', t => {
   t.is(view.queryByRole('list'), null);
 });
 
-test.serial('empty or omitted items preserve the supplied count and batch callback', t => {
+test.serial('empty or omitted items hide the count checkbox and the batch actions', t => {
   [[], undefined].forEach(items => {
-    let calls = 0;
-    const changes: boolean[] = [];
     const view = mount({
       ...props,
       list: {items},
-      checkboxWithTitle: {...props.checkboxWithTitle, onChange: value => changes.push(value)},
-      actionButtons: [{label: 'Delete', onClick: () => calls++}]
+      actionButtons: [{label: 'Delete', onClick: () => undefined}]
     });
-    t.is(within(view.getByRole('list')).queryAllByRole('listitem').length, 0);
-    t.truthy(view.getByRole('checkbox', {name: '24 items'}));
-    fireEvent.click(view.getByRole('checkbox', {name: '24 items'}));
-    t.deepEqual(changes, [true]);
-    fireEvent.click(view.getByRole('button', {name: 'Delete'}));
-    t.is(calls, 1);
+    t.is(view.queryByRole('checkbox', {name: '24 items'}), null);
+    t.is(view.queryByRole('button', {name: 'Delete'}), null);
     cleanup();
   });
 });
