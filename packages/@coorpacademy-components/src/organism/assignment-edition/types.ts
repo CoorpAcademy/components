@@ -41,6 +41,7 @@ export type AssignmentEditionProps = {
     rule: {
       title: string;
       hint?: string;
+      error?: string;
       disabled?: boolean;
       options: RuleOption[];
     };
@@ -78,6 +79,7 @@ export const propTypes = {
     rule: PropTypes.shape({
       title: PropTypes.string.isRequired,
       hint: PropTypes.string,
+      error: PropTypes.string,
       disabled: PropTypes.bool,
       options: PropTypes.arrayOf(
         PropTypes.shape({

@@ -25,3 +25,8 @@
   background: white;
   scroll-margin-top: 16px;
 }
+
+.fieldError {
+  composes: fieldError from '../assignment-audience/style.css';
+  margin: 0;
+}

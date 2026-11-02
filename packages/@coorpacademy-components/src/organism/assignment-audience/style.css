@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_75, cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700 from colors;
+@value cm_grey_75, cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700, cm_negative_100 from colors;
 
 .container {
   display: flex;
@@ -197,4 +197,14 @@
 .assignedFootnote {
   composes: muted;
   margin: 0;
+}
+
+/* Same look as a coorpmanager InputText error: one light line, no box. */
+.fieldError {
+  margin: -16px 0 0;
+  font-family: Gilroy;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: cm_negative_100;
 }

@@ -75,7 +75,16 @@ const AssignmentEdition = ({
         <AssignmentAudience {...audience} disabled={busy || audience.disabled} />
       </section>
       <section id="assignment-contents" data-name="assignment-contents" className={style.card}>
-        <ContentSelectionList {...contents} disabled={busy || contents.disabled} />
+        <ContentSelectionList
+          {...contents}
+          error={undefined}
+          disabled={busy || contents.disabled}
+        />
+        {contents.error ? (
+          <p role="alert" className={style.fieldError}>
+            {contents.error}
+          </p>
+        ) : null}
       </section>
       <section id="assignment-dates" data-name="assignment-dates" className={style.card}>
         <div className={style.content}>
@@ -108,6 +117,11 @@ const AssignmentEdition = ({
               aria-label={option['aria-label'] || option.title.title}
             />
           ))}
+          {dates.rule.error ? (
+            <p role="alert" className={style.fieldError}>
+              {dates.rule.error}
+            </p>
+          ) : null}
           <div>{dates.reminders.hint}</div>
           {dates.reminders.switches.map((reminder, index) => (
             <InputSwitch
