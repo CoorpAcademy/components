@@ -199,11 +199,12 @@
   margin: 0;
 }
 
-/* Same look as a coorpmanager InputText error: one light line, no box. */
+/* Same look as a coorpmanager InputText error hint: one light line, no box. */
 .fieldError {
   margin: -16px 0 0;
+  opacity: 0.5;
   font-family: Gilroy;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.2;
   color: cm_negative_100;
