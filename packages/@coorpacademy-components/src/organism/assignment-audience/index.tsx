@@ -171,14 +171,12 @@ const AssignmentAudience = ({
     [sourcesDisabled, onRemove]
   );
 
-  const handleAssignedToggle = useCallback(() => {
-    if (!disabled) assigned?.onToggle();
-  }, [disabled, assigned]);
+  // Toggle, filters and pager sit in a <fieldset disabled> when `disabled`: the browser never
+  // fires their clicks, so they need no guard. The search input still emits input events.
+  const handleAssignedToggle = useCallback(() => assigned?.onToggle(), [assigned]);
   const handleAssignedFilter = useCallback(
-    (key: string) => () => {
-      if (!disabled) assigned?.onFilter(key);
-    },
-    [disabled, assigned]
+    (key: string) => () => assigned?.onFilter(key),
+    [assigned]
   );
   const handleAssignedSearch = useCallback(
     (query: string) => {
@@ -186,12 +184,8 @@ const AssignmentAudience = ({
     },
     [disabled, assigned]
   );
-  const handleAssignedPrevious = useCallback(() => {
-    if (!disabled) assigned?.pagination.onPrevious?.();
-  }, [disabled, assigned]);
-  const handleAssignedNext = useCallback(() => {
-    if (!disabled) assigned?.pagination.onNext?.();
-  }, [disabled, assigned]);
+  const handleAssignedPrevious = useCallback(() => assigned?.pagination.onPrevious?.(), [assigned]);
+  const handleAssignedNext = useCallback(() => assigned?.pagination.onNext?.(), [assigned]);
 
   return (
     <section className={style.container} data-name="assignment-audience" aria-label={title}>
