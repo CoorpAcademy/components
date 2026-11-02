@@ -314,12 +314,22 @@
   width: fit-content;
 }
 
+@value cm_negative_200, cm_primary_blue from colors;
+
 .dangerAction {
   composes: actionLink;
 }
 
 .neutralAction {
   composes: actionLink;
+}
+
+.actionCell .dangerAction {
+  color: cm_negative_200;
+}
+
+.actionCell .neutralAction {
+  color: cm_primary_blue;
 }
 
 .actionLink:focus-visible {

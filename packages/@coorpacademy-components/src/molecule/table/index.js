@@ -28,6 +28,8 @@ const ACTION_LOOKS = {
   danger: {className: style.dangerAction, color: COLORS.cm_negative_200, icon: 'trash'},
   neutral: {className: style.neutralAction, color: COLORS.cm_primary_blue, icon: 'rotate-left'}
 };
+// The link colour is static CSS (`dangerAction` / `neutralAction`); `color` only feeds the
+// pictogram, which button-link colours through its `faIcon` prop.
 
 const SORT_ARROWS = {asc: '▲', desc: '▼'};
 const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
@@ -178,7 +180,6 @@ const Table = (props, context) => {
               label={label}
               onClick={onClick}
               className={className}
-              customStyle={{color}}
               icon={{position: 'left', faIcon: {name: icon, size: 14, color}}}
             />
           </td>
