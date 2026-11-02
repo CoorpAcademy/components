@@ -114,6 +114,8 @@ const ContentSelectionList = ({
   hiddenLabel
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps({...button, disabled: disabled || button.disabled});
+  // Nothing to select or delete in an empty list: it shows its placeholder instead.
+  const empty = isEmpty(items);
 
   const titleProps = {
     type: 'form-group',
@@ -138,32 +140,34 @@ const ContentSelectionList = ({
           disabled: disabled || search.disabled
         }
       : undefined,
-    actionButtons: readOnly
-      ? []
-      : map(
-          actionButton => ({
-            ...actionButton,
-            disabled: disabled || actionButton.disabled,
-            customStyle: {
-              fontWeight: '600',
-              borderRadius: '12px',
-              width: 'auto'
-            }
-          }),
-          actionButtons
-        ),
+    actionButtons:
+      readOnly || empty
+        ? []
+        : map(
+            actionButton => ({
+              ...actionButton,
+              disabled: disabled || actionButton.disabled,
+              customStyle: {
+                fontWeight: '600',
+                borderRadius: '12px',
+                width: 'auto'
+              }
+            }),
+            actionButtons
+          ),
 
-    checkboxWithTitle: readOnly
-      ? undefined
-      : {
-          ...checkboxWithTitleProps,
-          disabled: disabled || checkboxWithTitleProps?.disabled,
-          name: checkboxWithTitleProps?.title,
-          'aria-label': checkboxWithTitleProps?.title,
-          'data-name': checkboxWithTitleProps?.title,
-          className: style.checkboxWithTitle,
-          icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
-        },
+    checkboxWithTitle:
+      readOnly || empty
+        ? undefined
+        : {
+            ...checkboxWithTitleProps,
+            disabled: disabled || checkboxWithTitleProps?.disabled,
+            name: checkboxWithTitleProps?.title,
+            'aria-label': checkboxWithTitleProps?.title,
+            'data-name': checkboxWithTitleProps?.title,
+            className: style.checkboxWithTitle,
+            icon: {iconName: 'minus', iconColor: 'white', preset: 's'}
+          },
     isFetching
   };
 
