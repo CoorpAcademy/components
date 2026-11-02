@@ -65,12 +65,6 @@ const getIcon = feature => {
 
 const getBackgroudRadialColors = feature => {
   switch (feature) {
-    case 'assignments':
-      return {
-        iconBackgroundColor: '#FF7043',
-        degrees: '14',
-        iconColor: null
-      };
     case 'manage_users':
     case 'upload_users':
       return {
@@ -86,6 +80,7 @@ const getBackgroudRadialColors = feature => {
         iconColor: null
       };
     case 'cockpit':
+    case 'assignments':
       return {
         iconBackgroundColor: '#FF7043',
         degrees: '14',
