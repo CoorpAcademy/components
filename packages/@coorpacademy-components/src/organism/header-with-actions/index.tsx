@@ -5,7 +5,6 @@ import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Tag from '../../atom/tag';
 import AssignmentStatusTag from '../../molecule/assignment-status-tag';
-import Breadcrumbs from '../../molecule/breadcrumbs';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import HeaderWithActionsPropTypes, {
   HeaderWithActionsProps,
@@ -89,15 +88,13 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
     tag,
     tags,
     subtitle,
-    breadcrumbs,
     saveStatus,
     bulletPointMenuButton,
     actionButtons,
     isFetching = false
   } = props;
   const hasSubtitle = Boolean(subtitle?.trim());
-  const hasBreadcrumbs = !isEmpty(breadcrumbs);
-  const hasAdditionalContent = tags !== undefined || hasSubtitle || hasBreadcrumbs;
+  const hasAdditionalContent = tags !== undefined || hasSubtitle;
 
   return !isFetching ? (
     <div className={style.headerWrapper} data-name={getDataName('wrapper')}>
@@ -115,11 +112,6 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
           className={style.button}
         />
         <div className={hasAdditionalContent ? style.extendedTitleWrapper : style.titleWrapper}>
-          {hasBreadcrumbs ? (
-            <div data-name={getDataName('breadcrumbs')}>
-              <Breadcrumbs breadcrumbs={breadcrumbs} />
-            </div>
-          ) : null}
           <div className={style.statusWrapper}>
             {tags === undefined && tag ? <Tag {...tag} /> : null}
             {saveStatus?.display && saveStatus.label ? (

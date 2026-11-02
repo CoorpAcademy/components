@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import AssignmentStatusTagPropTypes from '../../molecule/assignment-status-tag/types';
-import Breadcrumbs from '../../molecule/breadcrumbs';
 
 const ButtonMenuPropTypes = {
   dataName: PropTypes.string,
@@ -27,7 +26,6 @@ const HeaderWithActionsPropTypes = {
   title: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTagPropTypes)),
   subtitle: PropTypes.string,
-  breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   tag: PropTypes.shape({
     label: PropTypes.oneOf(['Published', 'Ongoing changes', 'Draft', 'Archived']).isRequired,
     type: PropTypes.oneOf(['success', 'progress', 'warning']).isRequired,
@@ -92,7 +90,6 @@ export type HeaderWithActionsProps = {
   title: string;
   tags?: Array<{status?: string; label: string}>;
   subtitle?: string;
-  breadcrumbs?: Array<{title: string; href?: string}>;
   tag?: TagProps;
   saveStatus?: SaveStatusProps;
   actionButtons: ButtonActionProps[];

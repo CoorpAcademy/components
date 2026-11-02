@@ -8,6 +8,7 @@ import {wrappingComponent} from '../../../test/helpers/render-component';
 import HeaderWithActions from '..';
 import AssignmentStatusTag from '../../../molecule/assignment-status-tag';
 import singleAction from './fixtures/single-action';
+import tracking from './fixtures/assignment-tracking';
 
 browserEnv();
 test.afterEach.always(cleanup);
@@ -135,7 +136,6 @@ test.serial('unknown and omitted assignment statuses use the molecule fallback',
 });
 
 const trail = 'Created by jdoe on 02 Nov 2026 · Last edited by asmith 3 days ago';
-const breadcrumbs = [{title: 'Assignments', href: '/assignments'}, {title: 'Safety onboarding'}];
 
 test.serial('subtitle renders literal text below the title', t => {
   const {container, getByRole, rerender} = render(
@@ -153,29 +153,11 @@ test.serial('subtitle renders literal text below the title', t => {
   t.is(literalSubtitle.querySelector('strong'), null);
 });
 
-test.serial('breadcrumbs precede the title and preserve titles and hrefs', t => {
-  const {container, getByRole} = render(
-    <HeaderWithActions {...legacyDraft} tags={assignmentTags} breadcrumbs={breadcrumbs} />,
-    {wrapper: wrappingComponent}
-  );
-  const breadcrumbBlock = container.querySelector('[data-name="header-with-actions-breadcrumbs"]');
-  t.truthy(breadcrumbBlock);
-  const breadcrumbContent = within(breadcrumbBlock);
-  t.is(
-    breadcrumbContent.getByRole('link', {name: 'Assignments'}).getAttribute('href'),
-    '/assignments'
-  );
-  t.truthy(breadcrumbContent.getByText('Safety onboarding'));
-  t.is(breadcrumbContent.queryByRole('link', {name: 'Safety onboarding'}), null);
-  t.true(Boolean(breadcrumbBlock.compareDocumentPosition(getByRole('heading')) & 4));
-});
-
 test.serial('metadata works with a legacy tag without changing its layout', t => {
   const {container, getByRole, getByText} = render(
-    <HeaderWithActions {...legacyDraft} subtitle={trail} breadcrumbs={breadcrumbs} />,
+    <HeaderWithActions {...legacyDraft} subtitle={trail} />,
     {wrapper: wrappingComponent}
   );
-  t.truthy(getByRole('link', {name: 'Assignments'}));
   t.truthy(getByText(trail));
   const tag = container.querySelector('[data-name="content-tag-Draft"]');
   t.truthy(tag);
@@ -188,56 +170,42 @@ test.serial('absent or empty metadata creates no metadata blocks', t => {
     wrapper: wrappingComponent
   });
   t.is(container.querySelector('[data-name="header-with-actions-subtitle"]'), null);
-  t.is(container.querySelector('[data-name="header-with-actions-breadcrumbs"]'), null);
-  rerender(<HeaderWithActions {...legacyDraft} subtitle="   " breadcrumbs={[]} />);
+  rerender(<HeaderWithActions {...legacyDraft} subtitle="   " />);
   t.is(container.querySelector('[data-name="header-with-actions-subtitle"]'), null);
-  t.is(container.querySelector('[data-name="header-with-actions-breadcrumbs"]'), null);
 });
 
-test.serial('metadata updates preserve literal text and remove stale links and trails', t => {
+test.serial('metadata updates preserve literal text and remove stale trails', t => {
   const {container, rerender} = render(<HeaderWithActions {...legacyDraft} />, {
     wrapper: wrappingComponent
   });
   const legacyMarkup = container.innerHTML;
-  rerender(<HeaderWithActions {...legacyDraft} subtitle={trail} breadcrumbs={breadcrumbs} />);
-  t.truthy(within(container).getByRole('link', {name: 'Assignments'}));
-  const literal = '<em>Updated assignment</em> & review';
+  rerender(<HeaderWithActions {...legacyDraft} subtitle={trail} />);
+  t.truthy(within(container).getByText(trail));
   const updatedTrail = '  Last edited by asmith just now  ';
-  rerender(
-    <HeaderWithActions
-      {...legacyDraft}
-      subtitle={updatedTrail}
-      breadcrumbs={[
-        {title: literal, href: '/assignments?state=active&view=tracking#title'},
-        {title: 'Updated assignment'}
-      ]}
-    />
-  );
-  const content = within(container);
-  t.is(content.queryByRole('link', {name: 'Assignments'}), null);
-  t.is(content.queryByText(trail), null);
-  const link = content.getByRole('link', {name: literal});
-  t.is(link.getAttribute('href'), '/assignments?state=active&view=tracking#title');
-  t.is(link.querySelector('em'), null);
+  rerender(<HeaderWithActions {...legacyDraft} subtitle={updatedTrail} />);
+  t.is(within(container).queryByText(trail), null);
   t.is(
     container.querySelector('[data-name="header-with-actions-subtitle"]').textContent,
     updatedTrail
   );
-  rerender(<HeaderWithActions {...legacyDraft} subtitle="" breadcrumbs={[]} />);
+  rerender(<HeaderWithActions {...legacyDraft} subtitle="" />);
   t.is(container.innerHTML, legacyMarkup);
   rerender(<HeaderWithActions {...legacyDraft} subtitle={'\t\n '} />);
   t.is(container.innerHTML, legacyMarkup);
 });
 
+test.serial('the header has no breadcrumbs: back is the close button (spec A1.17)', t => {
+  t.false('breadcrumbs' in HeaderWithActions.propTypes);
+  const {container} = render(<HeaderWithActions {...tracking.props} />, {
+    wrapper: wrappingComponent
+  });
+  t.is(container.querySelector('[data-name="header-with-actions-breadcrumbs"]'), null);
+  t.is(container.querySelectorAll('a').length, 0);
+});
+
 test.serial('isFetching renders no header', t => {
   const {container} = render(
-    <HeaderWithActions
-      {...legacyDraft}
-      tags={assignmentTags}
-      subtitle={trail}
-      breadcrumbs={breadcrumbs}
-      isFetching
-    />,
+    <HeaderWithActions {...legacyDraft} tags={assignmentTags} subtitle={trail} isFetching />,
     {wrapper: wrappingComponent}
   );
   t.is(container.innerHTML, '');
@@ -295,18 +263,6 @@ test.serial('provided saveStatus retains its display rules', t => {
     /tags\[0\]\.status/
   ],
   ['subtitle must be a string', {subtitle: 123}, /`subtitle`/],
-  ['breadcrumbs must be an array', {breadcrumbs: {}}, /`breadcrumbs`/],
-  [
-    'breadcrumb titles remain required',
-    {breadcrumbs: [{href: '/assignments'}]},
-    /breadcrumbs\[0\]\.title/
-  ],
-  ['breadcrumb titles must be strings', {breadcrumbs: [{title: 123}]}, /breadcrumbs\[0\]\.title/],
-  [
-    'breadcrumb hrefs must be strings',
-    {breadcrumbs: [{title: 'Assignments', href: 123}]},
-    /breadcrumbs\[0\]\.href/
-  ],
   ['legacy labels retain their enum', {tag: {...legacyDraft.tag, label: 'Active'}}, /tag\.label/],
   ['legacy types retain their enum', {tag: {...legacyDraft.tag, type: 'unknown'}}, /tag\.type/],
   ['legacy size remains required', {tag: omit('size', legacyDraft.tag)}, /tag\.size/],
@@ -330,7 +286,6 @@ test.serial('assignment metadata preserves enabled, disabled and close controls'
   const props = {
     ...omit(['tag', 'saveStatus'], legacyDraft),
     tags: assignmentTags,
-    breadcrumbs,
     subtitle: trail,
     closeButton: {'aria-label': 'Close assignment', onClick: () => clicks.push('close')},
     actionButtons: [
@@ -365,5 +320,4 @@ test.serial('assignment metadata preserves enabled, disabled and close controls'
   rerender(<HeaderWithActions {...props} actionButtons={[]} />);
   t.is(content.getAllByRole('button').length, 1);
   t.truthy(content.getByRole('button', {name: 'Close assignment'}));
-  t.truthy(content.getByRole('link', {name: 'Assignments'}));
 });
