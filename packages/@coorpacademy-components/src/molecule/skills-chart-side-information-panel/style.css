@@ -13,6 +13,13 @@
   align-self: stretch;
 }
 
+.coorpmanager {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+}
+
 @media mobile {
   .sidePanel {
     width: 100%;
@@ -22,5 +29,17 @@
 @media tablet {
   .sidePanel {
     width: 100%;
+  }
+}
+
+@media tablet {
+  .coorpmanager {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media mobile {
+  .coorpmanager {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
