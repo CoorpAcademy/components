@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
@@ -259,6 +259,43 @@ const buildTitle = title => {
   );
 };
 
+// The header is fixed and the content starts at a set offset sized for a one-line header.
+// A taller header (breadcrumb, title, subtitle) would cover the top of the content.
+const HEADER_GAP = 24;
+export const headerClearance = (headerBottom, contentTop, currentClearance) =>
+  Math.max(0, Math.ceil(headerBottom + HEADER_GAP - (contentTop - currentClearance)));
+
+const useHeaderClearance = (headerRef, contentRef, notificationsCount) => {
+  const [clearance, setClearance] = useState(0);
+  const current = useRef(0);
+  useLayoutEffect(() => {
+    const headerNode = headerRef.current;
+    const contentNode = contentRef.current;
+    if (!headerNode || !contentNode) return;
+    const measure = () => {
+      // Where the content's first element starts: the box top plus its own padding.
+      const contentTop =
+        contentNode.getBoundingClientRect().top +
+        (Number.parseFloat(window.getComputedStyle(contentNode).paddingTop) || 0) +
+        window.scrollY;
+      const next = headerClearance(
+        headerNode.getBoundingClientRect().bottom,
+        contentTop,
+        current.current
+      );
+      if (next === current.current) return;
+      current.current = next;
+      setClearance(next);
+    };
+    measure();
+    if (typeof ResizeObserver === 'undefined') return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(headerNode);
+    return () => observer.disconnect();
+  }, [headerRef, contentRef, notificationsCount]);
+  return clearance;
+};
+
 const BrandUpdate = props => {
   const {
     notifications,
@@ -274,6 +311,9 @@ const BrandUpdate = props => {
     scopeControl
   } = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
+  const headerRef = useRef(null);
+  const contentRef = useRef(null);
+  const clearance = useHeaderClearance(headerRef, contentRef, notifications?.length || 0);
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
@@ -303,8 +343,15 @@ const BrandUpdate = props => {
     <div className={style.container}>
       <div className={style.left}>{leftNavigation}</div>
       <div className={style.contentWrapper}>
-        <div className={style.headerSticky}>{headerView}</div>
-        <div className={contentStyle}>
+        <div className={style.headerSticky} ref={headerRef} data-name="brand-update-header">
+          {headerView}
+        </div>
+        <div
+          className={contentStyle}
+          ref={contentRef}
+          data-name="brand-update-content"
+          style={clearance ? {marginTop: clearance} : undefined}
+        >
           {notificationsView}
           {titleView}
           {tabsView}
