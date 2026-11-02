@@ -60,11 +60,14 @@ const buildContentItem =
               disabled: disabled || deleteButton?.disabled,
               'data-name': `button-${deleteButton?.label}`,
               type: 'primary',
+              // Grey like the bin icon: the primary type's white text vanished on the grey row.
               customStyle: {
                 width: 'fit-content',
-                backgroundColor: 'transparent'
+                backgroundColor: 'transparent',
+                color: COLORS.neutral_500
               },
               hoverBackgroundColor: COLORS.cm_grey_100,
+              hoverColor: COLORS.neutral_500,
               icon: {
                 position: 'left',
                 faIcon: {

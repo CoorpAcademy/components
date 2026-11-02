@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value white, cm_grey_100 from colors;
+@value white, cm_grey_100, cm_grey_500 from colors;
 
 .container {
   composes: container from '../skill-edition/style.css';
@@ -29,4 +29,13 @@
 .fieldError {
   composes: fieldError from '../assignment-audience/style.css';
   margin: 0;
+}
+
+.hint {
+  margin: 0;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: cm_grey_500;
 }

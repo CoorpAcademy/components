@@ -99,7 +99,7 @@ const AssignmentEdition = ({
             }))}
           />
           <Title type="form-group" title={dates.rule.title} />
-          {dates.rule.hint ? <div>{dates.rule.hint}</div> : null}
+          {dates.rule.hint ? <p className={style.hint}>{dates.rule.hint}</p> : null}
           {dates.rule.options.map((option, index) => (
             <RadioWithTitle
               {...option}
@@ -122,11 +122,12 @@ const AssignmentEdition = ({
               {dates.rule.error}
             </p>
           ) : null}
-          <div>{dates.reminders.hint}</div>
+          <p className={style.hint}>{dates.reminders.hint}</p>
           {dates.reminders.switches.map((reminder, index) => (
             <InputSwitch
               {...reminder}
               key={reminder.name || reminder['data-name'] || reminder.title || index}
+              titlePosition="right"
               theme="coorpmanager"
               disabled={busy || reminder.disabled}
             />
