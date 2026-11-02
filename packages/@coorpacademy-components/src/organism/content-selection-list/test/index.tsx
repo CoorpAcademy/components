@@ -11,6 +11,7 @@ import {ContentPropsType} from '../types';
 import rowStyle from '../../list-item/style.css';
 import selectableStyle from '../../../molecule/card/selectable.css';
 import badgeStyle from '../../../atom/content-badge/style.css';
+import assignmentFixture from './fixtures/assignment';
 
 browserEnv();
 test.afterEach.always(cleanup);
@@ -554,4 +555,25 @@ test.serial('clearing list disabled preserves row selection deletion and batch a
   fireEvent.click(view.getByRole('button', {name: 'Remove module 1'}));
   fireEvent.click(view.getByRole('button', {name: 'Editable action'}));
   t.deepEqual(calls, [['row', 1, false], ['delete', 1], 'action']);
+});
+
+test.serial('the row Delete label is readable: grey like its bin icon, also when hovered', t => {
+  const withLabel = {
+    ...assignmentFixture.props,
+    list: {
+      ...assignmentFixture.props.list,
+      items: assignmentFixture.props.list.items!.map(item => ({
+        ...item,
+        deleteButton: {...item.deleteButton, label: 'Delete'}
+      }))
+    }
+  } as ContentPropsType;
+  const view = render(<ContentSelectionList {...withLabel} />, {wrapper: wrappingComponent});
+  const [button] = view.container.querySelectorAll<HTMLElement>(
+    '[data-name="list-item-0"] [data-name="button-Delete"]'
+  );
+  t.truthy(button);
+  t.is(button.style.color, 'rgb(81, 81, 97)');
+  fireEvent.mouseEnter(button);
+  t.is(button.style.color, 'rgb(81, 81, 97)');
 });
