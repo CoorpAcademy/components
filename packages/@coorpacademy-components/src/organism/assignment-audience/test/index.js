@@ -483,6 +483,14 @@ test.serial('invalid Everyone stays removable while sources are locked', t => {
   t.true(block(view, 'audience-sources').disabled);
 });
 
+test.serial('section error is one line of text, not a banner', t => {
+  const view = mount({title: 'Audience', error: 'Choose an audience.'});
+  const alert = view.getByRole('alert');
+  t.is(alert.tagName, 'P');
+  t.is(alert.children.length, 0);
+  t.is(alert.textContent, 'Choose an audience.');
+});
+
 test.serial('section error is an alert immediately below the title', t => {
   const view = mount({
     title: 'Audience',

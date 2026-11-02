@@ -197,9 +197,9 @@ const AssignmentAudience = ({
         headingLevel={2}
       />
       {error ? (
-        <div role="alert">
-          <Banner type="error" message={error} />
-        </div>
+        <p role="alert" className={style.fieldError}>
+          {error}
+        </p>
       ) : null}
       {team ? (
         <Block name="team">
