@@ -9,6 +9,8 @@ import find from 'lodash/fp/find';
 import some from 'lodash/fp/some';
 import classNames from 'classnames';
 import BrandTabs from '../../../molecule/brand-tabs';
+import ProgressBar from '../../../molecule/progress-bar';
+import SkillsChartSideInformationPanel from '../../../molecule/skills-chart-side-information-panel';
 import RadioGroup from '../../../atom/radio-group';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
@@ -271,7 +273,8 @@ const BrandUpdate = props => {
     documentation,
     contentFixHeight,
     title,
-    scopeControl
+    scopeControl,
+    summary
   } = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
@@ -307,6 +310,12 @@ const BrandUpdate = props => {
         <div className={contentStyle}>
           {notificationsView}
           {titleView}
+          {summary ? (
+            <div className={style.summary} data-name="brand-update-summary">
+              <ProgressBar {...summary.bar} />
+              <SkillsChartSideInformationPanel {...summary.tiles} />
+            </div>
+          ) : null}
           {tabsView}
           {contentView}
           {detailsView}
@@ -323,6 +332,10 @@ BrandUpdate.defaultProps = {
 };
 
 BrandUpdate.propTypes = {
+  summary: PropTypes.shape({
+    bar: PropTypes.shape(ProgressBar.propTypes).isRequired,
+    tiles: PropTypes.shape(SkillsChartSideInformationPanel.propTypes).isRequired
+  }),
   notifications: PropTypes.arrayOf(
     PropTypes.shape({
       ...Banner.propTypes

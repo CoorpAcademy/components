@@ -183,6 +183,14 @@
   margin-bottom: 32px;
 }
 
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
 @media desktop, tablet {
   .container {
     scroll-behavior: unset;
