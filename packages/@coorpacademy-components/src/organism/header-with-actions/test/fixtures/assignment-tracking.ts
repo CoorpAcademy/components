@@ -9,7 +9,6 @@ const fixture: HeaderWithActionsPropsFixture = {
     title,
     tags: [{status: 'active', label: 'Active'}],
     subtitle: 'Created by jdoe on 02 Nov 2026 · Last edited by asmith 3 days ago',
-    breadcrumbs: [{title: 'Assignments', href: '/assignments'}, {title}],
     actionButtons: [{label: 'Edit', type: 'primary', onClick: () => console.log('Edit')}]
   }
 };
