@@ -238,146 +238,151 @@ const AssignmentAudience = ({
             data-name="assignment-everyone"
             aria-label={everyone.label}
           />
-          {everyone.value ? (
+          {everyone.value && disabledExplanation ? (
             <p id={explanationId} className={style.explanation}>
               {disabledExplanation}
             </p>
           ) : null}
         </Block>
       ) : null}
-      <fieldset
-        disabled={sourcesDisabled}
-        aria-describedby={everyone?.value && disabledExplanation ? explanationId : undefined}
-        className={style.sources}
-        data-name="audience-sources"
-      >
-        {populations ? (
-          <Block name="populations" title={populations.title} subtitle={populations.subtitle}>
-            <SelectMultiple
-              title={populations.label}
-              options={populations.options}
-              multiple
-              theme="coorpmanager"
-              disabled={sourcesDisabled}
-              onChange={handlePopulations}
-            />
-            {selectedPopulations.length > 0 ? (
-              <div className={style.chips} data-name="population-chips">
-                {selectedPopulations.map(option => (
-                  <Chip
-                    key={option.value}
-                    text={option.name}
-                    subText={option.count === undefined ? undefined : `${option.count}`}
-                    selected
-                    customIcon={sourcesDisabled ? 'none' : 'times'}
-                    ariaLabel={
-                      sourcesDisabled ? undefined : chipLabel(populations.removeLabel, option.name)
-                    }
-                    onClick={sourcesDisabled ? undefined : handleRemovePopulation(option.value)}
-                  />
-                ))}
-              </div>
-            ) : null}
-          </Block>
-        ) : null}
-        {upload ? (
-          <Block
-            name="upload"
-            title={upload.title}
-            subtitle={upload.subtitle}
-            button={
-              upload.templateLink
-                ? {
-                    type: 'text',
-                    label: upload.templateLink.label,
-                    link: sourcesDisabled
-                      ? undefined
-                      : {href: upload.templateLink.href, download: true},
-                    disabled: sourcesDisabled,
-                    'data-name': 'upload-template-link',
-                    customStyle: FIT_CONTENT
-                  }
-                : undefined
-            }
-          >
-            <div className={style.upload}>
-              {upload.templatePreview ? <TemplatePreview {...upload.templatePreview} /> : null}
-              <div
-                className={upload.status === 'done' ? style.uploadMain : style.dropzone}
-                aria-busy={loading}
-                aria-live="polite"
-                data-name="upload-dropzone"
-              >
-                {upload.status === 'done' ? (
-                  <UploadResult
-                    {...upload}
-                    onRemove={upload.onRemove ? handleCancelCheck : undefined}
-                    report={
-                      upload.report
-                        ? {
-                            ...upload.report,
-                            onDownload: () => {
-                              if (!sourcesDisabled) upload.report?.onDownload();
-                            }
-                          }
-                        : undefined
-                    }
-                  />
-                ) : (
-                  <InputFileDraggable
-                    name="assignment-audience-file"
-                    filesTypes={ACCEPTED_FILES}
-                    description={upload.dropzone?.description}
-                    uploadLabel={upload.dropzone?.browse}
-                    errorButtonLabel={upload.dropzone?.browse}
-                    dragAndDropLabel={upload.dropzone?.dropLabel}
-                    loadingLabel={upload.dropzone?.loadingLabel}
-                    loading={loading}
-                    disabled={sourcesDisabled}
-                    error={upload.status === 'error' ? upload.error : ''}
-                    onChange={handleFileChange}
-                    onReset={handleCancelCheck}
-                  />
-                )}
-              </div>
-            </div>
-          </Block>
-        ) : null}
-        {individuals ? (
-          <Block name="individuals" title={individuals.title}>
-            <Autocomplete
-              title={individuals.placeholder}
-              theme="coorpmanager"
-              value={value}
-              suggestions={availableSuggestions.map(learner => ({
-                name: `${learner.label} · ${learner.login}`,
-                value: learner.id
-              }))}
-              onInput={handleSearch}
-              onSuggestionSelected={handleAdd}
-            />
-            {(selected?.length || 0) > 0 ? (
-              <div className={style.chips}>
-                {selected?.map((learner: Learner) => (
-                  <Chip
-                    key={learner.id}
-                    text={learner.label}
-                    subText={learner.login}
-                    selected
-                    customIcon={sourcesDisabled ? 'none' : 'times'}
-                    ariaLabel={
-                      sourcesDisabled
+      {/* No source block, no fieldset: an empty one still takes a gap. */}
+      {populations || upload || individuals ? (
+        <fieldset
+          disabled={sourcesDisabled}
+          aria-describedby={everyone?.value && disabledExplanation ? explanationId : undefined}
+          className={style.sources}
+          data-name="audience-sources"
+        >
+          {populations ? (
+            <Block name="populations" title={populations.title} subtitle={populations.subtitle}>
+              <SelectMultiple
+                title={populations.label}
+                options={populations.options}
+                multiple
+                theme="coorpmanager"
+                disabled={sourcesDisabled}
+                onChange={handlePopulations}
+              />
+              {selectedPopulations.length > 0 ? (
+                <div className={style.chips} data-name="population-chips">
+                  {selectedPopulations.map(option => (
+                    <Chip
+                      key={option.value}
+                      text={option.name}
+                      subText={option.count === undefined ? undefined : `${option.count}`}
+                      selected
+                      customIcon={sourcesDisabled ? 'none' : 'times'}
+                      ariaLabel={
+                        sourcesDisabled
+                          ? undefined
+                          : chipLabel(populations.removeLabel, option.name)
+                      }
+                      onClick={sourcesDisabled ? undefined : handleRemovePopulation(option.value)}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </Block>
+          ) : null}
+          {upload ? (
+            <Block
+              name="upload"
+              title={upload.title}
+              subtitle={upload.subtitle}
+              button={
+                upload.templateLink
+                  ? {
+                      type: 'text',
+                      label: upload.templateLink.label,
+                      link: sourcesDisabled
                         ? undefined
-                        : chipLabel(individuals.removeLabel, learner.label)
+                        : {href: upload.templateLink.href, download: true},
+                      disabled: sourcesDisabled,
+                      'data-name': 'upload-template-link',
+                      customStyle: FIT_CONTENT
                     }
-                    onClick={sourcesDisabled ? undefined : handleRemove(learner.id)}
-                  />
-                ))}
+                  : undefined
+              }
+            >
+              <div className={style.upload}>
+                {upload.templatePreview ? <TemplatePreview {...upload.templatePreview} /> : null}
+                <div
+                  className={upload.status === 'done' ? style.uploadMain : style.dropzone}
+                  aria-busy={loading}
+                  aria-live="polite"
+                  data-name="upload-dropzone"
+                >
+                  {upload.status === 'done' ? (
+                    <UploadResult
+                      {...upload}
+                      onRemove={upload.onRemove ? handleCancelCheck : undefined}
+                      report={
+                        upload.report
+                          ? {
+                              ...upload.report,
+                              onDownload: () => {
+                                if (!sourcesDisabled) upload.report?.onDownload();
+                              }
+                            }
+                          : undefined
+                      }
+                    />
+                  ) : (
+                    <InputFileDraggable
+                      name="assignment-audience-file"
+                      filesTypes={ACCEPTED_FILES}
+                      description={upload.dropzone?.description}
+                      uploadLabel={upload.dropzone?.browse}
+                      errorButtonLabel={upload.dropzone?.browse}
+                      dragAndDropLabel={upload.dropzone?.dropLabel}
+                      loadingLabel={upload.dropzone?.loadingLabel}
+                      loading={loading}
+                      disabled={sourcesDisabled}
+                      error={upload.status === 'error' ? upload.error : ''}
+                      onChange={handleFileChange}
+                      onReset={handleCancelCheck}
+                    />
+                  )}
+                </div>
               </div>
-            ) : null}
-          </Block>
-        ) : null}
-      </fieldset>
+            </Block>
+          ) : null}
+          {individuals ? (
+            <Block name="individuals" title={individuals.title}>
+              <Autocomplete
+                title={individuals.placeholder}
+                theme="coorpmanager"
+                value={value}
+                suggestions={availableSuggestions.map(learner => ({
+                  name: `${learner.label} · ${learner.login}`,
+                  value: learner.id
+                }))}
+                onInput={handleSearch}
+                onSuggestionSelected={handleAdd}
+              />
+              {(selected?.length || 0) > 0 ? (
+                <div className={style.chips}>
+                  {selected?.map((learner: Learner) => (
+                    <Chip
+                      key={learner.id}
+                      text={learner.label}
+                      subText={learner.login}
+                      selected
+                      customIcon={sourcesDisabled ? 'none' : 'times'}
+                      ariaLabel={
+                        sourcesDisabled
+                          ? undefined
+                          : chipLabel(individuals.removeLabel, learner.label)
+                      }
+                      onClick={sourcesDisabled ? undefined : handleRemove(learner.id)}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </Block>
+          ) : null}
+        </fieldset>
+      ) : null}
       {total ? (
         <div className={style.total} data-name="estimated-audience" aria-live="polite">
           <span className={style.totalLabel}>{total.label}</span>

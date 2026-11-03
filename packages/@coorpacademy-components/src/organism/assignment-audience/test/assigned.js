@@ -402,10 +402,9 @@ test.serial('without assigned every legacy audience fixture omits the assigned c
     (props.populations?.options || [])
       .filter(option => option.selected)
       .forEach(option => t.truthy(view.getAllByText(option.name).length));
-    t.is(
-      view.container.querySelector('[data-name="audience-sources"]').disabled,
-      Boolean(props.disabled || props.everyone?.value)
-    );
+    const sources = view.container.querySelector('[data-name="audience-sources"]');
+    t.is(Boolean(sources), Boolean(props.populations || props.upload || props.individuals));
+    if (sources) t.is(sources.disabled, Boolean(props.disabled || props.everyone?.value));
     t.is(view.queryByRole('table'), null);
     t.is(view.container.querySelector('[aria-pressed]'), null);
     view.unmount();

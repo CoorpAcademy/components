@@ -986,3 +986,16 @@ test.serial(
     t.deepEqual(calls, ['flag', file]);
   }
 );
+
+test.serial('no empty explanation and no empty sources block leave a gap', t => {
+  const on = mount({
+    ...everyoneOn.props,
+    disabledExplanation: undefined,
+    populations: undefined,
+    upload: undefined,
+    individuals: undefined
+  });
+  t.is(on.container.querySelector('p[id^="assignment-audience-explanation-"]'), null);
+  t.is(on.container.querySelector('[data-name="audience-sources"]'), null);
+  t.truthy(on.container.querySelector('[data-name="everyone"]'));
+});
