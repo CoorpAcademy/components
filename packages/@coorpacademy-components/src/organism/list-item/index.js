@@ -23,6 +23,14 @@ const THIN_PROGRESS_STYLE = {
   animation: 'none'
 };
 
+const CONTROLS = ['INPUT', 'LABEL', 'BUTTON', 'A', 'SELECT', 'TEXTAREA'];
+const isInsideControl = (node, row) =>
+  Boolean(node) &&
+  node !== row &&
+  (CONTROLS.includes(node.tagName) ||
+    node.getAttribute?.('role') === 'button' ||
+    isInsideControl(node.parentNode, row));
+
 const ListItem = (
   {
     buttonLink,
@@ -99,6 +107,16 @@ const ListItem = (
 
   const extractedIndex = pipe(split('-'), last)(dataName);
 
+  // A checkable row with no click of its own toggles its checkbox from anywhere on the row.
+  // Clicks on the checkbox, a button or a link keep their own behaviour (no double toggle).
+  const rowToggles = onClick === noop && !disabled && checkbox?.onChange && !checkbox.disabled;
+  const handleRowClick = rowToggles
+    ? event => {
+        if (isInsideControl(event.target, event.currentTarget)) return;
+        checkbox.onChange(!checkbox.checked);
+      }
+    : onClick;
+
   return (
     <div
       className={classnames(
@@ -106,10 +124,10 @@ const ListItem = (
         isBulkStyle ? style.gridLayout : style.flexLayout,
         subtitle && style.withSubtitle,
         disabled && style.disabled,
-        onClick !== noop && !disabled && style.cursorPointer,
+        (onClick !== noop || rowToggles) && !disabled && style.cursorPointer,
         checkbox?.checked && style.checked
       )}
-      onClick={!disabled ? onClick : undefined}
+      onClick={!disabled ? handleRowClick : undefined}
       style={selectedStyle}
       data-name={dataName}
     >
