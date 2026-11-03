@@ -12,6 +12,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
+import InputCheckbox from '../../atom/input-checkbox';
 import Link from '../../atom/link';
 import ButtonLink from '../../atom/button-link';
 import {COLORS} from '../../variables/colors';
@@ -24,7 +25,8 @@ const THEMES = {COCKPIT: 'cockpit'};
  * The look of a row action, by variant: a discreet text link with a pictogram (Eric's review of
  * #3054), red with a bin to remove, blue with a back arrow to undo.
  */
-const ACTION_LOOKS = {
+
+export const ACTION_LOOKS = {
   danger: {className: style.dangerAction, color: COLORS.cm_negative_200, icon: 'trash'},
   neutral: {className: style.neutralAction, color: COLORS.cm_primary_blue, icon: 'rotate-left'}
 };
@@ -84,7 +86,7 @@ const buildTableContext = (translate, theme, headerTitle) => {
 };
 
 const Table = (props, context) => {
-  const {rows = [], columns = [], editable = true, theme, headerTitle = ''} = props;
+  const {rows = [], columns = [], editable = true, theme, headerTitle = '', selectAll} = props;
   const {skin, translate} = context;
 
   const mediumColor = get('common.medium', skin);
@@ -136,6 +138,32 @@ const Table = (props, context) => {
     headerView.unshift(
       <th key="header">
         <div className={style.noOptions} />
+      </th>
+    );
+  }
+
+  const hasSelection = Boolean(selectAll || rows.some(row => row.select));
+  const renderSelection = descriptor => {
+    if (!descriptor) return null;
+    const {onChange: handleChange} = descriptor;
+    return (
+      <div className={style.selectionControl}>
+        <InputCheckbox
+          title={descriptor.ariaLabel}
+          checked={descriptor.checked}
+          disabled={descriptor.disabled}
+          onChange={handleChange}
+          theme="coorpmanager"
+          noLabelMargins
+          hideTitle
+        />
+      </div>
+    );
+  };
+  if (hasSelection) {
+    headerView.unshift(
+      <th key="selection" className={style.selectionCell}>
+        {renderSelection(selectAll)}
       </th>
     );
   }
@@ -208,6 +236,14 @@ const Table = (props, context) => {
       );
     }
 
+    if (hasSelection) {
+      tableRows.unshift(
+        <td key="selection" className={style.selectionCell}>
+          {renderSelection(row.select)}
+        </td>
+      );
+    }
+
     return (
       <tr className={trClasses} key={index}>
         {tableRows}
@@ -235,7 +271,15 @@ Table.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
+const selectionPropType = PropTypes.shape({
+  checked: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
+  ariaLabel: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+});
+
 Table.propTypes = {
+  selectAll: selectionPropType,
   editable: PropTypes.bool,
   rows: PropTypes.arrayOf(
     PropTypes.shape({
@@ -255,6 +299,7 @@ Table.propTypes = {
           })
         ])
       ),
+      select: selectionPropType,
       editHref: PropTypes.string,
       highlighted: PropTypes.bool
     })

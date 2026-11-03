@@ -159,6 +159,27 @@ const AssignmentAudiencePropTypes = {
         actionText: PropTypes.string
       }).isRequired
     ).isRequired,
+
+    selection: PropTypes.shape({
+      selectedIds: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      onToggleRow: PropTypes.func.isRequired,
+      onTogglePage: PropTypes.func.isRequired,
+      summary: PropTypes.string,
+      bulkActions: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          variant: PropTypes.oneOf(['danger', 'neutral']).isRequired,
+          onClick: PropTypes.func.isRequired
+        }).isRequired
+      ),
+      notice: PropTypes.shape({
+        message: PropTypes.string.isRequired,
+        action: PropTypes.shape({
+          label: PropTypes.string.isRequired,
+          onClick: PropTypes.func.isRequired
+        })
+      })
+    }),
     footnote: PropTypes.string,
     emptyLabel: PropTypes.string.isRequired
   }),
@@ -212,6 +233,15 @@ export type AssignedLearnersProps = {
     action?: {label: string; onClick: () => void; variant: 'danger' | 'neutral'};
     actionText?: string;
   }>;
+
+  selection?: {
+    selectedIds: string[];
+    onToggleRow: (id: string) => void;
+    onTogglePage: () => void;
+    summary?: string;
+    bulkActions?: Array<{label: string; variant: 'danger' | 'neutral'; onClick: () => void}>;
+    notice?: {message: string; action?: {label: string; onClick: () => void}};
+  };
   footnote?: string;
   emptyLabel: string;
 };

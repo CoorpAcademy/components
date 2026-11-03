@@ -324,15 +324,34 @@
   composes: actionLink;
 }
 
-.actionCell .dangerAction {
+.actionCell .dangerAction,
+.actionLink.dangerAction {
   color: cm_negative_200;
 }
 
-.actionCell .neutralAction {
+.actionCell .neutralAction,
+.actionLink.neutralAction {
   color: cm_primary_blue;
 }
 
 .actionLink:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
+}
+
+.table thead th.selectionCell,
+.table tbody td.selectionCell {
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  width: 48px;
+  min-width: 48px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.selectionControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

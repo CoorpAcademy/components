@@ -158,3 +158,21 @@
   margin-right: 0;
   margin-left: 0;
 }
+
+.accessibleTitle {
+  composes: visuallyHidden from "../../molecule/wizard-summary/style.css";
+}
+
+.focusableInput {
+  composes: visuallyHidden from "../../molecule/wizard-summary/style.css";
+}
+
+.hiddenTitle input {
+  display: block;
+  margin: 0;
+}
+
+.hiddenTitle input:focus-visible + .label {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 2px;
+}

@@ -8,8 +8,10 @@ import Autocomplete from '../../atom/autocomplete';
 import Title from '../../atom/title';
 import ButtonLink from '../../atom/button-link';
 import Search from '../../atom/input-search';
-import Table from '../../molecule/table';
+import Table, {ACTION_LOOKS} from '../../molecule/table';
 import Chip from '../../atom/chip';
+import Provider, {GetTranslateFromContext} from '../../atom/provider';
+import {WebContextValues} from '../../atom/provider/web-context';
 import UploadResult from './upload-result';
 import AssignmentAudiencePropTypes, {
   AssignmentAudienceProps,
@@ -71,22 +73,40 @@ const TemplatePreview = ({header, rows = []}: {header: string; rows?: string[]})
 const chipLabel = (removeLabel: string | undefined, name: string) =>
   removeLabel ? `${removeLabel} ${name}` : undefined;
 
-const AssignmentAudience = ({
-  title,
-  subtitle,
-  disabledExplanation,
-  everyone,
-  team,
-  invalidTargets,
-  invalidLabel,
-  error,
-  disabled = false,
-  populations,
-  upload,
-  individuals,
-  total,
-  assigned
-}: AssignmentAudienceProps) => {
+const AssignmentAudience = (
+  {
+    title,
+    subtitle,
+    disabledExplanation,
+    everyone,
+    team,
+    invalidTargets,
+    invalidLabel,
+    error,
+    disabled = false,
+    populations,
+    upload,
+    individuals,
+    total,
+    assigned
+  }: AssignmentAudienceProps,
+  context: WebContextValues
+) => {
+  const translate = GetTranslateFromContext(context);
+
+  const selection = assigned?.selection;
+  const selectedIds = new Set(selection?.selectedIds);
+  const selectableRows = assigned?.rows.filter(row => row.action) || [];
+  const pageSelected =
+    selectableRows.length > 0 && selectableRows.every(row => selectedIds.has(row.id));
+  const pageDisabled = disabled || selectableRows.length === 0;
+
+  const handleSelectionAction = useCallback(
+    (onClick: () => void) => () => {
+      if (!disabled) onClick();
+    },
+    [disabled]
+  );
   const sourcesDisabled = disabled || Boolean(everyone?.value);
   const loading = upload?.status === 'loading';
   const onEveryoneChange = everyone?.onChange;
@@ -448,13 +468,84 @@ const AssignmentAudience = ({
                     />
                   </div>
                 </div>
+
+                {selection?.bulkActions?.length ? (
+                  <div className={style.assignedSelectionBar} data-name="assigned-selection-bar">
+                    {selection.summary ? <span>{selection.summary}</span> : null}
+                    {selection.bulkActions.map((action, index) => {
+                      const {className, color, icon} = ACTION_LOOKS[action.variant];
+                      return (
+                        <ButtonLink
+                          key={index}
+                          type="text"
+                          label={action.label}
+                          content={<span>{action.label}</span>}
+                          className={className}
+                          disabled={disabled}
+                          onClick={handleSelectionAction(action.onClick)}
+                          icon={{
+                            position: 'left',
+                            faIcon: {name: icon, size: 14, color}
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                ) : null}
+
+                {selection?.notice ? (
+                  <div
+                    className={style.assignedSelectionNotice}
+                    data-name="assigned-selection-notice"
+                  >
+                    <span>{selection.notice.message}</span>
+                    {selection.notice.action ? (
+                      <ButtonLink
+                        type="text"
+                        label={selection.notice.action.label}
+                        content={<span>{selection.notice.action.label}</span>}
+                        className={style.assignedButton}
+                        customStyle={FIT_CONTENT}
+                        disabled={disabled}
+                        onClick={handleSelectionAction(selection.notice.action.onClick)}
+                      />
+                    ) : null}
+                  </div>
+                ) : null}
                 {assigned.rows.length > 0 ? (
                   <div className={style.assignedTable}>
                     <Table
                       editable={false}
-                      columns={[...assigned.columns.map(column => ({title: column})), {title: ''}]}
+                      selectAll={
+                        selection
+                          ? {
+                              checked: pageSelected,
+                              disabled: pageDisabled,
+                              ariaLabel: translate('Select all learners on this page'),
+                              onChange: () => {
+                                if (!pageDisabled) selection.onTogglePage();
+                              }
+                            }
+                          : undefined
+                      }
+                      columns={[
+                        ...assigned.columns.map(column => ({
+                          title: column
+                        })),
+                        {title: ''}
+                      ]}
                       rows={assigned.rows.map(row => ({
                         id: row.id,
+                        select: selection
+                          ? {
+                              checked: Boolean(row.action) && selectedIds.has(row.id),
+                              disabled: disabled || !row.action,
+                              ariaLabel: row.fields[0] || row.id,
+                              onChange: () => {
+                                if (!disabled && row.action) selection.onToggleRow(row.id);
+                              }
+                            }
+                          : undefined,
                         fields: [
                           ...row.fields,
                           row.action
@@ -489,5 +580,9 @@ const AssignmentAudience = ({
 };
 
 AssignmentAudience.propTypes = AssignmentAudiencePropTypes;
+
+AssignmentAudience.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default AssignmentAudience;
