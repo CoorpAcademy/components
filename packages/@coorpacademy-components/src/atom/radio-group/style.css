@@ -27,6 +27,7 @@
   border: 0;
   height: 36px;
   gap: 4px;
+  padding-right: 4px;
 }
 
 .segmentedOption {
