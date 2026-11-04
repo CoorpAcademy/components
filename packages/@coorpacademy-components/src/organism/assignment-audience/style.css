@@ -142,10 +142,22 @@
   gap: 8px;
 }
 
+/* No `composes` from button-link: a cross-file composes re-emits all of button-link's CSS late in
+   the bundle, and that copy overrides every component that sizes a ButtonLink (Coorpmanager-wide
+   layout break, 2026-11-04). Declare the button look locally instead. */
 .assignedFilter {
-  composes: button from "../../atom/button-link/style.css";
   display: inline-flex;
   width: auto;
+  height: 44px;
+  border-radius: 8px;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 16px;
+  user-select: none;
   border: 1px solid cm_grey_200;
   background: cm_grey_50;
   color: cm_grey_700;
