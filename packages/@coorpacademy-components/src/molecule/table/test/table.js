@@ -997,10 +997,13 @@ test.serial('selection layout centres the checkbox without inheriting 42px line-
     'utf8'
   );
   t.regex(atomCss, /\.hiddenTitle input\s*\{[^}]*display:\s*block/);
+  // The title and the input stay visually hidden, declared locally: a cross-file `composes`
+  // re-emits the composed file's whole CSS late in the app bundle (Coorpmanager layout break).
   t.regex(
     atomCss,
-    /composes: visuallyHidden from "\.\.\/\.\.\/molecule\/wizard-summary\/style.css"/
+    /\.accessibleTitle,\s*\.focusableInput\s*\{[^}]*position:\s*absolute;[^}]*width:\s*1px;[^}]*height:\s*1px;[^}]*overflow:\s*hidden;[^}]*clip:\s*rect\(0 0 0 0\)/
   );
+  t.notRegex(atomCss, /composes:[^;]*from ["']\.\.\//);
   t.regex(atomCss, /\.hiddenTitle input:focus-visible \+ \.label\s*\{[^}]*outline:/);
 });
 

@@ -159,12 +159,16 @@
   margin-left: 0;
 }
 
-.accessibleTitle {
-  composes: visuallyHidden from "../../molecule/wizard-summary/style.css";
-}
-
+/* Visually hidden, declared here: a cross-file composes would re-emit wizard-summary's whole CSS
+   late in the bundle (see organism/assignment-audience/style.css). */
+.accessibleTitle,
 .focusableInput {
-  composes: visuallyHidden from "../../molecule/wizard-summary/style.css";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .hiddenTitle input {
