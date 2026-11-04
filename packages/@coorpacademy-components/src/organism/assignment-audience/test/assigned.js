@@ -37,8 +37,8 @@ import individuals_with_chips from './fixtures/individuals-with-chips';
 import picker_mode from './fixtures/picker-mode';
 import populations_only from './fixtures/populations-only';
 import section_error from './fixtures/section-error';
-import team_mode from './fixtures/team-mode';
-import team_with_invalid_population from './fixtures/team-with-invalid-population';
+import group_mode from './fixtures/group-mode';
+import group_with_invalid_population from './fixtures/group-with-invalid-population';
 import upload_done from './fixtures/upload-done';
 import upload_done_all_valid from './fixtures/upload-done-all-valid';
 import upload_error from './fixtures/upload-error';
@@ -394,8 +394,8 @@ test.serial('without assigned every audience fixture omits the assigned card', t
     picker_mode,
     populations_only,
     section_error,
-    team_mode,
-    team_with_invalid_population,
+    group_mode,
+    group_with_invalid_population,
     upload_done,
     upload_done_all_valid,
     upload_error,

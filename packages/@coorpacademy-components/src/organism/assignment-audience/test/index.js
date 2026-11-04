@@ -505,7 +505,7 @@ test.serial(
   }
 );
 
-test.serial('zero single all and locked team options omit controls and empty sources', t => {
+test.serial('zero single all and locked group options omit controls and empty sources', t => {
   [
     [],
     [{name: 'All users', value: 'all', selected: false, all: true}],
@@ -671,7 +671,7 @@ test.serial('population schema validates optional fields and required option fie
             search,
             emptyMessages: {},
             options: [
-              {name: 'Team', value: 'team', selected: false, count: 0, locked: true, all: false}
+              {name: 'Group', value: 'group', selected: false, count: 0, locked: true, all: false}
             ]
           })
         )

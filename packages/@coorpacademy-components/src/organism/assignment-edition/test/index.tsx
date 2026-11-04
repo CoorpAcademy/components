@@ -75,7 +75,7 @@ test.serial('audience forwards optional blocks and callbacks', t => {
       audience={{
         title: 'Audience',
         populations: {
-          title: 'All My Team',
+          title: 'All My Group',
           options: [{name: 'Sales FR', value: 'sales', selected: true, locked: true}],
           onChange: value => calls.push(value)
         }

@@ -119,7 +119,7 @@ test.serial('runtime and typed audience accept population chips with optional co
   props.audience = {
     title: 'Audience',
     populations: {
-      title: 'All My Team',
+      title: 'All My Group',
       options: [
         {name: 'Sales FR', value: 'sales-fr', selected: true, locked: true, count: '128 users'}
       ],

@@ -1,8 +1,8 @@
 import {AssignmentEditionPropsFixture} from '../../types';
-import team from '../../../assignment-audience/test/fixtures/team-mode';
+import group from '../../../assignment-audience/test/fixtures/group-mode';
 import filled from './draft-filled';
 
 const fixture: AssignmentEditionPropsFixture = {
-  props: {...filled.props, audience: team.props}
+  props: {...filled.props, audience: group.props}
 };
 export default fixture;
