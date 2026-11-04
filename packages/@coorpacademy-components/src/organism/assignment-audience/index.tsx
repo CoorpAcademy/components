@@ -1,7 +1,6 @@
 import React, {useCallback, useMemo} from 'react';
 import uniqueId from 'lodash/fp/uniqueId';
-import InputSwitch from '../../atom/input-switch';
-import SelectMultiple from '../../molecule/select-multiple';
+import SearchAndChipsResults from '../search-and-chips-results';
 import Banner from '../../molecule/banner';
 import InputFileDraggable from '../../atom/input-file-draggable';
 import Autocomplete from '../../atom/autocomplete';
@@ -13,11 +12,7 @@ import Chip from '../../atom/chip';
 import Provider, {GetTranslateFromContext} from '../../atom/provider';
 import {WebContextValues} from '../../atom/provider/web-context';
 import UploadResult from './upload-result';
-import AssignmentAudiencePropTypes, {
-  AssignmentAudienceProps,
-  Learner,
-  PopulationOption
-} from './types';
+import AssignmentAudiencePropTypes, {AssignmentAudienceProps, Learner} from './types';
 import style from './style.css';
 
 // ButtonLink is full width by default: in the Title row it would squeeze the title column.
@@ -78,8 +73,6 @@ const AssignmentAudience = (
     title,
     subtitle,
     disabledExplanation,
-    everyone,
-    team,
     invalidTargets,
     invalidLabel,
     error,
@@ -107,17 +100,41 @@ const AssignmentAudience = (
     },
     [disabled]
   );
-  const sourcesDisabled = disabled || Boolean(everyone?.value);
+
+  const populationOptions = populations?.options || [];
+  const isSelected = (option: typeof populationOptions[number]) => option.selected || option.locked;
+  const allSelected = populationOptions.some(option => option.all && isSelected(option));
+  const sourcesDisabled = disabled || allSelected;
+  const showExplanation = allSelected && Boolean(disabledExplanation);
   const loading = upload?.status === 'loading';
-  const onEveryoneChange = everyone?.onChange;
-  const handleEveryoneChange = useCallback(
-    (nextValue: boolean) => {
-      if (!disabled) onEveryoneChange?.(nextValue);
-    },
-    [disabled, onEveryoneChange]
+  const populationQuery = (populations?.search?.value || '').toLowerCase();
+  const listedOptions = populationOptions.filter(option =>
+    option.name.toLowerCase().includes(populationQuery)
   );
-  const populationOptions = populations?.options;
-  const onPopulationsChange = populations?.onChange;
+  const listedSelected = listedOptions.length > 0 && listedOptions.every(isSelected);
+  const emitSelection = (
+    select: (option: typeof populationOptions[number]) => boolean | undefined
+  ) => {
+    if (!disabled)
+      populations?.onChange(
+        populationOptions.filter(select).map(option => ({...option, selected: true}))
+      );
+  };
+  const handlePopulationToggle = (value: string) => () => {
+    const target = populationOptions.find(option => option.value === value);
+    if (!target || target.locked) return;
+    emitSelection(option => (option.value === value ? !isSelected(option) : isSelected(option)));
+  };
+  const handleBulkSelection = () => {
+    if (listedOptions.length === 0) return;
+    emitSelection(
+      option =>
+        option.locked || (listedOptions.includes(option) ? !listedSelected : isSelected(option))
+    );
+  };
+  const handlePopulationSearch = (value: string) => {
+    if (!disabled) populations?.search?.onChange?.(value);
+  };
   const onUpload = upload?.onUpload;
   const onRemoveFile = upload?.onRemove;
   const value = individuals?.value || '';
@@ -127,27 +144,6 @@ const AssignmentAudience = (
   const onAdd = individuals?.onAdd;
   const onRemove = individuals?.onRemove;
   const explanationId = useMemo(() => uniqueId('assignment-audience-explanation-'), []);
-  const handlePopulations = useCallback(
-    (choices: PopulationOption[]) =>
-      !sourcesDisabled &&
-      onPopulationsChange?.(
-        (populationOptions || [])
-          .filter(option => choices.some(choice => choice.value === option.value))
-          .map(option => ({...option, selected: true}))
-      ),
-    [sourcesDisabled, populationOptions, onPopulationsChange]
-  );
-  const selectedPopulations = useMemo(
-    () => (populationOptions || []).filter(option => option.selected),
-    [populationOptions]
-  );
-  const handleRemovePopulation = useCallback(
-    (populationValue: string) => () =>
-      !sourcesDisabled &&
-      onPopulationsChange?.(selectedPopulations.filter(option => option.value !== populationValue)),
-    [sourcesDisabled, selectedPopulations, onPopulationsChange]
-  );
-
   // The native input receives both a browse and a drop, and fires change for each.
   const handleFileChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -221,11 +217,6 @@ const AssignmentAudience = (
           {error}
         </p>
       ) : null}
-      {team ? (
-        <Block name="team">
-          <Chip text={team.label} subText={team.name} customIcon="none" />
-        </Block>
-      ) : null}
       {invalidTargets?.length ? (
         <fieldset disabled={disabled} className={style.sources} data-name="invalid-targets">
           {invalidTargets.map(target => (
@@ -247,157 +238,160 @@ const AssignmentAudience = (
           ))}
         </fieldset>
       ) : null}
-      {everyone ? (
-        <Block name="everyone" title={everyone.title}>
-          <InputSwitch
-            title={everyone.label}
-            value={everyone.value}
-            disabled={disabled}
-            onChange={handleEveryoneChange}
-            theme="coorpmanager"
-            data-name="assignment-everyone"
-            aria-label={everyone.label}
-          />
-          {everyone.value ? (
-            <p id={explanationId} className={style.explanation}>
-              {disabledExplanation}
-            </p>
-          ) : null}
-        </Block>
-      ) : null}
-      <fieldset
-        disabled={sourcesDisabled}
-        aria-describedby={everyone?.value && disabledExplanation ? explanationId : undefined}
-        className={style.sources}
-        data-name="audience-sources"
-      >
-        {populations ? (
+
+      {populations ? (
+        <fieldset disabled={disabled} className={style.sources}>
           <Block name="populations" title={populations.title} subtitle={populations.subtitle}>
-            <SelectMultiple
-              title={populations.label}
-              options={populations.options}
-              multiple
-              theme="coorpmanager"
-              disabled={sourcesDisabled}
-              onChange={handlePopulations}
-            />
-            {selectedPopulations.length > 0 ? (
-              <div className={style.chips} data-name="population-chips">
-                {selectedPopulations.map(option => (
-                  <Chip
-                    key={option.value}
-                    text={option.name}
-                    subText={option.count === undefined ? undefined : `${option.count}`}
-                    selected
-                    customIcon={sourcesDisabled ? 'none' : 'times'}
-                    ariaLabel={
-                      sourcesDisabled ? undefined : chipLabel(populations.removeLabel, option.name)
-                    }
-                    onClick={sourcesDisabled ? undefined : handleRemovePopulation(option.value)}
-                  />
-                ))}
-              </div>
-            ) : null}
-          </Block>
-        ) : null}
-        {upload ? (
-          <Block
-            name="upload"
-            title={upload.title}
-            subtitle={upload.subtitle}
-            button={
-              upload.templateLink
-                ? {
-                    type: 'text',
-                    label: upload.templateLink.label,
-                    link: sourcesDisabled
-                      ? undefined
-                      : {href: upload.templateLink.href, download: true},
-                    disabled: sourcesDisabled,
-                    'data-name': 'upload-template-link',
-                    customStyle: FIT_CONTENT
-                  }
-                : undefined
-            }
-          >
-            <div className={style.upload}>
-              {upload.templatePreview ? <TemplatePreview {...upload.templatePreview} /> : null}
-              <div
-                className={upload.status === 'done' ? style.uploadMain : style.dropzone}
-                aria-busy={loading}
-                aria-live="polite"
-                data-name="upload-dropzone"
-              >
-                {upload.status === 'done' ? (
-                  <UploadResult
-                    {...upload}
-                    onRemove={upload.onRemove ? handleCancelCheck : undefined}
-                    report={
-                      upload.report
-                        ? {
-                            ...upload.report,
-                            onDownload: () => {
-                              if (!sourcesDisabled) upload.report?.onDownload();
-                            }
-                          }
-                        : undefined
-                    }
-                  />
-                ) : (
-                  <InputFileDraggable
-                    name="assignment-audience-file"
-                    filesTypes={ACCEPTED_FILES}
-                    description={upload.dropzone?.description}
-                    uploadLabel={upload.dropzone?.browse}
-                    errorButtonLabel={upload.dropzone?.browse}
-                    dragAndDropLabel={upload.dropzone?.dropLabel}
-                    loadingLabel={upload.dropzone?.loadingLabel}
-                    loading={loading}
-                    disabled={sourcesDisabled}
-                    error={upload.status === 'error' ? upload.error : ''}
-                    onChange={handleFileChange}
-                    onReset={handleCancelCheck}
-                  />
-                )}
-              </div>
-            </div>
-          </Block>
-        ) : null}
-        {individuals ? (
-          <Block name="individuals" title={individuals.title}>
-            <Autocomplete
-              title={individuals.placeholder}
-              theme="coorpmanager"
-              value={value}
-              suggestions={availableSuggestions.map(learner => ({
-                name: `${learner.label} · ${learner.login}`,
-                value: learner.id
+            <SearchAndChipsResults
+              resultsMaxHeight={236}
+              results-aria-label={populations.title}
+              emptyMessages={populations.emptyMessages}
+              results={listedOptions.map(option => ({
+                text: option.name,
+                information:
+                  option.count === undefined || option.count === null ? '' : String(option.count),
+                selected: Boolean(isSelected(option)),
+                onClick: handlePopulationToggle(option.value)
               }))}
-              onInput={handleSearch}
-              onSuggestionSelected={handleAdd}
-            />
-            {(selected?.length || 0) > 0 ? (
-              <div className={style.chips}>
-                {selected?.map((learner: Learner) => (
-                  <Chip
-                    key={learner.id}
-                    text={learner.label}
-                    subText={learner.login}
-                    selected
-                    customIcon={sourcesDisabled ? 'none' : 'times'}
-                    ariaLabel={
-                      sourcesDisabled
-                        ? undefined
-                        : chipLabel(individuals.removeLabel, learner.label)
+              selectAllButton={
+                populationOptions.length >= 2
+                  ? {
+                      label: listedSelected
+                        ? populations.unselectAllLabel
+                        : populations.selectAllLabel,
+                      icon: listedSelected ? 'close' : 'add',
+                      disabled: disabled || listedOptions.length === 0,
+                      onClick: handleBulkSelection
                     }
-                    onClick={sourcesDisabled ? undefined : handleRemove(learner.id)}
-                  />
-                ))}
-              </div>
+                  : undefined
+              }
+              search={
+                populationOptions.length >= 2 && populations.search
+                  ? {
+                      placeholder: populations.search.placeholder || '',
+                      value: populations.search.value || '',
+                      disabled,
+                      onChange: handlePopulationSearch,
+                      onClear: () => handlePopulationSearch('')
+                    }
+                  : undefined
+              }
+            />
+            {showExplanation ? (
+              <p id={explanationId} className={style.explanation}>
+                {disabledExplanation}
+              </p>
             ) : null}
           </Block>
-        ) : null}
-      </fieldset>
+        </fieldset>
+      ) : null}
+
+      {upload || individuals ? (
+        <fieldset
+          disabled={sourcesDisabled}
+          aria-describedby={showExplanation ? explanationId : undefined}
+          className={style.sources}
+          data-name="audience-sources"
+        >
+          {upload ? (
+            <Block
+              name="upload"
+              title={upload.title}
+              subtitle={upload.subtitle}
+              button={
+                upload.templateLink
+                  ? {
+                      type: 'text',
+                      label: upload.templateLink.label,
+                      link: sourcesDisabled
+                        ? undefined
+                        : {href: upload.templateLink.href, download: true},
+                      disabled: sourcesDisabled,
+                      'data-name': 'upload-template-link',
+                      customStyle: FIT_CONTENT
+                    }
+                  : undefined
+              }
+            >
+              <div className={style.upload}>
+                {upload.templatePreview ? <TemplatePreview {...upload.templatePreview} /> : null}
+                <div
+                  className={upload.status === 'done' ? style.uploadMain : style.dropzone}
+                  aria-busy={loading}
+                  aria-live="polite"
+                  data-name="upload-dropzone"
+                >
+                  {upload.status === 'done' ? (
+                    <UploadResult
+                      {...upload}
+                      onRemove={upload.onRemove ? handleCancelCheck : undefined}
+                      report={
+                        upload.report
+                          ? {
+                              ...upload.report,
+                              onDownload: () => {
+                                if (!sourcesDisabled) upload.report?.onDownload();
+                              }
+                            }
+                          : undefined
+                      }
+                    />
+                  ) : (
+                    <InputFileDraggable
+                      name="assignment-audience-file"
+                      filesTypes={ACCEPTED_FILES}
+                      description={upload.dropzone?.description}
+                      uploadLabel={upload.dropzone?.browse}
+                      errorButtonLabel={upload.dropzone?.browse}
+                      dragAndDropLabel={upload.dropzone?.dropLabel}
+                      loadingLabel={upload.dropzone?.loadingLabel}
+                      loading={loading}
+                      disabled={sourcesDisabled}
+                      error={upload.status === 'error' ? upload.error : ''}
+                      onChange={handleFileChange}
+                      onReset={handleCancelCheck}
+                    />
+                  )}
+                </div>
+              </div>
+            </Block>
+          ) : null}
+          {individuals ? (
+            <Block name="individuals" title={individuals.title}>
+              <Autocomplete
+                title={individuals.placeholder}
+                theme="coorpmanager"
+                value={value}
+                suggestions={availableSuggestions.map(learner => ({
+                  name: `${learner.label} · ${learner.login}`,
+                  value: learner.id
+                }))}
+                onInput={handleSearch}
+                onSuggestionSelected={handleAdd}
+              />
+              {(selected?.length || 0) > 0 ? (
+                <div className={style.chips}>
+                  {selected?.map((learner: Learner) => (
+                    <Chip
+                      key={learner.id}
+                      text={learner.label}
+                      subText={learner.login}
+                      selected
+                      customIcon={sourcesDisabled ? 'none' : 'times'}
+                      ariaLabel={
+                        sourcesDisabled
+                          ? undefined
+                          : chipLabel(individuals.removeLabel, learner.label)
+                      }
+                      onClick={sourcesDisabled ? undefined : handleRemove(learner.id)}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </Block>
+          ) : null}
+        </fieldset>
+      ) : null}
       {total ? (
         <div className={style.total} data-name="estimated-audience" aria-live="polite">
           <span className={style.totalLabel}>{total.label}</span>

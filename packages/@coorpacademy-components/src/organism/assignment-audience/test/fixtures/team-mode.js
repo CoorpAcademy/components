@@ -2,7 +2,13 @@ import combined from './combined';
 
 export default {
   props: {
-    title: combined.props.title,
-    team: {label: 'All My Team', name: 'Sales FR'}
+    title: 'Audience',
+    populations: {
+      ...combined.props.populations,
+      title: 'All My Team',
+      options: [
+        {name: 'Sales FR', value: 'sales-fr', selected: true, locked: true, count: '128 users'}
+      ]
+    }
   }
 };

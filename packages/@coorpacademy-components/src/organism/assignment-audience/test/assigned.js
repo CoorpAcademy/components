@@ -28,9 +28,9 @@ import removedFixture from './fixtures/assigned-removed-in-this-edit';
 import deletedFixture from './fixtures/assigned-deleted-accounts';
 import combined from './fixtures/combined';
 import disabled from './fixtures/disabled';
-import everyone_and_populations from './fixtures/everyone-and-populations';
-import everyone_on from './fixtures/everyone-on';
-import everyone_on_with_sources from './fixtures/everyone-on-with-sources';
+import few_populations from './fixtures/few-populations';
+import all_users_selected from './fixtures/all-users-selected';
+import all_users_selected_with_sources from './fixtures/all-users-selected-with-sources';
 import full_with_invalid_everyone from './fixtures/full-with-invalid-everyone';
 import idle from './fixtures/idle';
 import individuals_with_chips from './fixtures/individuals-with-chips';
@@ -381,13 +381,13 @@ test.serial(
   }
 );
 
-test.serial('without assigned every legacy audience fixture omits the assigned card', t => {
+test.serial('without assigned every audience fixture omits the assigned card', t => {
   const fixtures = [
     combined,
     disabled,
-    everyone_and_populations,
-    everyone_on,
-    everyone_on_with_sources,
+    few_populations,
+    all_users_selected,
+    all_users_selected_with_sources,
     full_with_invalid_everyone,
     idle,
     individuals_with_chips,
@@ -405,14 +405,13 @@ test.serial('without assigned every legacy audience fixture omits the assigned c
     const view = mount(props);
     t.is(card(view), null);
     t.truthy(view.getByRole('heading', {name: props.title, level: 2}));
-    ['everyone', 'populations', 'upload', 'individuals'].forEach(blockName => {
+    ['populations', 'upload', 'individuals'].forEach(blockName => {
       t.is(
         Boolean(view.container.querySelector(`[data-name="${blockName}"]`)),
         Boolean(props[blockName])
       );
     });
     if (props.total) t.truthy(view.getByText(props.total.label));
-    if (props.team) t.truthy(view.getByText(props.team.name));
     if (props.error) t.truthy(view.getByRole('alert'));
     if (props.upload?.file) t.truthy(view.getByText(props.upload.file.name));
     if (props.upload?.status === 'loading')
@@ -421,10 +420,18 @@ test.serial('without assigned every legacy audience fixture omits the assigned c
     (props.populations?.options || [])
       .filter(option => option.selected)
       .forEach(option => t.truthy(view.getAllByText(option.name).length));
-    t.is(
-      view.container.querySelector('[data-name="audience-sources"]').disabled,
-      Boolean(props.disabled || props.everyone?.value)
-    );
+    const sources = view.container.querySelector('[data-name="audience-sources"]');
+    t.is(Boolean(sources), Boolean(props.upload || props.individuals));
+    if (sources)
+      t.is(
+        sources.disabled,
+        Boolean(
+          props.disabled ||
+            props.populations?.options.some(
+              option => option.all && (option.selected || option.locked)
+            )
+        )
+      );
     t.is(view.queryByRole('table'), null);
     t.is(view.container.querySelector('[aria-pressed]'), null);
     view.unmount();
@@ -687,7 +694,7 @@ test.serial('footnote follows the table and empty rows show emptyLabel', t => {
   t.is(within(card(view)).queryByText(assigned.emptyLabel), null);
 });
 
-test.serial('disabled locks assigned controls while everyone only locks source picking', t => {
+test.serial('disabled locks assigned controls while all users only locks source picking', t => {
   const calls = [];
   const callback = () => calls.push('action');
   const assigned = assignedProps({
@@ -725,7 +732,7 @@ test.serial('disabled locks assigned controls while everyone only locks source p
   view.rerender(
     <AssignmentAudience
       {...propsWith(assigned)}
-      everyone={{label: 'Everyone', value: true, onChange: noop}}
+      populations={all_users_selected.props.populations}
     />
   );
   exercise();
@@ -1229,7 +1236,7 @@ test.serial('named selection is keyboard accessible and disabled with the sectio
     >
       <AssignmentAudience
         {...propsWith(assigned)}
-        everyone={{...combined.props.everyone, value: true}}
+        populations={all_users_selected.props.populations}
         disabled={isDisabled}
       />
     </form>

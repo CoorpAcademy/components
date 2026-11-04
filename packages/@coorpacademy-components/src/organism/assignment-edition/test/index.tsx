@@ -58,35 +58,33 @@ test.serial('audience forwards optional blocks and callbacks', t => {
   const calls: unknown[] = [];
   props.audience = {
     ...props.audience,
-    everyone: {
-      ...props.audience.everyone!,
-      onChange: value => calls.push(value)
-    },
-    individuals: {
-      ...props.audience.individuals!,
-      onRemove: value => calls.push(value)
-    }
+    populations: {...props.audience.populations!, onChange: value => calls.push(value)},
+    individuals: {...props.audience.individuals!, onRemove: value => calls.push(value)}
   };
   const view = mount(props);
   const audience = within(view.container.querySelector('#assignment-audience') as HTMLElement);
-  fireEvent.click(
-    audience.getByRole('checkbox', {
-      name: 'Assign to every learner of the platform'
-    })
-  );
+  fireEvent.click(audience.getByRole('button', {name: 'Sales EMEA 1,204 users'}));
   fireEvent.click(audience.getByRole('button', {name: 'Remove Camille Durand'}));
-  t.deepEqual(calls, [true, 'u1']);
+  t.deepEqual(calls, [
+    props.audience.populations!.options.map(option => ({...option, selected: true})),
+    'u1'
+  ]);
   view.rerender(
     <AssignmentEdition
       {...props}
       audience={{
         title: 'Audience',
-        team: {label: 'All My Team', name: 'Sales FR'}
+        populations: {
+          title: 'All My Team',
+          options: [{name: 'Sales FR', value: 'sales', selected: true, locked: true}],
+          onChange: value => calls.push(value)
+        }
       }}
     />
   );
-  t.truthy(audience.getByText('Sales FR'));
-  t.is(audience.queryByRole('checkbox'), null);
+  fireEvent.click(audience.getByRole('button', {name: 'Sales FR'}));
+  t.is(calls.length, 2);
+  t.is(audience.queryByRole('textbox'), null);
   t.is(audience.queryByRole('combobox'), null);
 });
 
@@ -240,13 +238,7 @@ test.serial('busy disables every section and preserves controls', async t => {
     />
   );
   t.true(view.getByRole('button', {name: 'Add content'}).matches(':disabled'));
-  t.true(
-    view
-      .getByRole('checkbox', {
-        name: 'Assign to every learner of the platform'
-      })
-      .matches(':disabled')
-  );
+  t.true(view.getByRole('textbox', {name: 'Search populations'}).matches(':disabled'));
 });
 
 test.serial('fetching renders only the Coorpmanager loader', t => {
@@ -294,8 +286,7 @@ test.serial('audience preserves population file and learner callback payloads', 
   };
   const view = mount(props);
   const section = view.container.querySelector('#assignment-audience') as HTMLElement;
-  fireEvent.click(section.querySelector('[data-name="select-languages"]')!);
-  fireEvent.click(section.querySelectorAll('[data-name="populations"] input[type="checkbox"]')[2]);
+  fireEvent.click(within(section).getByRole('button', {name: 'Sales EMEA 1,204 users'}));
   t.deepEqual(
     calls[0],
     props.audience.populations!.options.map(option => ({
@@ -323,4 +314,30 @@ test.serial('audience preserves population file and learner callback payloads', 
   fireEvent.focus(input);
   fireEvent.click(view.getByRole('option'));
   t.is(calls[3], learner);
+});
+
+test.serial('busy disables audience picker and clearing busy restores it', t => {
+  const props = makeProps();
+  const calls: unknown[] = [];
+  props.audience = {
+    ...props.audience,
+    populations: {
+      ...props.audience.populations!,
+      search: {placeholder: 'Find populations', value: '', onChange: query => calls.push(query)},
+      onChange: options => calls.push(options)
+    }
+  };
+  const view = mount({...props, busy: true});
+  const chip = () => view.getByRole('button', {name: 'Sales EMEA 1,204 users'});
+  fireEvent.click(chip());
+  fireEvent.keyDown(chip(), {key: 'Enter'});
+  fireEvent.input(view.getByPlaceholderText('Find populations'), {target: {value: 'sales'}});
+  t.deepEqual(calls, []);
+  view.rerender(<AssignmentEdition {...props} busy={false} />);
+  fireEvent.click(chip());
+  fireEvent.input(view.getByPlaceholderText('Find populations'), {target: {value: 'sales'}});
+  t.deepEqual(calls, [
+    props.audience.populations!.options.map(option => ({...option, selected: true})),
+    'sales'
+  ]);
 });

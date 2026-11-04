@@ -29,12 +29,19 @@ const SearchAndChipsResults = props => {
     search,
     selectAllButton,
     results,
+    resultsMaxHeight,
     emptyMessages,
     isLoading = false,
     'results-aria-label': resultsAriaLabel
   } = props;
 
-  const {onClick, label, disabled = false, 'aria-label': ariaLabel} = selectAllButton;
+  const {
+    onClick,
+    label,
+    icon = 'add',
+    disabled = false,
+    'aria-label': ariaLabel
+  } = selectAllButton || {};
   const resultView = buildResultView(results, resultsAriaLabel, emptyMessages, isLoading);
   const buttonProps = {
     type: 'secondary',
@@ -43,7 +50,7 @@ const SearchAndChipsResults = props => {
     'data-name': `select-all-button`,
     icon: {
       position: 'right',
-      type: 'add'
+      type: icon
     },
     onClick,
     disabled
@@ -51,15 +58,37 @@ const SearchAndChipsResults = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.header}>
-        <div className={style.button}>
-          <ButtonLink {...buttonProps} />
+      {search || selectAllButton ? (
+        <div className={style.header}>
+          {selectAllButton ? (
+            <div className={style.button}>
+              <ButtonLink {...buttonProps} />
+            </div>
+          ) : null}
+          {search ? (
+            <div className={style.search}>
+              <Search {...search} theme="coorpmanager" />
+            </div>
+          ) : null}
         </div>
-        <div className={style.search}>
-          <Search {...search} theme="coorpmanager" />
-        </div>
-      </div>
-      <div className={style.resultContainer}>
+      ) : null}
+      <div
+        className={
+          resultsMaxHeight === undefined
+            ? style.resultContainer
+            : `${style.resultContainer} ${style.scrollResults}`
+        }
+        data-name={resultsMaxHeight === undefined ? undefined : 'results'}
+        style={
+          resultsMaxHeight === undefined
+            ? undefined
+            : {
+                maxHeight:
+                  typeof resultsMaxHeight === 'number' ? `${resultsMaxHeight}px` : resultsMaxHeight,
+                overflowY: 'auto'
+              }
+        }
+      >
         {isLoading ? (
           <div className={style.loaderContainer}>
             <Loader className={style.loader} theme="coorpmanager" />
@@ -73,8 +102,10 @@ const SearchAndChipsResults = props => {
 };
 
 SearchAndChipsResults.propTypes = {
+  resultsMaxHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   selectAllButton: PropTypes.shape({
     label: PropTypes.string,
+    icon: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     'aria-label': PropTypes.string

@@ -1,5 +1,5 @@
-import everyoneAndPopulations from './everyone-and-populations';
+import fewPopulations from './few-populations';
 
 export default {
-  props: {...everyoneAndPopulations.props, error: 'Choose an audience to publish.'}
+  props: {...fewPopulations.props, error: 'Choose an audience to publish.'}
 };

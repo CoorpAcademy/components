@@ -1,5 +1,5 @@
 import {AssignmentEditionPropsFixture} from '../../types';
-import audience from '../../../assignment-audience/test/fixtures/everyone-and-populations';
+import audience from '../../../assignment-audience/test/fixtures/few-populations';
 import filled from './draft-filled';
 
 const fixture: AssignmentEditionPropsFixture = {
