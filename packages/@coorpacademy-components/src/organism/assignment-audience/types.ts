@@ -41,10 +41,6 @@ const AssignmentAudiencePropTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   disabledExplanation: PropTypes.string,
-  team: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-  }),
   invalidTargets: PropTypes.arrayOf(
     PropTypes.shape({
       ref: PropTypes.string.isRequired,
@@ -55,28 +51,32 @@ const AssignmentAudiencePropTypes = {
   invalidLabel: PropTypes.string,
   error: PropTypes.string,
   disabled: PropTypes.bool,
-  everyone: PropTypes.shape({
-    title: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.bool.isRequired,
-    // Receives the new boolean
-    onChange: PropTypes.func.isRequired
-  }),
+
   populations: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
-    label: PropTypes.string,
+    selectAllLabel: PropTypes.string,
+    unselectAllLabel: PropTypes.string,
+    search: PropTypes.shape({
+      placeholder: PropTypes.string,
+      value: PropTypes.string,
+      onChange: PropTypes.func
+    }),
+    emptyMessages: PropTypes.shape({
+      firstMessage: PropTypes.string,
+      secondMessage: PropTypes.string
+    }),
     options: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         selected: PropTypes.bool.isRequired,
         // The population's learner count, formatted by the app, shown on its chip
-        count: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        all: PropTypes.bool,
+        locked: PropTypes.bool
       })
     ).isRequired,
-    // Prefixes a removable chip's accessible name, e.g. 'Remove' → « Remove Managers FR »
-    removeLabel: PropTypes.string,
     // Receives the selected options, with selected: true
     onChange: PropTypes.func.isRequired
   }),
@@ -207,6 +207,8 @@ export type PopulationOption = {
   value: string;
   selected: boolean;
   count?: string | number;
+  all?: boolean;
+  locked?: boolean;
 };
 
 export type Learner = {
@@ -250,23 +252,18 @@ export type AssignmentAudienceProps = {
   title: string;
   subtitle?: string;
   disabledExplanation?: string;
-  team?: {label: string; name: string};
   invalidTargets?: Array<{ref: string; label: string; onRemove: () => void}>;
   invalidLabel?: string;
   error?: string;
   disabled?: boolean;
-  everyone?: {
-    title?: string;
-    label: string;
-    value: boolean;
-    onChange: (value: boolean) => void;
-  };
   populations?: {
     title?: string;
     subtitle?: string;
-    label?: string;
+    selectAllLabel?: string;
+    unselectAllLabel?: string;
+    search?: {placeholder?: string; value?: string; onChange?: (query: string) => void};
+    emptyMessages?: {firstMessage?: string; secondMessage?: string};
     options: PopulationOption[];
-    removeLabel?: string;
     onChange: (selected: PopulationOption[]) => void;
   };
   upload?: UploadResultProps & {

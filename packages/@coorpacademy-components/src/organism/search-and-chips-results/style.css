@@ -46,3 +46,13 @@
   height: 60px;
   width: 60px;
 }
+
+.scrollResults > ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* No empty-header gap when a picker contains only results. */
+.container > .scrollResults:first-child {
+  margin-top: 0;
+}

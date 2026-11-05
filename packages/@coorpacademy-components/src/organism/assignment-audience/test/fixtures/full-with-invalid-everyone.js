@@ -1,8 +1,8 @@
-import everyoneOn from './everyone-on-with-sources';
+import combined from './combined';
 
 export default {
   props: {
-    ...everyoneOn.props,
+    ...combined.props,
     invalidLabel: "You can't assign to everyone. Remove it to publish.",
     invalidTargets: [
       {

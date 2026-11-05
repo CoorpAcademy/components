@@ -113,3 +113,31 @@ invalidProps.forEach(({name, props, path}) => {
     t.true(errors[0].includes(path));
   });
 });
+
+test.serial('runtime and typed audience accept population chips with optional controls', t => {
+  const props = makeProps();
+  props.audience = {
+    title: 'Audience',
+    populations: {
+      title: 'All My Group',
+      options: [
+        {name: 'Sales FR', value: 'sales-fr', selected: true, locked: true, count: '128 users'}
+      ],
+      onChange: () => undefined
+    }
+  };
+  t.deepEqual(validate(props), []);
+  t.is(
+    validate({
+      ...props,
+      audience: {
+        ...props.audience,
+        populations: {
+          ...props.audience.populations,
+          options: [{name: 'Sales FR', value: 'sales-fr'}]
+        }
+      }
+    }).length,
+    1
+  );
+});

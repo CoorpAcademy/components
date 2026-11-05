@@ -1,27 +1,22 @@
-// The audience section of the one-page assignment form: everyone, populations, a file of learner
 // logins and individual learners. Every string comes from the app. The file is keyed on login.
 export default {
   props: {
     title: 'Audience',
     subtitle: 'Who must complete these modules.',
     disabledExplanation:
-      'Every learner of the platform is assigned. Turn this off to pick an audience.',
-    everyone: {
-      value: false,
-      label: 'Assign to every learner of the platform',
-      title: 'Everyone',
-      onChange: value => console.log('everyone', value)
-    },
+      'Every learner of the platform is assigned. Unselect All users to pick other sources.',
     populations: {
       title: 'Populations',
       subtitle: 'Learners of these populations, including those who join later.',
-      label: 'Populations',
+      selectAllLabel: 'Select all',
+      unselectAllLabel: 'Unselect all',
+      search: {placeholder: 'Search populations', value: '', onChange: query => console.log(query)},
+      emptyMessages: {firstMessage: 'No populations match', secondMessage: 'Try another search'},
       options: [
-        {name: 'Managers FR', value: 'managers-fr', selected: true, count: '412'},
-        {name: 'Managers DE', value: 'managers-de', selected: true, count: '236'},
-        {name: 'Sales EMEA', value: 'sales-emea', selected: false, count: '1,204'}
+        {name: 'Managers FR', value: 'managers-fr', selected: true, count: '412 users'},
+        {name: 'Managers DE', value: 'managers-de', selected: true, count: '236 users'},
+        {name: 'Sales EMEA', value: 'sales-emea', selected: false, count: '1,204 users'}
       ],
-      removeLabel: 'Remove',
       onChange: options => console.log('populations', options)
     },
     upload: {
