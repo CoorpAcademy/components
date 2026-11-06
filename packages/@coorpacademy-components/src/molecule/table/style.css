@@ -279,16 +279,22 @@
   padding-right: 4px;
 }
 
+/* Same box and type as the other headers, so a sortable title sits over its cells' content. */
 .sortButton {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25px;
   border: 0;
   background: none;
-  font: inherit;
-  font-weight: 600;
-  color: inherit;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 70px;
+  white-space: nowrap;
+  color: medium;
   cursor: pointer;
 }
 
