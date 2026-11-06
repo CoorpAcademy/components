@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useMemo, useRef, useState, useEffect, useCallback} from 'react';
+import {createPortal} from 'react-dom';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {get, isString} from 'lodash/fp';
+import {get, isString, uniqueId} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
@@ -11,7 +12,6 @@ import {
   NovaSolidVideosVideoSubtitle as VideoSubtitleIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
-import Checkbox from '../../atom/checkbox';
 import InputCheckbox from '../../atom/input-checkbox';
 import Link from '../../atom/link';
 import ButtonLink from '../../atom/button-link';
@@ -27,8 +27,16 @@ const THEMES = {COCKPIT: 'cockpit'};
  */
 
 export const ACTION_LOOKS = {
-  danger: {className: style.dangerAction, color: COLORS.cm_negative_200, icon: 'trash'},
-  neutral: {className: style.neutralAction, color: COLORS.cm_primary_blue, icon: 'rotate-left'}
+  danger: {
+    className: style.dangerAction,
+    color: COLORS.cm_negative_200,
+    icon: 'trash'
+  },
+  neutral: {
+    className: style.neutralAction,
+    color: COLORS.cm_primary_blue,
+    icon: 'rotate-left'
+  }
 };
 // The link colour is static CSS (`dangerAction` / `neutralAction`); `color` only feeds the
 // pictogram, which button-link colours through its `faIcon` prop.
@@ -36,20 +44,148 @@ export const ACTION_LOOKS = {
 const SORT_ARROWS = {asc: '▲', desc: '▼'};
 const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
 
-const createOptionsView = (_options, hasOptions) => {
-  const optionsView = _options.map((option, oIndex) => {
-    const {onChange, selected} = option;
+const positionFilterPanel = (rect, panelHeight, viewport) => {
+  const edge = 8;
+  const width = Math.min(342, Math.max(0, viewport.innerWidth - 2 * edge));
+  const belowTop = Math.max(edge, Math.min(rect.bottom + 1, viewport.innerHeight - edge));
+  const below = Math.max(0, viewport.innerHeight - edge - belowTop);
+  const aboveBottom = Math.max(edge, Math.min(rect.top - 1, viewport.innerHeight - edge));
+  const above = Math.max(0, aboveBottom - edge);
+  const flip = panelHeight > below && above > below;
+  const maxHeight = flip ? above : below;
+  return {
+    position: 'fixed',
+    width,
+    left: Math.max(edge, Math.min(rect.left - 1, viewport.innerWidth - width - edge)),
+    top: flip ? aboveBottom - Math.min(panelHeight, maxHeight) : belowTop,
+    maxHeight,
+    visibility: 'visible'
+  };
+};
 
-    return (
-      <div key={oIndex} className={selected ? style.selected : style.option}>
-        <button type="button" onClick={onChange}>
-          {option.title}
-        </button>
+const FilterHeader = ({title, filtered, options, mediumColor}) => {
+  const prefix = useMemo(() => uniqueId('table-filter-'), []);
+  const triggerId = `${prefix}-trigger`;
+  const panelId = `${prefix}-panel`;
+  const [open, setOpen] = useState(false);
+  const [position, setPosition] = useState(null);
+  const focusedRef = useRef(false);
+  const triggerRef = useRef(null);
+  const panelRef = useRef(null);
+  const OptionsIcon = filtered ? FunnelIcon : ArrowDown;
+  const close = useCallback(() => {
+    setOpen(false);
+    triggerRef.current.focus();
+  }, []);
+  const toggle = useCallback(() => {
+    setPosition(null);
+    setOpen(value => !value);
+  }, []);
+  const chooseOption = useCallback(
+    event => {
+      close();
+      options[Number(event.currentTarget.dataset.optionIndex)].onChange(event);
+    },
+    [close, options]
+  );
+  const handleKeyDown = useCallback(
+    event => {
+      if (open && event.key === 'Escape') {
+        event.preventDefault();
+        event.stopPropagation();
+        close();
+      }
+    },
+    [open, close]
+  );
+
+  useEffect(() => {
+    if (!open) return;
+    const viewport = triggerRef.current.ownerDocument.defaultView;
+    const updatePosition = () => {
+      const rect = triggerRef.current.closest('th').getBoundingClientRect();
+      const panel = panelRef.current;
+      // Measure wrapped options at the new width before deciding which side has room.
+      panel.style.width = `${positionFilterPanel(rect, 0, viewport).width}px`;
+      const height = Math.max(panel.scrollHeight + 2, panel.getBoundingClientRect().height);
+      setPosition(positionFilterPanel(rect, height, viewport));
+    };
+    updatePosition();
+    viewport.addEventListener('scroll', updatePosition, true);
+    viewport.addEventListener('resize', updatePosition);
+    return () => {
+      viewport.removeEventListener('scroll', updatePosition, true);
+      viewport.removeEventListener('resize', updatePosition);
+    };
+  }, [open, options]);
+
+  useEffect(() => {
+    if (open && position && !focusedRef.current) {
+      panelRef.current.querySelector('button').focus({preventScroll: true});
+      focusedRef.current = true;
+    }
+    if (!open) focusedRef.current = false;
+  }, [open, position]);
+
+  const panel = (
+    <div
+      id={panelId}
+      ref={panelRef}
+      className={style.options}
+      role="group"
+      aria-labelledby={triggerId}
+      hidden={!open}
+      style={open ? position || {visibility: 'hidden'} : undefined}
+      onKeyDown={handleKeyDown}
+    >
+      {options.map((option, index) => (
+        <div key={index} className={option.selected ? style.selected : style.option}>
+          <button type="button" data-option-index={index} onClick={chooseOption}>
+            {option.title}
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className={style.toggle}>
+      <button
+        type="button"
+        id={triggerId}
+        ref={triggerRef}
+        className={style.filterButton}
+        aria-expanded={open}
+        aria-controls={panelId}
+        onClick={toggle}
+        onKeyDown={handleKeyDown}
+      >
+        {title}
+      </button>
+      <div className={style.optionsIconWrapper} aria-hidden="true">
+        <OptionsIcon
+          style={{color: mediumColor}}
+          height={16}
+          width={16}
+          className={style.optionsIcon}
+        />
       </div>
-    );
-  });
+      {open ? createPortal(panel, triggerRef.current.ownerDocument.body) : panel}
+    </div>
+  );
+};
 
-  return hasOptions ? <div className={style.options}>{optionsView}</div> : null;
+FilterHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  filtered: PropTypes.bool,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      onChange: PropTypes.func.isRequired,
+      selected: PropTypes.bool.isRequired
+    })
+  ).isRequired,
+  mediumColor: PropTypes.string
 };
 
 const buildTableContext = (translate, theme, headerTitle) => {
@@ -109,25 +245,21 @@ const Table = (props, context) => {
 
     const hasOptions = options.length > 0;
 
-    const OptionsIcon = (hasOptions && (filtered ? FunnelIcon : ArrowDown)) || null;
-
     return (
       <th title={info} key={cIndex}>
-        <div className={hasOptions ? style.toggle : style.noOptions}>
-          <Checkbox id={title} name={title} checked className={style.checkbox} />
-          <label htmlFor={title}>{title}</label>
-          {options.length > 0 ? createOptionsView(options, hasOptions) : null}
-          <div className={style.optionsIconWrapper}>
-            {hasOptions ? (
-              <OptionsIcon
-                style={{color: mediumColor}}
-                height={16}
-                width={16}
-                className={style.optionsIcon}
-              />
-            ) : null}
+        {hasOptions ? (
+          <FilterHeader
+            title={title}
+            filtered={filtered}
+            options={options}
+            mediumColor={mediumColor}
+          />
+        ) : (
+          <div className={style.noOptions}>
+            <span className={style.plainHeader}>{title}</span>
+            <div className={style.optionsIconWrapper} />
           </div>
-        </div>
+        )}
       </th>
     );
   });
@@ -208,7 +340,10 @@ const Table = (props, context) => {
               label={label}
               onClick={onClick}
               className={className}
-              icon={{position: 'left', faIcon: {name: icon, size: 14, color}}}
+              icon={{
+                position: 'left',
+                faIcon: {name: icon, size: 14, color}
+              }}
             />
           </td>
         );

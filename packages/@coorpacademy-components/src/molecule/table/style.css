@@ -65,20 +65,21 @@
   background-color: xtraLightGrey;
 }
 
-.checkbox {
-  display: none;
-}
-
-.checkbox:checked ~ .options {
-  display: block;
-}
+.noOptions {}
 
 .toggle {
   width: 100%;
 }
 
-.toggle label,
-.noOptions label {
+.filterButton {
+  border: 0;
+  background: none;
+  margin: 0;
+  text-align: inherit;
+}
+
+.filterButton,
+.plainHeader {
   display: inline-block;
   cursor: pointer;
   font-family: 'Gilroy';
@@ -92,7 +93,7 @@
   width: 100%;
 }
 
-.noOptions label {
+.plainHeader {
   cursor: auto;
 }
 
@@ -113,11 +114,14 @@
 }
 
 .options {
-  display: none;
-  position: absolute;
-  top: 72px;
-  left: -1px;
-  width: 300px;
+  position: fixed;
+  z-index: 10;
+  box-sizing: border-box;
+  width: 342px;
+  max-width: calc(100vw - 16px);
+  overflow-y: auto;
+  font-family: 'Gilroy';
+  text-align: left;
   padding: 20px;
   background-color: white;
   border: 1px solid light;
@@ -127,7 +131,6 @@
 .option button {
   cursor: pointer;
   border: none;
-  outline: 0;
   padding: 0;
   background: none;
   font-family: 'Gilroy';
@@ -226,7 +229,7 @@
   text-align: left;
 }
 
-.cockpit thead tr th .noOptions label {
+.cockpit thead tr th .plainHeader {
   padding: 0;
   font-size: 23px;
   margin: 0;
@@ -354,4 +357,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.options[hidden] {
+  display: none;
+}
+
+.filterButton:focus-visible,
+.option button:focus-visible {
+  outline: 2px solid dark;
+  outline-offset: 2px;
 }
