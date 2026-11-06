@@ -293,8 +293,20 @@
 }
 
 .sortArrow {
-  font-size: 10px;
+  display: flex;
+  align-items: center;
   min-width: 10px;
+}
+
+.sortIdle {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  opacity: 0.4;
+}
+
+.sortActive {
+  display: block;
 }
 
 

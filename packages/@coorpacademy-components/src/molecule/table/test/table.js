@@ -392,9 +392,15 @@ test.serial('a column with onClick renders a sort button showing its order, and 
   t.is(headers[1].getAttribute('aria-sort'), 'ascending');
   t.is(headers[2].getAttribute('aria-sort'), 'descending');
   t.is(headers[3].getAttribute('aria-sort'), 'none');
-  t.truthy(headers[1].textContent.includes('▲'));
-  t.truthy(headers[2].textContent.includes('▼'));
-  t.false(headers[3].textContent.includes('▲') || headers[3].textContent.includes('▼'));
+  const icons = header =>
+    [...header.querySelectorAll('[data-testid^="table-sort-"]')].map(icon =>
+      icon.getAttribute('data-testid')
+    );
+  t.deepEqual(icons(headers[0]), []);
+  t.deepEqual(icons(headers[1]), ['table-sort-asc']);
+  t.deepEqual(icons(headers[2]), ['table-sort-desc']);
+  t.deepEqual(icons(headers[3]), ['table-sort-none-up', 'table-sort-none-down']);
+  headers.forEach(header => t.notRegex(header.textContent, /[▲▼]/));
   getByRole('button', {name: /Due date/}).click();
   getByRole('button', {name: /Completed on/}).click();
   t.deepEqual(clicks, ['due', 'completed']);

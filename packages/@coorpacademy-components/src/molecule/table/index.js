@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {get, isString, uniqueId} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionNavigationArrowTop as ArrowUp,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
   NovaSolidContentEditionPencil1 as PencilIcon,
   NovaCompositionCoorpacademyDraft as DraftIcon,
@@ -33,8 +34,28 @@ export const ACTION_LOOKS = {
 // The link colour is static CSS (`dangerAction` / `neutralAction`); `color` only feeds the
 // pictogram, which button-link colours through its `faIcon` prop.
 
-const SORT_ARROWS = {asc: '▲', desc: '▼'};
 const ARIA_SORT = {asc: 'ascending', desc: 'descending'};
+
+// Sorting is a header chevron, as elsewhere on CM: one chevron on the sort column, a dimmed
+// up/down pair on the others, so a sortable header never looks like a filter dropdown.
+const SortIcon = ({order, color}) => {
+  const icon = (Icon, testId, className) => (
+    <Icon data-testid={testId} className={className} style={{color}} height={10} width={10} />
+  );
+  if (order === 'asc') return icon(ArrowUp, 'table-sort-asc', style.sortActive);
+  if (order === 'desc') return icon(ArrowDown, 'table-sort-desc', style.sortActive);
+  return (
+    <span className={style.sortIdle}>
+      {icon(ArrowUp, 'table-sort-none-up')}
+      {icon(ArrowDown, 'table-sort-none-down')}
+    </span>
+  );
+};
+
+SortIcon.propTypes = {
+  order: PropTypes.oneOf(['asc', 'desc', '']),
+  color: PropTypes.string
+};
 
 const positionFilterPanel = (rect, panelHeight, viewport) => {
   const edge = 8;
@@ -227,7 +248,7 @@ const Table = (props, context) => {
           <button type="button" className={style.sortButton} onClick={onClick}>
             <span>{title}</span>
             <span className={style.sortArrow} aria-hidden="true">
-              {SORT_ARROWS[order] || ''}
+              <SortIcon order={order} color={mediumColor} />
             </span>
           </button>
         </th>

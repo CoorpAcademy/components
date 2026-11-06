@@ -31,7 +31,22 @@ test.serial(
     );
     t.deepEqual(
       [...container.querySelectorAll('thead th button')].map(button => button.textContent),
-      ['Learner', 'Status', 'Progress', 'Due date▲', 'Completed on', 'Last reminder']
+      ['Learner', 'Status', 'Progress', 'Due date', 'Completed on', 'Last reminder']
+    );
+    t.deepEqual(
+      [...container.querySelectorAll('thead th')].map(th =>
+        [...th.querySelectorAll('[data-testid^="table-sort-"]')].map(icon =>
+          icon.getAttribute('data-testid')
+        )
+      ),
+      [
+        ['table-sort-none-up', 'table-sort-none-down'],
+        ['table-sort-none-up', 'table-sort-none-down'],
+        ['table-sort-none-up', 'table-sort-none-down'],
+        ['table-sort-asc'],
+        ['table-sort-none-up', 'table-sort-none-down'],
+        ['table-sort-none-up', 'table-sort-none-down']
+      ]
     );
     const rows = container.querySelectorAll('tbody tr');
     t.is(rows.length, 4);

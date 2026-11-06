@@ -46,7 +46,7 @@ export const OpenOneRow = story(singleRowFixture.props);
 OpenOneRow.play = openFilter('Populations');
 
 export const OpenUnfilteredArrow = story(defaultFixture.props, 860);
-OpenUnfilteredArrow.play = openFilter('Name');
+OpenUnfilteredArrow.play = openFilter('Provider');
 
 export const OpenFilteredFunnel = story(defaultFixture.props, 860);
 OpenFilteredFunnel.play = openFilter('Last name');
