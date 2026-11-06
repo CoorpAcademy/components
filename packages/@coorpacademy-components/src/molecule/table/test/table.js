@@ -4,6 +4,7 @@ import path from 'path';
 import postcss from 'postcss';
 import browserEnv from 'browser-env';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 import PropTypes from 'prop-types';
 import {render, cleanup, fireEvent, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
@@ -19,7 +20,7 @@ import taggedFixture from './fixtures/tagged-cells';
 import actionFixture from './fixtures/action-cells';
 
 browserEnv();
-test.afterEach(cleanup);
+test.afterEach.always(cleanup);
 
 const options = {wrapper: wrappingComponent};
 
@@ -391,15 +392,21 @@ test.serial('a column with onClick renders a sort button showing its order, and 
   t.is(headers[1].getAttribute('aria-sort'), 'ascending');
   t.is(headers[2].getAttribute('aria-sort'), 'descending');
   t.is(headers[3].getAttribute('aria-sort'), 'none');
-  t.truthy(headers[1].textContent.includes('▲'));
-  t.truthy(headers[2].textContent.includes('▼'));
-  t.false(headers[3].textContent.includes('▲') || headers[3].textContent.includes('▼'));
+  const icons = header =>
+    [...header.querySelectorAll('[data-testid^="table-sort-"]')].map(icon =>
+      icon.getAttribute('data-testid')
+    );
+  t.deepEqual(icons(headers[0]), []);
+  t.deepEqual(icons(headers[1]), ['table-sort-asc']);
+  t.deepEqual(icons(headers[2]), ['table-sort-desc']);
+  t.deepEqual(icons(headers[3]), ['table-sort-none-up', 'table-sort-none-down']);
+  headers.forEach(header => t.notRegex(header.textContent, /[▲▼]/));
   getByRole('button', {name: /Due date/}).click();
   getByRole('button', {name: /Completed on/}).click();
   t.deepEqual(clicks, ['due', 'completed']);
 });
 
-test.serial('a column with options keeps the existing menu and no sort button', t => {
+test.serial('a column with options renders a filter button and no sort button', t => {
   const {container, queryByRole} = render(
     <Table
       editable={false}
@@ -413,7 +420,9 @@ test.serial('a column with options keeps the existing menu and no sort button', 
     />,
     options
   );
-  t.is(queryByRole('button', {name: /^Name/}), null);
+  t.truthy(queryByRole('button', {name: /^Name/}));
+  t.is(container.querySelector(`.${style.sortButton}`), null);
+  t.is(container.querySelector('th').getAttribute('aria-sort'), null);
   t.truthy(container.querySelector(`.${style.options}`));
 });
 
@@ -716,6 +725,16 @@ test.serial(
         view.container.querySelectorAll(`.${style.options}`).length,
         props.columns.filter(column => column.options && column.options.length).length
       );
+
+      [...view.container.querySelectorAll(`.${style.options}`)].forEach(panel => {
+        t.true(panel.hidden);
+        t.is(
+          view.container
+            .querySelector(`[aria-controls="${panel.id}"]`)
+            .getAttribute('aria-expanded'),
+          'false'
+        );
+      });
       t.is(
         view.container.querySelectorAll(`.${style.actionCell}`).length,
         props.rows.reduce(
@@ -803,7 +822,10 @@ test.serial(
     t.deepEqual(rowCells(), [1, 1]);
     t.is(view.container.querySelectorAll('th').length, 1);
     t.is(view.container.querySelector('[data-name="checkbox-input"]'), null);
-    t.truthy(within(view.container).getByRole('checkbox', {name: 'Name'}));
+
+    t.is(within(view.container).queryByRole('checkbox'), null);
+    t.is(within(view.container).queryByRole('button'), null);
+    t.is(view.container.querySelector('th').textContent, 'Name');
     t.deepEqual(
       [...view.container.querySelectorAll('tbody td')].map(cell => cell.textContent),
       ['Alice', 'Bob']
@@ -1042,4 +1064,531 @@ test.serial('selection descriptors validate required fields and optional absence
       'Table'
     )
   );
+});
+
+const filterColumns = (onChange = () => {}) => [
+  {
+    title: 'Populations',
+    filtered: true,
+    options: [
+      {title: 'All populations', selected: false, onChange},
+      {title: 'Sales Europe', selected: true, onChange}
+    ]
+  }
+];
+
+test.serial('filter starts closed and its title toggles aria-expanded', t => {
+  const view = render(<Table editable={false} columns={filterColumns()} />, options);
+  const trigger = view.getByRole('button', {name: 'Populations'});
+  t.is(trigger.type, 'button');
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  const panelId = trigger.getAttribute('aria-controls');
+  t.truthy(panelId);
+  t.true(document.getElementById(panelId).hidden);
+  t.is(view.queryByRole('button', {name: 'All populations'}), null);
+  fireEvent.click(trigger);
+  t.is(trigger.getAttribute('aria-expanded'), 'true');
+  t.is(view.getByRole('group', {name: 'Populations'}).id, panelId);
+  t.truthy(view.getByRole('button', {name: 'All populations'}));
+  fireEvent.click(trigger);
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  t.true(document.getElementById(panelId).hidden);
+});
+
+test.serial('choosing an option closes and calls only its latest callback once', t => {
+  const calls = [];
+  let submits = 0;
+  const table = columns => (
+    <form
+      onSubmit={event => {
+        event.preventDefault();
+        submits++;
+      }}
+    >
+      <Table editable={false} columns={columns} />
+    </form>
+  );
+  const view = render(table(filterColumns(event => calls.push(['old', event]))), options);
+  const trigger = view.getByRole('button', {name: 'Populations'});
+  fireEvent.click(trigger);
+  const selected = view.getByRole('button', {name: 'Sales Europe'});
+  t.is(selected.parentElement.className, style.selected);
+  const event = new window.MouseEvent('click', {bubbles: true});
+  fireEvent(selected, event);
+  t.is(calls.length, 1);
+  t.is(calls[0][1].nativeEvent, event);
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  t.is(document.activeElement, trigger);
+  fireEvent.click(trigger);
+  const columns = filterColumns(event_ => calls.push(['new', event_]));
+  columns[0].options.forEach(option => {
+    option.selected = !option.selected;
+  });
+  view.rerender(table(columns));
+  const all = view.getByRole('button', {name: 'All populations'});
+  t.is(all.parentElement.className, style.selected);
+  fireEvent.click(view.getByRole('button', {name: 'Sales Europe'}));
+  t.deepEqual(
+    calls.map(([name]) => name),
+    ['old', 'new']
+  );
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  t.is(submits, 0);
+});
+
+test.serial('keyboard opens the filter and Escape restores trigger focus', async t => {
+  // browser-env's jsdom has no text Selection API; these controls contain no editable text.
+  const originalSelection = document.getSelection;
+  document.getSelection = () => null;
+  t.teardown(() => {
+    if (originalSelection) document.getSelection = originalSelection;
+    else delete document.getSelection;
+  });
+  const user = userEvent.setup({document});
+  const view = render(<Table columns={filterColumns()} />, options);
+  const trigger = view.getByRole('button', {name: 'Populations'});
+  trigger.focus();
+  await user.keyboard('{Enter}');
+  t.is(document.activeElement, view.getByRole('button', {name: 'All populations'}));
+  await user.tab();
+  t.is(document.activeElement, view.getByRole('button', {name: 'Sales Europe'}));
+  await user.keyboard('{Escape}');
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  t.is(document.activeElement, trigger);
+  await user.keyboard(' ');
+  t.is(trigger.getAttribute('aria-expanded'), 'true');
+  trigger.focus();
+  await user.keyboard('{Escape}');
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  t.is(document.activeElement, trigger);
+});
+
+test.serial(
+  'duplicate titles have distinct stable trigger and panel ids across columns and tables',
+  t => {
+    const tables = rows => (
+      <>
+        <Table columns={[...filterColumns(), ...filterColumns()]} rows={rows} />
+        <Table columns={filterColumns()} />
+      </>
+    );
+    const view = render(tables([]), options);
+    const triggers = view.getAllByRole('button', {name: 'Populations'});
+    const ids = triggers.flatMap(trigger => [trigger.id, trigger.getAttribute('aria-controls')]);
+    t.is(new Set(ids).size, 6);
+    triggers.forEach(trigger => {
+      t.is(
+        document
+          .getElementById(trigger.getAttribute('aria-controls'))
+          .getAttribute('aria-labelledby'),
+        trigger.id
+      );
+    });
+    view.rerender(tables([{fields: ['Alice', 'Sales Europe']}]));
+    t.deepEqual(
+      view
+        .getAllByRole('button', {name: 'Populations'})
+        .flatMap(trigger => [trigger.id, trigger.getAttribute('aria-controls')]),
+      ids
+    );
+    fireEvent.click(triggers[0]);
+    t.deepEqual(
+      triggers.map(trigger => trigger.getAttribute('aria-expanded')),
+      ['true', 'false', 'false']
+    );
+  }
+);
+
+test.serial('removing an open filter cleans up its panel', t => {
+  const view = render(
+    <Table columns={filterColumns()} rows={[{fields: ['Sales Europe']}]} />,
+    options
+  );
+  const open = () => {
+    const trigger = view.getByRole('button', {name: 'Populations'});
+    fireEvent.click(trigger);
+    return trigger.getAttribute('aria-controls');
+  };
+  const id = open();
+  view.rerender(<Table columns={filterColumns()} rows={[]} />);
+  t.is(view.getByRole('group', {name: 'Populations'}).id, id);
+  view.rerender(<Table columns={[{title: 'Populations', options: []}]} />);
+  t.is(document.getElementById(id), null);
+  t.is(view.queryByRole('button', {name: 'Populations'}), null);
+  view.rerender(<Table columns={filterColumns()} />);
+  const removedId = open();
+  view.rerender(<Table columns={[]} />);
+  t.is(document.getElementById(removedId), null);
+  view.rerender(<Table columns={filterColumns()} />);
+  const unmountedId = open();
+  view.unmount();
+  t.is(document.getElementById(unmountedId), null);
+});
+
+test.serial('sort action takes precedence over options', t => {
+  let clicks = 0;
+  const view = render(
+    <Table columns={[{...filterColumns()[0], onClick: () => clicks++}]} />,
+    options
+  );
+  const trigger = view.getByRole('button', {name: 'Populations'});
+  fireEvent.click(trigger);
+  t.is(clicks, 1);
+  t.true(trigger.classList.contains(style.sortButton));
+  t.false(trigger.hasAttribute('aria-controls'));
+  t.is(view.container.querySelector(`.${style.options}`), null);
+});
+
+test.serial('open panel escapes the scroll wrapper and tracks its trigger', t => {
+  const panelRule = postcss
+    .parse(readFileSync(path.join(__dirname, '../style.css'), 'utf8'))
+    .nodes.find(node => node.type === 'rule' && node.selector === '.options');
+  t.true(panelRule.nodes.some(node => node.prop === 'position' && node.value === 'fixed'));
+  const originalRect = window.HTMLElement.prototype.getBoundingClientRect;
+  let left = 120;
+  let bottom = 110;
+  window.HTMLElement.prototype.getBoundingClientRect = function getRect() {
+    return this.tagName === 'TH'
+      ? {
+          left,
+          top: bottom - 74,
+          bottom,
+          width: 180,
+          height: 74,
+          right: left + 180
+        }
+      : {left: 0, top: 0, bottom: 192, width: 342, height: 192, right: 342};
+  };
+  try {
+    [undefined, 'cockpit'].forEach(theme => {
+      [[], [{fields: ['Sales Europe']}]].forEach(rows => {
+        left = 120;
+        bottom = 110;
+        const view = render(<Table theme={theme} columns={filterColumns()} rows={rows} />, options);
+        const trigger = view.getByRole('button', {name: 'Populations'});
+        fireEvent.click(trigger);
+        const panel = view.getByRole('group', {name: 'Populations'});
+        t.is(panel.parentElement, document.body);
+        t.false(view.container.contains(panel));
+        t.is(panel.style.left, '119px');
+        t.is(panel.style.top, '111px');
+        left = 60;
+        fireEvent.scroll(view.container.firstChild);
+        t.is(panel.style.left, '59px');
+        bottom = 130;
+        fireEvent(window, new window.Event('resize'));
+        t.is(panel.style.top, '131px');
+        view.unmount();
+        t.is(document.getElementById(panel.id), null);
+      });
+    });
+  } finally {
+    window.HTMLElement.prototype.getBoundingClientRect = originalRect;
+  }
+});
+
+test.serial('panel stays within a narrow viewport and releases listeners on close', t => {
+  const originalRect = window.HTMLElement.prototype.getBoundingClientRect;
+  const widthDescriptor = Object.getOwnPropertyDescriptor(window, 'innerWidth');
+  const heightDescriptor = Object.getOwnPropertyDescriptor(window, 'innerHeight');
+  const add = window.addEventListener;
+  const remove = window.removeEventListener;
+  const subscriptions = new Set();
+  let measurements = 0;
+  let top = 240;
+  let panelHeight = 180;
+  Object.defineProperty(window, 'innerWidth', {
+    configurable: true,
+    value: 280
+  });
+  Object.defineProperty(window, 'innerHeight', {
+    configurable: true,
+    value: 360
+  });
+  window.addEventListener = function subscribe(type, listener, capture) {
+    if (type === 'scroll' || type === 'resize') subscriptions.add(listener);
+    return add.call(this, type, listener, capture);
+  };
+  window.removeEventListener = function unsubscribe(type, listener, capture) {
+    subscriptions.delete(listener);
+    return remove.call(this, type, listener, capture);
+  };
+  window.HTMLElement.prototype.getBoundingClientRect = function getRect() {
+    measurements++;
+    return this.tagName === 'TH'
+      ? {
+          left: 250,
+          top,
+          bottom: top + 74,
+          height: 74,
+          width: 100,
+          right: 350
+        }
+      : {
+          left: 0,
+          top: 0,
+          bottom: panelHeight,
+          height: panelHeight,
+          width: 264,
+          right: 264
+        };
+  };
+  try {
+    const view = render(<Table columns={filterColumns()} />, options);
+    const trigger = view.getByRole('button', {name: 'Populations'});
+    fireEvent.click(trigger);
+    const panel = view.getByRole('group', {name: 'Populations'});
+    t.is(panel.style.width, '264px');
+    t.is(panel.style.left, '8px');
+    t.is(panel.style.top, '59px');
+    t.is(panel.style.maxHeight, '231px');
+    top = -20;
+    fireEvent.scroll(view.container.firstChild);
+    t.is(panel.style.top, '55px');
+    t.is(panel.style.maxHeight, '297px');
+    top = 130;
+    panelHeight = 500;
+    fireEvent(window, new window.Event('resize'));
+    t.is(panel.style.top, '205px');
+    t.is(panel.style.maxHeight, '147px');
+    t.true(subscriptions.size > 0);
+    fireEvent.click(trigger);
+    t.is(subscriptions.size, 0);
+    const previous = measurements;
+    fireEvent.scroll(view.container.firstChild);
+    fireEvent(window, new window.Event('resize'));
+    t.is(measurements, previous);
+    fireEvent.click(trigger);
+    view.rerender(<Table columns={[]} />);
+    t.is(subscriptions.size, 0);
+    view.rerender(<Table columns={filterColumns()} />);
+    fireEvent.click(view.getByRole('button', {name: 'Populations'}));
+    view.unmount();
+    t.is(subscriptions.size, 0);
+  } finally {
+    window.HTMLElement.prototype.getBoundingClientRect = originalRect;
+    Object.defineProperty(window, 'innerWidth', widthDescriptor);
+    Object.defineProperty(window, 'innerHeight', heightDescriptor);
+    window.addEventListener = add;
+    window.removeEventListener = remove;
+  }
+});
+
+test.serial('widening the viewport measures wrapped options before choosing panel placement', t => {
+  const originalRect = window.HTMLElement.prototype.getBoundingClientRect;
+  const widthDescriptor = Object.getOwnPropertyDescriptor(window, 'innerWidth');
+  const heightDescriptor = Object.getOwnPropertyDescriptor(window, 'innerHeight');
+  Object.defineProperty(window, 'innerWidth', {configurable: true, value: 280, writable: true});
+  Object.defineProperty(window, 'innerHeight', {configurable: true, value: 600});
+  window.HTMLElement.prototype.getBoundingClientRect = function getRect() {
+    if (this.tagName === 'TH') {
+      return {left: 120, right: 300, top: 300, bottom: 374, width: 180, height: 74};
+    }
+    // jsdom cannot lay out text. Model options wrapping only once their panel is constrained.
+    const width = Math.min(Number.parseFloat(this.style.width) || 342, window.innerWidth - 16);
+    const height = width < 342 ? 280 : 150;
+    return {left: 0, right: width, top: 0, bottom: height, width, height};
+  };
+  try {
+    const columns = filterColumns();
+    columns[0].options[1].title =
+      'Sales Europe, customer success and onboarding teams participating in the leadership programme';
+    const view = render(<Table columns={columns} />, options);
+    const trigger = view.getByRole('button', {name: 'Populations'});
+    fireEvent.click(trigger);
+    const panel = view.getByRole('group', {name: 'Populations'});
+    t.is(panel.style.top, '19px');
+    window.innerWidth = 1000;
+    fireEvent(window, new window.Event('resize'));
+    t.is(panel.style.width, '342px');
+    // The wider panel needs only 150px and fits in the 217px below the header.
+    t.is(panel.style.top, '375px');
+    t.is(panel.style.maxHeight, '217px');
+    t.is(document.activeElement, within(panel).getByRole('button', {name: 'All populations'}));
+    window.innerWidth = 280;
+    fireEvent(window, new window.Event('resize'));
+    t.is(panel.style.width, '264px');
+    t.is(panel.style.top, '19px');
+    t.is(panel.style.maxHeight, '291px');
+  } finally {
+    window.HTMLElement.prototype.getBoundingClientRect = originalRect;
+    Object.defineProperty(window, 'innerWidth', widthDescriptor);
+    Object.defineProperty(window, 'innerHeight', heightDescriptor);
+  }
+});
+
+test.serial('open filters in separate tables keep independent focus and dismissal', t => {
+  const calls = [];
+  const view = render(
+    <>
+      <Table columns={filterColumns(() => calls.push('first'))} />
+      <Table columns={filterColumns(() => calls.push('second'))} />
+      <button type="button">Outside filters</button>
+    </>,
+    options
+  );
+  const [first, second] = view.getAllByRole('button', {name: 'Populations'});
+  fireEvent.click(first);
+  fireEvent.click(second);
+  const [firstPanel, secondPanel] = [first, second].map(trigger =>
+    document.getElementById(trigger.getAttribute('aria-controls'))
+  );
+  t.false(firstPanel.hidden);
+  t.false(secondPanel.hidden);
+  const outside = view.getByRole('button', {name: 'Outside filters'});
+  outside.focus();
+  fireEvent.keyDown(outside, {key: 'Escape'});
+  t.is(document.activeElement, outside);
+  t.is(first.getAttribute('aria-expanded'), 'true');
+  t.is(second.getAttribute('aria-expanded'), 'true');
+  const firstOption = within(firstPanel).getByRole('button', {name: 'All populations'});
+  firstOption.focus();
+  fireEvent.keyDown(firstOption, {key: 'Escape'});
+  t.is(first.getAttribute('aria-expanded'), 'false');
+  t.is(second.getAttribute('aria-expanded'), 'true');
+  t.is(document.activeElement, first);
+  t.true(document.getElementById(firstPanel.id).hidden);
+  t.is(document.getElementById(secondPanel.id), secondPanel);
+  fireEvent.click(within(secondPanel).getByRole('button', {name: 'Sales Europe'}));
+  t.deepEqual(calls, ['second']);
+  t.is(second.getAttribute('aria-expanded'), 'false');
+  t.is(document.activeElement, second);
+  t.is(view.queryByRole('group', {name: 'Populations'}), null);
+});
+
+test.serial('changing open options repositions using full scroll height and preserves focus', t => {
+  const widthDescriptor = Object.getOwnPropertyDescriptor(window, 'innerWidth');
+  const heightDescriptor = Object.getOwnPropertyDescriptor(window, 'innerHeight');
+  Object.defineProperty(window, 'innerWidth', {configurable: true, value: 1000});
+  Object.defineProperty(window, 'innerHeight', {configurable: true, value: 600});
+  try {
+    const view = render(<Table columns={filterColumns()} />, options);
+    const trigger = view.getByRole('button', {name: 'Populations'});
+    trigger.closest('th').getBoundingClientRect = () => ({
+      left: 120,
+      right: 300,
+      top: 300,
+      bottom: 374,
+      width: 180,
+      height: 74
+    });
+    fireEvent.click(trigger);
+    const panel = view.getByRole('group', {name: 'Populations'});
+    let contentHeight = 150;
+    Object.defineProperty(panel, 'scrollHeight', {get: () => contentHeight});
+    panel.getBoundingClientRect = () => ({
+      height: Math.min(contentHeight + 2, Number.parseFloat(panel.style.maxHeight))
+    });
+    fireEvent(window, new window.Event('resize'));
+    t.is(panel.style.top, '375px');
+    const focused = within(panel).getByRole('button', {name: 'Sales Europe'});
+    focused.focus();
+    const columns = filterColumns();
+    columns[0].options.push(
+      ...Array.from({length: 20}, (_, index) => ({
+        title: `Population ${index + 1}`,
+        selected: false,
+        onChange: () => {}
+      }))
+    );
+    contentHeight = 700;
+    view.rerender(<Table columns={columns} />);
+    t.is(view.getByRole('group', {name: 'Populations'}), panel);
+    t.is(trigger.getAttribute('aria-controls'), panel.id);
+    t.is(panel.style.top, '8px');
+    t.is(panel.style.maxHeight, '291px');
+    t.is(document.activeElement, focused);
+    contentHeight = 150;
+    view.rerender(<Table columns={filterColumns()} />);
+    t.is(panel.style.top, '375px');
+    t.is(panel.style.maxHeight, '217px');
+    t.is(document.activeElement, focused);
+  } finally {
+    Object.defineProperty(window, 'innerWidth', widthDescriptor);
+    Object.defineProperty(window, 'innerHeight', heightDescriptor);
+  }
+});
+
+test.serial('reordered frozen options keep controlled selection and distinct callbacks', t => {
+  const calls = [];
+  const all = Object.freeze({
+    title: 'All populations',
+    selected: false,
+    onChange: event => calls.push(['all', event.currentTarget.textContent, event.type])
+  });
+  const sales = Object.freeze({
+    title: 'Sales Europe',
+    selected: true,
+    onChange: event => calls.push(['sales', event.currentTarget.textContent, event.type])
+  });
+  const columns = values =>
+    Object.freeze([Object.freeze({title: 'Populations', options: Object.freeze(values)})]);
+  const view = render(<Table columns={columns([all, sales])} />, options);
+  const trigger = view.getByRole('button', {name: 'Populations'});
+  const panelId = trigger.getAttribute('aria-controls');
+  fireEvent.click(trigger);
+  view.rerender(<Table columns={columns([sales, all])} />);
+  t.is(view.getByRole('group', {name: 'Populations'}).id, panelId);
+  fireEvent.click(view.getByRole('button', {name: 'All populations'}));
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  fireEvent.click(trigger);
+  t.is(view.getByRole('button', {name: 'Sales Europe'}).parentElement.className, style.selected);
+  t.is(view.getByRole('button', {name: 'All populations'}).parentElement.className, style.option);
+  fireEvent.click(view.getByRole('button', {name: 'Sales Europe'}));
+  t.deepEqual(calls, [
+    ['all', 'All populations', 'click'],
+    ['sales', 'Sales Europe', 'click']
+  ]);
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  t.is(document.activeElement, trigger);
+});
+
+test.serial('a table in another document anchors and focuses its panel in that document', t => {
+  const frame = document.createElement('iframe');
+  document.body.append(frame);
+  const frameDocument = frame.contentDocument;
+  const frameWindow = frame.contentWindow;
+  Object.defineProperty(frameWindow, 'innerWidth', {
+    configurable: true,
+    value: 800,
+    writable: true
+  });
+  const container = frameDocument.createElement('div');
+  frameDocument.body.append(container);
+  let view;
+  try {
+    view = render(<Table columns={filterColumns()} />, {...options, container});
+    const trigger = within(container).getByRole('button', {name: 'Populations'});
+    trigger.closest('th').getBoundingClientRect = () => ({
+      left: 700,
+      right: 800,
+      top: 100,
+      bottom: 174,
+      width: 100,
+      height: 74
+    });
+    fireEvent.click(trigger);
+    const panelId = trigger.getAttribute('aria-controls');
+    const panel = within(frameDocument.body).getByRole('group', {name: 'Populations'});
+    t.is(panel.parentElement, frameDocument.body);
+    t.is(frameDocument.getElementById(panelId), panel);
+    t.is(document.getElementById(panelId), null);
+    t.is(panel.style.left, '450px');
+    t.is(panel.style.top, '175px');
+    t.is(frameDocument.activeElement, within(panel).getByRole('button', {name: 'All populations'}));
+    frameWindow.innerWidth = 280;
+    fireEvent(frameWindow, new frameWindow.Event('resize'));
+    t.is(panel.style.width, '264px');
+    t.is(panel.style.left, '8px');
+    fireEvent.keyDown(frameDocument.activeElement, {key: 'Escape'});
+    t.is(trigger.getAttribute('aria-expanded'), 'false');
+    t.is(frameDocument.activeElement, trigger);
+    t.is(frameDocument.getElementById(panelId).hidden, true);
+    fireEvent.click(trigger);
+    view.unmount();
+    t.is(frameDocument.getElementById(panelId), null);
+  } finally {
+    if (view) view.unmount();
+    frame.remove();
+  }
 });

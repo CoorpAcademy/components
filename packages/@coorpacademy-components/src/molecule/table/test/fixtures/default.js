@@ -61,63 +61,46 @@ export default {
     columns: [
       {
         title: 'Name',
-        filtered: false,
-        options: [
-          {
-            title: 'Sort A -> Z',
-            onChange: () => {},
-            selected: false
-          },
-          {
-            title: 'Sort Z -> A',
-            onChange: () => {},
-            selected: false
-          }
-        ]
+        order: 'asc',
+        onClick: () => {}
       },
       {
         title: 'Last name',
         filtered: true,
         options: [
           {
-            title: 'Sort A -> Z',
-            onChange: () => {},
-            selected: true
-          },
-          {
-            title: 'Sort Z -> A',
+            title: 'All last names',
             onChange: () => {},
             selected: false
+          },
+          {
+            title: 'Blabla',
+            onChange: () => {},
+            selected: true
           }
         ]
       },
       {
         title: 'Email',
-        filtered: false,
-        options: [
-          {
-            title: 'Sort A -> Z',
-            onChange: () => {},
-            selected: false
-          },
-          {
-            title: 'Sort Z -> A',
-            onChange: () => {},
-            selected: false
-          }
-        ]
+        order: '',
+        onClick: () => {}
       },
       {
         title: 'Provider',
         filtered: false,
         options: [
           {
-            title: 'Sort A -> Z',
+            title: 'All providers',
+            onChange: () => {},
+            selected: true
+          },
+          {
+            title: 'Michel',
             onChange: () => {},
             selected: false
           },
           {
-            title: 'Sort Z -> A',
+            title: 'Google',
             onChange: () => {},
             selected: false
           }
@@ -125,35 +108,13 @@ export default {
       },
       {
         title: 'Something',
-        filtered: false,
-        options: [
-          {
-            title: 'Sort A -> Z',
-            onChange: () => {},
-            selected: false
-          },
-          {
-            title: 'Sort Z -> A',
-            onChange: () => {},
-            selected: false
-          }
-        ]
+        order: '',
+        onClick: () => {}
       },
       {
         title: 'Something else',
-        filtered: false,
-        options: [
-          {
-            title: 'Sort A -> Z',
-            onChange: () => {},
-            selected: false
-          },
-          {
-            title: 'Sort Z -> A',
-            onChange: () => {},
-            selected: false
-          }
-        ]
+        order: '',
+        onClick: () => {}
       }
     ]
   }
