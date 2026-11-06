@@ -489,11 +489,7 @@ test.serial('an action cell shows its state text before the action', t => {
             'Alice',
             {
               text: 'Removed in this edit',
-              action: {
-                label: 'Undo',
-                variant: 'neutral',
-                onClick: () => calls.push('undo')
-              }
+              action: {label: 'Undo', variant: 'neutral', onClick: () => calls.push('undo')}
             }
           ]
         }
@@ -793,10 +789,7 @@ test.serial(
     view.rerender(
       <Table
         {...props}
-        selectAll={{
-          ...selectDescriptor('Disabled page', true),
-          disabled: true
-        }}
+        selectAll={{...selectDescriptor('Disabled page', true), disabled: true}}
         rows={[
           props.rows[0],
           {
@@ -807,14 +800,10 @@ test.serial(
       />
     );
     t.is(within(view.container).queryByRole('checkbox', {name: 'Select Bob'}), null);
-    const row = within(view.container).getByRole('checkbox', {
-      name: 'Renamed Bob'
-    });
+    const row = within(view.container).getByRole('checkbox', {name: 'Renamed Bob'});
     t.true(row.checked);
     t.false(row.disabled);
-    const header = within(view.container).getByRole('checkbox', {
-      name: 'Disabled page'
-    });
+    const header = within(view.container).getByRole('checkbox', {name: 'Disabled page'});
     t.true(header.checked);
     t.true(header.disabled);
     header.click();
@@ -852,9 +841,7 @@ test.serial(
     t.false(within(view.container).getByRole('checkbox', {name: 'Page'}).checked);
     t.true(within(view.container).getByRole('checkbox', {name: 'Alice'}).checked);
     view.rerender(<Table {...props} rows={[]} selectAll={{...props.selectAll, checked: true}} />);
-    const header = within(view.container).getByRole('checkbox', {
-      name: 'Page'
-    });
+    const header = within(view.container).getByRole('checkbox', {name: 'Page'});
     t.true(header.checked);
     t.false(header.disabled);
     t.is(view.container.querySelectorAll('thead th').length, 2);
@@ -902,12 +889,7 @@ test.serial('selection prepends named controlled header and row checkboxes', t =
       <Table
         {...props}
         selectAll={{...props.selectAll, checked: true}}
-        rows={[
-          {
-            ...props.rows[0],
-            select: {...props.rows[0].select, checked: false}
-          }
-        ]}
+        rows={[{...props.rows[0], select: {...props.rows[0].select, checked: false}}]}
       />
     );
     t.true(header.checked);
@@ -928,10 +910,7 @@ test.serial(
             columns={[{title: 'Name'}]}
             selectAll={mode === 'header' ? selectDescriptor('Page') : undefined}
             rows={[
-              {
-                fields: ['Alice'],
-                select: mode === 'row' ? selectDescriptor('Alice') : undefined
-              },
+              {fields: ['Alice'], select: mode === 'row' ? selectDescriptor('Alice') : undefined},
               {fields: ['Bob']}
             ]}
           />,
@@ -969,9 +948,7 @@ test.serial('disabled selection cannot toggle and has a distinct disabled style'
     />,
     options
   );
-  const input = within(view.container).getByRole('checkbox', {
-    name: 'Deleted'
-  });
+  const input = within(view.container).getByRole('checkbox', {name: 'Deleted'});
   t.true(input.disabled);
   input.click();
   fireEvent.click(input.closest('label').querySelector('[data-name="checkbox-label"]'));
@@ -1257,6 +1234,10 @@ test.serial('sort action takes precedence over options', t => {
 });
 
 test.serial('open panel escapes the scroll wrapper and tracks its trigger', t => {
+  const panelRule = postcss
+    .parse(readFileSync(path.join(__dirname, '../style.css'), 'utf8'))
+    .nodes.find(node => node.type === 'rule' && node.selector === '.options');
+  t.true(panelRule.nodes.some(node => node.prop === 'position' && node.value === 'fixed'));
   const originalRect = window.HTMLElement.prototype.getBoundingClientRect;
   let left = 120;
   let bottom = 110;
@@ -1283,7 +1264,6 @@ test.serial('open panel escapes the scroll wrapper and tracks its trigger', t =>
         const panel = view.getByRole('group', {name: 'Populations'});
         t.is(panel.parentElement, document.body);
         t.false(view.container.contains(panel));
-        t.is(panel.style.position, 'fixed');
         t.is(panel.style.left, '119px');
         t.is(panel.style.top, '111px');
         left = 60;

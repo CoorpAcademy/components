@@ -27,16 +27,8 @@ const THEMES = {COCKPIT: 'cockpit'};
  */
 
 export const ACTION_LOOKS = {
-  danger: {
-    className: style.dangerAction,
-    color: COLORS.cm_negative_200,
-    icon: 'trash'
-  },
-  neutral: {
-    className: style.neutralAction,
-    color: COLORS.cm_primary_blue,
-    icon: 'rotate-left'
-  }
+  danger: {className: style.dangerAction, color: COLORS.cm_negative_200, icon: 'trash'},
+  neutral: {className: style.neutralAction, color: COLORS.cm_primary_blue, icon: 'rotate-left'}
 };
 // The link colour is static CSS (`dangerAction` / `neutralAction`); `color` only feeds the
 // pictogram, which button-link colours through its `faIcon` prop.
@@ -54,7 +46,6 @@ const positionFilterPanel = (rect, panelHeight, viewport) => {
   const flip = panelHeight > below && above > below;
   const maxHeight = flip ? above : below;
   return {
-    position: 'fixed',
     width,
     left: Math.max(edge, Math.min(rect.left - 1, viewport.innerWidth - width - edge)),
     top: flip ? aboveBottom - Math.min(panelHeight, maxHeight) : belowTop,
@@ -340,10 +331,7 @@ const Table = (props, context) => {
               label={label}
               onClick={onClick}
               className={className}
-              icon={{
-                position: 'left',
-                faIcon: {name: icon, size: 14, color}
-              }}
+              icon={{position: 'left', faIcon: {name: icon, size: 14, color}}}
             />
           </td>
         );
