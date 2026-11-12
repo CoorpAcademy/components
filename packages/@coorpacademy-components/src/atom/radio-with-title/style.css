@@ -20,6 +20,7 @@
   appearance: none;
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
   border-radius: 27px;
   background: cm_grey_100;
   border: 1px solid cm_grey_200;
