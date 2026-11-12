@@ -9,10 +9,9 @@
 .InformationElement {
   border-radius: 12px;
   background: cm_grey_50;
-  display: flex;
+  display: grid;
   padding: 24px;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   align-items: flex-start;
   align-self: stretch;
 }
@@ -72,6 +71,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
+  margin-top: 20px;
 }
 
 .legend {
