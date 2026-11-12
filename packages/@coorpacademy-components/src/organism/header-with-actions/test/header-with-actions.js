@@ -153,6 +153,62 @@ test.serial('subtitle renders literal text below the title', t => {
   t.is(literalSubtitle.querySelector('strong'), null);
 });
 
+test.serial('split action exports the default and offers accessible alternative formats', t => {
+  const calls = [];
+  const menu = {
+    ariaLabel: 'Choose export format',
+    options: ['XLSX', 'CSV', 'TSV'].map(format => ({
+      label: format,
+      onClick: () => calls.push(format)
+    }))
+  };
+  const action = {
+    type: 'primary',
+    label: 'Export XLSX',
+    onClick: () => calls.push('default'),
+    menu
+  };
+  assertValidProps(t, {...legacyDraft, actionButtons: [action]});
+  const {getByRole, queryByRole, getAllByRole, rerender} = render(
+    <HeaderWithActions {...legacyDraft} actionButtons={[action]} />,
+    {wrapper: wrappingComponent}
+  );
+  fireEvent.click(getByRole('button', {name: 'Export XLSX'}));
+  t.deepEqual(calls, ['default']);
+  const trigger = getByRole('button', {name: 'Choose export format'});
+  t.is(trigger.getAttribute('aria-expanded'), 'false');
+  fireEvent.click(trigger);
+  t.is(trigger.getAttribute('aria-expanded'), 'true');
+  t.deepEqual(
+    getAllByRole('menuitem').map(item => item.textContent),
+    ['XLSX', 'CSV', 'TSV']
+  );
+  t.is(document.activeElement.textContent, 'XLSX');
+  fireEvent.keyDown(document.activeElement, {key: 'ArrowDown'});
+  t.is(document.activeElement.textContent, 'CSV');
+  fireEvent.click(getByRole('menuitem', {name: 'CSV'}));
+  t.deepEqual(calls, ['default', 'CSV']);
+  t.is(queryByRole('menu'), null);
+  t.is(document.activeElement, trigger);
+  fireEvent.click(trigger);
+  fireEvent.click(getByRole('menuitem', {name: 'TSV'}));
+  fireEvent.click(trigger);
+  fireEvent.click(getByRole('menuitem', {name: 'XLSX'}));
+  t.deepEqual(calls, ['default', 'CSV', 'TSV', 'XLSX']);
+  fireEvent.click(trigger);
+  fireEvent.mouseDown(document.body);
+  t.is(queryByRole('menu'), null);
+  fireEvent.click(trigger);
+  fireEvent.keyDown(document.activeElement, {key: 'Escape'});
+  t.is(queryByRole('menu'), null);
+  t.is(document.activeElement, trigger);
+  fireEvent.click(trigger);
+  rerender(<HeaderWithActions {...legacyDraft} actionButtons={[{...action, disabled: true}]} />);
+  t.is(queryByRole('menu'), null);
+  t.true(getByRole('button', {name: 'Export XLSX'}).disabled);
+  t.true(getByRole('button', {name: 'Choose export format'}).disabled);
+});
+
 test.serial('metadata works with a legacy tag without changing its layout', t => {
   const {container, getByRole, getByText} = render(
     <HeaderWithActions {...legacyDraft} subtitle={trail} />,

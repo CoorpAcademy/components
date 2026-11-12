@@ -1,0 +1,75 @@
+@value colors: "../../variables/colors.css";
+@value white, cm_primary_blue, cm_blue_600, cm_grey_100, cm_grey_200, cm_grey_700 from colors;
+
+.root {
+  display: inline-flex;
+  position: relative;
+  align-items: stretch;
+}
+
+.primaryAction {
+  width: auto;
+  border-radius: 12px 0 0 12px;
+  white-space: nowrap;
+}
+
+.trigger {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0 12px 12px 0;
+  background: cm_primary_blue;
+  color: white;
+  cursor: pointer;
+}
+
+.trigger:hover {
+  background: cm_blue_600;
+}
+
+.trigger:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: cm_grey_100;
+  border-left-color: cm_grey_200;
+  color: cm_grey_700;
+}
+
+.secondary:hover {
+  background: cm_grey_200;
+}
+
+.menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  padding: 8px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.option {
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: white;
+  color: cm_grey_700;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: Gilroy;
+  font-size: 14px;
+}
+
+.option:hover, .option:focus {
+  background: cm_grey_100;
+}

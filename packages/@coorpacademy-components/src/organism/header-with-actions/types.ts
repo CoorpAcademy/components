@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import AssignmentStatusTagPropTypes from '../../molecule/assignment-status-tag/types';
+import {menuPropTypes, SplitButtonProps} from '../../molecule/split-button/types';
 
 const ButtonMenuPropTypes = {
   dataName: PropTypes.string,
@@ -15,7 +16,8 @@ const ButtonActionPropTypes = {
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
   iconName: PropTypes.string,
-  iconColor: PropTypes.string
+  iconColor: PropTypes.string,
+  menu: menuPropTypes
 };
 
 const HeaderWithActionsPropTypes = {
@@ -83,6 +85,7 @@ export type ButtonActionProps = {
   disabled?: boolean;
   iconName?: string;
   iconColor?: string;
+  menu?: SplitButtonProps['menu'];
 };
 
 export type HeaderWithActionsProps = {

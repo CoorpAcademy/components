@@ -6,6 +6,7 @@ import ButtonLinkIcon from '../../atom/button-link-icon';
 import Tag from '../../atom/tag';
 import AssignmentStatusTag from '../../molecule/assignment-status-tag';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
+import SplitButton from '../../molecule/split-button';
 import HeaderWithActionsPropTypes, {
   HeaderWithActionsProps,
   ButtonMenuProps,
@@ -153,6 +154,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
           />
         ) : null}
         {uncappedMap((action: ButtonActionProps, key: string) => {
+          if (action.menu) return <SplitButton {...action} menu={action.menu} key={key} />;
           return <ButtonLink {...buildActionButton(action)} key={key} />;
         }, actionButtons)}
       </div>
