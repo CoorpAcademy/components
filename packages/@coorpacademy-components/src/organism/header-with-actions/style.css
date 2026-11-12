@@ -95,3 +95,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.multilineSubtitle {
+  composes: subtitle;
+  white-space: pre-line;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}

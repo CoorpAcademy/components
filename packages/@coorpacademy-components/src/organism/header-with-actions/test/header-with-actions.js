@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import HeaderWithActions from '..';
+import style from '../style.css';
 import AssignmentStatusTag from '../../../molecule/assignment-status-tag';
 import singleAction from './fixtures/single-action';
 import tracking from './fixtures/assignment-tracking';
@@ -136,6 +137,20 @@ test.serial('unknown and omitted assignment statuses use the molecule fallback',
 });
 
 const trail = 'Created by jdoe on 02 Nov 2026 · Last edited by asmith 3 days ago';
+
+test.serial('multiline subtitles preserve line breaks without changing single-line styling', t => {
+  const {container, rerender} = render(<HeaderWithActions {...legacyDraft} subtitle={trail} />, {
+    wrapper: wrappingComponent
+  });
+  const subtitle = () => container.querySelector('[data-name="header-with-actions-subtitle"]');
+  t.is(subtitle().className, style.subtitle);
+  const multiline = 'Created by jdoe\nLast edited by asmith';
+  rerender(<HeaderWithActions {...legacyDraft} subtitle={multiline} />);
+  t.is(subtitle().textContent, multiline);
+  t.is(subtitle().className, style.multilineSubtitle);
+  rerender(<HeaderWithActions {...legacyDraft} subtitle={trail} />);
+  t.is(subtitle().className, style.subtitle);
+});
 
 test.serial('subtitle renders literal text below the title', t => {
   const {container, getByRole, rerender} = render(
