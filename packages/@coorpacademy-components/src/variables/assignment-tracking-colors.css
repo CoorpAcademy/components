@@ -1,0 +1,11 @@
+@value trackingCompletedColor: #7BCB8A;
+@value trackingInProgressColor: #E9A23B;
+@value trackingAssignedColor: #D3D7DF;
+@value trackingDueSoonColor: #8D71D6;
+@value trackingOverdueColor: #E05A62;
+
+@value trackingCompletedText: #255D32;
+@value trackingInProgressText: #7B4C05;
+@value trackingAssignedText: #4C5463;
+@value trackingDueSoonText: #51358E;
+@value trackingOverdueText: #9A2934;

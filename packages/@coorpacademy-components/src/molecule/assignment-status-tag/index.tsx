@@ -3,6 +3,7 @@ import has from 'lodash/fp/has';
 import keys from 'lodash/fp/keys';
 import Tag from '../../atom/tag';
 import propTypes, {AssignmentStatusTagProps, TagType} from './types';
+import style from './style.css';
 
 // One status vocabulary for every assignment surface. Labels come from the consumer.
 const TAG_TYPES: Record<string, TagType> = {
@@ -36,12 +37,25 @@ const TAG_TYPES: Record<string, TagType> = {
 
 export const ASSIGNMENT_TAG_KEYS = keys(TAG_TYPES);
 
+const TRACKING_TAG_STYLES: Record<string, string> = {
+  assigned: style.trackingAssigned,
+  inProgress: style.trackingInProgress,
+  completed: style.trackingCompleted,
+  dueSoon: style.trackingDueSoon,
+  overdue: style.trackingOverdue
+};
+
 export const getAssignmentTagType = (status?: string | null): TagType =>
   status && has(status, TAG_TYPES) ? TAG_TYPES[status] : 'default';
 
-const AssignmentStatusTag = ({status, label}: AssignmentStatusTagProps) => (
-  <Tag type={getAssignmentTagType(status)} label={label} />
-);
+const AssignmentStatusTag = ({status, label, palette}: AssignmentStatusTagProps) => {
+  const tag = <Tag type={getAssignmentTagType(status)} label={label} />;
+  return palette === 'tracking' && status && has(status, TRACKING_TAG_STYLES) ? (
+    <span className={TRACKING_TAG_STYLES[status]}>{tag}</span>
+  ) : (
+    tag
+  );
+};
 
 AssignmentStatusTag.propTypes = propTypes;
 

@@ -4,6 +4,7 @@ import React from 'react';
 import {render, cleanup} from '@testing-library/react';
 import Tag from '../../../atom/tag';
 import AssignmentStatusTag, {ASSIGNMENT_TAG_KEYS, getAssignmentTagType} from '..';
+import style from '../style.css';
 
 browserEnv();
 test.afterEach(cleanup);
@@ -59,4 +60,31 @@ test('an unknown or absent status falls back to default', t => {
   ['unknown', 'completedLate', 'toString', undefined].forEach(status =>
     assertTag(t, status, 'default')
   );
+});
+
+[
+  ['assigned', 'trackingAssigned'],
+  ['inProgress', 'trackingInProgress'],
+  ['completed', 'trackingCompleted'],
+  ['dueSoon', 'trackingDueSoon'],
+  ['overdue', 'trackingOverdue']
+].forEach(([status, color]) => {
+  test(`tracking palette colors ${status}`, t => {
+    const actual = render(
+      <AssignmentStatusTag status={status} label="Consumer label" palette="tracking" />
+    );
+    const expected = render(<Tag type={getAssignmentTagType(status)} label="Consumer label" />);
+    t.true(actual.container.firstChild.classList.contains(style[color]));
+    t.is(actual.container.firstChild.firstChild.outerHTML, expected.container.firstChild.outerHTML);
+  });
+});
+
+test('tracking palette preserves fallback for other statuses', t => {
+  ['late', 'unknown'].forEach(status => {
+    const actual = render(
+      <AssignmentStatusTag status={status} label="Consumer label" palette="tracking" />
+    );
+    const expected = render(<Tag type={getAssignmentTagType(status)} label="Consumer label" />);
+    t.is(actual.container.innerHTML, expected.container.innerHTML);
+  });
 });

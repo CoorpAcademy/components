@@ -9,6 +9,8 @@ import ProgressBar from '../../../../molecule/progress-bar';
 import SkillsChartSideInformationPanel from '../../../../molecule/skills-chart-side-information-panel';
 import {wrappingComponent} from '../../../../test/helpers/render-component';
 import style from '../style.css';
+import cardStyle from '../../../../molecule/skills-chart-side-information-item/style.css';
+import tagStyle from '../../../../molecule/assignment-status-tag/style.css';
 import Tracking from './fixtures/assignment-tracking';
 
 browserEnv();
@@ -30,6 +32,25 @@ test.serial('the tracking template offers all export formats', t => {
       .map(item => item.textContent),
     ['Export XLSX', 'Export CSV', 'Export TSV']
   );
+});
+
+test.serial('the tracking template shows matching card and learner status colors', t => {
+  const {container} = render(<BrandUpdate {...Tracking.props} />, {wrapper: wrappingComponent});
+  const cards = container.querySelector('[data-name="skill-chart-side-panel"]').children;
+  ['completed', 'inProgress', 'assigned', 'dueSoon', 'overdue'].forEach((tone, index) => {
+    t.true(cardStyle[tone].split(' ').every(name => cards[index].classList.contains(name)));
+  });
+  [
+    ['Not started', 'trackingAssigned'],
+    ['In progress', 'trackingInProgress'],
+    ['Completed', 'trackingCompleted'],
+    ['Due soon', 'trackingDueSoon'],
+    ['Overdue', 'trackingOverdue']
+  ].forEach(([label, color]) => {
+    const tag = container.querySelector(`[data-name="content-tag-${label}"]`);
+    t.truthy(tag);
+    t.true(tagStyle[color].split(' ').every(name => tag.parentElement.classList.contains(name)));
+  });
 });
 
 test.serial(
