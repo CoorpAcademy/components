@@ -11,7 +11,10 @@ const TAG_STYLES = {
   failure: style.failure,
   warning: style.warning,
   progress: style.progress,
-  info: style.info
+  info: style.info,
+  base: style.base,
+  advanced: style.advanced,
+  coach: style.coach
 };
 
 const TAG_SIZE = {

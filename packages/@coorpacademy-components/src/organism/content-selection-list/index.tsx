@@ -45,7 +45,7 @@ const buildContentItem =
     title,
     subtitle,
     image,
-    tags: {label, iconName},
+    tags: {label, iconName, level},
     checkbox,
     deleteButton,
     hidden,
@@ -88,8 +88,9 @@ const buildContentItem =
       tags: [
         {
           label,
-          type: 'default',
+          type: level || 'default',
           icon: {
+            ...(level && {iconColor: COLORS.white}),
             iconName,
             preset: 's',
             customStyle: {
