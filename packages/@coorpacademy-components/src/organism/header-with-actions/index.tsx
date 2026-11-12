@@ -138,7 +138,10 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
             </h3>
           )}
           {hasSubtitle ? (
-            <p className={style.subtitle} data-name={getDataName('subtitle')}>
+            <p
+              className={subtitle?.includes('\n') ? style.multilineSubtitle : style.subtitle}
+              data-name={getDataName('subtitle')}
+            >
               {subtitle}
             </p>
           ) : null}
