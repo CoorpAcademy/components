@@ -3,7 +3,7 @@ import browserEnv from 'browser-env';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import {cleanup, render, within} from '@testing-library/react';
+import {cleanup, fireEvent, render, within} from '@testing-library/react';
 import BrandUpdate from '..';
 import ProgressBar from '../../../../molecule/progress-bar';
 import SkillsChartSideInformationPanel from '../../../../molecule/skills-chart-side-information-panel';
@@ -14,6 +14,23 @@ import Tracking from './fixtures/assignment-tracking';
 browserEnv();
 configure({adapter: new Adapter()});
 test.afterEach.always(cleanup);
+
+test.serial('the tracking template offers all export formats', t => {
+  const {getByRole} = render(
+    <BrandUpdate {...Tracking.props} title={{title: 'Assignment progress', type: 'page'}} />,
+    {wrapper: wrappingComponent}
+  );
+
+  t.truthy(getByRole('button', {name: 'Export XLSX'}));
+  fireEvent.click(getByRole('button', {name: 'Export formats'}));
+  const menu = getByRole('menu', {name: 'Export formats'});
+  t.deepEqual(
+    within(menu)
+      .getAllByRole('menuitem')
+      .map(item => item.textContent),
+    ['Export XLSX', 'Export CSV', 'Export TSV']
+  );
+});
 
 test.serial(
   'the summary sits between the title and the tabs: the bar, then the counter tiles',
