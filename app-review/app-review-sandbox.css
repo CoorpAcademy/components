@@ -603,6 +603,21 @@
   color: #0061FF;
 }
 
+.base-ced7A {
+  background-color: #16ac8c;
+  color: #FFFFFF;
+}
+
+.advanced-bjQAD {
+  background-color: #7340FF;
+  color: #FFFFFF;
+}
+
+.coach-RA4CM {
+  background-color: #FF7043;
+  color: #FFFFFF;
+}
+
 .content-0f-yx {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7819,6 +7834,33 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   border-radius: 8px;
   overflow: hidden;
   pointer-events: none;
+}
+
+
+
+.trackingCompleted-tHw5R > span {
+  background-color: rgba(123, 203, 138, 0.27);
+  color: #255D32;
+}
+
+.trackingInProgress-TAVIA > span {
+  background-color: rgba(233, 162, 59, 0.25);
+  color: #7B4C05;
+}
+
+.trackingAssigned-XnQbI > span {
+  background-color: rgba(211, 215, 223, 0.65);
+  color: #4C5463;
+}
+
+.trackingDueSoon-DOGEt > span {
+  background-color: rgba(141, 113, 214, 0.21);
+  color: #51358E;
+}
+
+.trackingOverdue-KDKe\+ > span {
+  background-color: rgba(224, 90, 98, 0.2);
+  color: #9A2934;
 }
 
 .draggable-QNgaT {
