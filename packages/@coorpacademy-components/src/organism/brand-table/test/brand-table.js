@@ -9,6 +9,28 @@ import assignmentLearners from './fixtures/assignment-learners';
 browserEnv();
 test.afterEach(cleanup);
 
+test.serial('keeps the population filter usable when there are no matching learners', t => {
+  const selected = [];
+  const props = {
+    ...assignmentLearners.props,
+    rows: [],
+    keepFiltersWhenEmpty: true,
+    columns: [
+      {
+        title: 'Population',
+        filtered: true,
+        options: [{title: 'All populations', selected: false, onChange: () => selected.push('all')}]
+      }
+    ]
+  };
+  const {container} = render(<BrandTable {...props} />, {wrapper: wrappingComponent});
+  const view = within(container);
+  t.truthy(view.getByText('There are no learners to display.'));
+  fireEvent.click(view.getByRole('button', {name: 'Population'}));
+  fireEvent.click(within(document.body).getByRole('button', {name: 'All populations'}));
+  t.deepEqual(selected, ['all']);
+});
+
 test.serial(
   'renders tagged learner cells with search, pagination and sortable column headers',
   t => {
