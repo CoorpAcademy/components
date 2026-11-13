@@ -15,6 +15,7 @@ const BrandTable = props => {
     editable,
     isPending,
     emptyValue,
+    keepFiltersWhenEmpty,
     onRefresh,
     refreshLabel,
     headerTitle = ''
@@ -26,12 +27,14 @@ const BrandTable = props => {
     </div>
   );
 
-  const tableView =
-    rows.length > 0 ? (
-      <Table rows={rows} columns={columns} editable={editable} headerTitle={headerTitle} />
-    ) : (
-      <div className={style.empty}>{emptyValue}</div>
-    );
+  const tableView = (
+    <>
+      {rows.length > 0 || (keepFiltersWhenEmpty && columns.length > 0) ? (
+        <Table rows={rows} columns={columns} editable={editable} headerTitle={headerTitle} />
+      ) : null}
+      {rows.length === 0 ? <div className={style.empty}>{emptyValue}</div> : null}
+    </>
+  );
   const paginationView = pagination ? (
     <div>
       <Pagination {...pagination} />
@@ -67,6 +70,7 @@ BrandTable.propTypes = {
   pagination: PropTypes.shape(Pagination.propTypes),
   emptyValue: PropTypes.string.isRequired,
   isPending: PropTypes.bool,
+  keepFiltersWhenEmpty: PropTypes.bool,
   editable: PropTypes.bool,
   rows: Table.propTypes.rows,
   columns: Table.propTypes.columns,
