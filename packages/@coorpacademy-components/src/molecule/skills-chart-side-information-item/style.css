@@ -2,17 +2,49 @@
 @value cm_grey_50 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value tracking: "../../variables/assignment-tracking-colors.css";
+@value trackingCompletedColor, trackingInProgressColor, trackingAssignedColor, trackingDueSoonColor, trackingOverdueColor from tracking;
+@value trackingCompletedText, trackingInProgressText, trackingAssignedText, trackingDueSoonText, trackingOverdueText from tracking;
 
 .InformationElement {
   border-radius: 12px;
   background: cm_grey_50;
-  display: flex;
+  display: grid;
   padding: 24px;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-rows: auto minmax(0, 1fr) auto;
   align-items: flex-start;
   align-self: stretch;
 }
+
+.toneIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.completed { background: color(trackingCompletedColor a(17%)); }
+.completed .title, .completed .toneIcon { color: trackingCompletedText; }
+.completed .toneIcon { background: color(trackingCompletedColor a(27%)); }
+
+.inProgress { background: color(trackingInProgressColor a(15%)); }
+.inProgress .title, .inProgress .toneIcon { color: trackingInProgressText; }
+.inProgress .toneIcon { background: color(trackingInProgressColor a(25%)); }
+
+.assigned { background: color(trackingAssignedColor a(35%)); }
+.assigned .title, .assigned .toneIcon { color: trackingAssignedText; }
+.assigned .toneIcon { background: color(trackingAssignedColor a(65%)); }
+
+.dueSoon { background: color(trackingDueSoonColor a(13%)); }
+.dueSoon .title, .dueSoon .toneIcon { color: trackingDueSoonText; }
+.dueSoon .toneIcon { background: color(trackingDueSoonColor a(21%)); }
+
+.overdue { background: color(trackingOverdueColor a(13%)); }
+.overdue .title, .overdue .toneIcon { color: trackingOverdueText; }
+.overdue .toneIcon { background: color(trackingOverdueColor a(20%)); }
 
 .titleContainer {
   display: flex;
@@ -39,6 +71,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
+  margin-top: 20px;
 }
 
 .legend {

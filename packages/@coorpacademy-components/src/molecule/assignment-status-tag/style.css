@@ -1,0 +1,28 @@
+@value tracking: "../../variables/assignment-tracking-colors.css";
+@value trackingCompletedColor, trackingInProgressColor, trackingAssignedColor, trackingDueSoonColor, trackingOverdueColor from tracking;
+@value trackingCompletedText, trackingInProgressText, trackingAssignedText, trackingDueSoonText, trackingOverdueText from tracking;
+
+.trackingCompleted > span {
+  background-color: color(trackingCompletedColor a(27%));
+  color: trackingCompletedText;
+}
+
+.trackingInProgress > span {
+  background-color: color(trackingInProgressColor a(25%));
+  color: trackingInProgressText;
+}
+
+.trackingAssigned > span {
+  background-color: color(trackingAssignedColor a(65%));
+  color: trackingAssignedText;
+}
+
+.trackingDueSoon > span {
+  background-color: color(trackingDueSoonColor a(21%));
+  color: trackingDueSoonText;
+}
+
+.trackingOverdue > span {
+  background-color: color(trackingOverdueColor a(20%));
+  color: trackingOverdueText;
+}
