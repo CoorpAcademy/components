@@ -285,7 +285,7 @@ ListItem.propTypes = {
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-      type: PropTypes.oneOf(['success', 'failure', 'warning', 'progress', 'default'])
+      type: Tag.propTypes.type
     })
   ),
   disabled: PropTypes.bool,

@@ -22,7 +22,8 @@ export const ContentSelectionListPropTypes = {
         image: PropTypes.string.isRequired,
         tags: PropTypes.shape({
           label: PropTypes.string.isRequired,
-          iconName: PropTypes.string.isRequired
+          iconName: PropTypes.string.isRequired,
+          level: PropTypes.oneOf(['base', 'advanced', 'coach'])
         }).isRequired,
         checkbox: PropTypes.shape({
           checked: PropTypes.bool.isRequired,
@@ -77,6 +78,7 @@ export type ContentListItemType = {
   tags: {
     label: string;
     iconName: string;
+    level?: 'base' | 'advanced' | 'coach';
   };
   checkbox: {
     checked: boolean;
