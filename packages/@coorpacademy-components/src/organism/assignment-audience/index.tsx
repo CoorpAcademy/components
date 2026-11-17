@@ -169,8 +169,8 @@ const AssignmentAudience = (
     [sourcesDisabled, suggestions, selected]
   );
   const handleSearch = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) =>
-      !sourcesDisabled && onSearch?.(event.target.value),
+    ({value: query, reason}: {value: string; reason: string}) =>
+      !sourcesDisabled && reason === 'input-changed' && onSearch?.(query),
     [sourcesDisabled, onSearch]
   );
   const handleAdd = useCallback(
@@ -366,7 +366,7 @@ const AssignmentAudience = (
                   name: `${learner.label} · ${learner.login}`,
                   value: learner.id
                 }))}
-                onInput={handleSearch}
+                onFetch={handleSearch}
                 onSuggestionSelected={handleAdd}
               />
               {(selected?.length || 0) > 0 ? (
