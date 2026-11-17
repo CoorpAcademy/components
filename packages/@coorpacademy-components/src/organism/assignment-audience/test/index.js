@@ -23,6 +23,43 @@ test.afterEach.always(cleanup);
 
 const mount = props => render(<AssignmentAudience {...props} />, {wrapper: wrappingComponent});
 const block = (view, name) => view.container.querySelector(`[data-name="${name}"]`);
+const learnerSuggestions = [
+  {id: 'one', label: 'One Learner', login: 'one'},
+  {id: 'two', label: 'Two Learner', login: 'two'}
+];
+const LearnerSearchHarness = () => {
+  const [value, setValue] = React.useState('');
+  const [suggestions, setSuggestions] = React.useState([]);
+  const [selected, setSelected] = React.useState([]);
+  const search = query => {
+    setValue(query);
+    setSuggestions(
+      learnerSuggestions.filter(learner =>
+        learner.label.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+  };
+  const add = learner => {
+    setSelected([...selected, learner]);
+    setValue('');
+    setSuggestions([]);
+  };
+  return (
+    <AssignmentAudience
+      title="Audience"
+      individuals={{
+        title: 'Individual learners',
+        placeholder: 'Search learners by name or login',
+        value,
+        suggestions,
+        selected,
+        onSearch: search,
+        onAdd: add,
+        onRemove: () => {}
+      }}
+    />
+  );
+};
 test.serial('choosing or dropping a file calls onUpload with the first file', t => {
   const files = [];
   const upload = {
@@ -124,6 +161,21 @@ test.serial('searching, adding and removing a learner call their callbacks', t =
   t.deepEqual(added, [individuals.suggestions[1]]);
   fireEvent.click(view.getByText('Pedro Costa'));
   t.deepEqual(removed, ['u2']);
+});
+
+test.serial('a second learner can be found after the first one is selected', t => {
+  const view = render(<LearnerSearchHarness />, {wrapper: wrappingComponent});
+  const input = view.getByTestId('autocomplete-input');
+  fireEvent.input(input, {target: {value: 'one'}});
+  fireEvent.focus(input);
+  fireEvent.click(view.getByRole('option', {name: 'One Learner · one'}));
+  fireEvent.focus(input);
+  fireEvent.input(input, {target: {value: 'two'}});
+  const second = view.getByRole('option', {name: 'Two Learner · two'});
+  t.truthy(second);
+  fireEvent.click(second);
+  t.truthy(view.getByText('One Learner'));
+  t.truthy(view.getByText('Two Learner'));
 });
 
 test.serial('a learner chip shows the name and the login', t => {
