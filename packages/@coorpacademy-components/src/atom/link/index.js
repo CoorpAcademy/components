@@ -91,7 +91,7 @@ Link.propTypes = {
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   hoverColor: PropTypes.string,
   hoverBackgroundColor: PropTypes.string,
-  download: PropTypes.bool,
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   onClick: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,

@@ -32,6 +32,7 @@ const Autocomplete = props => {
     onClear = noop,
     onBlur = noop,
     onSuggestionSelected = noop,
+    focusInputOnSuggestionClick = false,
     title: propsTitle,
     theme = 'default'
   } = props;
@@ -117,7 +118,7 @@ const Autocomplete = props => {
             getSuggestionValue={noop}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
-            focusInputOnSuggestionClick={false}
+            focusInputOnSuggestionClick={focusInputOnSuggestionClick}
             onSuggestionSelected={handleSuggestionsSelected}
           />
           {errorIconView}
@@ -149,7 +150,8 @@ Autocomplete.propTypes = {
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
   onBlur: PropTypes.func,
-  onSuggestionSelected: PropTypes.func
+  onSuggestionSelected: PropTypes.func,
+  focusInputOnSuggestionClick: PropTypes.bool
 };
 
 export default Autocomplete;

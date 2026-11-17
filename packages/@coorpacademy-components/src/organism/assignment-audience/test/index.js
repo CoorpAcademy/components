@@ -103,6 +103,19 @@ test.serial(
       name: idle.props.upload.templateLink.label
     });
     t.is(link.getAttribute('href'), idle.props.upload.templateLink.href);
+    t.is(link.getAttribute('download'), '');
+    cleanup();
+    const namedUpload = {
+      ...idle.props.upload,
+      templateLink: {...idle.props.upload.templateLink, download: 'assignment-learners-template.xlsx'}
+    };
+    const named = mount({...idle.props, upload: namedUpload});
+    t.is(
+      named
+        .getByRole('link', {name: namedUpload.templateLink.label})
+        .getAttribute('download'),
+      'assignment-learners-template.xlsx'
+    );
     cleanup();
     const off = mount(allUsers.props);
     t.true(
@@ -169,7 +182,7 @@ test.serial('a second learner can be found after the first one is selected', t =
   fireEvent.input(input, {target: {value: 'one'}});
   fireEvent.focus(input);
   fireEvent.click(view.getByRole('option', {name: 'One Learner · one'}));
-  fireEvent.focus(input);
+  t.is(document.activeElement, input);
   fireEvent.input(input, {target: {value: 'two'}});
   const second = view.getByRole('option', {name: 'Two Learner · two'});
   t.truthy(second);
