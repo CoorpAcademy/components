@@ -79,7 +79,6 @@ const InputText = props => {
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
           {propsTitle}
-          {required ? <span aria-hidden="true"> *</span> : null}
           {toolTipView}
         </span>
 

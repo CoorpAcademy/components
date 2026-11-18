@@ -52,7 +52,20 @@ const AssignmentEdition = ({
 
   return (
     <div ref={root} className={style.container}>
-      {requiredFieldsHint ? <p className={style.hint}>{requiredFieldsHint}</p> : null}
+      {requiredFieldsHint ? (
+        <p className={style.hint}>
+          {requiredFieldsHint.split(/(\*\*[^*]+\*\*|\*)/).map((text, index) => {
+            if (text === '*')
+              return (
+                <span key={index} className={style.required}>
+                  *
+                </span>
+              );
+            if (text.startsWith('**')) return <strong key={index}>{text.slice(2, -2)}</strong>;
+            return text;
+          })}
+        </p>
+      ) : null}
       <section
         id="assignment-information"
         data-name="assignment-information"
@@ -60,6 +73,7 @@ const AssignmentEdition = ({
       >
         <BrandFormGroup
           title={information.title}
+          required
           subtitle={information.subtitle}
           error={information.error}
           fields={[
@@ -67,7 +81,7 @@ const AssignmentEdition = ({
               ...information.field,
               required: true,
               type: 'text',
-              maxLength: 100,
+              maxLength: information.field.maxLength ?? 100,
               theme: 'coorpmanager',
               disabled: busy || information.field.disabled
             }

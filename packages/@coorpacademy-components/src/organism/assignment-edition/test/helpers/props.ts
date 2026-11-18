@@ -5,7 +5,7 @@ import contents from '../../../content-selection-list/test/fixtures/hidden-row';
 
 export const makeProps = (): AssignmentEditionProps => ({
   requiredFieldsHint:
-    'Fields marked with * are required to save a draft. All fields are required to publish.',
+    'Fields marked with * are required to **save a draft**. All fields are required to **publish**.',
   information: {
     title: 'Assignment title',
     subtitle: 'Name this assignment',

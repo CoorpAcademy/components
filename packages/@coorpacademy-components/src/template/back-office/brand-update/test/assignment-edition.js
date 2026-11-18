@@ -85,9 +85,13 @@ test.serial('assignment-edition dispatch renders the organism and forwards callb
       const view = render(<BrandUpdate {...fixture.props} />, {wrapper: wrappingComponent});
       t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 6);
       t.is(view.getByRole('button', {name: 'Publish'}).disabled, disabledPublish);
-      t.is(view.getAllByText('*').length, 1);
+      t.is(view.getByRole('button', {name: 'Save as draft'}).disabled, disabledPublish);
+      t.is(view.getAllByText('*').length, 2);
       t.truthy(view.getByText('Enter a title of 3–100 characters.'));
-      t.truthy(view.getByText(fixture.props.content.requiredFieldsHint));
+      t.is(
+        view.getByText('Fields marked with', {exact: false}).textContent,
+        fixture.props.content.requiredFieldsHint.replace(/\*\*/g, '')
+      );
       t.truthy(view.getByText('Notifications'));
       t.is(
         view.container.querySelectorAll('#assignment-notifications input[type="checkbox"]').length,

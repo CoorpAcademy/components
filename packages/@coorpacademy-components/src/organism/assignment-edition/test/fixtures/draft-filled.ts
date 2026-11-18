@@ -6,7 +6,7 @@ import date from '../../../../molecule/brand-form-group/test/fixtures/date';
 const fixture: AssignmentEditionPropsFixture = {
   props: {
     requiredFieldsHint:
-      'Fields marked with * are required to save a draft. All fields are required to publish.',
+      'Fields marked with * are required to **save a draft**. All fields are required to **publish**.',
     information: {
       title: 'Assignment title',
       subtitle: 'Only managers see this. It is never translated and never shown to learners.',

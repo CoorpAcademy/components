@@ -39,3 +39,7 @@
   line-height: 1.4;
   color: cm_grey_500;
 }
+
+.required {
+  composes: required from '../../atom/title/style.css';
+}

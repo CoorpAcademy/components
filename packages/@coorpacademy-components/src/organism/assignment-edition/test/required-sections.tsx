@@ -9,19 +9,54 @@ import {makeProps} from './helpers/props';
 browserEnv();
 test.afterEach.always(cleanup);
 
-test.serial('only the title has a required marker and explains its character limits', t => {
+test.serial(
+  'only the title section heading has a required marker and the field explains its limits',
+  t => {
+    const props = makeProps();
+    const view = render(<AssignmentEdition {...props} />, {wrapper: wrappingComponent});
+    const information = view.container.querySelector('#assignment-information') as HTMLElement;
+    t.true((within(information).getByRole('textbox') as HTMLInputElement).required);
+    const marker = within(information).getByText('*');
+    const heading = within(information).getByText(props.information.title, {
+      exact: false,
+      selector: '[role="group"]'
+    });
+    t.is(marker.parentElement, heading);
+    t.is(
+      within(information).getByRole('textbox').closest('label')?.firstElementChild?.textContent,
+      props.information.field.title
+    );
+    t.is(view.getAllByText('*').length, 2);
+    t.truthy(view.getByText('Enter a title of 3–100 characters.'));
+    const legend = view.getByText('Fields marked with', {exact: false});
+    t.is(legend.textContent, props.requiredFieldsHint?.replace(/\*\*/g, '') || '');
+    t.truthy(within(legend).getByText('*'));
+    t.deepEqual(
+      [...legend.querySelectorAll('strong')].map(element => element.textContent),
+      ['save a draft', 'publish']
+    );
+  }
+);
+
+test.serial('the required-field legend preserves translated text without interpreting HTML', t => {
   const props = makeProps();
+  props.requiredFieldsHint = '**Publier** requiert tous les champs. * <b>Texte littéral</b>';
+  const view = render(<AssignmentEdition {...props} />, {wrapper: wrappingComponent});
+  const legend = view.getByText('requiert tous les champs.', {exact: false});
+  t.is(legend.textContent, props.requiredFieldsHint.replace(/\*\*/g, ''));
+  t.truthy(within(legend).getByText('*'));
+  t.is(within(legend).getByText('Publier').tagName, 'STRONG');
+  t.is(legend.querySelector('b'), null);
+});
+
+test.serial('the title input respects the character limit supplied by the application', t => {
+  const props = makeProps();
+  props.information.field.maxLength = 80;
+  props.information.field.hint = 'Enter a title of 5–80 characters.';
   const view = render(<AssignmentEdition {...props} />, {wrapper: wrappingComponent});
   const information = view.container.querySelector('#assignment-information') as HTMLElement;
-  t.true((within(information).getByRole('textbox') as HTMLInputElement).required);
-  t.truthy(within(information).getByText('*'));
-  t.is(view.getAllByText('*').length, 1);
-  t.truthy(view.getByText('Enter a title of 3–100 characters.'));
-  t.truthy(
-    view.getByText(
-      'Fields marked with * are required to save a draft. All fields are required to publish.'
-    )
-  );
+  t.is((within(information).getByRole('textbox') as HTMLInputElement).maxLength, 80);
+  t.truthy(view.getByText('Enter a title of 5–80 characters.'));
 });
 
 test.serial('dates, completion rule and notifications occupy separate sibling cards', t => {

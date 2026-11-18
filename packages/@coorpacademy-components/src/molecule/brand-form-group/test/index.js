@@ -11,6 +11,14 @@ browserEnv();
 configure({adapter: new Adapter()});
 test.afterEach(cleanup);
 
+test.serial('required groups mark the section title while ordinary groups remain unmarked', t => {
+  const view = render(<BrandFormGroup title="Assignment title" required />);
+  const marker = view.getByText('*');
+  t.is(marker.parentElement.textContent, 'Assignment title*');
+  view.rerender(<BrandFormGroup title="Audience" />);
+  t.is(view.queryByText('*'), null);
+});
+
 test.serial('renders InputDate and forwards the date field', t => {
   const field = {
     type: 'date',
