@@ -155,10 +155,12 @@ test.serial(
     );
     const button = getByTestId('header-with-actions-information');
     t.is(button.tagName, 'BUTTON');
+    t.is(button.querySelector('svg').getAttribute('width'), '12');
     t.is(queryByTestId('tooltip'), null);
     t.is(container.querySelector('[data-name="header-with-actions-subtitle"]'), null);
     fireEvent.mouseOver(button);
     t.is(getByTestId('tooltip').textContent, content);
+    t.is(getByTestId('tooltip').querySelector('p'), null);
     fireEvent.keyDown(button, {key: 'Escape'});
     t.is(queryByTestId('tooltip'), null);
     fireEvent.keyDown(button, {key: 'Enter'});

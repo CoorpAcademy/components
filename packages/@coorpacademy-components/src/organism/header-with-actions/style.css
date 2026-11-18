@@ -107,23 +107,39 @@
 .informationIcon {
   background: transparent;
   padding: 0;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
 }
 
 .informationTooltip {
-  top: 32px;
+  top: 30px;
   bottom: auto;
-  left: 0;
+  left: -16px;
   right: auto;
-  width: 320px;
-  max-width: 70vw;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 48px));
+}
+
+.informationTooltipContent {
+  display: block;
+  padding: 8px 12px;
   white-space: pre-line;
   overflow-wrap: anywhere;
-  text-align: left;
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: white;
+  text-align: right;
 }
 
 .informationTooltip::before {
-  top: -5px;
+  top: -4px;
   bottom: auto;
-  left: 4px;
+  left: 24px;
   right: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
 }

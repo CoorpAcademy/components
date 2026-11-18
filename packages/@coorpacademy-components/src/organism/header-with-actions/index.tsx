@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import ButtonLink from '../../atom/button-link';
@@ -99,6 +99,10 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
   const hasSubtitle = Boolean(subtitle?.trim());
   const hasInformation = Boolean(informationTooltip?.content.trim());
   const hasAdditionalContent = tags !== undefined || hasSubtitle || hasInformation;
+  const renderInformation = useCallback(
+    () => <span className={style.informationTooltipContent}>{informationTooltip?.content}</span>,
+    [informationTooltip?.content]
+  );
 
   return !isFetching ? (
     <div className={style.headerWrapper} data-name={getDataName('wrapper')}>
@@ -139,8 +143,8 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
                 <ToolTip
                   aria-label={informationTooltip.label}
                   closeToolTipInformationTextAriaLabel={informationTooltip.label}
-                  TooltipContent={informationTooltip.content}
-                  iconSize="big"
+                  TooltipContent={renderInformation}
+                  iconSize="small"
                   iconContainerClassName={style.informationIcon}
                   tooltipClassName={style.informationTooltip}
                   data-testid="header-with-actions-information"
