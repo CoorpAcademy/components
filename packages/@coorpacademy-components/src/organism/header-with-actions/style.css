@@ -131,7 +131,7 @@
   font-weight: 500;
   line-height: 18px;
   color: white;
-  text-align: right;
+  text-align: left;
 }
 
 .informationTooltip::before {
