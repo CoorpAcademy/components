@@ -43,60 +43,10 @@ jobs:
       after_script: yarn codecov
       env: PACKAGE_NAME=@coorpacademy/components
 
-    - <<: *test-job
-      name: App review
-      env: PACKAGE_NAME=@coorpacademy/app-review
-    - <<: *test-job
-      name: Review services
-      env: PACKAGE_NAME=@coorpacademy/review-services
-    - <<: *test-job
-      name: Review services mocks
-      env: PACKAGE_NAME=@coorpacademy/review-services-mocks
-    - <<: *test-job
-      name: Player store
-      env: PACKAGE_NAME=@coorpacademy/player-store
-    - <<: *test-job
-      name: Player services
-      env: PACKAGE_NAME=@coorpacademy/player-services
-    - <<: *test-job
-      name: Player web
-      env: PACKAGE_NAME=@coorpacademy/player-web
-    - <<: *test-job
-      name: Progression engine
-      env: PACKAGE_NAME=@coorpacademy/progression-engine
-    - <<: *test-job
-      name: History
-      env: PACKAGE_NAME=@coorpacademy/history
-    - <<: *test-job
-      name: Nova icons
-      env: PACKAGE_NAME=@coorpacademy/nova-icons
-    - <<: *test-job
-      name: Redux history
-      env: PACKAGE_NAME=@coorpacademy/redux-history
-    - <<: *test-job
-      name: Redux router
-      env: PACKAGE_NAME=@coorpacademy/redux-router
-    - <<: *test-job
-      name: Redux task
-      env: PACKAGE_NAME=@coorpacademy/redux-task
-    - <<: *test-job
-      name: Translate
-      env: PACKAGE_NAME=@coorpacademy/translate
-    - <<: *test-job
-      name: Angular adapter
-      env: PACKAGE_NAME=@coorpacademy/react-adapter-angular
-    - <<: *test-job
-      name: Dust adapter
-      env: PACKAGE_NAME=@coorpacademy/react-adapter-dust
-    - <<: *test-job
-      name: React Native Animation
-      env: PACKAGE_NAME=@coorpacademy/react-native-animation
-    - <<: *test-job
-      name: Css Module Require Hook
-      env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - <<: *test-job
-      name: Webpack Config
-      env: PACKAGE_NAME=@coorpacademy/webpack-config
+    - stage: test
+      name: Packages
+      script: npx lerna run test:unit --stream --no-prefix --since --ignore @coorpacademy/components
+      after_script: yarn codecov
 
     - stage: deploy
       name: Publish on github pages
