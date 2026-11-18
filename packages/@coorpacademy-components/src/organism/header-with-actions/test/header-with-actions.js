@@ -138,6 +138,45 @@ test.serial('unknown and omitted assignment statuses use the molecule fallback',
 
 const trail = 'Created by jdoe on 02 Nov 2026 · Last edited by asmith 3 days ago';
 
+test.serial(
+  'information icon reveals multiline metadata on hover and with the keyboard',
+  async t => {
+    const content =
+      '13/11/2026 – 21/11/2026\nCreated by creator\nLast edited by editor\nUp to date · 3 batches';
+    const props = {
+      ...legacyDraft,
+      tags: assignmentTags,
+      informationTooltip: {label: 'Assignment information', content}
+    };
+    assertValidProps(t, props);
+    const {container, getByTestId, queryByTestId, rerender} = render(
+      <HeaderWithActions {...props} />,
+      {wrapper: wrappingComponent}
+    );
+    const button = getByTestId('header-with-actions-information');
+    t.is(button.tagName, 'BUTTON');
+    t.is(queryByTestId('tooltip'), null);
+    t.is(container.querySelector('[data-name="header-with-actions-subtitle"]'), null);
+    fireEvent.mouseOver(button);
+    t.is(getByTestId('tooltip').textContent, content);
+    fireEvent.keyDown(button, {key: 'Escape'});
+    t.is(queryByTestId('tooltip'), null);
+    fireEvent.keyDown(button, {key: 'Enter'});
+    t.is(getByTestId('tooltip').textContent, content);
+    rerender(
+      <HeaderWithActions {...props} informationTooltip={{label: 'Info', content: 'Updated'}} />
+    );
+    t.is(getByTestId('tooltip').textContent, 'Updated');
+    fireEvent.mouseLeave(button.parentElement);
+    await new Promise(resolve => {
+      setTimeout(resolve, 300);
+    });
+    t.is(queryByTestId('tooltip'), null);
+    rerender(<HeaderWithActions {...props} informationTooltip={undefined} />);
+    t.is(queryByTestId('header-with-actions-information'), null);
+  }
+);
+
 test.serial('multiline subtitles preserve line breaks without changing single-line styling', t => {
   const {container, rerender} = render(<HeaderWithActions {...legacyDraft} subtitle={trail} />, {
     wrapper: wrappingComponent

@@ -103,3 +103,25 @@
   overflow-wrap: anywhere;
   text-overflow: clip;
 }
+
+.informationIcon {
+  background: transparent;
+  padding: 0;
+}
+
+.informationTooltip {
+  top: 32px;
+  bottom: auto;
+  right: -16px;
+  width: 320px;
+  max-width: 70vw;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.informationTooltip::before {
+  top: -5px;
+  bottom: auto;
+  right: 20px;
+}

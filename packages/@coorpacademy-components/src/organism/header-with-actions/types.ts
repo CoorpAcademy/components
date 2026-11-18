@@ -28,6 +28,10 @@ const HeaderWithActionsPropTypes = {
   title: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTagPropTypes)),
   subtitle: PropTypes.string,
+  informationTooltip: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
+  }),
   tag: PropTypes.shape({
     label: PropTypes.oneOf(['Published', 'Ongoing changes', 'Draft', 'Archived']).isRequired,
     type: PropTypes.oneOf(['success', 'progress', 'warning']).isRequired,
@@ -93,6 +97,7 @@ export type HeaderWithActionsProps = {
   title: string;
   tags?: Array<{status?: string; label: string}>;
   subtitle?: string;
+  informationTooltip?: {label: string; content: string};
   tag?: TagProps;
   saveStatus?: SaveStatusProps;
   actionButtons: ButtonActionProps[];

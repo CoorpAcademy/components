@@ -4,6 +4,7 @@ import map from 'lodash/fp/map';
 import ButtonLink from '../../atom/button-link';
 import ButtonLinkIcon from '../../atom/button-link-icon';
 import Tag from '../../atom/tag';
+import ToolTip from '../../atom/tooltip';
 import AssignmentStatusTag from '../../molecule/assignment-status-tag';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import SplitButton from '../../molecule/split-button';
@@ -89,13 +90,15 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
     tag,
     tags,
     subtitle,
+    informationTooltip,
     saveStatus,
     bulletPointMenuButton,
     actionButtons,
     isFetching = false
   } = props;
   const hasSubtitle = Boolean(subtitle?.trim());
-  const hasAdditionalContent = tags !== undefined || hasSubtitle;
+  const hasInformation = Boolean(informationTooltip?.content.trim());
+  const hasAdditionalContent = tags !== undefined || hasSubtitle || hasInformation;
 
   return !isFetching ? (
     <div className={style.headerWrapper} data-name={getDataName('wrapper')}>
@@ -119,19 +122,30 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
               <p className={style.saveStatus}>{saveStatus.label}</p>
             ) : null}
           </div>
-          {tags !== undefined ? (
+          {tags !== undefined || hasInformation ? (
             <div className={style.assignmentTitleRow}>
               <h3 className={style.assignmentTitle} data-name={getDataName('title')}>
                 {title}
               </h3>
               <div className={style.assignmentTags} data-name={getDataName('tags')}>
-                {tags.map((assignmentTag, index) => (
+                {tags?.map((assignmentTag, index) => (
                   <AssignmentStatusTag
                     {...assignmentTag}
                     key={`${assignmentTag.status}-${assignmentTag.label}-${index}`}
                   />
                 ))}
               </div>
+              {hasInformation && informationTooltip ? (
+                <ToolTip
+                  aria-label={informationTooltip.label}
+                  closeToolTipInformationTextAriaLabel={informationTooltip.label}
+                  TooltipContent={informationTooltip.content}
+                  iconSize="big"
+                  iconContainerClassName={style.informationIcon}
+                  tooltipClassName={style.informationTooltip}
+                  data-testid="header-with-actions-information"
+                />
+              ) : null}
             </div>
           ) : (
             <h3 className={style.title} data-name={getDataName('title')}>
