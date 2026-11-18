@@ -45,7 +45,7 @@ jobs:
 
     - stage: test
       name: Packages
-      script: npx lerna run test:unit --stream --no-prefix --since --ignore @coorpacademy/components
+      script: npx lerna run test:unit --stream --since --ignore @coorpacademy/components
       after_script: yarn codecov
 
     - stage: deploy
