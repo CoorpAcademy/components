@@ -71,3 +71,15 @@ test('should get href attribute corresponding to href props', t => {
   const hrefValue = link.getAttribute('href');
   t.is(hrefValue, 'href');
 });
+
+test('should forward boolean and named download attributes', t => {
+  const {container: booleanContainer} = render(<Link href="template.xlsx" download />);
+  const booleanLink = booleanContainer.querySelector('[data-name="link"]');
+  t.is(booleanLink.getAttribute('download'), '');
+
+  const {container: namedContainer} = render(
+    <Link href="template.xlsx" download="assignment-learners-template.xlsx" />
+  );
+  const namedLink = namedContainer.querySelector('[data-name="link"]');
+  t.is(namedLink.getAttribute('download'), 'assignment-learners-template.xlsx');
+});
