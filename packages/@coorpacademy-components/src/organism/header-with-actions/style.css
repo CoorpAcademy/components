@@ -112,7 +112,8 @@
 .informationTooltip {
   top: 32px;
   bottom: auto;
-  right: -16px;
+  left: 0;
+  right: auto;
   width: 320px;
   max-width: 70vw;
   white-space: pre-line;
@@ -123,5 +124,6 @@
 .informationTooltip::before {
   top: -5px;
   bottom: auto;
-  right: 20px;
+  left: 4px;
+  right: auto;
 }
