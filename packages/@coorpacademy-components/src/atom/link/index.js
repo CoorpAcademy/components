@@ -70,6 +70,7 @@ const Link = (props, legacyContext) => {
       {...restProps}
       data-name={dataName}
       href={disabled || !href ? undefined : createHref(href)}
+      download={download}
       onClick={disabled ? noop : handleOnClick}
       style={style}
       className={className}
@@ -91,7 +92,7 @@ Link.propTypes = {
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
   hoverColor: PropTypes.string,
   hoverBackgroundColor: PropTypes.string,
-  download: PropTypes.bool,
+  download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   onClick: PropTypes.func,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,

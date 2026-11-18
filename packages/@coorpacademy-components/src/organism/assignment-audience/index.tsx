@@ -305,7 +305,10 @@ const AssignmentAudience = (
                       label: upload.templateLink.label,
                       link: sourcesDisabled
                         ? undefined
-                        : {href: upload.templateLink.href, download: true},
+                        : {
+                            href: upload.templateLink.href,
+                            download: upload.templateLink.download ?? true
+                          },
                       disabled: sourcesDisabled,
                       'data-name': 'upload-template-link',
                       customStyle: FIT_CONTENT
@@ -368,6 +371,7 @@ const AssignmentAudience = (
                 }))}
                 onFetch={handleSearch}
                 onSuggestionSelected={handleAdd}
+                focusInputOnSuggestionClick
               />
               {(selected?.length || 0) > 0 ? (
                 <div className={style.chips}>

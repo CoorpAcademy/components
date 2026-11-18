@@ -34,7 +34,7 @@ const propTypes = {
   onClick: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
-    download: PropTypes.bool,
+    download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
     rel: PropTypes.string
   }),
@@ -77,7 +77,7 @@ export type ButtonLinkProps = {
   onKeyDown?: () => void;
   link?: {
     href?: string;
-    download?: boolean;
+    download?: boolean | string;
     target?: '_self' | '_blank' | '_parent' | '_top';
     rel?: string;
   };

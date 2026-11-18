@@ -87,7 +87,8 @@ const AssignmentAudiencePropTypes = {
     subtitle: PropTypes.string,
     templateLink: PropTypes.shape({
       label: PropTypes.string,
-      href: PropTypes.string
+      href: PropTypes.string,
+      download: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
     }),
     // A sample of the expected file, shown left of the upload: a header and example values
     templatePreview: PropTypes.shape({
@@ -269,7 +270,7 @@ export type AssignmentAudienceProps = {
   upload?: UploadResultProps & {
     title?: string;
     subtitle?: string;
-    templateLink?: {label?: string; href?: string};
+    templateLink?: {label?: string; href?: string; download?: boolean | string};
     templatePreview?: {header: string; rows?: string[]};
     dropzone?: {
       description?: string;
