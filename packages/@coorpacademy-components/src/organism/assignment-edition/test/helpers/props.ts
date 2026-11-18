@@ -4,11 +4,14 @@ import audience from '../../../assignment-audience/test/fixtures/combined';
 import contents from '../../../content-selection-list/test/fixtures/hidden-row';
 
 export const makeProps = (): AssignmentEditionProps => ({
+  requiredFieldsHint:
+    'Fields marked with * are required to save a draft. All fields are required to publish.',
   information: {
-    title: 'Information',
+    title: 'Assignment title',
     subtitle: 'Name this assignment',
     field: {
       title: 'Assignment title',
+      hint: 'Enter a title of 3–100 characters.',
       value: 'Safety onboarding',
       onChange: () => undefined
     }
@@ -58,6 +61,7 @@ export const makeProps = (): AssignmentEditionProps => ({
       ]
     },
     reminders: {
+      title: 'Notifications',
       hint: 'Reminders are sent in GMT',
       switches: [
         {

@@ -88,7 +88,7 @@ test.serial('clearing title and dates forwards empty strings and accepts consume
   ]);
 });
 
-test.serial('minimal optional blocks and empty date controls preserve the four sections', t => {
+test.serial('minimal optional blocks and empty date controls preserve the six sections', t => {
   const props = makeProps();
   props.audience = {title: 'Audience'};
   props.contents = {
@@ -100,13 +100,17 @@ test.serial('minimal optional blocks and empty date controls preserve the four s
   props.dates.rule.options = [];
   props.dates.reminders.switches = [];
   const view = mount(props);
-  t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 4);
+  t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 6);
   const audience = within(view.container.querySelector('#assignment-audience') as HTMLElement);
   t.is(audience.queryByRole('checkbox'), null);
   t.is(audience.queryByRole('combobox'), null);
   const dates = within(view.container.querySelector('#assignment-dates') as HTMLElement);
   t.truthy(dates.getByText('Dates'));
-  t.truthy(dates.getByText('Completion rule'));
+  t.truthy(
+    within(view.container.querySelector('#assignment-rule') as HTMLElement).getByText(
+      'Completion rule'
+    )
+  );
   t.is(dates.queryByRole('radio'), null);
   t.is(dates.queryByRole('checkbox'), null);
   t.truthy(view.getByRole('button', {name: 'Add content'}));

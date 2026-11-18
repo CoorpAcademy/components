@@ -1,5 +1,6 @@
 import {AssignmentEditionPropsFixture} from '../../types';
 import audience from '../../../assignment-audience/test/fixtures/few-populations';
+import combined from '../../../assignment-audience/test/fixtures/combined';
 import filled from './draft-filled';
 
 const fixture: AssignmentEditionPropsFixture = {
@@ -11,6 +12,16 @@ const fixture: AssignmentEditionPropsFixture = {
     },
     audience: {
       ...audience.props,
+      upload: {
+        ...combined.props.upload,
+        subtitle: filled.props.audience.upload?.subtitle,
+        status: 'idle',
+        file: undefined,
+        summary: undefined,
+        report: undefined
+      },
+      individuals: {...combined.props.individuals, value: '', selected: [], suggestions: []},
+      total: {label: '0 learners', detail: '0 learners (upload) + 0 learners (picked)'},
       populations: {
         ...audience.props.populations,
         options: audience.props.populations.options.map(option => ({

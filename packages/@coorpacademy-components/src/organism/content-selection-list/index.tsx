@@ -107,6 +107,7 @@ const buildContentItem =
 const ContentSelectionList = ({
   title,
   subtitle,
+  required = true,
   button,
   list: {title: listTitle, items, search, emptyResult},
   actionButtons,
@@ -126,7 +127,7 @@ const ContentSelectionList = ({
     title,
     subtitle,
     button: !readOnly ? buttonProps : undefined,
-    required: true
+    required
   };
 
   const listProps = {

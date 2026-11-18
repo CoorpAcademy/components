@@ -22,6 +22,8 @@ import {wrappingComponent} from '../../../../test/helpers/render-component';
 import BrandUpdate from '..';
 import {makeProps} from '../../../../organism/assignment-edition/test/helpers/props';
 import shell from './fixtures/custom-skill-edition';
+import newAssignment from './fixtures/assignment-edition-new';
+import completeAssignment from './fixtures/assignment-edition-complete';
 
 import legacy0 from './fixtures/default';
 import legacy1 from './fixtures/manageusers-list';
@@ -64,13 +66,35 @@ test.serial('assignment-edition dispatch renders the organism and forwards callb
     const view = render(<BrandUpdate {...value} />, {
       wrapper: wrappingComponent
     });
-    t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 4);
+    t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 6);
     fireEvent.click(view.getByRole('button', {name: 'Add content'}));
     t.deepEqual(calls, ['add']);
     t.deepEqual(errors, []);
   } finally {
     console.error = original;
   }
+});
+
+[
+  {name: 'new', fixture: newAssignment, disabledPublish: true},
+  {name: 'complete', fixture: completeAssignment, disabledPublish: false}
+].forEach(({name, fixture, disabledPublish}) => {
+  test.serial(
+    `full assignment template ${name} shows the required fields and publication state`,
+    t => {
+      const view = render(<BrandUpdate {...fixture.props} />, {wrapper: wrappingComponent});
+      t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 6);
+      t.is(view.getByRole('button', {name: 'Publish'}).disabled, disabledPublish);
+      t.is(view.getAllByText('*').length, 1);
+      t.truthy(view.getByText('Enter a title of 3–100 characters.'));
+      t.truthy(view.getByText(fixture.props.content.requiredFieldsHint));
+      t.truthy(view.getByText('Notifications'));
+      t.is(
+        view.container.querySelectorAll('#assignment-notifications input[type="checkbox"]').length,
+        5
+      );
+    }
+  );
 });
 
 const legacyFixtures = [

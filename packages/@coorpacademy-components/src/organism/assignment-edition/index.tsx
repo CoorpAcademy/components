@@ -17,6 +17,7 @@ const AssignmentEdition = ({
   audience,
   contents,
   dates,
+  requiredFieldsHint,
   busy = false,
   isFetching = false,
   focusSection
@@ -51,6 +52,7 @@ const AssignmentEdition = ({
 
   return (
     <div ref={root} className={style.container}>
+      {requiredFieldsHint ? <p className={style.hint}>{requiredFieldsHint}</p> : null}
       <section
         id="assignment-information"
         data-name="assignment-information"
@@ -63,6 +65,7 @@ const AssignmentEdition = ({
           fields={[
             {
               ...information.field,
+              required: true,
               type: 'text',
               maxLength: 100,
               theme: 'coorpmanager',
@@ -77,6 +80,7 @@ const AssignmentEdition = ({
       <section id="assignment-contents" data-name="assignment-contents" className={style.card}>
         <ContentSelectionList
           {...contents}
+          required={false}
           error={undefined}
           disabled={busy || contents.disabled}
         />
@@ -98,6 +102,10 @@ const AssignmentEdition = ({
               disabled: busy || field.disabled
             }))}
           />
+        </div>
+      </section>
+      <section id="assignment-rule" data-name="assignment-rule" className={style.card}>
+        <div className={style.content}>
           <Title type="form-group" title={dates.rule.title} />
           {dates.rule.hint ? <p className={style.hint}>{dates.rule.hint}</p> : null}
           {dates.rule.options.map((option, index) => (
@@ -122,6 +130,15 @@ const AssignmentEdition = ({
               {dates.rule.error}
             </p>
           ) : null}
+        </div>
+      </section>
+      <section
+        id="assignment-notifications"
+        data-name="assignment-notifications"
+        className={style.card}
+      >
+        <div className={style.content}>
+          {dates.reminders.title ? <Title type="form-group" title={dates.reminders.title} /> : null}
           <p className={style.hint}>{dates.reminders.hint}</p>
           {dates.reminders.switches.map((reminder, index) => (
             <InputSwitch

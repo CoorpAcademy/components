@@ -26,6 +26,7 @@ type RuleOption = Omit<RadioWithTitleProps, 'title' | 'aria-label' | 'checked'> 
 };
 
 export type AssignmentEditionProps = {
+  requiredFieldsHint?: string;
   information: {
     title: string;
     subtitle?: string;
@@ -45,7 +46,7 @@ export type AssignmentEditionProps = {
       disabled?: boolean;
       options: RuleOption[];
     };
-    reminders: {hint: string; switches: ReminderSwitch[]};
+    reminders: {title?: string; hint: string; switches: ReminderSwitch[]};
   };
   busy?: boolean;
   isFetching?: boolean;
@@ -54,6 +55,7 @@ export type AssignmentEditionProps = {
 export type AssignmentEditionPropsFixture = {props: AssignmentEditionProps};
 
 export const propTypes = {
+  requiredFieldsHint: PropTypes.string,
   information: PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
@@ -92,6 +94,7 @@ export const propTypes = {
       ).isRequired
     }).isRequired,
     reminders: PropTypes.shape({
+      title: PropTypes.string,
       hint: PropTypes.string.isRequired,
       switches: PropTypes.arrayOf(
         PropTypes.shape({
