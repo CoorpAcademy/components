@@ -371,7 +371,7 @@ const AssignmentAudience = (
                 }))}
                 onFetch={handleSearch}
                 onSuggestionSelected={handleAdd}
-              focusInputOnSuggestionClick
+                focusInputOnSuggestionClick
               />
               {(selected?.length || 0) > 0 ? (
                 <div className={style.chips}>

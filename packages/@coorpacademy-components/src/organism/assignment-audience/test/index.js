@@ -107,13 +107,14 @@ test.serial(
     cleanup();
     const namedUpload = {
       ...idle.props.upload,
-      templateLink: {...idle.props.upload.templateLink, download: 'assignment-learners-template.xlsx'}
+      templateLink: {
+        ...idle.props.upload.templateLink,
+        download: 'assignment-learners-template.xlsx'
+      }
     };
     const named = mount({...idle.props, upload: namedUpload});
     t.is(
-      named
-        .getByRole('link', {name: namedUpload.templateLink.label})
-        .getAttribute('download'),
+      named.getByRole('link', {name: namedUpload.templateLink.label}).getAttribute('download'),
       'assignment-learners-template.xlsx'
     );
     cleanup();

@@ -70,6 +70,7 @@ const Link = (props, legacyContext) => {
       {...restProps}
       data-name={dataName}
       href={disabled || !href ? undefined : createHref(href)}
+      download={download}
       onClick={disabled ? noop : handleOnClick}
       style={style}
       className={className}
