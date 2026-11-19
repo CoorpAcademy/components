@@ -37,10 +37,10 @@ test.serial('a rule error is one line of text right after the rule options', t =
     />,
     {wrapper: wrappingComponent}
   );
-  const alert = within(section(view, 'dates')).getByRole('alert');
+  const alert = within(section(view, 'rule')).getByRole('alert');
   t.is(alert.tagName, 'P');
   t.is(alert.textContent, 'Choose a completion rule.');
-  const radios = within(section(view, 'dates')).getAllByRole('radio');
+  const radios = within(section(view, 'rule')).getAllByRole('radio');
   const lastRadio = radios[radios.length - 1];
   // eslint-disable-next-line no-bitwise
   t.truthy(lastRadio.compareDocumentPosition(alert) & Node.DOCUMENT_POSITION_FOLLOWING);

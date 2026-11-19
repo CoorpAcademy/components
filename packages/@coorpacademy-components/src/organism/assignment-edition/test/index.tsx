@@ -12,7 +12,7 @@ browserEnv();
 test.afterEach.always(cleanup);
 const mount = (props = makeProps()) =>
   render(<AssignmentEdition {...props} />, {wrapper: wrappingComponent});
-const keys = ['information', 'audience', 'contents', 'dates'] as const;
+const keys = ['information', 'audience', 'contents', 'dates', 'rule', 'notifications'] as const;
 
 test.serial(
   'sections have stable anchors and render information audience contents dates in order',
@@ -174,7 +174,7 @@ test.serial('dates preserve bounds GMT hints and independent callbacks', t => {
   t.is(view.getAllByText('Choose a completion rule').length, 1);
 });
 
-keys.forEach(key => {
+(['information', 'audience', 'contents', 'dates'] as const).forEach(key => {
   test.serial(`errors appear once beneath their own section title: ${key}`, t => {
     const props = makeProps();
     props[key] = {...props[key], error: 'Section needs attention'} as never;

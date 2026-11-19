@@ -5,6 +5,7 @@ export const ContentSelectionListPropTypes = {
   disabled: PropTypes.bool,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
+  required: PropTypes.bool,
   button: PropTypes.shape({
     label: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
@@ -96,6 +97,7 @@ export type CheckboxWithTitleProps = {
 };
 
 export type ContentPropsType = {
+  required?: boolean;
   disabled?: boolean;
   error?: string;
   hiddenLabel?: string;

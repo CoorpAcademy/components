@@ -133,6 +133,7 @@ const defineLayoutClass = layout => {
 const BrandFormGroup = props => {
   const {
     title,
+    required = false,
     error,
     subtitle = '',
     fieldsLayout = '',
@@ -160,6 +161,7 @@ const BrandFormGroup = props => {
       <div className={style.titleWrapper}>
         <Title
           title={title}
+          required={required}
           subtitle={subtitle}
           titleSize={titleSize}
           subtitleSize={subtitleSize}
@@ -174,6 +176,7 @@ const BrandFormGroup = props => {
 
 BrandFormGroup.propTypes = {
   title: PropTypes.string,
+  required: PropTypes.bool,
   error: PropTypes.string,
   subtitle: PropTypes.string,
   titleSize: PropTypes.string,

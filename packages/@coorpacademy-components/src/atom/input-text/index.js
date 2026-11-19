@@ -31,6 +31,7 @@ const InputText = props => {
     description,
     disabled,
     maxLength,
+    required = false,
     readOnly = false,
     modified = false,
     title: propsTitle,
@@ -93,6 +94,7 @@ const InputText = props => {
           onInput={handleChange}
           disabled={disabled}
           maxLength={maxLength}
+          required={required}
           readOnly={readOnly}
           onChange={noop}
           data-name={dataName}
@@ -116,6 +118,7 @@ const InputText = props => {
 };
 
 InputText.propTypes = {
+  required: PropTypes.bool,
   autoFocus: PropTypes.bool,
   title: PropTypes.string,
   placeholder: PropTypes.string,

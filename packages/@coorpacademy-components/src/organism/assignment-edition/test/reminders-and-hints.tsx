@@ -32,7 +32,7 @@ test.serial('each reminder toggle comes before its label, so the toggles line up
   const view = render(<AssignmentEdition {...twoReminders()} />, {wrapper: wrappingComponent});
   const rows = [
     ...view.container.querySelectorAll<HTMLElement>(
-      '#assignment-dates [data-name^="switch-input-"]'
+      '#assignment-notifications [data-name^="switch-input-"]'
     )
   ];
   t.is(rows.length, 2);
