@@ -8,7 +8,11 @@ const fixture: HeaderWithActionsPropsFixture = {
     closeButton: {'aria-label': 'Close', onClick: () => console.log('Close')},
     title,
     tags: [{status: 'active', label: 'Active'}],
-    subtitle: 'Created by jdoe on 02 Nov 2026 · Last edited by asmith 3 days ago',
+    informationTooltip: {
+      label: 'Assignment information',
+      content:
+        '13/11/2026 – 21/11/2026\nCreated by jdoe on 02 Nov 2026\nLast edited by asmith 3 days ago\nUp to date · 3 batches'
+    },
     actionButtons: [
       {
         label: 'Export XLSX',

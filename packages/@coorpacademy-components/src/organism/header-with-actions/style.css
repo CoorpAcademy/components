@@ -103,3 +103,43 @@
   overflow-wrap: anywhere;
   text-overflow: clip;
 }
+
+.informationIcon {
+  background: transparent;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+}
+
+.informationTooltip {
+  top: 30px;
+  bottom: auto;
+  left: -16px;
+  right: auto;
+  width: max-content;
+  max-width: min(420px, calc(100vw - 48px));
+}
+
+.informationTooltipContent {
+  display: block;
+  padding: 8px 12px;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: white;
+  text-align: left;
+}
+
+.informationTooltip::before {
+  top: -4px;
+  bottom: auto;
+  left: 24px;
+  right: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+}
