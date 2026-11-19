@@ -1,7 +1,7 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {cleanup, render, within} from '@testing-library/react';
+import {cleanup, fireEvent, render, within} from '@testing-library/react';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import AssignmentEdition from '..';
 import {makeProps} from './helpers/props';
@@ -57,6 +57,32 @@ test.serial('the title input respects the character limit supplied by the applic
   const information = view.container.querySelector('#assignment-information') as HTMLElement;
   t.is((within(information).getByRole('textbox') as HTMLInputElement).maxLength, 80);
   t.truthy(view.getByText('Enter a title of 5–80 characters.'));
+});
+
+[undefined, ''].forEach(optionalText => {
+  test.serial(
+    `optional legend and notification heading can be ${
+      optionalText === undefined ? 'omitted' : 'empty'
+    }`,
+    t => {
+      const props = makeProps();
+      const calls: boolean[] = [];
+      props.requiredFieldsHint = optionalText;
+      props.dates.reminders.title = optionalText;
+      props.dates.reminders.switches[0].onChange = value => calls.push(value);
+      const view = render(<AssignmentEdition {...props} />, {wrapper: wrappingComponent});
+      const notifications = within(
+        view.container.querySelector('#assignment-notifications') as HTMLElement
+      );
+      t.is(view.queryByText('Fields marked with', {exact: false}), null);
+      t.is(notifications.queryByText('Notifications'), null);
+      t.truthy(notifications.getByText(props.dates.reminders.hint));
+      t.is(view.container.querySelectorAll('[id^="assignment-"]').length, 6);
+      t.is(view.getAllByText('*').length, 1);
+      fireEvent.click(notifications.getByRole('checkbox'));
+      t.deepEqual(calls, [false]);
+    }
+  );
 });
 
 test.serial('dates, completion rule and notifications occupy separate sibling cards', t => {
