@@ -39,13 +39,13 @@ jobs:
     - &test-job
       stage: test
       name: React components
-      script: npx lerna run test:unit --stream --no-prefix  --since --scope $PACKAGE_NAME
+      script: npx lerna run test:unit --stream --no-prefix --scope $PACKAGE_NAME
       after_script: yarn codecov
       env: PACKAGE_NAME=@coorpacademy/components
 
     - stage: test
       name: Packages
-      script: npx lerna run test:unit --stream --since --ignore @coorpacademy/components
+      script: npx lerna run test:unit --stream --ignore @coorpacademy/components
       after_script: yarn codecov
 
     - stage: deploy
