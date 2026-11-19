@@ -111,11 +111,3 @@ jobs:
       name: Update node
       before_script: git checkout master
       script: npm run update -- --token $GH_TOKEN upgrade
-
-    - stage: deploy
-      name: Trigger dependant-builds
-      script: skip
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: scripts/trigger-dependent-builds.sh
