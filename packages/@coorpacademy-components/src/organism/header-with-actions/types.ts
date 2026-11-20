@@ -41,6 +41,11 @@ const HeaderWithActionsPropTypes = {
     display: PropTypes.bool.isRequired,
     label: PropTypes.oneOf(['Unsaved changes', 'Saved'])
   }),
+  warning: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
+  }),
   actionButtons: PropTypes.arrayOf(PropTypes.shape(ButtonActionPropTypes)).isRequired,
   bulletPointMenuButton: PropTypes.shape({
     buttons: PropTypes.arrayOf(PropTypes.shape(ButtonMenuPropTypes)).isRequired,
@@ -100,6 +105,7 @@ export type HeaderWithActionsProps = {
   informationTooltip?: {label: string; content: string};
   tag?: TagProps;
   saveStatus?: SaveStatusProps;
+  warning?: {label: string; onClick: () => void; disabled?: boolean};
   actionButtons: ButtonActionProps[];
   bulletPointMenuButton?: BulletPointMenuButtonProps;
   isFetching?: boolean;

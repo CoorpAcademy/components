@@ -8,6 +8,7 @@ import ToolTip from '../../atom/tooltip';
 import AssignmentStatusTag from '../../molecule/assignment-status-tag';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import SplitButton from '../../molecule/split-button';
+import {COLORS} from '../../variables/colors';
 import HeaderWithActionsPropTypes, {
   HeaderWithActionsProps,
   ButtonMenuProps,
@@ -92,6 +93,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
     subtitle,
     informationTooltip,
     saveStatus,
+    warning,
     bulletPointMenuButton,
     actionButtons,
     isFetching = false
@@ -167,6 +169,21 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
         </div>
       </div>
       <div className={style.buttonsWrapper} data-name={getDataName('buttons-wrapper')}>
+        {warning ? (
+          <ButtonLink
+            {...warning}
+            type="text"
+            aria-label={warning.label}
+            data-name={getDataName('warning')}
+            icon={{
+              position: 'left',
+              faIcon: {name: 'triangle-exclamation', color: COLORS.cm_yellow_400, size: 16}
+            }}
+            customStyle={{color: COLORS.cm_yellow_400, borderRadius: '12px', fontWeight: '600'}}
+            hoverBackgroundColor={COLORS.yellow_100}
+            hoverColor={COLORS.cm_yellow_400}
+          />
+        ) : null}
         {bulletPointMenuButton && !isEmpty(bulletPointMenuButton.buttons) ? (
           <BulletPointMenuButton
             {...bulletPointMenuButton}

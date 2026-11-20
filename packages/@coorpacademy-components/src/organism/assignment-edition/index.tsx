@@ -20,7 +20,8 @@ const AssignmentEdition = ({
   requiredFieldsHint,
   busy = false,
   isFetching = false,
-  focusSection
+  focusSection,
+  focusRequestKey
 }: AssignmentEditionProps) => {
   const root = useRef<HTMLDivElement>(null);
   const radioName = useMemo(() => uniqueId('assignment-rule-'), []);
@@ -39,8 +40,9 @@ const AssignmentEdition = ({
     const header = findHeader(root.current?.parentElement || null);
     const bottom = header?.parentElement?.getBoundingClientRect().bottom || 0;
     section.style.scrollMarginTop = `${bottom + 16}px`;
-    section.scrollIntoView?.({block: 'start'});
-  }, [focusSection, isFetching]);
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    section.scrollIntoView?.({block: 'start', behavior: reducedMotion ? 'auto' : 'smooth'});
+  }, [focusSection, focusRequestKey, isFetching]);
 
   if (isFetching) {
     return (

@@ -51,6 +51,7 @@ export type AssignmentEditionProps = {
   busy?: boolean;
   isFetching?: boolean;
   focusSection?: 'information' | 'audience' | 'contents' | 'dates';
+  focusRequestKey?: string;
 };
 export type AssignmentEditionPropsFixture = {props: AssignmentEditionProps};
 
@@ -106,5 +107,6 @@ export const propTypes = {
   }).isRequired,
   busy: PropTypes.bool,
   isFetching: PropTypes.bool,
-  focusSection: PropTypes.oneOf(['information', 'audience', 'contents', 'dates'])
+  focusSection: PropTypes.oneOf(['information', 'audience', 'contents', 'dates']),
+  focusRequestKey: PropTypes.string
 };

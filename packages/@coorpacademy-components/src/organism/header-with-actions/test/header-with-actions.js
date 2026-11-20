@@ -433,3 +433,21 @@ test.serial('assignment metadata preserves enabled, disabled and close controls'
   t.is(content.getAllByRole('button').length, 1);
   t.truthy(content.getByRole('button', {name: 'Close assignment'}));
 });
+
+test.serial('warning is an accessible action beside save and publish and can be disabled', t => {
+  let clicks = 0;
+  const warning = {label: '2 content items unavailable', onClick: () => clicks++};
+  const view = render(<HeaderWithActions {...legacyDraft} warning={warning} />, {
+    wrapper: wrappingComponent
+  });
+  const button = view.getByRole('button', {name: warning.label});
+  t.is(button.querySelector('svg').getAttribute('color'), '#bd7e00');
+  t.is(button.closest('[data-name="header-with-actions-buttons-wrapper"]')?.contains(button), true);
+  fireEvent.click(button);
+  t.is(clicks, 1);
+  view.rerender(<HeaderWithActions {...legacyDraft} warning={{...warning, disabled: true}} />);
+  fireEvent.click(view.getByRole('button', {name: warning.label}));
+  t.is(clicks, 1);
+  view.rerender(<HeaderWithActions {...legacyDraft} />);
+  t.is(view.queryByRole('button', {name: warning.label}), null);
+});

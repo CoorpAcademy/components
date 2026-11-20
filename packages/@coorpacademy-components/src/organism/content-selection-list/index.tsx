@@ -4,6 +4,7 @@ import {isEmpty, map} from 'lodash/fp';
 import ListItems from '../list-items';
 import Title from '../../atom/title';
 import Notification from '../../atom/notification';
+import Banner from '../../molecule/banner';
 import {COLORS} from '../../variables/colors';
 import {contentContainer} from '../skill-edition/styles';
 import style from './style.css';
@@ -100,7 +101,9 @@ const buildContentItem =
           }
         }
       ],
-      checkbox: readOnly ? undefined : {...checkbox, disabled: disabled || checkbox.disabled}
+      checkbox: readOnly
+        ? undefined
+        : {...checkbox, theme: 'coorpmanager', disabled: disabled || checkbox.disabled}
     };
   };
 
@@ -116,6 +119,7 @@ const ContentSelectionList = ({
   disabled = false,
   isFetching = false,
   error,
+  warning,
   hiddenLabel
 }: ContentPropsType) => {
   const buttonProps = buildButtonProps({...button, disabled: disabled || button.disabled});
@@ -166,6 +170,7 @@ const ContentSelectionList = ({
         ? undefined
         : {
             ...checkboxWithTitleProps,
+            theme: 'coorpmanager',
             disabled: disabled || checkboxWithTitleProps?.disabled,
             name: checkboxWithTitleProps?.title,
             'aria-label': checkboxWithTitleProps?.title,
@@ -179,6 +184,11 @@ const ContentSelectionList = ({
   return (
     <div className={classnames(contentContainer, style.list)}>
       <Title {...titleProps} />
+      {warning ? (
+        <div role="status" data-name="content-availability-warning">
+          <Banner type="warning" message={warning} />
+        </div>
+      ) : null}
       {error ? (
         <div role="alert">
           <Notification type="error" message={error} />

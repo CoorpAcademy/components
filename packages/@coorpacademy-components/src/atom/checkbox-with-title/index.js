@@ -16,6 +16,7 @@ const CheckboxWithTitle = (props, context) => {
     name,
     checked,
     disabled = false,
+    theme = 'default',
     onChange = noop,
     'data-name': dataName,
     'aria-label': ariaLabel,
@@ -24,7 +25,10 @@ const CheckboxWithTitle = (props, context) => {
     className
   } = props;
   const {skin} = context;
-  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
+  const primaryColor =
+    theme === 'coorpmanager'
+      ? COLORS.cm_primary_blue
+      : getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const {iconName, iconColor, preset} = icon;
   const idCheckbox = useMemo(() => uniqueId('input-checkbox-'), []);
   const handleChange = useMemo(
@@ -89,6 +93,7 @@ CheckboxWithTitle.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
   checked: PropTypes.bool,
+  theme: PropTypes.oneOf(['default', 'coorpmanager']),
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   'aria-label': PropTypes.string,
