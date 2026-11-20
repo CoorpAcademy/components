@@ -34,11 +34,15 @@ stages:
 jobs:
   include:
     - stage: lint
+
+      vm: {size: large}
       script: npx lerna run lint
 
     - &test-job
       stage: test
       name: React components
+
+      vm: {size: large}
       script: npx lerna run test:unit --stream --no-prefix  --since --scope $PACKAGE_NAME
       after_script: yarn codecov
       env: PACKAGE_NAME=@coorpacademy/components
