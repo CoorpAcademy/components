@@ -28,7 +28,10 @@ const InputSwitch = (props, context) => {
     icon
   } = props;
   const {skin} = context;
-  const primaryColor = getOr(COLORS.cm_primary_blue, 'common.primary', skin);
+  const primaryColor =
+    theme === 'coorpmanager'
+      ? COLORS.cm_primary_blue
+      : getOr(COLORS.cm_primary_blue, 'common.primary', skin);
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);

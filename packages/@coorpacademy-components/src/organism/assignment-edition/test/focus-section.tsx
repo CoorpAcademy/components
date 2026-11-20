@@ -35,7 +35,7 @@ test.serial('focus change scrolls the requested section with sticky header clear
     const view = render(page(), {wrapper: wrappingComponent});
     t.deepEqual(calls, []);
     view.rerender(page('contents'));
-    t.deepEqual(calls, [['assignment-contents', '192px', {block: 'start'}]]);
+    t.deepEqual(calls, [['assignment-contents', '192px', {block: 'start', behavior: 'smooth'}]]);
     view.rerender(page('contents'));
     t.is(calls.length, 1);
     view.rerender(page('dates'));
@@ -141,10 +141,10 @@ test.serial('focus measures the nearest containing header again when the target 
   );
   try {
     const view = render(page('information'), {wrapper: wrappingComponent});
-    t.deepEqual(calls, [['assignment-information', '136px', {block: 'start'}]]);
+    t.deepEqual(calls, [['assignment-information', '136px', {block: 'start', behavior: 'smooth'}]]);
     innerHeaderBottom = 208;
     view.rerender(page('dates'));
-    t.deepEqual(calls[1], ['assignment-dates', '224px', {block: 'start'}]);
+    t.deepEqual(calls[1], ['assignment-dates', '224px', {block: 'start', behavior: 'smooth'}]);
   } finally {
     window.HTMLElement.prototype.getBoundingClientRect = geometry;
     if (original) Object.defineProperty(window.HTMLElement.prototype, 'scrollIntoView', original);
@@ -165,5 +165,55 @@ test.serial('focus tolerates an environment without scrollIntoView', t => {
     );
   } finally {
     if (original) Object.defineProperty(window.HTMLElement.prototype, 'scrollIntoView', original);
+  }
+});
+
+test.serial('a new request scrolls again even when the section is unchanged', t => {
+  const original = Object.getOwnPropertyDescriptor(window.HTMLElement.prototype, 'scrollIntoView');
+  const calls: string[] = [];
+  window.HTMLElement.prototype.scrollIntoView = function () {
+    calls.push(this.id);
+  };
+  const props = makeProps();
+  try {
+    const view = render(
+      <AssignmentEdition {...props} focusSection="contents" focusRequestKey="first" />,
+      {wrapper: wrappingComponent}
+    );
+    view.rerender(
+      <AssignmentEdition {...props} focusSection="contents" focusRequestKey="second" />
+    );
+    t.deepEqual(calls, ['assignment-contents', 'assignment-contents']);
+    view.rerender(
+      <AssignmentEdition {...props} focusSection="contents" focusRequestKey="second" />
+    );
+    t.is(calls.length, 2);
+  } finally {
+    if (original) Object.defineProperty(window.HTMLElement.prototype, 'scrollIntoView', original);
+    else delete (window.HTMLElement.prototype as Partial<HTMLElement>).scrollIntoView;
+  }
+});
+
+test.serial('reduced motion keeps section navigation immediate', t => {
+  const original = Object.getOwnPropertyDescriptor(window.HTMLElement.prototype, 'scrollIntoView');
+  const media = Object.getOwnPropertyDescriptor(window, 'matchMedia');
+  const calls: unknown[] = [];
+  window.HTMLElement.prototype.scrollIntoView = function (options) {
+    calls.push(options);
+  };
+  Object.defineProperty(window, 'matchMedia', {
+    configurable: true,
+    value: (query: string) => ({matches: query === '(prefers-reduced-motion: reduce)'})
+  });
+  try {
+    render(<AssignmentEdition {...makeProps()} focusSection="contents" />, {
+      wrapper: wrappingComponent
+    });
+    t.deepEqual(calls, [{block: 'start', behavior: 'auto'}]);
+  } finally {
+    if (original) Object.defineProperty(window.HTMLElement.prototype, 'scrollIntoView', original);
+    else delete (window.HTMLElement.prototype as Partial<HTMLElement>).scrollIntoView;
+    if (media) Object.defineProperty(window, 'matchMedia', media);
+    else delete (window as Partial<Window>).matchMedia;
   }
 });

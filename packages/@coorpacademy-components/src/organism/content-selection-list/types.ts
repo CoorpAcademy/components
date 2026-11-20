@@ -57,6 +57,7 @@ export const ContentSelectionListPropTypes = {
     })
   }).isRequired,
   error: PropTypes.string,
+  warning: PropTypes.string,
   hiddenLabel: PropTypes.string,
   isFetching: PropTypes.bool,
   actionButtons: PropTypes.arrayOf(PropTypes.object),
@@ -100,6 +101,7 @@ export type ContentPropsType = {
   required?: boolean;
   disabled?: boolean;
   error?: string;
+  warning?: string;
   hiddenLabel?: string;
   title: string;
   subtitle?: string;
