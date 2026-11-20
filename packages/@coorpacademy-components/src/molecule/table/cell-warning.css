@@ -1,0 +1,32 @@
+.cellWarning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 4px;
+  padding: 2px;
+  background: transparent;
+  cursor: help;
+}
+
+.cellWarning:focus-visible {
+  outline: 2px solid #216BDB;
+  outline-offset: 2px;
+}
+
+.cellWarningTooltip {
+  position: fixed;
+  z-index: 10000;
+  box-sizing: border-box;
+  transform: translateY(-100%);
+  padding: 12px 16px;
+  border-radius: 6px;
+  background: #252A35;
+  color: white;
+  font-family: 'Gilroy';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: pre-line;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}

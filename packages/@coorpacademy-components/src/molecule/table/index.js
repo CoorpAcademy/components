@@ -18,6 +18,7 @@ import Link from '../../atom/link';
 import ButtonLink from '../../atom/button-link';
 import {COLORS} from '../../variables/colors';
 import AssignmentStatusTag from '../assignment-status-tag';
+import CellWarning from './cell-warning';
 import style from './style.css';
 
 const THEMES = {COCKPIT: 'cockpit'};
@@ -361,6 +362,7 @@ const Table = (props, context) => {
         <td key={fIndex}>
           <span className={style.cellContent}>
             {field.text}
+            {field.warning ? <CellWarning message={field.warning} /> : null}
             {(field.tags || []).map((tag, tagIndex) => (
               <AssignmentStatusTag {...tag} key={tagIndex} />
             ))}
@@ -439,6 +441,7 @@ Table.propTypes = {
             icon: PropTypes.string,
             title: PropTypes.string,
             text: PropTypes.string,
+            warning: PropTypes.string,
             tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTag.propTypes))
           })
         ])
