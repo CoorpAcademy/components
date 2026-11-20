@@ -14022,6 +14022,212 @@ div.player-iX19O:hover span.selectSpan-GbHdf {
   width: 100%;
 }
 
+@-webkit-keyframes fadeIn-buHfP {
+    0% {
+        opacity: 0;
+        margin-top: -50px;
+    }
+
+    16% {
+        margin-top: 70px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: 70px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn-buHfP {
+    0% {
+        opacity: 0;
+        margin-top: -50px;
+    }
+
+    16% {
+        margin-top: 70px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: 70px;
+        opacity: 1;
+    }
+}
+
+.banner-GYX6O {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 8px; 
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.banner-GYX6O.warning-\+N2ep {
+    background-color: #FFFAE5;
+    color: #DB9200;
+}
+
+.banner-GYX6O.error-x5fuA {
+    background-color: #ffe5e6;
+    color: #b81400;
+}
+
+.banner-GYX6O.success-l88KS {
+    background-color: #D6F5E1;
+    color: #05944F;
+}
+
+.banner-GYX6O.info-cB-Aj {
+    background-color: #EAEAEB;
+    color: #1D1D2B;
+}
+
+.temporaryBanner-UhKqO {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;  
+    padding: 16px 24px; 
+    border-radius: 5px;
+    border-radius: 5px;
+    -webkit-animation: fadeIn-buHfP 4000ms;
+            animation: fadeIn-buHfP 4000ms;
+    -webkit-animation-delay: 300ms;
+            animation-delay: 300ms;
+    -webkit-animation-direction: alternate;
+            animation-direction: alternate;
+    -webkit-animation-iteration-count: 2;
+            animation-iteration-count: 2;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+    -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.ctaWrapper-Hy05X {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 4px;
+}
+
+.button-5NWAm{
+    background-color: transparent;
+    white-space: nowrap;
+}
+
+.button-5NWAm.warning-\+N2ep {
+    color: #DB9200;
+}
+
+.button-5NWAm.warning-\+N2ep:hover {
+    color: rgb(189, 126, 0);
+}
+
+.button-5NWAm.error-x5fuA {
+    color: #b81400;
+}
+
+.button-5NWAm.error-x5fuA:hover {
+    color: rgb(153, 18, 0);
+}
+
+.button-5NWAm.success-l88KS {
+    color: #35CC7F;
+}
+
+.button-5NWAm.success-l88KS:hover {
+    color: rgb(54, 173, 111);
+}
+
+.buttonsBar-Fbvts {
+    margin-right: 4px;
+    width: 2px;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    opacity: 0.3;
+}
+
+.buttonsBar-Fbvts.warning-\+N2ep {
+    background-color: #DB9200;
+}
+
+.buttonsBar-Fbvts.error-x5fuA {
+    background-color: #b81400;
+}
+
+.buttonsBar-Fbvts.success-l88KS {
+    background-color: #35CC7F;
+}
+
+.buttonsBar-Fbvts.info-cB-Aj {
+    background-color: #1D1D2B;
+}
+
+.icon-2dlik {
+    height: 22px;
+    margin-right: 16px;
+}
+
+.temporaryIcon-HJvFr {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.message-BhpQN {
+    font-family: 'Gilroy';
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 16px;
+}
+
+@media (max-width: 640px) {
+    .banner-GYX6O {
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        gap: 24px;
+    }
+}
 .container-EJLTJ {
   display: -webkit-box;
   display: -ms-flexbox;
