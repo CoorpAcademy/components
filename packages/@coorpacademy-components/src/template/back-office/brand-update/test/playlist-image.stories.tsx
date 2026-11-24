@@ -1,22 +1,37 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
-import cardFixture from '../../../molecule/playlist-card/test/fixtures/default';
-import fixture from './test/fixtures/wizard-form-edit-playlist';
-import BrandUpdate from '.';
+import {find, flatMap, includes, map, pipe, reject} from 'lodash/fp';
+import cardFixture from '../../../../molecule/playlist-card/test/fixtures/default';
+import BrandUpdate from '..';
+import fixture from './fixtures/wizard-form-edit-playlist';
+
+type PlaylistImageFormProps = {
+  creation?: boolean;
+  initialImage?: boolean;
+  loading?: boolean;
+  error?: string;
+};
+
+type FormField = {
+  type: string;
+  hint?: string;
+  value?: string;
+  [key: string]: unknown;
+};
 
 const PlaylistImageForm = ({
   creation = false,
   initialImage = false,
   loading = false,
   error = ''
-}) => {
-  const [image, setImage] = useState(initialImage ? cardFixture.props.coverImages[0].image : null);
+}: PlaylistImageFormProps) => {
+  const [image, setImage] = useState<string | null>(
+    initialImage ? cardFixture.props.coverImages[0].image : null
+  );
   const [title, setTitle] = useState(creation ? '' : 'Marketing expert');
   const [description, setDescription] = useState(
     creation
       ? ''
-      : fixture.props.content.content.groups[0].fields.find(field => field.type === 'textarea')
-          .value
+      : find({type: 'textarea'}, fixture.props.content.content.groups[0].fields)?.value || ''
   );
   const [uploadError, setUploadError] = useState(error);
   const [busy, setBusy] = useState(loading);
@@ -32,10 +47,10 @@ const PlaylistImageForm = ({
     loadingLabel: 'Uploading image…',
     error: uploadError,
     loading: busy,
-    onChange: event => {
-      const file = event.target.files[0];
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
       if (!file) return;
-      if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type) || file.size > 5000000) {
+      if (!includes(file.type, ['image/jpeg', 'image/png', 'image/gif']) || file.size > 5000000) {
         setUploadError('Choose a JPEG, PNG or GIF file up to 5 MB.');
         return;
       }
@@ -43,7 +58,7 @@ const PlaylistImageForm = ({
       setBusy(true);
       const reader = new FileReader();
       reader.onload = () => {
-        setImage(reader.result);
+        setImage(reader.result as string);
         setBusy(false);
       };
       reader.onerror = () => {
@@ -78,34 +93,37 @@ const PlaylistImageForm = ({
       coverImages: image ? [{image}] : mosaic
     }
   };
-  const groups = form.groups.map(group => ({
-    ...group,
-    fields: group.fields
-      .filter(field => field.type !== 'buttonLink')
-      .reduce((fields, field) => {
-        let nextField = {...field, hint: undefined};
-        if (field.type === 'text') {
-          nextField = {
-            ...field,
-            value: title,
-            onChange: setTitle,
-            hint: field.hint.replace(/^\d+/, title.length)
-          };
-        } else if (field.type === 'textarea') {
-          nextField = {
-            ...field,
-            value: description,
-            onChange: setDescription,
-            hint: field.hint.replace(/^\d+/, description.length)
-          };
+  const buildFields = (field: FormField): FormField[] => {
+    if (field.type === 'text') {
+      return [
+        {
+          ...field,
+          value: title,
+          onChange: setTitle,
+          hint: field.hint?.replace(/^\d+/, String(title.length))
         }
-        return fields.concat(
-          field.type === 'textarea'
-            ? [nextField, {...playlistImage, type: 'playlistCover'}]
-            : [nextField]
-        );
-      }, [])
-  }));
+      ];
+    }
+    if (field.type === 'textarea') {
+      return [
+        {
+          ...field,
+          value: description,
+          onChange: setDescription,
+          hint: field.hint?.replace(/^\d+/, String(description.length))
+        },
+        {...playlistImage, type: 'playlistCover'}
+      ];
+    }
+    return [{...field, hint: undefined}];
+  };
+  const groups = map(
+    group => ({
+      ...group,
+      fields: pipe(reject({type: 'buttonLink'}), flatMap(buildFields))(group.fields)
+    }),
+    form.groups
+  );
   return (
     <BrandUpdate
       {...fixture.props}
@@ -118,24 +136,21 @@ const PlaylistImageForm = ({
         },
         summary: {
           ...fixture.props.content.summary,
-          sections: fixture.props.content.summary.sections.map(section => ({
-            ...section,
-            items: section.items.map(item =>
-              item.title === 'Name' ? {...item, value: title} : item
-            )
-          }))
+          sections: map(
+            section => ({
+              ...section,
+              items: map(
+                item => (item.title === 'Name' ? {...item, value: title} : item),
+                section.items
+              )
+            }),
+            fixture.props.content.summary.sections
+          )
         },
         content: {...form, groups}
       }}
     />
   );
-};
-
-PlaylistImageForm.propTypes = {
-  creation: PropTypes.bool,
-  initialImage: PropTypes.bool,
-  loading: PropTypes.bool,
-  error: PropTypes.string
 };
 
 export default {
@@ -145,11 +160,13 @@ export default {
 };
 
 export const CreationEmpty = () => <PlaylistImageForm creation />;
-CreationEmpty.play = async ({canvasElement}) => {
+CreationEmpty.play = async ({canvasElement}: {canvasElement: HTMLElement}) => {
   await canvasElement.ownerDocument.fonts.ready;
   const editor = canvasElement.querySelector('[data-name="playlist-cover-editor"]');
+  if (!editor) throw new Error('Playlist image editor is missing.');
   const drop = editor.querySelector('[data-name="drag-and-drop-box"]');
   const card = editor.querySelector('[data-name^="playlist-card-"]');
+  if (!drop || !card) throw new Error('Playlist image editor is incomplete.');
   const dropBounds = drop.getBoundingClientRect();
   const cardBounds = card.getBoundingClientRect();
   if (
@@ -160,7 +177,7 @@ CreationEmpty.play = async ({canvasElement}) => {
     throw new Error('The drop zone must align with the bottom of the playlist card.');
   }
   if (
-    !card.textContent.includes('0 courses') ||
+    !includes('0 courses', card.textContent || '') ||
     card.querySelector('[style*="background-image"]')
   ) {
     throw new Error('A new playlist must preview zero courses without a cover image.');

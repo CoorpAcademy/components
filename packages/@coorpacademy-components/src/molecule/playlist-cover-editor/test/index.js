@@ -1,7 +1,7 @@
 import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import {render, fireEvent, cleanup} from '@testing-library/react';
+import {render, fireEvent, cleanup, within} from '@testing-library/react';
 import PlaylistCoverEditor from '..';
 
 browserEnv();
@@ -27,8 +27,8 @@ test('optional cover input accepts supported images and renders the real playlis
   t.is(input.getAttribute('type'), 'file');
   t.is(input.getAttribute('accept'), 'image/jpeg,image/png,image/gif');
   t.false(input.required);
-  t.truthy(view.getByText('Marketing expert'));
-  t.falsy(view.queryByText('Remove image'));
+  t.truthy(within(view.container).getByText('Marketing expert'));
+  t.falsy(within(view.container).queryByText('Remove image'));
 });
 
 test('the remove control is keyboard accessible and invokes cover removal', t => {
@@ -42,7 +42,23 @@ test('the remove control is keyboard accessible and invokes cover removal', t =>
       }}
     />
   );
-  const remove = view.getByRole('button', {name: 'Remove image'});
+  const remove = within(view.container).getByRole('button', {name: 'Remove image'});
   fireEvent.click(remove);
   t.true(removed);
+});
+
+test('a failed upload can be cleared before an image is selected', t => {
+  let cleared = false;
+  const view = render(
+    <PlaylistCoverEditor
+      {...props}
+      upload={{...props.upload, error: 'Upload failed'}}
+      onRemove={() => {
+        cleared = true;
+      }}
+    />
+  );
+  t.truthy(within(view.container).getByText('Upload failed'));
+  fireEvent.click(within(view.container).getByRole('button', {name: 'Remove image'}));
+  t.true(cleared);
 });
