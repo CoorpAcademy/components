@@ -2,6 +2,7 @@
 @value cm_grey_700, cm_grey_500 from colors;
 
 .container {
+  font-family: "Gilroy", sans-serif;
   min-width: 0;
   width: 100%;
   max-width: 345px;
