@@ -4,9 +4,20 @@ import cardFixture from '../../../molecule/playlist-card/test/fixtures/default';
 import fixture from './test/fixtures/wizard-form-edit-playlist';
 import BrandUpdate from '.';
 
-const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) => {
+const PlaylistImageForm = ({
+  creation = false,
+  initialImage = false,
+  loading = false,
+  error = ''
+}) => {
   const [image, setImage] = useState(initialImage ? cardFixture.props.coverImages[0].image : null);
-  const [title, setTitle] = useState('Marketing expert');
+  const [title, setTitle] = useState(creation ? '' : 'Marketing expert');
+  const [description, setDescription] = useState(
+    creation
+      ? ''
+      : fixture.props.content.content.groups[0].fields.find(field => field.type === 'textarea')
+          .value
+  );
   const [uploadError, setUploadError] = useState(error);
   const [busy, setBusy] = useState(loading);
   const form = fixture.props.content.content;
@@ -42,6 +53,7 @@ const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) 
       reader.readAsDataURL(file);
     }
   };
+  const mosaic = creation ? [] : cardFixture.props.coverImages;
   const playlistImage = {
     title: 'Playlist image (optional)',
     description:
@@ -58,7 +70,12 @@ const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) 
     card: {
       ...cardFixture.props,
       title: title || 'Playlist name',
-      coverImages: image ? [{image}] : cardFixture.props.coverImages
+      progress: 0,
+      locales: {
+        ...cardFixture.props.locales,
+        coursesLabel: creation ? '<b>0</b> courses' : cardFixture.props.locales.coursesLabel
+      },
+      coverImages: image ? [{image}] : mosaic
     }
   };
   const groups = form.groups.map(group => ({
@@ -66,8 +83,22 @@ const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) 
     fields: group.fields
       .filter(field => field.type !== 'buttonLink')
       .reduce((fields, field) => {
-        const nextField =
-          field.type === 'text' ? {...field, value: title, onChange: setTitle} : field;
+        let nextField = {...field, hint: undefined};
+        if (field.type === 'text') {
+          nextField = {
+            ...field,
+            value: title,
+            onChange: setTitle,
+            hint: field.hint.replace(/^\d+/, title.length)
+          };
+        } else if (field.type === 'textarea') {
+          nextField = {
+            ...field,
+            value: description,
+            onChange: setDescription,
+            hint: field.hint.replace(/^\d+/, description.length)
+          };
+        }
         return fields.concat(
           field.type === 'textarea'
             ? [nextField, {...playlistImage, type: 'playlistCover'}]
@@ -79,12 +110,29 @@ const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) 
     <BrandUpdate
       {...fixture.props}
       notifications={[]}
-      content={{...fixture.props.content, content: {...form, groups}}}
+      content={{
+        ...fixture.props.content,
+        wizardHeader: {
+          ...fixture.props.content.wizardHeader,
+          title: creation ? 'Create custom playlist' : 'Edit custom playlist'
+        },
+        summary: {
+          ...fixture.props.content.summary,
+          sections: fixture.props.content.summary.sections.map(section => ({
+            ...section,
+            items: section.items.map(item =>
+              item.title === 'Name' ? {...item, value: title} : item
+            )
+          }))
+        },
+        content: {...form, groups}
+      }}
     />
   );
 };
 
 PlaylistImageForm.propTypes = {
+  creation: PropTypes.bool,
   initialImage: PropTypes.bool,
   loading: PropTypes.bool,
   error: PropTypes.string
@@ -94,6 +142,29 @@ export default {
   title: 'Template/BackOffice/BrandUpdate/Custom playlist image',
   component: BrandUpdate,
   parameters: {layout: 'fullscreen', chromatic: {viewports: [1440, 1280]}}
+};
+
+export const CreationEmpty = () => <PlaylistImageForm creation />;
+CreationEmpty.play = async ({canvasElement}) => {
+  await canvasElement.ownerDocument.fonts.ready;
+  const editor = canvasElement.querySelector('[data-name="playlist-cover-editor"]');
+  const drop = editor.querySelector('[data-name="drag-and-drop-box"]');
+  const card = editor.querySelector('[data-name^="playlist-card-"]');
+  const dropBounds = drop.getBoundingClientRect();
+  const cardBounds = card.getBoundingClientRect();
+  if (
+    dropBounds.right <= cardBounds.left &&
+    Math.abs(dropBounds.top - cardBounds.top) < 60 &&
+    Math.abs(dropBounds.bottom - cardBounds.bottom) > 1
+  ) {
+    throw new Error('The drop zone must align with the bottom of the playlist card.');
+  }
+  if (
+    !card.textContent.includes('0 courses') ||
+    card.querySelector('[style*="background-image"]')
+  ) {
+    throw new Error('A new playlist must preview zero courses without a cover image.');
+  }
 };
 
 export const WithoutImage = () => <PlaylistImageForm />;
