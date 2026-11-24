@@ -27,7 +27,7 @@ export default {
         done: false
       }
     ],
-    summary: wizardSummary.props,
+    summary: {...wizardSummary.props, title: 'Playlist summary'},
     content: {
       ...generalInformation.props,
       type: 'form'

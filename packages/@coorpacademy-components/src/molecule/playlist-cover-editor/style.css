@@ -1,0 +1,71 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_700, cm_grey_500 from colors;
+
+.container {
+  font-family: "Gilroy", sans-serif;
+  min-width: 0;
+  width: 100%;
+  margin: 0 0 32px;
+}
+
+.title {
+  margin: 0 0 8px;
+  color: cm_grey_700;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.description {
+  margin: 0 0 20px;
+  color: cm_grey_500;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 32px;
+}
+
+.uploadColumn {
+  display: flex;
+  flex: 1 1 300px;
+  max-width: 345px;
+  min-width: 0;
+}
+
+.upload {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  min-height: 309px;
+}
+
+.preview {
+  flex: 0 1 345px;
+  min-width: 0;
+}
+
+.previewTitle {
+  margin: 0 0 12px;
+  color: cm_grey_700;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.card {
+  pointer-events: none;
+}
+
+.card > div {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.remove {
+  margin-top: 12px;
+}
