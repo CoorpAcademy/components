@@ -87,6 +87,7 @@ const InputFileDraggable = ({
           <input
             {...(disableHoverTooltip ? {title: ''} : {})}
             type="file"
+            aria-label={buttonAriaLabel || title || uploadLabel}
             name={name}
             accept={filesTypes}
             disabled={loading || disabled}

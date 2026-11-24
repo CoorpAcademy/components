@@ -1,0 +1,50 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_700, cm_grey_500 from colors;
+
+.container {
+  min-width: 0;
+  width: 100%;
+  max-width: 345px;
+}
+
+.title {
+  margin: 0 0 8px;
+  color: cm_grey_700;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.description {
+  margin: 0 0 20px;
+  color: cm_grey_500;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.upload {
+  width: 100%;
+  height: 205px;
+  margin-bottom: 12px;
+}
+
+.preview {
+  margin-top: 24px;
+}
+
+.previewTitle {
+  margin: 0 0 12px;
+  color: cm_grey_700;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.card {
+  pointer-events: none;
+}
+
+.card > div {
+  width: 100%;
+  box-sizing: border-box;
+}

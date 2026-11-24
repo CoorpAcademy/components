@@ -23,6 +23,7 @@ export const FilesPropType = (props, propName, componentName) => {
   const validFilesTypes = [
     'image/jpeg',
     'image/png',
+    'image/gif',
     'image/svg+xml',
     'image/*',
     'application/pdf',
@@ -39,7 +40,7 @@ export const FilesPropType = (props, propName, componentName) => {
   if (isValid) return null;
 
   return new Error(
-    `Invalid prop value: ${propValue}, at component: ${componentName}. Expected a valid file type: image/jpeg, image/png, image/* image/svg+xml, application/pdf, application/zip, text/csv or an Excel type.`
+    `Invalid prop value: ${propValue}, at component: ${componentName}. Expected a valid file type: image/jpeg, image/png, image/gif, image/* image/svg+xml, application/pdf, application/zip, text/csv or an Excel type.`
   );
 };
 

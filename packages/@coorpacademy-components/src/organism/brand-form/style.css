@@ -77,3 +77,19 @@
   height: 60px;
   width: 60px;
 }
+
+.withPlaylistImage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.fields {
+  flex: 1 1 444px;
+  min-width: 0;
+}
+
+.withPlaylistImage > aside {
+  flex: 0 1 345px;
+}
