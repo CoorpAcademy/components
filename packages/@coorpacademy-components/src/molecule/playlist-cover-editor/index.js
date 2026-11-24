@@ -15,28 +15,32 @@ const PlaylistCoverEditor = ({
   upload,
   card
 }) => (
-  <aside className={style.container} aria-label={title} data-name="playlist-cover-editor">
+  <section className={style.container} aria-label={title} data-name="playlist-cover-editor">
     <h2 className={style.title}>{title}</h2>
     <p className={style.description}>{description}</p>
-    <div className={style.upload}>
-      <InputFileDraggable {...upload} onReset={onRemove} />
-    </div>
-    {hasImage || upload.error ? (
-      <ButtonLink
-        type="text"
-        label={removeLabel}
-        aria-label={removeLabel}
-        onClick={onRemove}
-        data-name="remove-playlist-image"
-      />
-    ) : null}
-    <div className={style.preview} aria-live="polite" aria-busy={upload.loading}>
-      <h3 className={style.previewTitle}>{previewLabel}</h3>
-      <div className={style.card}>
-        <PlaylistCard {...card} />
+    <div className={style.content}>
+      <div className={style.uploadColumn}>
+        <div className={style.upload}>
+          <InputFileDraggable {...upload} onReset={onRemove} />
+        </div>
+        {hasImage || upload.error ? (
+          <ButtonLink
+            type="text"
+            label={removeLabel}
+            aria-label={removeLabel}
+            onClick={onRemove}
+            data-name="remove-playlist-image"
+          />
+        ) : null}
+      </div>
+      <div className={style.preview} aria-live="polite" aria-busy={upload.loading}>
+        <h3 className={style.previewTitle}>{previewLabel}</h3>
+        <div className={style.card}>
+          <PlaylistCard {...card} />
+        </div>
       </div>
     </div>
-  </aside>
+  </section>
 );
 
 PlaylistCoverEditor.propTypes = {

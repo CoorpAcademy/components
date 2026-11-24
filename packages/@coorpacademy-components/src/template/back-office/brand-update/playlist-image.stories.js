@@ -10,12 +10,6 @@ const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) 
   const [uploadError, setUploadError] = useState(error);
   const [busy, setBusy] = useState(loading);
   const form = fixture.props.content.content;
-  const groups = form.groups.map(group => ({
-    ...group,
-    fields: group.fields
-      .filter(field => field.type !== 'buttonLink')
-      .map(field => (field.type === 'text' ? {...field, value: title, onChange: setTitle} : field))
-  }));
   const upload = {
     name: 'playlist-cover',
     filesTypes: 'image/jpeg,image/png,image/gif',
@@ -67,11 +61,25 @@ const PlaylistImageForm = ({initialImage = false, loading = false, error = ''}) 
       coverImages: image ? [{image}] : cardFixture.props.coverImages
     }
   };
+  const groups = form.groups.map(group => ({
+    ...group,
+    fields: group.fields
+      .filter(field => field.type !== 'buttonLink')
+      .reduce((fields, field) => {
+        const nextField =
+          field.type === 'text' ? {...field, value: title, onChange: setTitle} : field;
+        return fields.concat(
+          field.type === 'textarea'
+            ? [nextField, {...playlistImage, type: 'playlistCover'}]
+            : [nextField]
+        );
+      }, [])
+  }));
   return (
     <BrandUpdate
       {...fixture.props}
       notifications={[]}
-      content={{...fixture.props.content, content: {...form, groups, playlistImage}}}
+      content={{...fixture.props.content, content: {...form, groups}}}
     />
   );
 };

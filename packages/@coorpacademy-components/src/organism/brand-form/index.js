@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionNavigationArrowLeft as ArrowLeft} from '@coorpacademy/nova-icons';
 import BrandFormGroup from '../../molecule/brand-form-group';
-import PlaylistCoverEditor from '../../molecule/playlist-cover-editor';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import ButtonLink from '../../atom/button-link';
@@ -80,7 +79,6 @@ const buildButtonSection = (
 const BrandForm = (props, context) => {
   const {
     groups,
-    playlistImage,
     disabled,
     isModified,
     isPending,
@@ -152,14 +150,7 @@ const BrandForm = (props, context) => {
         </div>
       ) : (
         <form onSubmit={handleSubmit} onReset={handleReset} className={style.form}>
-          {playlistImage ? (
-            <div className={style.withPlaylistImage}>
-              <div className={style.fields}>{brandGroups}</div>
-              <PlaylistCoverEditor {...playlistImage} />
-            </div>
-          ) : (
-            brandGroups
-          )}
+          {brandGroups}
           {buttonSection}
         </form>
       )}
@@ -179,7 +170,6 @@ BrandForm.defaultProps = {
 };
 
 BrandForm.propTypes = {
-  playlistImage: PropTypes.shape(PlaylistCoverEditor.propTypes),
   groups: PropTypes.arrayOf(PropTypes.shape(BrandFormGroup.propTypes)).isRequired,
   disabled: PropTypes.bool,
   isModified: PropTypes.bool,

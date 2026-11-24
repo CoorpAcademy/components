@@ -12,6 +12,7 @@ import InputCheckbox from '../../atom/input-checkbox';
 import InputReadonly from '../../atom/input-readonly';
 import InputSwitch from '../../atom/input-switch';
 import BrandUploadBox from '../brand-upload-box';
+import PlaylistCoverEditor from '../playlist-cover-editor';
 import BrandDownloadBox from '../brand-download-box';
 import Button from '../../atom/button';
 import InputTextarea from '../../atom/input-textarea';
@@ -38,6 +39,8 @@ const buildInput = field => {
   const {type, ...rest} = field;
 
   switch (type) {
+    case 'playlistCover':
+      return <PlaylistCoverEditor {...rest} />;
     case 'autoComplete':
       return <Autocomplete {...field} />;
     case 'color':
@@ -185,6 +188,10 @@ BrandFormGroup.propTypes = {
   groupLayout: PropTypes.string,
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
+      PropTypes.shape({
+        ...PlaylistCoverEditor.propTypes,
+        type: PropTypes.oneOf(['playlistCover'])
+      }),
       PropTypes.shape({
         ...Autocomplete.propTypes,
         type: PropTypes.oneOf(['autoComplete']),
