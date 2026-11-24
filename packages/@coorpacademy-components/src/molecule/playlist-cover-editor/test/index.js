@@ -13,7 +13,11 @@ const props = {
   removeLabel: 'Remove image',
   onRemove: () => {},
   hasImage: false,
-  upload: {uploadLabel: 'Upload image', buttonAriaLabel: 'Upload image', filesTypes: 'image/jpeg,image/png,image/gif'},
+  upload: {
+    uploadLabel: 'Upload image',
+    buttonAriaLabel: 'Upload image',
+    filesTypes: 'image/jpeg,image/png,image/gif'
+  },
   card: {type: 'playlist', title: 'Marketing expert', coverImages: [{image: 'cover.jpg'}]}
 };
 
@@ -29,7 +33,15 @@ test('optional cover input accepts supported images and renders the real playlis
 
 test('the remove control is keyboard accessible and invokes cover removal', t => {
   let removed = false;
-  const view = render(<PlaylistCoverEditor {...props} hasImage onRemove={() => {removed = true;}} />);
+  const view = render(
+    <PlaylistCoverEditor
+      {...props}
+      hasImage
+      onRemove={() => {
+        removed = true;
+      }}
+    />
+  );
   const remove = view.getByRole('button', {name: 'Remove image'});
   fireEvent.click(remove);
   t.true(removed);
