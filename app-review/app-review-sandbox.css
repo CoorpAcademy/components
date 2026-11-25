@@ -535,6 +535,174 @@
   content: none !important;
 }
 
+.textBase-37eLG {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: #06265B;
+  user-select: none;
+}
+
+.tooltipContainer-kPFT6 {
+  overflow: visible;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+}
+
+.tooltipIconContainer-E\+i-Y {
+  display: flex;
+  justify-content: flex-end;
+  border: none;
+  background: #F4F4F5;
+  height: 25px;
+  align-items: center;
+}
+
+.toolTip-lId3x {
+  transition: opacity 0.8s;
+  position: absolute;
+  border-radius: 7px;
+  background-color: #1D1D2B;
+  height: auto;
+  width: 200px;
+}
+
+.bigIconToolTip-U44z5 {
+  right: -71px;
+  bottom: 31px;
+}
+
+.smallIconToolTip-BaLuJ {
+  right: -75px;
+  bottom: 32px;
+}
+
+.toolTip-lId3x::before {
+  content: '';
+  display: inline-block;
+  visibility: inherit;
+  opacity: inherit;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg);
+  background-color: inherit;
+  position: inherit;
+  border-radius: 2px;
+  bottom: -5px;
+  right: 40%;
+}
+
+.tooltipContent-I\+tkp {
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: white;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.tooltipContentFontSize14-sIC4q {
+  font-size: 14px;
+}
+
+.tooltipContentFontSize12-AYZhh {
+  font-size: 12px;
+}
+
+
+.informationIcon-ePxym {
+  color: #515161;
+}
+
+/* ----------------------- ReactToolTip exclusive classes ------------------------- */
+.toolTipReact-vygoQ {
+  pointer-events: all !important;
+  background-color: #1D1D2B;
+  border-radius: 7px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  left: 5px;
+  max-width: 400px;
+  padding: 8px 12px !important;
+  /* Text styling when content is not wrapped in <p> */
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+}
+
+/* for keyboard navigation, the position can't be obtained from the mouse */
+[class*="__react_component_tooltip"]:not(.toolTipReact-vygoQ) {
+  border-radius: 7px !important;
+  left: -999em !important;
+  visibility: visible !important;
+  opacity: 1!important;
+}
+
+/* same reason, arrow can't be placed effectively */
+[class*="__react_component_tooltip"]:not(.toolTipReact-vygoQ)::after {
+  content: none !important;
+}
+
+.interactiveTrigger-q5tyC {
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.interactiveTrigger-q5tyC:focus-visible {
+  outline: 2px solid #0061FF;
+  outline-offset: 2px;
+}
+
+.interactivePanel-VqN6M {
+  position: fixed;
+  z-index: 1100;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: calc(100vw - 24px);
+  width: min(400px, calc(100vw - 24px));
+  max-height: min(360px, calc(100vh - 24px));
+  overflow: auto;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  border: 1px solid #d7d7da;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #1D1D2B;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+  -webkit-box-shadow: 0 4px 20px rgba(29, 29, 43, 0.16);
+          box-shadow: 0 4px 20px rgba(29, 29, 43, 0.16);
+}
+
+.interactivePanel-VqN6M:focus-visible {
+  outline: 2px solid #0061FF;
+  outline-offset: 2px;
+}
+
+.instructions-oqUZG {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.container-fBMMj {
+}
+
+.informationIcon-BesP2 {
+}
+
 .tag-XR4R2 {
   border-radius: 24px;
   font-family: "Gilroy";
@@ -627,6 +795,57 @@
           align-items: center;
   gap: 4px;
   line-height: 16px;
+}
+
+.removable-yev3r {
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.removable-yev3r .content-0f-yx {
+  min-width: 0;
+  gap: 8px;
+}
+
+.remove-NegVL {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.remove-NegVL:hover:not(:disabled) {
+  background: rgba(0, 97, 255, 0.12);
+}
+
+.remove-NegVL:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.remove-NegVL:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 .button-m07QY {
@@ -1877,6 +2096,18 @@ _:-ms-fullscreen,
       -ms-flex-pack: center;
           justify-content: center;
   border: 1px solid transparent;
+}
+
+/* Shade the poster before playback without dimming the native Play control. */
+.wrapper-Tw37c .jw-state-idle .jw-preview::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
 .defaultStyle-R26lv {
@@ -8566,7 +8797,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 }
 
 .title-f5Vbl {
-  font-family: "Gilroy";
+  font-family: 'Gilroy';
   font-size: 15px;
   text-transform: none;
   color: #546E7A;
@@ -8621,7 +8852,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   width: 100%;
   display: block;
 }
- 
+
 .coorpmanager-fRLMM .choice-rfGep:hover {
   background-color: #E1E1E3;
 }
@@ -9081,6 +9312,102 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
 
 .coorpmanager-fRLMM .hideHint-drdME {
   visibility: hidden;
+}
+
+.keyboard-vPHUV .select-cccMK:focus-visible {
+  outline: 2px solid #0061FF;
+  outline-offset: 2px;
+}
+.keyboard-vPHUV .choice-rfGep:focus-visible {
+  outline: 2px solid #0061FF;
+  outline-offset: -2px;
+}
+.keyboard-vPHUV .item-Ci3l4 input[type='checkbox'] {
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.keyboard-vPHUV .item-Ci3l4 input:focus-visible + div {
+  outline: 2px solid #0061FF;
+  outline-offset: 2px;
+}
+.searchable-pBl7k.activeChoices-ybIUC {
+  max-height: none;
+  overflow: visible;
+}
+.searchable-pBl7k .list-nLboz {
+  max-height: 220px;
+  overflow-y: auto;
+}
+.searchContainer-w1rpR {
+  padding: 8px;
+}
+.searchInput-xIucv {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 40px;
+  border: 1px solid #d7d7da;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  background: #FFFFFF;
+}
+.emptyResults-RYhRS {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.keyboard-vPHUV .choices-REr1e[hidden] {
+  display: none;
+}
+
+.choice-rfGep .countedItem-bAD7g {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+.countedItem-bAD7g > label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 0;
+}
+.countedItem-bAD7g [data-name='checkbox-label'] {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.choiceCount-QC1L0 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  white-space: nowrap;
+  color: #515161;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.choice-rfGep .warningItem-ZFq-R {
+  color: #1D1D2B;
+  background: #FFEECC;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 3px 0 #B87A00;
+          box-shadow: inset 3px 0 #B87A00;
+}
+.warningItem-ZFq-R .choiceCount-QC1L0 {
+  color: #1D1D2B;
+  font-weight: 700;
 }
 
 .container-0LDjd {
