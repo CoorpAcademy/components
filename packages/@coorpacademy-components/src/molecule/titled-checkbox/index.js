@@ -22,6 +22,7 @@ const TitledCheckbox = props => {
         <Checkbox
           className={style.input}
           checked={choice.selected}
+          disabled={choice.disabled}
           onChange={handleChange}
           data-name={label}
         />
@@ -37,7 +38,8 @@ TitledCheckbox.propTypes = {
   choice: PropTypes.shape({
     selected: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
-    value: PropTypes.string
+    value: PropTypes.string,
+    disabled: PropTypes.bool
   }).isRequired,
   background: ColorPropType,
   onToggle: PropTypes.func.isRequired

@@ -1,0 +1,44 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500, cm_primary_blue from colors;
+
+.chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 100%;
+  gap: 4px;
+}
+
+.chip [data-name^="content-tag-"] {
+  max-width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.chip a {
+  max-width: 100%;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.chip [data-name^="content-tag-"] div::first-letter {
+  text-transform: none;
+}
+
+.chip a:hover {
+  text-decoration: underline;
+}
+
+.hint {
+  color: cm_grey_500;
+  font-size: 12px;
+}
+
+
+.chip a:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 3px;
+}
