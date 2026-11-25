@@ -9,7 +9,7 @@ import {
 // Synthetic App props. Production locale keys and condition codecs belong to App Backoffice.
 export const labels: PopulationConditionsProps['labels'] = {
   title: 'Membership conditions',
-  description: 'Choose which learners belong to this population.',
+  description: 'Learners join when all conditions in at least one group match their profile.',
   groupTitle: 'All of these conditions',
   field: 'Profile field',
   comparison: 'Comparison',
@@ -19,9 +19,9 @@ export const labels: PopulationConditionsProps['labels'] = {
   addGroup: 'Add another group (OR)',
   retry: 'Try again',
   supportTitle: 'Support section',
-  supportLabel: 'Allow access for Coorpacademy technical support',
+  supportLabel: 'Always include Coorpacademy technical support',
   supportDescription:
-    'Give Coorpacademy support access to this population to help your administrators.',
+    'Give Coorpacademy technical support access to this population, independently of the membership conditions.',
   summaryTitle: 'Membership summary',
   emptyTitle: 'No conditions yet',
   emptyMessage: 'Add a group and choose a profile field to define your population.'
@@ -53,6 +53,16 @@ export const fields = [
   'Job title'
 ];
 export const options = ['Finance', 'Legal', 'Operations', 'Support'];
+
+export const summaryValues = (values: string[], conjunction = 'or'): SummaryRow['values'] =>
+  values.map((label, index) => {
+    let prefix;
+    if (index > 0) {
+      prefix = ` ${conjunction} `;
+      if (conjunction === 'or' && index < values.length - 1) prefix = ', ';
+    }
+    return {id: `${index}-${label}`, label, prefix};
+  });
 
 const defaultRow: Criterion = {
   id: 'department',
@@ -98,7 +108,7 @@ export const summary: MembershipSummaryProps = {
           comparison: 'is',
           values: [
             {id: 'Finance', label: 'Finance'},
-            {id: 'Legal', label: 'Legal', prefix: 'or'}
+            {id: 'Legal', label: 'Legal', prefix: ' or '}
           ]
         }
       ]
@@ -179,11 +189,7 @@ export const exampleSummaryRows: SummaryRow[] = examples.map((example, index) =>
     prefix: index === 0 || index === 4 ? 'Learners whose' : 'whose',
     field: example.field,
     comparison,
-    values: example.values.map((label, position) => ({
-      id: label,
-      label,
-      prefix: position > 0 ? separator : undefined
-    }))
+    values: summaryValues(example.values, separator)
   };
 });
 

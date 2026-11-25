@@ -15,8 +15,10 @@ import {
   operators,
   options,
   preserved,
+  summaryValues,
   summaryLabels
 } from '../../../test/helpers/population-conditions';
+import prototypeReference from './fixtures/prototype-reference';
 import loading from './fixtures/values-loading';
 import error from './fixtures/values-error';
 import emptyValues from './fixtures/values-empty';
@@ -65,11 +67,7 @@ const sentence = (row: DraftRow, first: boolean): SummaryRow => {
           'Regular expression (advanced)',
           'matches'
         ) || '',
-    values: values.map((label, index) => ({
-      id: `${index}-${label}`,
-      label,
-      prefix: index > 0 ? separator : undefined
-    }))
+    values: summaryValues(values, separator)
   };
 };
 
@@ -217,6 +215,12 @@ export const ControlledConditions = () => {
 export const AllOperators = () => (
   <div style={frame}>
     <PopulationConditions labels={labels} model={allOperators} />
+  </div>
+);
+
+export const PrototypeReference = () => (
+  <div style={{...frame, maxWidth: 'none'}}>
+    <PopulationConditions {...prototypeReference.props} />
   </div>
 );
 export const PreservedAndReadOnly = () => (

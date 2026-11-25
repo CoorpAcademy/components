@@ -1,27 +1,31 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_500, cm_grey_700 from colors;
+@value cm_grey_500, cm_grey_700, purple_100 from colors;
 
 .groups {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
   min-width: 0;
   color: cm_grey_700;
-  font: 500 14px/1.6 Gilroy, sans-serif;
+  font: 500 15px/2 Gilroy, sans-serif;
+  overflow-wrap: anywhere;
 }
 
 .group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .row {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
 }
 
 .logicalSlot {
-  width: 48px;
-  flex-shrink: 0;
+  flex: 0 0 40px;
 }
 
 .logicalSlot > span,
@@ -30,12 +34,7 @@
 }
 
 .sentence {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 6px;
   min-width: 0;
-  overflow-wrap: anywhere;
 }
 
 .sentence > span {
@@ -48,7 +47,16 @@
 }
 
 .join {
-  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.join::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: purple_100;
 }
 
 .note {

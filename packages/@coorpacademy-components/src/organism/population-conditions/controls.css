@@ -1,20 +1,22 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_500, cm_primary_blue, cm_orange_800 from colors;
-
+@value cm_grey_500, cm_primary_blue, cm_blue_600, primary_100, cm_orange_800 from colors;
 
 .checkbox {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
+  gap: 8px;
   padding: 0;
-  margin: 12px 0 0;
+  margin: 0;
   cursor: pointer;
+  font-size: 13px;
+  line-height: 20px;
+  color: cm_grey_500;
 }
 
 .checkbox input {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin: 0;
   accent-color: cm_primary_blue;
 }
@@ -27,8 +29,8 @@
 .values {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .valueTag {
@@ -40,6 +42,26 @@
 
 .valueTag > span {
   max-width: 100%;
+  background: color(cm_primary_blue tint(91%));
+  color: cm_blue_600;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.valueTag > span:hover {
+  background: primary_100;
+}
+
+.valueTag > span > div {
+  line-height: inherit;
+}
+
+.valueTag button {
+  width: 20px;
+  height: 20px;
+  margin: -4px;
+  font-size: 14px;
 }
 
 .valueTag div::first-letter {

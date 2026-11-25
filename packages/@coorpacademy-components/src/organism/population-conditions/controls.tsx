@@ -68,7 +68,6 @@ const ValueTag = ({value, disabled}: {value: SelectedValue; disabled: boolean}) 
     <span className={style.valueTag}>
       <Tag
         type="info"
-        size="L"
         label={value.label}
         removeAction={
           value.onRemove

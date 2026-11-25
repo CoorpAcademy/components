@@ -23,7 +23,7 @@ const ConditionRow = ({
   if ('preserved' in row)
     return (
       <div className={style.preserved}>
-        <Tag type="success" size="L" label={row.preserved.field} />
+        <Tag type="success" label={row.preserved.field} />
         <pre>{row.preserved.rawValue}</pre>
         <p>{row.preserved.message}</p>
       </div>
@@ -108,8 +108,8 @@ const PopulationConditions = ({model, labels, disabled = false}: PopulationCondi
     {model.groups.map((group, groupIndex: number) => (
       <React.Fragment key={group.id}>
         {groupIndex > 0 ? (
-          <div className={style.join}>
-            <Tag type="advanced" size="L" label={model.summary.labels.or} />
+          <div className={style.orJoin}>
+            <Tag type="advanced" label={model.summary.labels.or} />
           </div>
         ) : null}
         <fieldset className={style.group} disabled={disabled}>
@@ -117,8 +117,8 @@ const PopulationConditions = ({model, labels, disabled = false}: PopulationCondi
           {group.rows.map((row, rowIndex: number) => (
             <React.Fragment key={row.id}>
               {rowIndex > 0 ? (
-                <div className={style.join}>
-                  <Tag type="advanced" size="L" label={model.summary.labels.and} />
+                <div className={style.and}>
+                  <Tag type="advanced" label={model.summary.labels.and} />
                 </div>
               ) : null}
               <ConditionRow row={row} labels={labels} disabled={disabled} />
@@ -138,6 +138,11 @@ const PopulationConditions = ({model, labels, disabled = false}: PopulationCondi
     <div className={style.addGroupRow}>
       <Action group label={labels.addGroup} action={model.onAddGroup} disabled={disabled} />
     </div>
+    {model.groups.length > 0 ? (
+      <div className={style.orJoin}>
+        <Tag type="advanced" label={model.summary.labels.or} />
+      </div>
+    ) : null}
     <fieldset className={style.support} disabled={disabled}>
       <legend>{labels.supportTitle}</legend>
       <ControlledCheckbox

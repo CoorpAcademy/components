@@ -12,29 +12,28 @@ const MembershipSummary = ({groups, labels}: MembershipSummaryProps) =>
         <React.Fragment key={group.id}>
           {groupIndex > 0 ? (
             <div className={style.join}>
-              <Tag type="advanced" size="L" label={labels.or} />
+              <Tag type="advanced" label={labels.or} />
             </div>
           ) : null}
           <div className={style.group}>
             {group.rows.map((row, rowIndex: number) => (
               <div className={style.row} key={row.id}>
                 <span className={style.logicalSlot}>
-                  {rowIndex > 0 ? <Tag type="advanced" size="L" label={labels.and} /> : null}
+                  {rowIndex > 0 ? <Tag type="advanced" label={labels.and} /> : null}
                 </span>
                 <div className={style.sentence}>
-                  {row.prefix ? <span>{row.prefix}</span> : null}
-                  <Tag type="success" size="L" label={row.field} />
-                  <span>{row.comparison}</span>
+                  {row.prefix ? <span>{row.prefix} </span> : null}
+                  <Tag type="success" label={row.field} /> <span>{row.comparison}</span>
                   {map(
                     value => (
                       <React.Fragment key={value.id}>
-                        {value.prefix ? <span>{value.prefix}</span> : null}
-                        <Tag type="info" size="L" label={value.label} />
+                        {value.prefix === undefined ? ' ' : <span>{value.prefix}</span>}
+                        <Tag type="info" label={value.label} />
                       </React.Fragment>
                     ),
                     row.values
                   )}
-                  {row.note ? <span className={style.note}>{row.note}</span> : null}
+                  {row.note ? <span className={style.note}> {row.note}</span> : null}
                 </div>
               </div>
             ))}

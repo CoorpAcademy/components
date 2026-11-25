@@ -6,6 +6,7 @@ export type SummaryRow = {
   prefix?: string;
   field: string;
   comparison: string;
+  // A prefix includes localized punctuation and whitespace before a value.
   values: {id: string; label: string; prefix?: string}[];
   note?: string;
 };

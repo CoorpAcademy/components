@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700, cm_primary_blue from colors;
-@value cm_blue_50, cm_blue_200, cm_blue_700, cm_orange_800, white from colors;
+@value cm_grey_50, cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700 from colors;
+@value cm_blue_50, cm_blue_200, cm_blue_900, cm_negative_200, cm_pink_50, purple_100, white from colors;
 
 .container {
   min-width: 0;
@@ -10,34 +10,44 @@
 
 .container h3 {
   margin: 0 0 8px;
-  font-size: 20px;
+  font-size: 22px;
+  line-height: 1.3;
 }
 
 .description {
   color: cm_grey_500;
-  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 24px;
 }
 
 .group,
 .support {
   min-width: 0;
-  margin: 0;
-  padding: 20px 16px;
-  border: 1px solid cm_grey_200;
-  border-radius: 16px;
+  margin: 16px 0 0;
+  padding: 16px;
+  border: 1px solid cm_grey_100;
+  border-radius: 14px;
+}
+
+.group {
+  background: cm_grey_50;
 }
 
 .group legend,
 .support legend {
-  font-weight: 700;
+  color: cm_grey_500;
+  font-size: 14px;
+  font-weight: 600;
   padding: 0 8px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr) 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.35fr) 36px;
   gap: 12px;
   align-items: start;
+  margin-bottom: 16px;
 }
 
 .row > div {
@@ -48,33 +58,21 @@
   min-width: 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.valueColumn > label {
+  margin-top: 8px;
+}
 
 .groupActions {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 20px;
 }
 
 .groupActions > button,
 .addGroupRow > button {
   width: auto;
+  flex-shrink: 0;
 }
 
 .addCondition {
@@ -82,7 +80,7 @@
 }
 
 .addGroupRow {
-  margin: 20px 0 28px;
+  margin-top: 20px;
 }
 
 .addGroup {
@@ -90,40 +88,81 @@
 }
 
 .remove {
-  width: 40px;
+  width: 36px;
   height: 44px;
-  padding: 8px;
+  padding: 10px;
+  color: cm_grey_500;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 
-.join {
-  margin: 16px 0;
+.remove:hover {
+  color: cm_negative_200;
+  background: cm_pink_50;
+}
+
+.remove svg {
+  width: 16px;
+  height: 16px;
+}
+
+.and {
+  margin-bottom: 12px;
+}
+
+.and > span,
+.orJoin > span {
   font-weight: 700;
 }
 
-.join > span {
-  font-weight: inherit;
+.orJoin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.orJoin::before,
+.orJoin::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: purple_100;
 }
 
 .support {
   background: cm_blue_50;
-  border-color: cm_primary_blue;
+  border: 2px solid cm_blue_200;
 }
 
-.support legend {
-  color: cm_blue_700;
+.support legend,
+.support label,
+.support .description {
+  color: cm_blue_900;
+}
+
+.support label {
+  font-weight: 600;
 }
 
 .support .description {
-  margin: 12px 0 0 30px;
+  margin: 12px 0 0;
+  font-size: 13px;
 }
 
 .summary {
-  margin-top: 28px;
+  padding: 20px 24px;
+  background: cm_blue_50;
+  border-radius: 12px;
+  margin-top: 24px;
+  line-height: 1.6;
+  font-size: 15px;
 }
 
 .summary h4 {
-  margin: 0 0 16px;
-  font-size: 16px;
+  margin: 0;
+  font-size: inherit;
 }
 
 .preserved {
@@ -152,16 +191,16 @@
   text-align: center;
   padding: 24px 16px;
   border: 1px dashed cm_grey_200;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
 .empty p {
   margin: 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1100px) {
   .row {
-    grid-template-columns: minmax(0, 1fr) 40px;
+    grid-template-columns: minmax(0, 1fr) 36px;
   }
 
   .row > div {
@@ -171,9 +210,5 @@
   .row > button {
     grid-column: 2;
     grid-row: 1;
-  }
-
-  .group {
-    padding: 16px 12px;
   }
 }

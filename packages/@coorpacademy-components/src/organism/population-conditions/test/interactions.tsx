@@ -72,7 +72,7 @@ test.serial('App supplies all copy, sentence fragments and separators without a 
             comparison: 'est',
             values: [
               {id: 'a', label: 'Finance'},
-              {id: 'b', label: 'Juridique', prefix: 'ou'}
+          {id: 'b', label: 'Juridique', prefix: ' ou '}
             ],
             note: 'Texte fourni par App'
           }
@@ -207,6 +207,18 @@ test.serial('empty editor and summary explain the expected next step', t => {
   t.truthy(view.getByText(summaryLabels.emptyMessage));
   t.truthy(view.getByRole('button', {name: labels.addGroup}));
 });
+
+test.serial(
+  'the support OR separator follows the current groups and disappears when none remain',
+  t => {
+    const model = makeModel();
+    const view = render(<PopulationConditions labels={labels} model={model} />);
+    const support = view.getByRole('group', {name: labels.supportTitle});
+    t.is(support.previousElementSibling?.textContent, summaryLabels.or);
+    view.rerender(<PopulationConditions labels={labels} model={{...model, groups: []}} />);
+    t.not(support.previousElementSibling?.textContent, summaryLabels.or);
+  }
+);
 
 test.serial('read-only disables all mutation controls while retaining every supplied rule', t => {
   const view = render(<PopulationConditions disabled labels={labels} model={allOperators} />);
