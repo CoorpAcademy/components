@@ -51,6 +51,11 @@
   margin: -10px 0 0 -10px;
 }
 
+.video .icon,
+.pdf .icon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85));
+}
+
 .description {
   font-family: 'Gilroy';
   font-size: 11px;

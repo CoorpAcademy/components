@@ -7,3 +7,15 @@
   justify-content: center;
   border: 1px solid transparent;
 }
+
+/* Shade the poster before playback without dimming the native Play control. */
+.wrapper :global(.jw-state-idle) :global(.jw-preview)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
