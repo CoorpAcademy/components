@@ -12,7 +12,12 @@ export default {
           rows: [
             {
               ...row,
-              value: {...row.value, status: {kind: 'loading', message: 'Loading available values…'}}
+              value: {
+                ...row.value,
+                id: 'department-values-loading',
+                suggestions: [],
+                status: {kind: 'loading', message: 'Loading available values…'}
+              }
             }
           ]
         }

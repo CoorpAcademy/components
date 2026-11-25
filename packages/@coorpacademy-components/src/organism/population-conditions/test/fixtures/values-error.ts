@@ -15,6 +15,8 @@ export default {
               ...row,
               value: {
                 ...row.value,
+                id: 'department-values-error',
+                suggestions: [],
                 status: {
                   kind: 'error',
                   message: 'Values could not be loaded. Your selection is kept.',

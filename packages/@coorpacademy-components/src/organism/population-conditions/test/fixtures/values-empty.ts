@@ -14,6 +14,8 @@ export default {
               ...row,
               value: {
                 ...row.value,
+                id: 'department-values-empty',
+                suggestions: [],
                 status: {
                   kind: 'empty',
                   message: 'No suggestions. Type a value to add it explicitly.'
