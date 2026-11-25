@@ -13,6 +13,9 @@
 @value cm_grey_400 from colors;
 @value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
+@value cm_primary_blue from colors;
+@value warning_100 from colors;
+@value warning_700 from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
 
@@ -504,11 +507,11 @@
 }
 
 .keyboard .select:focus-visible {
-  outline: 2px solid #0061ff;
+  outline: 2px solid cm_primary_blue;
   outline-offset: 2px;
 }
 .keyboard .choice:focus-visible {
-  outline: 2px solid #0061ff;
+  outline: 2px solid cm_primary_blue;
   outline-offset: -2px;
 }
 .keyboard .item input[type='checkbox'] {
@@ -521,7 +524,7 @@
   white-space: nowrap;
 }
 .keyboard .item input:focus-visible + div {
-  outline: 2px solid #0061ff;
+  outline: 2px solid cm_primary_blue;
   outline-offset: 2px;
 }
 .searchable.activeChoices {
@@ -539,7 +542,7 @@
   width: 100%;
   box-sizing: border-box;
   height: 40px;
-  border: 1px solid #d6d6df;
+  border: 1px solid cm_grey_200;
   border-radius: 8px;
   padding: 10px 12px;
   font: inherit;
@@ -571,18 +574,18 @@
 .choiceCount {
   flex-shrink: 0;
   white-space: nowrap;
-  color: #515161;
+  color: cm_grey_500;
   font-size: 12px;
   font-variant-numeric: tabular-nums;
 }
 
 .choice .warningItem {
-  color: #795100;
-  background: #fff2ce;
+  color: cm_grey_700;
+  background: warning_100;
   border-radius: 6px;
-  box-shadow: inset 3px 0 #b77b00;
+  box-shadow: inset 3px 0 warning_700;
 }
 .warningItem .choiceCount {
-  color: #795100;
+  color: cm_grey_700;
   font-weight: 700;
 }
