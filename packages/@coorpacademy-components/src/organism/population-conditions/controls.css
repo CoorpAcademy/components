@@ -1,0 +1,57 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500, cm_primary_blue, cm_orange_800 from colors;
+
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0;
+  margin: 12px 0 0;
+  cursor: pointer;
+}
+
+.checkbox input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: cm_primary_blue;
+}
+
+.checkbox input:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 3px;
+}
+
+.values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.valueTag {
+  max-width: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  overflow-wrap: anywhere;
+}
+
+.valueTag > span {
+  max-width: 100%;
+}
+
+.missing,
+.valueStatus[role="alert"] {
+  color: cm_orange_800;
+}
+
+.valueStatus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: cm_grey_500;
+}

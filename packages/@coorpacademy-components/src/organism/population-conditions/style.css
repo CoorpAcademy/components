@@ -1,0 +1,179 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100, cm_grey_200, cm_grey_500, cm_grey_700, cm_primary_blue from colors;
+@value cm_blue_50, cm_blue_200, cm_blue_700, cm_orange_800, white from colors;
+
+.container {
+  min-width: 0;
+  color: cm_grey_700;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+}
+
+.container h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.description {
+  color: cm_grey_500;
+  margin: 0 0 20px;
+}
+
+.group,
+.support {
+  min-width: 0;
+  margin: 0;
+  padding: 20px 16px;
+  border: 1px solid cm_grey_200;
+  border-radius: 16px;
+}
+
+.group legend,
+.support legend {
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.25fr) 40px;
+  gap: 12px;
+  align-items: start;
+}
+
+.row > div {
+  min-width: 0;
+}
+
+.valueColumn {
+  min-width: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.groupActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.groupActions > button,
+.addGroupRow > button {
+  width: auto;
+}
+
+.addCondition {
+  color: white;
+}
+
+.addGroupRow {
+  margin: 20px 0 28px;
+}
+
+.addGroup {
+  font-weight: 700;
+}
+
+.remove {
+  width: 40px;
+  height: 44px;
+  padding: 8px;
+}
+
+.join {
+  margin: 16px 0;
+  font-weight: 700;
+}
+
+.join > span {
+  font-weight: inherit;
+}
+
+.support {
+  background: cm_blue_50;
+  border-color: cm_primary_blue;
+}
+
+.support legend {
+  color: cm_blue_700;
+}
+
+.support .description {
+  margin: 12px 0 0 30px;
+}
+
+.summary {
+  margin-top: 28px;
+}
+
+.summary h4 {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+
+.preserved {
+  border-left: 3px solid cm_blue_200;
+  padding: 12px 16px;
+  background: cm_blue_50;
+  border-radius: 8px;
+}
+
+.preserved pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.preserved p {
+  margin-bottom: 0;
+  color: cm_grey_500;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: cm_grey_500;
+  text-align: center;
+  padding: 24px 16px;
+  border: 1px dashed cm_grey_200;
+  border-radius: 16px;
+}
+
+.empty p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr) 40px;
+  }
+
+  .row > div {
+    grid-column: 1;
+  }
+
+  .row > button {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .group {
+    padding: 16px 12px;
+  }
+}

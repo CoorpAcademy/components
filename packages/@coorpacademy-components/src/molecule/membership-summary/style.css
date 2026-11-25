@@ -1,0 +1,67 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500, cm_grey_700 from colors;
+
+.groups {
+  min-width: 0;
+  color: cm_grey_700;
+  font: 500 14px/1.6 Gilroy, sans-serif;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.logicalSlot {
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.logicalSlot > span,
+.join > span {
+  font-weight: 700;
+}
+
+.sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 6px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.sentence > span {
+  max-width: 100%;
+  text-align: left;
+}
+
+.join {
+  margin: 16px 0;
+}
+
+.note {
+  color: cm_grey_500;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: cm_grey_500;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.empty p {
+  margin: 0;
+}
