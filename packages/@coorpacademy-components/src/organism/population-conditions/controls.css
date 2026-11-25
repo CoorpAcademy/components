@@ -42,6 +42,10 @@
   max-width: 100%;
 }
 
+.valueTag div::first-letter {
+  text-transform: none;
+}
+
 .missing,
 .valueStatus[role="alert"] {
   color: cm_orange_800;

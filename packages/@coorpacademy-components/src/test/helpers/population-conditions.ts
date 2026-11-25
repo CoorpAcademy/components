@@ -42,7 +42,16 @@ export const operators = [
   {value: 'ends-with', name: 'ends with'},
   {value: 'match', name: 'Regular expression (advanced)'}
 ];
-export const fields = ['Department', 'Country', 'Login', 'Email', 'Job title'];
+export const fields = [
+  'Department',
+  'Country',
+  'Office',
+  'Business unit',
+  'Login',
+  'Email',
+  'Secondary email',
+  'Job title'
+];
 export const options = ['Finance', 'Legal', 'Operations', 'Support'];
 
 const defaultRow: Criterion = {
@@ -119,11 +128,11 @@ export const makeModel = (overrides: Partial<ConditionsModel> = {}): ConditionsM
 export const examples = [
   {field: 'Department', operator: 'in', values: ['Finance', 'Legal', 'Operations']},
   {field: 'Country', operator: 'not-in', values: ['Germany', 'Belgium']},
-  {field: 'Country', operator: 'in', values: ['France']},
-  {field: 'Department', operator: 'not-in', values: ['External']},
+  {field: 'Office', operator: 'in', values: ['Paris']},
+  {field: 'Business unit', operator: 'not-in', values: ['External']},
   {field: 'Email', operator: 'contains', values: ['coorpacademy']},
   {field: 'Login', operator: 'starts-with', values: ['north.']},
-  {field: 'Email', operator: 'ends-with', values: ['@example.org']},
+  {field: 'Secondary email', operator: 'ends-with', values: ['@example.org']},
   {field: 'Job title', operator: 'match', values: ['^(Manager|Director)$']}
 ];
 

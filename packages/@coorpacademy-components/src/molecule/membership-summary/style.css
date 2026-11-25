@@ -43,6 +43,10 @@
   text-align: left;
 }
 
+.sentence div::first-letter {
+  text-transform: none;
+}
+
 .join {
   margin: 16px 0;
 }
