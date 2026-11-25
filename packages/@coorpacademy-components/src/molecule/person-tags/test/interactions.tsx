@@ -4,15 +4,39 @@ import {forEach} from 'lodash/fp';
 import browserEnv from 'browser-env';
 import {cleanup, fireEvent, render} from '@testing-library/react';
 import PersonTags from '..';
-import {people, translate} from '../../../test/helpers/population-owners';
+import {people, personLabels} from '../../../test/helpers/population-owners';
 import {Person} from '../types';
 
 browserEnv();
 test.afterEach.always(cleanup);
 
+test.serial('all person copy and action names come from ready display props', t => {
+  const labels = {
+    ...personLabels,
+    you: 'Moi',
+    deactivated: 'Compte désactivé',
+    emptyTitle: 'Aucun responsable',
+    emptyMessage: 'Choisissez un compte.'
+  };
+  const view = render(
+    <PersonTags
+      users={[{...people[0], removeAriaLabel: 'Retirer mon compte'}, people[2]]}
+      labels={labels}
+      mode="remove"
+    />
+  );
+  t.truthy(view.getByText('Moi'));
+  t.truthy(view.getByText('Compte désactivé'));
+  t.truthy(view.getByRole('button', {name: 'Retirer mon compte'}));
+  t.is(view.queryByText('You'), null);
+  view.rerender(<PersonTags users={[]} labels={labels} />);
+  t.truthy(view.getByText('Aucun responsable'));
+  t.truthy(view.getByText('Choisissez un compte.'));
+});
+
 test.serial('the same You identity is rendered for editor and informational details', t => {
-  const editor = render(<PersonTags users={[people[0]]} mode="remove" translate={translate} />);
-  const details = render(<PersonTags users={[people[0]]} translate={translate} />);
+  const editor = render(<PersonTags users={[people[0]]} mode="remove" labels={personLabels} />);
+  const details = render(<PersonTags users={[people[0]]} labels={personLabels} />);
   t.is(
     editor.container.querySelector('[data-name="person-tag"]')?.firstElementChild?.outerHTML,
     details.container.querySelector('[data-name="person-tag"]')?.firstElementChild?.outerHTML
@@ -24,24 +48,28 @@ test.serial('the same You identity is rendered for editor and informational deta
 test.serial('removal calls the bound callback without an event and waits for new props', t => {
   const calls: unknown[][] = [];
   const user = {...people[0], onRemove: (...args: unknown[]) => calls.push(args)};
-  const view = render(<PersonTags users={[user]} translate={translate} mode="remove" />);
+  const view = render(<PersonTags users={[user]} labels={personLabels} mode="remove" />);
   fireEvent.click(view.getByRole('button', {name: 'Remove owner alex.martin'}));
   t.deepEqual(calls, [[]]);
   t.truthy(view.getByText('alex.martin'));
-  view.rerender(<PersonTags users={[]} translate={translate} mode="remove" />);
+  view.rerender(<PersonTags users={[]} labels={personLabels} mode="remove" />);
   t.truthy(view.getByText('No owners selected'));
   t.is(view.queryByText('alex.martin'), null);
 });
 
 test.serial('read-only details do not expose callbacks supplied for another view', t => {
-  const view = render(<PersonTags users={people} translate={translate} />);
+  const view = render(<PersonTags users={people} labels={personLabels} />);
   t.is(view.queryAllByRole('button').length, 0);
   t.is(view.getAllByRole('listitem').length, 3);
 });
 
 test.serial('deactivated owners keep their identity, warning and manual removal', t => {
   const view = render(
-    <PersonTags users={[{...people[1], deactivated: true}]} translate={translate} mode="remove" />
+    <PersonTags
+      users={[{...people[1], status: 'deactivated'}]}
+      labels={personLabels}
+      mode="remove"
+    />
   );
   t.truthy(view.getByText('Deactivated'));
   t.truthy(view.container.querySelector('[data-icon="eye-slash"]'));
@@ -53,7 +81,7 @@ test.serial('unknown and ambiguous accounts retain their login and distinct desc
     {...people[0], current: false, status: 'unknown'},
     {...people[1], status: 'ambiguous'}
   ];
-  const view = render(<PersonTags users={users} translate={translate} mode="remove" />);
+  const view = render(<PersonTags users={users} labels={personLabels} mode="remove" />);
   t.truthy(view.getByText('Account not found'));
   t.truthy(view.getByText('Multiple accounts found'));
   t.truthy(view.getByText('alex.martin'));
@@ -61,9 +89,9 @@ test.serial('unknown and ambiguous accounts retain their login and distinct desc
   t.is(view.getAllByRole('button').length, 2);
 });
 
-test.serial('unresolved accounts can be shown when a detailed status is unavailable', t => {
+test.serial('the unresolved display state supplied by App stays visible', t => {
   const view = render(
-    <PersonTags users={[{...people[1], unresolved: true}]} translate={translate} />
+    <PersonTags users={[{...people[1], status: 'unknown'}]} labels={personLabels} />
   );
   t.truthy(view.getByText('Account not found'));
 });
@@ -76,12 +104,18 @@ test.serial('only a selectable available suggestion calls its callback', t => {
       ...people[0],
       current: false,
       status: 'deactivated',
+      selectDisabled: true,
       onSelect: () => t.fail('deactivated selected')
     },
-    {...people[2], status: 'ambiguous', onSelect: () => t.fail('ambiguous selected')}
+    {
+      ...people[2],
+      status: 'ambiguous',
+      selectDisabled: true,
+      onSelect: () => t.fail('ambiguous selected')
+    }
   ];
   const view = render(
-    <PersonTags users={[active, ...unavailable]} translate={translate} mode="select" />
+    <PersonTags users={[active, ...unavailable]} labels={personLabels} mode="select" />
   );
   forEach(button => fireEvent.click(button), view.getAllByRole('button'));
   t.deepEqual(calls, [[]]);
@@ -91,8 +125,8 @@ test.serial('only a selectable available suggestion calls its callback', t => {
 test.serial('a suggestion without an action is disabled', t => {
   const view = render(
     <PersonTags
-      users={[{id: 'none', name: 'No Action', login: 'no.action'}]}
-      translate={translate}
+      users={[{id: 'none', name: 'No Action', login: 'no.action', status: 'ok'}]}
+      labels={personLabels}
       mode="select"
     />
   );
@@ -105,10 +139,10 @@ test.serial('disabled views prevent selection and removal', t => {
     onSelect: () => t.fail('selected while disabled'),
     onRemove: () => t.fail('removed while disabled')
   };
-  const view = render(<PersonTags users={[user]} translate={translate} mode="select" disabled />);
+  const view = render(<PersonTags users={[user]} labels={personLabels} mode="select" disabled />);
   fireEvent.click(view.getByRole('button'));
   t.true((view.getByRole('button') as HTMLButtonElement).disabled);
-  view.rerender(<PersonTags users={[user]} translate={translate} mode="remove" disabled />);
+  view.rerender(<PersonTags users={[user]} labels={personLabels} mode="remove" disabled />);
   fireEvent.click(view.getByRole('button'));
   t.true((view.getByRole('button') as HTMLButtonElement).disabled);
 });
@@ -116,8 +150,8 @@ test.serial('disabled views prevent selection and removal', t => {
 test.serial('missing remove actions leave a readable identity without a fake control', t => {
   const view = render(
     <PersonTags
-      users={[{id: 'known', name: 'Known Owner', login: 'known.owner'}]}
-      translate={translate}
+      users={[{id: 'known', name: 'Known Owner', login: 'known.owner', status: 'ok'}]}
+      labels={personLabels}
       mode="remove"
     />
   );
@@ -130,7 +164,9 @@ test.serial(
   t => {
     const name = 'Alexandra Maximiliana de la Tour et du Bois <img src=x onerror=alert(1)>';
     const login = 'alexandra.maximiliana.very.long.login@example.invalid';
-    const view = render(<PersonTags users={[{id: 'long', name, login}]} translate={translate} />);
+    const view = render(
+      <PersonTags users={[{id: 'long', name, login, status: 'ok'}]} labels={personLabels} />
+    );
     t.truthy(view.getByText(name));
     t.truthy(view.getByText(login));
     t.is(view.container.querySelector('img'), null);

@@ -1,3 +1,5 @@
-import {makeModel, translate} from '../../../../test/helpers/population-owners';
+import {makeModel, ownerLabels} from '../../../../test/helpers/population-owners';
 
-export default {props: {model: makeModel({query: 'Nobody matches', suggestions: []}), translate}};
+export default {
+  props: {model: makeModel({query: 'Nobody matches', suggestions: []}), labels: ownerLabels}
+};

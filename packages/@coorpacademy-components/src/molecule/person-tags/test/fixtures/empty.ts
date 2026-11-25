@@ -1,3 +1,3 @@
-import {translate} from '../../../../test/helpers/population-owners';
+import {personLabels} from '../../../../test/helpers/population-owners';
 
-export default {props: {users: [], translate}};
+export default {props: {users: [], labels: personLabels}};

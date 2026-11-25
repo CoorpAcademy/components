@@ -7,26 +7,24 @@ import ButtonLink from '../../atom/button-link';
 import {Person, PersonTagsProps, propTypes} from './types';
 import style from './style.css';
 
-export const getPersonStatus = (person: Person) =>
-  person.deactivated ? 'deactivated' : person.status || (person.unresolved ? 'unknown' : 'ok');
-
 const PersonTag = ({
   person,
-  translate,
+  labels,
   mode,
   disabled
 }: {
   person: Person;
-  translate: PersonTagsProps['translate'];
+  labels: PersonTagsProps['labels'];
   mode: PersonTagsProps['mode'];
   disabled?: boolean;
 }) => {
   const {onSelect, onRemove} = person;
-  const status = getPersonStatus(person);
-  const unavailable = status !== 'ok';
+  const {status} = person;
+  const hasStatus = status !== 'ok';
+  const selectionDisabled = disabled || person.selectDisabled;
   const handleSelect = useCallback(() => {
-    if (!disabled && !unavailable) onSelect?.();
-  }, [disabled, unavailable, onSelect]);
+    if (!selectionDisabled) onSelect?.();
+  }, [selectionDisabled, onSelect]);
   const handleRemove = useCallback(() => {
     if (!disabled) onRemove?.();
   }, [disabled, onRemove]);
@@ -34,10 +32,10 @@ const PersonTag = ({
     <span className={style.identity}>
       <span className={style.heading}>
         <strong>{person.name}</strong>
-        {person.current ? <Tag label={translate('population_owners_you')} type="success" /> : null}
-        {unavailable ? (
+        {person.current ? <Tag label={labels.you} type="success" /> : null}
+        {hasStatus ? (
           <Tag
-            label={translate(`population_owners_${status}`)}
+            label={labels[status]}
             type="warning"
             icon={status === 'deactivated' ? {iconName: 'eye-slash', preset: 's'} : undefined}
           />
@@ -51,7 +49,7 @@ const PersonTag = ({
       className={classnames(
         style.person,
         person.current && style.current,
-        unavailable && style.unresolved,
+        hasStatus && style.unresolved,
         status === 'deactivated' && style.deactivated
       )}
       data-name="person-tag"
@@ -61,8 +59,8 @@ const PersonTag = ({
           className={style.select}
           type="button"
           onClick={handleSelect}
-          disabled={disabled || unavailable || !person.onSelect}
-          aria-label={translate('population_owners_select', {login: person.login})}
+          disabled={selectionDisabled || !person.onSelect}
+          aria-label={person.selectAriaLabel}
         >
           {identity}
         </button>
@@ -73,7 +71,7 @@ const PersonTag = ({
         <ButtonLink
           type="text"
           className={style.remove}
-          aria-label={translate('population_owners_remove', {login: person.login})}
+          aria-label={person.removeAriaLabel}
           icon={{position: 'left', faIcon: {name: 'xmark', size: 16, color: 'currentColor'}}}
           onClick={handleRemove}
           disabled={disabled}
@@ -85,7 +83,7 @@ const PersonTag = ({
 
 const PersonTags = ({
   users,
-  translate,
+  labels,
   mode = 'display',
   disabled = false,
   'aria-label': ariaLabel
@@ -97,7 +95,7 @@ const PersonTags = ({
           <PersonTag
             key={person.id}
             person={person}
-            translate={translate}
+            labels={labels}
             mode={mode}
             disabled={disabled}
           />
@@ -110,8 +108,8 @@ const PersonTags = ({
       <span aria-hidden="true" className={style.illustration}>
         <Icon iconName="users" iconColor="currentColor" size={{faSize: 24, wrapperSize: 48}} />
       </span>
-      <strong>{translate('population_owners_empty_title')}</strong>
-      <p>{translate('population_owners_empty_message')}</p>
+      <strong>{labels.emptyTitle}</strong>
+      <p>{labels.emptyMessage}</p>
     </div>
   );
 

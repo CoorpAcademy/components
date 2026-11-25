@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types';
 
-export type Translate = (key: string, values?: Record<string, string | number>) => string;
-
 export type Person = {
   id: string;
   name: string;
   login: string;
   current?: boolean;
-  deactivated?: boolean;
-  unresolved?: boolean;
-  status?: 'ok' | 'unknown' | 'ambiguous' | 'deactivated';
+  selectDisabled?: boolean;
+  selectAriaLabel?: string;
+  removeAriaLabel?: string;
+  status: 'ok' | 'unknown' | 'ambiguous' | 'deactivated';
   onSelect?: () => void;
   onRemove?: () => void;
 };
@@ -19,16 +18,35 @@ export const personPropTypes = {
   name: PropTypes.string.isRequired,
   login: PropTypes.string.isRequired,
   current: PropTypes.bool,
-  deactivated: PropTypes.bool,
-  unresolved: PropTypes.bool,
-  status: PropTypes.oneOf(['ok', 'unknown', 'ambiguous', 'deactivated']),
+  selectDisabled: PropTypes.bool,
+  selectAriaLabel: PropTypes.string,
+  removeAriaLabel: PropTypes.string,
+  status: PropTypes.oneOf(['ok', 'unknown', 'ambiguous', 'deactivated']).isRequired,
   onSelect: PropTypes.func,
   onRemove: PropTypes.func
 };
 
+export type PersonTagsLabels = {
+  you: string;
+  deactivated: string;
+  unknown: string;
+  ambiguous: string;
+  emptyTitle: string;
+  emptyMessage: string;
+};
+
+export const labelsPropTypes = {
+  you: PropTypes.string.isRequired,
+  deactivated: PropTypes.string.isRequired,
+  unknown: PropTypes.string.isRequired,
+  ambiguous: PropTypes.string.isRequired,
+  emptyTitle: PropTypes.string.isRequired,
+  emptyMessage: PropTypes.string.isRequired
+};
+
 export type PersonTagsProps = {
   users: Person[];
-  translate: Translate;
+  labels: PersonTagsLabels;
   mode?: 'display' | 'select' | 'remove';
   disabled?: boolean;
   'aria-label'?: string;
@@ -36,7 +54,7 @@ export type PersonTagsProps = {
 
 export const propTypes = {
   users: PropTypes.arrayOf(PropTypes.shape(personPropTypes).isRequired).isRequired,
-  translate: PropTypes.func.isRequired,
+  labels: PropTypes.shape(labelsPropTypes).isRequired,
   mode: PropTypes.oneOf(['display', 'select', 'remove']),
   disabled: PropTypes.bool,
   'aria-label': PropTypes.string

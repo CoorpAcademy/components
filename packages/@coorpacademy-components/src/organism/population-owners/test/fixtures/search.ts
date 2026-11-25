@@ -1,4 +1,4 @@
-import {makeModel, people, translate} from '../../../../test/helpers/population-owners';
+import {makeModel, people, ownerLabels} from '../../../../test/helpers/population-owners';
 
 export default {
   props: {
@@ -9,6 +9,6 @@ export default {
       warningCount: 0,
       selfSelected: false
     }),
-    translate
+    labels: ownerLabels
   }
 };

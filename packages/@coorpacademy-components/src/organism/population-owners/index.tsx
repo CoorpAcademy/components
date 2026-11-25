@@ -1,10 +1,9 @@
 import React, {useCallback} from 'react';
-import {some} from 'lodash/fp';
 import InputText from '../../atom/input-text';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import Icon from '../../atom/icon';
-import PersonTags, {getPersonStatus} from '../../molecule/person-tags';
+import PersonTags from '../../molecule/person-tags';
 import {PopulationOwnersProps, propTypes} from './types';
 import style from './style.css';
 
@@ -27,8 +26,8 @@ const OwnerError = ({
   </div>
 );
 
-const PopulationOwners = ({model, disabled = false, translate}: PopulationOwnersProps) => {
-  const {onSearch, onAddMe, onRetry, selfAvailable, selfSelected} = model;
+const PopulationOwners = ({model, disabled = false, labels}: PopulationOwnersProps) => {
+  const {onSearch, onAddMe, onRetry, addMe} = model;
   const handleSearch = useCallback(
     (query: string) => {
       if (!disabled) onSearch(query);
@@ -36,48 +35,35 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
     [disabled, onSearch]
   );
   const handleAddMe = useCallback(() => {
-    if (!disabled && selfAvailable && !selfSelected) onAddMe();
-  }, [disabled, selfAvailable, selfSelected, onAddMe]);
+    if (!disabled && !addMe.disabled) onAddMe();
+  }, [disabled, addMe.disabled, onAddMe]);
   const handleRetry = useCallback(() => {
     if (!disabled) onRetry?.();
   }, [disabled, onRetry]);
-  const noResults =
-    model.query.trim().length > 0 &&
-    !model.loading &&
-    !model.error &&
-    model.suggestions.length === 0;
-  const hasDeactivated = some(user => getPersonStatus(user) === 'deactivated', model.selected);
   const errorProps = {
-    retryLabel: translate('population_owners_retry'),
+    retryLabel: labels.retry,
     onRetry: model.onRetry ? handleRetry : undefined,
     disabled
   };
 
   return (
-    <section className={style.container} aria-label={translate('population_owners_title')}>
-      <h3>{translate('population_owners_title')}</h3>
-      <p className={style.description}>{translate('population_owners_description')}</p>
-      {model.warningCount > 0 ? (
+    <section className={style.container} aria-label={labels.title}>
+      <h3>{labels.title}</h3>
+      <p className={style.description}>{labels.description}</p>
+      {model.warning ? (
         <p className={style.warning} role="status" data-name="owners-warning">
           <span aria-hidden="true">
             <Icon iconName="eye-slash" iconColor="currentColor" />
           </span>
-          <span>
-            {translate(
-              model.warningCount === 1
-                ? 'population_owners_warning'
-                : 'population_owners_warning_plural',
-              {count: model.warningCount}
-            )}
-          </span>
+          <span>{model.warning}</span>
         </p>
       ) : null}
       <div className={style.toolbar}>
         <div className={style.search}>
           <InputText
             theme="coorpmanager"
-            title={translate('population_owners_search')}
-            aria-label={translate('population_owners_search')}
+            title={labels.search}
+            aria-label={labels.search}
             value={model.query}
             onChange={handleSearch}
             disabled={disabled}
@@ -85,37 +71,31 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
         </div>
         <ButtonLink
           type="primary"
-          label={translate(
-            model.selfSelected ? 'population_owners_added_me' : 'population_owners_add_me'
-          )}
+          label={addMe.label}
           onClick={handleAddMe}
-          disabled={disabled || !model.selfAvailable || model.selfSelected}
+          disabled={disabled || addMe.disabled}
         />
       </div>
-      {!model.selfAvailable ? (
-        <p className={style.description}>{translate('population_owners_self_unavailable')}</p>
-      ) : null}
+      {addMe.hint ? <p className={style.description}>{addMe.hint}</p> : null}
       {model.loading ? (
         <div className={style.loading} role="status">
           <Loader theme="coorpmanager" />
-          {translate('population_owners_loading')}
+          {labels.loading}
         </div>
       ) : null}
-      {model.error ? (
-        <OwnerError {...errorProps} message={translate('population_owners_search_error')} />
-      ) : null}
+      {model.error ? <OwnerError {...errorProps} message={labels.searchError} /> : null}
       {!model.loading && !model.error && model.suggestions.length > 0 ? (
         <div className={style.suggestions}>
           <PersonTags
             users={model.suggestions}
-            translate={translate}
+            labels={labels.people}
             mode="select"
             disabled={disabled}
-            aria-label={translate('population_owners_suggestions')}
+            aria-label={labels.suggestions}
           />
         </div>
       ) : null}
-      {noResults ? (
+      {model.showNoResults ? (
         <div className={style.noResults} role="status">
           <span aria-hidden="true">
             <Icon
@@ -124,27 +104,27 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
               size={{faSize: 24, wrapperSize: 48}}
             />
           </span>
-          <strong>{translate('population_owners_no_results_title')}</strong>
-          <p>{translate('population_owners_no_results_message')}</p>
+          <strong>{labels.noResultsTitle}</strong>
+          <p>{labels.noResultsMessage}</p>
         </div>
       ) : null}
       <PersonTags
         users={model.selected}
-        translate={translate}
+        labels={labels.people}
         mode="remove"
         disabled={disabled}
-        aria-label={translate('population_owners_selected')}
+        aria-label={labels.selected}
       />
-      {hasDeactivated ? (
+      {model.showDeactivatedLegend ? (
         <p className={style.legend}>
           <span aria-hidden="true">
             <Icon iconName="eye-slash" iconColor="currentColor" />
           </span>
-          {translate('population_owners_deactivated_legend')}
+          {labels.deactivatedLegend}
         </p>
       ) : null}
       {model.resolutionError ? (
-        <OwnerError {...errorProps} message={translate('population_owners_resolution_error')} />
+        <OwnerError {...errorProps} message={labels.resolutionError} />
       ) : null}
     </section>
   );

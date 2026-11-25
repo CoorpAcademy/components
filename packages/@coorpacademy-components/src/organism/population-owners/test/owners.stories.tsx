@@ -4,7 +4,12 @@ import PopulationOwners from '..';
 import PersonTags from '../../../molecule/person-tags';
 import {Person} from '../../../molecule/person-tags/types';
 import {COLORS} from '../../../variables/colors';
-import {makeModel, people, translate} from '../../../test/helpers/population-owners';
+import {
+  makeModel,
+  people,
+  ownerLabels,
+  personLabels
+} from '../../../test/helpers/population-owners';
 import unavailable from './fixtures/unavailable-self';
 import errors from './fixtures/errors';
 import loading from './fixtures/loading';
@@ -57,7 +62,7 @@ export const ControlledOwners = () => {
       <h2>Analytics population owners</h2>
       <p>Synthetic interactions only. Search, add yourself or remove an owner; no API is called.</p>
       <PopulationOwners
-        translate={translate}
+        labels={ownerLabels}
         model={makeModel({
           query,
           selected,
@@ -71,7 +76,7 @@ export const ControlledOwners = () => {
       <hr />
       <h3>Card details: the same person tags, without removal actions</h3>
       <div data-testid="owner-details">
-        <PersonTags users={selected} translate={translate} />
+        <PersonTags users={selected} labels={personLabels} />
       </div>
     </div>
   );
@@ -93,6 +98,7 @@ export const UnavailableAndErrorStates = () => (
 const historicalPeople: Person[] = [
   {
     id: 'long',
+    status: 'ok',
     name: 'Alexandra Maximiliana de la Tour et du Bois',
     login: 'alexandra.maximiliana.very.long.login@example.invalid',
     current: true
@@ -108,6 +114,6 @@ export const ReadOnlyAndHistoricalOwners = () => (
     <PopulationOwners {...readonly.props} />
     <hr />
     <h2>Long names and historical account states</h2>
-    <PersonTags users={historicalPeople} translate={translate} />
+    <PersonTags users={historicalPeople} labels={personLabels} />
   </div>
 );

@@ -1,5 +1,8 @@
-import {makeModel, translate} from '../../../../test/helpers/population-owners';
+import {makeModel, ownerLabels} from '../../../../test/helpers/population-owners';
 
 export default {
-  props: {model: makeModel({query: 'Morgan', error: true, resolutionError: true}), translate}
+  props: {
+    model: makeModel({query: 'Morgan', error: true, resolutionError: true}),
+    labels: ownerLabels
+  }
 };

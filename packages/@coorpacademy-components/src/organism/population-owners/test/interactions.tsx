@@ -4,20 +4,46 @@ import {forEach} from 'lodash/fp';
 import browserEnv from 'browser-env';
 import {cleanup, fireEvent, render} from '@testing-library/react';
 import PopulationOwners from '..';
-import {makeModel, people, translate} from '../../../test/helpers/population-owners';
+import {makeModel, people, ownerLabels} from '../../../test/helpers/population-owners';
 import {OwnersModel} from '../types';
 
 browserEnv();
 test.afterEach.always(cleanup);
 const searchLabel = 'Search owners by name or login';
 
+test.serial('App supplies display copy, formatted warning and derived empty-result state', t => {
+  const labels = {
+    ...ownerLabels,
+    title: 'Responsables',
+    search: 'Chercher un compte',
+    noResultsTitle: 'Aucun profil',
+    retry: 'Réessayer'
+  };
+  const model = {
+    ...makeModel({selected: [], warningCount: 0}),
+    query: '',
+    warning: 'Avertissement fourni par App',
+    showNoResults: true,
+    addMe: {label: 'Mon compte est indisponible', disabled: true, hint: 'Utilisez la recherche.'}
+  };
+  const view = render(<PopulationOwners model={model} labels={labels} />);
+  t.truthy(view.getByRole('region', {name: 'Responsables'}));
+  t.truthy(view.getByRole('textbox', {name: 'Chercher un compte'}));
+  t.truthy(view.getByText('Avertissement fourni par App'));
+  t.truthy(view.getByText('Aucun profil'));
+  t.truthy(view.getByText('Utilisez la recherche.'));
+  t.true(
+    (view.getByRole('button', {name: 'Mon compte est indisponible'}) as HTMLButtonElement).disabled
+  );
+});
+
 test.serial('search sends the current text to App and keeps its value controlled', t => {
   const calls: string[] = [];
   const model = makeModel({onSearch: query => calls.push(query)});
-  const view = render(<PopulationOwners model={model} translate={translate} />);
+  const view = render(<PopulationOwners model={model} labels={ownerLabels} />);
   fireEvent.input(view.getByRole('textbox', {name: searchLabel}), {target: {value: 'Morgan'}});
   t.deepEqual(calls, ['Morgan']);
-  view.rerender(<PopulationOwners model={{...model, query: 'Alex'}} translate={translate} />);
+  view.rerender(<PopulationOwners model={{...model, query: 'Alex'}} labels={ownerLabels} />);
   t.is((view.getByRole('textbox', {name: searchLabel}) as HTMLInputElement).value, 'Alex');
 });
 
@@ -31,14 +57,14 @@ test.serial(
       selfSelected: false,
       onAddMe: (...args: unknown[]) => calls.push(args)
     });
-    const view = render(<PopulationOwners model={model} translate={translate} />);
+    const view = render(<PopulationOwners model={model} labels={ownerLabels} />);
     fireEvent.click(view.getByRole('button', {name: 'Add me'}));
     t.deepEqual(calls, [[]]);
     t.truthy(view.getByText('No owners selected'));
     view.rerender(
       <PopulationOwners
-        model={{...model, selected: [people[0]], selfSelected: true}}
-        translate={translate}
+        model={makeModel({...model, selected: [people[0]], selfSelected: true, warningCount: 0})}
+        labels={ownerLabels}
       />
     );
     t.true(
@@ -56,7 +82,7 @@ test.serial('an unavailable current profile disables only Add me and explains ma
     onAddMe: () => t.fail('invented self'),
     onSearch: query => searches.push(query)
   });
-  const view = render(<PopulationOwners model={model} translate={translate} />);
+  const view = render(<PopulationOwners model={model} labels={ownerLabels} />);
   fireEvent.click(view.getByRole('button', {name: 'Add me'}));
   t.true((view.getByRole('button', {name: 'Add me'}) as HTMLButtonElement).disabled);
   t.truthy(view.getByText(/Your platform profile is unavailable/));
@@ -69,7 +95,7 @@ test.serial('owner suggestions dispatch their own bound action', t => {
   const selections: unknown[][] = [];
   const person = {...people[1], onSelect: (...args: unknown[]) => selections.push(args)};
   const model = makeModel({query: 'Morgan', suggestions: [person]});
-  const view = render(<PopulationOwners model={model} translate={translate} />);
+  const view = render(<PopulationOwners model={model} labels={ownerLabels} />);
   fireEvent.click(view.getByRole('button', {name: 'Add morgan.taylor as owner'}));
   t.deepEqual(selections, [[]]);
   t.truthy(view.getByRole('list', {name: 'Selected owners'}));
@@ -84,7 +110,7 @@ test.serial(
       onAddMe: () => calls.push('self'),
       selected: [{...people[2], onRemove: () => calls.push('remove')}]
     });
-    const view = render(<PopulationOwners model={model} translate={translate} />);
+    const view = render(<PopulationOwners model={model} labels={ownerLabels} />);
     t.truthy(view.getByText(/1 owner is deactivated/));
     t.truthy(view.getByText(/crossed-out eye marks a deactivated/));
     fireEvent.click(view.getByRole('button', {name: 'Add me'}));
@@ -92,7 +118,10 @@ test.serial(
     t.deepEqual(calls, ['self', 'remove']);
     t.truthy(view.container.querySelector('[data-name="owners-warning"]'));
     view.rerender(
-      <PopulationOwners model={{...model, selected: [], warningCount: 0}} translate={translate} />
+      <PopulationOwners
+        model={{...model, selected: [], warning: undefined, showDeactivatedLegend: false}}
+        labels={ownerLabels}
+      />
     );
     t.is(view.container.querySelector('[data-name="owners-warning"]'), null);
     t.is(view.queryByText(/crossed-out eye marks a deactivated/), null);
@@ -101,7 +130,7 @@ test.serial(
 
 test.serial('multiple deactivated owners use the plural warning', t => {
   const view = render(
-    <PopulationOwners model={makeModel({warningCount: 2})} translate={translate} />
+    <PopulationOwners model={makeModel({warningCount: 2})} labels={ownerLabels} />
   );
   t.truthy(view.getByText(/2 owners are deactivated/));
 });
@@ -117,7 +146,7 @@ test.serial('search and resolution failures remain distinct and preserve selecte
         resolutionError: true,
         onRetry: (...args: unknown[]) => calls.push(args)
       })}
-      translate={translate}
+      labels={ownerLabels}
     />
   );
   t.is(view.getAllByRole('alert').length, 2);
@@ -133,7 +162,7 @@ test.serial('failed details without retry do not show an inert retry action', t 
   const view = render(
     <PopulationOwners
       model={makeModel({error: true, resolutionError: true, onRetry: undefined})}
-      translate={translate}
+      labels={ownerLabels}
     />
   );
   t.is(view.queryByRole('button', {name: 'Try again'}), null);
@@ -144,7 +173,7 @@ test.serial('loading hides stale suggestions but retains stored owners', t => {
   const view = render(
     <PopulationOwners
       model={makeModel({query: 'Morgan', loading: true, suggestions: [people[1]]})}
-      translate={translate}
+      labels={ownerLabels}
     />
   );
   t.truthy(view.getByText('Searching for owners…'));
@@ -156,11 +185,13 @@ test.serial('loading hides stale suggestions but retains stored owners', t => {
 
 test.serial('empty search results explain the next step without deleting owners', t => {
   const model = makeModel({query: 'Nobody'});
-  const view = render(<PopulationOwners model={model} translate={translate} />);
+  const view = render(<PopulationOwners model={model} labels={ownerLabels} />);
   t.truthy(view.getByText('No matching owners'));
   t.truthy(view.getByText('Try a different name or login.'));
   t.truthy(view.getByText('former.owner'));
-  view.rerender(<PopulationOwners model={{...model, query: '  '}} translate={translate} />);
+  view.rerender(
+    <PopulationOwners model={{...model, query: '  ', showNoResults: false}} labels={ownerLabels} />
+  );
   t.is(view.queryByText('No matching owners'), null);
 });
 
@@ -176,7 +207,7 @@ test.serial('disabled state guards every mutation including synthetic input and 
     onRetry: fail,
     onAddMe: fail
   });
-  const view = render(<PopulationOwners model={model} disabled translate={translate} />);
+  const view = render(<PopulationOwners model={model} disabled labels={ownerLabels} />);
   const input = view.getByRole('textbox', {name: searchLabel}) as HTMLInputElement;
   t.true(input.disabled);
   fireEvent.input(input, {target: {value: 'Morgan'}});
@@ -188,7 +219,7 @@ test.serial('disabled state guards every mutation including synthetic input and 
     <PopulationOwners
       model={{...model, error: false, suggestions: [{...people[1], onSelect: fail}]}}
       disabled
-      translate={translate}
+      labels={ownerLabels}
     />
   );
   const suggestion = view.getByRole('button', {
@@ -202,7 +233,7 @@ test.serial('empty selection has an illustration and explains how to add an owne
   const view = render(
     <PopulationOwners
       model={makeModel({selected: [], warningCount: 0, selfSelected: false})}
-      translate={translate}
+      labels={ownerLabels}
     />
   );
   t.truthy(view.getByText('No owners selected'));
