@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import uniqueId from 'lodash/fp/uniqueId';
 import isFunction from 'lodash/fp/isFunction';
 import find from 'lodash/fp/find';
+import filter from 'lodash/fp/filter';
 import {NovaCompositionCoorpacademyInformationIcon as InformationIcon} from '@coorpacademy/nova-icons';
 import FloatingPanel from './floating';
 import style from './interactive.css';
@@ -17,16 +18,17 @@ const isVisible = element =>
     getComputedStyle(element).visibility !== 'hidden' &&
     isVisible(element.parentElement));
 
+const isTabbable = element =>
+  element.tabIndex >= 0 &&
+  !element.matches(':disabled') &&
+  !element.closest('[hidden], [inert]') &&
+  isVisible(element);
+
 const nextAfterAnchor = (anchor, panel) => {
   const elements = [...document.querySelectorAll(FOCUSABLE)];
   const trigger = anchor.querySelector(FOCUSABLE);
   return find(
-    element =>
-      !panel.contains(element) &&
-      element.tabIndex >= 0 &&
-      !element.matches(':disabled') &&
-      !element.closest('[hidden], [inert]') &&
-      isVisible(element),
+    element => !panel.contains(element) && isTabbable(element),
     elements.slice(elements.indexOf(trigger) + 1)
   );
 };
@@ -110,7 +112,7 @@ const InteractiveToolTip = ({
           panel.focus({preventScroll: true});
         }
       } else {
-        const items = panel.querySelectorAll(FOCUSABLE);
+        const items = filter(isTabbable, [...panel.querySelectorAll(FOCUSABLE)]);
         const atStart = event.target === panel || event.target === items[0];
         const atEnd = !items.length || event.target === items[items.length - 1];
         if (event.shiftKey && atStart) {

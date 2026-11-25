@@ -377,3 +377,47 @@ test.serial(
     t.is(cardActivations, 0);
   }
 );
+
+const hiddenContent = (
+  <div>
+    <button type="button" hidden style={{display: 'none'}}>
+      Hidden before
+    </button>
+    <a href="#visible">Visible action</a>
+    <button type="button" style={{display: 'none'}}>
+      Hidden after
+    </button>
+    <a href="#programmatic" tabIndex={-1}>
+      Not in tab order
+    </a>
+  </div>
+);
+
+test.serial('Shift+Tab skips hidden leading controls inside a rich tooltip', async t => {
+  const view = render(Scope({TooltipContent: hiddenContent}));
+  const user = userEvent.setup({document});
+  await user.tab();
+  await user.tab();
+  await user.tab();
+  await user.tab();
+  t.is(document.activeElement?.textContent, 'Visible action');
+  await user.tab({shift: true});
+  t.is(document.activeElement?.getAttribute('aria-label'), 'Catalogue playlists');
+  t.truthy(view.queryByRole('dialog'));
+});
+
+test.serial(
+  'Tab skips hidden trailing controls inside a rich tooltip and resumes after the card',
+  async t => {
+    const view = render(Scope({TooltipContent: hiddenContent}));
+    const user = userEvent.setup({document});
+    await user.tab();
+    await user.tab();
+    await user.tab();
+    await user.tab();
+    t.is(document.activeElement?.textContent, 'Visible action');
+    await user.tab();
+    t.is(document.activeElement?.textContent, 'After');
+    t.is(view.queryByRole('dialog'), null);
+  }
+);
