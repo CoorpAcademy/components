@@ -26,6 +26,7 @@ export default function ControlledCatalogue({
     initialIds ?? (startWithNoChoice ? [] : ['catalogue-1', 'catalogue-2'])
   );
   const [query, setQuery] = useState(initialQuery);
+  const [expanded, setExpanded] = useState(false);
   const selected = makeSelection(ids);
   const model = makeModel({
     customPlaylists: startWithNoChoice ? creation.customPlaylists : customPlaylists,
@@ -40,8 +41,15 @@ export default function ControlledCatalogue({
             query,
             selected: map(
               item => ({...item, onRemove: () => setIds(filter(id => id !== item.id, ids))}),
-              selected.selected
+              expanded ? selected.selected : selected.selected.slice(0, 8)
             ),
+            toggle:
+              ids.length > 8
+                ? {
+                    label: expanded ? 'Show less' : `Show all ${ids.length} selected playlists`,
+                    action: {onClick: () => setExpanded(previous => !previous)}
+                  }
+                : undefined,
             onSearch: setQuery,
             onChange: choices => setIds(map('value', choices)),
             selectAll: {

@@ -27,6 +27,7 @@ export type PlaylistTag = {
 };
 
 export type CatalogueTag = PlaylistTag & {
+  statusLabel?: string;
   removeLabel: string;
   onRemove?(): void;
 };
@@ -48,6 +49,7 @@ export type CatalogueSelection = {
   showEmpty: boolean;
   selectAll: Action;
   clear: Action;
+  toggle?: {label: string; action: Action};
   onSearch(query: string): void;
   onChange(choices: PlaylistOption[]): void;
 };
@@ -85,6 +87,7 @@ export type CatalogueAccessLabels = {
   customTitle: string;
   customDescription: string;
   customList: string;
+  note?: string;
 };
 
 export type PopulationCatalogueAccessProps = {
@@ -136,6 +139,7 @@ export const propTypes = {
         PropTypes.shape({
           ...tag,
           removeLabel: PropTypes.string.isRequired,
+          statusLabel: PropTypes.string,
           onRemove: PropTypes.func
         }).isRequired
       ).isRequired,
@@ -144,6 +148,7 @@ export const propTypes = {
       showEmpty: PropTypes.bool.isRequired,
       selectAll: action.isRequired,
       clear: action.isRequired,
+      toggle: PropTypes.shape({label: PropTypes.string.isRequired, action: action.isRequired}),
       onSearch: PropTypes.func.isRequired,
       onChange: PropTypes.func.isRequired
     }),
@@ -176,7 +181,8 @@ export const propTypes = {
     emptyMessage: PropTypes.string.isRequired,
     customTitle: PropTypes.string.isRequired,
     customDescription: PropTypes.string.isRequired,
-    customList: PropTypes.string.isRequired
+    customList: PropTypes.string.isRequired,
+    note: PropTypes.string
   }).isRequired,
   disabled: PropTypes.bool
 };

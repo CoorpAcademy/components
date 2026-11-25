@@ -30,7 +30,8 @@ test.serial(
       onChange: record('selection'),
       onSearch: record('search'),
       selectAll: {onClick: record('all')},
-      clear: {onClick: record('clear')}
+      clear: {onClick: record('clear')},
+      toggle: {label: 'Show all', action: {onClick: record('toggle')}}
     });
     const model = makeModel({
       choices: [
@@ -70,6 +71,7 @@ test.serial(
       ['retry'],
       ['all'],
       ['clear'],
+      ['toggle'],
       ['catalogue-1'],
       ['catalogue-2']
     ]);

@@ -21,10 +21,11 @@ export const catalogueLabels: CatalogueAccessLabels = {
   emptyTitle: 'Choose catalogue playlists',
   emptyMessage:
     'Select at least one Coorpacademy catalogue playlist, or choose Custom playlists only.',
-  customTitle: 'Attached custom playlists',
+  customTitle: 'Linked custom playlists',
   customDescription:
-    'Published custom playlists attached to this population. Manage their audience in the custom playlist editor.',
-  customList: 'Custom playlist attachments'
+    'Published playlists explicitly assigned to this population. Their audiences are managed in the custom playlist editor. Playlists assigned to All populations are not listed here.',
+  customList: 'Custom playlist attachments',
+  note: 'This setting applies to the current HR population. Assigned custom playlists remain accessible in every mode.'
 };
 
 export const accessModes = [
@@ -38,19 +39,19 @@ export const accessModes = [
     id: 'coorp',
     title: 'Coorpacademy catalogue',
     description:
-      'Access the Coorpacademy catalogue as it evolves. Your custom content is only accessible through custom playlists.'
+      'Access content included in the Coorpacademy catalogue as it evolves. Your custom content is only accessible through custom playlists.'
   },
   {
     id: 'custom',
     title: 'Custom playlists only',
     description:
-      'No direct catalogue access. Custom playlist administrators grant access by attaching playlists to this population. Newly published content must be added to a custom playlist to become accessible.'
+      'This population grants no direct catalogue access. Custom playlist administrators manage access by assigning playlists to this population. Newly published content must be added to an assigned custom playlist to become accessible through this route.'
   },
   {
     id: 'selected',
     title: 'Selected catalogue playlists',
     description:
-      'Access the selected catalogue playlists, including updates to those playlists. New playlists are not added automatically.'
+      'Access content in the selected catalogue playlists, including updates to those playlists. New playlists are not added automatically.'
   }
 ];
 
@@ -58,17 +59,27 @@ const names = [
   'Leadership essentials',
   'Managing teams',
   'Communicating with impact',
-  'Digital culture',
+  'Digital culture'
+];
+
+const catalogueThemes = [
   'Leading change',
   'Customer experience',
   'Data and AI',
-  'Working together'
+  'Sustainable business',
+  'Working together',
+  'Personal effectiveness',
+  'Cybersecurity',
+  'Business essentials'
 ];
 
 export const cataloguePlaylists = times(
   index => ({
     id: `catalogue-${index}`,
-    name: index < names.length ? names[index] : `${names[index % names.length]} · ${index + 1}`,
+    name:
+      index < names.length
+        ? names[index]
+        : `${catalogueThemes[(index - names.length) % catalogueThemes.length]} · ${index + 1}`,
     count: index === 0 ? 0 : index + 1
   }),
   60
@@ -127,6 +138,7 @@ export const makeSelection = (
         id,
         label: playlist?.name || id,
         warning: playlist?.count === 0,
+        statusLabel: playlist?.count === 0 ? 'No content' : undefined,
         hint:
           playlist?.count === 0 ? 'This selected playlist has no available content.' : undefined,
         removeLabel: `Remove ${playlist?.name || id}`,
@@ -206,5 +218,46 @@ export const errors = makeModel({
       message: 'Custom playlist attachments could not be refreshed.',
       onRetry: noop
     }
+  }
+});
+
+// Same example data as the approved lifecycle prototype's empty-playlist story.
+export const prototypeReference = makeModel({
+  warning:
+    '1 selected or linked playlist has no available content. Remove empty catalogue playlists below, or update the linked custom playlist in its editor.',
+  selection: makeSelection(['catalogue-0', 'catalogue-1'], {
+    options: map(playlist => {
+      const contentLabel =
+        playlist.id === 'catalogue-0' ? '1 content item' : `${playlist.count} content items`;
+      return {
+        name: playlist.name,
+        value: playlist.id,
+        selected: includes(playlist.id, ['catalogue-0', 'catalogue-1']),
+        rightLabel: playlist.id === 'catalogue-1' ? 'No content' : contentLabel,
+        warning: playlist.id === 'catalogue-1'
+      };
+    }, cataloguePlaylists),
+    selected: [
+      {
+        id: 'catalogue-0',
+        label: 'Leadership essentials',
+        removeLabel: 'Remove Leadership essentials',
+        onRemove: noop
+      },
+      {
+        id: 'catalogue-1',
+        label: 'Managing teams',
+        statusLabel: 'No content',
+        warning: true,
+        removeLabel: 'Remove Managing teams',
+        onRemove: noop
+      }
+    ]
+  }),
+  customPlaylists: {
+    items: [
+      {id: 'company-onboarding', label: 'Company onboarding · 4 content items'},
+      {id: 'leadership-journey', label: 'Our leadership journey · 4 content items'}
+    ]
   }
 });

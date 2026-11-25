@@ -46,3 +46,20 @@ test.serial('existing tags without a removal action remain non-interactive', t =
   const view = render(<Tag label="Finance" type="info" />);
   t.is(view.queryByRole('button'), null);
 });
+
+test.serial('an optional inline detail preserves the label and controlled removal action', t => {
+  let removed = 0;
+  const view = render(
+    <Tag
+      label="Managing teams"
+      detail="No content"
+      removeAction={{label: 'Remove Managing teams', onClick: () => removed++}}
+    />
+  );
+  const tag = view.getByText('Managing teams').closest('[data-name="content-tag-Managing teams"]');
+  t.true(tag?.contains(view.getByText('No content')));
+  fireEvent.click(view.getByRole('button', {name: 'Remove Managing teams'}));
+  t.is(removed, 1);
+  view.rerender(<Tag label="Managing teams" />);
+  t.is(view.queryByText('No content'), null);
+});

@@ -33,6 +33,11 @@
   text-transform: uppercase;
 }
 
+.detail {
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .small {
   composes: tag;
   font-size: 10px;

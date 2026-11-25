@@ -9,75 +9,93 @@ import {
   loading,
   makeChoices,
   makeModel,
+  prototypeReference,
   warnings
 } from '../../../test/helpers/population-catalogue-access';
 import ControlledCatalogue from './helpers/controlled';
 
 export default {title: 'Organism/PopulationCatalogueAccess/HR catalogue access'};
 
-const frame: React.CSSProperties = {
-  maxWidth: 1080,
-  margin: '24px auto',
-  padding: 24,
-  border: `1px solid ${COLORS.cm_grey_100}`,
-  borderRadius: 16,
-  color: COLORS.cm_grey_700,
-  fontFamily: 'Gilroy, sans-serif'
-};
+// Reproduce the editor's section frame without publishing demo CSS in the package.
+const Frame = ({children}: {children: React.ReactNode}) => (
+  <div
+    data-name="population-catalogue-preview"
+    style={{
+      margin: 20,
+      border: `1px solid ${COLORS.cm_grey_100}`,
+      borderRadius: 20,
+      color: COLORS.cm_grey_700,
+      fontFamily: 'Gilroy, sans-serif'
+    }}
+  >
+    <style>
+      {
+        '[data-name="population-catalogue-preview"] {padding: 28px} @media (max-width: 1100px) {[data-name="population-catalogue-preview"] {padding: 20px}}'
+      }
+    </style>
+    {children}
+  </div>
+);
 
 export const ChooseAccess = () => (
-  <div style={frame}>
+  <Frame>
     <ControlledCatalogue startWithNoChoice />
-  </div>
+  </Frame>
 );
 
 export const SelectedPlaylists = () => (
-  <div style={frame}>
+  <Frame>
     <ControlledCatalogue />
-  </div>
+  </Frame>
 );
 
 export const EmptyPlaylistWarning = () => (
-  <div style={frame}>
+  <Frame>
     <PopulationCatalogueAccess model={warnings} labels={catalogueLabels} />
-  </div>
+  </Frame>
 );
 
 export const SixtySelectedPlaylists = () => (
-  <div style={frame}>
+  <Frame>
     <ControlledCatalogue initialIds={map('id', cataloguePlaylists)} />
-  </div>
+  </Frame>
 );
 
 export const CountsUnavailable = () => (
-  <div style={frame}>
+  <Frame>
     <PopulationCatalogueAccess model={loading} labels={catalogueLabels} />
-  </div>
+  </Frame>
 );
 
 export const RetryErrors = () => (
-  <div style={frame}>
+  <Frame>
     <PopulationCatalogueAccess model={errors} labels={catalogueLabels} />
-  </div>
+  </Frame>
 );
 
 export const CustomPlaylistsOnly = () => (
-  <div style={frame}>
+  <Frame>
     <PopulationCatalogueAccess
       model={makeModel({choices: makeChoices('custom'), selection: undefined})}
       labels={catalogueLabels}
     />
-  </div>
+  </Frame>
 );
 
 export const SearchWithoutResults = () => (
-  <div style={frame}>
+  <Frame>
     <ControlledCatalogue initialQuery="No matching playlist" />
-  </div>
+  </Frame>
 );
 
 export const ReadOnly = () => (
-  <div style={frame}>
+  <Frame>
     <PopulationCatalogueAccess disabled model={warnings} labels={catalogueLabels} />
-  </div>
+  </Frame>
+);
+
+export const PrototypeReference = () => (
+  <Frame>
+    <PopulationCatalogueAccess model={prototypeReference} labels={catalogueLabels} />
+  </Frame>
 );

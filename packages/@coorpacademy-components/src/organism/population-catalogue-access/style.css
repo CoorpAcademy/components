@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_50, cm_grey_100, cm_grey_500, cm_grey_700, cm_primary_blue from colors;
-@value cm_blue_50, cm_negative_50, cm_negative_200, cm_warning_50, cm_orange_800 from colors;
+@value cm_blue_50, cm_negative_50, cm_negative_200 from colors;
 @value white from colors;
 
 .container {
@@ -10,19 +10,24 @@
 }
 
 .container h3 {
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: 700;
   line-height: 1.3;
   margin: 0 0 8px;
 }
 
 .container h4 {
   font-size: 16px;
-  margin: 0 0 8px;
+  line-height: normal;
+  font-weight: 700;
+  margin: 0;
 }
 
 .description {
   color: cm_grey_500;
-  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0 24px;
 }
 
 .legend,
@@ -36,8 +41,8 @@
 }
 
 .legend {
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .modes {
@@ -51,19 +56,19 @@
   min-width: 0;
   border: 1px solid cm_grey_100;
   border-radius: 12px;
-  padding: 16px 20px;
+  padding: 18px 20px;
   background: cm_grey_50;
 }
 
 .mode label {
-  align-items: flex-start;
   width: 100%;
   cursor: pointer;
 }
 
 .mode input {
-  margin-top: 2px;
-  margin-left: 0;
+  margin-top: 0;
+  width: 20px;
+  height: 20px;
 }
 
 .selectedMode {
@@ -71,22 +76,22 @@
   background: cm_blue_50;
 }
 
-.container input:focus-visible {
+.mode input:focus-visible {
   outline: 2px solid cm_primary_blue;
   outline-offset: 3px;
 }
 
 .count {
-  margin: 0 0 8px;
+  margin: 16px 0 12px;
+  line-height: normal;
 }
 
 .toolbar {
-  align-items: flex-start;
-  margin-bottom: 16px;
+  align-items: center;
 }
 
 .picker {
-  width: 480px;
+  width: 560px;
   max-width: 100%;
   min-width: 0;
 }
@@ -127,7 +132,7 @@
   gap: 8px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 16px 0;
 }
 
 .custom {
@@ -136,7 +141,6 @@
   border-top: 1px solid cm_grey_100;
 }
 
-.warning,
 .status {
   display: flex;
   align-items: center;
@@ -146,10 +150,21 @@
   margin: 0 0 16px;
 }
 
-.warning {
-  align-items: flex-start;
-  background: cm_warning_50;
-  color: cm_orange_800;
+.notice {
+  margin-bottom: 16px;
+}
+
+.note,
+.custom .description {
+  font-size: 13px;
+  line-height: 1.5;
+  color: color(cm_grey_500 tint(20%));
+  margin: 12px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.custom .chips {
+  margin: 16px 0 0;
 }
 
 .status {
@@ -198,6 +213,11 @@
 
 .selection {
   min-width: 0;
+}
+
+.selection > button {
+  width: auto;
+  flex-shrink: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

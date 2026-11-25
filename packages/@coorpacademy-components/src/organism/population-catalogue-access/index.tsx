@@ -7,6 +7,7 @@ import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
 import Tag from '../../atom/tag';
 import Loader from '../../atom/loader';
+import Banner from '../../molecule/banner';
 import {COLORS} from '../../variables/colors';
 import {CatalogueChip, CustomChip} from './playlists';
 import {Action, Status, PopulationCatalogueAccessProps, propTypes} from './types';
@@ -80,12 +81,9 @@ const PopulationCatalogueAccess = ({
         />
       </div>
       {model.warning ? (
-        <p className={style.warning} role="status">
-          <span aria-hidden="true">
-            <Icon iconName="triangle-exclamation" iconColor="currentColor" />
-          </span>
-          {model.warning}
-        </p>
+        <div className={style.notice} role="status">
+          <Banner type="warning" message={model.warning} />
+        </div>
       ) : null}
       {model.counts ? (
         <DataStatus status={model.counts} retry={labels.retry} disabled={disabled} />
@@ -161,6 +159,13 @@ const PopulationCatalogueAccess = ({
               selection.selected
             )}
           </ul>
+          {selection.toggle ? (
+            <ActionButton
+              label={selection.toggle.label}
+              action={selection.toggle.action}
+              disabled={disabled}
+            />
+          ) : null}
           {selection.showEmpty ? (
             <EmptyState title={labels.emptyTitle} message={labels.emptyMessage} />
           ) : null}
@@ -182,6 +187,7 @@ const PopulationCatalogueAccess = ({
         </ul>
         {customPlaylists.empty ? <EmptyState {...customPlaylists.empty} /> : null}
       </div>
+      {labels.note ? <p className={style.note}>{labels.note}</p> : null}
     </section>
   );
 };
