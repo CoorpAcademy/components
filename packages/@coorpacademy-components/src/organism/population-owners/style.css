@@ -27,6 +27,11 @@
   margin-bottom: 16px;
 }
 
+.toolbar > button {
+  width: auto;
+  flex-shrink: 0;
+}
+
 .search {
   width: 480px;
   max-width: 100%;
@@ -74,6 +79,12 @@
 .warning {
   background: warning_100;
   color: cm_orange_800;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.warning > span:last-child {
+  min-width: 0;
 }
 
 .error {

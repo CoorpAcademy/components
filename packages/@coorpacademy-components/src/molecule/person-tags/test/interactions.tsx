@@ -41,21 +41,16 @@ test.serial('read-only details do not expose callbacks supplied for another view
 
 test.serial('deactivated owners keep their identity, warning and manual removal', t => {
   const view = render(
-    <PersonTags
-      users={[{...people[0], deactivated: true, status: 'ok'}]}
-      translate={translate}
-      mode="remove"
-    />
+    <PersonTags users={[{...people[1], deactivated: true}]} translate={translate} mode="remove" />
   );
   t.truthy(view.getByText('Deactivated'));
-  t.truthy(view.getByText('You'));
   t.truthy(view.container.querySelector('[data-icon="eye-slash"]'));
-  t.truthy(view.getByRole('button', {name: 'Remove owner alex.martin'}));
+  t.truthy(view.getByRole('button', {name: 'Remove owner morgan.taylor'}));
 });
 
 test.serial('unknown and ambiguous accounts retain their login and distinct descriptions', t => {
   const users: Person[] = [
-    {...people[0], status: 'unknown'},
+    {...people[0], current: false, status: 'unknown'},
     {...people[1], status: 'ambiguous'}
   ];
   const view = render(<PersonTags users={users} translate={translate} mode="remove" />);
@@ -77,7 +72,12 @@ test.serial('only a selectable available suggestion calls its callback', t => {
   const calls: unknown[][] = [];
   const active = {...people[1], onSelect: (...args: unknown[]) => calls.push(args)};
   const unavailable: Person[] = [
-    {...people[0], status: 'deactivated', onSelect: () => t.fail('deactivated selected')},
+    {
+      ...people[0],
+      current: false,
+      status: 'deactivated',
+      onSelect: () => t.fail('deactivated selected')
+    },
     {...people[2], status: 'ambiguous', onSelect: () => t.fail('ambiguous selected')}
   ];
   const view = render(

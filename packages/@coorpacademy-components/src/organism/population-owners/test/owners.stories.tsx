@@ -3,6 +3,7 @@ import {filter, includes, map, some} from 'lodash/fp';
 import PopulationOwners from '..';
 import PersonTags from '../../../molecule/person-tags';
 import {Person} from '../../../molecule/person-tags/types';
+import {COLORS} from '../../../variables/colors';
 import {makeModel, people, translate} from '../../../test/helpers/population-owners';
 import unavailable from './fixtures/unavailable-self';
 import errors from './fixtures/errors';
@@ -11,7 +12,13 @@ import readonly from './fixtures/readonly';
 
 export default {title: 'Organism/PopulationOwners/Analytics owners'};
 
-const frame: React.CSSProperties = {padding: 24, maxWidth: 1000, margin: 'auto'};
+const frame: React.CSSProperties = {
+  padding: 24,
+  maxWidth: 1000,
+  margin: 'auto',
+  fontFamily: 'Gilroy, sans-serif',
+  color: COLORS.cm_grey_700
+};
 
 // The story owns synthetic business state, as App will in the connected screen.
 export const ControlledOwners = () => {
@@ -92,7 +99,7 @@ const historicalPeople: Person[] = [
   },
   {id: 'unknown', name: 'missing.owner', login: 'missing.owner', status: 'unknown'},
   {id: 'ambiguous', name: 'shared.owner', login: 'shared.owner', status: 'ambiguous'},
-  {...people[0], id: 'deactivated-self', deactivated: true}
+  people[2]
 ];
 
 export const ReadOnlyAndHistoricalOwners = () => (

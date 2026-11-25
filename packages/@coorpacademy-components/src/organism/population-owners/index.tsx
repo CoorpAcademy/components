@@ -4,9 +4,28 @@ import InputText from '../../atom/input-text';
 import ButtonLink from '../../atom/button-link';
 import Loader from '../../atom/loader';
 import Icon from '../../atom/icon';
-import PersonTags from '../../molecule/person-tags';
+import PersonTags, {getPersonStatus} from '../../molecule/person-tags';
 import {PopulationOwnersProps, propTypes} from './types';
 import style from './style.css';
+
+const OwnerError = ({
+  message,
+  retryLabel,
+  onRetry,
+  disabled
+}: {
+  message: string;
+  retryLabel: string;
+  onRetry?: () => void;
+  disabled: boolean;
+}) => (
+  <div className={style.error} role="alert">
+    {message}
+    {onRetry ? (
+      <ButtonLink type="secondary" label={retryLabel} onClick={onRetry} disabled={disabled} />
+    ) : null}
+  </div>
+);
 
 const PopulationOwners = ({model, disabled = false, translate}: PopulationOwnersProps) => {
   const {onSearch, onAddMe, onRetry, selfAvailable, selfSelected} = model;
@@ -27,10 +46,12 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
     !model.loading &&
     !model.error &&
     model.suggestions.length === 0;
-  const hasDeactivated = some(
-    user => user.deactivated || user.status === 'deactivated',
-    model.selected
-  );
+  const hasDeactivated = some(user => getPersonStatus(user) === 'deactivated', model.selected);
+  const errorProps = {
+    retryLabel: translate('population_owners_retry'),
+    onRetry: model.onRetry ? handleRetry : undefined,
+    disabled
+  };
 
   return (
     <section className={style.container} aria-label={translate('population_owners_title')}>
@@ -41,12 +62,14 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
           <span aria-hidden="true">
             <Icon iconName="eye-slash" iconColor="currentColor" />
           </span>
-          {translate(
-            model.warningCount === 1
-              ? 'population_owners_warning'
-              : 'population_owners_warning_plural',
-            {count: model.warningCount}
-          )}
+          <span>
+            {translate(
+              model.warningCount === 1
+                ? 'population_owners_warning'
+                : 'population_owners_warning_plural',
+              {count: model.warningCount}
+            )}
+          </span>
         </p>
       ) : null}
       <div className={style.toolbar}>
@@ -79,17 +102,7 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
         </div>
       ) : null}
       {model.error ? (
-        <div className={style.error} role="alert">
-          {translate('population_owners_search_error')}
-          {model.onRetry ? (
-            <ButtonLink
-              type="secondary"
-              label={translate('population_owners_retry')}
-              onClick={handleRetry}
-              disabled={disabled}
-            />
-          ) : null}
-        </div>
+        <OwnerError {...errorProps} message={translate('population_owners_search_error')} />
       ) : null}
       {!model.loading && !model.error && model.suggestions.length > 0 ? (
         <div className={style.suggestions}>
@@ -131,17 +144,7 @@ const PopulationOwners = ({model, disabled = false, translate}: PopulationOwners
         </p>
       ) : null}
       {model.resolutionError ? (
-        <div className={style.error} role="alert">
-          {translate('population_owners_resolution_error')}
-          {model.onRetry ? (
-            <ButtonLink
-              type="secondary"
-              label={translate('population_owners_retry')}
-              onClick={handleRetry}
-              disabled={disabled}
-            />
-          ) : null}
-        </div>
+        <OwnerError {...errorProps} message={translate('population_owners_resolution_error')} />
       ) : null}
     </section>
   );

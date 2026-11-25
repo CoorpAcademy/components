@@ -7,6 +7,9 @@ import ButtonLink from '../../atom/button-link';
 import {Person, PersonTagsProps, propTypes} from './types';
 import style from './style.css';
 
+export const getPersonStatus = (person: Person) =>
+  person.deactivated ? 'deactivated' : person.status || (person.unresolved ? 'unknown' : 'ok');
+
 const PersonTag = ({
   person,
   translate,
@@ -19,9 +22,7 @@ const PersonTag = ({
   disabled?: boolean;
 }) => {
   const {onSelect, onRemove} = person;
-  const status = person.deactivated
-    ? 'deactivated'
-    : person.status || (person.unresolved ? 'unknown' : 'ok');
+  const status = getPersonStatus(person);
   const unavailable = status !== 'ok';
   const handleSelect = useCallback(() => {
     if (!disabled && !unavailable) onSelect?.();
