@@ -1,0 +1,132 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue, cm_blue_50, cm_blue_600, cm_grey_500, cm_grey_700 from colors;
+@value cm_positive_300, cm_green_50, cm_negative_200, cm_negative_50 from colors;
+@value cm_orange_800, warning_100 from colors;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  color: cm_primary_blue;
+  background: cm_blue_50;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.current {
+  color: cm_positive_300;
+  background: cm_green_50;
+}
+
+.unresolved {
+  color: cm_orange_800;
+  background: warning_100;
+}
+
+.deactivated {
+  color: cm_negative_200;
+  background: cm_negative_50;
+}
+
+.identity {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  overflow-wrap: anywhere;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+}
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: cm_grey_700;
+}
+
+.login {
+  color: cm_grey_500;
+}
+
+.select {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.select:hover:not(:disabled) .heading {
+  text-decoration: underline;
+}
+
+.select:focus-visible,
+.remove:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.remove {
+  flex-shrink: 0;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  color: inherit;
+  border-radius: 6px;
+}
+
+.remove:hover:not(:disabled) {
+  background: color(cm_primary_blue a(10%));
+}
+
+.select:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  gap: 8px;
+  color: cm_grey_700;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+}
+
+.empty p {
+  color: cm_grey_500;
+  margin: 0;
+  max-width: 440px;
+}
+
+.illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  color: cm_blue_600;
+  background: cm_blue_50;
+}
