@@ -155,3 +155,29 @@ test.serial('disabling an open autocomplete closes it and does not reopen it on 
   view.rerender(<Autocomplete {...props} />);
   t.is(view.getByRole('combobox').getAttribute('aria-expanded'), 'false');
 });
+
+test.serial(
+  'retaining suggestions sends the controlled query string to onFetch after selection',
+  t => {
+    const requests = [];
+    const view = render(
+      <Autocomplete
+        title="Department"
+        value="Fi"
+        suggestions={suggestions}
+        keepSuggestionsOnSelect
+        focusInputOnSuggestionClick
+        onFetch={request => requests.push(request)}
+      />
+    );
+    const input = view.getByRole('textbox');
+    input.focus();
+    fireEvent.focus(input);
+    fireEvent.mouseDown(view.getByText('Finance'));
+    fireEvent.click(view.getByText('Finance'));
+    const refresh = requests.find(request => request.reason === 'suggestion-selected');
+    t.truthy(refresh);
+    t.is(refresh.value, 'Fi');
+    t.is(input.value, 'Fi');
+  }
+);

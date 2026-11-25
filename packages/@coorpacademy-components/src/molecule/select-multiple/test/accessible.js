@@ -1,6 +1,7 @@
 import test from 'ava';
 import React, {useState} from 'react';
 import browserEnv from 'browser-env';
+import forEach from 'lodash/fp/forEach';
 import {cleanup, fireEvent, render} from '@testing-library/react';
 import SelectMultiple from '..';
 import {wrappingComponent} from '../../../test/helpers/render-component';
@@ -210,3 +211,51 @@ test.serial('a null-relatedTarget blur closes after focus really leaves the sele
   fireEvent.blur(view.getByRole('textbox', {name: 'Search playlists'}), {relatedTarget: null});
   t.is(trigger.getAttribute('aria-expanded'), 'false');
 });
+
+forEach(
+  theme => {
+    forEach(
+      key => {
+        test.serial(`single choice selects once with ${key} in ${theme || 'default'} theme`, t => {
+          const changes = [];
+          const view = render(
+            <SelectMultiple
+              theme={theme}
+              title="Field"
+              aria-label="Field"
+              options={options}
+              onChange={choice => changes.push(choice.value)}
+            />,
+            {wrapper: wrappingComponent}
+          );
+          const trigger = view.getByRole('combobox', {name: 'Field'});
+          fireEvent.keyDown(trigger, {key: 'ArrowDown'});
+          fireEvent.keyDown(document.activeElement, {key});
+          t.deepEqual(changes, ['management']);
+          t.is(document.activeElement, trigger);
+        });
+      },
+      ['Enter', ' ']
+    );
+    test.serial(
+      `single-choice arrows skip nested checkbox controls in ${theme || 'default'} theme`,
+      t => {
+        const view = render(
+          <SelectMultiple
+            theme={theme}
+            title="Field"
+            aria-label="Field"
+            options={options}
+            onChange={() => {}}
+          />,
+          {wrapper: wrappingComponent}
+        );
+        fireEvent.keyDown(view.getByRole('combobox', {name: 'Field'}), {key: 'ArrowDown'});
+        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown'});
+        t.is(document.activeElement.getAttribute('role'), 'option');
+        t.is(document.activeElement.textContent, 'Culture');
+      }
+    );
+  },
+  [undefined, 'setup', 'cockpit', 'sidebar']
+);

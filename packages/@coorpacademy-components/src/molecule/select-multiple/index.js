@@ -129,7 +129,9 @@ const SelectMultiple = (
       if (['ArrowDown', 'ArrowUp'].includes(event.key)) {
         event.preventDefault();
         const items = [
-          ...nodeRef.current.querySelectorAll('[role="option"], input[type="checkbox"]')
+          ...nodeRef.current.querySelectorAll(
+            multiple ? 'input[type="checkbox"]' : '[role="option"]'
+          )
         ];
         const index = items.indexOf(target);
         const initial = event.key === 'ArrowDown' ? -1 : items.length;
@@ -139,10 +141,11 @@ const SelectMultiple = (
       }
       if (target.getAttribute('role') === 'option' && ['Enter', ' '].includes(event.key)) {
         event.preventDefault();
-        target.click();
+        const control = target.querySelector('input[type="checkbox"]') || target;
+        control.click();
       }
     },
-    [ariaLabel, disabled, isOpened]
+    [ariaLabel, disabled, isOpened, multiple]
   );
   const handleBlur = useCallback(
     event => {

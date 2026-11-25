@@ -93,6 +93,7 @@ const Autocomplete = props => {
     () => keepSuggestionsOnSelect,
     [keepSuggestionsOnSelect]
   );
+  const getControlledSuggestionValue = useCallback(() => value, [value]);
 
   const inputProps = {
     placeholder,
@@ -161,7 +162,7 @@ const Autocomplete = props => {
             suggestions={suggestions}
             onSuggestionsFetchRequested={handleSuggestionsFetchRequested}
             onSuggestionsClearRequested={handleSuggestionsClearRequested}
-            getSuggestionValue={noop}
+            getSuggestionValue={keepSuggestionsOnSelect ? getControlledSuggestionValue : noop}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
             focusInputOnSuggestionClick={focusInputOnSuggestionClick}
