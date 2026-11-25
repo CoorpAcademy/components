@@ -1,0 +1,52 @@
+.interactiveTrigger {
+  composes: tooltipIconContainer from "./style.css";
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.interactiveTrigger:focus-visible {
+  outline: 2px solid #0061ff;
+  outline-offset: 2px;
+}
+
+.interactivePanel {
+  position: fixed;
+  z-index: 1100;
+  box-sizing: border-box;
+  max-width: calc(100vw - 24px);
+  width: min(400px, calc(100vw - 24px));
+  max-height: min(360px, calc(100vh - 24px));
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+  padding: 16px;
+  border: 1px solid #d6d6df;
+  border-radius: 8px;
+  background: white;
+  color: #1d1d2b;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+  box-shadow: 0 4px 20px rgb(29 29 43 / 16%);
+}
+
+.interactivePanel:focus-visible {
+  outline: 2px solid #0061ff;
+  outline-offset: 2px;
+}
+
+.instructions {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.container {
+  composes: tooltipContainer from "./style.css";
+}
+
+.informationIcon {
+  composes: informationIcon from "./style.css";
+}

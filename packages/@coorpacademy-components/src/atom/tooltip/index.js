@@ -8,6 +8,7 @@ import isNil from 'lodash/fp/isNil';
 import keys from 'lodash/fp/keys';
 import {NovaCompositionCoorpacademyInformationIcon as InformationIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
+import InteractiveToolTip from './interactive';
 
 const FontSizes = {
   12: style.tooltipContentFontSize12,
@@ -88,7 +89,7 @@ export const toggleStateOnKeyPress = (state, setState, ref) => event => {
   }
 };
 
-const ToolTip = ({
+const LegacyToolTip = ({
   anchorId,
   TooltipContent,
   'aria-label': ariaLabel,
@@ -202,7 +203,10 @@ const ToolTip = ({
   );
 };
 
-ToolTip.propTypes = {
+const ToolTip = ({interactive = false, ...props}) =>
+  interactive && !props.anchorId ? <InteractiveToolTip {...props} /> : <LegacyToolTip {...props} />;
+
+LegacyToolTip.propTypes = {
   TooltipContent: PropTypes.oneOfType([PropTypes.func, PropTypes.node, PropTypes.string]),
   'data-testid': PropTypes.string,
   'aria-label': PropTypes.string,
@@ -224,5 +228,7 @@ ToolTip.propTypes = {
   toolTipIsVisible: PropTypes.bool,
   placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom'])
 };
+
+ToolTip.propTypes = {...LegacyToolTip.propTypes, interactive: PropTypes.bool};
 
 export default ToolTip;
