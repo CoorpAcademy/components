@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {map, pipe, join, filter, get, set, keys, isEmpty} from 'lodash/fp';
+import {map, pipe, join, filter, get, set, keys, isEmpty, uniqueId} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaSolidStatusClose as ErrorIcon,
@@ -20,6 +20,14 @@ const themeStyle = {
   coorpmanager: style.coorpmanager
 };
 
+const choiceType = PropTypes.shape({
+  selected: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  rightLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  warning: PropTypes.bool
+});
+
 export const useChoices = options => {
   const choicesRef = {current: options};
 
@@ -36,20 +44,33 @@ export const useChoices = options => {
   return [getChoices, setChoices];
 };
 
-const CMMultipleView = ({multiple, choice, onChange}) => {
+const CMMultipleView = ({multiple, choice, onChange, accessible}) => {
   const handleChange = useCallback(() => {
     return onChange(choice);
   }, [onChange, choice]);
+  // Keep search focused until the label activates its associated checkbox.
+  const handleMouseDown = useCallback(event => event.preventDefault(), []);
 
   return multiple ? (
-    <div className={style.item}>
+    <div
+      onMouseDown={accessible ? handleMouseDown : undefined}
+      className={classnames(
+        style.item,
+        choice.rightLabel !== undefined && style.countedItem,
+        choice.warning && style.warningItem
+      )}
+    >
       <Checkbox
+        theme={accessible ? 'coorpmanager' : 'default'}
         titleStyle="inherit"
         checked={choice.selected}
         onChange={handleChange}
-        noLabelMargins
+        noLabelMargins={!accessible}
         title={choice.name}
       />
+      {choice.rightLabel !== undefined ? (
+        <span className={style.choiceCount}>{choice.rightLabel}</span>
+      ) : null}
     </div>
   ) : (
     <span className={style.item} title={choice.name} data-name={`${choice.name}-language`}>
@@ -71,13 +92,79 @@ const SelectMultiple = (
     onError,
     modified = false,
     error = '',
-    disabled = false
+    disabled = false,
+    'aria-label': ariaLabel,
+    search,
+    selectionLabel,
+    dropdownClassName
   },
   {skin}
 ) => {
   const [isOpened, updateIsOpened] = useState(false);
   const [getChoices, setChoices] = useChoices(options);
   const nodeRef = useRef(null);
+  const triggerRef = useRef(null);
+  const [listId] = useState(() => (ariaLabel ? uniqueId('select-options-') : undefined));
+  const handleSearch = useCallback(event => search.onChange(event.target.value), [search]);
+  const handleKeyDown = useCallback(
+    event => {
+      if (!ariaLabel || disabled) return;
+      const target = event.target;
+      if (event.key === 'Escape' && isOpened) {
+        event.preventDefault();
+        event.stopPropagation();
+        updateIsOpened(false);
+        triggerRef.current.focus();
+        return;
+      }
+      if (
+        target === triggerRef.current &&
+        ['Enter', ' ', 'ArrowDown', 'ArrowUp'].includes(event.key)
+      ) {
+        event.preventDefault();
+        updateIsOpened(true);
+        return;
+      }
+      if (!isOpened) return;
+      if (['ArrowDown', 'ArrowUp'].includes(event.key)) {
+        event.preventDefault();
+        const items = [
+          ...nodeRef.current.querySelectorAll(
+            multiple ? 'input[type="checkbox"]' : '[role="option"]'
+          )
+        ];
+        const index = items.indexOf(target);
+        const initial = event.key === 'ArrowDown' ? -1 : items.length;
+        const currentIndex = index === -1 ? initial : index;
+        const next = currentIndex + (event.key === 'ArrowDown' ? 1 : -1);
+        items[(next + items.length) % items.length]?.focus();
+      }
+      if (target.getAttribute('role') === 'option' && ['Enter', ' '].includes(event.key)) {
+        event.preventDefault();
+        const control = target.querySelector('input[type="checkbox"]') || target;
+        control.click();
+      }
+    },
+    [ariaLabel, disabled, isOpened, multiple]
+  );
+  const handleBlur = useCallback(
+    event => {
+      if (ariaLabel && !nodeRef.current.contains(event.relatedTarget)) updateIsOpened(false);
+    },
+    [ariaLabel]
+  );
+  useEffect(() => {
+    if (!isOpened || !ariaLabel) return;
+    const node = nodeRef.current;
+    const initial =
+      node.querySelector('[data-name="select-search"]') ||
+      node.querySelector('[role="option"][aria-selected="true"], input[type="checkbox"]:checked') ||
+      node.querySelector('[role="option"], input[type="checkbox"]');
+    initial?.focus();
+  }, [isOpened, ariaLabel]);
+  useEffect(() => {
+    if (disabled) updateIsOpened(false);
+  }, [disabled]);
 
   const defaultColor = get('common.primary', skin);
   const black = get('common.black', skin);
@@ -102,6 +189,7 @@ const SelectMultiple = (
 
   const handleChange = useCallback(
     choice => {
+      if (disabled) return undefined;
       // if multiple prop is turned on
       // we return all selected choices
       if (multiple) {
@@ -109,9 +197,10 @@ const SelectMultiple = (
         return onChange(getChoices());
       }
       updateIsOpened(false);
+      if (ariaLabel) triggerRef.current.focus();
       return onChange(choice);
     },
-    [multiple, onChange, setChoices, getChoices]
+    [multiple, onChange, setChoices, getChoices, disabled, ariaLabel]
   );
 
   useEffect(() => {
@@ -129,14 +218,23 @@ const SelectMultiple = (
   const handleOnClickOnListElement = choice => () => handleChange(choice);
 
   const lines = map.convert({cap: false})((choice, i) => {
+    if (search && !choice.name.toLowerCase().includes(search.value.toLowerCase())) return null;
     return (
       <li
         key={i}
         className={style.choice}
+        role={ariaLabel && !multiple ? 'option' : undefined}
+        aria-selected={ariaLabel && !multiple ? choice.selected : undefined}
+        tabIndex={ariaLabel && !multiple ? -1 : undefined}
         onClick={isCMTheme && !multiple ? handleOnClickOnListElement({...choice, i}) : null}
       >
         {isCMTheme ? (
-          <CMMultipleView multiple={multiple} choice={{...choice, i}} onChange={handleChange} />
+          <CMMultipleView
+            accessible={!!ariaLabel}
+            multiple={multiple}
+            choice={{...choice, i}}
+            onChange={handleChange}
+          />
         ) : (
           <TitledCheckbox
             onToggle={handleChange}
@@ -148,7 +246,11 @@ const SelectMultiple = (
     );
   }, options);
 
-  const selection = pipe(filter({selected: true}), map('name'), join(', '))(options);
+  const selection =
+    selectionLabel || pipe(filter({selected: true}), map('name'), join(', '))(options);
+  const Wrapper = ariaLabel ? 'div' : 'label';
+  const triggerRole = multiple ? 'button' : 'combobox';
+  const optionsRole = multiple ? 'group' : 'listbox';
 
   const isActive = isOpened === true;
 
@@ -193,13 +295,28 @@ const SelectMultiple = (
 
   return (
     <div
-      className={classnames(mainClass, behaviourClassName, disabled && style.disabled)}
+      className={classnames(
+        mainClass,
+        behaviourClassName,
+        disabled && style.disabled,
+        ariaLabel && style.keyboard
+      )}
       ref={nodeRef}
+      onKeyDown={ariaLabel ? handleKeyDown : undefined}
+      onBlur={ariaLabel ? handleBlur : undefined}
     >
-      <label>
+      <Wrapper>
         {!isCMTheme && titleView}
         <div
           className={style.select}
+          ref={triggerRef}
+          role={ariaLabel ? triggerRole : undefined}
+          tabIndex={ariaLabel && !disabled ? 0 : undefined}
+          aria-label={ariaLabel}
+          aria-controls={listId}
+          aria-expanded={ariaLabel ? isOpened : undefined}
+          aria-disabled={ariaLabel ? disabled : undefined}
+          aria-haspopup={ariaLabel && !multiple ? 'listbox' : undefined}
           title={selection || placeholder}
           data-name={`select-languages`}
           onClick={handleOnClick}
@@ -230,10 +347,43 @@ const SelectMultiple = (
             />
           )}
         </div>
-        <div className={classnames(style.choices, isActive && style.activeChoices)}>
-          <ul className={style.list}>{lines}</ul>
+        <div
+          hidden={ariaLabel && !isOpened ? true : undefined}
+          className={classnames(
+            style.choices,
+            dropdownClassName,
+            isActive && style.activeChoices,
+            search && style.searchable
+          )}
+        >
+          {search ? (
+            <div className={style.searchContainer}>
+              <input
+                data-name="select-search"
+                className={style.searchInput}
+                aria-label={search.label}
+                placeholder={search.label}
+                value={search.value}
+                onChange={handleSearch}
+              />
+            </div>
+          ) : null}
+          <ul
+            className={style.list}
+            id={listId}
+            role={ariaLabel ? optionsRole : undefined}
+            aria-label={ariaLabel}
+          >
+            {lines}
+          </ul>
+          {search &&
+          !options.some(choice =>
+            choice.name.toLowerCase().includes(search.value.toLowerCase())
+          ) ? (
+            <p className={style.emptyResults}>{search.emptyLabel}</p>
+          ) : null}
         </div>
-      </label>
+      </Wrapper>
       {!isCMTheme ? <div className={style.description}>{description}</div> : null}
       {hintView}
     </div>
@@ -246,16 +396,26 @@ SelectMultiple.contextTypes = {
 
 CMMultipleView.propTypes = {
   multiple: PropTypes.bool,
-  choice: TitledCheckbox.propTypes.choice,
+  choice: choiceType,
+  accessible: PropTypes.bool,
   onChange: PropTypes.func
 };
 
 SelectMultiple.propTypes = {
+  'aria-label': PropTypes.string,
+  selectionLabel: PropTypes.string,
+  search: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    emptyLabel: PropTypes.string,
+    onChange: PropTypes.func.isRequired
+  }),
   title: PropTypes.string,
   placeholder: PropTypes.string,
   description: PropTypes.string,
   hint: PropTypes.string,
-  options: PropTypes.arrayOf(TitledCheckbox.propTypes.choice),
+  dropdownClassName: PropTypes.string,
+  options: PropTypes.arrayOf(choiceType),
   onChange: PropTypes.func,
   onError: PropTypes.func,
   multiple: PropTypes.bool,

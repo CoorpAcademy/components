@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -34,8 +34,17 @@ const Autocomplete = props => {
     onSuggestionSelected = noop,
     focusInputOnSuggestionClick = false,
     title: propsTitle,
-    theme = 'default'
+    theme = 'default',
+    disabled,
+    id,
+    'aria-label': ariaLabel,
+    showSuggestionsOnFocus = false,
+    keepSuggestionsOnSelect = false
   } = props;
+  const [suggestionsOpen, setSuggestionsOpen] = useState(false);
+  useEffect(() => {
+    if (disabled) setSuggestionsOpen(false);
+  }, [disabled]);
 
   const mainClass = THEME_STYLE[theme];
   const title = useMemo(() => `${propsTitle}${required ? '*' : ''}`, [propsTitle, required]);
@@ -46,13 +55,33 @@ const Autocomplete = props => {
 
   const handleInput = useCallback(
     e => {
+      if (keepSuggestionsOnSelect) setSuggestionsOpen(true);
       onInput(e);
     },
-    [onInput]
+    [onInput, keepSuggestionsOnSelect]
   );
   const handleBlur = useCallback(
-    (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
+    (e, selectedSuggestion) => {
+      setSuggestionsOpen(false);
+      onBlur(e, selectedSuggestion);
+    },
     [onBlur]
+  );
+  const handleFocus = useCallback(
+    () => setSuggestionsOpen(showSuggestionsOnFocus || !isEmpty(value)),
+    [showSuggestionsOnFocus, value]
+  );
+  const handleKeyDown = useCallback(event => {
+    if (event.key === 'Escape') setSuggestionsOpen(false);
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') setSuggestionsOpen(true);
+  }, []);
+  const shouldRenderSuggestions = useCallback(
+    (inputValue, reason) =>
+      !disabled &&
+      (!keepSuggestionsOnSelect ||
+        suggestionsOpen ||
+        (reason === 'input-focused' && (showSuggestionsOnFocus || !isEmpty(inputValue)))),
+    [disabled, keepSuggestionsOnSelect, suggestionsOpen, showSuggestionsOnFocus]
   );
   const handleSuggestionsFetchRequested = useCallback(e => onFetch(e), [onFetch]);
   const handleSuggestionsClearRequested = useCallback(e => onClear(e), [onClear]);
@@ -60,10 +89,18 @@ const Autocomplete = props => {
     (e, data) => onSuggestionSelected(data),
     [onSuggestionSelected]
   );
+  const shouldKeepSuggestionsOnSelect = useCallback(
+    () => keepSuggestionsOnSelect,
+    [keepSuggestionsOnSelect]
+  );
+  const getControlledSuggestionValue = useCallback(() => value, [value]);
 
   const inputProps = {
     placeholder,
     value,
+    ...(disabled === undefined ? {} : {disabled}),
+    ...(ariaLabel ? {'aria-label': ariaLabel} : {}),
+    ...(keepSuggestionsOnSelect ? {onFocus: handleFocus, onKeyDown: handleKeyDown} : {}),
     onChange: noop,
     onBlur: handleBlur,
     onInput: handleInput,
@@ -103,6 +140,16 @@ const Autocomplete = props => {
         </span>
         <div className={style.inputContainer}>
           <Autosuggest
+            {...(keepSuggestionsOnSelect
+              ? {
+                  shouldKeepSuggestionsOnSelect,
+                  alwaysRenderSuggestions: suggestionsOpen && !disabled
+                }
+              : {})}
+            {...(id ? {id} : {})}
+            {...(showSuggestionsOnFocus || keepSuggestionsOnSelect
+              ? {shouldRenderSuggestions}
+              : {})}
             theme={{
               container: style.container,
               input: style.input,
@@ -115,7 +162,7 @@ const Autocomplete = props => {
             suggestions={suggestions}
             onSuggestionsFetchRequested={handleSuggestionsFetchRequested}
             onSuggestionsClearRequested={handleSuggestionsClearRequested}
-            getSuggestionValue={noop}
+            getSuggestionValue={keepSuggestionsOnSelect ? getControlledSuggestionValue : noop}
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
             focusInputOnSuggestionClick={focusInputOnSuggestionClick}
@@ -131,6 +178,11 @@ const Autocomplete = props => {
 };
 
 Autocomplete.propTypes = {
+  id: PropTypes.string,
+  disabled: PropTypes.bool,
+  'aria-label': PropTypes.string,
+  showSuggestionsOnFocus: PropTypes.bool,
+  keepSuggestionsOnSelect: PropTypes.bool,
   title: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,

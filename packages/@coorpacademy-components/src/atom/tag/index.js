@@ -30,7 +30,17 @@ const defaultIconProps = {
 
 const renderIcon = iconProps => <Icon {...iconProps} />;
 
-const Tag = ({label = '', type = 'default', size = 'M', customStyle = {}, icon = {}}) => {
+/** @typedef {{label: string, onClick: () => void, disabled?: boolean}} RemoveAction */
+
+const Tag = ({
+  label = '',
+  type = 'default',
+  size = 'M',
+  customStyle = {},
+  icon = {},
+  removeAction = /** @type {RemoveAction | null} */ (null)
+}) => {
+  const handleRemove = removeAction?.onClick;
   const {iconName} = icon;
   const {position, ...iconProps} = iconName
     ? {
@@ -41,7 +51,7 @@ const Tag = ({label = '', type = 'default', size = 'M', customStyle = {}, icon =
 
   return (
     <span
-      className={classnames(TAG_STYLES[type], TAG_SIZE[size])}
+      className={classnames(TAG_STYLES[type], TAG_SIZE[size], removeAction && style.removable)}
       data-name={`content-tag-${label}`}
       style={customStyle}
     >
@@ -49,6 +59,17 @@ const Tag = ({label = '', type = 'default', size = 'M', customStyle = {}, icon =
         {position === 'left' && iconName && renderIcon(iconProps)}
         <div className={style.label}>{label}</div>
         {position === 'right' && iconName && renderIcon(iconProps)}
+        {removeAction ? (
+          <button
+            type="button"
+            className={style.remove}
+            aria-label={removeAction.label}
+            disabled={removeAction.disabled}
+            onClick={handleRemove}
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        ) : null}
       </div>
     </span>
   );
@@ -59,6 +80,11 @@ Tag.propTypes = {
   type: PropTypes.oneOf(keys(TAG_STYLES)),
   size: PropTypes.oneOf(['S', 'M', 'L']),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  removeAction: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    disabled: PropTypes.bool
+  }),
   icon: PropTypes.shape({...Icon.propTypes, position: PropTypes.oneOf(['left', 'right'])})
 };
 
