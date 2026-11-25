@@ -1,6 +1,7 @@
 import React from 'react';
 import Tag from '../../../tag';
 import Icon from '../../../icon';
+import {COLORS} from '../../../../variables/colors';
 
 const fixture = {
   props: {
@@ -15,7 +16,11 @@ const fixture = {
           type="button"
           style={{border: 0, background: 'transparent', cursor: 'pointer', padding: 8}}
         >
-          <Icon iconName="filter" iconColor="#0061ff" size={{faSize: 16, wrapperSize: 24}} />
+          <Icon
+            iconName="filter"
+            iconColor={COLORS.cm_primary_blue}
+            size={{faSize: 16, wrapperSize: 24}}
+          />
         </button>
       );
     },

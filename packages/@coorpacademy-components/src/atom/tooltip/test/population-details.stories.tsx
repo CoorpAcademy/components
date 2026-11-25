@@ -1,5 +1,6 @@
 import React from 'react';
 import Tooltip from '..';
+import {COLORS} from '../../../variables/colors';
 import playlistFixture from './fixtures/interactive-playlists';
 import conditionsFixture from './fixtures/interactive-conditions';
 import ownersFixture from './fixtures/interactive-owners';
@@ -7,7 +8,14 @@ import ownersFixture from './fixtures/interactive-owners';
 export default {title: 'Atom/Tooltip/Population details'};
 
 export const RichDetails = () => (
-  <div style={{fontFamily: 'Gilroy, sans-serif', padding: 32, maxWidth: 720, color: '#1d1d2b'}}>
+  <div
+    style={{
+      fontFamily: 'Gilroy, sans-serif',
+      padding: 32,
+      maxWidth: 720,
+      color: COLORS.cm_grey_700
+    }}
+  >
     <h2>Population details</h2>
     <p>
       Hover over a details button or use Tab to focus it. Press Tab again to scroll the content with
@@ -16,7 +24,7 @@ export const RichDetails = () => (
     <div
       style={{
         overflow: 'hidden',
-        border: '1px solid #d6d6df',
+        border: `1px solid ${COLORS.cm_grey_200}`,
         borderRadius: 12,
         padding: 24,
         display: 'flex',

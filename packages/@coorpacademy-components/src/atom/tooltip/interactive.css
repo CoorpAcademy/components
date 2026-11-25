@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_200, cm_grey_700, cm_primary_blue, white from colors;
+
 .interactiveTrigger {
   composes: tooltipIconContainer from "./style.css";
   cursor: pointer;
@@ -5,7 +8,7 @@
 }
 
 .interactiveTrigger:focus-visible {
-  outline: 2px solid #0061ff;
+  outline: 2px solid cm_primary_blue;
   outline-offset: 2px;
 }
 
@@ -20,16 +23,16 @@
   overscroll-behavior: contain;
   overflow-wrap: anywhere;
   padding: 16px;
-  border: 1px solid #d6d6df;
+  border: 1px solid cm_grey_200;
   border-radius: 8px;
   background: white;
-  color: #1d1d2b;
+  color: cm_grey_700;
   font: 500 14px/1.5 Gilroy, sans-serif;
-  box-shadow: 0 4px 20px rgb(29 29 43 / 16%);
+  box-shadow: 0 4px 20px color(cm_grey_700 a(16%));
 }
 
 .interactivePanel:focus-visible {
-  outline: 2px solid #0061ff;
+  outline: 2px solid cm_primary_blue;
   outline-offset: 2px;
 }
 
