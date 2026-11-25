@@ -72,7 +72,7 @@ test.serial('App supplies all copy, sentence fragments and separators without a 
             comparison: 'est',
             values: [
               {id: 'a', label: 'Finance'},
-          {id: 'b', label: 'Juridique', prefix: ' ou '}
+              {id: 'b', label: 'Juridique', prefix: ' ou '}
             ],
             note: 'Texte fourni par App'
           }
