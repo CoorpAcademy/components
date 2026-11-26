@@ -7,16 +7,31 @@ import ButtonLink from '../../atom/button-link';
 import {Person, PersonTagsProps, propTypes} from './types';
 import style from './style.css';
 
+const STATUS_TYPES = {
+  ok: 'info',
+  deactivated: 'failure',
+  unknown: 'warning',
+  ambiguous: 'warning'
+} as const;
+const COMPACT_STYLE = {
+  padding: '6px 10px',
+  maxWidth: '100%',
+  overflowWrap: 'anywhere',
+  textAlign: 'left'
+};
+
 const PersonTag = ({
   person,
   labels,
   mode,
-  disabled
+  disabled,
+  appearance
 }: {
   person: Person;
   labels: PersonTagsProps['labels'];
   mode: PersonTagsProps['mode'];
   disabled?: boolean;
+  appearance: PersonTagsProps['appearance'];
 }) => {
   const {onSelect, onRemove} = person;
   const {status} = person;
@@ -28,6 +43,26 @@ const PersonTag = ({
   const handleRemove = useCallback(() => {
     if (!disabled) onRemove?.();
   }, [disabled, onRemove]);
+  if (appearance === 'pill' && mode === 'display') {
+    const label = [
+      person.name,
+      person.login,
+      person.current && labels.you,
+      hasStatus && labels[status]
+    ]
+      .filter(Boolean)
+      .join(' · ');
+    return (
+      <li className={style.pill} data-name="person-tag">
+        <Tag
+          label={label}
+          type={person.current ? 'success' : STATUS_TYPES[status]}
+          customStyle={COMPACT_STYLE}
+          icon={status === 'deactivated' ? {iconName: 'eye-slash', preset: 's'} : undefined}
+        />
+      </li>
+    );
+  }
   const identity = (
     <span className={style.identity}>
       <span className={style.heading}>
@@ -91,7 +126,11 @@ const PersonTags = ({
 }: PersonTagsProps) =>
   users.length > 0 ? (
     <ul
-      className={classnames(style.tags, appearance === 'compact' && style.compact)}
+      className={classnames(
+        style.tags,
+        appearance === 'compact' && style.compact,
+        appearance === 'pill' && mode === 'display' && style.pillList
+      )}
       aria-label={ariaLabel}
     >
       {map(
@@ -102,6 +141,7 @@ const PersonTags = ({
             labels={labels}
             mode={mode}
             disabled={disabled}
+            appearance={appearance}
           />
         ),
         users

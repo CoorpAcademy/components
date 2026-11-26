@@ -1,0 +1,95 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue, cm_grey_500, cm_grey_700 from colors;
+
+.subtitle,
+.details,
+.detail {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 8px;
+}
+
+.details {
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 4px;
+  border-radius: 4px;
+  background: transparent;
+  color: cm_grey_500;
+  cursor: pointer;
+}
+
+.info:hover {
+  color: cm_primary_blue;
+  background: color(cm_primary_blue a(10%));
+}
+
+.info:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 2px;
+}
+
+.playlists {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.playlists li {
+  max-width: 100%;
+}
+
+.playlists a {
+  text-decoration: none;
+}
+
+.popover {
+  width: min(420px, calc(100vw - 24px));
+  border-radius: 12px;
+}
+
+.heading {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.summary {
+  margin-top: 0;
+  font-size: 13px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 16px;
+  padding: 0 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.legend > svg {
+  flex-shrink: 0;
+}
+
+
+.loading {
+  composes: loading from "./style.css";
+}
+
+.error {
+  composes: error from "./style.css";
+}

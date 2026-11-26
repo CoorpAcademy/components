@@ -1,6 +1,6 @@
 import test from 'ava';
 import forEach from 'lodash/fp/forEach';
-import {getFloatingPosition} from '../position';
+import {getFloatingPosition, getFloatingArrowPosition} from '../position';
 
 const viewport = {width: 1000, height: 800};
 const anchor = {left: 490, right: 510, top: 390, bottom: 410, width: 20, height: 20};
@@ -62,4 +62,30 @@ test('chooses more room above and clamps a wide panel away from both screen edge
   t.is(result.left, 12);
   t.is(result.top, 12);
   t.is(result.maxHeight, 80);
+});
+
+forEach(
+  ([side, left, top]: readonly [string, number, number]) => {
+    test(`arrow follows the ${side} panel edge`, t => {
+      const position = getFloatingPosition(anchor, box, viewport, side);
+      t.deepEqual(getFloatingArrowPosition(anchor, position, box), {left, top});
+    });
+  },
+  [
+    ['bottom', 492, 411],
+    ['top', 492, 381],
+    ['left', 481, 392],
+    ['right', 511, 392]
+  ] as const
+);
+
+test('arrow remains away from rounded corners when the viewport shifts the panel', t => {
+  t.deepEqual(
+    getFloatingArrowPosition(
+      {...anchor, left: 0, width: 20},
+      {left: 12, top: 100, maxHeight: 40, side: 'bottom'},
+      box
+    ),
+    {left: 16, top: 93}
+  );
 });

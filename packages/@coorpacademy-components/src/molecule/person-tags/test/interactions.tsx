@@ -186,3 +186,49 @@ test.serial(
     t.is(view.container.querySelector('img'), null);
   }
 );
+
+test.serial(
+  'pill display uses compact identities and supplied status labels without mutation controls',
+  t => {
+    const users: Person[] = [
+      people[0],
+      people[1],
+      people[2],
+      {...people[1], id: 'unknown', status: 'unknown'},
+      {...people[1], id: 'ambiguous', status: 'ambiguous'}
+    ];
+    const view = render(<PersonTags appearance="pill" users={users} labels={personLabels} />);
+    t.truthy(view.getByText('Alex Martin · alex.martin · You'));
+    t.truthy(view.getByText('Morgan Taylor · morgan.taylor'));
+    t.truthy(view.getByText('Former Owner · former.owner · Deactivated'));
+    t.truthy(view.getByText('Morgan Taylor · morgan.taylor · Account not found'));
+    t.truthy(view.getByText('Morgan Taylor · morgan.taylor · Multiple accounts found'));
+    t.is(view.queryAllByRole('button').length, 0);
+    t.is(view.container.querySelectorAll('[data-icon="eye-slash"]').length, 1);
+    view.rerender(
+      <PersonTags appearance="pill" users={[people[0]]} labels={personLabels} mode="remove" />
+    );
+    t.truthy(view.getByText('alex.martin'));
+    t.truthy(view.getByRole('button', {name: 'Remove owner alex.martin'}));
+  }
+);
+
+test.serial('HR compact identities and read-only tooltip pills remain separate appearances', t => {
+  const view = render(<PersonTags users={people} labels={personLabels} appearance="compact" />);
+  t.true(view.getByRole('list').classList.contains(style.compact));
+  t.false(view.getByRole('list').classList.contains(style.pillList));
+  t.truthy(view.getByText('Alex Martin'));
+  t.truthy(view.getByText('alex.martin'));
+  t.truthy(view.getByText('You'));
+  view.rerender(<PersonTags users={people} labels={personLabels} appearance="pill" />);
+  t.false(view.getByRole('list').classList.contains(style.compact));
+  t.true(view.getByRole('list').classList.contains(style.pillList));
+  t.truthy(view.getByText('Alex Martin · alex.martin · You'));
+  t.is(view.queryAllByRole('button').length, 0);
+  view.rerender(
+    <PersonTags users={people} labels={personLabels} appearance="pill" mode="select" />
+  );
+  t.false(view.getByRole('list').classList.contains(style.pillList));
+  t.truthy(view.getByText('alex.martin'));
+  t.truthy(view.getByRole('button', {name: 'Add alex.martin as owner'}));
+});

@@ -229,6 +229,10 @@ LegacyToolTip.propTypes = {
   placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom'])
 };
 
-ToolTip.propTypes = {...LegacyToolTip.propTypes, interactive: PropTypes.bool};
+ToolTip.propTypes = {
+  ...LegacyToolTip.propTypes,
+  interactive: PropTypes.bool,
+  withArrow: PropTypes.bool
+};
 
 export default ToolTip;

@@ -48,7 +48,7 @@ export type PersonTagsProps = {
   users: Person[];
   labels: PersonTagsLabels;
   mode?: 'display' | 'select' | 'remove';
-  appearance?: 'card' | 'compact';
+  appearance?: 'card' | 'compact' | 'pill';
   disabled?: boolean;
   'aria-label'?: string;
 };
@@ -57,7 +57,7 @@ export const propTypes = {
   users: PropTypes.arrayOf(PropTypes.shape(personPropTypes).isRequired).isRequired,
   labels: PropTypes.shape(labelsPropTypes).isRequired,
   mode: PropTypes.oneOf(['display', 'select', 'remove']),
-  appearance: PropTypes.oneOf(['card', 'compact']),
+  appearance: PropTypes.oneOf(['card', 'compact', 'pill']),
   disabled: PropTypes.bool,
   'aria-label': PropTypes.string
 };

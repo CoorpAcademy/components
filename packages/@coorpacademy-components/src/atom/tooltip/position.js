@@ -42,3 +42,17 @@ export const getFloatingPosition = (anchor, box, viewport, preferred) => {
     maxHeight
   };
 };
+
+// Keep the arrow on the straight panel edge when viewport bounds move the panel.
+export const getFloatingArrowPosition = (anchor, position, box) => {
+  const {left, top, maxHeight, side} = position;
+  const height = Math.min(box.height, maxHeight);
+  const x = clamp(anchor.left + anchor.width / 2, left + 12, left + box.width - 12);
+  const y = clamp(anchor.top + anchor.height / 2, top + 12, top + height - 12);
+  return {
+    top: {left: x - 8, top: top + height - 1},
+    bottom: {left: x - 8, top: top - 7},
+    left: {left: left + box.width - 1, top: y - 8},
+    right: {left: left - 7, top: y - 8}
+  }[side];
+};

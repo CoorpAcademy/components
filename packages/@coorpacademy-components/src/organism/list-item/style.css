@@ -205,3 +205,32 @@
   overflow: hidden;
   pointer-events: none;
 }
+
+.wrapContent {
+  flex-wrap: wrap;
+}
+
+.wrapContent .subtitle,
+.wrapContent .details {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.wrapContent .dataColumnsWrapper {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.wrapContent .titleWrapper {
+  min-width: 0;
+}
+
+.wrapContent .settings {
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.wrapContent .settings > button {
+  width: auto;
+}

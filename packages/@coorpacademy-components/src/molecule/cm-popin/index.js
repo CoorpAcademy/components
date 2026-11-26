@@ -62,7 +62,10 @@ const CMPopin = props => {
     descriptionBtnTxt,
     listBtnSwicth,
     items,
-    link
+    link,
+    className,
+    contentClassName,
+    closeAriaLabel = 'close-icon'
   } = props;
 
   const backgroundImageStyle = backgroundImageUrl
@@ -100,6 +103,7 @@ const CMPopin = props => {
     (mode === 'alert' || mode === 'information') && (!isEmpty(sections) || Boolean(warning));
   const wrapperPopinStyle = classNames(
     style.popin,
+    contentClassName,
     hasImpact && style.popinImpact,
     mode === 'cookie' && style.popinCookie,
     mode === 'list' && style.popinFilesList,
@@ -153,7 +157,7 @@ const CMPopin = props => {
         <ButtonLinkIcon
           onClick={handleCloseButton}
           data-name={'close-icon'}
-          aria-label={'close-icon'}
+          aria-label={closeAriaLabel}
           size="small"
           icon="close"
         />
@@ -333,7 +337,9 @@ const CMPopin = props => {
   return (
     <div
       className={
-        mode !== 'cookie' ? classNames(style.background, hasImpact && style.impactBackground) : null
+        mode !== 'cookie'
+          ? classNames(style.background, hasImpact && style.impactBackground, className)
+          : className
       }
       style={backgroundImageStyle}
       data-name={'cm-popin-container'}
