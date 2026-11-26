@@ -118,6 +118,17 @@
   border-radius: 6px;
 }
 
+.menu [role="group"] > li {
+  padding: 1px;
+}
+
+.menu [role="group"] > li > div {
+  box-sizing: border-box;
+  padding: 11px 14px;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
 .actions {
   flex-shrink: 0;
 }
@@ -151,7 +162,7 @@
 }
 
 .notice {
-  margin-bottom: 16px;
+  margin: 20px 0 16px;
 }
 
 .note,
