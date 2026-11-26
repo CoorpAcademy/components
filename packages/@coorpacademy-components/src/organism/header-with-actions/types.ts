@@ -13,7 +13,7 @@ const ButtonMenuPropTypes = {
 };
 
 const ButtonActionPropTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary', 'dangerous']).isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -93,15 +93,14 @@ type BulletPointMenuButtonProps = {
 };
 
 export type ButtonActionProps = {
+  type: 'primary' | 'secondary';
   label: string;
   onClick: () => void;
   disabled?: boolean;
   iconName?: string;
   iconColor?: string;
-} & (
-  | {type: 'primary' | 'secondary'; menu?: SplitButtonProps['menu']}
-  | {type: 'dangerous'; menu?: never}
-);
+  menu?: SplitButtonProps['menu'];
+};
 
 export type HeaderWithActionsProps = {
   closeButton: CloseButtonProps;

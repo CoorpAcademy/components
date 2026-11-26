@@ -125,7 +125,7 @@ export const header = ({
           ? []
           : [
               {
-                type: 'dangerous' as const,
+                type: 'secondary' as const,
                 label: 'Archive',
                 disabled: model.busy || !model.loaded,
                 onClick: onArchive

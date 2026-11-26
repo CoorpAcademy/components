@@ -5,6 +5,7 @@ import {cleanup, render, fireEvent} from '@testing-library/react';
 import HeaderWithActions from '..';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import {header, makeEditor} from '../../../test/helpers/population-edition';
+import buttonStyle from '../../../atom/button-link/style.css';
 
 browserEnv();
 test.afterEach.always(cleanup);
@@ -29,7 +30,7 @@ test.serial(
 );
 
 test.serial(
-  'destructive header actions stay caller-controlled and work beside a primary action',
+  'Archive uses the existing secondary style beside primary Save and stays caller-controlled',
   t => {
     let requests = 0;
     const view = render(
@@ -43,7 +44,10 @@ test.serial(
       />,
       {wrapper: wrappingComponent}
     );
-    fireEvent.click(view.getByRole('button', {name: 'Archive'}));
+    const archive = view.getByRole('button', {name: 'Archive'});
+    t.true(archive.classList.contains(buttonStyle.secondary));
+    t.true(view.getByRole('button', {name: 'Save'}).classList.contains(buttonStyle.primary));
+    fireEvent.click(archive);
     t.is(requests, 1);
     t.truthy(view.getByRole('button', {name: 'Save'}));
     view.rerender(
