@@ -6,9 +6,23 @@ import {cleanup, fireEvent, render} from '@testing-library/react';
 import PersonTags from '..';
 import {people, personLabels} from '../../../test/helpers/population-owners';
 import {Person} from '../types';
+import style from '../style.css';
 
 browserEnv();
 test.afterEach.always(cleanup);
+
+test.serial('compact manager tags are opt-in and preserve identity, You and status', t => {
+  const view = render(<PersonTags users={people} labels={personLabels} appearance="compact" />);
+  t.true(view.getByRole('list').classList.contains(style.compact));
+  t.truthy(view.getByText('Alex Martin'));
+  t.truthy(view.getByText('alex.martin'));
+  t.truthy(view.getByText('You'));
+  t.truthy(view.getByText('Deactivated'));
+  t.is(view.queryByRole('button'), null);
+  view.rerender(<PersonTags users={people} labels={personLabels} mode="remove" />);
+  t.false(view.getByRole('list').classList.contains(style.compact));
+  t.truthy(view.getByRole('button', {name: 'Remove owner alex.martin'}));
+});
 
 test.serial('all person copy and action names come from ready display props', t => {
   const labels = {
