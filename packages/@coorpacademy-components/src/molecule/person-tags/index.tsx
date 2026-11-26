@@ -85,11 +85,15 @@ const PersonTags = ({
   users,
   labels,
   mode = 'display',
+  appearance = 'card',
   disabled = false,
   'aria-label': ariaLabel
 }: PersonTagsProps) =>
   users.length > 0 ? (
-    <ul className={style.tags} aria-label={ariaLabel}>
+    <ul
+      className={classnames(style.tags, appearance === 'compact' && style.compact)}
+      aria-label={ariaLabel}
+    >
       {map(
         person => (
           <PersonTag

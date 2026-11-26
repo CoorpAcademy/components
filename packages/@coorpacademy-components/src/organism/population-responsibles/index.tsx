@@ -2,12 +2,19 @@ import React, {useCallback} from 'react';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
 import Loader from '../../atom/loader';
-import Tag from '../../atom/tag';
 import PersonTags from '../../molecule/person-tags';
 import {PopulationResponsiblesProps, ResponsibleAction, propTypes} from './types';
 import style from './style.css';
 
-const ReadAction = ({action, disabled}: {action: ResponsibleAction; disabled: boolean}) => {
+const ReadAction = ({
+  action,
+  disabled,
+  refresh = false
+}: {
+  action: ResponsibleAction;
+  disabled: boolean;
+  refresh?: boolean;
+}) => {
   const handleClick = useCallback(() => {
     if (!disabled && !action.disabled) action.onClick();
   }, [action, disabled]);
@@ -17,6 +24,11 @@ const ReadAction = ({action, disabled}: {action: ResponsibleAction; disabled: bo
       label={action.label}
       onClick={handleClick}
       disabled={disabled || action.disabled}
+      icon={
+        refresh
+          ? {position: 'left', faIcon: {name: 'arrows-rotate', size: 16, color: 'currentColor'}}
+          : undefined
+      }
     />
   );
 };
@@ -31,17 +43,20 @@ const PopulationResponsibles = ({model, labels, disabled = false}: PopulationRes
       <div className={style.header}>
         <div className={style.heading}>
           <h3>{labels.title}</h3>
-          {model.countLabel ? <Tag label={model.countLabel} type="info" /> : null}
         </div>
-        {model.refresh ? <ReadAction action={model.refresh} disabled={actionsDisabled} /> : null}
+        {model.refresh ? (
+          <ReadAction action={model.refresh} disabled={actionsDisabled} refresh />
+        ) : null}
       </div>
       <p className={style.description}>{labels.description}</p>
       {model.evaluatedAtLabel ? <p className={style.checked}>{model.evaluatedAtLabel}</p> : null}
+      {model.countLabel ? <p className={style.count}>{model.countLabel}</p> : null}
       {showPeople ? (
         <PersonTags
           users={model.users}
           labels={labels.people}
           mode="display"
+          appearance="compact"
           aria-label={labels.list}
         />
       ) : null}

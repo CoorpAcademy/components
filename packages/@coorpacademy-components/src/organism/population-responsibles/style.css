@@ -45,6 +45,11 @@
   margin: 0 0 16px;
 }
 
+.count {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+
 .loading,
 .error {
   display: flex;

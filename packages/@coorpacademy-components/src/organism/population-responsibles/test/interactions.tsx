@@ -3,6 +3,7 @@ import React from 'react';
 import browserEnv from 'browser-env';
 import {cleanup, fireEvent, render} from '@testing-library/react';
 import PopulationResponsibles from '..';
+import personStyle from '../../../molecule/person-tags/style.css';
 import {
   creationLabels,
   makeModel,
@@ -24,6 +25,11 @@ test.serial(
     t.truthy(view.getByRole('region', {name: 'Population managers'}));
     t.truthy(view.getByRole('list', {name: 'HR population managers'}));
     t.truthy(view.getByText('2 managers'));
+    t.is(view.getByText('2 managers').tagName, 'P');
+    t.true(view.getByRole('list').classList.contains(personStyle.compact));
+    t.truthy(
+      view.getByRole('button', {name: 'Refresh'}).querySelector('[data-icon="arrows-rotate"]')
+    );
     t.truthy(view.getByText('You'));
     t.truthy(view.getByText('alex.martin'));
     t.deepEqual(
