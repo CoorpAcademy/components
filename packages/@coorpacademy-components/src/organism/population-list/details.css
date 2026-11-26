@@ -1,0 +1,65 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue, cm_grey_500, cm_grey_700 from colors;
+
+.subtitle,
+.details,
+.detail {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 8px;
+}
+
+.details {
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 4px;
+  border-radius: 4px;
+  background: transparent;
+  color: cm_grey_500;
+  cursor: pointer;
+}
+
+.info:hover {
+  color: cm_primary_blue;
+  background: color(cm_primary_blue a(10%));
+}
+
+.info:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 2px;
+}
+
+.playlists {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.playlists li {
+  max-width: 100%;
+}
+
+.playlists a {
+  text-decoration: none;
+}
+
+
+.loading {
+  composes: loading from "./style.css";
+}
+
+.error {
+  composes: error from "./style.css";
+}

@@ -12,6 +12,9 @@ import {ICONS} from '../../util/button-icons';
 import {propTypes as iconPropTypes} from '../../atom/icon';
 
 const propTypes = {
+  className: PropTypes.string,
+  contentClassName: PropTypes.string,
+  closeAriaLabel: PropTypes.string,
   content: PropTypes.string,
   mode: PropTypes.oneOf(['alert', 'information', 'cookie', 'items', 'list']),
   header: PropTypes.shape({
@@ -20,6 +23,7 @@ const propTypes = {
     backgroundImage: PropTypes.string
   }),
   firstButton: PropTypes.shape({
+    disabled: PropTypes.bool,
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     'aria-label': PropTypes.string,
@@ -28,6 +32,7 @@ const propTypes = {
     customStyle: ButtonLink.propTypes.customStyle
   }),
   secondButton: PropTypes.shape({
+    disabled: PropTypes.bool,
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
@@ -40,6 +45,7 @@ const propTypes = {
     })
   }),
   thirdButton: PropTypes.shape({
+    disabled: PropTypes.bool,
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['dangerous', 'primary', 'secondary']),
@@ -81,10 +87,14 @@ export type QuitPopinButton = {
     backgroundColor?: string;
     color?: string;
   };
+  disabled?: boolean;
   handleOnclick: () => void;
 };
 
 export type CMPopinProps = {
+  className?: string;
+  contentClassName?: string;
+  closeAriaLabel?: string;
   content: string;
   icon: string | PropTypes.InferProps<typeof iconPropTypes>;
   mode: 'alert' | 'information' | 'cookie' | 'items' | 'list';

@@ -1,0 +1,27 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue, cm_grey_500, cm_grey_700 from colors;
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  color: cm_grey_700;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+}
+
+.dialog .overlay {
+  padding: 16px;
+  inset: 0;
+  overflow-y: auto;
+}
+
+.dialog .panel {
+  animation: none;
+  width: 400px;
+  max-width: calc(100vw - 64px);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+

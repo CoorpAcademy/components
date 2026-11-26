@@ -44,6 +44,7 @@ const ListItem = (
     contentType,
     isBulkStyle = false,
     isOverflowHidden = false,
+    wrapContent = false,
     onClick = noop,
     leftIcon,
     image,
@@ -104,6 +105,7 @@ const ListItem = (
       className={classnames(
         style.wrapper,
         isBulkStyle ? style.gridLayout : style.flexLayout,
+        wrapContent && style.wrapContent,
         subtitle && style.withSubtitle,
         disabled && style.disabled,
         onClick !== noop && !disabled && style.cursorPointer,
@@ -218,7 +220,7 @@ ListItem.contextTypes = {
 
 ListItem.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.node,
   // Tags shown right after the title
   titleTags: PropTypes.arrayOf(
     PropTypes.shape({
@@ -227,7 +229,7 @@ ListItem.propTypes = {
     })
   ),
   // A second line under the subtitle
-  details: PropTypes.string,
+  details: PropTypes.node,
   // A thin completion bar (0 to 100) with its label
   progress: PropTypes.shape({
     value: PropTypes.number.isRequired,
@@ -248,26 +250,14 @@ ListItem.propTypes = {
     })
   ),
   buttonLink: PropTypes.shape({
-    type: PropTypes.string,
-    label: PropTypes.string,
+    ...ButtonLink.propTypes,
     ariaLabel: PropTypes.string,
-    dataName: PropTypes.string,
-    icon: PropTypes.shape({
-      position: PropTypes.string,
-      type: PropTypes.string
-    }),
-    onClick: PropTypes.func
+    dataName: PropTypes.string
   }),
   secondButtonLink: PropTypes.shape({
-    type: PropTypes.string,
-    label: PropTypes.string,
+    ...ButtonLink.propTypes,
     ariaLabel: PropTypes.string,
-    dataName: PropTypes.string,
-    icon: PropTypes.shape({
-      position: PropTypes.string,
-      type: PropTypes.string
-    }),
-    onClick: PropTypes.func
+    dataName: PropTypes.string
   }),
   bulletPointMenuButton: PropTypes.shape({
     buttonAriaLabel: PropTypes.string,
@@ -292,6 +282,7 @@ ListItem.propTypes = {
   onClick: PropTypes.func,
   isBulkStyle: PropTypes.bool,
   isOverflowHidden: PropTypes.bool,
+  wrapContent: PropTypes.bool,
   order: PropTypes.number,
   'aria-label': PropTypes.string,
   contentType: PropTypes.string,
