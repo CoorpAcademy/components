@@ -33,6 +33,15 @@
   text-transform: uppercase;
 }
 
+.preserveLabelCase::first-letter {
+  text-transform: none;
+}
+
+.detail {
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .small {
   composes: tag;
   font-size: 10px;

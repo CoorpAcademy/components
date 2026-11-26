@@ -1,0 +1,74 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue, cm_yellow_100, cm_yellow_300 from colors;
+@value purple_100, purple_700 from colors;
+
+.chip {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: color(cm_primary_blue a(9%));
+  color: color(cm_primary_blue shade(22%));
+  overflow-wrap: anywhere;
+  text-align: left;
+  font-size: 13px;
+}
+
+.catalogueTag:hover:not(.disabled) {
+  background: color(cm_primary_blue a(16%));
+}
+
+.tag button {
+  width: 16px;
+  height: 16px;
+  font-size: 13px;
+}
+
+.customTag {
+  background: purple_100;
+  color: purple_700;
+}
+
+.customTag:hover {
+  background: purple_100;
+}
+
+a.customTag {
+  text-decoration: none;
+}
+
+a.customTag:hover {
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+a.customTag:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 3px;
+}
+
+.warningTag {
+  background: color(cm_yellow_100 a(25%));
+  color: color(cm_yellow_300 shade(35%));
+  box-shadow: inset 0 0 0 1px cm_yellow_300;
+}
+
+.warningTag:hover:not(.disabled) {
+  background: color(cm_yellow_100 a(40%));
+}
+
+.disabled {
+  opacity: 0.4;
+}
+
+.disabled button {
+  opacity: 1;
+}

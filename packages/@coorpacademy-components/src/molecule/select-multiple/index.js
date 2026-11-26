@@ -25,7 +25,8 @@ const choiceType = PropTypes.shape({
   name: PropTypes.string.isRequired,
   value: PropTypes.string,
   rightLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  warning: PropTypes.bool
+  warning: PropTypes.bool,
+  disabled: PropTypes.bool
 });
 
 export const useChoices = options => {
@@ -64,6 +65,7 @@ const CMMultipleView = ({multiple, choice, onChange, accessible}) => {
         theme={accessible ? 'coorpmanager' : 'default'}
         titleStyle="inherit"
         checked={choice.selected}
+        disabled={choice.disabled}
         onChange={handleChange}
         noLabelMargins={!accessible}
         title={choice.name}
@@ -130,7 +132,9 @@ const SelectMultiple = (
         event.preventDefault();
         const items = [
           ...nodeRef.current.querySelectorAll(
-            multiple ? 'input[type="checkbox"]' : '[role="option"]'
+            multiple
+              ? 'input[type="checkbox"]:not(:disabled)'
+              : '[role="option"]:not([aria-disabled="true"])'
           )
         ];
         const index = items.indexOf(target);
@@ -158,8 +162,12 @@ const SelectMultiple = (
     const node = nodeRef.current;
     const initial =
       node.querySelector('[data-name="select-search"]') ||
-      node.querySelector('[role="option"][aria-selected="true"], input[type="checkbox"]:checked') ||
-      node.querySelector('[role="option"], input[type="checkbox"]');
+      node.querySelector(
+        '[role="option"][aria-selected="true"]:not([aria-disabled="true"]), input[type="checkbox"]:checked:not(:disabled)'
+      ) ||
+      node.querySelector(
+        '[role="option"]:not([aria-disabled="true"]), input[type="checkbox"]:not(:disabled)'
+      );
     initial?.focus();
   }, [isOpened, ariaLabel]);
   useEffect(() => {
@@ -189,7 +197,7 @@ const SelectMultiple = (
 
   const handleChange = useCallback(
     choice => {
-      if (disabled) return undefined;
+      if (disabled || choice.disabled) return undefined;
       // if multiple prop is turned on
       // we return all selected choices
       if (multiple) {
@@ -225,6 +233,7 @@ const SelectMultiple = (
         className={style.choice}
         role={ariaLabel && !multiple ? 'option' : undefined}
         aria-selected={ariaLabel && !multiple ? choice.selected : undefined}
+        aria-disabled={choice.disabled || undefined}
         tabIndex={ariaLabel && !multiple ? -1 : undefined}
         onClick={isCMTheme && !multiple ? handleOnClickOnListElement({...choice, i}) : null}
       >

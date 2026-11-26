@@ -34,9 +34,11 @@ const renderIcon = iconProps => <Icon {...iconProps} />;
 
 const Tag = ({
   label = '',
+  detail = '',
   type = 'default',
   size = 'M',
   customStyle = {},
+  preserveLabelCase = false,
   icon = {},
   removeAction = /** @type {RemoveAction | null} */ (null)
 }) => {
@@ -57,7 +59,10 @@ const Tag = ({
     >
       <div className={style.content}>
         {position === 'left' && iconName && renderIcon(iconProps)}
-        <div className={style.label}>{label}</div>
+        <div className={classnames(style.label, preserveLabelCase && style.preserveLabelCase)}>
+          {label}
+        </div>
+        {detail ? <span className={style.detail}>{detail}</span> : null}
         {position === 'right' && iconName && renderIcon(iconProps)}
         {removeAction ? (
           <button
@@ -77,9 +82,11 @@ const Tag = ({
 
 Tag.propTypes = {
   label: PropTypes.string,
+  detail: PropTypes.string,
   type: PropTypes.oneOf(keys(TAG_STYLES)),
   size: PropTypes.oneOf(['S', 'M', 'L']),
   customStyle: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+  preserveLabelCase: PropTypes.bool,
   removeAction: PropTypes.shape({
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
