@@ -7,16 +7,31 @@ import ButtonLink from '../../atom/button-link';
 import {Person, PersonTagsProps, propTypes} from './types';
 import style from './style.css';
 
+const STATUS_TYPES = {
+  ok: 'info',
+  deactivated: 'failure',
+  unknown: 'warning',
+  ambiguous: 'warning'
+} as const;
+const COMPACT_STYLE = {
+  padding: '6px 10px',
+  maxWidth: '100%',
+  overflowWrap: 'anywhere',
+  textAlign: 'left'
+};
+
 const PersonTag = ({
   person,
   labels,
   mode,
-  disabled
+  disabled,
+  compact
 }: {
   person: Person;
   labels: PersonTagsProps['labels'];
   mode: PersonTagsProps['mode'];
   disabled?: boolean;
+  compact?: boolean;
 }) => {
   const {onSelect, onRemove} = person;
   const {status} = person;
@@ -28,6 +43,26 @@ const PersonTag = ({
   const handleRemove = useCallback(() => {
     if (!disabled) onRemove?.();
   }, [disabled, onRemove]);
+  if (compact && mode === 'display') {
+    const label = [
+      person.name,
+      person.login,
+      person.current && labels.you,
+      hasStatus && labels[status]
+    ]
+      .filter(Boolean)
+      .join(' · ');
+    return (
+      <li className={style.compact} data-name="person-tag">
+        <Tag
+          label={label}
+          type={person.current ? 'success' : STATUS_TYPES[status]}
+          customStyle={COMPACT_STYLE}
+          icon={status === 'deactivated' ? {iconName: 'eye-slash', preset: 's'} : undefined}
+        />
+      </li>
+    );
+  }
   const identity = (
     <span className={style.identity}>
       <span className={style.heading}>
@@ -85,11 +120,15 @@ const PersonTags = ({
   users,
   labels,
   mode = 'display',
+  compact = false,
   disabled = false,
   'aria-label': ariaLabel
 }: PersonTagsProps) =>
   users.length > 0 ? (
-    <ul className={style.tags} aria-label={ariaLabel}>
+    <ul
+      className={classnames(style.tags, compact && mode === 'display' && style.compactTags)}
+      aria-label={ariaLabel}
+    >
       {map(
         person => (
           <PersonTag
@@ -98,6 +137,7 @@ const PersonTags = ({
             labels={labels}
             mode={mode}
             disabled={disabled}
+            compact={compact}
           />
         ),
         users

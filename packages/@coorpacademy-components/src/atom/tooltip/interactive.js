@@ -44,6 +44,7 @@ const InteractiveToolTip = ({
   closeToolTipInformationTextAriaLabel: closeLabel,
   iconContainerClassName,
   tooltipClassName,
+  withArrow = false,
   AnchorElement,
   iconSize = 'small',
   delayHide = 250,
@@ -168,6 +169,7 @@ const InteractiveToolTip = ({
           anchorRef={anchorRef}
           panelRef={panelRef}
           placement={placement}
+          arrowClassName={withArrow ? style.arrow : undefined}
           onClose={close}
           onRestoreFocus={focusAnchor}
           id={id}
@@ -201,6 +203,7 @@ InteractiveToolTip.propTypes = {
   closeToolTipInformationTextAriaLabel: PropTypes.string.isRequired,
   iconContainerClassName: PropTypes.string,
   tooltipClassName: PropTypes.string,
+  withArrow: PropTypes.bool,
   AnchorElement: PropTypes.func,
   iconSize: PropTypes.oneOf(['small', 'big']),
   delayHide: PropTypes.number,

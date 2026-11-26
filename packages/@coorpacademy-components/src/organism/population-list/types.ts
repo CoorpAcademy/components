@@ -20,6 +20,7 @@ export type OwnerDetails = {
   label: string;
   ariaLabel: string;
   items: Person[];
+  deactivatedLegend?: string;
   loading?: boolean;
   error?: {message: string; retry?: ReadAction};
 };
@@ -162,6 +163,7 @@ export const propTypes = {
         customPlaylists: playlists,
         ownerInformation: PropTypes.shape({
           ...details,
+          deactivatedLegend: PropTypes.string,
           items: PropTypes.arrayOf(PropTypes.shape(personPropTypes).isRequired).isRequired
         }),
         primaryAction: PropTypes.shape(actionPropTypes).isRequired,

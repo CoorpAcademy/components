@@ -130,8 +130,7 @@ test.serial(
     const label = rows[4].ownerInformation?.ariaLabel as string;
     fireEvent.focus(view.getByRole('button', {name: label}));
     const panel = view.getByRole('dialog', {name: label});
-    t.truthy(within(panel).getByText('You'));
-    t.truthy(within(panel).getByText('alex.martin'));
+    t.truthy(within(panel).getByText('Alex Martin · alex.martin · You'));
     t.is(within(panel).queryByRole('button'), null);
     t.is(within(panel).getAllByRole('listitem').length, 2);
   }
@@ -175,7 +174,7 @@ test.serial(
     fireEvent.focus(view.getByRole('button', {name: 'Owner details'}));
     const panel = view.getByRole('dialog', {name: 'Owner details'});
     t.truthy(within(panel).getByText('Owners unavailable'));
-    t.truthy(within(panel).getByText('alex.martin'));
+    t.truthy(within(panel).getByText('Alex Martin · alex.martin · You'));
     t.truthy(within(panel).getByRole('status'));
     fireEvent.click(within(panel).getByRole('button', {name: 'Retry owners'}));
     t.is(retries, 1);
@@ -513,7 +512,45 @@ test.serial('errors without retry controls keep their message and known data', t
   fireEvent.focus(view.getByRole('button', {name: 'Owner details'}));
   const panel = view.getByRole('dialog', {name: 'Owner details'});
   t.truthy(within(panel).getByText('Owners unavailable'));
-  t.truthy(within(panel).getByText('alex.martin'));
+  t.truthy(within(panel).getByText('Alex Martin · alex.martin · You'));
   t.is(within(panel).queryByRole('button'), null);
   t.is(view.queryByRole('button', {name: 'Try again'}), null);
 });
+
+test.serial(
+  'owner tooltip preserves compact identities, count and supplied deactivation legend',
+  t => {
+    const legend = 'Remove deactivated accounts manually.';
+    const owner = {
+      label: '3 owners',
+      ariaLabel: 'Owners matching the prototype',
+      deactivatedLegend: legend,
+      items: [
+        {id: 'alex', name: 'Alex Martin', login: 'alex.martin', status: 'ok' as const},
+        {id: 'sam', name: 'Sam Taylor', login: 'sam.taylor', status: 'deactivated' as const},
+        {
+          id: 'me',
+          name: 'Eric Sampaio',
+          login: 'eric.sampaio',
+          current: true,
+          status: 'ok' as const
+        }
+      ]
+    };
+    const view = render(
+      <PopulationList
+        labels={listLabels}
+        model={makeListModel({rows: [{...rows[4], ownerInformation: owner}]})}
+      />
+    );
+    fireEvent.focus(view.getByRole('button', {name: owner.ariaLabel}));
+    const panel = view.getByRole('dialog', {name: owner.ariaLabel});
+    t.truthy(within(panel).getByRole('heading', {name: '3 owners'}));
+    t.truthy(within(panel).getByText('Alex Martin · alex.martin'));
+    t.truthy(within(panel).getByText('Sam Taylor · sam.taylor · Deactivated'));
+    t.truthy(within(panel).getByText('Eric Sampaio · eric.sampaio · You'));
+    t.truthy(within(panel).getByText(legend));
+    t.is(panel.querySelectorAll('[data-icon="eye-slash"]').length, 2);
+    t.is(within(panel).queryAllByRole('button').length, 0);
+  }
+);

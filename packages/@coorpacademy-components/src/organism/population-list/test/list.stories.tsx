@@ -17,8 +17,10 @@ import detailsError from './fixtures/details-error';
 import confirmation from './fixtures/confirmation';
 import archiveError from './fixtures/archive-error';
 import busy from './fixtures/busy';
+import visualDetails from './fixtures/visual-details';
 
 export default {title: 'Organism/PopulationList/Population cards'};
+export const PrototypeDetails = () => <PopulationShell {...visualDetails.props} active="2" archived="0" />;
 export const ActivePopulations = () => <PopulationShell {...defaults.props} active="5" archived="0" />;
 export const ArchivedPopulations = () => <PopulationShell {...archived.props} selectedArchived active="2000" archived="5" />;
 export const LargeBrand = () => <PopulationShell {...large.props} />;
@@ -39,6 +41,7 @@ export const ControlledPaginationAndRetry = () => <ControlledList pagination />;
 // Isolated component preview: the existing Backoffice shell is desktop-oriented.
 const componentFixtures = {
   default: defaults.props,
+  prototype: visualDetails.props,
   archived: archived.props,
   empty: empty.props,
   filtered: filtered.props,

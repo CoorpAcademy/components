@@ -36,6 +36,69 @@
   outline-offset: 2px;
 }
 
+.arrow {
+  position: fixed;
+  z-index: 1101;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  pointer-events: none;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  border: 7px solid transparent;
+}
+
+.arrow[data-side="bottom"] {
+  border-top: 0;
+  border-bottom-color: cm_grey_200;
+}
+
+.arrow[data-side="bottom"]::after {
+  left: -7px;
+  top: 2px;
+  border-top: 0;
+  border-bottom-color: white;
+}
+
+.arrow[data-side="top"] {
+  border-bottom: 0;
+  border-top-color: cm_grey_200;
+}
+
+.arrow[data-side="top"]::after {
+  left: -7px;
+  top: -9px;
+  border-bottom: 0;
+  border-top-color: white;
+}
+
+.arrow[data-side="left"] {
+  border-right: 0;
+  border-left-color: cm_grey_200;
+}
+
+.arrow[data-side="left"]::after {
+  left: -9px;
+  top: -7px;
+  border-right: 0;
+  border-left-color: white;
+}
+
+.arrow[data-side="right"] {
+  border-left: 0;
+  border-right-color: cm_grey_200;
+}
+
+.arrow[data-side="right"]::after {
+  left: 2px;
+  top: -7px;
+  border-left: 0;
+  border-right-color: white;
+}
+
 .instructions {
   position: absolute;
   width: 1px;

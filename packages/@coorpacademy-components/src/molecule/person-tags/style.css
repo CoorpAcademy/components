@@ -27,6 +27,17 @@
   box-sizing: border-box;
 }
 
+.compactTags {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.compact {
+  max-width: 100%;
+  min-width: 0;
+}
+
 .current {
   color: cm_positive_300;
   background: cm_green_50;

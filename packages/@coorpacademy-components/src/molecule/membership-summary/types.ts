@@ -14,11 +14,13 @@ export type SummaryRow = {
 export type SummaryGroup = {id: string; rows: SummaryRow[]};
 
 export type MembershipSummaryProps = {
+  className?: string;
   groups: SummaryGroup[];
   labels: {and: string; or: string; emptyTitle: string; emptyMessage: string};
 };
 
 export const summaryPropTypes = {
+  className: PropTypes.string,
   groups: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

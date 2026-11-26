@@ -279,20 +279,22 @@ test.serial('content resize is observed and the observer disconnects on close', 
     disconnected: false
   };
   class Observer implements ResizeObserver {
+    state = state;
+
     constructor(notify: ResizeObserverCallback) {
       state.notify = notify;
     }
 
     observe = (element: Element) => {
-      state.observed.push(element);
+      this.state.observed.push(element);
     };
 
-    unobserve = () => {
-      /* No individual unobserve is needed; disconnect cleans up all elements. */
+    unobserve = (element: Element) => {
+      this.state.observed = this.state.observed.filter(current => current !== element);
     };
 
     disconnect = () => {
-      state.disconnected = true;
+      this.state.disconnected = true;
     };
   }
   globalThis.ResizeObserver = Observer;
@@ -419,5 +421,23 @@ test.serial(
     await user.tab();
     t.is(document.activeElement?.textContent, 'After');
     t.is(view.queryByRole('dialog'), null);
+  }
+);
+
+test.serial(
+  'optional arrow follows the measured anchor while existing panels keep their markup',
+  t => {
+    const view = render(Scope({withArrow: true, placement: 'bottom'}));
+    fireEvent.mouseOver(view.getByRole('button', {name: 'Catalogue playlists'}));
+    const panel = view.getByRole('dialog');
+    const arrow = document.querySelector('[data-name="tooltip-arrow"]') as HTMLElement;
+    t.truthy(arrow);
+    t.is(arrow.getAttribute('data-anchor'), panel.id);
+    t.is(arrow.getAttribute('data-side'), panel.getAttribute('data-side'));
+    t.truthy(arrow.style.left);
+    t.truthy(arrow.style.top);
+    view.rerender(Scope());
+    t.is(document.querySelector('[data-name="tooltip-arrow"]'), null);
+    t.is(view.getByRole('dialog').firstElementChild?.getAttribute('class'), null);
   }
 );

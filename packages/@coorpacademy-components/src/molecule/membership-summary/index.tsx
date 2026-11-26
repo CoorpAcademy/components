@@ -1,13 +1,14 @@
 import React from 'react';
+import classnames from 'classnames';
 import {map} from 'lodash/fp';
 import Tag from '../../atom/tag';
 import Icon from '../../atom/icon';
 import {MembershipSummaryProps, summaryPropTypes} from './types';
 import style from './style.css';
 
-const MembershipSummary = ({groups, labels}: MembershipSummaryProps) =>
+const MembershipSummary = ({groups, labels, className}: MembershipSummaryProps) =>
   groups.length > 0 ? (
-    <div className={style.groups} data-name="membership-summary">
+    <div className={classnames(style.groups, className)} data-name="membership-summary">
       {groups.map((group, groupIndex: number) => (
         <React.Fragment key={group.id}>
           {groupIndex > 0 ? (

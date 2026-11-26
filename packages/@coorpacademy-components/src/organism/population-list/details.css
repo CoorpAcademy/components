@@ -55,6 +55,35 @@
   text-decoration: none;
 }
 
+.popover {
+  width: min(420px, calc(100vw - 24px));
+  border-radius: 12px;
+}
+
+.heading {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.summary {
+  margin-top: 0;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 16px;
+  padding: 0 14px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.legend > svg {
+  flex-shrink: 0;
+}
+
 
 .loading {
   composes: loading from "./style.css";

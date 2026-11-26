@@ -43,6 +43,8 @@ const DetailTip = ({
       AnchorElement={Anchor}
       TooltipContent={children}
       placement="bottom"
+      withArrow
+      tooltipClassName={style.popover}
     />
   );
 };
@@ -130,12 +132,20 @@ const OwnerInfo = ({details, labels}: {details: OwnerDetails; labels: Population
     <Tag type="info" label={details.label} />
     <DetailTip label={details.ariaLabel} icon="users" instructions={labels.tooltipInstructions}>
       <Insight details={details} labels={labels}>
+        <h3 className={style.heading}>{details.label}</h3>
         <PersonTags
           users={details.items}
           labels={labels.people}
           mode="display"
+          compact
           aria-label={details.ariaLabel}
         />
+        {details.deactivatedLegend ? (
+          <p className={style.legend}>
+            <Icon iconName="eye-slash" size={{faSize: 14, wrapperSize: 20}} />
+            <span>{details.deactivatedLegend}</span>
+          </p>
+        ) : null}
       </Insight>
     </DetailTip>
   </div>
@@ -151,7 +161,11 @@ export const PopulationSubtitle = ({
   <div className={style.subtitle}>
     {row.memberLabel ? <span>{row.memberLabel}</span> : null}
     <DetailTip label={row.conditionsLabel} icon="filter" instructions={labels.tooltipInstructions}>
-      <MembershipSummary groups={row.conditionGroups} labels={labels.summary} />
+      <MembershipSummary
+        groups={row.conditionGroups}
+        labels={labels.summary}
+        className={style.summary}
+      />
     </DetailTip>
   </div>
 );

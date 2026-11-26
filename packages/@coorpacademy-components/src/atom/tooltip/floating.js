@@ -1,7 +1,7 @@
 import React, {useLayoutEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
 import PropTypes from 'prop-types';
-import {getFloatingPosition} from './position';
+import {getFloatingPosition, getFloatingArrowPosition} from './position';
 
 const reference = PropTypes.shape({
   current: PropTypes.shape({
@@ -18,6 +18,7 @@ const FloatingPanel = ({
   placement,
   onClose,
   onRestoreFocus,
+  arrowClassName,
   children,
   ...props
 }) => {
@@ -29,14 +30,13 @@ const FloatingPanel = ({
     const place = () => {
       const anchor = anchorRef.current.getBoundingClientRect();
       const box = panel.getBoundingClientRect();
-      setPosition(
-        getFloatingPosition(
-          anchor,
-          {width: box.width, height: Math.max(box.height, panel.scrollHeight + 2)},
-          {width: window.innerWidth, height: window.innerHeight},
-          placement
-        )
+      const next = getFloatingPosition(
+        anchor,
+        {width: box.width, height: Math.max(box.height, panel.scrollHeight + 2)},
+        {width: window.innerWidth, height: window.innerHeight},
+        placement
       );
+      setPosition({...next, arrow: getFloatingArrowPosition(anchor, next, box)});
     };
     const dismissOutside = event => {
       if (!contains(event.target)) onClose();
@@ -69,18 +69,30 @@ const FloatingPanel = ({
   }, [anchorRef, children, onClose, onRestoreFocus, panelRef, placement]);
 
   return createPortal(
-    <div
-      {...props}
-      ref={panelRef}
-      data-side={position?.side}
-      style={
-        position
-          ? {left: position.left, top: position.top, maxHeight: position.maxHeight}
-          : {visibility: 'hidden'}
-      }
-    >
-      <div ref={contentRef}>{children}</div>
-    </div>,
+    <>
+      <div
+        {...props}
+        ref={panelRef}
+        data-side={position?.side}
+        style={
+          position
+            ? {left: position.left, top: position.top, maxHeight: position.maxHeight}
+            : {visibility: 'hidden'}
+        }
+      >
+        <div ref={contentRef}>{children}</div>
+      </div>
+      {arrowClassName && position ? (
+        <span
+          aria-hidden="true"
+          data-name="tooltip-arrow"
+          data-anchor={props.id}
+          data-side={position.side}
+          className={arrowClassName}
+          style={position.arrow}
+        />
+      ) : null}
+    </>,
     document.body
   );
 };
@@ -91,6 +103,7 @@ FloatingPanel.propTypes = {
   placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom']).isRequired,
   onClose: PropTypes.func.isRequired,
   onRestoreFocus: PropTypes.func.isRequired,
+  arrowClassName: PropTypes.string,
   children: PropTypes.node
 };
 
