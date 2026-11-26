@@ -27,13 +27,13 @@
   box-sizing: border-box;
 }
 
-.compactTags {
+.pillList {
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
 }
 
-.compact {
+.pill {
   max-width: 100%;
   min-width: 0;
 }
@@ -140,4 +140,48 @@
   border-radius: 50%;
   color: cm_blue_600;
   background: cm_blue_50;
+}
+
+.compact .person {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 24px;
+  background: color(cm_primary_blue a(15%));
+}
+
+.compact .current {
+  background: cm_green_50;
+}
+
+.compact .unresolved {
+  background: warning_100;
+}
+
+.compact .deactivated {
+  background: cm_negative_50;
+}
+
+.compact .identity {
+  display: block;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.compact .heading {
+  display: inline-flex;
+  max-width: 100%;
+  color: inherit;
+}
+
+.compact .heading strong {
+  font-weight: inherit;
+}
+
+.compact .login {
+  color: inherit;
+}
+
+.compact .login::before {
+  content: " · ";
+  white-space: pre;
 }

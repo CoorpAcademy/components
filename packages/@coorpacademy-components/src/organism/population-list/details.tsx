@@ -137,7 +137,7 @@ const OwnerInfo = ({details, labels}: {details: OwnerDetails; labels: Population
           users={details.items}
           labels={labels.people}
           mode="display"
-          compact
+          appearance="pill"
           aria-label={details.ariaLabel}
         />
         {details.deactivatedLegend ? (

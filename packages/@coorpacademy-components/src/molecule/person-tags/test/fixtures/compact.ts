@@ -1,3 +1,3 @@
 import defaults from './default';
 
-export default {props: {...defaults.props, compact: true}};
+export default {props: {...defaults.props, appearance: 'compact'}};

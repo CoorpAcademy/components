@@ -25,13 +25,13 @@ const PersonTag = ({
   labels,
   mode,
   disabled,
-  compact
+  appearance
 }: {
   person: Person;
   labels: PersonTagsProps['labels'];
   mode: PersonTagsProps['mode'];
   disabled?: boolean;
-  compact?: boolean;
+  appearance: PersonTagsProps['appearance'];
 }) => {
   const {onSelect, onRemove} = person;
   const {status} = person;
@@ -43,7 +43,7 @@ const PersonTag = ({
   const handleRemove = useCallback(() => {
     if (!disabled) onRemove?.();
   }, [disabled, onRemove]);
-  if (compact && mode === 'display') {
+  if (appearance === 'pill' && mode === 'display') {
     const label = [
       person.name,
       person.login,
@@ -53,7 +53,7 @@ const PersonTag = ({
       .filter(Boolean)
       .join(' · ');
     return (
-      <li className={style.compact} data-name="person-tag">
+      <li className={style.pill} data-name="person-tag">
         <Tag
           label={label}
           type={person.current ? 'success' : STATUS_TYPES[status]}
@@ -120,13 +120,17 @@ const PersonTags = ({
   users,
   labels,
   mode = 'display',
-  compact = false,
+  appearance = 'card',
   disabled = false,
   'aria-label': ariaLabel
 }: PersonTagsProps) =>
   users.length > 0 ? (
     <ul
-      className={classnames(style.tags, compact && mode === 'display' && style.compactTags)}
+      className={classnames(
+        style.tags,
+        appearance === 'compact' && style.compact,
+        appearance === 'pill' && mode === 'display' && style.pillList
+      )}
       aria-label={ariaLabel}
     >
       {map(
@@ -137,7 +141,7 @@ const PersonTags = ({
             labels={labels}
             mode={mode}
             disabled={disabled}
-            compact={compact}
+            appearance={appearance}
           />
         ),
         users

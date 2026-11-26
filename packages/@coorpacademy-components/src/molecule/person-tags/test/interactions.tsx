@@ -6,9 +6,23 @@ import {cleanup, fireEvent, render} from '@testing-library/react';
 import PersonTags from '..';
 import {people, personLabels} from '../../../test/helpers/population-owners';
 import {Person} from '../types';
+import style from '../style.css';
 
 browserEnv();
 test.afterEach.always(cleanup);
+
+test.serial('compact manager tags are opt-in and preserve identity, You and status', t => {
+  const view = render(<PersonTags users={people} labels={personLabels} appearance="compact" />);
+  t.true(view.getByRole('list').classList.contains(style.compact));
+  t.truthy(view.getByText('Alex Martin'));
+  t.truthy(view.getByText('alex.martin'));
+  t.truthy(view.getByText('You'));
+  t.truthy(view.getByText('Deactivated'));
+  t.is(view.queryByRole('button'), null);
+  view.rerender(<PersonTags users={people} labels={personLabels} mode="remove" />);
+  t.false(view.getByRole('list').classList.contains(style.compact));
+  t.truthy(view.getByRole('button', {name: 'Remove owner alex.martin'}));
+});
 
 test.serial('all person copy and action names come from ready display props', t => {
   const labels = {
@@ -174,7 +188,7 @@ test.serial(
 );
 
 test.serial(
-  'compact display uses pill identities and supplied status labels without mutation controls',
+  'pill display uses compact identities and supplied status labels without mutation controls',
   t => {
     const users: Person[] = [
       people[0],
@@ -183,7 +197,7 @@ test.serial(
       {...people[1], id: 'unknown', status: 'unknown'},
       {...people[1], id: 'ambiguous', status: 'ambiguous'}
     ];
-    const view = render(<PersonTags compact users={users} labels={personLabels} />);
+    const view = render(<PersonTags appearance="pill" users={users} labels={personLabels} />);
     t.truthy(view.getByText('Alex Martin · alex.martin · You'));
     t.truthy(view.getByText('Morgan Taylor · morgan.taylor'));
     t.truthy(view.getByText('Former Owner · former.owner · Deactivated'));
@@ -191,8 +205,30 @@ test.serial(
     t.truthy(view.getByText('Morgan Taylor · morgan.taylor · Multiple accounts found'));
     t.is(view.queryAllByRole('button').length, 0);
     t.is(view.container.querySelectorAll('[data-icon="eye-slash"]').length, 1);
-    view.rerender(<PersonTags compact users={[people[0]]} labels={personLabels} mode="remove" />);
+    view.rerender(
+      <PersonTags appearance="pill" users={[people[0]]} labels={personLabels} mode="remove" />
+    );
     t.truthy(view.getByText('alex.martin'));
     t.truthy(view.getByRole('button', {name: 'Remove owner alex.martin'}));
   }
 );
+
+test.serial('HR compact identities and read-only tooltip pills remain separate appearances', t => {
+  const view = render(<PersonTags users={people} labels={personLabels} appearance="compact" />);
+  t.true(view.getByRole('list').classList.contains(style.compact));
+  t.false(view.getByRole('list').classList.contains(style.pillList));
+  t.truthy(view.getByText('Alex Martin'));
+  t.truthy(view.getByText('alex.martin'));
+  t.truthy(view.getByText('You'));
+  view.rerender(<PersonTags users={people} labels={personLabels} appearance="pill" />);
+  t.false(view.getByRole('list').classList.contains(style.compact));
+  t.true(view.getByRole('list').classList.contains(style.pillList));
+  t.truthy(view.getByText('Alex Martin · alex.martin · You'));
+  t.is(view.queryAllByRole('button').length, 0);
+  view.rerender(
+    <PersonTags users={people} labels={personLabels} appearance="pill" mode="select" />
+  );
+  t.false(view.getByRole('list').classList.contains(style.pillList));
+  t.truthy(view.getByText('alex.martin'));
+  t.truthy(view.getByRole('button', {name: 'Add alex.martin as owner'}));
+});
