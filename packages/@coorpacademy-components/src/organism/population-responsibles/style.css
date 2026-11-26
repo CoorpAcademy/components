@@ -1,0 +1,80 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500, cm_grey_700, cm_negative_50, cm_negative_200 from colors;
+
+.container {
+  min-width: 0;
+  color: cm_grey_700;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+}
+
+.header,
+.heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.header {
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.heading h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.header > button,
+.error > button,
+.more > button {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.description {
+  color: cm_grey_500;
+  margin: 0 0 16px;
+}
+
+.checked {
+  color: cm_grey_500;
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.loading > div {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.error {
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: cm_negative_200;
+  background: cm_negative_50;
+}
+
+.message {
+  flex: 1;
+  min-width: 160px;
+  overflow-wrap: anywhere;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
