@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import {ComponentProps} from 'react';
+import Tag from '../../atom/tag';
 import AssignmentStatusTagPropTypes from '../../molecule/assignment-status-tag/types';
 import {menuPropTypes, SplitButtonProps} from '../../molecule/split-button/types';
 
@@ -11,7 +13,7 @@ const ButtonMenuPropTypes = {
 };
 
 const ButtonActionPropTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary']).isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary', 'dangerous']).isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -26,6 +28,9 @@ const HeaderWithActionsPropTypes = {
     onClick: PropTypes.func.isRequired
   }),
   title: PropTypes.string.isRequired,
+  titleTags: PropTypes.arrayOf(
+    PropTypes.shape({label: PropTypes.string.isRequired, type: Tag.propTypes.type}).isRequired
+  ),
   tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTagPropTypes)),
   subtitle: PropTypes.string,
   informationTooltip: PropTypes.shape({
@@ -88,18 +93,20 @@ type BulletPointMenuButtonProps = {
 };
 
 export type ButtonActionProps = {
-  type: 'primary' | 'secondary';
   label: string;
   onClick: () => void;
   disabled?: boolean;
   iconName?: string;
   iconColor?: string;
-  menu?: SplitButtonProps['menu'];
-};
+} & (
+  | {type: 'primary' | 'secondary'; menu?: SplitButtonProps['menu']}
+  | {type: 'dangerous'; menu?: never}
+);
 
 export type HeaderWithActionsProps = {
   closeButton: CloseButtonProps;
   title: string;
+  titleTags?: Array<{label: string; type?: ComponentProps<typeof Tag>['type']}>;
   tags?: Array<{status?: string; label: string}>;
   subtitle?: string;
   informationTooltip?: {label: string; content: string};

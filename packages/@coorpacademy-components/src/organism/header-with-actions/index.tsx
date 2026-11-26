@@ -88,6 +88,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
   const {
     closeButton,
     title,
+    titleTags,
     tag,
     tags,
     subtitle,
@@ -100,7 +101,8 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
   } = props;
   const hasSubtitle = Boolean(subtitle?.trim());
   const hasInformation = Boolean(informationTooltip?.content.trim());
-  const hasAdditionalContent = tags !== undefined || hasSubtitle || hasInformation;
+  const hasAdditionalContent =
+    tags !== undefined || titleTags !== undefined || hasSubtitle || hasInformation;
   const renderInformation = useCallback(
     () => <span className={style.informationTooltipContent}>{informationTooltip?.content}</span>,
     [informationTooltip?.content]
@@ -128,7 +130,7 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
               <p className={style.saveStatus}>{saveStatus.label}</p>
             ) : null}
           </div>
-          {tags !== undefined || hasInformation ? (
+          {tags !== undefined || titleTags !== undefined || hasInformation ? (
             <div className={style.assignmentTitleRow}>
               <h3 className={style.assignmentTitle} data-name={getDataName('title')}>
                 {title}
@@ -139,6 +141,9 @@ const HeaderWithActions = (props: HeaderWithActionsProps) => {
                     {...assignmentTag}
                     key={`${assignmentTag.status}-${assignmentTag.label}-${index}`}
                   />
+                ))}
+                {titleTags?.map((titleTag, index) => (
+                  <Tag {...titleTag} preserveLabelCase key={`title-${index}`} />
                 ))}
               </div>
               {hasInformation && informationTooltip ? (

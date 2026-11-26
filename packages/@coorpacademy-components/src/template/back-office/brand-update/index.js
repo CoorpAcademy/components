@@ -34,6 +34,7 @@ import Title from '../../../atom/title';
 import SkillEdition from '../../../organism/skill-edition';
 import AssignmentEdition from '../../../organism/assignment-edition';
 import PopulationList from '../../../organism/population-list';
+import PopulationEdition from '../../../organism/population-edition';
 import IconPickerModal from '../../../molecule/icon-picker-modal';
 import TranslationModal from '../../../molecule/translation-modal';
 import ContentSkillModal from '../../../organism/content-skill-modal';
@@ -247,6 +248,8 @@ const buildContentView = content => {
       return <AssignmentEdition {...content} />;
     case 'cohort-administration':
       return <PopulationList {...content} />;
+    case 'population-edition':
+      return <PopulationEdition {...content} />;
   }
 };
 
@@ -377,6 +380,10 @@ BrandUpdate.propTypes = {
     })
   ).isRequired,
   content: PropTypes.oneOfType([
+    PropTypes.shape({
+      ...PopulationEdition.propTypes,
+      type: PropTypes.oneOf(['population-edition']).isRequired
+    }),
     PropTypes.shape({
       ...PopulationList.propTypes,
       type: PropTypes.oneOf(['cohort-administration']).isRequired
