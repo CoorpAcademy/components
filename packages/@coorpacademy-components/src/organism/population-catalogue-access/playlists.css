@@ -23,20 +23,8 @@
   font-size: 13px;
 }
 
-.tag [data-name^="content-tag-"] {
-  max-width: 100%;
-  font-size: 13px;
-  font-weight: 500;
-  overflow-wrap: anywhere;
-  text-align: left;
-}
-
-.tag:not(.customTag):not(.warningTag):hover:not(.disabled) {
+.catalogueTag:hover:not(.disabled) {
   background: color(cm_primary_blue a(16%));
-}
-
-.tag [data-name^="content-tag-"] div::first-letter {
-  text-transform: none;
 }
 
 .tag button {
@@ -52,10 +40,6 @@
 
 .customTag:hover {
   background: purple_100;
-}
-
-.customTag [data-name^="content-tag-"] {
-  font-weight: 600;
 }
 
 a.customTag {
