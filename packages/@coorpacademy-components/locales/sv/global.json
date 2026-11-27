@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Enkäten är öppen",
-    "until": "Till och med",
-    "title": "Din åsikt är viktig",
-    "description": "Hjälp oss att förbättra din upplevelse av Coorpacademy | Go1. Enkäten tar cirka 3 minuter.",
-    "cta": "Dela din åsikt",
-    "newTab": "Öppnas i en ny flik"
-  },
   "all": "Alla",
   "Select all learners on this page": "Välj alla elever på den här sidan",
   "all_courses": "Alla kurser",

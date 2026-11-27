@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Enquête en cours",
-    "until": "Jusqu’au",
-    "title": "Votre avis compte",
-    "description": "Aidez-nous à améliorer votre expérience avec Coorpacademy | Go1. Le questionnaire prend environ 3 minutes.",
-    "cta": "Donner mon avis",
-    "newTab": "S’ouvre dans un nouvel onglet"
-  },
   "all": "Toutes",
   "Select all learners on this page": "Sélectionnez tous les apprenants sur cette page",
   "all_courses": "Tous les cours",

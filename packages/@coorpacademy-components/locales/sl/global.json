@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Anketa poteka",
-    "until": "Do",
-    "title": "Vaše mnenje šteje",
-    "description": "Pomagajte nam izboljšati vašo izkušnjo s Coorpacademy | Go1. Izpolnjevanje vprašalnika traja približno 3 minute.",
-    "cta": "Delite svoje mnenje",
-    "newTab": "Odpre se v novem zavihku"
-  },
   "all": "Vse",
   "Select all learners on this page": "Izberi vse učence na tej strani",
   "all_courses": "Vsi tečaji",

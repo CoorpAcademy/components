@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Survey open",
-    "until": "Until",
-    "title": "Your feedback matters",
-    "description": "Help us improve your experience with Coorpacademy | Go1. The survey takes about 3 minutes.",
-    "cta": "Share my feedback",
-    "newTab": "Opens in a new tab"
-  },
   "all": "All",
   "Select all learners on this page": "Select all learners on this page",
   "all_courses": "All courses",

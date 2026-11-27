@@ -118,11 +118,16 @@ const Banner = props => {
   const Root = type === 'survey' ? 'section' : 'div';
   const lastDay = campaign && new Date(Date.parse(campaign.endAt) - 1);
   const hasCampaign = type === 'survey' && lastDay && !Number.isNaN(lastDay.getTime());
-  const formatDate = options =>
-    new Intl.DateTimeFormat(campaign.language === 'fr' ? 'fr-FR' : 'en-US', {
-      timeZone: 'Europe/Paris',
-      ...options
-    }).format(lastDay);
+  const formatDate = options => {
+    const dateOptions = {timeZone: 'Europe/Paris', ...options};
+    try {
+      return new Intl.DateTimeFormat(campaign.language.replace(/_/g, '-'), dateOptions).format(
+        lastDay
+      );
+    } catch {
+      return new Intl.DateTimeFormat('en-US', dateOptions).format(lastDay);
+    }
+  };
 
   const buildIcon = () => {
     if (hasCampaign) {
@@ -204,7 +209,7 @@ Banner.propTypes = {
   message: PropTypes.string.isRequired,
   campaign: PropTypes.shape({
     endAt: PropTypes.string.isRequired,
-    language: PropTypes.oneOf(['fr', 'en']).isRequired,
+    language: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     until: PropTypes.string.isRequired
   }),

@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Anketa je otvorena",
-    "until": "Do",
-    "title": "Vaše mišljenje je važno",
-    "description": "Pomozite nam poboljšati vaše iskustvo s Coorpacademy | Go1. Ispunjavanje upitnika traje otprilike 3 minute.",
-    "cta": "Podijelite mišljenje",
-    "newTab": "Otvara se u novoj kartici"
-  },
   "all": "Sve",
   "Select all learners on this page": "Odaberi sve učenike na ovoj stranici",
   "all_courses": "Svi tečajevi",

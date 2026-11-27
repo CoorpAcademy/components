@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "问卷调查进行中",
-    "until": "截止日期：",
-    "title": "您的意见很重要",
-    "description": "帮助我们改善您使用 Coorpacademy | Go1 的体验。填写问卷大约需要 3 分钟。",
-    "cta": "分享我的意见",
-    "newTab": "在新标签页中打开"
-  },
   "all": "全部",
   "Select all learners on this page": "请选择此页面上的所有学习者",
   "all_courses": "所有课程",

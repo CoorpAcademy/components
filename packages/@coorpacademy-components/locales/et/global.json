@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Küsitlus on avatud",
-    "until": "Kuni",
-    "title": "Teie arvamus on oluline",
-    "description": "Aidake meil parandada teie kogemust Coorpacademy | Go1 kasutamisel. Küsimustiku täitmine võtab umbes 3 minutit.",
-    "cta": "Jaga arvamust",
-    "newTab": "Avaneb uuel vahelehel"
-  },
   "all": "Kõik",
   "Select all learners on this page": "Vali kõik sellel lehel olevad õppijad",
   "all_courses": "Kõik kursused",

@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Umfrage läuft",
-    "until": "Bis zum",
-    "title": "Ihre Meinung zählt",
-    "description": "Helfen Sie uns, Ihr Erlebnis mit Coorpacademy | Go1 zu verbessern. Die Umfrage dauert etwa 3 Minuten.",
-    "cta": "Feedback geben",
-    "newTab": "Wird in einem neuen Tab geöffnet"
-  },
   "all": "Alle",
   "Select all learners on this page": "Wählen Sie alle Lernenden auf dieser Seite aus",
   "all_courses": "Alle Kurse",

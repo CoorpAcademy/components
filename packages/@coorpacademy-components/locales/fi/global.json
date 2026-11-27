@@ -1,12 +1,4 @@
 {
-  "csat": {
-    "status": "Kysely on avoinna",
-    "until": "Vastausaika päättyy:",
-    "title": "Mielipiteelläsi on merkitystä",
-    "description": "Auta meitä parantamaan kokemustasi Coorpacademy | Go1 -palvelussa. Kyselyyn vastaaminen kestää noin 3 minuuttia.",
-    "cta": "Anna palautetta",
-    "newTab": "Avautuu uuteen välilehteen"
-  },
   "all": "Kaikki",
   "Select all learners on this page": "Valitse kaikki oppijat tällä sivulla",
   "all_courses": "Kaikki kurssit",

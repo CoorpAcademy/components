@@ -80,3 +80,26 @@ test.serial('campaign deadline is the last included day in Paris for winter and 
   t.truthy(view.getByText('AVR.'));
   t.is(view.queryByRole('button'), null);
 });
+
+test.serial(
+  'formats the deadline locale supplied by the consumer without owning translations',
+  t => {
+    const campaign = {
+      ...fixture.props.campaign,
+      language: 'de_DE',
+      status: 'Umfrage läuft',
+      until: 'Bis zum'
+    };
+    const view = render(wrap(<Banner {...fixture.props} campaign={campaign} />));
+    t.truthy(view.getByText('Bis zum 18. Dezember'));
+    view.rerender(
+      wrap(
+        <Banner
+          {...fixture.props}
+          campaign={{...campaign, language: 'invalid_locale_??', until: 'Until'}}
+        />
+      )
+    );
+    t.truthy(view.getByText('Until December 18'));
+  }
+);
