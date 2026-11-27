@@ -27,7 +27,7 @@
   width: 100%;
 }
 
-.typeChoice input:disabled + span {
+.typeChoice input[type="radio"]:disabled + span {
   opacity: 1;
   cursor: default;
 }
