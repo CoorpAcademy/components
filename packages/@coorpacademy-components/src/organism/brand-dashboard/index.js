@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Title from '../../atom/title';
+import Banner from '../../molecule/banner';
 import QuickAccessCardGroup from '../../molecule/quick-access-cards-group';
 import CoorpmanagerBaseBanner from '../../molecule/coorpmanager-base-banner';
 import style from './style.css';
 
 const Dashboard = props => {
-  const {header, quickAccessCards, banner} = props;
+  const {header, quickAccessCards, banner, campaignBanner} = props;
   return (
     <div>
       <div>
         <Title {...header} type={'page'} />
       </div>
+      {campaignBanner ? (
+        <div className={style.campaignBanner}>
+          <Banner {...campaignBanner} />
+        </div>
+      ) : null}
       {banner ? <CoorpmanagerBaseBanner {...banner} /> : null}
       <div className={style.sectionWrapper}>
         <Title title={quickAccessCards.title} type={'form-group'} />
@@ -32,6 +38,7 @@ Dashboard.propTypes = {
     title: PropTypes.string,
     cards: PropTypes.shape(QuickAccessCardGroup.propTypes)
   }),
+  campaignBanner: PropTypes.shape(Banner.propTypes),
   banner: PropTypes.shape(CoorpmanagerBaseBanner.propTypes)
 };
 
