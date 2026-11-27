@@ -3,9 +3,9 @@ import React from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {render, fireEvent, cleanup} from '@testing-library/react';
 import Provider from '../../../atom/provider';
-import Banner from '..';
+import CSATBanner from '..';
 import BrandDashboard from '../../../organism/brand-dashboard';
-import fixture from './fixtures/survey';
+import fixture from './fixtures/default';
 
 test.afterEach(cleanup);
 const wrap = element => <Provider translate={key => key}>{element}</Provider>;
@@ -13,7 +13,7 @@ const wrap = element => <Provider translate={key => key}>{element}</Provider>;
 test.serial(
   'survey banner renders its heading, description and native isolated new-tab link',
   t => {
-    const html = renderToStaticMarkup(wrap(<Banner {...fixture.props} />));
+    const html = renderToStaticMarkup(wrap(<CSATBanner {...fixture.props} />));
     t.true(html.includes('<section'));
     t.true(html.includes('>Your feedback matters</h2>'));
     t.true(html.includes(fixture.props.message));
@@ -26,14 +26,14 @@ test.serial(
 
 test.serial('every click invokes the callback and leaves the native form destination intact', t => {
   let count = 0;
-  const cta = [{...fixture.props.cta[0], action: () => count++}];
-  const view = render(wrap(<Banner {...fixture.props} cta={cta} />));
+  const cta = {...fixture.props.cta, action: () => count++};
+  const view = render(wrap(<CSATBanner {...fixture.props} cta={cta} />));
   const link = view.getByRole('link');
   link.addEventListener('click', event => event.preventDefault());
   fireEvent.click(link);
   fireEvent.click(link);
   t.is(count, 2);
-  t.is(link.getAttribute('href'), fixture.props.cta[0].link.href);
+  t.is(link.getAttribute('href'), fixture.props.cta.link.href);
 });
 
 test.serial(
@@ -59,12 +59,12 @@ test.serial(
 
 test.serial('campaign deadline is the last included day in Paris for winter and summer', t => {
   const campaign = fixture.props.campaign;
-  const view = render(wrap(<Banner {...fixture.props} />));
+  const view = render(wrap(<CSATBanner {...fixture.props} />));
   t.truthy(view.getByText('Until December 18'));
   t.truthy(view.getByText('Survey open'));
   view.rerender(
     wrap(
-      <Banner
+      <CSATBanner
         {...fixture.props}
         campaign={{
           ...campaign,
@@ -90,13 +90,17 @@ test.serial(
       status: 'Umfrage läuft',
       until: 'Bis zum'
     };
-    const view = render(wrap(<Banner {...fixture.props} campaign={campaign} />));
+    const view = render(wrap(<CSATBanner {...fixture.props} campaign={campaign} />));
     t.truthy(view.getByText('Bis zum 18. Dezember'));
     view.rerender(
       wrap(
-        <Banner
+        <CSATBanner
           {...fixture.props}
-          campaign={{...campaign, language: 'invalid_locale_??', until: 'Until'}}
+          campaign={{
+            ...campaign,
+            language: 'invalid_locale_??',
+            until: 'Until'
+          }}
         />
       )
     );
@@ -104,83 +108,32 @@ test.serial(
   }
 );
 
-test.serial('switch value is controlled by props and never stored by Banner', t => {
-  const calls = [];
-  const action = value => calls.push(value);
-  const props = {
-    type: 'info',
-    message: 'Microlearning',
-    cta: [{type: 'switch', label: 'Show microlearning', action}]
-  };
-  const view = render(wrap(<Banner {...props} />));
-  const checkbox = view.getByRole('checkbox');
-  t.false(checkbox.checked);
-  fireEvent.click(checkbox);
-  t.deepEqual(calls, [true]);
-  t.false(checkbox.checked);
-  view.rerender(wrap(<Banner {...props} cta={[{...props.cta[0], oldSwitchValue: true}]} />));
-  t.true(checkbox.checked);
-  fireEvent.click(checkbox);
-  t.deepEqual(calls, [true, false]);
-  t.true(checkbox.checked);
-  view.rerender(wrap(<Banner {...props} />));
-  t.false(checkbox.checked);
-});
-
 test.serial('survey can omit campaign metadata and re-render it from new props', t => {
   const props = {...fixture.props, campaign: undefined};
-  const view = render(wrap(<Banner {...props} />));
+  const view = render(wrap(<CSATBanner {...props} />));
   t.truthy(view.getByRole('heading', {name: fixture.props.title}));
   t.is(view.queryByText('Survey open'), null);
   t.true(view.container.textContent.includes('☆'));
   view.rerender(
-    wrap(<Banner {...props} campaign={{...fixture.props.campaign, endAt: 'invalid'}} />)
+    wrap(<CSATBanner {...props} campaign={{...fixture.props.campaign, endAt: 'invalid'}} />)
   );
   t.is(view.container.querySelector('time'), null);
-  view.rerender(wrap(<Banner {...fixture.props} />));
+  view.rerender(wrap(<CSATBanner {...fixture.props} />));
   t.truthy(view.getByText('Until December 18'));
 });
 
-test.serial(
-  'non-survey link CTA uses its label when no separate accessible label is supplied',
-  t => {
-    let clicks = 0;
-    const props = {
-      type: 'info',
-      message: 'Help',
-      cta: [
-        {label: 'Read the guide', link: {href: 'https://example.com/guide'}, action: () => clicks++}
-      ]
-    };
-    const view = render(wrap(<Banner {...props} />));
-    const link = view.getByRole('link', {name: 'Read the guide'});
-    link.addEventListener('click', event => event.preventDefault());
-    fireEvent.click(link);
-    t.is(clicks, 1);
-    t.is(link.textContent, 'Read the guide');
-  }
-);
-
-test.serial(
-  'empty CTA entries are skipped and a later button remains usable with its default action',
-  t => {
-    const props = {
-      type: 'warning',
-      message: 'Pending changes',
-      cta: [null, {}, null, {label: 'Continue'}]
-    };
-    const view = render(wrap(<Banner {...props} />));
-    const button = view.getByRole('button', {name: 'Continue'});
-    fireEvent.click(button);
-    t.is(view.getAllByRole('button').length, 1);
-    t.truthy(view.getByText('Pending changes'));
-  }
-);
-
-test.serial('animation end is delegated to the parent without hiding the banner', t => {
-  let ended = 0;
-  const view = render(wrap(<Banner {...fixture.props} onEnd={() => ended++} />));
-  fireEvent.animationEnd(view.getByRole('region', {name: fixture.props.title}));
-  t.is(ended, 1);
-  t.truthy(view.getByRole('link'));
+test.serial('CTA falls back to its label and copy updates only through props', t => {
+  const props = {
+    ...fixture.props,
+    cta: {...fixture.props.cta, ariaLabel: undefined}
+  };
+  const view = render(wrap(<CSATBanner {...props} />));
+  const link = view.getByRole('link', {name: props.cta.label});
+  link.addEventListener('click', event => event.preventDefault());
+  fireEvent.click(link);
+  t.truthy(view.getByRole('heading', {name: props.title}));
+  view.rerender(wrap(<CSATBanner {...props} title="Updated campaign" />));
+  t.truthy(view.getByRole('heading', {name: 'Updated campaign'}));
+  t.is(view.queryByRole('heading', {name: props.title}), null);
+  t.is(view.queryByRole('button'), null);
 });
