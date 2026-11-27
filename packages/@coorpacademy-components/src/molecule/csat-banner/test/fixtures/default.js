@@ -8,7 +8,7 @@ export default {
       until: 'Until'
     },
     message:
-      'Help us improve your experience with Coorpacademy | Go1. The survey takes about 3 minutes.',
+      'Help us improve your experience with Coorpacademy | Go1. The survey takes about 2 minutes.',
     cta: {
       label: 'Share my feedback',
       ariaLabel: 'Share my feedback — Opens in a new tab',

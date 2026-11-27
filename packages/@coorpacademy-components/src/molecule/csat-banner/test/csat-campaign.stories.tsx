@@ -13,7 +13,7 @@ const frenchProps = {
   ...fixture.props,
   title: 'Votre avis compte',
   message:
-    'Aidez-nous à améliorer votre expérience avec Coorpacademy | Go1. Le questionnaire prend environ 3 minutes.',
+    'Aidez-nous à améliorer votre expérience avec Coorpacademy | Go1. Le questionnaire prend environ 2 minutes.',
   campaign: {
     ...fixture.props.campaign,
     language: 'fr',
