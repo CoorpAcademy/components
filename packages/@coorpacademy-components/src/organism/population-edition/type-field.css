@@ -1,0 +1,44 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_500, cm_primary_blue from colors;
+
+.typeField {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+.typeField legend {
+  color: cm_grey_500;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.typeChoice {
+  min-width: 0;
+}
+
+.typeChoice label {
+  width: 100%;
+}
+
+.typeChoice input:disabled + span {
+  opacity: 1;
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .typeField {
+    grid-template-columns: 1fr;
+  }
+}
+
+.typeChoice input:focus-visible {
+  outline: 2px solid cm_primary_blue;
+  outline-offset: 3px;
+}

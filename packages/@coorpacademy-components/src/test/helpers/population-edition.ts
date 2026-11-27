@@ -5,6 +5,7 @@ import {
   PopulationEditionLabels,
   PreviewModel
 } from '../../organism/population-edition/types';
+import {OwnersModel} from '../../organism/population-owners/types';
 import {
   labels as conditionLabels,
   makeModel as makeConditions,
@@ -44,7 +45,8 @@ export const preview: PreviewModel = {
     ['Jamie', 'Lee', 'jamie.lee', 'jamie.lee@example.org', 'Finance']
   ].map(fields => ({fields}))
 };
-const defaultEditor: EditorModel = {
+type AnalyticsExample = EditorModel & {owners: OwnersModel};
+const defaultEditor: AnalyticsExample = {
   loaded: true,
   archived: false,
   busy: false,
@@ -53,7 +55,7 @@ const defaultEditor: EditorModel = {
   owners: makeOwners(),
   preview
 };
-export const makeEditor = (overrides: Partial<EditorModel> = {}): EditorModel => ({
+export const makeEditor = (overrides: Partial<AnalyticsExample> = {}): AnalyticsExample => ({
   ...defaultEditor,
   ...overrides
 });
@@ -111,7 +113,7 @@ export const header = ({
   closeButton: {'aria-label': 'Back to populations', onClick: onClose},
   tag: model.archived ? {label: 'Archived', type: 'warning', size: 'S'} : undefined,
   saveStatus: {display: !model.archived && !creating, label: dirty ? 'Unsaved changes' : 'Saved'},
-  warning: model.owners.warning
+  warning: model.owners?.warning
     ? {
         label: 'Review deactivated owners',
         onClick: onWarning,
