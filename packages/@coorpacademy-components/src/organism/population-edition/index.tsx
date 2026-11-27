@@ -4,8 +4,11 @@ import Loader from '../../atom/loader';
 import Banner from '../../molecule/banner';
 import PopulationConditions from '../population-conditions';
 import PopulationOwners from '../population-owners';
+import PopulationCatalogueAccess from '../population-catalogue-access';
+import PopulationResponsibles from '../population-responsibles';
 import {PopulationConfirmation} from '../population-list/confirmation';
 import LearnerPreview from './preview';
+import TypeField from './type-field';
 import {ReadButton} from './read-button';
 import {PopulationEditionProps, SectionName, propTypes} from './types';
 import style from './style.css';
@@ -21,6 +24,8 @@ const PopulationEdition = ({
   const identification = useRef<HTMLDivElement>(null);
   const conditions = useRef<HTMLDivElement>(null);
   const owners = useRef<HTMLDivElement>(null);
+  const catalogue = useRef<HTMLDivElement>(null);
+  const responsibles = useRef<HTMLDivElement>(null);
   const preview = useRef<HTMLDivElement>(null);
   const {loaded, archived, busy, focusSection, focusRequestKey} = model;
   const locked = disabled || busy || archived;
@@ -36,6 +41,8 @@ const PopulationEdition = ({
       identification,
       conditions,
       owners,
+      catalogue,
+      responsibles,
       preview
     };
     const target = targets[focusSection].current;
@@ -98,7 +105,11 @@ const PopulationEdition = ({
                   required
                 />
               </div>
-              <p className={style.typeDescription}>{labels.typeDescription}</p>
+              {model.typeField ? (
+                <TypeField model={model.typeField} disabled={locked} />
+              ) : (
+                <p className={style.typeDescription}>{labels.typeDescription}</p>
+              )}
             </section>
           </div>
           <div
@@ -116,17 +127,53 @@ const PopulationEdition = ({
               disabled={locked}
             />
           </div>
-          <div
-            ref={owners}
-            role="group"
-            aria-label={labels.owners.title}
-            tabIndex={-1}
-            style={targetStyle}
-            className={style.section}
-            data-name="population-section-owners"
-          >
-            <PopulationOwners model={model.owners} labels={labels.owners} disabled={locked} />
-          </div>
+          {model.catalogue && labels.catalogue ? (
+            <div
+              ref={catalogue}
+              role="group"
+              aria-label={labels.catalogue.title}
+              tabIndex={-1}
+              style={targetStyle}
+              className={style.section}
+              data-name="population-section-catalogue"
+            >
+              <PopulationCatalogueAccess
+                model={model.catalogue}
+                labels={labels.catalogue}
+                disabled={locked}
+              />
+            </div>
+          ) : null}
+          {!archived && model.responsibles && labels.responsibles ? (
+            <div
+              ref={responsibles}
+              role="group"
+              aria-label={labels.responsibles.title}
+              tabIndex={-1}
+              style={targetStyle}
+              className={style.section}
+              data-name="population-section-responsibles"
+            >
+              <PopulationResponsibles
+                model={model.responsibles}
+                labels={labels.responsibles}
+                disabled={disabled || busy}
+              />
+            </div>
+          ) : null}
+          {model.owners ? (
+            <div
+              ref={owners}
+              role="group"
+              aria-label={labels.owners.title}
+              tabIndex={-1}
+              style={targetStyle}
+              className={style.section}
+              data-name="population-section-owners"
+            >
+              <PopulationOwners model={model.owners} labels={labels.owners} disabled={locked} />
+            </div>
+          ) : null}
           {!archived && model.preview ? (
             <div
               ref={preview}

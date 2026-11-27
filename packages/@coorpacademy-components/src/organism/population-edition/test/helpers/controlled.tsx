@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {filter, includes, map, some} from 'lodash/fp';
+import {filter, includes, map, some, uniq} from 'lodash/fp';
 import PopulationList from '../../../population-list';
 import ButtonLink from '../../../../atom/button-link';
 import {labels, makeEditor, preview, header} from '../../../../test/helpers/population-edition';
@@ -20,6 +20,28 @@ import {
 } from '../../../../test/helpers/population-list';
 import {Criterion} from '../../../population-conditions/types';
 import {Person} from '../../../../molecule/person-tags/types';
+import {EditorModel} from '../../types';
+import {
+  PopulationType,
+  makeTypeField,
+  hrLabels,
+  hrCreationLabels,
+  hrCreation,
+  hrHeader
+} from '../../../../test/helpers/population-hr-edition';
+import {
+  cataloguePlaylists,
+  customPlaylists,
+  creation as catalogueCreation,
+  makeChoices,
+  makeModel as makeCatalogue,
+  makeSelection
+} from '../../../../test/helpers/population-catalogue-access';
+import {
+  makeModel as makeResponsibles,
+  managers,
+  managerPages
+} from '../../../../test/helpers/population-responsibles';
 import {EditorShell, IsolatedEditor} from './shell';
 
 type Rule = {
@@ -33,6 +55,11 @@ type Rule = {
 };
 type Group = {id: string; rules: Rule[]};
 type Snapshot = {
+  populationType?: PopulationType;
+  accessMode?: string;
+  playlistIds: string[];
+  hasAppliedMemberships: boolean;
+  hasCustomAttachments: boolean;
   name: string;
   owners: string[];
   groups: Group[];
@@ -49,13 +76,28 @@ const rule = (id: string): Rule => ({
   caseSensitive: false
 });
 const initial: Snapshot = {
+  populationType: 'analytics',
+  hasAppliedMemberships: true,
+  hasCustomAttachments: true,
+  accessMode: 'selected',
+  playlistIds: ['catalogue-0', 'catalogue-1'],
   name: 'Onboarding progress',
   owners: ['alex', 'morgan', 'former'],
   groups: [{id: 'first', rules: [{...rule('department'), values: ['Finance', 'Legal']}]}],
   support: true,
   archived: false
 };
-const empty: Snapshot = {name: '', owners: [], groups: [], support: true, archived: false};
+const empty: Snapshot = {
+  populationType: 'analytics',
+  hasAppliedMemberships: false,
+  hasCustomAttachments: false,
+  name: '',
+  owners: [],
+  groups: [],
+  support: true,
+  archived: false,
+  playlistIds: []
+};
 const comparisonLabel = (item: Rule) => {
   if (item.comparison === 'not-in') return item.values.length > 1 ? 'is neither' : 'is not';
   if (item.comparison === 'in') return 'is';
@@ -65,13 +107,23 @@ const comparisonLabel = (item: Rule) => {
 // Stateful synthetic App adapter, excluded from the production package. No real API or DSL.
 export default function ControlledEditor({
   isolated = false,
-  creating = false
+  creating = false,
+  bothTypes = false,
+  initialType = 'analytics',
+  archived = false
 }: {
   isolated?: boolean;
   creating?: boolean;
+  bothTypes?: boolean;
+  initialType?: PopulationType;
+  archived?: boolean;
 }) {
-  const [saved, setSaved] = useState(initial);
-  const [draft, setDraft] = useState(creating ? empty : initial);
+  const starting = {...initial, populationType: initialType, archived};
+  const blank = {...empty, populationType: bothTypes ? undefined : initialType};
+  const [saved, setSaved] = useState<Snapshot>(starting);
+  const [draft, setDraft] = useState<Snapshot>(creating ? blank : starting);
+  const [playlistQuery, setPlaylistQuery] = useState('');
+  const [managerLimit, setManagerLimit] = useState(25);
   const [mode, setMode] = useState<'list' | 'create' | 'edit'>(creating ? 'create' : 'edit');
   const [ownerQuery, setOwnerQuery] = useState('');
   const [warningKey, setWarningKey] = useState(0);
@@ -94,7 +146,11 @@ export default function ControlledEditor({
         draft.groups
       )
     });
+  const isHR = draft.populationType === 'rh';
   const valid =
+    Boolean(draft.populationType) &&
+    (!isHR ||
+      Boolean(draft.accessMode && (draft.accessMode !== 'selected' || draft.playlistIds.length))) &&
     draft.name.trim().length > 0 &&
     draft.groups.length > 0 &&
     draft.groups.every(
@@ -121,10 +177,11 @@ export default function ControlledEditor({
   const savedFeedback = lastSaved
     ? {type: 'success' as const, message: 'Population saved in this demonstration.'}
     : undefined;
-  const model = makeEditor({
+  const warningSection = isHR ? 'catalogue' : 'owners';
+  const analyticsModel = makeEditor({
     archived: draft.archived,
     name: {value: draft.name, onChange: value => update({name: value})},
-    focusSection: warningKey > 0 ? 'owners' : undefined,
+    focusSection: warningKey > 0 ? warningSection : undefined,
     focusRequestKey: warningKey,
     conditions: makeConditions({
       groups: draft.groups.map(group => ({
@@ -287,6 +344,80 @@ export default function ControlledEditor({
       ? {type: 'error', message: 'Save failed. Your draft is kept; try Save again.'}
       : savedFeedback
   });
+  const selection = makeSelection(draft.playlistIds);
+  const allManagers = [...managers, ...managerPages];
+  const savedResponsibles = makeResponsibles({
+    users: allManagers.slice(0, managerLimit),
+    countLabel: `${Math.min(managerLimit, allManagers.length)} of ${allManagers.length} managers`,
+    refresh: {label: 'Refresh', onClick: () => setManagerLimit(25)},
+    loadMore:
+      managerLimit < allManagers.length
+        ? {label: 'Load more', onClick: () => setManagerLimit(count => count + 25)}
+        : undefined
+  });
+  const responsibleModel = draft.hasAppliedMemberships
+    ? savedResponsibles
+    : hrCreation.responsibles;
+  const currentHRLabels = draft.hasAppliedMemberships ? hrLabels : hrCreationLabels;
+  const model: EditorModel = {
+    ...analyticsModel,
+    typeField: bothTypes
+      ? makeTypeField(
+          draft.populationType,
+          populationType => update({populationType}),
+          mode !== 'create'
+        )
+      : undefined,
+    owners: draft.populationType === 'analytics' ? analyticsModel.owners : undefined,
+    catalogue: isHR
+      ? makeCatalogue({
+          choices: makeChoices(draft.accessMode, accessMode => update({accessMode})),
+          customPlaylists: draft.hasCustomAttachments
+            ? customPlaylists
+            : catalogueCreation.customPlaylists,
+          warning:
+            draft.accessMode === 'selected' && includes('catalogue-0', draft.playlistIds)
+              ? 'A selected catalogue playlist has no content. Remove it when you are ready.'
+              : undefined,
+          selection:
+            draft.accessMode === 'selected'
+              ? {
+                  ...selection,
+                  query: playlistQuery,
+                  selected: map(
+                    item => ({
+                      ...item,
+                      onRemove: () =>
+                        update({playlistIds: filter(id => id !== item.id, draft.playlistIds)})
+                    }),
+                    selection.selected
+                  ),
+                  onSearch: setPlaylistQuery,
+                  onChange: choices => update({playlistIds: map('value', choices)}),
+                  selectAll: {
+                    onClick: () =>
+                      update({
+                        playlistIds: uniq([
+                          ...draft.playlistIds,
+                          ...map(
+                            'id',
+                            filter(item => item.count > 0, cataloguePlaylists)
+                          )
+                        ])
+                      })
+                  },
+                  clear: {
+                    disabled: draft.playlistIds.length === 0,
+                    onClick: () => update({playlistIds: []})
+                  }
+                }
+              : undefined
+        })
+      : undefined,
+    responsibles: isHR ? responsibleModel : undefined
+  };
+  const editorLabels = isHR ? currentHRLabels : labels;
+  const editorHeader = isHR ? hrHeader : header;
   const save = () => {
     if (!valid || !dirty) return;
     if (failNext) {
@@ -307,27 +438,40 @@ export default function ControlledEditor({
           model={makeListModel({
             resultLabel: '1 of 1 population',
             filter: {
-              value: 'analytics',
-              options: [{value: 'analytics', label: 'Analytics'}],
+              value: saved.populationType || '',
+              options: [
+                {value: 'analytics', label: 'Analytics'},
+                {value: 'rh', label: 'HR'}
+              ],
               onChange: () => undefined
             },
             rows: [
               {
                 ...rows[4],
-                id: 'analytics-demo',
-                typeTag: {label: 'Analytics', type: 'advanced'},
+                id: 'population-demo',
+                typeTag:
+                  saved.populationType === 'rh'
+                    ? {label: 'HR', type: 'info'}
+                    : {label: 'Analytics', type: 'advanced'},
                 title: saved.name,
                 archived: saved.archived,
                 memberLabel: saved.archived ? undefined : '5 example learners',
                 conditionGroups: model.conditions.summary.groups,
-                ownerInformation: {
-                  label: `${saved.owners.length} owners`,
-                  ariaLabel: 'Population owners',
-                  deactivatedLegend: some({status: 'deactivated'}, selections)
-                    ? labels.owners.deactivatedLegend
+                accessLabel:
+                  saved.populationType === 'rh'
+                    ? makeChoices(saved.accessMode).find(choice => choice.checked)?.title
                     : undefined,
-                  items: selections
-                },
+                ownerInformation:
+                  saved.populationType === 'analytics'
+                    ? {
+                        label: `${saved.owners.length} owners`,
+                        ariaLabel: 'Population owners',
+                        deactivatedLegend: some({status: 'deactivated'}, selections)
+                          ? labels.owners.deactivatedLegend
+                          : undefined,
+                        items: selections
+                      }
+                    : undefined,
                 primaryAction: {
                   label: saved.archived ? 'View' : 'Edit',
                   onClick: () => {
@@ -350,7 +494,7 @@ export default function ControlledEditor({
               }
             ],
             onCreate: () => {
-              setDraft(empty);
+              setDraft(blank);
               setMode('create');
               setLastSaved(false);
             }
@@ -363,24 +507,27 @@ export default function ControlledEditor({
     <>
       <Frame
         model={model}
-        labels={labels}
-        header={header({
-          model,
-          creating: mode === 'create',
-          valid,
-          dirty,
-          onSave: save,
-          onClose: () => {
-            setDraft(saved);
-            setMode('list');
-          },
-          onWarning: () => setWarningKey(key => key + 1),
-          onArchive: () => setConfirming(true),
-          onReactivate: () => {
-            update({archived: false});
-            setSaved(value => ({...value, archived: false}));
-          }
-        })}
+        labels={editorLabels}
+        header={{
+          ...editorHeader({
+            model,
+            creating: mode === 'create',
+            valid,
+            dirty,
+            onSave: save,
+            onClose: () => {
+              setDraft(saved);
+              setMode('list');
+            },
+            onWarning: () => setWarningKey(key => key + 1),
+            onArchive: () => setConfirming(true),
+            onReactivate: () => {
+              update({archived: false});
+              setSaved(value => ({...value, archived: false}));
+            }
+          }),
+          ...(!draft.populationType ? {titleTags: []} : {})
+        }}
         confirmation={
           confirming
             ? {
@@ -405,7 +552,7 @@ export default function ControlledEditor({
             label="Create another population"
             type="secondary"
             onClick={() => {
-              setDraft(empty);
+              setDraft(blank);
               setMode('create');
               setLastSaved(false);
             }}

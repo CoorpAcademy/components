@@ -6,7 +6,13 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import PopulationEdition from '..';
 import InputText from '../../../atom/input-text';
 import ButtonLink from '../../../atom/button-link';
+import RadioWithTitle from '../../../atom/radio-with-title';
 import {labels, makeEditor, preview} from '../../../test/helpers/population-edition';
+import {
+  hrCreation,
+  hrCreationLabels,
+  makeTypeField
+} from '../../../test/helpers/population-hr-edition';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -64,4 +70,40 @@ test.serial('individual retry disable and loading state also guard direct invoca
   });
   invoke();
   t.pass();
+});
+
+test.serial('type radios forward callbacks only when App and the editor allow interaction', t => {
+  let requests = 0;
+  const typeField = makeTypeField(undefined, () => {
+    requests++;
+  });
+  const base = {...hrCreation, typeField};
+  const view = mount(<PopulationEdition labels={hrCreationLabels} model={base} />);
+  t.teardown(() => view.unmount());
+  const invoke = () =>
+    view
+      .find(RadioWithTitle)
+      .filterWhere(radio => radio.prop('aria-label') === 'HR')
+      .prop('onChange')(true);
+  invoke();
+  t.is(requests, 1);
+  view.setProps({model: {...base, typeField: {...typeField, disabled: true}}});
+  invoke();
+  view.setProps({
+    model: {
+      ...base,
+      typeField: {
+        ...typeField,
+        choices: typeField.choices.map(choice => ({...choice, disabled: true}))
+      }
+    }
+  });
+  invoke();
+  view.setProps({model: base, disabled: true});
+  invoke();
+  view.setProps({disabled: false, model: {...base, busy: true}});
+  invoke();
+  view.setProps({model: {...base, archived: true}});
+  invoke();
+  t.is(requests, 1);
 });
