@@ -104,3 +104,9 @@
 @value primary_100: #D6E6FF;
 
 @value negative_700: #B81400;
+
+/* Go1 brand palette used by campaign invitations. */
+@value go1_canary: #FEE19A;
+@value go1_ivory: #FAF9F4;
+@value go1_slate: #394646;
+@value go1_teal: #35656E;
