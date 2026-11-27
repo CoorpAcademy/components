@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "アンケート実施中",
+    "until": "回答期限：",
+    "title": "あなたのご意見をお聞かせください",
+    "description": "Coorpacademy | Go1 での体験向上にご協力ください。所要時間は約3分です。",
+    "cta": "意見を送る",
+    "newTab": "新しいタブで開きます"
+  },
   "all": "すべて",
   "Select all learners on this page": "このページのすべての学習者を選択してください",
   "all_courses": "すべてのコース",

@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "Folyamatban lévő felmérés",
+    "until": "Határidő:",
+    "title": "Számít a véleménye",
+    "description": "Segítsen nekünk javítani a Coorpacademy | Go1 használata során szerzett élményét. A kérdőív kitöltése körülbelül 3 percet vesz igénybe.",
+    "cta": "Véleményt küldök",
+    "newTab": "Új lapon nyílik meg"
+  },
   "all": "Mind",
   "Select all learners on this page": "Az összes tanuló kiválasztása ezen az oldalon",
   "all_courses": "Minden tanfolyam",

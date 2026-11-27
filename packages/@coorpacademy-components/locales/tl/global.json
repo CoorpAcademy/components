@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "Bukas ang survey",
+    "until": "Hanggang",
+    "title": "Mahalaga ang iyong opinyon",
+    "description": "Tulungan kaming mapahusay ang iyong karanasan sa Coorpacademy | Go1. Tumatagal nang humigit-kumulang 3 minuto ang pagsagot sa survey.",
+    "cta": "Ibahagi ang opinyon ko",
+    "newTab": "Magbubukas sa bagong tab"
+  },
   "all": "Lahat",
   "Select all learners on this page": "Piliin ang lahat ng mag-aaral sa pahinang ito",
   "all_courses": "Lahat ng kurso",

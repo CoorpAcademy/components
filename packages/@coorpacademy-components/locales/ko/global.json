@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "설문 진행 중",
+    "until": "응답 마감:",
+    "title": "여러분의 의견이 중요합니다",
+    "description": "Coorpacademy | Go1 이용 경험을 개선할 수 있도록 의견을 들려주세요. 설문에는 약 3분이 소요됩니다.",
+    "cta": "의견 보내기",
+    "newTab": "새 탭에서 열립니다"
+  },
   "all": "전체",
   "Select all learners on this page": "이 페이지의 모든 학습자를 선택하세요",
   "all_courses": "모든 코스",

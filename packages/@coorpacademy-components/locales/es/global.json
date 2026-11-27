@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "Encuesta en curso",
+    "until": "Hasta el",
+    "title": "Tu opinión cuenta",
+    "description": "Ayúdanos a mejorar tu experiencia con Coorpacademy | Go1. El cuestionario dura unos 3 minutos.",
+    "cta": "Dar mi opinión",
+    "newTab": "Se abre en una pestaña nueva"
+  },
   "all": "Todas",
   "Select all learners on this page": "Seleccione todos los alumnos en esta página.",
   "all_courses": "Todos los cursos",

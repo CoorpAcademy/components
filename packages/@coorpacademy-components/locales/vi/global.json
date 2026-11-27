@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "Khảo sát đang diễn ra",
+    "until": "Đến",
+    "title": "Ý kiến của bạn rất quan trọng",
+    "description": "Hãy giúp chúng tôi cải thiện trải nghiệm của bạn với Coorpacademy | Go1. Khảo sát này mất khoảng 3 phút.",
+    "cta": "Chia sẻ ý kiến",
+    "newTab": "Mở trong tab mới"
+  },
   "all": "Tất cả",
   "Select all learners on this page": "Chọn tất cả người học trên trang này",
   "all_courses": "Tất cả các khóa học",

@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "Anket devam ediyor",
+    "until": "Son gün:",
+    "title": "Görüşünüz önemli",
+    "description": "Coorpacademy | Go1 deneyiminizi iyileştirmemize yardımcı olun. Anketi doldurmak yaklaşık 3 dakika sürer.",
+    "cta": "Görüşümü paylaş",
+    "newTab": "Yeni sekmede açılır"
+  },
   "all": "Tümü",
   "Select all learners on this page": "Bu sayfadaki tüm öğrencileri seçin",
   "all_courses": "Tüm kurslar",

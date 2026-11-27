@@ -1,4 +1,12 @@
 {
+  "csat": {
+    "status": "Apklausa vyksta",
+    "until": "Iki",
+    "title": "Jūsų nuomonė svarbi",
+    "description": "Padėkite mums pagerinti jūsų patirtį naudojantis Coorpacademy | Go1. Apklausos pildymas trunka apie 3 minutes.",
+    "cta": "Pasidalyti nuomone",
+    "newTab": "Atidaroma naujame skirtuke"
+  },
   "all": "Visi",
   "Select all learners on this page": "Pasirinkite visus mokinius šiame puslapyje",
   "all_courses": "Visi kursai",
