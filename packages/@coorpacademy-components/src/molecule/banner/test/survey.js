@@ -103,3 +103,84 @@ test.serial(
     t.truthy(view.getByText('Until December 18'));
   }
 );
+
+test.serial('switch value is controlled by props and never stored by Banner', t => {
+  const calls = [];
+  const action = value => calls.push(value);
+  const props = {
+    type: 'info',
+    message: 'Microlearning',
+    cta: [{type: 'switch', label: 'Show microlearning', action}]
+  };
+  const view = render(wrap(<Banner {...props} />));
+  const checkbox = view.getByRole('checkbox');
+  t.false(checkbox.checked);
+  fireEvent.click(checkbox);
+  t.deepEqual(calls, [true]);
+  t.false(checkbox.checked);
+  view.rerender(wrap(<Banner {...props} cta={[{...props.cta[0], oldSwitchValue: true}]} />));
+  t.true(checkbox.checked);
+  fireEvent.click(checkbox);
+  t.deepEqual(calls, [true, false]);
+  t.true(checkbox.checked);
+  view.rerender(wrap(<Banner {...props} />));
+  t.false(checkbox.checked);
+});
+
+test.serial('survey can omit campaign metadata and re-render it from new props', t => {
+  const props = {...fixture.props, campaign: undefined};
+  const view = render(wrap(<Banner {...props} />));
+  t.truthy(view.getByRole('heading', {name: fixture.props.title}));
+  t.is(view.queryByText('Survey open'), null);
+  t.true(view.container.textContent.includes('☆'));
+  view.rerender(
+    wrap(<Banner {...props} campaign={{...fixture.props.campaign, endAt: 'invalid'}} />)
+  );
+  t.is(view.container.querySelector('time'), null);
+  view.rerender(wrap(<Banner {...fixture.props} />));
+  t.truthy(view.getByText('Until December 18'));
+});
+
+test.serial(
+  'non-survey link CTA uses its label when no separate accessible label is supplied',
+  t => {
+    let clicks = 0;
+    const props = {
+      type: 'info',
+      message: 'Help',
+      cta: [
+        {label: 'Read the guide', link: {href: 'https://example.com/guide'}, action: () => clicks++}
+      ]
+    };
+    const view = render(wrap(<Banner {...props} />));
+    const link = view.getByRole('link', {name: 'Read the guide'});
+    link.addEventListener('click', event => event.preventDefault());
+    fireEvent.click(link);
+    t.is(clicks, 1);
+    t.is(link.textContent, 'Read the guide');
+  }
+);
+
+test.serial(
+  'empty CTA entries are skipped and a later button remains usable with its default action',
+  t => {
+    const props = {
+      type: 'warning',
+      message: 'Pending changes',
+      cta: [null, {}, null, {label: 'Continue'}]
+    };
+    const view = render(wrap(<Banner {...props} />));
+    const button = view.getByRole('button', {name: 'Continue'});
+    fireEvent.click(button);
+    t.is(view.getAllByRole('button').length, 1);
+    t.truthy(view.getByText('Pending changes'));
+  }
+);
+
+test.serial('animation end is delegated to the parent without hiding the banner', t => {
+  let ended = 0;
+  const view = render(wrap(<Banner {...fixture.props} onEnd={() => ended++} />));
+  fireEvent.animationEnd(view.getByRole('region', {name: fixture.props.title}));
+  t.is(ended, 1);
+  t.truthy(view.getByRole('link'));
+});

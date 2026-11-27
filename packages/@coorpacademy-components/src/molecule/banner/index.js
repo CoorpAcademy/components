@@ -1,7 +1,7 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {keys, noop, isEmpty, map, size, pipe, find, get} from 'lodash/fp';
+import {keys, noop, isEmpty, map, size} from 'lodash/fp';
 import {COLORS} from '../../variables/colors';
 import ButtonLink from '../../atom/button-link';
 import Icon from '../../atom/icon';
@@ -28,21 +28,17 @@ const STYLES = {
 
 const Banner = props => {
   const {type, title, message, campaign, cta = [], temporary, bannerKey, onEnd} = props;
-  const oldSwitchValue = pipe(find({type: 'switch'}), get('oldSwitchValue'))(cta);
-  const [switchValue, setSwitchValue] = useState(oldSwitchValue || false);
 
   const ButtonSeparator = <div className={classnames(style.buttonsBar, STYLES[type])} />;
 
-  const handleSwitchToggle = useCallback(
-    action => e => {
-      const newSwitchValue = !switchValue;
-      setSwitchValue(newSwitchValue);
-      action(newSwitchValue);
-    },
-    [switchValue]
-  );
-
-  const buildButton = ({type: buttonType = 'button', label, action = noop, link, ariaLabel}) => {
+  const buildButton = ({
+    type: buttonType = 'button',
+    label,
+    action = noop,
+    link,
+    ariaLabel,
+    oldSwitchValue = false
+  }) => {
     const commonStyle = classnames(style.button, STYLES[type]);
 
     if (link) {
@@ -75,8 +71,8 @@ const Banner = props => {
               id="show-microlearning-switch"
               theme="default"
               title={label}
-              value={switchValue}
-              onChange={handleSwitchToggle(action)}
+              value={oldSwitchValue}
+              onChange={action}
               data-name={`banner-switch-cta`}
               aria-label={label}
             />
