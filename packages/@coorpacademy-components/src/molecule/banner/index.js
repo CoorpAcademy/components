@@ -103,7 +103,10 @@ const Banner = props => {
       if (isEmpty(options)) return null;
 
       return (
-        <div className={style.ctaWrapper} key={i}>
+        <div
+          className={classnames(style.ctaWrapper, type === 'survey' && style.surveyCtaWrapper)}
+          key={i}
+        >
           {i > 0 && i <= size(options) ? ButtonSeparator : null}
           {buildButton(options)}
         </div>
@@ -156,12 +159,15 @@ const Banner = props => {
       onAnimationEnd={onEnd}
       title={message}
     >
-      <div data-name={`${type}-banner-message`} className={style.message}>
+      <div
+        data-name={`${type}-banner-message`}
+        className={classnames(style.message, type === 'survey' && style.surveyMessage)}
+      >
         {buildIcon()}
         {title ? (
           <div className={style.surveyText}>
             <div className={style.surveyHeading}>
-              <h2>{title}</h2>
+              <h2 className={style.surveyTitle}>{title}</h2>
               {hasCampaign ? (
                 <React.Fragment>
                   <span className={style.campaignStatus}>{campaign.status}</span>
@@ -171,7 +177,7 @@ const Banner = props => {
                 </React.Fragment>
               ) : null}
             </div>
-            <p>{message}</p>
+            <p className={style.surveyDescription}>{message}</p>
           </div>
         ) : (
           message

@@ -15,7 +15,7 @@ test.serial(
   t => {
     const html = renderToStaticMarkup(wrap(<Banner {...fixture.props} />));
     t.true(html.includes('<section'));
-    t.true(html.includes('<h2>Your feedback matters</h2>'));
+    t.true(html.includes('>Your feedback matters</h2>'));
     t.true(html.includes(fixture.props.message));
     t.true(html.includes('href="https://forms.cloud.microsoft/r/j3fZf1LbJh"'));
     t.true(html.includes('target="_blank"'));
