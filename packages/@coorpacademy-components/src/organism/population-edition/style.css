@@ -1,0 +1,65 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100, cm_grey_500, cm_grey_700, cm_primary_blue from colors;
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  color: cm_grey_700;
+  font: 500 14px/1.5 Gilroy, sans-serif;
+}
+
+.section {
+  min-width: 0;
+  border: 1px solid cm_grey_100;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.section h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.description {
+  color: cm_grey_500;
+  margin: 8px 0 24px;
+  font-size: 16px;
+}
+
+.name {
+  width: 480px;
+  max-width: 100%;
+}
+
+.typeDescription {
+  color: cm_grey_500;
+  margin: 16px 0 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0;
+}
+
+.loading > div {
+  width: 24px;
+  height: 24px;
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 16px;
+  }
+}

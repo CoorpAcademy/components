@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import {ComponentProps} from 'react';
+import Tag from '../../atom/tag';
 import AssignmentStatusTagPropTypes from '../../molecule/assignment-status-tag/types';
 import {menuPropTypes, SplitButtonProps} from '../../molecule/split-button/types';
 
@@ -26,6 +28,9 @@ const HeaderWithActionsPropTypes = {
     onClick: PropTypes.func.isRequired
   }),
   title: PropTypes.string.isRequired,
+  titleTags: PropTypes.arrayOf(
+    PropTypes.shape({label: PropTypes.string.isRequired, type: Tag.propTypes.type}).isRequired
+  ),
   tags: PropTypes.arrayOf(PropTypes.shape(AssignmentStatusTagPropTypes)),
   subtitle: PropTypes.string,
   informationTooltip: PropTypes.shape({
@@ -100,6 +105,7 @@ export type ButtonActionProps = {
 export type HeaderWithActionsProps = {
   closeButton: CloseButtonProps;
   title: string;
+  titleTags?: Array<{label: string; type?: ComponentProps<typeof Tag>['type']}>;
   tags?: Array<{status?: string; label: string}>;
   subtitle?: string;
   informationTooltip?: {label: string; content: string};
