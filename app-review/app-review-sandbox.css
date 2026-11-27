@@ -1,4 +1,4 @@
-
+/* Go1 brand palette used by campaign invitations. */
 
 ._container-cD3LB {
   position: absolute;
@@ -687,6 +687,69 @@
   outline-offset: 2px;
 }
 
+.arrow-P4SsT {
+  position: fixed;
+  z-index: 1101;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  pointer-events: none;
+}
+
+.arrow-P4SsT::after {
+  content: '';
+  position: absolute;
+  border: 7px solid transparent;
+}
+
+.arrow-P4SsT[data-side="bottom"] {
+  border-top: 0;
+  border-bottom-color: #d7d7da;
+}
+
+.arrow-P4SsT[data-side="bottom"]::after {
+  left: -7px;
+  top: 2px;
+  border-top: 0;
+  border-bottom-color: #FFFFFF;
+}
+
+.arrow-P4SsT[data-side="top"] {
+  border-bottom: 0;
+  border-top-color: #d7d7da;
+}
+
+.arrow-P4SsT[data-side="top"]::after {
+  left: -7px;
+  top: -9px;
+  border-bottom: 0;
+  border-top-color: #FFFFFF;
+}
+
+.arrow-P4SsT[data-side="left"] {
+  border-right: 0;
+  border-left-color: #d7d7da;
+}
+
+.arrow-P4SsT[data-side="left"]::after {
+  left: -9px;
+  top: -7px;
+  border-right: 0;
+  border-left-color: #FFFFFF;
+}
+
+.arrow-P4SsT[data-side="right"] {
+  border-left: 0;
+  border-right-color: #d7d7da;
+}
+
+.arrow-P4SsT[data-side="right"]::after {
+  left: 2px;
+  top: -7px;
+  border-left: 0;
+  border-right-color: #FFFFFF;
+}
+
 .instructions-oqUZG {
   position: absolute;
   width: 1px;
@@ -724,6 +787,15 @@
 
 .label-eWb2D::first-letter {
   text-transform: uppercase;
+}
+
+.preserveLabelCase-pvTJZ::first-letter {
+  text-transform: none;
+}
+
+.detail-b0sCe {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .small-qrAhw {
@@ -8065,6 +8137,39 @@ _:-ms-fullscreen, :root .correctionPopinWrapper-lP35v {
   border-radius: 8px;
   overflow: hidden;
   pointer-events: none;
+}
+
+.wrapContent-Wjmp1 {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wrapContent-Wjmp1 .subtitle-J2KLF,
+.wrapContent-Wjmp1 .details-ZAdVg {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+}
+
+.wrapContent-Wjmp1 .dataColumnsWrapper-is9HM {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 360px;
+          flex: 1 1 360px;
+  min-width: 0;
+}
+
+.wrapContent-Wjmp1 .titleWrapper-5DFB9 {
+  min-width: 0;
+}
+
+.wrapContent-Wjmp1 .settings-gtjbL {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.wrapContent-Wjmp1 .settings-gtjbL > button {
+  width: auto;
 }
 
 
